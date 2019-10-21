@@ -1,16 +1,22 @@
 package com.stanzaliving.core.base.location;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Builder
+@Log4j
 public class GeoPointDto {
 
 	private Double lat;
@@ -22,4 +28,36 @@ public class GeoPointDto {
 		this.lon = lon;
 	}
 
+	public static GeoPointDto valueOf(String latlong, String delimiter) {
+
+		GeoPointDto geoPointDto = new GeoPointDto();
+
+		try {
+
+			String[] latlongArray = latlong.split(delimiter);
+			geoPointDto.setLat(Double.valueOf(latlongArray[0]));
+			geoPointDto.setLon(Double.valueOf(latlongArray[1]));
+		} catch (Exception e) {
+			log.error("Error while creating object for [" + latlong + "]");
+			return null;
+		}
+		return geoPointDto;
+	}
+
+	public static List<GeoPointDto> valueOf(String polygonPoints, String firstDelimiter, String secondDelimiter) {
+
+		String[] latlongs = polygonPoints.split(firstDelimiter);
+
+		List<GeoPointDto> pointDtos = new ArrayList<>();
+
+		for (int i = 0; i < latlongs.length; i++) {
+
+			GeoPointDto dto = valueOf(latlongs[i], secondDelimiter);
+			if (Objects.nonNull(dto)) {
+				pointDtos.add(dto);
+			}
+		}
+
+		return pointDtos;
+	}
 }
