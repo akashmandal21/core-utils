@@ -17,11 +17,11 @@ public enum BrandName {
 
 	String brand;
 	
-	public static List<BrandName> getBrandNames(String brandNames) {
+	public static List<BrandName> getBrandNames(String brandNames,String separator) {
 		
 		if(StringUtils.isNotEmpty(brandNames)) {
 			
-			String[] brands = brandNames.split(",");
+			String[] brands = brandNames.split(separator);
 			List<BrandName> names = new ArrayList<>();
 			
 			for (String brand : brands) {
