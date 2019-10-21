@@ -4,9 +4,7 @@
 package com.stanzaliving.core.user.request.dto;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
-import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
 
 import lombok.Getter;
@@ -30,6 +28,4 @@ public class LoginRequestDto {
 	@EnsureNumber(message = "Mobile must contain only numbers", fieldName = "mobile")
 	private String mobile;
 
-	@NotNull(message = "UserType is Mandatory for Login")
-	private UserType userType;
 }

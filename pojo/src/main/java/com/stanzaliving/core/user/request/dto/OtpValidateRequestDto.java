@@ -23,7 +23,7 @@ import lombok.ToString;
 public class OtpValidateRequestDto extends LoginRequestDto {
 
 	@NotBlank(message = "OTP cannot be blank")
-	@Size(min = 6, max = 6, message = "OTP must be of 6 charaters")
+	@Size(min = 4, max = 6, message = "OTP must be of 4-6 charaters")
 	@EnsureNumber(message = "OTP must contain only numbers", fieldName = "OTP")
 	private String otp;
 }

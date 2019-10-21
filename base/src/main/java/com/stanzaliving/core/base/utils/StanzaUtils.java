@@ -73,6 +73,25 @@ public class StanzaUtils {
 		return ThreadLocalRandom.current().nextInt(100000, 1000000);
 	}
 
+	public static int generateOTPOfLength(int length) {
+		return (int) ThreadLocalRandom.current().nextDouble(Math.pow(10, length - 1), Math.pow(10, length));
+	}
+
+	public static int generateDefaultOtpOfLength(int length) {
+
+		int otp = 0;
+		int count = 1;
+
+		for (int i = 0; i < length; i++) {
+
+			otp = (otp * 10) + count;
+
+			count++;
+		}
+
+		return otp;
+	}
+
 	/**
 	 * Return a random integer number between the given range inclusive @start and excluding @end
 	 * 
