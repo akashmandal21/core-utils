@@ -26,6 +26,8 @@ public class ResponseDto<T> {
 	private String errorCode;
 
 	private T data;
+	
+	private int httpStatusCode;
 
 	private ResponseDto(boolean status) {
 		this.status = status;

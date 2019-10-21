@@ -1,7 +1,6 @@
-/**
- * 
- */
-package com.stanzaliving.core.base.common.dto;
+package com.stanzaliving.core.pojo;
+
+import com.stanzaliving.core.user.enums.UserType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,11 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * @author naveen
- *
- * @date 30-Sep-2019
- */
 @Getter
 @Setter
 @ToString
@@ -23,9 +17,18 @@ import lombok.ToString;
 @AllArgsConstructor
 public class CurrentUser {
 
+	private String token;
+
 	private String userId;
 
 	private String firstName;
 
 	private String lastName;
+
+	private String mobile;
+
+	private String isoCode;
+
+	private UserType userType;
+
 }

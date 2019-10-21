@@ -15,7 +15,7 @@
 
 		<dependency>
 			<groupId>com.stanzaliving.core</groupId>
-			<artifactId>base</artifactId>
+			<artifactId>pojo</artifactId>
 			<version>${global.version}</version>
 		</dependency>
 

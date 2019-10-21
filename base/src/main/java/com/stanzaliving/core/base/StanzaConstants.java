@@ -5,16 +5,15 @@ package com.stanzaliving.core.base;
 
 import java.time.ZoneId;
 
+import lombok.experimental.UtilityClass;
+
 /**
  * @author naveen
  *
  * @date 29-Sep-2019
  */
+@UtilityClass
 public class StanzaConstants {
-
-	private StanzaConstants() {
-		super();
-	}
 
 	public static final String DATE_SEPARATOR = "-";
 	public static final String IST_TIMEZONE = "Asia/Kolkata";
@@ -25,13 +24,5 @@ public class StanzaConstants {
 
 	public static final long SECONDS_IN_DAY = 86400;
 	public static final long MILLI_SECONDS_IN_DAY = SECONDS_IN_DAY * 1000;
-
-	public enum IgnoreAttributesInEntityAutoLogging {
-		id,
-		uuid,
-		createdAt,
-		updatedAt
-
-	}
 
 }

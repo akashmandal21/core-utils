@@ -19,7 +19,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 
 import com.google.common.collect.Lists;
-import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import com.stanzaliving.core.sqljpa.repository.AbstractJpaRepository;
@@ -320,9 +319,6 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 				emptyNames.add(pd.getName());
 			}
 		}
-		emptyNames.add(StanzaConstants.IgnoreAttributesInEntityAutoLogging.id.name());
-		emptyNames.add(StanzaConstants.IgnoreAttributesInEntityAutoLogging.uuid.name());
-		emptyNames.add(StanzaConstants.IgnoreAttributesInEntityAutoLogging.updatedAt.name());
 
 		String[] result = new String[emptyNames.size()];
 		return emptyNames.toArray(result);

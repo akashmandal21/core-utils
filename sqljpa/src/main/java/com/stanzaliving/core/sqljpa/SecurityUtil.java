@@ -7,7 +7,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stanzaliving.core.base.common.dto.CurrentUser;
+import com.stanzaliving.core.pojo.CurrentUser;
 
 import lombok.experimental.UtilityClass;
 
