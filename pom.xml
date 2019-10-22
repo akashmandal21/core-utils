@@ -29,6 +29,7 @@
 		<module>utilservice</module>
 		<module>sqljpa</module>
 		<module>quartz-jobs</module>
+		<module>location</module>
 	</modules>
 
 	<build>

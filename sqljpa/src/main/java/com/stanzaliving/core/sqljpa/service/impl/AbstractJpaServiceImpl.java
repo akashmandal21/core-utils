@@ -187,6 +187,11 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	}
 
 	@Override
+	public List<T> findAllByStatus(boolean status) {
+		return getJpaRepository().findByStatus(status);
+	}
+	
+	@Override
 	public Page<T> findAll(Specification<T> spec, Pageable pageable) {
 		return getJpaRepository().findAll(spec, pageable);
 	}

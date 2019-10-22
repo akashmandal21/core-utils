@@ -87,4 +87,6 @@ public interface AbstractJpaService<T extends AbstractJpaEntity, I extends Seria
 
 	void archive(T entity);
 
+	List<T> findAllByStatus(boolean status);
+
 }
