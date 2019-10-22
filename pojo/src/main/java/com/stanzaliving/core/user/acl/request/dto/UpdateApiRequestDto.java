@@ -23,15 +23,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddApiRequestDto {
+public class UpdateApiRequestDto extends AddApiRequestDto {
 
-	@NotBlank(message = "Api Name is Mandatory For Api")
-	private String apiName;
-
-	@NotBlank(message = "Api Action URL is Mandatory For Api")
-	private String actionUrl;
-
-	@NotBlank(message = "Api Category is Mandatory For Api")
-	private String category;
+	@NotBlank(message = "Api Id is Mandatory For Api")
+	private String apiId;
 
 }

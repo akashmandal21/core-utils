@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.user.acl.request.dto;
 
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
@@ -13,25 +15,21 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @author naveen
+ * @author naveen.kumar
  *
- * @date 21-Oct-2019
- */
+ * @date 22-Oct-2019
+ *
+ **/
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddApiRequestDto {
+public class AddRoleRequestDto {
 
-	@NotBlank(message = "Api Name is Mandatory For Api")
-	private String apiName;
+	@NotBlank(message = "Role Name is Mandatory")
+	private String roleName;
 
-	@NotBlank(message = "Api Action URL is Mandatory For Api")
-	private String actionUrl;
-
-	@NotBlank(message = "Api Category is Mandatory For Api")
-	private String category;
-
+	private List<String> apiIds;
 }

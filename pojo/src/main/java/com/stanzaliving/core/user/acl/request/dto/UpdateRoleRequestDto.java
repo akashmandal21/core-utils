@@ -13,25 +13,20 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @author naveen
+ * @author naveen.kumar
  *
- * @date 21-Oct-2019
- */
+ * @date 22-Oct-2019
+ *
+ **/
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddApiRequestDto {
+public class UpdateRoleRequestDto extends AddRoleRequestDto {
 
-	@NotBlank(message = "Api Name is Mandatory For Api")
-	private String apiName;
-
-	@NotBlank(message = "Api Action URL is Mandatory For Api")
-	private String actionUrl;
-
-	@NotBlank(message = "Api Category is Mandatory For Api")
-	private String category;
+	@NotBlank(message = "Role Id is Mandatory")
+	private String roleId;
 
 }
