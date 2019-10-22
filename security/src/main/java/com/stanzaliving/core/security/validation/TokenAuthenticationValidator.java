@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.http.HttpStatus;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
@@ -30,7 +31,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 	@Override
 	public CurrentUser validate(HttpServletRequest request, HttpServletResponse response, CurrentUser user) {
 
-		String token = request.getHeader(SecurityConstants.TOKEN_HEADER_NAME);
+		String token = null;
 
 		Cookie[] cookies = request.getCookies();
 
@@ -73,8 +74,8 @@ public class TokenAuthenticationValidator implements RequestValidator {
 
 			}
 		}
-		
-		throw new StanzaSecurityException("Invalid token or User Session has expired");
+
+		throw new StanzaSecurityException("Invalid token or User Session has expired", HttpStatus.UNAUTHORIZED.value());
 	}
 
 }
