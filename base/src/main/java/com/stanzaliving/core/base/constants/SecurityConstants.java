@@ -19,6 +19,6 @@ public class SecurityConstants {
 	public static final String FRONT_ENVIRONMENT = "frontEnv";
 	public static final String FRONT_ENVIRONMENT_LOCAL = "local";
 
-	public static final String STANZA_DOMAIN = ".stanzaliving.com";
+	public static final String STANZA_DOMAIN = "stanzaliving.com";
 
 }
