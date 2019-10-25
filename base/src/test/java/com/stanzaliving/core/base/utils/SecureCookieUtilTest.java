@@ -26,7 +26,7 @@ public class SecureCookieUtilTest {
 		cookie.setMaxAge(0);
 		cookie.setValue(null);
 		cookie.setPath("/");
-		Cookie expected = SecureCookieUtil.expire(cookie);
+		Cookie expected = SecureCookieUtil.expire(cookie, false);
 		assertThat(expected).isEqualToComparingFieldByField(cookie);
 	}
 }
