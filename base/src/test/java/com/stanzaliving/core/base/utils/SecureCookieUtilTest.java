@@ -7,6 +7,7 @@ import java.util.Optional;
 import javax.servlet.http.Cookie;
 import org.junit.Test;
 
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.utils.SecureCookieUtil;
 
 public class SecureCookieUtilTest {
@@ -17,6 +18,7 @@ public class SecureCookieUtilTest {
 		cookie.setSecure(true);
 		cookie.setHttpOnly(true);
 		cookie.setPath("/");
+		cookie.setDomain(SecurityConstants.STANZA_DOMAIN);
 		assertThat(SecureCookieUtil.create("test", "test", Optional.of(false))).isEqualToComparingFieldByField(cookie);
 	}
 
@@ -26,6 +28,7 @@ public class SecureCookieUtilTest {
 		cookie.setMaxAge(0);
 		cookie.setValue(null);
 		cookie.setPath("/");
+		cookie.setDomain(SecurityConstants.STANZA_DOMAIN);
 		Cookie expected = SecureCookieUtil.expire(cookie, false);
 		assertThat(expected).isEqualToComparingFieldByField(cookie);
 	}
