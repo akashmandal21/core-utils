@@ -9,8 +9,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.log4j.Logger;
+import org.springframework.core.env.Environment;
 
 import com.stanzaliving.core.kafka.consumer.Consumer;
+import com.stanzaliving.core.kafka.utils.KafkaUtil;
 
 public abstract class BaseConsumer<K, V> implements Consumer<K, V> {
 
@@ -34,8 +36,8 @@ public abstract class BaseConsumer<K, V> implements Consumer<K, V> {
 	}
 
 	@Override
-	public void configure(Properties properties) {
-		this.properties = properties;
+	public void configure(Environment environment) {
+		this.properties = KafkaUtil.getConsumerProperties(environment);
 		this.consumer = new KafkaConsumer<>(properties);
 		this.consumer.subscribe(getTopics());
 		this.shutdown = new AtomicBoolean(false);
