@@ -21,7 +21,7 @@ public class EstateHomePageDto {
 	
 	private GeoPointDto location;
 	
-	private String lanlordContactNumber;
+	private String landlordContactNumber;
 	
 	private String microMarketName;
 	
