@@ -25,7 +25,7 @@ public class SecurityModuleBuilder {
 
 	private List<RequestValidator> validators = new ArrayList<>();
 
-	public SecurityModuleBuilder gson(ObjectMapper objectMapper) {
+	public SecurityModuleBuilder objectMapper(ObjectMapper objectMapper) {
 		this.objectMapper = objectMapper;
 		return this;
 	}
