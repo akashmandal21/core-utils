@@ -39,4 +39,8 @@ public class EstateDto extends AbstractDto {
 
 	private String micromarketName;
 
+	private Double lat;
+
+	private Double lon;
+
 }

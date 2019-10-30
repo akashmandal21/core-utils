@@ -43,4 +43,10 @@ public class CreateEstateRequestDto {
 
 	@NotNull(message = "Estate Address is Mandatory")
 	private Address address;
+
+	@NotNull(message = "Estate Lattitude is Mandatory")
+	private Double lat;
+
+	@NotNull(message = "Estate Longitude is Mandatory")
+	private Double lon;
 }
