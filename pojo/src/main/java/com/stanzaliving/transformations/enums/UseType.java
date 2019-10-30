@@ -1,15 +1,34 @@
 package com.stanzaliving.transformations.enums;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import java.util.HashMap;
+import java.util.Map;
 
-@NoArgsConstructor
+import lombok.Getter;
+
 @Getter
 public enum UseType {
-	
-	USE_1,USE_2,USE_3;
-	
-	String use;
-	
-}
 
+	ELECTRONICS("Electronics"),
+	LIGHTING("Lighting"),
+	FURNITURE("Furniture");
+
+	private String name;
+
+	private UseType(String name) {
+		this.name = name;
+	}
+
+	private static Map<String, UseType> useByNameMap = new HashMap<>();
+
+	static {
+
+		for (UseType useType : UseType.values()) {
+			useByNameMap.put(useType.getName(), useType);
+		}
+	}
+
+	public static UseType getUseTypeByName(String name) {
+		return useByNameMap.get(name);
+	}
+
+}
