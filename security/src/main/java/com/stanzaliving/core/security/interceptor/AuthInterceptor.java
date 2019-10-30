@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -63,7 +64,10 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 				user = validator.validate(request, response, user);
 			}
 
-			SecurityContextHolder.setCurrentUser(user);
+			if (Objects.nonNull(user)) {
+				SecurityContextHolder.setCurrentUser(user);
+			}
+			
 			return true;
 
 		} catch (StanzaHttpException ex) {
