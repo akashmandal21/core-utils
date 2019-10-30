@@ -4,6 +4,7 @@
 package com.stanzaliving.core.base.common.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -15,6 +16,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
 public class ResponseDto<T> {
 
 	private boolean status;
