@@ -36,7 +36,6 @@ public class TokenAuthenticationValidator implements RequestValidator {
 		Cookie[] cookies = request.getCookies();
 
 		if (StringUtils.isBlank(token) && cookies != null) {
-			logger.debug("Token Not found in Request Header. Now searching in Cookies");
 
 			for (Cookie cookie : cookies) {
 

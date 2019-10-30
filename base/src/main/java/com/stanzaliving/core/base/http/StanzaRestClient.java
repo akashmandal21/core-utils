@@ -154,10 +154,10 @@ public class StanzaRestClient {
 		addHeadersToRequest(headerParams, requestBuilder);
 		addHeadersToRequest(defaultHeaders, requestBuilder);
 
-		log.debug("Accessing API: " + path + " with Base URL: " + basePath + " - " + builder.toUriString());
+		log.debug("Accessing API: " + builder.toUriString());
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
-
+		
 		ResponseEntity<T> responseEntity = restTemplate.exchange(requestEntity, returnType);
 
 		statusCode = responseEntity.getStatusCode();
