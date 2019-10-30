@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -42,11 +43,15 @@ public enum BrandName {
 			String[] brands = brandNames.split(separator);
 
 			System.out.println(Arrays.toString(brands));
-			
+
 			List<BrandName> names = new ArrayList<>();
 
 			for (String brand : brands) {
-				names.add(brandNameMap.get(brand));
+				if (Objects.nonNull(brandNameMap.get(brand))) {
+					names.add(brandNameMap.get(brand));
+				} else {
+					names.add(BrandName.valueOf(brand));
+				}
 			}
 
 			return names;
