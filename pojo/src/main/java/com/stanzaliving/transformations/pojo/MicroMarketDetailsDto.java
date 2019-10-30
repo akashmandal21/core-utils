@@ -10,6 +10,6 @@ import lombok.ToString;
 public class MicroMarketDetailsDto {
 
 	private MicroMarketUIDto microMarketUIDto;
-	
+
 	private String address;
 }

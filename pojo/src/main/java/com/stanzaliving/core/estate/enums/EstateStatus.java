@@ -1,16 +1,19 @@
 package com.stanzaliving.core.estate.enums;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
 public enum EstateStatus {
-	
-	DRAFT_IN_PROGRESS("Draft In Progress"),
-	SHORTLISTED("SHORTLISTED"),
-	REJECTED("REJECTED"),
-	DOCUMENTS_NEEDED("DOCUMENTS NEEDED");
 
-	private String status;
+	DRAFT_IN_PROGRESS("Draft In Progress"),
+	SHORTLISTED("Shortlisted"),
+	REJECTED("Rejected"),
+	DOCUMENTS_NEEDED("Documents Needed"),
+	INFORMATION_NEEDED("Information Needed");
+
+	private String name;
+
+	private EstateStatus(String name) {
+		this.name = name;
+	}
 }

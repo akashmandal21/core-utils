@@ -1,9 +1,7 @@
+/**
+ * 
+ */
 package com.stanzaliving.core.estate.dto;
-
-import java.time.LocalDate;
-import java.util.List;
-
-import com.stanzaliving.core.user.dto.Address;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,19 +10,20 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * @author naveen.kumar
+ *
+ * @date 30-Oct-2019
+ *
+**/
 @Getter
 @Setter
 @ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EstateDashboardListingDto extends EstateDto {
+public class EstateAttributes {
 
-	private LocalDate handoverDate;
-
-	private Address address;
-
-	private List<String> imageUrls;
-
-	private EstateAttributes estateAttributes;
+	private String roomArea;
+	
 }

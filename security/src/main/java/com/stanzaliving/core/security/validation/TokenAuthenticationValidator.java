@@ -35,7 +35,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 
 		Cookie[] cookies = request.getCookies();
 
-		if (StringUtils.isBlank(token) && cookies != null) {
+		if (cookies != null) {
 
 			for (Cookie cookie : cookies) {
 
@@ -69,6 +69,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 						.userId(dto.getUuid())
 						.mobile(dto.getMobile())
 						.isoCode(dto.getIsoCode())
+						.userType(dto.getUserType())
 						.build();
 
 			}
