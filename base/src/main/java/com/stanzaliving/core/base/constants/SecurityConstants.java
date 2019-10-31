@@ -18,6 +18,9 @@ public class SecurityConstants {
 	
 	public static final String COOKIE_HEADER_NAME = "Cookie";
 
+	public static final String APP_ENVIRONMENT = "appEnv";
+	public static final String APP_ENVIRONMENT_TRUE = "true";
+	
 	public static final String FRONT_ENVIRONMENT = "frontEnv";
 	public static final String FRONT_ENVIRONMENT_LOCAL = "local";
 
