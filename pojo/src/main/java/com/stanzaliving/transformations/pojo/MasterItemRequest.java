@@ -17,6 +17,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class MasterItemRequest {
 
+	private long cityId;
+
 	private String categoryName;
 
 	private BrandName brandName;
