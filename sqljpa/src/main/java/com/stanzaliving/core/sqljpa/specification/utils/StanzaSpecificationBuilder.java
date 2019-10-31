@@ -12,14 +12,21 @@ public class StanzaSpecificationBuilder<T extends AbstractJpaEntity> {
 
 	private final List<SearchCriteria> params;
 
+	private final List<Specification<T>> externalSpecifications;
+
 	public StanzaSpecificationBuilder() {
 		params = new ArrayList<>();
+		externalSpecifications = new ArrayList<>();
 	}
 
 	public StanzaSpecificationBuilder<T> with(String key, CriteriaOperation operation, Object value) {
 
 		params.add(new SearchCriteria(key, operation, value));
 		return this;
+	}
+
+	public void addExternalSpecification(Specification<T> specification) {
+		externalSpecifications.add(specification);
 	}
 
 	public Specification<T> build() {
@@ -30,6 +37,8 @@ public class StanzaSpecificationBuilder<T extends AbstractJpaEntity> {
 
 		List<Specification<T>> specs = addParamsToSpecification();
 
+		specs.addAll(externalSpecifications);
+		
 		return generateFinalSpecificationFromList(specs);
 	}
 
