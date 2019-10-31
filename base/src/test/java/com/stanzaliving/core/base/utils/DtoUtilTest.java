@@ -40,7 +40,7 @@ public class DtoUtilTest {
 
 	}
 
-	@Test()
+	@Test
 	public void testConvertByCopyWithException() {
 
 		TestDto1 dto = new TestDto1();
