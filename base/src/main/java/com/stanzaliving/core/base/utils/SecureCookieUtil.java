@@ -16,14 +16,23 @@ import lombok.experimental.UtilityClass;
 public class SecureCookieUtil {
 
 	public static Cookie create(String key, String value, Optional<Boolean> isLocalFrontEnd) {
+		return create(key, value, isLocalFrontEnd, Optional.of(false));
+	}
+
+	public static Cookie create(String key, String value, Optional<Boolean> isLocalFrontEnd, Optional<Boolean> isApp) {
 		Cookie cookie = new Cookie(key, value);
 
 		if (isLocalFrontEnd.isPresent() && isLocalFrontEnd.get()) {
 			// Setting this externally because secure cookies are not accessible in local/Cross Site JavaScript
 			cookie.setSecure(false);
 			cookie.setHttpOnly(false);
+
 		} else {
-			cookie.setDomain(SecurityConstants.STANZA_DOMAIN);
+
+			if (!isApp.isPresent() || !isApp.get()) {
+				cookie.setDomain(SecurityConstants.STANZA_DOMAIN);
+			}
+
 			cookie.setSecure(true);
 			cookie.setHttpOnly(true);
 		}
