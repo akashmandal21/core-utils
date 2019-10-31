@@ -26,5 +26,5 @@ public class EstateDashboardListingDto extends EstateDto {
 
 	private List<String> imageUrls;
 
-	private EstateAttributes estateAttributes;
+	private EstateAppAttributes estateAttributes;
 }

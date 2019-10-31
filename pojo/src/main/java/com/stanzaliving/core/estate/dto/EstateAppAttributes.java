@@ -15,15 +15,21 @@ import lombok.experimental.SuperBuilder;
  *
  * @date 30-Oct-2019
  *
-**/
+ **/
 @Getter
 @Setter
 @ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EstateAttributes {
+public class EstateAppAttributes {
 
-	private String roomArea;
-	
+	private String totalArea;
+
+	private String numberOfRooms;
+
+	private String numberOfFloors;
+
+	private String numberOfBeds;
+
 }
