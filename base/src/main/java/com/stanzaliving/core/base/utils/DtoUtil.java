@@ -1,19 +1,18 @@
 package com.stanzaliving.core.base.utils;
 
-import org.apache.log4j.Logger;
+import java.beans.FeatureDescriptor;
+import java.util.stream.Stream;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
 import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
 
-import java.beans.FeatureDescriptor;
-import java.util.stream.Stream;
-
+@Log4j2
 @UtilityClass
 public class DtoUtil {
-
-	private static final Logger logger = Logger.getLogger(DtoUtil.class);
 
 	public static <T> T nonNullValue(T value, T defaultValue) {
 		if (value != null) {
@@ -39,7 +38,7 @@ public class DtoUtil {
 			return objNew;
 		} catch (IllegalAccessException
 				| InstantiationException e) {
-			logger.error("Error converting " + source.getClass().getName() + " to " + clazz.getName(), e);
+			log.error("Error converting " + source.getClass().getName() + " to " + clazz.getName(), e);
 			return null;
 		}
 	}

@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -25,9 +24,10 @@ import com.stanzaliving.core.user.acl.request.dto.UserAccessDto;
 import com.stanzaliving.core.user.dto.UserDto;
 import com.stanzaliving.core.user.dto.UserProfileDto;
 
-public class AuthServiceImpl implements AuthService {
+import lombok.extern.log4j.Log4j2;
 
-	private static final Logger logger = Logger.getLogger(AuthServiceImpl.class);
+@Log4j2
+public class AuthServiceImpl implements AuthService {
 
 	private StanzaRestClient restClient;
 
@@ -68,7 +68,7 @@ public class AuthServiceImpl implements AuthService {
 
 	@Override
 	public ResponseDto<UserDto> validateToken(String token) {
-		logger.debug("Validating token: " + token);
+		log.debug("Validating token: " + token);
 		return getUserByToken(token);
 	}
 

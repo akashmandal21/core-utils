@@ -10,12 +10,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 @Getter
 @Setter
 @Builder
-@Log4j
+@Log4j2
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor

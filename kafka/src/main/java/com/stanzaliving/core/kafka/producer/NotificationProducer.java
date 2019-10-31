@@ -16,7 +16,7 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.utils.StanzaUtils;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 /**
  * @author naveen.kumar
@@ -24,7 +24,7 @@ import lombok.extern.log4j.Log4j;
  * @date 28-Oct-2019
  *
  **/
-@Log4j
+@Log4j2
 @Service
 public class NotificationProducer {
 

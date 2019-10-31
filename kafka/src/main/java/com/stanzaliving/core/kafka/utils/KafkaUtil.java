@@ -5,10 +5,10 @@ package com.stanzaliving.core.kafka.utils;
 
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
 import org.springframework.core.env.Environment;
 
 import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
 
 /**
  * 
@@ -16,10 +16,9 @@ import lombok.experimental.UtilityClass;
  *
  * @date 30-Sep-2019
  */
+@Log4j2
 @UtilityClass
 public class KafkaUtil {
-
-	private static final Logger logger = Logger.getLogger(KafkaUtil.class);
 
 	public static Properties getProducerProperties(Environment environment) {
 		Properties prop = new Properties();
@@ -50,7 +49,7 @@ public class KafkaUtil {
 
 	private static String getProperty(Environment environment, String key) {
 		String value = environment.getProperty(key);
-		logger.debug("Loading Key => " + key + ", value => " + value);
+		log.debug("Loading Key => " + key + ", value => " + value);
 		return value;
 	}
 

@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.quartz.JobDataMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -14,9 +13,10 @@ import com.stanzaliving.core.quartzjob.job.CronJob;
 import com.stanzaliving.core.quartzjob.job.SimpleJob;
 import com.stanzaliving.core.service.JobService;
 
-public class Examples {
+import lombok.extern.log4j.Log4j2;
 
-	private static final Logger logger = Logger.getLogger(Examples.class);
+@Log4j2
+public class Examples {
 
 	@Autowired
 	@Lazy
@@ -25,7 +25,7 @@ public class Examples {
 	public void schedule(String jobName, String groupName,
 			@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm") Date jobScheduleTime,
 			String cronExpression, String timeZone) {
-		logger.info("JobController.schedule()");
+		log.info("JobController.schedule()");
 
 		if (!jobService.isJobWithNamePresent(jobName, groupName)) {
 			JobDataMap dataMap = new JobDataMap();
@@ -41,12 +41,12 @@ public class Examples {
 	}
 
 	public void unschedule(String jobName) {
-		logger.info("JobController.unschedule()");
+		log.info("JobController.unschedule()");
 		jobService.unScheduleJob(jobName);
 	}
 
 	public void delete(String jobName, String groupName) {
-		logger.info("JobController.delete()");
+		log.info("JobController.delete()");
 
 		if (jobService.isJobWithNamePresent(jobName, groupName)) {
 			boolean isJobRunning = jobService.isJobRunning(jobName, groupName);
@@ -59,7 +59,7 @@ public class Examples {
 	}
 
 	public void pause(String jobName, String groupName) {
-		logger.info("JobController.pause()");
+		log.info("JobController.pause()");
 
 		if (jobService.isJobWithNamePresent(jobName, groupName)) {
 
@@ -72,13 +72,13 @@ public class Examples {
 	}
 
 	public void resume(String jobName, String groupName) {
-		logger.info("JobController.resume()");
+		log.info("JobController.resume()");
 
 		if (jobService.isJobWithNamePresent(jobName, groupName)) {
 			String jobState = jobService.getJobState(jobName, groupName);
 
 			if (jobState.equals("PAUSED")) {
-				logger.info("Job current state is PAUSED, Resuming job...");
+				log.info("Job current state is PAUSED, Resuming job...");
 				jobService.resumeJob(jobName, groupName);
 			}
 		}
@@ -87,7 +87,7 @@ public class Examples {
 	public void updateJob(String jobName, String groupName,
 			@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm") Date jobScheduleTime,
 			String cronExpression, String timeZone) {
-		logger.info("JobController.updateJob()");
+		log.info("JobController.updateJob()");
 
 		// Edit Job
 		if (jobService.isJobWithNamePresent(jobName, groupName)) {
@@ -103,30 +103,30 @@ public class Examples {
 	}
 
 	public List<Map<String, Object>> getAllJobs() {
-		logger.info("JobController.getAllJobs()");
+		log.info("JobController.getAllJobs()");
 		return jobService.getAllJobs();
 	}
 
 	public boolean checkJobName(String jobName, String groupName) {
-		logger.info("JobController.checkJobName()");
+		log.info("JobController.checkJobName()");
 
 		return jobService.isJobWithNamePresent(jobName, groupName);
 	}
 
 	public boolean isJobRunning(String jobName, String groupName) {
-		logger.info("JobController.isJobRunning()");
+		log.info("JobController.isJobRunning()");
 
 		return jobService.isJobRunning(jobName, groupName);
 	}
 
 	public String getJobState(String jobName, String groupName) {
-		logger.info("JobController.getJobState()");
+		log.info("JobController.getJobState()");
 
 		return jobService.getJobState(jobName, groupName);
 	}
 
 	public void stopJob(String jobName, String groupName) {
-		logger.info("JobController.stopJob()");
+		log.info("JobController.stopJob()");
 
 		if (jobService.isJobWithNamePresent(jobName, groupName) && jobService.isJobRunning(jobName, groupName)) {
 			jobService.stopJob(jobName, groupName);
@@ -134,7 +134,7 @@ public class Examples {
 	}
 
 	public void startJobNow(String jobName, String groupName) {
-		logger.info("JobController.startJobNow()");
+		log.info("JobController.startJobNow()");
 
 		if (jobService.isJobWithNamePresent(jobName, groupName) && !jobService.isJobRunning(jobName, groupName)) {
 			jobService.startJobNow(jobName, groupName);

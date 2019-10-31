@@ -11,7 +11,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
@@ -27,16 +26,17 @@ import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.stanzaliving.core.amazons3.service.S3DownloadService;
 import com.stanzaliving.core.amazons3.util.S3Util;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * 
  * @author naveen
  *
  * @date 30-Sep-2019
  */
+@Log4j2
 @Service
 public class S3DownloadServiceImpl implements S3DownloadService {
-
-	private static final Logger logger = Logger.getLogger(S3DownloadServiceImpl.class);
 
 	@Override
 	public String downloadStringContent(String bucket, String filePath, AmazonS3 s3Client) {
@@ -45,7 +45,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 
 		try {
 
-			logger.debug("Downloading File: " + filePath + " from Bucket: " + bucket);
+			log.debug("Downloading File: " + filePath + " from Bucket: " + bucket);
 
 			GetObjectRequest getObjectRequest = new GetObjectRequest(bucket, filePath);
 
@@ -58,7 +58,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 			}
 
 		} catch (Exception e) {
-			logger.error("Error while downloading object from S3: ", e);
+			log.error("Error while downloading object from S3: ", e);
 		}
 
 		return fileContent;
@@ -77,7 +77,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 
 		try {
 
-			logger.debug("Downloading File: " + filePath + " from Bucket: " + bucket);
+			log.debug("Downloading File: " + filePath + " from Bucket: " + bucket);
 
 			GetObjectRequest getObjectRequest = new GetObjectRequest(bucket, filePath);
 
@@ -93,7 +93,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 			}
 
 		} catch (Exception e) {
-			logger.error("Error while downloading object from S3: ", e);
+			log.error("Error while downloading object from S3: ", e);
 		}
 
 		return null;
@@ -112,7 +112,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 
 		DateTime expiration = DateTime.now().plusSeconds(durationInSeconds);
 
-		logger.debug("Generating Pre-signed URL for File: " + filePath + " from Bucket: " + bucket + " with Expiration: " + expiration);
+		log.debug("Generating Pre-signed URL for File: " + filePath + " from Bucket: " + bucket + " with Expiration: " + expiration);
 
 		try {
 			URL url = S3Util.getAmazonS3Client(s3Client).generatePresignedUrl(bucket, filePath, expiration.toDate());
@@ -121,7 +121,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 				return url.toString();
 			}
 		} catch (Exception e) {
-			logger.error("Error while generating Pre-Signed URL for File: " + filePath, e);
+			log.error("Error while generating Pre-Signed URL for File: " + filePath, e);
 		}
 
 		return null;
@@ -141,7 +141,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 		List<S3ObjectSummary> summaryList = new ArrayList<>();
 
 		try {
-			logger.info("Listing Objects With Prefix: " + prefix + " from Bucket: " + bucket);
+			log.info("Listing Objects With Prefix: " + prefix + " from Bucket: " + bucket);
 
 			final ListObjectsV2Request req = new ListObjectsV2Request()
 					.withBucketName(bucket)
@@ -160,7 +160,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 
 		} catch (AmazonClientException
 				| IllegalAccessException e) {
-			logger.error("Error while listing objects from s3: ", e);
+			log.error("Error while listing objects from s3: ", e);
 		}
 
 		return summaryList;

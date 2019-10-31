@@ -7,7 +7,7 @@ import com.stanzaliving.core.pojo.CurrentUser;
 import com.stanzaliving.core.security.context.SecurityContextHolder;
 
 import lombok.experimental.UtilityClass;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 /**
  * @author naveen.kumar
@@ -16,7 +16,7 @@ import lombok.extern.log4j.Log4j;
  *
  **/
 @UtilityClass
-@Log4j
+@Log4j2
 public class SecurityUtils {
 
 	public static String getCurrentUserName() {

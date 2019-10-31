@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberType;
@@ -17,11 +16,11 @@ import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.common.dto.CountryDto;
 
 import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 @UtilityClass
 public class PhoneNumberUtils {
-
-	private static final Logger logger = Logger.getLogger(PhoneNumberUtils.class);
 
 	private static PhoneNumberUtil util = PhoneNumberUtil.getInstance();
 
@@ -40,7 +39,7 @@ public class PhoneNumberUtils {
 			return util.isValidNumber(ph) && isPhoneMobile(ph);
 
 		} catch (Exception e) {
-			logger.error("Invalid number encountered while validating number: " + mobile + " for country: " + isoCode, e);
+			log.error("Invalid number encountered while validating number: " + mobile + " for country: " + isoCode, e);
 		}
 
 		return false;
@@ -116,7 +115,7 @@ public class PhoneNumberUtils {
 			}
 
 		} catch (Exception e) {
-			logger.error("Invalid number encountered while validating number: " + phone + " for Region: " + isoCode, e);
+			log.error("Invalid number encountered while validating number: " + phone + " for Region: " + isoCode, e);
 		}
 
 		return null;

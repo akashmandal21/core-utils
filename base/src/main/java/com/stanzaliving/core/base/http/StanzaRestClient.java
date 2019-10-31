@@ -34,14 +34,14 @@ import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.base.localdate.Java8LocalDateStdDeserializer;
 import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 /**
  * @author naveen
  *
  * @date 17-Oct-2019
  */
-@Log4j
+@Log4j2
 public class StanzaRestClient {
 
 	private String basePath;

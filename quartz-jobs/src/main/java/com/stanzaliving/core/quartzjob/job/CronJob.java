@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.quartz.InterruptableJob;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
@@ -17,9 +16,10 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import com.stanzaliving.core.service.JobService;
 
-public class CronJob extends QuartzJobBean implements InterruptableJob {
+import lombok.extern.log4j.Log4j2;
 
-	private static final Logger logger = Logger.getLogger(CronJob.class);
+@Log4j2
+public class CronJob extends QuartzJobBean implements InterruptableJob {
 
 	@Autowired
 	private JobService jobService;
@@ -27,35 +27,35 @@ public class CronJob extends QuartzJobBean implements InterruptableJob {
 	@Override
 	protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
 		JobKey key = jobExecutionContext.getJobDetail().getKey();
-		logger.info(ManagementFactory.getRuntimeMXBean().getName() + " : " + new Date());
-		logger.info("Cron Job started with key :" + key.getName() + ", Group :" + key.getGroup() + " , Thread Name :" + Thread.currentThread().getName() + " ,Time now :" + new Date());
+		log.info(ManagementFactory.getRuntimeMXBean().getName() + " : " + new Date());
+		log.info("Cron Job started with key :" + key.getName() + ", Group :" + key.getGroup() + " , Thread Name :" + Thread.currentThread().getName() + " ,Time now :" + new Date());
 
-		logger.info("======================================");
-		logger.info("Accessing annotation example: " + jobService.getAllJobs());
+		log.info("======================================");
+		log.info("Accessing annotation example: " + jobService.getAllJobs());
 		List<Map<String, Object>> list = jobService.getAllJobs();
-		logger.info("Job list :" + list);
-		logger.info("======================================");
+		log.info("Job list :" + list);
+		log.info("======================================");
 
 		// *********** For retrieving stored key-value pairs ***********/
 		JobDataMap dataMap = jobExecutionContext.getMergedJobDataMap();
 		String myValue = dataMap.getString("myKey");
-		logger.info("Value:" + myValue);
+		log.info("Value:" + myValue);
 
-		logger.info("Thread: " + Thread.currentThread().getName() + " stopped.");
+		log.info("Thread: " + Thread.currentThread().getName() + " stopped.");
 
 		try {
 			Thread.sleep(30000);
 		} catch (InterruptedException e) {
-			logger.error("", e);
+			log.error("", e);
 		}
 
-		logger.info("waked up");
+		log.info("waked up");
 
 	}
 
 	@Override
 	public void interrupt() throws UnableToInterruptJobException {
-		logger.info("Stopping thread... ");
+		log.info("Stopping thread... ");
 	}
 
 }

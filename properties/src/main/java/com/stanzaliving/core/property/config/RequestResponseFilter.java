@@ -15,14 +15,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class RequestResponseFilter implements Filter {
 
 	private static final String NON_HTTP_REQ_MSG = "Not available. Non-http request.";
 	private static final String NON_HTTP_RES_MSG = "Not available. Non-http response.";
-
-	private static final Logger logger = Logger.getLogger(RequestResponseFilter.class);
 
 	/**
 	 * The logger for this class.
@@ -181,7 +180,7 @@ public class RequestResponseFilter implements Filter {
 		long millies = ChronoUnit.MILLIS.between(startTime, endTime);
 		str = this.join(str, "END TIME:", endTime.toString());
 		str = this.join(str, "total time : ", "" + millies);
-		logger.info(str);
+		log.info(str);
 	}
 
 	private String join(String... strings) {

@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.TimeZone;
 
-import org.apache.log4j.Logger;
 import org.quartz.JobDataMap;
 import org.quartz.JobDetail;
 import org.quartz.Trigger;
@@ -16,11 +15,11 @@ import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 import com.stanzaliving.core.quartzjob.PersistableCronTriggerFactoryBean;
 
 import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 @UtilityClass
 public class JobUtil {
-
-	private static final Logger logger = Logger.getLogger(JobUtil.class);
 
 	/**
 	 * Create Quartz Job.
@@ -90,7 +89,7 @@ public class JobUtil {
 		try {
 			factoryBean.afterPropertiesSet();
 		} catch (ParseException e) {
-			logger.error("", e);
+			log.error("", e);
 		}
 
 		return factoryBean.getObject();

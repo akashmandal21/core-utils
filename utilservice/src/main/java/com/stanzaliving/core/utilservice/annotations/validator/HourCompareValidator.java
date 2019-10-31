@@ -1,18 +1,17 @@
 package com.stanzaliving.core.utilservice.annotations.validator;
 
-import org.apache.log4j.Logger;
-
-import com.stanzaliving.core.utilservice.annotations.HourCompare;
-import com.stanzaliving.core.utilservice.utils.ReflectionUtils;
+import java.lang.reflect.Field;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import java.lang.reflect.Field;
+import com.stanzaliving.core.utilservice.annotations.HourCompare;
+import com.stanzaliving.core.utilservice.utils.ReflectionUtils;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class HourCompareValidator implements ConstraintValidator<HourCompare, Object> {
-
-	private static final Logger logger = Logger.getLogger(HourCompareValidator.class);
 
 	private String firstField;
 	private String secondField;
@@ -38,14 +37,14 @@ public class HourCompareValidator implements ConstraintValidator<HourCompare, Ob
 			int endHour = (int) field2.get(obj);
 
 			if (startHour >= 12 && startHour < 24) {
-				
+
 				if (endHour >= 12 && endHour < 24) {
 					if (startHour > endHour) {
 						return false;
 					}
 				}
 			} else if (startHour >= 0 && startHour < 12) {
-				
+
 				if (endHour >= 0 && endHour < 12) {
 					if (startHour > endHour) {
 						return false;
@@ -55,9 +54,9 @@ public class HourCompareValidator implements ConstraintValidator<HourCompare, Ob
 				}
 			}
 		} catch (IllegalAccessException e) {
-			logger.error("@DHourCompare cannot access fields");
+			log.error("@DHourCompare cannot access fields");
 		}
-		
+
 		return true;
 	}
 }

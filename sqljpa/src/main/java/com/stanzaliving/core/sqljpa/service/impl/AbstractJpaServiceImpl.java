@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -24,10 +23,11 @@ import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import com.stanzaliving.core.sqljpa.repository.AbstractJpaRepository;
 import com.stanzaliving.core.sqljpa.service.AbstractJpaService;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I extends Serializable, R extends AbstractJpaRepository<T, I>>
 		implements AbstractJpaService<T, I> {
-
-	private static final Logger logger = Logger.getLogger(AbstractJpaServiceImpl.class);
 
 	protected abstract R getJpaRepository();
 
@@ -190,7 +190,7 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	public List<T> findAllByStatus(boolean status) {
 		return getJpaRepository().findByStatus(status);
 	}
-	
+
 	@Override
 	public Page<T> findAll(Specification<T> spec, Pageable pageable) {
 		return getJpaRepository().findAll(spec, pageable);
@@ -264,7 +264,7 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 				}
 			}
 		} catch (Exception e) {
-			logger.error("Exception while creating log class: ", e);
+			log.error("Exception while creating log class: ", e);
 		}
 	}
 
@@ -279,7 +279,7 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 			T archiveEntity = convertToLog(entity);
 			getJpaRepository().saveAndFlush(archiveEntity);
 		} catch (Exception e) {
-			logger.error("Exception while creating log class " + entity.getClass().getName() + "Log.", e);
+			log.error("Exception while creating log class " + entity.getClass().getName() + "Log.", e);
 		}
 	}
 
@@ -308,7 +308,7 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 		} catch (InstantiationException
 				| IllegalAccessException
 				| ClassNotFoundException e) {
-			logger.error("Error while converting entity to log entity: ", e);
+			log.error("Error while converting entity to log entity: ", e);
 			throw new StanzaException("Exception while creating log entity: ", e);
 		}
 	}

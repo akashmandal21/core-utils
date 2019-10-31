@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
-
 import com.stanzaliving.core.kafka.consumer.impl.BaseConsumer;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class ConsumerShutdownServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 2631535195619388374L;
 
-	private final Logger logger = Logger.getLogger(this.getClass());
 	public static final String URL = "/consumer/shutdown";
 
 	private static final List<String> validIps;
@@ -35,7 +35,7 @@ public class ConsumerShutdownServlet extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 
 		if (validIps.contains(request.getRemoteAddr())) {
-			logger.info("Request recieved to shutdown consumers");
+			log.info("Request recieved to shutdown consumers");
 
 			String leftAlignFormat = "| %-25s | %-6s | %-39s |%n";
 
@@ -43,18 +43,18 @@ public class ConsumerShutdownServlet extends HttpServlet {
 			writer.format("| Consumer                  | Status | Exception                               |%n");
 			writer.format("+---------------------------+--------+-----------------------------------------+%n");
 
-			logger.info(BaseConsumer.getConsumers().size() + " consumers available to shutdown");
+			log.info(BaseConsumer.getConsumers().size() + " consumers available to shutdown");
 
 			for (int index = 0; index < BaseConsumer.getConsumers().size(); index++) {
 				BaseConsumer<?, ?> consumer = BaseConsumer.getConsumers().get(index);
-				logger.info("Shutdown consumer " + (index + 1) + " started...");
+				log.info("Shutdown consumer " + (index + 1) + " started...");
 
 				try {
 					Boolean result = consumer.shutdown();
 					writer.format(leftAlignFormat, consumer.getClass().getSimpleName(), result, "");
-					logger.info("Shutdown consumer " + (index + 1) + " complete...");
+					log.info("Shutdown consumer " + (index + 1) + " complete...");
 				} catch (InterruptedException e) {
-					logger.error("", e);
+					log.error("", e);
 
 					writer.format(leftAlignFormat, consumer.getClass().getSimpleName(), "", e.getMessage());
 				}

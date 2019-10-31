@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.NotNull;
 
-import org.apache.log4j.Logger;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.Assert;
@@ -24,9 +23,10 @@ import com.stanzaliving.core.pojo.CurrentUser;
 import com.stanzaliving.core.security.context.SecurityContextHolder;
 import com.stanzaliving.core.security.validation.RequestValidator;
 
-public class AuthInterceptor extends HandlerInterceptorAdapter {
+import lombok.extern.log4j.Log4j2;
 
-	private static final Logger logger = Logger.getLogger(AuthInterceptor.class);
+@Log4j2
+public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 	private ObjectMapper objectMapper;
 	private boolean corsSupport;
@@ -50,13 +50,13 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
 
 		if (corsSupport && HttpMethod.OPTIONS.name().equals(request.getMethod())) {
-			logger.debug("CORS request!");
+			log.debug("CORS request!");
 			return true;
 		}
 
 		try {
 
-			logger.debug("Authentication Started");
+			log.debug("Authentication Started");
 
 			CurrentUser user = null;
 
@@ -67,7 +67,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			if (Objects.nonNull(user)) {
 				SecurityContextHolder.setCurrentUser(user);
 			}
-			
+
 			return true;
 
 		} catch (StanzaHttpException ex) {

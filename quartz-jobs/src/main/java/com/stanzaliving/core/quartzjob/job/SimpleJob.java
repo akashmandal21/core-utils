@@ -3,7 +3,6 @@ package com.stanzaliving.core.quartzjob.job;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.quartz.InterruptableJob;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
@@ -15,9 +14,10 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import com.stanzaliving.core.service.JobService;
 
-public class SimpleJob extends QuartzJobBean implements InterruptableJob {
+import lombok.extern.log4j.Log4j2;
 
-	private static final Logger logger = Logger.getLogger(SimpleJob.class);
+@Log4j2
+public class SimpleJob extends QuartzJobBean implements InterruptableJob {
 
 	private volatile boolean toStopFlag = true;
 
@@ -27,33 +27,33 @@ public class SimpleJob extends QuartzJobBean implements InterruptableJob {
 	@Override
 	protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
 		JobKey key = jobExecutionContext.getJobDetail().getKey();
-		logger.debug("Simple Job started with key :" + key.getName() + ", Group :" + key.getGroup() + " , Thread Name :" + Thread.currentThread().getName());
+		log.debug("Simple Job started with key :" + key.getName() + ", Group :" + key.getGroup() + " , Thread Name :" + Thread.currentThread().getName());
 
-		logger.debug("======================================");
-		logger.debug("Accessing annotation example: " + jobService.getAllJobs());
+		log.debug("======================================");
+		log.debug("Accessing annotation example: " + jobService.getAllJobs());
 		List<Map<String, Object>> list = jobService.getAllJobs();
-		logger.debug("Job list :" + list);
-		logger.debug("======================================");
+		log.debug("Job list :" + list);
+		log.debug("======================================");
 
 		// *********** For retrieving stored key-value pairs ***********/
 		JobDataMap dataMap = jobExecutionContext.getMergedJobDataMap();
 		String myValue = dataMap.getString("myKey");
-		logger.debug("Value:" + myValue);
+		log.debug("Value:" + myValue);
 
 		while (toStopFlag) {
 			try {
-				logger.debug("Test Job Running... Thread Name :" + Thread.currentThread().getName());
+				log.debug("Test Job Running... Thread Name :" + Thread.currentThread().getName());
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		logger.debug("Thread: " + Thread.currentThread().getName() + " stopped.");
+		log.debug("Thread: " + Thread.currentThread().getName() + " stopped.");
 	}
 
 	@Override
 	public void interrupt() throws UnableToInterruptJobException {
-		logger.debug("Stopping thread... ");
+		log.debug("Stopping thread... ");
 		toStopFlag = false;
 	}
 

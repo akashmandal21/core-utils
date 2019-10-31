@@ -8,15 +8,15 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @Component
 public class PropertyManager {
-
-	private static final Logger logger = Logger.getLogger(PropertyManager.class);
 
 	@Autowired(required = true)
 	private Environment properties;
@@ -39,7 +39,7 @@ public class PropertyManager {
 		try {
 			retValue = Integer.parseInt(properties.getProperty(key));
 		} catch (NumberFormatException nfExp) {
-			logger.error("Integer property not found - " + key, nfExp);
+			log.error("Integer property not found - " + key, nfExp);
 		}
 
 		return retValue;
@@ -51,7 +51,7 @@ public class PropertyManager {
 		try {
 			retValue = Long.parseLong(properties.getProperty(key));
 		} catch (NumberFormatException nfExp) {
-			logger.error("Long property not found - " + key, nfExp);
+			log.error("Long property not found - " + key, nfExp);
 		}
 
 		return retValue;
@@ -63,7 +63,7 @@ public class PropertyManager {
 		try {
 			retValue = Double.parseDouble(properties.getProperty(key));
 		} catch (NumberFormatException nfExp) {
-			logger.error("Double property not found - " + key, nfExp);
+			log.error("Double property not found - " + key, nfExp);
 		}
 
 		return retValue;
@@ -85,7 +85,7 @@ public class PropertyManager {
 		try {
 			retValue = Byte.parseByte(properties.getProperty(key));
 		} catch (NumberFormatException nfExp) {
-			logger.error("Byte property not found - " + key, nfExp);
+			log.error("Byte property not found - " + key, nfExp);
 		}
 
 		return retValue;

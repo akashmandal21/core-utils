@@ -42,9 +42,9 @@ import com.stanzaliving.core.elastic.dto.AbstractIndexDto;
 import com.stanzaliving.core.elastic.repository.AbstractRepository;
 import com.stanzaliving.core.elastic.service.AbstractSearchService;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
-@Log4j
+@Log4j2
 public abstract class AbstractSearchServiceImpl<T extends AbstractIndexDto, I extends Serializable, R extends AbstractRepository<T, I>>
 		implements AbstractSearchService<T, I> {
 

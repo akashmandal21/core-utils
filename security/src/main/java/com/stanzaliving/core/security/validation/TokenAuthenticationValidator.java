@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -18,9 +17,10 @@ import com.stanzaliving.core.pojo.CurrentUser;
 import com.stanzaliving.core.security.service.AuthService;
 import com.stanzaliving.core.user.dto.UserDto;
 
-public class TokenAuthenticationValidator implements RequestValidator {
+import lombok.extern.log4j.Log4j2;
 
-	private final Logger logger = Logger.getLogger(getClass());
+@Log4j2
+public class TokenAuthenticationValidator implements RequestValidator {
 
 	private AuthService authService;
 
@@ -46,7 +46,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 			}
 		}
 
-		logger.debug("Auth Requested For Token: " + token);
+		log.debug("Auth Requested For Token: " + token);
 
 		if (StringUtils.isNotBlank(token)) {
 			ResponseDto<UserDto> responseDto = authService.validateToken(token);
@@ -55,7 +55,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 
 				UserDto dto = responseDto.getData();
 
-				logger.debug("User Fetched after Authentication: " + dto);
+				log.debug("User Fetched after Authentication: " + dto);
 
 				request.setAttribute("userId", dto.getUuid());
 

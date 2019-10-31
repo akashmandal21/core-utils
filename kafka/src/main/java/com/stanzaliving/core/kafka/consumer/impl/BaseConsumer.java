@@ -8,15 +8,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.log4j.Logger;
 import org.springframework.core.env.Environment;
 
 import com.stanzaliving.core.kafka.consumer.Consumer;
 import com.stanzaliving.core.kafka.utils.KafkaUtil;
 
-public abstract class BaseConsumer<K, V> implements Consumer<K, V> {
+import lombok.extern.log4j.Log4j2;
 
-	private static final Logger log = Logger.getLogger(BaseConsumer.class);
+@Log4j2
+public abstract class BaseConsumer<K, V> implements Consumer<K, V> {
 
 	@SuppressWarnings("rawtypes")
 	public static final List<BaseConsumer> consumers = new CopyOnWriteArrayList<>();

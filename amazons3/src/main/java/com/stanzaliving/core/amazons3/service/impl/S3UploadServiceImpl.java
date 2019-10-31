@@ -10,7 +10,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import com.amazonaws.services.s3.AmazonS3;
@@ -21,16 +20,17 @@ import com.amazonaws.services.s3.model.PutObjectResult;
 import com.stanzaliving.core.amazons3.service.S3UploadService;
 import com.stanzaliving.core.amazons3.util.S3Util;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * 
  * @author naveen
  *
  * @date 30-Sep-2019
  */
+@Log4j2
 @Service
 public class S3UploadServiceImpl implements S3UploadService {
-
-	private static final Logger logger = Logger.getLogger(S3UploadServiceImpl.class);
 
 	@Override
 	public String upload(String bucket, String filePath, InputStream inputStream, String contentType, AmazonS3 s3Client, boolean isPublic) {
@@ -38,7 +38,7 @@ public class S3UploadServiceImpl implements S3UploadService {
 		if (inputStream != null) {
 
 			try {
-				logger.debug("Uploading " + filePath + " in Bucket: " + bucket);
+				log.debug("Uploading " + filePath + " in Bucket: " + bucket);
 
 				ObjectMetadata meta = new ObjectMetadata();
 				meta.setContentLength(inputStream.available());
@@ -47,7 +47,7 @@ public class S3UploadServiceImpl implements S3UploadService {
 				PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, filePath, inputStream, meta);
 
 				if (isPublic) {
-					logger.debug("Uploading " + filePath + " in Bucket: " + bucket + " as Public Readable");
+					log.debug("Uploading " + filePath + " in Bucket: " + bucket + " as Public Readable");
 					putObjectRequest = putObjectRequest.withCannedAcl(CannedAccessControlList.PublicRead);
 				}
 
@@ -55,16 +55,16 @@ public class S3UploadServiceImpl implements S3UploadService {
 
 				if (result != null) {
 
-					logger.debug(filePath + " Uploaded Successfully in Bucket: " + bucket);
+					log.debug(filePath + " Uploaded Successfully in Bucket: " + bucket);
 
 					return filePath;
 				}
 
 			} catch (Exception e) {
-				logger.error("Error uploading file on S3: ", e);
+				log.error("Error uploading file on S3: ", e);
 			}
 		} else {
-			logger.warn("Content InputStream is null. Not Uploading on S3");
+			log.warn("Content InputStream is null. Not Uploading on S3");
 		}
 
 		return null;
@@ -83,14 +83,14 @@ public class S3UploadServiceImpl implements S3UploadService {
 
 		if (StringUtils.isNotBlank(content)) {
 
-			logger.debug("Uploading " + filePath + " in Bucket: " + bucket);
+			log.debug("Uploading " + filePath + " in Bucket: " + bucket);
 
 			InputStream inputstream = new ByteArrayInputStream(content.getBytes());
 
 			return upload(bucket, filePath, inputstream, contentType, s3Client, isPublic);
 
 		} else {
-			logger.warn("File Content is Empty. Not Uploading on S3");
+			log.warn("File Content is Empty. Not Uploading on S3");
 		}
 
 		return null;
@@ -109,14 +109,14 @@ public class S3UploadServiceImpl implements S3UploadService {
 
 		if (content != null && content.length > 0) {
 
-			logger.debug("Uploading " + filePath + " in Bucket: " + bucket);
+			log.debug("Uploading " + filePath + " in Bucket: " + bucket);
 
 			InputStream inputstream = new ByteArrayInputStream(content);
 
 			return upload(bucket, filePath, inputstream, contentType, s3Client, isPublic);
 
 		} else {
-			logger.warn("File Byte Content is Empty. Not Uploading on S3");
+			log.warn("File Byte Content is Empty. Not Uploading on S3");
 		}
 
 		return null;
@@ -135,7 +135,7 @@ public class S3UploadServiceImpl implements S3UploadService {
 
 		if (file != null && file.exists()) {
 
-			logger.debug("Uploading " + filePath + " in Bucket: " + bucket);
+			log.debug("Uploading " + filePath + " in Bucket: " + bucket);
 
 			try {
 				InputStream inputstream = new FileInputStream(file);
@@ -143,11 +143,11 @@ public class S3UploadServiceImpl implements S3UploadService {
 				return upload(bucket, filePath, inputstream, contentType, s3Client, isPublic);
 
 			} catch (FileNotFoundException e) {
-				logger.error("File Not Found to Upload to S3: ", e);
+				log.error("File Not Found to Upload to S3: ", e);
 			}
 
 		} else {
-			logger.warn("File Content is Empty. Not Uploading on S3");
+			log.warn("File Content is Empty. Not Uploading on S3");
 		}
 
 		return null;

@@ -5,14 +5,13 @@ import java.lang.reflect.Field;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import org.apache.log4j.Logger;
-
 import com.stanzaliving.core.utilservice.annotations.ValueCompare;
 import com.stanzaliving.core.utilservice.utils.ReflectionUtils;
 
-public class ValueCompareValidator implements ConstraintValidator<ValueCompare, Object> {
+import lombok.extern.log4j.Log4j2;
 
-	private static final Logger logger = Logger.getLogger(ValueCompareValidator.class);
+@Log4j2
+public class ValueCompareValidator implements ConstraintValidator<ValueCompare, Object> {
 
 	private String firstField;
 	private String secondField;
@@ -50,7 +49,7 @@ public class ValueCompareValidator implements ConstraintValidator<ValueCompare, 
 				}
 			}
 		} catch (IllegalAccessException e) {
-			logger.error("@ValueCompare is not placed at valid place");
+			log.error("@ValueCompare is not placed at valid place");
 		}
 		return false;
 	}

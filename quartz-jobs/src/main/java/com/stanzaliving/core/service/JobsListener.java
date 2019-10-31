@@ -1,13 +1,13 @@
 package com.stanzaliving.core.service;
 
-import org.apache.log4j.Logger;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.quartz.JobListener;
 
-public class JobsListener implements JobListener {
+import lombok.extern.log4j.Log4j2;
 
-	private static final Logger logger = Logger.getLogger(JobsListener.class);
+@Log4j2
+public class JobsListener implements JobListener {
 
 	@Override
 	public String getName() {
@@ -16,17 +16,17 @@ public class JobsListener implements JobListener {
 
 	@Override
 	public void jobToBeExecuted(JobExecutionContext context) {
-		logger.debug("JobsListener.jobToBeExecuted()");
+		log.debug("JobsListener.jobToBeExecuted()");
 	}
 
 	@Override
 	public void jobExecutionVetoed(JobExecutionContext context) {
-		logger.debug("JobsListener.jobExecutionVetoed()");
+		log.debug("JobsListener.jobExecutionVetoed()");
 	}
 
 	@Override
 	public void jobWasExecuted(JobExecutionContext context, JobExecutionException jobException) {
-		logger.debug("JobsListener.jobWasExecuted()");
+		log.debug("JobsListener.jobWasExecuted()");
 	}
 
 }
