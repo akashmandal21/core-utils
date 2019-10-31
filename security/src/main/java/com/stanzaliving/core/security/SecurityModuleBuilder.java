@@ -21,11 +21,13 @@ public class SecurityModuleBuilder {
 
 	private String userServiceUrl;
 
+	private boolean enableTokenBasedAuthentication = false;
+
 	private boolean enableUrlBasedAuthorization = false;
 
 	private List<RequestValidator> validators = new ArrayList<>();
 
-	public SecurityModuleBuilder gson(ObjectMapper objectMapper) {
+	public SecurityModuleBuilder objectMapper(ObjectMapper objectMapper) {
 		this.objectMapper = objectMapper;
 		return this;
 	}
@@ -37,6 +39,11 @@ public class SecurityModuleBuilder {
 
 	public SecurityModuleBuilder userServiceUrl(String userServiceUrl) {
 		this.userServiceUrl = userServiceUrl;
+		return this;
+	}
+
+	public SecurityModuleBuilder enableTokenBasedAuthentication(boolean enableTokenBasedAuthentication) {
+		this.enableTokenBasedAuthentication = enableTokenBasedAuthentication;
 		return this;
 	}
 
@@ -58,10 +65,12 @@ public class SecurityModuleBuilder {
 
 		AuthService authService = new AuthServiceImpl(userServiceUrl);
 
-		validators.add(0, new TokenAuthenticationValidator(authService));
+		if (enableTokenBasedAuthentication) {
+			validators.add(0, new TokenAuthenticationValidator(authService));
 
-		if (enableUrlBasedAuthorization) {
-			validators.add(1, new UrlAuthorizationValidator(authService));
+			if (enableUrlBasedAuthorization) {
+				validators.add(1, new UrlAuthorizationValidator(authService));
+			}
 		}
 
 		AuthInterceptor authInterceptor = new AuthInterceptor(objectMapper, validators);

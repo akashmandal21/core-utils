@@ -13,19 +13,18 @@ import lombok.ToString;
 @Setter
 @ToString
 public class GCItemMasterUIDto {
-	
+
 	private String uuid;
-	
+
 	private String category;
-	
+
 	private String particular;
-	
+
 	private UnitType unitType;
-	
+
 	private String itemCode;
-	
+
 	private String specification;
 
 	private List<BrandName> brandNames;
 }
-

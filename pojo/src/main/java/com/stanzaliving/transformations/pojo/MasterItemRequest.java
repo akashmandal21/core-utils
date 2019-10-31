@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class MasterItemRequest {
 
-	private Long categoryId;
+	private String categoryName;
 	
 	private BrandName brandName;
 	

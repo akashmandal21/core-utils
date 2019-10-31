@@ -9,14 +9,16 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.extern.log4j.Log4j;
 
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @Setter
 @Builder
 @Log4j
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class GeoPointDto {
 
 	private Double lat;

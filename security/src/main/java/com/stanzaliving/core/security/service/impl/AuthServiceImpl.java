@@ -51,8 +51,10 @@ public class AuthServiceImpl implements AuthService {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+
 		final HttpHeaders headerParams = new HttpHeaders();
-		headerParams.add(SecurityConstants.TOKEN_HEADER_NAME, token);
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
 		final String[] accepts = {
 				"*/*"
@@ -81,8 +83,10 @@ public class AuthServiceImpl implements AuthService {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+
 		final HttpHeaders headerParams = new HttpHeaders();
-		headerParams.add(SecurityConstants.TOKEN_HEADER_NAME, token);
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
 		final String[] accepts = {
 				"*/*"

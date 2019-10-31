@@ -15,6 +15,8 @@ public class SecurityConstants {
 
 	public static final String USER_ID = "userId";
 	public static final String TOKEN_HEADER_NAME = "token";
+	
+	public static final String COOKIE_HEADER_NAME = "Cookie";
 
 	public static final String FRONT_ENVIRONMENT = "frontEnv";
 	public static final String FRONT_ENVIRONMENT_LOCAL = "local";

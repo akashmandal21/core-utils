@@ -34,11 +34,14 @@ import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.base.localdate.Java8LocalDateStdDeserializer;
 import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
 
+import lombok.extern.log4j.Log4j;
+
 /**
  * @author naveen
  *
  * @date 17-Oct-2019
  */
+@Log4j
 public class StanzaRestClient {
 
 	private String basePath;
@@ -151,8 +154,10 @@ public class StanzaRestClient {
 		addHeadersToRequest(headerParams, requestBuilder);
 		addHeadersToRequest(defaultHeaders, requestBuilder);
 
-		RequestEntity<Object> requestEntity = requestBuilder.body(body);
+		log.debug("Accessing API: " + builder.toUriString());
 
+		RequestEntity<Object> requestEntity = requestBuilder.body(body);
+		
 		ResponseEntity<T> responseEntity = restTemplate.exchange(requestEntity, returnType);
 
 		statusCode = responseEntity.getStatusCode();
