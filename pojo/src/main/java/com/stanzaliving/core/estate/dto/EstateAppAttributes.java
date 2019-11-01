@@ -33,5 +33,7 @@ public class EstateAppAttributes {
 	private String numberOfBeds;
 
 	private String landlordNumber;
+	
+	private String landlordName;
 
 }
