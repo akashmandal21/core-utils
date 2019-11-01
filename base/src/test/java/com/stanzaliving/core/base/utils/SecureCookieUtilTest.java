@@ -30,6 +30,7 @@ public class SecureCookieUtilTest {
 		cookie.setPath("/");
 		cookie.setDomain(SecurityConstants.STANZA_DOMAIN);
 		Cookie expected = SecureCookieUtil.expire(cookie, false);
+
 		assertThat(expected).isEqualToComparingFieldByField(cookie);
 	}
 }

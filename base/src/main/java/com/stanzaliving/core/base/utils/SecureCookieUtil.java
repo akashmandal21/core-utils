@@ -11,7 +11,9 @@ import org.apache.commons.lang3.StringUtils;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 
 import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 @UtilityClass
 public class SecureCookieUtil {
 
@@ -38,6 +40,9 @@ public class SecureCookieUtil {
 		}
 
 		cookie.setPath("/");
+
+		log.debug("Adding Cookie [Name: " + cookie.getName() + ", Value: " + cookie.getValue() + ", Domain: " + cookie.getDomain() + "]");
+
 		return cookie;
 	}
 
