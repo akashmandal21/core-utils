@@ -1,5 +1,7 @@
 package com.stanzaliving.transformations.pojo;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,13 +10,13 @@ import lombok.ToString;
 @Setter
 @ToString
 public class MasterRateUpdateDto {
-	
+
 	private String masterBOIId;
-	
-	private int cityId;
-	
+
+	private List<Long> cityIds;
+
 	private Double monthlyRentRate;
-	
+
 	private Double buyRate;
-	
+
 }
