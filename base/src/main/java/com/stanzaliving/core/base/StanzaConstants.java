@@ -25,4 +25,6 @@ public class StanzaConstants {
 	public static final long SECONDS_IN_DAY = 86400;
 	public static final long MILLI_SECONDS_IN_DAY = SECONDS_IN_DAY * 1000;
 
+	public static final String ORGANIZATION_NAME = "Stanza Living";
+	public static final String ORGANIZATION_DOMAIN = "https://www.stanzaliving.com";
 }
