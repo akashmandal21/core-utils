@@ -16,6 +16,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @author naveen
@@ -25,6 +26,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmailDto {
@@ -36,6 +38,7 @@ public class EmailDto {
 	private String[] bcc;
 	private String subject;
 	private String content;
+	private String templateId;
 	private Map<String, String> attachment;
 
 	public String[] getTo() {
