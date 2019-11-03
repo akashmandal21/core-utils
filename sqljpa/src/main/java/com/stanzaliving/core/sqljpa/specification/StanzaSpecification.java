@@ -2,8 +2,8 @@ package com.stanzaliving.core.sqljpa.specification;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -44,9 +44,9 @@ public class StanzaSpecification<T extends AbstractJpaEntity> implements Specifi
 				return builder.like(root.get(criteria.getKey()), criteria.getValue().toString());
 
 			case IN:
-				if (criteria.getValue() instanceof List<?>) {
+				if (criteria.getValue() instanceof Collection<?>) {
 					final Path<String> group = root.<String> get(criteria.getKey());
-					return group.in(((List<?>) criteria.getValue()).toArray());
+					return group.in(((Collection<?>) criteria.getValue()).toArray());
 				}
 
 				return null;
