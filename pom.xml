@@ -30,6 +30,7 @@
 		<module>sqljpa</module>
 		<module>quartz-jobs</module>
 		<module>location</module>
+		<module>counter-client</module>
 	</modules>
 
 	<build>
