@@ -223,7 +223,7 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 
 	@Override
 	public List<T> findByUuidInAndStatus(Collection<String> uuids, boolean isDeleted) {
-		return getJpaRepository().findByUuidIn(uuids);
+		return getJpaRepository().findByUuidIn(uuids);//TODO - this needs to be changed
 	}
 
 	@Override
