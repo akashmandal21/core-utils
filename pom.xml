@@ -31,6 +31,7 @@
 		<module>quartz-jobs</module>
 		<module>location</module>
 		<module>counter-client</module>
+		<module>transformation-client</module>
 	</modules>
 
 	<build>

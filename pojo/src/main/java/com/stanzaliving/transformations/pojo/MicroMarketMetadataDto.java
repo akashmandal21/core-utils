@@ -13,7 +13,7 @@ import lombok.ToString;
 /**
  * @author naveen.kumar
  *
- * @date 30-Oct-2019
+ * @date 04-Nov-2019
  *
  **/
 @Getter
@@ -22,13 +22,13 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CityMetadataDto {
+public class MicroMarketMetadataDto {
 
-	private long id;
+	private long microMarketId;
 
 	private String uuid;
 
-	private String cityName;
-	
-	private long stateId;
+	private String microMarketName;
+
+	private long cityId;
 }
