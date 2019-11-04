@@ -18,5 +18,7 @@ public class MasterRateUpdateDto {
 	private Double monthlyRentRate;
 
 	private Double buyRate;
+	
+	private Boolean rentalAvailable;
 
 }

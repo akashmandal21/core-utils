@@ -34,7 +34,9 @@ public class MasterBOIUIDto {
 
 	@NotNull(message = "Default Rate Type is Mandatory for BOI Specification")
 	private RateType defaultRate;
-
+	
+	private boolean rentalAvailable;
+	
 	private UnitType unitType;
 
 	private String itemCode;
