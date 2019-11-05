@@ -9,7 +9,8 @@ public enum EstateStatus {
 	SHORTLISTED("Shortlisted"),
 	REJECTED("Rejected"),
 	DOCUMENTS_NEEDED("Documents Needed"),
-	INFORMATION_NEEDED("Information Needed");
+	INFORMATION_NEEDED("Information Needed"),
+	SENT_BACK_BY_BDHEAD("Sent Back By BD Head");
 
 	private String name;
 
