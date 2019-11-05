@@ -1,25 +1,29 @@
 package com.stanzaliving.core.estate.dto;
 
-import java.time.LocalDate;
 import java.util.List;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class FinancialAnalysisDto {
 
-	public double monthlyRent;
-	public int leaseDuration;
-	public int securityDeposit;
-	public int leaseLockinPeriod;
-	public double rentalInflationPercentage;
-	public int rentalInflationPeriod;
-	public int ammortizationPeriod;
-	public int advanceRentPeriod;
-	public int rentFreePeriod;
-	public LocalDate buildingHandoverDate;
-	public LocalDate rentStartDate;
-
+	private String monthlyRent;
+	private String leaseDurationInYears;
+	private String securityDepositMonthsOfRent;
+	private String rentalInflationInYears;
+	private String rentalInflationPercent;
+	private String advanceRentMonthCount;
+	private String amortizedPeriodInMonths;
+	private String leaseLockInPeriodInYears;
+	private String tokenDepositInRupees;
+	private String rentFreePeriodInMonths;
+	private String brokerageDays;
+	private String financialCommets;
+	private String buildingHandoverDate;
+	private String rentStartDate;
+	
 	
 	/*Broker Info*/	
 	

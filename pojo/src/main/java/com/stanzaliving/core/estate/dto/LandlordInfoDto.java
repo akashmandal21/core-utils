@@ -9,7 +9,7 @@ public class LandlordInfoDto {
 	
 	private String landlordType;
 	
-	private double ownershipPercentage;
+	private String ownershipPercentage;
 	
-	private String panNumber;
+	private String landlordPan;
 }

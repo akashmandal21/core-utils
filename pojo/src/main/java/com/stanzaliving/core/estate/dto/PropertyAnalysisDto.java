@@ -4,30 +4,31 @@ import java.time.LocalDate;
 import java.time.Year;
 import java.util.List;
 
+import lombok.Builder;
 import lombok.Data;
-
+@Builder
 @Data
 public class PropertyAnalysisDto {
 
-	private double sizeOfPlot;
+	private String sizeOfPlot;
 	
-	private boolean terraceAccessible;
+	private String terraceAccessible;
 	
-	private int numberOfFloors;
+	private String numberOfFloors;
 	
-	private boolean stiltAvailable;
+	private String stiltAvailable;
 	
-	private double floorPlateSize;
+	private String floorPlateSize;
 	
-	private boolean diningSpaceAvailable;
+	private String diningSpaceAvailable;
 	
-	private double diningSpaceSize;
+	private String diningSpaceSize;
 	
 	private String permissionsType;
 	
-	private boolean waterStorageAvailable;
+	private String waterStorageAvailable;
 	
-	private double waterStorageSize;
+	private String waterStorageSize;
 
 	private String buildingBasis;
 	
@@ -35,7 +36,7 @@ public class PropertyAnalysisDto {
 	
 	private String buildingState;
 	
-	private boolean powerBackupAvailable;
+	private String powerBackupAvailable;
 	
 	private String powerBackupSize;
 	
@@ -43,29 +44,29 @@ public class PropertyAnalysisDto {
 	
 	private String operationsType;
 	
-	private double commonAreaSize;
+	private String commonAreaSize;
 
 	private String buildingType;
 	
-	private boolean gymAvailable;
+	private String gymAvailable;
 	
-	private double gymSize;
+	private String gymSize;
 	
-	private Year buildingCompletionYear;
+	private String buildingCompletionYear;
 	
-	private boolean basementAvailable;
+	private String basementAvailable;
 	
-	private double basementSize;
+	private String basementSize;
 	
-	private LocalDate lastRefurbishedDate;
+	private String lastRefurbishedDate;
 	
-	private boolean liftAvailable;
+	private String liftAvailable;
 	
 	private String liftBrand;
 	
-	private int expectedBedCount;
+	private String expectedBedCount;
 	
-	private int numberOfRoomsWithBalcony;
+	private String numberOfRoomsWithBalcony;
 
 	private String prelimComments;
 	
@@ -75,10 +76,11 @@ public class PropertyAnalysisDto {
 	
 	private List<WashRoomLayout> washRooms;
 	
-	private List<BuildingBoundaries> buildingBoundaries;
+	private BuildingBoundaries buildingBoundaries;
 	
 	private List<String> keyPositives;
 	
 	private List<String> keyNegatives;
+	
 	
 }

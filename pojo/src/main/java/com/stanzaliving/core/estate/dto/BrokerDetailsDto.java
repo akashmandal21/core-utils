@@ -4,15 +4,11 @@ import lombok.Data;
 
 @Data
 public class BrokerDetailsDto {
-	private boolean brokerInvolved;
-	
-	private boolean empanelledBroker;
-	
+	private String brokerInvolved;
+	private String empanelledBroker;
 	private String brokerName;
 	
-	private String brokerMobileNumber;
+	private String brokerNumber;
 	
-	private String brokerEmail;
-	
-	private int periodInDays;
+	private String brokerEmail;	
 }

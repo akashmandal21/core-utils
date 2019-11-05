@@ -5,11 +5,13 @@ import lombok.Data;
 @Data
 public class RoomLayout {
 
-	private String type;
+	private String shapeOfTheRoom;
+	private String roomCount;
+	private String lengthOfRoom;
+	private String widthOfRoom;
 	
-	private double size;
-
-	private int numberOfRooms;
 	
-	private int numberOfFloors;
+	
+	
+	
 }

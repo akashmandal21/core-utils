@@ -1,28 +1,32 @@
 package com.stanzaliving.core.estate.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class LocationAnalysisDto {
 
-	private boolean lateNightPatrols;
+	private String lateNightPatrols;
 	
-	private boolean adjoiningAreaSafety;
+	private String adjoiningAreaSafety;
 	
-	private boolean roadAccess;
+	private String roadAccess;
 	
-	private boolean monsoonPreparedness;
+	private String monsoonPreparedness;
 	
-	private boolean streetLighting;
+	private String streetLighting;
 	
-	private boolean foodDeliveryAvailable;
+	private String foodDeliveryAvailable;
 	
-	private boolean publicTransportAvailable;
+	private String publicTransportAvailable;
 	
-	private boolean rwaPresence;
+	private String rwaPresence;
 	
 	private String viewsOnRwa;
 	
 	private String comments;
+	
+	
 	
 }
