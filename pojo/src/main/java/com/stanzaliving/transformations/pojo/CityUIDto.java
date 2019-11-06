@@ -33,4 +33,6 @@ public class CityUIDto {
 	private List<GeoPointDto> polygonPoints;	
 	
 	private Boolean status;
+	
+	private String cityCode;
 }

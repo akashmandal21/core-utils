@@ -31,4 +31,6 @@ public class CityMetadataDto {
 	private String cityName;
 	
 	private long stateId;
+	
+	private String cityCode;
 }
