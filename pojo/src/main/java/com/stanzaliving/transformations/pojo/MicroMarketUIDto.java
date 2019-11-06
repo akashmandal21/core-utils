@@ -35,4 +35,6 @@ public class MicroMarketUIDto {
 	private List<GeoPointDto> polygonPoints;
 
 	private Boolean status;
+	
+	private String microMarketCode;
 }

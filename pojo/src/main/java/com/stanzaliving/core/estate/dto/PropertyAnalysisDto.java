@@ -1,7 +1,5 @@
 package com.stanzaliving.core.estate.dto;
 
-import java.time.LocalDate;
-import java.time.Year;
 import java.util.List;
 
 import lombok.Builder;
