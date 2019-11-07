@@ -1,5 +1,6 @@
 package com.stanzaliving.core.estate.enums;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import lombok.Getter;
@@ -16,7 +17,7 @@ public enum EstateStatus {
 
 	private String name;
 
-	private static Map<EstateStatus, String> estateStatusMap;
+	private static Map<EstateStatus, String> estateStatusMap = new HashMap<>();
 	
 	static {
 		estateStatusMap.put(DRAFT_IN_PROGRESS, EstateStatus.DRAFT_IN_PROGRESS.toString());
