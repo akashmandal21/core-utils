@@ -5,6 +5,7 @@ package com.stanzaliving.core.base.http;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
@@ -20,6 +21,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
+import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
@@ -57,6 +59,25 @@ public class StanzaRestClient {
 	public StanzaRestClient(String basePath) {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate();
+	}
+
+	public enum CollectionFormat {
+
+		CSV(","),
+		TSV("\t"),
+		SSV(" "),
+		PIPES("|"),
+		MULTI(null);
+
+		private final String separator;
+
+		private CollectionFormat(String separator) {
+			this.separator = separator;
+		}
+
+		private String collectionToString(Collection<? extends CharSequence> collection) {
+			return StringUtils.collectionToDelimitedString(collection, separator);
+		}
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -157,7 +178,7 @@ public class StanzaRestClient {
 		log.debug("Accessing API: " + builder.toUriString());
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
-		
+
 		ResponseEntity<T> responseEntity = restTemplate.exchange(requestEntity, returnType);
 
 		statusCode = responseEntity.getStatusCode();
@@ -187,6 +208,62 @@ public class StanzaRestClient {
 					requestBuilder.header(entry.getKey(), value);
 				}
 			}
+		}
+	}
+
+	public MultiValueMap<String, String> parameterToMultiValueMap(CollectionFormat collectionFormat, String name, Object value) {
+		final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+
+		if (name == null || name.isEmpty() || value == null) {
+			return params;
+		}
+
+		if (collectionFormat == null) {
+			collectionFormat = CollectionFormat.CSV;
+		}
+
+		Collection<?> valueCollection = null;
+		if (value instanceof Collection) {
+			valueCollection = (Collection<?>) value;
+		} else {
+			params.add(name, parameterToString(value));
+			return params;
+		}
+
+		if (valueCollection.isEmpty()) {
+			return params;
+		}
+
+		if (collectionFormat.equals(CollectionFormat.MULTI)) {
+			for (Object item : valueCollection) {
+				params.add(name, parameterToString(item));
+			}
+			return params;
+		}
+
+		List<String> values = new ArrayList<>();
+		for (Object o : valueCollection) {
+			values.add(parameterToString(o));
+		}
+		params.add(name, collectionFormat.collectionToString(values));
+
+		return params;
+	}
+
+	public String parameterToString(Object param) {
+		if (param == null) {
+			return "";
+		} else if (param instanceof Collection) {
+			StringBuilder b = new StringBuilder();
+			for (Object o : (Collection<?>) param) {
+				if (b.length() > 0) {
+					b.append(",");
+				}
+				b.append(String.valueOf(o));
+			}
+			return b.toString();
+		} else {
+			return String.valueOf(param);
 		}
 	}
 

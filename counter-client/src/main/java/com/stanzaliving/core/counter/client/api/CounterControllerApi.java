@@ -60,4 +60,32 @@ public class CounterControllerApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+	public ResponseDto<Long> getCounterForKeyFromParam(String key) {
+
+		if (StringUtils.isBlank(key)) {
+			throw new IllegalArgumentException("Counter Key cannot be blank");
+		}
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/get").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.putAll(restClient.parameterToMultiValueMap(null, "key", key));
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Long>> returnType = new ParameterizedTypeReference<ResponseDto<Long>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
 }
