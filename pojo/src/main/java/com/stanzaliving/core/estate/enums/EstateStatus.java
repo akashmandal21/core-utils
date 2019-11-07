@@ -13,7 +13,8 @@ public enum EstateStatus {
 	REJECTED("Rejected"),
 	DOCUMENTS_NEEDED("Documents Needed"),
 	INFORMATION_NEEDED("Information Needed"),
-	SENT_BACK_BY_BDHEAD("Sent Back By BD Head");
+	SENT_BACK_BY_BDHEAD("Sent Back By BD Head"),
+	SENT_FOR_APPROVAL("Sent for Approval");
 
 	private String name;
 
@@ -26,6 +27,7 @@ public enum EstateStatus {
 		estateStatusMap.put(DOCUMENTS_NEEDED, EstateStatus.DOCUMENTS_NEEDED.getName());
 		estateStatusMap.put(INFORMATION_NEEDED, EstateStatus.INFORMATION_NEEDED.getName());
 		estateStatusMap.put(SENT_BACK_BY_BDHEAD, EstateStatus.SENT_BACK_BY_BDHEAD.getName());
+		estateStatusMap.put(SENT_FOR_APPROVAL, EstateStatus.SENT_FOR_APPROVAL.getName());
 	}
 	
 	private EstateStatus(String name) {
