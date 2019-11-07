@@ -20,12 +20,12 @@ public enum EstateStatus {
 	private static Map<EstateStatus, String> estateStatusMap = new HashMap<>();
 	
 	static {
-		estateStatusMap.put(DRAFT_IN_PROGRESS, EstateStatus.DRAFT_IN_PROGRESS.toString());
-		estateStatusMap.put(SHORTLISTED, EstateStatus.SHORTLISTED.toString());
-		estateStatusMap.put(REJECTED, EstateStatus.REJECTED.toString());
-		estateStatusMap.put(DOCUMENTS_NEEDED, EstateStatus.DOCUMENTS_NEEDED.toString());
-		estateStatusMap.put(INFORMATION_NEEDED, EstateStatus.INFORMATION_NEEDED.toString());
-		estateStatusMap.put(SENT_BACK_BY_BDHEAD, EstateStatus.SENT_BACK_BY_BDHEAD.toString());
+		estateStatusMap.put(DRAFT_IN_PROGRESS, EstateStatus.DRAFT_IN_PROGRESS.getName());
+		estateStatusMap.put(SHORTLISTED, EstateStatus.SHORTLISTED.getName());
+		estateStatusMap.put(REJECTED, EstateStatus.REJECTED.getName());
+		estateStatusMap.put(DOCUMENTS_NEEDED, EstateStatus.DOCUMENTS_NEEDED.getName());
+		estateStatusMap.put(INFORMATION_NEEDED, EstateStatus.INFORMATION_NEEDED.getName());
+		estateStatusMap.put(SENT_BACK_BY_BDHEAD, EstateStatus.SENT_BACK_BY_BDHEAD.getName());
 	}
 	
 	private EstateStatus(String name) {
