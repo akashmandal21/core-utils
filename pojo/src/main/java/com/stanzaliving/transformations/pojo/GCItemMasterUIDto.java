@@ -19,6 +19,8 @@ public class GCItemMasterUIDto {
 	private String category;
 
 	private String particular;
+	
+	private String categoryCode;
 
 	private UnitType unitType;
 

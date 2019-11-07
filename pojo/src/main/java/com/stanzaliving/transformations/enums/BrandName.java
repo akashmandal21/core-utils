@@ -1,7 +1,6 @@
 package com.stanzaliving.transformations.enums;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -41,8 +40,6 @@ public enum BrandName {
 		if (StringUtils.isNotBlank(brandNames)) {
 
 			String[] brands = brandNames.split(separator);
-
-			System.out.println(Arrays.toString(brands));
 
 			List<BrandName> names = new ArrayList<>();
 

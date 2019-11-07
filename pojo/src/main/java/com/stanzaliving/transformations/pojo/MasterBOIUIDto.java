@@ -28,6 +28,8 @@ public class MasterBOIUIDto {
 
 	@NotBlank(message = "Category Particular is Mandatory for BOI Specification")
 	private String particular;
+	
+	private String categoryCode;
 
 	@NotNull(message = "Rate Type is Mandatory for BOI Specification")
 	private RateType rateType;
