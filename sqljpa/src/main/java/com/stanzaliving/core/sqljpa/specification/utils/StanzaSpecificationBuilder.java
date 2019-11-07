@@ -31,7 +31,7 @@ public class StanzaSpecificationBuilder<T extends AbstractJpaEntity> {
 
 	public Specification<T> build() {
 
-		if (params.isEmpty()) {
+		if (params.isEmpty() && externalSpecifications.isEmpty() ) {
 			return null;
 		}
 
