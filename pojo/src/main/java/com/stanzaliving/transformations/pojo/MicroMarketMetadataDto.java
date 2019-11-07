@@ -31,4 +31,6 @@ public class MicroMarketMetadataDto {
 	private String microMarketName;
 
 	private long cityId;
+
+	private String microMarketCode;
 }

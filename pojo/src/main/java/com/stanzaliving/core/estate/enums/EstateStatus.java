@@ -9,7 +9,6 @@ import lombok.Getter;
 public enum EstateStatus {
 
 	DRAFT_IN_PROGRESS("Draft In Progress"),
-	SENT_FOR_APPROVAL("Sent For Approval"),
 	SHORTLISTED("Shortlisted"),
 	REJECTED("Rejected"),
 	DOCUMENTS_NEEDED("Documents Needed"),
