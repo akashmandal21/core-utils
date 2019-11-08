@@ -32,6 +32,7 @@
 		<module>location</module>
 		<module>counter-client</module>
 		<module>transformation-client</module>
+		<module>user-client</module>
 	</modules>
 
 	<build>

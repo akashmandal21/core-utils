@@ -29,4 +29,6 @@ public class EstateDashboardListingDto extends EstateDto {
 	private EstateAppAttributes estateAttributes;
 
 	private String estateCode;
+	
+	private String estateStatusStr;
 }
