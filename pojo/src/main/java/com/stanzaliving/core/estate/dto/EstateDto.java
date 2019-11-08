@@ -45,4 +45,6 @@ public class EstateDto extends AbstractDto {
 	private Double lon;
 
 	private EstateStatus estateStatus;
+
+	private String estateCode;
 }

@@ -33,6 +33,7 @@ public class CounterControllerApi {
 		this.restClient = stanzaRestClient;
 	}
 
+	@Deprecated
 	public ResponseDto<Long> getCounterForKey(String key) {
 
 		if (StringUtils.isBlank(key)) {
