@@ -33,6 +33,7 @@
 		<module>counter-client</module>
 		<module>transformation-client</module>
 		<module>user-client</module>
+		<module>redis</module>
 	</modules>
 
 	<build>
