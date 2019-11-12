@@ -65,5 +65,27 @@ public class UserClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+	
+	public ResponseDto<List<String>> getUserIdsMappedToManagerId(String managerId) {
+		Object postBody = null;
 
+		String path = UriComponentsBuilder.fromPath("/usermanagermapping/{managerId}").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.putAll(restClient.parameterToMultiValueMap(null, "managerId", managerId));
+		
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+		};
+		
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
 }

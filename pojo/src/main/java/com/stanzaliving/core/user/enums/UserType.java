@@ -16,5 +16,6 @@ public enum UserType {
 	HR,
 	TECH,
 	FINANCE,
-	PROCUREMENT
+	PROCUREMENT,
+	MANAGER
 }
