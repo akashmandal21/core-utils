@@ -69,12 +69,15 @@ public class UserClientApi {
 	public ResponseDto<List<String>> getUserIdsMappedToManagerId(String managerId) {
 		Object postBody = null;
 
-		String path = UriComponentsBuilder.fromPath("/usermanagermapping/{managerId}").toUriString();
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("managerId", managerId);
+		
+		String path = UriComponentsBuilder.fromPath("/usermanagermapping/{managerId}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		queryParams.putAll(restClient.parameterToMultiValueMap(null, "managerId", managerId));
-		
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {
