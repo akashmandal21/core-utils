@@ -47,8 +47,7 @@ public class AuthServiceImpl implements AuthService {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath(UserMicroserviceHelper.URL_GET_CURRENT_USER_PROFILE)
-				.buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath(UserMicroserviceHelper.URL_GET_CURRENT_USER_PROFILE).buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -57,7 +56,9 @@ public class AuthServiceImpl implements AuthService {
 		final HttpHeaders headerParams = new HttpHeaders();
 		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {
+				"*/*"
+		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
@@ -68,17 +69,7 @@ public class AuthServiceImpl implements AuthService {
 	@Override
 	public ResponseDto<UserDto> validateToken(String token) {
 		log.debug("Validating token: " + token);
-
-		ResponseDto<UserDto> responseDto = null;
-
-		try {
-
-			responseDto = getUserByToken(token);
-		} catch (Exception e) {
-			log.error("Error while validating token: ", e.getMessage());
-		}
-
-		return responseDto;
+		return getUserByToken(token);
 	}
 
 	private ResponseDto<UserDto> getUserByToken(String token) {
@@ -88,8 +79,7 @@ public class AuthServiceImpl implements AuthService {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath(UserMicroserviceHelper.URL_TOKEN_VALIDATION)
-				.buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath(UserMicroserviceHelper.URL_TOKEN_VALIDATION).buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -98,7 +88,9 @@ public class AuthServiceImpl implements AuthService {
 		final HttpHeaders headerParams = new HttpHeaders();
 		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {
+				"*/*"
+		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<UserDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserDto>>() {
@@ -126,14 +118,15 @@ public class AuthServiceImpl implements AuthService {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath(UserMicroserviceHelper.URL_VALIDATE_PERMISSION)
-				.buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath(UserMicroserviceHelper.URL_VALIDATE_PERMISSION).buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {
+				"*/*"
+		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
