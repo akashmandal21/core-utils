@@ -19,7 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.PageResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.user.dto.UserDto;
+import com.stanzaliving.core.user.dto.UserProfileDto;
 
 /**
  * @author naveen.kumar
@@ -35,7 +35,7 @@ public class UserClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public ResponseDto<PageResponse<UserDto>> getUserDetails(int pageNumber,int pageSize,List<String> userIds) {
+	public ResponseDto<PageResponse<UserProfileDto>> getUserDetails(int pageNumber,int pageSize,List<String> userIds) {
 
 		if (pageNumber < 1 || pageSize < 1 || CollectionUtils.isEmpty(userIds) ) {
 			throw new IllegalArgumentException("Please check all the provided params!!");
@@ -61,7 +61,7 @@ public class UserClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<PageResponse<UserDto>>> returnType = new ParameterizedTypeReference<ResponseDto<PageResponse<UserDto>>>() {
+		ParameterizedTypeReference<ResponseDto<PageResponse<UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<PageResponse<UserProfileDto>>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
@@ -69,12 +69,15 @@ public class UserClientApi {
 	public ResponseDto<List<String>> getUserIdsMappedToManagerId(String managerId) {
 		Object postBody = null;
 
-		String path = UriComponentsBuilder.fromPath("/usermanagermapping/{managerId}").toUriString();
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("managerId", managerId);
+		
+		String path = UriComponentsBuilder.fromPath("/usermanagermapping/{managerId}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		queryParams.putAll(restClient.parameterToMultiValueMap(null, "managerId", managerId));
-		
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {
