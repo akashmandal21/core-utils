@@ -27,7 +27,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "question", uniqueConstraints = {@UniqueConstraint(columnNames = {"screen_group_num", "screen_num", "order_num", "is_active"}),  @UniqueConstraint(columnNames = {"questionIdentifier"})})
+@Table(name = "question", uniqueConstraints = {@UniqueConstraint(columnNames = {"screen_group_num", "screen_num", "order_num", "is_active"}),  @UniqueConstraint(columnNames = {"question_identifier"})})
 @Entity(name = "question")
 public class QuestionEntity extends AbstractJpaEntity {
 
