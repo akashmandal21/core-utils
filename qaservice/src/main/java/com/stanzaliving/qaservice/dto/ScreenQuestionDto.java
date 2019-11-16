@@ -16,10 +16,10 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ScreenQuestionListDto {
+public class ScreenQuestionDto {
 
 	String name;
 	String heading;
-	List<SubScreenQuestionList> subScreenQuestionList;
+	List<SubScreenQuestionDto> subScreenQuestionList;
 	
 }

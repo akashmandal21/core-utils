@@ -13,6 +13,6 @@ import lombok.Data;
  *
  */
 @Data
-public class SubScreenQuestionList {
+public class SubScreenQuestionDto {
 	 List<QuestionResponseDto> questions;
 }

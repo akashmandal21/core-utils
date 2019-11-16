@@ -20,7 +20,7 @@ import lombok.ToString;
 public class QuestionDataDto {
 
 	String estateId;
-	List<ScreenQuestionListDto> screenQuestionList;
+	List<ScreenQuestionDto> screenQuestionList;
 	Map<String, Object> answers;
 	
 	public QuestionDataDto(String estateId) {
