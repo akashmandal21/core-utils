@@ -11,6 +11,7 @@ import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 import com.stanzaliving.qaservice.entity.QuestionEntity;
+import com.stanzaliving.qaservice.enums.FrontEndType;
 import com.stanzaliving.qaservice.enums.QuestionType;
 import com.stanzaliving.qaservice.enums.SubQuestionDisplay;
 
@@ -23,7 +24,7 @@ public class QuestionResponseDto {
 	@Enumerated(EnumType.STRING)
 	private QuestionType questionType;
 
-	private String frontendType;
+	private FrontEndType frontendType;
 
 	private String questionHeading;
 

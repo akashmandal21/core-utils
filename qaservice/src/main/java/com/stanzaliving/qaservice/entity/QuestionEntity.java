@@ -9,6 +9,7 @@ import javax.persistence.UniqueConstraint;
 
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import com.stanzaliving.qaservice.dto.QuestionRequestDto;
+import com.stanzaliving.qaservice.enums.FrontEndType;
 import com.stanzaliving.qaservice.enums.QuestionType;
 import com.stanzaliving.qaservice.enums.SubQuestionDisplay;
 
@@ -38,7 +39,7 @@ public class QuestionEntity extends AbstractJpaEntity {
     private QuestionType questionType;
 
     @Column(name = "frontend_type", columnDefinition = "varchar(128)", nullable = false)
-    private String frontendType;
+    private FrontEndType frontendType;
 
     @Column(name = "ques_heading", columnDefinition = "varchar(256)", nullable = false)
     private String quesHeading;
@@ -75,17 +76,17 @@ public class QuestionEntity extends AbstractJpaEntity {
     private String metadata;
 
     //metadata still needs to be set by using metadataId of QuestionDTO via MetaDataService
-    public QuestionEntity(QuestionRequestDto questionRequestDTO) {
-        this.questionType = QuestionType.valueOf(questionRequestDTO.getQuestionType());   // questionRequestDTO.getQuestionType();
-        this.frontendType = questionRequestDTO.getFrontendType();
-        this.quesHeading = questionRequestDTO.getQuesHeading();
-        this.quesSubHeading = questionRequestDTO.getQuesSubHeading();
-        this.isMandatory = questionRequestDTO.getIsMandatory();
-        this.visibilityCriteria = questionRequestDTO.getVisibilityCriteria();
-        this.screenGroupNum = questionRequestDTO.getScreenGroupNum();
-        this.screenNum = questionRequestDTO.getScreenNum();
-        this.orderNum = questionRequestDTO.getOrderNum();
-        this.subQuestionDisplay =  questionRequestDTO.getSubQuestionDisplay() != null ? SubQuestionDisplay.valueOf(questionRequestDTO.getSubQuestionDisplay()) : null;
-        this.questionIdentifier = questionRequestDTO.getQuestionIdentifier();
+    public QuestionEntity(QuestionRequestDto questionRequestDto) {
+        this.questionType = questionRequestDto.getQuestionType();   // questionRequestDTO.getQuestionType();
+        this.frontendType = questionRequestDto.getFrontendType();
+        this.quesHeading = questionRequestDto.getQuesHeading();
+        this.quesSubHeading = questionRequestDto.getQuesSubHeading();
+        this.isMandatory = questionRequestDto.getIsMandatory();
+        this.visibilityCriteria = questionRequestDto.getVisibilityCriteria();
+        this.screenGroupNum = questionRequestDto.getScreenGroupNumber();
+        this.screenNum = questionRequestDto.getScreenNumber();
+        this.orderNum = questionRequestDto.getOrderNumber();
+        this.subQuestionDisplay =  questionRequestDto.getSubQuestionDisplay() != null ? SubQuestionDisplay.valueOf(questionRequestDto.getSubQuestionDisplay()) : null;
+        this.questionIdentifier = questionRequestDto.getQuestionIdentifier();
     }
 }
