@@ -24,6 +24,7 @@ import org.springframework.http.converter.json.AbstractJackson2HttpMessageConver
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -179,7 +180,13 @@ public class StanzaRestClient {
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
 
-		ResponseEntity<T> responseEntity = restTemplate.exchange(requestEntity, returnType);
+		ResponseEntity<T> responseEntity = null;
+
+		try {
+			responseEntity = restTemplate.exchange(requestEntity, returnType);
+		} catch (HttpClientErrorException e) {
+			throw new StanzaHttpException(e.getMessage(), e.getStatusCode().value());
+		}
 
 		statusCode = responseEntity.getStatusCode();
 		responseHeaders = responseEntity.getHeaders();

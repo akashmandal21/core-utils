@@ -69,7 +69,16 @@ public class AuthServiceImpl implements AuthService {
 	@Override
 	public ResponseDto<UserDto> validateToken(String token) {
 		log.debug("Validating token: " + token);
-		return getUserByToken(token);
+		
+		ResponseDto<UserDto> responseDto = null;
+
+		try {
+			responseDto = getUserByToken(token);
+		} catch (Exception e) {
+			log.error("Error while validating token: ", e.getMessage());
+		}
+
+		return responseDto;
 	}
 
 	private ResponseDto<UserDto> getUserByToken(String token) {
