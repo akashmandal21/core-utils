@@ -4,7 +4,7 @@
 package com.stanzaliving.core.estate.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.estate.enums.OpexEstimateStatus;
+import com.stanzaliving.core.estate.enums.EstateStatus;
 import com.stanzaliving.core.user.dto.Address;
 
 import lombok.AllArgsConstructor;
@@ -44,7 +44,7 @@ public class EstateDto extends AbstractDto {
 
 	private Double lon;
 
-	private OpexEstimateStatus estateStatus;
+	private EstateStatus estateStatus;
 
 	private String estateCode;
 }
