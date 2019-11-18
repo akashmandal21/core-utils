@@ -3,7 +3,7 @@ package com.stanzaliving.core.estate.dto;
 import java.util.List;
 
 import com.stanzaliving.core.base.location.GeoPointDto;
-import com.stanzaliving.core.estate.enums.EstateStatus;
+import com.stanzaliving.core.estate.enums.OpexEstimateStatus;
 import com.stanzaliving.core.user.dto.Address;
 
 import lombok.Data;
@@ -29,5 +29,5 @@ public class EstateHomePageDto {
 	
 	private List<String> propertyImages;
 	
-	private EstateStatus estateStatus;
+	private OpexEstimateStatus estateStatus;
 }
