@@ -1,5 +1,6 @@
 package com.stanzaliving.qaservice.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ import com.stanzaliving.qaservice.repository.QuestionRepository;
 import com.stanzaliving.qaservice.service.QuestionMetadataService;
 import com.stanzaliving.qaservice.service.QuestionService;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
@@ -48,5 +52,20 @@ public class QuestionServiceImpl implements QuestionService {
 	@Override
 	public void save(QuestionEntity questionEntity) {
 		questionRepository.save(questionEntity);
+	}
+	
+	@Override
+	public void saveAll(List<QuestionRequestDto> questionRequestDtos) {
+		
+	
+		List<QuestionEntity> questionEntities = new ArrayList<>();
+		questionRequestDtos.forEach(questionRequest -> {
+			QuestionEntity questionEntity = new QuestionEntity(questionRequest);
+			questionEntity.setMetadata(questionRequest.getMetadata());
+			
+			questionEntities.add(questionEntity);
+		});
+		
+		questionRepository.saveAll(questionEntities);
 	}
 }

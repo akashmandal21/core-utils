@@ -22,7 +22,8 @@ public enum FrontEndType {
 	ELLIPTICALRADIOBUTTON("Elliptical-Radio-Button"),
 	DROPDOWN("dropDown"),
 	DATEFIELD("dateField"),
-	BUILDINGLAYOUT("Building-Layout");
+	BUILDINGLAYOUT("Building-Layout"),
+	SWITCHCARD("Switch-Card");
 	
 
     public String frontendType;

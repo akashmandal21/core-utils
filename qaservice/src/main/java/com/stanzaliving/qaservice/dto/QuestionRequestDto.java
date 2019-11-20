@@ -25,4 +25,5 @@ public class QuestionRequestDto {
     private String subQuestionDisplay;
 
     private Long metadataId;
+    private String metadata;
 }
