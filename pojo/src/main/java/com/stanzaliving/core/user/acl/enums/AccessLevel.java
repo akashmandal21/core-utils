@@ -11,6 +11,7 @@ package com.stanzaliving.core.user.acl.enums;
  **/
 public enum AccessLevel {
 
+	GLOBAl,
 	COUNTRY,
 	REGION,
 	CITY,
