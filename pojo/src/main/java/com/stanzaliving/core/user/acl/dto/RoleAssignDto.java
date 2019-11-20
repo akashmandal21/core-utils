@@ -1,12 +1,14 @@
 /**
  * 
  */
-package com.stanzaliving.core.user.acl.request.dto;
+package com.stanzaliving.core.user.acl.dto;
 
 import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.user.acl.enums.AssignmentType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,10 +28,15 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AssignUserRoleDto {
+public class RoleAssignDto extends AbstractDto {
 
-	@NotBlank(message = "User Id is mandatory to assign roles")
-	private String userId;
+	@NotBlank
+	private String roleUuid;
 
-	private List<String> roleIds;
+	@NotBlank
+	private String assignedUuid;
+
+	@NotBlank
+	private AssignmentType assignmentType;
+
 }

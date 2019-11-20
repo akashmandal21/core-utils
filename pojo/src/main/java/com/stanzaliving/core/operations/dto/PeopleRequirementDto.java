@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.stanzaliving.core.user.acl.enums.AccessLevel;
+import com.stanzaliving.core.base.enums.AccessLevel;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

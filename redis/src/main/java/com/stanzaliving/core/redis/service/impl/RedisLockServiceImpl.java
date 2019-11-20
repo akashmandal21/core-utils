@@ -13,22 +13,22 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class RedisLockServiceImpl implements RedisLockService {
 
-	@Autowired
-	private RedissonClient redissonClient;
+//	@Autowired
+//	private RedissonClient redissonClient;
 	
 	@Override
 	public RLock acquire(String lockName) {
 		
-		log.info("Acquiring Lock for ["+lockName+"]");
-		
-		return redissonClient.getLock(lockName);
-		
+//		log.info("Acquiring Lock for ["+lockName+"]");
+//
+//		return redissonClient.getLock(lockName);
+		return null;
 	}
 
 	@Override
 	public void release(RLock rLock) {
 		
-		rLock.unlock();
+//		rLock.unlock();
 		
 	}
 

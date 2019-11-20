@@ -3,10 +3,14 @@
  */
 package com.stanzaliving.core.base.common.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.base.enums.Department;
+import lombok.*;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author naveen
@@ -31,8 +35,26 @@ public class ResponseDto<T> {
 	
 	private int httpStatusCode;
 
+	//private Map<Department, Map<AccessLevel, Map<String, List<String>>>> aclMap;
+	private Map<Department, List<String>> departmentRoleMap;
+
+
+
 	private ResponseDto(boolean status) {
 		this.status = status;
+
+//		aclMap = new HashMap<>();
+//
+//		Map<AccessLevel, LevelDefination> nestedMap = new HashMap<>();
+//
+//
+//		nestedMap.put(AccessLevel.CITY, new LevelDefination());
+//
+//		aclMap.put(Department.TECH, nestedMap);
+
+		departmentRoleMap = new HashMap<>();
+		departmentRoleMap.put(Department.TECH, Arrays.asList("mapView", "foodMenu"));
+		departmentRoleMap.put(Department.FINANCE, Arrays.asList("termSheet", "rateReview", "superRole"));
 	}
 
 	private ResponseDto(boolean status, String message) {
@@ -94,4 +116,12 @@ public class ResponseDto<T> {
 	public static <T> ResponseDto<T> failure(String message, T data, String id, String errorCode) {
 		return new ResponseDto<>(false, message, data, id, errorCode);
 	}
+
+
+}
+
+@Data
+class LevelDefination{
+	List<String> accessLevelEntity = Arrays.asList("uuidOrCityObjectOfDelhi", "uuidOrCityObjectOfKanpur");
+	List<String> roles = Arrays.asList("termSheet", "rateReview", "foodMenu");
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.stanzaliving.core.user.acl.enums;
+package com.stanzaliving.core.base.enums;
 
 /**
  * @author naveen.kumar
@@ -11,7 +11,7 @@ package com.stanzaliving.core.user.acl.enums;
  **/
 public enum AccessLevel {
 
-	GLOBAl,
+	GLOBAL,
 	COUNTRY,
 	REGION,
 	CITY,

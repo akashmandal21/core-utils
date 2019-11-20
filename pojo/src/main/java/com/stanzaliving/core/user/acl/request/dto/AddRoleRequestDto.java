@@ -3,10 +3,10 @@
  */
 package com.stanzaliving.core.user.acl.request.dto;
 
-import java.util.List;
-
 import javax.validation.constraints.NotBlank;
 
+import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.base.enums.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,5 +31,10 @@ public class AddRoleRequestDto {
 	@NotBlank(message = "Role Name is Mandatory")
 	private String roleName;
 
-	private List<String> apiIds;
+	@NotBlank
+	private Department department;
+
+	@NotBlank
+	private AccessLevel accessLevel;
+
 }
