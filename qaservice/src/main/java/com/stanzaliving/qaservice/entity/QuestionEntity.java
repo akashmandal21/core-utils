@@ -9,7 +9,6 @@ import javax.persistence.UniqueConstraint;
 
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import com.stanzaliving.qaservice.dto.QuestionRequestDto;
-import com.stanzaliving.qaservice.enums.FrontEndType;
 import com.stanzaliving.qaservice.enums.QuestionType;
 import com.stanzaliving.qaservice.enums.SubQuestionDisplay;
 
@@ -39,7 +38,7 @@ public class QuestionEntity extends AbstractJpaEntity {
     private QuestionType questionType;
 
     @Column(name = "frontend_type", columnDefinition = "varchar(128)", nullable = false)
-    private FrontEndType frontendType;
+    private String frontendType;
 
     @Column(name = "ques_heading", columnDefinition = "varchar(256)", nullable = false)
     private String quesHeading;
@@ -75,9 +74,8 @@ public class QuestionEntity extends AbstractJpaEntity {
     @Column(name = "metadata", columnDefinition = "varchar(2048)")
     private String metadata;
 
-    //metadata still needs to be set by using metadataId of QuestionDTO via MetaDataService
     public QuestionEntity(QuestionRequestDto questionRequestDto) {
-        this.questionType = questionRequestDto.getQuestionType();   // questionRequestDTO.getQuestionType();
+        this.questionType = questionRequestDto.getQuestionType();   
         this.frontendType = questionRequestDto.getFrontendType();
         this.quesHeading = questionRequestDto.getQuesHeading();
         this.quesSubHeading = questionRequestDto.getQuesSubHeading();

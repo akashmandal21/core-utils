@@ -24,7 +24,7 @@ public class QuestionResponseDto {
 	@Enumerated(EnumType.STRING)
 	private QuestionType questionType;
 
-	private FrontEndType frontendType;
+	private String frontendType;
 
 	private String questionHeading;
 

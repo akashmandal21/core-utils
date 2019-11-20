@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.qaservice.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Getter;
@@ -20,6 +21,6 @@ public class ScreenQuestionDto {
 
 	String name;
 	String heading;
-	List<SubScreenQuestionDto> subScreenQuestionList;
+	List<SubScreenQuestionDto> subScreenQuestionList = new ArrayList<>();
 	
 }

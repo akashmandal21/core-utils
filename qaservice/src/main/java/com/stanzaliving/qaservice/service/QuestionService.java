@@ -19,5 +19,6 @@ public interface QuestionService {
 	QuestionEntity addQuestion(QuestionRequestDto questionRequestDTO);
 
 	List<QuestionEntity> findAll();
-
+	
+	void save(QuestionEntity questionEntity);
 }

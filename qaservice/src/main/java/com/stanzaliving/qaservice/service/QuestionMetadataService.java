@@ -6,6 +6,7 @@ package com.stanzaliving.qaservice.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.stanzaliving.qaservice.dto.QuestionMetadataDto;
 import com.stanzaliving.qaservice.entity.QuestionMetadataEntity;
 
 /**
@@ -16,10 +17,10 @@ import com.stanzaliving.qaservice.entity.QuestionMetadataEntity;
 **/
 public interface QuestionMetadataService {
 
-	List<QuestionMetadataEntity> findAll();
+	List<QuestionMetadataDto> findAll();
 
 	Optional<QuestionMetadataEntity> findById(Long id);
 
-	void save(QuestionMetadataEntity questionMetadata);
+	void save(QuestionMetadataDto questionMetadataDto);
 
 }

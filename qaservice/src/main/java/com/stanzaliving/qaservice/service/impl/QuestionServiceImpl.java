@@ -25,6 +25,7 @@ public class QuestionServiceImpl implements QuestionService {
 	@Override
 	public QuestionEntity addQuestion(QuestionRequestDto questionRequestDTO) {
 		String metadata = null;
+		
 		if (null != questionRequestDTO.getMetadataId()) {
 			QuestionMetadataEntity questionMetadata = questionMetadataService.findById(questionRequestDTO.getMetadataId()).orElse(null);
 			if (null == questionMetadata) {
@@ -34,9 +35,8 @@ public class QuestionServiceImpl implements QuestionService {
 		}
 
 		QuestionEntity question = new QuestionEntity(questionRequestDTO);
-
-		// TODO: Validate if metadata obtained from Table satisfies the metadata as per backend type of questions
 		question.setMetadata(metadata);
+		
 		return questionRepository.save(question);
 	}
 
@@ -45,4 +45,8 @@ public class QuestionServiceImpl implements QuestionService {
 		return questionRepository.findAll();
 	}
 
+	@Override
+	public void save(QuestionEntity questionEntity) {
+		questionRepository.save(questionEntity);
+	}
 }

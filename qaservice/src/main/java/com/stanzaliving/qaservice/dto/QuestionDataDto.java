@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.qaservice.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ import lombok.ToString;
 public class QuestionDataDto {
 
 	String estateId;
-	List<ScreenQuestionDto> screenQuestionList;
+	List<ScreenQuestionDto> screenQuestionList = new ArrayList<>();
 	Map<String, Object> answers;
 	
 	public QuestionDataDto(String estateId) {

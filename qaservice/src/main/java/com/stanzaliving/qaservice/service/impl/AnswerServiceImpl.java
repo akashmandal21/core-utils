@@ -7,19 +7,29 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.qaservice.entity.AnswerEntity;
 import com.stanzaliving.qaservice.repository.AnswerRepository;
 import com.stanzaliving.qaservice.service.AnswerService;
 
+import lombok.extern.log4j.Log4j2;
+
 @Service
+@Log4j2
 public class AnswerServiceImpl implements AnswerService {
 
+	private AnswerRepository answerRepository;
+
+	private ObjectMapper objectMapper;
+
 	@Autowired
-	AnswerRepository answerRepository;
-
-	Gson gson = new Gson();
-
+	public AnswerServiceImpl(AnswerRepository answerRepository, ObjectMapper objectMapper) {
+		this.answerRepository = answerRepository;
+		this.objectMapper = objectMapper;
+	}
+	
 	@Override
 	public AnswerEntity save(String estateId, Map<String, Object> answerMap) {
 
@@ -29,8 +39,15 @@ public class AnswerServiceImpl implements AnswerService {
 		}
 		
 		answer.setEstateId(estateId);
-		answer.setAnswer(gson.toJson(answerMap));
+		
+		try {
+			answer.setAnswer(objectMapper.writeValueAsString(answerMap));
+		} catch (JsonProcessingException e) {
+			log.error(" Exception occurred while converting object into string ", e);
+		}
+		
 		answerRepository.save(answer);
+		
 		return answer;
 	}
 
@@ -41,13 +58,20 @@ public class AnswerServiceImpl implements AnswerService {
 
 	@Override
 	public Map<String, Object> getAnswerMapByEstateId(String estateId) {
-		AnswerEntity answer = this.findByEstateId(estateId);
 		Map<String, Object> ansMap = null;
 		
-		if (answer == null || StringUtils.isEmpty(answer.getAnswer())) {
-			ansMap = new HashMap<>();
-		} else {
-			ansMap = gson.fromJson(answer.getAnswer(), Map.class);
+		try {
+			
+			AnswerEntity answer = this.findByEstateId(estateId);
+			
+			if (answer == null || StringUtils.isEmpty(answer.getAnswer())) {
+				ansMap = new HashMap<>();
+			} else {
+				ansMap = objectMapper.readValue(answer.getAnswer(), new TypeReference<Map<String, Object>>() {});
+			}
+			
+		} catch (Exception e) {
+			log.error(" Exception occurred while fetching answer for estateId " + estateId, e);
 		}
 		
 		return ansMap;
