@@ -21,6 +21,7 @@ import lombok.ToString;
 public class QuestionDataDto {
 
 	String estateId;
+	String propertyId;
 	List<ScreenQuestionDto> screenQuestionList = new ArrayList<>();
 	Map<String, Object> answers;
 	
