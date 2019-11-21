@@ -8,6 +8,8 @@ import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
+import com.stanzaliving.core.user.acl.enums.AccessLevel;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +31,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class RoleRequirementDto {
 
+	private String uuid;
+
+	private AccessLevel accesslevel;
+
 	@NotBlank(message = "Role is Mandatory for People Requirement")
 	private String roleId;
 
@@ -40,5 +46,7 @@ public class RoleRequirementDto {
 	private int signedOffRequirement;
 
 	private Date lastSignedOffTime;
+
+	private String lastSignedOffBy;
 
 }

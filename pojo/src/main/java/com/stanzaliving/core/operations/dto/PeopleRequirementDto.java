@@ -33,13 +33,21 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class PeopleRequirementDto {
 
-	@NotNull(message = "Entity Type is Mandatory for People Requirement")
+	@NotNull(message = "Access Level is Mandatory for People Requirement")
 	private AccessLevel accessLevel;
 
-	@NotBlank(message = "Entity Id is Mandatory for People Requirement")
-	private String entityId;
+	@NotBlank(message = "City Id is Mandatory for People Requirement")
+	private String cityId;
 
-	private String entityName;
+	private String cityName;
+
+	private String microMarketId;
+
+	private String microMarketName;
+
+	private String residenceId;
+
+	private String residenceName;
 
 	@NotEmpty(message = "Role Requirements are mandatory for People Requirement")
 	private List<@Valid RoleRequirementDto> roleRequirementDtos;
