@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.stanzaliving.core.estate.enums;
 
 import java.util.Arrays;
@@ -7,6 +10,12 @@ import java.util.Map;
 
 import lombok.Getter;
 
+/**
+ * @author naveen.kumar
+ *
+ * @date 18-Nov-2019
+ *
+ **/
 @Getter
 public enum EstateStatus {
 
@@ -23,7 +32,7 @@ public enum EstateStatus {
 	private String name;
 
 	private static Map<EstateStatus, String> estateStatusMap = new HashMap<>();
-	
+
 	static {
 		estateStatusMap.put(DRAFT_IN_PROGRESS, EstateStatus.DRAFT_IN_PROGRESS.getName());
 		estateStatusMap.put(SHORTLISTED, EstateStatus.SHORTLISTED.getName());
@@ -35,14 +44,13 @@ public enum EstateStatus {
 
 		NON_MODIFIABLE_ESTATE_STATUS = Arrays.asList(SENT_FOR_APPROVAL, SHORTLISTED);
 	}
-	
+
 	private EstateStatus(String name) {
 		this.name = name;
 	}
-	
-	public static Map<EstateStatus, String> getAll(){
+
+	public static Map<EstateStatus, String> getAll() {
 		return estateStatusMap;
 	}
-	
-	
+
 }

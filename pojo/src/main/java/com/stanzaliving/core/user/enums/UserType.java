@@ -17,5 +17,8 @@ public enum UserType {
 	TECH,
 	FINANCE,
 	PROCUREMENT,
-	MANAGER
+	MANAGER,
+	BD,
+	LEADERSHIP,
+	OPS
 }

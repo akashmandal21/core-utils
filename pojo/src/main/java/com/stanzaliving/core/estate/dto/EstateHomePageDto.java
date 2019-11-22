@@ -12,22 +12,22 @@ import lombok.Data;
 public class EstateHomePageDto {
 
 	private String estateName;
-	
+
 	private double sizeOfPlot;
-	
+
 	private int numberOfFloors;
-	
+
 	private int numberOfRooms;
-	
+
 	private GeoPointDto location;
-	
+
 	private String landlordContactNumber;
-	
+
 	private String microMarketName;
-	
+
 	private Address address;
-	
+
 	private List<String> propertyImages;
-	
+
 	private EstateStatus estateStatus;
 }
