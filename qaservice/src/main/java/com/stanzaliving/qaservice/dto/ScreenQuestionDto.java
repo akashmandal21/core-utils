@@ -21,6 +21,7 @@ public class ScreenQuestionDto {
 
 	String name;
 	String heading;
+	List<QuestionResponseDto> attachedQuestions = new ArrayList<>();
 	List<SubScreenQuestionDto> subScreenQuestionList = new ArrayList<>();
 	
 }

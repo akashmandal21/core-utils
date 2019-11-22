@@ -29,7 +29,7 @@ public class EstateAttributeServiceImpl implements EstateAttributeService {
 	public List<EstateAttributeEntity> saveEstateAttributeList(List<EstateAttributeEntity> estateAttributeEntityList) {
 		
 		if(CollectionUtils.isNullOrEmpty(estateAttributeEntityList)) {
-			throw new StanzaException(" Not attribute data to save ");
+			throw new StanzaException(" No attribute data to save ");
 		}
 		
 		List<EstateAttributeEntity> prepareEstateAttributeEntityList = new ArrayList<>();

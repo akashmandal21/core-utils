@@ -15,7 +15,8 @@ public enum QuestionType {
     K_QUESTION("K_QUESTION"), 
     MULTIPLE_CHOICE("MULTIPLE_CHOICE"), 
     BOOL("BOOL"), 
-    IMAGE("IMAGE");
+    IMAGE("IMAGE"),
+    ATTACH_QUESTION("ATTACH_QUESTION");
 
     public String questionType;
 
