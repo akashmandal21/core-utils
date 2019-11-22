@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stanzaliving.qaservice.dto.QuestionDataDto;
 import com.stanzaliving.qaservice.entity.AnswerEntity;
 import com.stanzaliving.qaservice.repository.AnswerRepository;
 import com.stanzaliving.qaservice.service.AnswerService;
@@ -75,6 +76,30 @@ public class AnswerServiceImpl implements AnswerService {
 		}
 		
 		return ansMap;
+	}
+	
+	@Override
+	public QuestionDataDto getAnswerMapByEstateId(String estateId, QuestionDataDto questionDataDto) {
+		Map<String, Object> ansMap = null;
+		
+		try {
+			
+			AnswerEntity answer = this.findByEstateId(estateId);
+			
+			if (answer == null || StringUtils.isEmpty(answer.getAnswer())) {
+				ansMap = new HashMap<>();
+			} else {
+				ansMap = objectMapper.readValue(answer.getAnswer(), new TypeReference<Map<String, Object>>() {});
+			}
+			
+			questionDataDto.setAnswers(ansMap);
+			questionDataDto.setLastUpdatedAt(answer != null ? answer.getUpdatedAt() : null);
+			
+		} catch (Exception e) {
+			log.error(" Exception occurred while fetching answer for estateId " + estateId, e);
+		}
+		
+		return questionDataDto;
 	}
 
 }

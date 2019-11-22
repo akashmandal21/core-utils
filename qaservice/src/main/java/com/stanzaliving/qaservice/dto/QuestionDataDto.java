@@ -4,6 +4,7 @@
 package com.stanzaliving.qaservice.dto;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -20,10 +21,11 @@ import lombok.ToString;
 @ToString
 public class QuestionDataDto {
 
-	String estateId;
-	String propertyId;
-	List<ScreenQuestionDto> screenQuestionList = new ArrayList<>();
-	Map<String, Object> answers;
+	private String estateId;
+	private String propertyId;
+	private List<ScreenQuestionDto> screenQuestionList = new ArrayList<>();
+	private Map<String, Object> answers;
+	private Date lastUpdatedAt;
 	
 	public QuestionDataDto(String estateId) {
 		this.estateId = estateId;
