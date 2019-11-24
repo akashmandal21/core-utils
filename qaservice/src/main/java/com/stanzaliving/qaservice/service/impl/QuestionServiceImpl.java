@@ -27,18 +27,18 @@ public class QuestionServiceImpl implements QuestionService {
 	QuestionRepository questionRepository;
 
 	@Override
-	public QuestionEntity addQuestion(QuestionRequestDto questionRequestDTO) {
+	public QuestionEntity addQuestion(QuestionRequestDto questionRequestDto) {
 		String metadata = null;
 		
-		if (null != questionRequestDTO.getMetadataId()) {
-			QuestionMetadataEntity questionMetadata = questionMetadataService.findById(questionRequestDTO.getMetadataId()).orElse(null);
+		if (null != questionRequestDto.getMetadataId()) {
+			QuestionMetadataEntity questionMetadata = questionMetadataService.findById(questionRequestDto.getMetadataId()).orElse(null);
 			if (null == questionMetadata) {
-				throw new StanzaException("Unable to get metadata using id " + questionRequestDTO.getMetadataId());
+				throw new StanzaException("Unable to get metadata using id " + questionRequestDto.getMetadataId());
 			}
 			metadata = questionMetadata.getMetadata();
 		}
 
-		QuestionEntity question = new QuestionEntity(questionRequestDTO);
+		QuestionEntity question = new QuestionEntity(questionRequestDto);
 		question.setMetadata(metadata);
 		
 		return questionRepository.save(question);
@@ -59,6 +59,7 @@ public class QuestionServiceImpl implements QuestionService {
 		
 	
 		List<QuestionEntity> questionEntities = new ArrayList<>();
+		
 		questionRequestDtos.forEach(questionRequest -> {
 			QuestionEntity questionEntity = new QuestionEntity(questionRequest);
 			questionEntity.setMetadata(questionRequest.getMetadata());

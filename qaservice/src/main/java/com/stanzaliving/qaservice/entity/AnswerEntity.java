@@ -22,7 +22,7 @@ public class AnswerEntity extends AbstractJpaEntity {
 	@Column(name = "estate_id", columnDefinition = "char(40)", nullable = false)
     private String estateId;
 
-	@Column(name = "property_id", columnDefinition = "char(40")
+	@Column(name = "property_id", columnDefinition = "char(40)")
 	private String propertyId;
 	
     @Column(name = "answerMap", columnDefinition = "text")
