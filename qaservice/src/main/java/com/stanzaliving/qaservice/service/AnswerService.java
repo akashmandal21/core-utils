@@ -11,7 +11,7 @@ import com.stanzaliving.qaservice.entity.AnswerEntity;
 
 public interface AnswerService {
 
-	AnswerEntity save(String estateId, Map<String, Object> answerMap);
+	AnswerEntity save(String estateId, String propertyId, Map<String, Object> answerMap);
 
 	AnswerEntity findByEstateId(String estateId);
 

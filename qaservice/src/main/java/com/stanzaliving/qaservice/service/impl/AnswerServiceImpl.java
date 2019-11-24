@@ -32,7 +32,7 @@ public class AnswerServiceImpl implements AnswerService {
 	}
 	
 	@Override
-	public AnswerEntity save(String estateId, Map<String, Object> answerMap) {
+	public AnswerEntity save(String estateId, String propertyId, Map<String, Object> answerMap) {
 
 		AnswerEntity answer = this.findByEstateId(estateId);
 		if (answer == null) {
@@ -40,6 +40,7 @@ public class AnswerServiceImpl implements AnswerService {
 		}
 		
 		answer.setEstateId(estateId);
+		answer.setPropertyId(propertyId);
 		
 		try {
 			answer.setAnswer(objectMapper.writeValueAsString(answerMap));
