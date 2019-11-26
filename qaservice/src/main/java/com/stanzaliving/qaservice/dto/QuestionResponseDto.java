@@ -60,6 +60,7 @@ public class QuestionResponseDto {
 		this.orderNum = question.getOrderNum();
 		this.subQuestionDisplay = question.getSubQuestionDisplay();
 		this.metadata = metadata;
+		this.fixedAttachQuestions = question.getFixedAttachQuestion();
 	}
 
 }
