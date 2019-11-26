@@ -17,6 +17,7 @@ public enum QuestionType {
     BOOL("BOOL"), 
     IMAGE("IMAGE"),
     ATTACH_QUESTION("ATTACH_QUESTION"),
+    FIXED_QUESTION("FIXED_QUESTION"),
     K_QUESTION_WITH_SCREEN("K_QUESTION_WITH_SCREEN");
 
     public String questionType;
