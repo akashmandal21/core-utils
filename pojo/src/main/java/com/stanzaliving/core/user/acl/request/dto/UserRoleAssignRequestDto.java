@@ -1,7 +1,7 @@
 package com.stanzaliving.core.user.acl.request.dto;
 
-import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.base.enums.Department;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -20,9 +20,9 @@ public class UserRoleAssignRequestDto {
     @NotBlank
     private AccessLevel accessLevel;
 
-    @NotBlank
-    private List<String> accessLevelEntityListUuid;
-
     @NotEmpty
     private List<String> rolesUuid;
+
+    @NotBlank
+    private List<String> accessLevelEntityListUuid;
 }
