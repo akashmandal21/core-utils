@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class KExpandedQuestion {
     String quesCount;
+    String screenName;
     List<QuestionResponseDto> questions = new ArrayList<>();
 
     public KExpandedQuestion(String quesCount) {
