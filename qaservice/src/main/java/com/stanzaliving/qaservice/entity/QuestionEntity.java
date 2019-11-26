@@ -74,6 +74,9 @@ public class QuestionEntity extends AbstractJpaEntity {
     @Column(name = "metadata", columnDefinition = "varchar(2048)")
     private String metadata;
 
+    @Column(name = "fixed_attach_question", columnDefinition = "varchar(255)")
+    private String fixedAttachQuestion;
+    
     public QuestionEntity(QuestionRequestDto questionRequestDto) {
         this.questionType = questionRequestDto.getQuestionType();   
         this.frontendType = questionRequestDto.getFrontendType();
@@ -86,5 +89,6 @@ public class QuestionEntity extends AbstractJpaEntity {
         this.orderNum = questionRequestDto.getOrderNumber();
         this.subQuestionDisplay =  questionRequestDto.getSubQuestionDisplay() != null ? SubQuestionDisplay.valueOf(questionRequestDto.getSubQuestionDisplay()) : null;
         this.questionIdentifier = questionRequestDto.getQuestionIdentifier();
+        this.fixedAttachQuestion = questionRequestDto.getFixedAttachQuestion();
     }
 }

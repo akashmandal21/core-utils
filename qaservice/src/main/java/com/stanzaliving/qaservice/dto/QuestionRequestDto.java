@@ -26,4 +26,5 @@ public class QuestionRequestDto {
 
     private Long metadataId;
     private String metadata;
+    private String fixedAttachQuestion;
 }

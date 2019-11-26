@@ -40,6 +40,8 @@ public class QuestionResponseDto {
 
 	private Integer orderNum;
 
+	private String fixedAttachQuestions;
+	
 	@Enumerated(EnumType.STRING)
 	private SubQuestionDisplay subQuestionDisplay;
 
