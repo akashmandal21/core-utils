@@ -4,7 +4,9 @@
 package com.stanzaliving.core.operations.enums;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import lombok.Getter;
 
@@ -39,6 +41,38 @@ public enum OpsReadinessState {
 
 	public static Map<String, String> getReadinessValues() {
 		return opsReadinessMap;
+	}
+
+	public static Set<OpsReadinessState> getCityReadinessStates() {
+
+		Set<OpsReadinessState> readinessStates = new HashSet<>();
+
+		readinessStates.add(NEW);
+		readinessStates.add(LIVE);
+
+		return readinessStates;
+	}
+
+	public static Set<OpsReadinessState> getMicromarketReadinessStates() {
+
+		Set<OpsReadinessState> readinessStates = new HashSet<>();
+
+		readinessStates.add(NEW);
+		readinessStates.add(LIVE);
+
+		return readinessStates;
+	}
+
+	public static Set<OpsReadinessState> getResidenceReadinessStates() {
+
+		Set<OpsReadinessState> readinessStates = new HashSet<>();
+
+		readinessStates.add(NEW);
+		readinessStates.add(LIVE);
+		readinessStates.add(DUE);
+		readinessStates.add(DELAYED);
+
+		return readinessStates;
 	}
 
 }
