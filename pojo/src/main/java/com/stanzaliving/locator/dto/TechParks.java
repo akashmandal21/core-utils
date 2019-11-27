@@ -1,8 +1,10 @@
 package com.stanzaliving.locator.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class TechParks {
 
 	
