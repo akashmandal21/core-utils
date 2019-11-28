@@ -15,5 +15,5 @@ import lombok.Data;
  */
 @Data
 public class SubScreenQuestionDto {
-	 List<QuestionResponseDto> questions = new ArrayList<>();
+	private List<QuestionResponseDto> questions = new ArrayList<>();
 }

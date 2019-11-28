@@ -39,8 +39,6 @@ public class QuestionResponseDto {
 	private Integer screenNum;
 
 	private Integer orderNum;
-
-	private String fixedAttachQuestions;
 	
 	@Enumerated(EnumType.STRING)
 	private SubQuestionDisplay subQuestionDisplay;
@@ -60,7 +58,6 @@ public class QuestionResponseDto {
 		this.orderNum = question.getOrderNum();
 		this.subQuestionDisplay = question.getSubQuestionDisplay();
 		this.metadata = metadata;
-		this.fixedAttachQuestions = question.getFixedAttachQuestion();
 	}
 
 }
