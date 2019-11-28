@@ -33,4 +33,8 @@ public class MicroMarketMetadataDto {
 	private long cityId;
 
 	private String microMarketCode;
+	
+	private double latitude;
+	
+	private double longitude;
 }
