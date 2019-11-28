@@ -3,10 +3,8 @@
  */
 package com.stanzaliving.core.user.acl.dto;
 
-import java.util.List;
-
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-
+import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.enums.Department;
 import lombok.*;
 import lombok.experimental.SuperBuilder;

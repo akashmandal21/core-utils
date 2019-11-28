@@ -6,5 +6,9 @@ public enum Department {
     HR,
     LEGAL,
     SUPERADMIN,
-    LEADERSHIP
+    LEADERSHIP,
+    BD,
+    OPS,
+    PROCUREMENT,
+    DESIGN
 }

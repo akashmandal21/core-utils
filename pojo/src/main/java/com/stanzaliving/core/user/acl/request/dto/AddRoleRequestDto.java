@@ -3,16 +3,12 @@
  */
 package com.stanzaliving.core.user.acl.request.dto;
 
-import javax.validation.constraints.NotBlank;
-
-import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.enums.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import com.stanzaliving.core.base.enums.Department;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * @author naveen.kumar
@@ -36,5 +32,8 @@ public class AddRoleRequestDto {
 
 	@NotBlank
 	private AccessLevel accessLevel;
+
+	@NotBlank
+	private String parentRoleUuid;
 
 }
