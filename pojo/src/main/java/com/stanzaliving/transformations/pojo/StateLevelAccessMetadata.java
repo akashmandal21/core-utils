@@ -1,18 +1,18 @@
 package com.stanzaliving.transformations.pojo;
 
-import java.util.List;
 import java.util.Map;
 
-import com.stanzaliving.transformations.projections.CityNameView;
 import com.stanzaliving.transformations.projections.StateNameView;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 @Builder
 @Getter
+@ToString
 public class StateLevelAccessMetadata {
 
-	private Map<StateNameView, List<CityNameView>> stateLevel;
+	private Map<StateNameView, CityLevelAccessMetadata> stateLevel;
 	
 }

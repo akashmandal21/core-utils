@@ -8,4 +8,6 @@ public interface MicroMarketNameView {
 	String getUuid();
 	
 	String getMicroMarketName();
+	
+	Long getCityId();
 }
