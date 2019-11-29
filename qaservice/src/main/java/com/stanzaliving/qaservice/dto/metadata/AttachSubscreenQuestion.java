@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.stanzaliving.qaservice.dto.metadata;
 
 import java.util.ArrayList;
@@ -7,9 +10,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author raj.kumar
+ *
+ */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class SingleOrMultipleChoice {
-    List<OptionsMetadataDto> options = new ArrayList<>();
+@AllArgsConstructor
+public class AttachSubscreenQuestion {
+	List<OptionsMetadataDto> options = new ArrayList<>();
 }
