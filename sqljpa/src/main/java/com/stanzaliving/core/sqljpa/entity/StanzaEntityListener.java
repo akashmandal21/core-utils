@@ -14,7 +14,7 @@ import com.stanzaliving.core.sqljpa.SecurityUtil;
  * Entity listener for all Entities/Models
  *
  */
-public class CasaEntityListener {
+public class StanzaEntityListener {
 
 	// This code will be executed before every insert into DB
 	@PrePersist

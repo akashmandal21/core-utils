@@ -35,7 +35,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners({ CasaEntityListener.class })
+@EntityListeners({ StanzaEntityListener.class })
 @MappedSuperclass
 @SuppressWarnings("serial")
 public abstract class AbstractJpaEntity implements Serializable {
