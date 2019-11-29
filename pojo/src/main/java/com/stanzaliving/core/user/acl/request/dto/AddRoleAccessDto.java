@@ -8,6 +8,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author naveen.kumar
@@ -29,7 +30,7 @@ public class AddRoleAccessDto {
 	@NotBlank
 	private String accessUuid;
 
-	@NotBlank
+	@NotNull
 	private RoleAccessType roleAccessType;
 
 }

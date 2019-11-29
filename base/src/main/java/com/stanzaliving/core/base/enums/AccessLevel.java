@@ -11,12 +11,12 @@ package com.stanzaliving.core.base.enums;
  **/
 public enum AccessLevel {
 
-	GLOBAL(5),
-	COUNTRY(10),
-	REGION(15),
-	CITY(20),
-	MICROMARKET(25),
-	RESIDENCE(30);
+	RESIDENCE(10),
+	MICROMARKET(20),
+	CITY(30),
+	REGION(40),
+	COUNTRY(50),
+	GLOBAL(60);
 
 	private int levelNum;
 

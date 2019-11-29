@@ -9,6 +9,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author naveen.kumar
@@ -27,10 +28,10 @@ public class AddRoleRequestDto {
 	@NotBlank(message = "Role Name is Mandatory")
 	private String roleName;
 
-	@NotBlank
+	@NotNull
 	private Department department;
 
-	@NotBlank
+	@NotNull
 	private AccessLevel accessLevel;
 
 	@NotBlank
