@@ -10,5 +10,7 @@ public enum Department {
     BD,
     OPS,
     PROCUREMENT,
-    DESIGN
+    DESIGN,
+    PROJECTMANAGER,
+    CLUSTERMANAGER
 }
