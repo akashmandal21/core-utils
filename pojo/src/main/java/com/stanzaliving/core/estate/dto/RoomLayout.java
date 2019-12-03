@@ -9,5 +9,6 @@ public class RoomLayout {
 	private String roomCount;
 	private String lengthOfRoom;
 	private String widthOfRoom;
+	private String roomTypeComments;
 
 }

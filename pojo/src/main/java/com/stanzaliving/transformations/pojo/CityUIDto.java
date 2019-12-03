@@ -35,4 +35,8 @@ public class CityUIDto {
 	private Boolean status;
 	
 	private String cityCode;
+
+	private Integer targetBeds;
+	
+	private Integer targetRooms;
 }
