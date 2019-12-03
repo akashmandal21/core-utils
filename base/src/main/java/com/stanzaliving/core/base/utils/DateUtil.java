@@ -1,5 +1,6 @@
 package com.stanzaliving.core.base.utils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -23,6 +24,20 @@ public class DateUtil {
 		if (dateInput != null) {
 			SimpleDateFormat formatterOutput = new SimpleDateFormat(dateFormat.getValue());
 			return formatterOutput.format(dateInput);
+		}
+
+		return null;
+	}
+	
+	public static Date customDateParser(String dateInput, DateFormat dateFormat) {
+
+		if (dateInput != null) {
+			SimpleDateFormat formatterOutput = new SimpleDateFormat(dateFormat.getValue());
+			try {
+				return formatterOutput.parse(dateInput);
+			} catch (ParseException e) {
+				// Ignore
+			}
 		}
 
 		return null;
@@ -181,21 +196,4 @@ public class DateUtil {
 		return d1.isAfter(d2) ? d1 : d2;
 	}
 	
-	public Date getStringToDate(String end_time2) {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Date date;
-		try {
-			date = simpleDateFormat.parse(end_time2);
-			return date;
-		} catch (Exception e) {
-			return null;
-		}
-	}
-	
-	public static String getCurrentDateTime() {
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = sdf.format(date);
-        return formattedDate;
-    }
 }
