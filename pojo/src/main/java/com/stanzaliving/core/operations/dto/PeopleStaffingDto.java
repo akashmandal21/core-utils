@@ -27,8 +27,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class PeopleRequirementDto extends OpsDashboardDataDto {
+public class PeopleStaffingDto extends OpsDashboardDataDto {
 
-	@NotEmpty(message = "Role Requirements are mandatory for People Requirement")
-	private List<@Valid RoleRequirementDto> roleRequirementDtos;
+	@NotEmpty(message = "Role Requirements are mandatory for People Staffing")
+	private List<@Valid RoleStaffingDto> roleStaffingDtos;
 }
