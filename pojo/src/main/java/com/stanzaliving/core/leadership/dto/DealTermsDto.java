@@ -17,4 +17,8 @@ public class DealTermsDto extends AbstractDto{
 	private String value;
 	
 	private DealTermStatus dealTermStatus;
+	
+	private String dealTermUUid;
+	
+	
 }
