@@ -20,5 +20,6 @@ public class DealTermsDto extends AbstractDto{
 	
 	private String dealTermUUid;
 	
+	private Long estateId;
 	
 }

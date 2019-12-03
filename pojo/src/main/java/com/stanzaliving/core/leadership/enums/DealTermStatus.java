@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public enum DealTermStatus{
 	
-	REJECTED("Rejected"), APPROVED("Approved By Leadership");
+	PENDING("Pending"),REJECTED("Rejected"), APPROVED("Approved By Leadership");
 	
 	private String pricingStatus;
 
