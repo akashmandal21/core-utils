@@ -38,5 +38,6 @@ public class EstateAppAttributes {
 	
 	private String pocName;
 
+	private String rent;
 	
 }
