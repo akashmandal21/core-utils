@@ -1,9 +1,15 @@
 package com.stanzaliving.locator.dto;
 
 
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Builder
+@Getter
+@ToString
+@Setter
 public class Competitor {
 	
     private String city;

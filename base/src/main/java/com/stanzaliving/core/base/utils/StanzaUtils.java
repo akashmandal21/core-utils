@@ -3,6 +3,9 @@
  */
 package com.stanzaliving.core.base.utils;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -21,6 +24,9 @@ import lombok.experimental.UtilityClass;
  */
 @UtilityClass
 public class StanzaUtils {
+
+	private static RoundingMode ROUNDING_MODE =RoundingMode.HALF_EVEN;
+	private static int SCALE =3;
 
 	public static String hideSecret(String secretString) {
 
@@ -53,18 +59,18 @@ public class StanzaUtils {
 	public static String getOccupancyString(int occupancy) {
 
 		switch (occupancy) {
-			case 1:
-				return "[Single]";
-			case 2:
-				return "[Double]";
-			case 3:
-				return "[Triple]";
-			case 4:
-				return "[Four]";
-			case 5:
-				return "[Five]";
-			default:
-				return "[" + occupancy + "]";
+		case 1:
+			return "[Single]";
+		case 2:
+			return "[Double]";
+		case 3:
+			return "[Triple]";
+		case 4:
+			return "[Four]";
+		case 5:
+			return "[Five]";
+		default:
+			return "[" + occupancy + "]";
 		}
 
 	}
@@ -150,5 +156,79 @@ public class StanzaUtils {
 
 		return 0d;
 	}
+
+
+
+
+
+
+
+
+	/***
+	 * Returns the percentage value of the supplied number as {@link BigDecimal}.
+	 * @param number {@link Number}
+	 * @return {@link BigDecimal}
+	 * @author debendra.dhinda
+	 * */
+	public static BigDecimal getPercentageValueOf(Number number) {
+		return getBigDecimalValueOf(number).divide(getBigDecimalValueOf(100),StanzaUtils.SCALE,StanzaUtils.ROUNDING_MODE);
+	}
+
+	/***
+	 * Returns the percentage value of the supplied string as {@link BigDecimal}.
+	 * @param number {@link String}
+	 * @return {@link BigDecimal}
+	 * @author debendra.dhinda
+	 * */
+	public static BigDecimal getPercentageValueOf(String number) {
+		return getBigDecimalValueOf(number).divide(getBigDecimalValueOf(100),StanzaUtils.SCALE,StanzaUtils.ROUNDING_MODE);
+	}
+
+	/***
+	 * Returns the {@link BigDecimal}  representations of the supplied number.
+	 * Translates the number representation of a {@code BigDecimal}
+	 * into a {@code BigDecimal}, accepting the same number as the
+	 * {@link #BigDecimal(String)} constructor, with rounding
+	 * according to the context {@link MathContext.DECIMAL128}.
+	 *
+	 * @param  number string representation of a {@code BigDecimal}.
+	 * @author debendra.dhinda
+	 * */
+	public static BigDecimal getBigDecimalValueOf(Number number) {
+		//return new BigDecimal(Double.toString(value));
+		return new BigDecimal(number.toString(), MathContext.DECIMAL128);
+	}
+
+	/***
+	 * Returns the {@link BigDecimal}  representations of the supplied string.
+	 * Translates the number representation of a {@code BigDecimal}
+	 * into a {@code BigDecimal}, accepting the same number as the
+	 * {@link #BigDecimal(String)} constructor, with rounding
+	 * according to the context {@link MathContext.DECIMAL128}.
+	 *
+	 * @param  number string representation of a {@code BigDecimal}.
+	 * @author debendra.dhinda
+	 * */
+	public static BigDecimal getBigDecimalValueOf(String value) {
+		//return new BigDecimal(Double.toString(value));
+		return new BigDecimal(value, MathContext.DECIMAL128);
+	}
+
+
+
+	/**
+	 * Used {@link Math} class's {@code ceil()} method for rounding the supplied {@link BigDecimal} value.
+	 * 
+	 * @param value {@link BigDecimal} value to be ceiled
+	 * @return value
+	 * @author debendra.dhinda
+	 * */
+	public static Double roundOff(BigDecimal value) {
+		//return  (value!=null)? value.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue() :0;
+		return (value!=null) ? Math.ceil(value.doubleValue()) :0;
+	}
+
+
+
 
 }
