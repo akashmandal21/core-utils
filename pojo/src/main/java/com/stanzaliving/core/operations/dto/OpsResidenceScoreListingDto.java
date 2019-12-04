@@ -8,6 +8,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,15 +41,17 @@ public class OpsResidenceScoreListingDto extends OperationsScoreDto {
 	private String residenceName;
 
 	private String residenceGender;
-	
+
 	private String brandName;
-	
+
 	private int roomCount;
-	
+
 	private int bedCount;
-	
+
 	private LocalDate dueDate;
-	
-	private LocalDate actualLiveDate;
-	
+
+	private Date actualLiveDate;
+
+	private String liveMarkedBy;
+
 }
