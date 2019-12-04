@@ -37,4 +37,8 @@ public class MicroMarketUIDto {
 	private Boolean status;
 	
 	private String microMarketCode;
+	
+	private Integer targetBeds;
+	
+	private Integer targetRooms;
 }

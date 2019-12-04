@@ -31,6 +31,28 @@ public class SecurityUtil {
 
 		return userId;
 	}
+	
+	public static String getCurrentUserName() {
+		CurrentUser userIdDto = getCurrentUser();
+
+		StringBuilder builder = new StringBuilder();
+
+		String userName = null;
+
+		if (Objects.nonNull(userIdDto) && Objects.nonNull(userIdDto.getFirstName())) {
+
+			builder.append(userIdDto.getFirstName());
+
+			if (Objects.nonNull(userIdDto.getLastName())) {
+				builder.append(" ");
+				builder.append(userIdDto.getLastName());
+			}
+
+			userName = userIdDto.getFirstName() + " " + userIdDto.getLastName();
+		}
+
+		return userName;
+	}
 
 	private static CurrentUser getCurrentUser() {
 		try {

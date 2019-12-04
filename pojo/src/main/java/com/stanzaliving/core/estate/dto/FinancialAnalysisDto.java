@@ -24,7 +24,6 @@ public class FinancialAnalysisDto {
 	private String buildingHandoverDate;
 	private String rentStartDate;
 	
-	
 	/*Broker Info*/	
 	
 	private BrokerDetailsDto brokerDetails;
