@@ -29,6 +29,8 @@ public class EstateAppAttributes {
 	private String numberOfRooms;
 
 	private String numberOfFloors;
+	
+	private String pricePerBed;
 
 	private String numberOfBeds;
 
@@ -36,4 +38,5 @@ public class EstateAppAttributes {
 	
 	private String pocName;
 
+	
 }
