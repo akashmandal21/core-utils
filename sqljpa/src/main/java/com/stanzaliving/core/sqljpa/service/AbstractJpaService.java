@@ -30,6 +30,8 @@ public interface AbstractJpaService<T extends AbstractJpaEntity, I extends Seria
 
 	List<T> save(Collection<T> entities);
 
+	List<T> saveAll(Collection<T> entities);
+
 	List<T> save(Collection<T> entities, boolean logEntity);
 
 	List<T> saveAndFlush(Collection<T> entities);

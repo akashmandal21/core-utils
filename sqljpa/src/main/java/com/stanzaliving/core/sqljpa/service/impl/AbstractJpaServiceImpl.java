@@ -86,6 +86,12 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	}
 
 	@Override
+	public List<T> saveAll(Collection<T> entities) {
+		return getJpaRepository().saveAll(entities);
+	}
+
+
+	@Override
 	public List<T> save(Collection<T> entities, boolean logEntity) {
 		List<T> savedEntities = getJpaRepository().saveAll(entities);
 		if (logEntity) {
