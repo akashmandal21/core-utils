@@ -6,6 +6,9 @@ package com.stanzaliving.core.base.utils;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -157,8 +160,14 @@ public class StanzaUtils {
 		return 0d;
 	}
 
-
-
+	public static List<String> getSplittedListOnComma( String input ){
+		
+		if(Objects.isNull(input)) {
+			return null;
+		}
+		
+		return Arrays.asList(input.split(","));
+	}
 
 
 
