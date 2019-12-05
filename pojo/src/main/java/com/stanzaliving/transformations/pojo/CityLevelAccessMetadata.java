@@ -15,6 +15,6 @@ public class CityLevelAccessMetadata {
 
 	private Map<Long, MicroMarketAccessLevelMetadata> cityLevel;
 	
-	private Map<Long, CityNameView> cityUiDto;
+	private Map<Long, CityUIDto> cityUiDto;
 	
 }

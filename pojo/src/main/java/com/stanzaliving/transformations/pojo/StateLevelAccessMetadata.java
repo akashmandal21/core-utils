@@ -15,5 +15,5 @@ public class StateLevelAccessMetadata {
 
 	private Map<Long, CityLevelAccessMetadata> stateLevel;
 	
-	private Map<Long,StateNameView> stateNameView;
+	private Map<Long,StateUIDto> stateNameView;
 }
