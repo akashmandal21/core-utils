@@ -13,6 +13,8 @@ import lombok.ToString;
 @ToString
 public class CityLevelAccessMetadata {
 
-	private Map<CityNameView, MicroMarketAccessLevelMetadata> cityLevel;
+	private Map<Long, MicroMarketAccessLevelMetadata> cityLevel;
+	
+	private Map<Long, CityNameView> cityUiDto;
 	
 }

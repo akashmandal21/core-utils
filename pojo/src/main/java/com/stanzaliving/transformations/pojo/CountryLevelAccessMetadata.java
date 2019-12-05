@@ -9,6 +9,7 @@ import lombok.Getter;
 @Builder
 public class CountryLevelAccessMetadata {
 
-	private Map<CountryUIDto, StateLevelAccessMetadata> countryLevel;
+	private Map<Long, StateLevelAccessMetadata> countryLevel;
 	
+	private Map<Long,CountryUIDto> countryUIDtos;
 }
