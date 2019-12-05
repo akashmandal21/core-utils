@@ -4,12 +4,14 @@ import java.util.List;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @Builder
 @Getter
 @ToString
-public class PricingApprovalDetailsScreenDto {
+@Setter
+public class PricingAndDealTermsDetailsScreenDto {
 
 	private TopViewDto topViewDto;
 	
