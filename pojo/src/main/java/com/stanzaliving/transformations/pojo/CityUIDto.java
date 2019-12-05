@@ -24,6 +24,8 @@ public class CityUIDto {
 	@NotNull
 	private String cityName;
 	
+	private long stateId;
+	
 	@NotNull
 	private String stateName;
 	
