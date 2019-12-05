@@ -7,9 +7,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
-import com.stanzaliving.core.base.enums.AccessLevel;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

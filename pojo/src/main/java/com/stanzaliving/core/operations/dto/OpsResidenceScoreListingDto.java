@@ -3,16 +3,15 @@
  */
 package com.stanzaliving.core.operations.dto;
 
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
-
 import java.time.LocalDate;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author naveen.kumar

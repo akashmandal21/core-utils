@@ -8,7 +8,7 @@ import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
-import com.stanzaliving.core.user.acl.enums.AccessLevel;
+import com.stanzaliving.core.base.enums.AccessLevel;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

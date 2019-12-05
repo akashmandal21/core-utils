@@ -1,10 +1,14 @@
 package com.stanzaliving.core.operations.dto;
 
-import com.stanzaliving.core.user.acl.enums.AccessLevel;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import javax.validation.constraints.NotBlank;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
