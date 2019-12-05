@@ -13,6 +13,7 @@ import lombok.ToString;
 @ToString
 public class StateLevelAccessMetadata {
 
-	private Map<StateNameView, CityLevelAccessMetadata> stateLevel;
+	private Map<Long, CityLevelAccessMetadata> stateLevel;
 	
+	private Map<Long,StateNameView> stateNameView;
 }
