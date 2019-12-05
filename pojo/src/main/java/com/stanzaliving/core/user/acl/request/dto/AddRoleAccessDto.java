@@ -3,17 +3,17 @@
  */
 package com.stanzaliving.core.user.acl.request.dto;
 
-import com.stanzaliving.core.base.enums.AccessLevel;
-import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.user.acl.enums.RoleAccessType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author naveen.kumar
  *
- * @date 22-Oct-2019
+ * @date 23-Oct-2019
  *
  **/
 @Getter
@@ -22,15 +22,15 @@ import javax.validation.constraints.NotBlank;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateRoleRequestDto extends AddRoleRequestDto {
+public class AddRoleAccessDto {
 
-	@NotBlank(message = "Role Uuid is Mandatory")
+	@NotBlank
 	private String roleUuid;
 
 	@NotBlank
-	private Department department;
+	private String accessUuid;
 
-	@NotBlank
-	private AccessLevel accessLevel;
+	@NotNull
+	private RoleAccessType roleAccessType;
 
 }

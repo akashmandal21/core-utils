@@ -29,6 +29,6 @@ public class ApiDto extends AbstractDto {
 
 	private String actionUrl;
 
-	private String category;
+	private String service;
 
 }
