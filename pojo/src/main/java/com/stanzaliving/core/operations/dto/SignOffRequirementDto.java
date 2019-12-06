@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -27,7 +28,7 @@ public class SignOffRequirementDto {
 
     private int signedOffRequirement;
 
-    private String date;
+    private Date date;
 
 
 
