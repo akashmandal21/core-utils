@@ -1,5 +1,6 @@
 package com.stanzaliving.core.base.utils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -23,6 +24,20 @@ public class DateUtil {
 		if (dateInput != null) {
 			SimpleDateFormat formatterOutput = new SimpleDateFormat(dateFormat.getValue());
 			return formatterOutput.format(dateInput);
+		}
+
+		return null;
+	}
+	
+	public static Date customDateParser(String dateInput, DateFormat dateFormat) {
+
+		if (dateInput != null) {
+			SimpleDateFormat formatterOutput = new SimpleDateFormat(dateFormat.getValue());
+			try {
+				return formatterOutput.parse(dateInput);
+			} catch (ParseException e) {
+				// Ignore
+			}
 		}
 
 		return null;
@@ -180,4 +195,5 @@ public class DateUtil {
 
 		return d1.isAfter(d2) ? d1 : d2;
 	}
+	
 }
