@@ -19,7 +19,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class CountryUIDto {
 
-	private long id;
+	private Long id;
 
 	private String uuid;
 
