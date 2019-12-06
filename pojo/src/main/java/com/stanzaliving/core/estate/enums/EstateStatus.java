@@ -22,12 +22,17 @@ public enum EstateStatus {
 	DRAFT_IN_PROGRESS("Draft In Progress"),
 	SHORTLISTED("Shortlisted"),
 	REJECTED("Rejected"),
+	APPROVED_BY_CITY_HEAD("Shortlisted By City Head"),
+	REJECTED_BY_CITY_HEAD("Rejected By City Head"),
+	SENT_FOR_APPROVAL_TO_CITY_HEAD("Sent for approval to City Head"),
 	DOCUMENTS_NEEDED("Documents Needed"),
 	INFORMATION_NEEDED("Information Needed"),
 	SENT_BACK_BY_BDHEAD("Sent Back By BD Head"),
 	SENT_FOR_APPROVAL("Sent for Approval");
 
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
+	
+	public static List<EstateStatus> MANAGER_NAME_ESTATE_STATUS;
 
 	private String name;
 
