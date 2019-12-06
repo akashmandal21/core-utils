@@ -1,6 +1,7 @@
 package com.stanzaliving.core.operations.dto;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -31,7 +32,7 @@ public class SignOffRequirementDto {
 
     private int signedOffRequirement;
 
-    private String date;
+    private Date date;
 
 
 
