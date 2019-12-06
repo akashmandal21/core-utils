@@ -1,9 +1,11 @@
 package com.stanzaliving.core.operations.dto;
 
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
-import lombok.AccessLevel;
+import javax.validation.constraints.NotBlank;
+
+import com.stanzaliving.core.base.enums.AccessLevel;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,21 +21,19 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class SignOffRequirementDto {
 
-    private String userName;
+	private String userName;
 
-    private String uuid;
+	private String uuid;
 
-    private AccessLevel accesslevel;
+	private AccessLevel accesslevel;
 
-    @NotBlank(message = "Role is Mandatory for People Requirement")
-    private String roleId;
+	@NotBlank(message = "Role is Mandatory for People Requirement")
+	private String roleId;
 
-    private String roleName;
+	private String roleName;
 
-    private int signedOffRequirement;
+	private int signedOffRequirement;
 
-    private Date date;
-
-
+	private Date date;
 
 }
