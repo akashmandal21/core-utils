@@ -10,7 +10,11 @@ import com.stanzaliving.core.user.enums.MaritalStatus;
 import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.utilservice.annotations.Email;
 import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -27,6 +31,9 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AddUserRequestDto {
 
 	@NotNull(message = "User Type is mandatory to add new user")
