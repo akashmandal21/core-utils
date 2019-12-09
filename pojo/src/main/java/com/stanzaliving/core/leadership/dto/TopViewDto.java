@@ -11,13 +11,6 @@ import lombok.ToString;
 @Setter
 public class TopViewDto {
 
-	private String estateName;
-	
-	private Double buildingArea;
-	
-	private Integer numberOfRooms;
-	
-	private Integer numberOfBeds;
 	
 	private String pocName;
 	

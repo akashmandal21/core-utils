@@ -4,11 +4,13 @@ import java.util.List;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @Builder
 @Getter
 @ToString
+@Setter
 public class PricingViewEstateData {
 
 	private String monthlyRent;
@@ -26,6 +28,11 @@ public class PricingViewEstateData {
 	private String tokenDeposit;
 	
 	private String amortizationPeriod;
+	
+	private String buildingArea;
+	
+	private String numberOfRooms;
+	
 	
 	private List<String> keyPositives;
 	
