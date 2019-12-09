@@ -1,7 +1,10 @@
 package com.stanzaliving.qaservice.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,14 +30,18 @@ public class QuestionServiceImpl implements QuestionService {
 	QuestionRepository questionRepository;
 
 	@Override
-	public QuestionEntity addQuestion(QuestionRequestDto questionRequestDto) {
+	public QuestionEntity createQuestion(QuestionRequestDto questionRequestDto) {
+		
 		String metadata = null;
 		
-		if (null != questionRequestDto.getMetadataId()) {
+		if (questionRequestDto.getMetadataId() != null) {
+			
 			QuestionMetadataEntity questionMetadata = questionMetadataService.findById(questionRequestDto.getMetadataId()).orElse(null);
-			if (null == questionMetadata) {
+			
+			if (questionMetadata == null) {
 				throw new StanzaException("Unable to get metadata using id " + questionRequestDto.getMetadataId());
 			}
+			
 			metadata = questionMetadata.getMetadata();
 		}
 
@@ -68,5 +75,28 @@ public class QuestionServiceImpl implements QuestionService {
 		});
 		
 		questionRepository.saveAll(questionEntities);
+	}
+
+	@Override
+	public Map<Integer,Map<String, QuestionEntity>> getScreenwiseQuestionMapWithQuestionIdentifier() {
+		
+		Map<Integer, Map<String, QuestionEntity>> screenQuestionMap = new HashMap<>();
+		List<QuestionEntity> questionList = findAll();
+		
+		Map<Integer, List<QuestionEntity>> quesGroupByScreen = 
+													questionList.stream().collect(Collectors.groupingBy(QuestionEntity::getScreenGroupNum));
+		
+		quesGroupByScreen.forEach((k, v) -> {
+			List<QuestionEntity> questions = v;
+			Map<String, QuestionEntity> questionIdentifierMap = new HashMap<>();
+			
+			questions.forEach(question -> {
+				questionIdentifierMap.put(question.getQuestionIdentifier(), question);
+			});
+			
+			screenQuestionMap.put(k, questionIdentifierMap);
+		});
+		
+		return screenQuestionMap;
 	}
 }
