@@ -33,4 +33,8 @@ public class EstateDashboardListingDto extends EstateDto {
 	private String estateStatusStr;
 	
 	private String createdByName;
+	
+	private String createdByNumber;
+	
+	private String managerName;
 }
