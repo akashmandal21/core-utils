@@ -113,7 +113,7 @@ public class InternalDataControllerApi {
 
 	public ResponseDto<Map<Long, CountryLevelAccessMetadata>> getHierarchy(AccessLevel accessLevel, List<String> accessLevelUuids) {
 
-		log.info("getHierarchy is called for {}, accessLevelUuids {}");
+		log.info("getHierarchy is called for {}, accessLevelUuids {}", accessLevel, accessLevelUuids);
 
 		if (CollectionUtils.isEmpty(accessLevelUuids)) {
 			return null;
