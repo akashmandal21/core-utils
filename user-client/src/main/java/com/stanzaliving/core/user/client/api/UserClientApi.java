@@ -36,9 +36,9 @@ public class UserClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public ResponseDto<PageResponse<UserProfileDto>> getUserDetails(int pageNumber,int pageSize,List<String> userIds) {
+	public ResponseDto<PageResponse<UserProfileDto>> getUserDetails(int pageNumber, int pageSize, List<String> userIds) {
 
-		if (pageNumber < 1 || pageSize < 1 || CollectionUtils.isEmpty(userIds) ) {
+		if (pageNumber < 1 || pageSize < 1 || CollectionUtils.isEmpty(userIds)) {
 			throw new IllegalArgumentException("Please check all the provided params!!");
 		}
 
@@ -54,7 +54,7 @@ public class UserClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		queryParams.putAll(restClient.parameterToMultiValueMap(null, "userIds", userIds));
-		
+
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {
@@ -66,7 +66,7 @@ public class UserClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public ResponseDto<List<String>> getUserIdsMappedToManagerId(String managerId) {
 		Object postBody = null;
 
@@ -74,7 +74,7 @@ public class UserClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		uriVariables.put("managerId", managerId);
-		
+
 		String path = UriComponentsBuilder.fromPath("/usermanagermapping/{managerId}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -88,7 +88,7 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
 		};
-		
+
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 	}

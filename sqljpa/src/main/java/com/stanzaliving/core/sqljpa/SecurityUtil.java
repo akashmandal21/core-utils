@@ -57,9 +57,8 @@ public class SecurityUtil {
 	private static CurrentUser getCurrentUser() {
 		try {
 			RequestAttributes attributes = RequestContextHolder.currentRequestAttributes();
-
 			Object scopedObject =
-					attributes.getAttribute("com.stanzaliving.core.base.common.dto.CurrentUser", RequestAttributes.SCOPE_REQUEST);
+					attributes.getAttribute("com.stanzaliving.core.pojo.CurrentUser", RequestAttributes.SCOPE_REQUEST);
 
 			String json = objectMapper.writeValueAsString(scopedObject);
 
