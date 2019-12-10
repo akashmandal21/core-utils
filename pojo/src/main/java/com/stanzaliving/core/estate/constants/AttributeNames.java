@@ -133,7 +133,8 @@ public class AttributeNames {
 	public static final String FIN_FINANCIAL_COMMENTS = "financialCommets";
 	public static final String FIN_BUILDING_HANDOVER_DATE = "buildingHandoverDate";
 	public static final String FIN_RENT_START_DATE = "rentStartDate";
-
+	public static final String FIN_PAYMENT_OPTION = "paymentOption";
+	
 	public static final String FIN_BROKER_DETAILS = "brokerDetails";
 
 	public static final String FIN_BROKER_EMAIL = "brokerEmail";
