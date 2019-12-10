@@ -17,14 +17,16 @@ import lombok.Getter;
 @Getter
 public enum Designation {
 
-	SDE("Software Development Engineer"),
-	EM("Engineering Manager"),
-	PM("Product Manager");
+	SDE_1("Software Development Engineer", 1),
+	EM("Engineering Manager", 0),
+	PM("Product Manager", 0);
 
 	private String name;
+	private int level;
 
-	private Designation(String name) {
+	private Designation(String name, int level) {
 		this.name = name;
+		this.level = level;
 	}
 
 	private static Map<Designation, String> designationNameMap = new EnumMap<>(Designation.class);
@@ -32,6 +34,12 @@ public enum Designation {
 	static {
 
 		for (Designation designation : Designation.values()) {
+
+			String designationName = designation.getName();
+
+			if (designation.getLevel() > 0) {
+				designationName = designationName.concat("-" + designation.getLevel());
+			}
 			designationNameMap.put(designation, designation.getName());
 		}
 	}
