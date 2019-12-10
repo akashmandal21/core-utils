@@ -28,7 +28,9 @@ import lombok.ToString;
 @AllArgsConstructor
 public class UserRoleListingDto {
 
-	private ListingDto roleDetails;
+	private String roleId;
+
+	private String roleName;
 
 	private List<ListingDto> roleMappings;
 }
