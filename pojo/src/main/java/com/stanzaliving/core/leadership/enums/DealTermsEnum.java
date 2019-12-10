@@ -30,7 +30,7 @@ public enum DealTermsEnum {
 */
 
 	RENTANDPAYMENTFREQUENCY("Rents and Payment Frequency", "%s paid %s", Arrays.asList(AttributeNames.FIN_MONTHLY_RENT, AttributeNames.FIN_PAYMENT_OPTION)),
-	RENTESCALATION("Rent Escalation","%s% after every %s years",Arrays.asList(AttributeNames.FIN_RENTAL_INFLATION_PERCENT,AttributeNames.FIN_RENTAL_INFLATION_IN_YEARS)),
+	RENTESCALATION("Rent Escalation","%s percent after every %s years",Arrays.asList(AttributeNames.FIN_RENTAL_INFLATION_PERCENT,AttributeNames.FIN_RENTAL_INFLATION_IN_YEARS)),
 	INTERESTFREEREFUNDABLEDEPOSIT("Interest Free Refundable Deposit","%s Of Rent Equivalent",Arrays.asList(AttributeNames.FIN_SECURITY_DEPOSITE_MONTHS_OF_RENT));
 	
 	String dealTerm;
