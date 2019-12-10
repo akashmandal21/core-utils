@@ -1,11 +1,14 @@
 /**
  * 
  */
-package com.stanzaliving.core.base.common.dto;
+package com.stanzaliving.core.operations.dto;
+
+import java.util.List;
+
+import com.stanzaliving.core.base.common.dto.ListingDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +17,7 @@ import lombok.ToString;
 /**
  * @author naveen.kumar
  *
- * @date 27-Nov-2019
+ * @date 10-Dec-2019
  *
  **/
 @Getter
@@ -23,10 +26,9 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
-public class ListingDto {
+public class UserRoleListingDto {
 
-	private String id;
+	private ListingDto roleDetails;
 
-	private String name;
+	private List<ListingDto> roleMappings;
 }

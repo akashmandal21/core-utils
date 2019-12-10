@@ -4,11 +4,9 @@
 package com.stanzaliving.core.operations.dto;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.validation.constraints.NotBlank;
 
-import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.operations.enums.HiringStatus;
 import com.stanzaliving.core.user.enums.Designation;
 import com.stanzaliving.core.user.enums.Gender;
@@ -62,6 +60,6 @@ public class OpsUserDto {
 
 	private boolean assigned;
 
-	private Map<ListingDto, List<ListingDto>> assignedRoles;
+	private List<UserRoleListingDto> assignedRoles;
 
 }
