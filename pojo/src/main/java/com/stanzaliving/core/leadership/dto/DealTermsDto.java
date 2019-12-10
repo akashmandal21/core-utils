@@ -4,16 +4,16 @@ import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.leadership.enums.DealTermStatus;
 import com.stanzaliving.core.leadership.enums.DealTermsEnum;
 
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
-@Builder
+@SuperBuilder
 @Setter
 @Getter
-@ToString
+@ToString(callSuper = true)
 @EqualsAndHashCode(of="identifier",callSuper = false)
 public class DealTermsDto extends AbstractDto{
 
