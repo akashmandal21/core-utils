@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.stanzaliving.comments.http.service.UserHttpService;
+import com.stanzaliving.comments.http.service.UserClientService;
 import com.stanzaliving.core.base.common.dto.PageResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -23,7 +23,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Service
 @Log4j2
-public class UserHttpServiceImpl implements UserHttpService {
+public class UserClientServiceImpl implements UserClientService {
 
 	@Qualifier("userClient")
 	@Autowired

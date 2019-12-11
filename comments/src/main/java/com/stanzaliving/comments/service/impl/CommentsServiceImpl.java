@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.stanzaliving.comments.db.service.CommentsDbService;
 import com.stanzaliving.comments.dto.CommentsDto;
 import com.stanzaliving.comments.entity.CommentsEntity;
-import com.stanzaliving.comments.http.service.UserHttpService;
+import com.stanzaliving.comments.http.service.UserClientService;
 import com.stanzaliving.comments.service.CommentsService;
 import com.stanzaliving.comments.util.CommentsAdapter;
 import com.stanzaliving.core.base.common.dto.PageResponse;
@@ -27,7 +27,7 @@ public class CommentsServiceImpl implements CommentsService {
 	private CommentsDbService commentsDbService;
 	
 	@Autowired
-	private UserHttpService userHttpService;
+	private UserClientService userHttpService;
 	
 	@Override
 	public CommentsDto post(CommentsDto commentsDto) {
