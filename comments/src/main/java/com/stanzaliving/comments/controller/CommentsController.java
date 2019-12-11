@@ -2,11 +2,10 @@ package com.stanzaliving.comments.controller;
 
 import java.util.Objects;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,7 +56,7 @@ public class CommentsController {
 	
 	@GetMapping("/get/{contextId}/{pageNum}/{pageSize}")
 	@ApiOperation(value = "Get Comment")
-	public ResponseDto<PageResponse<CommentsDto>> postComment(@PathParam("contextId") String contextId,@PathParam("pageNum") int pageNum,@PathParam("pageSize") int pageSize) {
+	public ResponseDto<PageResponse<CommentsDto>> postComment(@PathVariable String contextId,@PathVariable int pageNum,@PathVariable int pageSize) {
 
 		log.info("Got request to get comment list for ["+contextId+"] ["+pageNum+"] ["+pageSize+"]");
 		
