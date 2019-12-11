@@ -12,26 +12,18 @@ import lombok.Getter;
 @Getter
 public enum DealTermsEnum {
 	
-	/*
-	 * 	public static final String FIN_MONTHLY_RENT = "monthlyRent";
-	public static final String FIN_LEASE_DURATION_IN_YEARS = "leaseDurationInYears";
-	public static final String FIN_SECURITY_DEPOSITE_MONTHS_OF_RENT = "securityDepositMonthsOfRent";
-	public static final String FIN_RENTAL_INFLATION_IN_YEARS = "rentalInflationInYears";
-	public static final String FIN_RENTAL_INFLATION_PERCENT = "rentalInflationPercent";
-	public static final String FIN_ADVANCE_RENT_MONTH_COUNT = "advanceRentMonthCount";
-	public static final String FIN_AMORTIZED_PERIOD_IN_MONTHS = "amortizedPeriodInMonths";
-	public static final String FIN_LEASE_LOCKIN_PERIOD_IN_YEARS = "leaseLockInPeriodInYears";
-	public static final String FIN_TOKEN_DEPOSIT_IN_RUPEES = "tokenDepositInRupees";
-	public static final String FIN_RENT_FREE_PERIOD_IN_MONTHS = "rentFreePeriodInMonths";
-	public static final String FIN_FINANCIAL_COMMENTS = "financialCommets";
-	public static final String FIN_BUILDING_HANDOVER_DATE = "buildingHandoverDate";
-	public static final String FIN_RENT_START_DATE = "rentStartDate";
-	public static final String FIN_PAYMENT_OPTION = "paymentOption";
-*/
 
 	RENTANDPAYMENTFREQUENCY("Rents and Payment Frequency", "%s paid %s", Arrays.asList(AttributeNames.FIN_MONTHLY_RENT, AttributeNames.FIN_PAYMENT_OPTION)),
 	RENTESCALATION("Rent Escalation","%s percent after every %s years",Arrays.asList(AttributeNames.FIN_RENTAL_INFLATION_PERCENT,AttributeNames.FIN_RENTAL_INFLATION_IN_YEARS)),
-	INTERESTFREEREFUNDABLEDEPOSIT("Interest Free Refundable Deposit","%s Of Rent Equivalent",Arrays.asList(AttributeNames.FIN_SECURITY_DEPOSITE_MONTHS_OF_RENT));
+	INTERESTFREEREFUNDABLEDEPOSIT("Interest Free Refundable Deposit","%s months of rent equivalent",Arrays.asList(AttributeNames.FIN_SECURITY_DEPOSITE_MONTHS_OF_RENT)),
+	ADVANCERENT("Advance Rent","%s months",Arrays.asList(AttributeNames.FIN_ADVANCE_RENT_MONTH_COUNT)),
+	ADJUSTMENTS("Adjustments","Amortized/adjusted in first %s months",Arrays.asList(AttributeNames.FIN_AMORTIZED_PERIOD_IN_MONTHS)),
+	LEASETERM("Lease Term","%s years",Arrays.asList(AttributeNames.FIN_LEASE_DURATION_IN_YEARS)),
+	LEASEDPREMISESHANDOVERDATE("Leased Premisis Handover Date","%s",Arrays.asList(AttributeNames.FIN_BUILDING_HANDOVER_DATE)),
+	RENTFREEFITOUTPERIOD("Rent-Free Fit Out Period","%s months",Arrays.asList(AttributeNames.FIN_RENT_FREE_PERIOD_IN_MONTHS)),
+	LESSELOCKINPERIOD("Lesse Lock-in Period","%s months",Arrays.asList(AttributeNames.FIN_LEASE_LOCKIN_PERIOD_IN_YEARS)),
+	NOTICEPERIODFOREXIT("Notice Period For Exit by Lessee","%s months",Arrays.asList(AttributeNames.FIN_LEASE_LOCKIN_PERIOD_IN_YEARS)),
+	TOKENDEPOSIT("Token Deposit","Rs. %s",Arrays.asList(AttributeNames.FIN_TOKEN_DEPOSIT_IN_RUPEES));
 	
 	String dealTerm;
 

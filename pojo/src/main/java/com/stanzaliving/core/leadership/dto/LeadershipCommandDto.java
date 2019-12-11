@@ -1,7 +1,5 @@
 package com.stanzaliving.core.leadership.dto;
 
-import java.util.List;
-
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.leadership.enums.LeadershipCommand;
@@ -13,16 +11,13 @@ import lombok.ToString;
 @Builder
 @Getter
 @ToString
-public class PricingApprovalScreenCommandDto {
+public class LeadershipCommandDto {
 
 	@NotNull(message = "Leadeship Command can not be null")
 	private LeadershipCommand leadershipCommand;
 	
-	private List<DealTermsDto> dealTermsDtos;
-	
-	private Double margin;
-	
 	private String estateUuid;
 
+	@NotNull(message = "Estate Id can not be null")
 	private Long estateId;
 }
