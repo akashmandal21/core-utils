@@ -35,6 +35,7 @@
 		<module>user-client</module>
 		<module>redis</module>
 		<module>qaservice</module>
+		<module>comments</module>
 	</modules>
 
 	<build>
