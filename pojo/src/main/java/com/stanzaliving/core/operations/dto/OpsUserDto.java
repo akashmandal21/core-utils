@@ -60,6 +60,12 @@ public class OpsUserDto {
 
 	private boolean assigned;
 
+	private String role;
+
+	private int numberOfBeds;
+
+	private double score;
+
 	private List<UserRoleListingDto> assignedRoles;
 
 }
