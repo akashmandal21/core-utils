@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
 import com.stanzaliving.comments.db.service.CommentsDbService;
 import com.stanzaliving.comments.entity.CommentsEntity;
 import com.stanzaliving.comments.repository.PropertyCommentsRepository;
 import com.stanzaliving.core.sqljpa.service.impl.AbstractJpaServiceImpl;
 
+@Service
 public class CommentsDbServiceImpl extends AbstractJpaServiceImpl<CommentsEntity,Long,PropertyCommentsRepository> implements CommentsDbService {
 
 	@Autowired
