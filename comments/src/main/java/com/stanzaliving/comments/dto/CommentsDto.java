@@ -28,4 +28,6 @@ public class CommentsDto {
 	private String contextId;
 
 	private String contextType;
+	
+	private String applicationType;
 }
