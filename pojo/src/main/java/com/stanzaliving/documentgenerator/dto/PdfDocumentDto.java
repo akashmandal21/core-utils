@@ -1,7 +1,6 @@
 package com.stanzaliving.documentgenerator.dto;
 
 import java.io.Serializable;
-import java.util.Map;
 
 import javax.validation.constraints.NotBlank;
 
@@ -21,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class PdfRequestDto extends DocumentGeneratorBaseRequestDto implements Serializable{
+public class PdfDocumentDto extends DocumentGeneratorTemplateRequestDto implements Serializable{
 
 	private static final long serialVersionUID = 11231290L;
 	
@@ -37,11 +36,10 @@ public class PdfRequestDto extends DocumentGeneratorBaseRequestDto implements Se
 	 * */
 	private String pdfPath;
 	
-	
 	/**
-	 * Data to be substitute for the place holders.
+	 * Unique Kafka topic name for document response publish.
 	 * */
-	private Map<String, Object> pdfData;
+	private String topicName;
 		
 	
 	

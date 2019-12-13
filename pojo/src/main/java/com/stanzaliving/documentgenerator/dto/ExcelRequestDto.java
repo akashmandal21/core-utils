@@ -2,7 +2,7 @@ package com.stanzaliving.documentgenerator.dto;
 
 import java.io.Serializable;
 
-public class ExcelRequestDto extends DocumentGeneratorBaseRequestDto implements Serializable {
+public class ExcelRequestDto extends DocumentGeneratorTemplateRequestDto implements Serializable {
 
 	/**
 	 * 
