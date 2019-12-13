@@ -27,7 +27,7 @@ public enum EstateStatus {
 	SENT_FOR_APPROVAL_TO_CITY_HEAD("Sent for approval to City Head"),
 	DOCUMENTS_NEEDED("Documents Needed"),
 	INFORMATION_NEEDED("Information Needed"),
-	SENT_BACK_BY_BDHEAD("Sent Back By BD Head"),
+	SENT_BACK("Sent Back"),
 	SENT_FOR_APPROVAL("Sent for Approval");
 
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
@@ -44,7 +44,7 @@ public enum EstateStatus {
 		estateStatusMap.put(REJECTED, EstateStatus.REJECTED.getName());
 		estateStatusMap.put(DOCUMENTS_NEEDED, EstateStatus.DOCUMENTS_NEEDED.getName());
 		estateStatusMap.put(INFORMATION_NEEDED, EstateStatus.INFORMATION_NEEDED.getName());
-		estateStatusMap.put(SENT_BACK_BY_BDHEAD, EstateStatus.SENT_BACK_BY_BDHEAD.getName());
+		estateStatusMap.put(SENT_BACK, EstateStatus.SENT_BACK.getName());
 		estateStatusMap.put(SENT_FOR_APPROVAL, EstateStatus.SENT_FOR_APPROVAL.getName());
 
 		NON_MODIFIABLE_ESTATE_STATUS = Arrays.asList(SENT_FOR_APPROVAL, SHORTLISTED);
