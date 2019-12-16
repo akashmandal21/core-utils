@@ -51,7 +51,7 @@ public class AclUserClientApi {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/acl/user/addRole").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/acl/user/add/role").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
