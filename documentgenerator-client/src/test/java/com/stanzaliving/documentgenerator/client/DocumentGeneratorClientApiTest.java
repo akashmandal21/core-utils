@@ -1,13 +1,14 @@
 package com.stanzaliving.documentgenerator.client;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -96,7 +97,7 @@ public class DocumentGeneratorClientApiTest {
 		assertNotNull(responsePdf);
 		assertNotNull(responsePdf.getData());
 		//assertEquals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/template_stanza_ftl_test.pdf", responsePdf.getData().getDocumentDto().getGeneratedDocumentPath());
-		
+		assertThat(responsePdf.getData().getDocumentDto().getGeneratedDocumentPath(), CoreMatchers.containsString("test_service1"));
 	}
 	
 	
@@ -118,9 +119,7 @@ public class DocumentGeneratorClientApiTest {
 		assertNotNull(responsePdf);
 		assertNotNull(responsePdf.getData());
 		
-		
-		assertEquals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/test_html_template_stanza_html_test.pdf", 
-				responsePdf.getData().getDocumentDto().getGeneratedDocumentPath());
+		assertThat(responsePdf.getData().getDocumentDto().getGeneratedDocumentPath(), CoreMatchers.containsString("test_service2"));
 		
 		
 	}
@@ -153,12 +152,6 @@ public class DocumentGeneratorClientApiTest {
 		
 		assertTrue(responsePdfList.getData().size() > 0);
 		
-		
-		List<String> uploadedPdfPaths =responsePdfList.getData().stream().map(e -> e.getDocumentDto().getGeneratedDocumentPath()).collect(Collectors.toList());
-		
-		assertTrue(uploadedPdfPaths.stream().anyMatch(e -> e.equals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/test_html_template_stanza_html_test1.pdf")));
-		assertTrue(uploadedPdfPaths.stream().anyMatch(e -> e.equals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/test_html_template_stanza_html_test2.pdf")));
-				
 		
 	}
 	

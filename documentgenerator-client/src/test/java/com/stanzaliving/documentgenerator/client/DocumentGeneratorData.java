@@ -62,7 +62,7 @@ public class DocumentGeneratorData {
 		DocumentDto documentDto = DocumentDto.builder()
 				.documentOutputFileName("template_stanza_ftl_test")
 				.topicName("Topic-documentgenerator")
-				.serviceName("test")
+				.serviceName("test_service1")
 				.isOverride(true)
 				.build();
 		
@@ -97,7 +97,7 @@ public class DocumentGeneratorData {
 		DocumentDto documentDto = DocumentDto.builder()
 				.documentOutputFileName("template_stanza_html_test")
 				.topicName("Topic-documentgenerator")
-				.serviceName("test_html")
+				.serviceName("test_service2")
 				.isOverride(false)
 				.build();
 		
