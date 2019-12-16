@@ -32,12 +32,16 @@ public class DocumentGeneratorClientApiTest {
 
 
 	PdfDocumentDto pdfDocumentDto =null;
+	
+	
 
 
 	@Before
 	public void setupData() {
 		stanzaRestClient = new StanzaRestClient("http://localhost:8086/documentgenerator");
 		clientApi = new DocumentGeneratorClientApi(stanzaRestClient);
+		
+		
 	}
 
 
@@ -82,19 +86,16 @@ public class DocumentGeneratorClientApiTest {
 
 		pdfDocumentDto = DocumentGeneratorData.getPdfDocumentDtoFTLTemplateType();
 
-		assertTemplateDto(pdfDocumentDto);
+		assertTemplateDto(pdfDocumentDto.getTemplateDto());
 		
-		assertNotNull(pdfDocumentDto.getPdfName());
+		assertNotNull(pdfDocumentDto.getDocumentDto().getDocumentOutputFileName());
 		
-		assertTrue(pdfDocumentDto.getPdfName().length()> 0);
-
+		assertTrue(pdfDocumentDto.getDocumentDto().getDocumentOutputFileName().length()> 0);
+		
 		ResponseDto<PdfDocumentDto> responsePdf = clientApi.generatePdf(pdfDocumentDto);
 		assertNotNull(responsePdf);
 		assertNotNull(responsePdf.getData());
-		
-		
-		assertEquals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/template_stanza_ftl_test.pdf", responsePdf.getData().getPdfPath());
-		
+		//assertEquals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/template_stanza_ftl_test.pdf", responsePdf.getData().getDocumentDto().getGeneratedDocumentPath());
 		
 	}
 	
@@ -107,18 +108,19 @@ public class DocumentGeneratorClientApiTest {
 
 		pdfDocumentDto = DocumentGeneratorData.getPdfDocumentDtoHTMLTemplateType();
 
-		assertTemplateDto(pdfDocumentDto);
+		assertTemplateDto(pdfDocumentDto.getTemplateDto());
 		
-		assertNotNull(pdfDocumentDto.getPdfName());
+		assertNotNull(pdfDocumentDto.getDocumentDto().getDocumentOutputFileName());
 		
-		assertTrue(pdfDocumentDto.getPdfName().length()> 0);
+		assertTrue(pdfDocumentDto.getDocumentDto().getDocumentOutputFileName().length()> 0);
 
 		ResponseDto<PdfDocumentDto> responsePdf = clientApi.generatePdf(pdfDocumentDto);
 		assertNotNull(responsePdf);
 		assertNotNull(responsePdf.getData());
 		
 		
-		assertEquals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/template_stanza_html_test.pdf", responsePdf.getData().getPdfPath());
+		assertEquals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/test_html_template_stanza_html_test.pdf", 
+				responsePdf.getData().getDocumentDto().getGeneratedDocumentPath());
 		
 		
 	}
@@ -136,18 +138,15 @@ public class DocumentGeneratorClientApiTest {
 		for(int i=1;i<=2;i++) {
 			PdfDocumentDto dto = DocumentGeneratorData.getPdfDocumentDtoHTMLTemplateType();
 			
-			assertTemplateDto(dto);
-			assertNotNull(dto.getPdfName());
-			assertTrue(dto.getPdfName().length()> 0);
+			assertTemplateDto(dto.getTemplateDto());
+			assertNotNull(dto.getDocumentDto().getDocumentOutputFileName());
+			assertTrue(dto.getDocumentDto().getDocumentOutputFileName().length()> 0);
 			
-			dto.setPdfName(dto.getPdfName()+i);
+			dto.getDocumentDto().setDocumentOutputFileName(dto.getDocumentDto().getDocumentOutputFileName()+i);
 			
 			pdfDocumentDtos.add(dto);
 		}
 		
-
-		
-
 		ResponseDto<List<PdfDocumentDto>> responsePdfList = clientApi.generateListOfPdf(pdfDocumentDtos);
 		
 		assertNotNull(responsePdfList);
@@ -155,21 +154,13 @@ public class DocumentGeneratorClientApiTest {
 		assertTrue(responsePdfList.getData().size() > 0);
 		
 		
-		List<String> uploadedPdfPaths =responsePdfList.getData().stream().map(PdfDocumentDto::getPdfPath).collect(Collectors.toList());
+		List<String> uploadedPdfPaths =responsePdfList.getData().stream().map(e -> e.getDocumentDto().getGeneratedDocumentPath()).collect(Collectors.toList());
 		
-		assertTrue(uploadedPdfPaths.stream().anyMatch(e -> e.equals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/template_stanza_html_test1.pdf")));
-		assertTrue(uploadedPdfPaths.stream().anyMatch(e -> e.equals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/template_stanza_html_test2.pdf")));
+		assertTrue(uploadedPdfPaths.stream().anyMatch(e -> e.equals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/test_html_template_stanza_html_test1.pdf")));
+		assertTrue(uploadedPdfPaths.stream().anyMatch(e -> e.equals("https://dev-mail-templates-erp.s3.ap-south-1.amazonaws.com/test_html_template_stanza_html_test2.pdf")));
 				
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	private void assertTemplateDto(DocumentGeneratorTemplateRequestDto mockTemplateDto) {

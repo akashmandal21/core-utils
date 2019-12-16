@@ -3,25 +3,32 @@ package com.stanzaliving.documentgenerator.client;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.stanzaliving.documentgenerator.dto.DocumentDto;
 import com.stanzaliving.documentgenerator.dto.DocumentGeneratorTemplateRequestDto;
 import com.stanzaliving.documentgenerator.dto.PdfDocumentDto;
 import com.stanzaliving.documentgenerator.enums.DocumentGeneratorTemplateType;
 
 public class DocumentGeneratorData {
+	
+	
+	
+	public static AddressTestData getAddressTestData() {
+		return new AddressTestData("201302","Noida Sector 34","Noida");
+	}
 
 	public static DocumentGeneratorTemplateRequestDto getHTMLTemplateDto() {
 
 		DocumentGeneratorTemplateRequestDto templateRequestDto = new DocumentGeneratorTemplateRequestDto();
-		templateRequestDto.setTemplateName("template_stanza");
+		templateRequestDto.setTemplateName("template_stanza_html");
 		templateRequestDto.setTemplateType(DocumentGeneratorTemplateType.TYPE_HTML.getName());
 
 
 		Map<String,Object> modelData =new HashMap<>();
 		modelData.put("firstName","Debendra");
 		modelData.put("lastName","Dhinda");
-		modelData.put("zipCode","201302");
-		modelData.put("street","Noida Sector 34");
-		modelData.put("city","Noida");
+		
+		modelData.put("address",getAddressTestData());
+		
 		modelData.put("image","https://res.cloudinary.com/stanza-living/image/upload/q_60,w_1000/v1554802583/Website/Residences/Boston/1.jpg");
 		templateRequestDto.setTemplateModelData(modelData);
 
@@ -50,19 +57,15 @@ public class DocumentGeneratorData {
 
 	}
 
-
-
-
-
 	public static PdfDocumentDto getPdfDocumentDtoFTLTemplateType () {
 
-		PdfDocumentDto pdfDocumentDto = PdfDocumentDto.builder().build();
-
-		pdfDocumentDto.setPdfName("template_stanza_ftl_test");
-		pdfDocumentDto.setTopicName("Topic-documentgenerator");
-		pdfDocumentDto.setTemplateName("template_stanza_ftl");
-		pdfDocumentDto.setTemplateType(DocumentGeneratorTemplateType.TYPE_FTL.getName());
-
+		DocumentDto documentDto = DocumentDto.builder()
+				.documentOutputFileName("template_stanza_ftl_test")
+				.topicName("Topic-documentgenerator")
+				.serviceName("test")
+				.isOverride(true)
+				.build();
+		
 
 		Map<String,Object> modelData =new HashMap<>();
 		modelData.put("firstName","Debendra");
@@ -70,8 +73,18 @@ public class DocumentGeneratorData {
 		modelData.put("zipCode","201302");
 		modelData.put("street","Noida Sector 34");
 		modelData.put("city","Noida");
-		pdfDocumentDto.setTemplateModelData(modelData);
 
+		DocumentGeneratorTemplateRequestDto templateRequestDto =DocumentGeneratorTemplateRequestDto.builder()
+				.templateName("template_stanza_ftl")
+				.templateType(DocumentGeneratorTemplateType.TYPE_FTL.getName())
+				.templateModelData(modelData)
+				.build();
+		
+
+		PdfDocumentDto pdfDocumentDto = PdfDocumentDto.builder()
+				.documentDto(documentDto)
+				.templateDto(templateRequestDto)
+				.build();
 		return pdfDocumentDto;
 	}
 	
@@ -80,23 +93,32 @@ public class DocumentGeneratorData {
 	
 	public static PdfDocumentDto getPdfDocumentDtoHTMLTemplateType () {
 
-		PdfDocumentDto pdfDocumentDto = PdfDocumentDto.builder().build();
-
-		pdfDocumentDto.setPdfName("template_stanza_html_test");
-		pdfDocumentDto.setTopicName("Topic-documentgenerator");
-		pdfDocumentDto.setTemplateName("template_stanza_html");
-		pdfDocumentDto.setTemplateType(DocumentGeneratorTemplateType.TYPE_HTML.getName());
-
-
+		
+		DocumentDto documentDto = DocumentDto.builder()
+				.documentOutputFileName("template_stanza_html_test")
+				.topicName("Topic-documentgenerator")
+				.serviceName("test_html")
+				.isOverride(false)
+				.build();
+		
+		
 		Map<String,Object> modelData =new HashMap<>();
 		modelData.put("firstName","Ankit");
 		modelData.put("lastName","Jindal");
-		modelData.put("zipCode","201302");
-		modelData.put("street","Noida Sector 34");
-		modelData.put("city","Noida");
+		modelData.put("address",getAddressTestData());
 		modelData.put("image","https://res.cloudinary.com/stanza-living/image/upload/q_60,w_1000/v1554802583/Website/Residences/Boston/1.jpg");
-		pdfDocumentDto.setTemplateModelData(modelData);
 
+		DocumentGeneratorTemplateRequestDto templateRequestDto =DocumentGeneratorTemplateRequestDto.builder()
+				.templateName("template_stanza_html")
+				.templateType(DocumentGeneratorTemplateType.TYPE_HTML.getName())
+				.templateModelData(modelData)
+				.build();
+
+		PdfDocumentDto pdfDocumentDto = PdfDocumentDto.builder()
+				.documentDto(documentDto)
+				.templateDto(templateRequestDto)
+				.build();
+		
 		return pdfDocumentDto;
 	}
 }

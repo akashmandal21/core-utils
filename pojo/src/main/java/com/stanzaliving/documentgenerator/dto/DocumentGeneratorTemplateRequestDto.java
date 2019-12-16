@@ -6,18 +6,21 @@ import java.util.Map;
 import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * Base Template DTO representation for template processor of Document generator service.
  * 
  * @author debendra.dhinda
  * */
-
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class DocumentGeneratorTemplateRequestDto implements Serializable{
 	
 	

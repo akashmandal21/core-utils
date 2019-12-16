@@ -40,7 +40,7 @@ public class DocumentGeneratorClientApi {
 	 * */
 	public ResponseDto<String> processTemplate(DocumentGeneratorTemplateRequestDto templateRequestDto) {
 		
-		log.info(". . . DocumentGeneratorClientApi - processTemplate  . . ."+templateRequestDto);
+		log.info("DocumentGeneratorClientApi - processTemplate "+templateRequestDto);
 
 		String path = UriComponentsBuilder.fromPath("/freemarker/process").toUriString();
 
@@ -68,7 +68,7 @@ public class DocumentGeneratorClientApi {
 	 * **/
 	public ResponseDto<PdfDocumentDto> generatePdf(PdfDocumentDto pdfDocumentDto) {
 
-		log.info(". . . DocumentGeneratorClientApi - generatePdf  . . ."+pdfDocumentDto);
+		log.info("DocumentGeneratorClientApi - generatePdf "+pdfDocumentDto);
 		
 		String path = UriComponentsBuilder.fromPath("/generate/pdf").toUriString();
 
@@ -93,9 +93,9 @@ public class DocumentGeneratorClientApi {
 	 * 
 	 * Api client to generate List of PDF documents from the supplied data.
 	 * **/
-	public ResponseDto<List<PdfDocumentDto>> generateListOfPdf(List<PdfDocumentDto> pdfDocumentDtos) {
+	public ResponseDto<List<PdfDocumentDto>> generateListOfPdf(List<PdfDocumentDto> pdfDocumentDtoList) {
 		
-		log.info(". . . DocumentGeneratorClientApi - generateListOfPdf  . . ."+pdfDocumentDtos);
+		log.info("DocumentGeneratorClientApi - generateListOfPdf "+pdfDocumentDtoList);
 
 		String path = UriComponentsBuilder.fromPath("/generate/pdf/list").toUriString();
 
@@ -111,7 +111,7 @@ public class DocumentGeneratorClientApi {
 		ParameterizedTypeReference<ResponseDto<List<PdfDocumentDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PdfDocumentDto>>>() {
 		};
 		
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfDocumentDtos, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfDocumentDtoList, headerParams, accept, returnType);
 	}
 	
 	
