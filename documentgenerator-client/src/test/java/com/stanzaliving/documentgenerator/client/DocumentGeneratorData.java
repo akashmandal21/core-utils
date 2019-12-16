@@ -22,6 +22,7 @@ public class DocumentGeneratorData {
 		modelData.put("zipCode","201302");
 		modelData.put("street","Noida Sector 34");
 		modelData.put("city","Noida");
+		modelData.put("image","https://res.cloudinary.com/stanza-living/image/upload/q_60,w_1000/v1554802583/Website/Residences/Boston/1.jpg");
 		templateRequestDto.setTemplateModelData(modelData);
 
 		return templateRequestDto;
@@ -93,6 +94,7 @@ public class DocumentGeneratorData {
 		modelData.put("zipCode","201302");
 		modelData.put("street","Noida Sector 34");
 		modelData.put("city","Noida");
+		modelData.put("image","https://res.cloudinary.com/stanza-living/image/upload/q_60,w_1000/v1554802583/Website/Residences/Boston/1.jpg");
 		pdfDocumentDto.setTemplateModelData(modelData);
 
 		return pdfDocumentDto;
