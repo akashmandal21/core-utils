@@ -19,7 +19,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class CommentsDto {
 
-	private long commentId;
+	private Long commentId;
 
 	private Date commentTime;
 
