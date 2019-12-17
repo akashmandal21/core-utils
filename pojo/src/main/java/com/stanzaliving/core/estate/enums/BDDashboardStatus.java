@@ -31,10 +31,12 @@ public enum BDDashboardStatus {
 		statusMap.put(EstateStatus.DRAFT_IN_PROGRESS, UNDER_DRAFT);
 		statusMap.put(EstateStatus.APPROVED_BY_CITY_HEAD, UNDER_DRAFT);
 		statusMap.put(EstateStatus.SENT_BACK, UNDER_DRAFT);
+		statusMap.put(EstateStatus.SENT_BACK_BY_CITY_HEAD, UNDER_DRAFT);
 		statusMap.put(EstateStatus.SHORTLISTED, PENDING_ANDY_APPROVAL);
 		statusMap.put(EstateStatus.REJECTED, REJECTED);
 		statusMap.put(EstateStatus.REJECTED_BY_CITY_HEAD, REJECTED);
 		statusMap.put(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD, PENDING_RM_APPROVAL);
 		statusMap.put(EstateStatus.SENT_FOR_APPROVAL, PENDING_NATIONAL_HEAD_APPROVAL);
+		
 	}
 }
