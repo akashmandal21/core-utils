@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class StatusCountDto {
+public class EstateStatusCountDto {
 	
 	private EstateStatus estateStatus;
 	
@@ -19,9 +19,7 @@ public class StatusCountDto {
     
 	private Long count;
     
-	private Double percentage;
-    
-    public StatusCountDto(EstateStatus estateStatus,long count) {
+    public EstateStatusCountDto(EstateStatus estateStatus,long count) {
     	
     	this.estateStatus = estateStatus ;
     	this.count = count;
