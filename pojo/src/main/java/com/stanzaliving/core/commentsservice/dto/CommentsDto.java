@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @Setter
+@AllArgsConstructor
 public class CommentsDto {
 
 	private long commentId;
