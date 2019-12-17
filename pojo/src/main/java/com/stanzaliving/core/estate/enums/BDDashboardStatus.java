@@ -12,15 +12,17 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum BDDashboardStatus {
 
-	UNDER_DRAFT("Under Draft", Arrays.asList(EstateStatus.DRAFT_IN_PROGRESS,EstateStatus.APPROVED_BY_CITY_HEAD,EstateStatus.SENT_BACK)),
-	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SHORTLISTED)),
-	REJECTED("Rejected", Arrays.asList(EstateStatus.REJECTED,EstateStatus.REJECTED_BY_CITY_HEAD)),
-	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD)),
-	PENDING_NATIONAL_HEAD_APPROVAL("Pending National Head Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL));
+	UNDER_DRAFT("Under Draft", Arrays.asList(EstateStatus.DRAFT_IN_PROGRESS,EstateStatus.APPROVED_BY_CITY_HEAD,EstateStatus.SENT_BACK),"#990199"),
+	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SHORTLISTED),"#000000"),
+	REJECTED("Rejected", Arrays.asList(EstateStatus.REJECTED,EstateStatus.REJECTED_BY_CITY_HEAD),"#DC3913"),
+	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD),"#FF9902"),
+	PENDING_NATIONAL_HEAD_APPROVAL("Pending National Head Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL),"#3366CC");
 	
 	private String status;
 	
 	private List<EstateStatus> estateStatuses;
+	
+	private String color;
 
 	public static Map<EstateStatus, BDDashboardStatus> statusMap = new HashMap<EstateStatus, BDDashboardStatus>(BDDashboardStatus.values().length);
 	

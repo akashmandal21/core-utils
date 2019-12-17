@@ -20,6 +20,8 @@ public class BDDashboardStatusCountDto {
 	private Long count;
     
 	private Double percentage;
+	
+	private String color;
     
     public BDDashboardStatusCountDto(BDDashboardStatus bdDashboardStatus,long count) {
     	
