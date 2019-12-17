@@ -14,14 +14,10 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class LineItemDto {
+public class LineItemRequestDto {
 
-	private String lineItemUuid;
-	private String particular;
-	private String specifications;
-	private String type;
-	private String unitType;
-	private Integer slQty ;
+	private String boiItemUuid;
+	private Integer slQty;
 	private Integer llQty;
 	private Integer gcQty;
 }

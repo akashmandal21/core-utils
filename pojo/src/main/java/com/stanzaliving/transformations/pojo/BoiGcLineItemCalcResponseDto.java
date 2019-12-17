@@ -16,8 +16,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BoqScreenItemDto {
+public class BoiGcLineItemCalcResponseDto {
 
-	private String propertyId;
-	private List<BoqCategoryItemDto> boqCategoryItemList;
+	private Double totalCost;
+	private List<BoiGcTotalCategoryCost> categoryCost;
 }

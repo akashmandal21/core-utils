@@ -16,8 +16,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BoqScreenItemDto {
+public class CategoryLineItemRequestDto {
 
-	private String propertyId;
-	private List<BoqCategoryItemDto> boqCategoryItemList;
+	private String categoryUuid;
+	private String categoryName;
+	private List<LineItemRequestDto> lineItemList;
 }

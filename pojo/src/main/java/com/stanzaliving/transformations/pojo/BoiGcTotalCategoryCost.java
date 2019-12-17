@@ -3,8 +3,6 @@
  */
 package com.stanzaliving.transformations.pojo;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,8 +14,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BoqScreenItemDto {
+public class BoiGcTotalCategoryCost {
 
-	private String propertyId;
-	private List<BoqCategoryItemDto> boqCategoryItemList;
+	private String categoryUuid;
+	private String categoryName;
+	private Double totalCost;
 }

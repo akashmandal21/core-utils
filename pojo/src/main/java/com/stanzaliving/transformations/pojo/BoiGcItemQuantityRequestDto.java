@@ -4,6 +4,7 @@
 package com.stanzaliving.transformations.pojo;
 
 import java.util.List;
+import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,8 +17,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BoqScreenItemDto {
+public class BoiGcItemQuantityRequestDto {
 
 	private String propertyId;
-	private List<BoqCategoryItemDto> boqCategoryItemList;
+	List<CategoryLineItemRequestDto> boiLineItems;
+	List<CategoryLineItemRequestDto> gcLineItems;
 }
