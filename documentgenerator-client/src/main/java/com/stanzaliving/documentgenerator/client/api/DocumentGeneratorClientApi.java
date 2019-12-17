@@ -13,7 +13,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.documentgenerator.dto.DocumentGeneratorTemplateRequestDto;
-import com.stanzaliving.documentgenerator.dto.PdfDocumentDto;
+import com.stanzaliving.documentgenerator.dto.PdfRequestDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -66,53 +66,23 @@ public class DocumentGeneratorClientApi {
 	 * 
 	 * Api client to generate PDF document from the supplied data.
 	 * **/
-	public ResponseDto<PdfDocumentDto> generatePdf(PdfDocumentDto pdfDocumentDto) {
+	public ResponseDto<PdfRequestDto> generatePdf(PdfRequestDto pdfRequestDto) {
 
-		log.info("DocumentGeneratorClientApi - generatePdf "+pdfDocumentDto);
-		
+		log.info("DocumentGeneratorClientApi - generatePdf " + pdfRequestDto);
+
 		String path = UriComponentsBuilder.fromPath("/generate/pdf").toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
+		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<PdfDocumentDto>> returnType = new ParameterizedTypeReference<ResponseDto<PdfDocumentDto>>() {
+		ParameterizedTypeReference<ResponseDto<PdfRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<PdfRequestDto>>() {
 		};
-		
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfDocumentDto, headerParams, accept, returnType);
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfRequestDto, headerParams, accept,
+				returnType);
 	}
-	
-	
-	
-	/**
-	 * 
-	 * Api client to generate List of PDF documents from the supplied data.
-	 * **/
-	public ResponseDto<List<PdfDocumentDto>> generateListOfPdf(List<PdfDocumentDto> pdfDocumentDtoList) {
-		
-		log.info("DocumentGeneratorClientApi - generateListOfPdf "+pdfDocumentDtoList);
-
-		String path = UriComponentsBuilder.fromPath("/generate/pdf/list").toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<List<PdfDocumentDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PdfDocumentDto>>>() {
-		};
-		
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfDocumentDtoList, headerParams, accept, returnType);
-	}
-	
-	
 }

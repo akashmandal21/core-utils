@@ -40,9 +40,4 @@ public class DocumentDto implements Serializable{
 	
 	private boolean isOverride;
 	
-	/**
-	 * Unique Kafka topic name for document response publish.
-	 * */
-	private String topicName;
-	
 }
