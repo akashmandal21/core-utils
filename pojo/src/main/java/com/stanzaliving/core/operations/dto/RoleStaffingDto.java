@@ -32,5 +32,9 @@ public class RoleStaffingDto {
 
 	private String roleName;
 
+	private int requirement;
+
+	private int available;
+
 	private List<OpsUserMetadata> userMetadatas;
 }
