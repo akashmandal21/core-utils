@@ -14,7 +14,7 @@ public enum DealTermsEnum {
 
     //	TODO- create generic indian currency separator in core
 
-    RENT_PER_MONTH("Rent per month", "₹ %s", Arrays.asList(AttributeNames.FIN_MONTHLY_RENT)),
+    RENT_PER_MONTH("Rent per month", "Rs. %s", Arrays.asList(AttributeNames.FIN_MONTHLY_RENT)),
     PAYMENT_FREQUENCY("Payment frequency", "%s", Arrays.asList(AttributeNames.FIN_PAYMENT_OPTION)),
     RENT_ESCALATION("Rent escalation", "%s%% every %s year", Arrays.asList(AttributeNames.FIN_RENTAL_INFLATION_PERCENT, AttributeNames.FIN_RENTAL_INFLATION_IN_YEARS)),
     SECURITY_DEPOSIT("Security Deposit", "%s months", Arrays.asList(AttributeNames.FIN_SECURITY_DEPOSITE_MONTHS_OF_RENT)),
@@ -24,7 +24,7 @@ public enum DealTermsEnum {
     RENT_START_DATE("Rent start date", "%s", Arrays.asList(AttributeNames.FIN_RENT_START_DATE)),
     LESSEE_LOCK_IN("Lessee lock-in", "%s years", Arrays.asList(AttributeNames.FIN_LEASE_LOCKIN_PERIOD_IN_YEARS)),
     STAMP_DUTY_BORNE_BY("Stamp duty borne by", "%s", Arrays.asList(AttributeNames.STAMP_DUTY_BORNE_BY)),
-    TOKEN_DEPOSIT("Token Deposit", "₹ %s", Arrays.asList(AttributeNames.FIN_TOKEN_DEPOSIT_IN_RUPEES));
+    TOKEN_DEPOSIT("Token Deposit", "Rs. %s", Arrays.asList(AttributeNames.FIN_TOKEN_DEPOSIT_IN_RUPEES));
 
     String dealTerm;
 
