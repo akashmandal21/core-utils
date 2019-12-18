@@ -9,7 +9,8 @@ import lombok.Getter;
 public enum AtlDetailsEnum {
 
     //This enum can be kept in table as well, depending upon whether defaultDuration, scopeDefinitionKey, remarksKey, orderNum or defaultScopeDefinition needs to be modifiable
-    STRUCTURE_INTEGRITY_AMENDMENTS("Structure", "(Lease Term)", AttributeNames.STRUCTURE_CLAUSE_A_TEXT_AREA, AttributeNames.STRUCTURE_REMARKS, "Implementing any amendment based on the structural integrity check carried out by Lessee");
+    STRUCTURE_INTEGRITY_AMENDMENTS("Structure", "(Lease Term)", AttributeNames.STRUCTURE_CLAUSE_A_TEXT_AREA, AttributeNames.STRUCTURE_REMARKS, "Implementing any amendment based on the structural integrity check carried out by Lessee"),
+    FIRE_COMPLIANCE_NOC_REQD("Fire", "(One Time)", AttributeNames.FIRE_CLAUSE_A_TEXT_AREA, AttributeNames.FIRE_COMPLIANCE_REMARKS, "Fire compliance/NOC required");
 
     private String item;
 
