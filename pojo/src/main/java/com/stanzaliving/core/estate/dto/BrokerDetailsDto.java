@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class BrokerDetailsDto {
-	private Boolean brokerInvolved;
-	private Boolean empanelledBroker;
+	private String brokerInvolved;
+	private String empanelledBroker;
 	private String brokerName;
 	
 	private String brokerNumber;
