@@ -7,21 +7,21 @@ import lombok.Data;
 @Builder
 public class LocationAnalysisDto {
 
-	private String lateNightPatrols;
+	private Boolean lateNightPatrols;
 	
-	private String adjoiningAreaSafety;
+	private Boolean adjoiningAreaSafety;
 	
-	private String roadAccess;
+	private Boolean roadAccess;
 	
-	private String monsoonPreparedness;
+	private Boolean monsoonPreparedness;
 	
-	private String streetLighting;
+	private Boolean streetLighting;
 	
-	private String foodDeliveryAvailable;
+	private Boolean foodDeliveryAvailable;
 	
-	private String publicTransportAvailable;
+	private Boolean publicTransportAvailable;
 	
-	private String rwaPresence;
+	private Boolean rwaPresence;
 	
 	private String viewsOnRwa;
 	
