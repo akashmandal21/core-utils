@@ -337,6 +337,8 @@ public class AttributeNames {
 	public static final String WARRANTY_CARD_FOR_WATER_ACCESSORIES = "warrantyCardForWaterAccessories";
 	public static final String WARRANTY_CARD_FOR_WHITE_GOODS = "warrantyCardForWhiteGoods";
 
+	public static final String STAMP_DUTY_BORNE_BY = "stampDutyBorneBy";
+
 	public static final Map<ImmutablePair<String, String>, List<String>> kQuestionMap = new HashMap<ImmutablePair<String, String>, List<String>>() {
 		{
 			put(new ImmutablePair("Landlord", "landlordDetails"),

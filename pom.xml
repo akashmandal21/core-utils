@@ -36,6 +36,7 @@
 		<module>redis</module>
 		<module>qaservice</module>
 		<module>comments</module>
+		<module>estate-client</module>
 	</modules>
 
 	<build>
