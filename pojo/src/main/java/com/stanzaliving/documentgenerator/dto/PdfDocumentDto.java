@@ -28,5 +28,4 @@ public class PdfDocumentDto implements Serializable{
 	private DocumentGeneratorTemplateRequestDto templateDto;
 	@Valid
 	private DocumentDto documentDto;
-		
 }

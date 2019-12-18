@@ -14,7 +14,7 @@ public class ATLPdfTestData {
 
 	public static Map<String, Object> getAtlPdfData() {
 		Map<String, Object> atlData = new HashMap<>();
-
+		atlData.put("atlDate", "31-Dec-2019");
 		atlData.put("lessorNameAddressAndPan", "Debendra Dhinda ,<br/> Noida Sector 34, PAN : ARKPD678E");
 		atlData.put("lesseeNameAddressAndPan", "Ankit Jindal ,<br/> Mahipalpur, PAN : ARKPD645N");
 
@@ -47,6 +47,7 @@ public class ATLPdfTestData {
 		atlData.put("lessorDesignation", "Business Person");
 		atlData.put("DTwelveName", "Ankit Jindal");
 		atlData.put("DTwelveDesignation", "Branch Manager");
+		
 		return atlData;
 	}
 
@@ -58,7 +59,7 @@ public class ATLPdfTestData {
 
 		Map<String, Object> modelData = getAtlPdfData();
 		DocumentGeneratorTemplateRequestDto templateRequestDto = DocumentGeneratorTemplateRequestDto.builder()
-				.templateName("atl_html_template").templateType(DocumentGeneratorTemplateType.TYPE_HTML.getName())
+				.templateName("ATL_Template_HTML.html").templateType(DocumentGeneratorTemplateType.TYPE_HTML.getName())
 				.templateModelData(modelData).build();
 
 		PdfDocumentDto pdfDocumentDto = PdfDocumentDto.builder().documentDto(documentDto)

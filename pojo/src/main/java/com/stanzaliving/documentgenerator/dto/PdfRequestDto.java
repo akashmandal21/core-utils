@@ -42,7 +42,12 @@ public class PdfRequestDto implements Serializable {
 	private EmailDto emailDto;
 
 	/**
-	 * Unique Kafka topic name for document response publish.
+	 * Used to identify the response of the corresponding micro service.
+	 * DocumentGenerator service will publish the response on kafka topic
+	 * if this attribute value is not {@code null}. During the consumption
+	 * of individual micro service, they can able to identify their
+	 * corresponding response based on this value.
+	 * 
 	 */
-	private String topicName;
+	private String reponseTopicIdentifier;
 }

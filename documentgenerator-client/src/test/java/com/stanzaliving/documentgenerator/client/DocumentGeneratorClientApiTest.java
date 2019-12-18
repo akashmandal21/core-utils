@@ -109,7 +109,7 @@ public class DocumentGeneratorClientApiTest {
 	}
 
 	// test ATL pdf
-	//@Test
+	@Test
 	public void test_ATL_Pdf_HTML_TemplateType() {
 
 		log.info("Generate ATL PDF from ATL HTML template.");
