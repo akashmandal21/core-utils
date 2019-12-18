@@ -24,6 +24,8 @@ public class CommentsDto {
 	private Date commentTime;
 
 	private String commentBy;
+	
+	private boolean selfComment;
 
 	@NotNull(message = "Please enter comment text")
 	private String commentText;
