@@ -22,4 +22,6 @@ public class EstateDashboardDetailsDto implements Serializable{
 	private FinancialAnalysisDto financialAnalysisDto;
 	
 	private EstateDashboardListingDto listingDto;
+	
+	private List<DocumentDetailsDto> documentDetailsDtos;
 }
