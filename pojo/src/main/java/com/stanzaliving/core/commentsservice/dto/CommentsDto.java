@@ -26,6 +26,8 @@ public class CommentsDto {
 	private String commentBy;
 	
 	private boolean selfComment;
+	
+	private String commentTitle;
 
 	@NotNull(message = "Please enter comment text")
 	private String commentText;

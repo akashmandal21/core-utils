@@ -10,21 +10,21 @@ public class PropertyAnalysisDto {
 
 	private String sizeOfPlot;
 	
-	private String terraceAccessible;
+	private Boolean terraceAccessible;
 	
 	private String numberOfFloors;
 	
-	private String stiltAvailable;
+	private Boolean stiltAvailable;
 	
 	private String floorPlateSize;
 	
-	private String diningSpaceAvailable;
+	private Boolean diningSpaceAvailable;
 	
 	private String diningSpaceSize;
 	
 	private String permissionsType;
 	
-	private String waterStorageAvailable;
+	private Boolean waterStorageAvailable;
 	
 	private String waterStorageSize;
 
@@ -34,7 +34,7 @@ public class PropertyAnalysisDto {
 	
 	private String buildingState;
 	
-	private String powerBackupAvailable;
+	private Boolean powerBackupAvailable;
 	
 	private String powerBackupSize;
 	
@@ -46,19 +46,19 @@ public class PropertyAnalysisDto {
 
 	private String buildingType;
 	
-	private String gymAvailable;
+	private Boolean gymAvailable;
 	
 	private String gymSize;
 	
 	private String buildingCompletionYear;
 	
-	private String basementAvailable;
+	private Boolean basementAvailable;
 	
 	private String basementSize;
 	
 	private String lastRefurbishedDate;
 	
-	private String liftAvailable;
+	private Boolean liftAvailable;
 	
 	private String liftBrand;
 	
