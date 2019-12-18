@@ -3,14 +3,10 @@
  */
 package com.stanzaliving.core.user.acl.request.dto;
 
-import javax.validation.constraints.NotBlank;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * @author naveen
@@ -26,6 +22,6 @@ import lombok.experimental.SuperBuilder;
 public class UpdateApiRequestDto extends AddApiRequestDto {
 
 	@NotBlank(message = "Api Id is Mandatory For Api")
-	private String apiId;
+	private String apiUuid;
 
 }

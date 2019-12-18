@@ -4,6 +4,7 @@
 package com.stanzaliving.core.user.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.user.enums.UserType;
 
 import lombok.AllArgsConstructor;
@@ -37,5 +38,7 @@ public class UserDto extends AbstractDto {
 	private Boolean emailVerified;
 
 	private UserType userType;
+
+	private Department department;
 
 }
