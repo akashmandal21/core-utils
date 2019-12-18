@@ -44,7 +44,7 @@ public class CommentClientApi {
 
 		uriVariables.put("estateUuid", estateUuid);
 		
-		String path = UriComponentsBuilder.fromPath("/get/all/{estateUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/get/all/{estateUuid}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
