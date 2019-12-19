@@ -15,7 +15,7 @@ import com.stanzaliving.core.base.exception.StanzaSecurityException;
 import com.stanzaliving.core.base.utils.SecureCookieUtil;
 import com.stanzaliving.core.pojo.CurrentUser;
 import com.stanzaliving.core.security.service.AuthService;
-import com.stanzaliving.core.user.dto.UserDto;
+import com.stanzaliving.core.user.dto.UserProfileDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -49,11 +49,11 @@ public class TokenAuthenticationValidator implements RequestValidator {
 		log.debug("Auth Requested For Token: " + token);
 
 		if (StringUtils.isNotBlank(token)) {
-			ResponseDto<UserDto> responseDto = authService.validateToken(token);
+			ResponseDto<UserProfileDto> responseDto = authService.validateToken(token);
 
 			if (responseDto.isStatus()) {
 
-				UserDto dto = responseDto.getData();
+				UserProfileDto dto = responseDto.getData();
 
 				log.debug("User Fetched after Authentication: " + dto);
 
@@ -73,6 +73,8 @@ public class TokenAuthenticationValidator implements RequestValidator {
 						.mobile(dto.getMobile())
 						.isoCode(dto.getIsoCode())
 						.userType(dto.getUserType())
+						.firstName(dto.getFirstName())
+						.lastName(dto.getLastName())
 						.build();
 
 			}
