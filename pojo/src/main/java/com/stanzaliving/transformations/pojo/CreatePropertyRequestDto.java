@@ -29,7 +29,6 @@ public class CreatePropertyRequestDto {
 	private double capexEstimate;
 	private double boqEstimate;
 	private String projectStatus;
-	private String projectManager;
 	private String brandName;
 	private String projectManagerAssigned;
 
