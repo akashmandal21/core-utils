@@ -48,6 +48,10 @@ public class PropertyAnalysisDto {
 	
 	private String powerBackupSize;
 	
+	private String parkingAvailable;
+	
+	private String drainageAvailable;
+	
 	private List<String> powerBackupType;
 	
 	private String operationsType;
