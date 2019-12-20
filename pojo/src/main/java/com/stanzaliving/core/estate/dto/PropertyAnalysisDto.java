@@ -12,9 +12,13 @@ public class PropertyAnalysisDto {
 	
 	private String terraceAccessible;
 	
+	private String terraceAreaCoverage;
+	
 	private String numberOfFloors;
 	
 	private String stiltAvailable;
+	
+	private String numberOfRoomsInStilt;
 	
 	private String floorPlateSize;
 	
@@ -27,10 +31,16 @@ public class PropertyAnalysisDto {
 	private String waterStorageAvailable;
 	
 	private String waterStorageSize;
+	
+	private List<String> waterStorageSource;
 
 	private String buildingBasis;
 	
 	private String electricitySupply;
+	
+	private List<String> electricityLoadType;
+	
+	private String electricityLoadCapacity;
 	
 	private String buildingState;
 	
@@ -38,7 +48,7 @@ public class PropertyAnalysisDto {
 	
 	private String powerBackupSize;
 	
-	private String powerBackupType;
+	private List<String> powerBackupType;
 	
 	private String operationsType;
 	
