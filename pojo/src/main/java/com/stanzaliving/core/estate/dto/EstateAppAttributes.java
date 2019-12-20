@@ -46,4 +46,8 @@ public class EstateAppAttributes {
 	
 	private String lockInPeriod;
 	
+	private String handOverDate;
+	
+	private String tenure;
+	
 }
