@@ -18,6 +18,7 @@ public class PropertyDetailInfo {
 
 	private Integer roomCount;
 	private Integer bedCount;
+	private Integer area;
 	private String cityName;
 	private String brandName;
 	private String propertyName;
