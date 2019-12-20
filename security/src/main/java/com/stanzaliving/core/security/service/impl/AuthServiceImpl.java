@@ -67,12 +67,12 @@ public class AuthServiceImpl implements AuthService {
 	}
 
 	@Override
-	public ResponseDto<UserDto> validateToken(String token) {
+	public ResponseDto<UserProfileDto> validateToken(String token) {
 		log.debug("Validating token: " + token);
 		return getUserByToken(token);
 	}
 
-	private ResponseDto<UserDto> getUserByToken(String token) {
+	private ResponseDto<UserProfileDto> getUserByToken(String token) {
 
 		Object postBody = null;
 
@@ -93,7 +93,7 @@ public class AuthServiceImpl implements AuthService {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<UserDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserDto>>() {
+		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}

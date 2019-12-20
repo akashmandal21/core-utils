@@ -1,15 +1,13 @@
 package com.stanzaliving.core.sqljpa;
 
-import java.util.Objects;
-
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.pojo.CurrentUser;
-
 import lombok.experimental.UtilityClass;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+
+import java.util.Objects;
 
 @UtilityClass
 public class SecurityUtil {
@@ -59,7 +57,7 @@ public class SecurityUtil {
 			RequestAttributes attributes = RequestContextHolder.currentRequestAttributes();
 
 			Object scopedObject =
-					attributes.getAttribute("com.stanzaliving.core.base.common.dto.CurrentUser", RequestAttributes.SCOPE_REQUEST);
+					attributes.getAttribute(CurrentUser.class.getName(), RequestAttributes.SCOPE_REQUEST);
 
 			String json = objectMapper.writeValueAsString(scopedObject);
 
