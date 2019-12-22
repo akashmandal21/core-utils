@@ -141,6 +141,8 @@ public class AttributeNames {
 		public static final String FIN_FINANCIAL_COMMENTS = "financialCommets";
 		public static final String FIN_BUILDING_HANDOVER_DATE = "buildingHandoverDate";
 		public static final String FIN_RENT_START_DATE = "rentStartDate";
+		public static final String FIN_PAYMENT_OPTION = "paymentOption";
+
 
 		public static final String FIN_BROKER_DETAILS = "brokerDetails";
 
@@ -346,6 +348,8 @@ public class AttributeNames {
 		public static final String WARRANTY_CARD_FOR_WATER_ACCESSORIES = "warrantyCardForWaterAccessories";
 		public static final String WARRANTY_CARD_FOR_WHITE_GOODS = "warrantyCardForWhiteGoods";
 
+		public static final String STAMP_DUTY_BORNE_BY = "stampDuty";
+		
 		public static final Map<ImmutablePair<String, String>, List<String>> kQuestionMap = new HashMap<ImmutablePair<String, String>, List<String>>() {
 			/**
 			 * 

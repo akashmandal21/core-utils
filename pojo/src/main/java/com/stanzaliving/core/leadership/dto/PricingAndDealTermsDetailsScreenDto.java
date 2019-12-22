@@ -18,3 +18,4 @@ public class PricingAndDealTermsDetailsScreenDto {
 	private PricingApprovalScreenDto pricingApprovalScreenDto;
 	
 }
+	
