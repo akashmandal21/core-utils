@@ -4,7 +4,6 @@
 package com.stanzaliving.transformations.pojo;
 
 import java.util.List;
-import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
