@@ -73,11 +73,11 @@ public class AclUserClientApi {
 	public ResponseDto<Void> revokeUserAclRole(String token, RevokeUserDeptLevelRoleRequestDto reokeUserDeptroleRequestDto) {
 
 		if (StringUtils.isBlank(token)) {
-			throw new IllegalArgumentException("Token missing for adding user roles");
+			throw new IllegalArgumentException("Token missing for revoking user roles");
 		}
 
 		if (Objects.isNull(reokeUserDeptroleRequestDto)) {
-			throw new IllegalArgumentException("Request is null for adding role for user");
+			throw new IllegalArgumentException("Request is null for revoking role from user");
 		}
 
 		Object postBody = reokeUserDeptroleRequestDto;

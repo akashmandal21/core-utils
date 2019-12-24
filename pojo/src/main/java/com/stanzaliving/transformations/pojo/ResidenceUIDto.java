@@ -4,6 +4,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.enums.ResidenceType;
 import com.stanzaliving.core.estate.enums.EstateGender;
 import com.stanzaliving.transformations.enums.BrandName;
 
@@ -43,6 +44,9 @@ public class ResidenceUIDto {
 	private String microMarketUuid;
 
 	private String microMarketName;
+
+	@NotNull(message = "Residence Type is Mandatory")
+	private ResidenceType residenceType;
 
 	@NotNull(message = "Residence Brand is Mandatory")
 	private BrandName brandName;
