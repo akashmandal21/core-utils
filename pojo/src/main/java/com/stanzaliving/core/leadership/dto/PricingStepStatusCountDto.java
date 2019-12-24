@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PricingStepStatusCountDto {
 	
-	private PricingStepStatus pricingStepStatus;
+	private PricingStepStatus status;
 	
 	private String name;
     
