@@ -19,6 +19,6 @@ public class RoceDetailsDto {
 	
 	private Double capexCost;
 	
-	private String houseName;
+	private String propertyName;
 	
 }

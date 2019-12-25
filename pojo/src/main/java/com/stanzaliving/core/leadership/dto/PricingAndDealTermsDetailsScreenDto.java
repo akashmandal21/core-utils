@@ -17,5 +17,7 @@ public class PricingAndDealTermsDetailsScreenDto {
 	
 	private PricingApprovalScreenDto pricingApprovalScreenDto;
 	
+	private PropertyNamingDto propertyNamingDto;
+	
 }
 	
