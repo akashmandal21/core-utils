@@ -3,6 +3,7 @@ package com.stanzaliving.core.estate.dto;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.stanzaliving.core.estate.enums.BDDashboardStatus;
 import com.stanzaliving.core.user.dto.Address;
 
 import lombok.AllArgsConstructor;
@@ -31,6 +32,10 @@ public class EstateDashboardListingDto extends EstateDto {
 	private String estateCode;
 	
 	private String estateStatusStr;
+	
+	private BDDashboardStatus bdDashboardStatus;
+	
+	private String bdDashboardStatusStr;
 	
 	private String createdByName;
 	
