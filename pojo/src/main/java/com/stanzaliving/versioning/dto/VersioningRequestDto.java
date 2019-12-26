@@ -1,4 +1,4 @@
-package com.stanzaliving.versioning;
+package com.stanzaliving.versioning.dto;
 
 import lombok.*;
 

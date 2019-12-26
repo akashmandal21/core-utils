@@ -1,4 +1,4 @@
-package com.stanzaliving.versioning;
+package com.stanzaliving.versioning.dto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -11,7 +11,7 @@ import java.util.Date;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-@Builder
+@SuperBuilder
 public class VersioningResponseDto
 {
     private String uuid;

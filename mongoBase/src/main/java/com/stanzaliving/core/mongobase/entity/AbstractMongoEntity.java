@@ -2,7 +2,8 @@ package com.stanzaliving.core.mongobase.entity;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.springframework.data.annotation.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -26,16 +27,13 @@ public abstract class AbstractMongoEntity implements Serializable {
 
     protected String uuid;
 
-    @CreatedDate
     protected Date createdAt;
 
-    @CreatedBy
     protected String createdBy;
 
     @LastModifiedDate
     protected Date updatedAt;
 
-    @LastModifiedBy
     protected String updatedBy;
 
 
