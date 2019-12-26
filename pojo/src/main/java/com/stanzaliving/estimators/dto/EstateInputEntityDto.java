@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EstateInputEntityDto {
 
-	private long id;
+	private Long id;
 
 	private long cityId;
 
