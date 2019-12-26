@@ -94,4 +94,5 @@ public class ResponseDto<T> {
 	public static <T> ResponseDto<T> failure(String message, T data, String id, String errorCode) {
 		return new ResponseDto<>(false, message, data, id, errorCode);
 	}
+
 }

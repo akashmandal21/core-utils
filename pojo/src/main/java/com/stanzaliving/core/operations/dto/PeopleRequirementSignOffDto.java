@@ -1,7 +1,7 @@
-/**
- * 
- */
-package com.stanzaliving.core.user.acl.dto;
+package com.stanzaliving.core.operations.dto;
+
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,21 +10,13 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author naveen
- *
- * @date 21-Oct-2019
- */
 @Getter
 @Setter
-@ToString(callSuper = true)
-@SuperBuilder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class RoleMetadataDto {
+@SuperBuilder
+public class PeopleRequirementSignOffDto  extends OpsDashboardDataDto {
 
-	private String roleId;
-
-	private String roleName;
-
+    private List<SignOffRequirementDto> signOffRequirementDto;
 }

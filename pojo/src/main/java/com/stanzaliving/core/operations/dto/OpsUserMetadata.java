@@ -1,11 +1,7 @@
 /**
  * 
  */
-package com.stanzaliving.core.user.acl.request.dto;
-
-import java.util.List;
-
-import javax.validation.constraints.NotBlank;
+package com.stanzaliving.core.operations.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,19 +13,24 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author naveen.kumar
  *
- * @date 23-Oct-2019
+ * @date 03-Dec-2019
  *
  **/
 @Getter
 @Setter
 @ToString
-@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AssignUserRoleDto {
+@SuperBuilder
+public class OpsUserMetadata {
 
-	@NotBlank(message = "User Id is mandatory to assign roles")
 	private String userId;
 
-	private List<String> roleIds;
+	private String userName;
+
+	private Double rating;
+
+	private String role;
+
+	private String designation;
 }

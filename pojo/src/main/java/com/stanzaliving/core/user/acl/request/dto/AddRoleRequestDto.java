@@ -3,16 +3,13 @@
  */
 package com.stanzaliving.core.user.acl.request.dto;
 
-import java.util.List;
+import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.base.enums.Department;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author naveen.kumar
@@ -31,5 +28,13 @@ public class AddRoleRequestDto {
 	@NotBlank(message = "Role Name is Mandatory")
 	private String roleName;
 
-	private List<String> apiIds;
+	@NotNull
+	private Department department;
+
+	@NotNull
+	private AccessLevel accessLevel;
+
+	@NotBlank
+	private String parentRoleUuid;
+
 }

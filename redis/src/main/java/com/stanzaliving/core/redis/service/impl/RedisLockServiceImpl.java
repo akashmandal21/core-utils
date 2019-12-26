@@ -20,9 +20,9 @@ public class RedisLockServiceImpl implements RedisLockService {
 	public RLock acquire(String lockName) {
 		
 		log.info("Acquiring Lock for ["+lockName+"]");
-		
+
 		return redissonClient.getLock(lockName);
-		
+
 	}
 
 	@Override
