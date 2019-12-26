@@ -46,10 +46,8 @@ public class PricingApprovalScreenDto extends AbstractDto{
 	
 	private Double pricePerAvailableBed;
 	
-	private Double capexPerAvailableBed;
+	private Double capexPerBed;
 	
-	private Double capexPerOccupiedBed;
-
 	private Double pricePerOccupiedBed;
 	
 	private Double margin;

@@ -11,7 +11,7 @@ import lombok.Getter;
 @Getter
 public class RoceChartDto {
 
-	private RoceDetailsDto currentProperty;
+	private RoceChartPoint currentProperty;
 	
-	private List<RoceDetailsDto> roceDetailsDtos;
+	private List<RoceChartPoint> roceChartPoints;
 }

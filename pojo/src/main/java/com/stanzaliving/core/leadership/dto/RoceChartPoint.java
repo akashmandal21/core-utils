@@ -11,7 +11,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @ToString
-public class RoceDetailsDto {
+public class RoceChartPoint {
 
 	private Integer expectedMonths;
 	

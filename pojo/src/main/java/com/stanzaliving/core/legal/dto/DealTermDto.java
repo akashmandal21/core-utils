@@ -1,10 +1,9 @@
 package com.stanzaliving.core.legal.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.leadership.enums.DealTermStatus;
 import com.stanzaliving.core.leadership.enums.DealTermsEnum;
 import com.stanzaliving.core.legal.enums.LegalStatus;
-import lombok.EqualsAndHashCode;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
