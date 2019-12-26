@@ -1,4 +1,4 @@
-package com.stanzaliving.core.mongobase.dto;
+package com.stanzaliving.core.dto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
