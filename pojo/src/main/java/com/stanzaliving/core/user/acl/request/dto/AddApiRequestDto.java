@@ -3,14 +3,10 @@
  */
 package com.stanzaliving.core.user.acl.request.dto;
 
-import javax.validation.constraints.NotBlank;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * @author naveen
@@ -31,7 +27,7 @@ public class AddApiRequestDto {
 	@NotBlank(message = "Api Action URL is Mandatory For Api")
 	private String actionUrl;
 
-	@NotBlank(message = "Api Category is Mandatory For Api")
-	private String category;
+	@NotBlank(message = "Api Service is Mandatory For Api")
+	private String service;
 
 }

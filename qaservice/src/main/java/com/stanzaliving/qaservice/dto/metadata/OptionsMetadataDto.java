@@ -1,4 +1,4 @@
-package com.stanzaliving.core.estate.dto;
+package com.stanzaliving.qaservice.dto.metadata;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StatusCountDto {
-    String name;
-    Long count;
+public class OptionsMetadataDto {
+    String heading;
+    String id;
 }

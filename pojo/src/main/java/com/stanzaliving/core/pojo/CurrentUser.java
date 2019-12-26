@@ -31,6 +31,8 @@ public class CurrentUser {
 
 	private String isoCode;
 
+	private String email;
+	
 	private UserType userType;
 
 }

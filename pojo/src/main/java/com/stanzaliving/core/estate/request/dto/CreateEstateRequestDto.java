@@ -3,7 +3,6 @@
  */
 package com.stanzaliving.core.estate.request.dto;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -30,18 +29,13 @@ import lombok.ToString;
 @AllArgsConstructor
 public class CreateEstateRequestDto {
 
-	@NotNull(message = "City is Mandatory for Estate")
-	@Min(value = 1, message = "City Id cannot be less than 1")
 	private Long cityId;
 
-	@NotNull(message = "Micro Markert is Mandatory for Estate")
-	@Min(value = 1, message = "Micro Market Id cannot be less than 1")
 	private Long micromarketId;
 
 	@NotBlank(message = "Estate Name is Mandatory")
 	private String estateName;
 
-	@NotNull(message = "Estate Address is Mandatory")
 	private Address address;
 
 	@NotNull(message = "Estate Lattitude is Mandatory")

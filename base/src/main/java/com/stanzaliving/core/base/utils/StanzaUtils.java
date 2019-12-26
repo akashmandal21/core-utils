@@ -237,7 +237,11 @@ public class StanzaUtils {
 		return (value!=null) ? Math.ceil(value.doubleValue()) :0;
 	}
 
-
+	public static double findPercentage(long total,long number) {
+		
+		return Math.round(((number*100)/total)) ;
+		
+	}
 
 
 }
