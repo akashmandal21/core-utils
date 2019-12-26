@@ -21,6 +21,8 @@ public class CurrentUser {
 
 	private String userId;
 
+	private String userUuid;
+	
 	private String firstName;
 
 	private String lastName;
