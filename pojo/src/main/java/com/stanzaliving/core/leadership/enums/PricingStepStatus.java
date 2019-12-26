@@ -7,8 +7,10 @@ import lombok.Getter;
 @Getter
 public enum PricingStepStatus{
 	
-	PENDING_APPROVAL("Pending Approval"), SENT_BACK("Sent Back"), REJECTED("Rejected"), APPROVED("Approved By Leadership");
+	PENDING_APPROVAL("Pending Approval","#000000"), SENT_BACK("Sent Back","#990199"),  APPROVED("Approved By Leadership","#3366CC");
 	
 	private String pricingStatus;
-
+	
+	private String color;
+	
 }

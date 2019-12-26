@@ -5,11 +5,13 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
@@ -139,6 +141,15 @@ public class DateUtil {
 		return Instant.ofEpochMilli(timestamp).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toLocalDate();
 	}
 
+	public static Integer yearsBetween(LocalDate one,LocalDate two) {
+	
+		if(Objects.isNull(one) || Objects.isNull(two)) {
+			return null;
+		}
+		
+		return Period.between(one, two).getYears();
+	}
+	
 	public static LocalDate convertToLocalDate(Date date) {
 		if (date == null) {
 			return null;

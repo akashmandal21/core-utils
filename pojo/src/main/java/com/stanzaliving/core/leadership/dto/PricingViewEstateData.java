@@ -33,6 +33,11 @@ public class PricingViewEstateData {
 	
 	private String numberOfRooms;
 	
+	private String pricePerBed;
+	
+	private String numberOfBeds;
+	
+	private String locationComments;
 	
 	private List<String> keyPositives;
 	

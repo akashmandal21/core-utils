@@ -6,6 +6,7 @@ public enum CriteriaOperation {
 	FALSE("false"),
 	LIKE("like"),
 	EQ("="),
+	NOT_EQ("!="),
 	GTE(">="),
 	GT(">"),
 	LTE("<="),

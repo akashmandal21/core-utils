@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.estate.enums.EstateStatus;
 import com.stanzaliving.core.leadership.enums.PricingStepStatus;
+import com.stanzaliving.core.user.dto.Address;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -45,10 +46,8 @@ public class PricingApprovalScreenDto extends AbstractDto{
 	
 	private Double pricePerAvailableBed;
 	
-	private Double capexPerAvailableBed;
+	private Double capexPerBed;
 	
-	private Double capexPerOccupiedBed;
-
 	private Double pricePerOccupiedBed;
 	
 	private Double margin;
@@ -58,5 +57,7 @@ public class PricingApprovalScreenDto extends AbstractDto{
 	private PricingStepStatus pricingStepStatus;
 
 	private EstateStatus estateStatus;
+	
+	private Address address;
 
 }

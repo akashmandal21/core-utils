@@ -20,4 +20,6 @@ public class LeadershipCommandDto {
 
 	@NotNull(message = "Estate Id can not be null")
 	private Long estateId;
+	
+	private PropertyNamingDto propertyNamingDto;
 }

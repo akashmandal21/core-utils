@@ -1,22 +1,21 @@
 package com.stanzaliving.core.estate.client.api;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.estate.dto.EstateAttributeDto;
-import com.stanzaliving.transformations.pojo.CountryLevelAccessMetadata;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
-import org.springframework.http.MediaType;
 
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.estate.dto.EstateAttributeDto;
 
 public class EstateClientApi {
 
