@@ -3,6 +3,7 @@ package com.stanzaliving.core.estate.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -65,6 +66,67 @@ public class EstateClientApi {
         ParameterizedTypeReference<ResponseDto<List<EstateAttributeDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<EstateAttributeDto>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public ResponseDto<Void> approveByLeadership(Long estateId) {
+
+        if (Objects.isNull(estateId)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("estateId", estateId);
+        
+        String path = UriComponentsBuilder.fromPath("/estate/approve/leadership/{estateId}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+    
+    public ResponseDto<Void> sendBackByLeadership(Long estateId) {
+
+        if (Objects.isNull(estateId)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("estateId", estateId);
+        
+        String path = UriComponentsBuilder.fromPath("/estate/sendback/leadership/{estateId}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
 

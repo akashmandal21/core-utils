@@ -16,7 +16,8 @@ public enum BDDashboardStatus {
 	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SHORTLISTED),"#000000"),
 	REJECTED("Rejected", Arrays.asList(EstateStatus.REJECTED,EstateStatus.REJECTED_BY_CITY_HEAD),"#DC3913"),
 	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD),"#FF9902"),
-	PENDING_NATIONAL_HEAD_APPROVAL("Pending National Head Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL),"#3366CC");
+	PENDING_NATIONAL_HEAD_APPROVAL("Pending National Head Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL),"#3366CC"),
+	PROPERTY_NAMING_DONE("Property Naming Done",Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP),"#00FF00");
 	
 	private String status;
 	
@@ -30,6 +31,7 @@ public enum BDDashboardStatus {
 		
 		statusMap.put(EstateStatus.DRAFT_IN_PROGRESS, UNDER_DRAFT);
 		statusMap.put(EstateStatus.APPROVED_BY_CITY_HEAD, UNDER_DRAFT);
+		statusMap.put(EstateStatus.SENT_BACK_BY_LEADERSHIP, UNDER_DRAFT);
 		statusMap.put(EstateStatus.SENT_BACK, UNDER_DRAFT);
 		statusMap.put(EstateStatus.SENT_BACK_BY_CITY_HEAD, UNDER_DRAFT);
 		statusMap.put(EstateStatus.SHORTLISTED, PENDING_ANDY_APPROVAL);
@@ -37,6 +39,7 @@ public enum BDDashboardStatus {
 		statusMap.put(EstateStatus.REJECTED_BY_CITY_HEAD, REJECTED);
 		statusMap.put(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD, PENDING_RM_APPROVAL);
 		statusMap.put(EstateStatus.SENT_FOR_APPROVAL, PENDING_NATIONAL_HEAD_APPROVAL);
+		statusMap.put(EstateStatus.APPROVED_BY_LEADERSHIP, PROPERTY_NAMING_DONE);
 		
 	}
 }
