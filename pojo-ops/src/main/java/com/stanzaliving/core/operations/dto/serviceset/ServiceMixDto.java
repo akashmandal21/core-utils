@@ -1,8 +1,9 @@
 package com.stanzaliving.core.operations.dto.serviceset;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.enums.AccessLevel;
 
 import lombok.AllArgsConstructor;
@@ -18,12 +19,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class OpsServiceDataDto {
+public class ServiceMixDto extends AbstractDto {
 
-	@NotNull(message = "Access Level is Mandatory")
 	private AccessLevel accessLevel;
 
-	@NotBlank(message = "City Id is Mandatory")
 	private String cityId;
 
 	private String cityName;
@@ -35,4 +34,10 @@ public class OpsServiceDataDto {
 	private String residenceId;
 
 	private String residenceName;
+
+	@Min(value = 0, message = "Version Cannot be negative")
+	private int version;
+
+	@NotNull(message = "Service Config cannot be null")
+	private OpsServicesDto servicesDto;
 }
