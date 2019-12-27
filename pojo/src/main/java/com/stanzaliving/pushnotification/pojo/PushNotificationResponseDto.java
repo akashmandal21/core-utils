@@ -17,12 +17,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PushNotificationRequestDto {
+public class PushNotificationResponseDto {
 
 	private String estateId;
 	private String notificationTitle;
 	private String notificationMessage;
 	private ServiceName serviceName;
 	private PushNotificationType pushNotificationType;
-	
 }
