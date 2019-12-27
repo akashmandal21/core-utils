@@ -103,7 +103,7 @@ public class InternalDataControllerApi {
 		uriVariables.put("latitude", latitude);
 		uriVariables.put("longitude", longitude);
 		
-		String path = UriComponentsBuilder.fromPath("/internal//get/latlong/{latitude}/{longitude}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/micromarket/get/latlong/{latitude}/{longitude}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
