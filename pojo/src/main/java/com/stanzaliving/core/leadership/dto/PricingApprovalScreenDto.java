@@ -20,6 +20,8 @@ public class PricingApprovalScreenDto extends AbstractDto{
 
 	private Long estateId;
 	
+	private String estateUuid;
+	
 	private String estateCode;
 	
 	private String estateName;
