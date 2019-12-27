@@ -29,7 +29,10 @@ public enum EstateStatus {
 	INFORMATION_NEEDED("Information Needed"),
 	SENT_BACK("Sent Back"),
 	SENT_BACK_BY_CITY_HEAD("Sent Back By City Head"),
-	SENT_FOR_APPROVAL("Sent for Approval");
+	SENT_FOR_APPROVAL("Sent for Approval"),
+	SENT_BACK_BY_LEADERSHIP("Sent Back By Leadership"),
+	APPROVED_BY_LEADERSHIP("Shortlisted By Leadership");
+	
 
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
