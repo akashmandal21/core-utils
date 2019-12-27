@@ -21,4 +21,6 @@ public class RoceChartPoint {
 	
 	private String propertyName;
 	
+	private boolean self;
+	
 }
