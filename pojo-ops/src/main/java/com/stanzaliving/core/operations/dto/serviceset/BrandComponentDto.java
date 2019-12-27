@@ -3,7 +3,7 @@
  */
 package com.stanzaliving.core.operations.dto.serviceset;
 
-import com.stanzaliving.transformations.enums.BrandName;
+import com.stanzaliving.core.enums.ResidenceBrand;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,5 +28,5 @@ public class BrandComponentDto {
 
 	private String componentId;
 
-	private BrandName brandName;
+	private ResidenceBrand brandName;
 }

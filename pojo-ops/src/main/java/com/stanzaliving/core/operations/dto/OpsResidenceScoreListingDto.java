@@ -6,6 +6,8 @@ package com.stanzaliving.core.operations.dto;
 import java.time.LocalDate;
 import java.util.Date;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,7 +43,7 @@ public class OpsResidenceScoreListingDto extends OperationsScoreDto {
 
 	private String residenceGender;
 
-	private String brandName;
+	private ResidenceBrand brandName;
 
 	private int roomCount;
 

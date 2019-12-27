@@ -4,8 +4,6 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.List;
 
-import com.stanzaliving.core.operations.dto.serviceset.BrandComponentDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +17,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class HouseKeepingBrandDetailsDto extends BrandComponentDto {
+public class HouseKeepingBrandDetailsDto {
+
+	private String componentId;
 
 	private boolean available;
 

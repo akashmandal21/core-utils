@@ -1,7 +1,9 @@
 package com.stanzaliving.core.operations.dto.serviceset.internet;
 
 import java.util.List;
+import java.util.Map;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 
 import lombok.*;
@@ -17,7 +19,7 @@ public class InternetResidenceDto {
 
 	private ResidenceType residenceType;
 
-	private InternetDto internetDto;
+	private List<InternetDto> internetDtos;
 
-	private List<InternetBrandDetailDto> internetBrandDetailDtos;
+	private Map<ResidenceBrand, List<InternetBrandDetailDto>> brandDetailsMap;
 }

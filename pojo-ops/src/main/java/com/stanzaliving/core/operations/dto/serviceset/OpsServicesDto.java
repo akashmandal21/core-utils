@@ -24,7 +24,7 @@ import com.stanzaliving.core.operations.dto.serviceset.transport.TransportServic
 @SuperBuilder
 public class OpsServicesDto extends OpsServiceDataDto {
 
-	private List<ServiceMetadata> serviceMetadata;
+	private List<ServiceMetadata> serviceMetadatas;
 
 	private FoodMealServiceDto foodMealServiceDto;
 

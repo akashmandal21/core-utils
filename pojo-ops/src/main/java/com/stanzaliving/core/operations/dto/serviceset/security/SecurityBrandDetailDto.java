@@ -2,8 +2,6 @@ package com.stanzaliving.core.operations.dto.serviceset.security;
 
 import java.time.LocalTime;
 
-import com.stanzaliving.core.operations.dto.serviceset.BrandComponentDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +15,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class SecurityBrandDetailDto extends BrandComponentDto {
+public class SecurityBrandDetailDto {
+
+	private String componentId;
 
 	private LocalTime startTime;
 

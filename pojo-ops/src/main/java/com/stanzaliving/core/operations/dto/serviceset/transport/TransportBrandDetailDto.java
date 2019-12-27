@@ -1,8 +1,10 @@
 package com.stanzaliving.core.operations.dto.serviceset.transport;
 
-import com.stanzaliving.core.operations.dto.serviceset.BrandComponentDto;
-
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -11,7 +13,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class TransportBrandDetailDto extends BrandComponentDto {
+public class TransportBrandDetailDto {
+
+	private String componentId;
 
 	private boolean availableAsVas;
 

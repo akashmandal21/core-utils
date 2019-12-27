@@ -1,7 +1,9 @@
 package com.stanzaliving.core.operations.dto.serviceset.security;
 
 import java.util.List;
+import java.util.Map;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 
 import lombok.AllArgsConstructor;
@@ -23,5 +25,5 @@ public class SecurityResidenceDto {
 
 	private List<SecurityDto> securityDtos;
 
-	private List<SecurityBrandDetailDto> securityBrandDetailDtoList;
+	private Map<ResidenceBrand, List<SecurityBrandDetailDto>> brandDetailsMap;
 }

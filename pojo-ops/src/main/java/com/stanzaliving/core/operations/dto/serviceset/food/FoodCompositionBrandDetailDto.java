@@ -1,7 +1,5 @@
 package com.stanzaliving.core.operations.dto.serviceset.food;
 
-import com.stanzaliving.core.operations.dto.serviceset.BrandComponentDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +13,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class FoodCompositionBrandDetailDto extends BrandComponentDto {
+public class FoodCompositionBrandDetailDto {
+
+	private String componentId;
 
 	private int numberOfTimes;
 

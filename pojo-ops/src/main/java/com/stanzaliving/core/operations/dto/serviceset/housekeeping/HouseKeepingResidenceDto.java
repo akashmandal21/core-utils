@@ -1,7 +1,9 @@
 package com.stanzaliving.core.operations.dto.serviceset.housekeeping;
 
 import java.util.List;
+import java.util.Map;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 
 import lombok.AllArgsConstructor;
@@ -23,5 +25,5 @@ public class HouseKeepingResidenceDto {
 
 	private List<HouseKeepingDto> houseKeepingDtos;
 
-	private List<HouseKeepingBrandDetailsDto> houseKeepingDetailsDtos;
+	private Map<ResidenceBrand, List<HouseKeepingBrandDetailsDto>> brandDetailsMap;
 }

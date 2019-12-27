@@ -3,8 +3,6 @@ package com.stanzaliving.core.operations.dto.serviceset.laundry;
 import java.time.DayOfWeek;
 import java.util.List;
 
-import com.stanzaliving.core.operations.dto.serviceset.BrandComponentDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,12 +16,13 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class LaundryBrandDetailDto extends BrandComponentDto {
+public class LaundryBrandDetailDto {
 
-	private List<DayOfWeek> days;
+	private String componentId;
 
 	private boolean available;
-	
+
 	private boolean availableAsVas;
 
+	private List<DayOfWeek> days;
 }

@@ -1,10 +1,16 @@
 package com.stanzaliving.core.operations.dto.serviceset.gym;
 
 import java.util.List;
+import java.util.Map;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -16,8 +22,8 @@ import lombok.experimental.SuperBuilder;
 public class GymResidenceDto {
 
 	private ResidenceType residenceType;
-	
-    private List<GymDto> gymDtos;
-    
-    private List<GymBrandDetailDto> gymDetailDtoList;
+
+	private List<GymDto> gymDtos;
+
+	private Map<ResidenceBrand, List<GymBrandDetailDto>> brandDetailsMap;
 }

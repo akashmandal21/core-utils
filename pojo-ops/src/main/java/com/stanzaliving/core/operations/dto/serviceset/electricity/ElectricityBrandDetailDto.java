@@ -1,10 +1,13 @@
 package com.stanzaliving.core.operations.dto.serviceset.electricity;
 
-import com.stanzaliving.core.operations.dto.serviceset.BrandComponentDto;
 import com.stanzaliving.core.operations.enums.ServiceAvailabilityMode;
 import com.stanzaliving.core.operations.enums.ServicePaymentMode;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -13,7 +16,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class ElectricityBrandDetailDto extends BrandComponentDto {
+public class ElectricityBrandDetailDto {
+
+	private String componentId;
 
 	private ServiceAvailabilityMode availabilityMode;
 

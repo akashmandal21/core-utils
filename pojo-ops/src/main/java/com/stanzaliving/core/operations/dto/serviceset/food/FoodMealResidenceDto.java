@@ -1,7 +1,9 @@
 package com.stanzaliving.core.operations.dto.serviceset.food;
 
 import java.util.List;
+import java.util.Map;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 
 import lombok.AllArgsConstructor;
@@ -23,5 +25,5 @@ public class FoodMealResidenceDto {
 
 	private List<FoodMealDto> foodMealDtos;
 
-	private List<FoodMealBrandDetailsDto> brandDetailsDtos;
+	private Map<ResidenceBrand, List<FoodMealBrandDetailsDto>> brandDetailsMap;
 }

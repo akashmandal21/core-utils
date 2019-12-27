@@ -4,7 +4,9 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
+import java.util.Map;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 
 @Getter
@@ -19,5 +21,5 @@ public class FoodCompositionResidenceDto {
 
 	private List<FoodCompositionDto> foodCompositionDtos;
 
-	private List<FoodCompositionBrandDetailDto> foodCompositionBrandDetailDtos;
+	private Map<ResidenceBrand, List<FoodCompositionBrandDetailDto>> brandDetailsMap;
 }
