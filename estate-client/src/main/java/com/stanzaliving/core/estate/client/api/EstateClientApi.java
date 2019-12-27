@@ -26,8 +26,16 @@ public class EstateClientApi {
     }
 
     public ResponseDto<List<EstateAttributeDto>> getEstateAttributeByEstateUuid(String estateUuid) {
+        return this.getEstateAttributeByEstateUuidOrEstateId(estateUuid, null);
+    }
 
-        if (StringUtils.isEmpty(estateUuid)) {
+    public ResponseDto<List<EstateAttributeDto>> getEstateAttributeByEstateId(String estateId) {
+        return this.getEstateAttributeByEstateUuidOrEstateId(null, estateId);
+    }
+
+    public ResponseDto<List<EstateAttributeDto>> getEstateAttributeByEstateUuidOrEstateId(String estateUuid, String estateId) {
+
+        if (StringUtils.isEmpty(estateUuid) && StringUtils.isEmpty(estateId)) {
             return null;
         }
 
@@ -40,7 +48,12 @@ public class EstateClientApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.putAll(restClient.parameterToMultiValueMap(null, "estateUuid", estateUuid));
+        if (StringUtils.isNotEmpty(estateUuid)) {
+            queryParams.putAll(restClient.parameterToMultiValueMap(null, "estateUuid", estateUuid));
+        }
+        if (StringUtils.isNotEmpty(estateId)) {
+            queryParams.putAll(restClient.parameterToMultiValueMap(null, "estateId", estateId));
+        }
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -54,4 +67,5 @@ public class EstateClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
     }
+
 }

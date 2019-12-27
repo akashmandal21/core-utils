@@ -1,16 +1,15 @@
-package com.stanzaliving.core.leadership.enums;
+package com.stanzaliving.core.legal.enums;
 
 import com.stanzaliving.core.estate.constants.AttributeNames;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.TreeSet;
+
 @AllArgsConstructor
 @Getter
 public enum AtlDetailsEnum {
 
-
-
-	
     //This enum can be kept in table as well, depending upon whether defaultDuration, scopeDefinitionKey, remarksKey, orderNum or defaultScopeDefinition needs to be modifiable
     STRUCTURE_CLAUSE_A_TEXT_AREA("Structure", "(Lease Term)", AttributeNames.STRUCTURE_CLAUSE_A_TEXT_AREA, AttributeNames.STRUCTURE_REMARKS, "Implementing any amendment based on the structural integrity check carried out by Lessee"),
     FIRE_CLAUSE_A_TEXT_AREA("Fire", "(One Time)", AttributeNames.FIRE_CLAUSE_A_TEXT_AREA, AttributeNames.FIRE_COMPLIANCE_REMARKS, "Fire compliance/NOC required"),
@@ -82,6 +81,15 @@ public enum AtlDetailsEnum {
     //private Integer orderNum;       //not required, as enums are already sorted by ordinal
 
     private String defaultScopeDefinition;
+
+    public static TreeSet<String> estateAttributeTreeSet = new TreeSet<>();
+
+    static {
+        for (AtlDetailsEnum atlDetailsEnum : AtlDetailsEnum.values()) {
+            estateAttributeTreeSet.add(atlDetailsEnum.getScopeDefinitionKey());
+            estateAttributeTreeSet.add(atlDetailsEnum.getRemarksKey());
+        }
+    }
 
 }
 
