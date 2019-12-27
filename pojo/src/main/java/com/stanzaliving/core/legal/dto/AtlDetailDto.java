@@ -1,7 +1,7 @@
 package com.stanzaliving.core.legal.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.leadership.enums.AtlDetailsEnum;
+import com.stanzaliving.core.legal.enums.AtlDetailsEnum;
 import com.stanzaliving.core.legal.enums.LegalStatus;
 import lombok.Getter;
 import lombok.Setter;

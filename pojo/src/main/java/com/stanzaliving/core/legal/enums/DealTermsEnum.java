@@ -1,7 +1,8 @@
-package com.stanzaliving.core.leadership.enums;
+package com.stanzaliving.core.legal.enums;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.TreeSet;
 
 import com.stanzaliving.core.estate.constants.AttributeNames;
 
@@ -31,4 +32,12 @@ public enum DealTermsEnum {
     String valueFormat;
 
     List<String> attributeNames;
+
+    public static TreeSet<String> estateAttributeTreeSet = new TreeSet<>();
+
+    static {
+        for (DealTermsEnum dealTermsEnum : DealTermsEnum.values()) {
+            estateAttributeTreeSet.addAll(dealTermsEnum.getAttributeNames());
+        }
+    }
 }

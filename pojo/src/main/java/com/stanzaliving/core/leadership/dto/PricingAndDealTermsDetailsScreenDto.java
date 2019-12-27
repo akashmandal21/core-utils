@@ -1,7 +1,5 @@
 package com.stanzaliving.core.leadership.dto;
 
-import java.util.List;
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +17,7 @@ public class PricingAndDealTermsDetailsScreenDto {
 	
 	private PricingApprovalScreenDto pricingApprovalScreenDto;
 	
-	private List<DealTermsDto> dealTermsDtos;
+	private PropertyNamingDto propertyNamingDto;
 	
 }
+	
