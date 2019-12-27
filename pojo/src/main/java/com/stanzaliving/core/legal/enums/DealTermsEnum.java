@@ -21,7 +21,7 @@ public enum DealTermsEnum {
     SECURITY_DEPOSIT("Security Deposit", "%s months", Arrays.asList(AttributeNames.FIN_SECURITY_DEPOSITE_MONTHS_OF_RENT)),
     LEASE_TERM("Lease term", "%s years", Arrays.asList(AttributeNames.FIN_LEASE_DURATION_IN_YEARS)),
     LANDLORD_HANDOVER_DATE("Landlord handover date", "%s", Arrays.asList(AttributeNames.FIN_BUILDING_HANDOVER_DATE)),
-    RENT_FREE_PERIOD("Rent free period", "%s months", Arrays.asList(AttributeNames.FIN_RENT_FREE_PERIOD_IN_MONTHS)),
+    RENT_FREE_PERIOD("Rent free period", "%s days", Arrays.asList(AttributeNames.FIN_RENT_FREE_PERIOD_IN_MONTHS)),
     RENT_START_DATE("Rent start date", "%s", Arrays.asList(AttributeNames.FIN_RENT_START_DATE)),
     LESSEE_LOCK_IN("Lessee lock-in", "%s years", Arrays.asList(AttributeNames.FIN_LEASE_LOCKIN_PERIOD_IN_YEARS)),
     STAMP_DUTY_BORNE_BY("Stamp duty borne by", "%s", Arrays.asList(AttributeNames.STAMP_DUTY_BORNE_BY)),
