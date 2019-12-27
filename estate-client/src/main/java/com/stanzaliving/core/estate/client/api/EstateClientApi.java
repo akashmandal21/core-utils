@@ -82,7 +82,7 @@ public class EstateClientApi {
 
         uriVariables.put("estateId", estateId);
         
-        String path = UriComponentsBuilder.fromPath("/estate/approve/leadership/{estateId}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/estate/approve/leadership/{estateId}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -113,7 +113,7 @@ public class EstateClientApi {
 
         uriVariables.put("estateId", estateId);
         
-        String path = UriComponentsBuilder.fromPath("/estate/sendback/leadership/{estateId}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/estate/sendback/leadership/{estateId}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
