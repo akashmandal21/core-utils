@@ -57,6 +57,8 @@ public class PricingApprovalScreenDto extends AbstractDto{
 	private LocalDate handoverDate;
 	
 	private PricingStepStatus pricingStepStatus;
+	
+	private String pricingStepStatusStr;
 
 	private EstateStatus estateStatus;
 	
