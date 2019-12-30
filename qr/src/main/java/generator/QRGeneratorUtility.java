@@ -14,22 +14,26 @@ import java.util.UUID;
 public class QRGeneratorUtility
 {
     public final static QrCode.Ecc DEFAULT_ECC_LEVEL = QrCode.Ecc.HIGH;
-    public final static int DEFAULT_PIXEL_SCALE = 4;
-    public final static int DEFAULT_NUM_BORDERS = 4;
+    public final static int DEFAULT_PIXEL_SCALE = 3;
+    public final static int DEFAULT_NUM_BORDERS = 2;
 
     public static BufferedImage generateUUIDAndQRImage() throws IOException
     {
         UUID uuid = UUID.randomUUID();
-        return generateQRImageForUuid(createNumericSegmentsForUUID(uuid),DEFAULT_ECC_LEVEL,DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
+        return generateQRImageForUuid(createNumericSegmentsForUUID(uuid.toString()),DEFAULT_ECC_LEVEL,DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
     }
 
-    public static BufferedImage generateQRImageUsingUuid(UUID uuid,int scale,int borders, QrCode.Ecc ecc) throws IOException
+    public static BufferedImage generateQRImageUsingUuidAndPageNum(String uuidString,String pageNum) throws IOException
     {
-        return generateQRImageForUuid(createNumericSegmentsForUUID(uuid),ecc,scale,borders);
+        List<QrSegment> list = createNumericSegmentsForUUID(uuidString);
+        list.add(QrSegment.makeNumeric(pageNum));
+        return generateQRImageForUuid(list,DEFAULT_ECC_LEVEL,DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
     }
 
-    private static List<QrSegment> createNumericSegmentsForUUID(UUID uuid)
+    private static List<QrSegment> createNumericSegmentsForUUID(String uuidString)
     {
+
+        UUID uuid=UUID.fromString(uuidString);
         List<QrSegment> list = new ArrayList<>(2);
         list.add(QrSegment.makeNumeric(Long.toUnsignedString(uuid.getMostSignificantBits())));
         list.add(QrSegment.makeNumeric(Long.toUnsignedString(uuid.getLeastSignificantBits())));

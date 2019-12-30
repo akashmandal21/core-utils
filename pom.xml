@@ -35,7 +35,8 @@
 		<module>user-client</module>
 		<module>redis</module>
 		<module>mongoBase</module>
-	</modules>
+        <module>qr</module>
+    </modules>
 
 	<build>
 		<plugins>
