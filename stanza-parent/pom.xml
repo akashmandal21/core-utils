@@ -96,8 +96,7 @@
 
 		<!-- Power Mock -->
 		<powermock.version>2.0.2</powermock.version>
-
-		<!--Google Phone library version -->
+        <!--Google Phone library version -->
 		<google.phonelib.version>8.10.18</google.phonelib.version>
 
 		<opencsv.version>2.3</opencsv.version>
@@ -105,7 +104,9 @@
 
 		<spring-cloud-aws-context.version>1.2.1.RELEASE</spring-cloud-aws-context.version>
 		<spring-boot-starter-log4j2.version>2.1.3.RELEASE</spring-boot-starter-log4j2.version>
-
+		
+		<opencsv.reader.version>4.1</opencsv.reader.version>
+		
 	</properties>
 
 	<dependencyManagement>
@@ -333,7 +334,11 @@
 				<version>${powermock.version}</version>
 				<scope>test</scope>
 			</dependency>
-
+			<dependency>
+				<groupId>com.opencsv</groupId>
+				<artifactId>opencsv</artifactId>
+				<version>${opencsv.reader.version}</version>
+			</dependency>
 		</dependencies>
 
 	</dependencyManagement>
