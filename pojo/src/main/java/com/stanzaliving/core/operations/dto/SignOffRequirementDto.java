@@ -1,11 +1,7 @@
-/**
- * 
- */
 package com.stanzaliving.core.operations.dto;
 
 import java.util.Date;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
@@ -17,19 +13,15 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author naveen.kumar
- *
- * @date 14-Nov-2019
- *
- **/
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class RoleRequirementDto {
+public class SignOffRequirementDto {
+
+	private String userName;
 
 	private String uuid;
 
@@ -40,13 +32,8 @@ public class RoleRequirementDto {
 
 	private String roleName;
 
-	@Min(value = 0, message = "Requirement cannot be negative")
-	private int requirement;
-
 	private int signedOffRequirement;
 
-	private Date lastSignedOffTime;
-
-	private String lastSignedOffBy;
+	private Date date;
 
 }

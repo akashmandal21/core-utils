@@ -35,7 +35,7 @@
 		<jsr250.version>2.7.0</jsr250.version>
 
 		<lombok.version>1.18.10</lombok.version>
-
+		<opencsv.reader.version>4.1.0</opencsv.reader.version>
 		<!-- Apache Commons version -->
 		<commons-vfs2.version>2.0</commons-vfs2.version>
 		<commons.io.version>2.6</commons.io.version>

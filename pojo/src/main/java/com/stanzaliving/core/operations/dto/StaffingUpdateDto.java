@@ -3,10 +3,7 @@
  */
 package com.stanzaliving.core.operations.dto;
 
-import java.util.List;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author naveen.kumar
  *
- * @date 14-Nov-2019
+ * @date 2-Dec-2019
  *
  **/
 @Getter
@@ -27,8 +24,11 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class PeopleRequirementDto extends OpsDashboardDataDto {
+public class StaffingUpdateDto {
 
-	@NotEmpty(message = "Role Requirements are mandatory for People Requirement")
-	private List<@Valid RoleRequirementDto> roleRequirementDtos;
+	private String requirementId;
+
+	private Set<String> usersAdded;
+	
+	private Set<String> usersRemoved;
 }

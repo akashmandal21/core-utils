@@ -48,6 +48,8 @@ public interface AbstractJpaService<T extends AbstractJpaEntity, I extends Seria
 
 	long count();
 
+	long countByStatus(boolean status);
+
 	T find(I id);
 
 	List<T> find(Collection<I> ids);
