@@ -27,4 +27,5 @@ public class ComponentMetadataDto {
 	private String componentId;
 
 	private String componentName;
+
 }

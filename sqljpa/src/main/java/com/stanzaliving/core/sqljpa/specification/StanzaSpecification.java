@@ -55,6 +55,10 @@ public class StanzaSpecification<T extends AbstractJpaEntity> implements Specifi
 				return builder.equal(
 						root.get(criteria.getKey()), criteria.getValue().toString());
 
+			case NOT_EQ:
+				return builder.notEqual(
+						root.get(criteria.getKey()), criteria.getValue().toString());
+				
 			case LT:
 				return builder.lessThan(
 						root.get(criteria.getKey()), criteria.getValue().toString());

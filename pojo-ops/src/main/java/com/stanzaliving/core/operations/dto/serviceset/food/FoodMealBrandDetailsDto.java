@@ -20,5 +20,4 @@ public class FoodMealBrandDetailsDto {
 	private boolean available;
 
 	private boolean availableAsVas;
-
 }

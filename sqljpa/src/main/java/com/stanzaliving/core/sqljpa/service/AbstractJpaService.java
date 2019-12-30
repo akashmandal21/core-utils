@@ -63,6 +63,8 @@ public interface AbstractJpaService<T extends AbstractJpaEntity, I extends Seria
 	Page<T> findAllByStatus(boolean status, Pageable pageable);
 
 	Page<T> findAll(Specification<T> spec, Pageable pageable);
+	
+	List<T> findAll(Specification<T> spec);
 
 	List<T> findList(List<I> ids);
 
