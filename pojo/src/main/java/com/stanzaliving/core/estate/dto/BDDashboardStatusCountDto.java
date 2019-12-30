@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class BDDashboardStatusCountDto {
 	
-	private BDDashboardStatus bdDashboardStatus;
+	private BDDashboardStatus status;
 	
 	private String name;
     
@@ -23,9 +23,9 @@ public class BDDashboardStatusCountDto {
 	
 	private String color;
     
-    public BDDashboardStatusCountDto(BDDashboardStatus bdDashboardStatus,long count) {
+    public BDDashboardStatusCountDto(BDDashboardStatus status,long count) {
     	
-    	this.bdDashboardStatus = bdDashboardStatus ;
+    	this.status = status ;
     	this.count = count;
     }
 }
