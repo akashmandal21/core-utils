@@ -40,4 +40,14 @@ public class EstateAppAttributes {
 
 	private String rent;
 	
+	private String securityDeposit;
+	
+	private String advanceRent;
+	
+	private String lockInPeriod;
+	
+	private String handOverDate;
+	
+	private String tenure;
+	
 }

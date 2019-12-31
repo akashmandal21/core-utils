@@ -3,22 +3,17 @@
  */
 package com.stanzaliving.core.base.utils;
 
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
-import java.util.concurrent.ThreadLocalRandom;
-
+import com.stanzaliving.core.base.StanzaConstants;
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.validator.routines.EmailValidator;
 
-import com.stanzaliving.core.base.StanzaConstants;
-
-import lombok.experimental.UtilityClass;
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author naveen
@@ -160,13 +155,13 @@ public class StanzaUtils {
 		return 0d;
 	}
 
-	public static List<String> getSplittedListOnComma( String input ){
-		
-		if(Objects.isNull(input)) {
+	public static List<String> getSplittedListOnComma(String input) {
+
+		if (Objects.isNull(input)) {
 			return null;
 		}
-		
-		return Arrays.asList(input.split(","));
+
+		return new ArrayList<>(Arrays.asList(input.split("\\s*,\\s*")));
 	}
 
 
@@ -237,7 +232,11 @@ public class StanzaUtils {
 		return (value!=null) ? Math.ceil(value.doubleValue()) :0;
 	}
 
-
+	public static double findPercentage(long total,long number) {
+		
+		return Math.round(((number*100)/total)) ;
+		
+	}
 
 
 }
