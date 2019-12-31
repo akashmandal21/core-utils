@@ -1,13 +1,15 @@
 package com.stanzaliving.core.operations.dto.serviceset.electricity;
 
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import java.util.List;
-import java.util.Map;
 
-import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -21,6 +23,6 @@ public class ElectricityResidenceDto {
 
 	private List<ElectricityDto> electricityDtos;
 
-	private Map<ResidenceBrand, List<ElectricityBrandDetailDto>> brandDetailsMap;
+	private List<ElectricityBrandServiceDto> brandDetails;
 
 }

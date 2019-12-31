@@ -2,7 +2,7 @@ package com.stanzaliving.core.operations.dto.serviceset.transport;
 
 import java.util.List;
 
-import com.stanzaliving.core.enums.ResidenceType;
+import com.stanzaliving.core.operations.dto.serviceset.BrandAvailabilityDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,12 +17,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class TransportResidenceDto {
+public class TransportBrandServiceDto extends BrandAvailabilityDto {
 
-	private ResidenceType residenceType;
-
-	private List<TransportDto> transportDtos;
-
-	private List<TransportBrandServiceDto> brandDetails;
-
+	private List<TransportBrandDetailDto> serviceDetails;
 }

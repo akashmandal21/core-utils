@@ -1,9 +1,11 @@
 /**
  * 
  */
-package com.stanzaliving.core.operations.dto.serviceset;
+package com.stanzaliving.core.operations.dto.serviceset.internet;
 
-import com.stanzaliving.core.enums.ResidenceBrand;
+import java.util.List;
+
+import com.stanzaliving.core.operations.dto.serviceset.BrandAvailabilityDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,9 +26,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class BrandComponentDto {
+public class InternetBrandServiceDto extends BrandAvailabilityDto {
 
-	private String componentId;
+	private List<InternetBrandDetailDto> serviceDetails;
 
-	private ResidenceBrand brandName;
 }

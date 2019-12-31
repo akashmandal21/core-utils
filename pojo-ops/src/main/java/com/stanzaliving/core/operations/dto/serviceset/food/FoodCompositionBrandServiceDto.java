@@ -1,8 +1,11 @@
+/**
+ * 
+ */
 package com.stanzaliving.core.operations.dto.serviceset.food;
 
 import java.util.List;
 
-import com.stanzaliving.core.enums.ResidenceType;
+import com.stanzaliving.core.operations.dto.serviceset.BrandAvailabilityDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,17 +14,20 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * @author naveen.kumar
+ *
+ * @date 26-Dec-2019
+ *
+ **/
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class FoodCanteenResidenceDto {
+public class FoodCompositionBrandServiceDto extends BrandAvailabilityDto {
 
-	private ResidenceType residenceType;
+	private List<FoodCompositionBrandDetailDto> serviceDetails;
 
-	private List<FoodCanteenDto> foodCanteenDtos;
-
-	private List<FoodCanteenBrandServiceDto> brandDetails;
 }
