@@ -234,7 +234,7 @@ public class StanzaUtils {
 
 	public static double findPercentage(long total,long number) {
 		
-		return Math.round(((number*100)/total)) ;
+		return Math.round(((number*100)/total)*100.0)/100.0 ;
 		
 	}
 
