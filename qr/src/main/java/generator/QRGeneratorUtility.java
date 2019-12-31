@@ -4,17 +4,18 @@ import io.nayuki.qrcodegen.QrCode;
 import io.nayuki.qrcodegen.QrSegment;
 import lombok.extern.log4j.Log4j2;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Log4j2
 public class QRGeneratorUtility
 {
-    public final static QrCode.Ecc DEFAULT_ECC_LEVEL = QrCode.Ecc.HIGH;
-    public final static int DEFAULT_PIXEL_SCALE = 3;
+    public final static QrCode.Ecc DEFAULT_ECC_LEVEL = QrCode.Ecc.MEDIUM;
+    public final static int DEFAULT_PIXEL_SCALE = 2;
     public final static int DEFAULT_NUM_BORDERS = 2;
 
     public static BufferedImage generateUUIDAndQRImage() throws IOException
@@ -43,7 +44,7 @@ public class QRGeneratorUtility
 
     private static BufferedImage generateQRImageForUuid(List<QrSegment> list, QrCode.Ecc ecc, int scale, int numBorders) throws IOException
     {
-        QrCode qr1 = QrCode.encodeSegments(list, ecc, 2, 3, 2, false);
+        QrCode qr1 = QrCode.encodeSegments(list, ecc, 2, 2, 2, false);
         BufferedImage img1=qr1.toImage(scale,numBorders);
 
         return img1;
@@ -55,5 +56,9 @@ public class QRGeneratorUtility
         return QrCode.encodeSegments(list,DEFAULT_ECC_LEVEL).toImage(DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
     }
 
+    public static void main(String args[]) throws IOException {
+        ImageIO.write(generateUUIDAndQRImage(), "png", new File("qr-code.png"));
+
+    }
 
 }
