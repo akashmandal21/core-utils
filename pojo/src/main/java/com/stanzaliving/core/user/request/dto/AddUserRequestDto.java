@@ -3,12 +3,7 @@
  */
 package com.stanzaliving.core.user.request.dto;
 
-import java.time.LocalDate;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.user.dto.Address;
 import com.stanzaliving.core.user.enums.Gender;
 import com.stanzaliving.core.user.enums.MaritalStatus;
@@ -16,9 +11,17 @@ import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.utilservice.annotations.Email;
 import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 /**
  * @author naveen
@@ -28,10 +31,16 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AddUserRequestDto {
 
 	@NotNull(message = "User Type is mandatory to add new user")
 	private UserType userType;
+
+	@NotNull(message = "Department is mandatory to add new user")
+	private Department department;
 
 	@NotBlank(message = "ISO Code is mandatory to add new user")
 	@Size(min = 2, max = 3, message = "ISO Code must be of 2-4 characters")

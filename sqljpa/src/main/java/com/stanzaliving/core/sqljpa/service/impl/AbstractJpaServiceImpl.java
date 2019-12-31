@@ -1,14 +1,11 @@
 package com.stanzaliving.core.sqljpa.service.impl;
 
-import java.beans.PropertyDescriptor;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-
+import com.google.common.collect.Lists;
+import com.stanzaliving.core.base.exception.StanzaException;
+import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
+import com.stanzaliving.core.sqljpa.repository.AbstractJpaRepository;
+import com.stanzaliving.core.sqljpa.service.AbstractJpaService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -17,13 +14,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 
-import com.google.common.collect.Lists;
-import com.stanzaliving.core.base.exception.StanzaException;
-import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
-import com.stanzaliving.core.sqljpa.repository.AbstractJpaRepository;
-import com.stanzaliving.core.sqljpa.service.AbstractJpaService;
-
-import lombok.extern.log4j.Log4j2;
+import java.beans.PropertyDescriptor;
+import java.io.Serializable;
+import java.util.*;
 
 @Log4j2
 public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I extends Serializable, R extends AbstractJpaRepository<T, I>>
@@ -93,6 +86,12 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	}
 
 	@Override
+	public List<T> saveAll(Collection<T> entities) {
+		return getJpaRepository().saveAll(entities);
+	}
+
+
+	@Override
 	public List<T> save(Collection<T> entities, boolean logEntity) {
 		List<T> savedEntities = getJpaRepository().saveAll(entities);
 		if (logEntity) {
@@ -157,6 +156,11 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	}
 
 	@Override
+	public long countByStatus(boolean status) {
+		return getJpaRepository().countByStatus(status);
+	}
+
+	@Override
 	public T find(I id) {
 		return getJpaRepository().findById(id).orElse(null);
 	}
@@ -195,6 +199,11 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	public Page<T> findAll(Specification<T> spec, Pageable pageable) {
 		return getJpaRepository().findAll(spec, pageable);
 	}
+	
+	@Override
+	public List<T> findAll(Specification<T> spec) {
+		return getJpaRepository().findAll(spec);
+	}
 
 	@Override
 	public List<T> findList(List<I> ids) {
@@ -222,8 +231,18 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	}
 
 	@Override
-	public List<T> findByUuidInAndStatus(Collection<String> uuids, boolean isDeleted) {
-		return getJpaRepository().findByUuidIn(uuids);//TODO - this needs to be changed
+	public List<T> findByUuidInAndStatus(Collection<String> uuids, boolean status) {
+		return getJpaRepository().findByUuidInAndStatus(uuids, status);
+	}
+
+	@Override
+	public Boolean existsByUuid(String uuid) {
+		return getJpaRepository().existsByUuid(uuid);
+	}
+
+	@Override
+	public Boolean existsByUuidAndStatus(String uuid, boolean status) {
+		return getJpaRepository().existsByUuidAndStatus(uuid, status);
 	}
 
 	@Override

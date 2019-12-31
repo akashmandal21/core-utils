@@ -35,6 +35,10 @@
 		<module>user-client</module>
 		<module>redis</module>
 		<module>mongoBase</module>
+		<module>qaservice</module>
+		<module>comment-client</module>
+		<module>estate-client</module>
+		<module>documentgenerator-client</module>
 	</modules>
 
 	<build>

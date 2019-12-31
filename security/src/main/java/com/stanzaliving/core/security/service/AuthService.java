@@ -6,7 +6,7 @@ import com.stanzaliving.core.user.dto.UserProfileDto;
 
 public interface AuthService {
 
-	ResponseDto<UserDto> validateToken(String token);
+	ResponseDto<UserProfileDto> validateToken(String token);
 
 	void validateUrlPermission(String userId, String uri);
 
