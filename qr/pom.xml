@@ -10,7 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>qr</artifactId>
-
+    <name>qr</name>
+<packaging>jar</packaging>
+    
     <dependencies>
 
         <dependency>
