@@ -3,17 +3,23 @@
  */
 package com.stanzaliving.core.base.utils;
 
-import com.stanzaliving.core.base.StanzaConstants;
-import lombok.experimental.UtilityClass;
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.validator.routines.EmailValidator;
 
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
-import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
+import com.stanzaliving.core.base.StanzaConstants;
+
+import lombok.experimental.UtilityClass;
 
 /**
  * @author naveen
@@ -234,9 +240,8 @@ public class StanzaUtils {
 
 	public static double findPercentage(long total,long number) {
 		
-		return Math.round(((number*100)/total)) ;
+		return Math.round((number*100.0/total)*100.0)/100.0;
 		
 	}
-
 
 }
