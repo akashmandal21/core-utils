@@ -41,6 +41,8 @@
 		<module>comment-client</module>
 		<module>estate-client</module>
 		<module>documentgenerator-client</module>
+		<module>version-client</module>
+
 	</modules>
 
 	<build>
