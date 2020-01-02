@@ -1,4 +1,4 @@
-package validator;
+package com.stanza.qr.validator;
 
 import boofcv.abst.fiducial.QrCodeDetector;
 import boofcv.alg.fiducial.qrcode.QrCode;

@@ -1,4 +1,4 @@
-package generator;
+package com.stanza.qr.generator;
 
 import io.nayuki.qrcodegen.QrCode;
 import io.nayuki.qrcodegen.QrSegment;
@@ -24,10 +24,9 @@ public class QRGeneratorUtility
         return generateQRImageForUuid(createNumericSegmentsForUUID(uuid.toString()),DEFAULT_ECC_LEVEL,DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
     }
 
-    public static BufferedImage generateQRImageUsingUuidAndPageNum(String uuidString,String pageNum) throws IOException
+    public static BufferedImage generateQRImageUsingUuid(String uuidString) throws IOException
     {
         List<QrSegment> list = createNumericSegmentsForUUID(uuidString);
-        list.add(QrSegment.makeNumeric(pageNum));
         return generateQRImageForUuid(list,DEFAULT_ECC_LEVEL,DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
     }
 
