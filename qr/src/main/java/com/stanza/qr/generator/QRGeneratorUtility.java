@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,6 +29,16 @@ public class QRGeneratorUtility
     {
         List<QrSegment> list = createNumericSegmentsForUUID(uuidString);
         return generateQRImageForUuid(list,DEFAULT_ECC_LEVEL,DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
+    }
+
+    public static byte[] getImageByteArray(BufferedImage image) throws IOException
+    {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write( image, "png", baos );
+        baos.flush();
+        byte[] imageInByte = baos.toByteArray();
+        baos.close();
+        return imageInByte;
     }
 
     private static List<QrSegment> createNumericSegmentsForUUID(String uuidString)

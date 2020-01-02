@@ -1,5 +1,6 @@
 package com.stanzaliving.versioning.dto;
 
+import com.stanzaliving.versioning.enums.ContentType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -31,7 +32,7 @@ public class VersioningResponseDto
 
     private String dataDocument;
 
-    private String dataDocumentType;
+    private ContentType dataDocumentType;
 }
 
 
