@@ -19,7 +19,7 @@ import lombok.ToString;
 @ToString
 public class PushNotificationRequestDto {
 
-	private String estateId;
+	private String estateUuid;
 	private String notificationTitle;
 	private String notificationMessage;
 	private ServiceName serviceName;
