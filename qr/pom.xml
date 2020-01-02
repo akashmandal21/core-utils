@@ -12,7 +12,7 @@
     <artifactId>qr</artifactId>
     <name>qr</name>
 <packaging>jar</packaging>
-    
+
     <dependencies>
 
         <dependency>

@@ -1,8 +1,10 @@
 package com.stanzaliving.versioning.dto;
 
+import com.stanzaliving.versioning.enums.ContentType;
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -28,8 +30,8 @@ public class VersioningRequestDto {
     @NotEmpty
     private String dataDocument;
 
-    @NotEmpty
-    private String dataDocumentType;
+    @NotNull
+    private ContentType dataDocumentType;
 
 
 }
