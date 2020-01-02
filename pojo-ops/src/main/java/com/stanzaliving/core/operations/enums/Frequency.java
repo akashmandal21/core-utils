@@ -7,9 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Frequency {
 
-	DAILY("Day"),
-	WEEKLY("Week"),
-	MONTHLY("Month");
+	DAILY("Daily"),
+	WEEKLY("Weekly"),
+	MONTHLY("Monthly");
 
 	private String simpleName;
 }

@@ -1,7 +1,7 @@
 package com.stanzaliving.core.operations.dto.serviceset.food;
 
 import com.stanzaliving.core.operations.dto.serviceset.ComponentMetadataDto;
-import com.stanzaliving.core.operations.enums.Frequency;
+import com.stanzaliving.core.operations.enums.FoodItemFrequency;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +18,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class FoodCompositionDto extends ComponentMetadataDto {
 
-	private Frequency frequency;
+	private FoodItemFrequency frequency;
 
 }
