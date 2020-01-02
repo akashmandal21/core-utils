@@ -6,12 +6,13 @@ import com.stanzaliving.core.mongobase.repository.AbstractMongoRepository;
 import com.stanzaliving.core.mongobase.service.AbstractMongoService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-
+@Service
 @Log4j2
 public abstract class AbstractMongoServiceImpl<T extends AbstractMongoEntity, I extends Serializable, R extends AbstractMongoRepository<T,I>>
     implements AbstractMongoService<T, I>
