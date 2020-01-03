@@ -33,7 +33,7 @@ public class VersioningRequestDto {
     @NotNull
     private ContentType dataDocumentType;
 
-    private int version;
+    private Integer version;
 
 
 }
