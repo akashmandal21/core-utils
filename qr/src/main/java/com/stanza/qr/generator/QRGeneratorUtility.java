@@ -43,7 +43,6 @@ public class QRGeneratorUtility
 
     private static List<QrSegment> createNumericSegmentsForUUID(String uuidString)
     {
-
         UUID uuid=UUID.fromString(uuidString);
         List<QrSegment> list = new ArrayList<>(2);
         list.add(QrSegment.makeNumeric(Long.toUnsignedString(uuid.getMostSignificantBits())));

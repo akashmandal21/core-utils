@@ -65,9 +65,14 @@ public class QRCodeDataExtractor
         try {
             image = ImageIO.read(stream);
         } catch (IOException e) {
-            throw new StanzaException("Unable to detect QR Code using decoder:"+decoder.getDecoderName()+" "+e.getMessage());
+            throw new StanzaException("Unable to read the image file "+e.getMessage());
         }
         return decodeSingleQRCode(image,decoder);
+    }
+    public static String convertQRUUIDtoStanzaUUID(String u)
+    {
+        UUID uuid = new UUID(Long.parseUnsignedLong(u.substring(0,u.length()/2)),Long.parseUnsignedLong(u.substring(u.length()/2,u.length())));
+        return uuid.toString();
     }
 
 //    @Test
