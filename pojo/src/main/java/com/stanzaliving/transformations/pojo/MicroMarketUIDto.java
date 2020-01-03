@@ -21,13 +21,11 @@ public class MicroMarketUIDto {
 
 	private long id;
 
-	@NotBlank(message = "Micro Market UUID is Mandatory")
 	private String uuid;
 
 	@NotBlank(message = "Micro Market Name is Mandatory")
 	private String microMarketName;
 
-	@NotBlank(message = "Micro Market City is Mandatory")
 	private String cityUuid;
 
 	private Long cityId;
