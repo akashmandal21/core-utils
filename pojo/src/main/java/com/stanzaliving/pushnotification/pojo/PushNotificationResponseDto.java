@@ -4,7 +4,6 @@
 package com.stanzaliving.pushnotification.pojo;
 
 import java.util.Date;
-
 import com.stanzaliving.pushnotification.enums.PushNotificationType;
 import com.stanzaliving.pushnotification.enums.ServiceName;
 
@@ -28,4 +27,5 @@ public class PushNotificationResponseDto {
 	private ServiceName serviceName;
 	private PushNotificationType pushNotificationType;
 	private Date messageReadAt;
+	private Date createdAt;
 }
