@@ -65,9 +65,9 @@ public class QRGeneratorUtility
         return QrCode.encodeSegments(list,DEFAULT_ECC_LEVEL).toImage(DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
     }
 
-    public static void main(String args[]) throws IOException {
-        ImageIO.write(generateUUIDAndQRImage(), "png", new File("qr-code.png"));
-
-    }
+//    public static void main(String args[]) throws IOException {
+//        ImageIO.write(generateUUIDAndQRImage(), "png", new File("qr-code.png"));
+//
+//    }
 
 }
