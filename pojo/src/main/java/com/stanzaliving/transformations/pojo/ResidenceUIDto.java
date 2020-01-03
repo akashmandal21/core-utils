@@ -4,9 +4,9 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 import com.stanzaliving.core.estate.enums.EstateGender;
-import com.stanzaliving.transformations.enums.BrandName;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -49,7 +49,7 @@ public class ResidenceUIDto {
 	private ResidenceType residenceType;
 
 	@NotNull(message = "Residence Brand is Mandatory")
-	private BrandName brandName;
+	private ResidenceBrand brandName;
 
 	@NotNull(message = "Residence Gender is Mandatory")
 	private EstateGender estateGender;

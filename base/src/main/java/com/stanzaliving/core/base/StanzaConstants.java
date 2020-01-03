@@ -27,4 +27,7 @@ public class StanzaConstants {
 
 	public static final String ORGANIZATION_NAME = "Stanza Living";
 	public static final String ORGANIZATION_DOMAIN = "https://www.stanzaliving.com";
+
+	public static final String CONTEXT_SERVICE_NAME = "OPERATIONS_SERVICE";
+	public static final String CONTEXT_NAME = "SERVICE_MIX";
 }
