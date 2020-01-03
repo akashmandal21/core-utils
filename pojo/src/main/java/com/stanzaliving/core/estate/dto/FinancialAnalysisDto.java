@@ -23,6 +23,7 @@ public class FinancialAnalysisDto {
 	private String financialCommets;
 	private String buildingHandoverDate;
 	private String rentStartDate;
+	private String noticePeriod;
 	
 	/*Broker Info*/	
 	

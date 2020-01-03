@@ -12,4 +12,12 @@ public class LandlordInfoDto {
 	private String ownershipPercentage;
 	
 	private String landlordPan;
+	
+	private String landlordAddress;
+	
+	private String landlordRelationName;
+	
+	private String landlordRelationType;
+	
+	private String landlordAge;
 }
