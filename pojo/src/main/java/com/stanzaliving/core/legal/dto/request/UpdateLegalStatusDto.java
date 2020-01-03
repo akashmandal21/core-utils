@@ -1,13 +1,13 @@
 package com.stanzaliving.core.legal.dto.request;
 
+import javax.validation.constraints.NotNull;
+
 import com.stanzaliving.core.legal.enums.LegalStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Data
 @Builder
@@ -15,9 +15,10 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class UpdateLegalStatusDto {
 
-    @NotEmpty(message = "uuid is mandatory")
-    String uuid;
+	String uuid;
 
-    @NotNull(message = "status is mandatory")
-    LegalStatus legalStatus;
+	@NotNull(message = "status is mandatory")
+	LegalStatus legalStatus;
+
+	private String estateUuid;
 }
