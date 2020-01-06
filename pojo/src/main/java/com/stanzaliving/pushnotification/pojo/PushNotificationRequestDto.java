@@ -24,6 +24,6 @@ public class PushNotificationRequestDto {
 	private String notificationMessage;
 	private ServiceName serviceName;
 	private PushNotificationType pushNotificationType;
-	private String userId;
+	private String userUuid;
 	
 }
