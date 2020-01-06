@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -14,6 +15,7 @@ import lombok.Getter;
  *
  **/
 @Getter
+@AllArgsConstructor
 public enum SOWStatus {
 
 	PENDING_SOW_APPROVAL("Pending SOW Approval"), SOW_SENT_BACK("SOW Sent Back"), SOW_APPROVED("SOW Approved");
@@ -32,9 +34,6 @@ public enum SOWStatus {
 		NON_MODIFIABLE_SOW_STATUS = Arrays.asList(PENDING_SOW_APPROVAL, SOW_APPROVED, SOW_SENT_BACK);
 	}
 
-	private SOWStatus(String name) {
-		this.name = name;
-	}
 
 	public static Map<SOWStatus, String> getAll() {
 		return SOWStatusMap;
