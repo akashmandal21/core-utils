@@ -355,7 +355,19 @@ public class AttributeNames {
 		public static final String WARRANTY_CARD_FOR_WHITE_GOODS = "warrantyCardForWhiteGoods";
 
 		public static final String STAMP_DUTY_BORNE_BY = "stampDuty";
-		
+
+		/************************************************************************************************************
+		Used in Legal Service to create Atl / Deal Term Documents
+		 ************************************************************************************************************/
+		public static final String LANDLORD_DETAILS_FOR_DOC = "landlordDetailsForDoc";
+		public static final String LEASED_PREMISES_DESCRIPTION_FOR_DOC = "leasedPremisesDescriptionForDoc";
+		public static final String STAMP_DUTY_DESCRIPTION_FOR_DOC = "stampDutyDescriptionForDoc";
+		public static final String STAMP_DUTY_FOR_DOC = "stampDutyForDoc";
+		public static final String ANNUAL_RENT_FOR_DOC = "annualRentForDoc";
+		public static final String RENT_INSTALLMENTS_FOR_DOC = "rentInstallmentForDoc";
+		public static final String ADDRESS_FOR_DOC = "addressForDoc";
+
+
 		public static final Map<ImmutablePair<String, String>, List<String>> kQuestionMap = new HashMap<ImmutablePair<String, String>, List<String>>() {
 			/**
 			 * 
