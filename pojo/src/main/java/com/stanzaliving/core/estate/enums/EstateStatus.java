@@ -37,7 +37,9 @@ public enum EstateStatus {
 	SIGNED_ATL_UPLOADED("Signed ATL Uploaded"),
 	ATL_UPLOAD_PENDING("ATL Upload Pending"),
 	SENT_TO_LEGAL("Sent to Legal"),
-	SENT_BACK_BY_LEGAL("Sent Back By Legal");
+	SENT_TO_BD_LEGAL("Sent to BD_LEGAL"),
+	SENT_BACK_BY_LEGAL("Sent Back By Legal"),
+	APPROVED_BY_LEGAL("Legal has approved the deal terms changes");
 
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
