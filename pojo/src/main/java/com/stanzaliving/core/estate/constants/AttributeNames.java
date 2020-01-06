@@ -133,6 +133,9 @@ public class AttributeNames {
 
 		public static final String LANDLORD_INFO_DETAILS = "landlordDetails";
 
+		public static final String TERRACE_ACCESS = "terraceAccess";
+		public static final String STILT = "stilt";
+
 	// Financial analysis attributes
 		public static final String FIN_MONTHLY_RENT = "monthlyRent";
 		public static final String FIN_LEASE_DURATION_IN_YEARS = "leaseDurationInYears";
@@ -362,7 +365,6 @@ public class AttributeNames {
 		public static final String LANDLORD_DETAILS_FOR_DOC = "landlordDetailsForDoc";
 		public static final String LEASED_PREMISES_DESCRIPTION_FOR_DOC = "leasedPremisesDescriptionForDoc";
 		public static final String STAMP_DUTY_DESCRIPTION_FOR_DOC = "stampDutyDescriptionForDoc";
-		public static final String STAMP_DUTY_FOR_DOC = "stampDutyForDoc";
 		public static final String ANNUAL_RENT_FOR_DOC = "annualRentForDoc";
 		public static final String RENT_INSTALLMENTS_FOR_DOC = "rentInstallmentForDoc";
 		public static final String ADDRESS_FOR_DOC = "addressForDoc";
