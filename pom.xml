@@ -42,6 +42,7 @@
 		<module>estate-client</module>
 		<module>documentgenerator-client</module>
 		<module>version-client</module>
+		<module>legal-client</module>		
 		<module>estate-core</module>
 
 	</modules>
