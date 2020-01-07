@@ -146,6 +146,9 @@ public class AttributeNames {
 		public static final String FIN_AMORTIZED_PERIOD_IN_MONTHS = "amortizedPeriodInMonths";
 		public static final String FIN_LEASE_LOCKIN_PERIOD_IN_YEARS = "leaseLockInPeriodInYears";
 		public static final String FIN_TOKEN_DEPOSIT_IN_RUPEES = "tokenDepositInRupees";
+		public static final String FIN_NOTICE_PERIOD = "noticePeriodInMonths";
+
+		
 		public static final String FIN_RENT_FREE_PERIOD_IN_MONTHS = "rentFreePeriodInMonths";
 		public static final String FIN_FINANCIAL_COMMENTS = "financialCommets";
 		public static final String FIN_BUILDING_HANDOVER_DATE = "buildingHandoverDate";
