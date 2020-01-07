@@ -2,7 +2,7 @@ package com.stanzaliving.core.operations.dto.serviceset.electricity;
 
 import java.util.List;
 
-import com.stanzaliving.core.enums.ResidenceType;
+import com.stanzaliving.core.operations.dto.serviceset.ResidenceTypeAvailaibilityDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,11 +17,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class ElectricityResidenceDto {
+public class ElectricityResidenceDto extends ResidenceTypeAvailaibilityDto {
 
-	private ResidenceType residenceType;
-
-	private List<ElectricityDto> electricityDtos;
+	private List<ElectricityDto> categoryDtos;
 
 	private List<ElectricityBrandServiceDto> brandDetails;
 

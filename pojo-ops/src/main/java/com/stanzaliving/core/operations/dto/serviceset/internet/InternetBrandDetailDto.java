@@ -30,5 +30,5 @@ public class InternetBrandDetailDto {
 	private InternetDataUnit dataUnit;
 
 	private Frequency frequency;
-
+	
 }

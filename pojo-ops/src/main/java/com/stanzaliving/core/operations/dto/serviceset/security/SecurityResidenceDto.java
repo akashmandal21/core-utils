@@ -2,7 +2,7 @@ package com.stanzaliving.core.operations.dto.serviceset.security;
 
 import java.util.List;
 
-import com.stanzaliving.core.enums.ResidenceType;
+import com.stanzaliving.core.operations.dto.serviceset.ResidenceTypeAvailaibilityDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,11 +17,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class SecurityResidenceDto {
+public class SecurityResidenceDto extends ResidenceTypeAvailaibilityDto {
 
-	private ResidenceType residenceType;
-
-	private List<SecurityDto> securityDtos;
+	private List<SecurityDto> categoryDtos;
 
 	private List<SecurityBrandServiceDto> brandDetails;
 }
