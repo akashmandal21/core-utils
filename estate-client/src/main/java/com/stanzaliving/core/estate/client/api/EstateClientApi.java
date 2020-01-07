@@ -112,10 +112,10 @@ public class EstateClientApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        uriVariables.put("estateId", estateUuid);
+        uriVariables.put("estateUuid", estateUuid);
         uriVariables.put("estateStatus", estateStatus);
         
-        String path = UriComponentsBuilder.fromPath("/internal/estate/update/status/{estateId}/{estateStatus}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/estate/update/status/{estateUuid}/{estateStatus}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
