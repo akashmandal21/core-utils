@@ -6,6 +6,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.operations.dto.serviceset.VersionListRequestDto;
 import com.stanzaliving.core.operations.dto.serviceset.VersionListResponseDto;
 import com.stanzaliving.versioning.dto.VersioningRequestDto;
+import com.stanzaliving.versioning.dto.VersioningResponseDto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -101,4 +102,36 @@ public class VersionClientApi {
     }
 
 
+    public ResponseDto<VersioningResponseDto> getSingleDocument(String token, String uuid) {
+
+       /* if (StringUtils.isBlank(token)) {
+            throw new IllegalArgumentException("Token missing for getting all versions ");
+        }*/
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("uuid", uuid);
+
+        String path = UriComponentsBuilder.fromPath("/getOneDocument/{uuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<VersioningResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<VersioningResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
 }
