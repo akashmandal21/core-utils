@@ -1,4 +1,4 @@
-package com.stanzaliving.core.estate.dto;
+package com.stanzaliving.core.projectsapprovalservice.dto;
 
 import com.stanzaliving.core.estate.enums.SOWDashboardStatus;
 
