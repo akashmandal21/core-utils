@@ -101,9 +101,9 @@ public class EstateClientApi {
 
     }
     
-    public ResponseDto<Void> updateStatus(Long estateId,EstateStatus estateStatus) {
+    public ResponseDto<Void> updateStatus(String estateUuid,EstateStatus estateStatus) {
 
-        if (Objects.isNull(estateId)) {
+        if (Objects.isNull(estateUuid)) {
             return null;
         }
 
@@ -112,7 +112,7 @@ public class EstateClientApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        uriVariables.put("estateId", estateId);
+        uriVariables.put("estateId", estateUuid);
         uriVariables.put("estateStatus", estateStatus);
         
         String path = UriComponentsBuilder.fromPath("/internal/estate/update/status/{estateId}/{estateStatus}").buildAndExpand(uriVariables).toUriString();
