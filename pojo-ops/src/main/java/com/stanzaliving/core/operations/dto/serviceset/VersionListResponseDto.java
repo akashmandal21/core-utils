@@ -15,7 +15,7 @@ public class VersionListResponseDto {
 
     private String contextId;
 
-    private String version;
+    private Integer version;
 
     private String createdBy;
 
