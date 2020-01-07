@@ -17,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.estate.dto.EstateAttributeDto;
+import com.stanzaliving.core.estate.enums.EstateStatus;
 
 public class EstateClientApi {
 
@@ -83,6 +84,38 @@ public class EstateClientApi {
         uriVariables.put("estateId", estateId);
         
         String path = UriComponentsBuilder.fromPath("/internal/estate/approve/leadership/{estateId}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+    
+    public ResponseDto<Void> updateStatus(Long estateId,EstateStatus estateStatus) {
+
+        if (Objects.isNull(estateId)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("estateId", estateId);
+        uriVariables.put("estateStatus", estateStatus);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/estate/update/status/{estateId}/{estateStatus}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 

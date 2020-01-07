@@ -50,4 +50,6 @@ public class EstateAppAttributes {
 	
 	private String tenure;
 	
+	private String rentFreePeriod;
+	
 }
