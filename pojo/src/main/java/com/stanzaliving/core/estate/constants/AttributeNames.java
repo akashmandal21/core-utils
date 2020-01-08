@@ -156,6 +156,7 @@ public class AttributeNames {
 		public static final String FIN_TOKEN_DEPOSIT_IN_RUPEES = "tokenDepositInRupees";
 		public static final String FIN_NOTICE_PERIOD = "noticePeriodInMonths";
 
+
 		
 		public static final String FIN_RENT_FREE_PERIOD_IN_MONTHS = "rentFreePeriodInMonths";
 		public static final String FIN_FINANCIAL_COMMENTS = "financialCommets";
