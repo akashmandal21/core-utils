@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.estate.dto.EstateDto;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -20,6 +21,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.estate.dto.EstateAttributeDto;
 import com.stanzaliving.core.estate.enums.EstateStatus;
 
+@Log4j2
 public class EstateClientApi {
 
     private StanzaRestClient restClient;
@@ -145,9 +147,11 @@ public class EstateClientApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        uriVariables.put("estateUuId", estateUuId);
+        uriVariables.put("estateUuid", estateUuId);
 
-        String path = UriComponentsBuilder.fromPath("/internal/get/estate/{estateUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/estate/get/estate/{estateUuid}").buildAndExpand(uriVariables).toUriString();
+
+        log.info("Using Url Path:{}",path);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
