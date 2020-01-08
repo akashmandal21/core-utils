@@ -22,14 +22,14 @@ public enum SOWStatus {
 
 	public static final List<SOWStatus> NON_MODIFIABLE_SOW_STATUS;
 
-	private String name;
+	private String status;
 
 	private static Map<SOWStatus, String> SOWStatusMap = new HashMap<>();
 
 	static {
-		SOWStatusMap.put(PENDING_SOW_APPROVAL, SOWStatus.PENDING_SOW_APPROVAL.getName());
-		SOWStatusMap.put(SOW_APPROVED, SOWStatus.SOW_APPROVED.getName());
-		SOWStatusMap.put(SOW_SENT_BACK, SOWStatus.SOW_SENT_BACK.getName());
+		SOWStatusMap.put(PENDING_SOW_APPROVAL, SOWStatus.PENDING_SOW_APPROVAL.getStatus());
+		SOWStatusMap.put(SOW_APPROVED, SOWStatus.SOW_APPROVED.getStatus());
+		SOWStatusMap.put(SOW_SENT_BACK, SOWStatus.SOW_SENT_BACK.getStatus());
 
 		NON_MODIFIABLE_SOW_STATUS = Arrays.asList(PENDING_SOW_APPROVAL, SOW_APPROVED, SOW_SENT_BACK);
 	}
