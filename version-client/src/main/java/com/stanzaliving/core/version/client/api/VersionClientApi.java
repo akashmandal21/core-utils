@@ -115,7 +115,7 @@ public class VersionClientApi {
 
         uriVariables.put("uuid", uuid);
 
-        String path = UriComponentsBuilder.fromPath("/getOneDocument/{uuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/documentversioning/getOneDocument/{uuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
