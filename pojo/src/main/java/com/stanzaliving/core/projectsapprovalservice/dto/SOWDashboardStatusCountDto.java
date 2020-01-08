@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class SOWDashboardStatusCountDto {
 
-	private SOWDashboardStatus sowDashboardStatus;
+	private SOWDashboardStatus status;
 
 	private String name;
 
@@ -23,9 +23,9 @@ public class SOWDashboardStatusCountDto {
 
 	private String color;
 
-	public SOWDashboardStatusCountDto(SOWDashboardStatus sowDashboardStatus, int count) {
+	public SOWDashboardStatusCountDto(SOWDashboardStatus status, int count) {
 
-		this.sowDashboardStatus = sowDashboardStatus;
+		this.status = status;
 		this.count = count;
 	}
 }
