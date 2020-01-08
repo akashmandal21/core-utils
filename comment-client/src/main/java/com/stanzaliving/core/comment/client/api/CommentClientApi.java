@@ -59,7 +59,7 @@ public class CommentClientApi {
 
 	}
 
-	public ResponseDto<List<CommentsDto>> getAllCommentsByEstateUuid(CommentsDto commentsDto) {
+	public ResponseDto<CommentsDto> postComment(CommentsDto commentsDto) {
 
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -75,7 +75,7 @@ public class CommentClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<List<CommentsDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CommentsDto>>>() {
+		ParameterizedTypeReference<ResponseDto<CommentsDto>> returnType = new ParameterizedTypeReference<ResponseDto<CommentsDto>>() {
 		};
 		
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, commentsDto, headerParams, accept, returnType);

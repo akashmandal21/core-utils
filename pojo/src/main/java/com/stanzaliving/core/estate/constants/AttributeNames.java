@@ -11,6 +11,9 @@ public class AttributeNames {
 
 	// propertyAnalysis attribute constants
 		public static final String SIZE_OF_PLOT = "sizeOfPlot";
+		public static final String TOTAL_PROPERTY_AREA = "areaOfProperty";
+		public static final String LEASE_PREMISE_AREA = "areaOfLeasedPremise";
+		public static final String NUM_ROOMS = "numberOfRooms";
 		public static final String EXPECTED_BED_COUNT = "expectedBedCount";
 		public static final String FLOOR_COUNT = "floorCount";
 		public static final String POC_NUMBER = "pocNumber";
@@ -55,7 +58,7 @@ public class AttributeNames {
 
 		public static final String POWER_BACKUP_AVAILABLE = "powerBackupAvailable";
 
-		public static final String POWER_BACKUP_SIze = "powerBackupCapacity";
+		public static final String POWER_BACKUP_SIZE = "powerBackupCapacity";
 
 		public static final String POWER_BACKUP_TYPE = "powerBackupType";
 
@@ -133,17 +136,26 @@ public class AttributeNames {
 
 		public static final String LANDLORD_INFO_DETAILS = "landlordDetails";
 
+		public static final String TERRACE_ACCESS = "terraceAccess";
+		public static final String STILT = "stilt";
+
 	// Financial analysis attributes
+		public static final String FIN_ANNUAL_RENT = "annualRent";
+		public static final String FIN_NUM_INSTALLMENTS = "numberOfInstallments";
 		public static final String FIN_MONTHLY_RENT = "monthlyRent";
 		public static final String FIN_LEASE_DURATION_IN_YEARS = "leaseDurationInYears";
 		public static final String FIN_SECURITY_DEPOSITE_MONTHS_OF_RENT = "securityDepositMonthsOfRent";
+		public static final String FIN_SECURITY_DEPOSIT_RENT_VALUE = "securityDepositRentAmount";
+		public static final String FIN_SECURITY_DEPOSIT_ADJUST_LAST_NUM_MONTHS = "securityDepositAdjustedNumLastMonths";
 		public static final String FIN_RENTAL_INFLATION_IN_YEARS = "rentalInflationInYears";
 		public static final String FIN_RENTAL_INFLATION_PERCENT = "rentalInflationPercent";
 		public static final String FIN_ADVANCE_RENT_MONTH_COUNT = "advanceRentMonthCount";
 		public static final String FIN_AMORTIZED_PERIOD_IN_MONTHS = "amortizedPeriodInMonths";
 		public static final String FIN_LEASE_LOCKIN_PERIOD_IN_YEARS = "leaseLockInPeriodInYears";
+		public static final String FIN_LEASE_LOCKIN_PERIOD_IN_MONTHS = "leaseLockInPeriodInMonths";
 		public static final String FIN_TOKEN_DEPOSIT_IN_RUPEES = "tokenDepositInRupees";
 		public static final String FIN_NOTICE_PERIOD = "noticePeriodInMonths";
+
 
 		
 		public static final String FIN_RENT_FREE_PERIOD_IN_MONTHS = "rentFreePeriodInMonths";
@@ -164,7 +176,11 @@ public class AttributeNames {
 
 		public static final String FASCADE_IMAGES = "facadeImages";
 
-		public static final String BEDS_AVAILABLE = "beds"; 
+		public static final String BEDS_AVAILABLE = "beds";
+		public static final String BOREWELL_NUM = "numberOfBorewells";
+		public static final String TERM_RESIDENT_COLLECTION_MONTH_NAMES = "nameOfMonths";
+
+
 		
 	//ATL Details  
 		public static final String STRUCTURE_REMARKS = "structureRemarks";
@@ -358,7 +374,18 @@ public class AttributeNames {
 		public static final String WARRANTY_CARD_FOR_WHITE_GOODS = "warrantyCardForWhiteGoods";
 
 		public static final String STAMP_DUTY_BORNE_BY = "stampDuty";
-		
+
+		/************************************************************************************************************
+		Used in Legal Service to create Atl / Deal Term Documents
+		 ************************************************************************************************************/
+		public static final String LANDLORD_DETAILS_FOR_DOC = "landlordDetailsForDoc";
+		public static final String LEASED_PREMISES_DESCRIPTION_FOR_DOC = "leasedPremisesDescriptionForDoc";
+		public static final String STAMP_DUTY_DESCRIPTION_FOR_DOC = "stampDutyDescriptionForDoc";
+		public static final String ANNUAL_RENT_FOR_DOC = "annualRentForDoc";
+		public static final String RENT_INSTALLMENTS_FOR_DOC = "rentInstallmentForDoc";
+		public static final String ADDRESS_FOR_DOC = "addressForDoc";
+
+
 		public static final Map<ImmutablePair<String, String>, List<String>> kQuestionMap = new HashMap<ImmutablePair<String, String>, List<String>>() {
 			/**
 			 * 

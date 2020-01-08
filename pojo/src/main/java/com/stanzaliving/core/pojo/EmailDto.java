@@ -43,7 +43,7 @@ public class EmailDto {
 	private Map<String, Object> emailData;
 	private Map<String, String> attachment;
 	private Personalization personalization;
-
+	
 	public String[] getTo() {
 		return removeWhiteSpaces(to);
 	}
