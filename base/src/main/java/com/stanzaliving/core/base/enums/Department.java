@@ -10,5 +10,7 @@ public enum Department {
     BUSINESS_DEVELOPMENT,
     OPS,
     PROCUREMENT,
-    DESIGN
+    DESIGN,
+    PROJECTS,
+    TRANSFORMATIONS
 }
