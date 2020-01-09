@@ -358,6 +358,20 @@ public class AttributeNames {
 		public static final String LIFT_CLAUSE_E_TEXT_AREA = "liftClauseETextArea";
 		public static final String DOCS_AND_A_M_C_CLAUSE_A_TEXT_AREA = "docsAndAMCClauseATextArea";
 		public static final String COMMON_AREAS_CLAUSE_A_TEXT_AREA = "commonAreasClauseATextArea";
+		
+		public static final String DUE_DILIGINCE_CHECKLIST_1 = "dueDigilenceChecklist1";
+		public static final String DUE_DILIGINCE_CHECKLIST_2 = "dueDigilenceChecklist2";
+		public static final String DUE_DILIGINCE_CHECKLIST_3 = "dueDigilenceChecklist3";
+		public static final String DUE_DILIGINCE_CHECKLIST_4 = "dueDigilenceChecklist4";
+		public static final String DUE_DILIGINCE_CHECKLIST_5 = "dueDigilenceChecklist5";
+		public static final String DUE_DILIGINCE_CHECKLIST_6 = "dueDigilenceChecklist6";
+		public static final String DUE_DILIGINCE_CHECKLIST_7 = "dueDigilenceChecklist7";
+		public static final String DUE_DILIGINCE_CHECKLIST_8 = "dueDigilenceChecklist8";
+		public static final String DUE_DILIGINCE_CHECKLIST_9 = "dueDigilenceChecklist9";
+		public static final String DUE_DILIGINCE_CHECKLIST_10 = "dueDigilenceChecklist10";
+		public static final String DUE_DILIGINCE_CHECKLIST_11 = "dueDigilenceChecklist11";
+		public static final String DUE_DILIGINCE_CHECKLIST_12 = "dueDigilenceChecklist12";
+		public static final String DUE_DILIGINCE_CHECKLIST_13 = "dueDigilenceChecklist13";
 
 	//ATL Screen 2
 
@@ -399,4 +413,5 @@ public class AttributeNames {
 						Arrays.asList("shapeOfTheRoom", "roomCount", "lengthOfRoom", "widthOfRoom"));
 			}
 		};
+		public static final String POWER_BACKUP_SIze = "powerBackupCapacity";
 }

@@ -15,6 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.estate.enums.SOWStatus;
 
 public class ProjectApprovalClientApi {
 
@@ -24,7 +25,7 @@ public class ProjectApprovalClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<Boolean> checkProjectApprovalStatus(String estateUuid) {
+    public ResponseDto<SOWStatus> checkProjectApprovalStatus(String estateUuid) {
 
         if (Objects.isNull(estateUuid)) {
             return null;
@@ -49,7 +50,7 @@ public class ProjectApprovalClientApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        ParameterizedTypeReference<ResponseDto<SOWStatus>> returnType = new ParameterizedTypeReference<ResponseDto<SOWStatus>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
