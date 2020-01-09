@@ -4,6 +4,7 @@
 package com.stanzaliving.core.pojo;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import com.sendgrid.Personalization;
@@ -43,6 +44,7 @@ public class EmailDto {
 	private Map<String, Object> emailData;
 	private Map<String, String> attachment;
 	private Personalization personalization;
+	private List<AttachmentDto> attachments;
 	
 	public String[] getTo() {
 		return removeWhiteSpaces(to);
