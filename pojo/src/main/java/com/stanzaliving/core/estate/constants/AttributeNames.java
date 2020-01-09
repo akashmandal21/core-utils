@@ -399,4 +399,5 @@ public class AttributeNames {
 						Arrays.asList("shapeOfTheRoom", "roomCount", "lengthOfRoom", "widthOfRoom"));
 			}
 		};
+		public static final String POWER_BACKUP_SIze = "powerBackupCapacity";
 }
