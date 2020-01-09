@@ -25,7 +25,7 @@ public class VersionClientApi {
         this.restClient=stanzaRestClient;
     }
 
-    public ResponseDto<Void> insertVersion(String token, VersioningRequestDto versioningRequestDto) {
+    public ResponseDto<Integer> insertVersion(String token, VersioningRequestDto versioningRequestDto) {
 
         //TODO API HAS NO AUTHENTICATION
         /*if (StringUtils.isBlank(token)) {
@@ -55,7 +55,7 @@ public class VersionClientApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        ParameterizedTypeReference<ResponseDto<Integer>> returnType = new ParameterizedTypeReference<ResponseDto<Integer>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }

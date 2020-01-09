@@ -45,7 +45,7 @@ public enum EstateStatus {
 	//ATL Status
 	SIGNED_ATL_UPLOADED("Signed ATL Uploaded"),
 	ATL_UPLOAD_PENDING("ATL Upload Pending"),
-	
+
 	//Leadership Status
 	SENT_BACK_BY_LEADERSHIP("Sent Back By Leadership"),
 	APPROVED_BY_LEADERSHIP("Shortlisted By Leadership");

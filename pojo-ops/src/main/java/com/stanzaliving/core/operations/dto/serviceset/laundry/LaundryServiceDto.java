@@ -1,5 +1,6 @@
 package com.stanzaliving.core.operations.dto.serviceset.laundry;
 
+import java.time.DayOfWeek;
 import java.util.List;
 
 import com.stanzaliving.core.operations.dto.serviceset.ServiceMetadata;
@@ -21,4 +22,5 @@ public class LaundryServiceDto extends ServiceMetadata {
 
 	private List<LaundryResidenceDto> laundryResidenceDtos;
 
+	private List<DayOfWeek> dayOfWeeks;
 }
