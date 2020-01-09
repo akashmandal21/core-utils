@@ -18,6 +18,6 @@ import lombok.ToString;
 @ToString
 public class AtlFileRequestDto {
 
-	private String estateId;
+	private String estateUuid;
 	private AttachmentDto attachmentDto;
 }
