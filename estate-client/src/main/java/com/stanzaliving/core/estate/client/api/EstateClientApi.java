@@ -18,8 +18,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.estate.dto.AtlFileRequestDto;
 import com.stanzaliving.core.estate.dto.EstateAttributeDto;
 import com.stanzaliving.core.estate.enums.EstateStatus;
+import com.stanzaliving.pushnotification.pojo.PushNotificationRequestDto;
 
 @Log4j2
 public class EstateClientApi {
@@ -199,4 +201,21 @@ public class EstateClientApi {
 
     }
 
+    public ResponseDto<Boolean> updateStatusAfterAtlGeneration(AtlFileRequestDto atlFileRequestDto) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/estate/update/atlgenerate/status").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, atlFileRequestDto, headerParams, accept,
+				returnType);
+	}
 }
