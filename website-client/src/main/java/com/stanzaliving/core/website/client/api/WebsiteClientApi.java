@@ -17,6 +17,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.website.response.dto.ScheduledVisitsResponseDTO;
 
 /**
  * @author naveen.kumar
@@ -32,7 +33,7 @@ public class WebsiteClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public ResponseEntity<Object> getScheduledVisitsForPhone(String phone) {
+	public ScheduledVisitsResponseDTO getScheduledVisitsForPhone(String phone) {
 		Object postBody = null;
 
 		// create path and map variables
@@ -51,7 +52,7 @@ public class WebsiteClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseEntity<Object>> returnType = new ParameterizedTypeReference<ResponseEntity<Object>>() {
+		ParameterizedTypeReference<ScheduledVisitsResponseDTO> returnType = new ParameterizedTypeReference<ScheduledVisitsResponseDTO>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
