@@ -38,6 +38,7 @@
 		<module>comment-client</module>
 		<module>estate-client</module>
 		<module>documentgenerator-client</module>
+		<module>website-client</module>
 	</modules>
 
 	<build>
