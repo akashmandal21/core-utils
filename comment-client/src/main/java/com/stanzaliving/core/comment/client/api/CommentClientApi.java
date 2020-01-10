@@ -90,7 +90,7 @@ public class CommentClientApi {
 
 		uriVariables.put("contextIds", uuidCommaSeparatedList);
 
-		String path = UriComponentsBuilder.fromPath("/internal/get/all/{contextIds}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/get/multiple/{contextIds}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
