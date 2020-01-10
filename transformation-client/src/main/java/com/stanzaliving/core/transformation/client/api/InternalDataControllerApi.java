@@ -22,7 +22,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.transformations.pojo.CityMetadataDto;
+import com.stanzaliving.transformations.pojo.MicroMarketDetailsDto;
 import com.stanzaliving.transformations.pojo.MicroMarketMetadataDto;
+import com.stanzaliving.transformations.pojo.MicroMarketUIDto;
 import com.stanzaliving.transformations.pojo.StateMetadataDto;
 import com.stanzaliving.core.base.enums.AccessLevel;
 
@@ -87,6 +89,32 @@ public class InternalDataControllerApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
+	public ResponseDto<MicroMarketDetailsDto> getMicroMarket(double latitude,double longitude) {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("latitude", latitude);
+		uriVariables.put("longitude", longitude);
+		
+		String path = UriComponentsBuilder.fromPath("/internal/micromarket/get/latlong/{latitude}/{longitude}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<MicroMarketDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<MicroMarketDetailsDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}

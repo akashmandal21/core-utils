@@ -199,6 +199,11 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	public Page<T> findAll(Specification<T> spec, Pageable pageable) {
 		return getJpaRepository().findAll(spec, pageable);
 	}
+	
+	@Override
+	public List<T> findAll(Specification<T> spec) {
+		return getJpaRepository().findAll(spec);
+	}
 
 	@Override
 	public List<T> findList(List<I> ids) {
