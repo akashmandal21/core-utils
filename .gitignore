@@ -36,3 +36,4 @@ target
 # OS Files
 *.DS_Store
 *.factorypath
+.sts4-cache
