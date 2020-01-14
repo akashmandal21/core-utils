@@ -408,7 +408,7 @@ public class AttributeNames {
 
 			{
 				put(new ImmutablePair<>("Landlord", "landlordDetails"),
-						Arrays.asList("landlordType", "landlordName", "ownershipPercentage", "landlordPan"));
+						Arrays.asList("landlordType", "landlordName", "landlordRelationType", "landlordRelationName", "ownershipPercentage", "landlordPan", "landlordAge", "landlordAddress"));
 				put(new ImmutablePair<>("Property", "roomType"),
 						Arrays.asList("shapeOfTheRoom", "roomCount", "lengthOfRoom", "widthOfRoom"));
 			}
