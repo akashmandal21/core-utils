@@ -11,4 +11,6 @@ public class DealTermAtlDetailDto {
     List<AtlDetailDto> atlDetailDtoList;
     List<DealTermDto> dealTermDtoList;
     String fullAtlDetailsPdfUrl;
+    
+    private String signedAtlFilePath;
 }
