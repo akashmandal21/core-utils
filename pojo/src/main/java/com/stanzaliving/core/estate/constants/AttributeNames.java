@@ -398,6 +398,8 @@ public class AttributeNames {
 		public static final String ANNUAL_RENT_FOR_DOC = "annualRentForDoc";
 		public static final String RENT_INSTALLMENTS_FOR_DOC = "rentInstallmentForDoc";
 		public static final String ADDRESS_FOR_DOC = "addressForDoc";
+		public static final String CURRENT_YEAR = "currentYear";
+
 
 
 		public static final Map<ImmutablePair<String, String>, List<String>> kQuestionMap = new HashMap<ImmutablePair<String, String>, List<String>>() {
