@@ -45,7 +45,7 @@ public class PdfStampingDataDto implements Serializable {
 	private String stampingText;
 
 	/**
-	 * The page number(0-based index) to which the text will be append.
+	 * The page number to which the text will be append.
 	 * <p>The page number starts from 1 and so on. If the specified page number doesn't exists,
 	 * will throw an error message.</p>
 	 */
