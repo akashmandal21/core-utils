@@ -33,7 +33,11 @@ public class EstateAppAttributes {
 	private String pricePerBed;
 
 	private String numberOfBeds;
+	
+	private String numberOfEffectiveBeds;
 
+	private String pricePerEffectiveBed;
+	
 	private String pocNumber;
 	
 	private String pocName;
