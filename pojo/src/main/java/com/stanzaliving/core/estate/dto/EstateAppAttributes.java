@@ -52,6 +52,10 @@ public class EstateAppAttributes {
 	
 	private String handOverDate;
 	
+	private String startYear;
+	
+	private String endYear;
+	
 	private String tenure;
 	
 	private String rentFreePeriod;
