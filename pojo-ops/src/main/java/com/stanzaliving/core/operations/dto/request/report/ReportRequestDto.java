@@ -1,6 +1,7 @@
 package com.stanzaliving.core.operations.dto.request.report;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 public class ReportRequestDto {
 
     List<String> cityUuid;
