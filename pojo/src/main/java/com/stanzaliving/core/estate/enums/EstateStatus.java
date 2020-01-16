@@ -48,9 +48,16 @@ public enum EstateStatus {
 
 	//Leadership Status
 	SENT_BACK_BY_LEADERSHIP("Sent Back By Leadership"),
-	APPROVED_BY_LEADERSHIP("Shortlisted By Leadership");
+	APPROVED_BY_LEADERSHIP("Shortlisted By Leadership"),
 
-	
+
+	//L1 Flow
+	SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD("Sent to NH for L1 Approval"),
+	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("Sent to Leadership for L1 Approval"),
+	APPROVED_L1_BY_LEADERSHIP("L1 Approval by Leadership"),
+	SENT_BACK_L1_BY_NATIONAL_HEAD("L1 Sent back by National Head"),
+	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent back by Leadership");
+
 
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	

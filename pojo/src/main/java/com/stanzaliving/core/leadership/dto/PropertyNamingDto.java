@@ -36,4 +36,5 @@ public class PropertyNamingDto {
 	private boolean status;
 	
 	private Long cityId;
+
 }

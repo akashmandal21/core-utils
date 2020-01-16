@@ -15,6 +15,7 @@ public class AttributeNames {
 		public static final String LEASE_PREMISE_AREA = "areaOfLeasedPremise";
 		public static final String NUM_ROOMS = "numberOfRooms";
 		public static final String EXPECTED_BED_COUNT = "expectedBedCount";
+		public static final String EFFECTIVE_BED_COUNT = "effectiveBedCount";
 		public static final String FLOOR_COUNT = "floorCount";
 		public static final String POC_NUMBER = "pocNumber";
 		public static final String POC_NAME = "pocName";
@@ -193,6 +194,7 @@ public class AttributeNames {
 		public static final String FULLY_FUNCTIONAL_WATER_PUMPS_REMARKS = "fullyFunctionalWaterPumpsRemarks";
 		public static final String AUTOMATION_OF_WATER_STORAGE_REMARKS = "automationOfWaterStorageRemarks";
 		public static final String BASEMENT_OTHER_AREAS_MAY_REMARKS = "basementOtherAreasMayRemarks";
+		public static final String WATER_SUPPLY_BOREWELL_REMARKS = "waterSupplyBorewellRemarks";
 		public static final String WATER_TANK_CAPACITY_TO_BE_CALCULATED_REMARKS = "waterTankCapacityToBeCalculatedRemarks";
 		public static final String ANY_MASONRY_PLASTER_CRACKS_REMARKS = "anyMasonryPlasterCracksRemarks";
 		public static final String EXTERNAL_DOOR_WINDOWS_REMARKS = "externalDoorWindowsRemarks";
@@ -311,9 +313,14 @@ public class AttributeNames {
 		public static final String WATER_SUPPLY_CLAUSE_B_TEXT_AREA = "waterSupplyClauseBTextArea";
 		public static final String WATER_SUPPLY_CLAUSE_C_TEXT_AREA = "waterSupplyClauseCTextArea";
 		public static final String WATER_SUPPLY_CLAUSE_D_TEXT_AREA = "waterSupplyClauseDTextArea";
+		public static final String WATER_SUPPLY_CLAUSE_E_TEXT_AREA = "waterSupplyClauseETextArea";
+
 		public static final String WATER_STORAGE_CLAUSE_A_TEXT_AREA = "waterStorageClauseATextArea";
 		public static final String FACADE_CLAUSE_A_TEXT_AREA = "facadeClauseATextArea";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA = "facadeClauseBTextArea";
+		public static final String FACADE_CLAUSE_B_TEXT_AREA_1 = "facadeClauseBTextArea1";
+		public static final String FACADE_CLAUSE_B_TEXT_AREA_2 = "facadeClauseBTextArea2";
+		public static final String FACADE_CLAUSE_B_TEXT_AREA_3 = "facadeClauseBTextArea3";
 		public static final String TERRACE_AREA_CLAUSE_A_TEXT_AREA = "terraceAreaClauseATextArea";
 		public static final String TERRACE_AREA_CLAUSE_B_TEXT_AREA = "terraceAreaClauseBTextArea";
 		public static final String TERRACE_AREA_CLAUSE_C_TEXT_AREA = "terraceAreaClauseCTextArea";
@@ -346,6 +353,9 @@ public class AttributeNames {
 		public static final String ELECTRICAL_CLAUSE_B_TEXT_AREA = "electricalClauseBTextArea";
 		public static final String ELECTRICAL_CLAUSE_C_TEXT_AREA = "electricalClauseCTextArea";
 		public static final String ELECTRICAL_CLAUSE_D_TEXT_AREA = "electricalClauseDTextArea";
+		public static final String ELECTRICAL_CLAUSE_D_TEXT_AREA_1 = "electricalClauseDTextArea1";
+		public static final String ELECTRICAL_CLAUSE_D_TEXT_AREA_2 = "electricalClauseDTextArea2";
+
 		public static final String ELECTRICAL_CLAUSE_E_TEXT_AREA = "electricalClauseETextArea";
 		public static final String POWER_BACKUP_CLAUSE_A_TEXT_AREA = "powerBackupClauseATextArea";
 		public static final String POWER_BACKUP_CLAUSE_B_TEXT_AREA = "powerBackupClauseBTextArea";
@@ -416,4 +426,5 @@ public class AttributeNames {
 			}
 		};
 		public static final String POWER_BACKUP_SIze = "powerBackupCapacity";
+
 }

@@ -26,7 +26,9 @@ public enum BDDashboardStatus {
 	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#42D4F4"),
 	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#E6194B"),
 	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK),"#3CB44B"),
-	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED), "#9A6324");
+	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED), "#9A6324"),
+	PENDING_L1_APPROVAL_NATIONAL_HEAD("Pending in L1 Approval Flow", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD),"#FFE112"),
+	PENDING_L1_APPROVAL_LEADERSHIP(	"Pending in L1 Approval Flow"	,Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP),"#FFE612");
 
 	private String status;
 
