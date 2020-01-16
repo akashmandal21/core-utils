@@ -23,9 +23,9 @@ public enum EstateStatus {
 	DRAFT_IN_PROGRESS("Draft In Progress"),
 	
 	//Level 1 Status
-	SENT_FOR_APPROVAL_TO_CITY_HEAD("Sent for approval to City Head"),
-	APPROVED_BY_CITY_HEAD("Shortlisted By City Head"),
-	SENT_BACK_BY_CITY_HEAD("Sent Back By City Head"),
+	SENT_FOR_APPROVAL_TO_CITY_HEAD("Sent for approval to RM"),
+	APPROVED_BY_CITY_HEAD("Shortlisted By RM"),
+	SENT_BACK_BY_CITY_HEAD("Sent Back By RM"),
 	REJECTED("Rejected"),
 	
 	//Level 2 Status
