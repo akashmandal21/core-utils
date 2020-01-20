@@ -1,5 +1,6 @@
 package com.stanzaliving.core.estate.constants;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -428,5 +429,84 @@ public class AttributeNames {
 			}
 		};
 		public static final String POWER_BACKUP_SIze = "powerBackupCapacity";
+		
+		public static final List<String> amcKeys = new ArrayList<String>();
+		public static final List<String> landlordAgreedKeys = new ArrayList<String>();
 
+		
+		static {
+			amcKeys.add(ASSET_LIST_WITH_EXACT_COUNT_RETAINED);
+			amcKeys.add(LIFT_LICENSE_AND_RENEWAL);
+			amcKeys.add(ELECTRICAL_LOAD_SANCTION_LETTER);
+			amcKeys.add(LAST_SIX_MONTHS_ELECTRICITY_BILLS);
+			amcKeys.add(LAST_SIX_MONTHS_WATER_BILLS);
+			amcKeys.add(UTILITY_BILLS);
+			amcKeys.add(POLLUTION_CONTROL_BOARD_NOC);
+			amcKeys.add(FIRE_SYSTEM);
+			amcKeys.add(FIRE_NOC);
+			amcKeys.add(WARRANTY_CARD_FOR_WATER_ACCESSORIES);
+			amcKeys.add(WARRANTY_CARD_FOR_WHITE_GOODS);
+
+			landlordAgreedKeys.add("STRUCTURE");
+			landlordAgreedKeys.add("commonAreasClauseABoolean");
+			landlordAgreedKeys.add("docsAndAMCClauseABoolean");
+			landlordAgreedKeys.add("electricalClauseABoolean");
+			landlordAgreedKeys.add("electricalClauseBBoolean");
+			landlordAgreedKeys.add("electricalClauseCBoolean");
+			landlordAgreedKeys.add("electricalClauseDBoolean");
+			landlordAgreedKeys.add("electricalClauseEBoolean");
+			landlordAgreedKeys.add("facadeClauseABoolean");
+			landlordAgreedKeys.add("facadeClauseBBoolean");
+			landlordAgreedKeys.add("fireClauseABoolean");
+			landlordAgreedKeys.add("fireClauseBBoolean");
+			landlordAgreedKeys.add("liftClauseABoolean");
+			landlordAgreedKeys.add("liftClauseBBoolean");
+			landlordAgreedKeys.add("liftClauseCBoolean");
+			landlordAgreedKeys.add("liftClauseDBoolean");
+			landlordAgreedKeys.add("liftClauseEBoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseABoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseBBoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseCBoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseDBoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseEBoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseFBoolean");
+			landlordAgreedKeys.add("powerBackupClauseABoolean");
+			landlordAgreedKeys.add("powerBackupClauseBBoolean");
+			landlordAgreedKeys.add("powerBackupClauseCBoolean");
+			landlordAgreedKeys.add("powerBackupClauseDBoolean");
+			landlordAgreedKeys.add("roomClauseABoolean");
+			landlordAgreedKeys.add("roomClauseBBoolean");
+			landlordAgreedKeys.add("roomClauseCBoolean");
+			landlordAgreedKeys.add("roomClauseDBoolean");
+			landlordAgreedKeys.add("roomClauseEBoolean");
+			landlordAgreedKeys.add("roomClauseFBoolean");
+			landlordAgreedKeys.add("sanitaryClauseABoolean");
+			landlordAgreedKeys.add("sanitaryClauseBBoolean");
+			landlordAgreedKeys.add("sanitaryClauseCBoolean");
+			landlordAgreedKeys.add("sanitaryClauseDBoolean");
+			landlordAgreedKeys.add("sanitaryClauseEBoolean");
+			landlordAgreedKeys.add("seepageClauseABoolean");
+			landlordAgreedKeys.add("seepageClauseBBoolean");
+			landlordAgreedKeys.add("seepageClauseCBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseABoolean");
+			landlordAgreedKeys.add("terraceLevelClauseBBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseCBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseDBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseEBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseFBoolean");
+			landlordAgreedKeys.add("waterStorageClauseABoolean");
+			landlordAgreedKeys.add("waterSupplyClauseABoolean");
+			landlordAgreedKeys.add("waterSupplyClauseBBoolean");
+			landlordAgreedKeys.add("waterSupplyClauseCBoolean");
+			landlordAgreedKeys.add("waterSupplyClauseDBoolean");
+			landlordAgreedKeys.add("whiteGoodsClauseABoolean");
+			landlordAgreedKeys.add("whiteGoodsClauseBBoolean");
+			landlordAgreedKeys.add("whiteGoodsClauseCBoolean");
+			landlordAgreedKeys.add("whiteGoodsClauseDBoolean");
+			landlordAgreedKeys.add("whiteGoodsClauseEBoolean");
+
+		}
+
+		
+		
 }
