@@ -1,5 +1,6 @@
 package com.stanzaliving.core.operations.dto.request.report;
 
+import com.stanzaliving.core.base.enums.AccessLevel;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,5 +26,7 @@ public class ReportRequestDto {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate;
+
+    AccessLevel accessLevel;
 
 }
