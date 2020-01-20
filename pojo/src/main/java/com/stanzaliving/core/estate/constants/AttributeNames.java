@@ -20,6 +20,8 @@ public class AttributeNames {
 		public static final String POC_NUMBER = "pocNumber";
 		public static final String POC_NAME = "pocName";
 
+		public static final String TYPE_OF_BRAND = "typeOfBrand";
+		
 		public static final String ROOM_TYPE = "roomType";
 		public static final String ROOM_COUNT = "roomCount";
 
