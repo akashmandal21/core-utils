@@ -36,6 +36,8 @@ public class PropertyAnalysisDto {
 
 	private String buildingBasis;
 	
+	private String brandType;
+	
 	private String electricitySupply;
 	
 	private List<String> electricityLoadType;
