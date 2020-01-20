@@ -13,8 +13,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CostReportRecordDto extends RecordDto {
 
-    PercentDto onTimeOrder;
+    int onTimeOrder;
 
-    MealDto costInThousand;
+    MealDto cost;
 
 }

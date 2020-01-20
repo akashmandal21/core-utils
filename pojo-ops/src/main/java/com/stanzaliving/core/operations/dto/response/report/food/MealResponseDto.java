@@ -22,4 +22,6 @@ public class MealResponseDto {
 
     FeElementDto dinner;
 
+    FeElementDto brunch;
+
 }
