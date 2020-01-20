@@ -16,7 +16,8 @@ public enum BDDashboardStatus {
 			Arrays.asList(EstateStatus.DRAFT_IN_PROGRESS, EstateStatus.APPROVED_BY_CITY_HEAD, 
 					EstateStatus.SENT_BACK_BY_CITY_HEAD, EstateStatus.SENT_BACK_BY_LEADERSHIP,
 					EstateStatus.SENT_BACK_BY_TRANSFORMATION, EstateStatus.SENT_BACK_BY_LEGAL,
-					EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM,EstateStatus.REJECTED),
+					EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM,EstateStatus.REJECTED, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP,
+					EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD),
 			"#990199"),
 	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SIGNED_ATL_UPLOADED), "#FFE119"),
 	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD), "#000000"),
@@ -28,7 +29,7 @@ public enum BDDashboardStatus {
 	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK),"#3CB44B"),
 	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED), "#9A6324"),
 	PENDING_L1_APPROVAL_NATIONAL_HEAD("Pending in L1 Approval Flow", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD),"#FFE112"),
-	PENDING_L1_APPROVAL_LEADERSHIP(	"Pending in L1 Approval Flow"	,Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP),"#FFE612");
+	PENDING_L1_APPROVAL_LEADERSHIP(	"Pending in L1 Approval Flow", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP),"#FFE612");
 
 	private String status;
 
@@ -50,7 +51,14 @@ public enum BDDashboardStatus {
 		statusMap.put(EstateStatus.SENT_BACK_BY_TRANSFORMATION, UNDER_DRAFT);
 		statusMap.put(EstateStatus.SENT_BACK_BY_LEGAL, UNDER_DRAFT);
 		statusMap.put(EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM, UNDER_DRAFT);
-		
+
+		statusMap.put(EstateStatus.SENT_BACK_L1_BY_LEADERSHIP,UNDER_DRAFT);
+		statusMap.put(EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD,UNDER_DRAFT);
+
+		//L1 approval
+		statusMap.put(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD,PENDING_L1_APPROVAL_NATIONAL_HEAD);
+		statusMap.put(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP,PENDING_L1_APPROVAL_LEADERSHIP);
+
 		//Pending Andy Approval
 		statusMap.put(EstateStatus.SIGNED_ATL_UPLOADED, PENDING_ANDY_APPROVAL);
 		
