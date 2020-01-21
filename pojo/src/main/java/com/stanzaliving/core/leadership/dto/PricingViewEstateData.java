@@ -43,6 +43,8 @@ public class PricingViewEstateData {
 	
 	private String locationComments;
 	
+	private String brandType;
+	
 	private List<String> keyPositives;
 	
 	private List<String> keyNegatives;
