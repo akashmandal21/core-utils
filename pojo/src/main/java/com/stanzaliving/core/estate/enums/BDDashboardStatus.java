@@ -29,9 +29,10 @@ public enum BDDashboardStatus {
 	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#E6194B"),
 	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK),"#3CB44B"),
 	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED), "#9A6324"),
-	PENDING_L1_APPROVAL_NATIONAL_HEAD("Pending in L1 Approval Flow", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD),"#FFE112"),
-	PENDING_L1_APPROVAL_LEADERSHIP(	"Pending in L1 Approval Flow", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP),"#FFE612");
-
+	PENDING_L1_APPROVAL_NATIONAL_HEAD("L1 Approval Pending by BH Head", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD),"#FFE112"),
+	PENDING_L1_APPROVAL_LEADERSHIP(	"L1 Approval Pending by Leadership", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP),"#FFE612"),
+	L1_APPROVED_LEADERSHIP(	"L1 Approved By Leadership", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP),"#FFE612");
+	
 	private String status;
 
 	private List<EstateStatus> estateStatuses;
@@ -87,5 +88,6 @@ public enum BDDashboardStatus {
 		statusMap.put(EstateStatus.ATL_UPLOAD_PENDING, PENDING_ATL_UPLOADING);
 		statusMap.put(EstateStatus.SHORTLISTED, PENDING_ATL_UPLOADING);
 		
+		statusMap.put(EstateStatus.APPROVED_L1_BY_LEADERSHIP, L1_APPROVED_LEADERSHIP);
 	}
 }
