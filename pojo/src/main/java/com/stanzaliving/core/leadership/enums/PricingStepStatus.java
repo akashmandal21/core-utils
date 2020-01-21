@@ -20,7 +20,7 @@ public enum PricingStepStatus{
 			Arrays.asList(EstateStatus.DRAFT_IN_PROGRESS, EstateStatus.APPROVED_BY_CITY_HEAD, EstateStatus.SENT_BACK,
 					EstateStatus.SENT_BACK_BY_CITY_HEAD, EstateStatus.SENT_BACK,
 					EstateStatus.SENT_BACK_BY_TRANSFORMATION, EstateStatus.SENT_BACK_BY_LEGAL,
-					EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM,EstateStatus.REJECTED),
+					EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM,EstateStatus.REJECTED,EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD),
 			"#990199"),
 	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SIGNED_ATL_UPLOADED), "#E6194B"),
 	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD), "#FFE119"),
@@ -31,8 +31,9 @@ public enum PricingStepStatus{
 	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#42D4F4"),
 	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK_BY_LEADERSHIP),"#3CB44B"),
 	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED), "#9A6324"),
-	PENDING_L1_APPROVAL("Pending L1 Approval Leadership", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP), "#9A6324");
-
+	PENDING_L1_APPROVAL("Pending L1 Approval Leadership", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP), "#9A6324"),
+	L1_APPROVED("L1 Approved", Arrays.asList(EstateStatus.APPROVED_L1_BY_LEADERSHIP), "#9A6324"),
+	L1_SENT_BACK("L1 Sent Back",Arrays.asList(EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#3CB44B"),;
 	private String pricingStatus;
 	
 	private List<EstateStatus> estateStatuses;

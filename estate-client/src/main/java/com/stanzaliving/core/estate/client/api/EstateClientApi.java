@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.stanzaliving.core.estate.dto.EstateDto;
-import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -20,8 +18,10 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.estate.dto.AtlFileRequestDto;
 import com.stanzaliving.core.estate.dto.EstateAttributeDto;
+import com.stanzaliving.core.estate.dto.EstateDto;
 import com.stanzaliving.core.estate.enums.EstateStatus;
-import com.stanzaliving.pushnotification.pojo.PushNotificationRequestDto;
+
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class EstateClientApi {
