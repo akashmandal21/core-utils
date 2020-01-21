@@ -21,4 +21,6 @@ public class MealDto {
 
     double dinner;
 
+    double brunch;
+
 }

@@ -1,6 +1,5 @@
 package com.stanzaliving.core.operations.dto.response.report;
 
-import com.stanzaliving.core.base.enums.ColorCode;
 import com.stanzaliving.core.operations.enums.FeElementType;
 import lombok.*;
 
@@ -15,13 +14,40 @@ public class FeElementDto {
 
     double value;
 
-    boolean isHover;
+    boolean isHover = false;
 
     int numerator;
 
     int denominator;
 
-    String bgColorCode;
+    String bgColorCode = "";
+
+    public FeElementDto(int value) {
+        this.value = value;
+        this.type = FeElementType.INTEGER;
+    }
+
+    public FeElementDto(double value) {
+        this.value = value;
+        this.type = FeElementType.DOUBLE;
+    }
+
+    public FeElementDto(int numerator, int denominator) {
+        this.numerator = numerator;
+        this.denominator = denominator;
+        this.value = denominator != 0 ? (double) (numerator*100) / (double) denominator : 0;
+        this.isHover = true;
+        this.type = FeElementType.PERCENT_DOUBLE;
+    }
+
+    public FeElementDto(int numerator, int denominator, boolean isHover) {
+        this.numerator = numerator;
+        this.denominator = denominator;
+        this.value = denominator != 0 ? (double) (numerator*100) / (double) denominator : 0;
+        this.isHover = isHover;
+        this.type = FeElementType.PERCENT_DOUBLE;
+    }
+
 
 }
 

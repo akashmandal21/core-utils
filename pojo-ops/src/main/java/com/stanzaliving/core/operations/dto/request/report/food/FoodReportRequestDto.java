@@ -8,13 +8,13 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
 public class FoodReportRequestDto extends ReportRequestDto {
 
-    List<String> mealType;
+    List<String> mealUuid;
 
     List<String> vendorUuid;
 

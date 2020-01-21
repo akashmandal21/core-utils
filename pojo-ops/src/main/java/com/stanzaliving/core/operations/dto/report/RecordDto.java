@@ -11,7 +11,17 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class RecordDto {
     String cityUuid;
+    String cityName;
     String micromarketUuid;
+    String micromarketName;
     String residenceUuid;
-    String type;            //this will contain accessLevel
+    String residenceName;
+    String accessLevel;
+
+    public RecordDto(RecordDto recordDto) {
+        this.cityUuid = recordDto.getCityUuid();
+        this.micromarketUuid = recordDto.getMicromarketUuid();
+        this.residenceUuid = recordDto.getResidenceUuid();
+        this.accessLevel = recordDto.getAccessLevel();
+    }
 }
