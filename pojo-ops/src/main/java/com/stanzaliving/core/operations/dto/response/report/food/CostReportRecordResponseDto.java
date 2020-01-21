@@ -19,6 +19,7 @@ public class CostReportRecordResponseDto extends RecordDto {
     MealResponseDto costInThousand;
 
     public CostReportRecordResponseDto(CostReportRecordDto costReportRecordDto) {
+        super(costReportRecordDto);
         this.onTimeOrder = new FeElementDto(costReportRecordDto.getOnTimeOrder());
         this.costInThousand = MealResponseDto.builder()
                 .overall(new FeElementDto(costReportRecordDto.getCost().getOverall()/1000))
