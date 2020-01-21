@@ -29,6 +29,8 @@ public class AsIsDataDto extends AbstractDto implements Serializable {
 	private String estateName;
 
 	private String dueDate;
+	
+	private String dealyReason;
 
 	private ContractorDto contractor;
 
