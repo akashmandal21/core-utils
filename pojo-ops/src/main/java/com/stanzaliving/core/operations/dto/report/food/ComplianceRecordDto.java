@@ -17,11 +17,11 @@ public class ComplianceRecordDto extends RecordDto {
 
     int receivedOnTime;
 
-    PercentDto leftOver;
+    int leftOver;
 
-    PercentDto shortage;
+    int shortage;
 
-    PercentDto feedback;
+    int feedback;
 
     double rating;
 }
