@@ -15,20 +15,22 @@ public class CostAndExperienceRecordDto extends RecordDto {
 
     int movedInResidence;
 
-    PercentDto unsatisfied;
+    int unsatisfied;
 
-    PercentDto satisfied;
+    int satisfied;
 
     int socialMediaComplaint;
 
     int disasterEvent;
 
-    PercentDto processAdherence;
+    int processAdherence;
 
-    PercentDto budgetUtilization;
-
-    PercentDto costUtilization;
-
-    double costPerMIR;
+    double totalMealCost;
+    
+    double budgetedMealCost;
+    
+    int occupiedBeds;
+    
+    int totalMealsOrdered;
 
 }
