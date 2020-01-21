@@ -54,7 +54,7 @@ public enum EstateStatus {
 	//L1 Flow
 	SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD("Sent to NH for L1 Approval"),
 	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("Sent to Leadership for L1 Approval"),
-	APPROVED_L1_BY_LEADERSHIP("L1 Approval by Leadership"),
+	APPROVED_L1_BY_LEADERSHIP("L1 Approved by Leadership"),
 	SENT_BACK_L1_BY_NATIONAL_HEAD("L1 Sent back by National Head"),
 	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent back by Leadership");
 
