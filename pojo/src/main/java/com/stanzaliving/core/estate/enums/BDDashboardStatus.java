@@ -13,7 +13,8 @@ import lombok.Getter;
 public enum BDDashboardStatus {
 
 	UNDER_DRAFT("Under Draft",
-			Arrays.asList(EstateStatus.DRAFT_IN_PROGRESS, EstateStatus.APPROVED_BY_CITY_HEAD, 
+			Arrays.asList(EstateStatus.DRAFT_IN_PROGRESS, EstateStatus.APPROVED_BY_CITY_HEAD,
+					EstateStatus.APPROVED_L1_BY_LEADERSHIP,
 					EstateStatus.SENT_BACK_BY_CITY_HEAD, EstateStatus.SENT_BACK_BY_LEADERSHIP,
 					EstateStatus.SENT_BACK_BY_TRANSFORMATION, EstateStatus.SENT_BACK_BY_LEGAL,
 					EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM,EstateStatus.REJECTED, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP,

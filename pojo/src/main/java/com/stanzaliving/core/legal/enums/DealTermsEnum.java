@@ -25,8 +25,12 @@ public enum DealTermsEnum {
     RENT_START_DATE("Rent start date", "%s", Arrays.asList(AttributeNames.FIN_RENT_START_DATE)),
     LESSEE_LOCK_IN("Lessee lock-in", "%s years", Arrays.asList(AttributeNames.FIN_LEASE_LOCKIN_PERIOD_IN_YEARS)),
     STAMP_DUTY_BORNE_BY("Stamp duty borne by", "%s", Arrays.asList(AttributeNames.STAMP_DUTY_BORNE_BY)),
-    TOKEN_DEPOSIT("Token Deposit", "Rs. %s", Arrays.asList(AttributeNames.FIN_TOKEN_DEPOSIT_IN_RUPEES));
-
+    TOKEN_DEPOSIT("Token Deposit", "Rs. %s", Arrays.asList(AttributeNames.FIN_TOKEN_DEPOSIT_IN_RUPEES)),
+    ADVANCE_RENT_MONTH("Advance rent (months)","%s months", Arrays.asList(AttributeNames.FIN_ADVANCE_RENT_MONTH_COUNT)),
+    BUILT_TYPE("Building Type","%s",Arrays.asList(AttributeNames.BUILDING_TYPE)),
+    START_YEAR("Start Year","%s",Arrays.asList(AttributeNames.BUILDING_TYPE)),
+    END_YEAR("End Year","%s",Arrays.asList(AttributeNames.BUILDING_TYPE));
+	
     String dealTerm;
 
     String valueFormat;
