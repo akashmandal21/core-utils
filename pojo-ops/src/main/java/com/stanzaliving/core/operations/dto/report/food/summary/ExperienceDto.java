@@ -1,7 +1,10 @@
 package com.stanzaliving.core.operations.dto.report.food.summary;
 
-import com.stanzaliving.core.operations.dto.report.PercentDto;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -12,14 +15,14 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ExperienceDto {
 
-    PercentDto unsatisfied;
+    int unsatisfied;
 
-    PercentDto satisfied;
+    int satisfied;
 
-    int socialMediaComplaint;
+    int socialMediaComplaints;
 
-    int disasterEvent;
+    int disasterEvents;
 
-    PercentDto shortage;
+    int shortage;
 
 }

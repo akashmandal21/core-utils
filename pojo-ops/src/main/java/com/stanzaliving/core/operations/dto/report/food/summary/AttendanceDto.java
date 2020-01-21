@@ -1,7 +1,10 @@
 package com.stanzaliving.core.operations.dto.report.food.summary;
 
-import com.stanzaliving.core.operations.dto.report.PercentDto;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -11,15 +14,15 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AttendanceDto {
-
+	
+	int movedInResidents;
+	
     int occupiedBeds;
 
-    int movedInStudents;
+    double avgPresentsPerDay;
 
-    PercentDto present;
+    int totalMealsOrdered;
 
-    PercentDto mealOrdered;
-
-    PercentDto foodAttendance;
+    int foodAttendance;
 
 }
