@@ -12,10 +12,12 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CostUtilizationRecordDto extends RecordDto {
 
-    MealPercentColorDto budgetUtilization;
+	MealDto totalCost;
 
-    MealDto costPerBed;
+    MealDto expectedCost;
 
-    MealPercentColorDto costUtilizationPerBed;
+    MealDto orderCount;
+    
+    Integer occupiedBeds;
 
 }
