@@ -88,5 +88,6 @@ public enum BDDashboardStatus {
 		statusMap.put(EstateStatus.ATL_UPLOAD_PENDING, PENDING_ATL_UPLOADING);
 		statusMap.put(EstateStatus.SHORTLISTED, PENDING_ATL_UPLOADING);
 		
+		statusMap.put(EstateStatus.APPROVED_L1_BY_LEADERSHIP, L1_APPROVED_LEADERSHIP);
 	}
 }
