@@ -12,25 +12,25 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VendorRecordDto extends RecordDto {
-
+	
+	int totalCount;
+	
     double rating;
+    
+    int onTimeAdherence;
+    
+    int quantityAdherence;
 
-    PercentDto onTimeDelivery;
+    double rcQualityFeedback;
+    
+    int totalRating;
+    
+    int studentFeedbackCount;
 
-    PercentDto quantityAdherence;
+    int menuAdherence;
 
-    double rcAvgQualityRating;
+    int shortageRecords;
 
-    double studentAvgRating;
-
-    PercentDto menuAdherence;
-
-    PercentDto shortage;
-
-    PercentDto foreignParticles;
-
-    double totalBillAmount;
-
-    double penaltyAmount;
+    int foreignParticles;
 
 }
