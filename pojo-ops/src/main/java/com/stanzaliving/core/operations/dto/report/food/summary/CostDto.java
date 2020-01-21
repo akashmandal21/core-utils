@@ -12,12 +12,16 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CostDto {
 
-    double budgetedCostPerStudent;
+    double excpectedMealCost;
 
-    double costPerStudent;
+    int movedInResidents;
 
-    PercentDto costUtilization;
+    double totalMealCost;
 
-    PercentDto budgetUtilization;
+    double budgetedMealCost;
+    
+    int occupiedBeds;
+    
+    int totalMealsOrdered;
 
 }

@@ -12,14 +12,14 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class AdherenceDto {
 
-    PercentDto menuAdherence;
+    int menuAdherence;
 
-    PercentDto quantityAdherence;
+    int quantityAdherence;
 
-    PercentDto onTimeDelivery;
+    int onTimeDelivery;
 
-    PercentDto onTimeOrder;
+    int orderedOnTime;
 
-    PercentDto onTimeMenuCreation;
+    int menuCreated;
 
 }
