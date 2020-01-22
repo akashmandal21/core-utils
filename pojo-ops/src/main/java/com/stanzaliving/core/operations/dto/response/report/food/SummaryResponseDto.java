@@ -7,6 +7,8 @@ import com.stanzaliving.core.operations.dto.response.report.food.summary.Adheren
 import com.stanzaliving.core.operations.dto.response.report.food.summary.AttendanceResponseDto;
 import com.stanzaliving.core.operations.dto.response.report.food.summary.CostResponseDto;
 import com.stanzaliving.core.operations.dto.response.report.food.summary.ExperienceResponseDto;
+import com.stanzaliving.core.operations.enums.FeElementType;
+
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -39,7 +41,7 @@ public class SummaryResponseDto extends RecordDto {
                 .build();
         double averageCost = summaryRecordDto.getCostEfficiency().getOccupiedBeds() != 0 ? summaryRecordDto.getCostEfficiency().getTotalMealCost() / summaryRecordDto.getCostEfficiency().getOccupiedBeds() : 0;
         this.costEfficiency = CostResponseDto.builder()
-                .budgetedCostPerStudent(new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), summaryRecordDto.getCostEfficiency().getMovedInResidents()))
+                .budgetedCostPerStudent(new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), summaryRecordDto.getCostEfficiency().getMovedInResidents(), false, FeElementType.DOUBLE))
                 .costPerStudent(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getTotalMealsOrdered()))
                 .costUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), averageCost*summaryRecordDto.getCostEfficiency().getOccupiedBeds()))
                 .budgetUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getBudgetedMealCost()))

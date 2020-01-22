@@ -68,5 +68,13 @@ public class FeElementDto {
         this.isHover = isHover;
         this.type = feElementType;
     }
+    
+    public FeElementDto(double numerator, double denominator, boolean isHover, FeElementType feElementType) {
+        this.value = numerator / denominator;
+        this.numerator = (int)numerator;
+        this.denominator = (int)denominator;
+        this.isHover = isHover;
+        this.type = feElementType;
+    }
 }
 
