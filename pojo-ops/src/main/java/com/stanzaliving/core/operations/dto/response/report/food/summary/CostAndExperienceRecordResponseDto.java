@@ -36,6 +36,7 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
     FeElementDto costPerMIR;
 
     public CostAndExperienceRecordResponseDto(SummaryRecordDto summaryRecordDto) {
+    	super(summaryRecordDto);
         CostAndExperienceRecordDto costAndExperienceRecordDto = summaryRecordDto.getCostAndExperienceRecordDto();
         this.movedInResidence = new FeElementDto(costAndExperienceRecordDto.getMovedInResidence());
         this.unsatisfied = new FeElementDto(costAndExperienceRecordDto.getUnsatisfied(), costAndExperienceRecordDto.getSatisfied() + costAndExperienceRecordDto.getUnsatisfied());
