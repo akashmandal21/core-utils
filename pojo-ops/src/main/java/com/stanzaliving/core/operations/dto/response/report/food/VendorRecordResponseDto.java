@@ -33,19 +33,23 @@ public class VendorRecordResponseDto extends RecordDto {
     FeElementDto totalBillAmount;
 
     FeElementDto penaltyAmount;
-    
-    public VendorRecordResponseDto (VendorRecordDto vendorRecordDto) {
-    	super(vendorRecordDto);
-    	this.rating=new FeElementDto(vendorRecordDto.getRating());
-    	this.onTimeAdherence=new FeElementDto(vendorRecordDto.getOnTimeAdherence(),vendorRecordDto.getTotalCount());
-    	this.quantityAdherence=new FeElementDto(vendorRecordDto.getQuantityAdherence(),vendorRecordDto.getTotalCount());
-    	this.rcQualityFeedback=new FeElementDto(vendorRecordDto.getRcQualityFeedback());
-    	this.studentFeedback=new FeElementDto(vendorRecordDto.getTotalRating(),vendorRecordDto.getStudentFeedbackCount());
-    	this.menuAdherence=new FeElementDto(vendorRecordDto.getMenuAdherence(),vendorRecordDto.getTotalCount());
-    	this.shortageRecords=new FeElementDto(vendorRecordDto.getShortageRecords(),vendorRecordDto.getTotalCount());
-    	this.foreignParticles=new FeElementDto(vendorRecordDto.getForeignParticles(),vendorRecordDto.getTotalCount());
-    	
-    	
+
+    FeElementDto vendorName;
+
+    FeElementDto mealName;
+
+    public VendorRecordResponseDto(VendorRecordDto vendorRecordDto) {
+        super(vendorRecordDto);
+        this.rating = new FeElementDto(vendorRecordDto.getRating());
+        this.onTimeAdherence = new FeElementDto(vendorRecordDto.getOnTimeAdherence(), vendorRecordDto.getTotalCount());
+        this.quantityAdherence = new FeElementDto(vendorRecordDto.getQuantityAdherence(), vendorRecordDto.getTotalCount());
+        this.rcQualityFeedback = new FeElementDto(vendorRecordDto.getRcQualityFeedback());
+        this.studentFeedback = new FeElementDto(vendorRecordDto.getTotalRating(), vendorRecordDto.getStudentFeedbackCount());
+        this.menuAdherence = new FeElementDto(vendorRecordDto.getMenuAdherence(), vendorRecordDto.getTotalCount());
+        this.shortageRecords = new FeElementDto(vendorRecordDto.getShortageRecords(), vendorRecordDto.getTotalCount());
+        this.foreignParticles = new FeElementDto(vendorRecordDto.getForeignParticles(), vendorRecordDto.getTotalCount());
+        this.vendorName = new FeElementDto(vendorRecordDto.getVendorUuid());
+        this.mealName = new FeElementDto(vendorRecordDto.getMealUuid());
     }
 
 }

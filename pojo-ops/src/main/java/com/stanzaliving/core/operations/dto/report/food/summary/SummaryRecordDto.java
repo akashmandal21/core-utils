@@ -16,4 +16,5 @@ public class SummaryRecordDto extends RecordDto{
     CostDto costEfficiency;
     AttendanceDto attendance;
     CostAndExperienceRecordDto costAndExperienceRecordDto;
+    int daysConsidered;
 }

@@ -19,7 +19,7 @@ public class AttendanceDto {
 	
     int occupiedBeds;
 
-    double avgPresentsPerDay;
+    int presentStudents;
 
     int totalMealsOrdered;
 
