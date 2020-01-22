@@ -51,7 +51,6 @@ public enum EstateStatus {
 	APPROVED_BY_LEADERSHIP("Property Naming Done"),
 
 
-	//L1 Flow
 	SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD("L1 Sent to NH"),
 	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("L1 Sent to Leadership"),
 	APPROVED_L1_BY_LEADERSHIP("L1 Approval by Leadership"),
@@ -74,7 +73,7 @@ public enum EstateStatus {
 		estateStatusMap.put(SENT_BACK_BY_CITY_HEAD, EstateStatus.SENT_BACK_BY_CITY_HEAD.getName());
 		
 		
-		NON_MODIFIABLE_ESTATE_STATUS = Arrays.asList(SENT_FOR_APPROVAL, SHORTLISTED, SENT_FOR_L1_APPROVAL_TO_LEADERSHIP, SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD);
+		NON_MODIFIABLE_ESTATE_STATUS = Arrays.asList(SENT_FOR_APPROVAL, SHORTLISTED);
 	}
 
 	private EstateStatus(String name) {
