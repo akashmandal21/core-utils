@@ -20,18 +20,18 @@ import lombok.Getter;
 public enum EstateStatus {
 
 	//BD Level Status
-	DRAFT_IN_PROGRESS("Draft In Progress"),
+	DRAFT_IN_PROGRESS("Under Draft"),
 	
 	//Level 1 Status
-	SENT_FOR_APPROVAL_TO_CITY_HEAD("Sent for approval to RM"),
+	SENT_FOR_APPROVAL_TO_CITY_HEAD("L1 Sent to RM"),
 	APPROVED_BY_CITY_HEAD("Shortlisted By RM"),
-	SENT_BACK_BY_CITY_HEAD("Sent Back By RM"),
+	SENT_BACK_BY_CITY_HEAD("L1 Sent Back By RM"),
 	REJECTED("Rejected"),
 	
 	//Level 2 Status
-	SENT_FOR_APPROVAL("Sent for Approval"),
-	SENT_BACK("Sent Back By National Head"),
-	APPROVED_BY_NATIONAL_HEAD("Approved By National Head"),
+	SENT_FOR_APPROVAL("L2 Sent To NH"),
+	SENT_BACK("L2 Sent Back By NH"),
+	APPROVED_BY_NATIONAL_HEAD("L2 Approved By NH"),
 	SENT_BACK_BY_TRANSFORMATION("Sent Back By Transformations"),
 	APPROVED_BY_TRANSFORMATION("Approved By Transformations"),
 	SHORTLISTED("Shortlisted"),
@@ -43,20 +43,20 @@ public enum EstateStatus {
 	SENT_BACK_BY_LEGAL("Sent Back By Legal"),
 	
 	//ATL Status
-	SIGNED_ATL_UPLOADED("Signed ATL Uploaded"),
+	SIGNED_ATL_UPLOADED("Sent for Property Naming"),
 	ATL_UPLOAD_PENDING("ATL Upload Pending"),
 
 	//Leadership Status
 	SENT_BACK_BY_LEADERSHIP("Sent Back By Leadership"),
-	APPROVED_BY_LEADERSHIP("Shortlisted By Leadership"),
+	APPROVED_BY_LEADERSHIP("Property Naming Done"),
 
 
 	//L1 Flow
-	SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD("Sent to NH for L1 Approval"),
-	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("Sent to Leadership for L1 Approval"),
+	SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD("L1 Sent to NH"),
+	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("L1 Sent to Leadership"),
 	APPROVED_L1_BY_LEADERSHIP("L1 Approval by Leadership"),
-	SENT_BACK_L1_BY_NATIONAL_HEAD("L1 Sent back by National Head"),
-	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent back by Leadership");
+	SENT_BACK_L1_BY_NATIONAL_HEAD("L1 Sent Back by NH"),
+	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent Back by Leadership");
 
 
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
