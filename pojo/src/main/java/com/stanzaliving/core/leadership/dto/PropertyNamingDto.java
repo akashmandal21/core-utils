@@ -8,11 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Builder
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class PropertyNamingDto {
 
 	private String estateName;
@@ -34,4 +36,5 @@ public class PropertyNamingDto {
 	private boolean status;
 	
 	private Long cityId;
+
 }

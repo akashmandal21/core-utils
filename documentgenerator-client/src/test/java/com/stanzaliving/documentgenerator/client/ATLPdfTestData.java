@@ -54,17 +54,17 @@ public class ATLPdfTestData {
 	
 	public static PdfRequestDto getATLPDFDocumentDto() {
 
-		DocumentDto documentDto = DocumentDto.builder().documentOutputFileName("ATL Document").serviceName("ATL")
+		DocumentDto documentDto = DocumentDto.builder().documentOutputFileName("ATL Document").serviceName("ATL_test")
 				.build();
 
 		Map<String, Object> modelData = getAtlPdfData();
 		DocumentGeneratorTemplateRequestDto templateRequestDto = DocumentGeneratorTemplateRequestDto.builder()
-				.templateName("ATL_Template_HTML.html").templateType(DocumentGeneratorTemplateType.TYPE_HTML.getName())
+				.templateName("ATL_Test_Template_HTML_debendra.html").templateType(DocumentGeneratorTemplateType.TYPE_HTML.getName())
 				.templateModelData(modelData).build();
 
 		PdfDocumentDto pdfDocumentDto = PdfDocumentDto.builder().documentDto(documentDto)
 				.templateDto(templateRequestDto).build();
-
+		pdfDocumentDto.setQrRequired(true);
 		PdfRequestDto pdfRequestDto = PdfRequestDto.builder().pdfDocumentDtos(Arrays.asList(pdfDocumentDto)).build();
 
 		return pdfRequestDto;

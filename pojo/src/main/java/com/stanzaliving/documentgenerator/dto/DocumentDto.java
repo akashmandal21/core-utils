@@ -23,7 +23,7 @@ public class DocumentDto implements Serializable{
 	 * Document o/p file name. The name must not contains the extension name.
 	 * */
 	@NotBlank(message = "The document output file name can't be empty.")
-	private String documentOutputFileName;
+	private String documentOutputFileName;		//estateUuid_documentpartname_version (documentpartname - leaseterm, annexure1, annexuer2 etc)
 	
 	/**
 	 * The absolute generated file path. 
@@ -39,5 +39,11 @@ public class DocumentDto implements Serializable{
 	private String serviceName;
 	
 	private boolean isOverride;
+
+	private String contextType;		//forLegalPdfGeneration
+	private String contextName;		//documentpartname (documentpartname - leaseterm, annexure1, annexuer2 etc)
+	private String contextId;		//estateUuid
+	private String subContextId;	//versionNUmber
+
 	
 }

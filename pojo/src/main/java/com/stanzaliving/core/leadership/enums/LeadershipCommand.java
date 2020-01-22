@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum LeadershipCommand {
 
-	APPROVE("Approved"),REJECT("Rejected"),SENDBACK("Send Back");
+	APPROVE("Approved"),REJECT("Rejected"),SENDBACK("Sent Back"),APPROVE_L1("L1 Approved"),SENDBACK_L1("L1 Sent Back");
 	
 	private String command;
 }
