@@ -1,5 +1,6 @@
 package com.stanzaliving.core.estate.constants;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -15,10 +16,13 @@ public class AttributeNames {
 		public static final String LEASE_PREMISE_AREA = "areaOfLeasedPremise";
 		public static final String NUM_ROOMS = "numberOfRooms";
 		public static final String EXPECTED_BED_COUNT = "expectedBedCount";
+		public static final String EFFECTIVE_BED_COUNT = "effectiveBedCount";
 		public static final String FLOOR_COUNT = "floorCount";
 		public static final String POC_NUMBER = "pocNumber";
 		public static final String POC_NAME = "pocName";
 
+		public static final String TYPE_OF_BRAND = "typeOfBrand";
+		
 		public static final String ROOM_TYPE = "roomType";
 		public static final String ROOM_COUNT = "roomCount";
 
@@ -193,6 +197,7 @@ public class AttributeNames {
 		public static final String FULLY_FUNCTIONAL_WATER_PUMPS_REMARKS = "fullyFunctionalWaterPumpsRemarks";
 		public static final String AUTOMATION_OF_WATER_STORAGE_REMARKS = "automationOfWaterStorageRemarks";
 		public static final String BASEMENT_OTHER_AREAS_MAY_REMARKS = "basementOtherAreasMayRemarks";
+		public static final String WATER_SUPPLY_BOREWELL_REMARKS = "waterSupplyBorewellRemarks";
 		public static final String WATER_TANK_CAPACITY_TO_BE_CALCULATED_REMARKS = "waterTankCapacityToBeCalculatedRemarks";
 		public static final String ANY_MASONRY_PLASTER_CRACKS_REMARKS = "anyMasonryPlasterCracksRemarks";
 		public static final String EXTERNAL_DOOR_WINDOWS_REMARKS = "externalDoorWindowsRemarks";
@@ -311,9 +316,14 @@ public class AttributeNames {
 		public static final String WATER_SUPPLY_CLAUSE_B_TEXT_AREA = "waterSupplyClauseBTextArea";
 		public static final String WATER_SUPPLY_CLAUSE_C_TEXT_AREA = "waterSupplyClauseCTextArea";
 		public static final String WATER_SUPPLY_CLAUSE_D_TEXT_AREA = "waterSupplyClauseDTextArea";
+		public static final String WATER_SUPPLY_CLAUSE_E_TEXT_AREA = "waterSupplyClauseETextArea";
+
 		public static final String WATER_STORAGE_CLAUSE_A_TEXT_AREA = "waterStorageClauseATextArea";
 		public static final String FACADE_CLAUSE_A_TEXT_AREA = "facadeClauseATextArea";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA = "facadeClauseBTextArea";
+		public static final String FACADE_CLAUSE_B_TEXT_AREA_1 = "facadeClauseBTextArea1";
+		public static final String FACADE_CLAUSE_B_TEXT_AREA_2 = "facadeClauseBTextArea2";
+		public static final String FACADE_CLAUSE_B_TEXT_AREA_3 = "facadeClauseBTextArea3";
 		public static final String TERRACE_AREA_CLAUSE_A_TEXT_AREA = "terraceAreaClauseATextArea";
 		public static final String TERRACE_AREA_CLAUSE_B_TEXT_AREA = "terraceAreaClauseBTextArea";
 		public static final String TERRACE_AREA_CLAUSE_C_TEXT_AREA = "terraceAreaClauseCTextArea";
@@ -346,6 +356,9 @@ public class AttributeNames {
 		public static final String ELECTRICAL_CLAUSE_B_TEXT_AREA = "electricalClauseBTextArea";
 		public static final String ELECTRICAL_CLAUSE_C_TEXT_AREA = "electricalClauseCTextArea";
 		public static final String ELECTRICAL_CLAUSE_D_TEXT_AREA = "electricalClauseDTextArea";
+		public static final String ELECTRICAL_CLAUSE_D_TEXT_AREA_1 = "electricalClauseDTextArea1";
+		public static final String ELECTRICAL_CLAUSE_D_TEXT_AREA_2 = "electricalClauseDTextArea2";
+
 		public static final String ELECTRICAL_CLAUSE_E_TEXT_AREA = "electricalClauseETextArea";
 		public static final String POWER_BACKUP_CLAUSE_A_TEXT_AREA = "powerBackupClauseATextArea";
 		public static final String POWER_BACKUP_CLAUSE_B_TEXT_AREA = "powerBackupClauseBTextArea";
@@ -416,4 +429,84 @@ public class AttributeNames {
 			}
 		};
 		public static final String POWER_BACKUP_SIze = "powerBackupCapacity";
+		
+		public static final List<String> amcKeys = new ArrayList<String>();
+		public static final List<String> landlordAgreedKeys = new ArrayList<String>();
+
+		
+		static {
+			amcKeys.add(ASSET_LIST_WITH_EXACT_COUNT_RETAINED);
+			amcKeys.add(LIFT_LICENSE_AND_RENEWAL);
+			amcKeys.add(ELECTRICAL_LOAD_SANCTION_LETTER);
+			amcKeys.add(LAST_SIX_MONTHS_ELECTRICITY_BILLS);
+			amcKeys.add(LAST_SIX_MONTHS_WATER_BILLS);
+			amcKeys.add(UTILITY_BILLS);
+			amcKeys.add(POLLUTION_CONTROL_BOARD_NOC);
+			amcKeys.add(FIRE_SYSTEM);
+			amcKeys.add(FIRE_NOC);
+			amcKeys.add(WARRANTY_CARD_FOR_WATER_ACCESSORIES);
+			amcKeys.add(WARRANTY_CARD_FOR_WHITE_GOODS);
+
+			landlordAgreedKeys.add("STRUCTURE");
+			landlordAgreedKeys.add("commonAreasClauseABoolean");
+			landlordAgreedKeys.add("docsAndAMCClauseABoolean");
+			landlordAgreedKeys.add("electricalClauseABoolean");
+			landlordAgreedKeys.add("electricalClauseBBoolean");
+			landlordAgreedKeys.add("electricalClauseCBoolean");
+			landlordAgreedKeys.add("electricalClauseDBoolean");
+			landlordAgreedKeys.add("electricalClauseEBoolean");
+			landlordAgreedKeys.add("facadeClauseABoolean");
+			landlordAgreedKeys.add("facadeClauseBBoolean");
+			landlordAgreedKeys.add("fireClauseABoolean");
+			landlordAgreedKeys.add("fireClauseBBoolean");
+			landlordAgreedKeys.add("liftClauseABoolean");
+			landlordAgreedKeys.add("liftClauseBBoolean");
+			landlordAgreedKeys.add("liftClauseCBoolean");
+			landlordAgreedKeys.add("liftClauseDBoolean");
+			landlordAgreedKeys.add("liftClauseEBoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseABoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseBBoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseCBoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseDBoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseEBoolean");
+			landlordAgreedKeys.add("occupiedLevelClauseFBoolean");
+			landlordAgreedKeys.add("powerBackupClauseABoolean");
+			landlordAgreedKeys.add("powerBackupClauseBBoolean");
+			landlordAgreedKeys.add("powerBackupClauseCBoolean");
+			landlordAgreedKeys.add("powerBackupClauseDBoolean");
+			landlordAgreedKeys.add("roomClauseABoolean");
+			landlordAgreedKeys.add("roomClauseBBoolean");
+			landlordAgreedKeys.add("roomClauseCBoolean");
+			landlordAgreedKeys.add("roomClauseDBoolean");
+			landlordAgreedKeys.add("roomClauseEBoolean");
+			landlordAgreedKeys.add("roomClauseFBoolean");
+			landlordAgreedKeys.add("sanitaryClauseABoolean");
+			landlordAgreedKeys.add("sanitaryClauseBBoolean");
+			landlordAgreedKeys.add("sanitaryClauseCBoolean");
+			landlordAgreedKeys.add("sanitaryClauseDBoolean");
+			landlordAgreedKeys.add("sanitaryClauseEBoolean");
+			landlordAgreedKeys.add("seepageClauseABoolean");
+			landlordAgreedKeys.add("seepageClauseBBoolean");
+			landlordAgreedKeys.add("seepageClauseCBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseABoolean");
+			landlordAgreedKeys.add("terraceLevelClauseBBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseCBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseDBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseEBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseFBoolean");
+			landlordAgreedKeys.add("waterStorageClauseABoolean");
+			landlordAgreedKeys.add("waterSupplyClauseABoolean");
+			landlordAgreedKeys.add("waterSupplyClauseBBoolean");
+			landlordAgreedKeys.add("waterSupplyClauseCBoolean");
+			landlordAgreedKeys.add("waterSupplyClauseDBoolean");
+			landlordAgreedKeys.add("whiteGoodsClauseABoolean");
+			landlordAgreedKeys.add("whiteGoodsClauseBBoolean");
+			landlordAgreedKeys.add("whiteGoodsClauseCBoolean");
+			landlordAgreedKeys.add("whiteGoodsClauseDBoolean");
+			landlordAgreedKeys.add("whiteGoodsClauseEBoolean");
+
+		}
+
+		
+		
 }
