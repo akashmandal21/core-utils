@@ -26,7 +26,7 @@ public class SummaryResponseDto extends RecordDto {
 
     public SummaryResponseDto(SummaryRecordDto summaryRecordDto) {
         this.experience = ExperienceResponseDto.builder()
-                .unsatisfied(new FeElementDto(summaryRecordDto.getExperience().getSatisfied(), summaryRecordDto.getExperience().getSatisfied() + summaryRecordDto.getExperience().getUnsatisfied()))
+                .unsatisfied(new FeElementDto(summaryRecordDto.getExperience().getUnsatisfied(), summaryRecordDto.getExperience().getSatisfied() + summaryRecordDto.getExperience().getUnsatisfied()))
                 .satisfied(new FeElementDto(summaryRecordDto.getExperience().getSatisfied(), summaryRecordDto.getExperience().getSatisfied() + summaryRecordDto.getExperience().getUnsatisfied()))
                 .socialMediaComplaint(new FeElementDto(summaryRecordDto.getExperience().getSocialMediaComplaints()))
                 .disasterEvent(new FeElementDto(summaryRecordDto.getExperience().getDisasterEvents()))
