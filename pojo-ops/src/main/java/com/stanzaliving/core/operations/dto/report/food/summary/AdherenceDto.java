@@ -1,6 +1,5 @@
 package com.stanzaliving.core.operations.dto.report.food.summary;
 
-import com.stanzaliving.core.operations.dto.report.PercentDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 

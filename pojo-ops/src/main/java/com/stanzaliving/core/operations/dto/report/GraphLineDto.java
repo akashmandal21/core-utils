@@ -11,10 +11,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class LineDto {
+public class GraphLineDto {
     String key;
     String value;
     String accessLevel;
-    List<Object> xAxis;
-    List<Object> yAxis;
+    List<GraphLinePointDto> data;
 }

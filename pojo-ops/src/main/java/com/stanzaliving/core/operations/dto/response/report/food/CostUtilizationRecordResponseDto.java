@@ -23,6 +23,7 @@ public class CostUtilizationRecordResponseDto extends RecordDto {
     MealResponseDto costUtilizationPerBed;
 
     public CostUtilizationRecordResponseDto(CostUtilizationRecordDto costUtilizationRecordDto) {
+        super(costUtilizationRecordDto);
         this.budgetUtilization = MealResponseDto.builder()
                 .overall(new FeElementDto(costUtilizationRecordDto.getTotalCost().getOverall(), costUtilizationRecordDto.getExpectedCost().getOverall() * 0.7))
                 .breakfast(new FeElementDto(costUtilizationRecordDto.getTotalCost().getBreakfast(), costUtilizationRecordDto.getExpectedCost().getBreakfast() * 0.7))
