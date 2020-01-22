@@ -9,7 +9,7 @@ package com.stanzaliving.core.operations.enums;
  * @date 22-Jan-2020
  *
  **/
-public enum VendorService {
+public enum VendorType {
 
 	FOOD,
 	ELECTRICITY,
