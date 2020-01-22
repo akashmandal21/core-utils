@@ -27,6 +27,10 @@ public class ComplianceRecordResponseDto extends RecordDto {
 
     FeElementDto rating;
 
+    String vendorUuid;
+    
+    String mealUuid;
+    
     public ComplianceRecordResponseDto(ComplianceRecordDto complianceRecordDto) {
         super(complianceRecordDto);
         this.totalMeals = new FeElementDto(complianceRecordDto.getTotalMeals());
@@ -35,5 +39,7 @@ public class ComplianceRecordResponseDto extends RecordDto {
         this.shortage = new FeElementDto(complianceRecordDto.getShortage(), complianceRecordDto.getTotalMeals());
         this.feedback = new FeElementDto(complianceRecordDto.getFeedback(), complianceRecordDto.getTotalMeals());
         this.rating = new FeElementDto(complianceRecordDto.getRating());
+        this.vendorUuid = complianceRecordDto.getVendorUuid();
+        this.mealUuid = complianceRecordDto.getMealUuid();
     }
 }

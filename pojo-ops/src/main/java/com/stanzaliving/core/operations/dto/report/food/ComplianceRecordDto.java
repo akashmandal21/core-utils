@@ -25,4 +25,6 @@ public class ComplianceRecordDto extends RecordDto {
     double rating;
 
     String vendorUuid;
+    
+    String mealUuid;
 }
