@@ -39,10 +39,10 @@ public class SummaryResponseDto extends RecordDto {
                 .onTimeOrder(new FeElementDto(summaryRecordDto.getProcessAdherence().getOrderedOnTime(), summaryRecordDto.getTotalCount()))
                 .onTimeMenuCreation(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuCreated(), summaryRecordDto.getTotalCount()))
                 .build();
-        double averageCost = summaryRecordDto.getCostEfficiency().getOccupiedBeds() != 0 ? summaryRecordDto.getCostEfficiency().getTotalMealCost() / summaryRecordDto.getCostEfficiency().getOccupiedBeds() : 0;
+        double averageCost = summaryRecordDto.getCostEfficiency().getOccupiedBeds() != 0 ? summaryRecordDto.getCostEfficiency().getTotalMealCost() / summaryRecordDto.getCostEfficiency().getTotalMealsOrdered() : 0;
         this.costEfficiency = CostResponseDto.builder()
                 .budgetedCostPerStudent(new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), summaryRecordDto.getCostEfficiency().getMovedInResidents(), false, FeElementType.DOUBLE))
-                .costPerStudent(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getTotalMealsOrdered()))
+                .costPerStudent(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), (double)summaryRecordDto.getCostEfficiency().getTotalMealsOrdered(),false, FeElementType.DOUBLE))
                 .costUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), averageCost*summaryRecordDto.getCostEfficiency().getOccupiedBeds()))
                 .budgetUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getBudgetedMealCost()))
                 .build();
