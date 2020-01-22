@@ -12,9 +12,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class LineGraphDto {
+public class GraphDto {
 
-    List<LineDto> lines = new ArrayList<>();
+    List<GraphLineDto> lines = new ArrayList<>();
     String xLabel;
     String yLabel;
 

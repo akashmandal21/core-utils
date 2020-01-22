@@ -13,7 +13,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class StudentFeedbackGraphRecordDto extends GraphRecordDto {
 
-    Integer totalRating;
+    Integer satisfied;
+    Integer unsatisfied;
     Integer studentFeedbackCount;
 
 }

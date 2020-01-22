@@ -39,7 +39,7 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
     public CustomerExperienceRecordResponseDto(CustomerExperienceRecordDto customerExperienceRecordDto) {
         super(customerExperienceRecordDto);
         this.satisfied = new FeElementDto(customerExperienceRecordDto.getSatisfied(), customerExperienceRecordDto.getSatisfied() + customerExperienceRecordDto.getUnsatisfied());
-        this.unsatisfied = new FeElementDto(customerExperienceRecordDto.getSatisfied(), customerExperienceRecordDto.getSatisfied() + customerExperienceRecordDto.getUnsatisfied());
+        this.unsatisfied = new FeElementDto(customerExperienceRecordDto.getUnsatisfied(), customerExperienceRecordDto.getSatisfied() + customerExperienceRecordDto.getUnsatisfied());
         this.shortage = new FeElementDto(customerExperienceRecordDto.getShortageCount(), customerExperienceRecordDto.getTotalCount());
         this.foreignParticles = new FeElementDto(customerExperienceRecordDto.getForeignParticle());
         this.rcAvgQualityRating = new FeElementDto(customerExperienceRecordDto.getRcAvgQualityRating());

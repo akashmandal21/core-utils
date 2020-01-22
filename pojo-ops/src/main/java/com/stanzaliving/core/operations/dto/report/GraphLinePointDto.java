@@ -9,6 +9,12 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class PercentColorDto extends PercentDto {
-    String color;
+public class GraphLinePointDto {
+    String x;
+    Object y;
+    boolean highlight;
+    String xPrefixLabel;
+    String yPrefixLabel;
+    String xSuffixLabel;
+    String ySuffixLabel;
 }
