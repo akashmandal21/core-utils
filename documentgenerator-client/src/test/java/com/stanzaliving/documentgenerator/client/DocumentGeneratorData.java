@@ -76,7 +76,7 @@ public class DocumentGeneratorData {
 
 		PdfDocumentDto pdfDocumentDto = PdfDocumentDto.builder().documentDto(documentDto)
 				.templateDto(templateRequestDto).build();
-
+		pdfDocumentDto.setQrRequired(true);
 		PdfRequestDto pdfRequestDto = PdfRequestDto.builder().pdfDocumentDtos(Arrays.asList(pdfDocumentDto)).build();
 		return pdfRequestDto;
 	}

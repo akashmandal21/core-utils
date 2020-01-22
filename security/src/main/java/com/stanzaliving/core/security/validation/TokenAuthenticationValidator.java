@@ -76,6 +76,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 						.firstName(dto.getFirstName())
 						.lastName(dto.getLastName())
 						.email(dto.getEmail())
+						.userUuid(dto.getUuid())
 						.build();
 
 			}

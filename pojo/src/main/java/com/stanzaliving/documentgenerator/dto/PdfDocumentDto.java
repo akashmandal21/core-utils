@@ -1,6 +1,7 @@
 package com.stanzaliving.documentgenerator.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -28,4 +29,13 @@ public class PdfDocumentDto implements Serializable{
 	private DocumentGeneratorTemplateRequestDto templateDto;
 	@Valid
 	private DocumentDto documentDto;
+	
+	/*true or false for QRCode needs to be append to pdf.*/
+	private boolean isQrRequired;
+	/*Generated QR UUID(s)*/
+	private List<String> qrUuidList;
+	/*Generated number of PDF pages*/
+	private Integer pageCount;	
+	
+	private byte[] generatedPdfContentByte;
 }
