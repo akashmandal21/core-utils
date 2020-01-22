@@ -4,6 +4,8 @@ import com.stanzaliving.core.operations.dto.report.RecordDto;
 import com.stanzaliving.core.operations.dto.report.food.summary.CostAndExperienceRecordDto;
 import com.stanzaliving.core.operations.dto.report.food.summary.SummaryRecordDto;
 import com.stanzaliving.core.operations.dto.response.report.FeElementDto;
+import com.stanzaliving.core.operations.enums.FeElementType;
+
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -43,6 +45,6 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
         this.budgetUtilization = new FeElementDto(costAndExperienceRecordDto.getTotalMealCost(), costAndExperienceRecordDto.getBudgetedMealCost());
         double averageCost = costAndExperienceRecordDto.getOccupiedBeds() != 0 ? costAndExperienceRecordDto.getTotalMealCost() / costAndExperienceRecordDto.getTotalMealsOrdered() : 0;
         this.costUtilization = new FeElementDto(costAndExperienceRecordDto.getTotalMealCost(), averageCost*costAndExperienceRecordDto.getOccupiedBeds());
-        this.costPerMIR = new FeElementDto(costAndExperienceRecordDto.getTotalMealCost(), costAndExperienceRecordDto.getMovedInResidence());
+        this.costPerMIR = new FeElementDto(costAndExperienceRecordDto.getTotalMealCost(), (double)costAndExperienceRecordDto.getMovedInResidence(),false,FeElementType.DOUBLE);
     }
 }
