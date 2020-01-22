@@ -24,4 +24,6 @@ public class ComplianceRecordDto extends RecordDto {
     int feedback;
 
     double rating;
+
+    String vendorUuid;
 }
