@@ -24,7 +24,7 @@ public class ReportRequestDto {
 
     List<String> cityUuid;
 
-    List<String> micomarketUuid;
+    List<String> micromarketUuid;
 
     List<String> residenceUuid;
 
