@@ -111,4 +111,26 @@ public class EstateAttributeServiceImpl implements EstateAttributeService {
 		return estateAttributeRepository.findByEstateIdAndAttributeName(
 						estateId, attributeName);
 	}
+
+	@Override
+	public Map<String, EstateAttributeEntity> getEstateAttributeMapByPropertyId(String propertyId) {
+		Map<String, EstateAttributeEntity> estateAttributeMap = new HashMap<>();
+		
+		try {
+			List<EstateAttributeEntity> estateAttributeList = estateAttributeRepository.findByPropertyId(propertyId);
+			
+			if(CollectionUtils.isEmpty(estateAttributeList)) {
+				return estateAttributeMap;
+			}
+			
+			estateAttributeList.forEach(estateEntity -> {
+				estateAttributeMap.put(estateEntity.getAttributeName(), estateEntity);
+			});
+			
+		} catch (Exception e) {
+			log.error(" Exception occurred while fetching estate attribute ", e);
+		}
+		
+		return estateAttributeMap;
+	}
 }

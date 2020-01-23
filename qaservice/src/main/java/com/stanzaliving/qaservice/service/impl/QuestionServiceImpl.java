@@ -1,11 +1,13 @@
 package com.stanzaliving.qaservice.service.impl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,21 +15,21 @@ import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.qaservice.dto.QuestionRequestDto;
 import com.stanzaliving.qaservice.entity.QuestionEntity;
 import com.stanzaliving.qaservice.entity.QuestionMetadataEntity;
+import com.stanzaliving.qaservice.enums.QuestionType;
 import com.stanzaliving.qaservice.repository.QuestionRepository;
 import com.stanzaliving.qaservice.service.QuestionMetadataService;
 import com.stanzaliving.qaservice.service.QuestionService;
 
 import lombok.extern.log4j.Log4j2;
 
-@Log4j2
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
 	@Autowired
-	QuestionMetadataService questionMetadataService;
+	private QuestionMetadataService questionMetadataService;
 
 	@Autowired
-	QuestionRepository questionRepository;
+	private QuestionRepository questionRepository;
 
 	@Override
 	public QuestionEntity createQuestion(QuestionRequestDto questionRequestDto) {
@@ -98,5 +100,18 @@ public class QuestionServiceImpl implements QuestionService {
 		});
 		
 		return screenQuestionMap;
+	}
+
+	@Override
+	public Map<QuestionType, List<QuestionEntity>> getQuestionsByQuestionType() {
+		
+		List<QuestionEntity> questions = findAll();
+		
+		if(CollectionUtils.isNotEmpty(questions)) {
+			return questions.stream().collect(Collectors.groupingBy(QuestionEntity::getQuestionType));
+		}
+		
+		return Collections.emptyMap();
+
 	}
 }

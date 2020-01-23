@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.stanzaliving.qaservice.dto.QuestionRequestDto;
 import com.stanzaliving.qaservice.entity.QuestionEntity;
+import com.stanzaliving.qaservice.enums.QuestionType;
 
 
 public interface QuestionService {
@@ -21,4 +22,6 @@ public interface QuestionService {
 	void save(QuestionEntity questionEntity);
 
 	void saveAll(List<QuestionRequestDto> questionRequestDtos);
+	
+	Map<QuestionType,List<QuestionEntity>> getQuestionsByQuestionType();
 }

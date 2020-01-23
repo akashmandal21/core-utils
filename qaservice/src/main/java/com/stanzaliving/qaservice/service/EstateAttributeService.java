@@ -19,9 +19,12 @@ public interface EstateAttributeService {
 	
 	Map<String, EstateAttributeEntity> getEstateAttributeMap(String estateId);
 
+	Map<String, EstateAttributeEntity> getEstateAttributeMapByPropertyId(String propertyId);
+
+	
 	List<EstateAttributeEntity> getAndSaveEstateAttributeEntityListFromAnswer(AnswerEntity answer, String estateId,
 			String propertyId);
 	
 	EstateAttributeEntity fetchDetailByEstateIdAndAttributeName(String estateId, String attributeName);
-		
+	
 }
