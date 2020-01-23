@@ -1,5 +1,6 @@
 package com.stanzaliving.core.operations.dto.report;
 
+import com.stanzaliving.core.base.enums.AccessLevel;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -13,9 +14,12 @@ import java.util.List;
 @AllArgsConstructor
 @SuperBuilder
 public class GraphDto {
-
-    List<GraphLineDto> lines = new ArrayList<>();
+    String chartTitle;
     String xLabel;
     String yLabel;
-
+    String xType;
+    String yType;
+    AccessLevel accessLevel;
+    List<GraphLineXPoint> xAxis = new ArrayList<>();
+    List<GraphLineDto> yAxis = new ArrayList<>();
 }

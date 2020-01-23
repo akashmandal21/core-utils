@@ -14,7 +14,9 @@ import lombok.Getter;
 public enum DateFormat {
 
 	YYYY_HIFEN_MM_HIFEN_DD("yyyy-MM-dd"),
-	ELASTIC_SEARCH("yyyy-MM-dd HH:mm:ss");
+	ELASTIC_SEARCH("yyyy-MM-dd HH:mm:ss"),
+	MONTH_FULL_NAME("MMMM"),
+	WEEK_IN_YEAR("w");
 
 	private String value;
 

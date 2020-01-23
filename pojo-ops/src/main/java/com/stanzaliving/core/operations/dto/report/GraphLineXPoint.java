@@ -3,16 +3,13 @@ package com.stanzaliving.core.operations.dto.report;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
-
-
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class GraphLineDto extends RecordDto {
-    String name;
-    List<GraphLineYPoint> data;
+public class GraphLineXPoint {
+    String x;
+    boolean highlight;
 }

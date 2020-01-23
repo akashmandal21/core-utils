@@ -9,11 +9,8 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
@@ -28,6 +25,16 @@ public class DateUtil {
 		if (dateInput != null) {
 			SimpleDateFormat formatterOutput = new SimpleDateFormat(dateFormat.getValue());
 			return formatterOutput.format(dateInput);
+		}
+
+		return null;
+	}
+
+	public static String customDateFormatter(LocalDate dateInput, DateFormat dateFormat) {
+
+		if (dateInput != null) {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateFormat.getValue());
+			return formatter.format(dateInput);
 		}
 
 		return null;
@@ -230,6 +237,30 @@ public class DateUtil {
 		}
 
 		return d1.isAfter(d2) ? d1 : d2;
+	}
+
+	public static List<String> getListOfMonths(LocalDate startDate, LocalDate endDate) {
+		LinkedHashSet<String> monthsList = new LinkedHashSet<>();
+		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
+			monthsList.add(customDateFormatter(date, DateFormat.MONTH_FULL_NAME));
+		}
+		return new ArrayList<>(monthsList);
+	}
+
+	public static List<String> getListOfWeeks(LocalDate startDate, LocalDate endDate) {
+		LinkedHashSet<String> weeksList = new LinkedHashSet<>();
+		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
+			weeksList.add(customDateFormatter(date, DateFormat.WEEK_IN_YEAR));
+		}
+		return new ArrayList<>(weeksList);
+	}
+
+	public static List<String> getListOfDates(LocalDate startDate, LocalDate endDate) {
+		LinkedHashSet<String> dateList = new LinkedHashSet<>();
+		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
+			dateList.add(customDateFormatter(date, DateFormat.YYYY_HIFEN_MM_HIFEN_DD));
+		}
+		return new ArrayList<>(dateList);
 	}
 
 }

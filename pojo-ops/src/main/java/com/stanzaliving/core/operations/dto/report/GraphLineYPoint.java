@@ -5,16 +5,10 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class GraphLinePointDto {
-    String x;
+public class GraphLineYPoint {
     Object y;
-    boolean highlight;
-    String xPrefixLabel;
-    String yPrefixLabel;
-    String xSuffixLabel;
-    String ySuffixLabel;
 }

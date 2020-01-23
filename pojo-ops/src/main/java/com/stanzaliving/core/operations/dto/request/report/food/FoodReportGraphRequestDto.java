@@ -4,6 +4,8 @@ import com.stanzaliving.core.operations.enums.Frequency;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotNull;
+
 @Getter
 @Setter
 @ToString(callSuper = true)
@@ -12,6 +14,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class FoodReportGraphRequestDto extends FoodReportRequestDto {
 
-    Frequency frequency;
+    Frequency frequency = Frequency.DAILY;
 
 }
