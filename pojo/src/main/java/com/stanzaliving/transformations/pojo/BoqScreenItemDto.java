@@ -18,6 +18,6 @@ import lombok.ToString;
 @ToString
 public class BoqScreenItemDto {
 
-	private String propertyId;
+	private String propertyUuid;
 	private List<BoqCategoryItemDto> boqCategoryItemList;
 }
