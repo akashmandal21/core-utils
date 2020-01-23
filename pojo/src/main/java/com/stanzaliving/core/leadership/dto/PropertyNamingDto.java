@@ -18,6 +18,8 @@ import lombok.ToString;
 public class PropertyNamingDto {
 
 	private String estateName;
+
+	private String estateUuid;
 	
 	private Long estateId;
 	
