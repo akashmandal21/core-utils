@@ -4,6 +4,8 @@ import com.stanzaliving.core.operations.dto.report.RecordDto;
 import com.stanzaliving.core.operations.dto.report.food.ComplianceRecordDto;
 import com.stanzaliving.core.operations.dto.response.report.FeElementDto;
 import com.stanzaliving.core.operations.enums.FeElementType;
+import com.stanzaliving.core.operations.enums.MealType;
+
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -29,7 +31,11 @@ public class ComplianceRecordResponseDto extends RecordDto {
 
     String vendorUuid;
     
+    String vendorName;
+    
     String mealUuid;
+    
+    String mealName;
     
     public ComplianceRecordResponseDto(ComplianceRecordDto complianceRecordDto) {
         super(complianceRecordDto);
@@ -40,6 +46,8 @@ public class ComplianceRecordResponseDto extends RecordDto {
         this.feedback = new FeElementDto(complianceRecordDto.getFeedback(), complianceRecordDto.getTotalMeals());
         this.rating = new FeElementDto(complianceRecordDto.getRating());
         this.vendorUuid = complianceRecordDto.getVendorUuid();
+        this.vendorName= complianceRecordDto.getVendorName();
         this.mealUuid = complianceRecordDto.getMealUuid();
+        this.mealName=complianceRecordDto.getMealName();
     }
 }

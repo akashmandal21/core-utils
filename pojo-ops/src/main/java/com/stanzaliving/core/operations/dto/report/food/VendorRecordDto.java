@@ -33,6 +33,10 @@ public class VendorRecordDto extends RecordDto {
     int foreignParticles;
 
     String vendorUuid;
+    
+    String vendorName;
 
     String mealUuid;
+    
+    String mealName;
 }

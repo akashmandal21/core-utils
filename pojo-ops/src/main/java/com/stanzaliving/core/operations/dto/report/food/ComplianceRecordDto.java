@@ -26,5 +26,9 @@ public class ComplianceRecordDto extends RecordDto {
 
     String vendorUuid;
     
+    String vendorName;
+    
     String mealUuid;
+    
+    String mealName;
 }

@@ -34,10 +34,14 @@ public class VendorRecordResponseDto extends RecordDto {
     FeElementDto totalBillAmount;
 
     FeElementDto penaltyAmount;
-
-    FeElementDto vendorName;
-
-    FeElementDto mealName;
+    
+    String vendorUuid;
+    
+    String vendorName;
+    
+    String mealUuid;
+    
+    String mealName;
 
     public VendorRecordResponseDto(VendorRecordDto vendorRecordDto) {
         super(vendorRecordDto);
@@ -49,8 +53,10 @@ public class VendorRecordResponseDto extends RecordDto {
         this.menuAdherence = new FeElementDto(vendorRecordDto.getMenuAdherence(), vendorRecordDto.getTotalCount());
         this.shortageRecords = new FeElementDto(vendorRecordDto.getShortageRecords(), vendorRecordDto.getTotalCount());
         this.foreignParticles = new FeElementDto(vendorRecordDto.getForeignParticles(), vendorRecordDto.getTotalCount());
-        this.vendorName = new FeElementDto(vendorRecordDto.getVendorUuid());
-        this.mealName = new FeElementDto(vendorRecordDto.getMealUuid());
+        this.vendorUuid=vendorRecordDto.getVendorUuid();
+        this.vendorName=vendorRecordDto.getVendorName();
+        this.mealUuid = vendorRecordDto.getMealUuid();
+        this.mealName=vendorRecordDto.getMealName();
     }
 
 }
