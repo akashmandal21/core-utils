@@ -14,25 +14,23 @@ public enum BDDashboardStatus {
 
 	UNDER_DRAFT("Under Draft",
 			Arrays.asList(EstateStatus.DRAFT_IN_PROGRESS, EstateStatus.APPROVED_BY_CITY_HEAD,
-					EstateStatus.APPROVED_L1_BY_LEADERSHIP,
 					EstateStatus.SENT_BACK_BY_CITY_HEAD, EstateStatus.SENT_BACK_BY_LEADERSHIP,
-					EstateStatus.SENT_BACK_BY_TRANSFORMATION, EstateStatus.SENT_BACK_BY_LEGAL,
-					EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM,EstateStatus.REJECTED, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP,
-					EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD),
-			"#990199"),
-	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SIGNED_ATL_UPLOADED), "#FFE119"),
-	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD), "#000000"),
+					EstateStatus.SENT_BACK_BY_TRANSFORMATION,
+					EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM,EstateStatus.REJECTED, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP
+					),
+			"#bfbfbf"),
+	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD), "#4183d7"),
+	L1_APPROVED_LEADERSHIP(	"Pending L2 Details", Arrays.asList(EstateStatus.APPROVED_L1_BY_LEADERSHIP),"#6bb9f0"),
+	PENDING_L1_APPROVAL_NATIONAL_HEAD("Pending L1 BD Head Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD),"#f1a9a0"),
 	PENDING_NATIONAL_HEAD_APPROVAL("Pending BD Head Approval",
-			Arrays.asList(EstateStatus.SENT_FOR_APPROVAL, EstateStatus.APPROVED_BY_TRANSFORMATION), "#E6BEFF"),
-	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#FABEBE"),
-	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#42D4F4"),
-	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#E6194B"),
-	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK),"#3CB44B"),
-	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED), "#9A6324"),
-	PENDING_L1_APPROVAL_NATIONAL_HEAD("L1 Approval Pending by BH Head", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD),"#FFE112"),
-	PENDING_L1_APPROVAL_LEADERSHIP(	"L1 Approval Pending by Leadership", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP),"#FFE612"),
-	L1_APPROVED_LEADERSHIP(	"L1 Approved By Leadership", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP),"#FFE612");
-	
+			Arrays.asList(EstateStatus.SENT_FOR_APPROVAL, EstateStatus.APPROVED_BY_TRANSFORMATION), "#f03434"),
+	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK,EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD),"#00b5cc"),
+	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#e87e04"),
+	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#4d05e8"),
+	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP,EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18"),
+	PENDING_ATL_UPLOADING("Pending ATL Upload", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_LEGAL), "#e8e8e8"),
+	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875");
+
 	private String status;
 
 	private List<EstateStatus> estateStatuses;
@@ -51,21 +49,21 @@ public enum BDDashboardStatus {
 		statusMap.put(EstateStatus.SENT_BACK_BY_CITY_HEAD, UNDER_DRAFT);
 		statusMap.put(EstateStatus.REJECTED, UNDER_DRAFT);
 		statusMap.put(EstateStatus.SENT_BACK_BY_TRANSFORMATION, UNDER_DRAFT);
-		statusMap.put(EstateStatus.SENT_BACK_BY_LEGAL, UNDER_DRAFT);
 		statusMap.put(EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM, UNDER_DRAFT);
-
 		statusMap.put(EstateStatus.SENT_BACK_L1_BY_LEADERSHIP,UNDER_DRAFT);
-		statusMap.put(EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD,UNDER_DRAFT);
+
+		//Pending RM Approval
+		statusMap.put(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD, PENDING_RM_APPROVAL);
 
 		//L1 approval
 		statusMap.put(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD,PENDING_L1_APPROVAL_NATIONAL_HEAD);
-		statusMap.put(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP,PENDING_L1_APPROVAL_LEADERSHIP);
+
+		//L2 Pending
+		statusMap.put(EstateStatus.APPROVED_L1_BY_LEADERSHIP,L1_APPROVED_LEADERSHIP);
 
 		//Pending Andy Approval
 		statusMap.put(EstateStatus.SIGNED_ATL_UPLOADED, PENDING_ANDY_APPROVAL);
-		
-		//Pending RM Approval
-		statusMap.put(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD, PENDING_RM_APPROVAL);
+		statusMap.put(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP, PENDING_ANDY_APPROVAL);
 
 		//Pending National Head Approval
 		statusMap.put(EstateStatus.SENT_FOR_APPROVAL, PENDING_NATIONAL_HEAD_APPROVAL);
@@ -83,11 +81,11 @@ public enum BDDashboardStatus {
 		
 		//Sent Back
 		statusMap.put(EstateStatus.SENT_BACK, SENT_BACK);
+		statusMap.put(EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD, SENT_BACK);
 
 		//Pending ATL Upload
 		statusMap.put(EstateStatus.ATL_UPLOAD_PENDING, PENDING_ATL_UPLOADING);
 		statusMap.put(EstateStatus.SHORTLISTED, PENDING_ATL_UPLOADING);
-		
-		statusMap.put(EstateStatus.APPROVED_L1_BY_LEADERSHIP, L1_APPROVED_LEADERSHIP);
+		statusMap.put(EstateStatus.SENT_BACK_BY_LEGAL, PENDING_ATL_UPLOADING);
 	}
 }
