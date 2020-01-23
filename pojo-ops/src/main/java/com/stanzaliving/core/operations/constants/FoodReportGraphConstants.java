@@ -4,6 +4,7 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class FoodReportGraphConstants {
+
     public static final String STUDENT_FEEDBACK_GRAPH_COMPONENT_SATISFIED = "Satisfied";
     public static final String STUDENT_FEEDBACK_GRAPH_COMPONENT_UNSATISFIED = "Unsatisfied";
     public static final String STUDENT_FEEDBACK_GRAPH_X_TYPE = "{value}";
@@ -16,5 +17,7 @@ public class FoodReportGraphConstants {
     public static final String PROCESS_ADHERENCE_GRAPH_X_TYPE = "{value}";
     public static final String PROCESS_ADHERENCE_GRAPH_Y_TYPE = "{value}%";
 
+    public static final String FOOD_ATTENDANCE_GRAPH_X_TYPE = "{value}";
+    public static final String FOOD_ATTENDANCE_GRAPH_Y_TYPE = "{value}k";
 
 }
