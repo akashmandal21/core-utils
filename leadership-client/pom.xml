@@ -6,6 +6,13 @@
 	<artifactId>leadership-client</artifactId>
 	<packaging>jar</packaging>
 
+	<parent>
+		<groupId>com.stanzaliving.core</groupId>
+		<artifactId>core-utils</artifactId>
+		<version>1.0.0</version>
+		<relativePath>..</relativePath>
+	</parent>
+
 	<dependencies>
 
 		<dependency>
@@ -22,12 +29,7 @@
 
 	</dependencies>
 
-	<parent>
-		<groupId>com.stanzaliving.core</groupId>
-		<artifactId>core-utils</artifactId>
-		<version>1.0.0</version>
-		<relativePath>..</relativePath>
-	</parent>
+
 </project>
 
 
