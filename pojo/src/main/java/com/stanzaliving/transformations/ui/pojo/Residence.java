@@ -1,27 +1,32 @@
+/**
+ * 
+ */
 package com.stanzaliving.transformations.ui.pojo;
 
-import java.util.List;
-
+import lombok.Setter;
+import lombok.ToString;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
+/**
+ * @author naveen.kumar
+ *
+ * @date 23-Jan-2020
+ *
+ **/
 @Getter
 @Setter
 @Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class MicroMarket {
+public class Residence {
 
-	private String microMarketName;
-
+	private String residenceName;
+	
 	private Long id;
-
+	
 	private String uuid;
-
-	private List<Residence> residences;
 }
