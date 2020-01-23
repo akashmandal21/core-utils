@@ -1,10 +1,7 @@
 package com.stanzaliving.core.asis.enums;
 
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
-
-import com.stanzaliving.core.estate.enums.EstateStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +23,7 @@ public enum AsIsDrawingsStatus {
 	AS_IS_PENDING("Pending"),
 	AS_IS_COMPLETED("Completed"),
 	
-	
+	AS_IS_DRAWINGS_PENDING("Pending"),
 	AS_IS_DRAWINGS_APPROVED("Approved"),
 	AS_IS_DRAWINGS_REJECTED("Rejected");
 
@@ -38,6 +35,8 @@ public enum AsIsDrawingsStatus {
 	static {
 		asIsDrawingsStatusMap.put(AS_IS_PENDING, AsIsDrawingsStatus.AS_IS_PENDING.getStatus());
 		asIsDrawingsStatusMap.put(AS_IS_COMPLETED, AsIsDrawingsStatus.AS_IS_COMPLETED.getStatus());
+		
+		asIsDrawingsStatusMap.put(AS_IS_DRAWINGS_PENDING, AsIsDrawingsStatus.AS_IS_DRAWINGS_PENDING.getStatus());
 		asIsDrawingsStatusMap.put(AS_IS_DRAWINGS_APPROVED, AsIsDrawingsStatus.AS_IS_DRAWINGS_APPROVED.getStatus());
 		asIsDrawingsStatusMap.put(AS_IS_DRAWINGS_REJECTED, AsIsDrawingsStatus.AS_IS_DRAWINGS_REJECTED.getStatus());
 	}
