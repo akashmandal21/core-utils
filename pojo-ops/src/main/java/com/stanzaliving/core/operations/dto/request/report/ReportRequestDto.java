@@ -36,9 +36,9 @@ public class ReportRequestDto {
 
     AccessLevel accessLevel = AccessLevel.CITY;
 
-    @AssertFalse
-    public boolean isInvalidDateRange() {
-        return startDate.isBefore(((Integer) endDate.getDayOfMonth()).equals(1) ? endDate.minusYears(1) : endDate.minusMonths(11).minusDays(endDate.minusMonths(11).getDayOfMonth() - 1));
-    }
+//    @AssertFalse
+//    public boolean isInvalidDateRange() {
+//        return startDate.isBefore(((Integer) endDate.getDayOfMonth()).equals(1) ? endDate.minusYears(1) : endDate.minusMonths(11).minusDays(endDate.minusMonths(11).getDayOfMonth() - 1));
+//    }
 
 }
