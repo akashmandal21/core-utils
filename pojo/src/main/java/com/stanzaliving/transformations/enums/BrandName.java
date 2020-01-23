@@ -15,9 +15,8 @@ import lombok.Getter;
 @Getter
 public enum BrandName {
 
-	PRIMA("Prima"),
-	STELLO("Stello"),
-	SERMA("Serma");
+	SUITS("Suits"),
+	STELLO("Stello");
 
 	private String brand;
 

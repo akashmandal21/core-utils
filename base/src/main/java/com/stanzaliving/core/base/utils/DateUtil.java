@@ -1,15 +1,19 @@
 package com.stanzaliving.core.base.utils;
 
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
@@ -28,7 +32,7 @@ public class DateUtil {
 
 		return null;
 	}
-	
+
 	public static Date customDateParser(String dateInput, DateFormat dateFormat) {
 
 		if (dateInput != null) {
@@ -139,6 +143,24 @@ public class DateUtil {
 		return Instant.ofEpochMilli(timestamp).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toLocalDate();
 	}
 
+	public static Date convertToDate(LocalTime localTime) {
+
+		if (localTime == null) {
+			return null;
+		}
+
+		return Date.from(localTime.atDate(LocalDate.now()).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant());
+	}
+
+	public static Integer yearsBetween(LocalDate one, LocalDate two) {
+
+		if (Objects.isNull(one) || Objects.isNull(two)) {
+			return null;
+		}
+
+		return Period.between(one, two).getYears();
+	}
+
 	public static LocalDate convertToLocalDate(Date date) {
 		if (date == null) {
 			return null;
@@ -151,6 +173,20 @@ public class DateUtil {
 		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
 		Instant instant = date.toInstant();
 		return instant.atZone(zoneId).toLocalDate();
+	}
+
+	public static LocalTime convertToLocalTime(Date date) {
+		if (date == null) {
+			return null;
+		}
+
+		if (date instanceof java.sql.Date) {
+			return new Time(((java.sql.Date) date).getTime()).toLocalTime();
+		}
+
+		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
+		Instant instant = date.toInstant();
+		return instant.atZone(zoneId).toLocalTime();
 	}
 
 	public static long daysBetween(Date one, Date two) {
@@ -195,5 +231,5 @@ public class DateUtil {
 
 		return d1.isAfter(d2) ? d1 : d2;
 	}
-	
+
 }

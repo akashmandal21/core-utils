@@ -29,7 +29,7 @@ public class SecurityUtil {
 
 		return userId;
 	}
-	
+
 	public static String getCurrentUserName() {
 		CurrentUser userIdDto = getCurrentUser();
 
@@ -55,7 +55,6 @@ public class SecurityUtil {
 	private static CurrentUser getCurrentUser() {
 		try {
 			RequestAttributes attributes = RequestContextHolder.currentRequestAttributes();
-
 			Object scopedObject =
 					attributes.getAttribute(CurrentUser.class.getName(), RequestAttributes.SCOPE_REQUEST);
 

@@ -156,6 +156,11 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	}
 
 	@Override
+	public long countByStatus(boolean status) {
+		return getJpaRepository().countByStatus(status);
+	}
+
+	@Override
 	public T find(I id) {
 		return getJpaRepository().findById(id).orElse(null);
 	}
@@ -194,6 +199,11 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	public Page<T> findAll(Specification<T> spec, Pageable pageable) {
 		return getJpaRepository().findAll(spec, pageable);
 	}
+	
+	@Override
+	public List<T> findAll(Specification<T> spec) {
+		return getJpaRepository().findAll(spec);
+	}
 
 	@Override
 	public List<T> findList(List<I> ids) {
@@ -221,8 +231,8 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	}
 
 	@Override
-	public List<T> findByUuidInAndStatus(Collection<String> uuids, boolean isDeleted) {
-		return getJpaRepository().findByUuidIn(uuids);//TODO - this needs to be changed
+	public List<T> findByUuidInAndStatus(Collection<String> uuids, boolean status) {
+		return getJpaRepository().findByUuidInAndStatus(uuids, status);
 	}
 
 	@Override

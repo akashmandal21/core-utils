@@ -2,6 +2,8 @@ package com.stanzaliving.transformations.pojo;
 
 import java.util.List;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.base.location.GeoPointDto;
@@ -17,16 +19,18 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class MicroMarketUIDto {
 
-	private String uuid;
-
 	private long id;
 
-	@NotNull
+	private String uuid;
+
+	@NotBlank(message = "Micro Market Name is Mandatory")
 	private String microMarketName;
+
+	private String cityUuid;
 
 	private Long cityId;
 
-	@NotNull
+	@NotBlank(message = "Micro Market City Name is Mandatory")
 	private String cityName;
 
 	@NotNull
@@ -35,10 +39,14 @@ public class MicroMarketUIDto {
 	private List<GeoPointDto> polygonPoints;
 
 	private Boolean status;
-	
+
 	private String microMarketCode;
-	
+
+	@NotNull(message = "Micro Market Number of Beds is Mandatory")
+	@Min(value = 1, message = "Number of Beds cannot be less than 1")
 	private Integer targetBeds;
-	
+
+	@NotNull(message = "Micro Market Number of Rooms is Mandatory")
+	@Min(value = 1, message = "Number of Rooms cannot be less than 1")
 	private Integer targetRooms;
 }

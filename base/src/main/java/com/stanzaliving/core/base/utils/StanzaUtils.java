@@ -6,6 +6,7 @@ package com.stanzaliving.core.base.utils;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -160,13 +161,13 @@ public class StanzaUtils {
 		return 0d;
 	}
 
-	public static List<String> getSplittedListOnComma( String input ){
-		
-		if(Objects.isNull(input)) {
+	public static List<String> getSplittedListOnComma(String input) {
+
+		if (Objects.isNull(input)) {
 			return null;
 		}
-		
-		return Arrays.asList(input.split(","));
+
+		return new ArrayList<>(Arrays.asList(input.split("\\s*,\\s*")));
 	}
 
 
@@ -239,9 +240,8 @@ public class StanzaUtils {
 
 	public static double findPercentage(long total,long number) {
 		
-		return Math.round(((number*100)/total)) ;
+		return Math.round((number*100.0/total)*100.0)/100.0;
 		
 	}
-
 
 }

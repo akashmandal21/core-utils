@@ -23,8 +23,10 @@ public interface AbstractJpaRepository<T extends AbstractJpaEntity, I extends Se
 	List<T> findByUuidInAndStatus(Collection<String> uuids, boolean status);
 
 	Page<T> findByStatus(boolean status, Pageable pageable);
-	
+
 	List<T> findByStatus(boolean status);
+
+	long countByStatus(boolean status);
 
 	Boolean existsByUuid(String uuid);
 
