@@ -23,11 +23,11 @@ public class AsIsEntityCreateDto implements Serializable {
 
 	private static final long serialVersionUID = 113424124141489L;
 
-	@NotBlank(message = "Estate uuid can't be empty.")
-	private String estateUuid;
+	@NotBlank(message = "Property uuid can't be empty.")
+	private String propertyUuid;
 	
-	@NotBlank(message = "Estate name can't be empty.")
-	private String estateName;
+	@NotBlank(message = "Property name can't be empty.")
+	private String propertyName;
 
 	private String dueDate;
 
