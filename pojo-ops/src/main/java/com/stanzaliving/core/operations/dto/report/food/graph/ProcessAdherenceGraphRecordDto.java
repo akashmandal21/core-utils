@@ -18,6 +18,5 @@ public class ProcessAdherenceGraphRecordDto extends GraphRecordDto {
     Integer onTimeDelivery;
     Integer orderedOnTime;
     Integer menuCreated;
-    Integer daysConsidered;
 
 }

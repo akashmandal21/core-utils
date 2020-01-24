@@ -23,7 +23,7 @@ public class RecordDto {
 	private String residenceName;
 	private String accessLevel;
 
-	private int daysConsidered;
+	private Integer daysConsidered;
 
 	public RecordDto(RecordDto recordDto) {
 		this.cityUuid = recordDto.getCityUuid();
