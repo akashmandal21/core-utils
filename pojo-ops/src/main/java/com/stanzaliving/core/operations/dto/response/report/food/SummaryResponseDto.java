@@ -54,9 +54,6 @@ public class SummaryResponseDto extends RecordDto {
 				.onTimeMenuCreation(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuCreated(), summaryRecordDto.getTotalCount()))
 				.build();
 
-		double averageCost =
-				dateLevelNumbersDto.getOccupiedBeds() != 0 ? summaryRecordDto.getCostEfficiency().getTotalMealCost() / summaryRecordDto.getCostEfficiency().getTotalMealsOrdered() : 0;
-
 		this.costEfficiency = CostResponseDto.builder()
 				.budgetedCostPerStudent(
 						new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), dateLevelNumbersDto.getMovedInResidents(), false, FeElementType.DOUBLE))

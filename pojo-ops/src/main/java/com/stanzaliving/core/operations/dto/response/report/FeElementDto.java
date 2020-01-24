@@ -28,8 +28,12 @@ public class FeElementDto {
 	}
 
 	public FeElementDto(double value) {
+		this(value, FeElementType.DOUBLE);
+	}
+
+	public FeElementDto(double value, FeElementType feElementType) {
 		this.value = value;
-		this.type = FeElementType.DOUBLE;
+		this.type = feElementType;
 	}
 
 	public FeElementDto(int numerator, int denominator) {
@@ -51,7 +55,7 @@ public class FeElementDto {
 		this.isHover = true;
 		this.type = FeElementType.PERCENT_DOUBLE;
 	}
-	
+
 	public FeElementDto(double numerator, double denominator, FeElementType feElementType) {
 		this.numerator = (int) numerator;
 		this.denominator = (int) denominator;

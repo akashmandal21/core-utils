@@ -25,6 +25,4 @@ public class SummaryRecordDto extends RecordDto {
 	
 	private CostAndExperienceRecordDto costAndExperienceRecordDto;
 	
-	private int daysConsidered;
-	
 }

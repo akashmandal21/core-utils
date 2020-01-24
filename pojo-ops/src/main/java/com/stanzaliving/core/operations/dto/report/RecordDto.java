@@ -23,10 +23,13 @@ public class RecordDto {
 	private String residenceName;
 	private String accessLevel;
 
+	private int daysConsidered;
+
 	public RecordDto(RecordDto recordDto) {
 		this.cityUuid = recordDto.getCityUuid();
 		this.micromarketUuid = recordDto.getMicromarketUuid();
 		this.residenceUuid = recordDto.getResidenceUuid();
 		this.accessLevel = recordDto.getAccessLevel();
+		this.daysConsidered = recordDto.getDaysConsidered();
 	}
 }

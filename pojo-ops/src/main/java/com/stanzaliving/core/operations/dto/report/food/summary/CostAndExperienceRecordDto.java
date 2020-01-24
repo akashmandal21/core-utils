@@ -12,24 +12,24 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CostAndExperienceRecordDto extends RecordDto {
 
-    int movedInResidence;
+	private int movedInResidence;
 
-    int unsatisfied;
+	private int unsatisfied;
 
-    int satisfied;
+	private int satisfied;
 
-    int socialMediaComplaint;
+	private int socialMediaComplaint;
 
-    int disasterEvent;
+	private int disasterEvent;
 
-    int processAdherence;
+	private int processAdherence;
 
-    double totalMealCost;
-    
-    double budgetedMealCost;
-    
-    int occupiedBeds;
-    
-    int totalMealsOrdered;
+	private double totalMealCost;
+
+	private double budgetedMealCost;
+
+	private int occupiedBeds;
+
+	private int totalMealsOrdered;
 
 }
