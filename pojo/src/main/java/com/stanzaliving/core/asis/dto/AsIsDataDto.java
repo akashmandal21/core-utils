@@ -3,6 +3,8 @@ package com.stanzaliving.core.asis.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import com.stanzaliving.core.asis.enums.POStatus;
+import com.stanzaliving.core.asis.enums.SiteVisitStatus;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
@@ -37,15 +39,19 @@ public class AsIsDataDto extends AbstractDto implements Serializable {
 	private String siteVisitDate;
 
 	private String siteVisitStatus;
+	
+	private SiteVisitStatus siVisitStatusKey;
 
 	private String poNumber;
 
 	private String poStatus;
-
+	private POStatus poStatusKey;
+	
 	private String asIsStartsDate;
 
 	private String asIsStatus;
-
+	
+	private boolean asIsMarkedComplted;
 	private List<AsIsDrawingsDto> asIsDrawings;
 
 }
