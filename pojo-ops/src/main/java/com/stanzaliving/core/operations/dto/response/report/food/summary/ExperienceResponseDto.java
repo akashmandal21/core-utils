@@ -1,7 +1,12 @@
 package com.stanzaliving.core.operations.dto.response.report.food.summary;
 
 import com.stanzaliving.core.operations.dto.response.report.FeElementDto;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -12,14 +17,14 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ExperienceResponseDto {
 
-    FeElementDto unsatisfied;
+	private FeElementDto unsatisfied;
 
-    FeElementDto satisfied;
+	private FeElementDto satisfied;
 
-    FeElementDto socialMediaComplaint;
+	private FeElementDto socialMediaComplaint;
 
-    FeElementDto disasterEvent;
+	private FeElementDto disasterEvent;
 
-    FeElementDto shortage;
+	private FeElementDto shortage;
 
 }
