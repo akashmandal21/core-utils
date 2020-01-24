@@ -51,6 +51,8 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 
 		if (Objects.nonNull(dateLevelNumbersDto)) {
 			this.movedInResidence = new FeElementDto(dateLevelNumbersDto.getMovedInResidents() / daysConsidered, FeElementType.INTEGER);
+		} else {
+			this.movedInResidence = new FeElementDto(costAndExperienceRecordDto.getMovedInResidence());
 		}
 
 		this.unsatisfied = new FeElementDto(costAndExperienceRecordDto.getUnsatisfied(), costAndExperienceRecordDto.getSatisfied() + costAndExperienceRecordDto.getUnsatisfied());
@@ -67,7 +69,7 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 
 	private DateLevelNumbersDto getEntityForAccess(AccessLevel accessLevel, SummaryRecordDto summaryRecordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
 
-		String entityUuid = summaryRecordDto.getCityUuid();
+		String entityUuid = null;
 
 		if (AccessLevel.CITY == accessLevel) {
 			entityUuid = summaryRecordDto.getCityUuid();
@@ -77,7 +79,6 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 			entityUuid = summaryRecordDto.getResidenceUuid();
 		}
 
-		DateLevelNumbersDto dateLevelNumbersDto = dateLevelFieldsMap.get(entityUuid);
-		return dateLevelNumbersDto;
+		return dateLevelFieldsMap.get(entityUuid);
 	}
 }
