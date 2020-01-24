@@ -55,22 +55,23 @@ public class SummaryResponseDto extends RecordDto {
 				.build();
 
 		double averageCost =
-				summaryRecordDto.getCostEfficiency().getOccupiedBeds() != 0 ? summaryRecordDto.getCostEfficiency().getTotalMealCost() / summaryRecordDto.getCostEfficiency().getTotalMealsOrdered() : 0;
+				dateLevelNumbersDto.getOccupiedBeds() != 0 ? summaryRecordDto.getCostEfficiency().getTotalMealCost() / summaryRecordDto.getCostEfficiency().getTotalMealsOrdered() : 0;
+
 		this.costEfficiency = CostResponseDto.builder()
 				.budgetedCostPerStudent(
-						new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), summaryRecordDto.getCostEfficiency().getMovedInResidents(), false, FeElementType.DOUBLE))
+						new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), dateLevelNumbersDto.getMovedInResidents(), false, FeElementType.DOUBLE))
 				.costPerStudent(
 						new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), (double) summaryRecordDto.getCostEfficiency().getTotalMealsOrdered(), false, FeElementType.DOUBLE))
-				.costUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), averageCost * summaryRecordDto.getCostEfficiency().getOccupiedBeds()))
+				.costUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), averageCost * dateLevelNumbersDto.getOccupiedBeds()))
 				.budgetUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getBudgetedMealCost()))
 				.build();
 
 		this.attendance = AttendanceResponseDto.builder()
 				.occupiedBeds(new FeElementDto(dateLevelNumbersDto.getOccupiedBeds(), summaryRecordDto.getDaysConsidered(), false, FeElementType.INTEGER))
 				.movedInStudents(new FeElementDto(dateLevelNumbersDto.getMovedInResidents(), summaryRecordDto.getDaysConsidered(), false, FeElementType.INTEGER))
-				.present(new FeElementDto(dateLevelNumbersDto.getPresent(), summaryRecordDto.getDaysConsidered() * dateLevelNumbersDto.getMovedInResidents()))
+				.present(new FeElementDto(summaryRecordDto.getAttendance().getPresentStudents(), summaryRecordDto.getAttendance().getMovedInResidents()))
 				.mealOrdered(new FeElementDto(summaryRecordDto.getAttendance().getTotalMealsOrdered(), dateLevelNumbersDto.getMovedInResidents()))
-				.foodAttendance(new FeElementDto(summaryRecordDto.getAttendance().getFoodAttendance(), summaryRecordDto.getTotalCount()))
+				.foodAttendance(new FeElementDto(summaryRecordDto.getAttendance().getFoodAttendance(), summaryRecordDto.getAttendance().getMovedInResidents()))
 				.build();
 	}
 }
