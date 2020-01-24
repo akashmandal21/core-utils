@@ -1,6 +1,7 @@
 package com.stanzaliving.core.operations.dto.response.report.food;
 
 import com.stanzaliving.core.operations.dto.report.RecordDto;
+import com.stanzaliving.core.operations.dto.report.food.summary.DateLevelNumbersDto;
 import com.stanzaliving.core.operations.dto.report.food.summary.SummaryRecordDto;
 import com.stanzaliving.core.operations.dto.response.report.FeElementDto;
 import com.stanzaliving.core.operations.dto.response.report.food.summary.AdherenceResponseDto;
@@ -9,7 +10,11 @@ import com.stanzaliving.core.operations.dto.response.report.food.summary.CostRes
 import com.stanzaliving.core.operations.dto.response.report.food.summary.ExperienceResponseDto;
 import com.stanzaliving.core.operations.enums.FeElementType;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -28,16 +33,18 @@ public class SummaryResponseDto extends RecordDto {
 
 	private AttendanceResponseDto attendance;
 
-	public SummaryResponseDto(SummaryRecordDto summaryRecordDto) {
-		
-		this.experience = 
+	public SummaryResponseDto(SummaryRecordDto summaryRecordDto, DateLevelNumbersDto dateLevelNumbersDto) {
+
+		this.experience =
 				ExperienceResponseDto.builder()
-					.unsatisfied(new FeElementDto(summaryRecordDto.getExperience().getUnsatisfied(), summaryRecordDto.getExperience().getSatisfied() + summaryRecordDto.getExperience().getUnsatisfied(), FeElementType.PERCENT_INTEGER))
-					.satisfied(new FeElementDto(summaryRecordDto.getExperience().getSatisfied(), summaryRecordDto.getExperience().getSatisfied() + summaryRecordDto.getExperience().getUnsatisfied(), FeElementType.PERCENT_INTEGER))
-					.socialMediaComplaint(new FeElementDto(summaryRecordDto.getExperience().getSocialMediaComplaints()))
-					.disasterEvent(new FeElementDto(summaryRecordDto.getExperience().getDisasterEvents()))
-					.shortage(new FeElementDto(summaryRecordDto.getExperience().getShortage(), summaryRecordDto.getTotalCount(), FeElementType.PERCENT_INTEGER))
-					.build();
+						.unsatisfied(new FeElementDto(summaryRecordDto.getExperience().getUnsatisfied(),
+								summaryRecordDto.getExperience().getSatisfied() + summaryRecordDto.getExperience().getUnsatisfied(), FeElementType.PERCENT_INTEGER))
+						.satisfied(new FeElementDto(summaryRecordDto.getExperience().getSatisfied(),
+								summaryRecordDto.getExperience().getSatisfied() + summaryRecordDto.getExperience().getUnsatisfied(), FeElementType.PERCENT_INTEGER))
+						.socialMediaComplaint(new FeElementDto(summaryRecordDto.getExperience().getSocialMediaComplaints()))
+						.disasterEvent(new FeElementDto(summaryRecordDto.getExperience().getDisasterEvents()))
+						.shortage(new FeElementDto(summaryRecordDto.getExperience().getShortage(), summaryRecordDto.getTotalCount(), FeElementType.PERCENT_INTEGER))
+						.build();
 
 		this.processAdherence = AdherenceResponseDto.builder()
 				.menuAdherence(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuAdherence(), summaryRecordDto.getTotalCount()))
@@ -59,10 +66,10 @@ public class SummaryResponseDto extends RecordDto {
 				.build();
 
 		this.attendance = AttendanceResponseDto.builder()
-				.occupiedBeds(new FeElementDto(summaryRecordDto.getAttendance().getOccupiedBeds()))
-				.movedInStudents(new FeElementDto(summaryRecordDto.getAttendance().getMovedInResidents()))
-				.present(new FeElementDto(summaryRecordDto.getAttendance().getPresentStudents(), summaryRecordDto.getDaysConsidered()))
-				.mealOrdered(new FeElementDto(summaryRecordDto.getAttendance().getTotalMealsOrdered(), summaryRecordDto.getAttendance().getMovedInResidents()))
+				.occupiedBeds(new FeElementDto(dateLevelNumbersDto.getOccupiedBeds(), summaryRecordDto.getDaysConsidered(), false, FeElementType.INTEGER))
+				.movedInStudents(new FeElementDto(dateLevelNumbersDto.getMovedInResidents(), summaryRecordDto.getDaysConsidered(), false, FeElementType.INTEGER))
+				.present(new FeElementDto(dateLevelNumbersDto.getPresent(), summaryRecordDto.getDaysConsidered()))
+				.mealOrdered(new FeElementDto(summaryRecordDto.getAttendance().getTotalMealsOrdered(), dateLevelNumbersDto.getMovedInResidents()))
 				.foodAttendance(new FeElementDto(summaryRecordDto.getAttendance().getFoodAttendance(), summaryRecordDto.getTotalCount()))
 				.build();
 	}
