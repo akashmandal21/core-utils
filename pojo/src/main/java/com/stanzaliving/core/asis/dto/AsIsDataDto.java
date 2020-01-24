@@ -40,7 +40,7 @@ public class AsIsDataDto extends AbstractDto implements Serializable {
 
 	private String siteVisitStatus;
 	
-	private SiteVisitStatus siVisitStatusKey;
+	private SiteVisitStatus siteVisitStatusKey;
 
 	private String poNumber;
 
