@@ -62,7 +62,7 @@ public class SummaryResponseDto extends RecordDto {
 						new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), dateLevelNumbersDto.getMovedInResidents(), false, FeElementType.DOUBLE))
 				.costPerStudent(
 						new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), (double) summaryRecordDto.getCostEfficiency().getTotalMealsOrdered(), false, FeElementType.DOUBLE))
-				.costUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), averageCost * dateLevelNumbersDto.getOccupiedBeds()))
+				.costUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getExcpectedMealCost()))
 				.budgetUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getBudgetedMealCost()))
 				.build();
 
@@ -70,7 +70,7 @@ public class SummaryResponseDto extends RecordDto {
 				.occupiedBeds(new FeElementDto(dateLevelNumbersDto.getOccupiedBeds(), summaryRecordDto.getDaysConsidered(), false, FeElementType.INTEGER))
 				.movedInStudents(new FeElementDto(dateLevelNumbersDto.getMovedInResidents(), summaryRecordDto.getDaysConsidered(), false, FeElementType.INTEGER))
 				.present(new FeElementDto(summaryRecordDto.getAttendance().getPresentStudents(), summaryRecordDto.getAttendance().getMovedInResidents()))
-				.mealOrdered(new FeElementDto(summaryRecordDto.getAttendance().getTotalMealsOrdered(), dateLevelNumbersDto.getMovedInResidents()))
+				.mealOrdered(new FeElementDto(summaryRecordDto.getAttendance().getTotalMealsOrdered(), summaryRecordDto.getAttendance().getMovedInResidents()))
 				.foodAttendance(new FeElementDto(summaryRecordDto.getAttendance().getFoodAttendance(), summaryRecordDto.getAttendance().getMovedInResidents()))
 				.build();
 	}
