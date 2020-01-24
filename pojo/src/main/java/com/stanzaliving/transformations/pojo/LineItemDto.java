@@ -3,7 +3,7 @@
  */
 package com.stanzaliving.transformations.pojo;
 
-import com.stanzaliving.transformations.enums.UsedInArea;
+import com.stanzaliving.transformations.enums.AreaOfUse;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,6 +26,6 @@ public class LineItemDto {
 	private Integer slQty ;
 	private Integer llQty;
 	private Integer gcQty;
-	private UsedInArea usedInArea;
+	private AreaOfUse areaOfUse;
 	private String image;
 }

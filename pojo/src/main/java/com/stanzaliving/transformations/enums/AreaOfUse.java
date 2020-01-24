@@ -10,7 +10,7 @@ import lombok.Getter;
  *
  */
 @Getter
-public enum UsedInArea {
+public enum AreaOfUse {
 
 	ROOM("Room"),
 	RECEPTION("Reception"),
@@ -23,7 +23,7 @@ public enum UsedInArea {
 	
 	private String name;
 
-	private UsedInArea(String name) {
+	private AreaOfUse(String name) {
 		this.name = name;
 	}
 }
