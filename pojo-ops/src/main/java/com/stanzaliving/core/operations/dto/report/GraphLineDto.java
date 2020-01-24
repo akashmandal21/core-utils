@@ -14,5 +14,6 @@ import java.util.List;
 @SuperBuilder
 public class GraphLineDto extends RecordDto {
     String name;
+    Object value;
     List<GraphLineYPoint> data;
 }
