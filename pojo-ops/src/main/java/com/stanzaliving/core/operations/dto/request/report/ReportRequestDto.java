@@ -1,18 +1,16 @@
 package com.stanzaliving.core.operations.dto.request.report;
 
-import com.stanzaliving.core.base.enums.AccessLevel;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.validation.Valid;
-import javax.validation.constraints.AssertFalse;
-import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
+
+import com.stanzaliving.core.base.enums.AccessLevel;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -22,23 +20,16 @@ import java.util.List;
 @SuperBuilder
 public class ReportRequestDto {
 
-    List<String> cityUuid;
+	private List<String> cityUuid;
 
-    List<String> micromarketUuid;
+	private List<String> micromarketUuid;
 
-    List<String> residenceUuid;
+	private List<String> residenceUuid;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    LocalDate startDate = LocalDate.now().minusDays(LocalDate.now().getDayOfMonth() - 1);
+	private LocalDate startDate;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    LocalDate endDate = LocalDate.now();
+	private LocalDate endDate;
 
-    AccessLevel accessLevel = AccessLevel.CITY;
-
-//    @AssertFalse
-//    public boolean isInvalidDateRange() {
-//        return startDate.isBefore(((Integer) endDate.getDayOfMonth()).equals(1) ? endDate.minusYears(1) : endDate.minusMonths(11).minusDays(endDate.minusMonths(11).getDayOfMonth() - 1));
-//    }
+	private AccessLevel accessLevel;
 
 }
