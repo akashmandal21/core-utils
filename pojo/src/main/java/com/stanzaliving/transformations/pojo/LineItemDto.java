@@ -22,10 +22,14 @@ public class LineItemDto {
 	private String particular;
 	private String specifications;
 	private String type;
+	private String itemCode;
 	private String unitType;
 	private Integer slQty ;
 	private Integer llQty;
 	private Integer gcQty;
-	private AreaOfUse areaOfUse;
 	private String image;
+	private float length;
+	private float breadth;
+	private AreaOfUse areaOfUse;
+	
 }
