@@ -15,5 +15,5 @@ import java.util.List;
 public class GraphLineDto extends RecordDto {
     String name;
     Object value;
-    List<GraphLineYPoint> data;
+    Object data;        //Will be list of graphYpoint
 }
