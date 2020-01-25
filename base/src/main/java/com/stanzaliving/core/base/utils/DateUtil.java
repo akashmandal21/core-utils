@@ -239,6 +239,23 @@ public class DateUtil {
 		return d1.isAfter(d2) ? d1 : d2;
 	}
 
+	public static LocalDate getEarlierLocalDate(LocalDate d1, LocalDate d2) {
+
+		if (d1 == null && d2 == null) {
+			return null;
+		}
+
+		if (d1 == null) {
+			return d2;
+		}
+
+		if (d2 == null) {
+			return d1;
+		}
+
+		return d1.isAfter(d2) ? d2 : d1;
+	}
+
 	public static List<String> getListOfMonths(LocalDate startDate, LocalDate endDate) {
 		LinkedHashSet<String> monthsList = new LinkedHashSet<>();
 		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
@@ -261,6 +278,10 @@ public class DateUtil {
 			dateList.add(customDateFormatter(date, DateFormat.YYYY_HIFEN_MM_HIFEN_DD));
 		}
 		return new ArrayList<>(dateList);
+	}
+
+	public static Integer getCountOfDates(LocalDate startDate, LocalDate endDate) {
+		return getListOfDates(startDate, endDate).size();
 	}
 
 }
