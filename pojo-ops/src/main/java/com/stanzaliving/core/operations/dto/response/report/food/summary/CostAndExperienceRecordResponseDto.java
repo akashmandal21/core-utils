@@ -1,6 +1,7 @@
 package com.stanzaliving.core.operations.dto.response.report.food.summary;
 
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
@@ -52,7 +53,14 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 		if (Objects.nonNull(dateLevelNumbersDto)) {
 			this.movedInResidence = new FeElementDto(dateLevelNumbersDto.getMovedInResidents() / daysConsidered, FeElementType.INTEGER);
 		} else {
-			this.movedInResidence = new FeElementDto(costAndExperienceRecordDto.getMovedInResidence());
+
+			int movedIn = 0;
+
+			for (Entry<String, DateLevelNumbersDto> entry : dateLevelFieldsMap.entrySet()) {
+				movedIn += entry.getValue().getMovedInResidents();
+			}
+
+			this.movedInResidence = new FeElementDto(movedIn / daysConsidered, FeElementType.INTEGER);
 		}
 
 		this.unsatisfied = new FeElementDto(costAndExperienceRecordDto.getUnsatisfied(), costAndExperienceRecordDto.getSatisfied() + costAndExperienceRecordDto.getUnsatisfied());
