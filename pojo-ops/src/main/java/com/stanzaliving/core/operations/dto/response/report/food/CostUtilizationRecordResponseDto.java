@@ -46,12 +46,12 @@ public class CostUtilizationRecordResponseDto extends RecordDto {
 				.build();
 
 		this.costPerBed = MealResponseDto.builder()
-				.overall(new FeElementDto(costUtilizationRecordDto.getTotalCost().getOverall(), occupied, false, FeElementType.CURRENCY_INTEGER))
-				.breakfast(new FeElementDto(costUtilizationRecordDto.getTotalCost().getBreakfast(), occupied, false, FeElementType.CURRENCY_INTEGER))
-				.lunch(new FeElementDto(costUtilizationRecordDto.getTotalCost().getLunch(), occupied, false, FeElementType.CURRENCY_INTEGER))
-				.snacks(new FeElementDto(costUtilizationRecordDto.getTotalCost().getSnacks(), occupied, false, FeElementType.CURRENCY_INTEGER))
-				.dinner(new FeElementDto(costUtilizationRecordDto.getTotalCost().getDinner(), occupied, false, FeElementType.CURRENCY_INTEGER))
-				.brunch(new FeElementDto(costUtilizationRecordDto.getTotalCost().getBrunch(), occupied, false, FeElementType.CURRENCY_INTEGER))
+				.overall(new FeElementDto(costUtilizationRecordDto.getTotalCost().getOverall(), occupied, false, FeElementType.CURRENCY_DOUBLE))
+				.breakfast(new FeElementDto(costUtilizationRecordDto.getTotalCost().getBreakfast(), occupied, false, FeElementType.CURRENCY_DOUBLE))
+				.lunch(new FeElementDto(costUtilizationRecordDto.getTotalCost().getLunch(), occupied, false, FeElementType.CURRENCY_DOUBLE))
+				.snacks(new FeElementDto(costUtilizationRecordDto.getTotalCost().getSnacks(), occupied, false, FeElementType.CURRENCY_DOUBLE))
+				.dinner(new FeElementDto(costUtilizationRecordDto.getTotalCost().getDinner(), occupied, false, FeElementType.CURRENCY_DOUBLE))
+				.brunch(new FeElementDto(costUtilizationRecordDto.getTotalCost().getBrunch(), occupied, false, FeElementType.CURRENCY_DOUBLE))
 				.build();
 
 		double averageOverallCost = costUtilizationRecordDto.getTotalCost().getOverall() / costUtilizationRecordDto.getOrderCount().getOverall();
@@ -62,12 +62,12 @@ public class CostUtilizationRecordResponseDto extends RecordDto {
 		double averageBrunchCost = costUtilizationRecordDto.getTotalCost().getBrunch() / costUtilizationRecordDto.getOrderCount().getBrunch();
 
 		this.costUtilizationPerBed = MealResponseDto.builder()
-				.overall(new FeElementDto(costUtilizationRecordDto.getTotalCost().getOverall(), averageOverallCost * occupied, FeElementType.PERCENT_INTEGER))
-				.breakfast(new FeElementDto(costUtilizationRecordDto.getTotalCost().getBreakfast(), averageBreakfastCost * occupied, FeElementType.PERCENT_INTEGER))
-				.lunch(new FeElementDto(costUtilizationRecordDto.getTotalCost().getLunch(), averageLunchCost * occupied, FeElementType.PERCENT_INTEGER))
-				.snacks(new FeElementDto(costUtilizationRecordDto.getTotalCost().getSnacks(), averageSnacksCost * occupied, FeElementType.PERCENT_INTEGER))
-				.dinner(new FeElementDto(costUtilizationRecordDto.getTotalCost().getDinner(), averageDinnerCost * occupied, FeElementType.PERCENT_INTEGER))
-				.brunch(new FeElementDto(costUtilizationRecordDto.getTotalCost().getBrunch(), averageBrunchCost * occupied, FeElementType.PERCENT_INTEGER))
+				.overall(new FeElementDto(averageOverallCost, costUtilizationRecordDto.getExpectedCost().getOverall() / occupied, FeElementType.PERCENT_INTEGER))
+				.breakfast(new FeElementDto(averageBreakfastCost, costUtilizationRecordDto.getExpectedCost().getBreakfast() / occupied, FeElementType.PERCENT_INTEGER))
+				.lunch(new FeElementDto(averageLunchCost, costUtilizationRecordDto.getExpectedCost().getLunch() / occupied, FeElementType.PERCENT_INTEGER))
+				.snacks(new FeElementDto(averageSnacksCost, costUtilizationRecordDto.getExpectedCost().getSnacks() / occupied, FeElementType.PERCENT_INTEGER))
+				.dinner(new FeElementDto(averageDinnerCost, costUtilizationRecordDto.getExpectedCost().getDinner() / occupied, FeElementType.PERCENT_INTEGER))
+				.brunch(new FeElementDto(averageBrunchCost, costUtilizationRecordDto.getExpectedCost().getBrunch() / occupied, FeElementType.PERCENT_INTEGER))
 				.build();
 	}
 
