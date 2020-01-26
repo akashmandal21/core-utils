@@ -3,50 +3,55 @@ package com.stanzaliving.core.operations.dto.response.report.food;
 import com.stanzaliving.core.operations.dto.report.RecordDto;
 import com.stanzaliving.core.operations.dto.report.food.CustomerExperienceRecordDto;
 import com.stanzaliving.core.operations.dto.response.report.FeElementDto;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerExperienceRecordResponseDto extends RecordDto {
 
-    FeElementDto experienceScore;
+	private FeElementDto experienceScore;
 
-    FeElementDto unsatisfied;
+	private FeElementDto unsatisfied;
 
-    FeElementDto satisfied;
+	private FeElementDto satisfied;
 
-    FeElementDto shortage;
+	private FeElementDto shortage;
 
-    FeElementDto foreignParticles;
+	private FeElementDto foreignParticles;
 
-    FeElementDto rcAvgQualityRating;
+	private FeElementDto rcAvgQualityRating;
 
-    FeElementDto socialMediaComplaint;
+	private FeElementDto socialMediaComplaint;
 
-    FeElementDto onTimeDelivery;
+	private FeElementDto onTimeDelivery;
 
-    FeElementDto quantityAdherence;
+	private FeElementDto quantityAdherence;
 
-    FeElementDto menuAdherence;
+	private FeElementDto menuAdherence;
 
-    FeElementDto smr;       // mealOrdered/feedbackGiven
+	private FeElementDto smr; // mealOrdered/feedbackGiven
 
-    public CustomerExperienceRecordResponseDto(CustomerExperienceRecordDto customerExperienceRecordDto) {
-        super(customerExperienceRecordDto);
-        this.satisfied = new FeElementDto(customerExperienceRecordDto.getSatisfied(), customerExperienceRecordDto.getSatisfied() + customerExperienceRecordDto.getUnsatisfied());
-        this.unsatisfied = new FeElementDto(customerExperienceRecordDto.getUnsatisfied(), customerExperienceRecordDto.getSatisfied() + customerExperienceRecordDto.getUnsatisfied());
-        this.shortage = new FeElementDto(customerExperienceRecordDto.getShortageCount(), customerExperienceRecordDto.getTotalCount());
-        this.foreignParticles = new FeElementDto(customerExperienceRecordDto.getForeignParticle());
-        this.rcAvgQualityRating = new FeElementDto(customerExperienceRecordDto.getRcAvgQualityRating());
-        this.socialMediaComplaint = new FeElementDto(customerExperienceRecordDto.getSocialMediaComplaints());
-        this.onTimeDelivery = new FeElementDto(customerExperienceRecordDto.getOnTimeDelivery(), customerExperienceRecordDto.getTotalCount());
-        this.quantityAdherence = new FeElementDto(customerExperienceRecordDto.getQuantityAdherence(), customerExperienceRecordDto.getTotalCount());
-        this.menuAdherence = new FeElementDto(customerExperienceRecordDto.getMenuAdherence(), customerExperienceRecordDto.getTotalCount());
-        this.smr = new FeElementDto(customerExperienceRecordDto.getMealOrdered(), customerExperienceRecordDto.getNumStudentsFeedback());
-    }
+	public CustomerExperienceRecordResponseDto(CustomerExperienceRecordDto customerExperienceRecordDto) {
+		super(customerExperienceRecordDto);
+		this.satisfied = new FeElementDto(customerExperienceRecordDto.getSatisfied(), customerExperienceRecordDto.getSatisfied() + customerExperienceRecordDto.getUnsatisfied());
+		this.unsatisfied = new FeElementDto(customerExperienceRecordDto.getUnsatisfied(), customerExperienceRecordDto.getSatisfied() + customerExperienceRecordDto.getUnsatisfied());
+		this.shortage = new FeElementDto(customerExperienceRecordDto.getShortageCount(), customerExperienceRecordDto.getTotalCount());
+		this.foreignParticles = new FeElementDto(customerExperienceRecordDto.getForeignParticle());
+		this.rcAvgQualityRating = new FeElementDto(customerExperienceRecordDto.getRcAvgQualityRating());
+		this.socialMediaComplaint = new FeElementDto(customerExperienceRecordDto.getSocialMediaComplaints());
+		this.onTimeDelivery = new FeElementDto(customerExperienceRecordDto.getOnTimeDelivery(), customerExperienceRecordDto.getTotalCount());
+		this.quantityAdherence = new FeElementDto(customerExperienceRecordDto.getQuantityAdherence(), customerExperienceRecordDto.getTotalCount());
+		this.menuAdherence = new FeElementDto(customerExperienceRecordDto.getMenuAdherence(), customerExperienceRecordDto.getTotalCount());
+		this.smr = new FeElementDto(customerExperienceRecordDto.getMealOrdered(), customerExperienceRecordDto.getNumStudentsFeedback());
+	}
 }

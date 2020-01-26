@@ -6,18 +6,20 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class CostUtilizationRecordDto extends RecordDto {
 
-    MealDto totalCost;
+	private MealDto totalCost;
 
-    MealDto expectedCost;
+	private MealDto expectedCost;
+	
+	private MealDto budgetedCost;
 
-    MealDto orderCount;
+	private MealDto orderCount;
 
-    Integer occupiedBeds;
+	private Integer occupiedBeds;
 
 }

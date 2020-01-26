@@ -1,8 +1,6 @@
 package com.stanzaliving.core.operations.dto.response.report.food.summary;
 
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.operations.dto.report.RecordDto;
@@ -11,13 +9,18 @@ import com.stanzaliving.core.operations.dto.report.food.summary.DateLevelNumbers
 import com.stanzaliving.core.operations.dto.report.food.summary.SummaryRecordDto;
 import com.stanzaliving.core.operations.dto.response.report.FeElementDto;
 import com.stanzaliving.core.operations.enums.FeElementType;
+import com.stanzaliving.core.operations.utils.FoodReportUtil;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -48,20 +51,9 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 
 		CostAndExperienceRecordDto costAndExperienceRecordDto = summaryRecordDto.getCostAndExperienceRecordDto();
 
-		DateLevelNumbersDto dateLevelNumbersDto = getEntityForAccess(accessLevel, summaryRecordDto, dateLevelFieldsMap);
+		Integer mir = FoodReportUtil.getMIRCount(accessLevel, summaryRecordDto, dateLevelFieldsMap);
 
-		if (Objects.nonNull(dateLevelNumbersDto)) {
-			this.movedInResidence = new FeElementDto(dateLevelNumbersDto.getMovedInResidents() / daysConsidered, FeElementType.INTEGER);
-		} else {
-
-			int movedIn = 0;
-
-			for (Entry<String, DateLevelNumbersDto> entry : dateLevelFieldsMap.entrySet()) {
-				movedIn += entry.getValue().getMovedInResidents();
-			}
-
-			this.movedInResidence = new FeElementDto(movedIn / daysConsidered, FeElementType.INTEGER);
-		}
+		this.movedInResidence = new FeElementDto(mir / daysConsidered, FeElementType.INTEGER);
 
 		this.unsatisfied = new FeElementDto(costAndExperienceRecordDto.getUnsatisfied(), costAndExperienceRecordDto.getSatisfied() + costAndExperienceRecordDto.getUnsatisfied());
 		this.satisfied = new FeElementDto(costAndExperienceRecordDto.getSatisfied(), costAndExperienceRecordDto.getSatisfied() + costAndExperienceRecordDto.getUnsatisfied());
@@ -75,18 +67,4 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 		this.costPerMIR = new FeElementDto((double) costAndExperienceRecordDto.getTotalMealCost(), (double) costAndExperienceRecordDto.getTotalMealsOrdered(), false, FeElementType.DOUBLE);
 	}
 
-	private DateLevelNumbersDto getEntityForAccess(AccessLevel accessLevel, SummaryRecordDto summaryRecordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
-
-		String entityUuid = null;
-
-		if (AccessLevel.CITY == accessLevel) {
-			entityUuid = summaryRecordDto.getCityUuid();
-		} else if (AccessLevel.MICROMARKET == accessLevel) {
-			entityUuid = summaryRecordDto.getMicromarketUuid();
-		} else if (AccessLevel.RESIDENCE == accessLevel) {
-			entityUuid = summaryRecordDto.getResidenceUuid();
-		}
-
-		return dateLevelFieldsMap.get(entityUuid);
-	}
 }

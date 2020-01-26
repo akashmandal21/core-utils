@@ -11,16 +11,16 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class MealDto {
 
-    double overall;
+	private double overall;
 
-    double breakfast;
+	private double breakfast;
 
-    double lunch;
+	private double lunch;
 
-    double snacks;
+	private double snacks;
 
-    double dinner;
+	private double dinner;
 
-    double brunch;
+	private double brunch;
 
 }

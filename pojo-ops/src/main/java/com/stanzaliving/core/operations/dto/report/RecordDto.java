@@ -1,15 +1,18 @@
 package com.stanzaliving.core.operations.dto.report;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.operations.constants.FoodReportConstants;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-import org.apache.commons.lang3.StringUtils;
 
+@SuppressWarnings("rawtypes")
 @Getter
 @Setter
 @ToString
@@ -36,9 +39,9 @@ public class RecordDto implements Comparable {
 		this.daysConsidered = recordDto.getDaysConsidered();
 	}
 
-/**
+	/**
 	 * @return a negative integer, zero, or a positive integer as this object
-	 * is less than, equal to, or greater than the specified object.
+	 *         is less than, equal to, or greater than the specified object.
 	 */
 	@Override
 	public int compareTo(Object o) {
@@ -59,6 +62,8 @@ public class RecordDto implements Comparable {
 					return this.getMicromarketName().compareToIgnoreCase(recordDto.getMicromarketName());
 				case RESIDENCE:
 					return this.getResidenceName().compareToIgnoreCase(recordDto.getResidenceName());
+				default:
+					break;
 			}
 		}
 		return 0;
