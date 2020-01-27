@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.transformations.pojo;
 
+import com.stanzaliving.transformations.enums.LineItemStatus;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,10 +16,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class LineItemRequestDto {
+public class LineItemStatusRequestDto {
 
 	private String lineItemUuid;
-	private Integer slQty;
-	private Integer llQty;
-	private Integer gcQty;
+	private LineItemStatus status;
 }
