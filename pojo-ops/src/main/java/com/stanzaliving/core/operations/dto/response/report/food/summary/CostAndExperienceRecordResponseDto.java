@@ -62,9 +62,9 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 		this.disasterEvent = new FeElementDto(costAndExperienceRecordDto.getDisasterEvent());
 
 		this.budgetUtilization = new FeElementDto(costAndExperienceRecordDto.getTotalMealCost(), costAndExperienceRecordDto.getBudgetedMealCost());
-		this.costUtilization = new FeElementDto(costAndExperienceRecordDto.getTotalMealCost(), summaryRecordDto.getCostEfficiency().getExcpectedMealCost());
+		this.costUtilization = new FeElementDto(costAndExperienceRecordDto.getTotalMealCost(), summaryRecordDto.getCostEfficiency().getExpectedMealCost());
 
-		this.costPerMIR = new FeElementDto((double) costAndExperienceRecordDto.getTotalMealCost(), (double) costAndExperienceRecordDto.getTotalMealsOrdered(), false, FeElementType.DOUBLE);
+		this.costPerMIR = new FeElementDto(costAndExperienceRecordDto.getTotalMealCost(), mir, false, FeElementType.DOUBLE);
 	}
 
 }
