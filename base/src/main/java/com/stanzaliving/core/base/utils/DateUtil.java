@@ -285,7 +285,7 @@ public class DateUtil {
 		}
 
 		List<String> weekListInInteger = new ArrayList<>();
-		for (Integer i = 1; i <=  weekListInInteger.size() ; i++) {
+		for (Integer i = 1; i <=  weeksList.size() ; i++) {
 			weekListInInteger.add(i.toString());
 		}
 
