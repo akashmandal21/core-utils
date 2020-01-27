@@ -278,18 +278,31 @@ public class DateUtil {
 		return new ArrayList<>(monthsList);
 	}
 
-	public static List<String> getListOfWeeks(LocalDate startDate, LocalDate endDate) {
+	public static List<String> getYearWeekSqlListOfWeeks(LocalDate startDate, LocalDate endDate) {
 		LinkedHashSet<String> weeksList = new LinkedHashSet<>();
 		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
-			weeksList.add(customDateFormatter(date, DateFormat.WEEK_IN_YEAR));
+			Integer weekNumber = Integer.parseInt(customDateFormatter(date, DateFormat.WEEK_OF_YEAR));
+			String week;
+			if (weekNumber < 10) {
+				week = "0" + weekNumber.toString();
+			} else {
+				week = weekNumber.toString();
+			}
+			weeksList.add(customDateFormatter(date, DateFormat.YEAR_IN_WEEK_OF_YEAR) + week);
 		}
 
-		List<String> weekListInInteger = new ArrayList<>();
+		return new ArrayList<>(weeksList);
+	}
+
+	public static List<String> getFormattedListOfWeeksFromWeekOne(LocalDate startDate, LocalDate endDate) {
+		List<String> weeksList = getYearWeekSqlListOfWeeks(startDate, endDate);
+
+		List<String> weekListInFromOne = new ArrayList<>();
 		for (Integer i = 1; i <=  weeksList.size() ; i++) {
-			weekListInInteger.add(i.toString());
+			weekListInFromOne.add("Week " + i.toString());
 		}
 
-		return weekListInInteger;
+		return weekListInFromOne;
 	}
 
 	public static List<String> getListOfDates(LocalDate startDate, LocalDate endDate) {
