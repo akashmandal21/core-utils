@@ -28,9 +28,6 @@ public class GFCDrawingsDto implements Serializable {
 	@NotBlank(message = "Property uuid can't be empty.")
 	private String propertyUuid;
 	
-	@NotBlank(message = "Property name can't be empty.")
-	private String propertyName;
-
 	@NotBlank
 	private GFCCategories gfcCategories;
 	
