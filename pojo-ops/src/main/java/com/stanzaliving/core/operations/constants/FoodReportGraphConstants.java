@@ -25,6 +25,10 @@ public class FoodReportGraphConstants {
     public static final String COST_EFFICIENCY_GRAPH_ACTUAL_COST = "Actual Cost";
     public static final String COST_EFFICIENCY_GRAPH_CURRENT_RUN_RATE = "Current Run Rate";
     public static final String COST_EFFICIENCY_GRAPH_BUDGETED_RUN_RATE = "Budgeted Run Rate";
+    public static final String COST_EFFICIENCY_GRAPH_LAST_THREE_DAYS = "Last 3 Days";
+    public static final String COST_EFFICIENCY_GRAPH_LAST_SEVEN_DAYS = "Last 7 Days";
+    public static final Integer LAST_THREE_DAYS = 3;
+    public static final Integer LAST_SEVEN_DAYS = 7;
     public static final String COST_EFFICIENCY_GRAPH_DEVIATION_ALL = "All";
     public static final String COST_EFFICIENCY_GRAPH_DEVIATION_BREAKFAST = "Breakfast";
     public static final String COST_EFFICIENCY_GRAPH_DEVIATION_LUNCH = "Lunch";

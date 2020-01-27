@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+import lombok.extern.log4j.Log4j2;
 
 @Getter
 @Setter
@@ -18,7 +19,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class ReportRequestDto {
+@Log4j2
+public class ReportRequestDto implements Cloneable {
 
 	private List<String> cityUuid;
 
@@ -31,5 +33,14 @@ public class ReportRequestDto {
 	private LocalDate endDate;
 
 	private AccessLevel accessLevel;
+
+	protected Object clone() {
+		try {
+			return super.clone();
+		} catch (CloneNotSupportedException e) {
+			log.error("Getting CloneNotSupportedException ", e);
+			throw new RuntimeException(e);
+		}
+	}
 
 }

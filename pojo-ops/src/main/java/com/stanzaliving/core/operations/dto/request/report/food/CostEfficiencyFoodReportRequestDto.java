@@ -13,10 +13,14 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class CostEfficiencyFoodReportRequestDto extends FoodReportRequestDto {
+public class CostEfficiencyFoodReportRequestDto extends FoodReportRequestDto implements Cloneable {
 
     @NotNull ViewType viewType;
 
     @NotNull CostType costType;
 
+
+    public CostEfficiencyFoodReportRequestDto clone() {
+        return (CostEfficiencyFoodReportRequestDto) super.clone();
+    }
 }

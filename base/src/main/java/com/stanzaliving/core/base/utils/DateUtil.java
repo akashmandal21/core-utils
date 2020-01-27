@@ -54,6 +54,20 @@ public class DateUtil {
 		return null;
 	}
 
+	public static String changeDateFormat (String dateInput, DateFormat inputDateFormat, DateFormat outputDateFormat) {
+
+		if (dateInput != null) {
+			SimpleDateFormat formatterOutput = new SimpleDateFormat(inputDateFormat.getValue());
+			try {
+				return customDateFormatter(formatterOutput.parse(dateInput), outputDateFormat);
+			} catch (ParseException e) {
+				// Ignore
+			}
+		}
+
+		return null;
+	}
+
 	public static Date convertToDate(LocalDateTime localdateTime) {
 		return Date.from(localdateTime.atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant());
 	}
@@ -282,6 +296,10 @@ public class DateUtil {
 
 	public static Integer getCountOfDates(LocalDate startDate, LocalDate endDate) {
 		return getListOfDates(startDate, endDate).size();
+	}
+
+	public static LocalDate getCurrentMonthStartDate() {
+		return LocalDate.now().withDayOfMonth(1);
 	}
 
 }
