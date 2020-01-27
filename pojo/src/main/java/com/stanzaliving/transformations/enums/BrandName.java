@@ -16,7 +16,7 @@ import lombok.Getter;
 public enum BrandName {
 
 	SUITS("Suits"),
-	STELLO("Stello");
+	SCHOLAR("Scholar");
 
 	private String brand;
 

@@ -6,11 +6,9 @@ package com.stanzaliving.core.base.utils;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -276,4 +274,17 @@ public class StanzaUtils {
 	
 	
 	
+
+	public static String formatToIndianNumberFormat(long value)
+	{
+		if (value <= 999)
+			return Long.toString(value);
+		String thousandsPart = (value+"").substring((value+"").length()-3);
+
+		long rest = value / 1000;
+		NumberFormat format = new DecimalFormat("##,##");
+		String formattedString = format.format(rest);
+		return formattedString + "," + thousandsPart;
+	}
+
 }
