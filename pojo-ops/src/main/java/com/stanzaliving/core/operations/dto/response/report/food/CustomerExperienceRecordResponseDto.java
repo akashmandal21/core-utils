@@ -52,6 +52,6 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 		this.onTimeDelivery = new FeElementDto(customerExperienceRecordDto.getOnTimeDelivery(), customerExperienceRecordDto.getTotalCount());
 		this.quantityAdherence = new FeElementDto(customerExperienceRecordDto.getQuantityAdherence(), customerExperienceRecordDto.getTotalCount());
 		this.menuAdherence = new FeElementDto(customerExperienceRecordDto.getMenuAdherence(), customerExperienceRecordDto.getTotalCount());
-		this.smr = new FeElementDto(customerExperienceRecordDto.getMealOrdered(), customerExperienceRecordDto.getNumStudentsFeedback());
+		this.smr = new FeElementDto(customerExperienceRecordDto.getNumStudentsFeedback(), customerExperienceRecordDto.getMealOrdered());
 	}
 }
