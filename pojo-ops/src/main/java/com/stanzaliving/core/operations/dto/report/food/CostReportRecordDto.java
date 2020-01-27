@@ -12,8 +12,10 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CostReportRecordDto extends RecordDto {
 
-    int onTimeOrder;
+	private int onTimeOrder;
+	
+	private int totalOrder;
 
-    MealDto cost;
+	private MealDto cost;
 
 }
