@@ -139,9 +139,9 @@ public class CommentClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		uriVariables.put("contextId", contextId);
-		uriVariables.put("subcontextId",subContextId);
+		uriVariables.put("subContextId",subContextId);
 
-		String path = UriComponentsBuilder.fromPath("/internal/get/all/context/{contextId}/subcontext/{subcontextId}").buildAndExpand(uriVariables)
+		String path = UriComponentsBuilder.fromPath("/internal/get/all/context/{contextId}/subcontext/{subContextId}").buildAndExpand(uriVariables)
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
