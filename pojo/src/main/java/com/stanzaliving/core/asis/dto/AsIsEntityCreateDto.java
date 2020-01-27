@@ -45,5 +45,7 @@ public class AsIsEntityCreateDto implements Serializable {
 	private String asIsStartsDate;
 
 	private String asIsStatus;
+	
+	private String siteEngineerUuid;
 
 }
