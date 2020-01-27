@@ -19,8 +19,8 @@ import lombok.ToString;
 @ToString
 public class PropertyRoomBedCountUpdateRequestDto {
 
-	@NotEmpty(message = "PropertyId cannot be empty")
-	private String propertyId;
+	@NotEmpty(message = "PropertyUuid cannot be empty")
+	private String propertyUuid;
 	
 	@Min(value = 1, message = "room count should not be less than 1")
 	private int roomCount;

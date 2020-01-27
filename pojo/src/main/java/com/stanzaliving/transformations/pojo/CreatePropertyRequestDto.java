@@ -17,7 +17,7 @@ import lombok.ToString;
 public class CreatePropertyRequestDto {
 
 	private String propertyName;
-	private String propertyId;
+	private String propertyUuid;
 	private String estateId;
 	private int bedCount;
 	private int roomCount;
@@ -31,5 +31,6 @@ public class CreatePropertyRequestDto {
 	private String projectStatus;
 	private String brandName;
 	private String projectManagerAssigned;
-
+	private Integer attachedWashroom;
+	private Integer attachedBalcony;
 }
