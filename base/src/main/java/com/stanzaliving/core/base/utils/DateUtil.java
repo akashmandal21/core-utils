@@ -283,7 +283,13 @@ public class DateUtil {
 		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
 			weeksList.add(customDateFormatter(date, DateFormat.WEEK_IN_YEAR));
 		}
-		return new ArrayList<>(weeksList);
+
+		List<String> weekListInInteger = new ArrayList<>();
+		for (Integer i = 1; i <=  weekListInInteger.size() ; i++) {
+			weekListInInteger.add(i.toString());
+		}
+
+		return weekListInInteger;
 	}
 
 	public static List<String> getListOfDates(LocalDate startDate, LocalDate endDate) {
