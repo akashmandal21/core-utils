@@ -14,6 +14,6 @@ public class FoodAttendanceGraphRecordDto extends GraphRecordDto {
 
     Integer movedInResidents;
     Integer presentStudents;
-    Integer foodAttendance; //   /presentStudents
+    Integer foodAttendance; //   /MIR
     Integer totalCount;
 }

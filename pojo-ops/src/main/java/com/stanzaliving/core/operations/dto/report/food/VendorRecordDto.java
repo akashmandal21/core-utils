@@ -39,4 +39,6 @@ public class VendorRecordDto extends RecordDto {
     String mealUuid;
     
     String mealName;
+
+    double totalBillAmount;
 }
