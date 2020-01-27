@@ -31,5 +31,7 @@ public class LineItemDto {
 	private float length;
 	private float breadth;
 	private AreaOfUse areaOfUse;
+	private String brandName;
+	private String subBrandName;
 	
 }
