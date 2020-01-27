@@ -28,7 +28,7 @@ public class AsIsDrawingsDto extends AbstractDto implements Serializable {
 
 	private String downloadUrl;
 
-	private long actualSize;
+	private String actualSize;
 
 	private Date uploadedDate;
 

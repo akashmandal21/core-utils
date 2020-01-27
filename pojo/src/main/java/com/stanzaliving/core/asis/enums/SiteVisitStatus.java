@@ -20,7 +20,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum SiteVisitStatus {
 
-	SITE_VISIT_PENDING("Pending"), SITE_VISIT_COMPLETED("Comleted");
+	SITE_VISIT_PENDING("Pending"), SITE_VISIT_COMPLETED("Completed");
 
 	private String status;
 

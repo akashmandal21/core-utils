@@ -20,14 +20,13 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum POStatus {
 
-	PO_PENDING("PO Pending"), PO_ISSUED("PO issued"), PO_REJECTED("PO rejected"), PO_APPROVED("PO Approved");
+	 PO_ISSUED("PO issued"), PO_REJECTED("PO rejected"), PO_APPROVED("PO Approved");
 
 	private String status;
 
 	private static EnumMap<POStatus, String> poStatusMap = new EnumMap<>(POStatus.class);
 
 	static{
-		poStatusMap.put(PO_PENDING, POStatus.PO_PENDING.getStatus());
 		poStatusMap.put(PO_ISSUED, POStatus.PO_ISSUED.getStatus());
 		poStatusMap.put(PO_REJECTED, POStatus.PO_REJECTED.getStatus());
 		poStatusMap.put(PO_APPROVED, POStatus.PO_APPROVED.getStatus());
