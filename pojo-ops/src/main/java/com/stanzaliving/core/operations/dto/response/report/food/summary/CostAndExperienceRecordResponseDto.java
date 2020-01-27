@@ -53,7 +53,7 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 
 		Integer mir = FoodReportUtil.getMIRCount(accessLevel, summaryRecordDto, dateLevelFieldsMap);
 
-		this.movedInResidence = new FeElementDto(mir / daysConsidered, FeElementType.INTEGER);
+		this.movedInResidence = new FeElementDto(mir, FeElementType.INTEGER);
 
 		this.unsatisfied = new FeElementDto(costAndExperienceRecordDto.getUnsatisfied(), costAndExperienceRecordDto.getSatisfied() + costAndExperienceRecordDto.getUnsatisfied());
 		this.satisfied = new FeElementDto(costAndExperienceRecordDto.getSatisfied(), costAndExperienceRecordDto.getSatisfied() + costAndExperienceRecordDto.getUnsatisfied());

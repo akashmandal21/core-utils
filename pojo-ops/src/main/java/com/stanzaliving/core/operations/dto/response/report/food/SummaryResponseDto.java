@@ -64,8 +64,8 @@ public class SummaryResponseDto extends RecordDto {
 				.build();
 
 		this.attendance = AttendanceResponseDto.builder()
-				.occupiedBeds(new FeElementDto(dateLevelNumbersDto.getOccupiedBeds(), summaryRecordDto.getDaysConsidered(), false, FeElementType.INTEGER))
-				.movedInStudents(new FeElementDto(dateLevelNumbersDto.getMovedInResidents(), summaryRecordDto.getDaysConsidered(), false, FeElementType.INTEGER))
+				.occupiedBeds(new FeElementDto(dateLevelNumbersDto.getOccupiedBeds()))
+				.movedInStudents(new FeElementDto(dateLevelNumbersDto.getMovedInResidents()))
 				.present(new FeElementDto(summaryRecordDto.getAttendance().getPresentStudents(), summaryRecordDto.getAttendance().getMovedInResidents()))
 				.mealOrdered(new FeElementDto(summaryRecordDto.getAttendance().getTotalMealsOrdered(), summaryRecordDto.getAttendance().getMovedInResidents()))
 				.foodAttendance(new FeElementDto(summaryRecordDto.getAttendance().getFoodAttendance(), summaryRecordDto.getAttendance().getMovedInResidents()))
