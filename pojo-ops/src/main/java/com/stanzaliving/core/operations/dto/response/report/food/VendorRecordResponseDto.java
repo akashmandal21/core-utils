@@ -15,49 +15,49 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class VendorRecordResponseDto extends RecordDto {
 
-    FeElementDto rating;
+	private FeElementDto rating;
 
-    FeElementDto onTimeAdherence;
+	private FeElementDto onTimeAdherence;
 
-    FeElementDto quantityAdherence;
+	private FeElementDto quantityAdherence;
 
-    FeElementDto rcQualityFeedback;
+	private FeElementDto rcQualityFeedback;
 
-    FeElementDto studentFeedback;
+	private FeElementDto studentFeedback;
 
-    FeElementDto menuAdherence;
+	private FeElementDto menuAdherence;
 
-    FeElementDto shortageRecords;
+	private FeElementDto shortageRecords;
 
-    FeElementDto foreignParticles;
+	private FeElementDto foreignParticles;
 
-    FeElementDto totalBillAmount;
+	private FeElementDto totalBillAmount;
 
-    FeElementDto penaltyAmount;
+	private FeElementDto penaltyAmount;
 
-    String vendorUuid;
-    
-    String vendorName;
-    
-    String mealUuid;
-    
-    String mealName;
+	private String vendorUuid;
 
-    public VendorRecordResponseDto(VendorRecordDto vendorRecordDto) {
-        super(vendorRecordDto);
-        this.rating = new FeElementDto(vendorRecordDto.getRating());
-        this.onTimeAdherence = new FeElementDto(vendorRecordDto.getOnTimeAdherence(), vendorRecordDto.getTotalCount());
-        this.quantityAdherence = new FeElementDto(vendorRecordDto.getQuantityAdherence(), vendorRecordDto.getTotalCount());
-        this.rcQualityFeedback = new FeElementDto(vendorRecordDto.getRcQualityFeedback());
-        this.studentFeedback = new FeElementDto(vendorRecordDto.getTotalRating(), vendorRecordDto.getStudentFeedbackCount(), false, FeElementType.DOUBLE);
-        this.menuAdherence = new FeElementDto(vendorRecordDto.getMenuAdherence(), vendorRecordDto.getTotalCount());
-        this.shortageRecords = new FeElementDto(vendorRecordDto.getShortageRecords(), vendorRecordDto.getTotalCount());
-        this.foreignParticles = new FeElementDto(vendorRecordDto.getForeignParticles(), vendorRecordDto.getTotalCount());
-        this.totalBillAmount = new FeElementDto(vendorRecordDto.getTotalBillAmount());
-        this.vendorUuid=vendorRecordDto.getVendorUuid();
-        this.vendorName=vendorRecordDto.getVendorName();
-        this.mealUuid = vendorRecordDto.getMealUuid();
-        this.mealName=vendorRecordDto.getMealName();
-    }
+	private String vendorName;
+
+	private String mealUuid;
+
+	private String mealName;
+
+	public VendorRecordResponseDto(VendorRecordDto vendorRecordDto) {
+		super(vendorRecordDto);
+		this.rating = new FeElementDto(vendorRecordDto.getRating());
+		this.onTimeAdherence = new FeElementDto(vendorRecordDto.getOnTimeAdherence(), vendorRecordDto.getTotalCount());
+		this.quantityAdherence = new FeElementDto(vendorRecordDto.getQuantityAdherence(), vendorRecordDto.getTotalCount());
+		this.rcQualityFeedback = new FeElementDto(vendorRecordDto.getRcQualityFeedback());
+		this.studentFeedback = new FeElementDto(vendorRecordDto.getTotalRating(), vendorRecordDto.getStudentFeedbackCount(), false, FeElementType.DOUBLE);
+		this.menuAdherence = new FeElementDto(vendorRecordDto.getMenuAdherence(), vendorRecordDto.getTotalCount());
+		this.shortageRecords = new FeElementDto(vendorRecordDto.getShortageRecords(), vendorRecordDto.getTotalCount());
+		this.foreignParticles = new FeElementDto(vendorRecordDto.getForeignParticles(), vendorRecordDto.getTotalCount());
+		this.totalBillAmount = new FeElementDto(vendorRecordDto.getTotalBillAmount(), FeElementType.CURRENCY_INTEGER);
+		this.vendorUuid = vendorRecordDto.getVendorUuid();
+		this.vendorName = vendorRecordDto.getVendorName();
+		this.mealUuid = vendorRecordDto.getMealUuid();
+		this.mealName = vendorRecordDto.getMealName();
+	}
 
 }

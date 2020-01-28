@@ -14,12 +14,13 @@ import java.util.List;
 @AllArgsConstructor
 @SuperBuilder
 public class GraphDto {
-    String chartTitle;
-    String xLabel;
-    String yLabel;
-    String xType;
-    String yType;
-    AccessLevel accessLevel;
-    List<GraphLineXPoint> xAxis = new ArrayList<>();
-    List<GraphLineDto> yAxis = new ArrayList<>();
+
+	private String chartTitle;
+	private String xLabel;
+	private String yLabel;
+	private String xType;
+	private String yType;
+	private AccessLevel accessLevel;
+	private List<GraphLineXPoint> xAxis = new ArrayList<>();
+	private List<GraphLineDto> yAxis = new ArrayList<>();
 }
