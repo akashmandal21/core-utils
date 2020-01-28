@@ -19,11 +19,13 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.RequestEntity.BodyBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -60,6 +62,11 @@ public class StanzaRestClient {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate();
 	}
+	
+	public StanzaRestClient(String basePath, int connectTimeOut, int readTimeOut){
+		this.basePath = basePath;
+		this.restTemplate = buildRestTemplate(connectTimeOut, readTimeOut);
+	}
 
 	public enum CollectionFormat {
 
@@ -80,10 +87,39 @@ public class StanzaRestClient {
 		}
 	}
 
-	@SuppressWarnings("rawtypes")
 	private RestTemplate buildRestTemplate() {
 		RestTemplate template = new RestTemplate();
 
+		configureRestTemplate(template);
+		
+		// This allows us to read the response more than once - Necessary for debugging.
+		template.setRequestFactory(new BufferingClientHttpRequestFactory(template.getRequestFactory()));
+		return template;
+	}
+
+	private SimpleClientHttpRequestFactory getClientHttpRequestFactory(int connectTimeOut, int readTimeOut) {
+		SimpleClientHttpRequestFactory clientHttpRequestFactory = new SimpleClientHttpRequestFactory();
+		// Connect timeout
+		clientHttpRequestFactory.setConnectTimeout(connectTimeOut);
+
+		// Read timeout
+		clientHttpRequestFactory.setReadTimeout(readTimeOut);
+		return clientHttpRequestFactory;
+	}
+
+	private RestTemplate buildRestTemplate(int connectTimeOut, int readTimeOut) {
+
+		RestTemplate template = new RestTemplate(getClientHttpRequestFactory(connectTimeOut, readTimeOut));
+
+		configureRestTemplate(template);
+	
+		// This allows us to read the response more than once - Necessary for debugging.
+		template.setRequestFactory(new BufferingClientHttpRequestFactory(template.getRequestFactory()));
+		return template;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void configureRestTemplate(RestTemplate template) {
 		for (HttpMessageConverter converter : template.getMessageConverters()) {
 
 			if (converter instanceof AbstractJackson2HttpMessageConverter) {
@@ -101,12 +137,8 @@ public class StanzaRestClient {
 				mapper.registerModule(module);
 			}
 		}
-
-		// This allows us to read the response more than once - Necessary for debugging.
-		template.setRequestFactory(new BufferingClientHttpRequestFactory(template.getRequestFactory()));
-		return template;
 	}
-
+	
 	public HttpStatus getStatusCode() {
 		return statusCode;
 	}
@@ -179,7 +211,12 @@ public class StanzaRestClient {
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
 
-		ResponseEntity<T> responseEntity = restTemplate.exchange(requestEntity, returnType);
+		ResponseEntity<T> responseEntity = null;
+		try {
+			responseEntity = restTemplate.exchange(requestEntity, returnType);
+		} catch (RestClientException e) {
+			log.info("Exception caught while making rest call: ",e);
+		}
 
 		statusCode = responseEntity.getStatusCode();
 		responseHeaders = responseEntity.getHeaders();
