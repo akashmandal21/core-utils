@@ -216,6 +216,7 @@ public class StanzaRestClient {
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
 		} catch (RestClientException e) {
 			log.info("Exception caught while making rest call: ",e);
+			throw new StanzaHttpException("Exception caught while making rest call: "+e.getCause());
 		}
 
 		statusCode = responseEntity.getStatusCode();
