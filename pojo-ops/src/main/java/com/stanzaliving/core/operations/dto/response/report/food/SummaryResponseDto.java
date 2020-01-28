@@ -37,7 +37,7 @@ public class SummaryResponseDto extends RecordDto {
 
 		this.experience =
 				ExperienceResponseDto.builder()
-						.unsatisfied(new FeElementDto(summaryRecordDto.getExperience().getUnsatisfied(),
+						.unhappy(new FeElementDto(summaryRecordDto.getExperience().getUnsatisfied(),
 								summaryRecordDto.getExperience().getSatisfied() + summaryRecordDto.getExperience().getUnsatisfied(), FeElementType.PERCENT_INTEGER))
 						.satisfied(new FeElementDto(summaryRecordDto.getExperience().getSatisfied(),
 								summaryRecordDto.getExperience().getSatisfied() + summaryRecordDto.getExperience().getUnsatisfied(), FeElementType.PERCENT_INTEGER))

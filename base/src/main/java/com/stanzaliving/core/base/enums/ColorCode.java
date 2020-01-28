@@ -4,12 +4,16 @@ import lombok.Getter;
 
 @Getter
 public enum ColorCode {
-    BLACK("#000000000");
 
-    private String colorCode;
+	BLACK("#000000"),
+	RED("#F1C0C6"),
+	GREEN("#B8E986"),
+	WHITE("#FFFFFF");
 
-    ColorCode(String colorCode) {
-        this.colorCode = colorCode;
-    }
+	private String colorCode;
+
+	ColorCode(String colorCode) {
+		this.colorCode = colorCode;
+	}
 
 }

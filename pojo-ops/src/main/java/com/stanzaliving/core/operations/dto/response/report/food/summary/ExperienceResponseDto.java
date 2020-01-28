@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ExperienceResponseDto {
 
-	private FeElementDto unsatisfied;
+	private FeElementDto unhappy;
 
 	private FeElementDto satisfied;
 
