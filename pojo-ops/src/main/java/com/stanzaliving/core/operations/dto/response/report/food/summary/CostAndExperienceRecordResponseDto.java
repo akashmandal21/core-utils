@@ -44,10 +44,9 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 
 	private FeElementDto costPerMIR;
 
-	public CostAndExperienceRecordResponseDto(AccessLevel accessLevel, SummaryRecordDto summaryRecordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap, int daysConsidered) {
+	public CostAndExperienceRecordResponseDto(AccessLevel accessLevel, SummaryRecordDto summaryRecordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
 
 		super(summaryRecordDto);
-		summaryRecordDto.setDaysConsidered(daysConsidered);
 
 		CostAndExperienceRecordDto costAndExperienceRecordDto = summaryRecordDto.getCostAndExperienceRecordDto();
 
