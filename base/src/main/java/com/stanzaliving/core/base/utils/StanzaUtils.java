@@ -242,6 +242,19 @@ public class StanzaUtils {
 		
 	}
 
+
+	public static String formatToIndianNumberFormat(long value)
+	{
+		if (value <= 999)
+			return Long.toString(value);
+		String thousandsPart = (value+"").substring((value+"").length()-3);
+
+		long rest = value / 1000;
+		NumberFormat format = new DecimalFormat("##,##");
+		String formattedString = format.format(rest);
+		return formattedString + "," + thousandsPart;
+	}
+
 	
 	/**
 	 * Convert the supplied size to it's corresponding unit
@@ -275,16 +288,5 @@ public class StanzaUtils {
 	
 	
 
-	public static String formatToIndianNumberFormat(long value)
-	{
-		if (value <= 999)
-			return Long.toString(value);
-		String thousandsPart = (value+"").substring((value+"").length()-3);
-
-		long rest = value / 1000;
-		NumberFormat format = new DecimalFormat("##,##");
-		String formattedString = format.format(rest);
-		return formattedString + "," + thousandsPart;
-	}
 
 }
