@@ -3,6 +3,7 @@ package com.stanzaliving.core.gfc.dto;
 import java.io.Serializable;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.gfc.enums.GFCCategories;
 
@@ -28,7 +29,7 @@ public class GFCDrawingsDto implements Serializable {
 	@NotBlank(message = "Property uuid can't be empty.")
 	private String propertyUuid;
 	
-	@NotBlank
+	@NotNull(message = "GFCCategories shouldn't be null.")
 	private GFCCategories gfcCategories;
 	
 
