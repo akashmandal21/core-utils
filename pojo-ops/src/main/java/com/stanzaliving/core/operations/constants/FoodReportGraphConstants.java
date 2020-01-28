@@ -21,7 +21,8 @@ public class FoodReportGraphConstants {
     public static final String FOOD_ATTENDANCE_GRAPH_Y_TYPE = "{value}%";
 
     public static final String COST_EFFICIENCY_GRAPH_X_TYPE = "{value}";
-    public static final String COST_EFFICIENCY_GRAPH_Y_TYPE = "{value}k";
+    public static final String COST_EFFICIENCY_GRAPH_Y_TYPE_TOTAL_COST = "{value}k";
+    public static final String COST_EFFICIENCY_GRAPH_Y_TYPE_PER_STUDENT_COST = "{value}";
     public static final String COST_EFFICIENCY_GRAPH_ACTUAL_COST = "Actual Cost";
     public static final String COST_EFFICIENCY_GRAPH_CURRENT_RUN_RATE = "Current Run Rate";
     public static final String COST_EFFICIENCY_GRAPH_BUDGETED_RUN_RATE = "Budgeted Run Rate";
