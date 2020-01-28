@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.transformations.pojo;
 
+import com.stanzaliving.transformations.enums.BoqStatus;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -26,6 +28,7 @@ public class PropertyDetailInfoResponseDto {
 	private String micromarketName;	
 	private Integer attachedWashroom;
 	private Integer attachedBalcony;
+	private BoqStatus boqStatus;
 	private String projectManagerName;
 	private String projectManagerEmail;
 	private String projectManagerPhoneNumber;

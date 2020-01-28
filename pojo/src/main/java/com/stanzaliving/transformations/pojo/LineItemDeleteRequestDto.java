@@ -19,6 +19,7 @@ import lombok.ToString;
 @ToString
 public class LineItemDeleteRequestDto {
 
+	private String propertyUuid;
 	private String categoryUuid;
 	private String lineItemUuid;
 	private Integer slQty;
