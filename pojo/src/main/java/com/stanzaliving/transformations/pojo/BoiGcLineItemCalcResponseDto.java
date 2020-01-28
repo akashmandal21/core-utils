@@ -18,7 +18,7 @@ import lombok.ToString;
 @ToString
 public class BoiGcLineItemCalcResponseDto {
 
-	private Double boiCapexPerBed;
-	private Double gcCapexPerBed;
+	private double boiCapexPerBed;
+	private double gcCapexPerBed;
 	private List<BoiGcTotalCategoryCost> categoryCost;
 }
