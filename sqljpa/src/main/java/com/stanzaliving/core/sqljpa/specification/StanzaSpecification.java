@@ -127,7 +127,12 @@ public class StanzaSpecification<T extends AbstractJpaEntity> implements Specifi
 			case ENUM_EQ:
 				return builder.equal(
 						root.get(criteria.getKey()), criteria.getValue());
-
+			case ENUM_IN:
+				if (criteria.getValue() instanceof Collection<?>) {
+					final Path<Enum<?>> group = root.<Enum<?>> get(criteria.getKey());
+					return group.in(((Collection<?>) criteria.getValue()).toArray());
+				}
+				return null;
 			default:
 				return null;
 		}
