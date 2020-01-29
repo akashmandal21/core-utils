@@ -194,7 +194,7 @@ public class FoodReportUtil {
 				allCityProcessAdherenceGraphRecordDto.setOnTimeDelivery(allCityProcessAdherenceGraphRecordDto.getOnTimeDelivery() + processAdherenceGraphRecordDto.getOnTimeDelivery());
 				allCityProcessAdherenceGraphRecordDto.setOrderedOnTime(allCityProcessAdherenceGraphRecordDto.getOrderedOnTime() + processAdherenceGraphRecordDto.getOrderedOnTime());
 				allCityProcessAdherenceGraphRecordDto.setMenuCreated(allCityProcessAdherenceGraphRecordDto.getMenuCreated() + processAdherenceGraphRecordDto.getMenuCreated());
-				allCityProcessAdherenceGraphRecordDto.setFrequencyValue(allCityProcessAdherenceGraphRecordDto.getFrequencyValue());
+				allCityProcessAdherenceGraphRecordDto.setFrequencyValue(processAdherenceGraphRecordDto.getFrequencyValue());
 			}
 			allCityProcessAdherenceGraphRecordDtoList.add(allCityProcessAdherenceGraphRecordDto);
 		}
