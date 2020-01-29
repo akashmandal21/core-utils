@@ -13,7 +13,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * DTO to represent AsIsDrawigns data.
+ * DTO to represent GFCDrawings data.
  * 
  * @author debendra.dhinda
  */
