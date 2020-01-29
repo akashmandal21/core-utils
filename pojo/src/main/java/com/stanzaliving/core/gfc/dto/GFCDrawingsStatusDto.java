@@ -27,5 +27,6 @@ public class GFCDrawingsStatusDto implements Serializable {
 	private String statusName;
 	private String statusColor;
 	private GFCDrawingsStatus status;
+	private String propertyUuid;
 
 }
