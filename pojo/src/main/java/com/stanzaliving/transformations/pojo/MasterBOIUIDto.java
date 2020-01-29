@@ -66,4 +66,6 @@ public class MasterBOIUIDto {
 	private int slQty;
 	
 	private int llQty;
+	
+	private String image;
 }
