@@ -20,11 +20,14 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum GFCDrawingsStatus {
 
-	GFC_DRAWING_PENDING("Pending"), GFC_DRAWING_COMPLETED("Completed"),
+	GFC_DRAWING_PENDING("Pending","#e5e3e3"),
+	GFC_DRAWING_COMPLETED("Completed","#d41111"),
 
-	GFC_DRAWINGS_APPROVED("Approved"), GFC_DRAWINGS_REJECTED("Rejected");
+	GFC_DRAWINGS_APPROVED("Approved","#77baa6"), 
+	GFC_DRAWINGS_REJECTED("Rejected","#77baa5");
 
 	private String status;
+	private String color;
 
 	private static EnumMap<GFCDrawingsStatus, String> gfcDrawingsStatusMap = new EnumMap<>(GFCDrawingsStatus.class);
 
