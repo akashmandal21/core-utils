@@ -3,16 +3,22 @@
  */
 package com.stanzaliving.core.operations.utils;
 
+import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.operations.dto.report.GraphRecordDto;
+import com.stanzaliving.core.operations.dto.report.RecordDto;
+import com.stanzaliving.core.operations.dto.report.food.graph.FoodAttendanceGraphRecordDto;
+import com.stanzaliving.core.operations.dto.report.food.graph.ProcessAdherenceGraphRecordDto;
+import com.stanzaliving.core.operations.dto.report.food.graph.StudentFeedbackGraphRecordDto;
+import com.stanzaliving.core.operations.dto.report.food.summary.DateLevelNumbersDto;
+import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
+import org.apache.commons.collections.CollectionUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
-
-import com.stanzaliving.core.base.enums.AccessLevel;
-import com.stanzaliving.core.operations.dto.report.RecordDto;
-import com.stanzaliving.core.operations.dto.report.food.summary.DateLevelNumbersDto;
-
-import lombok.experimental.UtilityClass;
-import lombok.extern.log4j.Log4j2;
 
 /**
  * @author naveen.kumar
@@ -85,4 +91,94 @@ public class FoodReportUtil {
 
 		return occupied;
 	}
+
+
+	public List<? extends GraphRecordDto> getAllCityAddedGraphRecordDtoList(List<? extends GraphRecordDto> graphRecordDtoList, AccessLevel accessLevel) {
+
+		List<GraphRecordDto> allCityAddedGraphRecordDtoList = new ArrayList<>();
+
+		if (AccessLevel.CITY.equals(accessLevel) && CollectionUtils.isNotEmpty(graphRecordDtoList) &&
+				!graphRecordDtoList.stream().anyMatch(graphRecordDto -> null == graphRecordDto.getCityUuid())) {
+
+			GraphRecordDto allCityGraphRecordDto = null;
+			if (graphRecordDtoList.get(0) instanceof ProcessAdherenceGraphRecordDto) {
+				allCityGraphRecordDto = getAllCityProcessAdherenceGraphRecordDto(graphRecordDtoList);
+			} else if (graphRecordDtoList.get(0) instanceof StudentFeedbackGraphRecordDto) {
+				allCityGraphRecordDto = getAllCityStudentFeedbackGraphRecordDto(graphRecordDtoList);
+			} else if (graphRecordDtoList.get(0) instanceof FoodAttendanceGraphRecordDto) {
+				allCityGraphRecordDto = getAllCityFoodAttendanceGraphRecordDto(graphRecordDtoList);
+			}
+
+			if (null != allCityGraphRecordDto) {
+				allCityAddedGraphRecordDtoList.add(allCityGraphRecordDto);
+			}
+
+		}
+
+		allCityAddedGraphRecordDtoList.addAll(graphRecordDtoList);
+		return allCityAddedGraphRecordDtoList;
+	}
+
+	private GraphRecordDto getAllCityFoodAttendanceGraphRecordDto(List<? extends GraphRecordDto> graphRecordDtoList) {
+		FoodAttendanceGraphRecordDto allCityFoodAttendanceGraphRecordDto = FoodAttendanceGraphRecordDto.builder()
+				.movedInResidents(0)
+				.presentStudents(0)
+				.foodAttendance(0)
+				.totalCount(0)
+				.build();
+
+		FoodAttendanceGraphRecordDto foodAttendanceGraphRecordDto;
+		for (GraphRecordDto graphRecordDto : graphRecordDtoList) {
+			foodAttendanceGraphRecordDto = (FoodAttendanceGraphRecordDto) graphRecordDto;
+			allCityFoodAttendanceGraphRecordDto.setMovedInResidents(allCityFoodAttendanceGraphRecordDto.getMovedInResidents() + foodAttendanceGraphRecordDto.getMovedInResidents());
+			allCityFoodAttendanceGraphRecordDto.setPresentStudents(allCityFoodAttendanceGraphRecordDto.getPresentStudents() + foodAttendanceGraphRecordDto.getPresentStudents());
+			allCityFoodAttendanceGraphRecordDto.setFoodAttendance(allCityFoodAttendanceGraphRecordDto.getFoodAttendance() + foodAttendanceGraphRecordDto.getFoodAttendance());
+			allCityFoodAttendanceGraphRecordDto.setTotalCount(allCityFoodAttendanceGraphRecordDto.getTotalCount() + foodAttendanceGraphRecordDto.getTotalCount());
+			allCityFoodAttendanceGraphRecordDto.setFrequencyValue(foodAttendanceGraphRecordDto.getFrequencyValue());
+		}
+		return allCityFoodAttendanceGraphRecordDto;
+	}
+
+	private GraphRecordDto getAllCityStudentFeedbackGraphRecordDto(List<? extends GraphRecordDto> graphRecordDtoList) {
+		StudentFeedbackGraphRecordDto allCityStudentFeedbackGraphRecordDto = StudentFeedbackGraphRecordDto.builder()
+				.satisfied(0)
+				.unsatisfied(0)
+				.studentFeedbackCount(0)
+				.build();
+
+		StudentFeedbackGraphRecordDto studentFeedbackGraphRecordDto;
+		for (GraphRecordDto graphRecordDto : graphRecordDtoList) {
+			studentFeedbackGraphRecordDto = (StudentFeedbackGraphRecordDto) graphRecordDto;
+			allCityStudentFeedbackGraphRecordDto.setSatisfied(allCityStudentFeedbackGraphRecordDto.getSatisfied() + studentFeedbackGraphRecordDto.getSatisfied());
+			allCityStudentFeedbackGraphRecordDto.setUnsatisfied(allCityStudentFeedbackGraphRecordDto.getUnsatisfied() + studentFeedbackGraphRecordDto.getUnsatisfied());
+			allCityStudentFeedbackGraphRecordDto.setStudentFeedbackCount(allCityStudentFeedbackGraphRecordDto.getStudentFeedbackCount() + studentFeedbackGraphRecordDto.getStudentFeedbackCount());
+			allCityStudentFeedbackGraphRecordDto.setFrequencyValue(studentFeedbackGraphRecordDto.getFrequencyValue());
+		}
+		return allCityStudentFeedbackGraphRecordDto;
+	}
+
+	private GraphRecordDto getAllCityProcessAdherenceGraphRecordDto(List<? extends GraphRecordDto> graphRecordDtoList) {
+		ProcessAdherenceGraphRecordDto allCityProcessAdherenceGraphRecordDto = ProcessAdherenceGraphRecordDto.builder()
+				.totalCount(0)
+				.menuAdherence(0)
+				.quantityAdherence(0)
+				.onTimeDelivery(0)
+				.orderedOnTime(0)
+				.menuCreated(0)
+				.build();
+
+		ProcessAdherenceGraphRecordDto processAdherenceGraphRecordDto;
+		for (GraphRecordDto graphRecordDto : graphRecordDtoList) {
+			processAdherenceGraphRecordDto = (ProcessAdherenceGraphRecordDto) graphRecordDto;
+			allCityProcessAdherenceGraphRecordDto.setTotalCount(allCityProcessAdherenceGraphRecordDto.getTotalCount() + processAdherenceGraphRecordDto.getTotalCount());
+			allCityProcessAdherenceGraphRecordDto.setMenuAdherence(allCityProcessAdherenceGraphRecordDto.getMenuAdherence() + processAdherenceGraphRecordDto.getMenuAdherence());
+			allCityProcessAdherenceGraphRecordDto.setQuantityAdherence(allCityProcessAdherenceGraphRecordDto.getQuantityAdherence() + processAdherenceGraphRecordDto.getQuantityAdherence());
+			allCityProcessAdherenceGraphRecordDto.setOnTimeDelivery(allCityProcessAdherenceGraphRecordDto.getOnTimeDelivery() + processAdherenceGraphRecordDto.getOnTimeDelivery());
+			allCityProcessAdherenceGraphRecordDto.setOrderedOnTime(allCityProcessAdherenceGraphRecordDto.getOrderedOnTime() + processAdherenceGraphRecordDto.getOrderedOnTime());
+			allCityProcessAdherenceGraphRecordDto.setMenuCreated(allCityProcessAdherenceGraphRecordDto.getMenuCreated() + processAdherenceGraphRecordDto.getMenuCreated());
+			allCityProcessAdherenceGraphRecordDto.setFrequencyValue(allCityProcessAdherenceGraphRecordDto.getFrequencyValue());
+		}
+		return allCityProcessAdherenceGraphRecordDto;
+	}
+
 }
