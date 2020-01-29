@@ -20,5 +20,6 @@ public class PropertyBoqStatusDto {
 
 	private String propertyUuid;
 	private BoqStatus boqStatus;
+	private String boqStatusDesc;
 	private String colorCode;
 }
