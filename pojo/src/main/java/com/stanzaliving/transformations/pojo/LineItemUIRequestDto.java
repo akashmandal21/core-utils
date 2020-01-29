@@ -17,7 +17,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class LineItemDeleteRequestDto {
+public class LineItemUIRequestDto {
 
 	private String propertyUuid;
 	private String categoryUuid;

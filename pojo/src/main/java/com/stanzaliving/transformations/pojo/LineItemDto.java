@@ -4,6 +4,7 @@
 package com.stanzaliving.transformations.pojo;
 
 import com.stanzaliving.transformations.enums.AreaOfUse;
+import com.stanzaliving.transformations.enums.LineItemStatus;
 import com.stanzaliving.transformations.enums.LineItemType;
 
 import lombok.Getter;
@@ -34,6 +35,7 @@ public class LineItemDto {
 	private AreaOfUse areaOfUse;
 	private String brandName;
 	private String subBrandName;
+	private LineItemStatus lineItemStatus;
 	private LineItemType lineItemType;
 	
 }

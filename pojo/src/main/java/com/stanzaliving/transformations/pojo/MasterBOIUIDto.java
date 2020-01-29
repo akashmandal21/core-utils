@@ -59,6 +59,8 @@ public class MasterBOIUIDto {
 	
 	private String brandName;
 	
+	private String subBrandName;
+	
 	private AreaOfUse areaOfUse;
 	
 	private int slQty;
