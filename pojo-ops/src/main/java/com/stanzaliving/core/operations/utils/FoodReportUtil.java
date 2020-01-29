@@ -113,6 +113,7 @@ public class FoodReportUtil {
 			allCityAddedGraphRecordDtoList.addAll(allCityGraphRecordDtoList);
 
 		}
+		allCityAddedGraphRecordDtoList.addAll(graphRecordDtoList);//if separation needed for all cities and remaining
 		return allCityAddedGraphRecordDtoList;
 	}
 
