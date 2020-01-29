@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * @author naveen.kumar
@@ -100,85 +101,103 @@ public class FoodReportUtil {
 		if (AccessLevel.CITY.equals(accessLevel) && CollectionUtils.isNotEmpty(graphRecordDtoList) &&
 				!graphRecordDtoList.stream().anyMatch(graphRecordDto -> null == graphRecordDto.getCityUuid())) {
 
-			GraphRecordDto allCityGraphRecordDto = null;
+			List<GraphRecordDto> allCityGraphRecordDtoList = new ArrayList<>();
 			if (graphRecordDtoList.get(0) instanceof ProcessAdherenceGraphRecordDto) {
-				allCityGraphRecordDto = getAllCityProcessAdherenceGraphRecordDto(graphRecordDtoList);
+				allCityGraphRecordDtoList = getAllCityProcessAdherenceGraphRecordDto(graphRecordDtoList);
 			} else if (graphRecordDtoList.get(0) instanceof StudentFeedbackGraphRecordDto) {
-				allCityGraphRecordDto = getAllCityStudentFeedbackGraphRecordDto(graphRecordDtoList);
+				allCityGraphRecordDtoList = getAllCityStudentFeedbackGraphRecordDto(graphRecordDtoList);
 			} else if (graphRecordDtoList.get(0) instanceof FoodAttendanceGraphRecordDto) {
-				allCityGraphRecordDto = getAllCityFoodAttendanceGraphRecordDto(graphRecordDtoList);
+				allCityGraphRecordDtoList = getAllCityFoodAttendanceGraphRecordDto(graphRecordDtoList);
 			}
 
-			if (null != allCityGraphRecordDto) {
-				allCityAddedGraphRecordDtoList.add(allCityGraphRecordDto);
-			}
+			allCityAddedGraphRecordDtoList.addAll(allCityGraphRecordDtoList);
 
 		}
-
-		allCityAddedGraphRecordDtoList.addAll(graphRecordDtoList);
 		return allCityAddedGraphRecordDtoList;
 	}
 
-	private GraphRecordDto getAllCityFoodAttendanceGraphRecordDto(List<? extends GraphRecordDto> graphRecordDtoList) {
-		FoodAttendanceGraphRecordDto allCityFoodAttendanceGraphRecordDto = FoodAttendanceGraphRecordDto.builder()
-				.movedInResidents(0)
-				.presentStudents(0)
-				.foodAttendance(0)
-				.totalCount(0)
-				.build();
+	private List<GraphRecordDto> getAllCityFoodAttendanceGraphRecordDto(List<? extends GraphRecordDto> graphRecordDtoList) {
 
-		FoodAttendanceGraphRecordDto foodAttendanceGraphRecordDto;
-		for (GraphRecordDto graphRecordDto : graphRecordDtoList) {
-			foodAttendanceGraphRecordDto = (FoodAttendanceGraphRecordDto) graphRecordDto;
-			allCityFoodAttendanceGraphRecordDto.setMovedInResidents(allCityFoodAttendanceGraphRecordDto.getMovedInResidents() + foodAttendanceGraphRecordDto.getMovedInResidents());
-			allCityFoodAttendanceGraphRecordDto.setPresentStudents(allCityFoodAttendanceGraphRecordDto.getPresentStudents() + foodAttendanceGraphRecordDto.getPresentStudents());
-			allCityFoodAttendanceGraphRecordDto.setFoodAttendance(allCityFoodAttendanceGraphRecordDto.getFoodAttendance() + foodAttendanceGraphRecordDto.getFoodAttendance());
-			allCityFoodAttendanceGraphRecordDto.setTotalCount(allCityFoodAttendanceGraphRecordDto.getTotalCount() + foodAttendanceGraphRecordDto.getTotalCount());
-			allCityFoodAttendanceGraphRecordDto.setFrequencyValue(foodAttendanceGraphRecordDto.getFrequencyValue());
+		Map<String, List<GraphRecordDto>> frequencyGraphRecordDtoMap = graphRecordDtoList.stream().collect(Collectors.groupingBy(GraphRecordDto::getFrequencyValue));
+		List<GraphRecordDto> allCityFoodAttendanceGraphRecordDtoList = new ArrayList<>();
+
+		for (String frequencyValue : frequencyGraphRecordDtoMap.keySet()) {
+			List<? extends GraphRecordDto> graphRecordDtoListFrequencyValue = frequencyGraphRecordDtoMap.get(frequencyValue);
+			FoodAttendanceGraphRecordDto allCityFoodAttendanceGraphRecordDto = FoodAttendanceGraphRecordDto.builder()
+					.movedInResidents(0)
+					.presentStudents(0)
+					.foodAttendance(0)
+					.totalCount(0)
+					.build();
+
+			FoodAttendanceGraphRecordDto foodAttendanceGraphRecordDto;
+			for (GraphRecordDto graphRecordDto : graphRecordDtoListFrequencyValue) {
+				foodAttendanceGraphRecordDto = (FoodAttendanceGraphRecordDto) graphRecordDto;
+				allCityFoodAttendanceGraphRecordDto.setMovedInResidents(allCityFoodAttendanceGraphRecordDto.getMovedInResidents() + foodAttendanceGraphRecordDto.getMovedInResidents());
+				allCityFoodAttendanceGraphRecordDto.setPresentStudents(allCityFoodAttendanceGraphRecordDto.getPresentStudents() + foodAttendanceGraphRecordDto.getPresentStudents());
+				allCityFoodAttendanceGraphRecordDto.setFoodAttendance(allCityFoodAttendanceGraphRecordDto.getFoodAttendance() + foodAttendanceGraphRecordDto.getFoodAttendance());
+				allCityFoodAttendanceGraphRecordDto.setTotalCount(allCityFoodAttendanceGraphRecordDto.getTotalCount() + foodAttendanceGraphRecordDto.getTotalCount());
+				allCityFoodAttendanceGraphRecordDto.setFrequencyValue(foodAttendanceGraphRecordDto.getFrequencyValue());
+			}
+			allCityFoodAttendanceGraphRecordDtoList.add(allCityFoodAttendanceGraphRecordDto);
 		}
-		return allCityFoodAttendanceGraphRecordDto;
+		return allCityFoodAttendanceGraphRecordDtoList;
 	}
 
-	private GraphRecordDto getAllCityStudentFeedbackGraphRecordDto(List<? extends GraphRecordDto> graphRecordDtoList) {
-		StudentFeedbackGraphRecordDto allCityStudentFeedbackGraphRecordDto = StudentFeedbackGraphRecordDto.builder()
-				.satisfied(0)
-				.unsatisfied(0)
-				.studentFeedbackCount(0)
-				.build();
+	private List<GraphRecordDto> getAllCityStudentFeedbackGraphRecordDto(List<? extends GraphRecordDto> graphRecordDtoList) {
+		Map<String, List<GraphRecordDto>> frequencyGraphRecordDtoMap = graphRecordDtoList.stream().collect(Collectors.groupingBy(GraphRecordDto::getFrequencyValue));
+		List<GraphRecordDto> allCityStudentFeedbackGraphRecordDtoList = new ArrayList<>();
 
-		StudentFeedbackGraphRecordDto studentFeedbackGraphRecordDto;
-		for (GraphRecordDto graphRecordDto : graphRecordDtoList) {
-			studentFeedbackGraphRecordDto = (StudentFeedbackGraphRecordDto) graphRecordDto;
-			allCityStudentFeedbackGraphRecordDto.setSatisfied(allCityStudentFeedbackGraphRecordDto.getSatisfied() + studentFeedbackGraphRecordDto.getSatisfied());
-			allCityStudentFeedbackGraphRecordDto.setUnsatisfied(allCityStudentFeedbackGraphRecordDto.getUnsatisfied() + studentFeedbackGraphRecordDto.getUnsatisfied());
-			allCityStudentFeedbackGraphRecordDto.setStudentFeedbackCount(allCityStudentFeedbackGraphRecordDto.getStudentFeedbackCount() + studentFeedbackGraphRecordDto.getStudentFeedbackCount());
-			allCityStudentFeedbackGraphRecordDto.setFrequencyValue(studentFeedbackGraphRecordDto.getFrequencyValue());
+		for (String frequencyValue : frequencyGraphRecordDtoMap.keySet()) {
+			List<? extends GraphRecordDto> graphRecordDtoListFrequencyValue = frequencyGraphRecordDtoMap.get(frequencyValue);
+			StudentFeedbackGraphRecordDto allCityStudentFeedbackGraphRecordDto = StudentFeedbackGraphRecordDto.builder()
+					.satisfied(0)
+					.unsatisfied(0)
+					.studentFeedbackCount(0)
+					.build();
+
+			StudentFeedbackGraphRecordDto studentFeedbackGraphRecordDto;
+			for (GraphRecordDto graphRecordDto : graphRecordDtoListFrequencyValue) {
+				studentFeedbackGraphRecordDto = (StudentFeedbackGraphRecordDto) graphRecordDto;
+				allCityStudentFeedbackGraphRecordDto.setSatisfied(allCityStudentFeedbackGraphRecordDto.getSatisfied() + studentFeedbackGraphRecordDto.getSatisfied());
+				allCityStudentFeedbackGraphRecordDto.setUnsatisfied(allCityStudentFeedbackGraphRecordDto.getUnsatisfied() + studentFeedbackGraphRecordDto.getUnsatisfied());
+				allCityStudentFeedbackGraphRecordDto.setStudentFeedbackCount(allCityStudentFeedbackGraphRecordDto.getStudentFeedbackCount() + studentFeedbackGraphRecordDto.getStudentFeedbackCount());
+				allCityStudentFeedbackGraphRecordDto.setFrequencyValue(studentFeedbackGraphRecordDto.getFrequencyValue());
+			}
+			allCityStudentFeedbackGraphRecordDtoList.add(allCityStudentFeedbackGraphRecordDto);
 		}
-		return allCityStudentFeedbackGraphRecordDto;
+		return allCityStudentFeedbackGraphRecordDtoList;
 	}
 
-	private GraphRecordDto getAllCityProcessAdherenceGraphRecordDto(List<? extends GraphRecordDto> graphRecordDtoList) {
-		ProcessAdherenceGraphRecordDto allCityProcessAdherenceGraphRecordDto = ProcessAdherenceGraphRecordDto.builder()
-				.totalCount(0)
-				.menuAdherence(0)
-				.quantityAdherence(0)
-				.onTimeDelivery(0)
-				.orderedOnTime(0)
-				.menuCreated(0)
-				.build();
+	private List<GraphRecordDto> getAllCityProcessAdherenceGraphRecordDto(List<? extends GraphRecordDto> graphRecordDtoList) {
+		Map<String, List<GraphRecordDto>> frequencyGraphRecordDtoMap = graphRecordDtoList.stream().collect(Collectors.groupingBy(GraphRecordDto::getFrequencyValue));
+		List<GraphRecordDto> allCityProcessAdherenceGraphRecordDtoList = new ArrayList<>();
 
-		ProcessAdherenceGraphRecordDto processAdherenceGraphRecordDto;
-		for (GraphRecordDto graphRecordDto : graphRecordDtoList) {
-			processAdherenceGraphRecordDto = (ProcessAdherenceGraphRecordDto) graphRecordDto;
-			allCityProcessAdherenceGraphRecordDto.setTotalCount(allCityProcessAdherenceGraphRecordDto.getTotalCount() + processAdherenceGraphRecordDto.getTotalCount());
-			allCityProcessAdherenceGraphRecordDto.setMenuAdherence(allCityProcessAdherenceGraphRecordDto.getMenuAdherence() + processAdherenceGraphRecordDto.getMenuAdherence());
-			allCityProcessAdherenceGraphRecordDto.setQuantityAdherence(allCityProcessAdherenceGraphRecordDto.getQuantityAdherence() + processAdherenceGraphRecordDto.getQuantityAdherence());
-			allCityProcessAdherenceGraphRecordDto.setOnTimeDelivery(allCityProcessAdherenceGraphRecordDto.getOnTimeDelivery() + processAdherenceGraphRecordDto.getOnTimeDelivery());
-			allCityProcessAdherenceGraphRecordDto.setOrderedOnTime(allCityProcessAdherenceGraphRecordDto.getOrderedOnTime() + processAdherenceGraphRecordDto.getOrderedOnTime());
-			allCityProcessAdherenceGraphRecordDto.setMenuCreated(allCityProcessAdherenceGraphRecordDto.getMenuCreated() + processAdherenceGraphRecordDto.getMenuCreated());
-			allCityProcessAdherenceGraphRecordDto.setFrequencyValue(allCityProcessAdherenceGraphRecordDto.getFrequencyValue());
+		for (String frequencyValue : frequencyGraphRecordDtoMap.keySet()) {
+			List<? extends GraphRecordDto> graphRecordDtoListFrequencyValue = frequencyGraphRecordDtoMap.get(frequencyValue);
+			ProcessAdherenceGraphRecordDto allCityProcessAdherenceGraphRecordDto = ProcessAdherenceGraphRecordDto.builder()
+					.totalCount(0)
+					.menuAdherence(0)
+					.quantityAdherence(0)
+					.onTimeDelivery(0)
+					.orderedOnTime(0)
+					.menuCreated(0)
+					.build();
+
+			ProcessAdherenceGraphRecordDto processAdherenceGraphRecordDto;
+			for (GraphRecordDto graphRecordDto : graphRecordDtoListFrequencyValue) {
+				processAdherenceGraphRecordDto = (ProcessAdherenceGraphRecordDto) graphRecordDto;
+				allCityProcessAdherenceGraphRecordDto.setTotalCount(allCityProcessAdherenceGraphRecordDto.getTotalCount() + processAdherenceGraphRecordDto.getTotalCount());
+				allCityProcessAdherenceGraphRecordDto.setMenuAdherence(allCityProcessAdherenceGraphRecordDto.getMenuAdherence() + processAdherenceGraphRecordDto.getMenuAdherence());
+				allCityProcessAdherenceGraphRecordDto.setQuantityAdherence(allCityProcessAdherenceGraphRecordDto.getQuantityAdherence() + processAdherenceGraphRecordDto.getQuantityAdherence());
+				allCityProcessAdherenceGraphRecordDto.setOnTimeDelivery(allCityProcessAdherenceGraphRecordDto.getOnTimeDelivery() + processAdherenceGraphRecordDto.getOnTimeDelivery());
+				allCityProcessAdherenceGraphRecordDto.setOrderedOnTime(allCityProcessAdherenceGraphRecordDto.getOrderedOnTime() + processAdherenceGraphRecordDto.getOrderedOnTime());
+				allCityProcessAdherenceGraphRecordDto.setMenuCreated(allCityProcessAdherenceGraphRecordDto.getMenuCreated() + processAdherenceGraphRecordDto.getMenuCreated());
+				allCityProcessAdherenceGraphRecordDto.setFrequencyValue(allCityProcessAdherenceGraphRecordDto.getFrequencyValue());
+			}
+			allCityProcessAdherenceGraphRecordDtoList.add(allCityProcessAdherenceGraphRecordDto);
 		}
-		return allCityProcessAdherenceGraphRecordDto;
+		return allCityProcessAdherenceGraphRecordDtoList;
 	}
 
 }
