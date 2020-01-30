@@ -54,11 +54,11 @@ public class CostUtilizationRecordResponseDto extends RecordDto {
 				.build();
 
 		this.costPerBed = MealResponseDto.builder()
-				.overall(new FeElementDto(costUtilizationRecordDto.getTotalCost().getOverall(), mirCount, false, FeElementType.CURRENCY_INTEGER))
-				.breakfast(new FeElementDto(costUtilizationRecordDto.getTotalCost().getBreakfast(), mirCount, false, FeElementType.CURRENCY_INTEGER))
-				.lunch(new FeElementDto(costUtilizationRecordDto.getTotalCost().getLunch(), mirCount, false, FeElementType.CURRENCY_INTEGER))
-				.snacks(new FeElementDto(costUtilizationRecordDto.getTotalCost().getSnacks(), mirCount, false, FeElementType.CURRENCY_INTEGER))
-				.dinner(new FeElementDto(costUtilizationRecordDto.getTotalCost().getDinner(), mirCount, false, FeElementType.CURRENCY_INTEGER))
+				.overall(new FeElementDto(costUtilizationRecordDto.getTotalCost().getOverall(), mirCount * daysConsidered, false, FeElementType.CURRENCY_INTEGER))
+				.breakfast(new FeElementDto(costUtilizationRecordDto.getTotalCost().getBreakfast(), mirCount * daysConsidered, false, FeElementType.CURRENCY_INTEGER))
+				.lunch(new FeElementDto(costUtilizationRecordDto.getTotalCost().getLunch(), mirCount * daysConsidered, false, FeElementType.CURRENCY_INTEGER))
+				.snacks(new FeElementDto(costUtilizationRecordDto.getTotalCost().getSnacks(), mirCount * daysConsidered, false, FeElementType.CURRENCY_INTEGER))
+				.dinner(new FeElementDto(costUtilizationRecordDto.getTotalCost().getDinner(), mirCount * daysConsidered, false, FeElementType.CURRENCY_INTEGER))
 				.build();
 
 //		double averageOverallCost = costUtilizationRecordDto.getTotalCost().getOverall();
@@ -87,7 +87,7 @@ public class CostUtilizationRecordResponseDto extends RecordDto {
 
 		this.mirCount = new FeElementDto(mirCount, FeElementType.INTEGER);
 
-		this.averagePercentage = new FeElementDto(costUtilizationRecordDto.getOrderCount().getOverall(), mirCount, FeElementType.PERCENT_INTEGER);
+		this.averagePercentage = new FeElementDto(costUtilizationRecordDto.getPresentStudentCount(), costUtilizationRecordDto.getMovedInResidents(), FeElementType.PERCENT_INTEGER);
 
 	}
 
