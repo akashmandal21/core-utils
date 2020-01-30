@@ -76,16 +76,16 @@ public class CostUtilizationRecordResponseDto extends RecordDto {
 				.build();
 
 		this.orderCount = MealResponseDto.builder()
-				.overall(new FeElementDto(costUtilizationRecordDto.getOrderCount().getOverall(), FeElementType.PERCENT_INTEGER))
-				.breakfast(new FeElementDto(costUtilizationRecordDto.getOrderCount().getBreakfast(), FeElementType.PERCENT_INTEGER))
-				.lunch(new FeElementDto(costUtilizationRecordDto.getOrderCount().getLunch(), FeElementType.PERCENT_INTEGER))
-				.snacks(new FeElementDto(costUtilizationRecordDto.getOrderCount().getSnacks(), FeElementType.PERCENT_INTEGER))
-				.dinner(new FeElementDto(costUtilizationRecordDto.getOrderCount().getDinner(), FeElementType.PERCENT_INTEGER))
+				.overall(new FeElementDto(costUtilizationRecordDto.getOrderCount().getOverall(), FeElementType.INTEGER))
+				.breakfast(new FeElementDto(costUtilizationRecordDto.getOrderCount().getBreakfast(), FeElementType.INTEGER))
+				.lunch(new FeElementDto(costUtilizationRecordDto.getOrderCount().getLunch(), FeElementType.INTEGER))
+				.snacks(new FeElementDto(costUtilizationRecordDto.getOrderCount().getSnacks(), FeElementType.INTEGER))
+				.dinner(new FeElementDto(costUtilizationRecordDto.getOrderCount().getDinner(), FeElementType.INTEGER))
 				.build();
 
-		this.occupiedBeds = new FeElementDto(occupied, FeElementType.PERCENT_INTEGER);
+		this.occupiedBeds = new FeElementDto(occupied, FeElementType.INTEGER);
 
-		this.mirCount = new FeElementDto(mirCount, FeElementType.PERCENT_INTEGER);
+		this.mirCount = new FeElementDto(mirCount, FeElementType.INTEGER);
 
 		this.averagePercentage = new FeElementDto(costUtilizationRecordDto.getOrderCount().getOverall(), mirCount, FeElementType.PERCENT_INTEGER);
 
