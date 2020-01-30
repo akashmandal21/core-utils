@@ -31,6 +31,7 @@ public class PropertyDetailsPublishDto implements Serializable{
 
 	private static final long serialVersionUID = 4678413618693891713L;
 	
+	private String estateUuid;
 	private String propertyUuid;
 	private String propertyName;
 	private Address propertyAddress;
