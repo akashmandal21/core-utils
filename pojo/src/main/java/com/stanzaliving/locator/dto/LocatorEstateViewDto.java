@@ -14,4 +14,5 @@ public class LocatorEstateViewDto {
 	private List<Competitor> competitors;
 	
 	private List<TechParks> techParks;
+	
 }

@@ -21,6 +21,8 @@ public class CurrentUser {
 
 	private String userId;
 
+	private String userUuid;
+	
 	private String firstName;
 
 	private String lastName;
@@ -29,6 +31,8 @@ public class CurrentUser {
 
 	private String isoCode;
 
+	private String email;
+	
 	private UserType userType;
 
 }

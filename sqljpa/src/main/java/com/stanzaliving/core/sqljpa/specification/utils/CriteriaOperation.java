@@ -6,6 +6,7 @@ public enum CriteriaOperation {
 	FALSE("false"),
 	LIKE("like"),
 	EQ("="),
+	NOT_EQ("!="),
 	GTE(">="),
 	GT(">"),
 	LTE("<="),
@@ -23,8 +24,8 @@ public enum CriteriaOperation {
 	IN("in"),
 	REGEXP("regexp"),
 	FIND_IN_SET("find_in_set"),
-	ENUM_EQ("=");
-
+	ENUM_EQ("="),
+	ENUM_IN("in");
 	CriteriaOperation(String op) {
 		operation = op;
 	}

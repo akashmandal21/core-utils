@@ -6,7 +6,9 @@ package com.stanzaliving.core.base.utils;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
-import java.util.UUID;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -157,8 +159,14 @@ public class StanzaUtils {
 		return 0d;
 	}
 
+	public static List<String> getSplittedListOnComma(String input) {
 
+		if (Objects.isNull(input)) {
+			return null;
+		}
 
+		return new ArrayList<>(Arrays.asList(input.split("\\s*,\\s*")));
+	}
 
 
 
@@ -228,7 +236,57 @@ public class StanzaUtils {
 		return (value!=null) ? Math.ceil(value.doubleValue()) :0;
 	}
 
+	public static double findPercentage(long total,long number) {
+		
+		return Math.round((number*100.0/total)*100.0)/100.0;
+		
+	}
 
+
+	public static String formatToIndianNumberFormat(long value)
+	{
+		if (value <= 999)
+			return Long.toString(value);
+		String thousandsPart = (value+"").substring((value+"").length()-3);
+
+		long rest = value / 1000;
+		NumberFormat format = new DecimalFormat("##,##");
+		String formattedString = format.format(rest);
+		return formattedString + "," + thousandsPart;
+	}
+
+	
+	/**
+	 * Convert the supplied size to it's corresponding unit
+	 * such as bytes,KB,MB,GB or TB.
+	 * 
+	 * @param size size to convert.
+	 * @author debendra.dhinda
+	 * */
+	public static String convertSizeToBytesOrKBOrMBOrGb(long size) {
+		String sizeWithUnit = "";
+
+		double kb = size / 1024;
+		double mb = kb / 1024;
+		double gb = mb / 1024;
+		double tb = gb / 1024;
+
+		if (size < 1024L) {
+			sizeWithUnit = size + " Bytes";
+		} else if (size >= 1024 && size < (1024L * 1024)) {
+			sizeWithUnit = String.format("%.2f", kb) + " KB";
+		} else if (size >= (1024L * 1024) && size < (1024L * 1024 * 1024)) {
+			sizeWithUnit = String.format("%.2f", mb) + " MB";
+		} else if (size >= (1024L * 1024 * 1024) && size < (1024L * 1024 * 1024 * 1024)) {
+			sizeWithUnit = String.format("%.2f", gb) + " GB";
+		} else if (size >= (1024L * 1024 * 1024 * 1024)) {
+			sizeWithUnit = String.format("%.2f", tb) + " TB";
+		}
+		return sizeWithUnit;
+	}
+	
+	
+	
 
 
 }

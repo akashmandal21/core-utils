@@ -30,4 +30,6 @@ public class StateUIDto {
 	private TimeZone timeZone;
 	
 	private boolean status;
+	
+	private long countryId;
 }
