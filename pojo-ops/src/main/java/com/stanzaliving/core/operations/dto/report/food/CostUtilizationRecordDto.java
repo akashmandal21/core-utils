@@ -22,4 +22,10 @@ public class CostUtilizationRecordDto extends RecordDto {
 
 	private Integer occupiedBeds;
 
+	private Integer movedInResidents;
+
+	private Integer foodAttendanceMarkedCount;
+
+	private Integer totalCount;
+
 }
