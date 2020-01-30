@@ -26,7 +26,6 @@ public class UserManagerMappingRequestDto {
 	@NotBlank(message = "ManagerId is mandatory to create mapping")
 	private String managerId;
 	
-	@NotBlank(message = "UserManagerMappingType cannot be blank")
 	private UserManagerMappingType userManagerMappingType;
 	
 	private String changedBy;
