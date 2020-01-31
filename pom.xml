@@ -43,6 +43,7 @@
 		<module>documentgenerator-client</module>
 		<module>version-client</module>
 		<module>legal-client</module>	
+		<module>leadership-client</module>	
 		<module>project-approval-client</module>	
 		<module>estate-core</module>
 
