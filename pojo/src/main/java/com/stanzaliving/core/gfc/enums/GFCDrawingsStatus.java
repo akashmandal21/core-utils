@@ -21,6 +21,7 @@ import lombok.Getter;
 public enum GFCDrawingsStatus {
 
 	GFC_DRAWING_PENDING("Pending","#e5e3e3"),
+	GFC_DRAWINGS_UPLOADED("Uploaded","#79baa5"),
 	GFC_DRAWING_COMPLETED("Completed","#d41111"),
 
 	GFC_DRAWINGS_APPROVED("Approved","#77baa6"), 
@@ -33,6 +34,7 @@ public enum GFCDrawingsStatus {
 
 	static {
 		gfcDrawingsStatusMap.put(GFC_DRAWING_PENDING, GFCDrawingsStatus.GFC_DRAWING_PENDING.getStatus());
+		gfcDrawingsStatusMap.put(GFC_DRAWINGS_UPLOADED, GFCDrawingsStatus.GFC_DRAWINGS_UPLOADED.getStatus());
 		gfcDrawingsStatusMap.put(GFC_DRAWING_COMPLETED, GFCDrawingsStatus.GFC_DRAWING_COMPLETED.getStatus());
 
 		gfcDrawingsStatusMap.put(GFC_DRAWINGS_APPROVED, GFCDrawingsStatus.GFC_DRAWINGS_APPROVED.getStatus());
