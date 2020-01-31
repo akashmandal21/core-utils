@@ -35,4 +35,6 @@ public class AsIsDrawingsDto extends AbstractDto implements Serializable {
 	private String drawingStatus;
 
 	private String asIsUuid;
+	
+	private boolean isDrawingsRejected;
 }

@@ -33,6 +33,7 @@ public class PropertyDetailsPublishDto implements Serializable{
 	
 	private String estateUuid;
 	private String propertyUuid;
+	private String leadershipPropertyUuid;
 	private String propertyName;
 	private Address propertyAddress;
 	
