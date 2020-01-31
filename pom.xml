@@ -46,6 +46,7 @@
 		<module>project-approval-client</module>	
 		<module>estate-core</module>
 		<module>leadership-client</module>
+		<module>project-service-client</module>
 
 	</modules>
 
