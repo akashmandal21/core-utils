@@ -24,6 +24,7 @@ public enum AsIsDrawingsStatus {
 	AS_IS_COMPLETED("Completed"),
 	
 	AS_IS_DRAWINGS_PENDING("Pending"),
+	AS_IS_DRAWINGS_UPLOADED("Uploaded"),
 	AS_IS_DRAWINGS_APPROVED("Approved"),
 	AS_IS_DRAWINGS_REJECTED("Rejected");
 
@@ -37,6 +38,7 @@ public enum AsIsDrawingsStatus {
 		asIsDrawingsStatusMap.put(AS_IS_COMPLETED, AsIsDrawingsStatus.AS_IS_COMPLETED.getStatus());
 		
 		asIsDrawingsStatusMap.put(AS_IS_DRAWINGS_PENDING, AsIsDrawingsStatus.AS_IS_DRAWINGS_PENDING.getStatus());
+		asIsDrawingsStatusMap.put(AS_IS_DRAWINGS_UPLOADED, AsIsDrawingsStatus.AS_IS_DRAWINGS_UPLOADED.getStatus());
 		asIsDrawingsStatusMap.put(AS_IS_DRAWINGS_APPROVED, AsIsDrawingsStatus.AS_IS_DRAWINGS_APPROVED.getStatus());
 		asIsDrawingsStatusMap.put(AS_IS_DRAWINGS_REJECTED, AsIsDrawingsStatus.AS_IS_DRAWINGS_REJECTED.getStatus());
 	}
