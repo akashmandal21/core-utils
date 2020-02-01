@@ -61,7 +61,7 @@ public class Java8LocalDateStdDeserializer extends StdDeserializer<LocalDate> {
 
 		} else {
 			
-			DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("mmm dd, yyyy");
+			DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
 			
 			try {
 				localDate = LocalDate.parse(jsonparser.getText(), dateTimeFormatter);
@@ -73,4 +73,5 @@ public class Java8LocalDateStdDeserializer extends StdDeserializer<LocalDate> {
 		}
 		return localDate;
 	}
+	
 }
