@@ -5,6 +5,7 @@ package com.stanzaliving.core.base.localdate;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -59,7 +60,16 @@ public class Java8LocalDateStdDeserializer extends StdDeserializer<LocalDate> {
 			}
 
 		} else {
-			localDate = LocalDate.parse(jsonparser.getText());
+			
+			DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("mmm dd, yyyy");
+			
+			try {
+				localDate = LocalDate.parse(jsonparser.getText(), dateTimeFormatter);
+			} catch (Exception e) {
+				localDate = LocalDate.parse(jsonparser.getText());	
+			}
+			
+			
 		}
 		return localDate;
 	}
