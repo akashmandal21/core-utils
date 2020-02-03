@@ -10,7 +10,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum BedCountStatus {
 
-	
+	NOT_STARTED("Not Started","#e5e3e3"),
 	IN_DRAFT("In draft","#e5e3e3"),
 	SUBMITTED("Submitted","#e5e3e3"),
 	ZONAL_HEAD("Zonal Head","#e5e3e3"),
@@ -28,6 +28,7 @@ public enum BedCountStatus {
 	private static EnumMap<BedCountStatus, String> bedCountStatusMap = new EnumMap<>(BedCountStatus.class);
 
 	static {
+		bedCountStatusMap.put(NOT_STARTED,BedCountStatus.NOT_STARTED.getStatus());
 		bedCountStatusMap.put(IN_DRAFT, BedCountStatus.IN_DRAFT.getStatus());
 		bedCountStatusMap.put(SUBMITTED, BedCountStatus.SUBMITTED.getStatus());
 
