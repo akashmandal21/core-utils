@@ -2,6 +2,7 @@ package com.stanzaliving.core.projectservice.enums;
 
 public enum  PropertyUpdateEnum {
 
+    //SITE_ENGINEER_ASSIGNED("Site Engineer Assigned"),
     SFR_COMPLETED("SFR Completed"),
     AS_IS_COMPLETED("As-Is Completed"),
     OFR_COMPLETED("OFR Completed"),
