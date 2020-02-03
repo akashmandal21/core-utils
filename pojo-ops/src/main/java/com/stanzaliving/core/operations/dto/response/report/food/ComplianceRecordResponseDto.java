@@ -48,6 +48,6 @@ public class ComplianceRecordResponseDto extends RecordDto {
         this.vendorUuid = complianceRecordDto.getVendorUuid();
         this.vendorName= complianceRecordDto.getVendorName();
         this.mealUuid = complianceRecordDto.getMealUuid();
-        this.mealName=complianceRecordDto.getMealName();
+        this.mealName = complianceRecordDto.getMealName();
     }
 }

@@ -22,4 +22,8 @@ public class MealCountRecordDto extends RecordDto {
 
     private int dinnerCount;
 
+    private int brunchCount;
+
+    private int lunchTiffinCount;
+
 }
