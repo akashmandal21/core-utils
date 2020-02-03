@@ -8,7 +8,7 @@ import java.util.function.BiConsumer;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
