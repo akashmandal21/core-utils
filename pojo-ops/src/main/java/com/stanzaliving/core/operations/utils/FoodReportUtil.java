@@ -229,7 +229,7 @@ public class FoodReportUtil {
 			return null;
 		}
 
-		MealCountRecordDto aggregatedMealCountRecordDto = (MealCountRecordDto) recordDtoList.get(0);
+		MealCountRecordDto aggregatedMealCountRecordDto = ((MealCountRecordDto) recordDtoList.get(0)).clone();
 		for (Integer i = 1; i < recordDtoList.size(); i++) {
 			MealCountRecordDto mealCountRecordDto = (MealCountRecordDto) recordDtoList.get(i);
 			aggregatedMealCountRecordDto.setOverallCount(aggregatedMealCountRecordDto.getOverallCount() + mealCountRecordDto.getOverallCount());

@@ -1,5 +1,6 @@
 package com.stanzaliving.core.operations.dto.report;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
@@ -19,7 +20,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class RecordDto implements Comparable {
+@Log4j2
+public class RecordDto implements Comparable, Cloneable {
 
 	private String cityUuid;
 	private String cityName;
@@ -67,6 +69,15 @@ public class RecordDto implements Comparable {
 			}
 		}
 		return 0;
+	}
+
+	protected Object clone() {
+		try {
+			return super.clone();
+		} catch (CloneNotSupportedException e) {
+			log.error("Getting CloneNotSupportedException ", e);
+			throw new RuntimeException(e);
+		}
 	}
 
 }
