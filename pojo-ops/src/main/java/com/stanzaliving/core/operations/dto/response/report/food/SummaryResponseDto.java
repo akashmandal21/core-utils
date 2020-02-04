@@ -62,9 +62,9 @@ public class SummaryResponseDto extends RecordDto {
 
 		this.costEfficiency = CostResponseDto.builder()
 				.budgetedCostPerStudent(
-						new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), summaryRecordDto.getCostEfficiency().getMovedInResidents(), false, FeElementType.CURRENCY_INTEGER))
+						new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), dateLevelNumbersDto.getMovedInResidents() / summaryRecordDto.getDaysConsidered(), false, FeElementType.CURRENCY_INTEGER))
 				.costPerStudent(
-						new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getMovedInResidents(), false, FeElementType.CURRENCY_INTEGER))
+						new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), dateLevelNumbersDto.getMovedInResidents() / summaryRecordDto.getDaysConsidered(), false, FeElementType.CURRENCY_INTEGER))
 				.costUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getExpectedMealCost()))
 				.budgetUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getBudgetedMealCost()))
 				.build();
