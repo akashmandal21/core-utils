@@ -22,6 +22,8 @@ public class ComplianceRecordDto extends RecordDto {
 
     int feedback;
 
+    int menuAdherence;
+
     double rating;
 
     String vendorUuid;
@@ -31,4 +33,8 @@ public class ComplianceRecordDto extends RecordDto {
     String mealUuid;
     
     String mealName;
+
+    int shortageFilled;
+
+    int leftoverFilled;
 }

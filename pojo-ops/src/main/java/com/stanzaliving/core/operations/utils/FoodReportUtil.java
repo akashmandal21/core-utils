@@ -9,6 +9,7 @@ import com.stanzaliving.core.operations.dto.report.RecordDto;
 import com.stanzaliving.core.operations.dto.report.food.FoodRatingBuckets;
 import com.stanzaliving.core.operations.dto.report.food.MealCountRecordDto;
 import com.stanzaliving.core.operations.dto.report.food.UserFoodRatingDto;
+import com.stanzaliving.core.operations.dto.report.food.ProductMetricsRecordDto;
 import com.stanzaliving.core.operations.dto.report.food.graph.FoodAttendanceGraphRecordDto;
 import com.stanzaliving.core.operations.dto.report.food.graph.ProcessAdherenceGraphRecordDto;
 import com.stanzaliving.core.operations.dto.report.food.graph.StudentFeedbackGraphRecordDto;
@@ -121,6 +122,24 @@ public class FoodReportUtil {
 		return allCityAddedGraphRecordDtoList;
 	}
 
+	public ProductMetricsRecordDto aggregateProductMetricsRecordDto(ProductMetricsRecordDto productMetricsRecordDtoAggregated, ProductMetricsRecordDto productMetricsRecordDto) {
+		if (null == productMetricsRecordDtoAggregated) {
+			return productMetricsRecordDto;
+		}
+		if (null == productMetricsRecordDto) {
+			return productMetricsRecordDtoAggregated;
+		}
+		productMetricsRecordDtoAggregated.setMealsCount(productMetricsRecordDtoAggregated.getMealsCount() + productMetricsRecordDto.getMealsCount());
+		productMetricsRecordDtoAggregated.setMenuCreated(productMetricsRecordDtoAggregated.getMenuCreated() + productMetricsRecordDto.getMenuCreated());
+		productMetricsRecordDtoAggregated.setOrderCreated(productMetricsRecordDtoAggregated.getOrderCreated() + productMetricsRecordDto.getOrderCreated());
+		productMetricsRecordDtoAggregated.setFoodReceived(productMetricsRecordDtoAggregated.getFoodReceived() + productMetricsRecordDto.getFoodReceived());
+		productMetricsRecordDtoAggregated.setShortageFilled(productMetricsRecordDtoAggregated.getShortageFilled() + productMetricsRecordDto.getShortageFilled());
+		productMetricsRecordDtoAggregated.setLeftoverFilled(productMetricsRecordDtoAggregated.getLeftoverFilled() + productMetricsRecordDto.getLeftoverFilled());
+		productMetricsRecordDtoAggregated.setRcFeedbackGiven(productMetricsRecordDtoAggregated.getRcFeedbackGiven() + productMetricsRecordDto.getRcFeedbackGiven());
+
+		return productMetricsRecordDtoAggregated;
+	}
+
 	private List<GraphRecordDto> getAllCityFoodAttendanceGraphRecordDto(List<? extends GraphRecordDto> graphRecordDtoList) {
 
 		Map<String, List<GraphRecordDto>> frequencyGraphRecordDtoMap = graphRecordDtoList.stream().collect(Collectors.groupingBy(GraphRecordDto::getFrequencyValue));
@@ -224,13 +243,11 @@ public class FoodReportUtil {
 		return aggregatedMealCountRecordDto;
 	}
 
-	public Map<String, MealCountRecordDto> getMealFilteredMealCountAccessLevelRecordDtoMap(
-			Map<String, MealCountRecordDto> mealCountAccessLevelRecordDtoMap, FoodReportRequestDto foodReportRequestDto) {
-
-		if (CollectionUtils.isNotEmpty(foodReportRequestDto.getMealUuid())) {
-			for (String accessLevelId : mealCountAccessLevelRecordDtoMap.keySet()) {
-				MealCountRecordDto mealCountRecordDto = mealCountAccessLevelRecordDtoMap.get(accessLevelId);
-
+	public static Map<String, MealCountRecordDto> getMealFilteredMealCountAccessLevelRecordDtoMap(Map<String, MealCountRecordDto> mealCountAccessLevelRecordDtoMap,
+			FoodReportRequestDto foodReportRequestDto) {
+		for (String accessLevelId : mealCountAccessLevelRecordDtoMap.keySet()) {
+			MealCountRecordDto mealCountRecordDto = mealCountAccessLevelRecordDtoMap.get(accessLevelId);
+			if (CollectionUtils.isNotEmpty(foodReportRequestDto.getMealUuid())) {
 				// applying meal level filter
 				if (!foodReportRequestDto.getMealUuid().contains(MealType.BREAKFAST.getMealId().toString())) {
 					mealCountRecordDto.setBreakfastCount(0);
@@ -250,24 +267,20 @@ public class FoodReportUtil {
 				if (!foodReportRequestDto.getMealUuid().contains(MealType.LUNCH_TIFFIN.getMealId().toString())) {
 					mealCountRecordDto.setLunchTiffinCount(0);
 				}
-
-				// considering brunch and tiffin as lunch and updating overall with meal filter
-				mealCountRecordDto.setLunchCount(mealCountRecordDto.getLunchCount() + mealCountRecordDto.getBrunchCount() + mealCountRecordDto.getLunchTiffinCount());
-				mealCountRecordDto
-						.setOverallCount(mealCountRecordDto.getLunchCount() + mealCountRecordDto.getBreakfastCount() + mealCountRecordDto.getDinnerCount() + mealCountRecordDto.getSnacksCount());
 			}
+			// considering brunch and tiffin as lunch and updating overall with meal filter
+			mealCountRecordDto.setLunchCount(mealCountRecordDto.getLunchCount() + mealCountRecordDto.getBrunchCount() + mealCountRecordDto.getLunchTiffinCount());
+			mealCountRecordDto.setOverallCount(mealCountRecordDto.getLunchCount() + mealCountRecordDto.getBreakfastCount() + mealCountRecordDto.getDinnerCount() + mealCountRecordDto.getSnacksCount());
 		}
-
 		Map<String, MealCountRecordDto> updatedMealCountAccessLevelRecordDtoMap = mealCountAccessLevelRecordDtoMap;
-
 		if (null == foodReportRequestDto.getAccessLevel()) {
 			MealCountRecordDto mealCountRecordDto = mealCountAccessLevelRecordDtoMap.get(null);
+			updatedMealCountAccessLevelRecordDtoMap.remove(null);
 			updatedMealCountAccessLevelRecordDtoMap.put(MealType.BREAKFAST.getMealId().toString(), MealCountRecordDto.builder().overallCount(mealCountRecordDto.getBreakfastCount()).build());
 			updatedMealCountAccessLevelRecordDtoMap.put(MealType.LUNCH.getMealId().toString(), MealCountRecordDto.builder().overallCount(mealCountRecordDto.getLunchCount()).build());
 			updatedMealCountAccessLevelRecordDtoMap.put(MealType.EVENING_SNACKS.getMealId().toString(), MealCountRecordDto.builder().overallCount(mealCountRecordDto.getSnacksCount()).build());
 			updatedMealCountAccessLevelRecordDtoMap.put(MealType.DINNER.getMealId().toString(), MealCountRecordDto.builder().overallCount(mealCountRecordDto.getDinnerCount()).build());
 		}
-
 		return updatedMealCountAccessLevelRecordDtoMap;
 	}
 
