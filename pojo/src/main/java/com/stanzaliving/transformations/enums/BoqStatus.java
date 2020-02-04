@@ -12,15 +12,17 @@ import lombok.Getter;
 @Getter
 public enum BoqStatus {
 
-	NOT_STARTED("Not Started"),
-	DRAFT_IN_PROGRESS("Under Draft"),
-	SEND_FOR_APPROVAL("Send For Approval"),
-	SENT_BACK("Sent Back"),
-	APPROVED("Approved");
+	NOT_STARTED("Not Started", "#e5e3e3"),
+	DRAFT_IN_PROGRESS("Under Draft", "#e5e3e3"),
+	SEND_FOR_APPROVAL("Send For Approval", "#FFC300"),
+	SENT_BACK("Sent Back", "#d41111"),
+	APPROVED("Approved", "#77baa6");
 	
 	private String desc;
+	private String color;
 
-	private BoqStatus(String name) {
+	private BoqStatus(String name, String color) {
 		this.desc = name;
+		this.color = color;
 	}
 }
