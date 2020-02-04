@@ -41,9 +41,10 @@ public class CostUtilizationRecordResponseDto extends RecordDto {
 
 	public CostUtilizationRecordResponseDto(AccessLevel accessLevel, CostUtilizationRecordDto costUtilizationRecordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap, int daysConsidered) {
 		super(costUtilizationRecordDto);
+		this.setDaysConsidered(daysConsidered);
 
-		Integer occupied = FoodReportUtil.getOccupiedBedCount(accessLevel, costUtilizationRecordDto, dateLevelFieldsMap);	//to be verified
-		Integer mirCount = FoodReportUtil.getMIRCount(accessLevel, costUtilizationRecordDto, dateLevelFieldsMap);	//to be verified
+		Integer occupied = FoodReportUtil.getOccupiedBedCount(accessLevel, costUtilizationRecordDto, dateLevelFieldsMap); // to be verified
+		Integer mirCount = FoodReportUtil.getMIRCount(accessLevel, costUtilizationRecordDto, dateLevelFieldsMap); // to be verified
 
 		this.budgetUtilization = MealResponseDto.builder()
 				.overall(new FeElementDto(costUtilizationRecordDto.getTotalCost().getOverall(), costUtilizationRecordDto.getBudgetedCost().getOverall(), FeElementType.PERCENT_INTEGER))
@@ -60,12 +61,6 @@ public class CostUtilizationRecordResponseDto extends RecordDto {
 				.snacks(new FeElementDto(costUtilizationRecordDto.getTotalCost().getSnacks(), mirCount * daysConsidered, true, FeElementType.CURRENCY_INTEGER))
 				.dinner(new FeElementDto(costUtilizationRecordDto.getTotalCost().getDinner(), mirCount * daysConsidered, true, FeElementType.CURRENCY_INTEGER))
 				.build();
-
-//		double averageOverallCost = costUtilizationRecordDto.getTotalCost().getOverall();
-//		double averageBreakfastCost = costUtilizationRecordDto.getTotalCost().getBreakfast() / occupied;
-//		double averageLunchCost = costUtilizationRecordDto.getTotalCost().getLunch() / occupied;
-//		double averageSnacksCost = costUtilizationRecordDto.getTotalCost().getSnacks() / occupied;
-//		double averageDinnerCost = costUtilizationRecordDto.getTotalCost().getDinner() / occupied;
 
 		this.costUtilizationPerBed = MealResponseDto.builder()
 				.overall(new FeElementDto(costUtilizationRecordDto.getTotalCost().getOverall(), costUtilizationRecordDto.getExpectedCost().getOverall(), FeElementType.PERCENT_INTEGER))

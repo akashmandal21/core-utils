@@ -29,6 +29,8 @@ public class ComplianceRecordResponseDto extends RecordDto {
 
     FeElementDto rating;
 
+    FeElementDto menuAdherence;
+
     String vendorUuid;
     
     String vendorName;
@@ -41,13 +43,14 @@ public class ComplianceRecordResponseDto extends RecordDto {
         super(complianceRecordDto);
         this.totalMeals = new FeElementDto(complianceRecordDto.getTotalMeals());
         this.receivedOnTime = new FeElementDto(complianceRecordDto.getReceivedOnTime(), complianceRecordDto.getTotalMeals(), false, FeElementType.FRACTION);
-        this.leftOver = new FeElementDto(complianceRecordDto.getLeftOver(), complianceRecordDto.getTotalMeals());
-        this.shortage = new FeElementDto(complianceRecordDto.getShortage(), complianceRecordDto.getTotalMeals());
+        this.leftOver = new FeElementDto(complianceRecordDto.getLeftOver(), complianceRecordDto.getLeftoverFilled());
+        this.shortage = new FeElementDto(complianceRecordDto.getShortage(), complianceRecordDto.getShortageFilled());
         this.feedback = new FeElementDto(complianceRecordDto.getFeedback(), complianceRecordDto.getTotalMeals());
-        this.rating = new FeElementDto(complianceRecordDto.getRating());
+        this.rating = new FeElementDto(complianceRecordDto.getRating(), complianceRecordDto.getFeedback(), false, FeElementType.DOUBLE);
         this.vendorUuid = complianceRecordDto.getVendorUuid();
         this.vendorName= complianceRecordDto.getVendorName();
         this.mealUuid = complianceRecordDto.getMealUuid();
-        this.mealName=complianceRecordDto.getMealName();
+        this.mealName = complianceRecordDto.getMealName();
+        this.menuAdherence = new FeElementDto(complianceRecordDto.getMenuAdherence(), complianceRecordDto.getTotalMeals());
     }
 }
