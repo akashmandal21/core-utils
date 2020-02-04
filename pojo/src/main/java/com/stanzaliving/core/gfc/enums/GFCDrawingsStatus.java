@@ -22,11 +22,11 @@ public enum GFCDrawingsStatus {
 
 	GFC_DRAWING_NOT_STARTED("Not Started","#e5e3e3"),
 	GFC_DRAWING_PENDING("Pending","#e5e3e3"),
-	GFC_DRAWINGS_UPLOADED("Uploaded","#79baa5"),
-	GFC_DRAWING_COMPLETED("Completed","#d41111"),
+	GFC_DRAWINGS_UPLOADED("Uploaded","#FFC300"),
+	GFC_DRAWING_COMPLETED("Completed","#FFC300"),
 
 	GFC_DRAWINGS_APPROVED("Approved","#77baa6"), 
-	GFC_DRAWINGS_REJECTED("Rejected","#77baa5");
+	GFC_DRAWINGS_REJECTED("Rejected","#d41111");
 
 	private String status;
 	private String color;
