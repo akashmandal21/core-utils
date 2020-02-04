@@ -118,4 +118,39 @@ public class LegalClientApi {
 
     }
 
+    
+    /***
+     * Get the signed ATL file path from Legal document by estate uuid
+     * 
+     * @author debendra.dhinda
+     * @since 04-Feb-2020
+     * */
+	public ResponseDto<String> getSignedATlFilePathByEstateUuid(String estateUuid) {
+
+		if (Objects.isNull(estateUuid)) {
+			return null;
+		}
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("estateUuid", estateUuid);
+
+		String path = UriComponentsBuilder.fromPath("/internal/legal/document/estate/{estateUuid}/signedAtlPath")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
 }
