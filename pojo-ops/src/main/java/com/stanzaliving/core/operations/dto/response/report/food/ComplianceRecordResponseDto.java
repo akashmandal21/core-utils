@@ -42,7 +42,7 @@ public class ComplianceRecordResponseDto extends RecordDto {
     public ComplianceRecordResponseDto(ComplianceRecordDto complianceRecordDto) {
         super(complianceRecordDto);
         this.totalMeals = new FeElementDto(complianceRecordDto.getTotalMeals());
-        this.receivedOnTime = new FeElementDto(complianceRecordDto.getReceivedOnTime(), complianceRecordDto.getTotalMeals(), false, FeElementType.FRACTION);
+        this.receivedOnTime = new FeElementDto(complianceRecordDto.getReceivedOnTime(), complianceRecordDto.getTotalMeals());
         this.leftOver = new FeElementDto(complianceRecordDto.getLeftOver(), complianceRecordDto.getLeftoverFilled());
         this.shortage = new FeElementDto(complianceRecordDto.getShortage(), complianceRecordDto.getShortageFilled());
         this.feedback = new FeElementDto(complianceRecordDto.getFeedback(), complianceRecordDto.getTotalMeals());
