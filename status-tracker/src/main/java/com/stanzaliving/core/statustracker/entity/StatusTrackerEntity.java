@@ -32,8 +32,8 @@ public class StatusTrackerEntity extends AbstractJpaEntity {
 	@Column(name = "context_name", columnDefinition = "varchar(255)", nullable = false)
 	private String contextName;
 
-	@Column(name = "status", nullable = false)
-	private String status;
+	@Column(name = "status_name", nullable = false)
+	private String statusName;
 
 	@Column(name = "context_uuid", columnDefinition = "varchar(255)", nullable = false)
 	private String contextUuid;

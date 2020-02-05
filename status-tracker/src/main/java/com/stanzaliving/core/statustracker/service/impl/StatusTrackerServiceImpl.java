@@ -29,7 +29,7 @@ public class StatusTrackerServiceImpl implements StatusTrackerService {
 		if(Objects.nonNull(statusTrackerEntity)) {
 			return StatusTrackerDto.builder().contextName(statusTrackerEntity.getContextName())
 					.contextUuid(statusTrackerEntity.getContextUuid()).createdAt(statusTrackerEntity.getCreatedAt())
-					.createdBy(statusTrackerEntity.getCreatedBy()).status(statusTrackerEntity.getStatus()).build();
+					.createdBy(statusTrackerEntity.getCreatedBy()).status(statusTrackerEntity.getStatusName()).build();
 		}
 		
 		return null;
@@ -47,7 +47,7 @@ public class StatusTrackerServiceImpl implements StatusTrackerService {
 		StatusTrackerEntity statusTrackerEntity = StatusTrackerEntity.builder().contextName(statusTrackerDto.getContextName())
 									.contextUuid(statusTrackerDto.getContextUuid())
 									.createdBy(statusTrackerDto.getCreatedBy())
-									.status(statusTrackerDto.getStatus()).build();
+									.statusName(statusTrackerDto.getStatus()).build();
 		try {
 			statusTrackerEntity = statusTrackerDbService.save(statusTrackerEntity);	
 		}catch(Exception e) {
