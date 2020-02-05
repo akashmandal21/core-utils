@@ -1,10 +1,11 @@
-package com.stanzaliving.core.statustracker.db.service;
+package com.stanzaliving.core.statustracker.consumer;
 
 import java.util.Objects;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Component
 @Log4j2
+@Lazy(false)
 public class StatusTrackerConsumer<T> extends BaseConsumer<StatusTrackerDto> {
 
 	@Autowired

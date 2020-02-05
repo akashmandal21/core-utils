@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.statustracker.repository;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.stanzaliving.core.sqljpa.repository.AbstractJpaRepository;
@@ -14,4 +16,5 @@ public interface StatusTrackerRepository extends AbstractJpaRepository<StatusTra
 
 	StatusTrackerEntity findLastByContextNameAndStatusAndContextUuidOrderByCreatedAtDesc(String contextName,Enum<?> status,String contextUuid);
 	
+	List<StatusTrackerEntity> findByContextUuid(String contextUuid);
 }
