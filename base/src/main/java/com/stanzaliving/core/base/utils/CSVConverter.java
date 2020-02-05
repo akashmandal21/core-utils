@@ -141,7 +141,7 @@ public class CSVConverter {
 			for (String string : stringArray) {
 
 				if (StringUtils.isNotBlank(string)) {
-					list.add(string);
+					list.add(string.trim());
 				}
 			}
 
