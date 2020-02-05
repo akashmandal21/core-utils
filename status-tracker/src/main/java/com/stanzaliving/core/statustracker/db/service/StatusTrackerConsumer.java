@@ -6,7 +6,6 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,9 +24,6 @@ public class StatusTrackerConsumer<T> extends BaseConsumer<StatusTrackerDto> {
 
 	@Autowired
 	private ObjectMapper objectMapper;
-
-	@Autowired
-	private ThreadPoolTaskExecutor notificationExecutor;
 
 	@KafkaListener(topics = {
 			"${kafka.topic.statustracker}" }, idIsGroup = false, id = "${spring.kafka.consumer.group-id}")
@@ -49,7 +45,7 @@ public class StatusTrackerConsumer<T> extends BaseConsumer<StatusTrackerDto> {
 
 					if (Objects.nonNull(statusTrackerDto)) {
 
-						notificationExecutor.submit(() -> statusTrackerService.createEntryForStatus(statusTrackerDto));
+						statusTrackerService.createEntryForStatus(statusTrackerDto);
 
 					} else {
 
