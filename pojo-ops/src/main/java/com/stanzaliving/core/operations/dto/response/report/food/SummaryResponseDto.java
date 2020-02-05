@@ -53,18 +53,20 @@ public class SummaryResponseDto extends RecordDto {
 						.build();
 
 		this.processAdherence = AdherenceResponseDto.builder()
-				.menuAdherence(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuAdherence(), summaryRecordDto.getTotalCount()))
-				.quantityAdherence(new FeElementDto(summaryRecordDto.getProcessAdherence().getQuantityAdherence(), summaryRecordDto.getTotalCount()))
-				.onTimeDelivery(new FeElementDto(summaryRecordDto.getProcessAdherence().getOnTimeDelivery(), summaryRecordDto.getTotalCount()))
-				.onTimeOrder(new FeElementDto(summaryRecordDto.getProcessAdherence().getOrderedOnTime(), summaryRecordDto.getTotalCount()))
-				.onTimeMenuCreation(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuCreated(), summaryRecordDto.getTotalCount()))
+				.menuAdherence(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuAdherence(), summaryRecordDto.getProcessAdherence().getFoodReceivedTimes()))
+				.quantityAdherence(new FeElementDto(summaryRecordDto.getProcessAdherence().getQuantityAdherence(), summaryRecordDto.getProcessAdherence().getQuantityReceivedTimes()))
+				.onTimeDelivery(new FeElementDto(summaryRecordDto.getProcessAdherence().getOnTimeDelivery(), summaryRecordDto.getProcessAdherence().getFoodReceivedTimes()))
+				.onTimeOrder(new FeElementDto(summaryRecordDto.getProcessAdherence().getOrderedOnTime(), summaryRecordDto.getProcessAdherence().getFoodOrderedTimes()))
+				.onTimeMenuCreation(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuCreatedOnTime(), summaryRecordDto.getProcessAdherence().getMenuCreatedTimes()))
 				.build();
 
 		this.costEfficiency = CostResponseDto.builder()
 				.budgetedCostPerStudent(
-						new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), dateLevelNumbersDto.getMovedInResidents() / summaryRecordDto.getDaysConsidered(), false, FeElementType.CURRENCY_INTEGER))
+						new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), dateLevelNumbersDto.getMovedInResidents() / summaryRecordDto.getDaysConsidered(), false,
+								FeElementType.CURRENCY_INTEGER))
 				.costPerStudent(
-						new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), dateLevelNumbersDto.getMovedInResidents() / summaryRecordDto.getDaysConsidered(), false, FeElementType.CURRENCY_INTEGER))
+						new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), dateLevelNumbersDto.getMovedInResidents() / summaryRecordDto.getDaysConsidered(), false,
+								FeElementType.CURRENCY_INTEGER))
 				.costUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getExpectedMealCost()))
 				.budgetUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getBudgetedMealCost()))
 				.build();
