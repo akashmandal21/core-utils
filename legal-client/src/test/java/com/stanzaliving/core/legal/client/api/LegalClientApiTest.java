@@ -9,6 +9,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.pojo.AttachmentDto;
 import com.stanzaliving.documentgenerator.dto.PdfRequestDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -34,7 +35,7 @@ public class LegalClientApiTest {
 		log.info(". . . test_1_getSignedAtlPath ...");
 
 		String estateUuid ="61bd5523-198a-4e01-9a5c-d235a792e3d7";
-		ResponseDto<String> responseDto = clientApi.getSignedATlFilePathByEstateUuid(estateUuid);
+		ResponseDto<AttachmentDto> responseDto = clientApi.getSignedATLAttachemntByEstateUuid(estateUuid);
 
 		assertNotNull(responseDto);
 		assertNotNull(responseDto.getData());

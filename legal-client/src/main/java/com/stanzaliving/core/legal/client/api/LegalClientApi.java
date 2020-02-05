@@ -15,6 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.pojo.AttachmentDto;
 
 public class LegalClientApi {
 
@@ -125,7 +126,7 @@ public class LegalClientApi {
      * @author debendra.dhinda
      * @since 04-Feb-2020
      * */
-	public ResponseDto<String> getSignedATlFilePathByEstateUuid(String estateUuid) {
+	public ResponseDto<AttachmentDto> getSignedATLAttachemntByEstateUuid(String estateUuid) {
 
 		if (Objects.isNull(estateUuid)) {
 			return null;
@@ -148,7 +149,7 @@ public class LegalClientApi {
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		ParameterizedTypeReference<ResponseDto<AttachmentDto>> returnType = new ParameterizedTypeReference<ResponseDto<AttachmentDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
