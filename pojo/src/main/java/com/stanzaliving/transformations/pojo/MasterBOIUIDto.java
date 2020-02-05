@@ -63,6 +63,8 @@ public class MasterBOIUIDto {
 	
 	private AreaOfUse areaOfUse;
 	
+	private List<String> areaOfUseList;
+	
 	private int slQty;
 	
 	private int llQty;
