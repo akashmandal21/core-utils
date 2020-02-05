@@ -58,6 +58,7 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 			AccessLevel accessLevel,
 			CustomerExperienceRecordDto customerExperienceRecordDto,
 			Map<String, List<UserFoodRatingDto>> foodRatingMap,
+			Map<String, List<UserFoodRatingDto>> completeFoodRatingMap,
 			Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
 
 		super(customerExperienceRecordDto);
@@ -65,6 +66,8 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 		Integer mir = FoodReportUtil.getMIRCount(accessLevel, customerExperienceRecordDto, dateLevelFieldsMap);
 
 		FoodRatingBuckets ratingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, foodRatingMap);
+
+		FoodRatingBuckets completeRatingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, completeFoodRatingMap);
 
 		this.delighted = new FeElementDto(ratingBuckets.getDelightedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.satisfied = new FeElementDto(ratingBuckets.getSatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
@@ -80,6 +83,6 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 		this.quantityAdherence = new FeElementDto(customerExperienceRecordDto.getQuantityAdherence(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
 		this.menuAdherence = new FeElementDto(customerExperienceRecordDto.getMenuAdherence(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
 
-		this.smr = new FeElementDto(ratingBuckets.getTotalResidents(), mir, FeElementType.PERCENT_DOUBLE);
+		this.smr = new FeElementDto(completeRatingBuckets.getTotalResidents(), mir, FeElementType.PERCENT_DOUBLE);
 	}
 }
