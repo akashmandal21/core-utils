@@ -80,6 +80,6 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 		this.quantityAdherence = new FeElementDto(customerExperienceRecordDto.getQuantityAdherence(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
 		this.menuAdherence = new FeElementDto(customerExperienceRecordDto.getMenuAdherence(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
 
-		this.smr = new FeElementDto(ratingBuckets.getTotalFeedbacks(), mir, FeElementType.PERCENT_DOUBLE);
+		this.smr = new FeElementDto(ratingBuckets.getTotalResidents(), mir, FeElementType.PERCENT_DOUBLE);
 	}
 }
