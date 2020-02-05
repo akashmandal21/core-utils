@@ -41,4 +41,8 @@ public class VendorRecordDto extends RecordDto {
     String mealName;
 
     double totalBillAmount;
+
+    int rcFeedbackCount;
+
+    int shortageFilled;
 }

@@ -273,7 +273,7 @@ public class FoodReportUtil {
 			mealCountRecordDto.setOverallCount(mealCountRecordDto.getLunchCount() + mealCountRecordDto.getBreakfastCount() + mealCountRecordDto.getDinnerCount() + mealCountRecordDto.getSnacksCount());
 		}
 		Map<String, MealCountRecordDto> updatedMealCountAccessLevelRecordDtoMap = mealCountAccessLevelRecordDtoMap;
-		if (null == foodReportRequestDto.getAccessLevel()) {
+		if (null == foodReportRequestDto.getAccessLevel() && null != mealCountAccessLevelRecordDtoMap.get(null)) {
 			MealCountRecordDto mealCountRecordDto = mealCountAccessLevelRecordDtoMap.get(null);
 			updatedMealCountAccessLevelRecordDtoMap.remove(null);
 			updatedMealCountAccessLevelRecordDtoMap.put(MealType.BREAKFAST.getMealId().toString(), MealCountRecordDto.builder().overallCount(mealCountRecordDto.getBreakfastCount()).build());
