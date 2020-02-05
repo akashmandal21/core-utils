@@ -14,7 +14,7 @@ import com.stanzaliving.core.statustracker.entity.StatusTrackerEntity;
 @Repository
 public interface StatusTrackerRepository extends AbstractJpaRepository<StatusTrackerEntity, Long> {
 
-	StatusTrackerEntity findLastByContextNameAndStatusAndContextUuidOrderByCreatedAtDesc(String contextName,Enum<?> status,String contextUuid);
+	StatusTrackerEntity findLastByContextNameAndStatusAndContextUuidOrderByCreatedAtDesc(String contextName,String status,String contextUuid);
 	
 	List<StatusTrackerEntity> findByContextUuid(String contextUuid);
 }
