@@ -15,7 +15,7 @@ import com.stanzaliving.core.statustracker.entity.StatusTrackerEntity;
  **/
 public interface StatusTrackerDbService extends AbstractJpaService<StatusTrackerEntity, Long> {
 
-	StatusTrackerEntity findLastEntryForStatusAndContext(String contextName,Enum<?> status,String contextUuid);
+	StatusTrackerEntity findLastEntryForStatusAndContext(String contextName,String status,String contextUuid);
 
 
 }

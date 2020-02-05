@@ -20,7 +20,7 @@ public class StatusTrackerServiceImpl implements StatusTrackerService {
 	private StatusTrackerDbService statusTrackerDbService;
 	
 	@Override
-	public StatusTrackerDto getLastEntryForStatus(String contextName, Enum<?> status, String contextUuid) {
+	public StatusTrackerDto getLastEntryForStatus(String contextName, String status, String contextUuid) {
 		
 		log.info("Got request to get entry sttaus ["+contextName+"] status ["+status+"] contextUuid ["+contextUuid+"]");
 		

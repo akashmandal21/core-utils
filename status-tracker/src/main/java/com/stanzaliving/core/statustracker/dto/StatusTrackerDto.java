@@ -19,7 +19,7 @@ public class StatusTrackerDto {
 
 	private String contextName;
 
-	private Enum<?> status;
+	private String status;
 
 	private String contextUuid;
 

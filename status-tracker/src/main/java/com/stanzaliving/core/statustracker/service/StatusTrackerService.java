@@ -4,8 +4,7 @@ import com.stanzaliving.core.statustracker.dto.StatusTrackerDto;
 
 public interface StatusTrackerService {
 
-	StatusTrackerDto getLastEntryForStatus(String contextName, Enum<?> status,
-			String contextUuid);
-	
 	boolean createEntryForStatus(StatusTrackerDto statusTrackerDto);
+
+	StatusTrackerDto getLastEntryForStatus(String contextName, String status, String contextUuid);
 }

@@ -5,8 +5,6 @@ package com.stanzaliving.core.statustracker.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
@@ -34,9 +32,8 @@ public class StatusTrackerEntity extends AbstractJpaEntity {
 	@Column(name = "context_name", columnDefinition = "varchar(255)", nullable = false)
 	private String contextName;
 
-	@Enumerated(EnumType.STRING)
 	@Column(name = "status", nullable = false)
-	private Enum<?> status;
+	private String status;
 
 	@Column(name = "context_uuid", columnDefinition = "varchar(255)", nullable = false)
 	private String contextUuid;
