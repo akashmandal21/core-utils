@@ -64,5 +64,7 @@ public class EstateEntity extends AbstractJpaEntity {
 
 	@Column(name = "estate_code", columnDefinition = "varchar(15)", nullable = false)
 	private String estateCode;
-	
+
+	 @Column(name = "property_name", columnDefinition = "varchar(255)")
+	 private String propertyName;
 }
