@@ -1,9 +1,9 @@
 package com.stanzaliving.core.statustracker.service.impl;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,28 +28,30 @@ public class StatusTrackerServiceImpl implements StatusTrackerService {
 
 		log.info("Got request to get entry sttaus [" + contextName + "] status [" + status + "] contextUuid ["
 				+ contextUuid + "]");
+		
 
-		List<StatusTrackerEntity> statusTrackerEntities = statusTrackerDbService.findByContextUuid(contextUuid);
+
+		log.info("Got request to get entry sttaus [" + contextName + "] status [" + status + "] contextUuid ["
+				+ contextUuid + "]");
+
+		List<StatusTrackerEntity> statusTrackerEntities = statusTrackerDbService.findByContextUuidAndStatus(contextUuid, status);
 
 		if (CollectionUtils.isNotEmpty(statusTrackerEntities)) {
 
-			Optional<StatusTrackerEntity> optionalEntity = statusTrackerEntities.stream()
-					.filter(entity -> entity.getStatusName().equals(status))
-					.sorted(Comparator.comparing(StatusTrackerEntity::getCreatedBy, Comparator.reverseOrder()))
-					.findFirst();
+			Collections.sort(statusTrackerEntities, Comparator.comparing(StatusTrackerEntity::getCreatedAt, Comparator.reverseOrder()));
+			
+			StatusTrackerEntity statusTrackerEntity = statusTrackerEntities.get(0);
 
-			if (optionalEntity.isPresent()) {
-				StatusTrackerEntity statusTrackerEntity = optionalEntity.get();
-
-				return StatusTrackerDto.builder().contextName(statusTrackerEntity.getContextName())
-						.contextUuid(statusTrackerEntity.getContextUuid()).createdAt(statusTrackerEntity.getCreatedAt())
-						.createdBy(statusTrackerEntity.getCreatedBy()).status(statusTrackerEntity.getStatusName())
-						.build();
-
-			}
+			return StatusTrackerDto.builder().contextName(statusTrackerEntity.getContextName())
+					.contextUuid(statusTrackerEntity.getContextUuid()).createdAt(statusTrackerEntity.getCreatedAt())
+					.createdBy(statusTrackerEntity.getCreatedBy()).status(statusTrackerEntity.getStatusName())
+					.build();
+ 
 		}
 
 		return null;
+	
+
 	}
 
 	@Override

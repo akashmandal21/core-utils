@@ -20,4 +20,7 @@ public interface StatusTrackerDbService extends AbstractJpaService<StatusTracker
 	StatusTrackerEntity findLastEntryForStatusAndContext(String contextName,String status,String contextUuid);
 
 	List<StatusTrackerEntity> findByContextUuid(String contextUuid);
+	
+	List<StatusTrackerEntity> findByContextUuidAndStatus(String contextUuid,String status);
+	
 }
