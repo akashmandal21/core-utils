@@ -31,4 +31,8 @@ public enum AccessLevel {
 	public boolean isHigherOrEqual(AccessLevel other) {
 		return this.levelNum >= other.levelNum;
 	}
+
+	public boolean isHigher(AccessLevel other) {
+		return this.levelNum > other.levelNum;
+	}
 }
