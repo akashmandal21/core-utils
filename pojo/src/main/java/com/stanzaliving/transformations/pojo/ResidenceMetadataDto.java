@@ -33,6 +33,6 @@ public class ResidenceMetadataDto {
 	
 	private String residenceBrand;
 
-	private Long microMarketId;
+	private String microMarketId;
 	
 }
