@@ -1,7 +1,12 @@
 package com.stanzaliving.core.statustracker.service.impl;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Stream;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,12 +29,25 @@ public class StatusTrackerServiceImpl implements StatusTrackerService {
 		
 		log.info("Got request to get entry sttaus ["+contextName+"] status ["+status+"] contextUuid ["+contextUuid+"]");
 		
-		StatusTrackerEntity statusTrackerEntity = statusTrackerDbService.findLastEntryForStatusAndContext(contextName, status, contextUuid);
+		List<StatusTrackerEntity> statusTrackerEntities = statusTrackerDbService.findByContextUuid(contextUuid);
 		
-		if(Objects.nonNull(statusTrackerEntity)) {
-			return StatusTrackerDto.builder().contextName(statusTrackerEntity.getContextName())
-					.contextUuid(statusTrackerEntity.getContextUuid()).createdAt(statusTrackerEntity.getCreatedAt())
-					.createdBy(statusTrackerEntity.getCreatedBy()).status(statusTrackerEntity.getStatusName()).build();
+		if(CollectionUtils.isNotEmpty(statusTrackerEntities)) {
+			
+			Stream<StatusTrackerEntity> stream = statusTrackerEntities.stream().filter(entity->entity.getStatusName().equals(status));
+			
+			if(stream.count()>0) {
+				
+				Optional<StatusTrackerEntity> optionalEntity = stream.sorted(Comparator.comparing(StatusTrackerEntity::getCreatedBy, Comparator.reverseOrder())).findFirst();
+				
+				if(optionalEntity.isPresent()) {
+					StatusTrackerEntity statusTrackerEntity = optionalEntity.get();
+					
+					return StatusTrackerDto.builder().contextName(statusTrackerEntity.getContextName())
+							.contextUuid(statusTrackerEntity.getContextUuid()).createdAt(statusTrackerEntity.getCreatedAt())
+							.createdBy(statusTrackerEntity.getCreatedBy()).status(statusTrackerEntity.getStatusName()).build();
+						
+				}
+			}
 		}
 		
 		return null;

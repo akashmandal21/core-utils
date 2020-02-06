@@ -4,6 +4,8 @@
  */
 package com.stanzaliving.core.statustracker.db.service;
 
+import java.util.List;
+
 import com.stanzaliving.core.sqljpa.service.AbstractJpaService;
 import com.stanzaliving.core.statustracker.entity.StatusTrackerEntity;
 
@@ -17,5 +19,5 @@ public interface StatusTrackerDbService extends AbstractJpaService<StatusTracker
 
 	StatusTrackerEntity findLastEntryForStatusAndContext(String contextName,String status,String contextUuid);
 
-
+	List<StatusTrackerEntity> findByContextUuid(String contextUuid);
 }
