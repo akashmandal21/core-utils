@@ -99,6 +99,29 @@ public class FoodReportUtil {
 		return occupied;
 	}
 
+	public Integer getActiveMealsCount(AccessLevel accessLevel, RecordDto recordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
+
+		Integer activeMeals = 0;
+
+		String entityUuid = FoodReportUtil.getEntityForAccessLevel(accessLevel, recordDto);
+
+		DateLevelNumbersDto dateLevelNumbersDto = dateLevelFieldsMap.get(entityUuid);
+
+		if (Objects.nonNull(dateLevelNumbersDto)) {
+			activeMeals = dateLevelNumbersDto.getActiveMeals();
+		} else {
+
+			for (Entry<String, DateLevelNumbersDto> entry : dateLevelFieldsMap.entrySet()) {
+				activeMeals += entry.getValue().getActiveMeals();
+			}
+
+		}
+
+		log.debug("Active Meals for " + accessLevel + " and Id: " + entityUuid + " is " + activeMeals);
+
+		return activeMeals;
+	}
+
 	public List<? extends GraphRecordDto> getAllCityAddedGraphRecordDtoList(List<? extends GraphRecordDto> graphRecordDtoList, AccessLevel accessLevel) {
 
 		List<GraphRecordDto> allCityAddedGraphRecordDtoList = new ArrayList<>();
