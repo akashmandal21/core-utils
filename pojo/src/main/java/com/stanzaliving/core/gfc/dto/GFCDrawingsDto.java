@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.gfc.enums.GFCCategoryEnum;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
