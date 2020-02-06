@@ -18,5 +18,5 @@ public interface StatusTrackerRepository extends AbstractJpaRepository<StatusTra
 	
 	List<StatusTrackerEntity> findByContextUuid(String contextUuid);
 	
-	List<StatusTrackerEntity> findByContextUuidAndStatus(String contextUuid,String status);
+	List<StatusTrackerEntity> findByContextUuidAndStatusName(String contextUuid,String status);
 }

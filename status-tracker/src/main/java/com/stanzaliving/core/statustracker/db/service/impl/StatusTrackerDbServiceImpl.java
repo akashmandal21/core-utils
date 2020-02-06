@@ -38,7 +38,7 @@ public class StatusTrackerDbServiceImpl extends AbstractJpaServiceImpl<StatusTra
 
 	@Override
 	public List<StatusTrackerEntity> findByContextUuidAndStatus(String contextUuid, String status) {
-		return statusTrackerRepository.findByContextUuidAndStatus(contextUuid, status);
+		return statusTrackerRepository.findByContextUuidAndStatusName(contextUuid, status);
 	}
 
 }
