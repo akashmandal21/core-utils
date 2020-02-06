@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.transformations.pojo;
 
+import java.util.List;
+
 import com.stanzaliving.transformations.enums.AreaOfUse;
 import com.stanzaliving.transformations.enums.LineItemStatus;
 import com.stanzaliving.transformations.enums.LineItemType;
@@ -33,6 +35,7 @@ public class LineItemDto {
 	private float length;
 	private float breadth;
 	private AreaOfUse areaOfUse;
+	private List<String> areaOfUseList;
 	private String brandName;
 	private String subBrandName;
 	private LineItemStatus lineItemStatus;

@@ -19,15 +19,15 @@ import lombok.ToString;
 public class PropertyDetailInfoResponseDto {
 
 	
-	private Integer area;
+	private int area;
 	private String cityName;
 	private String brandName;
-	private Integer roomCount;
-	private Integer bedCount;
+	private int roomCount;
+	private int bedCount;
 	private String propertyName;
 	private String micromarketName;	
-	private Integer attachedWashroom;
-	private Integer attachedBalcony;
+	private int attachedWashroom;
+	private int attachedBalcony;
 	private BoqStatus boqStatus;
 	private String projectManagerName;
 	private String projectManagerEmail;
