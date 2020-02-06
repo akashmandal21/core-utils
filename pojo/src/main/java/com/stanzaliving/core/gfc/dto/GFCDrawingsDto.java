@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.stanzaliving.core.gfc.enums.GFCCategories;
+import com.stanzaliving.core.gfc.enums.GFCCategoryEnum;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,7 +30,7 @@ public class GFCDrawingsDto implements Serializable {
 	private String propertyUuid;
 	
 	@NotNull(message = "GFCCategories shouldn't be null.")
-	private GFCCategories gfcCategories;
+	private GFCCategoryEnum gfcCategoryEnum;
 	
 
 }
