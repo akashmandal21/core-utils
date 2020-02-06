@@ -22,6 +22,8 @@ public class CommentsDto {
 	private Long commentId;
 
 	private Date commentTime;
+	
+	private String commentTimeText;
 
 	private String commentBy;
 	

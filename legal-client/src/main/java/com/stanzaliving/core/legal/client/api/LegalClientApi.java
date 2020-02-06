@@ -152,7 +152,10 @@ public class LegalClientApi {
 
     }
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> estate_mail_changes
     /***
      * Get the signed ATL file path from Legal document by estate uuid
      * 
