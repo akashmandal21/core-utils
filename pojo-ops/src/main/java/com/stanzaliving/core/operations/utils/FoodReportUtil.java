@@ -253,23 +253,29 @@ public class FoodReportUtil {
 		for (String frequencyValue : frequencyGraphRecordDtoMap.keySet()) {
 			List<? extends GraphRecordDto> graphRecordDtoListFrequencyValue = frequencyGraphRecordDtoMap.get(frequencyValue);
 			ProcessAdherenceGraphRecordDto allCityProcessAdherenceGraphRecordDto = ProcessAdherenceGraphRecordDto.builder()
-					.totalCount(0)
+					.foodReceiveCount(0)
 					.menuAdherence(0)
 					.quantityAdherence(0)
 					.onTimeDelivery(0)
 					.orderedOnTime(0)
 					.menuCreated(0)
+					.quantityReceivingFilled(0)
+					.orderCount(0)
+					.menuCreationCount(0)
 					.build();
 
 			ProcessAdherenceGraphRecordDto processAdherenceGraphRecordDto;
 			for (GraphRecordDto graphRecordDto : graphRecordDtoListFrequencyValue) {
 				processAdherenceGraphRecordDto = (ProcessAdherenceGraphRecordDto) graphRecordDto;
-				allCityProcessAdherenceGraphRecordDto.setTotalCount(allCityProcessAdherenceGraphRecordDto.getTotalCount() + processAdherenceGraphRecordDto.getTotalCount());
+				allCityProcessAdherenceGraphRecordDto.setFoodReceiveCount(allCityProcessAdherenceGraphRecordDto.getFoodReceiveCount() + processAdherenceGraphRecordDto.getFoodReceiveCount());
 				allCityProcessAdherenceGraphRecordDto.setMenuAdherence(allCityProcessAdherenceGraphRecordDto.getMenuAdherence() + processAdherenceGraphRecordDto.getMenuAdherence());
 				allCityProcessAdherenceGraphRecordDto.setQuantityAdherence(allCityProcessAdherenceGraphRecordDto.getQuantityAdherence() + processAdherenceGraphRecordDto.getQuantityAdherence());
 				allCityProcessAdherenceGraphRecordDto.setOnTimeDelivery(allCityProcessAdherenceGraphRecordDto.getOnTimeDelivery() + processAdherenceGraphRecordDto.getOnTimeDelivery());
 				allCityProcessAdherenceGraphRecordDto.setOrderedOnTime(allCityProcessAdherenceGraphRecordDto.getOrderedOnTime() + processAdherenceGraphRecordDto.getOrderedOnTime());
 				allCityProcessAdherenceGraphRecordDto.setMenuCreated(allCityProcessAdherenceGraphRecordDto.getMenuCreated() + processAdherenceGraphRecordDto.getMenuCreated());
+				allCityProcessAdherenceGraphRecordDto.setQuantityReceivingFilled(allCityProcessAdherenceGraphRecordDto.getQuantityReceivingFilled() + processAdherenceGraphRecordDto.getQuantityReceivingFilled());
+				allCityProcessAdherenceGraphRecordDto.setOrderCount(allCityProcessAdherenceGraphRecordDto.getOrderCount() + processAdherenceGraphRecordDto.getOrderCount());
+				allCityProcessAdherenceGraphRecordDto.setMenuCreationCount(allCityProcessAdherenceGraphRecordDto.getMenuCreationCount() + processAdherenceGraphRecordDto.getMenuCreationCount());
 				allCityProcessAdherenceGraphRecordDto.setFrequencyValue(processAdherenceGraphRecordDto.getFrequencyValue());
 			}
 			allCityProcessAdherenceGraphRecordDtoList.add(allCityProcessAdherenceGraphRecordDto);
