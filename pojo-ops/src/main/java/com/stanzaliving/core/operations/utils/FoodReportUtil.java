@@ -123,6 +123,31 @@ public class FoodReportUtil {
 		return activeMeals;
 	}
 
+	public double getResidenceCount(AccessLevel accessLevel, RecordDto recordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
+
+		double residences = 0;
+
+		String entityUuid = FoodReportUtil.getEntityForAccessLevel(accessLevel, recordDto);
+
+		DateLevelNumbersDto dateLevelNumbersDto = dateLevelFieldsMap.get(entityUuid);
+
+		if (Objects.nonNull(dateLevelNumbersDto)) {
+			residences = dateLevelNumbersDto.getResidences();
+		} else {
+
+			for (Entry<String, DateLevelNumbersDto> entry : dateLevelFieldsMap.entrySet()) {
+				residences += entry.getValue().getResidences();
+			}
+
+		}
+
+		log.debug("Active Residences for " + accessLevel + " and Id: " + entityUuid + " is " + residences);
+
+		return residences;
+	}
+
+	
+	
 	public List<? extends GraphRecordDto> getAllCityAddedGraphRecordDtoList(List<? extends GraphRecordDto> graphRecordDtoList, AccessLevel accessLevel) {
 
 		List<GraphRecordDto> allCityAddedGraphRecordDtoList = new ArrayList<>();
