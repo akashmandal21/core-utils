@@ -20,11 +20,8 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -38,15 +35,19 @@ import java.util.stream.Collectors;
 public class FoodReportUtil {
 
 	public String getEntityForAccessLevel(AccessLevel accessLevel, RecordDto recordDto) {
+		return getEntityForAccessLevel(accessLevel, recordDto.getCityUuid(), recordDto.getMicromarketUuid(), recordDto.getResidenceUuid());
+	}
+
+	public String getEntityForAccessLevel(AccessLevel accessLevel, String cityUuid, String micromarketUuid, String residenceUuid) {
 
 		String entityUuid = null;
 
 		if (AccessLevel.CITY == accessLevel) {
-			entityUuid = recordDto.getCityUuid();
+			entityUuid = cityUuid;
 		} else if (AccessLevel.MICROMARKET == accessLevel) {
-			entityUuid = recordDto.getMicromarketUuid();
+			entityUuid = micromarketUuid;
 		} else if (AccessLevel.RESIDENCE == accessLevel) {
-			entityUuid = recordDto.getResidenceUuid();
+			entityUuid = residenceUuid;
 		}
 
 		return entityUuid;
@@ -199,7 +200,9 @@ public class FoodReportUtil {
 			List<? extends GraphRecordDto> graphRecordDtoListFrequencyValue = frequencyGraphRecordDtoMap.get(frequencyValue);
 			StudentFeedbackGraphRecordDto allCityStudentFeedbackGraphRecordDto = StudentFeedbackGraphRecordDto.builder()
 					.satisfied(0)
-					.unsatisfied(0)
+					.disgusted(0)
+					.dissatisfied(0)
+					.delighted(0)
 					.studentFeedbackCount(0)
 					.build();
 
@@ -207,7 +210,9 @@ public class FoodReportUtil {
 			for (GraphRecordDto graphRecordDto : graphRecordDtoListFrequencyValue) {
 				studentFeedbackGraphRecordDto = (StudentFeedbackGraphRecordDto) graphRecordDto;
 				allCityStudentFeedbackGraphRecordDto.setSatisfied(allCityStudentFeedbackGraphRecordDto.getSatisfied() + studentFeedbackGraphRecordDto.getSatisfied());
-				allCityStudentFeedbackGraphRecordDto.setUnsatisfied(allCityStudentFeedbackGraphRecordDto.getUnsatisfied() + studentFeedbackGraphRecordDto.getUnsatisfied());
+				allCityStudentFeedbackGraphRecordDto.setDisgusted(allCityStudentFeedbackGraphRecordDto.getDisgusted() + studentFeedbackGraphRecordDto.getDisgusted());
+				allCityStudentFeedbackGraphRecordDto.setDissatisfied(allCityStudentFeedbackGraphRecordDto.getDissatisfied() + studentFeedbackGraphRecordDto.getDissatisfied());
+				allCityStudentFeedbackGraphRecordDto.setDelighted(allCityStudentFeedbackGraphRecordDto.getDelighted() + studentFeedbackGraphRecordDto.getDelighted());
 				allCityStudentFeedbackGraphRecordDto.setStudentFeedbackCount(allCityStudentFeedbackGraphRecordDto.getStudentFeedbackCount() + studentFeedbackGraphRecordDto.getStudentFeedbackCount());
 				allCityStudentFeedbackGraphRecordDto.setFrequencyValue(studentFeedbackGraphRecordDto.getFrequencyValue());
 			}
@@ -364,5 +369,20 @@ public class FoodReportUtil {
 
 		return ratingBuckets;
 
+	}
+
+	public  StudentFeedbackGraphRecordDto getStudentFeedbackGraphRecordDto(FoodRatingBuckets foodRatingBuckets, String frequencyValue, UserFoodRatingDto userFoodRatingDto, AccessLevel accessLevel) {
+		return StudentFeedbackGraphRecordDto.builder()
+				.satisfied(foodRatingBuckets.getSatisfiedResidents())
+				.dissatisfied(foodRatingBuckets.getDissatisfiedResidents())
+				.disgusted(foodRatingBuckets.getDisgustedResidents())
+				.delighted(foodRatingBuckets.getDelightedResidents())
+				.studentFeedbackCount(foodRatingBuckets.getTotalResidents())
+				.frequencyValue(frequencyValue)
+				.cityUuid(userFoodRatingDto.getCityUuid())
+				.micromarketUuid(userFoodRatingDto.getMicromarketUuid())
+				.residenceUuid(userFoodRatingDto.getResidenceUuid())
+				.accessLevel(FoodReportUtil.getEntityForAccessLevel(accessLevel, userFoodRatingDto.getCityUuid(), userFoodRatingDto.getMicromarketUuid(), userFoodRatingDto.getResidenceUuid()))
+				.build();
 	}
 }
