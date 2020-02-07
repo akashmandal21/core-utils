@@ -331,6 +331,8 @@ public class FoodReportUtil {
 
 		ratingBuckets = getFoodRatingBuckets(foodRatingDtos);
 
+		log.info("Rating Bucket for Entity: " + entityUuid + " is " + ratingBuckets);
+
 		return ratingBuckets;
 	}
 
@@ -371,7 +373,7 @@ public class FoodReportUtil {
 
 	}
 
-	public  StudentFeedbackGraphRecordDto getStudentFeedbackGraphRecordDto(FoodRatingBuckets foodRatingBuckets, String frequencyValue, UserFoodRatingDto userFoodRatingDto, AccessLevel accessLevel) {
+	public StudentFeedbackGraphRecordDto getStudentFeedbackGraphRecordDto(FoodRatingBuckets foodRatingBuckets, String frequencyValue, UserFoodRatingDto userFoodRatingDto, AccessLevel accessLevel) {
 		return StudentFeedbackGraphRecordDto.builder()
 				.satisfied(foodRatingBuckets.getSatisfiedResidents())
 				.dissatisfied(foodRatingBuckets.getDissatisfiedResidents())
