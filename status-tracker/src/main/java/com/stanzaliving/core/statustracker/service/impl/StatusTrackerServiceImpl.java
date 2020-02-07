@@ -1,7 +1,11 @@
 package com.stanzaliving.core.statustracker.service.impl;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,45 +22,59 @@ public class StatusTrackerServiceImpl implements StatusTrackerService {
 
 	@Autowired
 	private StatusTrackerDbService statusTrackerDbService;
-	
+
 	@Override
 	public StatusTrackerDto getLastEntryForStatus(String contextName, String status, String contextUuid) {
+
+		log.info("Got request to get entry sttaus [" + contextName + "] status [" + status + "] contextUuid ["
+				+ contextUuid + "]");
 		
-		log.info("Got request to get entry sttaus ["+contextName+"] status ["+status+"] contextUuid ["+contextUuid+"]");
-		
-		StatusTrackerEntity statusTrackerEntity = statusTrackerDbService.findLastEntryForStatusAndContext(contextName, status, contextUuid);
-		
-		if(Objects.nonNull(statusTrackerEntity)) {
+
+
+		log.info("Got request to get entry sttaus [" + contextName + "] status [" + status + "] contextUuid ["
+				+ contextUuid + "]");
+
+		List<StatusTrackerEntity> statusTrackerEntities = statusTrackerDbService.findByContextUuidAndStatus(contextUuid, status);
+
+		if (CollectionUtils.isNotEmpty(statusTrackerEntities)) {
+
+			Collections.sort(statusTrackerEntities, Comparator.comparing(StatusTrackerEntity::getCreatedAt, Comparator.reverseOrder()));
+			
+			StatusTrackerEntity statusTrackerEntity = statusTrackerEntities.get(0);
+
 			return StatusTrackerDto.builder().contextName(statusTrackerEntity.getContextName())
 					.contextUuid(statusTrackerEntity.getContextUuid()).createdAt(statusTrackerEntity.getCreatedAt())
-					.createdBy(statusTrackerEntity.getCreatedBy()).status(statusTrackerEntity.getStatusName()).build();
+					.createdBy(statusTrackerEntity.getCreatedBy()).status(statusTrackerEntity.getStatusName())
+					.build();
+ 
 		}
-		
+
 		return null;
+	
+
 	}
 
 	@Override
 	public boolean createEntryForStatus(StatusTrackerDto statusTrackerDto) {
-		
-		if(Objects.isNull(statusTrackerDto)) {
+
+		if (Objects.isNull(statusTrackerDto)) {
 			return false;
 		}
-		
-		log.info("statusTrackerDto to save ["+statusTrackerDto+"]");
-		
-		StatusTrackerEntity statusTrackerEntity = StatusTrackerEntity.builder().contextName(statusTrackerDto.getContextName())
-									.contextUuid(statusTrackerDto.getContextUuid())
-									.createdBy(statusTrackerDto.getCreatedBy())
-									.statusName(statusTrackerDto.getStatus()).build();
+
+		log.info("statusTrackerDto to save [" + statusTrackerDto + "]");
+
+		StatusTrackerEntity statusTrackerEntity = StatusTrackerEntity.builder()
+				.contextName(statusTrackerDto.getContextName()).contextUuid(statusTrackerDto.getContextUuid())
+				.createdBy(statusTrackerDto.getCreatedBy()).statusName(statusTrackerDto.getStatus()).build();
 		try {
-			statusTrackerEntity = statusTrackerDbService.save(statusTrackerEntity);	
-		}catch(Exception e) {
+			statusTrackerEntity = statusTrackerDbService.save(statusTrackerEntity);
+		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Got error while saving status");
-			
+
 			return false;
 		}
-		
+
 		return Objects.nonNull(statusTrackerEntity);
 	}
 }
