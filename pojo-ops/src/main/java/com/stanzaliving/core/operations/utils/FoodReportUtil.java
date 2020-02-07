@@ -99,9 +99,9 @@ public class FoodReportUtil {
 		return occupied;
 	}
 
-	public Integer getActiveMealsCount(AccessLevel accessLevel, RecordDto recordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
+	public double getActiveMealsCount(AccessLevel accessLevel, RecordDto recordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
 
-		Integer activeMeals = 0;
+		double activeMeals = 0;
 
 		String entityUuid = FoodReportUtil.getEntityForAccessLevel(accessLevel, recordDto);
 

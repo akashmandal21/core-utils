@@ -14,12 +14,12 @@ import java.util.List;
 @SuperBuilder
 public class FoodReportRequestDto extends ReportRequestDto implements Cloneable {
 
-    List<String> mealUuid;
+	private List<String> mealUuid;
 
-    List<String> vendorUuid;
+	private List<String> vendorUuid;
 
-    protected Object clone() {
-        return super.clone();
-    }
+	protected Object clone() {
+		return super.clone();
+	}
 
 }

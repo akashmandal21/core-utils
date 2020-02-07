@@ -1,7 +1,9 @@
 package com.stanzaliving.core.operations.dto.response.report.food;
 
 import java.util.List;
+import java.util.Map;
 
+import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.operations.dto.report.RecordDto;
 import com.stanzaliving.core.operations.dto.report.food.FoodRatingBuckets;
 import com.stanzaliving.core.operations.dto.report.food.UserFoodRatingDto;
@@ -38,11 +40,12 @@ public class SummaryResponseDto extends RecordDto {
 
 	private AttendanceResponseDto attendance;
 
-	public SummaryResponseDto(SummaryRecordDto summaryRecordDto, DateLevelNumbersDto dateLevelNumbersDto, List<UserFoodRatingDto> foodRatingDtos) {
+	public SummaryResponseDto(AccessLevel accessLevel, SummaryRecordDto summaryRecordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap, List<UserFoodRatingDto> foodRatingDtos) {
 
 		FoodRatingBuckets foodRatingBuckets = FoodReportUtil.getFoodRatingBuckets(foodRatingDtos);
 
-		int mir = dateLevelNumbersDto.getMovedInResidents() / summaryRecordDto.getDaysConsidered();
+		int mir = FoodReportUtil.getMIRCount(accessLevel, summaryRecordDto, dateLevelFieldsMap);
+		int occupiedBeds = FoodReportUtil.getOccupiedBedCount(accessLevel, summaryRecordDto, dateLevelFieldsMap);
 
 		this.experience =
 				ExperienceResponseDto.builder()
@@ -70,7 +73,7 @@ public class SummaryResponseDto extends RecordDto {
 				.build();
 
 		this.attendance = AttendanceResponseDto.builder()
-				.occupiedBeds(new FeElementDto(dateLevelNumbersDto.getOccupiedBeds() / summaryRecordDto.getDaysConsidered(), FeElementType.INTEGER))
+				.occupiedBeds(new FeElementDto(occupiedBeds, FeElementType.INTEGER))
 				.movedInStudents(new FeElementDto(mir, FeElementType.INTEGER))
 				.present(new FeElementDto(summaryRecordDto.getAttendance().getPresentStudents(), summaryRecordDto.getAttendance().getMovedInResidents()))
 				.mealOrdered(new FeElementDto(summaryRecordDto.getAttendance().getTotalMealsOrdered(), summaryRecordDto.getAttendance().getMovedInResidents()))

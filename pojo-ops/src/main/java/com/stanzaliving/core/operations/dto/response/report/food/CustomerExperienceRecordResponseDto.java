@@ -63,7 +63,11 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 
 		super(customerExperienceRecordDto);
 
-		Integer activeMeals = FoodReportUtil.getActiveMealsCount(accessLevel, customerExperienceRecordDto, dateLevelFieldsMap);
+		int mir = FoodReportUtil.getMIRCount(accessLevel, customerExperienceRecordDto, dateLevelFieldsMap);
+
+		double activeMeals = FoodReportUtil.getActiveMealsCount(accessLevel, customerExperienceRecordDto, dateLevelFieldsMap);
+
+		int totalMeals = (int) (activeMeals * mir * 0.8);
 
 		FoodRatingBuckets ratingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, foodRatingMap);
 
@@ -80,9 +84,9 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 
 		this.rcAvgQualityRating = new FeElementDto(customerExperienceRecordDto.getRcAvgQualityRating() / customerExperienceRecordDto.getRcFeedbackCount(), FeElementType.DOUBLE);
 		this.onTimeDelivery = new FeElementDto(customerExperienceRecordDto.getOnTimeDelivery(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
-		this.quantityAdherence = new FeElementDto(customerExperienceRecordDto.getQuantityAdherence(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
+		this.quantityAdherence = new FeElementDto(customerExperienceRecordDto.getQuantityAdherence(), customerExperienceRecordDto.getQuantityReceivingFilled(), FeElementType.PERCENT_INTEGER);
 		this.menuAdherence = new FeElementDto(customerExperienceRecordDto.getMenuAdherence(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
 
-		this.smr = new FeElementDto(completeRatingBuckets.getTotalResidents(), activeMeals, FeElementType.PERCENT_DOUBLE);
+		this.smr = new FeElementDto(completeRatingBuckets.getTotalFeedbacks(), totalMeals, FeElementType.PERCENT_DOUBLE);
 	}
 }
