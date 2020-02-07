@@ -31,6 +31,10 @@ public class DateLevelNumbersDto {
 	private int occupiedBeds;
 
 	private int movedInResidents;
+	
+	private double activeMeals;
+	
+	private double residences;
 
 	private String residenceUuid;
 
