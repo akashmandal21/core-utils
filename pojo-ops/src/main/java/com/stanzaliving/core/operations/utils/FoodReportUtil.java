@@ -19,6 +19,7 @@ import com.stanzaliving.core.operations.enums.MealType;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -61,9 +62,9 @@ public class FoodReportUtil {
 
 		DateLevelNumbersDto dateLevelNumbersDto = dateLevelFieldsMap.get(entityUuid);
 
-		if (Objects.nonNull(dateLevelNumbersDto)) {
+		if (StringUtils.isNotBlank(entityUuid)) {
 
-			mir = dateLevelNumbersDto.getMovedInResidents();
+			mir = Objects.nonNull(dateLevelNumbersDto) ? dateLevelNumbersDto.getMovedInResidents() : 0;
 		} else {
 
 			for (Entry<String, DateLevelNumbersDto> entry : dateLevelFieldsMap.entrySet()) {
@@ -85,8 +86,9 @@ public class FoodReportUtil {
 
 		DateLevelNumbersDto dateLevelNumbersDto = dateLevelFieldsMap.get(entityUuid);
 
-		if (Objects.nonNull(dateLevelNumbersDto)) {
-			occupied = dateLevelNumbersDto.getOccupiedBeds();
+		if (StringUtils.isNotBlank(entityUuid)) {
+
+			occupied = Objects.nonNull(dateLevelNumbersDto) ? dateLevelNumbersDto.getOccupiedBeds() : 0;
 		} else {
 
 			for (Entry<String, DateLevelNumbersDto> entry : dateLevelFieldsMap.entrySet()) {
@@ -108,8 +110,10 @@ public class FoodReportUtil {
 
 		DateLevelNumbersDto dateLevelNumbersDto = dateLevelFieldsMap.get(entityUuid);
 
-		if (Objects.nonNull(dateLevelNumbersDto)) {
-			activeMeals = dateLevelNumbersDto.getActiveMeals();
+		if (StringUtils.isNotBlank(entityUuid)) {
+
+			activeMeals = Objects.nonNull(dateLevelNumbersDto) ? dateLevelNumbersDto.getActiveMeals() : 0;
+
 		} else {
 
 			for (Entry<String, DateLevelNumbersDto> entry : dateLevelFieldsMap.entrySet()) {
@@ -131,8 +135,10 @@ public class FoodReportUtil {
 
 		DateLevelNumbersDto dateLevelNumbersDto = dateLevelFieldsMap.get(entityUuid);
 
-		if (Objects.nonNull(dateLevelNumbersDto)) {
-			residences = dateLevelNumbersDto.getResidences();
+		if (StringUtils.isNotBlank(entityUuid)) {
+
+			residences = Objects.nonNull(dateLevelNumbersDto) ? dateLevelNumbersDto.getResidences() : 0;
+
 		} else {
 
 			for (Entry<String, DateLevelNumbersDto> entry : dateLevelFieldsMap.entrySet()) {
@@ -146,8 +152,6 @@ public class FoodReportUtil {
 		return residences;
 	}
 
-	
-	
 	public List<? extends GraphRecordDto> getAllCityAddedGraphRecordDtoList(List<? extends GraphRecordDto> graphRecordDtoList, AccessLevel accessLevel) {
 
 		List<GraphRecordDto> allCityAddedGraphRecordDtoList = new ArrayList<>();
@@ -273,7 +277,8 @@ public class FoodReportUtil {
 				allCityProcessAdherenceGraphRecordDto.setOnTimeDelivery(allCityProcessAdherenceGraphRecordDto.getOnTimeDelivery() + processAdherenceGraphRecordDto.getOnTimeDelivery());
 				allCityProcessAdherenceGraphRecordDto.setOrderedOnTime(allCityProcessAdherenceGraphRecordDto.getOrderedOnTime() + processAdherenceGraphRecordDto.getOrderedOnTime());
 				allCityProcessAdherenceGraphRecordDto.setMenuCreated(allCityProcessAdherenceGraphRecordDto.getMenuCreated() + processAdherenceGraphRecordDto.getMenuCreated());
-				allCityProcessAdherenceGraphRecordDto.setQuantityReceivingFilled(allCityProcessAdherenceGraphRecordDto.getQuantityReceivingFilled() + processAdherenceGraphRecordDto.getQuantityReceivingFilled());
+				allCityProcessAdherenceGraphRecordDto
+						.setQuantityReceivingFilled(allCityProcessAdherenceGraphRecordDto.getQuantityReceivingFilled() + processAdherenceGraphRecordDto.getQuantityReceivingFilled());
 				allCityProcessAdherenceGraphRecordDto.setOrderCount(allCityProcessAdherenceGraphRecordDto.getOrderCount() + processAdherenceGraphRecordDto.getOrderCount());
 				allCityProcessAdherenceGraphRecordDto.setMenuCreationCount(allCityProcessAdherenceGraphRecordDto.getMenuCreationCount() + processAdherenceGraphRecordDto.getMenuCreationCount());
 				allCityProcessAdherenceGraphRecordDto.setFrequencyValue(processAdherenceGraphRecordDto.getFrequencyValue());
@@ -354,8 +359,12 @@ public class FoodReportUtil {
 		if (CollectionUtils.isEmpty(foodRatingDtos)) {
 
 			foodRatingDtos = new ArrayList<>();
-			for (Entry<String, List<UserFoodRatingDto>> entry : foodRatingMap.entrySet()) {
-				foodRatingDtos.addAll(entry.getValue());
+
+			if (StringUtils.isBlank(entityUuid)) {
+				
+				for (Entry<String, List<UserFoodRatingDto>> entry : foodRatingMap.entrySet()) {
+					foodRatingDtos.addAll(entry.getValue());
+				}
 			}
 
 		}
