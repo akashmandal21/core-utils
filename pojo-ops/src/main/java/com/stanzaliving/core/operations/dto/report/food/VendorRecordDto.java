@@ -12,37 +12,39 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class VendorRecordDto extends RecordDto {
 
-    int totalCount;
+	private int foodReceivedTimes;
 
-    double rating;
+	private double rating;
 
-    int onTimeAdherence;
+	private int onTimeAdherence;
 
-    int quantityAdherence;
+	private int quantityAdherence;
 
-    double rcQualityFeedback;
+	private double rcQualityFeedback;
 
-    int totalRating;
+	private int totalRating;
 
-    int studentFeedbackCount;
+	private int studentFeedbackCount;
 
-    int menuAdherence;
+	private int menuAdherence;
 
-    int shortageRecords;
+	private int shortageRecords;
 
-    int foreignParticles;
+	private int foreignParticles;
 
-    String vendorUuid;
-    
-    String vendorName;
+	private String vendorUuid;
 
-    String mealUuid;
-    
-    String mealName;
+	private String vendorName;
 
-    double totalBillAmount;
+	private String mealUuid;
 
-    int rcFeedbackCount;
+	private String mealName;
 
-    int shortageFilled;
+	private double totalBillAmount;
+
+	private int rcFeedbackCount;
+
+	private int shortageFilled;
+	
+	private int quantityReceivingFilled;
 }
