@@ -57,8 +57,8 @@ public class MonthlyBudgetSummaryDto extends RecordDto {
 		this.budgetedCostPerStudent = new FeElementDto(monthlyBudgetDto.getCostDto().getBudgetedMealCost(), mir, false, FeElementType.CURRENCY_INTEGER);
 		this.costPerStudent = new FeElementDto(monthlyBudgetDto.getCostDto().getTotalMealCost(), mir, false, FeElementType.CURRENCY_INTEGER);
 
-		this.costUtilization = new FeElementDto(monthlyBudgetDto.getCostDto().getTotalMealCost(), monthlyBudgetDto.getCostDto().getExpectedMealCost(), false, FeElementType.PERCENT_DOUBLE);
-		this.budgetUtilization = new FeElementDto(monthlyBudgetDto.getCostDto().getTotalMealCost(), monthlyBudgetDto.getCostDto().getBudgetedMealCost(), false, FeElementType.PERCENT_DOUBLE);
+		this.costUtilization = new FeElementDto(monthlyBudgetDto.getCostDto().getTotalMealCost(), monthlyBudgetDto.getCostDto().getExpectedMealCost());
+		this.budgetUtilization = new FeElementDto(monthlyBudgetDto.getCostDto().getTotalMealCost(), monthlyBudgetDto.getCostDto().getBudgetedMealCost());
 
 	}
 }
