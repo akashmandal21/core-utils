@@ -36,7 +36,7 @@
 		<module>user-client</module>
 		<module>redis</module>
 		<module>mongoBase</module>
-        <module>qr</module>
+        	<module>qr</module>
 		<module>qaservice</module>
 		<module>comment-client</module>
 		<module>estate-client</module>
@@ -46,7 +46,7 @@
 		<module>leadership-client</module>	
 		<module>project-approval-client</module>	
 		<module>estate-core</module>
-
+		<module>status-tracker</module>
 	</modules>
 
 	<build>
