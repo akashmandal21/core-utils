@@ -59,7 +59,8 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 			CustomerExperienceRecordDto customerExperienceRecordDto,
 			Map<String, List<UserFoodRatingDto>> foodRatingMap,
 			Map<String, List<UserFoodRatingDto>> completeFoodRatingMap,
-			Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
+			Map<String, DateLevelNumbersDto> dateLevelFieldsMap,
+			int daysConsidered) {
 
 		super(customerExperienceRecordDto);
 
@@ -67,7 +68,7 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 
 		double activeMeals = FoodReportUtil.getActiveMealsCount(accessLevel, customerExperienceRecordDto, dateLevelFieldsMap);
 
-		int totalMeals = (int) (activeMeals * mir * 0.8);
+		int totalMeals = (int) (activeMeals * daysConsidered * mir * 0.8);
 
 		FoodRatingBuckets ratingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, foodRatingMap);
 
