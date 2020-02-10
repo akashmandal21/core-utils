@@ -12,11 +12,14 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ProcessAdherenceGraphRecordDto extends GraphRecordDto {
 
-    Integer totalCount;
+    Integer foodReceiveCount;
     Integer menuAdherence;
     Integer quantityAdherence;
     Integer onTimeDelivery;
     Integer orderedOnTime;
     Integer menuCreated;
+    Integer quantityReceivingFilled;
+    Integer orderCount;
+    Integer menuCreationCount;
 
 }

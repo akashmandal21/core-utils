@@ -1,7 +1,9 @@
 package com.stanzaliving.core.operations.dto.response.report.food;
 
 import java.util.List;
+import java.util.Map;
 
+import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.operations.dto.report.RecordDto;
 import com.stanzaliving.core.operations.dto.report.food.FoodRatingBuckets;
 import com.stanzaliving.core.operations.dto.report.food.UserFoodRatingDto;
@@ -38,9 +40,12 @@ public class SummaryResponseDto extends RecordDto {
 
 	private AttendanceResponseDto attendance;
 
-	public SummaryResponseDto(SummaryRecordDto summaryRecordDto, DateLevelNumbersDto dateLevelNumbersDto, List<UserFoodRatingDto> foodRatingDtos) {
+	public SummaryResponseDto(AccessLevel accessLevel, SummaryRecordDto summaryRecordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap, List<UserFoodRatingDto> foodRatingDtos) {
 
 		FoodRatingBuckets foodRatingBuckets = FoodReportUtil.getFoodRatingBuckets(foodRatingDtos);
+
+		int mir = FoodReportUtil.getMIRCount(accessLevel, summaryRecordDto, dateLevelFieldsMap);
+		int occupiedBeds = FoodReportUtil.getOccupiedBedCount(accessLevel, summaryRecordDto, dateLevelFieldsMap);
 
 		this.experience =
 				ExperienceResponseDto.builder()
@@ -49,29 +54,27 @@ public class SummaryResponseDto extends RecordDto {
 						.disgusted(new FeElementDto(foodRatingBuckets.getDisgustedResidents(), foodRatingBuckets.getTotalResidents(), FeElementType.PERCENT_INTEGER))
 						.socialMediaComplaint(new FeElementDto(summaryRecordDto.getExperience().getSocialMediaComplaints()))
 						.disasterEvent(new FeElementDto(summaryRecordDto.getExperience().getDisasterEvents()))
-						.shortage(new FeElementDto(summaryRecordDto.getExperience().getShortage(), summaryRecordDto.getTotalCount(), FeElementType.PERCENT_INTEGER))
+						.shortage(new FeElementDto(summaryRecordDto.getExperience().getShortage(), summaryRecordDto.getExperience().getShortageFilledTimes(), FeElementType.PERCENT_INTEGER))
 						.build();
 
 		this.processAdherence = AdherenceResponseDto.builder()
-				.menuAdherence(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuAdherence(), summaryRecordDto.getTotalCount()))
-				.quantityAdherence(new FeElementDto(summaryRecordDto.getProcessAdherence().getQuantityAdherence(), summaryRecordDto.getTotalCount()))
-				.onTimeDelivery(new FeElementDto(summaryRecordDto.getProcessAdherence().getOnTimeDelivery(), summaryRecordDto.getTotalCount()))
-				.onTimeOrder(new FeElementDto(summaryRecordDto.getProcessAdherence().getOrderedOnTime(), summaryRecordDto.getTotalCount()))
-				.onTimeMenuCreation(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuCreated(), summaryRecordDto.getTotalCount()))
+				.menuAdherence(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuAdherence(), summaryRecordDto.getProcessAdherence().getFoodReceivedTimes()))
+				.quantityAdherence(new FeElementDto(summaryRecordDto.getProcessAdherence().getQuantityAdherence(), summaryRecordDto.getProcessAdherence().getQuantityReceivedTimes()))
+				.onTimeDelivery(new FeElementDto(summaryRecordDto.getProcessAdherence().getOnTimeDelivery(), summaryRecordDto.getProcessAdherence().getFoodReceivedTimes()))
+				.onTimeOrder(new FeElementDto(summaryRecordDto.getProcessAdherence().getOrderedOnTime(), summaryRecordDto.getProcessAdherence().getFoodOrderedTimes()))
+				.onTimeMenuCreation(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuCreatedOnTime(), summaryRecordDto.getProcessAdherence().getMenuCreatedTimes()))
 				.build();
 
 		this.costEfficiency = CostResponseDto.builder()
-				.budgetedCostPerStudent(
-						new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), dateLevelNumbersDto.getMovedInResidents() / summaryRecordDto.getDaysConsidered(), false, FeElementType.CURRENCY_INTEGER))
-				.costPerStudent(
-						new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), dateLevelNumbersDto.getMovedInResidents() / summaryRecordDto.getDaysConsidered(), false, FeElementType.CURRENCY_INTEGER))
+				.budgetedCostPerStudent(new FeElementDto(summaryRecordDto.getCostEfficiency().getBudgetedMealCost(), mir, false, FeElementType.CURRENCY_INTEGER))
+				.costPerStudent(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), mir, false, FeElementType.CURRENCY_INTEGER))
 				.costUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getExpectedMealCost()))
 				.budgetUtilization(new FeElementDto(summaryRecordDto.getCostEfficiency().getTotalMealCost(), summaryRecordDto.getCostEfficiency().getBudgetedMealCost()))
 				.build();
 
 		this.attendance = AttendanceResponseDto.builder()
-				.occupiedBeds(new FeElementDto(dateLevelNumbersDto.getOccupiedBeds() / summaryRecordDto.getDaysConsidered(), FeElementType.INTEGER))
-				.movedInStudents(new FeElementDto(dateLevelNumbersDto.getMovedInResidents() / summaryRecordDto.getDaysConsidered(), FeElementType.INTEGER))
+				.occupiedBeds(new FeElementDto(occupiedBeds, FeElementType.INTEGER))
+				.movedInStudents(new FeElementDto(mir, FeElementType.INTEGER))
 				.present(new FeElementDto(summaryRecordDto.getAttendance().getPresentStudents(), summaryRecordDto.getAttendance().getMovedInResidents()))
 				.mealOrdered(new FeElementDto(summaryRecordDto.getAttendance().getTotalMealsOrdered(), summaryRecordDto.getAttendance().getMovedInResidents()))
 				.foodAttendance(new FeElementDto(summaryRecordDto.getAttendance().getFoodAttendance(), summaryRecordDto.getAttendance().getMovedInResidents()))

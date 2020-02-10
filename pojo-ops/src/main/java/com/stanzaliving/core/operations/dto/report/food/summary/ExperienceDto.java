@@ -15,14 +15,16 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ExperienceDto {
 
-    int unsatisfied;
+	private int unsatisfied;
 
-    int satisfied;
+	private int satisfied;
 
-    int socialMediaComplaints;
+	private int socialMediaComplaints;
 
-    int disasterEvents;
+	private int disasterEvents;
 
-    int shortage;
+	private int shortage;
+
+	private int shortageFilledTimes;
 
 }

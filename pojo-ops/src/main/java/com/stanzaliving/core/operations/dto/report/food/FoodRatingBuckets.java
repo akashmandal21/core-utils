@@ -35,4 +35,5 @@ public class FoodRatingBuckets {
 	private int dissatisfiedResidents;
 
 	private int disgustedResidents;
+
 }

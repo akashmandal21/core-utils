@@ -20,11 +20,8 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -38,15 +35,19 @@ import java.util.stream.Collectors;
 public class FoodReportUtil {
 
 	public String getEntityForAccessLevel(AccessLevel accessLevel, RecordDto recordDto) {
+		return getEntityForAccessLevel(accessLevel, recordDto.getCityUuid(), recordDto.getMicromarketUuid(), recordDto.getResidenceUuid());
+	}
+
+	public String getEntityForAccessLevel(AccessLevel accessLevel, String cityUuid, String micromarketUuid, String residenceUuid) {
 
 		String entityUuid = null;
 
 		if (AccessLevel.CITY == accessLevel) {
-			entityUuid = recordDto.getCityUuid();
+			entityUuid = cityUuid;
 		} else if (AccessLevel.MICROMARKET == accessLevel) {
-			entityUuid = recordDto.getMicromarketUuid();
+			entityUuid = micromarketUuid;
 		} else if (AccessLevel.RESIDENCE == accessLevel) {
-			entityUuid = recordDto.getResidenceUuid();
+			entityUuid = residenceUuid;
 		}
 
 		return entityUuid;
@@ -99,6 +100,54 @@ public class FoodReportUtil {
 		return occupied;
 	}
 
+	public double getActiveMealsCount(AccessLevel accessLevel, RecordDto recordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
+
+		double activeMeals = 0;
+
+		String entityUuid = FoodReportUtil.getEntityForAccessLevel(accessLevel, recordDto);
+
+		DateLevelNumbersDto dateLevelNumbersDto = dateLevelFieldsMap.get(entityUuid);
+
+		if (Objects.nonNull(dateLevelNumbersDto)) {
+			activeMeals = dateLevelNumbersDto.getActiveMeals();
+		} else {
+
+			for (Entry<String, DateLevelNumbersDto> entry : dateLevelFieldsMap.entrySet()) {
+				activeMeals += entry.getValue().getActiveMeals();
+			}
+
+		}
+
+		log.debug("Active Meals for " + accessLevel + " and Id: " + entityUuid + " is " + activeMeals);
+
+		return activeMeals;
+	}
+
+	public double getResidenceCount(AccessLevel accessLevel, RecordDto recordDto, Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
+
+		double residences = 0;
+
+		String entityUuid = FoodReportUtil.getEntityForAccessLevel(accessLevel, recordDto);
+
+		DateLevelNumbersDto dateLevelNumbersDto = dateLevelFieldsMap.get(entityUuid);
+
+		if (Objects.nonNull(dateLevelNumbersDto)) {
+			residences = dateLevelNumbersDto.getResidences();
+		} else {
+
+			for (Entry<String, DateLevelNumbersDto> entry : dateLevelFieldsMap.entrySet()) {
+				residences += entry.getValue().getResidences();
+			}
+
+		}
+
+		log.debug("Active Residences for " + accessLevel + " and Id: " + entityUuid + " is " + residences);
+
+		return residences;
+	}
+
+	
+	
 	public List<? extends GraphRecordDto> getAllCityAddedGraphRecordDtoList(List<? extends GraphRecordDto> graphRecordDtoList, AccessLevel accessLevel) {
 
 		List<GraphRecordDto> allCityAddedGraphRecordDtoList = new ArrayList<>();
@@ -176,7 +225,9 @@ public class FoodReportUtil {
 			List<? extends GraphRecordDto> graphRecordDtoListFrequencyValue = frequencyGraphRecordDtoMap.get(frequencyValue);
 			StudentFeedbackGraphRecordDto allCityStudentFeedbackGraphRecordDto = StudentFeedbackGraphRecordDto.builder()
 					.satisfied(0)
-					.unsatisfied(0)
+					.disgusted(0)
+					.dissatisfied(0)
+					.delighted(0)
 					.studentFeedbackCount(0)
 					.build();
 
@@ -184,7 +235,9 @@ public class FoodReportUtil {
 			for (GraphRecordDto graphRecordDto : graphRecordDtoListFrequencyValue) {
 				studentFeedbackGraphRecordDto = (StudentFeedbackGraphRecordDto) graphRecordDto;
 				allCityStudentFeedbackGraphRecordDto.setSatisfied(allCityStudentFeedbackGraphRecordDto.getSatisfied() + studentFeedbackGraphRecordDto.getSatisfied());
-				allCityStudentFeedbackGraphRecordDto.setUnsatisfied(allCityStudentFeedbackGraphRecordDto.getUnsatisfied() + studentFeedbackGraphRecordDto.getUnsatisfied());
+				allCityStudentFeedbackGraphRecordDto.setDisgusted(allCityStudentFeedbackGraphRecordDto.getDisgusted() + studentFeedbackGraphRecordDto.getDisgusted());
+				allCityStudentFeedbackGraphRecordDto.setDissatisfied(allCityStudentFeedbackGraphRecordDto.getDissatisfied() + studentFeedbackGraphRecordDto.getDissatisfied());
+				allCityStudentFeedbackGraphRecordDto.setDelighted(allCityStudentFeedbackGraphRecordDto.getDelighted() + studentFeedbackGraphRecordDto.getDelighted());
 				allCityStudentFeedbackGraphRecordDto.setStudentFeedbackCount(allCityStudentFeedbackGraphRecordDto.getStudentFeedbackCount() + studentFeedbackGraphRecordDto.getStudentFeedbackCount());
 				allCityStudentFeedbackGraphRecordDto.setFrequencyValue(studentFeedbackGraphRecordDto.getFrequencyValue());
 			}
@@ -200,23 +253,29 @@ public class FoodReportUtil {
 		for (String frequencyValue : frequencyGraphRecordDtoMap.keySet()) {
 			List<? extends GraphRecordDto> graphRecordDtoListFrequencyValue = frequencyGraphRecordDtoMap.get(frequencyValue);
 			ProcessAdherenceGraphRecordDto allCityProcessAdherenceGraphRecordDto = ProcessAdherenceGraphRecordDto.builder()
-					.totalCount(0)
+					.foodReceiveCount(0)
 					.menuAdherence(0)
 					.quantityAdherence(0)
 					.onTimeDelivery(0)
 					.orderedOnTime(0)
 					.menuCreated(0)
+					.quantityReceivingFilled(0)
+					.orderCount(0)
+					.menuCreationCount(0)
 					.build();
 
 			ProcessAdherenceGraphRecordDto processAdherenceGraphRecordDto;
 			for (GraphRecordDto graphRecordDto : graphRecordDtoListFrequencyValue) {
 				processAdherenceGraphRecordDto = (ProcessAdherenceGraphRecordDto) graphRecordDto;
-				allCityProcessAdherenceGraphRecordDto.setTotalCount(allCityProcessAdherenceGraphRecordDto.getTotalCount() + processAdherenceGraphRecordDto.getTotalCount());
+				allCityProcessAdherenceGraphRecordDto.setFoodReceiveCount(allCityProcessAdherenceGraphRecordDto.getFoodReceiveCount() + processAdherenceGraphRecordDto.getFoodReceiveCount());
 				allCityProcessAdherenceGraphRecordDto.setMenuAdherence(allCityProcessAdherenceGraphRecordDto.getMenuAdherence() + processAdherenceGraphRecordDto.getMenuAdherence());
 				allCityProcessAdherenceGraphRecordDto.setQuantityAdherence(allCityProcessAdherenceGraphRecordDto.getQuantityAdherence() + processAdherenceGraphRecordDto.getQuantityAdherence());
 				allCityProcessAdherenceGraphRecordDto.setOnTimeDelivery(allCityProcessAdherenceGraphRecordDto.getOnTimeDelivery() + processAdherenceGraphRecordDto.getOnTimeDelivery());
 				allCityProcessAdherenceGraphRecordDto.setOrderedOnTime(allCityProcessAdherenceGraphRecordDto.getOrderedOnTime() + processAdherenceGraphRecordDto.getOrderedOnTime());
 				allCityProcessAdherenceGraphRecordDto.setMenuCreated(allCityProcessAdherenceGraphRecordDto.getMenuCreated() + processAdherenceGraphRecordDto.getMenuCreated());
+				allCityProcessAdherenceGraphRecordDto.setQuantityReceivingFilled(allCityProcessAdherenceGraphRecordDto.getQuantityReceivingFilled() + processAdherenceGraphRecordDto.getQuantityReceivingFilled());
+				allCityProcessAdherenceGraphRecordDto.setOrderCount(allCityProcessAdherenceGraphRecordDto.getOrderCount() + processAdherenceGraphRecordDto.getOrderCount());
+				allCityProcessAdherenceGraphRecordDto.setMenuCreationCount(allCityProcessAdherenceGraphRecordDto.getMenuCreationCount() + processAdherenceGraphRecordDto.getMenuCreationCount());
 				allCityProcessAdherenceGraphRecordDto.setFrequencyValue(processAdherenceGraphRecordDto.getFrequencyValue());
 			}
 			allCityProcessAdherenceGraphRecordDtoList.add(allCityProcessAdherenceGraphRecordDto);
@@ -303,6 +362,8 @@ public class FoodReportUtil {
 
 		ratingBuckets = getFoodRatingBuckets(foodRatingDtos);
 
+		log.info("Rating Bucket for Entity: " + entityUuid + " is " + ratingBuckets);
+
 		return ratingBuckets;
 	}
 
@@ -341,5 +402,20 @@ public class FoodReportUtil {
 
 		return ratingBuckets;
 
+	}
+
+	public StudentFeedbackGraphRecordDto getStudentFeedbackGraphRecordDto(FoodRatingBuckets foodRatingBuckets, String frequencyValue, UserFoodRatingDto userFoodRatingDto, AccessLevel accessLevel) {
+		return StudentFeedbackGraphRecordDto.builder()
+				.satisfied(foodRatingBuckets.getSatisfiedResidents())
+				.dissatisfied(foodRatingBuckets.getDissatisfiedResidents())
+				.disgusted(foodRatingBuckets.getDisgustedResidents())
+				.delighted(foodRatingBuckets.getDelightedResidents())
+				.studentFeedbackCount(foodRatingBuckets.getTotalResidents())
+				.frequencyValue(frequencyValue)
+				.cityUuid(userFoodRatingDto.getCityUuid())
+				.micromarketUuid(userFoodRatingDto.getMicromarketUuid())
+				.residenceUuid(userFoodRatingDto.getResidenceUuid())
+				.accessLevel(FoodReportUtil.getEntityForAccessLevel(accessLevel, userFoodRatingDto.getCityUuid(), userFoodRatingDto.getMicromarketUuid(), userFoodRatingDto.getResidenceUuid()))
+				.build();
 	}
 }
