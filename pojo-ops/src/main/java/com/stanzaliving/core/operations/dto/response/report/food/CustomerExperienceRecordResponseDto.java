@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.operations.constants.FoodReportConstants;
 import com.stanzaliving.core.operations.dto.report.RecordDto;
 import com.stanzaliving.core.operations.dto.report.food.CustomerExperienceRecordDto;
 import com.stanzaliving.core.operations.dto.report.food.FoodRatingBuckets;
@@ -70,7 +71,7 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 
 		double residences = FoodReportUtil.getResidenceCount(accessLevel, customerExperienceRecordDto, dateLevelFieldsMap);
 
-		int totalMeals = (int) ((activeMeals * daysConsidered * mir * 0.8) / residences);
+		int totalMeals = (int) ((activeMeals * daysConsidered * mir * FoodReportConstants.MAX_EXPECTED_PRESENT_PERCENT) / residences);
 
 		FoodRatingBuckets ratingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, foodRatingMap);
 

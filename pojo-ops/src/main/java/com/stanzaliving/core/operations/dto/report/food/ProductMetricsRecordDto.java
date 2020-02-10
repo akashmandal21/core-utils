@@ -30,4 +30,6 @@ public class ProductMetricsRecordDto extends RecordDto {
 
 	private String mealName;
 
+	private int totalStudentFeedback;
+
 }
