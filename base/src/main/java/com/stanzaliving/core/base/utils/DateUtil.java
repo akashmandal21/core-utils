@@ -1,17 +1,16 @@
 package com.stanzaliving.core.base.utils;
 
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
@@ -30,13 +29,37 @@ public class DateUtil {
 
 		return null;
 	}
-	
+
+	public static String customDateFormatter(LocalDate dateInput, DateFormat dateFormat) {
+
+		if (dateInput != null) {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateFormat.getValue());
+			return formatter.format(dateInput);
+		}
+
+		return null;
+	}
+
 	public static Date customDateParser(String dateInput, DateFormat dateFormat) {
 
 		if (dateInput != null) {
 			SimpleDateFormat formatterOutput = new SimpleDateFormat(dateFormat.getValue());
 			try {
 				return formatterOutput.parse(dateInput);
+			} catch (ParseException e) {
+				// Ignore
+			}
+		}
+
+		return null;
+	}
+
+	public static String changeDateFormat (String dateInput, DateFormat inputDateFormat, DateFormat outputDateFormat) {
+
+		if (dateInput != null) {
+			SimpleDateFormat formatterOutput = new SimpleDateFormat(inputDateFormat.getValue());
+			try {
+				return customDateFormatter(formatterOutput.parse(dateInput), outputDateFormat);
 			} catch (ParseException e) {
 				// Ignore
 			}
@@ -141,15 +164,24 @@ public class DateUtil {
 		return Instant.ofEpochMilli(timestamp).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toLocalDate();
 	}
 
-	public static Integer yearsBetween(LocalDate one,LocalDate two) {
-	
-		if(Objects.isNull(one) || Objects.isNull(two)) {
+	public static Date convertToDate(LocalTime localTime) {
+
+		if (localTime == null) {
 			return null;
 		}
-		
+
+		return Date.from(localTime.atDate(LocalDate.now()).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant());
+	}
+
+	public static Integer yearsBetween(LocalDate one, LocalDate two) {
+
+		if (Objects.isNull(one) || Objects.isNull(two)) {
+			return null;
+		}
+
 		return Period.between(one, two).getYears();
 	}
-	
+
 	public static LocalDate convertToLocalDate(Date date) {
 		if (date == null) {
 			return null;
@@ -162,6 +194,20 @@ public class DateUtil {
 		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
 		Instant instant = date.toInstant();
 		return instant.atZone(zoneId).toLocalDate();
+	}
+
+	public static LocalTime convertToLocalTime(Date date) {
+		if (date == null) {
+			return null;
+		}
+
+		if (date instanceof java.sql.Date) {
+			return new Time(((java.sql.Date) date).getTime()).toLocalTime();
+		}
+
+		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
+		Instant instant = date.toInstant();
+		return instant.atZone(zoneId).toLocalTime();
 	}
 
 	public static long daysBetween(Date one, Date two) {
@@ -206,5 +252,73 @@ public class DateUtil {
 
 		return d1.isAfter(d2) ? d1 : d2;
 	}
-	
+
+	public static LocalDate getEarlierLocalDate(LocalDate d1, LocalDate d2) {
+
+		if (d1 == null && d2 == null) {
+			return null;
+		}
+
+		if (d1 == null) {
+			return d2;
+		}
+
+		if (d2 == null) {
+			return d1;
+		}
+
+		return d1.isAfter(d2) ? d2 : d1;
+	}
+
+	public static List<String> getListOfMonths(LocalDate startDate, LocalDate endDate) {
+		LinkedHashSet<String> monthsList = new LinkedHashSet<>();
+		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
+			monthsList.add(customDateFormatter(date, DateFormat.MONTH_FULL_NAME));
+		}
+		return new ArrayList<>(monthsList);
+	}
+
+	public static List<String> getYearWeekSqlListOfWeeks(LocalDate startDate, LocalDate endDate) {
+		LinkedHashSet<String> weeksList = new LinkedHashSet<>();
+		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
+			Integer weekNumber = Integer.parseInt(customDateFormatter(date, DateFormat.WEEK_OF_YEAR));
+			String week;
+			if (weekNumber < 10) {
+				week = "0" + weekNumber.toString();
+			} else {
+				week = weekNumber.toString();
+			}
+			weeksList.add(customDateFormatter(date, DateFormat.YEAR_IN_WEEK_OF_YEAR) + week);
+		}
+
+		return new ArrayList<>(weeksList);
+	}
+
+	public static List<String> getFormattedListOfWeeksFromWeekOne(LocalDate startDate, LocalDate endDate) {
+		List<String> weeksList = getYearWeekSqlListOfWeeks(startDate, endDate);
+
+		List<String> weekListInFromOne = new ArrayList<>();
+		for (Integer i = 1; i <=  weeksList.size() ; i++) {
+			weekListInFromOne.add("Week " + i.toString());
+		}
+
+		return weekListInFromOne;
+	}
+
+	public static List<String> getListOfDates(LocalDate startDate, LocalDate endDate) {
+		LinkedHashSet<String> dateList = new LinkedHashSet<>();
+		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
+			dateList.add(customDateFormatter(date, DateFormat.YYYY_HIFEN_MM_HIFEN_DD));
+		}
+		return new ArrayList<>(dateList);
+	}
+
+	public static Integer getCountOfDates(LocalDate startDate, LocalDate endDate) {
+		return getListOfDates(startDate, endDate).size();
+	}
+
+	public static LocalDate getCurrentMonthStartDate() {
+		return LocalDate.now().withDayOfMonth(1);
+	}
+
 }

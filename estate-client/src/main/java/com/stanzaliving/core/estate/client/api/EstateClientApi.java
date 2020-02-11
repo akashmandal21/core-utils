@@ -16,8 +16,14 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.estate.dto.AtlFileRequestDto;
 import com.stanzaliving.core.estate.dto.EstateAttributeDto;
+import com.stanzaliving.core.estate.dto.EstateDto;
+import com.stanzaliving.core.estate.enums.EstateStatus;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class EstateClientApi {
 
     private StanzaRestClient restClient;
@@ -99,6 +105,71 @@ public class EstateClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
+
+    public ResponseDto<Void> updateStatus(String estateUuid,EstateStatus estateStatus) {
+
+        if (Objects.isNull(estateUuid)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("estateUuid", estateUuid);
+        uriVariables.put("estateStatus", estateStatus);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/estate/update/status/{estateUuid}/{estateStatus}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public ResponseDto<EstateDto> getEstateDtoFromEstateUuid(String estateUuId) {
+
+        if (Objects.isNull(estateUuId)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("estateUuid", estateUuId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/estate/get/estate/{estateUuid}").buildAndExpand(uriVariables).toUriString();
+
+        log.info("Using Url Path:{}",path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<EstateDto>> returnType = new ParameterizedTypeReference<ResponseDto<EstateDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
     
     public ResponseDto<Void> sendBackByLeadership(Long estateId) {
 
@@ -130,4 +201,21 @@ public class EstateClientApi {
 
     }
 
+    public ResponseDto<Boolean> updateStatusAfterAtlGeneration(AtlFileRequestDto atlFileRequestDto) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/estate/update/atlgenerate/status").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, atlFileRequestDto, headerParams, accept,
+				returnType);
+	}
 }
