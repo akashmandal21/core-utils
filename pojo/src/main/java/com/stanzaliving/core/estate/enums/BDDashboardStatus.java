@@ -17,25 +17,26 @@ public enum BDDashboardStatus {
 					EstateStatus.SENT_BACK_BY_CITY_HEAD, EstateStatus.SENT_BACK_BY_LEADERSHIP,
 					EstateStatus.REJECTED, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP
 					),
-			"#bfbfbf"),
-	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD), "#4183d7"),
-	L1_APPROVED_LEADERSHIP(	"Pending L2 Details", Arrays.asList(EstateStatus.APPROVED_L1_BY_LEADERSHIP,EstateStatus.SENT_BACK_BY_TRANSFORMATION),"#6bb9f0"),
-	PENDING_L1_APPROVAL_NATIONAL_HEAD("Pending L1 BD Head Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD),"#f1a9a0"),
+			"#bfbfbf" ,1),
+	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD), "#4183d7" ,2),
+	L1_APPROVED_LEADERSHIP(	"Pending L2 Details", Arrays.asList(EstateStatus.APPROVED_L1_BY_LEADERSHIP,EstateStatus.SENT_BACK_BY_TRANSFORMATION),"#6bb9f0",3),
+	PENDING_L1_APPROVAL_NATIONAL_HEAD("Pending L1 BD Head Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD),"#f1a9a0",4),
 	PENDING_NATIONAL_HEAD_APPROVAL("Pending BD Head Approval",
-			Arrays.asList(EstateStatus.SENT_FOR_APPROVAL, EstateStatus.APPROVED_BY_TRANSFORMATION), "#f03434"),
-	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK,EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD),"#00b5cc"),
-	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#e87e04"),
-	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#4d05e8"),
-	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP,EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18"),
-	PENDING_ATL_UPLOADING("Pending ATL Upload", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_LEGAL,EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM), "#e8e8e8"),
-	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875");
+			Arrays.asList(EstateStatus.SENT_FOR_APPROVAL, EstateStatus.APPROVED_BY_TRANSFORMATION), "#f03434",5),
+	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK,EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD),"#00b5cc",6),
+	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#e87e04",7),
+	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#4d05e8",8),
+	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP,EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18",9),
+	PENDING_ATL_UPLOADING("Pending ATL Upload", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_LEGAL,EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM), "#e8e8e8",10),
+	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875",11);
 
 	private String status;
 
 	private List<EstateStatus> estateStatuses;
 
 	private String color;
-
+	private int statusOrder;
+	
 	public static Map<EstateStatus, BDDashboardStatus> statusMap = new HashMap<EstateStatus, BDDashboardStatus>(
 			BDDashboardStatus.values().length);
 
