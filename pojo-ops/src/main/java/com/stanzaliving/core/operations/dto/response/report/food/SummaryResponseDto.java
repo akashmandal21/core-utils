@@ -60,9 +60,9 @@ public class SummaryResponseDto extends RecordDto {
 		this.processAdherence = AdherenceResponseDto.builder()
 				.menuAdherence(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuAdherence(), summaryRecordDto.getProcessAdherence().getFoodReceivedTimes()))
 				.quantityAdherence(new FeElementDto(summaryRecordDto.getProcessAdherence().getQuantityAdherence(), summaryRecordDto.getProcessAdherence().getQuantityReceivedTimes()))
-				.onTimeDelivery(new FeElementDto(summaryRecordDto.getProcessAdherence().getOnTimeDelivery(), summaryRecordDto.getProcessAdherence().getFoodReceivedTimes()))
+//				.onTimeDelivery(new FeElementDto(summaryRecordDto.getProcessAdherence().getOnTimeDelivery(), summaryRecordDto.getProcessAdherence().getFoodReceivedTimes()))
 				.onTimeOrder(new FeElementDto(summaryRecordDto.getProcessAdherence().getOrderedOnTime(), summaryRecordDto.getProcessAdherence().getFoodOrderedTimes()))
-				.onTimeMenuCreation(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuCreatedOnTime(), summaryRecordDto.getProcessAdherence().getMenuCreatedTimes()))
+//				.onTimeMenuCreation(new FeElementDto(summaryRecordDto.getProcessAdherence().getMenuCreatedOnTime(), summaryRecordDto.getProcessAdherence().getMenuCreatedTimes()))
 				.build();
 
 		this.costEfficiency = CostResponseDto.builder()
