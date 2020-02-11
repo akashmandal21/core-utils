@@ -47,4 +47,6 @@ public class CustomerExperienceRecordDto extends RecordDto {
 	
 	private int rcFeedbackCount;
 
+	private int shortageFilled;
+
 }

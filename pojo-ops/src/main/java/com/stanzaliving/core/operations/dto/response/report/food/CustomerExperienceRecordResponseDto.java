@@ -82,7 +82,7 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 		this.dissatisfied = new FeElementDto(ratingBuckets.getDissatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.disgusted = new FeElementDto(ratingBuckets.getDisgustedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 
-		this.shortage = new FeElementDto(customerExperienceRecordDto.getShortageCount(), customerExperienceRecordDto.getTotalCount(), FeElementType.INTEGER);
+		this.shortage = new FeElementDto(customerExperienceRecordDto.getShortageCount(), customerExperienceRecordDto.getShortageFilled(), FeElementType.INTEGER);
 		this.foreignParticles = new FeElementDto(customerExperienceRecordDto.getForeignParticle(), FeElementType.INTEGER);
 		this.socialMediaComplaint = new FeElementDto(customerExperienceRecordDto.getSocialMediaComplaints(), FeElementType.INTEGER);
 
