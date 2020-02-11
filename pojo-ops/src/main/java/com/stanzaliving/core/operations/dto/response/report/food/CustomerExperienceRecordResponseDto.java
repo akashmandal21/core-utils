@@ -77,7 +77,7 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 
 		FoodRatingBuckets ratingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, foodRatingMap);
 
-		FoodRatingBuckets completeRatingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, completeFoodRatingMap);
+		//FoodRatingBuckets completeRatingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, completeFoodRatingMap);
 
 		this.delighted = new FeElementDto(ratingBuckets.getDelightedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.satisfied = new FeElementDto(ratingBuckets.getSatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
@@ -93,7 +93,7 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 		this.quantityAdherence = new FeElementDto(customerExperienceRecordDto.getQuantityAdherence(), customerExperienceRecordDto.getQuantityReceivingFilled(), FeElementType.PERCENT_INTEGER);
 		this.menuAdherence = new FeElementDto(customerExperienceRecordDto.getMenuAdherence(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
 
-		this.smr = new FeElementDto(completeRatingBuckets.getTotalFeedbacks(), totalMeals, FeElementType.PERCENT_DOUBLE);
+		this.smr = new FeElementDto(customerExperienceRecordDto.getTotalStudentFeedback(), totalMeals, FeElementType.PERCENT_DOUBLE);
 		this.mir = new FeElementDto(mir);
 	}
 }

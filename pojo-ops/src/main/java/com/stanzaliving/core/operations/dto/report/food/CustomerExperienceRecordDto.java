@@ -51,4 +51,6 @@ public class CustomerExperienceRecordDto extends RecordDto {
 
 	private int mir;
 
+	private int totalStudentFeedback;
+
 }
