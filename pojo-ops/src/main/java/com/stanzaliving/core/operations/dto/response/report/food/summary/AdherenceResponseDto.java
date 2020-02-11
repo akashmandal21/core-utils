@@ -12,14 +12,14 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class AdherenceResponseDto {
 
-    FeElementDto menuAdherence;
+	private FeElementDto menuAdherence;
 
-    FeElementDto quantityAdherence;
+	private FeElementDto quantityAdherence;
 
-    FeElementDto onTimeDelivery;
+	private FeElementDto onTimeDelivery;
 
-    FeElementDto onTimeOrder;
+	private FeElementDto onTimeOrder;
 
-    FeElementDto onTimeMenuCreation;
+	private FeElementDto onTimeMenuCreation;
 
 }

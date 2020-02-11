@@ -1,7 +1,12 @@
 package com.stanzaliving.core.operations.dto.response.report.food.summary;
 
 import com.stanzaliving.core.operations.dto.response.report.FeElementDto;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -12,14 +17,14 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class AttendanceResponseDto {
 
-    FeElementDto occupiedBeds;
+	private FeElementDto occupiedBeds;
 
-    FeElementDto movedInStudents;
+	private FeElementDto movedInStudents;
 
-    FeElementDto present;
+	private FeElementDto present;
 
-    FeElementDto mealOrdered;
+	private FeElementDto mealOrdered;
 
-    FeElementDto foodAttendance;
+	private FeElementDto foodAttendance;
 
 }

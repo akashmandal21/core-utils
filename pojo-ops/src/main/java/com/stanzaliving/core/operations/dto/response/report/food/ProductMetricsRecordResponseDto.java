@@ -14,35 +14,34 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ProductMetricsRecordResponseDto extends RecordDto {
 
-    FeElementDto meals;
+	private FeElementDto meals;
 
-    FeElementDto menuCreated;
+	private FeElementDto menuCreated;
 
-    FeElementDto ordersCreated;
+	private FeElementDto ordersCreated;
 
-    FeElementDto foodReceived;
+	private FeElementDto foodReceived;
 
-    FeElementDto shortageFilled;
+	private FeElementDto shortageFilled;
 
-    FeElementDto leftoverFilled;
+	private FeElementDto leftoverFilled;
 
-    FeElementDto feedbackGiven;
+	private FeElementDto feedbackGiven;
 
-    String mealUuid;
+	private String mealUuid;
 
-    String mealName;
+	private String mealName;
 
-
-    public ProductMetricsRecordResponseDto(ProductMetricsRecordDto productMetricsRecordDto) {
-        super(productMetricsRecordDto);
-        this.meals = new FeElementDto(productMetricsRecordDto.getMealsCount());
-        this.menuCreated = new FeElementDto(productMetricsRecordDto.getMenuCreated(), productMetricsRecordDto.getMealsCount());
-        this.ordersCreated = new FeElementDto(productMetricsRecordDto.getOrderCreated(), productMetricsRecordDto.getMealsCount());
-        this.foodReceived = new FeElementDto(productMetricsRecordDto.getFoodReceived(), productMetricsRecordDto.getMealsCount());
-        this.shortageFilled = new FeElementDto(productMetricsRecordDto.getShortageFilled(), productMetricsRecordDto.getMealsCount());
-        this.leftoverFilled = new FeElementDto(productMetricsRecordDto.getLeftoverFilled(), productMetricsRecordDto.getMealsCount());
-        this.feedbackGiven = new FeElementDto(productMetricsRecordDto.getRcFeedbackGiven(), productMetricsRecordDto.getMealsCount());
-        this.mealUuid = productMetricsRecordDto.getMealUuid();
-        this.mealName = productMetricsRecordDto.getMealName();
-    }
+	public ProductMetricsRecordResponseDto(ProductMetricsRecordDto productMetricsRecordDto) {
+		super(productMetricsRecordDto);
+		this.meals = new FeElementDto(productMetricsRecordDto.getMealsCount());
+		this.menuCreated = new FeElementDto(productMetricsRecordDto.getMenuCreated(), productMetricsRecordDto.getMealsCount());
+		this.ordersCreated = new FeElementDto(productMetricsRecordDto.getOrderCreated(), productMetricsRecordDto.getMealsCount());
+		this.foodReceived = new FeElementDto(productMetricsRecordDto.getFoodReceived(), productMetricsRecordDto.getMealsCount());
+		this.shortageFilled = new FeElementDto(productMetricsRecordDto.getShortageFilled(), productMetricsRecordDto.getMealsCount());
+		this.leftoverFilled = new FeElementDto(productMetricsRecordDto.getLeftoverFilled(), productMetricsRecordDto.getMealsCount());
+		this.feedbackGiven = new FeElementDto(productMetricsRecordDto.getRcFeedbackGiven(), productMetricsRecordDto.getMealsCount());
+		this.mealUuid = productMetricsRecordDto.getMealUuid();
+		this.mealName = productMetricsRecordDto.getMealName();
+	}
 }
