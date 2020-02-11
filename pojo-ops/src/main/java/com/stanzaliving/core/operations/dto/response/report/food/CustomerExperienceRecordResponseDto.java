@@ -55,6 +55,8 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 
 	private FeElementDto smr; // feedbackGiven/mealsOrdered
 
+	private FeElementDto mir;
+
 	public CustomerExperienceRecordResponseDto(
 			AccessLevel accessLevel,
 			CustomerExperienceRecordDto customerExperienceRecordDto,
@@ -92,5 +94,6 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 		this.menuAdherence = new FeElementDto(customerExperienceRecordDto.getMenuAdherence(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
 
 		this.smr = new FeElementDto(completeRatingBuckets.getTotalFeedbacks(), totalMeals, FeElementType.PERCENT_DOUBLE);
+		this.mir = new FeElementDto(mir);
 	}
 }

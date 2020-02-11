@@ -49,4 +49,6 @@ public class CustomerExperienceRecordDto extends RecordDto {
 
 	private int shortageFilled;
 
+	private int mir;
+
 }
