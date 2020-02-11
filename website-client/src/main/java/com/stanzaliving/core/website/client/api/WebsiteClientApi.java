@@ -11,16 +11,14 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.website.response.dto.LeadVisitResponseDTO;
-import com.stanzaliving.website.response.dto.ScheduledVisitsResponseDTO;
 
-/**
+/**s
  * @author naveen.kumar
  *
  * @date 03-Nov-2019
