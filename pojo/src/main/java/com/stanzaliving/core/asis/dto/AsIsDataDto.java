@@ -27,12 +27,10 @@ public class AsIsDataDto extends AbstractDto implements Serializable {
 	private static final long serialVersionUID = 113424124141489L;
 
 	private String propertyUuid;
-	
-	private String propertyName;
 
 	private String dueDate;
 	
-	private String dealyReason;
+	private String delayReason;
 
 	private ContractorDto contractor;
 
