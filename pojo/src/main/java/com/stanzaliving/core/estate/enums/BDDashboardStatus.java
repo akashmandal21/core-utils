@@ -22,13 +22,12 @@ public enum BDDashboardStatus {
 			Arrays.asList(EstateStatus.SENT_FOR_APPROVAL, EstateStatus.APPROVED_BY_TRANSFORMATION), "#f03434",5),
 	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK,EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD),"#00b5cc",6),
 	
-	L1_SENT_BACK_BY_ANDY("L1 sent back by Andy",Arrays.asList( EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#d5a6bd",7),
-	L2_SENT_BACK_BY_ANDY("L2 sent back by Andy",Arrays.asList(  EstateStatus.SENT_BACK_BY_LEADERSHIP),"#00ffd9",8),
+	L1_SENT_BACK_BY_ANDY("L1 Sent Back by Andy",Arrays.asList( EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#d5a6bd",7),
 	
-	
-	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#e87e04",9),
-	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#4d05e8",10),
-	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP,EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18",11),
+	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#e87e04",8),
+	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#4d05e8",9),
+	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP,EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18",10),
+	L2_SENT_BACK_BY_ANDY("L2 Sent Back by Andy",Arrays.asList(  EstateStatus.SENT_BACK_BY_LEADERSHIP),"#00ffd9",11),
 	PENDING_ATL_UPLOADING("Pending ATL Upload", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_LEGAL,EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM), "#e8e8e8",12),
 	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875",13);
 
