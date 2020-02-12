@@ -16,8 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.operations.dto.serviceset.VersionListRequestDto;
-import com.stanzaliving.core.operations.dto.serviceset.VersionListResponseDto;
+import com.stanzaliving.versioning.dto.VersionListRequestDto;
 import com.stanzaliving.versioning.dto.VersioningRequestDto;
 import com.stanzaliving.versioning.dto.VersioningResponseDto;
 
@@ -100,7 +99,7 @@ public class VersionClientApi {
 
 	}
 
-	public ResponseDto<List<VersionListResponseDto>> getAllVersions(String token, VersionListRequestDto versioningRequestDto) {
+	public ResponseDto<List<VersioningResponseDto>> getAllVersions(String token, VersionListRequestDto versioningRequestDto) {
 		/*
 		 * if (StringUtils.isBlank(token)) {
 		 * throw new IllegalArgumentException("Token missing for getting all versions ");
@@ -124,7 +123,7 @@ public class VersionClientApi {
 				"*/*"
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-		ParameterizedTypeReference<ResponseDto<List<VersionListResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<VersionListResponseDto>>>() {
+		ParameterizedTypeReference<ResponseDto<List<VersioningResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<VersioningResponseDto>>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}

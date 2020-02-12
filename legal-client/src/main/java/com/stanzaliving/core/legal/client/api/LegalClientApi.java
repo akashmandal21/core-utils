@@ -57,7 +57,6 @@ public class LegalClientApi {
 
     }
 
-
     public ResponseDto<Boolean> checkAllDealTermApproved(String estateUuid) {
 
         if (Objects.isNull(estateUuid)) {
