@@ -55,8 +55,11 @@ public enum EstateStatus {
 	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("L1 Sent to Leadership"),
 	APPROVED_L1_BY_LEADERSHIP("L1 Approval by Leadership"),
 	SENT_BACK_L1_BY_NATIONAL_HEAD("L1 Sent Back by NH"),
-	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent Back by Leadership");
+	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent Back by Leadership"),
 
+	//Sandeep's approval & sent back
+	SENT_FOR_SANDEEP_APPROVAL("Sent for Sandeep's approval"),
+	SENT_BACK_BY_SANDEEP("Sent back by Sandeep");
 
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
