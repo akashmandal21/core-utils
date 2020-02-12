@@ -20,9 +20,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AsIsDrawingsDto extends AbstractDto implements Serializable {
+public class AsIsDrawingsDto implements Serializable {
 
 	private static final long serialVersionUID = 11424124141489L;
+
+	private String asIsDrawingUuid;
 
 	private String thumbnail;
 
@@ -30,11 +32,10 @@ public class AsIsDrawingsDto extends AbstractDto implements Serializable {
 
 	private String actualSize;
 
-	private Date uploadedDate;
+	private String uploadedDate;
 
-	private String drawingStatus;
+	private Boolean drawingStatus;
 
 	private String asIsUuid;
 	
-	private boolean isDrawingsRejected;
 }

@@ -4,6 +4,7 @@ public enum  PropertyUpdateEnum {
 
     ZONAL_HEAD_ASSIGNED("Zonal Head Assigned"),
     SITE_ENGINEER_ASSIGNED("Site Engineer Assigned"),
+    AS_IS_VENDOR_ASSIGNED("As is Vendor Assigned"),
     PROJECT_MANAGER_ASSIGNED("Project manager Assigned"),
     SFR_COMPLETED("SFR Completed"),
     AS_IS_COMPLETED("As-Is Completed"),
