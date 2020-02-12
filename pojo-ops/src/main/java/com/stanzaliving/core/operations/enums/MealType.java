@@ -3,7 +3,9 @@
  */
 package com.stanzaliving.core.operations.enums;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.core.base.utils.StanzaParseUtils;
@@ -34,13 +36,14 @@ public enum MealType {
 
 	private static Map<Integer, MealType> mealMapById = new HashMap<>();
 	private static Map<String, MealType> mealMapByName = new HashMap<>();
+	public static List<String> mealIds = new ArrayList<>();
 
 	static {
 
 		for (MealType mealType : MealType.values()) {
 			mealMapById.put(mealType.getMealId(), mealType);
 			mealMapByName.put(mealType.getMealName(), mealType);
-
+			mealIds.add(mealType.getMealId().toString());
 		}
 
 	}

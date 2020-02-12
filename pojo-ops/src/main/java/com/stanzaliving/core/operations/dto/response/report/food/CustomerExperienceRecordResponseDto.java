@@ -59,11 +59,18 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 			CustomerExperienceRecordDto customerExperienceRecordDto,
 			Map<String, List<UserFoodRatingDto>> foodRatingMap,
 			Map<String, List<UserFoodRatingDto>> completeFoodRatingMap,
-			Map<String, DateLevelNumbersDto> dateLevelFieldsMap) {
+			Map<String, DateLevelNumbersDto> dateLevelFieldsMap,
+			int daysConsidered) {
 
 		super(customerExperienceRecordDto);
 
-		Integer mir = FoodReportUtil.getMIRCount(accessLevel, customerExperienceRecordDto, dateLevelFieldsMap);
+		int mir = FoodReportUtil.getMIRCount(accessLevel, customerExperienceRecordDto, dateLevelFieldsMap);
+
+		double activeMeals = FoodReportUtil.getActiveMealsCount(accessLevel, customerExperienceRecordDto, dateLevelFieldsMap);
+
+		double residences = FoodReportUtil.getResidenceCount(accessLevel, customerExperienceRecordDto, dateLevelFieldsMap);
+
+		int totalMeals = (int) ((activeMeals * daysConsidered * mir * 0.8) / residences);
 
 		FoodRatingBuckets ratingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, foodRatingMap);
 
@@ -80,9 +87,9 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 
 		this.rcAvgQualityRating = new FeElementDto(customerExperienceRecordDto.getRcAvgQualityRating() / customerExperienceRecordDto.getRcFeedbackCount(), FeElementType.DOUBLE);
 		this.onTimeDelivery = new FeElementDto(customerExperienceRecordDto.getOnTimeDelivery(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
-		this.quantityAdherence = new FeElementDto(customerExperienceRecordDto.getQuantityAdherence(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
+		this.quantityAdherence = new FeElementDto(customerExperienceRecordDto.getQuantityAdherence(), customerExperienceRecordDto.getQuantityReceivingFilled(), FeElementType.PERCENT_INTEGER);
 		this.menuAdherence = new FeElementDto(customerExperienceRecordDto.getMenuAdherence(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
 
-		this.smr = new FeElementDto(completeRatingBuckets.getTotalResidents(), mir, FeElementType.PERCENT_DOUBLE);
+		this.smr = new FeElementDto(completeRatingBuckets.getTotalFeedbacks(), totalMeals, FeElementType.PERCENT_DOUBLE);
 	}
 }

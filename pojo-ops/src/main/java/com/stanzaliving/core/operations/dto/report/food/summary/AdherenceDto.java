@@ -11,14 +11,21 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class AdherenceDto {
 
-    int menuAdherence;
+	private int menuAdherence;
 
-    int quantityAdherence;
+	private int quantityAdherence;
 
-    int onTimeDelivery;
+	private int onTimeDelivery;
 
-    int orderedOnTime;
+	private int orderedOnTime;
 
-    int menuCreated;
+	private int menuCreatedOnTime;
 
+	private int menuCreatedTimes;
+
+	private int foodOrderedTimes;
+
+	private int foodReceivedTimes;
+
+	private int quantityReceivedTimes;
 }

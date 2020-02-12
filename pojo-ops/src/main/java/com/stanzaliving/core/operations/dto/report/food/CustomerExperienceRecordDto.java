@@ -43,6 +43,8 @@ public class CustomerExperienceRecordDto extends RecordDto {
 
 	private int foodReceivingFilled;
 	
+	private int quantityReceivingFilled;
+	
 	private int rcFeedbackCount;
 
 }

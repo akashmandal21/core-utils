@@ -1,7 +1,12 @@
 package com.stanzaliving.core.operations.dto.response.report.food.summary;
 
 import com.stanzaliving.core.operations.dto.response.report.FeElementDto;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -12,12 +17,12 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CostResponseDto {
 
-    FeElementDto budgetedCostPerStudent;
+	private FeElementDto budgetedCostPerStudent;
 
-    FeElementDto costPerStudent;
+	private FeElementDto costPerStudent;
 
-    FeElementDto costUtilization;
+	private FeElementDto costUtilization;
 
-    FeElementDto budgetUtilization;
+	private FeElementDto budgetUtilization;
 
 }

@@ -14,15 +14,15 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AttendanceDto {
-	
-	int movedInResidents;
-	
-    int occupiedBeds;
 
-    int presentStudents;
+	private int movedInResidents;
 
-    int totalMealsOrdered;
+	private int occupiedBeds;
 
-    int foodAttendance;
+	private int presentStudents;
+
+	private int totalMealsOrdered;
+
+	private int foodAttendance;
 
 }

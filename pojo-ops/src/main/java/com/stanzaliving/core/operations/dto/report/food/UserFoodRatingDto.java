@@ -35,4 +35,6 @@ public class UserFoodRatingDto {
 	private double rating;
 
 	private int numberOfFeedbacks;
+
+	private String frequencyValue;
 }

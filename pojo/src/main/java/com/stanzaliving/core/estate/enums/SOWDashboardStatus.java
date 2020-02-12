@@ -10,15 +10,16 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum SOWDashboardStatus {
 
-	PENDING_SOW_APPROVAL("Pending SOW Approval", SOWStatus.PENDING_SOW_APPROVAL, "#DC3913"),
-	SOW_SENT_BACK("SOW Sent Back", SOWStatus.SOW_SENT_BACK, "#FF9902"),
-	SOW_APPROVED("SOW Approved", SOWStatus.SOW_APPROVED, "#3366CC");
+	PENDING_SOW_APPROVAL("Pending SOW Approval", SOWStatus.PENDING_SOW_APPROVAL, "#DC3913" ,1),
+	SOW_SENT_BACK("SOW Sent Back", SOWStatus.SOW_SENT_BACK, "#FF9902" , 2),
+	SOW_APPROVED("SOW Approved", SOWStatus.SOW_APPROVED, "#3366CC" , 3);
 
 	private String status;
 
 	private SOWStatus sowStatus;
 
 	private String color;
+	private int statusOrder;
 
 	public static  Map<SOWStatus, SOWDashboardStatus> statusMap = new HashMap<>(SOWDashboardStatus.values().length);
 
