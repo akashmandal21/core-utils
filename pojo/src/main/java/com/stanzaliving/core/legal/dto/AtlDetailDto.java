@@ -28,6 +28,6 @@ public class AtlDetailDto extends AbstractDto {
 
     private AtlDetailsEnum atlDetailsEnum;
     
-    private boolean isApprovedBySandeep;
+    private boolean approvedBySandeep;
 
 }
