@@ -29,13 +29,13 @@ public enum PricingStepStatus{
 					EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD), "#f03434" ,5),
 	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#e87e04" ,6),
 	PENDING_SANDEEP_APPROVAL("Pending Sandeep Approval", Arrays.asList(EstateStatus.SENT_FOR_SANDEEP_APPROVAL), "#2ab379" ,7),
-	SENT_BACK_BY_SANDEEP("Sent Back by Sandeep", Arrays.asList(EstateStatus.SENT_FOR_SANDEEP_APPROVAL), "#2ab379" ,7),
+	SENT_BACK_BY_SANDEEP("Sent Back by Sandeep", Arrays.asList(EstateStatus.SENT_FOR_SANDEEP_APPROVAL), "#8d6f6f" ,8),
 
-	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#4d05e8" ,8),
-	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18" ,9),
-	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK_BY_LEADERSHIP, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#00b5cc" ,10),
-	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM, EstateStatus.SENT_BACK_BY_LEGAL), "#696969" ,11),
-	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875" ,12);
+	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#4d05e8" ,9),
+	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18" ,10),
+	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK_BY_LEADERSHIP, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#00b5cc" ,11),
+	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM, EstateStatus.SENT_BACK_BY_LEGAL), "#e8e8e8" ,12),
+	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875" ,13);
 
 
 	private String pricingStatus;
