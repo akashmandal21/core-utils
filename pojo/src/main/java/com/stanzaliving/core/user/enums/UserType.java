@@ -20,5 +20,6 @@ public enum UserType {
 	MANAGER,
 	BD,
 	LEADERSHIP,
-	OPS
+	OPS,
+	CONSUMER
 }
