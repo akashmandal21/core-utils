@@ -28,4 +28,6 @@ public class StanzaConstants {
 	public static final String ORGANIZATION_NAME = "Stanza Living";
 	public static final String ORGANIZATION_DOMAIN = "https://www.stanzaliving.com";
 
+	public static final String GUID = "guid";
+	public static final String LUID = "luid";
 }
