@@ -28,11 +28,14 @@ public enum PricingStepStatus{
 			Arrays.asList(EstateStatus.SENT_FOR_APPROVAL, EstateStatus.APPROVED_BY_TRANSFORMATION,
 					EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD), "#f03434" ,5),
 	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#e87e04" ,6),
-	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#4d05e8" ,7),
-	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18" ,8),
-	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK_BY_LEADERSHIP, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#00b5cc" ,9),
-	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM, EstateStatus.SENT_BACK_BY_LEGAL), "#696969" ,10),
-	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875" ,11);
+	PENDING_SANDEEP_APPROVAL("Pending Sandeep Approval", Arrays.asList(EstateStatus.SENT_FOR_SANDEEP_APPROVAL), "#2ab379" ,7),
+	SENT_BACK_BY_SANDEEP("Sent Back by Sandeep", Arrays.asList(EstateStatus.SENT_FOR_SANDEEP_APPROVAL), "#2ab379" ,7),
+
+	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#4d05e8" ,8),
+	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18" ,9),
+	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK_BY_LEADERSHIP, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#00b5cc" ,10),
+	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM, EstateStatus.SENT_BACK_BY_LEGAL), "#696969" ,11),
+	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875" ,12);
 
 
 	private String pricingStatus;
