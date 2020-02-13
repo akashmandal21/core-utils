@@ -97,8 +97,8 @@ public enum PricingStepStatus{
 		statusMap.put(EstateStatus.SENT_BACK_BY_TRANSFORMATION, L1_APPROVED);
 		statusMap.put(EstateStatus.SENT_BACK,L1_APPROVED);
 
-
-
+		statusMap.put(EstateStatus.SENT_FOR_SANDEEP_APPROVAL, PENDING_SANDEEP_APPROVAL);
+		statusMap.put(EstateStatus.SENT_BACK_BY_SANDEEP, SENT_BACK_BY_SANDEEP);
 
 
 	}
