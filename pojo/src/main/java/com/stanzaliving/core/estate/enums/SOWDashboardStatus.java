@@ -38,9 +38,18 @@ public enum SOWDashboardStatus {
 		statusMap.put(SOWStatus.SOW_SENT_BACK, SOW_SENT_BACK);
 		statusMap.put(SOWStatus.SOW_APPROVED, SOW_APPROVED);
 
-		sowToEstateStatusMapping.put(PENDING_SOW_APPROVAL, Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD,EstateStatus.SENT_FOR_APPROVAL));
+		sowToEstateStatusMapping.put(PENDING_SOW_APPROVAL, Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD,
+				EstateStatus.SENT_FOR_APPROVAL));
 		sowToEstateStatusMapping.put(SOW_SENT_BACK, Arrays.asList(EstateStatus.SENT_BACK_BY_TRANSFORMATION));
-		sowToEstateStatusMapping.put(SOW_APPROVED, Arrays.asList(EstateStatus.APPROVED_BY_TRANSFORMATION));
+		sowToEstateStatusMapping.put(SOW_APPROVED, Arrays.asList(EstateStatus.APPROVED_BY_TRANSFORMATION,
+				EstateStatus.APPROVED_BY_LEADERSHIP,
+				EstateStatus.ATL_UPLOAD_PENDING,
+				EstateStatus.SHORTLISTED,
+				EstateStatus.SIGNED_ATL_UPLOADED,
+				EstateStatus.SENT_TO_LEGAL,
+				EstateStatus.SENT_TO_CENTRAL_BD_TEAM,
+				EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM,
+				EstateStatus.SENT_BACK_BY_LEGAL));
 		sowToEstateStatusMapping.put(PENDING_SANDEEP_APPROVAL, Arrays.asList(EstateStatus.SENT_FOR_SANDEEP_APPROVAL));
 		sowToEstateStatusMapping.put(SENT_BACK_BY_SANDEEP, Arrays.asList(EstateStatus.SENT_BACK_BY_SANDEEP));
 
@@ -48,9 +57,18 @@ public enum SOWDashboardStatus {
 		estateStatusToSowStatusMapping.put(EstateStatus.APPROVED_BY_NATIONAL_HEAD,PENDING_SOW_APPROVAL);
 		estateStatusToSowStatusMapping.put(EstateStatus.SENT_FOR_APPROVAL,PENDING_SOW_APPROVAL);
 		estateStatusToSowStatusMapping.put(EstateStatus.SENT_BACK_BY_TRANSFORMATION,SOW_SENT_BACK);
-		estateStatusToSowStatusMapping.put(EstateStatus.APPROVED_BY_TRANSFORMATION,SOW_APPROVED);
 		estateStatusToSowStatusMapping.put(EstateStatus.SENT_FOR_SANDEEP_APPROVAL,PENDING_SANDEEP_APPROVAL);
 		estateStatusToSowStatusMapping.put(EstateStatus.SENT_BACK_BY_SANDEEP,SENT_BACK_BY_SANDEEP);
+
+		estateStatusToSowStatusMapping.put(EstateStatus.APPROVED_BY_TRANSFORMATION,SOW_APPROVED);
+		estateStatusToSowStatusMapping.put(EstateStatus.APPROVED_BY_LEADERSHIP,SOW_APPROVED);
+		estateStatusToSowStatusMapping.put(EstateStatus.ATL_UPLOAD_PENDING,SOW_APPROVED);
+		estateStatusToSowStatusMapping.put(EstateStatus.SHORTLISTED,SOW_APPROVED);
+		estateStatusToSowStatusMapping.put(EstateStatus.SIGNED_ATL_UPLOADED,SOW_APPROVED);
+		estateStatusToSowStatusMapping.put(EstateStatus.SENT_TO_LEGAL,SOW_APPROVED);
+		estateStatusToSowStatusMapping.put(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,SOW_APPROVED);
+		estateStatusToSowStatusMapping.put(EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM,SOW_APPROVED);
+		estateStatusToSowStatusMapping.put(EstateStatus.SENT_BACK_BY_LEGAL,SOW_APPROVED);
 
 	}
 }
