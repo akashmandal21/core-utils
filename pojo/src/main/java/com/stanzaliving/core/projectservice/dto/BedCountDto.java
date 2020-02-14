@@ -1,10 +1,8 @@
 package com.stanzaliving.core.projectservice.dto;
 
 import java.io.Serializable;
-import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.commentsservice.dto.CommentsDto;
 import com.stanzaliving.core.projectservice.enums.BedCountStatus;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +23,8 @@ public class BedCountDto extends AbstractDto implements Serializable{
 	private static final long serialVersionUID = 14233523L;
 
 	private String propertyUuid;
+
+	private Long cityId;
 	
 	private long cityId;
 	
@@ -42,7 +42,7 @@ public class BedCountDto extends AbstractDto implements Serializable{
 	
 	private Integer version;
 	
-	private List<CommentsDto> deviationReasons;
+	private String deviationReasons;
 	
 	private String bedCountStatusName;
 	private String color;

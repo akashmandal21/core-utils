@@ -47,16 +47,11 @@ public class PropertyDetailsPublishDto implements Serializable{
 	
 	private Double lat;
 	private Double lon;
-	
-	
-	
-
 	private int floorCount;
 	private int roomCount;
 	private int bedCount;
 	private Date propertyDueDate;
-	
-	
+
 	private String siteEngineerUuid;
 	private String projectManagerUuid;
 	private String zonalHeadUuid;
