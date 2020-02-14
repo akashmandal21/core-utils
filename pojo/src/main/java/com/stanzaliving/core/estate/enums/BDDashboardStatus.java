@@ -16,12 +16,12 @@ public enum BDDashboardStatus {
 			Arrays.asList(EstateStatus.DRAFT_IN_PROGRESS, EstateStatus.APPROVED_BY_CITY_HEAD,EstateStatus.SENT_BACK_BY_CITY_HEAD,EstateStatus.REJECTED),"#bfbfbf" ,1),
 	
 	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD), "#4183d7" ,2),
-	PENDING_L1_APPROVAL_NATIONAL_HEAD("Pending L1 BD Head Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD),"#f1a9a0",4),
-	L1_SENT_BACK_BY_ANDY("L1 Sent Back by Andy",Arrays.asList( EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#d5a6bd",7),
-	L1_APPROVED_LEADERSHIP(	"Pending L2 Details", Arrays.asList(EstateStatus.APPROVED_L1_BY_LEADERSHIP,EstateStatus.SENT_BACK_BY_TRANSFORMATION),"#6bb9f0",3),
+	PENDING_L1_APPROVAL_NATIONAL_HEAD("Pending L1 BD Head Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD),"#f1a9a0",3),
+	L1_SENT_BACK_BY_ANDY("L1 Sent Back by Andy",Arrays.asList( EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#d5a6bd",4),
+	L1_APPROVED_LEADERSHIP(	"Pending L2 Details", Arrays.asList(EstateStatus.APPROVED_L1_BY_LEADERSHIP,EstateStatus.SENT_BACK_BY_TRANSFORMATION),"#6bb9f0",5),
 	PENDING_NATIONAL_HEAD_APPROVAL("Pending BD Head Approval",
-			Arrays.asList(EstateStatus.SENT_FOR_APPROVAL, EstateStatus.APPROVED_BY_TRANSFORMATION), "#f03434",5),
-	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK,EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD),"#00b5cc",6),
+			Arrays.asList(EstateStatus.SENT_FOR_APPROVAL, EstateStatus.APPROVED_BY_TRANSFORMATION), "#f03434",6),
+	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK,EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD),"#00b5cc",7),
 	
 	
 	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#e87e04",8),
