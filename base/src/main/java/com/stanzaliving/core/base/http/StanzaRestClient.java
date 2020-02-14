@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 
+import com.stanzaliving.core.base.StanzaConstants;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -42,6 +43,7 @@ import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
 import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
 
 import lombok.extern.log4j.Log4j2;
+import org.slf4j.MDC;
 
 /**
  * @author naveen
@@ -155,6 +157,7 @@ public class StanzaRestClient {
 
 	public StanzaRestClient setUserAgent(String userAgent) {
 		addDefaultHeader("User-Agent", userAgent);
+		defaultHeaders.add(StanzaConstants.GUID, MDC.get(StanzaConstants.GUID));
 		return this;
 	}
 
