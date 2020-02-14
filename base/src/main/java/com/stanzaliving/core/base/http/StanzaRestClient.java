@@ -157,7 +157,6 @@ public class StanzaRestClient {
 
 	public StanzaRestClient setUserAgent(String userAgent) {
 		addDefaultHeader("User-Agent", userAgent);
-		defaultHeaders.add(StanzaConstants.GUID, MDC.get(StanzaConstants.GUID));
 		return this;
 	}
 
@@ -214,6 +213,7 @@ public class StanzaRestClient {
 		requestBuilder.contentType(MediaType.APPLICATION_JSON);
 
 		addHeadersToRequest(headerParams, requestBuilder);
+		addGUIDHeader();
 		addHeadersToRequest(defaultHeaders, requestBuilder);
 
 		log.debug("Accessing API: " + builder.toUriString());
@@ -314,4 +314,14 @@ public class StanzaRestClient {
 		}
 	}
 
+	public StanzaRestClient addGUIDHeader() {
+
+		if (defaultHeaders.containsKey(StanzaConstants.GUID)) {
+			defaultHeaders.remove(StanzaConstants.GUID);
+		}
+
+		defaultHeaders.add(StanzaConstants.GUID, MDC.get(StanzaConstants.GUID));
+
+		return this;
+	}
 }

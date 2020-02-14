@@ -48,7 +48,6 @@
 		<module>project-approval-client</module>	
 		<module>estate-core</module>
 		<module>status-tracker</module>
-		<module>pushnotification-client</module>
 	</modules>
 
 	<build>
