@@ -428,7 +428,7 @@ public class AttributeNames {
 				put(new ImmutablePair<>("Landlord", "landlordDetails"),
 						Arrays.asList("landlordType", "landlordName", "landlordRelationType", "landlordRelationName", "ownershipPercentage", "landlordPan", "landlordAge", "landlordAddress"));
 				put(new ImmutablePair<>("Property", "roomType"),
-						Arrays.asList("shapeOfTheRoom", "roomCount", "lengthOfRoom", "widthOfRoom"));
+						Arrays.asList("shapeOfTheRoom", "lengthOfRoom", "widthOfRoom"));
 			}
 		};
 		public static final String POWER_BACKUP_SIze = "powerBackupCapacity";
