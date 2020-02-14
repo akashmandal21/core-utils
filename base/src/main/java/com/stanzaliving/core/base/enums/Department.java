@@ -13,5 +13,6 @@ public enum Department {
     DESIGN,
     PROJECTS,
     TRANSFORMATIONS,
+    SALES,
     WEB
 }
