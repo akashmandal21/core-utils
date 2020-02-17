@@ -24,7 +24,7 @@ public class BedCountDto extends AbstractDto implements Serializable{
 
 	private String propertyUuid;
 
-	private Long cityId;
+	private long cityId;
 	
 	private Integer bdBedCount;
 	

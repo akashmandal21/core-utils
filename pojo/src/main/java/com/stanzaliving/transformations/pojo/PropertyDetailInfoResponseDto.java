@@ -20,6 +20,7 @@ public class PropertyDetailInfoResponseDto {
 
 	
 	private int area;
+	private long cityId;
 	private String cityName;
 	private String brandName;
 	private int roomCount;

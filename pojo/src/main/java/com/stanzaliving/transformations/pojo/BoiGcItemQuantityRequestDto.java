@@ -19,6 +19,7 @@ import lombok.ToString;
 public class BoiGcItemQuantityRequestDto {
 
 	private String propertyUuid;
+	private long cityId;
 	List<CategoryLineItemRequestDto> boiLineItems;
 	List<CategoryLineItemRequestDto> gcLineItems;
 }
