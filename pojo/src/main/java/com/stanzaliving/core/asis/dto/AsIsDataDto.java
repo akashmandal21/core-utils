@@ -48,6 +48,8 @@ public class AsIsDataDto extends AbstractDto implements Serializable {
 	private String asIsStartsDate;
 
 	private String asIsStatus;
+	private String asIsStatusText;
+	private String lastUpdatedAt;
 	
 	private boolean asIsMarkedComplted;
 	private List<AsIsDrawingsDto> asIsDrawings;
