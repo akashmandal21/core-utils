@@ -15,4 +15,6 @@ public class LocatorEstateViewDto {
 	
 	private List<TechParks> techParks;
 	
+	private List<StanzaPropertyDto> stanzaProperties;
+	
 }

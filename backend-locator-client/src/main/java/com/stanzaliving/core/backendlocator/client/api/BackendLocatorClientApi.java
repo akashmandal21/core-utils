@@ -33,7 +33,7 @@ public class BackendLocatorClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public ResponseDto<LocatorEstateViewDto> getPushNotificationLog(String cityName, double latitude, double longitude) {
+	public ResponseDto<LocatorEstateViewDto> getLocatorData(String cityName, double latitude, double longitude) {
 		Object postBody = null;
 
 		// create path and map variables
