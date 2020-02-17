@@ -114,5 +114,10 @@ public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Lo
 		return Pair.of(statusCountDtos, dashboardStatusCountDtos);
 	}
 
+	@Override
+	public List<EstateEntity> findByEstateName(String estateName) {
+		return estateRepository.findByEstateName(estateName);
+	}
+
 
 }

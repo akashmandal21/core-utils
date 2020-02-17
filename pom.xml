@@ -41,6 +41,7 @@
 		<module>comment-client</module>
 		<module>estate-client</module>
 		<module>documentgenerator-client</module>
+		<module>website-client</module>
 		<module>version-client</module>
 		<module>legal-client</module>	
 		<module>project-approval-client</module>	

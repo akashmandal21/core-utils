@@ -5,6 +5,7 @@ package com.stanzaliving.core.user.request.dto;
 
 import javax.validation.constraints.NotBlank;
 
+import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
 
 import lombok.Getter;
@@ -27,5 +28,7 @@ public class LoginRequestDto {
 	@NotBlank(message = "Mobile Number is Mandatory for Login")
 	@EnsureNumber(message = "Mobile must contain only numbers", fieldName = "mobile")
 	private String mobile;
-
+	
+	private UserType userType;
+	
 }

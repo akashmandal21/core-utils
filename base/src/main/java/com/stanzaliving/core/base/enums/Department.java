@@ -12,5 +12,7 @@ public enum Department {
     PROCUREMENT,
     DESIGN,
     PROJECTS,
-    TRANSFORMATIONS
+    TRANSFORMATIONS,
+    SALES,
+    WEB
 }
