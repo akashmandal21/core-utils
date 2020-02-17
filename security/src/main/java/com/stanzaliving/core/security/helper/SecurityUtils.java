@@ -55,6 +55,18 @@ public class SecurityUtils {
 
 		return token;
 	}
+	
+	public static String getCurrentUserMobile() {
+		CurrentUser currentUser = getCurrentUser();
+
+		String mobile = "";
+
+		if (currentUser != null) {
+			mobile = currentUser.getMobile();
+		}
+
+		return mobile;
+	}
 
 	public static CurrentUser getCurrentUser() {
 		CurrentUser currentUser = null;
