@@ -184,4 +184,46 @@ public class LegalClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
     }
+    
+    /**
+     * Get all atl details approved status by Sandeep
+     * 
+     * @author debendra.dhinda
+     * @since 13-Feb-2020
+     * */
+    public ResponseDto<Boolean> checkAllAtlApprovedBySandeep(String estateUuid) {
+
+        if (Objects.isNull(estateUuid)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("estateUuid", estateUuid);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/atlDetails/{estateUuid}/checkAllApprovedBySandeep").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+    
+    
+    
+    
+    
 }
