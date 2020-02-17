@@ -49,4 +49,6 @@ public class EstateDto extends AbstractDto {
 	private String estateCode;
 	
 	private String managerName;
+	
+	private String propertyName;
 }

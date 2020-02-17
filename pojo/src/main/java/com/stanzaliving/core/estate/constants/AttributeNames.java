@@ -412,6 +412,9 @@ public class AttributeNames {
 		public static final String RENT_INSTALLMENTS_FOR_DOC = "rentInstallmentForDoc";
 		public static final String ADDRESS_FOR_DOC = "addressForDoc";
 		public static final String CURRENT_YEAR = "currentYear";
+		public static final String SECURITY_DEPOSIT_AMOUNT_IFSRD = "securityDepositAmountForIFSRD";
+		public static final String CITY_NAME = "cityName";
+
 
 
 
@@ -425,7 +428,7 @@ public class AttributeNames {
 				put(new ImmutablePair<>("Landlord", "landlordDetails"),
 						Arrays.asList("landlordType", "landlordName", "landlordRelationType", "landlordRelationName", "ownershipPercentage", "landlordPan", "landlordAge", "landlordAddress"));
 				put(new ImmutablePair<>("Property", "roomType"),
-						Arrays.asList("shapeOfTheRoom", "roomCount", "lengthOfRoom", "widthOfRoom"));
+						Arrays.asList("shapeOfTheRoom", "lengthOfRoom", "widthOfRoom"));
 			}
 		};
 		public static final String POWER_BACKUP_SIze = "powerBackupCapacity";

@@ -18,7 +18,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum SOWStatus {
 
-	PENDING_SOW_APPROVAL("Pending SOW Approval"), SOW_SENT_BACK("SOW Sent Back"), SOW_APPROVED("SOW Approved");
+	PENDING_SOW_APPROVAL("Pending SOW Approval"), SOW_SENT_BACK("SOW Sent Back"), SOW_APPROVED("SOW Approved"),
+	PENDING_SANDEEP_APPROVAL("Pending Sandeep Approval"), SENT_BACK_BY_SANDEEP("Sent Back by Sandeep");
 
 	public static final List<SOWStatus> NON_MODIFIABLE_SOW_STATUS;
 

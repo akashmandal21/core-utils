@@ -64,4 +64,6 @@ public class PricingApprovalScreenDto extends AbstractDto{
 	
 	private Address address;
 
+	private PricingViewEstateData pricingViewEstateData;
+	private PropertyNamingDto propertyNamingDto;
 }

@@ -30,4 +30,6 @@ public interface EstateDbService extends AbstractJpaService<EstateEntity, Long> 
 	Pair<List<EstateStatusCountDto>, List<BDDashboardStatusCountDto>> findCountByStatus(
 			Set<EstateEntity> estateEntities);
 
+	
+	List<EstateEntity> findByEstateName( String estateName );
 }
