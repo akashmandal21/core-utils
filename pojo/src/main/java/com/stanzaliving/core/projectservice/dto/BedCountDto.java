@@ -34,7 +34,7 @@ public class BedCountDto extends AbstractDto implements Serializable{
 	
 	private Integer designRoomCount;
 
-	private Integer deviationInRoomCount;
+	private Integer deviationInBedCount;
 		
 	private BedCountStatus bedCountStatus;
 	
