@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -27,6 +28,7 @@ import com.stanzaliving.core.projectservice.tiles.TileStatusDto;
  *
  *
  **/
+@Log4j2
 public class SfrClientApi {
 
 	private StanzaRestClient restClient;
@@ -63,6 +65,7 @@ public class SfrClientApi {
 
 		Object postBody = tileDeciderDto;
 
+		log.info("Data For SFR Tile Request {} ",tileDeciderDto);
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 
