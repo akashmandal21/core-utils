@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.transformations.pojo;
 
+import com.stanzaliving.transformations.enums.BoqStatus;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -33,4 +35,5 @@ public class CreatePropertyRequestDto {
 	private String projectManagerAssigned;
 	private Integer attachedWashroom;
 	private Integer attachedBalcony;
+	private BoqStatus boqStatus;
 }
