@@ -12,12 +12,12 @@ import lombok.Getter;
 @Getter
 public enum PropertyReportsTile {
 
-    SFR("SFR",true,true,Department.PROJECTS,PropertyUpdateEnum.PROJECT_SFR_COMPLETED,"design/sfr-report"),
+    SFR("SFR",true,true,Department.PROJECTS,PropertyUpdateEnum.PROJECT_SFR_COMPLETED,"sfr-report"),
     //OFR("OFR",true,true),
     AS_IS("As-Is Report",true,true,Department.PROJECTS,PropertyUpdateEnum.PROJECT_AS_IS_COMPLETED,"asisdrawings"),
     GFC("GFC Drawings",true,true,Department.DESIGN,PropertyUpdateEnum.DESIGN_GFC_APPROVED,"gfcdrawings"),
-    BOQ("Master BOQ Formation",true,true,Department.DESIGN,PropertyUpdateEnum.DESIGN_BOQ_COMPLETED,"design/boq"),
-    ATL("ATL",false,true,Department.PROJECTS,null,""),
+    BOQ("Master BOQ Formation",true,true,Department.DESIGN,PropertyUpdateEnum.DESIGN_BOQ_COMPLETED,"boq"),
+    ATL("ATL",false,true,null,null,""),
     BED_COUNT_FINALIZATION("Bed Count Finalization",true,false,Department.DESIGN,PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED,"bedcount");
 
 
