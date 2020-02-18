@@ -90,6 +90,8 @@ public class AttributeNames {
 
 		public static final String COMMENTS_ON_PROPERTY_ANALYSIS = "commentsOnPropertyAnalysis";
 
+		public static final String COMMENTS_ON_COMMERCIALS = "commentOnCommercials";
+		
 		public static final String COMMENTS = "comments";
 
 		public static final String KEY_POSITIVES = "keyPositives";
