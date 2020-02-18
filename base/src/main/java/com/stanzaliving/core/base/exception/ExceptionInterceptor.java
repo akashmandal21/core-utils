@@ -1,7 +1,6 @@
 package com.stanzaliving.core.base.exception;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import com.stanzaliving.core.base.annotation.SendExceptionToSlack;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.utils.StanzaUtils;
 import lombok.extern.log4j.Log4j2;
@@ -19,20 +18,20 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import javax.validation.ConstraintViolationException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 @Log4j2
-@ControllerAdvice("com.stanzaliving")
+@RestControllerAdvice
 public class ExceptionInterceptor {
 
 	/************************ Framework Specific Exceptions ************************/
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public @ResponseBody <T> ResponseDto<T> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -52,7 +51,7 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(PropertyAccessException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
+
 	public <T> ResponseDto<T> handlePropertyAccessException(PropertyAccessException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -65,7 +64,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -78,7 +76,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(MissingServletRequestParameterException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -91,7 +88,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(BindException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleBindException(BindException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -112,7 +108,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(HttpMessageNotReadableException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -123,7 +118,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(InvalidFormatException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleInvalidFormatException(InvalidFormatException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -134,7 +128,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(SQLIntegrityConstraintViolationException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleSQLIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -145,7 +138,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(ConstraintViolationException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleConstraintViolationException(ConstraintViolationException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -156,7 +148,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(DataIntegrityViolationException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleDataIntegrityViolationException(DataIntegrityViolationException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -173,7 +164,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(StanzaException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleStanzaException(StanzaException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -184,7 +174,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(ApiValidationException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public @ResponseBody <T> ResponseDto<T> handleApiValidationException(ApiValidationException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -195,7 +184,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(StanzaHttpException.class)
 	@ResponseStatus(value = HttpStatus.FAILED_DEPENDENCY)
-	@SendExceptionToSlack
 	public @ResponseBody <T> ResponseDto<T> handleStanzaHttpException(StanzaHttpException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -206,7 +194,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(NoRecordException.class)
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleNoRecordException(NoRecordException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -217,7 +204,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	@SendExceptionToSlack
 	public @ResponseBody <T> ResponseDto<T> handleException(Exception ex) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
