@@ -1,4 +1,4 @@
-package com.stanzaliving.core.pushnotification.client.api.annotation;
+package com.stanzaliving.core.base.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
