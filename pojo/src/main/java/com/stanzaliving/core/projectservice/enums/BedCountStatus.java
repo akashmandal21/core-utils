@@ -17,7 +17,7 @@ public enum BedCountStatus {
 	SENT_BACK_BY_ZONAL_HEAD("Sent back by zonal head","#e5e3e3"),
 	DESIGN_HEAD("Design head","#e5e3e3"),
 	SENT_BACK_BY_DESIGN_HEAD("Sent back by design head","#e5e3e3"),
-	TRANSFORMATIONS("Transformations","#e5e3e3"),
+	TRANSFORMATIONS("Sent For Approval","#e5e3e3"),
 	APPROVED_BY_TRANSFORMATIONS("Approved By Transformations","#e5e3e3"),
 	SENT_BACK_BY_TRANSFORMATIONS("Sent back by tranformation","#e5e3e3"),
 	LEADERSHIP("Leadership","#e5e3e3"),
