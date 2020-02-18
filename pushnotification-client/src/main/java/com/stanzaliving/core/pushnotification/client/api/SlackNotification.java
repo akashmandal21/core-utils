@@ -34,9 +34,7 @@ public class SlackNotification {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<String> sendPushNotificationRequest(Object object, String endUrl) {
-
-        log.info("Send notification on Slack");
+    public ResponseDto<String> sendPushNotificationRequest(String message, String endUrl) {
 
         String path = UriComponentsBuilder.fromPath(endUrl).toUriString();
 
@@ -50,7 +48,10 @@ public class SlackNotification {
         ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, object, headerParams, accept,
+        Map<String, String> map = new HashMap<>();
+        map.put("text", message);
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, map, headerParams, accept,
                 returnType);
     }
 
@@ -58,12 +59,9 @@ public class SlackNotification {
 
         log.info("Send exception notification on Slack request exception " + exception);
 
-        Map<String, String> map = new HashMap<>();
-
         StringWriter sw = new StringWriter();
         exception.printStackTrace(new PrintWriter(sw));
-        map.put("text", sw.toString());
 
-        return sendPushNotificationRequest(map, endUrl);
+        return sendPushNotificationRequest(sw.toString(), endUrl);
     }
 }
