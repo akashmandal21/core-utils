@@ -1,10 +1,15 @@
 package com.stanzaliving.core.operations.dto.report.food;
 
-import com.stanzaliving.core.operations.dto.report.GraphDto;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import java.util.List;
+
+import com.stanzaliving.core.operations.dto.report.GraphDto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -13,5 +18,6 @@ import java.util.List;
 @AllArgsConstructor
 @SuperBuilder
 public class CostEfficiencyGraphDto extends GraphDto {
-    List<CostGraphFeElementDto> extraInformation;
+
+	private List<CostGraphFeElementDto> extraInformation;
 }

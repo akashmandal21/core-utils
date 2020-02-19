@@ -12,29 +12,29 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ComplianceRecordDto extends RecordDto {
 
-    int totalMeals;
+	private int totalMeals;
 
-    int receivedOnTime;
+	private int receivedOnTime;
 
-    int leftOver;
+	private int leftOver;
 
-    int shortage;
+	private int shortage;
 
-    int feedback;
+	private int feedback;
 
-    int menuAdherence;
+	private int menuAdherence;
 
-    double rating;
+	private double rating;
 
-    String vendorUuid;
-    
-    String vendorName;
-    
-    String mealUuid;
-    
-    String mealName;
+	private String vendorUuid;
 
-    int shortageFilled;
+	private String vendorName;
 
-    int leftoverFilled;
+	private String mealUuid;
+
+	private String mealName;
+
+	private int shortageFilled;
+
+	private int leftoverFilled;
 }
