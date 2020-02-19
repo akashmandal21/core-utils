@@ -3,6 +3,9 @@
  */
 package com.stanzaliving.transformations.enums;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import lombok.Getter;
 
 /**
@@ -19,6 +22,7 @@ public enum AreaOfUse {
 	GAMING("Gaming"),
 	CAFE_AREA("Cafe Area"),
 	BRANDING("Branding"),
+	ELECTRONIC("Electronic"),
 	GYM("Gym");
 	
 	private String name;
@@ -26,4 +30,20 @@ public enum AreaOfUse {
 	private AreaOfUse(String name) {
 		this.name = name;
 	}
+	
+	public static Map<String, AreaOfUse> areaofUseMap = new HashMap<>();
+
+	static {
+
+		areaofUseMap.put("Room", AreaOfUse.ROOM);
+		areaofUseMap.put("Reception", AreaOfUse.RECEPTION);
+		areaofUseMap.put("Entertainment", AreaOfUse.ENTERTAINMENT);
+		areaofUseMap.put("Back of House", AreaOfUse.BACK_OF_HOUSE);
+		areaofUseMap.put("Gaming", AreaOfUse.GAMING);
+		areaofUseMap.put("Cafe Area", AreaOfUse.CAFE_AREA);
+		areaofUseMap.put("Branding", AreaOfUse.BRANDING);
+		areaofUseMap.put("Electronic", AreaOfUse.ELECTRONIC);
+		areaofUseMap.put("Gym", AreaOfUse.GYM);
+	}
+
 }
