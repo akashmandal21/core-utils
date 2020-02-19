@@ -16,7 +16,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+<<<<<<< Updated upstream
 import com.stanzaliving.versioning.dto.VersionListRequestDto;
+=======
+>>>>>>> Stashed changes
 import com.stanzaliving.versioning.dto.VersioningRequestDto;
 import com.stanzaliving.versioning.dto.VersioningResponseDto;
 
