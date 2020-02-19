@@ -3,7 +3,6 @@
  */
 package com.stanzaliving.core.base.notification;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -33,7 +32,7 @@ public class SlackNotification {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<String> sendPushNotificationRequest(String message, String endUrl) {
+    public String sendPushNotificationRequest(String message, String endUrl) {
 
         String path = UriComponentsBuilder.fromPath(endUrl).toUriString();
 
@@ -44,7 +43,7 @@ public class SlackNotification {
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
         };
 
         Map<String, String> map = new HashMap<>();
@@ -54,7 +53,7 @@ public class SlackNotification {
                 returnType);
     }
 
-    public ResponseDto<String> sendExceptionNotificationRequest(Exception exception, String endUrl) {
+    public String sendExceptionNotificationRequest(Exception exception, String endUrl) {
 
         log.info("Send exception notification on Slack request exception " + exception);
 
