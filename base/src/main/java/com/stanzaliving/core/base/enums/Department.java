@@ -14,5 +14,6 @@ public enum Department {
     PROJECTS,
     TRANSFORMATIONS,
     SALES,
-    WEB
+    WEB,
+    SYSTEM
 }
