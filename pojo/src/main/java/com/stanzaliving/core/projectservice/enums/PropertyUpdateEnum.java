@@ -1,5 +1,6 @@
 package com.stanzaliving.core.projectservice.enums;
 
+import com.stanzaliving.core.base.enums.Department;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -9,7 +10,7 @@ import lombok.Getter;
 public enum  PropertyUpdateEnum {
 
     //Projects
-    PROJECT_ZONAL_HEAD_ASSIGNED("Project Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
+    PROJECT_ZONAL_HEAD_ASSIGNED("Project Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED, Department.PROJECTS),
     PROJECT_MANAGER_ASSIGNED("Project manager Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
     PROJECT_SITE_ENGINEER_ASSIGNED("Project Site Engineer Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
 
@@ -30,7 +31,7 @@ public enum  PropertyUpdateEnum {
 
 
     //Design
-    DESIGN_ZONAL_HEAD_ASSIGNED("Design Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
+    DESIGN_ZONAL_HEAD_ASSIGNED("Design Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED, Department.PROJECTS),
     DESIGN_COORDINATOR_ASSIGNED("Design Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
 
     //GFC Intermediate
@@ -56,5 +57,11 @@ public enum  PropertyUpdateEnum {
     private String updateTaskName;
     private boolean needToPersist;
     private NotificationTaskType notificationTaskType;
+    private Department defaultDepartment;
 
+    PropertyUpdateEnum(String updateTaskName,boolean needToPersist, NotificationTaskType notificationTaskType){
+        this.updateTaskName = updateTaskName;
+        this.needToPersist=needToPersist;
+        this.notificationTaskType=notificationTaskType;
+    }
 }
