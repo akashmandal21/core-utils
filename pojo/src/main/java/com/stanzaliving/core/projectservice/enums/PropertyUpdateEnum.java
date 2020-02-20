@@ -31,7 +31,7 @@ public enum  PropertyUpdateEnum {
 
 
     //Design
-    DESIGN_ZONAL_HEAD_ASSIGNED("Design Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED, Department.PROJECTS),
+    DESIGN_ZONAL_HEAD_ASSIGNED("Design Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED, Department.DESIGN),
     DESIGN_COORDINATOR_ASSIGNED("Design Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
 
     //GFC Intermediate
