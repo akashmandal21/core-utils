@@ -52,6 +52,7 @@ public class SummaryResponseDto extends RecordDto {
 						.delighted(new FeElementDto(foodRatingBuckets.getDelightedResidents(), foodRatingBuckets.getTotalResidents(), FeElementType.PERCENT_INTEGER))
 						.dissatisfied(new FeElementDto(foodRatingBuckets.getDissatisfiedResidents(), foodRatingBuckets.getTotalResidents(), FeElementType.PERCENT_INTEGER))
 						.disgusted(new FeElementDto(foodRatingBuckets.getDisgustedResidents(), foodRatingBuckets.getTotalResidents(), FeElementType.PERCENT_INTEGER))
+						.delightedMinusDisgusted(new FeElementDto(foodRatingBuckets.getDelightedResidents() - foodRatingBuckets.getDisgustedResidents(), foodRatingBuckets.getTotalResidents(), FeElementType.PERCENT_INTEGER))
 						.socialMediaComplaint(new FeElementDto(summaryRecordDto.getExperience().getSocialMediaComplaints()))
 						.disasterEvent(new FeElementDto(summaryRecordDto.getExperience().getDisasterEvents()))
 						.shortage(new FeElementDto(summaryRecordDto.getExperience().getShortage(), summaryRecordDto.getExperience().getShortageFilledTimes(), FeElementType.PERCENT_INTEGER))

@@ -40,6 +40,8 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 
 	private FeElementDto disgusted;
 
+	private FeElementDto delightedMinusDisgusted;
+
 	private FeElementDto socialMediaComplaint;
 
 	private FeElementDto disasterEvent;
@@ -75,6 +77,7 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 		this.delighted = new FeElementDto(ratingBuckets.getDelightedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.dissatisfied = new FeElementDto(ratingBuckets.getDissatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.disgusted = new FeElementDto(ratingBuckets.getDisgustedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
+		this.delightedMinusDisgusted = new FeElementDto(ratingBuckets.getDelightedResidents() - ratingBuckets.getDisgustedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 
 		this.socialMediaComplaint = new FeElementDto(costAndExperienceRecordDto.getSocialMediaComplaint());
 		this.disasterEvent = new FeElementDto(costAndExperienceRecordDto.getDisasterEvent());
