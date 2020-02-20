@@ -5,6 +5,7 @@ import java.util.Set;
 
 public enum DocumentStatus {
 
+    ALL("ALL"),
     NOTUPLOADED("Not Uploaded Documents"),
     PENDING("Pending Verification"),
     REJECTED("Rejected Verification"),
@@ -14,19 +15,6 @@ public enum DocumentStatus {
 
     private DocumentStatus(String name){
         this.name = name;
-    }
-
-    public static Set<DocumentStatus> getAllDocumentStatus(){
-
-        Set<DocumentStatus> documentStatuses = new HashSet<>();
-
-        documentStatuses.add(PENDING);
-        documentStatuses.add(NOTUPLOADED);
-        documentStatuses.add(REJECTED);
-        documentStatuses.add(APPROVED);
-
-        return documentStatuses;
-
     }
 
 }
