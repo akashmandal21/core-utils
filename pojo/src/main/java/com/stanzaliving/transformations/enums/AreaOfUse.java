@@ -23,7 +23,8 @@ public enum AreaOfUse {
 	CAFE_AREA("Cafe Area"),
 	BRANDING("Branding"),
 	ELECTRONIC("Electronic"),
-	GYM("Gym");
+	GYM("Gym"),
+	COMMON_AREA("Common Area");
 	
 	private String name;
 
@@ -44,6 +45,7 @@ public enum AreaOfUse {
 		areaofUseMap.put("Branding", AreaOfUse.BRANDING);
 		areaofUseMap.put("Electronic", AreaOfUse.ELECTRONIC);
 		areaofUseMap.put("Gym", AreaOfUse.GYM);
+		areaofUseMap.put("Common Area", AreaOfUse.COMMON_AREA);
 	}
 
 }
