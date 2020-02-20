@@ -1,8 +1,6 @@
 package com.stanzaliving.transformations.pojo;
 
 
-import com.stanzaliving.core.enums.ResidenceType;
-import com.stanzaliving.transformations.enums.BrandName;
 import lombok.*;
 
 @Getter
@@ -13,7 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 public class ResidenceMetadataDto {
 
-    private long microMarketId;
+    private long residenceId;
 
     private String uuid;
 
