@@ -43,11 +43,11 @@ public enum  PropertyUpdateEnum {
 
     DESIGN_BED_COUNT_SUBMITTED_NO_DEVIATION("Design Bed Count Submitted with no deviation",false,NotificationTaskType.DESIGN_BED_COUNT_SUBMITTED_WITH_NO_DEVIATION),
     DESIGN_BED_COUNT_SUBMITTED_DEVIATION("Design Bed Count Submitted with deviation",false,NotificationTaskType.DESIGN_BED_COUNT_SUBMITTED_WITH_DEVIATION),
+    DESIGN_BED_COUNT_SENT_BACK("Design Bed Count Sent Back",false,NotificationTaskType.DESIGN_BED_COUNT_SENT_BACK),
     DESIGN_BED_COUNT_FINALIZATION_COMPLETED("Bed Count finalization Completed",true,NotificationTaskType.DESIGN_BED_COUNT_DEVIATION_APPROVED),
 
     DESIGN_BOQ_SUBMITTED("Boq Submitted For Approval",true,NotificationTaskType.MASTER_BOQ_SUBMITTED),
     DESIGN_BOQ_SENT_BACK("Boq Sent Back",true,NotificationTaskType.MASTER_BOQ_REJECTED),
-    DESIGN_BOQ_APPROVAL("Boq Approval Done",true,NotificationTaskType.MASTER_BOQ_APPROVED),
 
     //BOQ Completed
     DESIGN_BOQ_COMPLETED("Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED);

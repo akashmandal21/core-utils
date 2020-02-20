@@ -18,4 +18,5 @@ public class ProjectsUpdateDto {
     LocalDateTime timestamp;
     PropertyUpdateEnum propertyUpdateEnum;
     String userId;
+    Map<String,String> additionalData;
 }
