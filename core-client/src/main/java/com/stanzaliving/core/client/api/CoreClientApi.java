@@ -1,9 +1,11 @@
 package com.stanzaliving.core.client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.enums.DocumentStatus;
+import com.stanzaliving.core.base.enums.DocumentType;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.dto.FullUserDto;
-import com.stanzaliving.core.user.dto.UserDto;
+import com.stanzaliving.core.dto.*;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -11,7 +13,6 @@ import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
-import com.stanzaliving.core.base.constants.SecurityConstants;
 
 import java.util.HashMap;
 import java.util.List;
@@ -62,7 +63,7 @@ public class CoreClientApi {
     }
 
 
-    public ResponseDto<FullUserDto> updateUserRegistration(String userId, String token) {
+    public ResponseDto<UserRegistrationDto> updateUserRegistration(String userId, String token, DocumentType documentType, DocumentStatus documentStatus) {
          /* if (StringUtils.isBlank(token)) {
             throw new IllegalArgumentException("Token missing for getting all versions ");
         }*/
@@ -72,11 +73,13 @@ public class CoreClientApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        uriVariables.put("userId", userId);
-
-        String path = UriComponentsBuilder.fromPath("/fulluserdto/id/{userId}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/registerUser").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.putAll(restClient.parameterToMultiValueMap(null, "userId", userId));
+        queryParams.putAll(restClient.parameterToMultiValueMap(null, "documentType", documentType));
+        queryParams.putAll(restClient.parameterToMultiValueMap(null, "documentStatus", documentStatus));
 
         final HttpHeaders headerParams = new HttpHeaders();
         headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
@@ -89,12 +92,14 @@ public class CoreClientApi {
         ParameterizedTypeReference<ResponseDto<FullUserDto>> returnType = new ParameterizedTypeReference<ResponseDto<FullUserDto>>() {
         };
 
-        FullUserDto fullUserDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, FullUserDto.class);
+        UserRegistrationDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, UserRegistrationDto.class);
         ResponseDto responseDto = new ResponseDto();
-        responseDto.setData(fullUserDto);
+        responseDto.setData(response);
         responseDto.setStatus(true);
         responseDto.setHttpStatusCode(200);
 
         return responseDto;
     }
+
+
 }
