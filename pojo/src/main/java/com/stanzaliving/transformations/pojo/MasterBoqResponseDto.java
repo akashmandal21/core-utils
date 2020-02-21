@@ -3,8 +3,8 @@
  */
 package com.stanzaliving.transformations.pojo;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,8 +23,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class MasterBoqResponseDto {
 
-	List<String> itemCodes;
+	Set<String> itemCodes;
 	Map<String, String> itemCategories;
-	List<String> itemParticulars;
-	List<String> itemSpecifications;
+	Set<String> itemParticulars;
+	Set<String> itemSpecifications;
 }
