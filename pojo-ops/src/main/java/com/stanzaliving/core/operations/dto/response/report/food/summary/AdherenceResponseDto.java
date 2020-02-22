@@ -16,10 +16,10 @@ public class AdherenceResponseDto {
 
 	private FeElementDto quantityAdherence;
 
-	private FeElementDto onTimeDelivery;
+	//private FeElementDto onTimeDelivery;
 
 	private FeElementDto onTimeOrder;
 
-	private FeElementDto onTimeMenuCreation;
+	//private FeElementDto onTimeMenuCreation;
 
 }
