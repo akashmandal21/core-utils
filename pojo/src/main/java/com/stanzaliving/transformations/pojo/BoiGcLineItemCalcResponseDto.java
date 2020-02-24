@@ -21,7 +21,9 @@ public class BoiGcLineItemCalcResponseDto {
 
 	private double boiCapexPerBed;
 	private double gcCapexPerBed;
-	private List<BoiGcTotalCategoryCost> categoryCost;
+	private List<BoiGcTotalCategoryCost> boiCategoryCost;
+	private List<BoiGcTotalCategoryCost> gcCategoryCost;
+	
 	private Map<String, Double> categoryCostMap;
 	private BoqCapexCalculationCost capexCalculationCost;
 }
