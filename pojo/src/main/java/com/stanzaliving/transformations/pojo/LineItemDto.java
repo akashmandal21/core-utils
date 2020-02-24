@@ -5,7 +5,6 @@ package com.stanzaliving.transformations.pojo;
 
 import java.util.List;
 
-import com.stanzaliving.transformations.enums.AreaOfUse;
 import com.stanzaliving.transformations.enums.LineItemStatus;
 import com.stanzaliving.transformations.enums.LineItemType;
 
@@ -40,5 +39,6 @@ public class LineItemDto {
 	private String subBrandName;
 	private LineItemStatus lineItemStatus;
 	private LineItemType lineItemType;
+	private String categoryUuid;
 	
 }
