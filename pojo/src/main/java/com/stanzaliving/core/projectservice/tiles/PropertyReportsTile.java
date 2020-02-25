@@ -17,7 +17,7 @@ public enum PropertyReportsTile {
     AS_IS("As-Is Report",true,true,Department.PROJECTS,PropertyUpdateEnum.PROJECT_AS_IS_COMPLETED,"asisdrawings"),
     GFC("GFC Drawings",true,true,Department.DESIGN,PropertyUpdateEnum.DESIGN_GFC_APPROVED,"gfcdrawings"),
     BOQ("Master BOQ Formation",true,true,Department.DESIGN,PropertyUpdateEnum.DESIGN_BOQ_COMPLETED,"boq"),
-    ATL("ATL",false,true,null,null,""),
+    ATL("ATL",true,true,null,null,""),
     BED_COUNT_FINALIZATION("Bed Count Finalization",true,false,Department.DESIGN,PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED,"bedcount");
 
 
