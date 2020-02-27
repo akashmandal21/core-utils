@@ -45,4 +45,6 @@ public class CommentsDto {
 	
 	@NotNull(message = "Please enter sub context id")
 	private String subContextId;
+
+	private String parentCommentId;
 }
