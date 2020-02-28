@@ -1,6 +1,7 @@
 package com.stanzaliving.core.commentsservice.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
@@ -20,6 +21,8 @@ import lombok.ToString;
 public class CommentsDto {
 
 	private Long commentId;
+
+	private String commentUuid;
 
 	private Date commentTime;
 	
@@ -46,5 +49,7 @@ public class CommentsDto {
 	@NotNull(message = "Please enter sub context id")
 	private String subContextId;
 
-	private Long parentCommentId;
+	private String parentCommentUuid;
+
+	private List<CommentsDto> childComments;
 }
