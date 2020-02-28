@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.security.helper;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.pojo.CurrentUser;
 import com.stanzaliving.core.security.context.SecurityContextHolder;
 
@@ -66,6 +67,18 @@ public class SecurityUtils {
 		}
 
 		return mobile;
+	}
+	
+	public static Department getCurrentUserDepartment() {
+		CurrentUser currentUser = getCurrentUser();
+
+		Department department = null;
+
+		if (currentUser != null) {
+			department = currentUser.getDepartment();
+		}
+
+		return department;
 	}
 
 	public static CurrentUser getCurrentUser() {
