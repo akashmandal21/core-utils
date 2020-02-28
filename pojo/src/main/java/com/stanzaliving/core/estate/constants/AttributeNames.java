@@ -414,6 +414,7 @@ public class AttributeNames {
 		public static final String CURRENT_YEAR = "currentYear";
 		public static final String SECURITY_DEPOSIT_AMOUNT_IFSRD = "securityDepositAmountForIFSRD";
 		public static final String CITY_NAME = "cityName";
+		public static final String ROOM_COUNT_FOR_ATL ="roomCountAtl";
 
 
 
