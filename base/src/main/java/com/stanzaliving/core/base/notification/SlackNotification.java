@@ -3,8 +3,10 @@
  */
 package com.stanzaliving.core.base.notification;
 
+import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import lombok.extern.log4j.Log4j2;
+import org.slf4j.MDC;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -58,6 +60,8 @@ public class SlackNotification {
         log.info("Send exception notification on Slack request exception " + exception);
 
         StringWriter sw = new StringWriter();
+        sw.append(MDC.get(StanzaConstants.GUID));
+        sw.append("\n");
         exception.printStackTrace(new PrintWriter(sw));
 
         return sendPushNotificationRequest(sw.toString(), endUrl);
