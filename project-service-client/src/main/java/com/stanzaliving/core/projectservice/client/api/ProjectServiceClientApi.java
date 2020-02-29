@@ -7,6 +7,7 @@ import java.util.Objects;
 
 import com.stanzaliving.core.projectservice.dto.BedCountDto;
 
+import com.stanzaliving.core.projectservice.dto.PropertyInfoDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -53,6 +54,37 @@ public class ProjectServiceClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<BedCountDto>> returnType = new ParameterizedTypeReference<ResponseDto<BedCountDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public ResponseDto<PropertyInfoDto> getPropertyInfo(String propertyUuid) {
+
+        if (Objects.isNull(propertyUuid)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("propertyUuid", propertyUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/property/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<PropertyInfoDto>> returnType = new ParameterizedTypeReference<ResponseDto<PropertyInfoDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 

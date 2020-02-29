@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.stanzaliving.core.sfr.client.api;
+package com.stanzaliving.core.item_master.client.api;
 
 import java.util.HashMap;
 import java.util.List;
