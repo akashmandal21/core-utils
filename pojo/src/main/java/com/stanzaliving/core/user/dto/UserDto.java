@@ -41,4 +41,8 @@ public class UserDto extends AbstractDto {
 
 	private Department department;
 
+	private String firstName;
+
+	private String lastName;
+
 }

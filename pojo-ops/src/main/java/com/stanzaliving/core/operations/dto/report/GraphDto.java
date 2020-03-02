@@ -16,11 +16,18 @@ import java.util.List;
 public class GraphDto {
 
 	private String chartTitle;
+
 	private String xLabel;
+
 	private String yLabel;
+
 	private String xType;
+
 	private String yType;
+
 	private AccessLevel accessLevel;
+
 	private List<GraphLineXPoint> xAxis = new ArrayList<>();
+
 	private List<GraphLineDto> yAxis = new ArrayList<>();
 }

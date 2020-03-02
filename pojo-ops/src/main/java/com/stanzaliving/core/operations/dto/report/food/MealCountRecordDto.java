@@ -1,8 +1,12 @@
 package com.stanzaliving.core.operations.dto.report.food;
 
 import com.stanzaliving.core.operations.dto.report.RecordDto;
-import com.stanzaliving.core.operations.dto.request.report.food.CostEfficiencyFoodReportRequestDto;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -13,22 +17,22 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class MealCountRecordDto extends RecordDto implements Cloneable {
 
-    private int overallCount;
+	private int overallCount;
 
-    private int breakfastCount;
+	private int breakfastCount;
 
-    private int lunchCount;
+	private int lunchCount;
 
-    private int snacksCount;
+	private int snacksCount;
 
-    private int dinnerCount;
+	private int dinnerCount;
 
-    private int brunchCount;
+	private int brunchCount;
 
-    private int lunchTiffinCount;
+	private int lunchTiffinCount;
 
-    public MealCountRecordDto clone() {
-        return (MealCountRecordDto) super.clone();
-    }
+	public MealCountRecordDto clone() {
+		return (MealCountRecordDto) super.clone();
+	}
 
 }

@@ -50,6 +50,7 @@
 		<module>project-service-client</module>
 		<module>sfr-client</module>
 		<module>status-tracker</module>
+		<module>core-client</module>
 	</modules>
 
 	<build>

@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.stanzaliving.core.projectservice.tiles.TileDeciderDto;
-import com.stanzaliving.core.projectservice.tiles.TileStatusDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -21,12 +19,14 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.projectservice.tiles.TileDeciderDto;
+import com.stanzaliving.core.projectservice.tiles.TileStatusDto;
 import com.stanzaliving.transformations.pojo.CityMetadataDto;
 import com.stanzaliving.transformations.pojo.CountryLevelAccessMetadata;
 import com.stanzaliving.transformations.pojo.MicroMarketDetailsDto;
 import com.stanzaliving.transformations.pojo.MicroMarketMetadataDto;
-import com.stanzaliving.transformations.pojo.MicroMarketUIDto;
 import com.stanzaliving.transformations.pojo.PropertyBoqStatusDto;
+import com.stanzaliving.transformations.pojo.ResidenceMetadataDto;
 import com.stanzaliving.transformations.pojo.StateMetadataDto;
 import com.stanzaliving.transformations.ui.pojo.Country;
 
@@ -270,7 +270,6 @@ public class InternalDataControllerApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-
 	public ResponseDto<TileStatusDto> getTileStatus(TileDeciderDto tileDeciderDto) {
 
 		Object postBody = tileDeciderDto;
@@ -293,4 +292,31 @@ public class InternalDataControllerApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+
+
+	public ResponseDto<List<ResidenceMetadataDto>> getAllResidences() {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/residences/all").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ResidenceMetadataDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceMetadataDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
 }

@@ -32,4 +32,6 @@ public class CostAndExperienceRecordDto extends RecordDto {
 
 	private int totalMealsOrdered;
 
+	private int totalStudentFeedback;
+
 }
