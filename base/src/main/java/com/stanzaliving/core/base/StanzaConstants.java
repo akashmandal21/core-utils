@@ -30,4 +30,7 @@ public class StanzaConstants {
 
 	public static final String GUID = "guid";
 	public static final String LUID = "luid";
+
+	public static final String MESSAGE_ID = "messageId";
+
 }
