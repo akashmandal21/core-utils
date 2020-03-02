@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.operations.constants.FoodReportConstants;
 import com.stanzaliving.core.operations.dto.report.RecordDto;
 import com.stanzaliving.core.operations.dto.report.food.CustomerExperienceRecordDto;
 import com.stanzaliving.core.operations.dto.report.food.FoodRatingBuckets;
@@ -38,6 +39,8 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 
 	private FeElementDto disgusted;
 
+	private FeElementDto delightedMinusDisgusted;
+
 	private FeElementDto shortage;
 
 	private FeElementDto foreignParticles;
@@ -53,6 +56,8 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 	private FeElementDto menuAdherence;
 
 	private FeElementDto smr; // feedbackGiven/mealsOrdered
+
+	private FeElementDto mir;
 
 	public CustomerExperienceRecordResponseDto(
 			AccessLevel accessLevel,
@@ -70,18 +75,19 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 
 		double residences = FoodReportUtil.getResidenceCount(accessLevel, customerExperienceRecordDto, dateLevelFieldsMap);
 
-		int totalMeals = (int) ((activeMeals * daysConsidered * mir * 0.8) / residences);
+		int totalMeals = (int) ((activeMeals * daysConsidered * mir * FoodReportConstants.MAX_EXPECTED_PRESENT_PERCENT) / residences);
 
 		FoodRatingBuckets ratingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, foodRatingMap);
 
-		FoodRatingBuckets completeRatingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, completeFoodRatingMap);
+		//FoodRatingBuckets completeRatingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, completeFoodRatingMap);
 
 		this.delighted = new FeElementDto(ratingBuckets.getDelightedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.satisfied = new FeElementDto(ratingBuckets.getSatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.dissatisfied = new FeElementDto(ratingBuckets.getDissatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.disgusted = new FeElementDto(ratingBuckets.getDisgustedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
+		this.delightedMinusDisgusted = new FeElementDto(ratingBuckets.getDelightedResidents() - ratingBuckets.getDisgustedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 
-		this.shortage = new FeElementDto(customerExperienceRecordDto.getShortageCount(), customerExperienceRecordDto.getTotalCount(), FeElementType.INTEGER);
+		this.shortage = new FeElementDto(customerExperienceRecordDto.getShortageCount(), customerExperienceRecordDto.getShortageFilled(), FeElementType.INTEGER);
 		this.foreignParticles = new FeElementDto(customerExperienceRecordDto.getForeignParticle(), FeElementType.INTEGER);
 		this.socialMediaComplaint = new FeElementDto(customerExperienceRecordDto.getSocialMediaComplaints(), FeElementType.INTEGER);
 
@@ -90,6 +96,7 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 		this.quantityAdherence = new FeElementDto(customerExperienceRecordDto.getQuantityAdherence(), customerExperienceRecordDto.getQuantityReceivingFilled(), FeElementType.PERCENT_INTEGER);
 		this.menuAdherence = new FeElementDto(customerExperienceRecordDto.getMenuAdherence(), customerExperienceRecordDto.getFoodReceivingFilled(), FeElementType.PERCENT_INTEGER);
 
-		this.smr = new FeElementDto(completeRatingBuckets.getTotalFeedbacks(), totalMeals, FeElementType.PERCENT_DOUBLE);
+		this.smr = new FeElementDto(customerExperienceRecordDto.getTotalStudentFeedback(), totalMeals, FeElementType.PERCENT_DOUBLE);
+		this.mir = new FeElementDto(mir);
 	}
 }

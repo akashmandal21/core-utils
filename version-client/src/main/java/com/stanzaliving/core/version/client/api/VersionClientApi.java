@@ -95,7 +95,32 @@ public class VersionClientApi {
 		ParameterizedTypeReference<ResponseDto<VersioningResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<VersioningResponseDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
 
+	public ResponseDto<List<VersioningResponseDto>> getAllVersions(String token, String contextId, String contextName, String contextService) {
+		/*
+		 * if (StringUtils.isBlank(token)) {
+		 * throw new IllegalArgumentException("Token missing for getting all versions ");
+		 * }
+		 */
+		Object postBody = null;
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("contextId", contextId);
+		uriVariables.put("contextName", contextName);
+		uriVariables.put("contextService", contextService);
+		String path = UriComponentsBuilder.fromPath("/documentversioning/get/all/{contextId}/{contextName}/{contextService}").buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<List<VersioningResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<VersioningResponseDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
 

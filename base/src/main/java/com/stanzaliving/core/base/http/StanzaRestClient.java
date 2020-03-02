@@ -220,6 +220,62 @@ public class StanzaRestClient {
 		ResponseEntity<T> responseEntity = null;
 		try {
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
+
+		} catch (RestClientException e) {
+			log.info("Exception caught while making rest call: ",e);
+			throw new StanzaHttpException("Exception caught while making rest call: "+e.getCause());
+		}
+
+		statusCode = responseEntity.getStatusCode();
+		responseHeaders = responseEntity.getHeaders();
+
+		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
+			return null;
+		} else if (responseEntity.getStatusCode().is2xxSuccessful()) {
+			if (returnType == null) {
+				return null;
+			}
+			return responseEntity.getBody();
+		} else {
+			// The error handler built into the RestTemplate should handle 400 and 500 series errors.
+			throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
+		}
+	}
+
+
+	public <T> T invokeAPI(
+			String path,
+			HttpMethod method,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			Class returnType) {
+
+		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
+
+		if (queryParams != null) {
+			builder.queryParams(queryParams);
+		}
+
+		final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
+
+		if (accept != null) {
+			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
+		}
+
+		requestBuilder.contentType(MediaType.APPLICATION_JSON);
+
+		addHeadersToRequest(headerParams, requestBuilder);
+		addHeadersToRequest(defaultHeaders, requestBuilder);
+
+		log.debug("Accessing API: " + builder.toUriString());
+
+		RequestEntity<Object> requestEntity = requestBuilder.body(body);
+
+		ResponseEntity<T> responseEntity = null;
+		try {
+			responseEntity = restTemplate.exchange(requestEntity, returnType);
 		} catch (RestClientException e) {
 			log.info("Exception caught while making rest call: ",e);
 			throw new StanzaHttpException("Exception caught while making rest call: "+e.getCause());
