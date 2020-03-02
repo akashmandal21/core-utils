@@ -51,8 +51,13 @@ public class SlackNotification {
         Map<String, String> map = new HashMap<>();
         map.put("text", message);
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, map, headerParams, accept,
-                returnType);
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, map, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.info("Exception caught while sending message on Slack : ", e);
+        }
+
+        return null;
     }
 
     public String sendExceptionNotificationRequest(Exception exception, String endUrl) {
