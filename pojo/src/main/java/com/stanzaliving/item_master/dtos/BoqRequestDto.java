@@ -20,4 +20,5 @@ public class BoqRequestDto {
     private List<ItemType> itemTypes;
     private String cityUuid;
     List<UpdatedBoqItemRequest> updatedBoqItemRequests;
+    List<String> itemUuids;
 }

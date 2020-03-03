@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 public enum UnitType {
 
-	NUMBER("no.s"),
+	NUMBER("nos."),
 	METERS("mtrs"),
 	CUBIT_FEET("cu.ft."),
 	SQUARE_FEET("sq.ft."),

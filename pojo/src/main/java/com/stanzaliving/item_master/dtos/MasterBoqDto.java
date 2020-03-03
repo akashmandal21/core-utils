@@ -30,21 +30,27 @@ public class MasterBoqDto {
     private String descSpec;
     private AcquisitionType acquisitionType;
     private UnitType orderUnit;
-    private Float length;
-    private Float breadth;
-    private Float height;
-    private DimensionUnits dimensionUnit;
+    private String length;
+    private String breadth;
+    private String height;
     private String thumbnailUrl;
+    private String imageUrl;
+    private String docUrl;
     private Set<AreaOfUse> areaOfUses;
     private String brandNames;
     private String subBrandNames;
     private Double rate;
-
+    private Boolean isRentalAvailable;
+    private Double rentalRate;
+    private String orderUnitText;
+    private String acquisitionTypeText;
+    private String rateFormatted;
+    private String rentalRateFormatted;
     public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
                         String categoryName, String itemUseType,
                         String particular, String descSpec,
-                        String acquisitionType, String orderUnit, Float length, Float breadth, Float height,
-                        String dimensionUnit, String thumbnailUrl) {
+                        String acquisitionType, String orderUnit, String length, String breadth, String height,
+                        String thumbnailUrl,String imageUrl,String specDocumentUrl) {
         this.lastUpdatedAt=lastUpdatedAt;
         this.categoryUuid=categoryUuid;
         this.itemId = itemId;
@@ -59,11 +65,10 @@ public class MasterBoqDto {
         this.length = length;
         this.breadth = breadth;
         this.height = height;
-        if(StringUtils.isNotEmpty(dimensionUnit))
-            this.dimensionUnit = Enum.valueOf(DimensionUnits.class,dimensionUnit);
         this.thumbnailUrl = thumbnailUrl;
+        this.imageUrl=imageUrl;
+        this.docUrl=specDocumentUrl;
     }
-
 
 
 }
