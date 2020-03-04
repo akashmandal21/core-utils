@@ -13,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -39,6 +40,7 @@ public class MasterBoqDto {
     private String imageUrl;
     private String docUrl;
     private Set<AreaOfUse> areaOfUses;
+    private Map<AreaOfUse,String> areaOfUsesMap;
     private String brandNames;
     private String subBrandNames;
     private Double rate;
@@ -96,7 +98,8 @@ public class MasterBoqDto {
         this.docUrl=specDocumentUrl;
         this.brandNames=brandNames;
         this.subBrandNames=subBrandNames;
-        this.areaOfUses= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f)).collect(Collectors.toSet());
+        this.areaOfUsesMap= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f)).
+                collect(Collectors.toMap(f->f,f->f.getName()));
     }
 
 }
