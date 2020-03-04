@@ -11,8 +11,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Data
 @Builder
@@ -70,6 +72,32 @@ public class MasterBoqDto {
         this.docUrl=specDocumentUrl;
     }
 
+    public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
+                        String categoryName, String itemUseType,
+                        String particular, String descSpec,
+                        String acquisitionType, String orderUnit, String length, String breadth, String height,
+                        String thumbnailUrl,String imageUrl,String specDocumentUrl,String brandNames, String subBrandNames, String areaOfUseList) {
+        this.lastUpdatedAt=lastUpdatedAt;
+        this.categoryUuid=categoryUuid;
+        this.itemId = itemId;
+        this.itemUuid = itemUuid;
+        this.itemCode = itemCode;
+        this.categoryName = categoryName;
+        this.itemType = Enum.valueOf(ItemType.class,itemUseType);
+        this.particular = particular;
+        this.descSpec = descSpec;
+        this.acquisitionType = Enum.valueOf(AcquisitionType.class, acquisitionType);
+        this.orderUnit = Enum.valueOf(UnitType.class,orderUnit);
+        this.length = length;
+        this.breadth = breadth;
+        this.height = height;
+        this.thumbnailUrl = thumbnailUrl;
+        this.imageUrl=imageUrl;
+        this.docUrl=specDocumentUrl;
+        this.brandNames=brandNames;
+        this.subBrandNames=subBrandNames;
+        this.areaOfUses= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f)).collect(Collectors.toSet());
+    }
 
 }
 
