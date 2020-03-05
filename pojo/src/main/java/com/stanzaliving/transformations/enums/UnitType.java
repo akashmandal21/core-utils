@@ -20,7 +20,7 @@ public enum UnitType {
 		this.unitName = unitName;
 	}
 
-	private static Map<String, UnitType> unitByNameMap = new HashMap<>();
+	public static Map<String, UnitType> unitByNameMap = new HashMap<>();
 
 	static {
 
