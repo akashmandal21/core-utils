@@ -7,11 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.boq_service.BoqItemSearchRequestDto;
 import com.stanzaliving.item_master.dtos.BoqRequestDto;
 import com.stanzaliving.item_master.dtos.MasterBoqDto;
 import com.stanzaliving.item_master.enums.ItemType;
 import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.SubBrandName;
+import com.stanzaliving.transformations.pojo.MasterBoqResponseDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -88,7 +90,7 @@ public class ItemMasterClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("itemUuid",itemUuid);
-		String path = UriComponentsBuilder.fromPath("/internal/get/boqItem/{itemUuid}")
+		String path = UriComponentsBuilder.fromPath("/internal/details/get/boqItem/{itemUuid}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -104,5 +106,51 @@ public class ItemMasterClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+	public ResponseDto<MasterBoqResponseDto> searchBoqItemsWithSpecs(BoqItemSearchRequestDto boqItemSearchRequestDto) {
+
+		Object postBody = boqItemSearchRequestDto;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/details/post/fetchBoqItemsSpecWise")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<MasterBoqResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<MasterBoqResponseDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<MasterBoqDto> getBoqItemFromItemCode(String itemCode) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("itemCode",itemCode);
+		String path = UriComponentsBuilder.fromPath("/internal/details/get/fetchAdditionalBoqItemFromItemCode/{itemCode}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<MasterBoqDto>> returnType = new ParameterizedTypeReference<ResponseDto<MasterBoqDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 
 }
