@@ -51,6 +51,7 @@
 		<module>sfr-client</module>
 		<module>item_master-client</module>
 		<module>status-tracker</module>
+		<module>core-client</module>
 	</modules>
 
 	<build>

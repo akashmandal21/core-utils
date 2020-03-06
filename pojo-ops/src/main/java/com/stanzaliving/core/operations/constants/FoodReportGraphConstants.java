@@ -28,8 +28,8 @@ public class FoodReportGraphConstants {
     public static final String COST_EFFICIENCY_GRAPH_ACTUAL_COST = "Actual Cost";
     public static final String COST_EFFICIENCY_GRAPH_CURRENT_RUN_RATE = "Current Run Rate";
     public static final String COST_EFFICIENCY_GRAPH_BUDGETED_RUN_RATE = "Budgeted Run Rate";
-    public static final String COST_EFFICIENCY_GRAPH_LAST_THREE_DAYS = "Last 3 Days";
-    public static final String COST_EFFICIENCY_GRAPH_LAST_SEVEN_DAYS = "Last 7 Days";
+    public static final String COST_EFFICIENCY_GRAPH_LAST_THREE_DAYS = "l3d cost projection";
+    public static final String COST_EFFICIENCY_GRAPH_LAST_SEVEN_DAYS = "l7d cost projection";
     public static final Integer LAST_THREE_DAYS = 3;
     public static final Integer LAST_SEVEN_DAYS = 7;
     public static final String COST_EFFICIENCY_GRAPH_DEVIATION_ALL = "All";

@@ -12,22 +12,24 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ProductMetricsRecordDto extends RecordDto {
 
-    int mealsCount;
+	private int mealsCount;
 
-    int menuCreated;
+	private int menuCreated;
 
-    int orderCreated;
+	private int orderCreated;
 
-    int foodReceived;
+	private int foodReceived;
 
-    int shortageFilled;
+	private int shortageFilled;
 
-    int leftoverFilled;
+	private int leftoverFilled;
 
-    int rcFeedbackGiven;
+	private int rcFeedbackGiven;
 
-    String mealUuid;
+	private String mealUuid;
 
-    String mealName;
+	private String mealName;
+
+	private int totalStudentFeedback;
 
 }
