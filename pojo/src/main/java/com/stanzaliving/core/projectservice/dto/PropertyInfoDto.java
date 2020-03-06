@@ -21,6 +21,9 @@ public class PropertyInfoDto {
     private String propertyName;
     private String estateName;
     private Long cityId;
+    private String cityName;
+    private String micromarketName;
+    private Long micromarketId;
     private LocalDate liveDate;
     private BrandName brandName;
     private SubBrandName subBrandName;
