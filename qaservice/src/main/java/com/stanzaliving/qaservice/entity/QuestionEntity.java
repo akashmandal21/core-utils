@@ -55,7 +55,7 @@ public class QuestionEntity extends AbstractJpaEntity {
     @Column(name = "visibility_criteria", columnDefinition = "varchar(128)")
     private String visibilityCriteria;
 
-    @Column(name = "screen_group_num", columnDefinition = "int(2)")
+    @Column(name = "screen_group_num", columnDefinition = "int(11)")
     private Integer screenGroupNum = 0;
 
     @Column(name = "screen_num", columnDefinition = "int(2)")

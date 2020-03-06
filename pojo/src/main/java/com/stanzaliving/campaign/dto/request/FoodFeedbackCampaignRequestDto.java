@@ -21,5 +21,5 @@ public class FoodFeedbackCampaignRequestDto extends CampaignDto {
 
     @NotEmpty(message = "userBlockerMap must not be empty") Map<String, Boolean> userBlockerMap;
 
-    @NotEmpty(message = "itemList must not be empty") List<String> itemList;
+    @NotEmpty(message = "itemList must not be empty") List<String> items;
 }

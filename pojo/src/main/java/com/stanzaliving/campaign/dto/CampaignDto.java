@@ -1,9 +1,13 @@
 package com.stanzaliving.campaign.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.stanzaliving.campaign.dto.request.FoodFeedbackCampaignRequestDto;
+import com.stanzaliving.campaign.dto.request.GenericCampaignRequestDto;
 import com.stanzaliving.campaign.enums.CampaignType;
+import com.stanzaliving.core.enums.ResidenceUserType;
+import com.stanzaliving.core.user.enums.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,21 +22,24 @@ import java.util.Map;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "campaignType", visible = true)
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = FoodFeedbackCampaignRequestDto.class, name = "FOOD_FEEDBACK")
+        @JsonSubTypes.Type(value = FoodFeedbackCampaignRequestDto.class, name = "FOOD_FEEDBACK"),
+        @JsonSubTypes.Type(value = GenericCampaignRequestDto.class, name = "GENERIC"),
 })
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CampaignDto {
+public abstract class CampaignDto {
 
-    @NotNull CampaignType campaignType;
+    String name;
 
-    @NotNull Date expiryTime;
+    @NotNull(message = "campaignType is mandatory") CampaignType campaignType;
 
     String campaignSubType;
 
-    String name;
+    @NotNull @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss") Date startTime;
+
+    @NotNull @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss") Date endTime;
 
     @Builder.Default
     String submitText = "Submit";
@@ -46,8 +53,5 @@ public class CampaignDto {
     String responseTopic = "campaignResponse";
 
     String residenceUuid;
-
-    List<String> userUuidList;
-
 
 }

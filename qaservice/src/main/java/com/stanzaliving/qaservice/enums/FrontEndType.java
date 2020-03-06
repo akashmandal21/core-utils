@@ -23,7 +23,8 @@ public enum FrontEndType {
 	DROPDOWN("dropDown"),
 	DATEFIELD("dateField"),
 	BUILDINGLAYOUT("Building-Layout"),
-	SWITCHCARD("Switch-Card");
+	SWITCHCARD("Switch-Card"),
+    MULTIPLE_CHOICE("multipleChoice");
 	
 
     public String frontendType;
