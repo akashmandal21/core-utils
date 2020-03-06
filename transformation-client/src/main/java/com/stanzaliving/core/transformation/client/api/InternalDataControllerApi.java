@@ -321,7 +321,7 @@ public class InternalDataControllerApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("cityId",cityId);
 
-		String path = UriComponentsBuilder.fromPath("/internal/city/get/{cityId}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/city/get/id/{cityId}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -345,7 +345,7 @@ public class InternalDataControllerApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("name",name);
 
-		String path = UriComponentsBuilder.fromPath("/internal/city/get/{name}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/city/get/name/{name}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
