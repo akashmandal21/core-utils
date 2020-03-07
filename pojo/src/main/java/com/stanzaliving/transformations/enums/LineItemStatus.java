@@ -8,11 +8,8 @@ package com.stanzaliving.transformations.enums;
  *
  */
 public enum LineItemStatus {
-
-	Approved,
 	Disapproved,
 	ApprovedByZonalHead,
-	ApprovedByDesignHead;
-
-
+	ApprovedByDesignHead,
+	Approved;
 }

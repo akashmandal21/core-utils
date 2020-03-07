@@ -50,6 +50,8 @@ public class MasterBoqDto {
     private String acquisitionTypeText;
     private String rateFormatted;
     private String rentalRateFormatted;
+
+    //For Native Queries. SqlResultSetMapped to MasterBoq in ItemMasterDetails
     public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
                         String categoryName, String itemUseType,
                         String particular, String descSpec,
@@ -74,6 +76,7 @@ public class MasterBoqDto {
         this.docUrl=specDocumentUrl;
     }
 
+    //For Native Queries. SqlResultSetMapped to MasterBoqForDesign in ItemMasterDetails
     public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
                         String categoryName, String itemUseType,
                         String particular, String descSpec,
