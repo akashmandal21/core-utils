@@ -133,6 +133,8 @@ public class StanzaSpecification<T extends AbstractJpaEntity> implements Specifi
 					return group.in(((Collection<?>) criteria.getValue()).toArray());
 				}
 				return null;
+			case IS_NULL:
+				return builder.isNull(root.get(criteria.getKey()));
 			default:
 				return null;
 		}

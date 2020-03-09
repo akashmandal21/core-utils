@@ -291,6 +291,10 @@ public class StanzaRestClient {
 				return null;
 			}
 			return responseEntity.getBody();
+		
+		} else if (responseEntity.getStatusCode() == HttpStatus.BAD_REQUEST) {
+			return null;
+			
 		} else {
 			// The error handler built into the RestTemplate should handle 400 and 500 series errors.
 			throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());

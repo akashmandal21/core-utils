@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.pojo.AttachmentDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -55,7 +56,7 @@ public class LegalClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
     }
-    
+
     public ResponseDto<Boolean> checkAllDealTermApproved(String estateUuid) {
 
         if (Objects.isNull(estateUuid)) {
