@@ -24,13 +24,19 @@ public class WebEngageClient {
 
     private StanzaRestClient restClient;
     private String webEngageKey;
+    private Boolean webEngageEnabled;
 
-    public WebEngageClient(StanzaRestClient stanzaRestClient, String webEngageKey) {
+    public WebEngageClient(StanzaRestClient stanzaRestClient, String webEngageKey, Boolean webEngageEnabled) {
         this.restClient = stanzaRestClient;
         this.webEngageKey = webEngageKey;
+        this.webEngageEnabled = webEngageEnabled;
     }
 
     public void pushNotification(WebEngageTransactionNotificationRequestDto webEngageTransactionNotificationRequestDto) {
+
+        if (!webEngageEnabled) {
+            log.info("WebEngage is disabled on current environment, fyi, notificationDto {}", webEngageTransactionNotificationRequestDto);
+        }
 
         if (StringUtils.isBlank(webEngageTransactionNotificationRequestDto.getUserId())) {
             throw new IllegalArgumentException("Mandatory Parameter Missing -> userId");
