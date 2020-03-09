@@ -6,6 +6,14 @@ import lombok.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+
+/**
+ * @author Piyush Srivastava
+ *
+ * @date 02-Mar-2020
+ */
+
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -15,10 +23,18 @@ import javax.validation.constraints.NotNull;
 public class EventDto {
     @NotEmpty
     @NotNull
-    private String eventName;
+    private String name;
 
 
     @NotEmpty
     @NotNull
-    private String eventType;
+    private String type;
+
+    @NotEmpty
+    @NotNull
+    private String source;
+
+
+    private String subType;
+
 }

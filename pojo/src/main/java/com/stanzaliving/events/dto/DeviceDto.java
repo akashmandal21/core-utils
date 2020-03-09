@@ -4,6 +4,13 @@ package com.stanzaliving.events.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * @author Piyush Srivastava
+ *
+ * @date 09-Mar-2020
+ */
+
+
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
@@ -15,7 +22,7 @@ public class DeviceDto {
 
     private String os;
 
-    private String os_version;
+    private String osVersion;
 
     private String model;
 
