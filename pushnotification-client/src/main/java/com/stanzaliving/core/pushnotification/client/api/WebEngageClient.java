@@ -26,10 +26,10 @@ public class WebEngageClient {
     private String webEngageKey;
     private Boolean webEngageEnabled;
 
-    public WebEngageClient(StanzaRestClient stanzaRestClient, String webEngageKey, Boolean webEngageEnabled) {
+    public WebEngageClient(StanzaRestClient stanzaRestClient, String webEngageKey, String webEngageEnabled) {
         this.restClient = stanzaRestClient;
         this.webEngageKey = webEngageKey;
-        this.webEngageEnabled = webEngageEnabled;
+        this.webEngageEnabled = Boolean.parseBoolean(webEngageEnabled);
     }
 
     public void pushNotification(WebEngageTransactionNotificationRequestDto webEngageTransactionNotificationRequestDto) {
