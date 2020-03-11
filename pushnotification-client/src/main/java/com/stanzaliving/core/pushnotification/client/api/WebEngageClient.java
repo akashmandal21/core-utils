@@ -34,11 +34,6 @@ public class WebEngageClient {
 
     public void pushNotification(WebEngageTransactionNotificationRequestDto webEngageTransactionNotificationRequestDto) {
 
-        if (!webEngageEnabled) {
-            log.info("WebEngage is disabled on current environment, fyi, notificationDto {}", webEngageTransactionNotificationRequestDto);
-            return;
-        }
-
         if (StringUtils.isBlank(webEngageTransactionNotificationRequestDto.getUserId())) {
             throw new IllegalArgumentException("Mandatory Parameter Missing -> userId");
         }
@@ -47,12 +42,15 @@ public class WebEngageClient {
 
         String path = getApiPath(webEngageTransactionNotificationRequestDto);
 
-
+        if (!webEngageEnabled) {
+            log.info("WebEngage is disabled on current environment, path {}, postBody {}", path, postBody);
+            return;
+        }
+        
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
         headerParams.add("Authorization", webEngageKey);
-
 
         final String[] accepts = {
                 "*/*"
