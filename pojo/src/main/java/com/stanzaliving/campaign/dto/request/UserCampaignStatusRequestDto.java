@@ -2,6 +2,7 @@ package com.stanzaliving.campaign.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.campaign.enums.CampaignType;
+import com.stanzaliving.core.base.StanzaConstants;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,6 @@ public class UserCampaignStatusRequestDto {
     @NotEmpty private List<String> userUuidIds;
     @NotNull CampaignType campaignType;
     private Boolean optional;
-    @NotNull @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss") private Date startDate;
-    @NotNull @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss") private Date endDate;
+    @NotNull @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = StanzaConstants.IST_TIMEZONE) private Date startDate;
+    @NotNull @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = StanzaConstants.IST_TIMEZONE) private Date endDate;
 }

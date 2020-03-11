@@ -11,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
+@ToString(callSuper = true)
 public class KafkaUserCampaignResponseDto extends UserCampaignResponseDto {
 
     String residenceUuid;

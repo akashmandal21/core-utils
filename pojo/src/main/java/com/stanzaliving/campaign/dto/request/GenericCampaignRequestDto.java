@@ -2,10 +2,7 @@ package com.stanzaliving.campaign.dto.request;
 
 import com.stanzaliving.campaign.dto.CampaignDto;
 import com.stanzaliving.core.enums.ResidenceUserType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
 public class GenericCampaignRequestDto extends CampaignDto {
 
     @Builder.Default

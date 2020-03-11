@@ -4,6 +4,7 @@ import com.stanzaliving.campaign.dto.CampaignDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotEmpty;
@@ -15,6 +16,7 @@ import java.util.Map;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
 public class FoodFeedbackCampaignRequestDto extends CampaignDto {
 
     //String mealName;        //to be sent in campaignSubType
