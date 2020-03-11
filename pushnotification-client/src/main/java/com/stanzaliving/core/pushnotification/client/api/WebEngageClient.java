@@ -36,6 +36,7 @@ public class WebEngageClient {
 
         if (!webEngageEnabled) {
             log.info("WebEngage is disabled on current environment, fyi, notificationDto {}", webEngageTransactionNotificationRequestDto);
+            return;
         }
 
         if (StringUtils.isBlank(webEngageTransactionNotificationRequestDto.getUserId())) {
