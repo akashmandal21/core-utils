@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 public enum CampaignType {
 
-    FOOD_FEEDBACK("foodFeedbackCampaignService"), GENERIC("genericCampaignService");
+    FOOD_FEEDBACK("foodFeedbackCampaignService"), GENERIC("genericCampaignService"), TIFFIN_RECEIVE("tiffinReceiveCampaignService");
 
     private String serviceBeanName;
 
