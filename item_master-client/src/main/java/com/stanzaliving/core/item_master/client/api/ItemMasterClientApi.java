@@ -157,7 +157,7 @@ public class ItemMasterClientApi {
 		Object postBody = itemCodes.toArray();
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		String path = UriComponentsBuilder.fromPath("itemmaster/internal/details/post/fetchItems")
+		String path = UriComponentsBuilder.fromPath("/internal/details/post/fetchItems")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
