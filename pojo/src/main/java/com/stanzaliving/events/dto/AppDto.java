@@ -22,10 +22,10 @@ import javax.validation.constraints.NotEmpty;
 @Setter
 public class AppDto {
 
-    @NotEmpty
+    @NotEmpty(message = "appName must not be empty")
     private String appName;
 
-    @NotEmpty
+    @NotEmpty(message = "application version must not be empty")
     private String version;
 
     private DeviceDto deviceDto;

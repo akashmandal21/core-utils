@@ -18,19 +18,19 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 public class CustomDto {
-    private String Key1;
-    private String Val1;
+    private String key1;
+    private String val1;
 
-    private String Key2;
-    private String Val2;
+    private String key2;
+    private String val2;
 
-    private String Key3;
-    private String Val3;
+    private String key3;
+    private String val3;
 
-    private String Key4;
-    private String Val4;
+    private String key4;
+    private String val4;
 
-    private String Key5;
-    private String Val5;
+    private String key5;
+    private String val5;
 
 }

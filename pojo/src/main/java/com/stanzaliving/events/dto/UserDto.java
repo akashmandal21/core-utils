@@ -21,8 +21,7 @@ import javax.validation.constraints.NotNull;
 
 public class UserDto {
 
-    @NotEmpty
-    @NotNull
+    @NotEmpty(message = "userId must not be empty")
     protected String userId;
 
     protected String userName;
