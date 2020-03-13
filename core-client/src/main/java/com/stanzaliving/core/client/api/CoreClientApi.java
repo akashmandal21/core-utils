@@ -102,4 +102,29 @@ public class CoreClientApi {
     }
 
 
+    public List<RCDetailDto> getContactNumber(String residenceId, String token) {
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceId", residenceId);
+
+        String path = UriComponentsBuilder.fromPath("/getRCDetail/{residenceId}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<RCDetailDto>> returnType = new ParameterizedTypeReference<List<RCDetailDto>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 }
