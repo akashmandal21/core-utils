@@ -4,6 +4,8 @@ import com.stanzaliving.item_master.enums.AcquisitionType;
 import com.stanzaliving.item_master.enums.DimensionUnits;
 import com.stanzaliving.item_master.enums.ItemType;
 import com.stanzaliving.transformations.enums.AreaOfUse;
+import com.stanzaliving.transformations.enums.BrandName;
+import com.stanzaliving.transformations.enums.SubBrandName;
 import com.stanzaliving.transformations.enums.UnitType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -92,6 +94,7 @@ public class MasterBoqDto {
         this.particular = particular;
         this.descSpec = descSpec;
         this.acquisitionType = Enum.valueOf(AcquisitionType.class, acquisitionType);
+        this.acquisitionTypeText=this.acquisitionType.getAcTypeText();
         this.orderUnit = Enum.valueOf(UnitType.class,orderUnit);
         this.length = length;
         this.breadth = breadth;
@@ -99,9 +102,11 @@ public class MasterBoqDto {
         this.thumbnailUrl = thumbnailUrl;
         this.imageUrl=imageUrl;
         this.docUrl=specDocumentUrl;
-        this.brandNames=brandNames;
-        this.subBrandNames=subBrandNames;
-        this.areaOfUsesMap= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f)).
+        if(StringUtils.isNotEmpty(brandNames))
+            this.brandNames= Arrays.stream(brandNames.split(",")).map(f-> BrandName.valueOf(f.trim()).getBrand()).collect(Collectors.joining(", "));
+        if(StringUtils.isNotEmpty(subBrandNames))
+            this.subBrandNames=Arrays.stream(subBrandNames.split(",")).map(f-> SubBrandName.valueOf(f.trim()).getSubBrand()).collect(Collectors.joining(", "));;
+        this.areaOfUsesMap= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f.trim())).
                 collect(Collectors.toMap(f->f,f->f.getName()));
     }
 

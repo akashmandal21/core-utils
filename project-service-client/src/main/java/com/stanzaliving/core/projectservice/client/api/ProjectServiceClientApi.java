@@ -98,7 +98,7 @@ public class ProjectServiceClientApi {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/internal/get/propertyUpdates/pendingUpdates")
+		String path = UriComponentsBuilder.fromPath("/internal/get/propertyUpdates/pendingUpdates/")
 										  .buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
