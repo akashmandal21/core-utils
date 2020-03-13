@@ -7,9 +7,9 @@ import lombok.Getter;
 @Getter
 public enum ItemType {
 
-    BOI("BOI Items"),
-    GC("GC Work"),
-    ASIS("AsIs Work"),
+    BOI("BOI"),
+    GC("GC"),
+    ASIS("As-Is"),
     OTHER("Others");
 
     private String typeText;

@@ -103,10 +103,10 @@ public class MasterBoqDto {
         this.imageUrl=imageUrl;
         this.docUrl=specDocumentUrl;
         if(StringUtils.isNotEmpty(brandNames))
-            this.brandNames= Arrays.stream(brandNames.split(",")).map(f-> BrandName.valueOf(f).getBrand()).collect(Collectors.joining(","));
+            this.brandNames= Arrays.stream(brandNames.split(",")).map(f-> BrandName.valueOf(f.trim()).getBrand()).collect(Collectors.joining(", "));
         if(StringUtils.isNotEmpty(subBrandNames))
-            this.subBrandNames=Arrays.stream(subBrandNames.split(",")).map(f-> SubBrandName.valueOf(f).getSubBrand()).collect(Collectors.joining(","));;
-        this.areaOfUsesMap= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f)).
+            this.subBrandNames=Arrays.stream(subBrandNames.split(",")).map(f-> SubBrandName.valueOf(f.trim()).getSubBrand()).collect(Collectors.joining(", "));;
+        this.areaOfUsesMap= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f.trim())).
                 collect(Collectors.toMap(f->f,f->f.getName()));
     }
 
