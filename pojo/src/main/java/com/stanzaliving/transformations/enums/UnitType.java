@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 public enum UnitType {
 
-	NUMBER("no.s"),
+	NUMBER("nos."),
 	METERS("mtrs"),
 	CUBIT_FEET("cu.ft."),
 	SQUARE_FEET("sq.ft."),
@@ -20,7 +20,7 @@ public enum UnitType {
 		this.unitName = unitName;
 	}
 
-	private static Map<String, UnitType> unitByNameMap = new HashMap<>();
+	public static Map<String, UnitType> unitByNameMap = new HashMap<>();
 
 	static {
 
