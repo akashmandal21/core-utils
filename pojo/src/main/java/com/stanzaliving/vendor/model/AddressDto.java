@@ -27,7 +27,7 @@ public class AddressDto {
 
     private String country;
 
-    private Integer pincode;
+    private String pincode;
 
     private String landlineNumber;
 
