@@ -19,8 +19,6 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.pojo.AttachmentDto;
 
-import io.swagger.annotations.ApiOperation;
-
 public class LegalClientApi {
 
     private StanzaRestClient restClient;
