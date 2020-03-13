@@ -19,7 +19,7 @@ public enum  AcquisitionType {
     static {
 
         acquisitionTypeMap.put("Buy", AcquisitionType.BUY);
-        acquisitionTypeMap.put("Reception", AcquisitionType.RENT);
+        acquisitionTypeMap.put("Rent", AcquisitionType.RENT);
 
     }
     private String acTypeText;
