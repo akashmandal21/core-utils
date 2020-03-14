@@ -23,7 +23,7 @@ public class QRCodeValidationUtility {
         try {
             result = QRCodeDataExtractor.decodeSingleQRCode(image, decoder);
         } catch (Exception e) {
-            log.error("QR Detection failed for Uploaded Image:" + fileName + " with Decoder:" + decoder.getDecoderName() + " Reason:" + e.getMessage());
+            log.error("QR Detection failed for Uploaded Image:" + (Objects.nonNull(fileName) ? fileName : "" )+ " with Decoder:" + decoder.getDecoderName() + " Reason:" + e.getMessage());
         }
         log.info("QRCodeValidationServiceImpl: GetQRCodeText service completed with qrcode text {} ", result);
         return result;
@@ -62,5 +62,31 @@ public class QRCodeValidationUtility {
         }
     }
 
+    
+public String extractQRCodeFromBufferedImage(BufferedImage bufferedImage, int contextId) {
+    	
+    	log.info("QRCodeValidationServiceImpl: extractQRCodeFromBufferedImage service initiated.");
+    	
+        final BufferedImage image = bufferedImage;
+        if (Objects.isNull(image)) return null;
+
+        String results[] = Arrays.stream(QRDecoderOptions.values()).
+                map(decoder -> getQRCodeText(image, decoder, null)).
+                collect(Collectors.joining("~")).split("~");
+        List<String> arr = Arrays.stream(results).filter(f -> f.trim().length() > 0).distinct().collect(Collectors.toList());
+        switch (arr.size()) {
+            case 0:
+                log.error("Failed to Detect QR in this image:" + contextId);
+                return null;
+            case 1:
+                log.info("Detection of QR Successful from contextId :" +contextId + " qrText:" + arr.get(0));
+                return arr.get(0);
+            default:
+                log.error("Multiple QR Results found in the imagefile for contextId:" + contextId);
+                return null;
+        }
+    }
+
+    
 
 }
