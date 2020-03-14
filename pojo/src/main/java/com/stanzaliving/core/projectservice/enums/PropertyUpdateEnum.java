@@ -52,7 +52,11 @@ public enum  PropertyUpdateEnum {
     DESIGN_BOQ_APPROVED("Boq Approved",true,NotificationTaskType.MASTER_BOQ_APPROVED),
 
     //BOQ Completed
-    DESIGN_BOQ_COMPLETED("Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED);
+    DESIGN_BOQ_COMPLETED("Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED),
+
+
+    //HOTO Submitted
+    PROJECTS_HOTO_GENERATED("HOTO",true,NotificationTaskType.HOTO_COMPLETED);
 
 
     private String updateTaskName;
