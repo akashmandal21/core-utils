@@ -13,10 +13,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Data
@@ -96,6 +93,7 @@ public class MasterBoqDto {
         this.acquisitionType = Enum.valueOf(AcquisitionType.class, acquisitionType);
         this.acquisitionTypeText=this.acquisitionType.getAcTypeText();
         this.orderUnit = Enum.valueOf(UnitType.class,orderUnit);
+        this.orderUnitText = (Objects.nonNull(this.orderUnit))?this.orderUnit.getUnitName():null;
         this.length = length;
         this.breadth = breadth;
         this.height = height;
