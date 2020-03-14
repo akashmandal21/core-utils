@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public enum VendorType {
 
-	GC("GC",Arrays.asList(Department.GC,Department.DESIGN,Department.TRANSFORMATIONS)),ASIS("As Is",Arrays.asList(Department.GC,Department.DESIGN,Department.TRANSFORMATIONS)),BOI("Boi",Arrays.asList(Department.PROCUREMENT,Department.PROJECTS,Department.TRANSFORMATIONS));
+	GC("GC",Arrays.asList(Department.GC,Department.PROJECTS,Department.TRANSFORMATIONS)),ASIS("As Is",Arrays.asList(Department.GC,Department.PROJECTS,Department.TRANSFORMATIONS)),BOI("Boi",Arrays.asList(Department.PROCUREMENT,Department.DESIGN,Department.TRANSFORMATIONS));
 	
 	private String type;
 	
