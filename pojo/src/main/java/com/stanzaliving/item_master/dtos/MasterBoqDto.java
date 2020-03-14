@@ -93,7 +93,7 @@ public class MasterBoqDto {
         this.acquisitionType = Enum.valueOf(AcquisitionType.class, acquisitionType);
         this.acquisitionTypeText=this.acquisitionType.getAcTypeText();
         this.orderUnit = Enum.valueOf(UnitType.class,orderUnit);
-        this.orderUnitText = (Objects.nonNull(orderUnit))?this.orderUnit.getUnitName():null;
+        this.orderUnitText = (Objects.nonNull(this.orderUnit))?this.orderUnit.getUnitName():null;
         this.length = length;
         this.breadth = breadth;
         this.height = height;
