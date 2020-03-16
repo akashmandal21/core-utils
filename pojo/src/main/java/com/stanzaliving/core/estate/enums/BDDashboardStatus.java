@@ -31,7 +31,11 @@ public enum BDDashboardStatus {
 	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP,EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18",12),
 	L2_SENT_BACK_BY_ANDY("L2 Sent Back by Andy",Arrays.asList(  EstateStatus.SENT_BACK_BY_LEADERSHIP),"#316e86",13),
 	PENDING_ATL_UPLOADING("Pending ATL Upload", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_LEGAL,EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM), "#131313",14),
-	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875",15);
+	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875",15),
+
+	PENDING_INITIAL_BED_COUNT("Pending Initial Bed Count", Arrays.asList(EstateStatus.PENDING_INITIAL_BED_COUNT), "#019898",16),
+	PENDING_DESIGN_FILES("Pending Design Files", Arrays.asList(EstateStatus.PENDING_DESIGN_FILES), "#019885",17),
+	SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES("Sent For Approval to City Head with Design Files", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES), "#019881",18);
 
 	private String status;
 
@@ -100,5 +104,8 @@ public enum BDDashboardStatus {
 		statusMap.put(EstateStatus.SENT_BACK_BY_LEGAL, PENDING_ATL_UPLOADING);
 		statusMap.put(EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM, PENDING_ATL_UPLOADING);
 
+		statusMap.put(EstateStatus.PENDING_INITIAL_BED_COUNT, PENDING_INITIAL_BED_COUNT);
+		statusMap.put(EstateStatus.PENDING_DESIGN_FILES, PENDING_DESIGN_FILES);
+		statusMap.put(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES, SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES);
 	}
 }
