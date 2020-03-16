@@ -56,4 +56,8 @@ public abstract class CampaignDto {
 
     String residenceUuid;
 
+    String webEngageAccountId;
+
+    String webEngageCampaignId;
+
 }
