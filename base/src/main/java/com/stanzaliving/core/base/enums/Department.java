@@ -15,7 +15,7 @@ public enum Department {
     TRANSFORMATIONS ("Transformations"),
     SALES ("Sales"),
     WEB ("Web"),
-    GC("Gc");
+    GC("GC Procurement");
     
     public String departmentName;
 	
