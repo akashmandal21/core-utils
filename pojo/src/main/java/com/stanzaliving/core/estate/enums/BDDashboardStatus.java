@@ -35,8 +35,9 @@ public enum BDDashboardStatus {
 
 	PENDING_INITIAL_BED_COUNT("Pending Initial Bed Count", Arrays.asList(EstateStatus.PENDING_INITIAL_BED_COUNT), "#019898",16),
 	PENDING_DESIGN_FILES("Pending Design Files", Arrays.asList(EstateStatus.PENDING_DESIGN_FILES), "#019885",17),
-	SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES("Sent For Approval to City Head with Design Files", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES), "#019881",18);
-
+	SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES("Sent For Approval to City Head with Design Files", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES), "#019881",18),
+	SENT_BACK_FROM_INITIAL_BED_COUNT("Sent Back From Initial Bed Count", Arrays.asList(EstateStatus.SENT_BACK_FROM_INITIAL_BED_COUNT),"#019881",19);
+	
 	private String status;
 
 	private List<EstateStatus> estateStatuses;
@@ -107,5 +108,7 @@ public enum BDDashboardStatus {
 		statusMap.put(EstateStatus.PENDING_INITIAL_BED_COUNT, PENDING_INITIAL_BED_COUNT);
 		statusMap.put(EstateStatus.PENDING_DESIGN_FILES, PENDING_DESIGN_FILES);
 		statusMap.put(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES, SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES);
+		statusMap.put(EstateStatus.SENT_BACK_FROM_INITIAL_BED_COUNT, SENT_BACK_FROM_INITIAL_BED_COUNT);
+
 	}
 }
