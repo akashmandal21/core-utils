@@ -56,7 +56,9 @@ public enum  PropertyUpdateEnum {
 
 
     //HOTO Submitted
-    PROJECTS_HOTO_GENERATED("HOTO",true,NotificationTaskType.HOTO_COMPLETED);
+    PROJECTS_HOTO_GENERATED("HOTO Generated",true,NotificationTaskType.HOTO_DOC_GENERATED),
+    PROJECTS_HOTO_MODIFIED("HOTO Modified",true,NotificationTaskType.HOTO_DOC_MODIFIED),
+    PROJECTS_HOTO_SIGNED_UPLOADED("HOTO Signed Uploaded",true,NotificationTaskType.HOTO_SIGNED_UPLOADED);
 
 
     private String updateTaskName;
