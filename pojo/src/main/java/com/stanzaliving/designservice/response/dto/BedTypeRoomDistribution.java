@@ -26,5 +26,7 @@ public class BedTypeRoomDistribution {
 	private int totalRoom;
 	private List<BedRoomDistribution> bedRoomDistribution;
 	private String designFile;
+	private String designFileName;
 	private String cadFile;
+	private String cadFileName;
 }

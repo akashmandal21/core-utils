@@ -17,5 +17,7 @@ public class BedTypeDistributionRequest {
 	private BedType bedType;
 	private List<BedRoomDistribution> bedRoomDistribution;
 	private String designFilePath;
+	private String designFileName;
 	private String cadFilePath;
+	private String cadFileName;
 }

@@ -29,6 +29,7 @@ public enum EstateStatus {
 	SENT_BACK_BY_CITY_HEAD("L1 Sent Back By RM"),
 	SENT_BACK_FROM_INITIAL_BED_COUNT("Sent Back From Initial Bed Count"),
 	PENDING_INITIAL_BED_COUNT("Pending Initial Bed Count"),
+	PENDING_DESIGN_FILES("Pending Design Files"),
 	REJECTED("Rejected"),
 	
 	//Level 2 Status

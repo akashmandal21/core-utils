@@ -27,4 +27,5 @@ public class PropertyDto {
 	private String handoverDate;
 	private Date submittedOn;
 	private String addedBy;
+	private String colorCode;
 }

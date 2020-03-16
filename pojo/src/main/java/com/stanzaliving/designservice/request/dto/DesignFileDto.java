@@ -22,4 +22,5 @@ public class DesignFileDto {
 
 	private String designFileUuid;
 	private String filePath;
+	private String fileName;
 }

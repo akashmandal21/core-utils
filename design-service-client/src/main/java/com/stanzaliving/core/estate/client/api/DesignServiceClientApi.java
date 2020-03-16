@@ -20,11 +20,11 @@ import com.stanzaliving.designservice.enums.DesignStatus;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-public class DesignServiceClient {
+public class DesignServiceClientApi {
 
     private StanzaRestClient restClient;
 
-    public DesignServiceClient(StanzaRestClient stanzaRestClient) {
+    public DesignServiceClientApi(StanzaRestClient stanzaRestClient) {
         this.restClient = stanzaRestClient;
     }
     
