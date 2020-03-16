@@ -20,6 +20,6 @@ import lombok.ToString;
 public class DesignFileBackendAndBedTypesResponseDto {
 
 	private List<DesignFileBackendResponseDto> designFileBackendResponse;
-	private Set<BedTypeAndStatusResponseDto> bedTypeAndStatus;
+	private List<BedTypeAndStatusResponseDto> bedTypeAndStatus;
 	
 }
