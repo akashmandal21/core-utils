@@ -23,4 +23,5 @@ public class LeadershipBedTypeCountResponseDto {
 	private BedTypeCountResponseDto totalRooms;
 	private BedTypeCountResponseDto areaBed;
 	Map<Integer, BedTypeCountResponseDto> bedTypeMap;
+	private List<BedTypeCountResponseDto> bedTypeCountList;
 }
