@@ -20,4 +20,5 @@ public class BedTypeImagePathDto {
 
 	private BedType bedType;
 	private String filePath;
+	private String fileName;
 }
