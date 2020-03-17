@@ -24,4 +24,8 @@ public class LeadershipBedTypeCountResponseDto {
 	private BedTypeCountResponseDto areaBed;
 	Map<Integer, BedTypeCountResponseDto> bedTypeMap;
 	private List<BedTypeCountResponseDto> bedTypeCountList;
+	private String reasonForNoPrima;
+	private String reasonForNoMagna;
+	private String reasonForNoSumma;
+	private String propertyRemark;
 }
