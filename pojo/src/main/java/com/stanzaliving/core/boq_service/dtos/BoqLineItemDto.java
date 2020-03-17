@@ -38,4 +38,5 @@ public class BoqLineItemDto {
     private String subBrandName;
     private Double rate;
     private LineItemStatus lineItemStatus;
+    private boolean itemApproved;
 }
