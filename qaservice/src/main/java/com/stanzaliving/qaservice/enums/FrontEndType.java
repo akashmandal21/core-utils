@@ -23,7 +23,9 @@ public enum FrontEndType {
 	DROPDOWN("dropDown"),
 	DATEFIELD("dateField"),
 	BUILDINGLAYOUT("Building-Layout"),
-	SWITCHCARD("Switch-Card");
+	SWITCHCARD("Switch-Card"),
+    EXPAND_ON_TAP_STAR_RATING("Expand-On-Tap-Start-Rating"),
+    HORIZONTAL_MULTISELECT_BUBBLE("Horizontal-Multiselect-Bubble");
 	
 
     public String frontendType;

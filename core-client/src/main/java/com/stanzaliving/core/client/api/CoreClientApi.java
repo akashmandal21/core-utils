@@ -21,9 +21,19 @@ import java.util.Map;
 public class CoreClientApi {
 
     private StanzaRestClient restClient;
+    private String token;
 
     public CoreClientApi( StanzaRestClient stanzaRestClient){
         this.restClient=stanzaRestClient;
+    }
+
+    public CoreClientApi( StanzaRestClient stanzaRestClient, String token){
+        this.restClient=stanzaRestClient;
+        this.token = token;
+    }
+
+    public FullUserDto getUserDetails(String userId){
+        return getUserDetails(userId, token).getData();
     }
 
     public ResponseDto<FullUserDto> getUserDetails(String userId, String token){
