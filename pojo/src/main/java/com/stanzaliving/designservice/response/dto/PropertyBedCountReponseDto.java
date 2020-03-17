@@ -23,6 +23,9 @@ public class PropertyBedCountReponseDto {
 	private int magnaBed;
 	private int summaBed;
 	private String designRemark;
+	private String reasonForPrima;
+	private String reasonForNoMagna;
+	private String reasonForNoSumma;
 	private DesignStatus designStatus;
 	private String designDescription;
 }
