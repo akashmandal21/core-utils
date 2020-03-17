@@ -7,18 +7,14 @@ import com.stanzaliving.campaign.dto.request.FoodFeedbackCampaignRequestDto;
 import com.stanzaliving.campaign.dto.request.GenericCampaignRequestDto;
 import com.stanzaliving.campaign.enums.CampaignType;
 import com.stanzaliving.core.base.StanzaConstants;
-import com.stanzaliving.core.enums.ResidenceUserType;
-import com.stanzaliving.core.user.enums.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "campaignType", visible = true)
