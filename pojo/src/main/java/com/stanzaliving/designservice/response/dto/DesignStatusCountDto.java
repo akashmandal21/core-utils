@@ -21,6 +21,6 @@ public class DesignStatusCountDto {
 	private DesignStatus status;
 	private String name;
 	private Integer count;
-	private Float percentage;
+	private double percentage;
 	private String color;
 }
