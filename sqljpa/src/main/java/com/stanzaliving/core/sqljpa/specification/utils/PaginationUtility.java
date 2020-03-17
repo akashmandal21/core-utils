@@ -30,10 +30,22 @@ public class PaginationUtility {
 	 */
 	public Pageable getPageRequset(int pageNo, int limit, String sortBy, Direction sortDirection) {
 
-		Pageable pagination = PageRequest.of(0, limit, sortDirection, sortBy);
+		Pageable pagination = null;
 		if (pageNo > 0 && limit > 0 && limit < 1000) {
 			pagination = PageRequest.of(pageNo - 1, limit, sortDirection, sortBy);
-		}
+		}else
+			pagination=PageRequest.of(0, limit, sortDirection, sortBy);
+
 		return pagination;
+	}
+
+
+	public Pageable getPageRequsetMultipleSortKeys(int pageNo, int limit, Direction sortDirection,String... properties) {
+
+		if (pageNo > 0 && limit > 0 && limit < 1000) {
+			return PageRequest.of(pageNo - 1, limit, sortDirection, properties);
+		}
+		else
+			return PageRequest.of(0, limit, sortDirection, properties);
 	}
 }

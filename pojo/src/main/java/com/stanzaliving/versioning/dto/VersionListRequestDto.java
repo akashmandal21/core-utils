@@ -1,4 +1,4 @@
-package com.stanzaliving.core.operations.dto.serviceset;
+package com.stanzaliving.versioning.dto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
