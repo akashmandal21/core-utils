@@ -103,6 +103,8 @@ public enum BDDashboardStatus {
 
 		statusMap.put(EstateStatus.PENDING_INITIAL_BED_COUNT, PENDING_INITIAL_BED_COUNT);
 		statusMap.put(EstateStatus.PENDING_DESIGN_FILES, PENDING_DESIGN_FILES);
+		statusMap.put(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES, PENDING_RM_APPROVAL);
+		statusMap.put(EstateStatus.SENT_BACK_FROM_INITIAL_BED_COUNT, UNDER_DRAFT);
 
 	}
 }
