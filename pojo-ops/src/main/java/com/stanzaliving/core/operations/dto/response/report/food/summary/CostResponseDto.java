@@ -21,6 +21,10 @@ public class CostResponseDto {
 
 	private FeElementDto costPerStudent;
 
+	private FeElementDto costPerMirMonth;
+
+	private FeElementDto budgetPerMirMonth;
+
 	private FeElementDto costUtilization;
 
 	private FeElementDto budgetUtilization;
