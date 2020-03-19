@@ -91,7 +91,13 @@ public class DesignServiceClientApi {
 
         ParameterizedTypeReference<ResponseDto<BedTypeCountResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BedTypeCountResponseDto>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
+        
+        try {
+        	return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);	
+        }catch (Exception e) {
+        	log.error("Got error while getting bed count {}", e);
+        	return null;
+		}
+        
     }
 }
