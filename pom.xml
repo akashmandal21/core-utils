@@ -52,6 +52,7 @@
 		<module>item_master-client</module>
 		<module>status-tracker</module>
 		<module>core-client</module>
+		<module>design-service-client</module>
 	</modules>
 
 	<build>
