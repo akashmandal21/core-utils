@@ -25,10 +25,10 @@
 		</dependency>
 		
 		<dependency>
-    <groupId>com.amazonaws</groupId>
-    <artifactId>aws-java-sdk-rekognition</artifactId>
-    <version>1.11.66</version>
-</dependency>
+	        <groupId>com.amazonaws</groupId>
+	        <artifactId>aws-java-sdk-rekognition</artifactId>
+	        <version>${aws-java-sdk-rekognition.version}</version>
+        </dependency>
 		
 
 	</dependencies>
