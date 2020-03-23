@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.stanzaliving.campaign.dto.request.FoodFeedbackCampaignRequestDto;
 import com.stanzaliving.campaign.dto.request.GenericCampaignRequestDto;
 import com.stanzaliving.campaign.enums.CampaignType;
+import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.enums.ResidenceUserType;
 import com.stanzaliving.core.user.enums.UserType;
 import lombok.AllArgsConstructor;
@@ -23,7 +24,8 @@ import java.util.Map;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "campaignType", visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = FoodFeedbackCampaignRequestDto.class, name = "FOOD_FEEDBACK"),
-        @JsonSubTypes.Type(value = GenericCampaignRequestDto.class, name = "GENERIC"),
+        @JsonSubTypes.Type(value = GenericCampaignRequestDto.class, name = "TIFFIN_RECEIVE"),
+        @JsonSubTypes.Type(value = GenericCampaignRequestDto.class, name = "GENERIC")
 })
 @Data
 @SuperBuilder
@@ -37,9 +39,9 @@ public abstract class CampaignDto {
 
     String campaignSubType;
 
-    @NotNull @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss") Date startTime;
+    @NotNull @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = StanzaConstants.IST_TIMEZONE) Date startTime;
 
-    @NotNull @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss") Date endTime;
+    @NotNull @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = StanzaConstants.IST_TIMEZONE) Date endTime;
 
     @Builder.Default
     String submitText = "Submit";
@@ -53,5 +55,9 @@ public abstract class CampaignDto {
     String responseTopic = "campaignResponse";
 
     String residenceUuid;
+
+    String webEngageAccountId;
+
+    String webEngageCampaignId;
 
 }
