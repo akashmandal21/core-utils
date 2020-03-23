@@ -49,6 +49,7 @@
 		<module>estate-core</module>
 		<module>status-tracker</module>
 		<module>core-client</module>
+		<module>pushnotification-client</module>
 	</modules>
 
 	<build>

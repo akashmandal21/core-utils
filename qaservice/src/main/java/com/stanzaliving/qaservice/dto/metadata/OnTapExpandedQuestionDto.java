@@ -33,6 +33,9 @@ public class OnTapExpandedQuestionDto {
                     min = questionResponseDto.getOrderNum();
                 }
             }
+            while(minQuestionOrderOptionMap.get(min) != null) {
+                min++;
+            }
             minQuestionOrderOptionMap.put(min, itr);
         }
         List<OnTapExpandedOptionsDto> sortedOptions = new ArrayList<>();
