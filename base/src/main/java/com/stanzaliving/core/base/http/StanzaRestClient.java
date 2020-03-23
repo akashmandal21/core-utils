@@ -229,8 +229,13 @@ public class StanzaRestClient {
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
 
 		} catch (RestClientException e) {
-			log.info("Exception caught while making rest call: ", e);
-			throw new StanzaHttpException(e.getMessage(), e);
+			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			} else {
+
+				log.error("Exception caught while making rest call: ", e);
+				throw new StanzaHttpException(e.getMessage(), e);
+			}
 		}
 
 		statusCode = responseEntity.getStatusCode();
@@ -283,8 +288,13 @@ public class StanzaRestClient {
 		try {
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
 		} catch (RestClientException e) {
-			log.info("Exception caught while making rest call: ", e);
-			throw new StanzaHttpException(e.getMessage(), e);
+			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			} else {
+
+				log.error("Exception caught while making rest call: ", e);
+				throw new StanzaHttpException(e.getMessage(), e);
+			}
 		}
 
 		statusCode = responseEntity.getStatusCode();
