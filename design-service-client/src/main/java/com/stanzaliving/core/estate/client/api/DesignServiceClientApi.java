@@ -17,6 +17,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.designservice.enums.DesignStatus;
 import com.stanzaliving.designservice.response.dto.BedTypeCountResponseDto;
+import com.stanzaliving.designservice.response.dto.PropertyBedCountReponseDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -62,7 +63,7 @@ public class DesignServiceClientApi {
 
     }
     
-    public ResponseDto<BedTypeCountResponseDto> getDesignStatusBedCount(String estateUuid) {
+    public ResponseDto<PropertyBedCountReponseDto> getDesignStatusBedCount(String estateUuid) {
 
     	log.debug(" Get design status for estateUuid " + estateUuid);
     	
@@ -89,9 +90,15 @@ public class DesignServiceClientApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<BedTypeCountResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BedTypeCountResponseDto>>() {
+        ParameterizedTypeReference<ResponseDto<PropertyBedCountReponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PropertyBedCountReponseDto>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
+        
+        try {
+        	return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);	
+        }catch (Exception e) {
+        	log.error("Got error while getting bed count {}", e);
+        	return null;
+		}
+        
     }
 }
