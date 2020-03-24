@@ -331,4 +331,15 @@ public class DateUtil {
 		return LocalDate.now().withDayOfMonth(1);
 	}
 
+	public static Date getNMinutesBackTime(Integer minutes){
+		return getNMinutesBackTime(new Date(), minutes);
+	}
+
+	public static Date getNMinutesBackTime(Date date, Integer minutes){
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.MINUTE, -(minutes));
+		return cal.getTime();
+	}
+
 }
