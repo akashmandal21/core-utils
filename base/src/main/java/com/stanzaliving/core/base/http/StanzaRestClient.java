@@ -3,7 +3,6 @@
  */
 package com.stanzaliving.core.base.http;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -239,6 +238,7 @@ public class StanzaRestClient {
 		}
 
 		statusCode = responseEntity.getStatusCode();
+		responseHeaders = responseEntity.getHeaders();
 
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
@@ -297,6 +297,7 @@ public class StanzaRestClient {
 		}
 
 		statusCode = responseEntity.getStatusCode();
+		responseHeaders = responseEntity.getHeaders();
 
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
@@ -357,6 +358,7 @@ public class StanzaRestClient {
 		}
 
 		statusCode = responseEntity.getStatusCode();
+		responseHeaders = responseEntity.getHeaders();
 
 		log.debug("API: " + builder.toUriString() + " Response: " + statusCode);
 
@@ -366,9 +368,13 @@ public class StanzaRestClient {
 			}
 
 			try {
+
+				log.debug("Response from API: " + responseEntity);
+				log.debug("Parsing Response Body to " + returnType);
+
 				return objectMapper.readValue(responseEntity.getBody(), returnType);
-			} catch (IOException e) {
-				throw new StanzaHttpException("Error reading response: ", statusCode.value());
+			} catch (Exception e) {
+				throw new StanzaHttpException("Error reading response: ", statusCode.value(), e);
 			}
 		}
 
