@@ -239,7 +239,6 @@ public class StanzaRestClient {
 		}
 
 		statusCode = responseEntity.getStatusCode();
-		responseHeaders = responseEntity.getHeaders();
 
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
@@ -298,7 +297,6 @@ public class StanzaRestClient {
 		}
 
 		statusCode = responseEntity.getStatusCode();
-		responseHeaders = responseEntity.getHeaders();
 
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
@@ -359,7 +357,6 @@ public class StanzaRestClient {
 		}
 
 		statusCode = responseEntity.getStatusCode();
-		responseHeaders = responseEntity.getHeaders();
 
 		log.debug("API: " + builder.toUriString() + " Response: " + statusCode);
 
