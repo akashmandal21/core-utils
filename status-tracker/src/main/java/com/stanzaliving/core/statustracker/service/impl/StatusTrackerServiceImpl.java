@@ -1,5 +1,6 @@
 package com.stanzaliving.core.statustracker.service.impl;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -76,5 +77,26 @@ public class StatusTrackerServiceImpl implements StatusTrackerService {
 		}
 
 		return Objects.nonNull(statusTrackerEntity);
+	}
+
+	@Override
+	public List<StatusTrackerDto> getEntryByContextNameAndContextUuid(String contextName, String contextUuid) {
+		
+		List<StatusTrackerEntity> statusTrackerEntities = 
+				statusTrackerDbService.findByContextUuidAndContextName(contextUuid, contextName);
+		
+		List<StatusTrackerDto> statusTrackerDtoList = new ArrayList<>();
+		
+		for(StatusTrackerEntity statusTrackerEntity : statusTrackerEntities) {
+			StatusTrackerDto statusTrackerDto = 
+					StatusTrackerDto.builder().contextName(statusTrackerEntity.getContextName())
+					.contextUuid(statusTrackerEntity.getContextUuid()).createdAt(statusTrackerEntity.getCreatedAt())
+					.createdBy(statusTrackerEntity.getCreatedBy()).status(statusTrackerEntity.getStatusName())
+					.build();
+			
+			statusTrackerDtoList.add(statusTrackerDto);
+		}
+		
+ 		return statusTrackerDtoList;
 	}
 }
