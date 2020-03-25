@@ -24,4 +24,6 @@ public class QuestionMetadataEntity extends AbstractJpaEntity {
     @Column(name = "metadata", columnDefinition = "text")
     private String metadata;
 
+
+
 }
