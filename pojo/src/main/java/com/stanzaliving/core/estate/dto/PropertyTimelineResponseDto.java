@@ -4,6 +4,7 @@
 package com.stanzaliving.core.estate.dto;
 
 import java.util.List;
+import java.util.Map;
 
 import com.stanzaliving.core.commentsservice.dto.CommentsDto;
 import com.stanzaliving.core.estate.enums.EstateStatus;
@@ -23,7 +24,7 @@ public class PropertyTimelineResponseDto {
 
 	private String estateStatusDesc;
 	private EstateStatus estateStatus;
-	private List<CommentsDto> comments;
+	private Map<String, List<CommentsDto>> statusCommentsMap;
 	private String updateBy;
 	
 }
