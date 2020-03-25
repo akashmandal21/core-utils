@@ -170,7 +170,40 @@ public class EstateClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
-    
+
+    public ResponseDto<EstateDto> getEstateDtoFromEstateId(String estateId) {
+
+        if (Objects.isNull(estateId)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("estateId", estateId);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/estate/get/estatedetail/{estateId}").buildAndExpand(uriVariables).toUriString();
+
+        log.info("Using Url Path:{}",path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<EstateDto>> returnType = new ParameterizedTypeReference<ResponseDto<EstateDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
     public ResponseDto<Void> sendBackByLeadership(Long estateId) {
 
         if (Objects.isNull(estateId)) {
@@ -218,4 +251,66 @@ public class EstateClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, atlFileRequestDto, headerParams, accept,
 				returnType);
 	}
+    
+    public ResponseDto<Void> sendBackByDesignTeam(String estateUuid) {
+
+        if (Objects.isNull(estateUuid)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("estateUuid", estateUuid);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/estate/sendback/designteam/{estateUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+    
+    public ResponseDto<Void> approveByDesignTeam(String estateUuid) {
+
+        if (Objects.isNull(estateUuid)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("estateUuid", estateUuid);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/estate/approve/designteam/{estateUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
 }
