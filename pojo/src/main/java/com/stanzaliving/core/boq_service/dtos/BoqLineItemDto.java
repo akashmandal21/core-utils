@@ -16,6 +16,7 @@ import java.util.List;
 public class BoqLineItemDto implements Comparable<BoqLineItemDto>{
     private String itemUuid;
     private String lineItemUuid;
+    private String categoryName;
     private String particular;
     private String specifications;
     private String type;
