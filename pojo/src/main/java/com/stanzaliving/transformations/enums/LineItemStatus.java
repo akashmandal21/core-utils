@@ -12,5 +12,6 @@ public enum LineItemStatus {
 	ApprovedByZonalHead,
 	ApprovedByDesignHead,
 	ApprovedByProjectsZonalHead,
-	Approved;
+	ApprovedByNitin,
+	ApprovedByLeadership;
 }
