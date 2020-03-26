@@ -28,7 +28,7 @@ public class POClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<> getVendorDetails(String poDetailsId) {
+    public ResponseDto<List<VendorDetailsDto>> getVendorDetails(String poDetailsId) {
 
         log.info("HTTP Client call to get PO Details DTO for UUID " + poDetailsId);
 
