@@ -99,4 +99,31 @@ public class StatusTrackerServiceImpl implements StatusTrackerService {
 		
  		return statusTrackerDtoList;
 	}
+
+	@Override
+	public List<StatusTrackerDto> getAllStatusTrackerRecords() {
+		List<StatusTrackerEntity> statusTrackerEntities = 
+				statusTrackerDbService.findAll();
+		
+		List<StatusTrackerDto> statusTrackerDtoList = new ArrayList<>();
+		
+		for(StatusTrackerEntity statusTrackerEntity : statusTrackerEntities) {
+			StatusTrackerDto statusTrackerDto = 
+					StatusTrackerDto.builder().contextName(statusTrackerEntity.getContextName())
+					.contextUuid(statusTrackerEntity.getContextUuid()).createdAt(statusTrackerEntity.getCreatedAt())
+					.createdBy(statusTrackerEntity.getCreatedBy()).status(statusTrackerEntity.getStatusName())
+					.build();
+			
+			statusTrackerDtoList.add(statusTrackerDto);
+		}
+		
+ 		return statusTrackerDtoList;
+	}
+	
+	@Override
+	public void insertStatusTrackerInitialPropertyCreationRecord(List<StatusTrackerEntity> statusTrackerEntities) {
+		
+		if(CollectionUtils.isNotEmpty(statusTrackerEntities))
+			statusTrackerDbService.saveAll(statusTrackerEntities);
+	}
 }
