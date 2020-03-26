@@ -18,6 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.boq_service.dtos.PoResponseDto;
 
 @Log4j2
 public class POClientApi {
@@ -28,7 +29,7 @@ public class POClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<List<VendorDetailsDto>> getVendorDetails(String poDetailsId) {
+    public ResponseDto<PoResponseDto> getVendorDetails(String poDetailsId) {
 
         log.info("HTTP Client call to get PO Details DTO for UUID " + poDetailsId);
 
@@ -44,7 +45,7 @@ public class POClientApi {
 
         Map<String, List<String>> map = new HashMap<>();
 
-        ParameterizedTypeReference<ResponseDto<List<VendorDetailsDto>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<VendorDetailsDto>>>() {
+        ParameterizedTypeReference<ResponseDto<PoResponseDto>> vddReturnType = new ParameterizedTypeReference<ResponseDto<PoResponseDto>>() {
         };
 
         String path = UriComponentsBuilder.fromPath("/internal/getPoDataById/{id}").buildAndExpand(queryParams).toUriString();
