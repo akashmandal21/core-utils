@@ -31,4 +31,6 @@ public class PoInvoiceDetailsDto {
 
     private String invoiceUrl;
 
+    private String createdAt;
+
 }
