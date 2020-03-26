@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.vendor.model.VendorAndPocDetails;
 import com.stanzaliving.vendor.model.VendorDetailsDto;
 import com.stanzaliving.vendor.model.VendorPocDetailsDto;
 import lombok.extern.log4j.Log4j2;
@@ -69,6 +70,30 @@ public class VendorClientApi {
         };
 
         String path = UriComponentsBuilder.fromPath("/internal/getVendorPocDetailsByIds").toUriString();
+
+        map.put("ids", uuids);
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, map, headerParams, accept, vddReturnType);
+    }
+    
+    public ResponseDto<List<VendorAndPocDetails>> getVendorAndPocDetails(List<String> uuids) {
+
+        log.info("HTTP Client call to get Vendor POC Details DTO for UUID " + uuids);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<List<VendorAndPocDetails>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<VendorAndPocDetails>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/getVendorPlusPocDetailsByIds").toUriString();
 
         map.put("ids", uuids);
 
