@@ -9,7 +9,10 @@
 	<packaging>jar</packaging>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.stanzaliving.core</groupId>
 			<artifactId>base</artifactId>

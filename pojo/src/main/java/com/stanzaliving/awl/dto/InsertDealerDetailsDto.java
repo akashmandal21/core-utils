@@ -37,21 +37,15 @@ public class InsertDealerDetailsDto implements Serializable {
 	private String Pincode;
 	@NotEmpty(message = "Mobile can't be empty")
 	private String Mob1;
-	@NotEmpty(message = "Mobile can't be empty. Please supply NA if not available")
 	private String mob2;
 	
-	@NotEmpty(message = "Email can't be empty. Please supply NA if not available")
 	private String Email;
-	@NotEmpty(message = "AWL CRM can't be empty. Please supply NA if not available")
 	private String Awlcrm;
 	
 	private int Awlcrmno;
 	private String Remarks;
-	@NotEmpty(message = "DCode can't be empty. Please supply NA if not available")
 	private String Dcode;
-	@NotEmpty(message = "Dealer GSTIN can't be empty. Please supply NA if not available")
 	private String Gstin;
-	@NotEmpty(message = "Dealer state can't be empty. Please supply NA if not available")
 	private String Dstate;
 
 }
