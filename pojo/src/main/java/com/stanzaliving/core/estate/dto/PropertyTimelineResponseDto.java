@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.estate.dto;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -26,5 +27,6 @@ public class PropertyTimelineResponseDto {
 	private EstateStatus estateStatus;
 	private Map<String, List<CommentsDto>> statusCommentsMap;
 	private String updateBy;
+	private Date updateTime;
 	
 }
