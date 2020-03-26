@@ -54,6 +54,7 @@
 		<module>core-client</module>
 		<module>design-service-client</module>
 		<module>vendor-client</module>
+		<module>po-client</module>
 	</modules>
 
 	<build>
