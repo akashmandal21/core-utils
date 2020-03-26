@@ -15,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.awl.dto.AWLBatchDetailsDto;
+import com.stanzaliving.awl.dto.AWLVendorDetailsDto;
 import com.stanzaliving.awl.service.AWLIntegrationClientService;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.exception.StanzaHttpException;
@@ -40,34 +41,51 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 	
 	@Override
 	public ResponseDto<String> createBatchDetails(@Valid List<AWLBatchDetailsDto> awlBatchDetailsDtos) {
-
 		log.info("Create AWLBatch Details with data {} initiated. ", awlBatchDetailsDtos);
-
-		String response = null;
-
 		String path = UriComponentsBuilder.fromPath("/InsertBatchDetails").toUriString();
+		return createInAWL(awlBatchDetailsDtos, path, AWLVendorDetailsDto.class);
+	}
 
+
+
+	@Override
+	public ResponseDto<String> createVendorDetails(List<AWLVendorDetailsDto> awlVendorDetailsDtos) {
+		log.info("Create AWLVendor Details with data {} initiated. ", awlVendorDetailsDtos);
+		String path = UriComponentsBuilder.fromPath("/InsertVendorDetails").toUriString();
+		return createInAWL(awlVendorDetailsDtos, path, AWLVendorDetailsDto.class);
+	}
+
+	
+
+	
+	private ResponseDto<String> createInAWL(Object data,String path, Class clazz){
+		String response = null;
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
 		final HttpHeaders headerParams = new HttpHeaders();
-
 		final String[] accepts = { "*/*" };
 		final List<org.springframework.http.MediaType> accept = restClient.selectHeaderAccept(accepts);
-
 		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
 		};
 		try {
-			response  =  restClient.invokeAPI(path, HttpMethod.POST, queryParams, awlBatchDetailsDtos, headerParams, accept,returnType);
+			response  =  restClient.invokeAPI(path, HttpMethod.POST, queryParams, data, headerParams, accept,returnType);
 			return ResponseDto.success("Success",response);
 		} catch (StanzaHttpException e) {
-			log.error("HTTP Error occurred during AWL Integration - Create Batch Details for data {} with HTTPStatus Code {} ", awlBatchDetailsDtos, e.getStatusCode());
+			log.error("HTTP Error occurred during AWL Integration - for instance of {} with data {} with HTTPStatus Code {} ",clazz, data, e.getStatusCode());
 		} catch (Exception e) {
-			log.error("Error occurred during AWL Integration - Create Batch Details for data {} ", awlBatchDetailsDtos);
+			log.error("Error occurred during AWL Integration - Create Batch Details for instance of {} with data {} ", clazz, data);
 			log.error(e.getMessage());
 		}
 		return ResponseDto.failure("Failure",response);
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 //	/**
 //	@Override

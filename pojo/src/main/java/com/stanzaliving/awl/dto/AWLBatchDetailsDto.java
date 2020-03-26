@@ -28,33 +28,33 @@ public class AWLBatchDetailsDto implements Serializable {
 	
 	@NotEmpty(message = "Client code can't be empty.")
 	@JsonProperty("Custcode")
-	private String Custcode;
+	private String clientCode;
 	
 	@NotEmpty(message = "Item code can't be empty")
 	@JsonProperty("Sku")
-	private String Sku;
+	private String itemCode;
 	
 	
 	@NotEmpty(message = "Batch code can't be empty")
 	@JsonProperty("Batchno")
-	private String Batchno;
+	private String batchNo;
 
 	@NotEmpty(message = "Manufacturing Date can't be empty and be in format yyyy-MM-dd")
 	@JsonProperty("Mfgdate")
-	private String Mfgdate;
+	private String mfgDate;
 	
 	
 	@NotEmpty(message = "Expiring Date can't be empty and be in format yyyy-MM-dd")
 	@JsonProperty("Expdate")
-	private String Expdate;
+	private String expDate;
 
 	@JsonProperty("Bbuse")
-	private int Bbuse;
+	private int bestBeforeUse;
 	
 	@JsonProperty("Mrp")
-	private float Mrp;
+	private float mrp;
 
 	@JsonProperty("Note")
-	private String Note;
+	private String note;
 	
 }
