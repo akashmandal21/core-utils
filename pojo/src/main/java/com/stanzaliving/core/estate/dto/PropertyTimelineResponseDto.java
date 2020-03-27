@@ -25,7 +25,7 @@ public class PropertyTimelineResponseDto {
 
 	private String estateStatusDesc;
 	private EstateStatus estateStatus;
-	private Map<String, List<CommentsDto>> statusCommentsMap;
+	private List<CommentsDto> comments;
 	private String updateBy;
 	private Date updateTime;
 	
