@@ -4,10 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.stanzaliving.vendor.model.VendorAndPocDetails;
-import com.stanzaliving.vendor.model.VendorDetailsDto;
-import com.stanzaliving.vendor.model.VendorPocDetailsDto;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -18,7 +14,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.boq_service.dtos.PoResponseDto;
+import com.stanzaliving.po.model.PoResponse;
+
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class POClientApi {
@@ -29,7 +27,7 @@ public class POClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<PoResponseDto> getVendorDetails(String poDetailsId) {
+    public ResponseDto<PoResponse> getVendorDetails(String poDetailsId) {
 
         log.info("HTTP Client call to get PO Details DTO for UUID " + poDetailsId);
 
@@ -45,7 +43,7 @@ public class POClientApi {
 
         Map<String, List<String>> map = new HashMap<>();
 
-        ParameterizedTypeReference<ResponseDto<PoResponseDto>> vddReturnType = new ParameterizedTypeReference<ResponseDto<PoResponseDto>>() {
+        ParameterizedTypeReference<ResponseDto<PoResponse>> vddReturnType = new ParameterizedTypeReference<ResponseDto<PoResponse>>() {
         };
 
         String path = UriComponentsBuilder.fromPath("/internal/getPoDataById/{id}").buildAndExpand(queryParams).toUriString();
