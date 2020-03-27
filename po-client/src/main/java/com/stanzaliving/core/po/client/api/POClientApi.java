@@ -31,9 +31,12 @@ public class POClientApi {
 
         log.info("HTTP Client call to get PO Details DTO for UUID " + poDetailsId);
 
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("id", poDetailsId);
+        
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("id", poDetailsId);
         
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -46,9 +49,9 @@ public class POClientApi {
         ParameterizedTypeReference<ResponseDto<PoResponse>> vddReturnType = new ParameterizedTypeReference<ResponseDto<PoResponse>>() {
         };
 
-        String path = UriComponentsBuilder.fromPath("/internal/getPoDataById/{id}").buildAndExpand(queryParams).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/getPoDataById/{id}").buildAndExpand(uriVariables).toUriString();
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, map, headerParams, accept, vddReturnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
 }
