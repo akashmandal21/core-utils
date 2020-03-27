@@ -13,7 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 public enum PoType {
 
-	GC("GC",Arrays.asList(Department.GC,Department.DESIGN)),ASIS("As Is",Arrays.asList(Department.PROCUREMENT,Department.PROJECTS)),BOI("Boi",Arrays.asList(Department.PROCUREMENT,Department.PROJECTS));
+	GC("GC",Arrays.asList(Department.GC,Department.DESIGN)),
+	ASIS("As Is",Arrays.asList(Department.PROCUREMENT,Department.PROJECTS)),
+	BOI("Boi",Arrays.asList(Department.PROCUREMENT,Department.PROJECTS));
 	
 	private String type;
 	

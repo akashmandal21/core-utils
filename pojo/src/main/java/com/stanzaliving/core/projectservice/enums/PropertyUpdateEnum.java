@@ -14,6 +14,9 @@ public enum  PropertyUpdateEnum {
     PROJECT_MANAGER_ASSIGNED("Project manager Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
     PROJECT_SITE_ENGINEER_ASSIGNED("Project Site Engineer Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
 
+    //GC
+    GC_ZONAL_HEAD_ASSIGNED("GC Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED,Department.GC),
+
     //AS-IS Intermediate
     PROJECT_AS_IS_VENDOR_ASSIGNED("As is Vendor Assigned",true,NotificationTaskType.AS_IS_VENDOR_ASSIGNED),
     PROJECT_AS_IS_UPLOADED("As is Sent for Approval",false,NotificationTaskType.AS_IS_UPLOADED),
