@@ -50,6 +50,8 @@ public enum  PropertyUpdateEnum {
     DESIGN_BOQ_SUBMITTED("Boq Submitted For Approval",true,NotificationTaskType.MASTER_BOQ_SUBMITTED),
     DESIGN_BOQ_SENT_BACK("Boq Sent Back",true,NotificationTaskType.MASTER_BOQ_REJECTED),
     DESIGN_BOQ_APPROVED("Boq Approved",true,NotificationTaskType.MASTER_BOQ_APPROVED),
+    DESIGN_BOI_APPROVED("Boi Approved",true,NotificationTaskType.MASTER_BOI_APPROVED),
+    DESIGN_GC_APPROVED("Gc Approved",true,NotificationTaskType.MASTER_GC_APPROVED),
 
     //BOQ Completed
     DESIGN_BOQ_COMPLETED("Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED),
