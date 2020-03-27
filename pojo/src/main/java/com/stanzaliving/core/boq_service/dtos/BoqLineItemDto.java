@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BoqLineItemDto implements Comparable<BoqLineItemDto>{
+	
     private String itemUuid;
     private String lineItemUuid;
     private String categoryName;
