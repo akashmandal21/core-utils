@@ -33,4 +33,8 @@ public class PoInvoiceItemDetailsDto {
 
     private Double itemAmount;
 
+    private Double poItemRate;
+
+    private Float poItemQuantity;
+
 }
