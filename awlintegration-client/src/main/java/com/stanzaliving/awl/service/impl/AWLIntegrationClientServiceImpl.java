@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -30,13 +31,17 @@ import lombok.extern.log4j.Log4j2;
 @Validated
 public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientService {
 
+	
+	@Value("#{systemProperties['awl.base.path'] ?: 'http://test.eprontoglobal.com/Service1.svc'}")
+	private  String AWL_INTEGRATION_BASE_PATH;
+	
 	private StanzaRestClient restClient;
 
 	
 	@PostConstruct
 	public void initAWLClient() {
 		log.info("Initializing AWL Integration Stanza Rest Client");
-		this.restClient = new StanzaRestClient(AWLIntegrationClientService.AWL_INTEGRATION_BASE_PATH);
+		this.restClient = new StanzaRestClient(AWL_INTEGRATION_BASE_PATH);
 	}
 
 	

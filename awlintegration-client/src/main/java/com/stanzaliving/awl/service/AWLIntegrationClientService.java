@@ -10,8 +10,6 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 
 public interface AWLIntegrationClientService {
 
-	String AWL_INTEGRATION_BASE_PATH = "http://test.eprontoglobal.com/Service1.svc";
-	
 	ResponseDto<String> createBatchDetails(List<AWLBatchDetailsDto> awlBatchDetailsDtos);
 	
 	
