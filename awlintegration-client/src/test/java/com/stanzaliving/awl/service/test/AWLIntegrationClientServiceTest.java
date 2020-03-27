@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.stanzaliving.awl.dto.AWLBatchDetailsDto;
+import com.stanzaliving.awl.dto.AWLDealerDetailsDto;
 import com.stanzaliving.awl.dto.AWLVendorDetailsDto;
 import com.stanzaliving.awl.service.AWLIntegrationClientService;
 import com.stanzaliving.awl.service.impl.AWLIntegrationClientServiceImpl;
@@ -67,6 +68,25 @@ public class AWLIntegrationClientServiceTest {
 		assertNotNull(result);
 		assertEquals(result.getData(), '"' + RESPONSE_FAILED + '"');
 	}
+	
+	
+	@Test
+	public void test4_createDealerDetails() {
+		AWLDealerDetailsDto dto = prepareAWLDealerDetails();
+
+		ResponseDto<String> result = awlClient.createDealerDetails(Arrays.asList(dto));
+		assertNotNull(result);
+		assertEquals(result.getData(), '"' + RESPONSE_SUCCESS + '"');
+
+		// check for failed now .. duplicate
+		result = awlClient.createDealerDetails(Arrays.asList(dto));
+		assertNotNull(result);
+		assertEquals(result.getData(), '"' + RESPONSE_FAILED + '"');
+	}
+	
+	
+	
+	
 
 	private AWLBatchDetailsDto prepareAWLBatchDetailsData() {
 		return AWLBatchDetailsDto.builder().batchNo("COVID-1-Test" + StanzaUtils.generateUniqueId(3)).bestBeforeUse(12)
@@ -85,4 +105,24 @@ public class AWLIntegrationClientServiceTest {
 				.build();
 	}
 
+	
+	private AWLDealerDetailsDto prepareAWLDealerDetails() {
+		return AWLDealerDetailsDto.builder()
+				.awlCRMContactNo("9910576586")
+				.awlCRMPerson("Mr. Covid-19")
+				.billingAddress("Covid-Palace, China")
+				.clientCode("STANZA")
+				.dealerGSTNo("GST-COVID-19")
+				.dealerState("COVID-State"+StanzaUtils.generateUniqueId(3))
+				.deliveryAddress("Covid-Death-Garden,China")
+				.houseCity("China")
+				.houseCode("COVID-HOUSE-"+StanzaUtils.generateUniqueId(3))
+				//.houseEmail("")
+				.houseName("Covid-House-"+StanzaUtils.generateUniqueId(3))
+				.housePinCode("122001")
+				.primaryMobile("9910576586")
+				.remarks("Test data")
+				.secondaryMobile(null)
+				.build();
+	}
 }

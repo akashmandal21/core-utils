@@ -15,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.awl.dto.AWLBatchDetailsDto;
+import com.stanzaliving.awl.dto.AWLDealerDetailsDto;
 import com.stanzaliving.awl.dto.AWLVendorDetailsDto;
 import com.stanzaliving.awl.service.AWLIntegrationClientService;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -76,6 +77,15 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 			log.error(e.getMessage());
 		}
 		return ResponseDto.failure("Failure",response);
+	}
+
+
+
+	@Override
+	public ResponseDto<String> createDealerDetails(List<AWLDealerDetailsDto> awlDealerDetailsDtos) {
+		log.info("Create AWLDealerr Details with data {} initiated. ", awlDealerDetailsDtos);
+		String path = UriComponentsBuilder.fromPath("/InsertDealerDetails").toUriString();
+		return createInAWL(awlDealerDetailsDtos, path, AWLDealerDetailsDto.class);
 	}
 	
 	
