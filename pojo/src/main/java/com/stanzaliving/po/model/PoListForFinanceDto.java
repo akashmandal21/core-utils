@@ -9,6 +9,8 @@ import lombok.Setter;
 @Builder
 public class PoListForFinanceDto {
 
+    private String propertyId;
+
     private Long poNumber;
 
     private String poType;

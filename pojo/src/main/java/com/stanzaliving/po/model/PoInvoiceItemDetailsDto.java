@@ -21,8 +21,16 @@ public class PoInvoiceItemDetailsDto {
 
     private String itemCode;
 
-    private Double rate;
+    private String itemName;
 
-    private Float quantity;
+    private String itemDescription;
+
+    private String itemUom;
+
+    private Double itemRate;
+
+    private Float itemQuantity;
+
+    private Double itemAmount;
 
 }
