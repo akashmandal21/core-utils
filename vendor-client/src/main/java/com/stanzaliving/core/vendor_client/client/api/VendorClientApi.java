@@ -116,7 +116,7 @@ public class VendorClientApi {
         ParameterizedTypeReference<ResponseDto<VendorPoDownloadDataDto>> vddReturnType = new ParameterizedTypeReference<ResponseDto<VendorPoDownloadDataDto>>() {
         };
 
-        String path = UriComponentsBuilder.fromPath("internal/getVendorPoDownloadData?vendorDetailsId=" + vendorDetailsId
+        String path = UriComponentsBuilder.fromPath("/internal/getVendorPoDownloadData?vendorDetailsId=" + vendorDetailsId
                 + "&vendorPocDetailsId=" + vendorPocDetailsId + "&state=" + state).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, vddReturnType);
