@@ -7,6 +7,7 @@ import java.util.Map;
 import com.stanzaliving.vendor.model.VendorAndPocDetails;
 import com.stanzaliving.vendor.model.VendorDetailsDto;
 import com.stanzaliving.vendor.model.VendorPoDownloadDataDto;
+import com.stanzaliving.vendor.model.VendorPoDownloadRequest;
 import com.stanzaliving.vendor.model.VendorPocDetailsDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -101,9 +102,9 @@ public class VendorClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, map, headerParams, accept, vddReturnType);
     }
 
-    public ResponseDto<VendorPoDownloadDataDto> getVendorPoDownloadData(String vendorDetailsId, String vendorPocDetailsId, String state) {
+    public ResponseDto<VendorPoDownloadDataDto> getVendorPoDownloadData(VendorPoDownloadRequest request) {
 
-        log.info("HTTP Client call to get Vendor Purchase Order Download Data for vendorDetailsId " + vendorDetailsId);
+        log.info("HTTP Client call to get Vendor Purchase Order Download Data for request " + request);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -116,10 +117,9 @@ public class VendorClientApi {
         ParameterizedTypeReference<ResponseDto<VendorPoDownloadDataDto>> vddReturnType = new ParameterizedTypeReference<ResponseDto<VendorPoDownloadDataDto>>() {
         };
 
-        String path = UriComponentsBuilder.fromPath("/internal/getVendorPoDownloadData?vendorDetailsId=" + vendorDetailsId
-                + "&vendorPocDetailsId=" + vendorPocDetailsId + "&state=" + state).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/getVendorPoDownloadData").toUriString();
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, vddReturnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, request, headerParams, accept, vddReturnType);
     }
 
 }
