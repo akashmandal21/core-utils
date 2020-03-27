@@ -19,6 +19,8 @@ public class PurchaseOrderDetailsDto {
 
     private String propertyId;
 
+    private String poNumber;
+
     private String poType;
 
     private String scopeOfWork;

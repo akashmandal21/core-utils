@@ -11,7 +11,7 @@ public class PoListingDto {
 
     private String poDetailsId;
 
-    private Integer poNumber;
+    private String poNumber;
 
     private String poType;
 
