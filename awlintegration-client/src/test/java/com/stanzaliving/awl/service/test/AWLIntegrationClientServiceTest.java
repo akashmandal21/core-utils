@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.stanzaliving.awl.dto.AWLBatchDetailsDto;
 import com.stanzaliving.awl.dto.AWLDealerDetailsDto;
+import com.stanzaliving.awl.dto.AWLSKUDetailsDto;
 import com.stanzaliving.awl.dto.AWLVendorDetailsDto;
 import com.stanzaliving.awl.service.AWLIntegrationClientService;
 import com.stanzaliving.awl.service.impl.AWLIntegrationClientServiceImpl;
@@ -84,7 +85,20 @@ public class AWLIntegrationClientServiceTest {
 		assertEquals(result.getData(), '"' + RESPONSE_FAILED + '"');
 	}
 	
-	
+
+	@Test
+	public void test5_createSKUDetails() {
+		AWLSKUDetailsDto dto = prepareSKUDetails();
+
+		ResponseDto<String> result = awlClient.createSKUDetails(Arrays.asList(dto));
+		assertNotNull(result);
+		assertEquals(result.getData(), '"' + RESPONSE_SUCCESS + '"');
+
+		// check for failed now .. duplicate
+		result = awlClient.createSKUDetails(Arrays.asList(dto));
+		assertNotNull(result);
+		assertEquals(result.getData(), '"' + RESPONSE_FAILED + '"');
+	}
 	
 	
 
@@ -125,4 +139,36 @@ public class AWLIntegrationClientServiceTest {
 				.secondaryMobile(null)
 				.build();
 	}
+	
+	
+	private AWLSKUDetailsDto prepareSKUDetails() {
+		return AWLSKUDetailsDto.builder()
+				.batchNumberExists("YES")
+				.breadth(20.5f)
+				.catg1("Catg-1")
+				.catg2("Catg-2")
+				.catg3("Catg-3")
+				.color("Red")
+				.description("Test SKU")
+				.height(12f)
+				.hsNo("COVID-SKU-"+StanzaUtils.generateUniqueId(3))
+				.isMaster("YES")
+				.length(30)
+				.masterChildQuantity(1)
+				.masterSKU(null)
+				.mrp(300f)
+				.packOfQuantity("10")
+				.packSpecification("Covid-19-SKU-item")
+				.season(null)
+				.serialNumberExists("YES")
+				.size("20")
+				.skuName("COVID-19-"+StanzaUtils.generateUniqueId(3))
+				.stakingLevel(2)
+				.style(null)
+				.unit(null)
+				.weight(1f)
+				.build();
+	}
+	
 }
+

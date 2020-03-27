@@ -16,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.awl.dto.AWLBatchDetailsDto;
 import com.stanzaliving.awl.dto.AWLDealerDetailsDto;
+import com.stanzaliving.awl.dto.AWLSKUDetailsDto;
 import com.stanzaliving.awl.dto.AWLVendorDetailsDto;
 import com.stanzaliving.awl.service.AWLIntegrationClientService;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -83,9 +84,18 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 
 	@Override
 	public ResponseDto<String> createDealerDetails(List<AWLDealerDetailsDto> awlDealerDetailsDtos) {
-		log.info("Create AWLDealerr Details with data {} initiated. ", awlDealerDetailsDtos);
+		log.info("Create AWLDealer Details with data {} initiated. ", awlDealerDetailsDtos);
 		String path = UriComponentsBuilder.fromPath("/InsertDealerDetails").toUriString();
 		return createInAWL(awlDealerDetailsDtos, path, AWLDealerDetailsDto.class);
+	}
+
+
+
+	@Override
+	public ResponseDto<String> createSKUDetails(List<AWLSKUDetailsDto> awlskuDetailsDtos) {
+		log.info("Create AWLSKU Details with data {} initiated. ", awlskuDetailsDtos);
+		String path = UriComponentsBuilder.fromPath("/InsertSKUDetails").toUriString();
+		return createInAWL(awlskuDetailsDtos, path, AWLSKUDetailsDto.class);
 	}
 	
 	
