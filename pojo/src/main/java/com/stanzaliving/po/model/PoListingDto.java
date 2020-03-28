@@ -28,5 +28,7 @@ public class PoListingDto {
     private Double totalPoAmount;
 
     private String poStatus;
+    
+    private String propertyAddress;
 
 }
