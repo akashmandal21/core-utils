@@ -174,4 +174,24 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<List<MasterBoqDto>> getAsIsItemsByCityName(String cityName) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/get/fetchAsIsItems/" + cityName).buildAndExpand(uriVariables).toUriString();
+
+		ParameterizedTypeReference<ResponseDto<List<MasterBoqDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<MasterBoqDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+	}
+
 }
