@@ -63,7 +63,7 @@ public class POClientApi {
 
         Object postBody = propertyUuids;
         final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("internal/getPoStatuses")
+        String path = UriComponentsBuilder.fromPath("/internal/getPoStatuses")
                 .buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
