@@ -14,6 +14,9 @@ public enum  PropertyUpdateEnum {
     PROJECT_MANAGER_ASSIGNED("Project manager Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
     PROJECT_SITE_ENGINEER_ASSIGNED("Project Site Engineer Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
 
+    //GC
+    GC_ZONAL_HEAD_ASSIGNED("GC Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED,Department.GC),
+
     //AS-IS Intermediate
     PROJECT_AS_IS_VENDOR_ASSIGNED("As is Vendor Assigned",true,NotificationTaskType.AS_IS_VENDOR_ASSIGNED),
     PROJECT_AS_IS_UPLOADED("As is Sent for Approval",false,NotificationTaskType.AS_IS_UPLOADED),
@@ -50,6 +53,8 @@ public enum  PropertyUpdateEnum {
     DESIGN_BOQ_SUBMITTED("Boq Submitted For Approval",true,NotificationTaskType.MASTER_BOQ_SUBMITTED),
     DESIGN_BOQ_SENT_BACK("Boq Sent Back",true,NotificationTaskType.MASTER_BOQ_REJECTED),
     DESIGN_BOQ_APPROVED("Boq Approved",true,NotificationTaskType.MASTER_BOQ_APPROVED),
+    DESIGN_BOI_APPROVED("Boi Approved",true,NotificationTaskType.MASTER_BOI_APPROVED),
+    DESIGN_GC_APPROVED("Gc Approved",true,NotificationTaskType.MASTER_GC_APPROVED),
 
     //BOQ Completed
     DESIGN_BOQ_COMPLETED("Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED),
