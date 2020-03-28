@@ -11,6 +11,8 @@ public class PoListForFinanceDto {
 
     private String propertyId;
 
+    private String poDetailsId;
+
     private String poNumber;
 
     private String poType;
