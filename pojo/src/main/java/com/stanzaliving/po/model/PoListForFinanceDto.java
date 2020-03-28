@@ -11,6 +11,8 @@ public class PoListForFinanceDto {
 
     private String propertyId;
 
+    private String poDetailsId;
+
     private String poNumber;
 
     private String poType;
@@ -24,5 +26,7 @@ public class PoListForFinanceDto {
     private Double amountAlreadyPaid;
 
     private String paymentStatus;
+
+    private String state;
 
 }

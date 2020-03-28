@@ -21,5 +21,5 @@ public class ProjectsUpdateDto {
     PropertyUpdateEnum propertyUpdateEnum;
     String userId;
     Map<String,String> additionalData;
-    List<AttachmentDto> attachmentDtoList;
+    Map<String,List<AttachmentDto>> attachmentDtoList;
 }
