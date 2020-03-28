@@ -27,4 +27,6 @@ public class PoListForFinanceDto {
 
     private String paymentStatus;
 
+    private String state;
+
 }
