@@ -19,6 +19,10 @@ public class PoPaymentDetailsDto {
 
     private String poDetailsId;
 
+    private String poInvoiceDetailsId;
+
+    private String invoiceType;
+
     private String paymentDate;
 
     private String paymentRefNum;

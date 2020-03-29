@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public enum InvoiceType {
 
-	REGULAR("Regular");
+	REGULAR("Regular"), ADVANCE ("Advance");
 	
 	private String status;
 
