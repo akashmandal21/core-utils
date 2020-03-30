@@ -57,7 +57,7 @@ public enum EstateStatus {
 
 	SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD("L1 Sent to NH"),
 	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("L1 Sent to Leadership"),
-	APPROVED_L1_BY_LEADERSHIP("L1 Approval by Leadership"),
+	APPROVED_L1_BY_LEADERSHIP("L1 Approved by Leadership"),
 	SENT_BACK_L1_BY_NATIONAL_HEAD("L1 Sent Back by NH"),
 	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent Back by Leadership"),
 
