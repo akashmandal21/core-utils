@@ -33,4 +33,6 @@ public class PoInvoiceDetailsDto {
 
     private String createdAt;
 
+    private Double amountPaid;
+
 }

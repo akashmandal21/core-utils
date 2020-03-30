@@ -34,5 +34,7 @@ public class PurchaseOrderDetailsDto {
     private String billToAddress;
 
     private String poStatus;
+    
+    private boolean acceptRegularInvoices;
 
 }
