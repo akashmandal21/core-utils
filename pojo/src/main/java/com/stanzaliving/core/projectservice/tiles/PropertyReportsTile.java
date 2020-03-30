@@ -21,7 +21,7 @@ public enum PropertyReportsTile {
     BED_COUNT_FINALIZATION("Bed Count Finalization",true,false,false,Department.DESIGN,PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED,"bedcount"),
     GC_SCHEDULE("GC Schedule",true,true,true,Department.GC,PropertyUpdateEnum.PROJECT_SITE_ENGINEER_ASSIGNED,"gc"),
     HOTO("Hoto",true,true,false,Department.PROJECTS,PropertyUpdateEnum.PROJECTS_HOTO_GENERATED,"hoto"),
-    PO("PO",false,false,true,null,null,"po");
+    PO("PO",false,false,true,null,null,"pos");
     private String tileText;
     private boolean visibleToDesign;
     private boolean visibleToProjects;
