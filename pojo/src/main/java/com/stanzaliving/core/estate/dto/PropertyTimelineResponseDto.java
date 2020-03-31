@@ -5,7 +5,6 @@ package com.stanzaliving.core.estate.dto;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import com.stanzaliving.core.commentsservice.dto.CommentsDto;
 import com.stanzaliving.core.estate.enums.EstateStatus;
@@ -28,5 +27,6 @@ public class PropertyTimelineResponseDto {
 	private List<CommentsDto> comments;
 	private String updateBy;
 	private Date updateTime;
+	private String colorCode;
 	
 }
