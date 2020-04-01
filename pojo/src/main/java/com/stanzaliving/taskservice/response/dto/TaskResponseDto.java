@@ -4,6 +4,7 @@
 package com.stanzaliving.taskservice.response.dto;
 
 import com.stanzaliving.taskservice.enums.TaskContextName;
+import com.stanzaliving.taskservice.enums.TaskType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,4 +24,6 @@ public class TaskResponseDto {
 	private String statusName;
 	private String userUuid;
 	private String taskUuid;
+	private TaskType taskType;
+	private String role;
 }
