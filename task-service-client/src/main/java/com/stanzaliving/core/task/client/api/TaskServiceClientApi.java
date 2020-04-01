@@ -28,7 +28,7 @@ public class TaskServiceClientApi {
         this.restClient = stanzaRestClient;
     }
     
-    public ResponseDto<TaskResponseDto> getPendingTaskByRole(String role) {
+    public ResponseDto<List<TaskResponseDto>> getPendingTaskByRole(String role) {
 
     	log.debug(" Fetch all pending tasks associated with role " + role);
     	
@@ -55,9 +55,39 @@ public class TaskServiceClientApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<TaskResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<TaskResponseDto>>() {
+        ParameterizedTypeReference<ResponseDto<List<TaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<TaskResponseDto>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+    
+    public ResponseDto<List<TaskResponseDto>> getPendingTaskByStatusNames(List<String> statusNames) {
+
+    	log.debug(" Fetch all pending tasks associated with statusNames " + statusNames);
+    	
+        if (Objects.isNull(statusNames)) {
+            return null;
+        }
+
+        Object postBody = statusNames;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/statusname").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<TaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<TaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
 }
