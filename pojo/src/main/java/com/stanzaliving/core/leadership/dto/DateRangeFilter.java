@@ -17,4 +17,6 @@ import lombok.ToString;
 public class DateRangeFilter {
 
 	private CreatedBetweenDateRange createdDateRange;
+	private L1ApprovedLeadershipBetween l1ApprovedBetween;
+	private PropertyNamingDoneBetween propertyNamingBetween;
 }

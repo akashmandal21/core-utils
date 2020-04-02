@@ -14,9 +14,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PropertySubstatusFilter {
-
-	private boolean enabled;
-	private String propertySubStatus;
-	private int count;
+public class MicromarketFilter {
+	private String micromarketName;
+	private String micromarketUuid;
 }

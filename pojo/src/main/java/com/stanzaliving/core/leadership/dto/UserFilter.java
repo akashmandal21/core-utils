@@ -19,4 +19,5 @@ import lombok.ToString;
 public class UserFilter {
 
 	private List<BdExecutive> bdExecutives;
+	private List<RegionalManager> regionalManager;
 }

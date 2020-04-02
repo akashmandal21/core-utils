@@ -3,7 +3,7 @@
  */
 package com.stanzaliving.core.leadership.dto;
 
-import com.stanzaliving.transformations.ui.pojo.City;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,5 +18,5 @@ import lombok.ToString;
 @ToString
 public class PropertyLocationFilter {
 
-	private CityFilter cityFilter;
+	private List<CityFilter> cityFilter;
 }

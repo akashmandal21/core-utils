@@ -14,9 +14,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PropertySubstatusFilter {
+public class RegionalManager {
 
-	private boolean enabled;
-	private String propertySubStatus;
-	private int count;
+	private String userUuid;
+	private String userName;
 }

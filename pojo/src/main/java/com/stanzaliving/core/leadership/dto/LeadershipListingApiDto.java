@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.leadership.dto;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,9 +16,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PropertySubstatusFilter {
+public class LeadershipListingApiDto {
 
-	private boolean enabled;
-	private String propertySubStatus;
-	private int count;
+	private PropertyFiltersRequestDto propertyFiltersDto;
+	
+	private List<LeadershipPropertyAttributesDto> propertyListing;
 }
