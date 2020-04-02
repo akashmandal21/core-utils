@@ -19,4 +19,5 @@ import lombok.ToString;
 public class PropertyLocationFilter {
 
 	private List<CityFilter> cityFilter;
+	private List<MicromarketFilter> micromarketFilter;
 }
