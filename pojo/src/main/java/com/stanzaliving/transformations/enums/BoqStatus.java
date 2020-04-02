@@ -18,7 +18,7 @@ public enum BoqStatus {
 	DRAFT_IN_PROGRESS("Under Draft", "#e5e3e3",UserType.DESIGN_COORDINATOR,Department.DESIGN),
 	SEND_FOR_APPROVAL("Sent For Approval to Zonal Head", "#FFC300",UserType.ZONAL_HEAD,Department.DESIGN),
 	APPROVED_BY_ZH("Sent For Approval to Design Head", "#FFC300",UserType.NATIONAL_HEAD,Department.DESIGN),
-	APPROVED_BY_NH("Sent For Approval to Design Head", "#FFC300",UserType.MANAGER,Department.TRANSFORMATIONS),
+	APPROVED_BY_NH("Sent For Approval to Nitin", "#FFC300",UserType.MANAGER,Department.TRANSFORMATIONS),
 	SENT_BACK("Sent Back", "#d41111",UserType.DESIGN_COORDINATOR,Department.DESIGN),
 	APPROVED("Approved", "#77baa6",null,null);
 	
