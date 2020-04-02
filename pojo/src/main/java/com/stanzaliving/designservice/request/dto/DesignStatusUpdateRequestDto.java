@@ -23,5 +23,5 @@ public class DesignStatusUpdateRequestDto {
 	private String designRemark;
 	private String reasonForNoSumma;
 	private String reasonForNoMagna;
-	private String reasonForNoPrima;
+	private String reasonForPrima;
 }

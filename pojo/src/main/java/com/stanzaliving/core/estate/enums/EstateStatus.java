@@ -51,15 +51,15 @@ public enum EstateStatus {
 	ATL_UPLOAD_PENDING("ATL Upload Pending"),
 
 	//Leadership Status
-	SENT_BACK_BY_LEADERSHIP("Sent Back By Leadership"),
+	SENT_BACK_BY_LEADERSHIP("Sent Back By Andy"),
 	APPROVED_BY_LEADERSHIP("Property Naming Done"),
 
 
 	SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD("L1 Sent to NH"),
-	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("L1 Sent to Leadership"),
-	APPROVED_L1_BY_LEADERSHIP("L1 Approval by Leadership"),
+	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("L1 Sent to Andy"),
+	APPROVED_L1_BY_LEADERSHIP("L1 Approved by Andy"),
 	SENT_BACK_L1_BY_NATIONAL_HEAD("L1 Sent Back by NH"),
-	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent Back by Leadership"),
+	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent Back by Andy"),
 
 	//Sandeep's approval & sent back
 	SENT_FOR_SANDEEP_APPROVAL("Sent for Sandeep's approval"),
