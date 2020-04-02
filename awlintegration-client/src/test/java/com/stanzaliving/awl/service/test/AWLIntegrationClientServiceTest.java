@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.stanzaliving.awl.dto.AWLBaseResponseDto;
 import com.stanzaliving.awl.dto.AWLBatchDetailsDto;
 import com.stanzaliving.awl.dto.AWLDealerDetailsDto;
 import com.stanzaliving.awl.dto.AWLSKUDetailsDto;
@@ -27,8 +29,12 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class AWLIntegrationClientServiceTest {
 
-	String RESPONSE_SUCCESS = "Done.";
-	String RESPONSE_FAILED = "Failed";
+	String RESPONSE_SUCCESS = "SUCCESS";
+	String RESPONSE_ALREADY_EXISTS = "Already Exist";
+	
+	boolean STATUS_FALSE=false;
+	int STATUS_CODE_409 =409;
+	
 
 	@Autowired
 	AWLIntegrationClientService awlClient;
@@ -36,23 +42,30 @@ public class AWLIntegrationClientServiceTest {
 	@Test
 	public void test1_createAWLBatchDetails() {
 		assertNotNull(awlClient);
-		ResponseDto<String> result = awlClient.createBatchDetails(Arrays.asList(prepareAWLBatchDetailsData()));
+		ResponseDto<List<AWLBaseResponseDto>> result = awlClient.createBatchDetails(Arrays.asList(prepareAWLBatchDetailsData()));
 		assertNotNull(result);
-		assertEquals(result.getData(), '"' + RESPONSE_SUCCESS + '"');
+		AWLBaseResponseDto dto = result.getData().get(0);
+		assertNotNull(dto);
+		assertEquals(dto.getMessage(), RESPONSE_SUCCESS);
+		assertNotNull(dto.getId());
 
 	}
 
 	@Test
 	public void test2_createAWLBatchDetails() {
 		AWLBatchDetailsDto dto = prepareAWLBatchDetailsData();
-		ResponseDto<String> result = awlClient.createBatchDetails(Arrays.asList(dto));
+		ResponseDto<List<AWLBaseResponseDto>> result = awlClient.createBatchDetails(Arrays.asList(dto));
 		assertNotNull(result);
-		assertEquals(result.getData(), '"' + RESPONSE_SUCCESS + '"');
+		AWLBaseResponseDto responseDto = result.getData().get(0);
+		assertNotNull(dto);
+		assertEquals(responseDto.getMessage(), RESPONSE_SUCCESS);
+		assertNotNull(responseDto.getId());
 
 		// check for failed now .. duplicate
 		result = awlClient.createBatchDetails(Arrays.asList(dto));
-		assertNotNull(result);
-		assertEquals(result.getData(), '"' + RESPONSE_FAILED + '"');
+		responseDto = result.getData().get(0);
+		assertNotNull(dto);
+		assertEquals(responseDto.getMessage(), RESPONSE_ALREADY_EXISTS);
 
 	}
 
@@ -60,14 +73,18 @@ public class AWLIntegrationClientServiceTest {
 	public void test3_createVendorDetails() {
 		AWLVendorDetailsDto dto = prepareAwlVendorDetailsData();
 
-		ResponseDto<String> result = awlClient.createVendorDetails(Arrays.asList(dto));
+		ResponseDto<List<AWLBaseResponseDto>> result = awlClient.createVendorDetails(Arrays.asList(dto));
 		assertNotNull(result);
-		assertEquals(result.getData(), '"' + RESPONSE_SUCCESS + '"');
+		AWLBaseResponseDto responseDto = result.getData().get(0);
+		assertNotNull(dto);
+		assertEquals(responseDto.getMessage(), RESPONSE_SUCCESS);
+		assertNotNull(responseDto.getId());
 
 		// check for failed now .. duplicate
 		result = awlClient.createVendorDetails(Arrays.asList(dto));
-		assertNotNull(result);
-		assertEquals(result.getData(), '"' + RESPONSE_FAILED + '"');
+		responseDto = result.getData().get(0);
+		assertNotNull(dto);
+		assertEquals(responseDto.getMessage(), RESPONSE_ALREADY_EXISTS);
 	}
 	
 	
@@ -75,14 +92,18 @@ public class AWLIntegrationClientServiceTest {
 	public void test4_createDealerDetails() {
 		AWLDealerDetailsDto dto = prepareAWLDealerDetails();
 
-		ResponseDto<String> result = awlClient.createDealerDetails(Arrays.asList(dto));
+		ResponseDto<List<AWLBaseResponseDto>> result = awlClient.createDealerDetails(Arrays.asList(dto));
 		assertNotNull(result);
-		assertEquals(result.getData(), '"' + RESPONSE_SUCCESS + '"');
+		AWLBaseResponseDto responseDto = result.getData().get(0);
+		assertNotNull(dto);
+		assertEquals(responseDto.getMessage(), RESPONSE_SUCCESS);
+		assertNotNull(responseDto.getId());
 
 		// check for failed now .. duplicate
 		result = awlClient.createDealerDetails(Arrays.asList(dto));
-		assertNotNull(result);
-		assertEquals(result.getData(), '"' + RESPONSE_FAILED + '"');
+		responseDto = result.getData().get(0);
+		assertNotNull(dto);
+		assertEquals(responseDto.getMessage(), RESPONSE_ALREADY_EXISTS);
 	}
 	
 
@@ -90,14 +111,18 @@ public class AWLIntegrationClientServiceTest {
 	public void test5_createSKUDetails() {
 		AWLSKUDetailsDto dto = prepareSKUDetails();
 
-		ResponseDto<String> result = awlClient.createSKUDetails(Arrays.asList(dto));
+		ResponseDto<List<AWLBaseResponseDto>> result = awlClient.createSKUDetails(Arrays.asList(dto));
 		assertNotNull(result);
-		assertEquals(result.getData(), '"' + RESPONSE_SUCCESS + '"');
+		AWLBaseResponseDto responseDto = result.getData().get(0);
+		assertNotNull(dto);
+		assertEquals(responseDto.getMessage(), RESPONSE_SUCCESS);
+		assertNotNull(responseDto.getId());
 
 		// check for failed now .. duplicate
 		result = awlClient.createSKUDetails(Arrays.asList(dto));
-		assertNotNull(result);
-		assertEquals(result.getData(), '"' + RESPONSE_FAILED + '"');
+		responseDto = result.getData().get(0);
+		assertNotNull(dto);
+		assertEquals(responseDto.getMessage(), RESPONSE_ALREADY_EXISTS);
 	}
 	
 	

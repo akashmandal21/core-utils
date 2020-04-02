@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.stanzaliving.awl.dto.AWLBaseResponseDto;
 import com.stanzaliving.awl.dto.AWLBatchDetailsDto;
 import com.stanzaliving.awl.dto.AWLDealerDetailsDto;
 import com.stanzaliving.awl.dto.AWLSKUDetailsDto;
@@ -27,17 +29,16 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
+@Component
 @Service
 @Validated
 public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientService {
 
-	
 	@Value("#{systemProperties['awl.base.path'] ?: 'http://test.eprontoglobal.com/Service1.svc'}")
 	private  String AWL_INTEGRATION_BASE_PATH;
 	
 	private StanzaRestClient restClient;
 
-	
 	@PostConstruct
 	public void initAWLClient() {
 		log.info("Initializing AWL Integration Stanza Rest Client");
@@ -47,7 +48,7 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 	
 	
 	@Override
-	public ResponseDto<String> createBatchDetails(@Valid List<AWLBatchDetailsDto> awlBatchDetailsDtos) {
+	public ResponseDto<List<AWLBaseResponseDto>> createBatchDetails(@Valid List<AWLBatchDetailsDto> awlBatchDetailsDtos) {
 		log.info("Create AWLBatch Details with data {} initiated. ", awlBatchDetailsDtos);
 		String path = UriComponentsBuilder.fromPath("/InsertBatchDetails").toUriString();
 		return createInAWL(awlBatchDetailsDtos, path, AWLVendorDetailsDto.class);
@@ -56,7 +57,7 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 
 
 	@Override
-	public ResponseDto<String> createVendorDetails(List<AWLVendorDetailsDto> awlVendorDetailsDtos) {
+	public ResponseDto<List<AWLBaseResponseDto>> createVendorDetails(List<AWLVendorDetailsDto> awlVendorDetailsDtos) {
 		log.info("Create AWLVendor Details with data {} initiated. ", awlVendorDetailsDtos);
 		String path = UriComponentsBuilder.fromPath("/InsertVendorDetails").toUriString();
 		return createInAWL(awlVendorDetailsDtos, path, AWLVendorDetailsDto.class);
@@ -65,16 +66,19 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 	
 
 	
-	private ResponseDto<String> createInAWL(Object data,String path, Class clazz){
-		String response = null;
+	private ResponseDto<List<AWLBaseResponseDto>> createInAWL(Object data,String path, Class clazz){
+	
+		List<AWLBaseResponseDto> response = null;
+		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		final HttpHeaders headerParams = new HttpHeaders();
 		final String[] accepts = { "*/*" };
 		final List<org.springframework.http.MediaType> accept = restClient.selectHeaderAccept(accepts);
-		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+		ParameterizedTypeReference<List<AWLBaseResponseDto>> returnType = new ParameterizedTypeReference<List<AWLBaseResponseDto>>() {
 		};
 		try {
 			response  =  restClient.invokeAPI(path, HttpMethod.POST, queryParams, data, headerParams, accept,returnType);
+			log.info("AWL Response : {}",  response);
 			return ResponseDto.success("Success",response);
 		} catch (StanzaHttpException e) {
 			log.error("HTTP Error occurred during AWL Integration - for instance of {} with data {} with HTTPStatus Code {} ",clazz, data, e.getStatusCode());
@@ -88,7 +92,7 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 
 
 	@Override
-	public ResponseDto<String> createDealerDetails(List<AWLDealerDetailsDto> awlDealerDetailsDtos) {
+	public ResponseDto<List<AWLBaseResponseDto>> createDealerDetails(List<AWLDealerDetailsDto> awlDealerDetailsDtos) {
 		log.info("Create AWLDealer Details with data {} initiated. ", awlDealerDetailsDtos);
 		String path = UriComponentsBuilder.fromPath("/InsertDealerDetails").toUriString();
 		return createInAWL(awlDealerDetailsDtos, path, AWLDealerDetailsDto.class);
@@ -97,7 +101,7 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 
 
 	@Override
-	public ResponseDto<String> createSKUDetails(List<AWLSKUDetailsDto> awlskuDetailsDtos) {
+	public ResponseDto<List<AWLBaseResponseDto>> createSKUDetails(List<AWLSKUDetailsDto> awlskuDetailsDtos) {
 		log.info("Create AWLSKU Details with data {} initiated. ", awlskuDetailsDtos);
 		String path = UriComponentsBuilder.fromPath("/InsertSKUDetails").toUriString();
 		return createInAWL(awlskuDetailsDtos, path, AWLSKUDetailsDto.class);
@@ -114,7 +118,7 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 	
 //	/**
 //	@Override
-//	public ResponseDto<String> createBatchDetailsUsingOKHTTP(AWLBatchDetailsDto awlBatchDetailsDto) {
+//	public ResponseDto<List<AWLBaseResponseDto>> createBatchDetailsUsingOKHTTP(AWLBatchDetailsDto awlBatchDetailsDto) {
 //	
 //		OkHttpClient client = new OkHttpClient();
 //
