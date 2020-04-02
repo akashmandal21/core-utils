@@ -6,6 +6,7 @@ import com.stanzaliving.core.base.enums.DocumentStatus;
 import com.stanzaliving.core.base.enums.DocumentType;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.*;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -18,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Log4j2
 public class CoreClientApi {
 
     private StanzaRestClient restClient;
@@ -35,6 +37,37 @@ public class CoreClientApi {
     public FullUserDto getUserDetails(String userId){
         return getUserDetails(userId, token).getData();
     }
+
+
+    public UserDetailDto getUserDetailsByUserCode(String userCode){
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("userCode", userCode);
+
+        String path = UriComponentsBuilder.fromPath("/user/userDetailDto").toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("userCode", userCode);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, UserDetailDto.class);
+        } catch (Exception e){
+            log.error("Error while getting user Details from Core by userCode. " + path + queryParams.toString(), e);
+        }
+        return null;
+    }
+
 
     public ResponseDto<FullUserDto> getUserDetails(String userId, String token){
         /* if (StringUtils.isBlank(token)) {
