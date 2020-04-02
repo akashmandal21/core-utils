@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.taskservice.response.dto;
 
+import java.util.Date;
+
 import com.stanzaliving.taskservice.enums.TaskContextName;
 import com.stanzaliving.taskservice.enums.TaskType;
 
@@ -26,4 +28,5 @@ public class TaskResponseDto {
 	private String taskUuid;
 	private TaskType taskType;
 	private String role;
+	private Date taskCreationDate;
 }

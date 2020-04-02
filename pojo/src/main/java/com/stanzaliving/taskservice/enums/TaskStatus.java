@@ -9,6 +9,6 @@ package com.stanzaliving.taskservice.enums;
  */
 public enum TaskStatus {
 
-	APPROVED,
+	RESOLVED,
 	PENDING;
 }
