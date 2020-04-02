@@ -22,4 +22,6 @@ public class TaskAttributeDto {
 	private String estateName;
 	private String city;
 	private String micromarket;
+	private String colorCode;
+	private int days;
 }
