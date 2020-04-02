@@ -21,5 +21,7 @@ public interface EstateAttributeService {
 
 	List<EstateAttributeEntity> getAndSaveEstateAttributeEntityListFromAnswer(AnswerEntity answer, String estateId,
 			String propertyId);
+	
+	EstateAttributeEntity fetchDetailByEstateIdAndAttributeName(String estateId, String attributeName);
 		
 }

@@ -23,6 +23,8 @@ public class ExperienceResponseDto {
 
 	private FeElementDto disgusted;
 
+	private FeElementDto delightedMinusDisgusted;
+
 	private FeElementDto socialMediaComplaint;
 
 	private FeElementDto disasterEvent;

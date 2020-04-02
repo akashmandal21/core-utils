@@ -20,12 +20,6 @@
 			<version>${global.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.stanzaliving.core</groupId>
-			<artifactId>pojo-ops</artifactId>
-			<version>1.0.0</version>
-			<scope>compile</scope>
-		</dependency>
 	</dependencies>
 
 	<parent>

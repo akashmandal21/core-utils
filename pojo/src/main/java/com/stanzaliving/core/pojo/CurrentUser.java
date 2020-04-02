@@ -1,5 +1,6 @@
 package com.stanzaliving.core.pojo;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.user.enums.UserType;
 
 import lombok.AllArgsConstructor;
@@ -34,5 +35,7 @@ public class CurrentUser {
 	private String email;
 	
 	private UserType userType;
+	
+	private Department department;
 
 }
