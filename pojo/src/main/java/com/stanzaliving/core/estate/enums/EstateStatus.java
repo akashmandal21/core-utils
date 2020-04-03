@@ -24,8 +24,12 @@ public enum EstateStatus {
 	
 	//Level 1 Status
 	SENT_FOR_APPROVAL_TO_CITY_HEAD("L1 Sent to RM"),
+	SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES("L1+DF Sent to RM"),
 	APPROVED_BY_CITY_HEAD("Shortlisted By RM"),
 	SENT_BACK_BY_CITY_HEAD("L1 Sent Back By RM"),
+	SENT_BACK_FROM_INITIAL_BED_COUNT("Sent Back From Initial Bed Count"),
+	PENDING_INITIAL_BED_COUNT("Pending Initial Bed Count"),
+	PENDING_DESIGN_FILES("Pending Design Files"),
 	REJECTED("Rejected"),
 	
 	//Level 2 Status
@@ -55,8 +59,11 @@ public enum EstateStatus {
 	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("L1 Sent to Leadership"),
 	APPROVED_L1_BY_LEADERSHIP("L1 Approval by Leadership"),
 	SENT_BACK_L1_BY_NATIONAL_HEAD("L1 Sent Back by NH"),
-	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent Back by Leadership");
+	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent Back by Leadership"),
 
+	//Sandeep's approval & sent back
+	SENT_FOR_SANDEEP_APPROVAL("Sent for Sandeep's approval"),
+	SENT_BACK_BY_SANDEEP("Sent back by Sandeep");
 
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	

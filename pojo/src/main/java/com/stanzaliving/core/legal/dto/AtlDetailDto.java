@@ -27,5 +27,7 @@ public class AtlDetailDto extends AbstractDto {
     private String estateUuid;
 
     private AtlDetailsEnum atlDetailsEnum;
+    
+    private Boolean approvedBySandeep;
 
 }

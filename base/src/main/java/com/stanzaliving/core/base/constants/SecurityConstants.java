@@ -18,6 +18,8 @@ public class SecurityConstants {
 	
 	public static final String COOKIE_HEADER_NAME = "Cookie";
 
+	public static final String BASIC_HEADER_NAME = "Authorization";
+
 	public static final String APP_ENVIRONMENT = "appEnv";
 	public static final String APP_ENVIRONMENT_TRUE = "true";
 	
