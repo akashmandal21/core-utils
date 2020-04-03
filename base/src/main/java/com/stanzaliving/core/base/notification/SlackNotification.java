@@ -64,11 +64,12 @@ public class SlackNotification {
 
         log.info("Send exception notification on Slack request exception " + exception);
 
-        StringWriter sw = new StringWriter();
-        sw.append(MDC.get(StanzaConstants.GUID));
-        sw.append("\n");
-        exception.printStackTrace(new PrintWriter(sw));
-
-        return sendPushNotificationRequest(sw.toString(), endUrl);
+        StringBuilder sb = new StringBuilder();
+        sb.append(MDC.get(StanzaConstants.GUID));
+        sb.append("\n");
+        sb.append(exception.toString());
+        sb.append("\n");
+        sb.append(exception.getStackTrace()[0]);
+        return sendPushNotificationRequest(sb.toString(), endUrl);
     }
 }
