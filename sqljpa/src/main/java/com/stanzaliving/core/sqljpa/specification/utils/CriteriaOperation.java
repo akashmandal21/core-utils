@@ -1,5 +1,10 @@
 package com.stanzaliving.core.sqljpa.specification.utils;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum CriteriaOperation {
 
 	TRUE("true"),
@@ -26,14 +31,7 @@ public enum CriteriaOperation {
 	FIND_IN_SET("find_in_set"),
 	ENUM_EQ("="),
 	ENUM_IN("in");
-	CriteriaOperation(String op) {
-		operation = op;
-	}
 
 	private String operation;
-
-	public String getOperation() {
-		return operation;
-	}
 
 }

@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PageDto extends PaginationRequest {
+public class PageAndSortDto extends PaginationRequest {
 
 	private String sortBy;
 
