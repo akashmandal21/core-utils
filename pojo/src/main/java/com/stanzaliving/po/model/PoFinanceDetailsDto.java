@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.validation.constraints.NotBlank;
+
 @Setter
 @Getter
 @ToString
@@ -27,6 +29,7 @@ public class PoFinanceDetailsDto {
 
     private Double subTotal;
 
+    @NotBlank(message = "Fee can't be blank")
     private String serviceFee;
 
     private Double totalAmount;
