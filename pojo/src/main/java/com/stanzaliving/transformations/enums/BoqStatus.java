@@ -14,24 +14,28 @@ import lombok.Getter;
 @Getter
 public enum BoqStatus {
 
-	NOT_STARTED("Not Started", "#e5e3e3",null,null),
-	DRAFT_IN_PROGRESS("Under Draft", "#e5e3e3",UserType.DESIGN_COORDINATOR,Department.DESIGN),
-	SEND_FOR_APPROVAL("Sent For Approval to Zonal Head", "#FFC300",UserType.ZONAL_HEAD,Department.DESIGN),
-	APPROVED_BY_ZH("Sent For Approval to Design Head", "#FFC300",UserType.NATIONAL_HEAD,Department.DESIGN),
-	APPROVED_BY_NH("Sent For Approval to Nitin", "#FFC300",UserType.MANAGER,Department.TRANSFORMATIONS),
-	SENT_BACK("Sent Back", "#d41111",UserType.DESIGN_COORDINATOR,Department.DESIGN),
-	APPROVED("Approved", "#77baa6",null,null);
-	
+	NOT_STARTED("Not Started", "#e5e3e3",null,null,0),
+	DRAFT_IN_PROGRESS("Under Draft", "#e5e3e3",UserType.DESIGN_COORDINATOR,Department.DESIGN,1),
+	SEND_FOR_APPROVAL("Sent For Approval to Zonal Head", "#FFC300",UserType.ZONAL_HEAD,Department.DESIGN,2),
+	APPROVED_BY_ZH("Sent For Approval to Design Head", "#FFC300",UserType.NATIONAL_HEAD,Department.DESIGN,3),
+	APPROVED_BY_NH("Sent For Approval to Projects Zonal Head", "#FFC300",UserType.MANAGER,Department.TRANSFORMATIONS,4),
+	APPROVED_BY_PZH("Sent For Approval to Nitin", "#FFC300",UserType.ZONAL_HEAD,Department.PROJECTS,5),
+	SENT_BACK("Sent Back", "#d41111",UserType.DESIGN_COORDINATOR,Department.DESIGN,6),
+	APPROVED_BY_NITIN("Sent For Approval to Leadership", "#77baa6",UserType.MANAGER,Department.TRANSFORMATIONS,7),
+	APPROVED_BY_LEADERSHIP("Approved", "#77baa6",UserType.LEADERSHIP,Department.LEADERSHIP,8);
+
 	private String desc;
 	private String color;
 	private UserType editableByUser;
 	private Department editableByDepartment;
+	private Integer order;
 
 
-	private BoqStatus(String name, String color, UserType userType, Department department) {
+	private BoqStatus(String name, String color, UserType userType, Department department, int order) {
 		this.desc = name;
 		this.color = color;
 		this.editableByUser = userType;
 		this.editableByDepartment = department;
+		this.order=order;
 	}
 }
