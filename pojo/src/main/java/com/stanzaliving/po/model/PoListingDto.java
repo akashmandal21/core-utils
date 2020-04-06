@@ -29,4 +29,5 @@ public class PoListingDto {
 
     private String poStatus;
 
+    private String poPropertyId;
 }
