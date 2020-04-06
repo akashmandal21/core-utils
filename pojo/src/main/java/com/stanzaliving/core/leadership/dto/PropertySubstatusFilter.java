@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.leadership.dto;
 
+import com.stanzaliving.core.estate.enums.EstateStatus;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,6 +19,7 @@ import lombok.ToString;
 public class PropertySubstatusFilter {
 
 	private boolean enabled;
-	private String propertySubStatus;
+	private EstateStatus propertySubStatus;
+	private String propertySubStatusDesc;
 	private int count;
 }

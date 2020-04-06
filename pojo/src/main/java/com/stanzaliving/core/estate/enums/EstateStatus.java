@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.estate.enums;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -91,4 +92,52 @@ public enum EstateStatus {
 		return estateStatusMap;
 	}
 
+	public static List<EstateStatus> getSendForApprovalStatuses() {
+		List<EstateStatus> sendForApprovalStatusesList = new ArrayList<>();
+		sendForApprovalStatusesList.add(SENT_FOR_APPROVAL_TO_CITY_HEAD);
+		sendForApprovalStatusesList.add(SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES);
+		sendForApprovalStatusesList.add(SENT_FOR_APPROVAL);
+		
+		sendForApprovalStatusesList.add(SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD);
+		sendForApprovalStatusesList.add(SENT_FOR_L1_APPROVAL_TO_LEADERSHIP);
+		
+		sendForApprovalStatusesList.add(SENT_FOR_SANDEEP_APPROVAL);
+		
+		return sendForApprovalStatusesList;	
+	}
+	
+	public static List<EstateStatus> getSentBackByStatuses() {
+		List<EstateStatus> sendBackByStatusesList = new ArrayList<>();
+		
+		sendBackByStatusesList.add(SENT_BACK_BY_CITY_HEAD);
+		sendBackByStatusesList.add(SENT_BACK_FROM_INITIAL_BED_COUNT);
+		sendBackByStatusesList.add(SENT_BACK);
+		
+		sendBackByStatusesList.add(SENT_BACK_BY_TRANSFORMATION);
+		sendBackByStatusesList.add(SENT_BACK_BY_LEGAL);
+		sendBackByStatusesList.add(SENT_BACK_L1_BY_NATIONAL_HEAD);
+		
+		sendBackByStatusesList.add(SENT_BACK_BY_LEADERSHIP);
+		sendBackByStatusesList.add(SENT_BACK_L1_BY_NATIONAL_HEAD);
+		
+		sendBackByStatusesList.add(SENT_BACK_BY_SANDEEP);
+		
+		return sendBackByStatusesList;	
+	}
+	
+	public static List<EstateStatus> getPropertyNamingDone() {
+		List<EstateStatus> propertyNamingDoneList = new ArrayList<>();
+		
+		propertyNamingDoneList.add(APPROVED_BY_LEADERSHIP);
+		
+		return propertyNamingDoneList;	
+	}
+	
+	public static List<EstateStatus> getPropertyUnderDraft() {
+		List<EstateStatus> propertyUnderDraftList = new ArrayList<>();
+		
+		propertyUnderDraftList.add(DRAFT_IN_PROGRESS);
+		
+		return propertyUnderDraftList;	
+	}
 }
