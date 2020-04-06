@@ -18,7 +18,5 @@ import lombok.ToString;
 @ToString
 public class LeadershipListingApiDto {
 
-	private PropertyFiltersRequestDto propertyFiltersDto;
-	
 	private List<LeadershipPropertyAttributesDto> propertyListing;
 }
