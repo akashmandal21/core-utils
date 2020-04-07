@@ -40,5 +40,7 @@ public class LeadershipPropertyAttributesDto {
 
 	private String currentStatusDesc;
 
+	private String colorCode;
+	
 	private EstateStatus currentStatus;
 }
