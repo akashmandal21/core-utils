@@ -1,12 +1,12 @@
 package com.stanzaliving.core.base.http;
 
+import com.stanzaliving.core.base.common.dto.StanzaHttpRequestDto;
 import com.sun.deploy.net.proxy.ProxyConfigException;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.*;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
-import org.springframework.remoting.RemoteProxyFailureException;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
@@ -57,12 +57,17 @@ public class Request {
     }
 
 
-    private Proxy getProxy(String hostname, int port) throws UnknownHostException {
-        if (hostname == null) return null;
-        InetAddress address = InetAddress.getByName(hostname);
-        SocketAddress socketAddress = new InetSocketAddress(address, 1331);
+    private Proxy getProxy(String proxy) throws UnknownHostException, ProxyConfigException {
+        String[] tempProxy = proxy.split(":");
+        if(tempProxy.length < 2){
+            throw new ProxyConfigException("Invalid proxy details");
+        }
+
+        InetAddress address = InetAddress.getByName(tempProxy[0]);
+        SocketAddress socketAddress = new InetSocketAddress(address, Integer.parseInt(tempProxy[1]));
         return new Proxy(Proxy.Type.HTTP, socketAddress);
     }
+
 
 
     private <T> ResponseEntity<T> doRequest(
@@ -89,19 +94,13 @@ public class Request {
             requestFactory.setReadTimeout(readTimeout);
 
             if(proxy != null){
-                String[] tempProxy = proxy.split(":");
-                if(tempProxy.length < 2){
-                    throw new ProxyConfigException("Invalid proxy details");
-                }
-                requestFactory.setProxy(getProxy(tempProxy[0], Integer.parseInt(tempProxy[1])));
+                requestFactory.setProxy(getProxy(proxy));
             }
-
-
 
             RestTemplate appRestClient = new RestTemplate(new BufferingClientHttpRequestFactory(requestFactory));
             HttpEntity<Object> httpEntity = new HttpEntity<>(requestBody, headers);
 
-            return appRestClient.exchange(url, method, httpEntity, responseType);
+            return appRestClient.exchange(builder.toUriString(), method, httpEntity, responseType);
         } catch (Exception e){
             log.error("Unable to send request.", e);
         }
@@ -111,60 +110,50 @@ public class Request {
 
 
     private <T> ResponseEntity<T> doRequest(
-            HttpMethod method,
-            String url,
-            MultiValueMap<String, String> params,
-            Object requestBody,
-            HttpHeaders headers,
+            StanzaHttpRequestDto requestDto,
             Class<T> responseType
     ){
-        return doRequest(url, method, params, requestBody, headers, responseType, 5000, 30000, null);
+        return doRequest(requestDto.getUrl(), requestDto.getMethod(), requestDto.getQueryParams(), requestDto.getRequestBody(), requestDto.getHeaders(), responseType, requestDto.getConnectTimeout(), requestDto.getReadTimeout(), requestDto.getProxy());
     }
 
 
-
-    public <T> ResponseEntity<T> get(String url, Class<T> responseType){
-        return doRequest(HttpMethod.GET, url, null, null, null, responseType);
+    public <T> ResponseEntity<T> request(StanzaHttpRequestDto requestDto, Class<T> responseType){
+        return doRequest(requestDto, responseType);
     }
 
-    public <T> ResponseEntity<T> get(String url, MultiValueMap<String, String> queryParams, Class<T> responseType){
-        return doRequest(HttpMethod.GET, url, queryParams, null, null, responseType);
+    public <T> ResponseEntity<T> get(StanzaHttpRequestDto requestDto, Class<T> responseType){
+        requestDto.setMethod(HttpMethod.GET);
+        requestDto.setRequestBody(null);
+        return doRequest(requestDto, responseType);
     }
 
-    public <T> ResponseEntity<T> get(String url, MultiValueMap<String, String> queryParams, HttpHeaders headers, Class<T> responseType){
-        return doRequest(HttpMethod.GET, url, queryParams, null, headers, responseType);
+    public <T> ResponseEntity<T> post(StanzaHttpRequestDto requestDto, Class<T> responseType){
+        requestDto.setMethod(HttpMethod.POST);
+        return doRequest(requestDto, responseType);
     }
 
-    public <T> ResponseEntity<T> post(String url, Class<T> responseType){
-        return doRequest(HttpMethod.POST, url, null, null, null, responseType);
+    public <T> ResponseEntity<T> put(StanzaHttpRequestDto requestDto, Class<T> responseType){
+        requestDto.setMethod(HttpMethod.PUT);
+        return doRequest(requestDto, responseType);
     }
 
-    public <T> ResponseEntity<T> post(String url, MultiValueMap<String, String> queryParams, Class<T> responseType){
-        return doRequest(HttpMethod.POST, url, queryParams, null, null, responseType);
+    public <T> ResponseEntity<T> head(StanzaHttpRequestDto requestDto, Class<T> responseType){
+        requestDto.setMethod(HttpMethod.HEAD);
+        return doRequest(requestDto, responseType);
     }
 
-    public <T> ResponseEntity<T> post(String url, MultiValueMap<String, String> queryParams, Object requestBody, Class<T> responseType){
-        return doRequest(HttpMethod.POST, url, queryParams, requestBody, null, responseType);
+    public <T> ResponseEntity<T> patch(StanzaHttpRequestDto requestDto, Class<T> responseType){
+        requestDto.setMethod(HttpMethod.PATCH);
+        return doRequest(requestDto, responseType);
     }
 
-    public <T> ResponseEntity<T> post(String url, MultiValueMap<String, String> queryParams, Object requestBody, HttpHeaders headers, Class<T> responseType){
-        return doRequest(HttpMethod.POST, url, queryParams, requestBody, headers, responseType);
+    public <T> ResponseEntity<T> delete(StanzaHttpRequestDto requestDto, Class<T> responseType){
+        requestDto.setMethod(HttpMethod.DELETE);
+        return doRequest(requestDto, responseType);
     }
 
-    public <T> ResponseEntity<T> request(HttpMethod method, String url, Class<T> responseType){
-        return doRequest(method, url, null, null, null, responseType);
+    public <T> ResponseEntity<T> options(StanzaHttpRequestDto requestDto, Class<T> responseType){
+        requestDto.setMethod(HttpMethod.OPTIONS);
+        return doRequest(requestDto, responseType);
     }
-
-    public <T> ResponseEntity<T> request(HttpMethod method, String url, MultiValueMap<String, String> queryParams, Class<T> responseType){
-        return doRequest(method, url, queryParams, null, null, responseType);
-    }
-
-    public <T> ResponseEntity<T> request(HttpMethod method, String url, MultiValueMap<String, String> queryParams, Object requestBody, Class<T> responseType){
-        return doRequest(method, url, queryParams, requestBody, null, responseType);
-    }
-
-    public <T> ResponseEntity<T> request(HttpMethod method, String url, MultiValueMap<String, String> queryParams, Object requestBody, HttpHeaders headers, Class<T> responseType){
-        return doRequest(method, url, queryParams, requestBody, headers, responseType);
-    }
-
 }

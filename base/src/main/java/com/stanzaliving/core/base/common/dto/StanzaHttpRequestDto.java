@@ -14,10 +14,10 @@ import org.springframework.util.MultiValueMap;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RestRequestDto {
-    private int connectTimeout;
+public class StanzaHttpRequestDto {
+    private int connectTimeout = 10000;
 
-    private int readTimeout;
+    private int readTimeout = 30000;
 
     private HttpMethod method;
 
