@@ -254,7 +254,7 @@ public class UserClientApi {
 		uriVariables.put("roleName", roleName);
 		uriVariables.put("accessLevelId", accessLevelId);
 
-		String path = UriComponentsBuilder.fromPath("/internal/useridByRoleName/{department}/{roleName}/{accessLevelId}")
+		String path = UriComponentsBuilder.fromPath("/internal/acl/useridByRoleName/{department}/{roleName}/{accessLevelId}")
 						.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
