@@ -5,7 +5,9 @@ package com.stanzaliving.core.leadership.dto;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.Setter;
 
@@ -16,6 +18,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class L1ApprovedLeadershipBetween {
 
 	private Date startDate;
