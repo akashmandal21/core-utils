@@ -1,18 +1,32 @@
 package com.stanzaliving.core.base.http;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.stanzaliving.core.base.common.dto.StanzaHttpRequestDto;
+import com.stanzaliving.core.base.localdate.Java8LocalDateStdDeserializer;
+import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
+import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
+import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
 import com.sun.deploy.net.proxy.ProxyConfigException;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.*;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -28,8 +42,43 @@ import java.util.Set;
 
 
 @Log4j2
-@UtilityClass
+//@UtilityClass
 public class Request {
+
+    private final RestTemplate appRestClient;
+
+    public Request() {
+        this.appRestClient = new RestTemplate();
+        configureRestTemplate(appRestClient);
+    }
+
+
+
+    private void configureRestTemplate(RestTemplate template) {
+        for (HttpMessageConverter converter : template.getMessageConverters()) {
+
+            if (converter instanceof AbstractJackson2HttpMessageConverter) {
+                ObjectMapper mapper = ((AbstractJackson2HttpMessageConverter) converter).getObjectMapper();
+
+                mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);
+                mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
+
+                SimpleModule module = new SimpleModule();
+                module.addSerializer(new Java8LocalDateStdSerializer());
+                module.addDeserializer(LocalDate.class, new Java8LocalDateStdDeserializer());
+
+                module.addSerializer(new Java8LocalTimeSerializer());
+                module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
+
+                mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+                mapper.registerModule(module);
+            }
+        }
+    }
+
+
+
 
     private HttpHeaders getDefaultHeaders(){
         HttpHeaders headers = new HttpHeaders();
@@ -87,7 +136,7 @@ public class Request {
         builder.queryParams(params);
 
         headers = getHeadersForRequest(headers);
-
+        ResponseEntity<T> responseEntity = null;
         try {
             SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
             requestFactory.setConnectTimeout(connectTimeout);
@@ -97,14 +146,22 @@ public class Request {
                 requestFactory.setProxy(getProxy(proxy));
             }
 
-            RestTemplate appRestClient = new RestTemplate(new BufferingClientHttpRequestFactory(requestFactory));
+            appRestClient.setRequestFactory(new BufferingClientHttpRequestFactory(requestFactory));
             HttpEntity<Object> httpEntity = new HttpEntity<>(requestBody, headers);
 
-            return appRestClient.exchange(builder.toUriString(), method, httpEntity, responseType);
+            log.info("Accessing Api with method: "+ method + " and url: " + builder.toUriString());
+            try{
+                responseEntity = appRestClient.exchange(builder.toUriString(), method, httpEntity, responseType);
+            } catch (HttpClientErrorException e){
+                if(!e.getStatusCode().is2xxSuccessful()){
+                    responseEntity = new ResponseEntity<T>(null , e.getResponseHeaders(), e.getStatusCode());
+                }
+                log.error("Error while making request to url: " + builder.toUriString(), e);
+            }
         } catch (Exception e){
             log.error("Unable to send request.", e);
         }
-        return null;
+        return responseEntity;
     }
 
 
