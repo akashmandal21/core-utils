@@ -1,18 +1,22 @@
 package com.stanzaliving.core.http.client;
 
+import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.http.config.Mapper;
 import com.stanzaliving.core.http.util.HeadersUtil;
 import com.stanzaliving.core.http.util.RequestFactoryUtil;
+import com.sun.deploy.net.proxy.ProxyConfigException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.http.dto.StanzaHttpRequestDto;
 
 import java.net.URI;
+import java.net.UnknownHostException;
 
 
 /**
@@ -37,15 +41,16 @@ public class Request {
 
 
 	private <T> ResponseEntity<T> makeRequest(HttpMethod method, String uriString, HttpEntity<Object> httpEntity, Class<T> responseType){
-		log.info("Accessing Api with method: "+ method + " and url: " + uriString);
 		ResponseEntity<T> responseEntity = null;
 		try{
+			log.info("Accessing Api with method: "+ method + " and url: " + uriString);
 			responseEntity = appRestClient.exchange(uriString, method, httpEntity, responseType);
+			log.info("Successfully got the response with method: "+ method + " and url: " + uriString);
 		} catch (HttpClientErrorException e){
+			log.error("Error while making request to url: " + uriString, e);
 			if(!e.getStatusCode().is2xxSuccessful()){
 				responseEntity = new ResponseEntity<T>(null , e.getResponseHeaders(), e.getStatusCode());
 			}
-			log.error("Error while making request to url: " + uriString, e);
 		}
 		return responseEntity;
 	}
@@ -61,7 +66,7 @@ public class Request {
 			int connectTimeout,
 			int readTimeout,
 			String proxy
-	){
+	) {
 		ResponseEntity<T> responseEntity = null;
 		try {
 			params = (params == null) ? new LinkedMultiValueMap<>() : params;
@@ -69,10 +74,11 @@ public class Request {
 			final String uriString = builder.queryParams(params).toUriString();
 			appRestClient.setRequestFactory(RequestFactoryUtil.getRequestFactory(connectTimeout, readTimeout, proxy));
 			HttpEntity<Object> httpEntity = new HttpEntity<>(requestBody, HeadersUtil.getHeadersForRequest(headers));
-
 			responseEntity = makeRequest(method, uriString, httpEntity, responseType);
+		} catch (UnknownHostException | ProxyConfigException e){
+			throw new StanzaHttpException(e.getMessage());
 		} catch (Exception e){
-			log.error("Unable to send request.", e);
+			log.error("Error in getting response with url:" + url, e);
 		}
 		return responseEntity;
 	}
@@ -82,7 +88,7 @@ public class Request {
 	private <T> ResponseEntity<T> doRequest(
 			StanzaHttpRequestDto requestDto,
 			Class<T> responseType
-	){
+	) {
 		return doRequest(requestDto.getUrl(), requestDto.getMethod(), requestDto.getQueryParams(), requestDto.getRequestBody(), requestDto.getHeaders(), responseType, requestDto.getConnectTimeout(), requestDto.getReadTimeout(), requestDto.getProxy());
 	}
 

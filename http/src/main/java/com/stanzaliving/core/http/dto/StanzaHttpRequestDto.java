@@ -23,20 +23,20 @@ import org.springframework.util.MultiValueMap;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StanzaHttpRequestDto {
-    private int connectTimeout = 10000;
+	private int connectTimeout = 10000;
 
-    private int readTimeout = 30000;
+	private int readTimeout = 30000;
 
-    private HttpMethod method;
+	private HttpMethod method;
 
-    private String url;
+	private String url;
 
-    private HttpHeaders headers;
+	private HttpHeaders headers;
 
-    private MultiValueMap<String, String> queryParams;
+	private MultiValueMap<String, String> queryParams;
 
-    private Object requestBody;
+	private Object requestBody;
 
-    private String proxy;
+	private String proxy;
 
 }

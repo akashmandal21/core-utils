@@ -21,42 +21,42 @@ import java.time.LocalTime;
 
 @UtilityClass
 public class Mapper {
-    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter(){
-        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-        ObjectMapper mapper = converter.getObjectMapper();
-        SimpleModule module = new SimpleModule();
-        module.addSerializer(new Java8LocalDateStdSerializer());
-        module.addDeserializer(LocalDate.class, new Java8LocalDateStdDeserializer());
-        module.addSerializer(new Java8LocalTimeSerializer());
-        module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
+	public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter(){
+		MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+		ObjectMapper mapper = converter.getObjectMapper();
+		SimpleModule module = new SimpleModule();
+		module.addSerializer(new Java8LocalDateStdSerializer());
+		module.addDeserializer(LocalDate.class, new Java8LocalDateStdDeserializer());
+		module.addSerializer(new Java8LocalTimeSerializer());
+		module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
 
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);
-        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
-        mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-        mapper.registerModule(module);
-        return converter;
-    }
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);
+		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
+		mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+		mapper.registerModule(module);
+		return converter;
+	}
 
 
-    public void configureRestTemplate(RestTemplate template) {
-        for (HttpMessageConverter converter : template.getMessageConverters()) {
+	public void configureRestTemplate(RestTemplate template) {
+		for (HttpMessageConverter converter : template.getMessageConverters()) {
 
-            if (converter instanceof AbstractJackson2HttpMessageConverter) {
-                ObjectMapper mapper = ((AbstractJackson2HttpMessageConverter) converter).getObjectMapper();
+			if (converter instanceof AbstractJackson2HttpMessageConverter) {
+				ObjectMapper mapper = ((AbstractJackson2HttpMessageConverter) converter).getObjectMapper();
 
-                SimpleModule module = new SimpleModule();
-                module.addSerializer(new Java8LocalDateStdSerializer());
-                module.addDeserializer(LocalDate.class, new Java8LocalDateStdDeserializer());
-                module.addSerializer(new Java8LocalTimeSerializer());
-                module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
+				SimpleModule module = new SimpleModule();
+				module.addSerializer(new Java8LocalDateStdSerializer());
+				module.addDeserializer(LocalDate.class, new Java8LocalDateStdDeserializer());
+				module.addSerializer(new Java8LocalTimeSerializer());
+				module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
 
-                mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);
-                mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
-                mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-                mapper.registerModule(module);
-            }
-        }
-    }
+				mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+				mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);
+				mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
+				mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+				mapper.registerModule(module);
+			}
+		}
+	}
 }
