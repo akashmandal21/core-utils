@@ -77,4 +77,7 @@ public enum BrandName {
 		return null;
 	}
 
+	public static BrandName getBrandNameEnumByName(String brandName) {
+		return brandNameMap.get(brandName);
+	}
 }
