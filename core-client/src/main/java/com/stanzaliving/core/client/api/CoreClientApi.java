@@ -1,12 +1,10 @@
 package com.stanzaliving.core.client.api;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.constants.SecurityConstants;
-import com.stanzaliving.core.base.enums.DocumentStatus;
-import com.stanzaliving.core.base.enums.DocumentType;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.dto.*;
-import lombok.extern.log4j.Log4j2;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -15,159 +13,190 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.enums.DocumentStatus;
+import com.stanzaliving.core.base.enums.DocumentType;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.dto.FullUserDto;
+import com.stanzaliving.core.dto.RCDetailDto;
+import com.stanzaliving.core.dto.UserDetailDto;
+import com.stanzaliving.core.dto.UserRegistrationDto;
+
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class CoreClientApi {
 
-    private StanzaRestClient restClient;
-    private String token;
+	private StanzaRestClient restClient;
+	private String token;
 
-    public CoreClientApi( StanzaRestClient stanzaRestClient){
-        this.restClient=stanzaRestClient;
-    }
+	public CoreClientApi(StanzaRestClient stanzaRestClient) {
+		this.restClient = stanzaRestClient;
+	}
 
-    public CoreClientApi( StanzaRestClient stanzaRestClient, String token){
-        this.restClient=stanzaRestClient;
-        this.token = token;
-    }
+	public CoreClientApi(StanzaRestClient stanzaRestClient, String token) {
+		this.restClient = stanzaRestClient;
+		this.token = token;
+	}
 
-    public FullUserDto getUserDetails(String userId){
-        return getUserDetails(userId, token).getData();
-    }
+	public FullUserDto getUserDetails(String userId) {
+		return getUserDetails(userId, token).getData();
+	}
 
+	public UserDetailDto getUserDetailsByUserCode(String userCode) {
+		Object postBody = null;
 
-    public UserDetailDto getUserDetailsByUserCode(String userCode){
-        Object postBody = null;
+		String path = UriComponentsBuilder.fromPath("/user/userDetailDto").toUriString();
 
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("userCode", userCode);
 
-        uriVariables.put("userCode", userCode);
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
 
-        String path = UriComponentsBuilder.fromPath("/user/userDetailDto").toUriString();
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("userCode", userCode);
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, UserDetailDto.class);
+		} catch (Exception e) {
+			log.error("Error while getting user Details from Core by userCode. " + path + queryParams.toString(), e);
+		}
+		return null;
+	}
 
-        final HttpHeaders headerParams = new HttpHeaders();
-        headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+	public ResponseDto<FullUserDto> getUserDetails(String userId, String token) {
 
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		Object postBody = null;
 
-        try {
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, UserDetailDto.class);
-        } catch (Exception e){
-            log.error("Error while getting user Details from Core by userCode. " + path + queryParams.toString(), e);
-        }
-        return null;
-    }
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
 
+		uriVariables.put("userId", userId);
 
-    public ResponseDto<FullUserDto> getUserDetails(String userId, String token){
-        /* if (StringUtils.isBlank(token)) {
-            throw new IllegalArgumentException("Token missing for getting all versions ");
-        }*/
+		String path = UriComponentsBuilder.fromPath("/fulluserdto/id/{userId}").buildAndExpand(uriVariables).toUriString();
 
-        Object postBody = null;
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
 
-        uriVariables.put("userId", userId);
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/fulluserdto/id/{userId}").buildAndExpand(uriVariables).toUriString();
+		FullUserDto fullUserDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, FullUserDto.class);
+		ResponseDto<FullUserDto> responseDto = new ResponseDto<>();
+		responseDto.setData(fullUserDto);
+		responseDto.setStatus(true);
+		responseDto.setHttpStatusCode(200);
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		return responseDto;
+	}
 
-        final HttpHeaders headerParams = new HttpHeaders();
-        headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+	public ResponseDto<UserRegistrationDto> updateUserRegistration(String userId, String token, DocumentType documentType, DocumentStatus documentStatus) {
 
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		Object postBody = null;
 
-        ParameterizedTypeReference<ResponseDto<FullUserDto>> returnType = new ParameterizedTypeReference<ResponseDto<FullUserDto>>() {
-        };
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
 
-        FullUserDto fullUserDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, FullUserDto.class);
-        ResponseDto responseDto = new ResponseDto();
-        responseDto.setData(fullUserDto);
-        responseDto.setStatus(true);
-        responseDto.setHttpStatusCode(200);
+		String path = UriComponentsBuilder.fromPath("/registerUser").buildAndExpand(uriVariables).toUriString();
 
-        return responseDto;
-    }
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+		queryParams.putAll(restClient.parameterToMultiValueMap(null, "userId", userId));
+		queryParams.putAll(restClient.parameterToMultiValueMap(null, "documentType", documentType));
+		queryParams.putAll(restClient.parameterToMultiValueMap(null, "documentStatus", documentStatus));
 
-    public ResponseDto<UserRegistrationDto> updateUserRegistration(String userId, String token, DocumentType documentType, DocumentStatus documentStatus) {
-         /* if (StringUtils.isBlank(token)) {
-            throw new IllegalArgumentException("Token missing for getting all versions ");
-        }*/
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
 
-        Object postBody = null;
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
+		UserRegistrationDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, UserRegistrationDto.class);
+		ResponseDto<UserRegistrationDto> responseDto = new ResponseDto<>();
+		responseDto.setData(response);
+		responseDto.setStatus(true);
+		responseDto.setHttpStatusCode(200);
 
-        String path = UriComponentsBuilder.fromPath("/registerUser").buildAndExpand(uriVariables).toUriString();
+		return responseDto;
+	}
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+	public List<RCDetailDto> getContactNumber(String residenceId, String token) {
+		Object postBody = null;
 
-        queryParams.putAll(restClient.parameterToMultiValueMap(null, "userId", userId));
-        queryParams.putAll(restClient.parameterToMultiValueMap(null, "documentType", documentType));
-        queryParams.putAll(restClient.parameterToMultiValueMap(null, "documentStatus", documentStatus));
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
 
-        final HttpHeaders headerParams = new HttpHeaders();
-        headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+		uriVariables.put("residenceId", residenceId);
 
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		String path = UriComponentsBuilder.fromPath("/getRCDetail/{residenceId}").buildAndExpand(uriVariables).toUriString();
 
-        ParameterizedTypeReference<ResponseDto<FullUserDto>> returnType = new ParameterizedTypeReference<ResponseDto<FullUserDto>>() {
-        };
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        UserRegistrationDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, UserRegistrationDto.class);
-        ResponseDto responseDto = new ResponseDto();
-        responseDto.setData(response);
-        responseDto.setStatus(true);
-        responseDto.setHttpStatusCode(200);
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
 
-        return responseDto;
-    }
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
+		ParameterizedTypeReference<List<RCDetailDto>> returnType = new ParameterizedTypeReference<List<RCDetailDto>>() {
+		};
 
-    public List<RCDetailDto> getContactNumber(String residenceId, String token) {
-        Object postBody = null;
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
 
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
+	public Object getUserPropertyByUserCodeOrMobileOrId(String userCode, String mobile, String userId, String requestedProperty) {
 
-        uriVariables.put("residenceId", residenceId);
+		if (StringUtils.isBlank(requestedProperty)) {
+			throw new IllegalArgumentException("Param 'requestedProperty' is mandatory");
+		}
 
-        String path = UriComponentsBuilder.fromPath("/getRCDetail/{residenceId}").buildAndExpand(uriVariables).toUriString();
+		if (StringUtils.isBlank(userCode) && StringUtils.isBlank(mobile) && StringUtils.isBlank(userId)) {
+			throw new IllegalArgumentException("Atleast 1 search parameter is mandatory");
+		}
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		Object postBody = null;
 
-        final HttpHeaders headerParams = new HttpHeaders();
-        headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+		String path = UriComponentsBuilder.fromPath("/user").toUriString();
 
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        ParameterizedTypeReference<List<RCDetailDto>> returnType = new ParameterizedTypeReference<List<RCDetailDto>>() {
-        };
+		if (StringUtils.isNotBlank(userCode)) {
+			queryParams.add("userCode", userCode);
+		} else if (StringUtils.isNotBlank(mobile)) {
+			queryParams.add("userMobile", mobile);
+		} else {
+			queryParams.add("userId", userId);
+		}
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-    }
+		queryParams.add("requestedProperty", requestedProperty);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {
+				"*/*"
+		};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, Object.class);
+		} catch (Exception e) {
+			log.error("Error while getting user requestedProperty from Core by Search Param: " + queryParams.toString(), e);
+		}
+
+		return null;
+	}
 }
