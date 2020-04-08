@@ -36,6 +36,8 @@ public class AttributeNames {
 		
 		public static final String NUMBER_OF_TOWERS = "towerCount";
 		
+		public static final String FLOOR_STARTS_FROM = "startLeasedFloorFrom";
+		
 		public static final String NUMBER_OF_DINING_SPACE = "diningAreaCount";
 		
 		public static final String FLOOR_PLATE_SIZE = "floorPlateSize";
