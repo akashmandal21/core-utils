@@ -1,14 +1,14 @@
-package com.stanzaliving.core.client;
+package com.stanzaliving.core.http.client;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.stanzaliving.core.serializer.localdate.Java8LocalDateStdDeserializer;
-import com.stanzaliving.core.serializer.localdate.Java8LocalDateStdSerializer;
-import com.stanzaliving.core.serializer.localtime.Java8LocalTimeDeserializer;
-import com.stanzaliving.core.serializer.localtime.Java8LocalTimeSerializer;
+import com.stanzaliving.core.base.localdate.Java8LocalDateStdDeserializer;
+import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
+import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
+import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
 import com.sun.deploy.net.proxy.ProxyConfigException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.*;
@@ -22,7 +22,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-import com.stanzaliving.core.dto.StanzaHttpRequestDto;
+import com.stanzaliving.core.http.dto.StanzaHttpRequestDto;
 
 import java.net.*;
 import java.time.LocalDate;

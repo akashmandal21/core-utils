@@ -48,6 +48,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.stanzaliving.core</groupId>
+            <artifactId>base</artifactId>
+            <version>${global.version}</version>
+        </dependency>
     </dependencies>
 
     <parent>
@@ -56,5 +62,5 @@
         <version>1.0.0</version>
         <relativePath>..</relativePath>
     </parent>
-    
+
 </project>

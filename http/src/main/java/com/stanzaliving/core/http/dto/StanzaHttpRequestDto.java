@@ -1,4 +1,4 @@
-package com.stanzaliving.core.dto;
+package com.stanzaliving.core.http.dto;
 
 
 import lombok.*;
