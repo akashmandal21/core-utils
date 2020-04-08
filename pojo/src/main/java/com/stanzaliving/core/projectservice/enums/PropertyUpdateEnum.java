@@ -17,6 +17,7 @@ public enum  PropertyUpdateEnum {
     PROJECT_MANAGER_CHANGED("Project manager Changed",true,NotificationTaskType.PROPERTY_REMOVED),
 
     //GC
+    GC_SCHDULE_CREATED("GC Schedule Created",true,NotificationTaskType.GC_SCHDULE_CREATED,Department.GC),
     GC_ZONAL_HEAD_ASSIGNED("GC Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED,Department.GC),
 
     //AS-IS Intermediate
