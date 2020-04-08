@@ -20,6 +20,6 @@ import lombok.ToString;
 @AllArgsConstructor
 public class RentBedRange {
 
-	private int startRange;
-	private int endRange;
+	private long startRange;
+	private long endRange;
 }
