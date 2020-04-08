@@ -13,6 +13,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class PoListingDto {
 
+    private String poPropertyId;
+
     private String poDetailsId;
 
     private String poNumber;
@@ -29,5 +31,4 @@ public class PoListingDto {
 
     private String poStatus;
 
-    private String poPropertyId;
 }
