@@ -34,6 +34,24 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.stanzaliving.core</groupId>
+			<artifactId>base</artifactId>
+			<version>${global.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.stanzaliving.core</groupId>
+			<artifactId>mongobase</artifactId>
+			<version>${global.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.stanzaliving.core</groupId>
+			<artifactId>pojo</artifactId>
+			<version>${global.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-mongodb</artifactId>
 			<version>${querydsl.version}</version>

@@ -1,4 +1,4 @@
-package com.stanzaliving.estateAggregationLeadership.entity;
+package com.stanzaliving.core.estate.agg.entity;
 
 import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.GenderAllowed;
