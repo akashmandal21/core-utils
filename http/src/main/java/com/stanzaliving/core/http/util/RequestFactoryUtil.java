@@ -8,6 +8,14 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
 
 import java.net.UnknownHostException;
 
+/**
+ * @author piyush srivastava
+ *
+ * @date 08-Apr-2020
+ *
+ */
+
+
 @UtilityClass
 public class RequestFactoryUtil {
     public SimpleClientHttpRequestFactory getSimpleClientRequestfactory(int connectTimeout, int readTimeout, String proxy) throws ProxyConfigException, UnknownHostException {
