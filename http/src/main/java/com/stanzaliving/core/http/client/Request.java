@@ -5,6 +5,7 @@ import com.stanzaliving.core.http.config.Mapper;
 import com.stanzaliving.core.http.util.HeadersUtil;
 import com.stanzaliving.core.http.util.RequestFactoryUtil;
 import com.sun.deploy.net.proxy.ProxyConfigException;
+import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
@@ -28,16 +29,19 @@ import java.net.UnknownHostException;
 
 
 @Log4j2
-//@UtilityClass
+@UtilityClass
 public class Request {
 
-	private final RestTemplate appRestClient;
-
-	public Request() {
-		this.appRestClient = new RestTemplate();
-//        appRestClient.setMessageConverters(Collections.singletonList(mappingJackson2HttpMessageConverter()));
+	private static final RestTemplate appRestClient = new RestTemplate();
+	static {
 		Mapper.configureRestTemplate(appRestClient);
 	}
+
+//	public Request() {
+//		this.appRestClient = new RestTemplate();
+//        appRestClient.setMessageConverters(Collections.singletonList(mappingJackson2HttpMessageConverter()));
+//		Mapper.configureRestTemplate(appRestClient);
+//	}
 
 
 	private <T> ResponseEntity<T> makeRequest(HttpMethod method, String uriString, HttpEntity<Object> httpEntity, Class<T> responseType){
@@ -75,7 +79,8 @@ public class Request {
 			appRestClient.setRequestFactory(RequestFactoryUtil.getRequestFactory(connectTimeout, readTimeout, proxy));
 			HttpEntity<Object> httpEntity = new HttpEntity<>(requestBody, HeadersUtil.getHeadersForRequest(headers));
 			responseEntity = makeRequest(method, uriString, httpEntity, responseType);
-		} catch (UnknownHostException | ProxyConfigException e){
+		} catch (UnknownHostException | ProxyConfigException | RestClientException e){
+			log.error("Error while requesting to url:" + url, e);
 			throw new StanzaHttpException(e.getMessage());
 		} catch (Exception e){
 			log.error("Error in getting response with url:" + url, e);
