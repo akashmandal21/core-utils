@@ -12,7 +12,10 @@ public enum UnitType {
 	METERS("mtrs"),
 	CUBIT_FEET("cu.ft."),
 	SQUARE_FEET("sq.ft."),
-	KILOGRAM("kg");
+	KILOGRAM("kg"),
+	RFT("Running Feet"),
+	LS("Lump sum"),
+	PER_BED("Per Bed");
 
 	private String unitName;
 
