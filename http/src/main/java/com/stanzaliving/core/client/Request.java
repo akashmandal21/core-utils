@@ -1,28 +1,28 @@
-package com.stanzaliving.core.base.http;
+package com.stanzaliving.core.client;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.stanzaliving.core.base.common.dto.StanzaHttpRequestDto;
-import com.stanzaliving.core.base.localdate.Java8LocalDateStdDeserializer;
-import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
-import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
-import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
+import com.stanzaliving.core.serializer.localdate.Java8LocalDateStdDeserializer;
+import com.stanzaliving.core.serializer.localdate.Java8LocalDateStdSerializer;
+import com.stanzaliving.core.serializer.localtime.Java8LocalTimeDeserializer;
+import com.stanzaliving.core.serializer.localtime.Java8LocalTimeSerializer;
 import com.sun.deploy.net.proxy.ProxyConfigException;
-import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.*;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+import com.stanzaliving.core.dto.StanzaHttpRequestDto;
 
 import java.net.*;
 import java.time.LocalDate;
@@ -49,9 +49,26 @@ public class Request {
 
     public Request() {
         this.appRestClient = new RestTemplate();
+//        appRestClient.setMessageConverters(Collections.singletonList(mappingJackson2HttpMessageConverter()));
         configureRestTemplate(appRestClient);
     }
 
+    private MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter(){
+        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+        ObjectMapper mapper = converter.getObjectMapper();
+        SimpleModule module = new SimpleModule();
+        module.addSerializer(new Java8LocalDateStdSerializer());
+        module.addDeserializer(LocalDate.class, new Java8LocalDateStdDeserializer());
+        module.addSerializer(new Java8LocalTimeSerializer());
+        module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
+
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);
+        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
+        mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        mapper.registerModule(module);
+        return converter;
+    }
 
 
     private void configureRestTemplate(RestTemplate template) {
@@ -60,17 +77,15 @@ public class Request {
             if (converter instanceof AbstractJackson2HttpMessageConverter) {
                 ObjectMapper mapper = ((AbstractJackson2HttpMessageConverter) converter).getObjectMapper();
 
-                mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);
-                mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
-
                 SimpleModule module = new SimpleModule();
                 module.addSerializer(new Java8LocalDateStdSerializer());
                 module.addDeserializer(LocalDate.class, new Java8LocalDateStdDeserializer());
-
                 module.addSerializer(new Java8LocalTimeSerializer());
                 module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
 
+                mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);
+                mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
                 mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
                 mapper.registerModule(module);
             }
