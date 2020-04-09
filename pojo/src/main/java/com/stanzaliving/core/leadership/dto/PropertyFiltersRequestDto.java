@@ -24,4 +24,5 @@ public class PropertyFiltersRequestDto {
 	private DateRangeFilter dateRangeFilter;
 	private BrandFilter brandFilter;
 	private UserFilter userFilter;
+	private List<String> sortByFilter;
 }

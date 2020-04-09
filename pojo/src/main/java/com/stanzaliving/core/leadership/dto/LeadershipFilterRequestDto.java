@@ -31,6 +31,8 @@ public class LeadershipFilterRequestDto {
 	private String bdExecutive;
 	private String regionalManager;
 	
+	private String sortBy;
+	
 	private int pageNumber;
 	private int pageSize;
 }
