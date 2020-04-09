@@ -1,4 +1,4 @@
-package com.stanzaliving.estateAggregationLeadership.entity;
+package com.stanzaliving.core.estateAggPojos.entity;
 
 import com.stanzaliving.core.estate.enums.EstateStatus;
 import lombok.AllArgsConstructor;

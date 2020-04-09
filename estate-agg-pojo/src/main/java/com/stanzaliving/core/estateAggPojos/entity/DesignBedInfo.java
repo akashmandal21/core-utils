@@ -1,5 +1,4 @@
-package com.stanzaliving.estateAggregationLeadership.entity;
-
+package com.stanzaliving.core.estateAggPojos.entity;
 import com.stanzaliving.designservice.enums.BedType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

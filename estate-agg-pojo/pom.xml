@@ -22,33 +22,15 @@
 
 
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-mongodb</artifactId>
+			<groupId>com.stanzaliving.core</groupId>
+			<artifactId>mongobase</artifactId>
+			<version>${global.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-apt</artifactId>
-			<version>${querydsl.version}</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-mongodb</artifactId>
-			<version>${querydsl.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<scope>compile</scope>
+			<groupId>com.stanzaliving.core</groupId>
+			<artifactId>pojo</artifactId>
+			<version>${global.version}</version>
 		</dependency>
 
 		<dependency>
