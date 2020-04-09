@@ -4,6 +4,7 @@
 package com.stanzaliving.core.leadership.dto;
 
 import java.util.List;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,5 +24,5 @@ import lombok.ToString;
 public class UserFilter {
 
 	private List<BdExecutive> bdExecutives;
-	private List<RegionalManager> regionalManager;
+	private Set<RegionalManager> regionalManager;
 }

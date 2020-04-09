@@ -4,6 +4,7 @@
 package com.stanzaliving.core.leadership.dto;
 
 import java.util.List;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,6 @@ import lombok.ToString;
 @NoArgsConstructor
 public class BrandFilter {
 
-	private List<String> slBrand;
-	private List<String> subBrand;
+	private Set<String> slBrand;
+	private Set<String> subBrand;
 }
