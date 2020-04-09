@@ -55,6 +55,8 @@
 		<module>design-service-client</module>
 		<module>vendor-client</module>
 		<module>po-client</module>
+		<module>estate-agg-pojo</module>
+		
 	</modules>
 
 	<build>
