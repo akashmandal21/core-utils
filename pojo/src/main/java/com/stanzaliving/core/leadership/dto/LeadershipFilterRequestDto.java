@@ -23,9 +23,9 @@ public class LeadershipFilterRequestDto {
 	private RentBedRange rentBedRange;
 	private String city;
 	private String micromarket;
-	private CreatedBetweenDateRange createdBetween;
-	private L1ApprovedLeadershipBetween l1ApprovedBetween;
-	private PropertyNamingDoneBetween propertyNamingBetween;
+	private DateRange createdBetween;
+	private DateRange l1ApprovedBetween;
+	private DateRange propertyNamingBetween;
 	private String slBrand;
 	private String slSubBrand;
 	private String bdExecutive;

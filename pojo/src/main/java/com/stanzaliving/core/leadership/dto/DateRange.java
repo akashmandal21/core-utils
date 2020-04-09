@@ -18,9 +18,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
-public class PropertyNamingDoneBetween {
+@AllArgsConstructor
+public class DateRange {
 
 	private Date startDate;
 	private Date endDate;

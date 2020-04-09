@@ -20,7 +20,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class DateRangeFilter {
 
-	private CreatedBetweenDateRange createdDateRange;
-	private L1ApprovedLeadershipBetween l1ApprovedBetween;
-	private PropertyNamingDoneBetween propertyNamingBetween;
+	private DateRange createdDateRange;
+	private DateRange l1ApprovedBetween;
+	private DateRange propertyNamingBetween;
 }
