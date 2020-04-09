@@ -7,6 +7,7 @@ import com.stanzaliving.core.http.util.RequestFactoryUtil;
 import com.sun.deploy.net.proxy.ProxyConfigException;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -37,14 +38,8 @@ public class Request {
 		Mapper.configureRestTemplate(appRestClient);
 	}
 
-//	public Request() {
-//		this.appRestClient = new RestTemplate();
-//        appRestClient.setMessageConverters(Collections.singletonList(mappingJackson2HttpMessageConverter()));
-//		Mapper.configureRestTemplate(appRestClient);
-//	}
 
-
-	private <T> ResponseEntity<T> makeRequest(HttpMethod method, String uriString, HttpEntity<Object> httpEntity, Class<T> responseType){
+	private <T> ResponseEntity<T> makeRequest(HttpMethod method, String uriString, HttpEntity<Object> httpEntity, ParameterizedTypeReference<T> responseType){
 		ResponseEntity<T> responseEntity = null;
 		try{
 			log.info("Accessing Api with method: "+ method + " and url: " + uriString);
@@ -66,7 +61,7 @@ public class Request {
 			MultiValueMap<String, String> params,
 			Object requestBody,
 			HttpHeaders headers,
-			Class<T> responseType,
+			ParameterizedTypeReference<T> responseType,
 			int connectTimeout,
 			int readTimeout,
 			String proxy
@@ -92,48 +87,48 @@ public class Request {
 
 	private <T> ResponseEntity<T> doRequest(
 			StanzaHttpRequestDto requestDto,
-			Class<T> responseType
+			ParameterizedTypeReference<T> responseType
 	) {
 		return doRequest(requestDto.getUrl(), requestDto.getMethod(), requestDto.getQueryParams(), requestDto.getRequestBody(), requestDto.getHeaders(), responseType, requestDto.getConnectTimeout(), requestDto.getReadTimeout(), requestDto.getProxy());
 	}
 
 
-	public <T> ResponseEntity<T> request(StanzaHttpRequestDto requestDto, Class<T> responseType){
+	public <T> ResponseEntity<T> request(StanzaHttpRequestDto requestDto, ParameterizedTypeReference<T> responseType){
 		return doRequest(requestDto, responseType);
 	}
 
-	public <T> ResponseEntity<T> get(StanzaHttpRequestDto requestDto, Class<T> responseType){
+	public <T> ResponseEntity<T> get(StanzaHttpRequestDto requestDto, ParameterizedTypeReference<T> responseType){
 		requestDto.setMethod(HttpMethod.GET);
 		requestDto.setRequestBody(null);
 		return doRequest(requestDto, responseType);
 	}
 
-	public <T> ResponseEntity<T> post(StanzaHttpRequestDto requestDto, Class<T> responseType){
+	public <T> ResponseEntity<T> post(StanzaHttpRequestDto requestDto, ParameterizedTypeReference<T> responseType){
 		requestDto.setMethod(HttpMethod.POST);
 		return doRequest(requestDto, responseType);
 	}
 
-	public <T> ResponseEntity<T> put(StanzaHttpRequestDto requestDto, Class<T> responseType){
+	public <T> ResponseEntity<T> put(StanzaHttpRequestDto requestDto, ParameterizedTypeReference<T> responseType){
 		requestDto.setMethod(HttpMethod.PUT);
 		return doRequest(requestDto, responseType);
 	}
 
-	public <T> ResponseEntity<T> head(StanzaHttpRequestDto requestDto, Class<T> responseType){
+	public <T> ResponseEntity<T> head(StanzaHttpRequestDto requestDto, ParameterizedTypeReference<T> responseType){
 		requestDto.setMethod(HttpMethod.HEAD);
 		return doRequest(requestDto, responseType);
 	}
 
-	public <T> ResponseEntity<T> patch(StanzaHttpRequestDto requestDto, Class<T> responseType){
+	public <T> ResponseEntity<T> patch(StanzaHttpRequestDto requestDto, ParameterizedTypeReference<T> responseType){
 		requestDto.setMethod(HttpMethod.PATCH);
 		return doRequest(requestDto, responseType);
 	}
 
-	public <T> ResponseEntity<T> delete(StanzaHttpRequestDto requestDto, Class<T> responseType){
+	public <T> ResponseEntity<T> delete(StanzaHttpRequestDto requestDto, ParameterizedTypeReference<T> responseType){
 		requestDto.setMethod(HttpMethod.DELETE);
 		return doRequest(requestDto, responseType);
 	}
 
-	public <T> ResponseEntity<T> options(StanzaHttpRequestDto requestDto, Class<T> responseType){
+	public <T> ResponseEntity<T> options(StanzaHttpRequestDto requestDto, ParameterizedTypeReference<T> responseType){
 		requestDto.setMethod(HttpMethod.OPTIONS);
 		return doRequest(requestDto, responseType);
 	}
