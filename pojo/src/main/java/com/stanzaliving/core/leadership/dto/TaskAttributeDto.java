@@ -18,6 +18,7 @@ public class TaskAttributeDto {
 
 	private String statusDesc;
 	private int beds;
+	private Long estateId;
 	private String estateUuid;
 	private String estateName;
 	private String city;
