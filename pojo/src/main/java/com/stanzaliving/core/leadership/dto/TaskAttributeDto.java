@@ -23,5 +23,6 @@ public class TaskAttributeDto {
 	private String city;
 	private String micromarket;
 	private String colorCode;
+	private String backgroundColorCode;
 	private int days;
 }
