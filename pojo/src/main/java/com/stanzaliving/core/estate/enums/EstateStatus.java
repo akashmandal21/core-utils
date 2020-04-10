@@ -102,6 +102,7 @@ public enum EstateStatus {
 		sendForApprovalStatusesList.add(SENT_FOR_L1_APPROVAL_TO_LEADERSHIP);
 		
 		sendForApprovalStatusesList.add(SENT_FOR_SANDEEP_APPROVAL);
+		sendForApprovalStatusesList.add(SIGNED_ATL_UPLOADED);
 		
 		return sendForApprovalStatusesList;	
 	}

@@ -4,6 +4,9 @@
 package com.stanzaliving.core.leadership.dto;
 
 import java.util.List;
+import java.util.Map;
+
+import com.stanzaliving.core.leadership.enums.SortFilterEnum;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,4 +27,6 @@ public class PropertyFiltersRequestDto {
 	private DateRangeFilter dateRangeFilter;
 	private BrandFilter brandFilter;
 	private UserFilter userFilter;
+	private Map<SortFilterEnum, String> sortByFilter;
+	private Map<SortFilterEnum, String> sortingFields;
 }

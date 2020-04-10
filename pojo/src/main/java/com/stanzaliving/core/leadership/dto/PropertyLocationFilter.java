@@ -4,6 +4,7 @@
 package com.stanzaliving.core.leadership.dto;
 
 import java.util.List;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,6 @@ import lombok.ToString;
 @NoArgsConstructor
 public class PropertyLocationFilter {
 
-	private List<CityFilter> cityFilter;
-	private List<MicromarketFilter> micromarketFilter;
+	private Set<CityFilter> cityFilter;
+	private Set<MicromarketFilter> micromarketFilter;
 }

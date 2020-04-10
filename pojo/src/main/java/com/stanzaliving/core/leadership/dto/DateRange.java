@@ -3,8 +3,6 @@
  */
 package com.stanzaliving.core.leadership.dto;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,10 +16,10 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
-public class PropertyNamingDoneBetween {
+@AllArgsConstructor
+public class DateRange {
 
-	private Date startDate;
-	private Date endDate;
+	private Long startDate;
+	private Long endDate;
 }
