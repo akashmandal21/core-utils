@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EstateInfo {
-    @Indexed(unique = true)
+    //@Indexed(unique = true)
     protected Long estateId;
 
 
@@ -29,10 +29,10 @@ public class EstateInfo {
 
     protected boolean status = true;
 
-    @Indexed(unique = true)
+    //@Indexed(unique = true)
     String estateUuid;
 
-    @TextIndexed
+    //@TextIndexed
     private String estateName;
 
     private Long cityId;
@@ -43,7 +43,7 @@ public class EstateInfo {
 
     private Double lon;
 
-    @Indexed
+    //@Indexed
     private EstateStatus estateStatus;
 
     private String estateCode;

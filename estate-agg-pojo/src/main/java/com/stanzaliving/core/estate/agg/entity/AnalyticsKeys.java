@@ -7,6 +7,6 @@ import org.springframework.data.mongodb.core.index.Indexed;
 @Data
 @AllArgsConstructor
 public class AnalyticsKeys {
-    @Indexed
+    //@Indexed
     Long rentPerBed;
 }
