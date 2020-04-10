@@ -5,6 +5,8 @@ package com.stanzaliving.core.leadership.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.leadership.enums.SortFilterEnum;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -31,7 +33,7 @@ public class LeadershipFilterRequestDto {
 	private String bdExecutive;
 	private String regionalManager;
 	
-	private String sortBy;
+	private SortFilterEnum sortBy;
 	
 	private int pageNumber;
 	private int pageSize;

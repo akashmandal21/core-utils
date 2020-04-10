@@ -18,5 +18,7 @@ import lombok.ToString;
 @ToString
 public class LeadershipListingApiDto {
 
+	private int recordCount;
+	private long totalRecordCount;
 	private List<LeadershipPropertyAttributesDto> propertyListing;
 }
