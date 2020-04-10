@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 
 import java.util.Date;
 
@@ -13,7 +15,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EstateInfo {
+    @Indexed(unique = true)
     protected Long estateId;
+
 
     protected Date createdAt;
 
@@ -25,8 +29,10 @@ public class EstateInfo {
 
     protected boolean status = true;
 
+    @Indexed(unique = true)
     String estateUuid;
 
+    @TextIndexed
     private String estateName;
 
     private Long cityId;
@@ -37,6 +43,7 @@ public class EstateInfo {
 
     private Double lon;
 
+    @Indexed
     private EstateStatus estateStatus;
 
     private String estateCode;

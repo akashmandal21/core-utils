@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 
 
 @Data
@@ -14,12 +16,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LeadershipInfo {
+    @Indexed
     private BrandName brandName;
-
+    @Indexed
     private SubBrandName subBrandName;
 
     private GenderAllowed gender;
-
+    @TextIndexed
     private String propertyName;
 
 }
+
+
+
