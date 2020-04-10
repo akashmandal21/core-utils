@@ -22,6 +22,8 @@ public class LeadershipPropertyAttributesDto {
 
 	private String estateUuid;
 
+	private long estateId;
+	
 	private String estateName;
 
 	private String cityName;
