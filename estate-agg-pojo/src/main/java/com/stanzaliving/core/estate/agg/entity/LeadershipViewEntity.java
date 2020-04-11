@@ -23,7 +23,7 @@ public class LeadershipViewEntity extends AbstractMongoEntity {
 
     EstateInfo estateInfo;
 
-    Map<String,String> estateAttributes;
+    Map<String,Object> estateAttributes;
 
     LeadershipInfo leadershipInfo;
 
