@@ -47,4 +47,6 @@ public class LeadershipPropertyAttributesDto {
 	private String backgroundColorCode;
 	
 	private EstateStatus currentStatus;
+	
+	private String houseName;
 }
