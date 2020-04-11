@@ -34,7 +34,7 @@ public class LeadershipPropertyAttributesDto {
 
 	private Integer rooms;
 
-	private long rentPerBed;
+	private Long rentPerBed;
 
 	private Date llHandoverDate;
 
