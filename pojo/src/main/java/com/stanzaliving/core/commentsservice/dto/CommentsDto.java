@@ -52,4 +52,7 @@ public class CommentsDto {
 	private String parentCommentUuid;
 
 	private List<CommentsDto> childComments;
+
+	// comma separated attachment urls
+	private String attachmentUrls;
 }
