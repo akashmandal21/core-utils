@@ -22,6 +22,8 @@ public class LeadershipPropertyAttributesDto {
 
 	private String estateUuid;
 
+	private long estateId;
+	
 	private String estateName;
 
 	private String cityName;
@@ -32,7 +34,7 @@ public class LeadershipPropertyAttributesDto {
 
 	private Integer rooms;
 
-	private long rentPerBed;
+	private Long rentPerBed;
 
 	private Date llHandoverDate;
 
