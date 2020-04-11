@@ -24,5 +24,6 @@ public class LeadershipListingApiDto {
 	private int totalPages;
 	private int pendingL1ApprovalCount;
 	private int pendingPropertyNamingCount;
+	private int pendingSandeepApprovalCount;
 	private List<LeadershipPropertyAttributesDto> propertyListing;
 }
