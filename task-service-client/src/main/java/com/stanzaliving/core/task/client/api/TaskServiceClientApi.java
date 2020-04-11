@@ -28,7 +28,7 @@ public class TaskServiceClientApi {
         this.restClient = stanzaRestClient;
     }
     
-    public ResponseDto<List<TaskResponseDto>> getPendingTaskByRole(String role) {
+    public ResponseDto<List<TaskResponseDto>> getPendingTaskByRole(List<String> role) {
 
     	log.debug(" Fetch all pending tasks associated with role " + role);
     	
@@ -36,14 +36,12 @@ public class TaskServiceClientApi {
             return null;
         }
 
-        Object postBody = null;
+        Object postBody = role;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        uriVariables.put("role", role);
-        
-        String path = UriComponentsBuilder.fromPath("/internal/task/get/{role}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/roles").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -57,7 +55,7 @@ public class TaskServiceClientApi {
 
         ParameterizedTypeReference<ResponseDto<List<TaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<TaskResponseDto>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
     
