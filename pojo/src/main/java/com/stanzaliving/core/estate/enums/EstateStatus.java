@@ -34,11 +34,11 @@ public enum EstateStatus {
 	REJECTED("Rejected"),
 	
 	//Level 2 Status
-	SENT_FOR_APPROVAL("L2 Sent To NH"),
+	SENT_FOR_APPROVAL("L2 Sent To NH & TH"),
 	SENT_BACK("L2 Sent Back By NH"),
-	APPROVED_BY_NATIONAL_HEAD("L2 Approved By NH"),
+	APPROVED_BY_NATIONAL_HEAD("Pending Transformation's Approval"),
 	SENT_BACK_BY_TRANSFORMATION("Sent Back By Transformations"),
-	APPROVED_BY_TRANSFORMATION("Approved By Transformations"),
+	APPROVED_BY_TRANSFORMATION("Pending NH's Approval"),
 	SHORTLISTED("Shortlisted"),
 	
 	//Level 3 Status
@@ -100,9 +100,15 @@ public enum EstateStatus {
 		
 		sendForApprovalStatusesList.add(SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD);
 		sendForApprovalStatusesList.add(SENT_FOR_L1_APPROVAL_TO_LEADERSHIP);
+		sendForApprovalStatusesList.add(SENT_TO_LEGAL);
+		
+		sendForApprovalStatusesList.add(APPROVED_BY_NATIONAL_HEAD);
+		sendForApprovalStatusesList.add(APPROVED_BY_TRANSFORMATION);
 		
 		sendForApprovalStatusesList.add(SENT_FOR_SANDEEP_APPROVAL);
 		sendForApprovalStatusesList.add(SIGNED_ATL_UPLOADED);
+		
+		sendForApprovalStatusesList.add(PENDING_INITIAL_BED_COUNT);
 		
 		return sendForApprovalStatusesList;	
 	}
@@ -119,11 +125,21 @@ public enum EstateStatus {
 		sendBackByStatusesList.add(SENT_BACK_L1_BY_NATIONAL_HEAD);
 		
 		sendBackByStatusesList.add(SENT_BACK_BY_LEADERSHIP);
-		sendBackByStatusesList.add(SENT_BACK_L1_BY_NATIONAL_HEAD);
+		sendBackByStatusesList.add(SENT_BACK_L1_BY_LEADERSHIP);
 		
 		sendBackByStatusesList.add(SENT_BACK_BY_SANDEEP);
 		
 		return sendBackByStatusesList;	
+	}
+	
+	public static List<EstateStatus> getPendingAtBDStatuses() {
+		List<EstateStatus> pendingAtBdStatus = new ArrayList<>();
+		
+		pendingAtBdStatus.add(PENDING_DESIGN_FILES);
+		pendingAtBdStatus.add(ATL_UPLOAD_PENDING);
+		pendingAtBdStatus.add(APPROVED_L1_BY_LEADERSHIP);
+		
+		return pendingAtBdStatus;	
 	}
 	
 	public static List<EstateStatus> getPropertyNamingDone() {
