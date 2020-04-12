@@ -6,6 +6,7 @@ package com.stanzaliving.core.leadership.dto;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.estate.enums.EstateStatus;
 import com.stanzaliving.core.leadership.enums.SortFilterEnum;
 
 import lombok.Getter;
@@ -29,4 +30,6 @@ public class PropertyFiltersRequestDto {
 	private UserFilter userFilter;
 	private Map<SortFilterEnum, String> sortByFilter;
 	private Map<SortFilterEnum, String> sortingFields;
+	
+	private Map<EstateStatus, String> estateStatusDisplay;
 }

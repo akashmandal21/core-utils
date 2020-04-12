@@ -20,6 +20,7 @@ public class PropertySubstatusFilter {
 
 	private boolean enabled;
 	private EstateStatus propertySubStatus;
+	private String displayText;
 	private String propertySubStatusDesc;
 	private int count;
 }
