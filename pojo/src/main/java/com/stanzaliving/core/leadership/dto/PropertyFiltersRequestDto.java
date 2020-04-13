@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.stanzaliving.core.estate.enums.EstateStatus;
 import com.stanzaliving.core.leadership.enums.SortFilterEnum;
+import com.stanzaliving.nucleusdashboard.enums.NucleusDashboardEnums;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -32,5 +33,5 @@ public class PropertyFiltersRequestDto {
 	private Map<SortFilterEnum, String> sortingFields;
 	
 	private Map<EstateStatus, String> estateStatusDisplay;
-	//private Map<NucleusDashboardEnums, List<EstateStatus>> nucleusDashboardStatusMap;
+	private Map<NucleusDashboardEnums, List<EstateStatus>> nucleusDashboardStatusMap;
 }
