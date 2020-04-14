@@ -37,7 +37,7 @@ public class EstateStatusColorCodeUtil {
 		colorCodeMap.put(EstateStatus.SENT_BACK_FROM_INITIAL_BED_COUNT, 
 				new ColorCodeDto("#3F3F3F", "#E5E5E5", "Design from Bed Count",""));
 		colorCodeMap.put(EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD, 
-				new ColorCodeDto("#7F5401", "#FEECCD", "National Head for L1",""));
+				new ColorCodeDto("#7F5401", "#FEECCD", "National Head for L1","L1 Approval"));
 		colorCodeMap.put(EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD, 
 				new ColorCodeDto("#3F3F3F", "#E5E5E5", "National Head from L1",""));
 		colorCodeMap.put(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP, 
@@ -51,17 +51,17 @@ public class EstateStatusColorCodeUtil {
 		colorCodeMap.put(EstateStatus.SENT_BACK, 
 				new ColorCodeDto("#5C49A2", "#E7E4F1", "National Head from L2",""));
 		colorCodeMap.put(EstateStatus.APPROVED_BY_NATIONAL_HEAD, 
-				new ColorCodeDto("#0002CF", "#C1C3FF", "Transformation Head",""));
+				new ColorCodeDto("#0002CF", "#C1C3FF", "Transformation Head","SOW Approval"));
 		colorCodeMap.put(EstateStatus.SENT_BACK_BY_TRANSFORMATION, 
 				new ColorCodeDto("#5C49A2", "#E7E4F1","Transformation Head",""));
 		colorCodeMap.put(EstateStatus.APPROVED_BY_TRANSFORMATION, 
-				new ColorCodeDto("#0002CF", "#C1C3FF", "National Head for L2",""));
+				new ColorCodeDto("#0002CF", "#C1C3FF", "National Head for L2","L2 Approval"));
 		colorCodeMap.put(EstateStatus.SENT_FOR_SANDEEP_APPROVAL, 
 				new ColorCodeDto("#9A6E4E", "#FEECD3", "Sandeep","SOW Approval"));
 		colorCodeMap.put(EstateStatus.SENT_BACK_BY_SANDEEP, 
 				new ColorCodeDto("#5C49A2", "#E7E4F1", "Sandeep",""));
 		colorCodeMap.put(EstateStatus.SENT_TO_LEGAL, 
-				new ColorCodeDto("#790A00", "#FAD1CC", "Legal",""));
+				new ColorCodeDto("#790A00", "#FAD1CC", "Legal","Language Deviations"));
 		colorCodeMap.put(EstateStatus.SENT_BACK_BY_LEGAL, 
 				new ColorCodeDto("#5C49A2", "#E7E4F1", "Legal",""));
 		colorCodeMap.put(EstateStatus.ATL_UPLOAD_PENDING, 

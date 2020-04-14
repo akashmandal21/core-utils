@@ -16,7 +16,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class LeadershipListingApiDto {
+public class ListingResponseDto {
 
 	private int recordCount;
 	private long totalRecordCount;
@@ -25,5 +25,5 @@ public class LeadershipListingApiDto {
 	private int pendingL1ApprovalCount;
 	private int pendingPropertyNamingCount;
 	private int pendingSandeepApprovalCount;
-	private List<LeadershipPropertyAttributesDto> propertyListing;
+	private List<ListingDto> propertyListing;
 }

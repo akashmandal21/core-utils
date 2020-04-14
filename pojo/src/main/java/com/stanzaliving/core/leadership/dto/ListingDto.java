@@ -4,6 +4,7 @@
 package com.stanzaliving.core.leadership.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import com.stanzaliving.core.estate.enums.EstateStatus;
 
@@ -18,7 +19,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class LeadershipPropertyAttributesDto {
+public class ListingDto {
 
 	private String estateUuid;
 
@@ -49,4 +50,6 @@ public class LeadershipPropertyAttributesDto {
 	private EstateStatus currentStatus;
 	
 	private String houseName;
+	
+	private List<String> images;
 }
