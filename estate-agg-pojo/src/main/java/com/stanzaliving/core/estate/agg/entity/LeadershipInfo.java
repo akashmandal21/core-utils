@@ -16,13 +16,13 @@ import org.springframework.data.mongodb.core.index.TextIndexed;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LeadershipInfo {
-    //@Indexed
+    @Indexed
     private BrandName brandName;
-    //@Indexed
+    @Indexed
     private SubBrandName subBrandName;
 
     private GenderAllowed gender;
-    //@TextIndexed
+    @TextIndexed
     private String propertyName;
 
 }
