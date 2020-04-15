@@ -25,5 +25,9 @@ public class ListingResponseDto {
 	private int pendingL1ApprovalCount;
 	private int pendingPropertyNamingCount;
 	private int pendingSandeepApprovalCount;
+	private int pendingLegalApprovalCount;
+	private int pendingNHL1ApprovalCount;
+	private int pendingNHL2ApprovalCount;
+	private int pendingTransformationApprovalCount;
 	private List<ListingDto> propertyListing;
 }
