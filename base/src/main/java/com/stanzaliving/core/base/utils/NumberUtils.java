@@ -51,4 +51,16 @@ public class NumberUtils {
         }
     }
 
+    public boolean parseableToDouble(String number) {
+        if (StringUtils.isEmpty(number)) {
+            return false;
+        }
+        try {
+            Double.parseDouble(number);
+            return true;
+        } catch (NumberFormatException ex) {
+            return false;
+        }
+    }
+
 }

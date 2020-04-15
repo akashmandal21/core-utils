@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.estate.enums;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -24,16 +25,20 @@ public enum EstateStatus {
 	
 	//Level 1 Status
 	SENT_FOR_APPROVAL_TO_CITY_HEAD("L1 Sent to RM"),
+	SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES("L1+DF Sent to RM"),
 	APPROVED_BY_CITY_HEAD("Shortlisted By RM"),
 	SENT_BACK_BY_CITY_HEAD("L1 Sent Back By RM"),
+	SENT_BACK_FROM_INITIAL_BED_COUNT("Sent Back From Initial Bed Count"),
+	PENDING_INITIAL_BED_COUNT("Pending Initial Bed Count"),
+	PENDING_DESIGN_FILES("Pending Design Files"),
 	REJECTED("Rejected"),
 	
 	//Level 2 Status
-	SENT_FOR_APPROVAL("L2 Sent To NH"),
+	SENT_FOR_APPROVAL("L2 Sent To NH & TH"),
 	SENT_BACK("L2 Sent Back By NH"),
-	APPROVED_BY_NATIONAL_HEAD("L2 Approved By NH"),
+	APPROVED_BY_NATIONAL_HEAD("Pending Transformation's Approval"),
 	SENT_BACK_BY_TRANSFORMATION("Sent Back By Transformations"),
-	APPROVED_BY_TRANSFORMATION("Approved By Transformations"),
+	APPROVED_BY_TRANSFORMATION("Pending NH's Approval"),
 	SHORTLISTED("Shortlisted"),
 	
 	//Level 3 Status
@@ -47,15 +52,15 @@ public enum EstateStatus {
 	ATL_UPLOAD_PENDING("ATL Upload Pending"),
 
 	//Leadership Status
-	SENT_BACK_BY_LEADERSHIP("Sent Back By Leadership"),
+	SENT_BACK_BY_LEADERSHIP("Sent Back By Andy"),
 	APPROVED_BY_LEADERSHIP("Property Naming Done"),
 
 
 	SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD("L1 Sent to NH"),
-	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("L1 Sent to Leadership"),
-	APPROVED_L1_BY_LEADERSHIP("L1 Approval by Leadership"),
+	SENT_FOR_L1_APPROVAL_TO_LEADERSHIP("L1 Sent to Andy"),
+	APPROVED_L1_BY_LEADERSHIP("L1 Approved by Andy"),
 	SENT_BACK_L1_BY_NATIONAL_HEAD("L1 Sent Back by NH"),
-	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent Back by Leadership"),
+	SENT_BACK_L1_BY_LEADERSHIP("L1 Sent Back by Andy"),
 
 	//Sandeep's approval & sent back
 	SENT_FOR_SANDEEP_APPROVAL("Sent for Sandeep's approval"),
@@ -87,4 +92,70 @@ public enum EstateStatus {
 		return estateStatusMap;
 	}
 
+	public static List<EstateStatus> getSendForApprovalStatuses() {
+		List<EstateStatus> sendForApprovalStatusesList = new ArrayList<>();
+		sendForApprovalStatusesList.add(SENT_FOR_APPROVAL_TO_CITY_HEAD);
+		sendForApprovalStatusesList.add(SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES);
+		sendForApprovalStatusesList.add(PENDING_INITIAL_BED_COUNT);
+		
+		sendForApprovalStatusesList.add(SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD);
+		sendForApprovalStatusesList.add(SENT_FOR_L1_APPROVAL_TO_LEADERSHIP);
+		
+		sendForApprovalStatusesList.add(SENT_FOR_APPROVAL);
+		sendForApprovalStatusesList.add(APPROVED_BY_NATIONAL_HEAD);
+		sendForApprovalStatusesList.add(APPROVED_BY_TRANSFORMATION);
+		
+		sendForApprovalStatusesList.add(SENT_FOR_SANDEEP_APPROVAL);
+		sendForApprovalStatusesList.add(SENT_TO_LEGAL);	
+		sendForApprovalStatusesList.add(SIGNED_ATL_UPLOADED);
+		
+		
+		return sendForApprovalStatusesList;	
+	}
+	
+	public static List<EstateStatus> getSentBackByStatuses() {
+		List<EstateStatus> sendBackByStatusesList = new ArrayList<>();
+		
+		sendBackByStatusesList.add(SENT_BACK_BY_CITY_HEAD);
+		sendBackByStatusesList.add(SENT_BACK_FROM_INITIAL_BED_COUNT);
+		sendBackByStatusesList.add(SENT_BACK_L1_BY_NATIONAL_HEAD);
+		
+		sendBackByStatusesList.add(SENT_BACK_L1_BY_LEADERSHIP);
+		sendBackByStatusesList.add(SENT_BACK);
+		
+		sendBackByStatusesList.add(SENT_BACK_BY_TRANSFORMATION);
+		sendBackByStatusesList.add(SENT_BACK_BY_SANDEEP);
+		sendBackByStatusesList.add(SENT_BACK_BY_LEGAL);
+		
+		sendBackByStatusesList.add(SENT_BACK_BY_LEADERSHIP);
+		
+		
+		return sendBackByStatusesList;	
+	}
+	
+	public static List<EstateStatus> getPendingAtBDStatuses() {
+		List<EstateStatus> pendingAtBdStatus = new ArrayList<>();
+		
+		pendingAtBdStatus.add(PENDING_DESIGN_FILES);
+		pendingAtBdStatus.add(APPROVED_L1_BY_LEADERSHIP);
+		pendingAtBdStatus.add(ATL_UPLOAD_PENDING);
+		
+		return pendingAtBdStatus;	
+	}
+	
+	public static List<EstateStatus> getPropertyNamingDone() {
+		List<EstateStatus> propertyNamingDoneList = new ArrayList<>();
+		
+		propertyNamingDoneList.add(APPROVED_BY_LEADERSHIP);
+		
+		return propertyNamingDoneList;	
+	}
+	
+	public static List<EstateStatus> getPropertyUnderDraft() {
+		List<EstateStatus> propertyUnderDraftList = new ArrayList<>();
+		
+		propertyUnderDraftList.add(DRAFT_IN_PROGRESS);
+		
+		return propertyUnderDraftList;	
+	}
 }

@@ -42,6 +42,8 @@ public class PricingApprovalScreenDto extends AbstractDto{
 
 	private Integer numberOfBeds;
 	
+	private Double rent;
+	
 	private Double opexPerAvailableBed;
 	
 	private Double opexPerOccupiedBed;
@@ -59,8 +61,11 @@ public class PricingApprovalScreenDto extends AbstractDto{
 	private PricingStepStatus pricingStepStatus;
 	
 	private String pricingStepStatusStr;
+	
+	private String pricingStepStatusColor;
 
 	private EstateStatus estateStatus;
+	private EstateStatus estateStatusColor;
 	
 	private Address address;
 
