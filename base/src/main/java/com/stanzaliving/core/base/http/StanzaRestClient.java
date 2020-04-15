@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 
+import com.stanzaliving.core.base.StanzaConstants;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -42,6 +43,7 @@ import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
 import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
 
 import lombok.extern.log4j.Log4j2;
+import org.slf4j.MDC;
 
 /**
  * @author naveen
@@ -224,6 +226,7 @@ public class StanzaRestClient {
 		requestBuilder.contentType(mediaType);
 
 		addHeadersToRequest(headerParams, requestBuilder);
+		addGUIDHeader();
 		addHeadersToRequest(defaultHeaders, requestBuilder);
 
 		log.debug("Accessing API: " + builder.toUriString());
@@ -303,6 +306,10 @@ public class StanzaRestClient {
 				return null;
 			}
 			return responseEntity.getBody();
+		
+		} else if (responseEntity.getStatusCode() == HttpStatus.BAD_REQUEST) {
+			return null;
+			
 		} else {
 			// The error handler built into the RestTemplate should handle 400 and 500 series errors.
 			throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
@@ -379,4 +386,15 @@ public class StanzaRestClient {
 		}
 	}
 
+	// This method is called to add GUID header in internal API calls
+	public StanzaRestClient addGUIDHeader() {
+
+		if (defaultHeaders.containsKey(StanzaConstants.GUID)) {
+			defaultHeaders.remove(StanzaConstants.GUID);
+		}
+
+		defaultHeaders.add(StanzaConstants.GUID, MDC.get(StanzaConstants.GUID));
+
+		return this;
+	}
 }

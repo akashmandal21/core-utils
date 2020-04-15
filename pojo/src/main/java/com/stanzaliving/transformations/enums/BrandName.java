@@ -15,13 +15,15 @@ import lombok.Getter;
 @Getter
 public enum BrandName {
 
-	SUITS("Suits"),
-	SCHOLAR("Scholar");
+	SUITS("Suits","#8C54FF"),
+	SCHOLAR("Scholar","#FD92AD");
 
 	private String brand;
+	private String color;
 
-	private BrandName(String brand) {
+	private BrandName(String brand,String color) {
 		this.brand = brand;
+		this.color = color;
 	}
 
 	private static Map<String, BrandName> brandNameMap = new HashMap<>();
@@ -75,4 +77,7 @@ public enum BrandName {
 		return null;
 	}
 
+	public static BrandName getBrandNameEnumByName(String brandName) {
+		return brandNameMap.get(brandName);
+	}
 }

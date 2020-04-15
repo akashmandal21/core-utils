@@ -34,6 +34,8 @@ public class FinancialAnalysisDto {
 	private String comments1;
 	
 	private String comments2;
+	
+	private String commentOnCommercials;
 
 }
 

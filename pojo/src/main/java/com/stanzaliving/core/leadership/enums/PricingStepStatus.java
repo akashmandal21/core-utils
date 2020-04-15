@@ -19,23 +19,26 @@ public enum PricingStepStatus{
 	UNDER_DRAFT("Under Draft",
 			Arrays.asList(EstateStatus.DRAFT_IN_PROGRESS, EstateStatus.APPROVED_BY_CITY_HEAD,
 					EstateStatus.SENT_BACK_BY_CITY_HEAD,
-					EstateStatus.REJECTED,EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD),
+					EstateStatus.REJECTED,EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD,EstateStatus.SENT_BACK_FROM_INITIAL_BED_COUNT),
 			"#bfbfbf", 1),
-	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD), "#4183d7",2),
-	PENDING_L1_APPROVAL("Pending L1 Andy Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP), "#806600" ,3),
-	L1_APPROVED("Pending L2 Details", Arrays.asList(EstateStatus.APPROVED_L1_BY_LEADERSHIP,EstateStatus.SENT_BACK_BY_TRANSFORMATION,EstateStatus.SENT_BACK), "#6bb9f0" ,4),
+	PENDING_RM_APPROVAL("Pending RM Approval", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD,EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES), "#4183d7",2),
+	PENDING_DESIGN_FILES("Pending Design Files", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD,EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES), "#D5A6BD",3),
+	PENDING_INITIAL_BED_COUNT("Pending Initial Bed Count", Arrays.asList(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD,EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES), "#9C416E",4),
+
+	PENDING_L1_APPROVAL("Pending L1 Andy Approval", Arrays.asList(EstateStatus.SENT_FOR_L1_APPROVAL_TO_LEADERSHIP), "#806600" ,5),
+	L1_APPROVED("Pending L2 Details", Arrays.asList(EstateStatus.APPROVED_L1_BY_LEADERSHIP,EstateStatus.SENT_BACK_BY_TRANSFORMATION,EstateStatus.SENT_BACK), "#6bb9f0" ,6),
 	PENDING_NATIONAL_HEAD_APPROVAL("Pending BD Head Approval",
 			Arrays.asList(EstateStatus.SENT_FOR_APPROVAL, EstateStatus.APPROVED_BY_TRANSFORMATION,
-					EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD), "#f03434" ,5),
-	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#e87e04" ,6),
-	PENDING_SANDEEP_APPROVAL("Pending Sandeep Approval", Arrays.asList(EstateStatus.SENT_FOR_SANDEEP_APPROVAL), "#2ab379" ,7),
-	SENT_BACK_BY_SANDEEP("Sent Back by Sandeep", Arrays.asList(EstateStatus.SENT_FOR_SANDEEP_APPROVAL), "#8d6f6f" ,8),
+					EstateStatus.SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD), "#f03434" ,7),
+	PENDING_TRANSFORMATIONS_APPROVAL("Pending Transformations Approval", Arrays.asList(EstateStatus.APPROVED_BY_NATIONAL_HEAD), "#e87e04" ,8),
+	PENDING_SANDEEP_APPROVAL("Pending Sandeep Approval", Arrays.asList(EstateStatus.SENT_FOR_SANDEEP_APPROVAL), "#2ab379" ,9),
+	SENT_BACK_BY_SANDEEP("Sent Back by Sandeep", Arrays.asList(EstateStatus.SENT_FOR_SANDEEP_APPROVAL), "#8d6f6f" ,10),
 
-	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#4d05e8" ,9),
-	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18" ,10),
-	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK_BY_LEADERSHIP, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#00b5cc" ,11),
-	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM, EstateStatus.SENT_BACK_BY_LEGAL), "#131313" ,12),
-	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875" ,13);
+	PENDING_LEGAL_APPROVAL("Pending Legal Approval", Arrays.asList(EstateStatus.SENT_TO_CENTRAL_BD_TEAM,EstateStatus.SENT_TO_LEGAL), "#4d05e8" ,11),
+	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18" ,12),
+	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK_BY_LEADERSHIP, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#00b5cc" ,13),
+	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM, EstateStatus.SENT_BACK_BY_LEGAL), "#131313" ,14),
+	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875" ,15);
 
 
 	private String pricingStatus;
@@ -59,13 +62,18 @@ public enum PricingStepStatus{
 		statusMap.put(EstateStatus.SENT_BACK_BY_CITY_HEAD, UNDER_DRAFT);
 		statusMap.put(EstateStatus.REJECTED, UNDER_DRAFT);
 		statusMap.put(EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD,UNDER_DRAFT);
-
+		statusMap.put(EstateStatus.SENT_BACK_FROM_INITIAL_BED_COUNT, UNDER_DRAFT);
 		//Pending Andy Approval
 		statusMap.put(EstateStatus.SIGNED_ATL_UPLOADED, PENDING_ANDY_APPROVAL);
 		
 		//Pending RM Approval
 		statusMap.put(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD, PENDING_RM_APPROVAL);
+		statusMap.put(EstateStatus.SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES, PENDING_RM_APPROVAL);
 
+		//Status for designs
+		statusMap.put(EstateStatus.PENDING_DESIGN_FILES, PENDING_DESIGN_FILES);
+		statusMap.put(EstateStatus.PENDING_INITIAL_BED_COUNT, PENDING_INITIAL_BED_COUNT);
+		
 		//Pending National Head Approval
 		statusMap.put(EstateStatus.SENT_FOR_APPROVAL, PENDING_NATIONAL_HEAD_APPROVAL);
 		statusMap.put(EstateStatus.APPROVED_BY_TRANSFORMATION, PENDING_NATIONAL_HEAD_APPROVAL);
