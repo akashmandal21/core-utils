@@ -15,7 +15,10 @@ public class ContextName {
     public static final String PO_DOCUMENT_CONTEXT_NAME = "poDocument";
     
     
-    public static final String LEGAL_LOI_DOC = "LOIDoc";
+    public static final String LEGAL_LOI_DOC = "loiDocument";
+    public static final String LEGAL_LOI_DOC_ANNEXURE_A_B_C = "loiAnnexureA_B_C";
+    public static final String LEGAL_LOI_DOC_ANNEXURE_D_DILIGENCE_CHECKLIST = "loiAnnexureD_DigilinceChecklist";
+    public static final String LEGAL_LOI_DOC_ANNEXURE_E_DECLARATION_UNDERTAKING = "loiAnnexureE_DeclarationUndertaking";
     
     public static final String LEGAL_BTS_DOC = "BTSDoc";
 
