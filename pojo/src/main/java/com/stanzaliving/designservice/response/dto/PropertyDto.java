@@ -23,6 +23,7 @@ public class PropertyDto {
 	private String cityName;
 	private String micromarketName;
 	private Integer noOfBeds;
+	private Integer noOfRooms;
 	private boolean commercialApproved;
 	private String handoverDate;
 	private Date submittedOn;
