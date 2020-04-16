@@ -34,4 +34,6 @@ public class PoFinanceDetailsDto {
 
     private Double totalAmount;
 
+    private Double advanceInvoiceAmount;
+
 }
