@@ -377,10 +377,10 @@ public class FoodReportUtil {
 	}
 
 	/**
-	 * Delighted >= 4
-	 * Satisfied < 4 and >= 3.5
-	 * Dissatisfied < 3.5 and >= 2.5
-	 * Disgusted < 2.5
+	 * Delighted > 4
+	 * Satisfied <= 4 and >= 3.5
+	 * Dissatisfied < 3.5 and >= 3
+	 * Disgusted < 3
 	 */
 	public FoodRatingBuckets getFoodRatingBuckets(List<UserFoodRatingDto> foodRatingDtos) {
 
@@ -388,19 +388,19 @@ public class FoodReportUtil {
 
 		for (UserFoodRatingDto ratingDto : foodRatingDtos) {
 
-			if (ratingDto.getRating() >= 4.0) {
+			if (ratingDto.getRating() > 4.0) {
 
 				ratingBuckets.setDelightedResidents(ratingBuckets.getDelightedResidents() + 1);
 
-			} else if (ratingDto.getRating() < 4.0 && ratingDto.getRating() >= 3.5) {
+			} else if (ratingDto.getRating() <= 4.0 && ratingDto.getRating() >= 3.5) {
 
 				ratingBuckets.setSatisfiedResidents(ratingBuckets.getSatisfiedResidents() + 1);
 
-			} else if (ratingDto.getRating() < 3.5 && ratingDto.getRating() >= 2.5) {
+			} else if (ratingDto.getRating() < 3.5 && ratingDto.getRating() >= 3) {
 
 				ratingBuckets.setDissatisfiedResidents(ratingBuckets.getDissatisfiedResidents() + 1);
 
-			} else if (ratingDto.getRating() < 2.5) {
+			} else if (ratingDto.getRating() < 3) {
 
 				ratingBuckets.setDisgustedResidents(ratingBuckets.getDisgustedResidents() + 1);
 			}

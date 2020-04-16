@@ -20,8 +20,8 @@ public enum PropertyReportsTile {
     ATL("ATL",true,true,false,null,null,""),
     BED_COUNT_FINALIZATION("Bed Count Finalization",true,false,false,Department.DESIGN,PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED,"bedcount"),
     GC_SCHEDULE("GC Schedule",true,true,true,Department.GC,PropertyUpdateEnum.PROJECT_SITE_ENGINEER_ASSIGNED,"gc"),
-    HOTO("Hoto",true,true,false,Department.PROJECTS,PropertyUpdateEnum.PROJECTS_HOTO_GENERATED,"hoto");
-
+    HOTO("HOTO",true,true,false,Department.PROJECTS,PropertyUpdateEnum.PROJECTS_HOTO_GENERATED,"hoto"),
+    PO("POs",false,false,true,null,null,"pos");
     private String tileText;
     private boolean visibleToDesign;
     private boolean visibleToProjects;
