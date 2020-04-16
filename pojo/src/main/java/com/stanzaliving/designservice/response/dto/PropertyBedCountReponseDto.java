@@ -18,7 +18,7 @@ import lombok.ToString;
 @ToString
 public class PropertyBedCountReponseDto {
 
-	private int noOfRooms;
+	private Integer noOfRooms;
 	private int bdBedCount;
 	private int primaBed;
 	private int magnaBed;
