@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.PropertyAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
@@ -212,6 +213,16 @@ public class ExceptionInterceptor {
 		String exceptionId = StanzaUtils.generateUniqueId();
 		log.error("Got NoRecordException for exceptionId: " + exceptionId, e);
 
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
+
+	@ExceptionHandler(InvalidDataAccessApiUsageException.class)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@SendExceptionToSlack
+	public <T> ResponseDto<T> handleInvalidDataAccessException(InvalidDataAccessApiUsageException e){
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got NoRecordException for exceptionId: " + exceptionId, e);
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
