@@ -1,5 +1,8 @@
 package com.stanzaliving.core.base.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum Department {
     TECH ("Tech"),
     FINANCE ("Finance"),
