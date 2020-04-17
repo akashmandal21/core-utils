@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.designservice.response.dto;
 
+import java.util.Date;
+
 import com.stanzaliving.designservice.enums.DesignStatus;
 
 import lombok.Getter;
@@ -29,4 +31,5 @@ public class PropertyBedCountReponseDto {
 	private String reasonForNoSumma;
 	private DesignStatus designStatus;
 	private String designDescription;
+	private Date updatedAt;
 }
