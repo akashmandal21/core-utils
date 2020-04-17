@@ -34,4 +34,6 @@ public class PropertyFiltersRequestDto {
 	
 	private Map<EstateStatus, String> estateStatusDisplay;
 	private Map<NucleusDashboardEnums, List<EstateStatus>> nucleusDashboardStatusMap;
+	
+	private Map<String, List<EstateStatus>> appQuickFilters;
 }

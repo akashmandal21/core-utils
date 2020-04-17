@@ -202,6 +202,29 @@ public enum EstateStatus {
 		return propertyNamingDoneList;	
 	}
 	
+	public static Map<String,List<EstateStatus>> bdQuickFilters() {
+
+		Map<String,List<EstateStatus>> bdFilters = new HashMap<>(); 
+		
+		bdFilters.put("Under Draft", Arrays.asList(DRAFT_IN_PROGRESS));
+		bdFilters.put("Sent Back", Arrays.asList(SENT_BACK_BY_CITY_HEAD,SENT_BACK_L1_BY_NATIONAL_HEAD,SENT_BACK_L1_BY_LEADERSHIP,SENT_BACK_FROM_INITIAL_BED_COUNT));
+		bdFilters.put("Pending Action", Arrays.asList(APPROVED_L1_BY_LEADERSHIP,ATL_UPLOAD_PENDING));
+		return bdFilters;	
+	}
+
+
+	public static Map<String,List<EstateStatus>> rmQuickFilters() {
+
+		Map<String,List<EstateStatus>> bdFilters = new HashMap<>(); 
+		
+		bdFilters.put("Under Draft", Arrays.asList(DRAFT_IN_PROGRESS));
+		bdFilters.put("Pending Approval", Arrays.asList(SENT_FOR_APPROVAL_TO_CITY_HEAD,SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES));
+		bdFilters.put("Sent Back", Arrays.asList(SENT_BACK,SENT_BACK_BY_TRANSFORMATION,SENT_BACK_BY_LEGAL,SENT_BACK_BY_SANDEEP,SENT_BACK_BY_LEADERSHIP));
+		bdFilters.put("Pending Action", Arrays.asList(APPROVED_L1_BY_LEADERSHIP,PENDING_DESIGN_FILES));
+		return bdFilters;	
+	}
+
+	
 	public static List<EstateStatus> getPropertyUnderDraft() {
 		List<EstateStatus> propertyUnderDraftList = new ArrayList<>();
 		
