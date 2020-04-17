@@ -35,6 +35,8 @@ public class LeadershipFilterRequestDto {
 	private String bdExecutive;
 	private String regionalManager;
 	
+	private String estateOrHouseName;
+	
 	private SortFilterEnum sortBy;
 	private DirectionEnum sortDirection;
 	
