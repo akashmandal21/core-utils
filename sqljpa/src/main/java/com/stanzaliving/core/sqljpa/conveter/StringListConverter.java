@@ -31,6 +31,6 @@ public class StringListConverter implements AttributeConverter<List<String>, Str
     		return Collections.emptyList();
     	}
     	
-        return Arrays.asList(string.split(SPLIT_CHAR));
+        return Arrays.asList(string.split("\\"+SPLIT_CHAR));
     }
 }
