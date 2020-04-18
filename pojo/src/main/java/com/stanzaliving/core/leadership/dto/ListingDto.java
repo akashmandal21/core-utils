@@ -27,6 +27,8 @@ public class ListingDto {
     private Date updatedAt;
 	
     private String createdByName;
+    
+    private String managerName;
 
     private String createdByNumber;
     
