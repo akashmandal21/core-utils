@@ -169,7 +169,43 @@ public class ExceptionInterceptor {
 
 	/************************ Application Specific Exceptions ************************/
 
-	// TODO Add your custom exception handling here
+	@ExceptionHandler(RecordExistsException.class)
+	@ResponseStatus(code = HttpStatus.CONFLICT)
+	public <T> ResponseDto<T> handleRecordExistsException(RecordExistsException e) {
+
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got RecordExistsException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
+	@ExceptionHandler(PreconditionFailedException.class)
+	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
+	public <T> ResponseDto<T> handlePreconditionFailedException(PreconditionFailedException e) {
+
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got PreconditionFailedException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
+	@ExceptionHandler(RequestInProgressException.class)
+	@ResponseStatus(code = HttpStatus.ACCEPTED)
+	public <T> ResponseDto<T> handleRequestInProgressException(RequestInProgressException e) {
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got RequestInProgressException for exceptionId: " + exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
+	@ExceptionHandler(TransactionFailException.class)
+	@ResponseStatus(code = HttpStatus.EXPECTATION_FAILED)
+	public <T> ResponseDto<T> handleTransactionFailException(TransactionFailException e) {
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got TransactionFailException for exceptionId: " + exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
 
 	/************************ Stanza Specific Exceptions ************************/
 
@@ -207,7 +243,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(NoRecordException.class)
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleNoRecordException(NoRecordException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
