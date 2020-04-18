@@ -207,8 +207,8 @@ public enum EstateStatus {
 		Map<String,List<EstateStatus>> bdFilters = new HashMap<>(); 
 		
 		bdFilters.put("Under Draft", Arrays.asList(DRAFT_IN_PROGRESS));
-		bdFilters.put("Sent Back", Arrays.asList(SENT_BACK_BY_CITY_HEAD,SENT_BACK_L1_BY_NATIONAL_HEAD,SENT_BACK_L1_BY_LEADERSHIP,SENT_BACK_FROM_INITIAL_BED_COUNT));
 		bdFilters.put("Pending Action", Arrays.asList(APPROVED_L1_BY_LEADERSHIP,ATL_UPLOAD_PENDING));
+		bdFilters.put("Sent Back", Arrays.asList(SENT_BACK_BY_CITY_HEAD,SENT_BACK_L1_BY_NATIONAL_HEAD,SENT_BACK_L1_BY_LEADERSHIP,SENT_BACK_FROM_INITIAL_BED_COUNT));
 		return bdFilters;	
 	}
 
