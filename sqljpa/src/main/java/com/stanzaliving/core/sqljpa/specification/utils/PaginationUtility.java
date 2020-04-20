@@ -69,8 +69,9 @@ public class PaginationUtility {
 
 		if (pageNo > 0 && limit > 0 && limit < 1000) {
 			pagination = PageRequest.of(pageNo - 1, limit);
-		} else
+		} else {
 			pagination = PageRequest.of(0, 10);
+		}
 
 		return pagination;
 	}
