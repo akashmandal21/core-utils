@@ -15,8 +15,8 @@ import lombok.Getter;
 @Getter
 public enum SortFilterEnum {
 
-	CREATED_AT("Date Added On"),
-	L1_APPROVED_ON("Date L1 Approved On"),
+	CREATED_AT("Added On"),
+	L1_APPROVED_ON("L1 Approved On"),
 	PROPERTY_NAMED_ON("Named On"),
 	CITY("City"),
 	MICROMARKET("Micromarket"),
