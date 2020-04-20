@@ -3,7 +3,6 @@
  */
 package com.stanzaliving.core.leadership.dto;
 
-import java.util.List;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
