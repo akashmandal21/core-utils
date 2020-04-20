@@ -13,7 +13,8 @@ import lombok.Getter;
 public enum LegalDocumentRequestStatus {
 
 	APPROVED("Approved"),
-	PENDING("Pending");
+	PENDING("Pending"),
+	REJECTED("Rejected");
 	
 	private String desc;
 	
