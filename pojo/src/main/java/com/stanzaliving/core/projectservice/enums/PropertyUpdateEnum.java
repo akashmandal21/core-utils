@@ -65,6 +65,13 @@ public enum  PropertyUpdateEnum {
     //BOQ Completed
     DESIGN_BOQ_COMPLETED("Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED),
 
+    //EXTRA BOQ
+    DESIGN_EXTRA_BOQ_SUBMITTED("Extra Boq Submitted For Approval",true,NotificationTaskType.MASTER_BOQ_SUBMITTED),
+    DESIGN_EXTRA_BOQ_SENT_BACK("Extra Boq Sent Back",true,NotificationTaskType.MASTER_BOQ_REJECTED),
+    DESIGN_EXTRA_BOQ_APPROVED("Extra Boq Approved",true,NotificationTaskType.MASTER_BOQ_APPROVED),
+    DESIGN_EXTRA_BOI_APPROVED("Extra Boq Boi Approved",true,NotificationTaskType.MASTER_BOI_APPROVED),
+    DESIGN_EXTRA_GC_APPROVED("Extra Boq Gc Approved",true,NotificationTaskType.MASTER_GC_APPROVED),
+    DESIGN_EXTRA_BOQ_COMPLETED("Extra Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED),
 
     //HOTO Submitted
     PROJECTS_HOTO_GENERATED("HOTO Generated",true,NotificationTaskType.HOTO_DOC_GENERATED),
