@@ -105,13 +105,6 @@ public enum EstateStatus {
 		transformationStatusesList.add(SENT_BACK_BY_TRANSFORMATION);
 		transformationStatusesList.add(APPROVED_BY_TRANSFORMATION);
 		transformationStatusesList.add(SHORTLISTED);
-		transformationStatusesList.add(SENT_TO_CENTRAL_BD_TEAM);
-		transformationStatusesList.add(SENT_BACK_BY_CENTRAL_BD_TEAM);
-		transformationStatusesList.add(SENT_TO_LEGAL);
-		transformationStatusesList.add(SENT_BACK_BY_LEGAL);
-		transformationStatusesList.add(SIGNED_ATL_UPLOADED);
-		transformationStatusesList.add(ATL_UPLOAD_PENDING);
-		transformationStatusesList.add(SENT_BACK_BY_LEADERSHIP);
 		transformationStatusesList.add(APPROVED_BY_LEADERSHIP);
 		transformationStatusesList.add(SENT_FOR_SANDEEP_APPROVAL);
 		transformationStatusesList.add(SENT_BACK_BY_SANDEEP);
@@ -123,28 +116,19 @@ public enum EstateStatus {
 
 		List<EstateStatus> transformationStatusesList = new ArrayList<>();
 
-		transformationStatusesList.add(SENT_FOR_APPROVAL);
-		transformationStatusesList.add(SENT_BACK);
-		transformationStatusesList.add(APPROVED_BY_NATIONAL_HEAD);
-		transformationStatusesList.add(SENT_BACK_BY_TRANSFORMATION);
-		transformationStatusesList.add(APPROVED_BY_TRANSFORMATION);
-		transformationStatusesList.add(SHORTLISTED);
-		transformationStatusesList.add(SENT_TO_CENTRAL_BD_TEAM);
-		transformationStatusesList.add(SENT_BACK_BY_CENTRAL_BD_TEAM);
 		transformationStatusesList.add(SENT_TO_LEGAL);
-		transformationStatusesList.add(SENT_BACK_BY_LEGAL);
 		transformationStatusesList.add(SIGNED_ATL_UPLOADED);
-		transformationStatusesList.add(ATL_UPLOAD_PENDING);
+		transformationStatusesList.add(SENT_BACK_BY_LEGAL);
 		transformationStatusesList.add(SENT_BACK_BY_LEADERSHIP);
+		transformationStatusesList.add(ATL_UPLOAD_PENDING);
 		transformationStatusesList.add(APPROVED_BY_LEADERSHIP);
-		transformationStatusesList.add(SENT_FOR_SANDEEP_APPROVAL);
-		transformationStatusesList.add(SENT_BACK_BY_SANDEEP);
 		
 		return transformationStatusesList;
 	}
 
 	
 	public static List<EstateStatus> getSendForApprovalStatuses() {
+
 		List<EstateStatus> sendForApprovalStatusesList = new ArrayList<>();
 		sendForApprovalStatusesList.add(SENT_FOR_APPROVAL_TO_CITY_HEAD);
 		sendForApprovalStatusesList.add(SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES);
@@ -192,7 +176,7 @@ public enum EstateStatus {
 		pendingAtBdStatus.add(APPROVED_L1_BY_LEADERSHIP);
 		pendingAtBdStatus.add(ATL_UPLOAD_PENDING);
 		
-		return pendingAtBdStatus;	
+		return pendingAtBdStatus;
 	}
 	
 	public static List<EstateStatus> getPropertyNamingDone() {
