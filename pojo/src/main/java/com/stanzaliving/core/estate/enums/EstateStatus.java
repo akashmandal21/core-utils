@@ -6,6 +6,7 @@ package com.stanzaliving.core.estate.enums;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -202,9 +203,9 @@ public enum EstateStatus {
 		return propertyNamingDoneList;	
 	}
 	
-	public static Map<String,List<EstateStatus>> bdQuickFilters() {
+	public static LinkedHashMap<String,List<EstateStatus>> bdQuickFilters() {
 
-		Map<String,List<EstateStatus>> bdFilters = new HashMap<>(); 
+		LinkedHashMap<String,List<EstateStatus>> bdFilters = new LinkedHashMap<>(); 
 		
 		bdFilters.put("Under Draft", Arrays.asList(DRAFT_IN_PROGRESS));
 		bdFilters.put("Pending Action", Arrays.asList(APPROVED_L1_BY_LEADERSHIP,ATL_UPLOAD_PENDING));
@@ -213,15 +214,15 @@ public enum EstateStatus {
 	}
 
 
-	public static Map<String,List<EstateStatus>> rmQuickFilters() {
+	public static LinkedHashMap<String,List<EstateStatus>> rmQuickFilters() {
 
-		Map<String,List<EstateStatus>> bdFilters = new HashMap<>(); 
+		LinkedHashMap<String,List<EstateStatus>> bdFilters = new LinkedHashMap<>(); 
 		
 		bdFilters.put("Under Draft", Arrays.asList(DRAFT_IN_PROGRESS));
 		bdFilters.put("Pending Approval", Arrays.asList(SENT_FOR_APPROVAL_TO_CITY_HEAD,SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES));
 		bdFilters.put("Sent Back", Arrays.asList(SENT_BACK,SENT_BACK_BY_TRANSFORMATION,SENT_BACK_BY_LEGAL,SENT_BACK_BY_SANDEEP,SENT_BACK_BY_LEADERSHIP,SENT_BACK_L1_BY_NATIONAL_HEAD,SENT_BACK_L1_BY_LEADERSHIP,SENT_BACK_FROM_INITIAL_BED_COUNT));
 		bdFilters.put("Pending Action", Arrays.asList(APPROVED_L1_BY_LEADERSHIP,PENDING_DESIGN_FILES));
-		return bdFilters;	
+		return bdFilters;
 	}
 
 	
