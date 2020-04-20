@@ -30,7 +30,7 @@ public class PropertyFiltersRequestDto {
 	private DateRangeFilter dateRangeFilter;
 	private BrandFilter brandFilter;
 	private UserFilter userFilter;
-	private Map<SortFilterEnum, String> sortByFilter;
+	private LinkedHashMap<SortFilterEnum, String> sortByFilter;
 	private Map<SortFilterEnum, String> sortingFields;
 	
 	private Map<EstateStatus, String> estateStatusDisplay;

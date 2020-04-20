@@ -3,9 +3,7 @@
  */
 package com.stanzaliving.core.leadership.enums;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 import lombok.Getter;
 
@@ -44,9 +42,9 @@ public enum SortFilterEnum {
 		return sortFilterMap;
 	}
 	
-	public static Map<SortFilterEnum, String> getSortingFields() {
+	public static LinkedHashMap<SortFilterEnum, String> getSortingFields() {
 		
-		Map<SortFilterEnum, String> sortingFieldsMap = new HashMap<>();
+		LinkedHashMap<SortFilterEnum, String> sortingFieldsMap = new LinkedHashMap<>();
 		
 		sortingFieldsMap.put(CREATED_AT, CREATED_AT.getName());
 		sortingFieldsMap.put(L1_APPROVED_ON, L1_APPROVED_ON.getName());
