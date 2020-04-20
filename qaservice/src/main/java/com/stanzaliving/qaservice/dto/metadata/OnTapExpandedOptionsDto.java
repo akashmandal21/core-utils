@@ -20,13 +20,21 @@ import lombok.Setter;
 @Setter
 @ToString
 public class OnTapExpandedOptionsDto {
-
+	String id;
 	String heading;
 	String imageUrl;
+	String subHeading;
 	List<QuestionResponseDto> questions = new ArrayList<>();
 
 	public OnTapExpandedOptionsDto(String heading, String imageUrl) {
 	        this.heading = heading;
 	        this.imageUrl = imageUrl;
-	    }
+	}
+
+	public OnTapExpandedOptionsDto(String id, String heading, String imageUrl, String subHeading) {
+		this.id = id;
+		this.heading = heading;
+		this.imageUrl = imageUrl;
+		this.subHeading = subHeading;
+	}
 }
