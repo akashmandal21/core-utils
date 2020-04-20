@@ -64,7 +64,7 @@ public class ListingDto {
 
 	private Long rentPerBed;
 	
-	private Long rent;
+	private Integer rent;
 
 	private Date llHandoverDate;
 
