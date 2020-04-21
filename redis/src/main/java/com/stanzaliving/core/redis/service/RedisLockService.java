@@ -7,5 +7,5 @@ public interface RedisLockService {
 	RLock acquire(String lockName);
 
 	void release(RLock rLock);
-	
+
 }
