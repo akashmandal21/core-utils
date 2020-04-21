@@ -35,7 +35,7 @@ public class SlackNotification {
 	@Value("${spring.application.name}")
 	private String springApplicationName;
 	
-	@Qualifier("slackExceptionClient")
+	@Qualifier("slackClient")
     private StanzaRestClient restClient;
 
     public SlackNotification(StanzaRestClient stanzaRestClient) {
