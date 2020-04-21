@@ -68,6 +68,7 @@ public class SlackNotification {
         log.info("Send exception notification on Slack request exception " + exception);
 
         StringBuilder sb = new StringBuilder();
+        sb.append("GUID:");
         sb.append(MDC.get(StanzaConstants.GUID));
         sb.append("\n");
         sb.append(exception.toString());
@@ -84,6 +85,7 @@ public class SlackNotification {
         sb.append("Application Name :");
         sb.append(springApplicationName);
         sb.append("\n");
+        sb.append("GUID:");
         sb.append(MDC.get(StanzaConstants.GUID));
         sb.append("\n");
         sb.append(exception.toString());
