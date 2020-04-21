@@ -29,13 +29,8 @@ import lombok.extern.log4j.Log4j2;
  *
  */
 @Log4j2
-@Component
 public class SlackNotification {
 
-	@Value("${spring.application.name}")
-	private String springApplicationName;
-	
-	@Qualifier("slackClient")
     private StanzaRestClient restClient;
 
     public SlackNotification(StanzaRestClient stanzaRestClient) {
@@ -69,6 +64,19 @@ public class SlackNotification {
     }
 
     public String sendExceptionNotificationRequest(Exception exception, String endUrl) {
+
+        log.info("Send exception notification on Slack request exception " + exception);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(MDC.get(StanzaConstants.GUID));
+        sb.append("\n");
+        sb.append(exception.toString());
+        sb.append("\n");
+        sb.append(exception.getStackTrace());
+        return sendPushNotificationRequest(sb.toString(), endUrl);
+    }
+    
+    public String sendExceptionNotificationRequest(String springApplicationName,Exception exception, String endUrl) {
 
         log.info("Send exception notification on Slack request exception " + exception);
 
