@@ -198,6 +198,19 @@ public class StanzaRestClient {
 			List<MediaType> accept,
 			ParameterizedTypeReference<T> returnType) {
 
+		return invokeAPI(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+	}
+	
+	public <T> T invokeAPI(
+			String path,
+			HttpMethod method,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			ParameterizedTypeReference<T> returnType, 
+			MediaType mediaType) {
+
 		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
 
 		if (queryParams != null) {
@@ -210,7 +223,7 @@ public class StanzaRestClient {
 			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
 		}
 
-		requestBuilder.contentType(MediaType.APPLICATION_JSON);
+		requestBuilder.contentType(mediaType);
 
 		addHeadersToRequest(headerParams, requestBuilder);
 		addGUIDHeader();
@@ -245,7 +258,6 @@ public class StanzaRestClient {
 		}
 	}
 
-
 	public <T> T invokeAPI(
 			String path,
 			HttpMethod method,
@@ -253,7 +265,7 @@ public class StanzaRestClient {
 			Object body,
 			HttpHeaders headerParams,
 			List<MediaType> accept,
-			Class returnType) {
+			Class<T> returnType) {
 
 		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
 

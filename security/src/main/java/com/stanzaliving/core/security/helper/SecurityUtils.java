@@ -6,6 +6,7 @@ package com.stanzaliving.core.security.helper;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.pojo.CurrentUser;
 import com.stanzaliving.core.security.context.SecurityContextHolder;
+import com.stanzaliving.core.user.enums.UserType;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
@@ -81,6 +82,18 @@ public class SecurityUtils {
 		return department;
 	}
 
+	public static UserType getCurrentUserType() {
+		CurrentUser currentUser = getCurrentUser();
+
+		UserType userType = null;
+
+		if (currentUser != null) {
+			userType = currentUser.getUserType();
+		}
+
+		return userType;
+	}
+	
 	public static CurrentUser getCurrentUser() {
 		CurrentUser currentUser = null;
 

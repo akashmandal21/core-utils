@@ -19,7 +19,7 @@ public class ExperienceResponseDto {
 
 	private FeElementDto delighted;
 
-	private FeElementDto dissatisfied;
+//	private FeElementDto dissatisfied;
 
 	private FeElementDto disgusted;
 
