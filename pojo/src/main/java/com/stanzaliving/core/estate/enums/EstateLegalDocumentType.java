@@ -12,12 +12,14 @@ import lombok.Getter;
 @Getter
 public enum EstateLegalDocumentType {
 
-	ATL("ATL"),
-	LOI("LOI");
+	ATL("ATL", 7),
+	LOI("LOI", 8);
 	
 	private String documentName;
+	private int screenNum;
 	
-	EstateLegalDocumentType(String documentName) {
+	EstateLegalDocumentType(String documentName, int screeNum) {
 		this.documentName = documentName;
+		this.screenNum = screeNum;
 	}
 }
