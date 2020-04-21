@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.slf4j.MDC;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -34,6 +35,7 @@ public class SlackNotification {
 	@Value("${spring.application.name}")
 	private String springApplicationName;
 	
+	@Qualifier("slackExceptionClient")
     private StanzaRestClient restClient;
 
     public SlackNotification(StanzaRestClient stanzaRestClient) {
