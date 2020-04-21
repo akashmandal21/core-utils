@@ -7,6 +7,8 @@ import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import lombok.extern.log4j.Log4j2;
 import org.slf4j.MDC;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -21,6 +23,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 /**
  * @author Amit
  *
@@ -28,6 +32,9 @@ import java.util.Map;
 @Log4j2
 public class SlackNotification {
 
+	@Value("${spring.application.name}")
+	private String springApplicationName;
+	
     private StanzaRestClient restClient;
 
     public SlackNotification(StanzaRestClient stanzaRestClient) {
@@ -65,6 +72,9 @@ public class SlackNotification {
         log.info("Send exception notification on Slack request exception " + exception);
 
         StringBuilder sb = new StringBuilder();
+        sb.append("Application Name :");
+        sb.append(springApplicationName);
+        sb.append("\n");
         sb.append(MDC.get(StanzaConstants.GUID));
         sb.append("\n");
         sb.append(exception.toString());
