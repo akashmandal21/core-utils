@@ -3,12 +3,15 @@
  */
 package com.stanzaliving.core.base.enums;
 
+import lombok.Getter;
+
 /**
  * @author naveen.kumar
  *
  * @date 14-Nov-2019
  *
  **/
+@Getter
 public enum AccessLevel {
 
 	RESIDENCE(10),
