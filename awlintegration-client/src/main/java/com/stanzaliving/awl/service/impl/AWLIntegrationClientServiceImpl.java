@@ -19,6 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.awl.dto.AWLBaseResponseDto;
 import com.stanzaliving.awl.dto.AWLBatchDetailsDto;
 import com.stanzaliving.awl.dto.AWLDealerDetailsDto;
+import com.stanzaliving.awl.dto.AWLInwardDataDto;
 import com.stanzaliving.awl.dto.AWLSKUDetailsDto;
 import com.stanzaliving.awl.dto.AWLVendorDetailsDto;
 import com.stanzaliving.awl.service.AWLIntegrationClientService;
@@ -105,6 +106,23 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 		log.info("Create AWLSKU Details with data {} initiated. ", awlskuDetailsDtos);
 		String path = UriComponentsBuilder.fromPath("/InsertSKUDetails").toUriString();
 		return createInAWL(awlskuDetailsDtos, path, AWLSKUDetailsDto.class);
+	}
+
+
+
+	@Override
+	public ResponseDto<List<AWLInwardDataDto>> getAllInwardData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ResponseDto<List<AWLInwardDataDto>> getInwardDataForAllFilters(String vendor, String fdate, String ldate,
+			String category) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
