@@ -3,23 +3,26 @@
  */
 package com.stanzaliving.core.base.notification;
 
-import com.stanzaliving.core.base.StanzaConstants;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import lombok.extern.log4j.Log4j2;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.MDC;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * @author Amit
@@ -64,11 +67,30 @@ public class SlackNotification {
 
         log.info("Send exception notification on Slack request exception " + exception);
 
-        StringWriter sw = new StringWriter();
-        sw.append(MDC.get(StanzaConstants.GUID));
-        sw.append("\n");
-        exception.printStackTrace(new PrintWriter(sw));
+        StringBuilder sb = new StringBuilder();
+        sb.append("GUID:");
+        sb.append(MDC.get(StanzaConstants.GUID));
+        sb.append("\n");
+        sb.append(exception.toString());
+        sb.append("\n");
+        sb.append(exception.getStackTrace());
+        return sendPushNotificationRequest(sb.toString(), endUrl);
+    }
+    
+    public String sendExceptionNotificationRequest(String springApplicationName,Exception exception, String endUrl) {
 
-        return sendPushNotificationRequest(sw.toString(), endUrl);
+        log.info("Send exception notification on Slack request exception " + exception);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Application Name :");
+        sb.append(springApplicationName);
+        sb.append("\n");
+        sb.append("GUID:");
+        sb.append(MDC.get(StanzaConstants.GUID));
+        sb.append("\n");
+        sb.append(exception.toString());
+        sb.append("\n");
+        sb.append(exception.getStackTrace()[0]);
+        return sendPushNotificationRequest(sb.toString(), endUrl);
     }
 }
