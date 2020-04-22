@@ -7,12 +7,13 @@ import lombok.Getter;
 @Getter
 public enum PoStatus {
 
-	IN_DRAFT("In Draft"),TH_APPROVAL_PENDING("Transformation Head Approval Pending"),TH_APPROVED("Approved By Transformation Head"),
-	SENT_BACK_BY_TH("Sent Back By Transformation Head"),LEADERSHIP_APPROVAL_PENDING("Leadership Approval Pending"),
-	LEADERSHIP_APPROVED("Approved By Leadership"),SENT_BACK_BY_LEADERSHIP("Sent Back By Leadership"),
-	WORK_COMPLETED("Work Completed"),
-	INVOICE_SUBMITTED("Invoice Submitted"), SENT_BACK_BY_FINANCE("Sent Back By Finance");
-	
+	IN_DRAFT("In Draft",0),TH_APPROVAL_PENDING("Transformation Head Approval Pending",1),TH_APPROVED("Approved By Transformation Head",2),
+	SENT_BACK_BY_TH("Sent Back By Transformation Head",-1),LEADERSHIP_APPROVAL_PENDING("Leadership Approval Pending",3),
+	LEADERSHIP_APPROVED("Approved By Leadership",4),SENT_BACK_BY_LEADERSHIP("Sent Back By Leadership",-1),
+	WORK_COMPLETED("Work Completed",5),
+	INVOICE_SUBMITTED("Invoice Submitted",6), SENT_BACK_BY_FINANCE("Sent Back By Finance",5);
+
 	private String status;
+	private Integer order;
 
 }
