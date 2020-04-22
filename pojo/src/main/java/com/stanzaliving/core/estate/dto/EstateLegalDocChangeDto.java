@@ -16,7 +16,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class EstateLegalDocChangeRequestDto {
+public class EstateLegalDocChangeDto {
 
 	private String estateUuid;
 	private EstateLegalDocumentType documentType;
