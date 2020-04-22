@@ -3,12 +3,14 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.enums.FoodItemType;
+import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -49,7 +51,9 @@ public class FoodItemAddRequestDto {
 
 	@NotBlank(message = "Item Background Color is Mandatory")
 	private String bgColor;
-	
+
 	@NotBlank(message = "Item Category is Mandatory")
 	private String category;
+
+	private List<MealType> meals;
 }
