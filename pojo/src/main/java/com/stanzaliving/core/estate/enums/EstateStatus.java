@@ -64,8 +64,11 @@ public enum EstateStatus {
 
 	//Sandeep's approval & sent back
 	SENT_FOR_SANDEEP_APPROVAL("Sent for Sandeep's approval"),
-	SENT_BACK_BY_SANDEEP("Sent back by Sandeep");
+	SENT_BACK_BY_SANDEEP("Sent back by Sandeep"),
 
+	DROPPED_REQUESTED("Property Dropped Requested"),
+	DROPPED("Property Dropped");
+	
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
 	private String name;

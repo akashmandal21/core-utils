@@ -3,6 +3,9 @@
  */
 package com.stanzaliving.core.estate.enums;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import lombok.Getter;
 
 /**
@@ -21,5 +24,17 @@ public enum EstateLegalDocumentTypeStatus {
 	
 	EstateLegalDocumentTypeStatus(String description) {
 		this.description = description;
+	}
+	
+	
+	public static Map<String, String> getEstateLegalDocumentStatus() {
+		
+		Map<String, String> statusMap = new HashMap<>();
+		
+		for(EstateLegalDocumentTypeStatus status : EstateLegalDocumentTypeStatus.values()) {
+			statusMap.put(status.toString(), status.getDescription());
+		}
+		
+		return statusMap;
 	}
 }
