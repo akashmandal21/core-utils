@@ -21,6 +21,16 @@ public class FrequentContacts implements Comparable<FrequentContacts>{
     }
 
     @Override
+    public int hashCode() {
+
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + freqContactUuid.hashCode();
+        return result;
+    }
+
+
+    @Override
     public boolean equals(Object obj) {
 
         if (this == obj)

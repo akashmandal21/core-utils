@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GFCInfo {
+public class GFCInfo implements Comparable<GFCInfo>{
     private String gfcUuid;
     private Date createdAt;
     private String createdBy;
@@ -21,4 +21,44 @@ public class GFCInfo {
     private LocalDate scheduledDueDate;
     private GFCStatus gfcStatus;
     private LocalDate dueDate;
+    private Integer version;
+
+    public GFCInfo(String gfcUuid){
+        this.gfcUuid=gfcUuid;
+    }
+
+    @Override
+    public int hashCode() {
+
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + gfcUuid.hashCode();
+
+        return result;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj)
+            return true;
+
+        if (obj == null)
+            return false;
+
+        if (getClass() != obj.getClass())
+            return false;
+
+        GFCInfo other = (GFCInfo) obj;
+        if(this.gfcUuid.equals(other.getGfcUuid()))
+            return true;
+
+        return false;
+    }
+
+    @Override
+    public int compareTo(GFCInfo o) {
+       return this.getVersion().compareTo(o.getVersion());
+    }
 }

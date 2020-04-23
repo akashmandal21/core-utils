@@ -48,4 +48,7 @@ public class GFCEntityCDC {
 
     @JsonProperty("due_date")
     private LocalDate dueDate;
+
+    @JsonProperty("version")
+    private Integer version;
 }

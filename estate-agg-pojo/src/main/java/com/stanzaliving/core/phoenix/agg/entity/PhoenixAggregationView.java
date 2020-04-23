@@ -32,10 +32,10 @@ public class PhoenixAggregationView extends AbstractMongoEntity {
     //Map<String,BoqInfo> extraBoqInfos; //boqPrUuid -> ExtraBoqs
     ProjectSchedule projectSchedule;
     HotoInfo hotoInfo;
-    GFCInfo gfcInfo;
+    List<GFCInfo> gfcInfo;
     AsIsInfo asIsInfo;
     PhoenixBedCountInfo phoenixBedCountInfo;
-    DesignBedInfo designBedInfo;
+    DesignBedInfo initialBedCountInfo;
     GCScheduleInfo gcScheduleInfo;
     List<PoInfo> poDetails; //Po Details Uuid to PoInfo Mapping.
     AnalyticKeys analyticKeys;
