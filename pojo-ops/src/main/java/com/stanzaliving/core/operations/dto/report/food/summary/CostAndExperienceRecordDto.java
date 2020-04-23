@@ -22,6 +22,8 @@ public class CostAndExperienceRecordDto extends RecordDto {
 
 	private int disasterEvent;
 
+	private int shortage;
+
 	private int processAdherence;
 
 	private double totalMealCost;

@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 
+import com.stanzaliving.core.base.StanzaConstants;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -42,6 +43,7 @@ import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
 import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
 
 import lombok.extern.log4j.Log4j2;
+import org.slf4j.MDC;
 
 /**
  * @author naveen
@@ -196,6 +198,19 @@ public class StanzaRestClient {
 			List<MediaType> accept,
 			ParameterizedTypeReference<T> returnType) {
 
+		return invokeAPI(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+	}
+	
+	public <T> T invokeAPI(
+			String path,
+			HttpMethod method,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			ParameterizedTypeReference<T> returnType, 
+			MediaType mediaType) {
+
 		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
 
 		if (queryParams != null) {
@@ -208,9 +223,10 @@ public class StanzaRestClient {
 			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
 		}
 
-		requestBuilder.contentType(MediaType.APPLICATION_JSON);
+		requestBuilder.contentType(mediaType);
 
 		addHeadersToRequest(headerParams, requestBuilder);
+		addGUIDHeader();
 		addHeadersToRequest(defaultHeaders, requestBuilder);
 
 		log.debug("Accessing API: " + builder.toUriString());
@@ -242,7 +258,6 @@ public class StanzaRestClient {
 		}
 	}
 
-
 	public <T> T invokeAPI(
 			String path,
 			HttpMethod method,
@@ -250,7 +265,7 @@ public class StanzaRestClient {
 			Object body,
 			HttpHeaders headerParams,
 			List<MediaType> accept,
-			Class returnType) {
+			Class<T> returnType) {
 
 		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
 
@@ -371,4 +386,15 @@ public class StanzaRestClient {
 		}
 	}
 
+	// This method is called to add GUID header in internal API calls
+	public StanzaRestClient addGUIDHeader() {
+
+		if (defaultHeaders.containsKey(StanzaConstants.GUID)) {
+			defaultHeaders.remove(StanzaConstants.GUID);
+		}
+
+		defaultHeaders.add(StanzaConstants.GUID, MDC.get(StanzaConstants.GUID));
+
+		return this;
+	}
 }

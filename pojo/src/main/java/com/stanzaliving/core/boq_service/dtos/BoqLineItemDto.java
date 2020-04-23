@@ -13,9 +13,11 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BoqLineItemDto {
+public class BoqLineItemDto implements Comparable<BoqLineItemDto>{
+	
     private String itemUuid;
     private String lineItemUuid;
+    private String categoryName;
     private String particular;
     private String specifications;
     private String type;
@@ -39,4 +41,9 @@ public class BoqLineItemDto {
     private Double rate;
     private LineItemStatus lineItemStatus;
     private boolean itemApproved;
+
+    @Override
+    public int compareTo(BoqLineItemDto o) {
+        return this.getItemCode().compareTo(o.getItemCode());
+    }
 }

@@ -219,6 +219,16 @@ public class DateUtil {
 		return date.lengthOfMonth();
 	}
 
+	public static int getDaysInCurrentMonth() {
+		Calendar calendar = Calendar.getInstance();
+		return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+	}
+
+	public static int getMTDDaysCount() {
+		Calendar calendar = Calendar.getInstance();
+		return calendar.get(Calendar.DAY_OF_MONTH);
+	}
+
 	public static Date getLaterDate(Date d1, Date d2) {
 
 		if (d1 == null && d2 == null) {
@@ -319,6 +329,17 @@ public class DateUtil {
 
 	public static LocalDate getCurrentMonthStartDate() {
 		return LocalDate.now().withDayOfMonth(1);
+	}
+
+	public static Date getNMinutesBackTime(Integer minutes){
+		return getNMinutesBackTime(new Date(), minutes);
+	}
+
+	public static Date getNMinutesBackTime(Date date, Integer minutes){
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.MINUTE, -(minutes));
+		return cal.getTime();
 	}
 
 }

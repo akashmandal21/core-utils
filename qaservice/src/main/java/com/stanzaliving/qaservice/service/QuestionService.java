@@ -17,8 +17,10 @@ public interface QuestionService {
 	QuestionEntity createQuestion(QuestionRequestDto questionRequestDto);
 
 	List<QuestionEntity> findAll();
-	
-	void save(QuestionEntity questionEntity);
+
+	List<QuestionEntity> findByScreenGroupNumAndStatus(Integer screenGroupNum, Boolean status);
+
+	QuestionEntity save(QuestionEntity questionEntity);
 
 	void saveAll(List<QuestionRequestDto> questionRequestDtos);
 }

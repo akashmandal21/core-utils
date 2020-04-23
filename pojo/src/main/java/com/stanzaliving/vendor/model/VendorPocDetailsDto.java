@@ -28,4 +28,6 @@ public class VendorPocDetailsDto {
     private String createdBy;
 
     private String updatedBy;
+    
+    private String vendorId;
 }

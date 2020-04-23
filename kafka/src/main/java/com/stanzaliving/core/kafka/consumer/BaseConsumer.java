@@ -1,7 +1,9 @@
 package com.stanzaliving.core.kafka.consumer;
 
+import com.stanzaliving.core.base.StanzaConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,6 +17,11 @@ public abstract class BaseConsumer<T> {
 	protected ObjectMapper objectMapper;
 
 	protected T getDto(ConsumerRecord<String, String> record) {
+
+		record.headers().forEach(header -> {
+			if (StanzaConstants.MESSAGE_ID.equalsIgnoreCase(header.key()))
+				MDC.put(StanzaConstants.GUID, new String(header.value()));
+		});
 
 		T data = null;
 
@@ -39,6 +46,8 @@ public abstract class BaseConsumer<T> {
 
 		} catch (Exception e) {
 			log.error("BaseConsumer:: Error casting Kafka record to desrired dto: ", e);
+		} finally {
+			MDC.remove(StanzaConstants.GUID);
 		}
 
 		return data;

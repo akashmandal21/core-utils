@@ -28,4 +28,5 @@ public class PropertyInfoDto {
     private BrandName brandName;
     private SubBrandName subBrandName;
     private GenderAllowed gender;
+    private Double leasedArea;
 }
