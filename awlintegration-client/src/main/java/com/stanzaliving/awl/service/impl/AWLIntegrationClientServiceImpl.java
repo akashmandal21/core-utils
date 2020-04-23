@@ -3,7 +3,6 @@ package com.stanzaliving.awl.service.impl;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
@@ -49,7 +48,7 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 	
 	
 	@Override
-	public ResponseDto<List<AWLBaseResponseDto>> createBatchDetails(@Valid List<AWLBatchDetailsDto> awlBatchDetailsDtos) {
+	public ResponseDto<List<AWLBaseResponseDto>> createBatchDetails( List<AWLBatchDetailsDto> awlBatchDetailsDtos) {
 		log.info("Create AWLBatch Details with data {} initiated. ", awlBatchDetailsDtos);
 		String path = UriComponentsBuilder.fromPath("/InsertBatchDetails").toUriString();
 		return createInAWL(awlBatchDetailsDtos, path, AWLVendorDetailsDto.class);
