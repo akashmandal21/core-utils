@@ -66,7 +66,7 @@ public enum EstateStatus {
 	SENT_FOR_SANDEEP_APPROVAL("Sent for Sandeep's approval"),
 	SENT_BACK_BY_SANDEEP("Sent back by Sandeep"),
 
-	DROPPED_REQUESTED("Property Dropped Requested"),
+	DROPPED_REQUESTED("Property Drop Request Raised"),
 	DROPPED("Property Dropped"),
 	DROPPED_DECLINE("Property Dropped Decline");
 	
