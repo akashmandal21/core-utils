@@ -11,6 +11,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 import java.util.Map;
@@ -19,10 +21,12 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Document("phoenixAggregationViewEntity")
+@TypeAlias("phoenixAggregationViewEntity")
 public class PhoenixAggregationView extends AbstractMongoEntity {
 
     PropertyBasicInfo propertyBasicInfo;
-    Map<Department,Map<UserType,PropertyResponsibleInfo>> stakeholders;
+    Map<Department,Map<UserType,String>> stakeholders;
     Map<PropertyUpdateEnum,List<PropertyUpdateDetail>> propertyUpdateTracker;
     BoqInfo masterBoqInfo;
     //Map<String,BoqInfo> extraBoqInfos; //boqPrUuid -> ExtraBoqs
@@ -33,6 +37,6 @@ public class PhoenixAggregationView extends AbstractMongoEntity {
     PhoenixBedCountInfo phoenixBedCountInfo;
     DesignBedInfo designBedInfo;
     GCScheduleInfo gcScheduleInfo;
-    Map<PoType,Map<String,PoInfo>> poDetails;
+    List<PoInfo> poDetails; //Po Details Uuid to PoInfo Mapping.
     AnalyticKeys analyticKeys;
 }

@@ -13,8 +13,35 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 public class PoInfo {
+    private String poUuid;
+    private PoType poType;
     private Date updatedAt;
     private String updatedBy;
     private PoStatus poStatus;
     private Date approvalDate;
+    private Boolean isRejected;
+    private String vendorPocUuid;
+    private String vendorDetailsUuid;
+
+    public PoInfo(String uuid){
+        this.poUuid = uuid;
+    }
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj)
+            return true;
+
+        if (obj == null)
+            return false;
+
+        if (getClass() != obj.getClass())
+            return false;
+
+        PoInfo other = (PoInfo) obj;
+        if(this.poUuid.equals(other.getPoUuid()))
+            return true;
+
+        return false;
+    }
 }
