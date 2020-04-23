@@ -17,7 +17,7 @@ public class AWLDashboardCountDto implements Serializable{
 
 	private static final long serialVersionUID = 112332L;
 	private int quantity;
-	private float value;
+	private double value;
 	
 	
 }

@@ -65,7 +65,27 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 	}
 
 	
-
+	private ResponseDto<List<AWLInwardDataDto>> getDataFromAWL(Object data,String path, MultiValueMap<String, String> queryParams, Class clazz){
+		
+		List<AWLInwardDataDto> response = null;
+		
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<org.springframework.http.MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<List<AWLInwardDataDto>> returnType = new ParameterizedTypeReference<List<AWLInwardDataDto>>() {
+		};
+		try {
+			response  =  restClient.invokeAPI(path, HttpMethod.GET, queryParams, data, headerParams, accept,returnType);
+			log.info("AWL Response : {}",  response);
+			return ResponseDto.success("Success",response);
+		} catch (StanzaHttpException e) {
+			log.error("HTTP Error occurred during AWL Integration - for instance of {} with data {} with HTTPStatus Code {} ",clazz, data, e.getStatusCode());
+		} catch (Exception e) {
+			log.error("Error occurred during AWL Integration - Get Details for instance of {} with data {} ", clazz, data);
+			log.error(e.getMessage());
+		}
+		return ResponseDto.failure("Failure",response);
+	}
 	
 	private ResponseDto<List<AWLBaseResponseDto>> createInAWL(Object data,String path, Class clazz){
 	
@@ -84,7 +104,7 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 		} catch (StanzaHttpException e) {
 			log.error("HTTP Error occurred during AWL Integration - for instance of {} with data {} with HTTPStatus Code {} ",clazz, data, e.getStatusCode());
 		} catch (Exception e) {
-			log.error("Error occurred during AWL Integration - Create Batch Details for instance of {} with data {} ", clazz, data);
+			log.error("Error occurred during AWL Integration - Create for instance of {} with data {} ", clazz, data);
 			log.error(e.getMessage());
 		}
 		return ResponseDto.failure("Failure",response);
@@ -112,8 +132,9 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 
 	@Override
 	public ResponseDto<List<AWLInwardDataDto>> getAllInwardData() {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("Get  all AWL Inward data client call initiated");
+		String path = UriComponentsBuilder.fromPath("/GetInward").toUriString();
+		return getDataFromAWL(null, path, new LinkedMultiValueMap<>(), AWLInwardDataDto.class);
 	}
 
 
