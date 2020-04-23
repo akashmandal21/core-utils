@@ -67,7 +67,8 @@ public enum EstateStatus {
 	SENT_BACK_BY_SANDEEP("Sent back by Sandeep"),
 
 	DROPPED_REQUESTED("Property Dropped Requested"),
-	DROPPED("Property Dropped");
+	DROPPED("Property Dropped"),
+	DROPPED_DECLINE("Property Dropped Decline");
 	
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
@@ -160,5 +161,14 @@ public enum EstateStatus {
 		propertyUnderDraftList.add(DRAFT_IN_PROGRESS);
 		
 		return propertyUnderDraftList;	
+	}
+	
+	public static List<EstateStatus> getPropertyDropStatuses() {
+		List<EstateStatus> propertyDropStatuses = new ArrayList<>();
+		
+		propertyDropStatuses.add(EstateStatus.DROPPED_REQUESTED);
+		propertyDropStatuses.add(EstateStatus.DROPPED);
+		
+		return propertyDropStatuses;
 	}
 }
