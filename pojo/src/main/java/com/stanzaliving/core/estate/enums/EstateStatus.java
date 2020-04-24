@@ -68,7 +68,11 @@ public enum EstateStatus {
 
 	DROPPED_REQUESTED("Property Drop Request Raised"),
 	DROPPED("Property Dropped"),
-	DROPPED_DECLINE("Property Dropped Decline");
+	DROPPED_DECLINE("Property Dropped Decline"),
+	
+	CALLBACK_TO_UNDER_DRAFT("Call Back Requested For Under Draft"),
+	CALLBACK_TO_L1_APPROVED("Call Back Requested For L1 Approved");
+	
 	
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
@@ -171,4 +175,5 @@ public enum EstateStatus {
 		
 		return propertyDropStatuses;
 	}
+	
 }
