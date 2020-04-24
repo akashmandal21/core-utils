@@ -77,4 +77,8 @@ public enum MealType {
 	public static List<String> getMealIds() {
 		return mealIds;
 	}
+
+	public static MealType getMealByName(String mealName) {
+		return mealMapByName.get(mealName);
+	}
 }
