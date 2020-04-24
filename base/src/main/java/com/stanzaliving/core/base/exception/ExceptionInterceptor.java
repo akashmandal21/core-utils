@@ -223,7 +223,7 @@ public class ExceptionInterceptor {
 		String exceptionId = StanzaUtils.generateUniqueId();
 		log.error("Got un-handled exception for exceptionId: " + exceptionId, ex);
 
-		return ResponseDto.failure(ex.getMessage(), exceptionId);
+		return ResponseDto.failure("Some error occurred. Please try after some time.", exceptionId);
 	}
 
 }

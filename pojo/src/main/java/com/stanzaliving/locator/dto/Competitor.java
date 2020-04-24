@@ -27,8 +27,8 @@ public class Competitor {
     private Integer sharingRooms;
     private Double distance;
     private String address;
-    private Integer minRent;
-    private Integer maxRent;
+    private Double minRent;
+    private Double maxRent;
     private String zoloCode;
     
 }
