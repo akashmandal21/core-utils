@@ -1,6 +1,9 @@
 package com.stanzaliving.core.phoenix.deserialize.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.stanzaliving.core.agg.deserializers.TimestampDeserializser;
 import com.stanzaliving.core.projectservice.enums.ProjectSummaryStatus;
 import com.stanzaliving.core.projectservice.enums.PropertyStatus;
 import com.stanzaliving.transformations.enums.BrandName;
@@ -10,9 +13,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import sun.usagetracker.UsageTrackerClient;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 @Data
 @NoArgsConstructor
@@ -111,24 +117,29 @@ public class PropertyInfoCDC {
     private String thumbnailUrl;
 
     @JsonProperty("ll_handover_date")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate landLordHandoverDate;
 
     @JsonProperty("expected_ll_handover_date")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate expectedLandLordHandoverDate;
 
     @JsonProperty("ll_handover_done")
     private boolean landlordHandedOver;
 
     @JsonProperty("ops_handover_date")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate opsHandoverDate;
 
     @JsonProperty("expected_ops_handover_date")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate expectedOpsHandoverDate;
 
     @JsonProperty("ops_handover_done")
     private boolean opsHandoverDone;
 
     @JsonProperty("live_date")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate liveDate;
 
     @JsonProperty("brand_name")

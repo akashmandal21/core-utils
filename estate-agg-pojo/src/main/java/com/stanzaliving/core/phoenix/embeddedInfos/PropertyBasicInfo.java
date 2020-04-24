@@ -18,7 +18,7 @@ import java.util.List;
 public class PropertyBasicInfo {
     private String propertyUuid;
     private boolean status=true;
-    private EstateInfo estateInfo;
+    private PropertyEstateInfo estateInfo;
     private LeadershipInfo leadershipInfo;
 
     private Date createdAt;
@@ -49,4 +49,8 @@ public class PropertyBasicInfo {
     private Integer numFloors;
     private Integer numberOfStiltRooms;
     private List<String> propertyImages;
+
+    public PropertyBasicInfo(PropertyEstateInfo propertyEstateInfo){
+        this.estateInfo=propertyEstateInfo;
+    }
 }

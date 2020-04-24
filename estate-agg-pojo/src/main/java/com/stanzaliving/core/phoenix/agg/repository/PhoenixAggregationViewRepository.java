@@ -10,11 +10,8 @@ import java.util.Optional;
 @Repository
 public interface PhoenixAggregationViewRepository extends AbstractMongoRepository<PhoenixAggregationView, String> {
 
-    @Query("{'estateInfo.estateUuid': ?0}")
+    @Query("{'propertyBasicInfo.estateInfo.estateUuid': ?0}")
     Optional<PhoenixAggregationView> findByEstateUuid(final String estateUuid);
-
-    @Query("{'estateInfo.estateId': ?0}")
-    Optional<PhoenixAggregationView> findByEstateId(final Long estateId);
 
     @Query("{'propertyBasicInfo.propertyUuid': ?0}")
     Optional<PhoenixAggregationView> findByPropertyUuid(final String propertyUuid);

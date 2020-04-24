@@ -19,7 +19,6 @@ public class DesignBedEntity {
 
     
     @JsonProperty("created_at")
-    
     protected Date createdAt;
 
     
@@ -28,7 +27,6 @@ public class DesignBedEntity {
 
     
     @JsonProperty("updated_at")
-    
     protected Date updatedAt;
 
     

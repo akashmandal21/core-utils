@@ -1,6 +1,8 @@
 package com.stanzaliving.core.phoenix.deserialize.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.stanzaliving.core.agg.deserializers.TimestampDeserializser;
 import com.stanzaliving.core.base.enums.Department;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -61,15 +63,19 @@ public class ProjectScheduleCDC {
     private String assignedUser;
 
     @JsonProperty("scheduled_start_date")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate scheduledStartDate;
 
     @JsonProperty("scheduled_end_date")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate scheduledEndDate;
 
     @JsonProperty("actual_start_date")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate actualStartDate;
 
     @JsonProperty("actual_end_date")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate actualEndDate;
 
     @JsonProperty("property_uuid")

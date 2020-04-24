@@ -1,6 +1,8 @@
 package com.stanzaliving.core.phoenix.deserialize.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.stanzaliving.core.agg.deserializers.TimestampDeserializser;
 import com.stanzaliving.core.asis.enums.POStatus;
 import com.stanzaliving.core.asis.enums.SiteVisitStatus;
 import com.stanzaliving.core.projectservice.enums.AsIsStatus;
@@ -43,6 +45,7 @@ public class AsIsEntityCDC {
     private String propertyUuid;
 
     @JsonProperty("due_date")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate dueDate;
 
     @JsonProperty("delay_reason")
@@ -63,6 +66,7 @@ public class AsIsEntityCDC {
 
 
     @JsonProperty("site_visit_date")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate siteVisitDate;
 
 
@@ -77,6 +81,7 @@ public class AsIsEntityCDC {
     private POStatus poStatus;
 
     @JsonProperty("asis_starts_on")
+    @JsonDeserialize(using = TimestampDeserializser.class)
     private LocalDate asIsStartsOn;
 
 
