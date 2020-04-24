@@ -3,9 +3,8 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.time.LocalDate;
 import java.util.List;
-
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,24 +16,18 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author naveen.kumar
  *
- * @date 22-Apr-2020
+ * @date 23-Apr-2020
  *
  **/
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryDto extends AbstractDto {
+public class DateWiseFoodMenuDto {
 
-	private String categoryName;
+	private LocalDate menuDate;
 
-	private String microMarketId;
-
-	private String microMarketName;
-
-	private List<ResidenceConfigDto> residences;
-	
-	private boolean menuRulesSatisfied;
+	private List<MealWiseFoodMenuDto> mealWiseFoodMenus;
 }
