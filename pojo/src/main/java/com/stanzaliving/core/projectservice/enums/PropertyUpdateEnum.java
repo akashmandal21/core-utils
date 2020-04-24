@@ -35,6 +35,9 @@ public enum  PropertyUpdateEnum {
     TASK_COMPLETED("Task marked Completed",false,NotificationTaskType.TASK_MARKED_COMPLETED_ON_APP),
 
 
+    //GC Service
+    GC_SCHDULE_CREATED("GC Schedule created",true,NotificationTaskType.GC_SCHEDULE_CREATED),
+
     //Design
     DESIGN_ZONAL_HEAD_ASSIGNED("Design Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED, Department.DESIGN),
     DESIGN_COORDINATOR_ASSIGNED("Design Coordinator Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
