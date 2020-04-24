@@ -90,6 +90,9 @@
 		<!--AWS SDK version -->
 		<aws.sdk.version>1.11.285</aws.sdk.version>
 
+        <!--AWS JAVA SDK REKOGNITION version -->
+        <aws-java-sdk-rekognition.version>1.11.66</aws-java-sdk-rekognition.version>
+        
 		<!-- assertJ Version -->
 		<assertJ.version>3.10.0</assertJ.version>
 
