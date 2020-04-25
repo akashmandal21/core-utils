@@ -25,11 +25,8 @@ public class PropertyEstateInfo {
 
     @TextIndexed
     private String estateName;
-
-    @Indexed
     private Long cityId;
 
-    @Indexed
     private Long micromarketId;
 
     private Double lat;

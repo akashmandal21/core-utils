@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -16,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PropertyBasicInfo {
+    @Indexed(name = "property_ref",unique = true)
     private String propertyUuid;
     private boolean status=true;
     private PropertyEstateInfo estateInfo;
@@ -26,8 +28,12 @@ public class PropertyBasicInfo {
     private Date updatedAt;
     private String updatedBy;
 
+    @Indexed(name = "city_ref")
     private String cityUuid;
+
+    @Indexed(name = "micromarket_ref")
     private String micromarketUuid;
+
 
     private LocalDate opsHandoverDate;
     private LocalDate landLordHandoverDate;
