@@ -235,4 +235,48 @@ public enum EstateStatus {
 		return propertyDropStatuses;
 	}
 	
+	public static List<EstateStatus> getEstateStatusForCallBackToUnderDraft() {
+		List<EstateStatus> estateStatusForUnderDraft = new ArrayList<>();
+		
+		estateStatusForUnderDraft.add(SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD);
+		estateStatusForUnderDraft.add(SENT_FOR_L1_APPROVAL_TO_LEADERSHIP);
+		
+		estateStatusForUnderDraft.add(APPROVED_L1_BY_LEADERSHIP);
+		estateStatusForUnderDraft.add(APPROVED_BY_NATIONAL_HEAD);
+		estateStatusForUnderDraft.add(APPROVED_BY_TRANSFORMATION);
+		
+		estateStatusForUnderDraft.add(SENT_FOR_APPROVAL);
+		estateStatusForUnderDraft.add(SENT_FOR_SANDEEP_APPROVAL);
+		estateStatusForUnderDraft.add(SENT_TO_LEGAL);	
+		estateStatusForUnderDraft.add(SIGNED_ATL_UPLOADED);
+		
+		estateStatusForUnderDraft.add(SENT_BACK);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_TRANSFORMATION);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_SANDEEP);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_LEGAL);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_LEADERSHIP);
+		
+		return estateStatusForUnderDraft;
+	}
+	
+	public static List<EstateStatus> getEstateStatusForCallBackToL1Approved() {
+		List<EstateStatus> estateStatusForUnderDraft = new ArrayList<>();
+		
+		estateStatusForUnderDraft.add(APPROVED_L1_BY_LEADERSHIP);
+		estateStatusForUnderDraft.add(APPROVED_BY_NATIONAL_HEAD);
+		estateStatusForUnderDraft.add(APPROVED_BY_TRANSFORMATION);
+		
+		estateStatusForUnderDraft.add(SENT_FOR_APPROVAL);
+		estateStatusForUnderDraft.add(SENT_FOR_SANDEEP_APPROVAL);
+		estateStatusForUnderDraft.add(SENT_TO_LEGAL);	
+		estateStatusForUnderDraft.add(SIGNED_ATL_UPLOADED);
+		
+		estateStatusForUnderDraft.add(SENT_BACK);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_TRANSFORMATION);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_SANDEEP);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_LEGAL);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_LEADERSHIP);
+		
+		return estateStatusForUnderDraft;
+	}
 }
