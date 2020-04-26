@@ -3,7 +3,6 @@
  */
 package com.stanzaliving.core.leadership.dto;
 
-import java.util.List;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
@@ -23,6 +22,6 @@ import lombok.ToString;
 @NoArgsConstructor
 public class UserFilter {
 
-	private List<BdExecutive> bdExecutives;
-	private Set<RegionalManager> regionalManager;
+	private Set<UserPair> bdExecutives;
+	private Set<UserPair> regionalManager;
 }

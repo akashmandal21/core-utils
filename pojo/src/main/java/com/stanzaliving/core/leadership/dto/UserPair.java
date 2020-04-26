@@ -3,9 +3,9 @@
  */
 package com.stanzaliving.core.leadership.dto;
 
-import java.util.Set;
-
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,10 +18,15 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PropertyLocationFilter {
+@EqualsAndHashCode
+public class UserPair {
 
-	private Set<CityFilter> cityFilter;
-	private Set<MicromarketFilter> micromarketFilter;
+	private String userUuid;
+	
+	@EqualsAndHashCode.Exclude
+	private String userName;
+	
 }
