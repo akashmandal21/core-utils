@@ -22,9 +22,8 @@ public class PropertyEstateInfo {
 
     @Indexed(unique = true)
     String estateUuid;
-
-    @TextIndexed
     private String estateName;
+
     private Long cityId;
 
     private Long micromarketId;
@@ -36,7 +35,6 @@ public class PropertyEstateInfo {
     private String estateCode;
 
     private Address address;
-
     private String city;
 
     private String micromarket;

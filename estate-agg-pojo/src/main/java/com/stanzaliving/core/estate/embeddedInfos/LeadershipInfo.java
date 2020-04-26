@@ -22,6 +22,8 @@ public class LeadershipInfo {
     private SubBrandName subBrandName;
 
     private GenderAllowed gender;
+
+    @Indexed
     @TextIndexed
     private String propertyName;
 }

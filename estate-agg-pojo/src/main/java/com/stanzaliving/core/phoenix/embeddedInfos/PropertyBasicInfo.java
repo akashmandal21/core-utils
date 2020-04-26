@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PropertyBasicInfo {
-    @Indexed(name = "property_ref",unique = true)
+    @Indexed(name = "property_ref")
     private String propertyUuid;
     private boolean status=true;
     private PropertyEstateInfo estateInfo;

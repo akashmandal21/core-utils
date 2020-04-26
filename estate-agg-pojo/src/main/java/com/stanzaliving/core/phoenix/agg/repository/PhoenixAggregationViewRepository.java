@@ -15,4 +15,6 @@ public interface PhoenixAggregationViewRepository extends AbstractMongoRepositor
 
     @Query("{'propertyBasicInfo.propertyUuid': ?0}")
     Optional<PhoenixAggregationView> findByPropertyUuid(final String propertyUuid);
+
+
 }
