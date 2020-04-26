@@ -17,8 +17,10 @@ public enum EstateLegalDocumentTypeStatus {
 
 	LOI_APPROVAL_REQUEST_RAISED("LOI Approval Request Raised"),
 	LOI_REQUEST_APPROVED("LOI Request Approved"),
+	LOI_REQUEST_DECLINE("LOI Request Decline"),
 	ATL_APPROVAL_REQUEST_RAISED("ATL Approval Request Raised"),
-	ATL_REQUEST_APPROVED("ATL Request Approved");
+	ATL_REQUEST_APPROVED("ATL Request Approved"),
+	ATL_REQUEST_DECLINE("ATL Request Declined");
 	
 	private String description;
 	
