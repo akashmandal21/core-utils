@@ -22,5 +22,7 @@ public class AdditionalItemsRequestDto {
 	
 	@NotBlank(message = "Pax Cannot be null")
 	private Integer pax;
+	
+	private Float rating;
 
 }

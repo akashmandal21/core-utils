@@ -1,5 +1,8 @@
 package com.stanzaliving.core.food.dto;
 
+import java.util.List;
+
+import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -65,5 +68,7 @@ public class FoodOrderDetailDto {
 	private Double totalCost = 0d;
 	
 	private Integer sequence;
+	
+	private List<AdditionalItemsRequestDto> additionalItemsDtos;
 
 }
