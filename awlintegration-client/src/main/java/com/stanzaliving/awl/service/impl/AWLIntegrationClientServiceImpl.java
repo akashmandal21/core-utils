@@ -41,7 +41,7 @@ public class AWLIntegrationClientServiceImpl implements AWLIntegrationClientServ
 
 	@PostConstruct
 	public void initAWLClient() {
-		log.info("Initializing AWL Integration Stanza Rest Client");
+		log.info("Initializing AWL Integration Stanza Rest Client {}", AWL_INTEGRATION_BASE_PATH);
 		this.restClient = new StanzaRestClient(AWL_INTEGRATION_BASE_PATH);
 	}
 
