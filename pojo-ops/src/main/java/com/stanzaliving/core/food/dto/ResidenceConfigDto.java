@@ -33,6 +33,14 @@ public class ResidenceConfigDto {
 
 	private String residenceName;
 
+	private String microMarketId;
+
+	private String microMarketName;
+
+	private String menuCategoryId;
+	
+	private String menuCategoryName;
+
 	private ResidenceBrand residenceBrand;
 
 	private FoodRegion foodRegion;
