@@ -195,6 +195,14 @@ public enum EstateStatus {
 		return propertyNamingDoneList;	
 	}
 	
+	public static List<EstateStatus> getDroppedStatus() {
+		List<EstateStatus> propertyNamingDoneList = new ArrayList<>();
+		
+		propertyNamingDoneList.add(DROPPED);
+		
+		return propertyNamingDoneList;	
+	}
+	
 	public static LinkedHashMap<String,List<EstateStatus>> bdQuickFilters() {
 
 		LinkedHashMap<String,List<EstateStatus>> bdFilters = new LinkedHashMap<>(); 
@@ -255,28 +263,30 @@ public enum EstateStatus {
 		estateStatusForUnderDraft.add(SENT_BACK_BY_SANDEEP);
 		estateStatusForUnderDraft.add(SENT_BACK_BY_LEGAL);
 		estateStatusForUnderDraft.add(SENT_BACK_BY_LEADERSHIP);
+		estateStatusForUnderDraft.add(APPROVED_BY_LEADERSHIP);
 		
 		return estateStatusForUnderDraft;
 	}
 	
 	public static List<EstateStatus> getEstateStatusForCallBackToL1Approved() {
-		List<EstateStatus> estateStatusForUnderDraft = new ArrayList<>();
+		List<EstateStatus> estateStatusForL1Approved = new ArrayList<>();
 		
-		estateStatusForUnderDraft.add(APPROVED_L1_BY_LEADERSHIP);
-		estateStatusForUnderDraft.add(APPROVED_BY_NATIONAL_HEAD);
-		estateStatusForUnderDraft.add(APPROVED_BY_TRANSFORMATION);
+		estateStatusForL1Approved.add(APPROVED_L1_BY_LEADERSHIP);
+		estateStatusForL1Approved.add(APPROVED_BY_NATIONAL_HEAD);
+		estateStatusForL1Approved.add(APPROVED_BY_TRANSFORMATION);
+		estateStatusForL1Approved.add(APPROVED_BY_LEADERSHIP);
 		
-		estateStatusForUnderDraft.add(SENT_FOR_APPROVAL);
-		estateStatusForUnderDraft.add(SENT_FOR_SANDEEP_APPROVAL);
-		estateStatusForUnderDraft.add(SENT_TO_LEGAL);	
-		estateStatusForUnderDraft.add(SIGNED_ATL_UPLOADED);
+		estateStatusForL1Approved.add(SENT_FOR_APPROVAL);
+		estateStatusForL1Approved.add(SENT_FOR_SANDEEP_APPROVAL);
+		estateStatusForL1Approved.add(SENT_TO_LEGAL);	
+		estateStatusForL1Approved.add(SIGNED_ATL_UPLOADED);
 		
-		estateStatusForUnderDraft.add(SENT_BACK);
-		estateStatusForUnderDraft.add(SENT_BACK_BY_TRANSFORMATION);
-		estateStatusForUnderDraft.add(SENT_BACK_BY_SANDEEP);
-		estateStatusForUnderDraft.add(SENT_BACK_BY_LEGAL);
-		estateStatusForUnderDraft.add(SENT_BACK_BY_LEADERSHIP);
+		estateStatusForL1Approved.add(SENT_BACK);
+		estateStatusForL1Approved.add(SENT_BACK_BY_TRANSFORMATION);
+		estateStatusForL1Approved.add(SENT_BACK_BY_SANDEEP);
+		estateStatusForL1Approved.add(SENT_BACK_BY_LEGAL);
+		estateStatusForL1Approved.add(SENT_BACK_BY_LEADERSHIP);
 		
-		return estateStatusForUnderDraft;
+		return estateStatusForL1Approved;
 	}
 }
