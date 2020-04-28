@@ -31,9 +31,11 @@ public class FoodOrderDetailDto {
 
 	private String vendorName;
 
-	private Integer vegPax;
+	@Builder.Default
+	private Integer vegPax=0;
 
-	private Integer nonVegPax;
+	@Builder.Default
+	private Integer nonVegPax=0;
 
 	@Builder.Default
 	private Double vegCost = 0d;
