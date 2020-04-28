@@ -17,8 +17,8 @@ public enum PropertyReportsTile {
     BED_COUNT_FINALIZATION("Bed Count Finalization", true, false, false, Department.DESIGN, PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED, "bedcount"),
     GFC("GFC Drawings", true, true, false, Department.DESIGN, PropertyUpdateEnum.DESIGN_GFC_APPROVED, "gfcdrawings"),
     BOQ("Master BOQ Formation", true, true, true, Department.DESIGN, PropertyUpdateEnum.DESIGN_BOQ_COMPLETED, "boq"),
-    PO("POs", true, true, true, null, PropertyUpdateEnum.CHECK_COMPLETED_FROM_SOURCE_SERVICE, "pos"),
-    GRN("GRN", true, true, true, null, PropertyUpdateEnum.CHECK_COMPLETED_FROM_SOURCE_SERVICE, "grn"),
+    PO("POs", true, true, true, Department.GC, PropertyUpdateEnum.CHECK_COMPLETED_FROM_SOURCE_SERVICE, "pos"),
+    GRN("GRN", true, true, true, Department.GC, PropertyUpdateEnum.CHECK_COMPLETED_FROM_SOURCE_SERVICE, "grn"),
     HOTO("HOTO", true, true, false, Department.PROJECTS, PropertyUpdateEnum.PROJECTS_HOTO_GENERATED, "hoto");
 
     private String tileText;
