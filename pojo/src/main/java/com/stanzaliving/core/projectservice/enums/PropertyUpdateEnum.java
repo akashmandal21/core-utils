@@ -69,8 +69,11 @@ public enum  PropertyUpdateEnum {
     //HOTO Submitted
     PROJECTS_HOTO_GENERATED("HOTO Generated",true,NotificationTaskType.HOTO_DOC_GENERATED),
     PROJECTS_HOTO_MODIFIED("HOTO Modified",true,NotificationTaskType.HOTO_DOC_MODIFIED),
-    PROJECTS_HOTO_SIGNED_UPLOADED("HOTO Signed Uploaded",true,NotificationTaskType.HOTO_SIGNED_UPLOADED);
+    PROJECTS_HOTO_SIGNED_UPLOADED("HOTO Signed Uploaded",true,NotificationTaskType.HOTO_SIGNED_UPLOADED),
 
+
+    //FOR All other events where there are multiple complete signals. For e.g. Multiple POs/Invoices etc.
+    CHECK_COMPLETED_FROM_SOURCE_SERVICE("Check Completed Status from Source Service",false,null,null);
 
     private String updateTaskName;
     private boolean needToPersist;
