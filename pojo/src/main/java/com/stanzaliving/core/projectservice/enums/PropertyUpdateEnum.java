@@ -72,7 +72,7 @@ public enum  PropertyUpdateEnum {
     PROJECTS_HOTO_SIGNED_UPLOADED("HOTO Signed Uploaded",true,NotificationTaskType.HOTO_SIGNED_UPLOADED),
 
 
-    //FOR All other events where there are multiple complete signals. For e.g. Multiple POs/Invoices etc.
+    //FOR All other events where there are multiple complete signals. For e.g. Multiple POs/Invoices etc. Marker Event Only
     CHECK_COMPLETED_FROM_SOURCE_SERVICE("Check Completed Status from Source Service",false,null,null);
 
     private String updateTaskName;
