@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
 import java.util.Map;
 
 @Builder
@@ -32,4 +33,6 @@ public class LeadershipViewEntity extends AbstractMongoEntity {
     Map<EstateStatus,EstateStatusStruct> estateStatusHistory;
 
     AnalyticsKeys analyticsKeys;
+
+    List<EstateStatusTimeLineStruct> estateStatusTimeLine;
 }

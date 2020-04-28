@@ -5,8 +5,6 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author naveen.kumar
  *
- * @date 22-Apr-2020
+ * @date 27-Apr-2020
  *
  **/
 @Getter
@@ -26,17 +24,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryDto extends AbstractDto {
+public class ResidenceFoodMenuVendorDto {
 
-	private String categoryName;
+	private String residenceId;
 
-	private String cityId;
+	private String residenceName;
 
-	private String cityName;
+	private List<MealWiseFoodMenuVendorDto> mealWiseFoodMenuVendorDtos;
 
-	private List<ResidenceConfigDto> residences;
-
-	private boolean menuRulesSatisfied;
-
-	private boolean stanzaKitchenCategory;
 }

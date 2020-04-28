@@ -3,9 +3,8 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
-import java.util.Set;
-
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,11 +27,13 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodMenuCategoryAddRequestDto {
 
-	@NotBlank(message = "Micromarket is Mandatory for Menu Category")
-	private String microMarketId;
+	@NotBlank(message = "City is Mandatory for Menu Category")
+	private String cityId;
 
 	@NotBlank(message = "Name is Mandatory for Menu Category")
 	private String categoryName;
 
-	private Set<String> residences;
+	@NotNull(message = "Stanza Kitchen Flag is Mandatory")
+	private Boolean stanzaKitchen;
+
 }

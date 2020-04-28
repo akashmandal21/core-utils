@@ -5,6 +5,7 @@ package com.stanzaliving.core.leadership.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.leadership.enums.DirectionEnum;
 import com.stanzaliving.core.leadership.enums.SortFilterEnum;
 
@@ -34,8 +35,12 @@ public class LeadershipFilterRequestDto {
 	private String bdExecutive;
 	private String regionalManager;
 	
+	private String estateOrHouseName;
+	
 	private SortFilterEnum sortBy;
 	private DirectionEnum sortDirection;
+	
+	private Department department;
 	
 	private int pageNumber;
 	private int pageSize;

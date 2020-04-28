@@ -5,7 +5,8 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,26 +18,24 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author naveen.kumar
  *
- * @date 22-Apr-2020
+ * @date 23-Apr-2020
  *
  **/
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryDto extends AbstractDto {
+public class MealWiseFoodMenuVendorDto {
 
-	private String categoryName;
+	private MealType mealType;
 
-	private String cityId;
+	private String mealTypeName;
 
-	private String cityName;
+	private String vendorId;
 
-	private List<ResidenceConfigDto> residences;
+	private String vendorName;
 
-	private boolean menuRulesSatisfied;
-
-	private boolean stanzaKitchenCategory;
+	private List<ListingDto> availableVendors;
 }
