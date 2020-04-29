@@ -16,6 +16,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum FoodRegion {
 
+	MIX("Mix"),
 	NORTH("North Indian"),
 	SOUTH("South Indian");
 
