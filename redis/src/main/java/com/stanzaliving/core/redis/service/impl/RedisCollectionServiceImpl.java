@@ -50,7 +50,7 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 
 	@Override
 	public String getFromStringMap(String mapName, String key) {
-		return getStringMap(mapName).get(key);
+		return getRedisStringMap(mapName).get(key);
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 
 		log.debug("Adding key: {} with value: {} in map: {} on redis", key, value, mapName);
 
-		return getStringMap(mapName).put(key, value);
+		return getRedisStringMap(mapName).put(key, value);
 	}
 
 	@Override
