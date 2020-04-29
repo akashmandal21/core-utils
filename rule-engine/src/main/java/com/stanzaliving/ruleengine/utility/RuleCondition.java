@@ -13,6 +13,10 @@ import java.util.Objects;
 public class RuleCondition {
 
 	private void isValidCondition(ConditionCombinationDto combinationDto) {
+		if (Objects.isNull(combinationDto)) {
+			return;
+		}
+
 		if (CollectionUtils.isEmpty(combinationDto.getConditions())){
 			if (
 					StringUtils.isEmpty(combinationDto.getLeftOperand())
@@ -38,6 +42,10 @@ public class RuleCondition {
 
 
 	public Boolean validateConditions(List<ConditionCombinationDto> combinationDtos){
+		if (CollectionUtils.isEmpty(combinationDtos)) {
+			return true;
+		}
+
 		for (ConditionCombinationDto combinationDto : combinationDtos) {
 			isValidCondition(combinationDto);
 			return validateConditions(combinationDto.getConditions());
