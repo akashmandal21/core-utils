@@ -3,8 +3,7 @@
  */
 package com.stanzaliving.core.leadership.enums;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import lombok.Getter;
 
@@ -15,8 +14,8 @@ import lombok.Getter;
 @Getter
 public enum SortFilterEnum {
 
-	CREATED_AT("Date Added On"),
-	L1_APPROVED_ON("Date L1 Approved On"),
+	CREATED_AT("Added On"),
+	L1_APPROVED_ON("L1 Approved On"),
 	PROPERTY_NAMED_ON("Named On"),
 	CITY("City"),
 	MICROMARKET("Micromarket"),
@@ -32,9 +31,9 @@ public enum SortFilterEnum {
 		this.name = name;
 	}
 	
-	public static Map<SortFilterEnum, String> getSortFilters() {
+	public static LinkedHashMap<SortFilterEnum, String> getSortFilters() {
 		
-		Map<SortFilterEnum, String> sortFilterMap = new HashMap<>();
+		LinkedHashMap<SortFilterEnum, String> sortFilterMap = new LinkedHashMap<>();
 		
 		for(SortFilterEnum sortFilter : SortFilterEnum.values()) {
 			sortFilterMap.put(sortFilter, sortFilter.getName());
@@ -43,9 +42,9 @@ public enum SortFilterEnum {
 		return sortFilterMap;
 	}
 	
-	public static Map<SortFilterEnum, String> getSortingFields() {
+	public static LinkedHashMap<SortFilterEnum, String> getSortingFields() {
 		
-		Map<SortFilterEnum, String> sortingFieldsMap = new HashMap<>();
+		LinkedHashMap<SortFilterEnum, String> sortingFieldsMap = new LinkedHashMap<>();
 		
 		sortingFieldsMap.put(CREATED_AT, CREATED_AT.getName());
 		sortingFieldsMap.put(L1_APPROVED_ON, L1_APPROVED_ON.getName());

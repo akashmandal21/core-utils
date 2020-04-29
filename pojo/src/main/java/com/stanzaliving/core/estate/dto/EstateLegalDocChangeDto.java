@@ -1,9 +1,9 @@
 /**
  * 
  */
-package com.stanzaliving.core.leadership.dto;
+package com.stanzaliving.core.estate.dto;
 
-import java.util.Set;
+import com.stanzaliving.core.estate.enums.EstateLegalDocumentType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,8 +20,9 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class PropertyLocationFilter {
+public class EstateLegalDocChangeDto {
 
-	private Set<CityFilter> cityFilter;
-	private Set<MicromarketFilter> micromarketFilter;
+	private String estateUuid;
+	private EstateLegalDocumentType documentType;
+	private String reason;
 }

@@ -1,9 +1,7 @@
 /**
  * 
  */
-package com.stanzaliving.core.leadership.dto;
-
-import java.util.Set;
+package com.stanzaliving.core.estate.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,8 +18,8 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class PropertyLocationFilter {
+public class PropertyActionDto {
 
-	private Set<CityFilter> cityFilter;
-	private Set<MicromarketFilter> micromarketFilter;
+	private boolean status;
+	private String description;
 }

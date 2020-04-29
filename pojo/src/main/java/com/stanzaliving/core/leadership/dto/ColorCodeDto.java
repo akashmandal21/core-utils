@@ -23,4 +23,5 @@ public class ColorCodeDto {
 	private String textColorCode;
 	private String backgroundColorCode;
 	private String estateDesc;
+	private String taskHeading;
 }
