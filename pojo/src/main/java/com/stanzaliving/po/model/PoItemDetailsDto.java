@@ -37,4 +37,6 @@ public class PoItemDetailsDto {
 
     private String sgst;
 
+    private Double gstAmount;
+
 }
