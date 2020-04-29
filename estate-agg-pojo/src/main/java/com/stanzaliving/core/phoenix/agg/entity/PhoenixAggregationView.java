@@ -7,7 +7,6 @@ import com.stanzaliving.core.phoenix.embeddedInfos.*;
 import com.stanzaliving.core.projectservice.enums.GFCStatus;
 import com.stanzaliving.core.projectservice.enums.PropertyUpdateEnum;
 import com.stanzaliving.core.user.enums.UserType;
-import com.stanzaliving.po.enums.PoType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

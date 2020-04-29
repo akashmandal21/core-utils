@@ -1,7 +1,6 @@
 package com.stanzaliving.core.phoenix.embeddedInfos;
 
 import com.stanzaliving.core.base.enums.Department;
-import com.stanzaliving.core.estate.embeddedInfos.EstateStatusTimeLineStruct;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 @Data

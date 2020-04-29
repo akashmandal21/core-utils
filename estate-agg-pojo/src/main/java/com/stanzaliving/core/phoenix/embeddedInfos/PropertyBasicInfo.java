@@ -1,6 +1,5 @@
 package com.stanzaliving.core.phoenix.embeddedInfos;
 
-import com.stanzaliving.core.estate.embeddedInfos.EstateInfo;
 import com.stanzaliving.core.estate.embeddedInfos.LeadershipInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

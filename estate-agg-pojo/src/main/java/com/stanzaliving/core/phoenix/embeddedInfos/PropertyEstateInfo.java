@@ -1,15 +1,11 @@
 package com.stanzaliving.core.phoenix.embeddedInfos;
 
 import com.stanzaliving.core.estate.embeddedInfos.Address;
-import com.stanzaliving.core.estate.enums.EstateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.index.TextIndexed;
-
-import java.util.Date;
 
 @Builder
 @Data

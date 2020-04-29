@@ -2,7 +2,6 @@ package com.stanzaliving.core.phoenix.deserialize.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.po.enums.POSummaryStatus;
-import com.stanzaliving.po.enums.PoStatus;
 import com.stanzaliving.po.enums.PoType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
