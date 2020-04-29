@@ -58,7 +58,8 @@
 		<module>estate-agg-pojo</module>
 		<module>pushnotification-client</module>
 		<module>fr-client</module>
-	</modules>
+        <module>rule-engine</module>
+    </modules>
 
 	<build>
 		<plugins>
