@@ -1,6 +1,5 @@
 package com.stanzaliving.ruleengine.utility;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.enums.RuleOperatorEnum;
 import com.stanzaliving.ruleengine.dto.AddRuleRequestDto;
 import com.stanzaliving.ruleengine.dto.ConditionCombinationDto;
