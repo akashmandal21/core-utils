@@ -46,4 +46,6 @@ public class VendorDetailsDto {
 
     private String updatedBy;
 
+    private Boolean isWarehouse;
+
 }
