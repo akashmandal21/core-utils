@@ -1,7 +1,6 @@
 package com.stanzaliving.ruleengine.utility;
 
 import com.stanzaliving.core.base.enums.RuleOperatorEnum;
-import com.stanzaliving.ruleengine.dto.AddRuleRequestDto;
 import com.stanzaliving.ruleengine.dto.ConditionCombinationDto;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
@@ -36,6 +35,10 @@ public class RuleEngine {
 
 	private List<ConditionCombinationDto> validate(List<ConditionCombinationDto> conditionCombinationDtos, String parentAgregator, Boolean parentValue){
 		List<ConditionCombinationDto> resultDto = new ArrayList<>();
+		if (CollectionUtils.isEmpty(conditionCombinationDtos)) {
+			return Collections.emptyList();
+		}
+
 		for (ConditionCombinationDto conditionCombinationDto : conditionCombinationDtos) {
 			List<ConditionCombinationDto> subConditionCombinations = conditionCombinationDto.getConditions();
 
@@ -59,7 +62,7 @@ public class RuleEngine {
 
 
 
-	public List<ConditionCombinationDto> parseRule(ConditionCombinationDto ruleConditions, Map<String, Integer> valuesMap) throws IOException {
+	public List<ConditionCombinationDto> parseRule(ConditionCombinationDto ruleConditions, Map<String, Integer> valuesMap) {
 		expressionVariables = valuesMap;
 		log.info("Parsing Rule ");
 		List<ConditionCombinationDto> result = validate(Arrays.asList(ruleConditions), null, null);
