@@ -20,7 +20,7 @@ public class RuleEngine {
 
 	private Boolean valid(ConditionCombinationDto combinationDto) {
 		Long rightValue = Long.valueOf(combinationDto.getRightOperand());
-		Long leftValue = Long.valueOf(combinationDto.getLeftOperand());
+		Long leftValue = Long.valueOf(expressionVariables.get(combinationDto.getLeftOperand()));
 		RuleOperatorEnum operator = combinationDto.getOperator();
 		if (
 				(operator == RuleOperatorEnum.EQ) && !(rightValue.equals(leftValue))
@@ -60,16 +60,10 @@ public class RuleEngine {
 
 
 
-	public List<ConditionCombinationDto> parseRule(String ruleConditions, Map<String, Integer> valuesMap) throws IOException {
-		ObjectMapper objectMapper = new ObjectMapper();
+	public List<ConditionCombinationDto> parseRule(ConditionCombinationDto ruleConditions, Map<String, Integer> valuesMap) throws IOException {
 		expressionVariables = valuesMap;
-		AddRuleRequestDto ruleRequestDto = objectMapper.readValue(ruleConditions, AddRuleRequestDto.class);
 		log.info("Parsing Rule ");
-
-		ConditionCombinationDto weeklyConditions = ruleRequestDto.getWeeklyRule();
-		ConditionCombinationDto dailyConditions = ruleRequestDto.getDailyRule();
-		List<ConditionCombinationDto> result = validate(Arrays.asList(weeklyConditions), null, null);
-		result.addAll(validate(Arrays.asList(dailyConditions), null, null));
+		List<ConditionCombinationDto> result = validate(Arrays.asList(ruleConditions), null, null);
 
 		return result;
 	}
