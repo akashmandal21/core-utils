@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>core-utils</artifactId>
+        <groupId>com.stanzaliving.core</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>inventory_transformations</artifactId>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.stanzaliving.core</groupId>
+            <artifactId>pojo</artifactId>
+            <version>${global.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.stanzaliving.core</groupId>
+            <artifactId>base</artifactId>
+            <version>${global.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.stanzaliving.core</groupId>
+            <artifactId>sqljpa</artifactId>
+            <version>${global.version}</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.stanzaliving.core</groupId>-->
+<!--            <artifactId>utilservice</artifactId>-->
+<!--            <version>${global.version}</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.stanzaliving.core</groupId>-->
+<!--            <artifactId>properties</artifactId>-->
+<!--            <version>${global.version}</version>-->
+<!--        </dependency>-->
+
+
+    </dependencies>
+</project>

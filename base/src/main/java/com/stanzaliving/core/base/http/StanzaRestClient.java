@@ -387,7 +387,7 @@ public class StanzaRestClient {
 	}
 
 	// This method is called to add GUID header in internal API calls
-	public StanzaRestClient addGUIDHeader() {
+	public StanzaRestClient addGUIDHeader() {////////////////////////////
 
 		if (defaultHeaders.containsKey(StanzaConstants.GUID)) {
 			defaultHeaders.remove(StanzaConstants.GUID);

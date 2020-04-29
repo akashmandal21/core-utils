@@ -58,6 +58,7 @@
 		<module>estate-agg-pojo</module>
 		<module>pushnotification-client</module>
 		<module>fr-client</module>
+		<module>inventory_transformations</module>
 	</modules>
 
 	<build>

@@ -21,7 +21,7 @@ public class UIDInterceptor extends HandlerInterceptorAdapter {
 
         guid = (null != request.getHeader(StanzaConstants.GUID)) ? request.getHeader(StanzaConstants.GUID) : guid;
 
-        MDC.put(StanzaConstants.GUID, guid);
+        MDC.put(StanzaConstants.GUID, guid);////
         MDC.put(StanzaConstants.LUID, luid);
 
         log.info("RequestReceived URI " + ((HttpServletRequest) request).getRequestURI() +
