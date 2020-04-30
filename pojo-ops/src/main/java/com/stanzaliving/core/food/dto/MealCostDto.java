@@ -1,9 +1,4 @@
-/**
- * 
- */
 package com.stanzaliving.core.food.dto;
-
-import java.util.List;
 
 import com.stanzaliving.core.operations.enums.MealType;
 
@@ -14,29 +9,19 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author naveen.kumar
- *
- * @date 23-Apr-2020
- *
- **/
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealWiseFoodMenuDto {
+public class MealCostDto {
 
 	private MealType mealType;
+	
+	private Double budget;
 
-	private String mealTypeName;
+	private Double cost;
 
-	private Float mealRating;
-
-	private Double mealCost;
-
-	private Double budgetedCost;
-
-	private List<MenuItemDto> menuItems;
+	private boolean costInBudget;
 }
