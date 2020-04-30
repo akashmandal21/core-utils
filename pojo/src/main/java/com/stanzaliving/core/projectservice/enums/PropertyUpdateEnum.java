@@ -78,6 +78,11 @@ public enum  PropertyUpdateEnum {
     PROJECTS_HOTO_MODIFIED("HOTO Modified",true,NotificationTaskType.HOTO_DOC_MODIFIED),
     PROJECTS_HOTO_SIGNED_UPLOADED("HOTO Signed Uploaded",true,NotificationTaskType.HOTO_SIGNED_UPLOADED),
 
+    //PO SERVICE
+    PO_SUBMITTED("PO Submitted",false,NotificationTaskType.PO_SUBMITTED),
+    PO_REJECTED("PO Rejected",false,NotificationTaskType.PO_REJECTED),
+    PO_APPROVED("PO Approved",false,NotificationTaskType.PO_APPROVED),
+
     //FOR All other events where there are multiple complete signals. For e.g. Multiple POs/Invoices etc. Marker Event Only
     CHECK_COMPLETED_FROM_SOURCE_SERVICE("Check Completed Status from Source Service",false,null,null);
 
