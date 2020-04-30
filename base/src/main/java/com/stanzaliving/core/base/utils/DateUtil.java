@@ -10,14 +10,21 @@ import java.time.LocalTime;
 import java.time.Period;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Objects;
 
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
 
 import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
 
 @UtilityClass
+@Log4j2
 public class DateUtil {
 
 	public static String customDateFormatter(Date dateInput, DateFormat dateFormat) {
@@ -340,6 +347,69 @@ public class DateUtil {
 		cal.setTime(date);
 		cal.add(Calendar.MINUTE, -(minutes));
 		return cal.getTime();
+	}
+	
+	public static Date getFormatedCleanDate(Date date, String format) {
+
+		if (format == null || format.equals(""))
+			format = "yyyy/MM/dd";
+		SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+		String dateString = dateFormat.format(date);
+		Date formatedDate = date;
+		try {
+			formatedDate = dateFormat.parse(dateString);
+		} catch (ParseException e) {
+			log.error("Exception while parsing date", e);
+		}
+		return formatedDate;
+	}
+	
+	public static Date customiseDateTime(Date date, int hour, int min, int seconds) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.set(Calendar.HOUR_OF_DAY, hour);
+		cal.set(Calendar.MINUTE, min);
+		cal.set(Calendar.SECOND, seconds);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTime();
+	}
+	
+	public static Date putTimeIntoDate(Date date, Date timeDate) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.set(Calendar.HOUR_OF_DAY, getPartsFromDate(timeDate, "HOUR"));
+		calendar.set(Calendar.MINUTE, getPartsFromDate(timeDate, "MINUTE"));
+		calendar.set(Calendar.SECOND, getPartsFromDate(timeDate, "SECOND"));
+		calendar.set(Calendar.MILLISECOND, 0);
+		return calendar.getTime();
+	}
+	
+	public static int getPartsFromDate(Date date, String requiredPart) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		int requiredValue;
+		switch (requiredPart) {
+		case "YEAR":
+			requiredValue = cal.get(Calendar.YEAR);
+			break;
+		case "MONTH":
+			requiredValue = cal.get(Calendar.MONTH);
+			break;
+		case "DATE":
+			requiredValue = cal.get(Calendar.DATE);
+			break;
+		case "HOUR":
+			requiredValue = cal.get(Calendar.HOUR_OF_DAY);
+			break;
+		case "MINUTE":
+			requiredValue = cal.get(Calendar.MINUTE);
+			break;
+		case "SECOND":
+			requiredValue = cal.get(Calendar.SECOND);
+		default:
+			requiredValue = 0;
+		}
+		return requiredValue;
 	}
 
 }

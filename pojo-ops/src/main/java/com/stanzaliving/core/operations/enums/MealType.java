@@ -23,20 +23,22 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MealType {
 
-	BREAKFAST(1, "Breakfast"),
-	LUNCH(2, "Lunch"),
-	EVENING_SNACKS(3, "Evening Snacks"),
-	DINNER(4, "Dinner"),
-	BRUNCH(5, "Brunch"),
-	LUNCH_TIFFIN(6, "Lunch Tiffin");
+	BREAKFAST(1, "Breakfast", 1),
+	LUNCH(2, "Lunch", 2),
+	EVENING_SNACKS(3, "Evening Snacks", 5),
+	DINNER(4, "Dinner", 6),
+	BRUNCH(5, "Brunch", 2),
+	LUNCH_TIFFIN(6, "Lunch Tiffin", 4);
 
 	private Integer mealId;
 
 	private String mealName;
 
+	private Integer sequence;
+
 	private static Map<Integer, MealType> mealMapById = new HashMap<>();
 	private static Map<String, MealType> mealMapByName = new HashMap<>();
-	public static List<String> mealIds = new ArrayList<>();
+	private static List<String> mealIds = new ArrayList<>();
 
 	static {
 
@@ -44,6 +46,7 @@ public enum MealType {
 			mealMapById.put(mealType.getMealId(), mealType);
 			mealMapByName.put(mealType.getMealName(), mealType);
 			mealIds.add(mealType.getMealId().toString());
+
 		}
 
 	}
@@ -69,5 +72,13 @@ public enum MealType {
 
 	public static MealType getMeal(Integer mealId) {
 		return mealMapById.get(mealId);
+	}
+
+	public static List<String> getMealIds() {
+		return mealIds;
+	}
+
+	public static MealType getMealByName(String mealName) {
+		return mealMapByName.get(mealName);
 	}
 }
