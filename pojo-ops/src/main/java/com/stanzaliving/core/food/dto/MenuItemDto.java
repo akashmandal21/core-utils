@@ -3,6 +3,9 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.util.List;
+
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
 
 import lombok.AllArgsConstructor;
@@ -43,6 +46,8 @@ public class MenuItemDto {
 	private Float rating;
 
 	private Double cost;
-	
+
 	private boolean newlyAdded;
+
+	private List<ListingDto> tagsList;
 }
