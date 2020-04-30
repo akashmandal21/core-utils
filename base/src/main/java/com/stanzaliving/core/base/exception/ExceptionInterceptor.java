@@ -39,7 +39,7 @@ public class ExceptionInterceptor {
 	public @ResponseBody <T> ResponseDto<T> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got MethodArgumentNotValidException for exceptionId:" + exceptionId, e);
+		log.error("Got MethodArgumentNotValidException for exceptionId: " + exceptionId, e);
 
 		FieldError fieldError = e.getBindingResult().getFieldError();
 
@@ -59,7 +59,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handlePropertyAccessException(PropertyAccessException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got PropertyAccessException for exceptionId:" + exceptionId, e);
+		log.error("Got PropertyAccessException for exceptionId: " + exceptionId, e);
 
 		String errorMessgae = "Incorrect Value For Parameter: " + e.getPropertyName() + " in Request. Dirty Value: " + e.getValue();
 
@@ -72,7 +72,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got MethodArgumentTypeMismatchException for exceptionId: " + exceptionId, e);
+		log.error("Got MethodArgumentTypeMismatchException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 
 		String errorMessage = "Incorrect Type For Parameter: " + e.getName() + " in Request. Expected: " + e.getRequiredType() + ", Found: " + e.getValue();
 
@@ -174,7 +174,7 @@ public class ExceptionInterceptor {
 	@ResponseStatus(code = HttpStatus.ACCEPTED)
 	public <T> ResponseDto<T> handleRequestInProgressException(RequestInProgressException e) {
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got RequestInProgressException for exceptionId: " + exceptionId, e.getMessage());
+		log.error("Got RequestInProgressException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
@@ -182,7 +182,7 @@ public class ExceptionInterceptor {
 	@ResponseStatus(code = HttpStatus.EXPECTATION_FAILED)
 	public <T> ResponseDto<T> handleTransactionFailException(TransactionFailException e) {
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got TransactionFailException for exceptionId: " + exceptionId, e.getMessage());
+		log.error("Got TransactionFailException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
@@ -190,7 +190,7 @@ public class ExceptionInterceptor {
 	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
 	public <T> ResponseDto<T> handlePreconditionFailedException(PreconditionFailedException e) {
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got PreconditionFailedException for exceptionId: " + exceptionId, e.getMessage());
+		log.error("Got PreconditionFailedException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
@@ -234,7 +234,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleNoRecordException(NoRecordException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got NoRecordException for exceptionId: " + exceptionId, e);
+		log.error("Got NoRecordException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
