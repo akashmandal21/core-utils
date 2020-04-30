@@ -1,10 +1,9 @@
 package com.stanzaliving.core.base.exception;
 
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import com.stanzaliving.core.base.annotation.SendExceptionToSlack;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.utils.StanzaUtils;
-import lombok.extern.log4j.Log4j2;
+import java.sql.SQLIntegrityConstraintViolationException;
+
+import javax.validation.ConstraintViolationException;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.PropertyAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -15,15 +14,18 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import javax.validation.ConstraintViolationException;
-import java.sql.SQLIntegrityConstraintViolationException;
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+import com.stanzaliving.core.base.annotation.SendExceptionToSlack;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.utils.StanzaUtils;
+
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @RestControllerAdvice
@@ -168,7 +170,29 @@ public class ExceptionInterceptor {
 
 	/************************ Application Specific Exceptions ************************/
 
-	// TODO Add your custom exception handling here
+	@ExceptionHandler(RequestInProgressException.class)
+	@ResponseStatus(code = HttpStatus.ACCEPTED)
+	public <T> ResponseDto<T> handleRequestInProgressException(RequestInProgressException e) {
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got RequestInProgressException for exceptionId: " + exceptionId, e.getMessage());
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
+	@ExceptionHandler(TransactionFailException.class)
+	@ResponseStatus(code = HttpStatus.EXPECTATION_FAILED)
+	public <T> ResponseDto<T> handleTransactionFailException(TransactionFailException e) {
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got TransactionFailException for exceptionId: " + exceptionId, e.getMessage());
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
+	@ExceptionHandler(PreconditionFailedException.class)
+	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
+	public <T> ResponseDto<T> handlePreconditionFailedException(PreconditionFailedException e) {
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got PreconditionFailedException for exceptionId: " + exceptionId, e.getMessage());
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
 
 	/************************ Stanza Specific Exceptions ************************/
 
