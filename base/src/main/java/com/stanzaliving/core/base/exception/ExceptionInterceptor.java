@@ -39,7 +39,7 @@ public class ExceptionInterceptor {
 	public @ResponseBody <T> ResponseDto<T> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got MethodArgumentNotValidException for exceptionId: " + exceptionId, e);
+		log.error("Got MethodArgumentNotValidException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 
 		FieldError fieldError = e.getBindingResult().getFieldError();
 
