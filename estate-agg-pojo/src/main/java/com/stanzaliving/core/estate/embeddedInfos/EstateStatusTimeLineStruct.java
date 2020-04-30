@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 public class EstateStatusTimeLineStruct implements Comparable<EstateStatusTimeLineStruct> {
-    private EstateStatus estateStatus;
+    private String estateStatus;
     private String statusTrackerUuid;
     private Date createdAt;
     private String createdBy;

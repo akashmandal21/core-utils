@@ -1,6 +1,5 @@
 package com.stanzaliving.core.phoenix.agg.entity;
 
-import com.stanzaliving.core.agg.phoenix.embeddedInfos.*;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.estate.embeddedInfos.DesignBedInfo;
 import com.stanzaliving.core.mongobase.entity.AbstractMongoEntity;

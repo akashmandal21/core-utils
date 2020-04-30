@@ -43,5 +43,5 @@ public class EstateStatusTrackerCDCInfo {
     private String estateUuid;
 
     @JsonProperty("status_name")
-    private EstateStatus estateStatus;
+    private String estateStatus;
 }
