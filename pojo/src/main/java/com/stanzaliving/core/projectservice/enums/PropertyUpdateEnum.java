@@ -83,6 +83,12 @@ public enum  PropertyUpdateEnum {
     PO_REJECTED("PO Rejected",false,NotificationTaskType.PO_REJECTED),
     PO_APPROVED("PO Approved",false,NotificationTaskType.PO_APPROVED),
 
+
+    //GRN SERVICE
+    GRN_BOI_ITEM_RECEIVED("BOI Item Receiving in GRN",false,NotificationTaskType.GRN_BOI_ITEM_RECEIVED),
+    GRN_BOI_ITEM_INSTALLATION("BOI Item Installation in GRN",false,NotificationTaskType.GRN_BOI_ITEM_INSTALLATION),
+    GRN_GC_ITEM_COMPLETION("GC Item completion in GRN",false,NotificationTaskType.GRN_GC_ITEM_COMPLETION),
+
     //FOR All other events where there are multiple complete signals. For e.g. Multiple POs/Invoices etc. Marker Event Only
     CHECK_COMPLETED_FROM_SOURCE_SERVICE("Check Completed Status from Source Service",false,null,null);
 
