@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Objects;
 
 @UtilityClass
-public class RuleCondition {
+public class RuleConditionValidator {
 
-	private void isValidCondition(ConditionCombinationDto combinationDto) {
+	private void validateRuleCondition(ConditionCombinationDto combinationDto) {
 		if (Objects.isNull(combinationDto)) {
 			return;
 		}
@@ -41,14 +41,14 @@ public class RuleCondition {
 	}
 
 
-	public Boolean validateConditions(List<ConditionCombinationDto> combinationDtos){
+	public Boolean isValid(List<ConditionCombinationDto> combinationDtos){
 		if (CollectionUtils.isEmpty(combinationDtos)) {
 			return true;
 		}
 
 		for (ConditionCombinationDto combinationDto : combinationDtos) {
-			isValidCondition(combinationDto);
-			return validateConditions(combinationDto.getConditions());
+			validateRuleCondition(combinationDto);
+			return isValid(combinationDto.getConditions());
 		}
 		return true;
 	}

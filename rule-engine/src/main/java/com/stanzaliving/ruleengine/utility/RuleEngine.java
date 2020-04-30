@@ -20,14 +20,18 @@ public class RuleEngine {
 		Long rightValue = Long.valueOf(combinationDto.getRightOperand());
 		Long leftValue = Long.valueOf(expressionVariables.get(combinationDto.getLeftOperand()));
 		RuleOperatorEnum operator = combinationDto.getOperator();
-		if (
-				(operator == RuleOperatorEnum.EQ) && !(rightValue.equals(leftValue))
-						|| (operator == RuleOperatorEnum.GT) && !(rightValue <= leftValue)
-						|| (operator == RuleOperatorEnum.GT_EQ) && !(rightValue < leftValue)
-						|| (operator == RuleOperatorEnum.LT) && !(rightValue >= leftValue)
-						|| (operator == RuleOperatorEnum.LT_EQ) && !(rightValue > leftValue)
-		){
-			return false;
+
+		switch (operator) {
+			case EQ:
+				return rightValue.equals(leftValue);
+			case GT:
+				return rightValue > leftValue;
+			case GT_EQ:
+				return rightValue >= leftValue;
+			case LT:
+				return rightValue < leftValue;
+			case LT_EQ:
+				return rightValue <= leftValue;
 		}
 		return true;
 	}
