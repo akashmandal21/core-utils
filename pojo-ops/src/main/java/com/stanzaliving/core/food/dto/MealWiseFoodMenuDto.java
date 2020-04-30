@@ -37,6 +37,6 @@ public class MealWiseFoodMenuDto {
 	private Double mealCost;
 
 	private String vendorId;
-
+	
 	private List<MenuItemDto> menuItems;
 }
