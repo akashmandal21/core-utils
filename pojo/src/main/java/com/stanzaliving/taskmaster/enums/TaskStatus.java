@@ -10,7 +10,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum TaskStatus {
 
-	PENDING("Not Started"),STARTED("In Progress"),COMPLETED("Done");
+	PENDING("Not Started"),STARTED("In Progress"),COMPLETED("Completed");
 
 	private String name;
 	

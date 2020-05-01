@@ -32,7 +32,7 @@ public class CommentClientApi {
 	public CommentClientApi(StanzaRestClient stanzaRestClient) {
 		this.restClient = stanzaRestClient;
 	}
-	
+	@Deprecated
 	public ResponseDto<List<CommentsDto>> getAllCommentsByEstateUuid(String estateUuid) {
 		Object postBody = null;
 
@@ -58,7 +58,12 @@ public class CommentClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 	}
-
+	
+	public ResponseDto<List<CommentsDto>> getAllCommentsByContextUuid(String contextUuid){
+		return getAllCommentsByContextUuid(contextUuid);
+	}
+	
+	
 	public ResponseDto<CommentsDto> postComment(CommentsDto commentsDto) {
 
 		// create path and map variables

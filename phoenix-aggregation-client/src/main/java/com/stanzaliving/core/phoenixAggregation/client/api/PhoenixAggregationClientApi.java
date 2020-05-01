@@ -1,5 +1,6 @@
 package com.stanzaliving.core.phoenixAggregation.client.api;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class PhoenixAggregationClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<List<PropertyDetailsDto>> getHouseDetails(List<String> houseUuids) {
+    public ResponseDto<List<PropertyDetailsDto>> getHouseDetails(Collection<String> houseUuids) {
 
         if (CollectionUtils.isEmpty(houseUuids)) {
             return null;
