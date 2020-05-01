@@ -10,7 +10,7 @@ import java.util.Map;
 @AllArgsConstructor
 public enum GFCStatus {
 
-    NOT_STARTED("Not Started","#e5e3e3"),
+    NOT_STARTED("Not Available","#e5e3e3"),
     IN_DRAFT("Pending","#e5e3e3"),
     SENT_FOR_APPROVAL_TO_ZH("Uploaded","#FFC300"),
     SENT_FOR_APPROVAL_TO_NH("Uploaded","#FFC300"),
