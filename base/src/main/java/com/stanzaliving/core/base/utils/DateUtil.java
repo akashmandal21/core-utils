@@ -20,6 +20,7 @@ import java.util.Objects;
 
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
+import com.stanzaliving.core.base.enums.DatePart;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
@@ -390,42 +391,42 @@ public class DateUtil {
 	public Date putTimeIntoDate(Date date, Date timeDate) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
-		calendar.set(Calendar.HOUR_OF_DAY, getPartsFromDate(timeDate, "HOUR"));
-		calendar.set(Calendar.MINUTE, getPartsFromDate(timeDate, "MINUTE"));
-		calendar.set(Calendar.SECOND, getPartsFromDate(timeDate, "SECOND"));
+		calendar.set(Calendar.HOUR_OF_DAY, getPartsFromDate(timeDate, DatePart.HOUR));
+		calendar.set(Calendar.MINUTE, getPartsFromDate(timeDate, DatePart.MINUTE));
+		calendar.set(Calendar.SECOND, getPartsFromDate(timeDate, DatePart.SECOND));
 		calendar.set(Calendar.MILLISECOND, 0);
 		return calendar.getTime();
 	}
 
-	public int getPartsFromDate(Date date, String requiredPart) {
+	public int getPartsFromDate(Date date, DatePart datePart) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
 		int requiredValue;
-		switch (requiredPart) {
-			case "YEAR":
+		switch (datePart) {
+			case YEAR:
 				requiredValue = cal.get(Calendar.YEAR);
 				break;
-			case "MONTH":
+			case MONTH:
 				requiredValue = cal.get(Calendar.MONTH);
 				break;
-			case "DATE":
+			case DATE:
 				requiredValue = cal.get(Calendar.DATE);
 				break;
-			case "HOUR":
+			case HOUR:
 				requiredValue = cal.get(Calendar.HOUR_OF_DAY);
 				break;
-			case "MINUTE":
+			case MINUTE:
 				requiredValue = cal.get(Calendar.MINUTE);
 				break;
-			case "SECOND":
+			case SECOND:
 				requiredValue = cal.get(Calendar.SECOND);
 			default:
 				requiredValue = 0;
 		}
 		return requiredValue;
 	}
-	
-	public static LocalDate getMonthStartBeginningDate(Integer month, Integer year) {
+
+	public LocalDate getMonthStartBeginningDate(Integer month, Integer year) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(new Date());
 		calendar.set(Calendar.YEAR, year);
@@ -437,8 +438,8 @@ public class DateUtil {
 		calendar.set(Calendar.MILLISECOND, 0);
 		return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
 	}
-	
-	public static LocalDate getMonthEndBeginningDate(Integer month, Integer year) {
+
+	public LocalDate getMonthEndBeginningDate(Integer month, Integer year) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(new Date());
 		calendar.set(Calendar.YEAR, year);
@@ -450,5 +451,5 @@ public class DateUtil {
 		calendar.set(Calendar.MILLISECOND, 0);
 		return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
 	}
-	
+
 }
