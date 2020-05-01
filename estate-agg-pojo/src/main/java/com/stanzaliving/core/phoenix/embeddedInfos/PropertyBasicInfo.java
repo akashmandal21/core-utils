@@ -44,7 +44,7 @@ public class PropertyBasicInfo {
     private String sowAtlUrl;
 
     private Integer numBeds;
-    private String rentFreeDays;
+    private Integer rentFreeDays;
     private Integer numRooms;
     private Integer numPhotos;
     private String thumbnailUrl;

@@ -23,7 +23,7 @@ import lombok.ToString;
 public class PropertyTimelineResponseDto {
 
 	private String estateStatusDesc;
-	private String estateStatus;
+	private EstateStatus estateStatus;
 	private List<CommentsDto> comments;
 	private String updateBy;
 	private Date updateTime;
