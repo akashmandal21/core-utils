@@ -280,6 +280,7 @@ public enum EstateStatus {
 		estateStatusForL1Approved.add(SENT_FOR_SANDEEP_APPROVAL);
 		estateStatusForL1Approved.add(SENT_TO_LEGAL);	
 		estateStatusForL1Approved.add(SIGNED_ATL_UPLOADED);
+		estateStatusForL1Approved.add(ATL_UPLOAD_PENDING);
 		
 		estateStatusForL1Approved.add(SENT_BACK);
 		estateStatusForL1Approved.add(SENT_BACK_BY_TRANSFORMATION);
