@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 public enum PoStatus {
 
+
 	IN_DRAFT("In Draft",0),
 	TH_APPROVAL_PENDING("Transformation Head Approval Pending",1),
 	TH_APPROVED("Approved By Transformation Head",2),
@@ -20,5 +21,6 @@ public enum PoStatus {
 
 	private String status;
 	private Integer order;
-
 }
+
+

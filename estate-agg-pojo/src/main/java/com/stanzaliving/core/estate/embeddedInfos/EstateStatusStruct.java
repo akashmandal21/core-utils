@@ -1,4 +1,4 @@
-package com.stanzaliving.core.estate.agg.entity;
+package com.stanzaliving.core.estate.embeddedInfos;
 
 import lombok.Builder;
 import lombok.Data;
