@@ -22,6 +22,8 @@ public class FoodOrderRequestDto {
 	
 	private String residenceId;
 	
+	private String residenceName;
+	
 	private LocalDate menuDate;
 	
 	private List<FoodOrderDetailDto> foodOrderDetailDtos;
