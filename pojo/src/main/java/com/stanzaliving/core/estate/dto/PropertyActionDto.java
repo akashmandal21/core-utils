@@ -22,4 +22,5 @@ public class PropertyActionDto {
 
 	private boolean status;
 	private String description;
+	private String submitTextDescription;
 }
