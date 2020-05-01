@@ -39,6 +39,8 @@ public class FoodMenuGroupDto extends AbstractDto {
 
 	private String menuCategoryName;
 
+	private boolean stanzaKitchenCategory;
+
 	private LocalDate weekStartDate;
 
 	private List<DateWiseFoodMenuDto> dateWiseFoodMenus;

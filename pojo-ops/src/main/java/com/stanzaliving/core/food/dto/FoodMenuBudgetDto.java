@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -16,16 +15,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderRequestDto {
-	
-	private String groupOrderId;
-	
-	private String residenceId;
-	
-	private String residenceName;
-	
-	private LocalDate menuDate;
-	
-	private List<FoodOrderDetailDto> foodOrderDetailDtos;
+public class FoodMenuBudgetDto {
+
+	private List<MealCostDto> weeklyMealCosts;
+
+	private List<MealCostDto> monthlyMealCosts;
 
 }

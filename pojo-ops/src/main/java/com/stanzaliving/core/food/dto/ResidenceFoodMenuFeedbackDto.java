@@ -1,10 +1,8 @@
-/**
- * 
- */
 package com.stanzaliving.core.food.dto;
 
-import java.util.List;
+import java.time.LocalDate;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -14,29 +12,27 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author naveen.kumar
- *
- * @date 23-Apr-2020
- *
- **/
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealWiseFoodMenuDto {
+public class ResidenceFoodMenuFeedbackDto extends AbstractDto {
+
+	private String residenceId;
+
+	private LocalDate menuDate;
 
 	private MealType mealType;
 
-	private String mealTypeName;
+	private String vendorId;
 
-	private Float mealRating;
+	private Double menuCost;
 
-	private Double mealCost;
+	private boolean skipped;
 
-	private Double budgetedCost;
+	private Float menuRating;
 
-	private List<MenuItemDto> menuItems;
+	private ResidentFoodFeedbackDto residentfeedbackDto;
 }
