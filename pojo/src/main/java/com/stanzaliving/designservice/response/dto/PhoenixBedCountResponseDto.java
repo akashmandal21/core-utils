@@ -23,6 +23,10 @@ public class PhoenixBedCountResponseDto {
     private int magnaBed;
 
     private int summaBed;
+    
+    private int phoenixBed;
+    
+    private int phoenixRoom;
 
     private String phoenixDesignRemark;
 
