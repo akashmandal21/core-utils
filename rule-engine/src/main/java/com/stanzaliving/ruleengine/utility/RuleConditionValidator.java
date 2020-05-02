@@ -23,13 +23,13 @@ public class RuleConditionValidator {
 							|| StringUtils.isEmpty(combinationDto.getRightOperand())
 							|| Objects.isNull(combinationDto.getOperator())
 			) {
-				throw new StanzaException("Invalid Conditions supplied. left operand , right operand and operator is required.");
+				throw new StanzaException("Invalid Conditions supplied. left operand , right operand and operator are required.");
 			}
 		} else {
 			if (!(
 					StringUtils.isEmpty(combinationDto.getLeftOperand())
-							&& StringUtils.isEmpty(combinationDto.getRightOperand())
-							&& Objects.isNull(combinationDto.getOperator())
+							|| StringUtils.isEmpty(combinationDto.getRightOperand())
+							|| Objects.isNull(combinationDto.getOperator())
 			)) {
 				throw new StanzaException("Invalid Conditions supplied. left operand , right operand and operator can not be used when condition combinations is being used.");
 			}

@@ -6,7 +6,6 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
 
-import java.io.IOException;
 import java.util.*;
 
 @Log4j2
@@ -18,20 +17,20 @@ public class RuleEngine {
 
 	private Boolean valid(ConditionCombinationDto combinationDto) {
 		Long rightValue = Long.valueOf(combinationDto.getRightOperand());
-		Long leftValue = Long.valueOf(expressionVariables.get(combinationDto.getLeftOperand()));
+		Long leftValue = Long.valueOf(expressionVariables.getOrDefault(combinationDto.getLeftOperand(), 0));
 		RuleOperatorEnum operator = combinationDto.getOperator();
 
 		switch (operator) {
 			case EQ:
 				return rightValue.equals(leftValue);
 			case GT:
-				return rightValue > leftValue;
+				return leftValue > rightValue;
 			case GT_EQ:
-				return rightValue >= leftValue;
+				return leftValue >= rightValue;
 			case LT:
-				return rightValue < leftValue;
+				return leftValue < rightValue;
 			case LT_EQ:
-				return rightValue <= leftValue;
+				return leftValue <= rightValue;
 		}
 		return true;
 	}
@@ -69,7 +68,7 @@ public class RuleEngine {
 	public List<ConditionCombinationDto> parseRule(ConditionCombinationDto ruleConditions, Map<String, Integer> valuesMap) {
 		expressionVariables = valuesMap;
 		log.info("Parsing Rule ");
-		List<ConditionCombinationDto> result = validate(Arrays.asList(ruleConditions), null, null);
+		List<ConditionCombinationDto> result = validate(Collections.singletonList(ruleConditions), null, null);
 
 		return result;
 	}
