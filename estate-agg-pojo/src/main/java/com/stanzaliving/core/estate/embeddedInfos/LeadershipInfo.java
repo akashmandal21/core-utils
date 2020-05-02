@@ -1,4 +1,4 @@
-package com.stanzaliving.core.estate.agg.entity;
+package com.stanzaliving.core.estate.embeddedInfos;
 
 import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.GenderAllowed;
@@ -22,9 +22,10 @@ public class LeadershipInfo {
     private SubBrandName subBrandName;
 
     private GenderAllowed gender;
+
+    @Indexed
     @TextIndexed
     private String propertyName;
-
 }
 
 
