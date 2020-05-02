@@ -268,6 +268,7 @@ public enum EstateStatus {
 		estateStatusForUnderDraft.add(SENT_BACK_BY_LEGAL);
 		estateStatusForUnderDraft.add(SENT_BACK_BY_LEADERSHIP);
 		estateStatusForUnderDraft.add(APPROVED_BY_LEADERSHIP);
+		estateStatusForUnderDraft.add(SHORTLISTED);
 		
 		return estateStatusForUnderDraft;
 	}
@@ -290,6 +291,7 @@ public enum EstateStatus {
 		estateStatusForL1Approved.add(SENT_BACK_BY_SANDEEP);
 		estateStatusForL1Approved.add(SENT_BACK_BY_LEGAL);
 		estateStatusForL1Approved.add(SENT_BACK_BY_LEADERSHIP);
+		estateStatusForL1Approved.add(SHORTLISTED);
 		
 		return estateStatusForL1Approved;
 	}
