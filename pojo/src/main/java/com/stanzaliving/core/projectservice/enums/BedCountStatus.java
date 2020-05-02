@@ -10,7 +10,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum BedCountStatus {
 
-	NOT_STARTED("Not Started","#e5e3e3"),
+	NOT_STARTED("Not Available","#e5e3e3"),
 	IN_DRAFT("In draft","#e5e3e3"),
 	SUBMITTED("Submitted","#e5e3e3"),
 	ZONAL_HEAD("Zonal Head","#e5e3e3"),

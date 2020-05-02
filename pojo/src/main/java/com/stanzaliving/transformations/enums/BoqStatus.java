@@ -14,7 +14,7 @@ import lombok.Getter;
 @Getter
 public enum BoqStatus {
 
-	NOT_STARTED("Not Started", "#e5e3e3",null,null,0),
+	NOT_STARTED("Not Available", "#e5e3e3",null,null,0),
 	DRAFT_IN_PROGRESS("Under Draft", "#e5e3e3",UserType.DESIGN_COORDINATOR,Department.DESIGN,1),
 	SEND_FOR_APPROVAL("Sent For Approval to Zonal Head", "#FFC300",UserType.ZONAL_HEAD,Department.DESIGN,2),
 	APPROVED_BY_ZH("Sent For Approval to Design Head", "#FFC300",UserType.NATIONAL_HEAD,Department.DESIGN,3),
