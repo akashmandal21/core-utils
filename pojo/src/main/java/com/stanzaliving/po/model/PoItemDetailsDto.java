@@ -31,4 +31,14 @@ public class PoItemDetailsDto {
 
     private Double itemAmount;
 
+    private String cgst;
+
+    private String igst;
+
+    private String sgst;
+
+    private Double gstAmount;
+
+    private Float propertyItemQuantity;
+
 }
