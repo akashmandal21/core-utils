@@ -26,4 +26,10 @@ public class PropertyActionDto {
 		this.status = status;
 		this.description = description;
 	}
+	
+	public PropertyActionDto(boolean status, String description, String submitTextDescription) {
+		this.status = status;
+		this.description = description;
+		this.submitTextDescription = submitTextDescription;
+	}
 }

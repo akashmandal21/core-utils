@@ -249,6 +249,9 @@ public enum EstateStatus {
 		estateStatusForUnderDraft.add(SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD);
 		estateStatusForUnderDraft.add(SENT_FOR_L1_APPROVAL_TO_LEADERSHIP);
 		
+		estateStatusForUnderDraft.add(PENDING_DESIGN_FILES);
+		estateStatusForUnderDraft.add(PENDING_INITIAL_BED_COUNT);
+		
 		estateStatusForUnderDraft.add(APPROVED_L1_BY_LEADERSHIP);
 		estateStatusForUnderDraft.add(APPROVED_BY_NATIONAL_HEAD);
 		estateStatusForUnderDraft.add(APPROVED_BY_TRANSFORMATION);
@@ -257,6 +260,7 @@ public enum EstateStatus {
 		estateStatusForUnderDraft.add(SENT_FOR_SANDEEP_APPROVAL);
 		estateStatusForUnderDraft.add(SENT_TO_LEGAL);	
 		estateStatusForUnderDraft.add(SIGNED_ATL_UPLOADED);
+		estateStatusForUnderDraft.add(ATL_UPLOAD_PENDING);
 		
 		estateStatusForUnderDraft.add(SENT_BACK);
 		estateStatusForUnderDraft.add(SENT_BACK_BY_TRANSFORMATION);
