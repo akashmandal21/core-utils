@@ -23,6 +23,12 @@ public class PhoenixBedCountResponseDto {
     private int magnaBed;
 
     private int summaBed;
+
+    private int primaRoom;
+
+    private int magnaRoom;
+
+    private int summaRoom;
     
     private int phoenixBed;
     
