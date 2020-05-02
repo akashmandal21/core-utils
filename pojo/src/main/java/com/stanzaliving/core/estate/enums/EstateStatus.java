@@ -275,7 +275,6 @@ public enum EstateStatus {
 	public static List<EstateStatus> getEstateStatusForCallBackToL1Approved() {
 		List<EstateStatus> estateStatusForL1Approved = new ArrayList<>();
 		
-		estateStatusForL1Approved.add(APPROVED_L1_BY_LEADERSHIP);
 		estateStatusForL1Approved.add(APPROVED_BY_NATIONAL_HEAD);
 		estateStatusForL1Approved.add(APPROVED_BY_TRANSFORMATION);
 		estateStatusForL1Approved.add(APPROVED_BY_LEADERSHIP);
