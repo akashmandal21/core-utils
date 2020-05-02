@@ -1,6 +1,7 @@
+/**
+ * 
+ */
 package com.stanzaliving.core.food.dto;
-
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,26 +10,27 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * @author naveen.kumar
+ *
+ * @date 01-May-2020
+ *
+ **/
 @Getter
 @Setter
 @ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VendorItemDetailDto extends AbstractDto{
-	
-	private String vendorId;
-	
-	private String residenceId;
-	
-	private String itemId;
-	
-	private Integer itemWeight;
+public class MenuItemStatDto extends MenuItemDto {
 
-	private Integer itemQuantity;
+	private Integer delightedPercent;
 
-	private Double itemCost;
+	private Integer disgustedPercent;
 
-	private Float rating;
+	private Integer orderedInLastThreeDays;
 
+	private Integer orderedInLastSevenDays;
+
+	private Integer orderedInLastThirtyDays;
 }
