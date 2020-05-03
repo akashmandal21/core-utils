@@ -382,6 +382,32 @@ public class AttributeNames {
 		public static final String DOCS_AND_A_M_C_CLAUSE_A_TEXT_AREA = "docsAndAMCClauseATextArea";
 		public static final String COMMON_AREAS_CLAUSE_A_TEXT_AREA = "commonAreasClauseATextArea";
 		
+		public static final String SIGNAGE_CLAUSE_A_TEXT_AREA = "signangeLevelClauseATextArea";
+		public static final String SIGNAGE_CLAUSE_A_REMARK = "signangeRemarks";
+		
+		public static final String IT_CLAUSE_A_TEXT_AREA = "ITLevelClauseATextArea";
+		public static final String IT_CLAUSE_A_REMARK = "cctvWithDvrRemarks";
+		
+		public static final String IT_CLAUSE_B_TEXT_AREA = "ITLevelClauseBTextArea";
+		public static final String IT_CLAUSE_B_REMARK = "highSpeedBroadbandRemarks";
+
+		public static final String IT_CLAUSE_C_TEXT_AREA = "ITLevelClauseCTextArea";
+		public static final String IT_CLAUSE_C_REMARK = "dthConnectionRemarks";
+
+		public static final String SUPERVISOR_ROOM_CLAUSE_A_TEXT_AREA = "SupervisorLevelClauseATextArea";
+		public static final String SUPERVISOR_ROOM_CLAUSE_A_REMARK = "supervisorRoomRemarks";
+
+		public static final String PARKING_CLAUSE_A_TEXT_AREA = "parkingLevelClauseATextArea";
+		public static final String PARKING_CLAUSE_A_REMARK = "parkingRemarks";
+		
+		public static final String LANDSCAPE_CLAUSE_A_TEXT_AREA = "landscapeLevelClauseATextArea";
+		public static final String LANDSCAPE_CLAUSE_A_REMARK = "softAndHardRemarks";
+		
+		public static final String LANDSCAPE_CLAUSE_B_TEXT_AREA = "landscapeLevelClauseBTextArea";
+		public static final String LANDSCAPE_CLAUSE_B_REMARK = "paversRemarks";
+
+
+
 		public static final String DUE_DILIGINCE_CHECKLIST_1 = "dueDigilenceChecklist1";
 		public static final String DUE_DILIGINCE_CHECKLIST_2 = "dueDigilenceChecklist2";
 		public static final String DUE_DILIGINCE_CHECKLIST_3 = "dueDigilenceChecklist3";

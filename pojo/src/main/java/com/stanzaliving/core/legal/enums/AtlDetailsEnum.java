@@ -90,7 +90,18 @@ public enum AtlDetailsEnum {
     LIFT_CLAUSE_E_TEXT_AREA("Lift", "(Lease Term)", AttributeNames.LIFT_CLAUSE_E_TEXT_AREA, AttributeNames.LIFT_LICENSE_RENEWAL_REMARKS, "Lift license renewal / fitness Deed (wherever applicable)"),
 
     DOCS_AND_A_M_C_CLAUSE_A_TEXT_AREA("Docs & AMC", "(One Time)", AttributeNames.DOCS_AND_A_M_C_CLAUSE_A_TEXT_AREA, AttributeNames.ALL_TEST_CERTIFICATE_AND_DOCUMENTS, "All test certificate and Documents / Warranty certificate /manual of all equipment need to be provided by the Lessor. System to be tested with Lessee engineer before handing over to Lessee"),
-    COMMON_AREAS_CLAUSE_A_TEXT_AREA("Common Areas", "(Lease Term)", AttributeNames.COMMON_AREAS_CLAUSE_A_TEXT_AREA, AttributeNames.LIGHTING_AND_POWER_TO_BE_INSTALLED_REMARKS, "If common areas shared by Lessor & Lessee, the lighting & power to be installed & maintained by Lessor");
+    COMMON_AREAS_CLAUSE_A_TEXT_AREA("Common Areas", "(Lease Term)", AttributeNames.COMMON_AREAS_CLAUSE_A_TEXT_AREA, AttributeNames.LIGHTING_AND_POWER_TO_BE_INSTALLED_REMARKS, "If common areas shared by Lessor & Lessee, the lighting & power to be installed & maintained by Lessor"),
+
+	SIGNAGE_CLAUSE_A_TEXT_AREA("Signage", "(One Time Before Handing Over)", AttributeNames.SIGNAGE_CLAUSE_A_TEXT_AREA, AttributeNames.SIGNAGE_CLAUSE_A_REMARK, "a. Electrical connections as required for facade signage in locations defined by Service Provider"),
+	IT_CLAUSE_A_TEXT_AREA("CCTV with DVR", "(One Time Before Handing Over)", AttributeNames.IT_CLAUSE_A_TEXT_AREA, AttributeNames.IT_CLAUSE_A_REMARK, "CCTV with DVR as per the Specifications and Layout Provided by the Service Provider"),
+	IT_CLAUSE_B_TEXT_AREA("High Speed Broadband/Network Line", "(One Time Before Handing Over)", AttributeNames.IT_CLAUSE_B_TEXT_AREA, AttributeNames.IT_CLAUSE_B_REMARK, "High Speed Broadband/Line from Network Operators Defined by Service Provider to be Installed"),
+	IT_CLAUSE_C_TEXT_AREA("DTH Connection", "(One Time Before Handing Over)", AttributeNames.IT_CLAUSE_C_TEXT_AREA, AttributeNames.IT_CLAUSE_C_REMARK, "DTH connection to be provided for all Televisions installed in the building"),
+	
+	SUPERVISOR_ROOM_CLAUSE_A_TEXT_AREA("Supervisor Room", "(One Time Before Handing Over)", AttributeNames.SUPERVISOR_ROOM_CLAUSE_A_TEXT_AREA, AttributeNames.SUPERVISOR_ROOM_CLAUSE_A_REMARK, "To be provided with table, chair, bed, wardrobe, TV connection and provision for CCTV monitoring"),
+	PARKING_CLAUSE_A_TEXT_AREA("Residents Parking and Access Control", "(One Time Before Handing Over)", AttributeNames.PARKING_CLAUSE_A_TEXT_AREA, AttributeNames.PARKING_CLAUSE_A_REMARK, "Provision for bike/car parking for residents. Access control to be installed for on-premise parking space"),
+
+	LANDSCAPE_CLAUSE_A_TEXT_AREA("Soft and Hard Scape", "(One Time Before Handing Over)", AttributeNames.LANDSCAPE_CLAUSE_A_TEXT_AREA, AttributeNames.LANDSCAPE_CLAUSE_A_REMARK, "Soft and hard scape in the external areas"),
+	LANDSCAPE_CLAUSE_B_TEXT_AREA("Pavers/CC in the Cirulation Area", "(One Time Before Handing Over)", AttributeNames.LANDSCAPE_CLAUSE_B_TEXT_AREA, AttributeNames.LANDSCAPE_CLAUSE_B_REMARK, "Pavers/CC in the circulation area");
 
 
     private String item;
