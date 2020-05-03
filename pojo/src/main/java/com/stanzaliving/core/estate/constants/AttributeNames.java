@@ -205,6 +205,10 @@ public class AttributeNames {
 		public static final String WATER_TANK_CAPACITY_TO_BE_CALCULATED_REMARKS = "waterTankCapacityToBeCalculatedRemarks";
 		public static final String ANY_MASONRY_PLASTER_CRACKS_REMARKS = "anyMasonryPlasterCracksRemarks";
 		public static final String EXTERNAL_DOOR_WINDOWS_REMARKS = "externalDoorWindowsRemarks";
+		
+		public static final String EXTERIOR_FACADE_CLOSER_REMARKS = "exteriorFacadeCloserRemarks";
+		public static final String FACADE_REPAINTING_REMARKS = "facadeRepaintingRemarks";
+
 		public static final String WEATHER_PROOF_ROOF_REMARKS = "weatherProofRoofRemarks";
 		public static final String USABLE_TERRACE_REMARKS = "usableTerraceRemarks";
 		public static final String FINISHED_FLOORING_REMARKS = "finishedFlooringRemarks";
@@ -325,6 +329,8 @@ public class AttributeNames {
 		public static final String WATER_STORAGE_CLAUSE_A_TEXT_AREA = "waterStorageClauseATextArea";
 		public static final String FACADE_CLAUSE_A_TEXT_AREA = "facadeClauseATextArea";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA = "facadeClauseBTextArea";
+		public static final String FACADE_CLAUSE_C_TEXT_AREA = "facadeClauseCTextArea";
+		public static final String FACADE_CLAUSE_D_TEXT_AREA = "facadeClauseDTextArea";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA_1 = "facadeClauseBTextArea1";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA_2 = "facadeClauseBTextArea2";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA_3 = "facadeClauseBTextArea3";
