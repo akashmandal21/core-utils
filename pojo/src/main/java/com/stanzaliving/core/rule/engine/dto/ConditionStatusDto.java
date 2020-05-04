@@ -1,5 +1,4 @@
-package com.stanzaliving.ruleengine.dto;
-
+package com.stanzaliving.core.rule.engine.dto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -11,5 +10,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ConditionStatusDto extends ConditionDto {
+
 	private Boolean passed;
 }

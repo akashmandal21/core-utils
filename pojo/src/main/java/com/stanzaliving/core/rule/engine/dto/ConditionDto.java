@@ -1,4 +1,4 @@
-package com.stanzaliving.ruleengine.dto;
+package com.stanzaliving.core.rule.engine.dto;
 
 import com.stanzaliving.core.base.enums.RuleOperatorEnum;
 import lombok.*;
@@ -15,6 +15,8 @@ public class ConditionDto {
 	private String leftOperand;
 
 	private RuleOperatorEnum operator;
+	
+	private String operatorValue;
 
 	private String rightOperand;
 }

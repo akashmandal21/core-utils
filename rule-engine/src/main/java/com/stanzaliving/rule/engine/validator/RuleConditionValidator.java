@@ -1,13 +1,15 @@
-package com.stanzaliving.ruleengine.utility;
-
-import com.stanzaliving.core.base.exception.StanzaException;
-import com.stanzaliving.ruleengine.dto.ConditionCombinationDto;
-import lombok.experimental.UtilityClass;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
+package com.stanzaliving.rule.engine.validator;
 
 import java.util.List;
 import java.util.Objects;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import com.stanzaliving.core.base.exception.StanzaException;
+import com.stanzaliving.core.rule.engine.dto.ConditionCombinationDto;
+
+import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class RuleConditionValidator {
@@ -17,20 +19,16 @@ public class RuleConditionValidator {
 			return;
 		}
 
-		if (CollectionUtils.isEmpty(combinationDto.getConditions())){
-			if (
-					StringUtils.isEmpty(combinationDto.getLeftOperand())
-							|| StringUtils.isEmpty(combinationDto.getRightOperand())
-							|| Objects.isNull(combinationDto.getOperator())
-			) {
+		if (CollectionUtils.isEmpty(combinationDto.getConditions())) {
+			if (StringUtils.isEmpty(combinationDto.getLeftOperand())
+					|| StringUtils.isEmpty(combinationDto.getRightOperand())
+					|| Objects.isNull(combinationDto.getOperator())) {
 				throw new StanzaException("Invalid Conditions supplied. left operand , right operand and operator are required.");
 			}
 		} else {
-			if (
-					!StringUtils.isEmpty(combinationDto.getLeftOperand())
-							|| !StringUtils.isEmpty(combinationDto.getRightOperand())
-							|| !Objects.isNull(combinationDto.getOperator())
-			) {
+			if (!StringUtils.isEmpty(combinationDto.getLeftOperand())
+					|| !StringUtils.isEmpty(combinationDto.getRightOperand())
+					|| !Objects.isNull(combinationDto.getOperator())) {
 				throw new StanzaException("Invalid Conditions supplied. left operand , right operand and operator can not be used when condition combinations is being used.");
 			}
 
@@ -40,8 +38,7 @@ public class RuleConditionValidator {
 		}
 	}
 
-
-	public Boolean isValid(List<ConditionCombinationDto> combinationDtos){
+	public Boolean isValid(List<ConditionCombinationDto> combinationDtos) {
 		if (CollectionUtils.isEmpty(combinationDtos)) {
 			return true;
 		}
