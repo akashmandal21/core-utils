@@ -12,7 +12,7 @@ public enum Department {
     PROCUREMENT ("Procurement"),
     DESIGN ("Design"),
     PROJECTS ("Projects"),
-    TRANSFORMATIONS ("Transformations"),
+    TRANSFORMATIONS ("Transformation"),
     SALES ("Sales"),
     WEB ("Web"),
     GC("GC Procurement");
