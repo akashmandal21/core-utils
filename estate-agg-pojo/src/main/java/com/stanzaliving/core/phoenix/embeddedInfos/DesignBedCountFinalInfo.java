@@ -1,7 +1,5 @@
-package com.stanzaliving.core.phoenix.embeddedInfos;
+package com.stanzaliving.core.phoenix.embeddedinfos;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.stanzaliving.core.projectservice.enums.BedCountStatus;
 import com.stanzaliving.designservice.enums.PhoenixDesignStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

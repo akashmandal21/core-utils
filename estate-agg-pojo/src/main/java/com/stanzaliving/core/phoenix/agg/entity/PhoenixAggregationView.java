@@ -3,7 +3,7 @@ package com.stanzaliving.core.phoenix.agg.entity;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.estate.embeddedInfos.DesignBedInfo;
 import com.stanzaliving.core.mongobase.entity.AbstractMongoEntity;
-import com.stanzaliving.core.phoenix.embeddedInfos.*;
+import com.stanzaliving.core.phoenix.embeddedinfos.*;
 import com.stanzaliving.core.projectservice.enums.GFCStatus;
 import com.stanzaliving.core.projectservice.enums.PropertyUpdateEnum;
 import com.stanzaliving.core.user.enums.UserType;
