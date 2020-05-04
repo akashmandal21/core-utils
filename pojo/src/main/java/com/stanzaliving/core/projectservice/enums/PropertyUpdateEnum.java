@@ -31,6 +31,7 @@ public enum  PropertyUpdateEnum {
 
     //Project Schedule
     PROJECT_SCHEDULE_CREATION_COMPLETE("Full Project Schedule created",true,NotificationTaskType.FULL_PROJECT_SCHEDULE_CREATED_ON_APP),
+    TASK_STARTED("Task start",false, NotificationTaskType.TASK_MARKED_STARTED_ON_APP),
     TASK_DELAYED("Task marked delayed",false,NotificationTaskType.TASK_MARKED_DELAYED_ON_APP),
     TASK_COMPLETED("Task marked Completed",false,NotificationTaskType.TASK_MARKED_COMPLETED_ON_APP),
 
