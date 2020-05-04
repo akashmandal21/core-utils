@@ -10,7 +10,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum BedCountStatus {
 
-	NOT_STARTED("Not Started","#e5e3e3"),
+	NOT_STARTED("Not Available","#e5e3e3"),
 	IN_DRAFT("In draft","#e5e3e3"),
 	SUBMITTED("Submitted","#e5e3e3"),
 	ZONAL_HEAD("Zonal Head","#e5e3e3"),
@@ -19,7 +19,7 @@ public enum BedCountStatus {
 	SENT_BACK_BY_DESIGN_HEAD("Sent back by design head","#e5e3e3"),
 	TRANSFORMATIONS("Sent For Approval","#e5e3e3"),
 	APPROVED_BY_TRANSFORMATIONS("Approved By Transformations","#e5e3e3"),
-	SENT_BACK_BY_TRANSFORMATIONS("Sent back by tranformation","#e5e3e3"),
+	SENT_BACK_BY_TRANSFORMATIONS("Sent Back By Transformations","#e5e3e3"),
 	LEADERSHIP("Leadership","#e5e3e3"),
 	SENT_BACK_BY_LEADERSHIP("sent back by leadership","#e5e3e3");
 

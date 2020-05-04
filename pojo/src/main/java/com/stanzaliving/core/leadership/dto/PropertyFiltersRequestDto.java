@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.leadership.dto;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,9 +30,11 @@ public class PropertyFiltersRequestDto {
 	private DateRangeFilter dateRangeFilter;
 	private BrandFilter brandFilter;
 	private UserFilter userFilter;
-	private Map<SortFilterEnum, String> sortByFilter;
+	private LinkedHashMap<SortFilterEnum, String> sortByFilter;
 	private Map<SortFilterEnum, String> sortingFields;
 	
 	private Map<EstateStatus, String> estateStatusDisplay;
 	private Map<NucleusDashboardEnums, List<EstateStatus>> nucleusDashboardStatusMap;
+	
+	private LinkedHashMap<String, List<EstateStatus>> appQuickFilters;
 }

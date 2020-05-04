@@ -6,6 +6,7 @@ package com.stanzaliving.core.estate.enums;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -64,8 +65,16 @@ public enum EstateStatus {
 
 	//Sandeep's approval & sent back
 	SENT_FOR_SANDEEP_APPROVAL("Sent for Sandeep's approval"),
-	SENT_BACK_BY_SANDEEP("Sent back by Sandeep");
+	SENT_BACK_BY_SANDEEP("Sent back by Sandeep"),
 
+	DROPPED_REQUESTED("Property Drop Request Raised"),
+	DROPPED("Property Dropped"),
+	DROPPED_DECLINE("Property Dropped Decline"),
+	
+	CALLBACK_TO_UNDER_DRAFT("Call Back Requested For Under Draft"),
+	CALLBACK_TO_L1_APPROVED("Call Back Requested For L1 Approved"),
+	CALLBACK_DECLINE("Callback Decline");
+	
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
 	private String name;
@@ -84,6 +93,8 @@ public enum EstateStatus {
 		NON_MODIFIABLE_ESTATE_STATUS = Arrays.asList(SENT_FOR_APPROVAL, SHORTLISTED);
 	}
 
+	
+	
 	private EstateStatus(String name) {
 		this.name = name;
 	}
@@ -92,7 +103,40 @@ public enum EstateStatus {
 		return estateStatusMap;
 	}
 
+	public static List<EstateStatus> getTransformationStatus(){
+
+		List<EstateStatus> transformationStatusesList = new ArrayList<>();
+
+		transformationStatusesList.add(SENT_FOR_APPROVAL);
+		transformationStatusesList.add(SENT_BACK);
+		transformationStatusesList.add(APPROVED_BY_NATIONAL_HEAD);
+		transformationStatusesList.add(SENT_BACK_BY_TRANSFORMATION);
+		transformationStatusesList.add(APPROVED_BY_TRANSFORMATION);
+		transformationStatusesList.add(SHORTLISTED);
+		transformationStatusesList.add(APPROVED_BY_LEADERSHIP);
+		transformationStatusesList.add(SENT_FOR_SANDEEP_APPROVAL);
+		transformationStatusesList.add(SENT_BACK_BY_SANDEEP);
+		
+		return transformationStatusesList;
+	}
+
+	public static List<EstateStatus> getLegalStatus(){
+
+		List<EstateStatus> transformationStatusesList = new ArrayList<>();
+
+		transformationStatusesList.add(SENT_TO_LEGAL);
+		transformationStatusesList.add(SIGNED_ATL_UPLOADED);
+		transformationStatusesList.add(SENT_BACK_BY_LEGAL);
+		transformationStatusesList.add(SENT_BACK_BY_LEADERSHIP);
+		transformationStatusesList.add(ATL_UPLOAD_PENDING);
+		transformationStatusesList.add(APPROVED_BY_LEADERSHIP);
+		
+		return transformationStatusesList;
+	}
+
+	
 	public static List<EstateStatus> getSendForApprovalStatuses() {
+
 		List<EstateStatus> sendForApprovalStatusesList = new ArrayList<>();
 		sendForApprovalStatusesList.add(SENT_FOR_APPROVAL_TO_CITY_HEAD);
 		sendForApprovalStatusesList.add(SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES);
@@ -140,7 +184,7 @@ public enum EstateStatus {
 		pendingAtBdStatus.add(APPROVED_L1_BY_LEADERSHIP);
 		pendingAtBdStatus.add(ATL_UPLOAD_PENDING);
 		
-		return pendingAtBdStatus;	
+		return pendingAtBdStatus;
 	}
 	
 	public static List<EstateStatus> getPropertyNamingDone() {
@@ -151,11 +195,98 @@ public enum EstateStatus {
 		return propertyNamingDoneList;	
 	}
 	
+	public static List<EstateStatus> getDroppedStatus() {
+		List<EstateStatus> propertyNamingDoneList = new ArrayList<>();
+		
+		propertyNamingDoneList.add(DROPPED);
+		
+		return propertyNamingDoneList;	
+	}
+	
+	public static LinkedHashMap<String,List<EstateStatus>> bdQuickFilters() {
+
+		LinkedHashMap<String,List<EstateStatus>> bdFilters = new LinkedHashMap<>(); 
+		
+		bdFilters.put("Under Draft", Arrays.asList(DRAFT_IN_PROGRESS));
+		bdFilters.put("Pending Action", Arrays.asList(APPROVED_L1_BY_LEADERSHIP,ATL_UPLOAD_PENDING));
+		bdFilters.put("Sent Back", Arrays.asList(SENT_BACK_BY_CITY_HEAD,SENT_BACK_L1_BY_NATIONAL_HEAD,SENT_BACK_L1_BY_LEADERSHIP,SENT_BACK_FROM_INITIAL_BED_COUNT));
+		return bdFilters;	
+	}
+
+
+	public static LinkedHashMap<String,List<EstateStatus>> rmQuickFilters() {
+
+		LinkedHashMap<String,List<EstateStatus>> bdFilters = new LinkedHashMap<>(); 
+		
+		bdFilters.put("Under Draft", Arrays.asList(DRAFT_IN_PROGRESS));
+		bdFilters.put("Pending Approval", Arrays.asList(SENT_FOR_APPROVAL_TO_CITY_HEAD,SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES));
+		bdFilters.put("Sent Back", Arrays.asList(SENT_BACK,SENT_BACK_BY_TRANSFORMATION,SENT_BACK_BY_LEGAL,SENT_BACK_BY_SANDEEP,SENT_BACK_BY_LEADERSHIP,SENT_BACK_L1_BY_NATIONAL_HEAD,SENT_BACK_L1_BY_LEADERSHIP,SENT_BACK_FROM_INITIAL_BED_COUNT));
+		bdFilters.put("Pending Action", Arrays.asList(APPROVED_L1_BY_LEADERSHIP,PENDING_DESIGN_FILES));
+		return bdFilters;
+	}
+
+	
 	public static List<EstateStatus> getPropertyUnderDraft() {
 		List<EstateStatus> propertyUnderDraftList = new ArrayList<>();
 		
 		propertyUnderDraftList.add(DRAFT_IN_PROGRESS);
 		
 		return propertyUnderDraftList;	
+	}
+	
+	public static List<EstateStatus> getPropertyDropStatuses() {
+		List<EstateStatus> propertyDropStatuses = new ArrayList<>();
+		
+		propertyDropStatuses.add(EstateStatus.DROPPED_REQUESTED);
+		propertyDropStatuses.add(EstateStatus.DROPPED);
+		
+		return propertyDropStatuses;
+	}
+	
+	public static List<EstateStatus> getEstateStatusForCallBackToUnderDraft() {
+		List<EstateStatus> estateStatusForUnderDraft = new ArrayList<>();
+		
+		estateStatusForUnderDraft.add(SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD);
+		estateStatusForUnderDraft.add(SENT_FOR_L1_APPROVAL_TO_LEADERSHIP);
+		
+		estateStatusForUnderDraft.add(APPROVED_L1_BY_LEADERSHIP);
+		estateStatusForUnderDraft.add(APPROVED_BY_NATIONAL_HEAD);
+		estateStatusForUnderDraft.add(APPROVED_BY_TRANSFORMATION);
+		
+		estateStatusForUnderDraft.add(SENT_FOR_APPROVAL);
+		estateStatusForUnderDraft.add(SENT_FOR_SANDEEP_APPROVAL);
+		estateStatusForUnderDraft.add(SENT_TO_LEGAL);	
+		estateStatusForUnderDraft.add(SIGNED_ATL_UPLOADED);
+		
+		estateStatusForUnderDraft.add(SENT_BACK);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_TRANSFORMATION);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_SANDEEP);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_LEGAL);
+		estateStatusForUnderDraft.add(SENT_BACK_BY_LEADERSHIP);
+		estateStatusForUnderDraft.add(APPROVED_BY_LEADERSHIP);
+		
+		return estateStatusForUnderDraft;
+	}
+	
+	public static List<EstateStatus> getEstateStatusForCallBackToL1Approved() {
+		List<EstateStatus> estateStatusForL1Approved = new ArrayList<>();
+		
+		estateStatusForL1Approved.add(APPROVED_L1_BY_LEADERSHIP);
+		estateStatusForL1Approved.add(APPROVED_BY_NATIONAL_HEAD);
+		estateStatusForL1Approved.add(APPROVED_BY_TRANSFORMATION);
+		estateStatusForL1Approved.add(APPROVED_BY_LEADERSHIP);
+		
+		estateStatusForL1Approved.add(SENT_FOR_APPROVAL);
+		estateStatusForL1Approved.add(SENT_FOR_SANDEEP_APPROVAL);
+		estateStatusForL1Approved.add(SENT_TO_LEGAL);	
+		estateStatusForL1Approved.add(SIGNED_ATL_UPLOADED);
+		
+		estateStatusForL1Approved.add(SENT_BACK);
+		estateStatusForL1Approved.add(SENT_BACK_BY_TRANSFORMATION);
+		estateStatusForL1Approved.add(SENT_BACK_BY_SANDEEP);
+		estateStatusForL1Approved.add(SENT_BACK_BY_LEGAL);
+		estateStatusForL1Approved.add(SENT_BACK_BY_LEADERSHIP);
+		
+		return estateStatusForL1Approved;
 	}
 }
