@@ -18,4 +18,8 @@ public enum FoodMenuStatus {
 	WAITING_FOR_VENDOR_APPROVAL("Waiting for Vendor Approval");
 
 	private String statusName;
+
+	public static boolean isStatusEditable(FoodMenuStatus menuStatus) {
+		return UNDER_DRAFT == menuStatus || CHEF_REJECTED == menuStatus || VENDOR_REJECTED == menuStatus;
+	}
 }
