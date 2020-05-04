@@ -49,6 +49,9 @@ public class MasterBoqDto {
     private String acquisitionTypeText;
     private String rateFormatted;
     private String rentalRateFormatted;
+    private String cgst;
+    private String igst;
+    private String sgst;
 
     //For Native Queries. SqlResultSetMapped to MasterBoq in ItemMasterDetails
     public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
@@ -80,7 +83,8 @@ public class MasterBoqDto {
                         String categoryName, String itemUseType,
                         String particular, String descSpec,
                         String acquisitionType, String orderUnit, String length, String breadth, String height,
-                        String thumbnailUrl,String imageUrl,String specDocumentUrl,String brandNames, String subBrandNames, String areaOfUseList) {
+                        String thumbnailUrl,String imageUrl,String specDocumentUrl,String brandNames, String subBrandNames, String areaOfUseList,
+                        String cgst, String igst, String sgst) {
         this.lastUpdatedAt=lastUpdatedAt;
         this.categoryUuid=categoryUuid;
         this.itemId = itemId;
@@ -106,6 +110,9 @@ public class MasterBoqDto {
             this.subBrandNames=Arrays.stream(subBrandNames.split(",")).map(f-> SubBrandName.valueOf(f.trim()).getSubBrand()).collect(Collectors.joining(", "));;
         this.areaOfUsesMap= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f.trim())).
                 collect(Collectors.toMap(f->f,f->f.getName()));
+        this.cgst = cgst;
+        this.igst = igst;
+        this.sgst = sgst;
     }
 
 }

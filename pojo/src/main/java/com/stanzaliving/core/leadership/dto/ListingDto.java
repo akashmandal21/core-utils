@@ -81,4 +81,6 @@ public class ListingDto {
 	private String houseName;
 	
 	private List<String> images;
+
+	private String brandName;
 }
