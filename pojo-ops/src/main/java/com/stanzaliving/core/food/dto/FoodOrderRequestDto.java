@@ -26,6 +26,10 @@ public class FoodOrderRequestDto {
 	
 	private LocalDate menuDate;
 	
+	private Boolean ordered;
+	
+	private Boolean withinBudget;
+	
 	private List<FoodOrderDetailDto> foodOrderDetailDtos;
 
 }
