@@ -8,6 +8,7 @@ import java.util.Map;
 @Getter
 public enum PhoenixDesignStatus {
 
+	NOT_STARTED("Not Available","#e5e3e3"),
 	IN_DRAFT("In draft","#e5e3e3"),
 	SUBMITTED("Submitted","#e5e3e3"),
 	TRANSFORMATIONS("Sent For Approval","#e5e3e3"),
