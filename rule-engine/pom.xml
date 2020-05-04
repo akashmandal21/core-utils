@@ -7,6 +7,12 @@
 
 	<artifactId>rule-engine</artifactId>
 	<packaging>jar</packaging>
+	<developers>
+		<developer>
+			<name>Piyush Srivastava</name>
+			<email>piyush.srivastava@stanzaliving.com</email>
+		</developer>
+	</developers>
 
 	<dependencies>
 		<dependency>

@@ -13,6 +13,13 @@ import com.stanzaliving.core.rule.engine.dto.ConditionCombinationDto;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
+/**
+ * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
+ *
+ * @date 01-May-2020
+ *
+ */
+
 @Log4j2
 @UtilityClass
 public class RuleEngine {
