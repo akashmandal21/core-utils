@@ -454,7 +454,13 @@ public class AttributeNames {
 
 
 
-
+		/*********************************BTS Question Attributes******************************************/
+		public static final String ON_SIGNING_ATL_BTS = "onSigningATLBTS";
+		public static final String ON_FLOOR_SLAB_COMPLETION_BTS = "onFloorSlabCompletionBTS";
+		public static final String OTHERS_BTS = "othersBTS";
+		public static final String ON_COMPLETION_BTS = "onCompletionBTS";
+		
+		
 		public static final Map<ImmutablePair<String, String>, List<String>> kQuestionMap = new HashMap<ImmutablePair<String, String>, List<String>>() {
 			/**
 			 * 
