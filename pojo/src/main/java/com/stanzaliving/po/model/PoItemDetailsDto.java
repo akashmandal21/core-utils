@@ -15,6 +15,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class PoItemDetailsDto {
 
+	private int sequence;
+	
     private String poItemDetailsId;
 
     private String itemCode;
