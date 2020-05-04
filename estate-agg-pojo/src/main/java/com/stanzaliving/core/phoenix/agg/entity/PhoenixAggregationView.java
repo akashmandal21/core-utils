@@ -25,20 +25,20 @@ import java.util.Map;
 @TypeAlias("phoenixAggregationViewEntity")
 public class PhoenixAggregationView extends AbstractMongoEntity {
 
-    PropertyBasicInfo propertyBasicInfo;
-    Map<Department,Map<UserType,String>> stakeholders;
-    Map<PropertyUpdateEnum,List<PropertyUpdateDetail>> propertyUpdateTracker;
-    BoqInfo masterBoqInfo;
+    private PropertyBasicInfo propertyBasicInfo;
+    private Map<Department,Map<UserType,String>> stakeholders;
+    private Map<PropertyUpdateEnum,List<PropertyUpdateDetail>> propertyUpdateTracker;
+    private BoqInfo masterBoqInfo;
     //Map<String,BoqInfo> extraBoqInfos; //boqPrUuid -> ExtraBoqs
-    ProjectSchedule projectSchedule;
-    HotoInfo hotoInfo;
-    GFCStatus gfcStatus;
-    List<GFCInfo> gfcInfo;
-    AsIsInfo asIsInfo;
-    PhoenixBedCountInfo phoenixBedCountInfo;
-    DesignBedCountFinalInfo designBedCountFinalInfo;
-    DesignBedInfo initialBedCountInfo;
-    GCScheduleInfo gcScheduleInfo;
-    List<PoInfo> poDetails; //Po Details Uuid to PoInfo Mapping.
-    AnalyticKeys analyticKeys;
+    private ProjectSchedule projectSchedule;
+    private HotoInfo hotoInfo;
+    private GFCStatus gfcStatus;
+    private List<GFCInfo> gfcInfo;
+    private AsIsInfo asIsInfo;
+    private PhoenixBedCountInfo phoenixBedCountInfo;
+    private DesignBedCountFinalInfo designBedCountFinalInfo;
+    private DesignBedInfo initialBedCountInfo;
+    private GCScheduleInfo gcScheduleInfo;
+    private List<PoInfo> poDetails; //Po Details Uuid to PoInfo Mapping.
+    private AnalyticKeys analyticKeys;
 }
