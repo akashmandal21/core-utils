@@ -3,6 +3,11 @@ package com.stanzaliving.core.base.utils;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+
 @UtilityClass
 public class NumberUtils {
 
@@ -61,6 +66,18 @@ public class NumberUtils {
         } catch (NumberFormatException ex) {
             return false;
         }
+    }
+
+    public static List<Object> convertBigIntegerAndBigDecimal(Object[] record) {
+        List<Object> updatedRecord = new ArrayList<>(record.length);
+        Object updatedObject;
+
+        for (Object object : record) {
+            updatedObject = (null == object) ? object : object instanceof BigDecimal ? ((BigDecimal) object).doubleValue()
+                    : object instanceof BigInteger ? ((BigInteger) object).intValue() : object;
+            updatedRecord.add(updatedObject);
+        }
+        return updatedRecord;
     }
 
 }
