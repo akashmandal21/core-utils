@@ -17,6 +17,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodMenuBudgetDto {
 
+	private boolean budgetUtilizationInLimit;
+	
 	private List<MealCostDto> weeklyMealCosts;
 
 	private List<MealCostDto> monthlyMealCosts;
