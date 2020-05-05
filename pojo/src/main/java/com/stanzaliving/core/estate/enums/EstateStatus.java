@@ -71,8 +71,8 @@ public enum EstateStatus {
 	DROPPED("Property Dropped"),
 	DROPPED_DECLINE("Property Drop Request Declined"),
 	
-	CALLBACK_TO_UNDER_DRAFT("Call Back Requested For Under Draft"),
-	CALLBACK_TO_L1_APPROVED("Call Back Requested For L1 Approved"),
+	CALLBACK_TO_UNDER_DRAFT("Call Back Request For Under Draft"),
+	CALLBACK_TO_L1_APPROVED("Call Back Request After L1"),
 	CALLBACK_APPROVED("Call Back Request Approved"),
 	CALLBACK_DECLINE("Call Back Request Declined");
 	
@@ -296,4 +296,21 @@ public enum EstateStatus {
 		
 		return estateStatusForL1Approved;
 	}
+	
+	public static List<EstateStatus> getEstateStatusForDocTypeChanged() {
+		List<EstateStatus> estateStatusForL1Approved = new ArrayList<>();
+		
+		estateStatusForL1Approved.add(APPROVED_BY_NATIONAL_HEAD);
+		estateStatusForL1Approved.add(APPROVED_BY_TRANSFORMATION);
+		estateStatusForL1Approved.add(APPROVED_BY_LEADERSHIP);
+		
+		estateStatusForL1Approved.add(SENT_FOR_APPROVAL);
+		estateStatusForL1Approved.add(SENT_FOR_SANDEEP_APPROVAL);
+		estateStatusForL1Approved.add(SENT_TO_LEGAL);	
+		estateStatusForL1Approved.add(SIGNED_ATL_UPLOADED);
+		estateStatusForL1Approved.add(ATL_UPLOAD_PENDING);
+		
+		return estateStatusForL1Approved;
+	}
+
 }
