@@ -3,6 +3,7 @@ package com.stanzaliving.core.phoenix.deserialize.pojo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.stanzaliving.core.agg.deserializers.TimestampDeserializser;
+import com.stanzaliving.core.estate.enums.EstateStatus;
 import com.stanzaliving.core.projectservice.enums.ProjectSummaryStatus;
 import com.stanzaliving.core.projectservice.enums.PropertyStatus;
 import com.stanzaliving.transformations.enums.BrandName;
@@ -188,4 +189,10 @@ public class PropertyInfoCDC {
 
     @JsonProperty("sow_atl_url")
     private String sowAtlUrl;
+
+    @JsonProperty("estate_status")
+    private EstateStatus estateStatus;
+
+    @JsonProperty("is_dropped")
+    private Boolean isDropped;
 }
