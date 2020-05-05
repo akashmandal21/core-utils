@@ -92,7 +92,7 @@ public enum  PropertyUpdateEnum {
     //FOR All other events where there are multiple complete signals. For e.g. Multiple POs/Invoices etc. Marker Event Only
     CHECK_COMPLETED_FROM_SOURCE_SERVICE("Check Completed Status from Source Service",false,null,null),
 
-    PROPERTY_DROPPED("Property Dropped",true,NotificationTaskType.PROPERTY_DROPPED);
+    PROPERTY_DROPPED("Property Dropped",true,NotificationTaskType.PROPERTY_DROPPED,Department.PROJECTS);
 
     private String updateTaskName;
     private boolean needToPersist;

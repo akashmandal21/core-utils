@@ -21,7 +21,6 @@ public class PropertyEstateInfo {
     private String estateUuid;
     private String estateName;
     private Boolean isDropped;
-    private EstateStatus estateStatus;
 
     private Long cityId;
 
