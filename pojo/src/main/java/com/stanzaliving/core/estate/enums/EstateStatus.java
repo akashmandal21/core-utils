@@ -50,7 +50,7 @@ public enum EstateStatus {
 	
 	//ATL Status
 	SIGNED_ATL_UPLOADED("Sent for Property Naming"),
-	ATL_UPLOAD_PENDING("ATL Upload Pending"),
+	ATL_UPLOAD_PENDING("Legal Document Upload Pending"),
 
 	//Leadership Status
 	SENT_BACK_BY_LEADERSHIP("Sent Back By Andy"),
@@ -69,11 +69,12 @@ public enum EstateStatus {
 
 	DROPPED_REQUESTED("Property Drop Request Raised"),
 	DROPPED("Property Dropped"),
-	DROPPED_DECLINE("Property Dropped Decline"),
+	DROPPED_DECLINE("Property Drop Request Declined"),
 	
 	CALLBACK_TO_UNDER_DRAFT("Call Back Requested For Under Draft"),
 	CALLBACK_TO_L1_APPROVED("Call Back Requested For L1 Approved"),
-	CALLBACK_DECLINE("Callback Decline");
+	CALLBACK_APPROVED("Call Back Request Approved"),
+	CALLBACK_DECLINE("Call Back Request Declined");
 	
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
