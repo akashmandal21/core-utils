@@ -32,6 +32,8 @@ public class MenuItemDto {
 	private String itemId;
 
 	private String itemName;
+	
+	private String categoryId;
 
 	private FoodItemType itemType;
 

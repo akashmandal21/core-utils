@@ -17,6 +17,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodMenuRuleValidationResponse {
 
+	private boolean compositionRulesSatisfied;
+	
 	private List<WeeklyRuleMealResponseDto> weeklyRules;
 
 	private List<DailyDatewiseMealResponseDto> dailyRules;
