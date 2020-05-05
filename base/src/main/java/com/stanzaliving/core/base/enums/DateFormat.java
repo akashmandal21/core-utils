@@ -23,7 +23,8 @@ public enum DateFormat {
 	YEAR_IN_WEEK_OF_YEAR("YYYY"),
 	DAY_OF_MONTH("d"),
 	DD_MMM_YYYY("dd-MMM-yyyy"),
-	DATE_TIME_TIME_ZONE("yyyy-MM-dd'T'HH:mm:ss'Z'");
+	DATE_TIME_TIME_ZONE("yyyy-MM-dd'T'HH:mm:ss'Z'"),
+	DD_SPACE_MMM_SPACE_YYYY("dd MMM yyyy");
 
 	private String value;
 
