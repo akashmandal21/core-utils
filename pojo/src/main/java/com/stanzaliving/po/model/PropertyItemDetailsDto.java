@@ -27,4 +27,10 @@ public class PropertyItemDetailsDto {
 
     private Double itemRate;
 
+    private String cgst;
+
+    private String igst;
+
+    private String sgst;
+
 }

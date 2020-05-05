@@ -5,6 +5,7 @@ package com.stanzaliving.core.estate.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.estate.enums.EstateStatus;
+import com.stanzaliving.core.legal.enums.LegalAgreementDocTypes;
 import com.stanzaliving.core.user.dto.Address;
 
 import lombok.AllArgsConstructor;
@@ -51,4 +52,6 @@ public class EstateDto extends AbstractDto {
 	private String managerName;
 	
 	private String propertyName;
+	
+	private LegalAgreementDocTypes legalAgreementDocType;
 }
