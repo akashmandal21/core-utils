@@ -24,7 +24,7 @@ import java.util.Set;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodItemUpdateListingDto {
+public class FoodItemPartialUpdateDto {
 	@NotNull(message = "item uuid is required.")
 	private String uuid;
 
