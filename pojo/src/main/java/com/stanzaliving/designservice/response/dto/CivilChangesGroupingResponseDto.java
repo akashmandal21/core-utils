@@ -16,9 +16,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class DesignFileBackendAndBedTypesResponseDto {
+public class CivilChangesGroupingResponseDto {
 
-	private List<DesignFileBackendResponseDto> designFileBackendResponse;
-	private List<BedTypeAndStatusResponseDto> bedTypeAndStatus;
-	
+	private String estateUuid;
+	List<CivilChangesAttributes> newCivilChanges;
+	List<CivilChangesAttributes> oldCivilChanges;
 }

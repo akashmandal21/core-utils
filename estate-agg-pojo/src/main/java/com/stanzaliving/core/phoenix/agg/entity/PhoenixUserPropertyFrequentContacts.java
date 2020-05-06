@@ -1,7 +1,7 @@
 package com.stanzaliving.core.phoenix.agg.entity;
 
 import com.stanzaliving.core.mongobase.entity.AbstractMongoEntity;
-import com.stanzaliving.core.phoenix.embeddedInfos.FrequentContacts;
+import com.stanzaliving.core.phoenix.embeddedinfos.FrequentContacts;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
