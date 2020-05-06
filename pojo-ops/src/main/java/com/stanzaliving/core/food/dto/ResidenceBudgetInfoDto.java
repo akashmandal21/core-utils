@@ -15,14 +15,16 @@ public class ResidenceBudgetInfoDto {
 
 	private Double monthlyBudget;
 
-	private Double mtdUtilization;
+	private Double mtdCost;
 
 	private Double estimatedMonthlyCost;
 
-	private Double excessBudget;
+	private Double mtdBuffer;
 
-	private Double budgetDeficit;
-
-	private Double todayBudget;
+	private Double mtdBufferPercentage;
+	
+	private Double mtdTargetUtilization;
+	
+	private Double mtdActualUtilization;
 
 }
