@@ -72,7 +72,7 @@ public enum EstateStatus {
 	DROPPED_DECLINE("Property Drop Request Declined"),
 	
 	CALLBACK_TO_UNDER_DRAFT("Call Back Request For Under Draft"),
-	CALLBACK_TO_L1_APPROVED("Call Back Request After L1"),
+	CALLBACK_TO_L1_APPROVED("Callback Request To L1"),
 	CALLBACK_APPROVED("Call Back Request Approved"),
 	CALLBACK_DECLINE("Call Back Request Declined");
 	
