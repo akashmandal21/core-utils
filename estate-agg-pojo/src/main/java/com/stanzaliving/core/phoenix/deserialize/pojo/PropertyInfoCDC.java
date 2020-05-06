@@ -190,8 +190,6 @@ public class PropertyInfoCDC {
     @JsonProperty("sow_atl_url")
     private String sowAtlUrl;
 
-    @JsonProperty("estate_status")
-    private EstateStatus estateStatus;
 
     @JsonProperty("is_dropped")
     private Boolean isDropped;
