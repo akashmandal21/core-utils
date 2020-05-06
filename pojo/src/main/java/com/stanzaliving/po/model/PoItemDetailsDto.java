@@ -15,6 +15,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class PoItemDetailsDto {
 
+	private int sequence;
+	
     private String poItemDetailsId;
 
     private String itemCode;
@@ -38,5 +40,7 @@ public class PoItemDetailsDto {
     private String sgst;
 
     private Double gstAmount;
+
+    private Float propertyItemQuantity;
 
 }

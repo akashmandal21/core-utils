@@ -1,4 +1,4 @@
-package com.stanzaliving.core.phoenix.embeddedInfos;
+package com.stanzaliving.core.phoenix.embeddedinfos;
 
 import com.stanzaliving.core.estate.embeddedInfos.LeadershipInfo;
 import lombok.AllArgsConstructor;
@@ -44,7 +44,7 @@ public class PropertyBasicInfo {
     private String sowAtlUrl;
 
     private Integer numBeds;
-    private String rentFreeDays;
+    private Integer rentFreeDays;
     private Integer numRooms;
     private Integer numPhotos;
     private String thumbnailUrl;
