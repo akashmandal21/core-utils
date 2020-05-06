@@ -32,7 +32,15 @@ public class MealBudgetCalendarDto {
 	private Integer year;
 
 	private Double monthlyBudget;
-
+	
+	private Double estimatedMonthlyCost;
+	
+	private Double mtdUtlization;
+	
+	private Double targetUtilzation;
+	
+	private Double expectedUtilzation;
+	
 	@NotEmpty
 	private Map<FoodDayType, ResidenceMealUtilizationPercentResponseDto> dayTypeUtilizationRules;
 

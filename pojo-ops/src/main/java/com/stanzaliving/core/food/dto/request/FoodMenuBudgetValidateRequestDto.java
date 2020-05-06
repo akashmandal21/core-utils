@@ -3,12 +3,12 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
-import java.util.List;
+import java.util.Map;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
-import com.stanzaliving.core.food.dto.DateWiseFoodMenuDto;
+import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,25 +20,21 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author naveen.kumar
  *
- * @date 04-May-2020
+ * @date 05-May-2020
  *
  **/
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuUpdateRequestDto {
+public class FoodMenuBudgetValidateRequestDto {
 
-	@NotBlank(message = "Menu group id is mandatory")
+	@NotBlank(message = "Menu group id is Mandatory")
 	private String menuGroupId;
 
-	private boolean stanzaKitchenCategory;
-
-	private boolean budgetUtilizationInLimit;
-
-	@NotEmpty(message = "Date wise food menus are mandatory")
-	private List<DateWiseFoodMenuDto> dateWiseFoodMenus;
+	@NotEmpty(message = "Meal Type Cost is mandatory")
+	private Map<MealType, Double> mealTypeCost;
 
 }
