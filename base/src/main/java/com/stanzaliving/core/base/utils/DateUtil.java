@@ -52,7 +52,7 @@ public class DateUtil {
 	public String convertLocalDateTimeToDateFormatString(LocalDateTime localDateTime, DateFormat dateFormat) {
 
 		if (localDateTime != null) {
-			Date date = convertToDate(localdateTime);
+			Date date = convertToDate(localDateTime);
 			return customDateFormatter(date, dateFormat);
 		}
 
