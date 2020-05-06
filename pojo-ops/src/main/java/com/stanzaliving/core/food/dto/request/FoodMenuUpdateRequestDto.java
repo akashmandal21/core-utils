@@ -36,11 +36,7 @@ public class FoodMenuUpdateRequestDto {
 
 	private boolean stanzaKitchenCategory;
 
-	private boolean compositionRulesSatisfied;
-
 	private boolean budgetUtilizationInLimit;
-
-	private boolean vendorSelected;
 
 	@NotEmpty(message = "Date wise food menus are mandatory")
 	private List<DateWiseFoodMenuDto> dateWiseFoodMenus;
