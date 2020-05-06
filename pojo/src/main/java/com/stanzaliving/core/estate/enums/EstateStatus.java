@@ -312,5 +312,27 @@ public enum EstateStatus {
 		
 		return estateStatusForL1Approved;
 	}
+	
+	public static List<EstateStatus> getDropUnderDraftStatus() {
+		List<EstateStatus> dropUnderDraftStatus = new ArrayList<>();
+		
+		dropUnderDraftStatus.add(DRAFT_IN_PROGRESS);
+		dropUnderDraftStatus.add(SENT_FOR_APPROVAL_TO_CITY_HEAD);
+		dropUnderDraftStatus.add(SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES);
+		dropUnderDraftStatus.add(SENT_BACK_BY_CITY_HEAD);
+				
+		return dropUnderDraftStatus;
+	}
+	
+	public static List<EstateStatus> getDropNHStatus() {
+		List<EstateStatus> dropUnderNHStatus = new ArrayList<>();
+		
+		dropUnderNHStatus.add(SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD);
+		dropUnderNHStatus.add(SENT_BACK_L1_BY_NATIONAL_HEAD);		
+		dropUnderNHStatus.add(PENDING_DESIGN_FILES);
+		dropUnderNHStatus.add(SENT_BACK_FROM_INITIAL_BED_COUNT);
+		
+		return dropUnderNHStatus;
+	}
 
 }
