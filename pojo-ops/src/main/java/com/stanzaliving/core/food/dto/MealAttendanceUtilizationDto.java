@@ -19,6 +19,4 @@ public class MealAttendanceUtilizationDto {
 	
 	private Double utilization;
 	
-	private Double cost;
-
 }

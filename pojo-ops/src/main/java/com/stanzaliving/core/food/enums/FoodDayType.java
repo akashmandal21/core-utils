@@ -18,7 +18,8 @@ public enum FoodDayType {
 
 	WEEK_DAY("Week Day"),
 	WEEK_END("Week End"),
-	HOLIDAY("Holiday");
+	HOLIDAY("Holiday"),
+	NONVEG_DAY("Nonveg Day");
 
 	private String dayName;
 }
