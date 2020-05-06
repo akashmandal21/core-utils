@@ -48,6 +48,17 @@ public class DateUtil {
 
 		return null;
 	}
+	
+	public String convertLocalDateTimeToDateFormatString(LocalDateTime localDateTime, DateFormat dateFormat) {
+
+		if (localDateTime != null) {
+			Date date = convertToDate(localdateTime);
+			return customDateFormatter(date, dateFormat);
+		}
+
+		return null;
+
+	}
 
 	public Date customDateParser(String dateInput, DateFormat dateFormat) {
 
