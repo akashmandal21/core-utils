@@ -20,7 +20,6 @@ public class PropertyEstateInfo {
     @Indexed(unique = true)
     private String estateUuid;
     private String estateName;
-    private Boolean isDropped;
 
     private Long cityId;
 
