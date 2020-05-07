@@ -101,8 +101,10 @@ public enum AtlDetailsEnum {
 	PARKING_CLAUSE_A_TEXT_AREA("Residents Parking and Access Control", "(One Time Before Handing Over)", AttributeNames.PARKING_CLAUSE_A_TEXT_AREA, AttributeNames.PARKING_CLAUSE_A_REMARK, "Provision for bike/car parking for residents. Access control to be installed for on-premise parking space"),
 
 	LANDSCAPE_CLAUSE_A_TEXT_AREA("Soft and Hard Scape", "(One Time Before Handing Over)", AttributeNames.LANDSCAPE_CLAUSE_A_TEXT_AREA, AttributeNames.LANDSCAPE_CLAUSE_A_REMARK, "Soft and hard scape in the external areas"),
-	LANDSCAPE_CLAUSE_B_TEXT_AREA("Pavers/CC in the Cirulation Area", "(One Time Before Handing Over)", AttributeNames.LANDSCAPE_CLAUSE_B_TEXT_AREA, AttributeNames.LANDSCAPE_CLAUSE_B_REMARK, "Pavers/CC in the circulation area");
+	LANDSCAPE_CLAUSE_B_TEXT_AREA("Pavers/CC in the Cirulation Area", "(One Time Before Handing Over)", AttributeNames.LANDSCAPE_CLAUSE_B_TEXT_AREA, AttributeNames.LANDSCAPE_CLAUSE_B_REMARK, "Pavers/CC in the circulation area"),
 
+	BOUNDARY_WALL_CLAUSE_A_TEXT_AREA("Boundary Wall Paint", "(One Time Before Handing Over)", AttributeNames.BOUNDARY_WALL_CLAUSE_A_TEXT_AREA, AttributeNames.BOUNDARY_WALL_CLAUSE_A_REMARK, "a. To be painted with the waterproof paint as per the specifications provided by the Service Provider"),
+	BOUNDARY_WALL_CLAUSE_B_TEXT_AREA("Light Fixture on Entrance & Boundary Wall Paint", "(One Time Before Handing Over)", AttributeNames.BOUNDARY_WALL_CLAUSE_B_TEXT_AREA, AttributeNames.BOUNDARY_WALL_CLAUSE_B_REMARK, "b. Light fixtures to be provided with IP 65 rating at the entrance and on the boundary wall");
 
     private String item;
 

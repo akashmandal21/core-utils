@@ -406,7 +406,11 @@ public class AttributeNames {
 		public static final String LANDSCAPE_CLAUSE_B_TEXT_AREA = "landscapeLevelClauseBTextArea";
 		public static final String LANDSCAPE_CLAUSE_B_REMARK = "paversRemarks";
 
-
+		public static final String BOUNDARY_WALL_CLAUSE_A_TEXT_AREA = "boundaryWallClauseATextArea";
+		public static final String BOUNDARY_WALL_CLAUSE_A_REMARK = "boundaryWallPaintRemarks";
+		
+		public static final String BOUNDARY_WALL_CLAUSE_B_TEXT_AREA = "boundaryWallClauseATextArea";
+		public static final String BOUNDARY_WALL_CLAUSE_B_REMARK = "boundaryWallPaintRemarks";
 
 		public static final String DUE_DILIGINCE_CHECKLIST_1 = "dueDigilenceChecklist1";
 		public static final String DUE_DILIGINCE_CHECKLIST_2 = "dueDigilenceChecklist2";
