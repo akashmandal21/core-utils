@@ -82,6 +82,7 @@ public enum  PropertyUpdateEnum {
     PO_SUBMITTED("PO Submitted",false,NotificationTaskType.PO_SUBMITTED),
     PO_REJECTED("PO Rejected",false,NotificationTaskType.PO_REJECTED),
     PO_APPROVED("PO Approved",false,NotificationTaskType.PO_APPROVED),
+    WAREHOUSE_PO_APPROVED("Warehouse PO Approved",false, NotificationTaskType.WAREHOUSE_PO_APPROVED),
 
 
     //GRN SERVICE
