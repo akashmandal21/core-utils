@@ -11,11 +11,11 @@ import java.util.Map;
 public enum GFCStatus {
 
     NOT_STARTED("Not Available","#e5e3e3"),
-    IN_DRAFT("Pending","#e5e3e3"),
+    IN_DRAFT("In Draft","#e5e3e3"),
     SENT_FOR_APPROVAL_TO_ZH("Uploaded","#FFC300"),
-    SENT_FOR_APPROVAL_TO_NH("Uploaded","#FFC300"),
-    SENT_BACK_BY_ZH("Pending","#e5e3e3"),
-    SENT_BACK_BY_NH("Pending","#e5e3e3"),
+    SENT_FOR_APPROVAL_TO_NH("Approved by Zonal Head","#FFC300"),
+    SENT_BACK_BY_ZH("Sent Back by Zonal Head","#e5e3e3"),
+    SENT_BACK_BY_NH("Sent Back by National Head","#e5e3e3"),
     APPROVED("Approved","#77baa6");
 
     private String status;
