@@ -1,4 +1,4 @@
-package com.stanzaliving.core.rule.engine.dto;
+package com.stanzaliving.core.food.dto.response;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -6,17 +6,19 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @date 01-May-2020
+ * @date 05-May-2020
  *
  */
 
+
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ConditionStatusDto extends ConditionDto {
+public class FoodItemSearchDataCountDto {
+	private Long dataMissing;
 
-	private Boolean passed;
+	private Long dataComplete;
 }
