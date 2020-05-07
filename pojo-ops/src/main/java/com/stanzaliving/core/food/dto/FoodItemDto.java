@@ -53,5 +53,7 @@ public class FoodItemDto extends AbstractDto {
 
 	private List<TagDto> tagDtos;
 
+	private int tagsCount;
+
 	private List<EnumListing<MealType>> meals;
 }
