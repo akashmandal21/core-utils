@@ -31,7 +31,7 @@ public class InternetClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public List<InternetLoginSummaryDto> getInternetSessionSummary(List<String> imsResidenceIds, Date now, Date before) {
+	public List<InternetLoginSummaryDto> getInternetSessionSummary(List<String> imsResidenceIds, Date startDate, Date endDate) {
 
 		ResponseDto<List<InternetLoginSummaryDto>> responseDto = null;
 
@@ -39,8 +39,8 @@ public class InternetClientApi {
 
 		Map<String, Object> postBody = new HashMap<String, Object>();
 		postBody.put("proprtyIds", imsResidenceIds);
-		postBody.put("endDate", DateUtil.putTimeIntoDate(new Date(), now));
-		postBody.put("startDate", DateUtil.putTimeIntoDate(new Date(), before));
+		postBody.put("endDate", endDate);
+		postBody.put("startDate", startDate);
 
 		String path = UriComponentsBuilder.fromPath("/sessionDetails/get/all/foodFeedback").buildAndExpand(uriVariables).toUriString();
 
