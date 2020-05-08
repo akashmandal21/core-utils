@@ -31,6 +31,10 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodMenuGroupDto extends AbstractDto {
 
+	private String cityId;
+
+	private String cityName;
+
 	private String microMarketId;
 
 	private String microMarketName;

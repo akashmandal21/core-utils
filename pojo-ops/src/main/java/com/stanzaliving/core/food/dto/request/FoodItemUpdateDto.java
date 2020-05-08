@@ -1,15 +1,18 @@
 package com.stanzaliving.core.food.dto.request;
 
+import java.util.Set;
+
+import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.operations.enums.MealType;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.util.List;
-import java.util.Set;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliing.com"
@@ -24,7 +27,8 @@ import java.util.Set;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodItemPartialUpdateDto {
+public class FoodItemUpdateDto {
+
 	@NotNull(message = "item uuid is required.")
 	private String uuid;
 

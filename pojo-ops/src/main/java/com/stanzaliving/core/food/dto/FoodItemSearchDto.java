@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import java.util.Collection;
+
 import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.operations.enums.MealType;
@@ -18,15 +19,16 @@ import lombok.experimental.SuperBuilder;
  * @date 03-May-2020
  *
  */
-
-
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodItemSearchDto extends AbstractDto {
+public class FoodItemSearchDto {
+
+	private Collection<String> itemIds;
+
 	private String name;
 
 	private FoodItemType itemType;
@@ -40,7 +42,7 @@ public class FoodItemSearchDto extends AbstractDto {
 	private String bgColor;
 
 	private String category;
-
+	
 	private MealType mealType;
 
 	private PageAndSortDto pageDto;

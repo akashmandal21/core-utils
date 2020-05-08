@@ -10,16 +10,26 @@ public enum FoodMenuStatus {
 	UNDER_DRAFT("Under Draft"),
 	SUBMITTED("Submitted for Review"),
 	APPROVED("Approved"),
-	CHEF_APPROVED("Chef Approved"),
-	CHEF_REJECTED("Chef Rejected"),
+	CENTRAL_F_AND_B_APPROVED("Central F&B Approved"),
+	CENTRAL_F_AND_B_REJECTED("Central F&B Rejected"),
 	VENDOR_APPROVED("Vendor Approved"),
-	VENDOR_REJECTED("Vendor Rejected"),
-	WAITING_FOR_CHEF_APPROVAL("Waiting for Chef Approval"),
-	WAITING_FOR_VENDOR_APPROVAL("Waiting for Vendor Approval");
+	VENDOR_REJECTED("Vendor Rejected");
 
 	private String statusName;
 
 	public static boolean isStatusEditable(FoodMenuStatus menuStatus) {
-		return UNDER_DRAFT == menuStatus || CHEF_REJECTED == menuStatus || VENDOR_REJECTED == menuStatus;
+		return UNDER_DRAFT == menuStatus || CENTRAL_F_AND_B_REJECTED == menuStatus || VENDOR_REJECTED == menuStatus;
+	}
+
+	public static boolean isStatusCentralFAndBApproved(FoodMenuStatus menuStatus) {
+		return APPROVED == menuStatus || CENTRAL_F_AND_B_APPROVED == menuStatus || VENDOR_REJECTED == menuStatus;
+	}
+
+	public static boolean isStatusVendorApproved(FoodMenuStatus menuStatus) {
+		return APPROVED == menuStatus || VENDOR_APPROVED == menuStatus;
+	}
+
+	public static boolean isStatusCentralApprovable(FoodMenuStatus menuStatus) {
+		return SUBMITTED == menuStatus;
 	}
 }
