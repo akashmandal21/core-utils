@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,14 +15,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VendorEmailDto {
+public class CityLevelFoodSummaryDto {
 
-	private Integer serialNo;
+	private String cityName;
 
-	private String vendorId;
-
-	private String micromarketName;
-
-	private String menuCategoryName;
+	private List<FoodMenuApprovalSummaryDto> approvalSummaryDtos;
 
 }

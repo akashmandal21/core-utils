@@ -13,14 +13,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VendorEmailDto {
+public class MenuCategoryDto {
 
 	private Integer serialNo;
 
-	private String vendorId;
-
-	private String micromarketName;
-
-	private String menuCategoryName;
+	private String menuCategory;
 
 }
