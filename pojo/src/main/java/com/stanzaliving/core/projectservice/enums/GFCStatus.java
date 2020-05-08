@@ -4,8 +4,11 @@ import com.stanzaliving.core.base.enums.ColorCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Arrays;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor
@@ -38,6 +41,10 @@ public enum GFCStatus {
 
     public static Map<GFCStatus, String> getAll() {
         return gfcStatus;
+    }
+
+    public static List<GFCStatus> getAllAboveStage(int order){
+        return Arrays.stream(GFCStatus.values()).filter(f->f.getStageOrder()>order).collect(Collectors.toList());
     }
 
 }
