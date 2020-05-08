@@ -19,5 +19,5 @@ public class MicromarketMenuCategoryDto {
 
 	private String micromarketName;
 
-	List<VendorEmailDto> menucategories;
+	List<VendorEmailDto> vendorEmailDtos;
 }
