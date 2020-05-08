@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.core.base.utils.StanzaParseUtils;
+import com.stanzaliving.core.user.enums.EnumListing;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,6 +41,8 @@ public enum MealType {
 	private static Map<String, MealType> mealMapByName = new HashMap<>();
 	private static List<String> mealIds = new ArrayList<>();
 
+	private static List<EnumListing<MealType>> enumListings = new ArrayList<>();
+
 	static {
 
 		for (MealType mealType : MealType.values()) {
@@ -47,6 +50,7 @@ public enum MealType {
 			mealMapByName.put(mealType.getMealName(), mealType);
 			mealIds.add(mealType.getMealId().toString());
 
+			enumListings.add(EnumListing.of(mealType, mealType.getMealName()));
 		}
 
 	}
@@ -80,5 +84,9 @@ public enum MealType {
 
 	public static MealType getMealByName(String mealName) {
 		return mealMapByName.get(mealName);
+	}
+
+	public static List<EnumListing<MealType>> getMealListing() {
+		return enumListings;
 	}
 }
