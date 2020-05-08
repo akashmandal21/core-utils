@@ -5,6 +5,7 @@ import java.io.Serializable;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.projectservice.enums.BedCountStatus;
 
+import com.stanzaliving.designservice.enums.PhoenixDesignStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,8 +37,9 @@ public class BedCountDto extends AbstractDto implements Serializable{
 
 	private Integer deviationInBedCount;
 		
-	private BedCountStatus bedCountStatus;
-	
+	private BedCountStatus bedCountStatusold;
+	private PhoenixDesignStatus bedCountStatus;
+
 	private Integer version;
 	
 	private String deviationReasons;
