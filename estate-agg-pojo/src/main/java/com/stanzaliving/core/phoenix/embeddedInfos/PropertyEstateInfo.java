@@ -1,6 +1,7 @@
 package com.stanzaliving.core.phoenix.embeddedinfos;
 
 import com.stanzaliving.core.estate.embeddedInfos.Address;
+import com.stanzaliving.core.estate.enums.EstateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +18,7 @@ public class PropertyEstateInfo {
     protected boolean status = true;
 
     @Indexed(unique = true)
-    String estateUuid;
+    private String estateUuid;
     private String estateName;
 
     private Long cityId;
