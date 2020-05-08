@@ -26,5 +26,7 @@ public class ResidenceBudgetInfoDto {
 	private Double mtdTargetUtilization;
 	
 	private Double mtdActualUtilization;
+	
+	private Integer mir;
 
 }

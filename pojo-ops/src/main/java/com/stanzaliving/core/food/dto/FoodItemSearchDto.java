@@ -1,14 +1,10 @@
-/**
- * 
- */
 package com.stanzaliving.core.food.dto;
 
-import java.util.List;
+import java.util.Collection;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.operations.enums.MealType;
-import com.stanzaliving.core.user.enums.EnumListing;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,28 +14,26 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @author naveen.kumar
+ * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @date 21-Apr-2020
+ * @date 03-May-2020
  *
- **/
+ */
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodItemDto extends AbstractDto {
+public class FoodItemSearchDto {
+
+	private Collection<String> itemIds;
 
 	private String name;
 
 	private FoodItemType itemType;
 
-	private String itemTypeName;
-
-	private String defaultBrandId;
-
-	private String defaultBrandName;
+	private String defaultBrand;
 
 	private boolean quantifiable;
 
@@ -47,13 +41,9 @@ public class FoodItemDto extends AbstractDto {
 
 	private String bgColor;
 
-	private String categoryId;
+	private String category;
+	
+	private MealType mealType;
 
-	private String categoryName;
-
-	private List<TagDto> tagDtos;
-
-	private int tagsCount;
-
-	private List<EnumListing<MealType>> meals;
+	private PageAndSortDto pageDto;
 }
