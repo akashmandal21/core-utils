@@ -36,6 +36,8 @@ public class AttributeNames {
 		
 		public static final String NUMBER_OF_TOWERS = "towerCount";
 		
+		public static final String FLOOR_STARTS_FROM = "startLeasedFloorFrom";
+		
 		public static final String NUMBER_OF_DINING_SPACE = "diningAreaCount";
 		
 		public static final String FLOOR_PLATE_SIZE = "floorPlateSize";
@@ -90,6 +92,8 @@ public class AttributeNames {
 
 		public static final String COMMENTS_ON_PROPERTY_ANALYSIS = "commentsOnPropertyAnalysis";
 
+		public static final String COMMENTS_ON_COMMERCIALS = "commentOnCommercials";
+		
 		public static final String COMMENTS = "comments";
 
 		public static final String KEY_POSITIVES = "keyPositives";
@@ -414,6 +418,7 @@ public class AttributeNames {
 		public static final String CURRENT_YEAR = "currentYear";
 		public static final String SECURITY_DEPOSIT_AMOUNT_IFSRD = "securityDepositAmountForIFSRD";
 		public static final String CITY_NAME = "cityName";
+		public static final String ROOM_COUNT_FOR_ATL ="roomCountAtl";
 
 
 

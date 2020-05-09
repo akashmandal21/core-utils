@@ -10,6 +10,7 @@ import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.RateType;
 import com.stanzaliving.transformations.enums.UnitType;
 import com.stanzaliving.transformations.enums.UseType;
+import com.stanzaliving.transformations.enums.AreaOfUse;
 import com.stanzaliving.transformations.enums.WorkType;
 
 import lombok.Getter;
@@ -53,4 +54,20 @@ public class MasterBOIUIDto {
 	private AreaType areaType;
 
 	private UseType useType;
+	
+	private String dimension;
+	
+	private String brandName;
+	
+	private String subBrandName;
+	
+	private AreaOfUse areaOfUse;
+	
+	private List<String> areaOfUseList;
+	
+	private int slQty;
+	
+	private int llQty;
+	
+	private String image;
 }
