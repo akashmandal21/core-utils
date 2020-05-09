@@ -1,5 +1,8 @@
 package com.stanzaliving.core.food.enums;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -22,7 +25,7 @@ public enum FoodMenuStatus {
 	}
 
 	public static boolean isStatusCentralFAndBApproved(FoodMenuStatus menuStatus) {
-		return APPROVED == menuStatus || CENTRAL_F_AND_B_APPROVED == menuStatus || VENDOR_REJECTED == menuStatus;
+		return APPROVED == menuStatus || CENTRAL_F_AND_B_APPROVED == menuStatus || VENDOR_REJECTED == menuStatus || VENDOR_APPROVED == menuStatus;
 	}
 
 	public static boolean isStatusVendorApproved(FoodMenuStatus menuStatus) {
@@ -31,5 +34,18 @@ public enum FoodMenuStatus {
 
 	public static boolean isStatusCentralApprovable(FoodMenuStatus menuStatus) {
 		return SUBMITTED == menuStatus;
+	}
+
+	public static List<FoodMenuStatus> getStatusForApprovalListing() {
+		List<FoodMenuStatus> foodMenuStatuses = new ArrayList<>();
+
+		foodMenuStatuses.add(SUBMITTED);
+		foodMenuStatuses.add(CENTRAL_F_AND_B_APPROVED);
+		foodMenuStatuses.add(CENTRAL_F_AND_B_REJECTED);
+		foodMenuStatuses.add(VENDOR_APPROVED);
+		foodMenuStatuses.add(VENDOR_REJECTED);
+		foodMenuStatuses.add(APPROVED);
+
+		return foodMenuStatuses;
 	}
 }

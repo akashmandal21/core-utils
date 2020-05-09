@@ -59,6 +59,8 @@ public class FoodMenuGroupDto extends AbstractDto {
 
 	private boolean editingAllowed;
 
+	private boolean centralApprovable;
+
 	private String residenceIds;
 
 	private String submittedBy;

@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.food.enums.FoodMenuStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,6 +43,10 @@ public class FoodMenuApprovalResponseDto {
 	private String menuCategoryId;
 
 	private String menuCategoryName;
+	
+	private FoodMenuStatus foodMenuStatus;
+	
+	private String foodMenuStatusName;
 
 	private boolean stanzaKitchenCategory;
 
