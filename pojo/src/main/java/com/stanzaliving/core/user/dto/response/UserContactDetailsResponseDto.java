@@ -26,4 +26,6 @@ public class UserContactDetailsResponseDto {
 
 	private String mobile;
 
+	private String name;
+
 }
