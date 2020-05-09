@@ -3,8 +3,6 @@
  */
 package com.stanzaliving.core.user.enums;
 
-import lombok.Getter;
-
 /**
  * @author naveen
  *
@@ -32,9 +30,9 @@ public enum UserType {
 	CONSUMER("Consumer"),
 	SYSTEM("System");
 
-	public String type;
+	public String typeName;
 
 	private UserType(String name){
-		this.type = name;
+		this.typeName = name;
 	}
 }
