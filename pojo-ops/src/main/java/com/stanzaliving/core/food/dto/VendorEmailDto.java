@@ -20,6 +20,8 @@ public class VendorEmailDto {
 	private String vendorId;
 
 	private String micromarketName;
+	
+	private String micromarketId;
 
 	private String menuCategoryName;
 

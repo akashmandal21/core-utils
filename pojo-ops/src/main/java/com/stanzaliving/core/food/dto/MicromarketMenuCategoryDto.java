@@ -19,5 +19,9 @@ public class MicromarketMenuCategoryDto {
 
 	private String micromarketName;
 
+	private List<String> fbManagerNames;
+
+	private List<String> fbManagerContactNos;
+
 	List<VendorEmailDto> vendorEmailDtos;
 }
