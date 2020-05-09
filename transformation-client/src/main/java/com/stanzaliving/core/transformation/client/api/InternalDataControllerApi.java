@@ -224,6 +224,7 @@ public class InternalDataControllerApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
+
 	public ResponseDto<List<Country>> getHierarchyForUI(AccessLevel accessLevel, List<String> accessLevelUuids) {
 
 		log.info("getHierarchyForUI is called for {}, accessLevelUuids {}", accessLevel, accessLevelUuids);
@@ -287,8 +288,6 @@ public class InternalDataControllerApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-
-
 	public ResponseDto<List<ResidenceMetadataDto>> getAllResidences() {
 
 		Object postBody = null;
@@ -319,7 +318,7 @@ public class InternalDataControllerApi {
 
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("cityId",cityId);
+		uriVariables.put("cityId", cityId);
 
 		String path = UriComponentsBuilder.fromPath("/internal/city/get/id/{cityId}").buildAndExpand(uriVariables).toUriString();
 
@@ -343,7 +342,7 @@ public class InternalDataControllerApi {
 
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("name",name);
+		uriVariables.put("name", name);
 
 		String path = UriComponentsBuilder.fromPath("/internal/city/get/name/{name}").buildAndExpand(uriVariables).toUriString();
 
