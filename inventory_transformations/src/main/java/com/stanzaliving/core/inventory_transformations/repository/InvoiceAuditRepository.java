@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.InvoiceAudit;
+import com.stanzaliving.core.inventory_transformations.entity.InvoiceAuditEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface InvoiceAuditRepository extends JpaRepository<InvoiceAudit, Void>, JpaSpecificationExecutor<InvoiceAudit> {
+public interface InvoiceAuditRepository extends JpaRepository<InvoiceAuditEntity, Void>, JpaSpecificationExecutor<InvoiceAuditEntity> {
 
 }

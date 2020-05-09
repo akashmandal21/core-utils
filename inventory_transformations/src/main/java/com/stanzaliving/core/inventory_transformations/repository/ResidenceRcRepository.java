@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.ResidenceRc;
+import com.stanzaliving.core.inventory_transformations.entity.ResidenceRcEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface ResidenceRcRepository extends JpaRepository<ResidenceRc, Integer>, JpaSpecificationExecutor<ResidenceRc> {
+public interface ResidenceRcRepository extends JpaRepository<ResidenceRcEntity, Integer>, JpaSpecificationExecutor<ResidenceRcEntity> {
 
 }

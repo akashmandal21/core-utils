@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.RoomPricing;
+import com.stanzaliving.core.inventory_transformations.entity.RoomPricingEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface RoomPricingRepository extends JpaRepository<RoomPricing, Integer>, JpaSpecificationExecutor<RoomPricing> {
+public interface RoomPricingRepository extends JpaRepository<RoomPricingEntity, Integer>, JpaSpecificationExecutor<RoomPricingEntity> {
 
 }

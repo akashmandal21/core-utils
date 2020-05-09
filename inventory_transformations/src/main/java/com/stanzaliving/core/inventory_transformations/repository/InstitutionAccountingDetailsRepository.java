@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.InstitutionAccountingDetails;
+import com.stanzaliving.core.inventory_transformations.entity.InstitutionAccountingDetailsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface InstitutionAccountingDetailsRepository extends JpaRepository<InstitutionAccountingDetails, Integer>, JpaSpecificationExecutor<InstitutionAccountingDetails> {
+public interface InstitutionAccountingDetailsRepository extends JpaRepository<InstitutionAccountingDetailsEntity, Integer>, JpaSpecificationExecutor<InstitutionAccountingDetailsEntity> {
 
 }

@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.PenaltyAudit;
+import com.stanzaliving.core.inventory_transformations.entity.PenaltyAuditEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface PenaltyAuditRepository extends JpaRepository<PenaltyAudit, Integer>, JpaSpecificationExecutor<PenaltyAudit> {
+public interface PenaltyAuditRepository extends JpaRepository<PenaltyAuditEntity, Integer>, JpaSpecificationExecutor<PenaltyAuditEntity> {
 
 }

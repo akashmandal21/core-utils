@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.PayuSettlement;
+import com.stanzaliving.core.inventory_transformations.entity.PayuSettlementEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface PayuSettlementRepository extends JpaRepository<PayuSettlement, String>, JpaSpecificationExecutor<PayuSettlement> {
+public interface PayuSettlementRepository extends JpaRepository<PayuSettlementEntity, String>, JpaSpecificationExecutor<PayuSettlementEntity> {
 
 }

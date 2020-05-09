@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.RoomAttribute;
+import com.stanzaliving.core.inventory_transformations.entity.RoomAttributeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface RoomAttributeRepository extends JpaRepository<RoomAttribute, Integer>, JpaSpecificationExecutor<RoomAttribute> {
+public interface RoomAttributeRepository extends JpaRepository<RoomAttributeEntity, Integer>, JpaSpecificationExecutor<RoomAttributeEntity> {
 
 }

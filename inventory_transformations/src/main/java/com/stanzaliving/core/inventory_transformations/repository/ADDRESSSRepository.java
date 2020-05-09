@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.ADDRESSS;
+import com.stanzaliving.core.inventory_transformations.entity.ADDRESSSEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface ADDRESSSRepository extends JpaRepository<ADDRESSS, Integer>, JpaSpecificationExecutor<ADDRESSS> {
+public interface ADDRESSSRepository extends JpaRepository<ADDRESSSEntity, Integer>, JpaSpecificationExecutor<ADDRESSSEntity> {
 
 }

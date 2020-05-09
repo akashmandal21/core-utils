@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.StudentProfile;
+import com.stanzaliving.core.inventory_transformations.entity.StudentProfileEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface StudentProfileRepository extends JpaRepository<StudentProfile, String>, JpaSpecificationExecutor<StudentProfile> {
+public interface StudentProfileRepository extends JpaRepository<StudentProfileEntity, String>, JpaSpecificationExecutor<StudentProfileEntity> {
 
 }

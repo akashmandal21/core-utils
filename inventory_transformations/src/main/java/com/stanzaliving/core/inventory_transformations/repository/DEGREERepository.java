@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.DEGREE;
+import com.stanzaliving.core.inventory_transformations.entity.DEGREEEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface DEGREERepository extends JpaRepository<DEGREE, Integer>, JpaSpecificationExecutor<DEGREE> {
+public interface DEGREERepository extends JpaRepository<DEGREEEntity, Integer>, JpaSpecificationExecutor<DEGREEEntity> {
 
 }

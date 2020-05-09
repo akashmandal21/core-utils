@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.AccountVerificationDetails;
+import com.stanzaliving.core.inventory_transformations.entity.AccountVerificationDetailsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface AccountVerificationDetailsRepository extends JpaRepository<AccountVerificationDetails, Integer>, JpaSpecificationExecutor<AccountVerificationDetails> {
+public interface AccountVerificationDetailsRepository extends JpaRepository<AccountVerificationDetailsEntity, Integer>, JpaSpecificationExecutor<AccountVerificationDetailsEntity> {
 
 }

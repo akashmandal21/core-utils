@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.INVENTORY;
+import com.stanzaliving.core.inventory_transformations.entity.INVENTORYEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface INVENTORYRepository extends JpaRepository<INVENTORY, Integer>, JpaSpecificationExecutor<INVENTORY> {
+public interface INVENTORYRepository extends JpaRepository<INVENTORYEntity, Integer>, JpaSpecificationExecutor<INVENTORYEntity> {
 
 }

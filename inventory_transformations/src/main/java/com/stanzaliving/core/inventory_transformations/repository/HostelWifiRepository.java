@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.HostelWifi;
+import com.stanzaliving.core.inventory_transformations.entity.HostelWifiEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface HostelWifiRepository extends JpaRepository<HostelWifi, Integer>, JpaSpecificationExecutor<HostelWifi> {
+public interface HostelWifiRepository extends JpaRepository<HostelWifiEntity, Integer>, JpaSpecificationExecutor<HostelWifiEntity> {
 
 }

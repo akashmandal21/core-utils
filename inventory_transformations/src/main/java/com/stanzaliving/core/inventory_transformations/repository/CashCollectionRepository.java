@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.CashCollection;
+import com.stanzaliving.core.inventory_transformations.entity.CashCollectionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface CashCollectionRepository extends JpaRepository<CashCollection, Void>, JpaSpecificationExecutor<CashCollection> {
+public interface CashCollectionRepository extends JpaRepository<CashCollectionEntity, Void>, JpaSpecificationExecutor<CashCollectionEntity> {
 
 }
