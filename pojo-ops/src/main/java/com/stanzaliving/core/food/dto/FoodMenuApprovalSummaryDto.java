@@ -1,7 +1,5 @@
 package com.stanzaliving.core.food.dto;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,10 +13,17 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShortageCountDto {
-	
-	private String item;
-	
-	private List<Boolean> shortage;
+public class FoodMenuApprovalSummaryDto {
 
+	private String cityName;
+
+	private String micromarketName;
+
+	private String categoryName;
+
+	private boolean autoCreated;
+
+	private boolean chefAutoApproved;
+
+	private boolean vendorAutoApproved;
 }

@@ -15,10 +15,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShortageCountDto {
-	
-	private String item;
-	
-	private List<Boolean> shortage;
+public class CityLevelFoodSummaryDto {
+
+	private String cityName;
+
+	private List<FoodMenuApprovalSummaryDto> approvalSummaryDtos;
 
 }
