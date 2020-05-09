@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
-import java.util.List;
+import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.user.enums.Gender;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,10 +18,22 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodOrderSummaryDto {
 
-	private List<ResidentsFoodOrderSummary> residentsFoodOrderSummaries;
+	private String city;
 
-	private BudgetStatusDto budgetStatusDto;
+	private String micromarket;
 
-	private HolidayAndUtilzationDto holidayAndUtilzationDto;
+	private String residence;
+
+	private ResidenceBrand brand;
+
+	private Gender gender;
+
+	private Integer mir;
+
+	private Double budgetPerMir;
+
+	private Double expectedCostPerMir;
+
+	private Boolean utilization;
 
 }

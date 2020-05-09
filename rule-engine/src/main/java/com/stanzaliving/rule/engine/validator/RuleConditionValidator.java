@@ -11,6 +11,13 @@ import com.stanzaliving.core.rule.engine.dto.ConditionCombinationDto;
 
 import lombok.experimental.UtilityClass;
 
+/**
+ * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
+ *
+ * @date 01-May-2020
+ *
+ */
+
 @UtilityClass
 public class RuleConditionValidator {
 

@@ -30,6 +30,12 @@ public class FoodOrderRequestDto {
 	
 	private Boolean withinBudget;
 	
+	private Integer mir;
+	
+	private Integer veg;
+	
+	private Integer nonVeg;
+	
 	private List<FoodOrderDetailDto> foodOrderDetailDtos;
 
 }
