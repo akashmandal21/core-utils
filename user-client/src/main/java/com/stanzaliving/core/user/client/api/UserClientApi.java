@@ -222,7 +222,7 @@ public class UserClientApi {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 		
-		String path = UriComponentsBuilder.fromPath("/usermanagermapping/managerprofiles").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/acl/usermanagermapping/managerprofiles").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
