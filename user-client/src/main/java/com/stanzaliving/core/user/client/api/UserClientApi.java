@@ -302,7 +302,7 @@ public class UserClientApi {
 
 	}
 
-	public List<UserContactDetailsResponseDto> getUserContactDetailsByRoleParams(UserRoleSearchDto userRoleSearchDto) {
+	public ResponseDto<List<UserContactDetailsResponseDto>> getUserContactDetailsByRoleParams(UserRoleSearchDto userRoleSearchDto) {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("roleName", userRoleSearchDto.getRoleName());
 		uriVariables.put("department", userRoleSearchDto.getDepartment());
@@ -318,7 +318,7 @@ public class UserClientApi {
 		final String[] accepts = {"*/*"};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<List<UserContactDetailsResponseDto>> userContactResponse = new ParameterizedTypeReference<List<UserContactDetailsResponseDto>>() {};
+		ParameterizedTypeReference<ResponseDto<List<UserContactDetailsResponseDto>>> userContactResponse = new ParameterizedTypeReference<ResponseDto<List<UserContactDetailsResponseDto>>>() {};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryMap, null, headerParams, accept, userContactResponse);
 	}
 }
