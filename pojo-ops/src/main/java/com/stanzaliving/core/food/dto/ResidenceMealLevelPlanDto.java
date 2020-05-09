@@ -47,18 +47,4 @@ public class ResidenceMealLevelPlanDto {
 
 	private boolean status;
 
-	private boolean sundayActive;
-
-	private boolean mondayActive;
-
-	private boolean tuesdayActive;
-
-	private boolean wednesdayActive;
-
-	private boolean thursdayActive;
-
-	private boolean fridayActive;
-
-	private boolean saturdayActive;
-
 }
