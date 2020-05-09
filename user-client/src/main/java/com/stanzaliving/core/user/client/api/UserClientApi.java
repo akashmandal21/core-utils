@@ -222,7 +222,7 @@ public class UserClientApi {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 		
-		String path = UriComponentsBuilder.fromPath("/internal/acl/usermanagermapping/managerprofiles").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/usermanagermapping/managerprofiles").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
@@ -308,7 +308,7 @@ public class UserClientApi {
 		uriVariables.put("department", userRoleSearchDto.getDepartment());
 		uriVariables.put("accessLevelId", userRoleSearchDto.getAccessLevelId());
 
-		String path = UriComponentsBuilder.fromPath("/usercontactdetails/{department}/{roleName}/{accessLevelId}")
+		String path = UriComponentsBuilder.fromPath("/internal/acl/usercontactdetails/{department}/{roleName}/{accessLevelId}")
 				.buildAndExpand(uriVariables)
 				.toUriString();
 
