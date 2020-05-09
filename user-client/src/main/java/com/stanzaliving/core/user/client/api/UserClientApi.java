@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -28,6 +30,7 @@ import com.stanzaliving.core.user.dto.UserDto;
 import com.stanzaliving.core.user.dto.UserManagerProfileRequestDto;
 import com.stanzaliving.core.user.dto.UserProfileDto;
 import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
+
 
 /**
  * @author naveen.kumar
@@ -297,5 +300,25 @@ public class UserClientApi {
 				
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
+	}
+
+	public List<UserContactDetailsResponseDto> getUserContactDetailsByRoleParams(UserRoleSearchDto userRoleSearchDto) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("roleName", userRoleSearchDto.getRoleName());
+		uriVariables.put("department", userRoleSearchDto.getDepartment());
+		uriVariables.put("accessLevelId", userRoleSearchDto.getAccessLevelId());
+
+		String path = UriComponentsBuilder.fromPath("/internal/acl/usercontactdetails/{department}/{roleName}/{accessLevelId}")
+				.buildAndExpand(uriVariables)
+				.toUriString();
+
+		MultiValueMap<String, String> queryMap = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<UserContactDetailsResponseDto>> userContactResponse = new ParameterizedTypeReference<List<UserContactDetailsResponseDto>>() {};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryMap, null, headerParams, accept, userContactResponse);
 	}
 }
