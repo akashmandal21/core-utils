@@ -12,6 +12,7 @@ public enum Department {
     LEADERSHIP ("Leadership"),
     BUSINESS_DEVELOPMENT ("Real Estate"),
     OPS ("Operations"),
+    FOOD_OPS("Food Operations"),
     PROCUREMENT ("Procurement"),
     DESIGN ("Design"),
     PROJECTS ("Projects"),
