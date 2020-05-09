@@ -1,6 +1,6 @@
-package com.stanzaliving.core.food.dto;
+package com.stanzaliving.core.food.dto.request;
 
-import java.util.List;
+import java.time.Month;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,10 +15,14 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShortageCountDto {
+public class ResidenceMonthlyBudgetUtilizationRequestDto {
 	
-	private String item;
+	private String residenceId;
 	
-	private List<Boolean> shortage;
+	private Integer budgetYear;
+	
+	private Month budgetMonth;
+	
+	private Double budgetPerMir;
 
 }
