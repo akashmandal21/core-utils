@@ -44,8 +44,12 @@ public class FoodItemDto extends AbstractDto {
 	private boolean quantifiable;
 
 	private String textColor;
+	
+	private String textColorName;
 
 	private String bgColor;
+	
+	private String bgColorName;
 
 	private String categoryId;
 
