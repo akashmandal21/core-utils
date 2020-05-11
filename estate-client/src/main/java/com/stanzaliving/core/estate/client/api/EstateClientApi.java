@@ -313,4 +313,37 @@ public class EstateClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
+    
+    public ResponseDto<List<Long>> getAllEstateIdsByAttributeNameAndValue(String attributeName, String attributeValue) {
+
+        if (Objects.isNull(attributeName) || Objects.isNull(attributeValue)) {
+            log.debug("Attribute Name and Value Cannot be Null");
+        	return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("attributeName", attributeName);
+        uriVariables.put("attributeValue", attributeValue);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/estate/get/estateId/{attributeName}/{attributeValue}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<Long>>> returnType = new ParameterizedTypeReference<ResponseDto<List<Long>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
 }
