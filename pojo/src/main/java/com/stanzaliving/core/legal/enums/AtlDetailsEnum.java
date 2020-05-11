@@ -27,9 +27,12 @@ public enum AtlDetailsEnum {
     WATER_SUPPLY_CLAUSE_E_TEXT_AREA("Water Supply", "(One Time)", AttributeNames.WATER_SUPPLY_CLAUSE_E_TEXT_AREA, AttributeNames.WATER_SUPPLY_BOREWELL_REMARKS, "Providing Borewells (number as provided hereinabove) with appropriate water levels maintained"),
 
     WATER_STORAGE_CLAUSE_A_TEXT_AREA("Water Storage", "(One Time)", AttributeNames.WATER_STORAGE_CLAUSE_A_TEXT_AREA, AttributeNames.WATER_TANK_CAPACITY_TO_BE_CALCULATED_REMARKS, "Water tank capacity to be calculated at 200Litres/bed for both the OHT and underground tank. All OHT plumbing tanks need to be connected"),
-
+    WATER_STORAGE_CLAUSE_B_TEXT_AREA("Water Storage", "(Lease Term)", AttributeNames.WATER_STORAGE_CLAUSE_B_TEXT_AREA, AttributeNames.WATER_STORAGE_CLAUSE_B_REMARKS, "In case of unavailability of water or borewells running dry the water cost to be equally shared between lessee and lessor"),
+    
     FACADE_CLAUSE_A_TEXT_AREA("Facade", "(One Time)", AttributeNames.FACADE_CLAUSE_A_TEXT_AREA, AttributeNames.ANY_MASONRY_PLASTER_CRACKS_REMARKS, "Any masonry/plaster cracks in the facade to be fixed and façade to be painted post fixing in Lessee specified brand colors, as per scheme shared by Lessee <br/><strong>Facade Paint</strong><br/>Paint Code - Asian Paints:<br/>Base Colour - Grand Grape (Blue)<br/>Accent Colout - Eggshell (White), Dessert Glow (Yellow).<br/>Any broken glass to be replaced"),
     FACADE_CLAUSE_B_TEXT_AREA("Facade", "(One Time)", AttributeNames.FACADE_CLAUSE_B_TEXT_AREA, AttributeNames.EXTERNAL_DOOR_WINDOWS_REMARKS, "External door/windows - All external door and windows to be checked for faults and repaired. Faults include but are not limited to:<br/>1. Defective hinges - these need to be replaced with functioning ones<br/>2. Cracked or broken shutters or mosquito nets need to be repaired/replaced keeping the same finishes as the existing shutters<br/>3. In sliding windows - the channel to allow for easy movement and a functional drain hole"),
+    FACADE_CLAUSE_C_TEXT_AREA("Facade", "(One Time)", AttributeNames.FACADE_CLAUSE_C_TEXT_AREA, AttributeNames.EXTERIOR_FACADE_CLOSER_REMARKS, "Owner to Close The Exterior Facade of The Building (typical floors, stilt levels and terrace levels"),
+    FACADE_CLAUSE_D_TEXT_AREA("Facade", "(One Time)", AttributeNames.FACADE_CLAUSE_D_TEXT_AREA, AttributeNames.FACADE_REPAINTING_REMARKS, "Facade to be Always Repainted Every 3 years and Maintained to Keep it Neat and Clean"),
 
     TERRACE_AREA_CLAUSE_A_TEXT_AREA("Terrace Level", "(One Time)", AttributeNames.TERRACE_AREA_CLAUSE_A_TEXT_AREA, AttributeNames.WEATHER_PROOF_ROOF_REMARKS, "In case terrace level is being used for common areas or dining, weatherproof roof to be provided (steel truss with closed system and insulated metal sheeting, waterproof cladding.). Lessor to provide wall closure (aluminum framing with glass infill) to make room weatherproof."),
     TERRACE_AREA_CLAUSE_B_TEXT_AREA("Terrace Level", "(One Time)", AttributeNames.TERRACE_AREA_CLAUSE_B_TEXT_AREA, AttributeNames.USABLE_TERRACE_REMARKS, "All required plumbing tap-offs and electrical connections for the usable terrace, basement, stilt floor to be provided to the satisfaction of the Lessee."),
@@ -88,8 +91,21 @@ public enum AtlDetailsEnum {
     LIFT_CLAUSE_E_TEXT_AREA("Lift", "(Lease Term)", AttributeNames.LIFT_CLAUSE_E_TEXT_AREA, AttributeNames.LIFT_LICENSE_RENEWAL_REMARKS, "Lift license renewal / fitness Deed (wherever applicable)"),
 
     DOCS_AND_A_M_C_CLAUSE_A_TEXT_AREA("Docs & AMC", "(One Time)", AttributeNames.DOCS_AND_A_M_C_CLAUSE_A_TEXT_AREA, AttributeNames.ALL_TEST_CERTIFICATE_AND_DOCUMENTS, "All test certificate and Documents / Warranty certificate /manual of all equipment need to be provided by the Lessor. System to be tested with Lessee engineer before handing over to Lessee"),
-    COMMON_AREAS_CLAUSE_A_TEXT_AREA("Common Areas", "(Lease Term)", AttributeNames.COMMON_AREAS_CLAUSE_A_TEXT_AREA, AttributeNames.LIGHTING_AND_POWER_TO_BE_INSTALLED_REMARKS, "If common areas shared by Lessor & Lessee, the lighting & power to be installed & maintained by Lessor");
+    COMMON_AREAS_CLAUSE_A_TEXT_AREA("Common Areas", "(Lease Term)", AttributeNames.COMMON_AREAS_CLAUSE_A_TEXT_AREA, AttributeNames.LIGHTING_AND_POWER_TO_BE_INSTALLED_REMARKS, "If common areas shared by Lessor & Lessee, the lighting & power to be installed & maintained by Lessor"),
 
+	SIGNAGE_CLAUSE_A_TEXT_AREA("Signage", "(One Time Before Handing Over)", AttributeNames.SIGNAGE_CLAUSE_A_TEXT_AREA, AttributeNames.SIGNAGE_CLAUSE_A_REMARK, "a. Electrical connections as required for facade signage in locations defined by Service Provider"),
+	IT_CLAUSE_A_TEXT_AREA("CCTV with DVR", "(One Time Before Handing Over)", AttributeNames.IT_CLAUSE_A_TEXT_AREA, AttributeNames.IT_CLAUSE_A_REMARK, "CCTV with DVR as per the Specifications and Layout Provided by the Service Provider"),
+	IT_CLAUSE_B_TEXT_AREA("High Speed Broadband/Network Line", "(One Time Before Handing Over)", AttributeNames.IT_CLAUSE_B_TEXT_AREA, AttributeNames.IT_CLAUSE_B_REMARK, "High Speed Broadband/Line from Network Operators Defined by Service Provider to be Installed"),
+	IT_CLAUSE_C_TEXT_AREA("DTH Connection", "(One Time Before Handing Over)", AttributeNames.IT_CLAUSE_C_TEXT_AREA, AttributeNames.IT_CLAUSE_C_REMARK, "DTH connection to be provided for all Televisions installed in the building"),
+	
+	SUPERVISOR_ROOM_CLAUSE_A_TEXT_AREA("Supervisor Room", "(One Time Before Handing Over)", AttributeNames.SUPERVISOR_ROOM_CLAUSE_A_TEXT_AREA, AttributeNames.SUPERVISOR_ROOM_CLAUSE_A_REMARK, "To be provided with table, chair, bed, wardrobe, TV connection and provision for CCTV monitoring"),
+	PARKING_CLAUSE_A_TEXT_AREA("Residents Parking and Access Control", "(One Time Before Handing Over)", AttributeNames.PARKING_CLAUSE_A_TEXT_AREA, AttributeNames.PARKING_CLAUSE_A_REMARK, "Provision for bike/car parking for residents. Access control to be installed for on-premise parking space"),
+
+	LANDSCAPE_CLAUSE_A_TEXT_AREA("Soft and Hard Scape", "(One Time Before Handing Over)", AttributeNames.LANDSCAPE_CLAUSE_A_TEXT_AREA, AttributeNames.LANDSCAPE_CLAUSE_A_REMARK, "Soft and hard scape in the external areas"),
+	LANDSCAPE_CLAUSE_B_TEXT_AREA("Pavers/CC in the Cirulation Area", "(One Time Before Handing Over)", AttributeNames.LANDSCAPE_CLAUSE_B_TEXT_AREA, AttributeNames.LANDSCAPE_CLAUSE_B_REMARK, "Pavers/CC in the circulation area"),
+
+	BOUNDARY_WALL_CLAUSE_A_TEXT_AREA("Boundary Wall Paint", "(One Time Before Handing Over)", AttributeNames.BOUNDARY_WALL_CLAUSE_A_TEXT_AREA, AttributeNames.BOUNDARY_WALL_CLAUSE_A_REMARK, "a. To be painted with the waterproof paint as per the specifications provided by the Service Provider"),
+	BOUNDARY_WALL_CLAUSE_B_TEXT_AREA("Light Fixture on Entrance & Boundary Wall Paint", "(One Time Before Handing Over)", AttributeNames.BOUNDARY_WALL_CLAUSE_B_TEXT_AREA, AttributeNames.BOUNDARY_WALL_CLAUSE_B_REMARK, "b. Light fixtures to be provided with IP 65 rating at the entrance and on the boundary wall");
 
     private String item;
 
