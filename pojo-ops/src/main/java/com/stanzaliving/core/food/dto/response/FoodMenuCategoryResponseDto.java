@@ -20,6 +20,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodMenuCategoryResponseDto {
+	private String menuCategoryId;
+
 	private String city;
 
 	private String category;
@@ -30,7 +32,7 @@ public class FoodMenuCategoryResponseDto {
 
 	private List<FoodMenuCategoryMealDto> applicableMeals;
 
-	private Boolean isSkeletalRuleVerified;
+	private boolean skeletalRuleVerified;
 
 	private Boolean isSampleMenu;
 
