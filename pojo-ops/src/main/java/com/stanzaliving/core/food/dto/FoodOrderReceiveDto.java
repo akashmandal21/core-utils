@@ -1,7 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.core.operations.enums.MealType;
@@ -20,13 +20,15 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodOrderReceiveDto {
-	
+
 	private MealType meal;
-	
+
 	private LocalDate date;
-	
-	private LocalDateTime receivedTime;
-	
+
+	private Date receivedTime;
+
+	private String orderId;
+
 	private List<FoodOrderItemReceiveDto> foodOrderItemReceiveDtos;
 
 }
