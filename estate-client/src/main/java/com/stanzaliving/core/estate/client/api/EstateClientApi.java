@@ -19,6 +19,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.estate.dto.AtlFileRequestDto;
 import com.stanzaliving.core.estate.dto.EstateAttributeDto;
 import com.stanzaliving.core.estate.dto.EstateDto;
+import com.stanzaliving.core.estate.dto.QuestionDto;
 import com.stanzaliving.core.estate.enums.EstateStatus;
 
 import lombok.extern.log4j.Log4j2;
@@ -314,12 +315,42 @@ public class EstateClientApi {
 
     }
     
+    public ResponseDto<List<QuestionDto>> getQuestionByScreenGroupNum(Integer screenNum) {
+
+        if (screenNum == null) {
+            return null;
+        }
+        
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("screenNum", screenNum);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/question/get/{screenNum}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<QuestionDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<QuestionDto>>>() {
+        };
+        
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
     public ResponseDto<List<Long>> getAllEstateIdsByAttributeNameAndValue(String attributeName, String attributeValue) {
 
         if (Objects.isNull(attributeName) || Objects.isNull(attributeValue)) {
             log.debug("Attribute Name and Value Cannot be Null");
         	return null;
         }
+    
 
         Object postBody = null;
 
@@ -341,9 +372,11 @@ public class EstateClientApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
+
         ParameterizedTypeReference<ResponseDto<List<Long>>> returnType = new ParameterizedTypeReference<ResponseDto<List<Long>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
     }
 }

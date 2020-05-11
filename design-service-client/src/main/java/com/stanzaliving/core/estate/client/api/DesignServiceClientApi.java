@@ -102,6 +102,45 @@ public class DesignServiceClientApi {
 		}
         
     }
+    
+    public ResponseDto<String> updateStatusToUnderDraft(String estateUuid) {
+
+    	log.debug(" Update design status to under draft for estateUuid " + estateUuid);
+    	
+        if (Objects.isNull(estateUuid)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("estateUuid", estateUuid);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/updateStatus/underdraft/{estateUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        
+        try {
+        	return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);	
+        }catch (Exception e) {
+        	log.error("Got error while getting bed count {}", e);
+        	return null;
+		}
+        
+    }
 
     public ResponseDto<PhoenixBedCountResponseDto> getPhoenixDesignStatusBedCount(String propertyUuid) {
 

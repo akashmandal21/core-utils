@@ -50,7 +50,7 @@ public enum EstateStatus {
 	
 	//ATL Status
 	SIGNED_ATL_UPLOADED("Sent for Property Naming"),
-	ATL_UPLOAD_PENDING("ATL Upload Pending"),
+	ATL_UPLOAD_PENDING("Legal Document Upload Pending"),
 
 	//Leadership Status
 	SENT_BACK_BY_LEADERSHIP("Sent Back By Andy"),
@@ -69,11 +69,12 @@ public enum EstateStatus {
 
 	DROPPED_REQUESTED("Property Drop Request Raised"),
 	DROPPED("Property Dropped"),
-	DROPPED_DECLINE("Property Dropped Decline"),
+	DROPPED_DECLINE("Property Drop Request Declined"),
 	
-	CALLBACK_TO_UNDER_DRAFT("Call Back Requested For Under Draft"),
-	CALLBACK_TO_L1_APPROVED("Call Back Requested For L1 Approved"),
-	CALLBACK_DECLINE("Callback Decline");
+	CALLBACK_TO_UNDER_DRAFT("Call Back Request For Under Draft"),
+	CALLBACK_TO_L1_APPROVED("Callback Request To L1"),
+	CALLBACK_APPROVED("Call Back Request Approved"),
+	CALLBACK_DECLINE("Call Back Request Declined");
 	
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
@@ -249,6 +250,9 @@ public enum EstateStatus {
 		estateStatusForUnderDraft.add(SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD);
 		estateStatusForUnderDraft.add(SENT_FOR_L1_APPROVAL_TO_LEADERSHIP);
 		
+		estateStatusForUnderDraft.add(PENDING_DESIGN_FILES);
+		estateStatusForUnderDraft.add(PENDING_INITIAL_BED_COUNT);
+		
 		estateStatusForUnderDraft.add(APPROVED_L1_BY_LEADERSHIP);
 		estateStatusForUnderDraft.add(APPROVED_BY_NATIONAL_HEAD);
 		estateStatusForUnderDraft.add(APPROVED_BY_TRANSFORMATION);
@@ -257,6 +261,7 @@ public enum EstateStatus {
 		estateStatusForUnderDraft.add(SENT_FOR_SANDEEP_APPROVAL);
 		estateStatusForUnderDraft.add(SENT_TO_LEGAL);	
 		estateStatusForUnderDraft.add(SIGNED_ATL_UPLOADED);
+		estateStatusForUnderDraft.add(ATL_UPLOAD_PENDING);
 		
 		estateStatusForUnderDraft.add(SENT_BACK);
 		estateStatusForUnderDraft.add(SENT_BACK_BY_TRANSFORMATION);
@@ -264,6 +269,7 @@ public enum EstateStatus {
 		estateStatusForUnderDraft.add(SENT_BACK_BY_LEGAL);
 		estateStatusForUnderDraft.add(SENT_BACK_BY_LEADERSHIP);
 		estateStatusForUnderDraft.add(APPROVED_BY_LEADERSHIP);
+		estateStatusForUnderDraft.add(SHORTLISTED);
 		
 		return estateStatusForUnderDraft;
 	}
@@ -271,7 +277,6 @@ public enum EstateStatus {
 	public static List<EstateStatus> getEstateStatusForCallBackToL1Approved() {
 		List<EstateStatus> estateStatusForL1Approved = new ArrayList<>();
 		
-		estateStatusForL1Approved.add(APPROVED_L1_BY_LEADERSHIP);
 		estateStatusForL1Approved.add(APPROVED_BY_NATIONAL_HEAD);
 		estateStatusForL1Approved.add(APPROVED_BY_TRANSFORMATION);
 		estateStatusForL1Approved.add(APPROVED_BY_LEADERSHIP);
@@ -280,13 +285,54 @@ public enum EstateStatus {
 		estateStatusForL1Approved.add(SENT_FOR_SANDEEP_APPROVAL);
 		estateStatusForL1Approved.add(SENT_TO_LEGAL);	
 		estateStatusForL1Approved.add(SIGNED_ATL_UPLOADED);
+		estateStatusForL1Approved.add(ATL_UPLOAD_PENDING);
 		
 		estateStatusForL1Approved.add(SENT_BACK);
 		estateStatusForL1Approved.add(SENT_BACK_BY_TRANSFORMATION);
 		estateStatusForL1Approved.add(SENT_BACK_BY_SANDEEP);
 		estateStatusForL1Approved.add(SENT_BACK_BY_LEGAL);
 		estateStatusForL1Approved.add(SENT_BACK_BY_LEADERSHIP);
+		estateStatusForL1Approved.add(SHORTLISTED);
 		
 		return estateStatusForL1Approved;
 	}
+	
+	public static List<EstateStatus> getEstateStatusForDocTypeChanged() {
+		List<EstateStatus> estateStatusForL1Approved = new ArrayList<>();
+		
+		estateStatusForL1Approved.add(APPROVED_BY_NATIONAL_HEAD);
+		estateStatusForL1Approved.add(APPROVED_BY_TRANSFORMATION);
+		estateStatusForL1Approved.add(APPROVED_BY_LEADERSHIP);
+		
+		estateStatusForL1Approved.add(SENT_FOR_APPROVAL);
+		estateStatusForL1Approved.add(SENT_FOR_SANDEEP_APPROVAL);
+		estateStatusForL1Approved.add(SENT_TO_LEGAL);	
+		estateStatusForL1Approved.add(SIGNED_ATL_UPLOADED);
+		estateStatusForL1Approved.add(ATL_UPLOAD_PENDING);
+		
+		return estateStatusForL1Approved;
+	}
+	
+	public static List<EstateStatus> getDropUnderDraftStatus() {
+		List<EstateStatus> dropUnderDraftStatus = new ArrayList<>();
+		
+		dropUnderDraftStatus.add(DRAFT_IN_PROGRESS);
+		dropUnderDraftStatus.add(SENT_FOR_APPROVAL_TO_CITY_HEAD);
+		dropUnderDraftStatus.add(SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES);
+		dropUnderDraftStatus.add(SENT_BACK_BY_CITY_HEAD);
+				
+		return dropUnderDraftStatus;
+	}
+	
+	public static List<EstateStatus> getDropNHStatus() {
+		List<EstateStatus> dropUnderNHStatus = new ArrayList<>();
+		
+		dropUnderNHStatus.add(SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD);
+		dropUnderNHStatus.add(SENT_BACK_L1_BY_NATIONAL_HEAD);		
+		dropUnderNHStatus.add(PENDING_DESIGN_FILES);
+		dropUnderNHStatus.add(SENT_BACK_FROM_INITIAL_BED_COUNT);
+		
+		return dropUnderNHStatus;
+	}
+
 }
