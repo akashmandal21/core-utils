@@ -203,6 +203,8 @@ public class AttributeNames {
 		public static final String BASEMENT_OTHER_AREAS_MAY_REMARKS = "basementOtherAreasMayRemarks";
 		public static final String WATER_SUPPLY_BOREWELL_REMARKS = "waterSupplyBorewellRemarks";
 		public static final String WATER_TANK_CAPACITY_TO_BE_CALCULATED_REMARKS = "waterTankCapacityToBeCalculatedRemarks";
+		public static final String WATER_STORAGE_CLAUSE_B_REMARKS = "waterStorageClauseBRemarks";
+
 		public static final String ANY_MASONRY_PLASTER_CRACKS_REMARKS = "anyMasonryPlasterCracksRemarks";
 		public static final String EXTERNAL_DOOR_WINDOWS_REMARKS = "externalDoorWindowsRemarks";
 		
@@ -327,6 +329,7 @@ public class AttributeNames {
 		public static final String WATER_SUPPLY_CLAUSE_E_TEXT_AREA = "waterSupplyClauseETextArea";
 
 		public static final String WATER_STORAGE_CLAUSE_A_TEXT_AREA = "waterStorageClauseATextArea";
+		public static final String WATER_STORAGE_CLAUSE_B_TEXT_AREA = "waterStorageClauseBTextArea";
 		public static final String FACADE_CLAUSE_A_TEXT_AREA = "facadeClauseATextArea";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA = "facadeClauseBTextArea";
 		public static final String FACADE_CLAUSE_C_TEXT_AREA = "facadeClauseCTextArea";
