@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "USER")
 @Data
-public class USEREntity implements Serializable {
+public class UserEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

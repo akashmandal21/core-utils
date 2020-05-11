@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.STATEEntity;
+import com.stanzaliving.core.inventory_transformations.entity.StateEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface STATERepository extends JpaRepository<STATEEntity, Integer>, JpaSpecificationExecutor<STATEEntity> {
+public interface STATERepository extends JpaRepository<StateEntity, Integer>, JpaSpecificationExecutor<StateEntity> {
 
 }

@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @Entity
 @Data
 @Table(name = "BOOKING")
-public class BOOKINGEntity implements Serializable {
+public class BookingEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

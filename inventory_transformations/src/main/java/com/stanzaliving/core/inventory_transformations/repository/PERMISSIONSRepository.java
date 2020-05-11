@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.PERMISSIONSEntity;
+import com.stanzaliving.core.inventory_transformations.entity.PermissionsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface PERMISSIONSRepository extends JpaRepository<PERMISSIONSEntity, Integer>, JpaSpecificationExecutor<PERMISSIONSEntity> {
+public interface PERMISSIONSRepository extends JpaRepository<PermissionsEntity, Integer>, JpaSpecificationExecutor<PermissionsEntity> {
 
 }

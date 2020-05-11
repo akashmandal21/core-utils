@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "PENALTY")
 @Data
-public class PENALTYEntity implements Serializable {
+public class PenaltyEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

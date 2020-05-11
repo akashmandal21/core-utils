@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Data
 @Table(name = "PERMISSIONS")
 @Entity
-public class PERMISSIONSEntity implements Serializable {
+public class PermissionsEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

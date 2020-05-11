@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.REGIONEntity;
+import com.stanzaliving.core.inventory_transformations.entity.RegionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface REGIONRepository extends JpaRepository<REGIONEntity, Integer>, JpaSpecificationExecutor<REGIONEntity> {
+public interface REGIONRepository extends JpaRepository<RegionEntity, Integer>, JpaSpecificationExecutor<RegionEntity> {
 
 }

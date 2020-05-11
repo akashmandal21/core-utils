@@ -1,9 +1,9 @@
 package com.stanzaliving.core.inventory_transformations.repository;
 
-import com.stanzaliving.core.inventory_transformations.entity.IMAGEEntity;
+import com.stanzaliving.core.inventory_transformations.entity.ImageEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface IMAGERepository extends JpaRepository<IMAGEEntity, Integer>, JpaSpecificationExecutor<IMAGEEntity> {
+public interface IMAGERepository extends JpaRepository<ImageEntity, Integer>, JpaSpecificationExecutor<ImageEntity> {
 
 }
