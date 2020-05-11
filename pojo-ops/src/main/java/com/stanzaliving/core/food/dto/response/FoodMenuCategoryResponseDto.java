@@ -34,9 +34,9 @@ public class FoodMenuCategoryResponseDto {
 
 	private boolean skeletalRuleVerified;
 
-	private Boolean isSampleMenu;
+	private boolean sampleMenu;
 
-	private Boolean isGrammage;
+	private boolean grammage;
 
 	private Long residenceCount;
 
