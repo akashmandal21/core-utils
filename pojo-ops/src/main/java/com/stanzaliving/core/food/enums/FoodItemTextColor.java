@@ -24,8 +24,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum FoodItemTextColor {
 
-	BLACK("Black", "#000000"),
-	YELLOW("Yellow", "");
+	BLACK("Black", "#000000");
 
 	private String colorName;
 

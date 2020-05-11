@@ -24,8 +24,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum FoodItemBackgroundColor {
 
-	WHITE("White", "#FFFFFF"),
-	YELLOW("Yellow", "");
+	WHITE("White", "#E0E0E0"),
+	YELLOW("Yellow", "#FFFF00"),
+	BROWN("Brown", "#A5673F"),
+	RED("Red", "#F76464"),
+	GREEN("Green", "#76D46F"),
+	ORANGE("Orange", "#FF9A00");
 
 	private String colorName;
 
