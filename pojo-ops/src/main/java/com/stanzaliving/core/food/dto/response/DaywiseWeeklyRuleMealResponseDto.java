@@ -21,7 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 public class DaywiseWeeklyRuleMealResponseDto extends ConditionDto {
 
-	private Boolean passed;
+	private boolean passed;
 
 	private List<WeeklyDaywiseMealResponseDto> daywiseMeals;
 }

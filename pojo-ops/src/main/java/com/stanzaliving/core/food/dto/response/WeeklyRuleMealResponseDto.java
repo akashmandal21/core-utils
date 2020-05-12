@@ -19,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class WeeklyRuleMealResponseDto extends ConditionDto {
 
-	private Boolean passed;
+	private boolean passed;
 	
 	private List<WeeklyDatewiseMealResponseDto> datewiseMeals;
 }
