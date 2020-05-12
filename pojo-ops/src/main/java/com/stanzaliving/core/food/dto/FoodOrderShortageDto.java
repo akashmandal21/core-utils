@@ -1,7 +1,11 @@
 package com.stanzaliving.core.food.dto;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import com.stanzaliving.core.operations.enums.MealType;
+
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,16 +18,14 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderItemReceiveDto {
+public class FoodOrderShortageDto {
 
-	private String name;
+	private MealType meal;
 
-	@Builder.Default
-	private Integer quantity=null;
+	private LocalDate date;
 
-	@Builder.Default
-	private Double weight=null;
+	private String orderId;
 
-	private boolean isLatelyAdded;
+	private List<FoodOrderItemShortageDto> foodOrderItemShortageDtos;
 
 }
