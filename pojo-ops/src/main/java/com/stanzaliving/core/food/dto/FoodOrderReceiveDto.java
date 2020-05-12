@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -28,7 +30,10 @@ public class FoodOrderReceiveDto {
 	private Date receivedTime;
 
 	private String orderId;
+	
+	private String residenceFoodMenuId;
 
+	@NotEmpty(message = "item receiving can not be empty")
 	private List<FoodOrderItemReceiveDto> foodOrderItemReceiveDtos;
 
 }

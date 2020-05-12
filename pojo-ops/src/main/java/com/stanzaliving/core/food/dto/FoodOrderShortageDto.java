@@ -3,6 +3,8 @@ package com.stanzaliving.core.food.dto;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -26,6 +28,7 @@ public class FoodOrderShortageDto {
 
 	private String orderId;
 
+	@NotEmpty(message = "item shortage can not be empty")
 	private List<FoodOrderItemShortageDto> foodOrderItemShortageDtos;
 
 }

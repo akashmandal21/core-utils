@@ -17,6 +17,8 @@ import lombok.experimental.SuperBuilder;
 public class FoodOrderItemLeftoverDto {
 
 	private String name;
+	
+	private String itemId;
 
 	@Builder.Default
 	private Integer leftoverQuantity = null;
