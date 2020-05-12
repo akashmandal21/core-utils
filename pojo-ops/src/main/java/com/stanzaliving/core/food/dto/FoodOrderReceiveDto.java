@@ -35,5 +35,7 @@ public class FoodOrderReceiveDto {
 
 	@NotEmpty(message = "item receiving can not be empty")
 	private List<FoodOrderItemReceiveDto> foodOrderItemReceiveDtos;
+	
+	private List<FoodOrderReceivingAdditionalItemsDto> additionalItemsDtos;
 
 }

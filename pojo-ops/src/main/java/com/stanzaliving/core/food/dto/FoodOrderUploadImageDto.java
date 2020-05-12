@@ -4,10 +4,6 @@ import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
-import org.springframework.web.multipart.MultipartFile;
-
-import com.stanzaliving.core.food.enums.FoodOrderImageType;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,11 +17,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UploadImageDto {
+public class FoodOrderUploadImageDto {
 
-	private FoodOrderImageType foodOrderImageType;
+	private String orderId;
 
-	@NotEmpty(message = "image files can not be empty")
-	private List<MultipartFile> multipartFiles;
+	@NotEmpty(message = "upload image dto can not be empty")
+	private List<UploadImageDto> imageDtos;
 
 }
