@@ -1,5 +1,10 @@
 package com.stanzaliving.core.food.dto;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import com.stanzaliving.core.operations.enums.MealType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,16 +19,17 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderItemReceiveDto {
+public class FoodOrderLeftoverDto {
 
-	private String name;
+	private MealType meal;
 
+	private LocalDate date;
+
+	private String orderId;
+	
 	@Builder.Default
-	private Integer quantity=null;
+	private Integer studentCount=0;
 
-	@Builder.Default
-	private Double weight=null;
-
-	private boolean isLatelyAdded;
+	private List<FoodOrderItemLeftoverDto> foodOrderItemLeftoverDtos;
 
 }

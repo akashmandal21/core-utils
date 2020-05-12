@@ -14,16 +14,14 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderItemReceiveDto {
+public class FoodOrderItemLeftoverDto {
 
 	private String name;
 
 	@Builder.Default
-	private Integer quantity=null;
+	private Integer leftoverQuantity = null;
 
 	@Builder.Default
-	private Double weight=null;
-
-	private boolean isLatelyAdded;
+	private Double leftoverWeight = null;
 
 }
