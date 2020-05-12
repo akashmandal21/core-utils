@@ -3,7 +3,6 @@ package com.stanzaliving.core.food.dto.request;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import sun.jvm.hotspot.debugger.cdbg.EnumType;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
