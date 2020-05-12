@@ -6,6 +6,9 @@ package com.stanzaliving.core.food.dto.request;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.food.enums.FoodServeType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +24,7 @@ import lombok.experimental.SuperBuilder;
  **/
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,5 +38,11 @@ public class FoodMenuCategoryAddRequestDto {
 
 	@NotNull(message = "Stanza Kitchen Flag is Mandatory")
 	private Boolean stanzaKitchen;
+
+	private FoodRegion foodRegion;
+
+	private FoodServeType foodServeType;
+
+	private ResidenceBrand residenceBrand;
 
 }

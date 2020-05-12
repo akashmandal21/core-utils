@@ -1,7 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,16 +13,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderItemLeftoverDto {
+public class FoodOrderReceivingAdditionalItemsDto {
 
-	private String name;
-	
-	private String itemId;
+	private String item;
 
-	@Builder.Default
-	private Integer leftoverQuantity = null;
-
-	@Builder.Default
-	private Double leftoverWeight = null;
+	private String itemName;
 
 }

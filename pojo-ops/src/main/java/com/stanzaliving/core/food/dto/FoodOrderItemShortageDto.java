@@ -17,6 +17,8 @@ import lombok.experimental.SuperBuilder;
 public class FoodOrderItemShortageDto {
 
 	private String item;
+	
+	private String itemId;
 
 	@Builder.Default
 	private Integer shortagePax = null;

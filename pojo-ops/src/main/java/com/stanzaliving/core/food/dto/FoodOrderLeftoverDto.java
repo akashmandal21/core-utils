@@ -3,6 +3,8 @@ package com.stanzaliving.core.food.dto;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -30,6 +32,7 @@ public class FoodOrderLeftoverDto {
 	@Builder.Default
 	private Integer studentCount=0;
 
+	@NotEmpty(message = "item leftover can not be empty")
 	private List<FoodOrderItemLeftoverDto> foodOrderItemLeftoverDtos;
 
 }
