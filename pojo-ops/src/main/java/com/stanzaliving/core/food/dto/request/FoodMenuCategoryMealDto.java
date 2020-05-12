@@ -23,6 +23,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodMenuCategoryMealDto {
+
 	private String menuCategoryId;
 
 	private MealType mealType;
