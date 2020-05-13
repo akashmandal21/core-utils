@@ -2,6 +2,8 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.base.common.dto.ListingDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +21,6 @@ public class MicromarketHostelDto {
 	
 	private String micromarketName;
 	
-	List<HostelIdNameDto> hostels;
+	List<ListingDto> hostels;
 
 }
