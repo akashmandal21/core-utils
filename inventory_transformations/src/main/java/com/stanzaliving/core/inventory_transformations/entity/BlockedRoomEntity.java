@@ -20,31 +20,31 @@ public class BlockedRoomEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "ROOM_ID", nullable = false)
-	@JsonProperty("ROOM_ID")
+	@JsonProperty("room_id")
     private Integer roomId;
 
     @Column(name = "BLOCKING_END")
-	@JsonProperty("BLOCKING_END")
+	@JsonProperty("blocking_end")
     private Timestamp blockingEnd;
 
     @Column(name = "BLOCKING_REASON")
-	@JsonProperty("BLOCKING_REASON")
+	@JsonProperty("blocking_reason")
     private String blockingReason;
 
     @Column(name = "BLOCKING_START")
-	@JsonProperty("BLOCKING_START")
+	@JsonProperty("blocking_start")
     private Timestamp blockingStart;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

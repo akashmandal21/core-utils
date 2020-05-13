@@ -21,43 +21,43 @@ public class RevenueDeductionEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "BOOKING_ID", nullable = false)
-	@JsonProperty("BOOKING_ID")
+	@JsonProperty("booking_id")
     private Integer bookingId;
 
     @Column(name = "ONBOARDED", nullable = false)
-	@JsonProperty("ONBOARDED")
+	@JsonProperty("onboarded")
     private Integer ONBOARDED = 0;
 
     @Column(name = "CONTRACT_START_DATE")
-	@JsonProperty("CONTRACT_START_DATE")
+	@JsonProperty("contract_start_date")
     private Date contractStartDate;
 
     @Column(name = "TOTAL_AMOUNT", nullable = false)
-	@JsonProperty("TOTAL_AMOUNT")
+	@JsonProperty("total_amount")
     private Double totalAmount = 0D;
 
     @Column(name = "REMAINING_AMOUNT", nullable = false)
-	@JsonProperty("REMAINING_AMOUNT")
+	@JsonProperty("remaining_amount")
     private Double remainingAmount = 0D;
 
     @Column(name = "ONE_DAY_RENT", nullable = false)
-	@JsonProperty("ONE_DAY_RENT")
+	@JsonProperty("one_day_rent")
     private Double oneDayRent = 0D;
 
     @Column(name = "DEDUCTIONS_MADE", nullable = false)
-	@JsonProperty("DEDUCTIONS_MADE")
+	@JsonProperty("deductions_made")
     private Integer deductionsMade = 0;
 
     @Column(name = "CREATED_AT", nullable = false)
-	@JsonProperty("CREATED_AT")
+	@JsonProperty("created_at")
     private Timestamp createdAt;
 
     @Column(name = "UPDATED_AT", nullable = false)
-	@JsonProperty("UPDATED_AT")
+	@JsonProperty("updated_at")
     private Timestamp updatedAt;
 
     @Column(name = "METADATA", columnDefinition = "json")
-	@JsonProperty("METADATA")
+	@JsonProperty("metadata")
     private String METADATA;
 
     

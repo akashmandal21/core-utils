@@ -18,47 +18,47 @@ public class CashCollectionEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "TRANSACTION_ID", nullable = false)
-	@JsonProperty("TRANSACTION_ID")
+	@JsonProperty("transaction_id")
     private Integer transactionId;
 
     @Column(name = "TRANSACTION_STATUS", nullable = false)
-	@JsonProperty("TRANSACTION_STATUS")
+	@JsonProperty("transaction_status")
     private String transactionStatus;
 
     @Column(name = "TRANSACTION_BATCH")
-	@JsonProperty("TRANSACTION_BATCH")
+	@JsonProperty("transaction_batch")
     private Integer transactionBatch = 0;
 
     @Column(name = "RC_CONFIRMED_DATE")
-	@JsonProperty("RC_CONFIRMED_DATE")
+	@JsonProperty("rc_confirmed_date")
     private Timestamp rcConfirmedDate;
 
     @Column(name = "TRANSACTION_TYPE")
-	@JsonProperty("TRANSACTION_TYPE")
+	@JsonProperty("transaction_type")
     private String transactionType;
 
     @Column(name = "RC_ID")
-	@JsonProperty("RC_ID")
+	@JsonProperty("rc_id")
     private Integer rcId = 0;
 
     @Column(name = "CREATED_BY")
-	@JsonProperty("CREATED_BY")
+	@JsonProperty("created_by")
     private String createdBy;
 
     @Column(name = "CREATION_DATE")
-	@JsonProperty("CREATION_DATE")
+	@JsonProperty("creation_date")
     private Timestamp creationDate;
 
     @Column(name = "LAST_UPDATED")
-	@JsonProperty("LAST_UPDATED")
+	@JsonProperty("last_updated")
     private Timestamp lastUpdated;
 
     @Column(name = "PHONE")
-	@JsonProperty("PHONE")
+	@JsonProperty("phone")
     private String PHONE;
 
     @Column(name = "RESIDENCE_ID")
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId = 0;
 
     

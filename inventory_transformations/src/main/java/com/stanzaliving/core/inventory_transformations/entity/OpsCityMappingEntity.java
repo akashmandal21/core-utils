@@ -17,15 +17,15 @@ public class OpsCityMappingEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "VENTA_CITY_ID")
-	@JsonProperty("VENTA_CITY_ID")
+	@JsonProperty("venta_city_id")
     private Integer ventaCityId;
 
     @Column(name = "OPS_CITY_ID")
-	@JsonProperty("OPS_CITY_ID")
+	@JsonProperty("ops_city_id")
     private String opsCityId;
 
     @Column(name = "NAME")
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     

@@ -18,27 +18,27 @@ public class EducationalInstitutionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "EDUCATIONAL_INSTITUTION_ID", insertable = false, nullable = false)
-	@JsonProperty("EDUCATIONAL_INSTITUTION_ID")
+	@JsonProperty("educational_institution_id")
     private Integer educationalInstitutionId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "CITY_ID")
-	@JsonProperty("CITY_ID")
+	@JsonProperty("city_id")
     private Integer cityId;
 
     

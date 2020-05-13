@@ -17,19 +17,19 @@ public class CreditcardTransactionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "CC_TRANSACTION_ID", nullable = false)
-	@JsonProperty("CC_TRANSACTION_ID")
+	@JsonProperty("cc_transaction_id")
     private Integer ccTransactionId;
 
     @Column(name = "TRANSACTION_ID")
-	@JsonProperty("TRANSACTION_ID")
+	@JsonProperty("transaction_id")
     private Integer transactionId;
 
     @Column(name = "REQUEST", nullable = false, columnDefinition = "text")
-	@JsonProperty("REQUEST")
+	@JsonProperty("request")
     private String REQUEST;
 
     @Column(name = "BILL_NUMBER", nullable = false)
-	@JsonProperty("BILL_NUMBER")
+	@JsonProperty("bill_number")
     private String billNumber;
 
     

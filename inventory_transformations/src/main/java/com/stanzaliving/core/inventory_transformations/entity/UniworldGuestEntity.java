@@ -19,77 +19,77 @@ public class UniworldGuestEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "S_No", insertable = false, nullable = false)
-	@JsonProperty("S_No")
+	@JsonProperty("s_no")
     private Integer sNo;
 
     @Column(name = "ReservationNo", nullable = false)
-	@JsonProperty("ReservationNo")
+	@JsonProperty("reservationno")
     private String ReservationNo;
 
     @Column(name = "GuestFullName", nullable = false)
-	@JsonProperty("GuestFullName")
+	@JsonProperty("guestfullname")
     private String GuestFullName;
 
     @Column(name = "Email")
-	@JsonProperty("Email")
+	@JsonProperty("email")
     private String Email;
 
     @Column(name = "Phone")
-	@JsonProperty("Phone")
+	@JsonProperty("phone")
     private String Phone;
 
     @Column(name = "CompanyName")
-	@JsonProperty("CompanyName")
+	@JsonProperty("companyname")
     private String CompanyName;
 
     @Column(name = "RateCardName")
-	@JsonProperty("RateCardName")
+	@JsonProperty("ratecardname")
     private String RateCardName;
 
     @Column(name = "Code")
-	@JsonProperty("Code")
+	@JsonProperty("code")
     private String Code;
 
     @Column(name = "RoomTypeName")
-	@JsonProperty("RoomTypeName")
+	@JsonProperty("roomtypename")
     private String RoomTypeName;
 
     @Column(name = "CheckInDate")
-	@JsonProperty("CheckInDate")
+	@JsonProperty("checkindate")
     @Temporal(TemporalType.DATE)
     private Date CheckInDate;
 
     @Column(name = "CheckOutDate")
-	@JsonProperty("CheckOutDate")
+	@JsonProperty("checkoutdate")
     @Temporal(TemporalType.DATE)
     private Date CheckOutDate;
 
     @Column(name = "RoomNo")
-	@JsonProperty("RoomNo")
+	@JsonProperty("roomno")
     private String RoomNo;
 
     @Column(name = "Security_Deposit")
-	@JsonProperty("Security_Deposit")
+	@JsonProperty("security_deposit")
     private Integer securityDeposit;
 
     @Column(name = "Excess_Rental")
-	@JsonProperty("Excess_Rental")
+	@JsonProperty("excess_rental")
     private Integer excessRental;
 
     @Column(name = "Total_Amount")
-	@JsonProperty("Total_Amount")
+	@JsonProperty("total_amount")
     private Integer totalAmount;
 
     @Column(name = "Confirmation_Code")
-	@JsonProperty("Confirmation_Code")
+	@JsonProperty("confirmation_code")
     private String confirmationCode;
 
     @Column(name = "Accepted", nullable = false)
-	@JsonProperty("Accepted")
+	@JsonProperty("accepted")
     private Boolean Accepted = false;
 
     @Column(name = "Approved_Timestamp")
-	@JsonProperty("Approved_Timestamp")
+	@JsonProperty("approved_timestamp")
     private Timestamp approvedTimestamp;
 
     @Column(name = "plan")

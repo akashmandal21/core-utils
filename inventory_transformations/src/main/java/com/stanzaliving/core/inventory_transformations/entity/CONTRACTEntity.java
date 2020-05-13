@@ -18,27 +18,27 @@ public class ContractEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "CONTRACT_ID", nullable = false)
-	@JsonProperty("CONTRACT_ID")
+	@JsonProperty("contract_id")
     private Integer contractId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED;
 
     @Column(name = "MONTHS", nullable = false)
-	@JsonProperty("MONTHS")
+	@JsonProperty("months")
     private Double MONTHS;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

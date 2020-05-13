@@ -18,127 +18,127 @@ public class ResidenceEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "RESIDENCE_ID", insertable = false, nullable = false)
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Column(name = "CODE", nullable = false)
-	@JsonProperty("CODE")
+	@JsonProperty("code")
     private String CODE;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED;
 
     @Column(name = "GENDER", nullable = false)
-	@JsonProperty("GENDER")
+	@JsonProperty("gender")
     private Integer GENDER;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "RESIDENCE_ADDRESS_ID")
-	@JsonProperty("RESIDENCE_ADDRESS_ID")
+	@JsonProperty("residence_address_id")
     private Integer residenceAddressId;
 
     @Column(name = "MICROMARKET_ID")
-	@JsonProperty("MICROMARKET_ID")
+	@JsonProperty("micromarket_id")
     private Integer micromarketId;
 
     @Column(name = "DETAILS_COMPLETED", nullable = false)
-	@JsonProperty("DETAILS_COMPLETED")
+	@JsonProperty("details_completed")
     private Boolean detailsCompleted;
 
     @Column(name = "BUFFER_PRICE")
-	@JsonProperty("BUFFER_PRICE")
+	@JsonProperty("buffer_price")
     private Integer bufferPrice;
 
     @Column(name = "PREVIOUS_ALIAS")
-	@JsonProperty("PREVIOUS_ALIAS")
+	@JsonProperty("previous_alias")
     private String previousAlias;
 
     @Column(name = "ADMIN_CHARGES")
-	@JsonProperty("ADMIN_CHARGES")
+	@JsonProperty("admin_charges")
     private Integer adminCharges;
 
     @Column(name = "NON_REFUNDABLE_SECURITY_DEPOSIT")
-	@JsonProperty("NON_REFUNDABLE_SECURITY_DEPOSIT")
+	@JsonProperty("non_refundable_security_deposit")
     private Integer nonRefundableSecurityDeposit;
 
     @Column(name = "REFUNDABLE_SECURITY_DEPOSIT")
-	@JsonProperty("REFUNDABLE_SECURITY_DEPOSIT")
+	@JsonProperty("refundable_security_deposit")
     private Integer refundableSecurityDeposit;
 
     @Column(name = "ADVANCE_RENTAL")
-	@JsonProperty("ADVANCE_RENTAL")
+	@JsonProperty("advance_rental")
     private Integer advanceRental;
 
     @Column(name = "CGST")
-	@JsonProperty("CGST")
+	@JsonProperty("cgst")
     private Double CGST;
 
     @Column(name = "GST_IN")
-	@JsonProperty("GST_IN")
+	@JsonProperty("gst_in")
     private String gstIn;
 
     @Column(name = "IGST")
-	@JsonProperty("IGST")
+	@JsonProperty("igst")
     private Double IGST;
 
     @Column(name = "INTERNATIONAL_STUDENT_ALLOWED")
-	@JsonProperty("INTERNATIONAL_STUDENT_ALLOWED")
+	@JsonProperty("international_student_allowed")
     private Boolean internationalStudentAllowed;
 
     @Column(name = "RETENTION_BOOKING_AMOUNT")
-	@JsonProperty("RETENTION_BOOKING_AMOUNT")
+	@JsonProperty("retention_booking_amount")
     private Double retentionBookingAmount;
 
     @Column(name = "SGST")
-	@JsonProperty("SGST")
+	@JsonProperty("sgst")
     private Double SGST;
 
     @Column(name = "HOSTEL_ID")
-	@JsonProperty("HOSTEL_ID")
+	@JsonProperty("hostel_id")
     private Integer hostelId;
 
     @Column(name = "RESIDENCE_RC_ID")
-	@JsonProperty("RESIDENCE_RC_ID")
+	@JsonProperty("residence_rc_id")
     private Integer residenceRcId = 155;
 
     @Column(name = "RESIDENCE_SUPPLEMENTARY_DETAIL_ID")
-	@JsonProperty("RESIDENCE_SUPPLEMENTARY_DETAIL_ID")
+	@JsonProperty("residence_supplementary_detail_id")
     private Integer residenceSupplementaryDetailId = 1;
 
     @Column(name = "PROPERTY_TYPE", nullable = false)
-	@JsonProperty("PROPERTY_TYPE")
+	@JsonProperty("property_type")
     private Integer propertyType;
 
     @Column(name = "PROPERTY_CATEGORY", nullable = false)
-	@JsonProperty("PROPERTY_CATEGORY")
+	@JsonProperty("property_category")
     private Integer propertyCategory;
 
     @Column(name = "IS_TEST_HOUSE", columnDefinition = "tinyint")
-	@JsonProperty("IS_TEST_HOUSE")
+	@JsonProperty("is_test_house")
     private Integer testHouse = 0;
 
     @Column(name = "PARENT_COMPANY", nullable = false)
-	@JsonProperty("PARENT_COMPANY")
+	@JsonProperty("parent_company")
     private Integer parentCompany = 0;
 
     @Column(name = "ROFR")
-	@JsonProperty("ROFR")
+	@JsonProperty("rofr")
     private Boolean ROFR = Boolean.FALSE;
 
     @Column(name = "AUTO_CANCELLATION_DAYS")
-	@JsonProperty("AUTO_CANCELLATION_DAYS")
+	@JsonProperty("auto_cancellation_days")
     private Integer autoCancellationDays = 7;
 
     

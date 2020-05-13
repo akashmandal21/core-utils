@@ -21,39 +21,39 @@ public class ResidenceInventoryDetailEntity implements Serializable {
 
     @Id
     @Column(name = "RESIDENCE_ID", insertable = false, nullable = false)
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Column(name = "AVAILABLE_INVENTORY")
-	@JsonProperty("AVAILABLE_INVENTORY")
+	@JsonProperty("available_inventory")
     private BigDecimal availableInventory;
 
     @Column(name = "BLOCKED_INVENTORY", nullable = false)
-	@JsonProperty("BLOCKED_INVENTORY")
+	@JsonProperty("blocked_inventory")
     private BigDecimal blockedInventory;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "DEAD_INVENTORY", nullable = false)
-	@JsonProperty("DEAD_INVENTORY")
+	@JsonProperty("dead_inventory")
     private BigDecimal deadInventory;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED;
 
     @Column(name = "OCCUPIED_INVENTORY")
-	@JsonProperty("OCCUPIED_INVENTORY")
+	@JsonProperty("occupied_inventory")
     private BigDecimal occupiedInventory = BigDecimal.ZERO;
 
     @Column(name = "TOTAL_INVENTORY")
-	@JsonProperty("TOTAL_INVENTORY")
+	@JsonProperty("total_inventory")
     private BigDecimal totalInventory = BigDecimal.ZERO;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

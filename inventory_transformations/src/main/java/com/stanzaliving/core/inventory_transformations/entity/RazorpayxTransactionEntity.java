@@ -18,43 +18,43 @@ public class RazorpayxTransactionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "RAZORPAY_TRANS_ID", insertable = false, nullable = false)
-	@JsonProperty("RAZORPAY_TRANS_ID")
+	@JsonProperty("razorpay_trans_id")
     private Integer razorpayTransId;
 
     @Column(name = "PAYOUT_ID")
-	@JsonProperty("PAYOUT_ID")
+	@JsonProperty("payout_id")
     private String payoutId;
 
     @Column(name = "TRANSACTION_ID")
-	@JsonProperty("TRANSACTION_ID")
+	@JsonProperty("transaction_id")
     private String transactionId;
 
     @Column(name = "CONTACT_ID")
-	@JsonProperty("CONTACT_ID")
+	@JsonProperty("contact_id")
     private String contactId;
 
     @Column(name = "FUND_ACCOUNT_ID")
-	@JsonProperty("FUND_ACCOUNT_ID")
+	@JsonProperty("fund_account_id")
     private String fundAccountId;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("AMOUNT")
+	@JsonProperty("amount")
     private Double AMOUNT;
 
     @Column(name = "STATUS")
-	@JsonProperty("STATUS")
+	@JsonProperty("status")
     private String STATUS;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "TYPE")
-	@JsonProperty("TYPE")
+	@JsonProperty("type")
     private String TYPE;
 
     

@@ -18,23 +18,23 @@ public class ConsumablesEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "CONSUMABLES_ID", nullable = false)
-	@JsonProperty("CONSUMABLES_ID")
+	@JsonProperty("consumables_id")
     private Integer consumablesId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

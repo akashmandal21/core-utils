@@ -18,23 +18,23 @@ public class JobsEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "JOB_ID", insertable = false, nullable = false)
-	@JsonProperty("JOB_ID")
+	@JsonProperty("job_id")
     private Integer jobId;
 
     @Column(name = "START")
-	@JsonProperty("START")
+	@JsonProperty("start")
     private Timestamp START;
 
     @Column(name = "END")
-	@JsonProperty("END")
+	@JsonProperty("end")
     private Timestamp END;
 
     @Column(name = "STATUS")
-	@JsonProperty("STATUS")
+	@JsonProperty("status")
     private String STATUS;
 
     @Column(name = "JOB_TYPE", nullable = false)
-	@JsonProperty("JOB_TYPE")
+	@JsonProperty("job_type")
     private Integer jobType;
 
     

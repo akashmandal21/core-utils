@@ -17,27 +17,27 @@ public class BrokerDocumentEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "IMG_URL", nullable = false)
-	@JsonProperty("IMG_URL")
+	@JsonProperty("img_url")
     private String imgUrl;
 
     @Column(name = "TYPE", nullable = false)
-	@JsonProperty("TYPE")
+	@JsonProperty("type")
     private String TYPE;
 
     @Column(name = "BROKER_ID")
-	@JsonProperty("BROKER_ID")
+	@JsonProperty("broker_id")
     private Integer brokerId;
 
     @Column(name = "NAME_ON_DOCUMENT")
-	@JsonProperty("NAME_ON_DOCUMENT")
+	@JsonProperty("name_on_document")
     private String nameOnDocument = "";
 
     @Column(name = "DOCUMENT_ID")
-	@JsonProperty("DOCUMENT_ID")
+	@JsonProperty("document_id")
     private String documentId = "";
 
     

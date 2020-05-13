@@ -18,31 +18,31 @@ public class SecurityCarryForwardEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SECURITY_CARRY_FORWARD_ID", insertable = false, nullable = false)
-	@JsonProperty("SECURITY_CARRY_FORWARD_ID")
+	@JsonProperty("security_carry_forward_id")
     private Integer securityCarryForwardId;
 
     @Column(name = "ISSUE_DATE")
-	@JsonProperty("ISSUE_DATE")
+	@JsonProperty("issue_date")
     private Timestamp issueDate;
 
     @Column(name = "MENTIONED_AMOUNT")
-	@JsonProperty("MENTIONED_AMOUNT")
+	@JsonProperty("mentioned_amount")
     private Double mentionedAmount;
 
     @Column(name = "RECEIPT_ID")
-	@JsonProperty("RECEIPT_ID")
+	@JsonProperty("receipt_id")
     private String receiptId;
 
     @Column(name = "SECURITY_AMOUNT_CARRY_FORWADED")
-	@JsonProperty("SECURITY_AMOUNT_CARRY_FORWADED")
+	@JsonProperty("security_amount_carry_forwaded")
     private Double securityAmountCarryForwaded;
 
     @Column(name = "STATUS")
-	@JsonProperty("STATUS")
+	@JsonProperty("status")
     private String STATUS;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("BOOKING_ID")
+	@JsonProperty("booking_id")
     private Integer bookingId;
 
     

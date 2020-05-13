@@ -18,39 +18,39 @@ public class BookingServiceAuditEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "BOOKING_SERVICE_AUDIT_ID", nullable = false)
-	@JsonProperty("BOOKING_SERVICE_AUDIT_ID")
+	@JsonProperty("booking_service_audit_id")
     private Integer bookingServiceAuditId;
 
     @Column(name = "OPTIONAL")
-	@JsonProperty("OPTIONAL")
+	@JsonProperty("optional")
     private Boolean OPTIONAL;
 
     @Column(name = "PRICE")
-	@JsonProperty("PRICE")
+	@JsonProperty("price")
     private Double PRICE;
 
     @Column(name = "SERVICE_ID")
-	@JsonProperty("SERVICE_ID")
+	@JsonProperty("service_id")
     private Integer serviceId;
 
     @Column(name = "SERVICE_NAME")
-	@JsonProperty("SERVICE_NAME")
+	@JsonProperty("service_name")
     private String serviceName;
 
     @Column(name = "BOOKING_AUDIT_ID")
-	@JsonProperty("BOOKING_AUDIT_ID")
+	@JsonProperty("booking_audit_id")
     private Integer bookingAuditId;
 
     @Column(name = "VALID_FROM")
-	@JsonProperty("VALID_FROM")
+	@JsonProperty("valid_from")
     private Timestamp validFrom;
 
     @Column(name = "VALID_TO")
-	@JsonProperty("VALID_TO")
+	@JsonProperty("valid_to")
     private Timestamp validTo;
 
     @Column(name = "VAS")
-	@JsonProperty("VAS")
+	@JsonProperty("vas")
     private Boolean VAS = Boolean.FALSE;
 
     

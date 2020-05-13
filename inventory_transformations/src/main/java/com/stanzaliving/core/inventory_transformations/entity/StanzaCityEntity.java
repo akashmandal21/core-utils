@@ -18,39 +18,39 @@ public class StanzaCityEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "STANZA_CITY_ID", nullable = false)
-	@JsonProperty("STANZA_CITY_ID")
+	@JsonProperty("stanza_city_id")
     private Integer stanzaCityId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "LATITUDE")
-	@JsonProperty("LATITUDE")
+	@JsonProperty("latitude")
     private Double LATITUDE;
 
     @Column(name = "LONGITUDE")
-	@JsonProperty("LONGITUDE")
+	@JsonProperty("longitude")
     private Double LONGITUDE;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "CITY_ID")
-	@JsonProperty("CITY_ID")
+	@JsonProperty("city_id")
     private Integer cityId;
 
     @Column(name = "CODE")
-	@JsonProperty("CODE")
+	@JsonProperty("code")
     private String CODE;
 
     

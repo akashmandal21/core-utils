@@ -18,39 +18,39 @@ public class BookingCancelledStatusEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BOOKING_CANCELLED_STATUS_ID", insertable = false, nullable = false)
-	@JsonProperty("BOOKING_CANCELLED_STATUS_ID")
+	@JsonProperty("booking_cancelled_status_id")
     private Integer bookingCancelledStatusId;
 
     @Column(name = "BOOKING_ID", nullable = false)
-	@JsonProperty("BOOKING_ID")
+	@JsonProperty("booking_id")
     private Integer bookingId;
 
     @Column(name = "BOOKING_SUB_STATUS")
-	@JsonProperty("BOOKING_SUB_STATUS")
+	@JsonProperty("booking_sub_status")
     private String bookingSubStatus;
 
     @Column(name = "COMMENTS")
-	@JsonProperty("COMMENTS")
+	@JsonProperty("comments")
     private String COMMENTS;
 
     @Column(name = "CANCELLED_DATE")
-	@JsonProperty("CANCELLED_DATE")
+	@JsonProperty("cancelled_date")
     private Timestamp cancelledDate;
 
     @Column(name = "CREATED_BY")
-	@JsonProperty("CREATED_BY")
+	@JsonProperty("created_by")
     private String createdBy;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "UPDATED")
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

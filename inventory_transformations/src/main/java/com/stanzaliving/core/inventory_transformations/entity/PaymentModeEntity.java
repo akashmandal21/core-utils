@@ -18,27 +18,27 @@ public class PaymentModeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "PAYMENT_MODE_ID", nullable = false)
-	@JsonProperty("PAYMENT_MODE_ID")
+	@JsonProperty("payment_mode_id")
     private Integer paymentModeId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "IS_CONFIRMED", nullable = false)
-	@JsonProperty("IS_CONFIRMED")
+	@JsonProperty("is_confirmed")
     private Boolean confirmed;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

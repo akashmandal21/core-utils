@@ -17,19 +17,19 @@ public class InstitutionDocumentEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "IMG_URL", nullable = false)
-	@JsonProperty("IMG_URL")
+	@JsonProperty("img_url")
     private String imgUrl;
 
     @Column(name = "TYPE", nullable = false)
-	@JsonProperty("TYPE")
+	@JsonProperty("type")
     private String TYPE;
 
     @Column(name = "INSTITUTION_ID")
-	@JsonProperty("INSTITUTION_ID")
+	@JsonProperty("institution_id")
     private Integer institutionId;
 
     

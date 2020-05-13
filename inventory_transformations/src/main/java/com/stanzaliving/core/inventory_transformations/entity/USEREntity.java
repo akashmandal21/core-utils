@@ -20,51 +20,51 @@ public class UserEntity implements Serializable {
 
     @Id
     @Column(name = "USERNAME", insertable = false, nullable = false)
-	@JsonProperty("USERNAME")
+	@JsonProperty("username")
     private String USERNAME;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "EMAIL")
-	@JsonProperty("EMAIL")
+	@JsonProperty("email")
     private String EMAIL;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "LEVEL")
-	@JsonProperty("LEVEL")
+	@JsonProperty("level")
     private String LEVEL;
 
     @Column(name = "NAME")
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "PASSWORD", nullable = false)
-	@JsonProperty("PASSWORD")
+	@JsonProperty("password")
     private String PASSWORD;
 
     @Column(name = "PHONE")
-	@JsonProperty("PHONE")
+	@JsonProperty("phone")
     private Long PHONE;
 
     @Column(name = "TEAM")
-	@JsonProperty("TEAM")
+	@JsonProperty("team")
     private String TEAM;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "CITY_ID")
-	@JsonProperty("CITY_ID")
+	@JsonProperty("city_id")
     private Integer cityId;
 
     @Column(name = "MICROMARKET_ID")
-	@JsonProperty("MICROMARKET_ID")
+	@JsonProperty("micromarket_id")
     private Integer micromarketId;
 
     

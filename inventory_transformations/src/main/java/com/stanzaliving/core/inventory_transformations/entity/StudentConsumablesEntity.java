@@ -19,12 +19,12 @@ public class StudentConsumablesEntity implements Serializable {
 
     @Id
     @Column(name = "STUDENT_ONBOARDING_DETAILS_ID", insertable = false, nullable = false)
-	@JsonProperty("STUDENT_ONBOARDING_DETAILS_ID")
+	@JsonProperty("student_onboarding_details_id")
     private Integer studentOnboardingDetailsId;
 
     @Id
     @Column(insertable = false, name = "CONSUMABLES_ID", nullable = false)
-	@JsonProperty("CONSUMABLES_ID")
+	@JsonProperty("consumables_id")
     private Integer consumablesId;
 
     

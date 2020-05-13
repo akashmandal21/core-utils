@@ -18,55 +18,55 @@ public class ResidenceTypeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "RESIDENCE_TYPE_ID", nullable = false)
-	@JsonProperty("RESIDENCE_TYPE_ID")
+	@JsonProperty("residence_type_id")
     private Integer residenceTypeId;
 
     @Column(name = "RESIDENCE_ID", nullable = false)
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Column(name = "ADMIN_CHARGES")
-	@JsonProperty("ADMIN_CHARGES")
+	@JsonProperty("admin_charges")
     private Integer adminCharges;
 
     @Column(name = "NON_REFUNDABLE_SECURITY_DEPOSIT")
-	@JsonProperty("NON_REFUNDABLE_SECURITY_DEPOSIT")
+	@JsonProperty("non_refundable_security_deposit")
     private Integer nonRefundableSecurityDeposit;
 
     @Column(name = "REFUNDABLE_SECURITY_DEPOSIT")
-	@JsonProperty("REFUNDABLE_SECURITY_DEPOSIT")
+	@JsonProperty("refundable_security_deposit")
     private Integer refundableSecurityDeposit;
 
     @Column(name = "ADVANCE_RENTAL")
-	@JsonProperty("ADVANCE_RENTAL")
+	@JsonProperty("advance_rental")
     private Integer advanceRental;
 
     @Column(name = "RETENTION_BOOKING_AMOUNT")
-	@JsonProperty("RETENTION_BOOKING_AMOUNT")
+	@JsonProperty("retention_booking_amount")
     private Double retentionBookingAmount;
 
     @Column(name = "TYPE", nullable = false)
-	@JsonProperty("TYPE")
+	@JsonProperty("type")
     private Integer TYPE;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "PENALTY_AMOUNT")
-	@JsonProperty("PENALTY_AMOUNT")
+	@JsonProperty("penalty_amount")
     private Double penaltyAmount = 0D;
 
     @Column(name = "MAINTENANCE_FEE")
-	@JsonProperty("MAINTENANCE_FEE")
+	@JsonProperty("maintenance_fee")
     private Double maintenanceFee = 0D;
 
     @Column(name = "VARIABLE_SECURITY_DEPOSIT")
-	@JsonProperty("VARIABLE_SECURITY_DEPOSIT")
+	@JsonProperty("variable_security_deposit")
     private Double variableSecurityDeposit;
 
     

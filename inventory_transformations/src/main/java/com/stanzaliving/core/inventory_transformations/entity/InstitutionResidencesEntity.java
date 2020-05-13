@@ -17,11 +17,11 @@ public class InstitutionResidencesEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "RSIDENCE_ID", nullable = false)
-	@JsonProperty("RSIDENCE_ID")
+	@JsonProperty("rsidence_id")
     private Integer rsidenceId;
 
     @Column(name = "RESIDENCES")
-	@JsonProperty("RESIDENCES")
+	@JsonProperty("residences")
     private String RESIDENCES;
 
     

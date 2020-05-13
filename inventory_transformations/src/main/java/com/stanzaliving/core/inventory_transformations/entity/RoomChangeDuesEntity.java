@@ -19,24 +19,24 @@ public class RoomChangeDuesEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("STUDENT_ID")
+	@JsonProperty("student_id")
     private String studentId;
 
     @Id
     @Column(insertable = false, name = "REQUEST_UNIQUE_ID", nullable = false)
-	@JsonProperty("REQUEST_UNIQUE_ID")
+	@JsonProperty("request_unique_id")
     private String requestUniqueId;
 
     @Column(name = "TOTAL_DUES")
-	@JsonProperty("TOTAL_DUES")
+	@JsonProperty("total_dues")
     private Double totalDues = 0D;
 
     @Column(name = "DUES_PAID")
-	@JsonProperty("DUES_PAID")
+	@JsonProperty("dues_paid")
     private Double duesPaid = 0D;
 
     @Column(name = "CREATED_AT")
-	@JsonProperty("CREATED_AT")
+	@JsonProperty("created_at")
     private Timestamp createdAt;
 
     

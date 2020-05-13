@@ -18,55 +18,55 @@ public class AccountVerificationDetailsEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "USER_ID", nullable = false)
-	@JsonProperty("USER_ID")
+	@JsonProperty("user_id")
     private String userId = "";
 
     @Column(name = "USER_TYPE", nullable = false)
-	@JsonProperty("USER_TYPE")
+	@JsonProperty("user_type")
     private String userType = "";
 
     @Column(name = "ACCOUNT_NUMBER", nullable = false)
-	@JsonProperty("ACCOUNT_NUMBER")
+	@JsonProperty("account_number")
     private String accountNumber = "";
 
     @Column(name = "ACCOUNT_NAME", nullable = false)
-	@JsonProperty("ACCOUNT_NAME")
+	@JsonProperty("account_name")
     private String accountName = "";
 
     @Column(name = "IFSC_CODE", nullable = false)
-	@JsonProperty("IFSC_CODE")
+	@JsonProperty("ifsc_code")
     private String ifscCode = "";
 
     @Column(name = "TRANSACTION_ID")
-	@JsonProperty("TRANSACTION_ID")
+	@JsonProperty("transaction_id")
     private String transactionId;
 
     @Column(name = "AMOUNT", nullable = false)
-	@JsonProperty("AMOUNT")
+	@JsonProperty("amount")
     private Double AMOUNT;
 
     @Column(name = "VERIFICATION_MODE", nullable = false)
-	@JsonProperty("VERIFICATION_MODE")
+	@JsonProperty("verification_mode")
     private String verificationMode = "";
 
     @Column(name = "TRANSACTION_STATUS")
-	@JsonProperty("TRANSACTION_STATUS")
+	@JsonProperty("transaction_status")
     private String transactionStatus;
 
     @Column(name = "STATUS", nullable = false)
-	@JsonProperty("STATUS")
+	@JsonProperty("status")
     private String STATUS = "";
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

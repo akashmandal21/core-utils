@@ -18,27 +18,27 @@ public class StudentContactAuditEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "STUDENT_ID", nullable = false)
-	@JsonProperty("STUDENT_ID")
+	@JsonProperty("student_id")
     private String studentId = "";
 
     @Column(name = "TEMPORARY_STUDENTID", nullable = false)
-	@JsonProperty("TEMPORARY_STUDENTID")
+	@JsonProperty("temporary_studentid")
     private String temporaryStudentid;
 
     @Column(name = "OLD_EMAILID", nullable = false)
-	@JsonProperty("OLD_EMAILID")
+	@JsonProperty("old_emailid")
     private String oldEmailid = "";
 
     @Column(name = "OLD_PHONE", nullable = false)
-	@JsonProperty("OLD_PHONE")
+	@JsonProperty("old_phone")
     private String oldPhone = "";
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

@@ -18,163 +18,163 @@ public class TemporaryStudentEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TEMPORARY_STUDENT_ID", insertable = false, nullable = false)
-	@JsonProperty("TEMPORARY_STUDENT_ID")
+	@JsonProperty("temporary_student_id")
     private Integer temporaryStudentId;
 
     @Column(name = "ADDITIONAL_CONTACT_EMAIL")
-	@JsonProperty("ADDITIONAL_CONTACT_EMAIL")
+	@JsonProperty("additional_contact_email")
     private String additionalContactEmail;
 
     @Column(name = "ADDITIONAL_CONTACT_MOBILE")
-	@JsonProperty("ADDITIONAL_CONTACT_MOBILE")
+	@JsonProperty("additional_contact_mobile")
     private String additionalContactMobile;
 
     @Column(name = "ADDITIONAL_CONTACT_NAME")
-	@JsonProperty("ADDITIONAL_CONTACT_NAME")
+	@JsonProperty("additional_contact_name")
     private String additionalContactName;
 
     @Column(name = "ADDITIONAL_CONTACT_RELATION_TO_STUDENT")
-	@JsonProperty("ADDITIONAL_CONTACT_RELATION_TO_STUDENT")
+	@JsonProperty("additional_contact_relation_to_student")
     private String additionalContactRelationToStudent;
 
     @Column(name = "BLOOD_GROUP")
-	@JsonProperty("BLOOD_GROUP")
+	@JsonProperty("blood_group")
     private Integer bloodGroup;
 
     @Column(name = "COACHING_CENTER")
-	@JsonProperty("COACHING_CENTER")
+	@JsonProperty("coaching_center")
     private String coachingCenter;
 
     @Column(name = "COMPANY_NAME")
-	@JsonProperty("COMPANY_NAME")
+	@JsonProperty("company_name")
     private String companyName;
 
     @Column(name = "COURSE")
-	@JsonProperty("COURSE")
+	@JsonProperty("course")
     private String COURSE;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "DATE_OF_BIRTH")
-	@JsonProperty("DATE_OF_BIRTH")
+	@JsonProperty("date_of_birth")
     private Timestamp dateOfBirth;
 
     @Column(name = "DESIGNATION")
-	@JsonProperty("DESIGNATION")
+	@JsonProperty("designation")
     private String DESIGNATION;
 
     @Column(name = "EMAIL")
-	@JsonProperty("EMAIL")
+	@JsonProperty("email")
     private String EMAIL;
 
     @Column(name = "FIRST_NAME")
-	@JsonProperty("FIRST_NAME")
+	@JsonProperty("first_name")
     private String firstName;
 
     @Column(name = "GENDER")
-	@JsonProperty("GENDER")
+	@JsonProperty("gender")
     private Integer GENDER;
 
     @Column(name = "LAST_NAME")
-	@JsonProperty("LAST_NAME")
+	@JsonProperty("last_name")
     private String lastName;
 
     @Column(name = "LOCAL_GUARDIAN_MOBILE")
-	@JsonProperty("LOCAL_GUARDIAN_MOBILE")
+	@JsonProperty("local_guardian_mobile")
     private String localGuardianMobile;
 
     @Column(name = "LOCAL_GUARDIAN_NAME")
-	@JsonProperty("LOCAL_GUARDIAN_NAME")
+	@JsonProperty("local_guardian_name")
     private String localGuardianName;
 
     @Column(name = "MEDICAL_CONDITIONS")
-	@JsonProperty("MEDICAL_CONDITIONS")
+	@JsonProperty("medical_conditions")
     private String medicalConditions;
 
     @Column(name = "PHONE")
-	@JsonProperty("PHONE")
+	@JsonProperty("phone")
     private String PHONE;
 
     @Column(name = "PRIMARY_GUARDIAN_EMAIL")
-	@JsonProperty("PRIMARY_GUARDIAN_EMAIL")
+	@JsonProperty("primary_guardian_email")
     private String primaryGuardianEmail;
 
     @Column(name = "PRIMARY_GUARDIAN_MOBILE")
-	@JsonProperty("PRIMARY_GUARDIAN_MOBILE")
+	@JsonProperty("primary_guardian_mobile")
     private String primaryGuardianMobile;
 
     @Column(name = "PRIMARY_GUARDIAN_NAME")
-	@JsonProperty("PRIMARY_GUARDIAN_NAME")
+	@JsonProperty("primary_guardian_name")
     private String primaryGuardianName;
 
     @Column(name = "PRIMARY_GUARDIAN_RELATION_TO_STUDENT")
-	@JsonProperty("PRIMARY_GUARDIAN_RELATION_TO_STUDENT")
+	@JsonProperty("primary_guardian_relation_to_student")
     private String primaryGuardianRelationToStudent;
 
     @Column(name = "PROFESSION")
-	@JsonProperty("PROFESSION")
+	@JsonProperty("profession")
     private Integer PROFESSION;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "YEAR")
-	@JsonProperty("YEAR")
+	@JsonProperty("year")
     private Integer YEAR;
 
     @Column(name = "STUDENT_ADDRESS_ID")
-	@JsonProperty("STUDENT_ADDRESS_ID")
+	@JsonProperty("student_address_id")
     private Integer studentAddressId;
 
     @Column(name = "DEGREE_ID")
-	@JsonProperty("DEGREE_ID")
+	@JsonProperty("degree_id")
     private Integer degreeId;
 
     @Column(name = "EDUCATIONAL_INSTITUTION_ID")
-	@JsonProperty("EDUCATIONAL_INSTITUTION_ID")
+	@JsonProperty("educational_institution_id")
     private Integer educationalInstitutionId;
 
     @Column(name = "HOME_TOWN")
-	@JsonProperty("HOME_TOWN")
+	@JsonProperty("home_town")
     private Integer homeTown;
 
     @Column(name = "LOCAL_GUARDIAN_ADDRESS_ID")
-	@JsonProperty("LOCAL_GUARDIAN_ADDRESS_ID")
+	@JsonProperty("local_guardian_address_id")
     private Integer localGuardianAddressId;
 
     @Column(name = "FOOD_PREFERENCE")
-	@JsonProperty("FOOD_PREFERENCE")
+	@JsonProperty("food_preference")
     private Integer foodPreference;
 
     @Column(name = "INVENTORY_ID")
-	@JsonProperty("INVENTORY_ID")
+	@JsonProperty("inventory_id")
     private Integer inventoryId;
 
     @Column(name = "QR_LINK")
-	@JsonProperty("QR_LINK")
+	@JsonProperty("qr_link")
     private String qrLink;
 
     @Column(name = "COURSE_ID")
-	@JsonProperty("COURSE_ID")
+	@JsonProperty("course_id")
     private Integer courseId;
 
     @Column(name = "INSTITUTION_ID")
-	@JsonProperty("INSTITUTION_ID")
+	@JsonProperty("institution_id")
     private Integer institutionId;
 
     @Column(name = "COUNTRY_ID")
-	@JsonProperty("COUNTRY_ID")
+	@JsonProperty("country_id")
     private Integer countryId = 100;
 
     @Column(name = "LOCAL_GUARDIAN_RELATION_TO_STUDENT")
-	@JsonProperty("LOCAL_GUARDIAN_RELATION_TO_STUDENT")
+	@JsonProperty("local_guardian_relation_to_student")
     private String localGuardianRelationToStudent;
 
     @Column(name = "METADATA", columnDefinition = "json")
-	@JsonProperty("METADATA")
+	@JsonProperty("metadata")
     private String METADATA;
 
     

@@ -17,11 +17,11 @@ public class PermissionsEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PERMISSIONS_ID", insertable = false, nullable = false)
-	@JsonProperty("PERMISSIONS_ID")
+	@JsonProperty("permissions_id")
     private Integer permissionsId;
 
     @Column(name = "PERMISSION_NAME", nullable = false)
-	@JsonProperty("PERMISSION_NAME")
+	@JsonProperty("permission_name")
     private String permissionName;
 
     

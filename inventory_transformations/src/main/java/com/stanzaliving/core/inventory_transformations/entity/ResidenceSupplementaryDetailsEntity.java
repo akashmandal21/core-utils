@@ -17,11 +17,11 @@ public class ResidenceSupplementaryDetailsEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "EXPIRE_DAYS", nullable = false)
-	@JsonProperty("EXPIRE_DAYS")
+	@JsonProperty("expire_days")
     private Integer expireDays;
 
     

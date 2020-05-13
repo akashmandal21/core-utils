@@ -18,43 +18,43 @@ public class CityEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "CITY_ID", nullable = false)
-	@JsonProperty("CITY_ID")
+	@JsonProperty("city_id")
     private Integer cityId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "LATITUDE")
-	@JsonProperty("LATITUDE")
+	@JsonProperty("latitude")
     private Double LATITUDE;
 
     @Column(name = "LONGITUDE")
-	@JsonProperty("LONGITUDE")
+	@JsonProperty("longitude")
     private Double LONGITUDE;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "STATE_ID")
-	@JsonProperty("STATE_ID")
+	@JsonProperty("state_id")
     private Integer stateId;
 
     @Column(name = "CODE")
-	@JsonProperty("CODE")
+	@JsonProperty("code")
     private String CODE;
 
     @Column(name = "BROKER_APP_VISIBLE", nullable = false)
-	@JsonProperty("BROKER_APP_VISIBLE")
+	@JsonProperty("broker_app_visible")
     private Boolean brokerAppVisible;
 
     

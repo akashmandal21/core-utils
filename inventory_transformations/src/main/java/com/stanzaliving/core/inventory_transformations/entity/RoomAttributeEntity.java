@@ -19,12 +19,12 @@ public class RoomAttributeEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "ROOM_ID", nullable = false)
-	@JsonProperty("ROOM_ID")
+	@JsonProperty("room_id")
     private Integer roomId;
 
     @Id
     @Column(name = "ATTRIBUTE_ID", insertable = false, nullable = false)
-	@JsonProperty("ATTRIBUTE_ID")
+	@JsonProperty("attribute_id")
     private Integer attributeId;
 
     

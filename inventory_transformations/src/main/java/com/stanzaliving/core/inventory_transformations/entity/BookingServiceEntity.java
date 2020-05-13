@@ -17,35 +17,35 @@ public class BookingServiceEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "BOOKING_SERVICE_ID", nullable = false)
-	@JsonProperty("BOOKING_SERVICE_ID")
+	@JsonProperty("booking_service_id")
     private Integer bookingServiceId;
 
     @Column(name = "OPTIONAL")
-	@JsonProperty("OPTIONAL")
+	@JsonProperty("optional")
     private Boolean OPTIONAL;
 
     @Column(name = "PRICE")
-	@JsonProperty("PRICE")
+	@JsonProperty("price")
     private Integer PRICE;
 
     @Column(name = "SERVICE_ID")
-	@JsonProperty("SERVICE_ID")
+	@JsonProperty("service_id")
     private Integer serviceId;
 
     @Column(name = "SERVICE_NAME")
-	@JsonProperty("SERVICE_NAME")
+	@JsonProperty("service_name")
     private String serviceName;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("BOOKING_ID")
+	@JsonProperty("booking_id")
     private Integer bookingId;
 
     @Column(name = "IS_ACTIVE")
-	@JsonProperty("IS_ACTIVE")
+	@JsonProperty("is_active")
     private Boolean active = Boolean.FALSE;
 
     @Column(name = "VAS")
-	@JsonProperty("VAS")
+	@JsonProperty("vas")
     private Boolean VAS = Boolean.FALSE;
 
     

@@ -18,31 +18,31 @@ public class ImageEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IMAGE_ID", insertable = false, nullable = false)
-	@JsonProperty("IMAGE_ID")
+	@JsonProperty("image_id")
     private Integer imageId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED")
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED;
 
     @Column(name = "IMAGE_URL")
-	@JsonProperty("IMAGE_URL")
+	@JsonProperty("image_url")
     private String imageUrl;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "ROOM_ID")
-	@JsonProperty("ROOM_ID")
+	@JsonProperty("room_id")
     private Integer roomId;
 
     @Column(name = "IMAGE_TYPE_ID")
-	@JsonProperty("IMAGE_TYPE_ID")
+	@JsonProperty("image_type_id")
     private Integer imageTypeId;
 
     

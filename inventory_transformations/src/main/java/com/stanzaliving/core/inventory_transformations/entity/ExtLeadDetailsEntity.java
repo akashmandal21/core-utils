@@ -17,39 +17,39 @@ public class ExtLeadDetailsEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "FIRST_NAME")
-	@JsonProperty("FIRST_NAME")
+	@JsonProperty("first_name")
     private String firstName;
 
     @Column(name = "LAST_NAME")
-	@JsonProperty("LAST_NAME")
+	@JsonProperty("last_name")
     private String lastName;
 
     @Column(name = "PHONE")
-	@JsonProperty("PHONE")
+	@JsonProperty("phone")
     private String PHONE;
 
     @Column(name = "CITY_NAME")
-	@JsonProperty("CITY_NAME")
+	@JsonProperty("city_name")
     private String cityName;
 
     @Column(name = "LEAD_SOURCE")
-	@JsonProperty("LEAD_SOURCE")
+	@JsonProperty("lead_source")
     private String leadSource;
 
     @Column(name = "HASH")
-	@JsonProperty("HASH")
+	@JsonProperty("hash")
     private String HASH;
 
     @Column(name = "LEADATTRIBUTES", columnDefinition = "json")
-	@JsonProperty("LEADATTRIBUTES")
+	@JsonProperty("leadattributes")
     private String LEADATTRIBUTES;
 
     @Column(name = "CALLED_NUMBER")
-	@JsonProperty("CALLED_NUMBER")
+	@JsonProperty("called_number")
     private String calledNumber;
 
     

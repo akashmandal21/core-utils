@@ -18,51 +18,51 @@ public class AddresssEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "ADDRESS_ID", nullable = false)
-	@JsonProperty("ADDRESS_ID")
+	@JsonProperty("address_id")
     private Integer addressId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "LANDMARK")
-	@JsonProperty("LANDMARK")
+	@JsonProperty("landmark")
     private String LANDMARK;
 
     @Column(name = "LATITUDE")
-	@JsonProperty("LATITUDE")
+	@JsonProperty("latitude")
     private Double LATITUDE;
 
     @Column(name = "LINE_1", nullable = false)
-	@JsonProperty("LINE_1")
+	@JsonProperty("line_1")
     private String line1;
 
     @Column(name = "LINE_2", nullable = false)
-	@JsonProperty("LINE_2")
+	@JsonProperty("line_2")
     private String line2;
 
     @Column(name = "LONGITUDE")
-	@JsonProperty("LONGITUDE")
+	@JsonProperty("longitude")
     private Double LONGITUDE;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "ZIPCODE", nullable = false)
-	@JsonProperty("ZIPCODE")
+	@JsonProperty("zipcode")
     private Integer ZIPCODE;
 
     @Column(name = "CITY_ID")
-	@JsonProperty("CITY_ID")
+	@JsonProperty("city_id")
     private Integer cityId;
 
     @Column(name = "STATE_ID")
-	@JsonProperty("STATE_ID")
+	@JsonProperty("state_id")
     private Integer stateId;
 
     

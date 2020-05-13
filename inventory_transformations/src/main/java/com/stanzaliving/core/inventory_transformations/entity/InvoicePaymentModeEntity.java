@@ -17,11 +17,11 @@ public class InvoicePaymentModeEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "INVOICE_ID", nullable = false)
-	@JsonProperty("INVOICE_ID")
+	@JsonProperty("invoice_id")
     private Integer invoiceId;
 
     @Column(name = "PAYMENT_MODE")
-	@JsonProperty("PAYMENT_MODE")
+	@JsonProperty("payment_mode")
     private String paymentMode;
 
     

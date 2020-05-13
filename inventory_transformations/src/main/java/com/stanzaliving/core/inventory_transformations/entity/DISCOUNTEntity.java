@@ -20,63 +20,63 @@ public class DiscountEntity implements Serializable {
 
     @Id
     @Column(name = "DISCOUNT_ID", insertable = false, nullable = false)
-	@JsonProperty("DISCOUNT_ID")
+	@JsonProperty("discount_id")
     private String discountId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "CREATED_BY", nullable = false)
-	@JsonProperty("CREATED_BY")
+	@JsonProperty("created_by")
     private String createdBy;
 
     @Column(name = "EXPIRES_ON", nullable = false)
-	@JsonProperty("EXPIRES_ON")
+	@JsonProperty("expires_on")
     private Timestamp expiresOn;
 
     @Column(name = "FREQUENCY", nullable = false)
-	@JsonProperty("FREQUENCY")
+	@JsonProperty("frequency")
     private Integer FREQUENCY;
 
     @Column(name = "MAX_VALUE", nullable = false)
-	@JsonProperty("MAX_VALUE")
+	@JsonProperty("max_value")
     private Double maxValue;
 
     @Column(name = "SPEND_CATEGORY", nullable = false)
-	@JsonProperty("SPEND_CATEGORY")
+	@JsonProperty("spend_category")
     private Integer spendCategory;
 
     @Column(name = "STATUS", nullable = false)
-	@JsonProperty("STATUS")
+	@JsonProperty("status")
     private String STATUS;
 
     @Column(name = "USED_BY")
-	@JsonProperty("USED_BY")
+	@JsonProperty("used_by")
     private String usedBy;
 
     @Column(name = "USER_CATEGORY", nullable = false)
-	@JsonProperty("USER_CATEGORY")
+	@JsonProperty("user_category")
     private Integer userCategory;
 
     @Column(name = "VALUE_APPLIED")
-	@JsonProperty("VALUE_APPLIED")
+	@JsonProperty("value_applied")
     private Double valueApplied;
 
     @Column(name = "VALUE_TYPE", nullable = false)
-	@JsonProperty("VALUE_TYPE")
+	@JsonProperty("value_type")
     private Integer valueType;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("BOOKING_ID")
+	@JsonProperty("booking_id")
     private Integer bookingId;
 
     @Column(name = "DISCOUNT_CATEGORY_ID")
-	@JsonProperty("DISCOUNT_CATEGORY_ID")
+	@JsonProperty("discount_category_id")
     private Integer discountCategoryId;
 
     @Column(name = "SERVICE_CODE")
-	@JsonProperty("SERVICE_CODE")
+	@JsonProperty("service_code")
     private String serviceCode;
 
     

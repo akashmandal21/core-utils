@@ -17,15 +17,15 @@ public class AppVersionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "APP_VERSION_ID", nullable = false)
-	@JsonProperty("APP_VERSION_ID")
+	@JsonProperty("app_version_id")
     private Integer appVersionId;
 
     @Column(name = "HARD_UPDATE", nullable = false)
-	@JsonProperty("HARD_UPDATE")
+	@JsonProperty("hard_update")
     private Boolean hardUpdate;
 
     @Column(name = "VERSION", nullable = false)
-	@JsonProperty("VERSION")
+	@JsonProperty("version")
     private String VERSION;
 
     

@@ -19,12 +19,12 @@ public class ResidencePaymentTermEntity implements Serializable {
 
     @Id
     @Column(name = "RESIDENCE_ID", insertable = false, nullable = false)
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Id
     @Column(name = "PAYMENT_TERM_ID", insertable = false, nullable = false)
-	@JsonProperty("PAYMENT_TERM_ID")
+	@JsonProperty("payment_term_id")
     private Integer paymentTermId;
 
     

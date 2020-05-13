@@ -18,27 +18,27 @@ public class OccupancyEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "OCCUPANCY_ID", nullable = false)
-	@JsonProperty("OCCUPANCY_ID")
+	@JsonProperty("occupancy_id")
     private Integer occupancyId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "OCCUPANCY", nullable = false)
-	@JsonProperty("OCCUPANCY")
+	@JsonProperty("occupancy")
     private Integer OCCUPANCY;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

@@ -20,63 +20,63 @@ public class RblTransactionEntity implements Serializable {
 
     @Id
     @Column(name = "TRANSACTION_ID", insertable = false, nullable = false)
-	@JsonProperty("TRANSACTION_ID")
+	@JsonProperty("transaction_id")
     private Integer transactionId;
 
     @Column(name = "MESSAGE_TYPE")
-	@JsonProperty("MESSAGE_TYPE")
+	@JsonProperty("message_type")
     private String messageType;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("AMOUNT")
+	@JsonProperty("amount")
     private Double AMOUNT;
 
     @Column(name = "UTR_NUMBER")
-	@JsonProperty("UTR_NUMBER")
+	@JsonProperty("utr_number")
     private String utrNumber;
 
     @Column(name = "SENDER_IFSC")
-	@JsonProperty("SENDER_IFSC")
+	@JsonProperty("sender_ifsc")
     private String senderIfsc;
 
     @Column(name = "SENDER_ACCOUNT_NUMBER")
-	@JsonProperty("SENDER_ACCOUNT_NUMBER")
+	@JsonProperty("sender_account_number")
     private String senderAccountNumber;
 
     @Column(name = "SENDER_ACCOUNT_TYPE")
-	@JsonProperty("SENDER_ACCOUNT_TYPE")
+	@JsonProperty("sender_account_type")
     private String senderAccountType;
 
     @Column(name = "SENDER_NAME")
-	@JsonProperty("SENDER_NAME")
+	@JsonProperty("sender_name")
     private String senderName;
 
     @Column(name = "BENEFICIARY_ACCOUNT_TYPE")
-	@JsonProperty("BENEFICIARY_ACCOUNT_TYPE")
+	@JsonProperty("beneficiary_account_type")
     private String beneficiaryAccountType;
 
     @Column(name = "BENEFICIARY_ACCOUNT_NUMBER")
-	@JsonProperty("BENEFICIARY_ACCOUNT_NUMBER")
+	@JsonProperty("beneficiary_account_number")
     private String beneficiaryAccountNumber;
 
     @Column(name = "CREDIT_DATE")
-	@JsonProperty("CREDIT_DATE")
+	@JsonProperty("credit_date")
     private Timestamp creditDate;
 
     @Column(name = "CREDIT_ACCOUNT_NUMBER")
-	@JsonProperty("CREDIT_ACCOUNT_NUMBER")
+	@JsonProperty("credit_account_number")
     private String creditAccountNumber;
 
     @Column(name = "CORPORATE_CODE")
-	@JsonProperty("CORPORATE_CODE")
+	@JsonProperty("corporate_code")
     private String corporateCode;
 
     @Column(name = "CLIENT_CODE")
-	@JsonProperty("CLIENT_CODE")
+	@JsonProperty("client_code")
     private String clientCode;
 
     @Column(name = "SENDER_INFORMATION")
-	@JsonProperty("SENDER_INFORMATION")
+	@JsonProperty("sender_information")
     private String senderInformation;
 
     

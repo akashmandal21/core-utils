@@ -18,23 +18,23 @@ public class ExceptionDataEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "CREATED_DATE", nullable = false)
-	@JsonProperty("CREATED_DATE")
+	@JsonProperty("created_date")
     private Timestamp createdDate;
 
     @Column(name = "TRANSACTION_ID")
-	@JsonProperty("TRANSACTION_ID")
+	@JsonProperty("transaction_id")
     private String transactionId;
 
     @Column(name = "SOURCE")
-	@JsonProperty("SOURCE")
+	@JsonProperty("source")
     private String SOURCE;
 
     @Column(name = "MESSAGE", columnDefinition = "text")
-	@JsonProperty("MESSAGE")
+	@JsonProperty("message")
     private String MESSAGE;
 
     

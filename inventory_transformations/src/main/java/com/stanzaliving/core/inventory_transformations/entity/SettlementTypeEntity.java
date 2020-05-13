@@ -17,15 +17,15 @@ public class SettlementTypeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SETTLEMENT_TYPE_ID", insertable = false, nullable = false)
-	@JsonProperty("SETTLEMENT_TYPE_ID")
+	@JsonProperty("settlement_type_id")
     private Integer settlementTypeId;
 
     @Column(name = "SETTLEMENT_TYPE_NAME", nullable = false)
-	@JsonProperty("SETTLEMENT_TYPE_NAME")
+	@JsonProperty("settlement_type_name")
     private String settlementTypeName;
 
     @Column(name = "DISPLAY_NAME", nullable = false)
-	@JsonProperty("DISPLAY_NAME")
+	@JsonProperty("display_name")
     private String displayName = "";
 
     

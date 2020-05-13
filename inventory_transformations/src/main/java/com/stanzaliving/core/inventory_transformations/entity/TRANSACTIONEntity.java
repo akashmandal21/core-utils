@@ -18,71 +18,71 @@ public class TransactionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TRANSACTION_ID", insertable = false, nullable = false)
-	@JsonProperty("TRANSACTION_ID")
+	@JsonProperty("transaction_id")
     private Integer transactionId;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("AMOUNT")
+	@JsonProperty("amount")
     private Double AMOUNT;
 
     @Column(name = "GATEWAY_TRANCATION_ID1")
-	@JsonProperty("GATEWAY_TRANCATION_ID1")
+	@JsonProperty("gateway_trancation_id1")
     private String gatewayTrancationId1;
 
     @Column(name = "STATUS")
-	@JsonProperty("STATUS")
+	@JsonProperty("status")
     private String STATUS;
 
     @Column(name = "TRANSACTION_DATE", nullable = false)
-	@JsonProperty("TRANSACTION_DATE")
+	@JsonProperty("transaction_date")
     private Timestamp transactionDate;
 
     @Column(name = "PAYMENT_MODE_ID")
-	@JsonProperty("PAYMENT_MODE_ID")
+	@JsonProperty("payment_mode_id")
     private Integer paymentModeId;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("STUDENT_ID")
+	@JsonProperty("student_id")
     private String studentId;
 
     @Column(name = "RECEIPT_ID")
-	@JsonProperty("RECEIPT_ID")
+	@JsonProperty("receipt_id")
     private String receiptId;
 
     @Column(name = "TEMPORARY_STUDENT_ID")
-	@JsonProperty("TEMPORARY_STUDENT_ID")
+	@JsonProperty("temporary_student_id")
     private Integer temporaryStudentId;
 
     @Column(name = "GATEWAY_TRANSACTION_ID")
-	@JsonProperty("GATEWAY_TRANSACTION_ID")
+	@JsonProperty("gateway_transaction_id")
     private String gatewayTransactionId;
 
     @Column(name = "COMPLETION_DATE")
-	@JsonProperty("COMPLETION_DATE")
+	@JsonProperty("completion_date")
     private Timestamp completionDate;
 
     @Column(name = "CREATED_BY")
-	@JsonProperty("CREATED_BY")
+	@JsonProperty("created_by")
     private String createdBy;
 
     @Column(name = "TRANSACTION_TYPE")
-	@JsonProperty("TRANSACTION_TYPE")
-    private String transactionType = "BOOKING";
+	@JsonProperty("transaction_type")
+    private String transactionType;
 
     @Column(name = "UPDATED_AT", nullable = false)
-	@JsonProperty("UPDATED_AT")
+	@JsonProperty("updated_at")
     private Timestamp updatedAt;
 
     @Column(name = "PAYMENT_TRANSACTION_ID")
-	@JsonProperty("PAYMENT_TRANSACTION_ID")
+	@JsonProperty("payment_transaction_id")
     private Long paymentTransactionId;
 
     @Column(name = "PARENT_COMPANY", nullable = false)
-	@JsonProperty("PARENT_COMPANY")
-    private Integer parentCompany = 0;
+	@JsonProperty("parent_company")
+    private Integer parentCompany;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("BOOKING_ID")
+	@JsonProperty("booking_id")
     private Integer bookingId;
 
     

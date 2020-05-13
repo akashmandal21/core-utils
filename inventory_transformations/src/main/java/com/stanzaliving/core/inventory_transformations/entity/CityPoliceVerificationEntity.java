@@ -20,19 +20,19 @@ public class CityPoliceVerificationEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "CITY_ID", nullable = false)
-	@JsonProperty("CITY_ID")
+	@JsonProperty("city_id")
     private Integer cityId;
 
     @Column(name = "CREATED")
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "FORM_URL")
-	@JsonProperty("FORM_URL")
+	@JsonProperty("form_url")
     private String formUrl;
 
     @Column(name = "UPDATED")
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

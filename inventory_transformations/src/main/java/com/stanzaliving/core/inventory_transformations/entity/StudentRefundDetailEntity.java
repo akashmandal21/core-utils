@@ -18,11 +18,11 @@ public class StudentRefundDetailEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "REFUND_ID", nullable = false)
-	@JsonProperty("REFUND_ID")
+	@JsonProperty("refund_id")
     private Integer refundId;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("STUDENT_ID")
+	@JsonProperty("student_id")
     private String studentId;
 
     @Column(name = "created_at")
@@ -34,15 +34,15 @@ public class StudentRefundDetailEntity implements Serializable {
     private Timestamp updatedAt;
 
     @Column(name = "REMINDER_COUNT")
-	@JsonProperty("REMINDER_COUNT")
+	@JsonProperty("reminder_count")
     private Integer reminderCount = 0;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("BOOKING_ID")
+	@JsonProperty("booking_id")
     private Integer bookingId;
 
     @Column(name = "REFUND_STATUS")
-	@JsonProperty("REFUND_STATUS")
+	@JsonProperty("refund_status")
     private String refundStatus;
 
     

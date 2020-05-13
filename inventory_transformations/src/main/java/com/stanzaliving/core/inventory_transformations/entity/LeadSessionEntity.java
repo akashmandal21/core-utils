@@ -18,63 +18,63 @@ public class LeadSessionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "LEAD_SESSION_ID", insertable = false, nullable = false)
-	@JsonProperty("LEAD_SESSION_ID")
+	@JsonProperty("lead_session_id")
     private Integer leadSessionId;
 
     @Column(name = "SESSION_ID")
-	@JsonProperty("SESSION_ID")
+	@JsonProperty("session_id")
     private String sessionId;
 
     @Column(name = "LEAD_ID")
-	@JsonProperty("LEAD_ID")
+	@JsonProperty("lead_id")
     private Integer leadId;
 
     @Column(name = "UTM_SOURCE")
-	@JsonProperty("UTM_SOURCE")
+	@JsonProperty("utm_source")
     private String utmSource;
 
     @Column(name = "UTM_MEDIUM")
-	@JsonProperty("UTM_MEDIUM")
+	@JsonProperty("utm_medium")
     private String utmMedium;
 
     @Column(name = "UTM_CAMPAIGN")
-	@JsonProperty("UTM_CAMPAIGN")
+	@JsonProperty("utm_campaign")
     private String utmCampaign;
 
     @Column(name = "UTM_TERM")
-	@JsonProperty("UTM_TERM")
+	@JsonProperty("utm_term")
     private String utmTerm;
 
     @Column(name = "UTM_ADGROUP")
-	@JsonProperty("UTM_ADGROUP")
+	@JsonProperty("utm_adgroup")
     private String utmAdgroup;
 
     @Column(name = "GCLID")
-	@JsonProperty("GCLID")
+	@JsonProperty("gclid")
     private String GCLID;
 
     @Column(name = "UTM_CONTENT")
-	@JsonProperty("UTM_CONTENT")
+	@JsonProperty("utm_content")
     private String utmContent;
 
     @Column(name = "UTM_TARGET")
-	@JsonProperty("UTM_TARGET")
+	@JsonProperty("utm_target")
     private String utmTarget;
 
     @Column(name = "UTM_ADFORMAT")
-	@JsonProperty("UTM_ADFORMAT")
+	@JsonProperty("utm_adformat")
     private String utmAdformat;
 
     @Column(name = "SOURCE")
-	@JsonProperty("SOURCE")
+	@JsonProperty("source")
     private String SOURCE;
 
     @Column(name = "CREATED_AT", nullable = false)
-	@JsonProperty("CREATED_AT")
+	@JsonProperty("created_at")
     private Timestamp createdAt;
 
     @Column(name = "UPDATED_AT", nullable = false)
-	@JsonProperty("UPDATED_AT")
+	@JsonProperty("updated_at")
     private Timestamp updatedAt;
 
     

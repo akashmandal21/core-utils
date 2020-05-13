@@ -20,55 +20,55 @@ public class PaymonkSettlementNewEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "ORDERID", nullable = false)
-	@JsonProperty("ORDERID")
+	@JsonProperty("orderid")
     private Integer ORDERID;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("AMOUNT")
+	@JsonProperty("amount")
     private Double AMOUNT;
 
     @Column(name = "STATUS")
-	@JsonProperty("STATUS")
+	@JsonProperty("status")
     private String STATUS;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("STUDENT_ID")
+	@JsonProperty("student_id")
     private String studentId;
 
     @Column(name = "STUDENT_NAME")
-	@JsonProperty("STUDENT_NAME")
+	@JsonProperty("student_name")
     private String studentName;
 
     @Column(name = "SENDER_NAME")
-	@JsonProperty("SENDER_NAME")
+	@JsonProperty("sender_name")
     private String senderName;
 
     @Column(name = "CREATED_AT")
-	@JsonProperty("CREATED_AT")
+	@JsonProperty("created_at")
     private Timestamp createdAt;
 
     @Column(name = "SETTLEMENT_DATE")
-	@JsonProperty("SETTLEMENT_DATE")
+	@JsonProperty("settlement_date")
     private Timestamp settlementDate;
 
     @Column(name = "CHARGES")
-	@JsonProperty("CHARGES")
+	@JsonProperty("charges")
     private Double CHARGES;
 
     @Column(name = "TDS")
-	@JsonProperty("TDS")
+	@JsonProperty("tds")
     private Double TDS;
 
     @Column(name = "GST")
-	@JsonProperty("GST")
+	@JsonProperty("gst")
     private Double GST;
 
     @Column(name = "TOTAL_CHARGES")
-	@JsonProperty("TOTAL_CHARGES")
+	@JsonProperty("total_charges")
     private Double totalCharges;
 
     @Column(name = "TOTAL_PAYOUT")
-	@JsonProperty("TOTAL_PAYOUT")
+	@JsonProperty("total_payout")
     private Double totalPayout;
 
     

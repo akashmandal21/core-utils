@@ -19,11 +19,11 @@ public class DashboardCitiesEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "CITY_ID", nullable = false)
-	@JsonProperty("CITY_ID")
+	@JsonProperty("city_id")
     private Integer cityId;
 
     @Column(name = "NAME")
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     

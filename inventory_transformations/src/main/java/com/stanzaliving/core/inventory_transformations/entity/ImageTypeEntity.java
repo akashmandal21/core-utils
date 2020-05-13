@@ -17,11 +17,11 @@ public class ImageTypeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IMAGE_TYPE_ID", insertable = false, nullable = false)
-	@JsonProperty("IMAGE_TYPE_ID")
+	@JsonProperty("image_type_id")
     private Integer imageTypeId;
 
     @Column(name = "IMAGE_TYPE_NAME")
-	@JsonProperty("IMAGE_TYPE_NAME")
+	@JsonProperty("image_type_name")
     private String imageTypeName;
 
     

@@ -18,55 +18,55 @@ public class RoomEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "ROOM_ID", nullable = false)
-	@JsonProperty("ROOM_ID")
+	@JsonProperty("room_id")
     private Integer roomId;
 
     @Column(name = "BLOCKED")
-	@JsonProperty("BLOCKED")
+	@JsonProperty("blocked")
     private Boolean BLOCKED;
 
     @Column(name = "CONVERTIBLE")
-	@JsonProperty("CONVERTIBLE")
+	@JsonProperty("convertible")
     private Boolean CONVERTIBLE;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "DEAD")
-	@JsonProperty("DEAD")
+	@JsonProperty("dead")
     private Boolean DEAD;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED;
 
     @Column(name = "FLOOR", nullable = false)
-	@JsonProperty("FLOOR")
+	@JsonProperty("floor")
     private String FLOOR;
 
     @Column(name = "ROOM_NUMBER", nullable = false)
-	@JsonProperty("ROOM_NUMBER")
+	@JsonProperty("room_number")
     private String roomNumber;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "ROOM_OCCUPANCY_ID")
-	@JsonProperty("ROOM_OCCUPANCY_ID")
+	@JsonProperty("room_occupancy_id")
     private Integer roomOccupancyId;
 
     @Column(name = "RESIDENCE_ID")
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Column(name = "ROOM_INITIAL_OCCUPANCY_ID")
-	@JsonProperty("ROOM_INITIAL_OCCUPANCY_ID")
+	@JsonProperty("room_initial_occupancy_id")
     private Integer roomInitialOccupancyId;
 
     @Column(name = "BED_COUNT")
-	@JsonProperty("BED_COUNT")
+	@JsonProperty("bed_count")
     private Integer bedCount;
 
     

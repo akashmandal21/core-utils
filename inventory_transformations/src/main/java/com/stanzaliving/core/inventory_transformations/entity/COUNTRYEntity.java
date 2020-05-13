@@ -17,15 +17,15 @@ public class CountryEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "COUNTRY_ID", insertable = false, nullable = false)
-	@JsonProperty("COUNTRY_ID")
+	@JsonProperty("country_id")
     private Integer countryId;
 
     @Column(name = "NAME")
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "CODE")
-	@JsonProperty("CODE")
+	@JsonProperty("code")
     private String CODE;
 
     

@@ -18,19 +18,19 @@ public class TransactionInventoryEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TRANSACTION_INVENTORY_ID", insertable = false, nullable = false)
-	@JsonProperty("TRANSACTION_INVENTORY_ID")
+	@JsonProperty("transaction_inventory_id")
     private Integer transactionInventoryId;
 
     @Column(name = "TRANSACTION_ID", nullable = false)
-	@JsonProperty("TRANSACTION_ID")
+	@JsonProperty("transaction_id")
     private Integer transactionId;
 
     @Column(name = "I_SURE_PAY_URL", nullable = false)
-	@JsonProperty("I_SURE_PAY_URL")
+	@JsonProperty("i_sure_pay_url")
     private String iSurePayUrl;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     

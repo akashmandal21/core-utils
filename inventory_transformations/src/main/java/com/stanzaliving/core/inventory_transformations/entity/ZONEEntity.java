@@ -18,39 +18,39 @@ public class ZoneEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ZONE_ID", insertable = false, nullable = false)
-	@JsonProperty("ZONE_ID")
+	@JsonProperty("zone_id")
     private Integer zoneId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "LATITUDE")
-	@JsonProperty("LATITUDE")
+	@JsonProperty("latitude")
     private Double LATITUDE;
 
     @Column(name = "LONGITUDE")
-	@JsonProperty("LONGITUDE")
+	@JsonProperty("longitude")
     private Double LONGITUDE;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "COUNTRY_ID")
-	@JsonProperty("COUNTRY_ID")
+	@JsonProperty("country_id")
     private Integer countryId;
 
     @Column(name = "CODE")
-	@JsonProperty("CODE")
+	@JsonProperty("code")
     private String CODE;
 
     

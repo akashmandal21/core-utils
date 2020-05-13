@@ -18,51 +18,51 @@ public class RoomPricingAuditEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "ROOM_PRICING_AUDIT_ID", nullable = false)
-	@JsonProperty("ROOM_PRICING_AUDIT_ID")
+	@JsonProperty("room_pricing_audit_id")
     private Integer roomPricingAuditId;
 
     @Column(name = "ROOM_ID", nullable = false)
-	@JsonProperty("ROOM_ID")
+	@JsonProperty("room_id")
     private Integer roomId;
 
     @Column(name = "ATTRIBUTES_PRICE")
-	@JsonProperty("ATTRIBUTES_PRICE")
+	@JsonProperty("attributes_price")
     private Integer attributesPrice;
 
     @Column(name = "BASE_PRICE", nullable = false)
-	@JsonProperty("BASE_PRICE")
+	@JsonProperty("base_price")
     private Integer basePrice;
 
     @Column(name = "BUFFER_PRICE", nullable = false)
-	@JsonProperty("BUFFER_PRICE")
+	@JsonProperty("buffer_price")
     private Integer bufferPrice;
 
     @Column(name = "MANDATORY_SERVICES_PRICE", nullable = false)
-	@JsonProperty("MANDATORY_SERVICES_PRICE")
+	@JsonProperty("mandatory_services_price")
     private Integer mandatoryServicesPrice;
 
     @Column(name = "ROOM_PRICE", nullable = false)
-	@JsonProperty("ROOM_PRICE")
+	@JsonProperty("room_price")
     private Integer roomPrice;
 
     @Column(name = "CGST")
-	@JsonProperty("CGST")
+	@JsonProperty("cgst")
     private Double CGST;
 
     @Column(name = "IGST")
-	@JsonProperty("IGST")
+	@JsonProperty("igst")
     private Double IGST;
 
     @Column(name = "SGST")
-	@JsonProperty("SGST")
+	@JsonProperty("sgst")
     private Double SGST;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "CREATED_BY")
-	@JsonProperty("CREATED_BY")
+	@JsonProperty("created_by")
     private String createdBy;
 
     

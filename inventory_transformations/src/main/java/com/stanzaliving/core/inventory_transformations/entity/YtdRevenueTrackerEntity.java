@@ -18,47 +18,47 @@ public class YtdRevenueTrackerEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "RESIDENCE_ID")
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Column(name = "RESIDENCE_NAME")
-	@JsonProperty("RESIDENCE_NAME")
+	@JsonProperty("residence_name")
     private String residenceName;
 
     @Column(name = "REVENUE")
-	@JsonProperty("REVENUE")
+	@JsonProperty("revenue")
     private Double REVENUE;
 
     @Column(name = "REVENUE_DATE")
-	@JsonProperty("REVENUE_DATE")
+	@JsonProperty("revenue_date")
     private Date revenueDate;
 
     @Column(name = "PROPERTY_CATEGORY")
-	@JsonProperty("PROPERTY_CATEGORY")
+	@JsonProperty("property_category")
     private Integer propertyCategory;
 
     @Column(name = "CITY_ID")
-	@JsonProperty("CITY_ID")
+	@JsonProperty("city_id")
     private Integer cityId;
 
     @Column(name = "CITY_NAME")
-	@JsonProperty("CITY_NAME")
+	@JsonProperty("city_name")
     private String cityName;
 
     @Column(name = "MICROMARKET_ID")
-	@JsonProperty("MICROMARKET_ID")
+	@JsonProperty("micromarket_id")
     private Integer micromarketId;
 
     @Column(name = "MICROMARKET_NAME")
-	@JsonProperty("MICROMARKET_NAME")
+	@JsonProperty("micromarket_name")
     private String micromarketName;
 
     @Column(name = "BOOKING_TYPE")
-	@JsonProperty("BOOKING_TYPE")
+	@JsonProperty("booking_type")
     private Integer bookingType;
 
     

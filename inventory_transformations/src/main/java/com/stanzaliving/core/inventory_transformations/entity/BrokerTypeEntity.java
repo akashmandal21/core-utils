@@ -17,15 +17,15 @@ public class BrokerTypeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "BROKER_CATEGORY_ID")
-	@JsonProperty("BROKER_CATEGORY_ID")
+	@JsonProperty("broker_category_id")
     private Integer brokerCategoryId;
 
     

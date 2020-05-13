@@ -18,27 +18,27 @@ public class LeadVisitEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "LEAD_VISIT_ID", nullable = false)
-	@JsonProperty("LEAD_VISIT_ID")
+	@JsonProperty("lead_visit_id")
     private Integer leadVisitId;
 
     @Column(name = "VISIT_DATE")
-	@JsonProperty("VISIT_DATE")
+	@JsonProperty("visit_date")
     private Timestamp visitDate;
 
     @Column(name = "LEAD_ID")
-	@JsonProperty("LEAD_ID")
+	@JsonProperty("lead_id")
     private Integer leadId;
 
     @Column(name = "RESIDENCE_ID")
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Column(name = "CREATED_AT", nullable = false)
-	@JsonProperty("CREATED_AT")
+	@JsonProperty("created_at")
     private Timestamp createdAt;
 
     @Column(name = "UPDATED_AT", nullable = false)
-	@JsonProperty("UPDATED_AT")
+	@JsonProperty("updated_at")
     private Timestamp updatedAt;
 
     

@@ -18,31 +18,31 @@ public class ResidenceRcEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "RESIDENCE_RC_ID", nullable = false)
-	@JsonProperty("RESIDENCE_RC_ID")
+	@JsonProperty("residence_rc_id")
     private Integer residenceRcId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "PAYMONK_SENDER_ID", nullable = false)
-	@JsonProperty("PAYMONK_SENDER_ID")
+	@JsonProperty("paymonk_sender_id")
     private String paymonkSenderId;
 
     @Column(name = "PHONE", nullable = false)
-	@JsonProperty("PHONE")
+	@JsonProperty("phone")
     private String PHONE;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

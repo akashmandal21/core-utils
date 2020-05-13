@@ -18,23 +18,23 @@ public class StudentWifiEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "STUDENT_ID", nullable = false)
-	@JsonProperty("STUDENT_ID")
+	@JsonProperty("student_id")
     private String studentId;
 
     @Column(name = "CHECKIN_DATE", nullable = false)
-	@JsonProperty("CHECKIN_DATE")
+	@JsonProperty("checkin_date")
     private Timestamp checkinDate;
 
     @Column(name = "CHECKOUT_DATE")
-	@JsonProperty("CHECKOUT_DATE")
+	@JsonProperty("checkout_date")
     private Timestamp checkoutDate;
 
     @Column(name = "ENABLED")
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Integer ENABLED = 0;
 
     

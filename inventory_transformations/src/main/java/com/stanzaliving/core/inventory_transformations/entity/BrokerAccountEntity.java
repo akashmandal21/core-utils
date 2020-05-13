@@ -20,55 +20,55 @@ public class BrokerAccountEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "BROKER_ID", nullable = false)
-	@JsonProperty("BROKER_ID")
+	@JsonProperty("broker_id")
     private Integer brokerId;
 
     @Column(name = "ACCOUNT_NAME", nullable = false)
-	@JsonProperty("ACCOUNT_NAME")
+	@JsonProperty("account_name")
     private String accountName;
 
     @Column(name = "ACCOUNT_NUMBER", nullable = false)
-	@JsonProperty("ACCOUNT_NUMBER")
+	@JsonProperty("account_number")
     private String accountNumber;
 
     @Column(name = "ACTIVE", nullable = false)
-	@JsonProperty("ACTIVE")
+	@JsonProperty("active")
     private Boolean ACTIVE;
 
     @Column(name = "BANK_NAME", nullable = false)
-	@JsonProperty("BANK_NAME")
+	@JsonProperty("bank_name")
     private String bankName;
 
     @Column(name = "IFSC_CODE", nullable = false)
-	@JsonProperty("IFSC_CODE")
+	@JsonProperty("ifsc_code")
     private String ifscCode;
 
     @Column(name = "RAZORPAYX_ID")
-	@JsonProperty("RAZORPAYX_ID")
+	@JsonProperty("razorpayx_id")
     private String razorpayxId;
 
     @Column(name = "VPA")
-	@JsonProperty("VPA")
+	@JsonProperty("vpa")
     private String VPA;
 
     @Column(name = "RAZORPAYX_BANK_ACCOUNT_ID")
-	@JsonProperty("RAZORPAYX_BANK_ACCOUNT_ID")
+	@JsonProperty("razorpayx_bank_account_id")
     private String razorpayxBankAccountId;
 
     @Column(name = "RAZORPAYX_VPA_ACCOUNT_ID")
-	@JsonProperty("RAZORPAYX_VPA_ACCOUNT_ID")
+	@JsonProperty("razorpayx_vpa_account_id")
     private String razorpayxVpaAccountId;
 
     @Column(name = "VERIFIED", nullable = false)
-	@JsonProperty("VERIFIED")
+	@JsonProperty("verified")
     private Boolean VERIFIED = Boolean.FALSE;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     

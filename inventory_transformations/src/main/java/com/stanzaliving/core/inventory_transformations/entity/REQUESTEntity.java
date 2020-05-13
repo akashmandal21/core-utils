@@ -18,59 +18,59 @@ public class RequestEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "REQUEST_ID", nullable = false)
-	@JsonProperty("REQUEST_ID")
+	@JsonProperty("request_id")
     private Integer requestId;
 
     @Column(name = "REQUEST_UNIQUE_ID")
-	@JsonProperty("REQUEST_UNIQUE_ID")
+	@JsonProperty("request_unique_id")
     private String requestUniqueId;
 
     @Column(name = "REQUEST_TYPE")
-	@JsonProperty("REQUEST_TYPE")
+	@JsonProperty("request_type")
     private String requestType;
 
     @Column(name = "BOOKING")
-	@JsonProperty("BOOKING")
+	@JsonProperty("booking")
     private Integer BOOKING;
 
     @Column(name = "SERVICE")
-	@JsonProperty("SERVICE")
+	@JsonProperty("service")
     private Integer SERVICE;
 
     @Column(name = "PRICE", nullable = false)
-	@JsonProperty("PRICE")
+	@JsonProperty("price")
     private Double PRICE;
 
     @Column(name = "STATUS")
-	@JsonProperty("STATUS")
+	@JsonProperty("status")
     private String STATUS;
 
     @Column(name = "PRICE_TYPE")
-	@JsonProperty("PRICE_TYPE")
+	@JsonProperty("price_type")
     private Integer priceType;
 
     @Column(name = "METADATA", columnDefinition = "json")
-	@JsonProperty("METADATA")
+	@JsonProperty("metadata")
     private String METADATA;
 
     @Column(name = "CREATED_AT")
-	@JsonProperty("CREATED_AT")
+	@JsonProperty("created_at")
     private Timestamp createdAt;
 
     @Column(name = "UPDATED_AT", nullable = false)
-	@JsonProperty("UPDATED_AT")
+	@JsonProperty("updated_at")
     private Timestamp updatedAt;
 
     @Column(name = "REQUESTED_BY")
-	@JsonProperty("REQUESTED_BY")
+	@JsonProperty("requested_by")
     private String requestedBy;
 
     @Column(name = "ROOM_NUMBER")
-	@JsonProperty("ROOM_NUMBER")
+	@JsonProperty("room_number")
     private String roomNumber;
 
     @Column(name = "CONFIRMATION_DATE")
-	@JsonProperty("CONFIRMATION_DATE")
+	@JsonProperty("confirmation_date")
     private Timestamp confirmationDate;
 
     

@@ -17,15 +17,15 @@ public class OpsResidenceMappingEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "VENTA_RESIDENCE_ID")
-	@JsonProperty("VENTA_RESIDENCE_ID")
+	@JsonProperty("venta_residence_id")
     private Integer ventaResidenceId;
 
     @Column(name = "OPS_RESIDENCE_ID")
-	@JsonProperty("OPS_RESIDENCE_ID")
+	@JsonProperty("ops_residence_id")
     private String opsResidenceId;
 
     @Column(name = "NAME")
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     

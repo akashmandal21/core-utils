@@ -17,11 +17,11 @@ public class HostelWifiEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "ADDRESS_ID")
-	@JsonProperty("ADDRESS_ID")
+	@JsonProperty("address_id")
     private Integer addressId;
 
     

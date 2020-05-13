@@ -18,43 +18,43 @@ public class CityBillingInformationEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CITY_BILLING_INFORMATION_ID", insertable = false, nullable = false)
-	@JsonProperty("CITY_BILLING_INFORMATION_ID")
+	@JsonProperty("city_billing_information_id")
     private Integer cityBillingInformationId;
 
     @Column(name = "CIN")
-	@JsonProperty("CIN")
+	@JsonProperty("cin")
     private String CIN;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "GST")
-	@JsonProperty("GST")
+	@JsonProperty("gst")
     private String GST;
 
     @Column(name = "NAME")
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "PAN")
-	@JsonProperty("PAN")
+	@JsonProperty("pan")
     private String PAN;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "CITY_BILLING_INFORMATION_ADDRESS_ID")
-	@JsonProperty("CITY_BILLING_INFORMATION_ADDRESS_ID")
+	@JsonProperty("city_billing_information_address_id")
     private Integer cityBillingInformationAddressId;
 
     @Column(name = "CITY_ID")
-	@JsonProperty("CITY_ID")
+	@JsonProperty("city_id")
     private Integer cityId;
 
     @Column(name = "REGISTERED_ADDRESS")
-	@JsonProperty("REGISTERED_ADDRESS")
+	@JsonProperty("registered_address")
     private String registeredAddress;
 
     

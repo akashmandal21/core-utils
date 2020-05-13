@@ -19,20 +19,20 @@ public class ResidenceHscCodesEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "CREATED")
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Id
     @Column(insertable = false, name = "PROPERTY_TYPE", nullable = false)
-	@JsonProperty("PROPERTY_TYPE")
+	@JsonProperty("property_type")
     private String propertyType;
 
     @Column(name = "HSC_RENTAL")
-	@JsonProperty("HSC_RENTAL")
+	@JsonProperty("hsc_rental")
     private String hscRental;
 
     @Column(name = "HSC_SERVICES")
-	@JsonProperty("HSC_SERVICES")
+	@JsonProperty("hsc_services")
     private String hscServices;
 
     

@@ -17,15 +17,15 @@ public class RolesPermissionMappingEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "ROLE_PERMISSION_ID", nullable = false)
-	@JsonProperty("ROLE_PERMISSION_ID")
+	@JsonProperty("role_permission_id")
     private Integer rolePermissionId;
 
     @Column(name = "ROLE_NAME", nullable = false)
-	@JsonProperty("ROLE_NAME")
+	@JsonProperty("role_name")
     private String roleName;
 
     @Column(name = "PERMISSIONS_ID", nullable = false)
-	@JsonProperty("PERMISSIONS_ID")
+	@JsonProperty("permissions_id")
     private Integer permissionsId;
 
     

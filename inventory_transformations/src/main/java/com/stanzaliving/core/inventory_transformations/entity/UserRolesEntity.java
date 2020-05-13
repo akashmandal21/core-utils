@@ -17,15 +17,15 @@ public class UserRolesEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "USERNAME", nullable = false)
-	@JsonProperty("USERNAME")
+	@JsonProperty("username")
     private String USERNAME;
 
     @Column(name = "ROLE")
-	@JsonProperty("ROLE")
+	@JsonProperty("role")
     private String ROLE;
 
     @Column(name = "USER_ID")
-	@JsonProperty("USER_ID")
+	@JsonProperty("user_id")
     private Integer userId;
 
     

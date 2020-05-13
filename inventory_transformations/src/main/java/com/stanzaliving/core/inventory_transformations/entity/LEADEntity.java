@@ -18,163 +18,163 @@ public class LeadEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "LEAD_ID", insertable = false, nullable = false)
-	@JsonProperty("LEAD_ID")
+	@JsonProperty("lead_id")
     private Integer leadId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "EMAIL")
-	@JsonProperty("EMAIL")
+	@JsonProperty("email")
     private String EMAIL;
 
     @Column(name = "FIRST_NAME")
-	@JsonProperty("FIRST_NAME")
+	@JsonProperty("first_name")
     private String firstName;
 
     @Column(name = "GENDER")
-	@JsonProperty("GENDER")
+	@JsonProperty("gender")
     private Integer GENDER;
 
     @Column(name = "LAST_NAME")
-	@JsonProperty("LAST_NAME")
+	@JsonProperty("last_name")
     private String lastName;
 
     @Column(name = "PHONE", nullable = false)
-	@JsonProperty("PHONE")
+	@JsonProperty("phone")
     private Long PHONE;
 
     @Column(name = "PHONE_VERIFIED", nullable = false)
-	@JsonProperty("PHONE_VERIFIED")
+	@JsonProperty("phone_verified")
     private Boolean phoneVerified;
 
     @Column(name = "QUALIFICATION")
-	@JsonProperty("QUALIFICATION")
+	@JsonProperty("qualification")
     private String QUALIFICATION;
 
     @Column(name = "REFERRAL_CATEGORY")
-	@JsonProperty("REFERRAL_CATEGORY")
+	@JsonProperty("referral_category")
     private String referralCategory;
 
     @Column(name = "REFERRAL_ID")
-	@JsonProperty("REFERRAL_ID")
+	@JsonProperty("referral_id")
     private String referralId;
 
     @Column(name = "SOURCE")
-	@JsonProperty("SOURCE")
+	@JsonProperty("source")
     private String SOURCE;
 
     @Column(name = "STANZA_POC_EMAIL")
-	@JsonProperty("STANZA_POC_EMAIL")
+	@JsonProperty("stanza_poc_email")
     private String stanzaPocEmail;
 
     @Column(name = "STATUS")
-	@JsonProperty("STATUS")
+	@JsonProperty("status")
     private String STATUS;
 
     @Column(name = "TYPE")
-	@JsonProperty("TYPE")
+	@JsonProperty("type")
     private String TYPE;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "ZOHO_STATUS")
-	@JsonProperty("ZOHO_STATUS")
+	@JsonProperty("zoho_status")
     private String zohoStatus;
 
     @Column(name = "CITY_ID")
-	@JsonProperty("CITY_ID")
+	@JsonProperty("city_id")
     private Integer cityId;
 
     @Column(name = "LEAD_OWNER_ID")
-	@JsonProperty("LEAD_OWNER_ID")
+	@JsonProperty("lead_owner_id")
     private Integer leadOwnerId;
 
     @Column(name = "MICROMARKET_ID")
-	@JsonProperty("MICROMARKET_ID")
+	@JsonProperty("micromarket_id")
     private Integer micromarketId;
 
     @Column(name = "GCLID")
-	@JsonProperty("GCLID")
+	@JsonProperty("gclid")
     private String GCLID;
 
     @Column(name = "LEAD_TYPE")
-	@JsonProperty("LEAD_TYPE")
+	@JsonProperty("lead_type")
     private String leadType;
 
     @Column(name = "UTM_ADFORMAT")
-	@JsonProperty("UTM_ADFORMAT")
+	@JsonProperty("utm_adformat")
     private String utmAdformat;
 
     @Column(name = "UTM_ADGROUP")
-	@JsonProperty("UTM_ADGROUP")
+	@JsonProperty("utm_adgroup")
     private String utmAdgroup;
 
     @Column(name = "UTM_CAMPAIGN")
-	@JsonProperty("UTM_CAMPAIGN")
+	@JsonProperty("utm_campaign")
     private String utmCampaign;
 
     @Column(name = "UTM_CONTENT")
-	@JsonProperty("UTM_CONTENT")
+	@JsonProperty("utm_content")
     private String utmContent;
 
     @Column(name = "UTM_MEDIUM")
-	@JsonProperty("UTM_MEDIUM")
+	@JsonProperty("utm_medium")
     private String utmMedium;
 
     @Column(name = "UTM_SOURCE")
-	@JsonProperty("UTM_SOURCE")
+	@JsonProperty("utm_source")
     private String utmSource;
 
     @Column(name = "UTM_TARGET")
-	@JsonProperty("UTM_TARGET")
+	@JsonProperty("utm_target")
     private String utmTarget;
 
     @Column(name = "UTM_TERM")
-	@JsonProperty("UTM_TERM")
+	@JsonProperty("utm_term")
     private String utmTerm;
 
     @Column(name = "RESIDENCE_ID")
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Column(name = "COLLEGE")
-	@JsonProperty("COLLEGE")
+	@JsonProperty("college")
     private String COLLEGE;
 
     @Column(name = "OCCUPANCY")
-	@JsonProperty("OCCUPANCY")
+	@JsonProperty("occupancy")
     private String OCCUPANCY;
 
     @Column(name = "VISIT_DATE")
-	@JsonProperty("VISIT_DATE")
+	@JsonProperty("visit_date")
     private Timestamp visitDate;
 
     @Column(name = "COMMISION_EARNED")
-	@JsonProperty("COMMISION_EARNED")
+	@JsonProperty("commision_earned")
     private Integer commisionEarned = 0;
 
     @Column(name = "ZOHO_ID")
-	@JsonProperty("ZOHO_ID")
+	@JsonProperty("zoho_id")
     private String zohoId;
 
     @Column(name = "LEAD_MODE_ID")
-	@JsonProperty("LEAD_MODE_ID")
+	@JsonProperty("lead_mode_id")
     private Integer leadModeId;
 
     @Column(name = "LAST_RESIDENCE_VISITED")
-	@JsonProperty("LAST_RESIDENCE_VISITED")
+	@JsonProperty("last_residence_visited")
     private String lastResidenceVisited;
 
     @Column(name = "BOOKED_DATE")
-	@JsonProperty("BOOKED_DATE")
+	@JsonProperty("booked_date")
     private Timestamp bookedDate;
 
     @Column(name = "LEAD_OWNER_ZOHO_ID")
-	@JsonProperty("LEAD_OWNER_ZOHO_ID")
+	@JsonProperty("lead_owner_zoho_id")
     private String leadOwnerZohoId;
 
     

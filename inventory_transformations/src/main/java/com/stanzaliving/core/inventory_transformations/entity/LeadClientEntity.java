@@ -17,15 +17,15 @@ public class LeadClientEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CLIENT_ID", insertable = false, nullable = false)
-	@JsonProperty("CLIENT_ID")
+	@JsonProperty("client_id")
     private Integer clientId;
 
     @Column(name = "CLIENT_NAME")
-	@JsonProperty("CLIENT_NAME")
+	@JsonProperty("client_name")
     private String clientName = "";
 
     @Column(name = "SALT")
-	@JsonProperty("SALT")
+	@JsonProperty("salt")
     private String SALT;
 
     

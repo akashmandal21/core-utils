@@ -19,12 +19,12 @@ public class StudentRoomImagesEntity implements Serializable {
 
     @Id
     @Column(name = "STUDENT_ONBOARDING_DETAILS_ID", insertable = false, nullable = false)
-	@JsonProperty("STUDENT_ONBOARDING_DETAILS_ID")
+	@JsonProperty("student_onboarding_details_id")
     private Integer studentOnboardingDetailsId;
 
     @Id
     @Column(name = "IMAGE_ID", insertable = false, nullable = false)
-	@JsonProperty("IMAGE_ID")
+	@JsonProperty("image_id")
     private Integer imageId;
 
     

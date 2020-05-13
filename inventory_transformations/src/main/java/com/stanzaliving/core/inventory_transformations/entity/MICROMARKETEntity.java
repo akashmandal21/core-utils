@@ -18,43 +18,43 @@ public class MicromarketEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MICROMARKET_ID", insertable = false, nullable = false)
-	@JsonProperty("MICROMARKET_ID")
+	@JsonProperty("micromarket_id")
     private Integer micromarketId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "LATITUDE")
-	@JsonProperty("LATITUDE")
+	@JsonProperty("latitude")
     private Double LATITUDE = 0D;
 
     @Column(name = "LOCALITY")
-	@JsonProperty("LOCALITY")
+	@JsonProperty("locality")
     private String LOCALITY;
 
     @Column(name = "LONGITUDE")
-	@JsonProperty("LONGITUDE")
+	@JsonProperty("longitude")
     private Double LONGITUDE = 0D;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("NAME")
+	@JsonProperty("name")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "CITY_ID")
-	@JsonProperty("CITY_ID")
+	@JsonProperty("city_id")
     private Integer cityId;
 
     @Column(name = "REGION_ID")
-	@JsonProperty("REGION_ID")
+	@JsonProperty("region_id")
     private Integer regionId;
 
     

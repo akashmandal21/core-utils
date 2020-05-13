@@ -18,39 +18,39 @@ public class InventoryOccupancyAuditEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "START_DATE", nullable = false)
-	@JsonProperty("START_DATE")
+	@JsonProperty("start_date")
     private Timestamp startDate;
 
     @Column(name = "END_DATE", nullable = false)
-	@JsonProperty("END_DATE")
+	@JsonProperty("end_date")
     private Timestamp endDate;
 
     @Column(name = "ROOM_ID")
-	@JsonProperty("ROOM_ID")
+	@JsonProperty("room_id")
     private Integer roomId;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("BOOKING_ID")
+	@JsonProperty("booking_id")
     private Integer bookingId;
 
     @Column(name = "INVENTORY_ID", nullable = false)
-	@JsonProperty("INVENTORY_ID")
+	@JsonProperty("inventory_id")
     private Integer inventoryId;
 
     @Column(name = "RESIDENCE_ID")
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Column(name = "UPDATED")
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     

@@ -18,11 +18,11 @@ public class EnumStoreEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "ENUM_KEY", nullable = false)
-	@JsonProperty("ENUM_KEY")
+	@JsonProperty("enum_key")
     private String enumKey;
 
     @Column(name = "ENUM_VALUE", nullable = false, columnDefinition = "text")
-	@JsonProperty("ENUM_VALUE")
+	@JsonProperty("enum_value")
     private String enumValue;
 
     

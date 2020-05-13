@@ -17,23 +17,23 @@ public class StudentRefundDetailLineItemEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REFUND_DETAIL_LINE_ITEM_ID", insertable = false, nullable = false)
-	@JsonProperty("REFUND_DETAIL_LINE_ITEM_ID")
+	@JsonProperty("refund_detail_line_item_id")
     private Integer refundDetailLineItemId;
 
     @Column(name = "DAMAGES_AMOUNT")
-	@JsonProperty("DAMAGES_AMOUNT")
+	@JsonProperty("damages_amount")
     private Double damagesAmount;
 
     @Column(name = "DOCUMENT_LINK")
-	@JsonProperty("DOCUMENT_LINK")
+	@JsonProperty("document_link")
     private String documentLink;
 
     @Column(name = "REFUND_AMOUNT")
-	@JsonProperty("REFUND_AMOUNT")
+	@JsonProperty("refund_amount")
     private Double refundAmount;
 
     @Column(name = "STUDENT_REFUND_DETAIL_ID")
-	@JsonProperty("STUDENT_REFUND_DETAIL_ID")
+	@JsonProperty("student_refund_detail_id")
     private Integer studentRefundDetailId;
 
     

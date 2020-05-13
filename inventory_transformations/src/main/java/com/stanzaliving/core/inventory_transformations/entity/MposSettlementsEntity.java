@@ -20,127 +20,127 @@ public class MposSettlementsEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "MPOS_ID", nullable = false)
-	@JsonProperty("MPOS_ID")
+	@JsonProperty("mpos_id")
     private Integer mposId;
 
     @Column(name = "DATE")
-	@JsonProperty("DATE")
+	@JsonProperty("date")
     private Timestamp DATE;
 
     @Column(name = "MOBILE")
-	@JsonProperty("MOBILE")
+	@JsonProperty("mobile")
     private String MOBILE;
 
     @Column(name = "EMAIL")
-	@JsonProperty("EMAIL")
+	@JsonProperty("email")
     private String EMAIL;
 
     @Column(name = "USER")
-	@JsonProperty("USER")
+	@JsonProperty("user")
     private String USER;
 
     @Column(name = "USERNAME")
-	@JsonProperty("USERNAME")
+	@JsonProperty("username")
     private String USERNAME;
 
     @Column(name = "TYPE")
-	@JsonProperty("TYPE")
+	@JsonProperty("type")
     private String TYPE;
 
     @Column(name = "MODE")
-	@JsonProperty("MODE")
+	@JsonProperty("mode")
     private String MODE;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("AMOUNT")
+	@JsonProperty("amount")
     private Double AMOUNT;
 
     @Column(name = "TIP")
-	@JsonProperty("TIP")
+	@JsonProperty("tip")
     private Double TIP;
 
     @Column(name = "CASHBACK")
-	@JsonProperty("CASHBACK")
+	@JsonProperty("cashback")
     private Double CASHBACK;
 
     @Column(name = "TXN_TYPE")
-	@JsonProperty("TXN_TYPE")
+	@JsonProperty("txn_type")
     private String txnType;
 
     @Column(name = "AUTH_CODE")
-	@JsonProperty("AUTH_CODE")
+	@JsonProperty("auth_code")
     private String authCode;
 
     @Column(name = "CARD")
-	@JsonProperty("CARD")
+	@JsonProperty("card")
     private String CARD;
 
     @Column(name = "CARD_TYPE")
-	@JsonProperty("CARD_TYPE")
+	@JsonProperty("card_type")
     private String cardType;
 
     @Column(name = "BRAND_TYPE")
-	@JsonProperty("BRAND_TYPE")
+	@JsonProperty("brand_type")
     private String brandType;
 
     @Column(name = "CARD_TXN_TYPE")
-	@JsonProperty("CARD_TXN_TYPE")
+	@JsonProperty("card_txn_type")
     private String cardTxnType;
 
     @Column(name = "RRN")
-	@JsonProperty("RRN")
+	@JsonProperty("rrn")
     private String RRN;
 
     @Column(name = "INVOICE_NO")
-	@JsonProperty("INVOICE_NO")
+	@JsonProperty("invoice_no")
     private String invoiceNo;
 
     @Column(name = "DEVICE")
-	@JsonProperty("DEVICE")
+	@JsonProperty("device")
     private String DEVICE;
 
     @Column(name = "STATUS")
-	@JsonProperty("STATUS")
+	@JsonProperty("status")
     private String STATUS;
 
     @Column(name = "SETTLED_ON")
-	@JsonProperty("SETTLED_ON")
+	@JsonProperty("settled_on")
     private Timestamp settledOn;
 
     @Column(name = "LABEL")
-	@JsonProperty("LABEL")
+	@JsonProperty("label")
     private String LABEL;
 
     @Column(name = "MID")
-	@JsonProperty("MID")
+	@JsonProperty("mid")
     private String MID;
 
     @Column(name = "TID")
-	@JsonProperty("TID")
+	@JsonProperty("tid")
     private String TID;
 
     @Column(name = "BATCH_ID")
-	@JsonProperty("BATCH_ID")
+	@JsonProperty("batch_id")
     private String batchId;
 
     @Column(name = "REF_1")
-	@JsonProperty("REF_1")
+	@JsonProperty("ref_1")
     private String ref1;
 
     @Column(name = "ADDITIONAL_INFORMATION", columnDefinition = "text")
-	@JsonProperty("ADDITIONAL_INFORMATION")
+	@JsonProperty("additional_information")
     private String additionalInformation;
 
     @Column(name = "PAYER")
-	@JsonProperty("PAYER")
+	@JsonProperty("payer")
     private String PAYER;
 
     @Column(name = "TID_LOCATION")
-	@JsonProperty("TID_LOCATION")
+	@JsonProperty("tid_location")
     private String tidLocation;
 
     @Column(name = "TRANSACTION_STATUS")
-	@JsonProperty("TRANSACTION_STATUS")
+	@JsonProperty("transaction_status")
     private String transactionStatus;
 
     

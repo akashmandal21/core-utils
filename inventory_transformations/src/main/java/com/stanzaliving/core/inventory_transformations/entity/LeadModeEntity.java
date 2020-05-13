@@ -17,15 +17,15 @@ public class LeadModeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "LEAD_MODE_ID", insertable = false, nullable = false)
-	@JsonProperty("LEAD_MODE_ID")
+	@JsonProperty("lead_mode_id")
     private Integer leadModeId;
 
     @Column(name = "LEAD_MODE")
-	@JsonProperty("LEAD_MODE")
+	@JsonProperty("lead_mode")
     private String leadMode;
 
     @Column(name = "LEAD_SUB_MODE")
-	@JsonProperty("LEAD_SUB_MODE")
+	@JsonProperty("lead_sub_mode")
     private String leadSubMode;
 
     

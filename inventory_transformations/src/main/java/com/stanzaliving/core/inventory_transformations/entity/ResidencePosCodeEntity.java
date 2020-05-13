@@ -18,23 +18,23 @@ public class ResidencePosCodeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("ID")
+	@JsonProperty("id")
     private Integer ID;
 
     @Column(name = "CREATED_AT", nullable = false)
-	@JsonProperty("CREATED_AT")
+	@JsonProperty("created_at")
     private Timestamp createdAt;
 
     @Column(name = "RESIDENCE_ID", nullable = false)
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Column(name = "PINE_LAB_POS_CODE", nullable = false)
-	@JsonProperty("PINE_LAB_POS_CODE")
+	@JsonProperty("pine_lab_pos_code")
     private String pineLabPosCode = "";
 
     @Column(name = "PINE_LAB_IMEI", nullable = false)
-	@JsonProperty("PINE_LAB_IMEI")
+	@JsonProperty("pine_lab_imei")
     private String pineLabImei = "";
 
     

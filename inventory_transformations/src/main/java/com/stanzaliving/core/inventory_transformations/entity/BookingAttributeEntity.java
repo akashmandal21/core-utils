@@ -17,23 +17,23 @@ public class BookingAttributeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "BOOKING_ATTRIBUTE_ID", nullable = false)
-	@JsonProperty("BOOKING_ATTRIBUTE_ID")
+	@JsonProperty("booking_attribute_id")
     private Integer bookingAttributeId;
 
     @Column(name = "ATTRIBUTE_ID")
-	@JsonProperty("ATTRIBUTE_ID")
+	@JsonProperty("attribute_id")
     private Integer attributeId;
 
     @Column(name = "ATTRIBUTE_NAME")
-	@JsonProperty("ATTRIBUTE_NAME")
+	@JsonProperty("attribute_name")
     private String attributeName;
 
     @Column(name = "ATTRIBUTE_PRICE")
-	@JsonProperty("ATTRIBUTE_PRICE")
+	@JsonProperty("attribute_price")
     private Integer attributePrice;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("BOOKING_ID")
+	@JsonProperty("booking_id")
     private Integer bookingId;
 
     

@@ -18,39 +18,39 @@ public class InventoryEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "INVENTORY_ID", insertable = false, nullable = false)
-	@JsonProperty("INVENTORY_ID")
+	@JsonProperty("inventory_id")
     private Integer inventoryId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
+	@JsonProperty("created")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("ENABLED")
+	@JsonProperty("enabled")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "NUMBER_OF_BEDS")
-	@JsonProperty("NUMBER_OF_BEDS")
+	@JsonProperty("number_of_beds")
     private Float numberOfBeds;
 
     @Column(name = "OCCUPIED")
-	@JsonProperty("OCCUPIED")
+	@JsonProperty("occupied")
     private Boolean OCCUPIED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("UPDATED")
+	@JsonProperty("updated")
     private Timestamp UPDATED;
 
     @Column(name = "RESIDENCE_ID")
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Column(name = "ROOM_ID")
-	@JsonProperty("ROOM_ID")
+	@JsonProperty("room_id")
     private Integer roomId;
 
     @Column(name = "UNBLOCK_AT")
-	@JsonProperty("UNBLOCK_AT")
+	@JsonProperty("unblock_at")
     private Timestamp unblockAt;
 
     

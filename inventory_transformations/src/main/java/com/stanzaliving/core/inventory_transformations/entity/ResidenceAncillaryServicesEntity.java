@@ -19,12 +19,12 @@ public class ResidenceAncillaryServicesEntity implements Serializable {
 
     @Id
     @Column(name = "RESIDENCE_ID", insertable = false, nullable = false)
-	@JsonProperty("RESIDENCE_ID")
+	@JsonProperty("residence_id")
     private Integer residenceId;
 
     @Id
     @Column(name = "ANCILLARY_SERVICES_ID", insertable = false, nullable = false)
-	@JsonProperty("ANCILLARY_SERVICES_ID")
+	@JsonProperty("ancillary_services_id")
     private Integer ancillaryServicesId;
 
     
