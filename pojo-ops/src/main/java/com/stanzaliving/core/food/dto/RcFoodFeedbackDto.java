@@ -1,6 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 import com.stanzaliving.core.operations.enums.MealType;
 
@@ -18,28 +18,36 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ActiveMealDto {
+public class RcFoodFeedbackDto {
 
-	private MealType meal;
+	private String residenceFoodMenuId;
 
-	private LocalTime startTime;
+	@Builder.Default
+	private Float taste = 0f;
 
-	private LocalTime endTime;
+	@Builder.Default
+	private Float quality = 0f;
+
+	@Builder.Default
+	private Float presentation = 0f;
+
+	private String comment;
+
+	@Builder.Default
+	private Boolean shortage = false;
 
 	@Builder.Default
 	private Boolean leftover = false;
 
 	@Builder.Default
-	private Boolean received = false;
-
-	@Builder.Default
-	private Boolean shortageSubmitted = false;
-
-	@Builder.Default
-	private Boolean feedbackGiven = false;
+	private Boolean foreignParticle = false;
 	
 	private String vendorId;
 	
-	private String residenceFoodMenuId;
-
+	private MealType meal;
+	
+	private LocalDate date;
+	
+	private String userId;
+	
 }
