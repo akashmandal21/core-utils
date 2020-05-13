@@ -63,7 +63,7 @@ public interface AbstractJpaService<T extends AbstractJpaEntity, I extends Seria
 	Page<T> findAllByStatus(boolean status, Pageable pageable);
 
 	Page<T> findAll(Specification<T> spec, Pageable pageable);
-	
+
 	List<T> findAll(Specification<T> spec);
 
 	List<T> findList(List<I> ids);
@@ -84,6 +84,8 @@ public interface AbstractJpaService<T extends AbstractJpaEntity, I extends Seria
 
 	void delete(Collection<T> entities);
 
+	void deleteInBatch(Collection<T> entities);
+
 	void delete(I id);
 
 	void deleteAll();
@@ -97,4 +99,5 @@ public interface AbstractJpaService<T extends AbstractJpaEntity, I extends Seria
 	Boolean existsByUuid(String uuid);
 
 	Boolean existsByUuidAndStatus(String uuid, boolean status);
+
 }

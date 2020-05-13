@@ -90,7 +90,6 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 		return getJpaRepository().saveAll(entities);
 	}
 
-
 	@Override
 	public List<T> save(Collection<T> entities, boolean logEntity) {
 		List<T> savedEntities = getJpaRepository().saveAll(entities);
@@ -199,7 +198,7 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	public Page<T> findAll(Specification<T> spec, Pageable pageable) {
 		return getJpaRepository().findAll(spec, pageable);
 	}
-	
+
 	@Override
 	public List<T> findAll(Specification<T> spec) {
 		return getJpaRepository().findAll(spec);
@@ -258,6 +257,11 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	@Override
 	public void delete(Collection<T> entities) {
 		getJpaRepository().deleteAll(entities);
+	}
+
+	@Override
+	public void deleteInBatch(Collection<T> entities) {
+		getJpaRepository().deleteInBatch(entities);
 	}
 
 	@Override
