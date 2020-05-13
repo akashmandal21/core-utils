@@ -20,31 +20,31 @@ public class CashChequeSettlementEntity implements Serializable {
 
     @Id
     @Column(name = "TRANSACTION_ID", insertable = false, nullable = false)
-	@JsonProperty("transaction_id")
+	@JsonProperty("TRANSACTION_ID")
     private Integer transactionId;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "SETTLEMENT_DATE")
-	@JsonProperty("settlement_date")
+	@JsonProperty("SETTLEMENT_DATE")
     private Date settlementDate;
 
     @Column(name = "NARRATION")
-	@JsonProperty("narration")
+	@JsonProperty("NARRATION")
     private String NARRATION;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("amount")
+	@JsonProperty("AMOUNT")
     private Double AMOUNT;
 
     @Column(name = "MODE")
-	@JsonProperty("mode")
+	@JsonProperty("MODE")
     private String MODE;
 
     @Column(name = "SETTLEMENT_ID")
-	@JsonProperty("settlement_id")
+	@JsonProperty("SETTLEMENT_ID")
     private String settlementId;
 
     

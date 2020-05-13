@@ -17,23 +17,23 @@ public class AgreementBookingMappingEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "AGREEMENT_DOCUMENT_ID")
-	@JsonProperty("agreement_document_id")
+	@JsonProperty("AGREEMENT_DOCUMENT_ID")
     private String agreementDocumentId;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "AGREEMENT_URL")
-	@JsonProperty("agreement_url")
+	@JsonProperty("AGREEMENT_URL")
     private String agreementUrl;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("booking_id")
+	@JsonProperty("BOOKING_ID")
     private Integer bookingId;
 
     

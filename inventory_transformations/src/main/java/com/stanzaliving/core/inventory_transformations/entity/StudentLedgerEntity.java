@@ -18,35 +18,35 @@ public class StudentLedgerEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "LEDGER_ID", nullable = false)
-	@JsonProperty("ledger_id")
+	@JsonProperty("LEDGER_ID")
     private Integer ledgerId;
 
     @Column(name = "BALANCE")
-	@JsonProperty("balance")
+	@JsonProperty("BALANCE")
     private Double BALANCE;
 
     @Column(name = "CREDIT")
-	@JsonProperty("credit")
+	@JsonProperty("CREDIT")
     private Double CREDIT;
 
     @Column(name = "DEBIT")
-	@JsonProperty("debit")
+	@JsonProperty("DEBIT")
     private Double DEBIT;
 
     @Column(name = "TYPE")
-	@JsonProperty("type")
+	@JsonProperty("TYPE")
     private String TYPE;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "CREATED")
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("booking_id")
+	@JsonProperty("BOOKING_ID")
     private Integer bookingId;
 
     

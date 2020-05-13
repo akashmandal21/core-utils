@@ -18,43 +18,43 @@ public class CountriesEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Long id;
 
     @Column(name = "created_at")
-	@JsonProperty("created_at")
+	@JsonProperty("CREATED_AT")
     private Timestamp createdAt;
 
     @Column(name = "created_by", columnDefinition = "char")
-	@JsonProperty("created_by")
+	@JsonProperty("CREATED_BY")
     private String createdBy;
 
     @Column(name = "status")
-	@JsonProperty("status")
+	@JsonProperty("STATUS")
     private Boolean status = Boolean.FALSE;
 
     @Column(name = "updated_at")
-	@JsonProperty("updated_at")
+	@JsonProperty("UPDATED_AT")
     private Timestamp updatedAt;
 
     @Column(name = "updated_by", columnDefinition = "char")
-	@JsonProperty("updated_by")
+	@JsonProperty("UPDATED_BY")
     private String updatedBy;
 
     @Column(name = "uuid", nullable = false, columnDefinition = "char")
-	@JsonProperty("uuid")
+	@JsonProperty("UUID")
     private String uuid;
 
     @Column(name = "country_name")
-	@JsonProperty("country_name")
+	@JsonProperty("COUNTRY_NAME")
     private String countryName;
 
     @Column(name = "currency")
-	@JsonProperty("currency")
+	@JsonProperty("CURRENCY")
     private String currency;
 
     @Column(name = "localization")
-	@JsonProperty("localization")
+	@JsonProperty("LOCALIZATION")
     private String localization;
 
     

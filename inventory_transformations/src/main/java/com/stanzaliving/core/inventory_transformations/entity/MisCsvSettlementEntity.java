@@ -20,39 +20,39 @@ public class MisCsvSettlementEntity implements Serializable {
 
     @Id
     @Column(name = "TRANSACTION_ID", insertable = false, nullable = false)
-	@JsonProperty("transaction_id")
+	@JsonProperty("TRANSACTION_ID")
     private Integer transactionId;
 
     @Column(name = "VALUE_DATE")
-	@JsonProperty("value_date")
+	@JsonProperty("VALUE_DATE")
     private Date valueDate;
 
     @Column(name = "DESCRIPTION")
-	@JsonProperty("description")
+	@JsonProperty("DESCRIPTION")
     private String DESCRIPTION;
 
     @Column(name = "TRANSACTION_AMOUNT")
-	@JsonProperty("transaction_amount")
+	@JsonProperty("TRANSACTION_AMOUNT")
     private Double transactionAmount;
 
     @Column(name = "CR_DR")
-	@JsonProperty("cr_dr")
+	@JsonProperty("CR_DR")
     private String crDr;
 
     @Column(name = "TRANSACTION_POSTED_DATE")
-	@JsonProperty("transaction_posted_date")
+	@JsonProperty("TRANSACTION_POSTED_DATE")
     private Date transactionPostedDate;
 
     @Column(name = "AVAILABLE_AMOUNT")
-	@JsonProperty("available_amount")
+	@JsonProperty("AVAILABLE_AMOUNT")
     private Double availableAmount;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "SETTLEMENT_ID")
-	@JsonProperty("settlement_id")
+	@JsonProperty("SETTLEMENT_ID")
     private String settlementId;
 
     

@@ -18,47 +18,47 @@ public class CronMonitorEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer id;
 
     @Column(name = "JOB_ID")
-	@JsonProperty("job_id")
+	@JsonProperty("JOB_ID")
     private String jobId;
 
     @Column(name = "JOB_NAME")
-	@JsonProperty("job_name")
+	@JsonProperty("JOB_NAME")
     private String jobName;
 
     @Column(name = "START_TIME")
-	@JsonProperty("start_time")
+	@JsonProperty("START_TIME")
     private Timestamp startTime;
 
     @Column(name = "GRACE_PERIOD")
-	@JsonProperty("grace_period")
+	@JsonProperty("GRACE_PERIOD")
     private Timestamp gracePeriod;
 
     @Column(name = "SUCCESS")
-	@JsonProperty("success")
+	@JsonProperty("SUCCESS")
     private Boolean SUCCESS;
 
     @Column(name = "NOTIFICATION_SENT")
-	@JsonProperty("notification_sent")
+	@JsonProperty("NOTIFICATION_SENT")
     private Boolean notificationSent;
 
     @Column(name = "NOTIFICATION_DETAILS")
-	@JsonProperty("notification_details")
+	@JsonProperty("NOTIFICATION_DETAILS")
     private String notificationDetails;
 
     @Column(name = "WEBHOOK_URL")
-	@JsonProperty("webhook_url")
+	@JsonProperty("WEBHOOK_URL")
     private String webhookUrl;
 
     @Column(name = "RUN_TIME")
-	@JsonProperty("run_time")
+	@JsonProperty("RUN_TIME")
     private Timestamp runTime;
 
     @Column(name = "COMPLETION_TIME")
-	@JsonProperty("completion_time")
+	@JsonProperty("COMPLETION_TIME")
     private Timestamp completionTime;
 
     

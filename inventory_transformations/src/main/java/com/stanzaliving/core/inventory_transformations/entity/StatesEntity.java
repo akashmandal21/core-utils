@@ -18,43 +18,43 @@ public class StatesEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Long id;
 
     @Column(name = "created_at")
-	@JsonProperty("created_at")
+	@JsonProperty("CREATED_AT")
     private Timestamp createdAt;
 
     @Column(name = "created_by", columnDefinition = "char")
-	@JsonProperty("created_by")
+	@JsonProperty("CREATED_BY")
     private String createdBy;
 
     @Column(name = "status")
-	@JsonProperty("status")
+	@JsonProperty("STATUS")
     private Boolean status = Boolean.FALSE;
 
     @Column(name = "updated_at")
-	@JsonProperty("updated_at")
+	@JsonProperty("UPDATED_AT")
     private Timestamp updatedAt;
 
     @Column(name = "updated_by", columnDefinition = "char")
-	@JsonProperty("updated_by")
+	@JsonProperty("UPDATED_BY")
     private String updatedBy;
 
     @Column(name = "uuid", nullable = false, columnDefinition = "char")
-	@JsonProperty("uuid")
+	@JsonProperty("UUID")
     private String uuid;
 
     @Column(name = "country_id", nullable = false)
-	@JsonProperty("country_id")
+	@JsonProperty("COUNTRY_ID")
     private Long countryId;
 
     @Column(name = "state_name", nullable = false)
-	@JsonProperty("state_name")
+	@JsonProperty("STATE_NAME")
     private String stateName;
 
     @Column(name = "time_zone")
-	@JsonProperty("time_zone")
+	@JsonProperty("TIME_ZONE")
     private String timeZone;
 
     

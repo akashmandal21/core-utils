@@ -18,67 +18,67 @@ public class CreditNoteEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "CREDIT_NOTE_ID")
-	@JsonProperty("credit_note_id")
+	@JsonProperty("CREDIT_NOTE_ID")
     private String creditNoteId;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("amount")
+	@JsonProperty("AMOUNT")
     private Double AMOUNT;
 
     @Column(name = "ISSUE_DATE")
-	@JsonProperty("issue_date")
+	@JsonProperty("ISSUE_DATE")
     private Timestamp issueDate;
 
     @Column(name = "STATUS")
-	@JsonProperty("status")
+	@JsonProperty("STATUS")
     private String STATUS;
 
     @Column(name = "STUDENT")
-	@JsonProperty("student")
+	@JsonProperty("STUDENT")
     private String STUDENT;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     @Column(name = "EXECUTION_DATE")
-	@JsonProperty("execution_date")
+	@JsonProperty("EXECUTION_DATE")
     private Timestamp executionDate;
 
     @Column(name = "PURPOSE_ID")
-	@JsonProperty("purpose_id")
+	@JsonProperty("PURPOSE_ID")
     private Integer purposeId;
 
     @Column(name = "COMMENT")
-	@JsonProperty("comment")
+	@JsonProperty("COMMENT")
     private String COMMENT;
 
     @Column(name = "CREATED_BY")
-	@JsonProperty("created_by")
+	@JsonProperty("CREATED_BY")
     private String createdBy;
 
     @Column(name = "STANZA_INVOICE_ID")
-	@JsonProperty("stanza_invoice_id")
+	@JsonProperty("STANZA_INVOICE_ID")
     private String stanzaInvoiceId;
 
     @Column(name = "IMPACT_TYPE")
-	@JsonProperty("impact_type")
+	@JsonProperty("IMPACT_TYPE")
     private Integer impactType = 0;
 
     @Column(name = "VENDOR")
-	@JsonProperty("vendor")
+	@JsonProperty("VENDOR")
     private String VENDOR;
 
     @Column(name = "REMARK")
-	@JsonProperty("remark")
+	@JsonProperty("REMARK")
     private String REMARK;
 
     

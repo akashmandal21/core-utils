@@ -18,43 +18,43 @@ public class MonthlyRevenueEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "REVENUE_LOST_ON_FORFEITURES")
-	@JsonProperty("revenue_lost_on_forfeitures")
+	@JsonProperty("REVENUE_LOST_ON_FORFEITURES")
     private Double revenueLostOnForfeitures;
 
     @Column(name = "ANCILLARY_REVENUE")
-	@JsonProperty("ancillary_revenue")
+	@JsonProperty("ANCILLARY_REVENUE")
     private Double ancillaryRevenue;
 
     @Column(name = "REVENUE_LOST_ON_CED")
-	@JsonProperty("revenue_lost_on_ced")
+	@JsonProperty("REVENUE_LOST_ON_CED")
     private Double revenueLostOnCed;
 
     @Column(name = "UPSELL_DOWNSELL_REVENUE")
-	@JsonProperty("upsell_downsell_revenue")
+	@JsonProperty("UPSELL_DOWNSELL_REVENUE")
     private Double upsellDownsellRevenue;
 
     @Column(name = "NEW_BASE_REVENUE")
-	@JsonProperty("new_base_revenue")
+	@JsonProperty("NEW_BASE_REVENUE")
     private Double newBaseRevenue;
 
     @Column(name = "RECURRING_REVENUE")
-	@JsonProperty("recurring_revenue")
+	@JsonProperty("RECURRING_REVENUE")
     private Double recurringRevenue;
 
     @Column(name = "BOOKING_TYPE")
-	@JsonProperty("booking_type")
+	@JsonProperty("BOOKING_TYPE")
     private Integer bookingType;
 
     @Column(name = "REVENUE_DATE")
-	@JsonProperty("revenue_date")
+	@JsonProperty("REVENUE_DATE")
     private Date revenueDate;
 
     @Column(name = "PROPERTY_CATEGORY")
-	@JsonProperty("property_category")
+	@JsonProperty("PROPERTY_CATEGORY")
     private Integer propertyCategory;
 
     

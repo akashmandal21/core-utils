@@ -20,31 +20,31 @@ public class PayuRawEntity implements Serializable {
 
     @Id
     @Column(name = "MERCHANT_TRANSACTION_ID", insertable = false, nullable = false)
-	@JsonProperty("merchant_transaction_id")
+	@JsonProperty("MERCHANT_TRANSACTION_ID")
     private String merchantTransactionId;
 
     @Column(name = "ADDED_ON")
-	@JsonProperty("added_on")
+	@JsonProperty("ADDED_ON")
     private Timestamp addedOn;
 
     @Column(name = "FIELD4")
-	@JsonProperty("field4")
+	@JsonProperty("FIELD4")
     private String FIELD4;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("amount")
+	@JsonProperty("AMOUNT")
     private Double AMOUNT;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "STATUS")
-	@JsonProperty("status")
+	@JsonProperty("STATUS")
     private String STATUS;
 
     @Column(name = "PAYMENT_ID")
-	@JsonProperty("payment_id")
+	@JsonProperty("PAYMENT_ID")
     private String paymentId;
 
     

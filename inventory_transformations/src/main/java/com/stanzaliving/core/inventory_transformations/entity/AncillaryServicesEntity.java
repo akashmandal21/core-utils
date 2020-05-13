@@ -18,23 +18,23 @@ public class AncillaryServicesEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ANCILLARY_SERVICES_ID", insertable = false, nullable = false)
-	@JsonProperty("ancillary_services_id")
+	@JsonProperty("ANCILLARY_SERVICES_ID")
     private Integer ancillaryServicesId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("enabled")
+	@JsonProperty("ENABLED")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("name")
+	@JsonProperty("NAME")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     

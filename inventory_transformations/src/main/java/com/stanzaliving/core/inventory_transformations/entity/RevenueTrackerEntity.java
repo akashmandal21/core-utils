@@ -18,123 +18,123 @@ public class RevenueTrackerEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "RESIDENCE_ID", nullable = false)
-	@JsonProperty("residence_id")
+	@JsonProperty("RESIDENCE_ID")
     private Integer residenceId;
 
     @Column(name = "PROPERTY_CATEGORY", nullable = false)
-	@JsonProperty("property_category")
+	@JsonProperty("PROPERTY_CATEGORY")
     private Integer propertyCategory;
 
     @Column(name = "RESIDENCE_NAME", nullable = false)
-	@JsonProperty("residence_name")
+	@JsonProperty("RESIDENCE_NAME")
     private String residenceName;
 
     @Column(name = "MICROMARKET_ID", nullable = false)
-	@JsonProperty("micromarket_id")
+	@JsonProperty("MICROMARKET_ID")
     private Integer micromarketId;
 
     @Column(name = "MICROMARKET_NAME", nullable = false)
-	@JsonProperty("micromarket_name")
+	@JsonProperty("MICROMARKET_NAME")
     private String micromarketName;
 
     @Column(name = "CITY_ID", nullable = false)
-	@JsonProperty("city_id")
+	@JsonProperty("CITY_ID")
     private Integer cityId;
 
     @Column(name = "CITY_NAME", nullable = false)
-	@JsonProperty("city_name")
+	@JsonProperty("CITY_NAME")
     private String cityName;
 
     @Column(name = "STATE_ID", nullable = false)
-	@JsonProperty("state_id")
+	@JsonProperty("STATE_ID")
     private Integer stateId;
 
     @Column(name = "STATE_NAME", nullable = false)
-	@JsonProperty("state_name")
+	@JsonProperty("STATE_NAME")
     private String stateName;
 
     @Column(name = "ZONE_ID")
-	@JsonProperty("zone_id")
+	@JsonProperty("ZONE_ID")
     private Integer zoneId = 0;
 
     @Column(name = "GROSS_REVENUE_AVAILABLE")
-	@JsonProperty("gross_revenue_available")
+	@JsonProperty("GROSS_REVENUE_AVAILABLE")
     private Double grossRevenueAvailable = 0D;
 
     @Column(name = "GROSS_REVENUES_LIVE")
-	@JsonProperty("gross_revenues_live")
+	@JsonProperty("GROSS_REVENUES_LIVE")
     private Double grossRevenuesLive = 0D;
 
     @Column(name = "GROSS_REVENUES_REALISED")
-	@JsonProperty("gross_revenues_realised")
+	@JsonProperty("GROSS_REVENUES_REALISED")
     private Double grossRevenuesRealised = 0D;
 
     @Column(name = "RECURRING_REVENUES_CF")
-	@JsonProperty("recurring_revenues_cf")
+	@JsonProperty("RECURRING_REVENUES_CF")
     private Double recurringRevenuesCf = 0D;
 
     @Column(name = "NEW_BASE_REVENUE")
-	@JsonProperty("new_base_revenue")
+	@JsonProperty("NEW_BASE_REVENUE")
     private Double newBaseRevenue = 0D;
 
     @Column(name = "UPSELL_DOWNSELL_REVENUE")
-	@JsonProperty("upsell_downsell_revenue")
+	@JsonProperty("UPSELL_DOWNSELL_REVENUE")
     private Double upsellDownsellRevenue = 0D;
 
     @Column(name = "REVENUES_LOST_ON_CED", nullable = false)
-	@JsonProperty("revenues_lost_on_ced")
+	@JsonProperty("REVENUES_LOST_ON_CED")
     private Double revenuesLostOnCed = 0D;
 
     @Column(name = "REVENUES_LOST_ON_FORFEITURES")
-	@JsonProperty("revenues_lost_on_forfeitures")
+	@JsonProperty("REVENUES_LOST_ON_FORFEITURES")
     private Double revenuesLostOnForfeitures = 0D;
 
     @Column(name = "ANCILLARY_REVENUES")
-	@JsonProperty("ancillary_revenues")
+	@JsonProperty("ANCILLARY_REVENUES")
     private Double ancillaryRevenues = 0D;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Date CREATED;
 
     @Column(name = "BOOKING_TYPE")
-	@JsonProperty("booking_type")
+	@JsonProperty("BOOKING_TYPE")
     private Integer bookingType;
 
     @Column(name = "CREDIT_NOTE_ADJUSTED")
-	@JsonProperty("credit_note_adjusted")
+	@JsonProperty("CREDIT_NOTE_ADJUSTED")
     private Double creditNoteAdjusted;
 
     @Column(name = "RISK_REVENUE_SD_ADJUSTMENT")
-	@JsonProperty("risk_revenue_sd_adjustment")
+	@JsonProperty("RISK_REVENUE_SD_ADJUSTMENT")
     private Double riskRevenueSdAdjustment;
 
     @Column(name = "RISK_REVENUE_CED")
-	@JsonProperty("risk_revenue_ced")
+	@JsonProperty("RISK_REVENUE_CED")
     private Double riskRevenueCed;
 
     @Column(name = "RISK_REVENUE_FORFEITURE")
-	@JsonProperty("risk_revenue_forfeiture")
+	@JsonProperty("RISK_REVENUE_FORFEITURE")
     private Double riskRevenueForfeiture;
 
     @Column(name = "NEXT_PERIOD_REVENUE")
-	@JsonProperty("next_period_revenue")
+	@JsonProperty("NEXT_PERIOD_REVENUE")
     private Double nextPeriodRevenue;
 
     @Column(name = "NEXT_PERIOD_UPSELL_REVENUE")
-	@JsonProperty("next_period_upsell_revenue")
+	@JsonProperty("NEXT_PERIOD_UPSELL_REVENUE")
     private Double nextPeriodUpsellRevenue;
 
     @Column(name = "NEXT_PERIOD_ANCILLARY_REVENUE")
-	@JsonProperty("next_period_ancillary_revenue")
+	@JsonProperty("NEXT_PERIOD_ANCILLARY_REVENUE")
     private Double nextPeriodAncillaryRevenue;
 
     @Column(name = "NEXT_PERIOD_EXPECTED_REVENUE")
-	@JsonProperty("next_period_expected_revenue")
+	@JsonProperty("NEXT_PERIOD_EXPECTED_REVENUE")
     private Double nextPeriodExpectedRevenue;
 
     

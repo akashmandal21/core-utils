@@ -17,11 +17,11 @@ public class JobsTypeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "JOB_TYPE", nullable = false)
-	@JsonProperty("job_type")
+	@JsonProperty("JOB_TYPE")
     private Integer jobType;
 
     @Column(name = "JOB_NAME", nullable = false)
-	@JsonProperty("job_name")
+	@JsonProperty("JOB_NAME")
     private String jobName = "";
 
     

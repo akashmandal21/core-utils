@@ -18,39 +18,39 @@ public class ExpectedRealisationEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "EXPECTED_REALISATION_ID", insertable = false, nullable = false)
-	@JsonProperty("expected_realisation_id")
+	@JsonProperty("EXPECTED_REALISATION_ID")
     private Integer expectedRealisationId;
 
     @Column(name = "CREATED")
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "EXECUTION_DATE")
-	@JsonProperty("execution_date")
+	@JsonProperty("EXECUTION_DATE")
     private Timestamp executionDate;
 
     @Column(name = "FROM_DATE")
-	@JsonProperty("from_date")
+	@JsonProperty("FROM_DATE")
     private Timestamp fromDate;
 
     @Column(name = "TO_DATE")
-	@JsonProperty("to_date")
+	@JsonProperty("TO_DATE")
     private Timestamp toDate;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("amount")
+	@JsonProperty("AMOUNT")
     private Double AMOUNT;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "TYPE")
-	@JsonProperty("type")
+	@JsonProperty("TYPE")
     private String TYPE;
 
     @Column(name = "TEMPORARY_INVOICE_ID")
-	@JsonProperty("temporary_invoice_id")
+	@JsonProperty("TEMPORARY_INVOICE_ID")
     private Integer temporaryInvoiceId;
 
     

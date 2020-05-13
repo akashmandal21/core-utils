@@ -17,15 +17,15 @@ public class CityLevelMaxDiscountEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CITY_LEVEL_MAX_DISCOUNT_ID", insertable = false, nullable = false)
-	@JsonProperty("city_level_max_discount_id")
+	@JsonProperty("CITY_LEVEL_MAX_DISCOUNT_ID")
     private Integer cityLevelMaxDiscountId;
 
     @Column(name = "MAX_DISCOUNT_ALLOWED")
-	@JsonProperty("max_discount_allowed")
+	@JsonProperty("MAX_DISCOUNT_ALLOWED")
     private Double maxDiscountAllowed;
 
     @Column(name = "CITY_ID")
-	@JsonProperty("city_id")
+	@JsonProperty("CITY_ID")
     private Integer cityId;
 
     

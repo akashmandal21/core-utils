@@ -18,35 +18,35 @@ public class BrokerLeadTransactionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     @Column(name = "BROKER_ID")
-	@JsonProperty("broker_id")
+	@JsonProperty("BROKER_ID")
     private Integer brokerId;
 
     @Column(name = "LEAD_ID")
-	@JsonProperty("lead_id")
+	@JsonProperty("LEAD_ID")
     private Integer leadId;
 
     @Column(name = "SLAB_ID")
-	@JsonProperty("slab_id")
+	@JsonProperty("SLAB_ID")
     private Integer slabId;
 
     @Column(name = "COMMISSION", nullable = false)
-	@JsonProperty("commission")
+	@JsonProperty("COMMISSION")
     private Integer COMMISSION;
 
     @Column(name = "COMMISSION_PROCESSED")
-	@JsonProperty("commission_processed")
+	@JsonProperty("COMMISSION_PROCESSED")
     private Boolean commissionProcessed = Boolean.FALSE;
 
     

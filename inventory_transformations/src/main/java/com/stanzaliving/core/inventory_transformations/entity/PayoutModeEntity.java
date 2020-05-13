@@ -18,23 +18,23 @@ public class PayoutModeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PAYOUT_MODE_ID", insertable = false, nullable = false)
-	@JsonProperty("payout_mode_id")
+	@JsonProperty("PAYOUT_MODE_ID")
     private Integer payoutModeId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("enabled")
+	@JsonProperty("ENABLED")
     private Boolean ENABLED = Boolean.FALSE;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("name")
+	@JsonProperty("NAME")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     

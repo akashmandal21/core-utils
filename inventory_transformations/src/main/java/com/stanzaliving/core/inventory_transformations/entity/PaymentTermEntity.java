@@ -18,31 +18,31 @@ public class PaymentTermEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PAYMENT_TERM_ID", insertable = false, nullable = false)
-	@JsonProperty("payment_term_id")
+	@JsonProperty("PAYMENT_TERM_ID")
     private Integer paymentTermId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("enabled")
+	@JsonProperty("ENABLED")
     private Boolean ENABLED;
 
     @Column(name = "INSTALLMENTS", nullable = false)
-	@JsonProperty("installments")
+	@JsonProperty("INSTALLMENTS")
     private Integer INSTALLMENTS;
 
     @Column(name = "IS_MONTHLY")
-	@JsonProperty("is_monthly")
+	@JsonProperty("IS_MONTHLY")
     private Boolean monthly;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("name")
+	@JsonProperty("NAME")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     

@@ -18,39 +18,39 @@ public class BrokerLedgerEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "LEDGER_ID", nullable = false)
-	@JsonProperty("ledger_id")
+	@JsonProperty("LEDGER_ID")
     private Integer ledgerId;
 
     @Column(name = "BALANCE")
-	@JsonProperty("balance")
+	@JsonProperty("BALANCE")
     private Double BALANCE;
 
     @Column(name = "CREDIT")
-	@JsonProperty("credit")
+	@JsonProperty("CREDIT")
     private Double CREDIT;
 
     @Column(name = "DEBIT")
-	@JsonProperty("debit")
+	@JsonProperty("DEBIT")
     private Double DEBIT;
 
     @Column(name = "BROKER_ID")
-	@JsonProperty("broker_id")
+	@JsonProperty("BROKER_ID")
     private String brokerId;
 
     @Column(name = "CREATED")
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "PAYOUT_TYPE")
-	@JsonProperty("payout_type")
+	@JsonProperty("PAYOUT_TYPE")
     private Integer payoutType;
 
     @Column(name = "BROKER_LEAD_TRANSACTION_ID")
-	@JsonProperty("broker_lead_transaction_id")
+	@JsonProperty("BROKER_LEAD_TRANSACTION_ID")
     private Integer brokerLeadTransactionId;
 
     @Column(name = "PAYOUT_DATE")
-	@JsonProperty("payout_date")
+	@JsonProperty("PAYOUT_DATE")
     private Timestamp payoutDate;
 
     

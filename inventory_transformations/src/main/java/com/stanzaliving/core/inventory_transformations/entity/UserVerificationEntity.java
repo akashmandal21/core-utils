@@ -20,31 +20,31 @@ public class UserVerificationEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "UUID", nullable = false)
-	@JsonProperty("uuid")
+	@JsonProperty("UUID")
     private String UUID;
 
     @Column(name = "VISIT")
-	@JsonProperty("visit")
+	@JsonProperty("VISIT")
     private Boolean VISIT;
 
     @Column(name = "USER_ID")
-	@JsonProperty("user_id")
+	@JsonProperty("USER_ID")
     private String userId;
 
     @Column(name = "USER_TYPE")
-	@JsonProperty("user_type")
+	@JsonProperty("USER_TYPE")
     private String userType;
 
     @Column(name = "USER_NAME")
-	@JsonProperty("user_name")
+	@JsonProperty("USER_NAME")
     private String userName;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     

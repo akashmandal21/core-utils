@@ -17,15 +17,15 @@ public class DiscountCategoryEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "DISCOUNT_CATEGORY_ID", insertable = false, nullable = false)
-	@JsonProperty("discount_category_id")
+	@JsonProperty("DISCOUNT_CATEGORY_ID")
     private Integer discountCategoryId;
 
     @Column(name = "NAME", nullable = false)
-	@JsonProperty("name")
+	@JsonProperty("NAME")
     private String NAME;
 
     @Column(name = "SHORTHAND", nullable = false)
-	@JsonProperty("shorthand")
+	@JsonProperty("SHORTHAND")
     private String SHORTHAND;
 
     

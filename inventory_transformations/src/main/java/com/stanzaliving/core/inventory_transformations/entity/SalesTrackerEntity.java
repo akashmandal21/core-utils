@@ -18,143 +18,143 @@ public class SalesTrackerEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "AVAILABLE_BEDS")
-	@JsonProperty("available_beds")
+	@JsonProperty("AVAILABLE_BEDS")
     private Double availableBeds = 0D;
 
     @Column(name = "DEAD_BEDS")
-	@JsonProperty("dead_beds")
+	@JsonProperty("DEAD_BEDS")
     private Double deadBeds = 0D;
 
     @Column(name = "RESIDENCE_ID", nullable = false)
-	@JsonProperty("residence_id")
+	@JsonProperty("RESIDENCE_ID")
     private Integer residenceId;
 
     @Column(name = "PROPERTY_CATEGORY", nullable = false)
-	@JsonProperty("property_category")
+	@JsonProperty("PROPERTY_CATEGORY")
     private Integer propertyCategory;
 
     @Column(name = "RESIDENCE_NAME", nullable = false)
-	@JsonProperty("residence_name")
+	@JsonProperty("RESIDENCE_NAME")
     private String residenceName;
 
     @Column(name = "MICROMARKET_ID", nullable = false)
-	@JsonProperty("micromarket_id")
+	@JsonProperty("MICROMARKET_ID")
     private Integer micromarketId;
 
     @Column(name = "MICROMARKET_NAME", nullable = false)
-	@JsonProperty("micromarket_name")
+	@JsonProperty("MICROMARKET_NAME")
     private String micromarketName;
 
     @Column(name = "CITY_ID", nullable = false)
-	@JsonProperty("city_id")
+	@JsonProperty("CITY_ID")
     private Integer cityId;
 
     @Column(name = "CITY_NAME", nullable = false)
-	@JsonProperty("city_name")
+	@JsonProperty("CITY_NAME")
     private String cityName;
 
     @Column(name = "STATE_ID", nullable = false)
-	@JsonProperty("state_id")
+	@JsonProperty("STATE_ID")
     private Integer stateId;
 
     @Column(name = "STATE_NAME", nullable = false)
-	@JsonProperty("state_name")
+	@JsonProperty("STATE_NAME")
     private String stateName;
 
     @Column(name = "ZONE_ID")
-	@JsonProperty("zone_id")
+	@JsonProperty("ZONE_ID")
     private Integer zoneId = 0;
 
     @Column(name = "INVENTORY_IDS", columnDefinition = "text")
-	@JsonProperty("inventory_ids")
+	@JsonProperty("INVENTORY_IDS")
     private String inventoryIds;
 
     @Column(name = "LIVE_BEDS")
-	@JsonProperty("live_beds")
+	@JsonProperty("LIVE_BEDS")
     private Double liveBeds = 0D;
 
     @Column(name = "AVERAGE_COMMITTED_LOCKIN")
-	@JsonProperty("average_committed_lockin")
+	@JsonProperty("AVERAGE_COMMITTED_LOCKIN")
     private Double averageCommittedLockin = 0D;
 
     @Column(name = "UNIQUE_SALES")
-	@JsonProperty("unique_sales")
+	@JsonProperty("UNIQUE_SALES")
     private Double uniqueSales = 0D;
 
     @Column(name = "UPCOMING_TERMINATIONS")
-	@JsonProperty("upcoming_terminations")
+	@JsonProperty("UPCOMING_TERMINATIONS")
     private Double upcomingTerminations = 0D;
 
     @Column(name = "UPCOMING_MOVE_INS")
-	@JsonProperty("upcoming_move_ins")
+	@JsonProperty("UPCOMING_MOVE_INS")
     private Double upcomingMoveIns = 0D;
 
     @Column(name = "LIVE_BOOKINGS", nullable = false)
-	@JsonProperty("live_bookings")
+	@JsonProperty("LIVE_BOOKINGS")
     private Integer liveBookings;
 
     @Column(name = "RUNNING_FORFEITURE", nullable = false)
-	@JsonProperty("running_forfeiture")
+	@JsonProperty("RUNNING_FORFEITURE")
     private Integer runningForfeiture;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Date CREATED;
 
     @Column(name = "LIVE_OCCUPANCY")
-	@JsonProperty("live_occupancy")
+	@JsonProperty("LIVE_OCCUPANCY")
     private Double liveOccupancy = 0D;
 
     @Column(name = "ONBOARDED_BEDS")
-	@JsonProperty("onboarded_beds")
+	@JsonProperty("ONBOARDED_BEDS")
     private Integer onboardedBeds = 0;
 
     @Column(name = "FORWARD_GROSS_OCCUPANCY")
-	@JsonProperty("forward_gross_occupancy")
+	@JsonProperty("FORWARD_GROSS_OCCUPANCY")
     private Double forwardGrossOccupancy = 0D;
 
     @Column(name = "FORWARD_NET_OCCUPANCY")
-	@JsonProperty("forward_net_occupancy")
+	@JsonProperty("FORWARD_NET_OCCUPANCY")
     private Double forwardNetOccupancy = 0D;
 
     @Column(name = "MTD")
-	@JsonProperty("mtd")
+	@JsonProperty("MTD")
     private Double MTD = 0D;
 
     @Column(name = "L7D")
-	@JsonProperty("l7d")
+	@JsonProperty("L7D")
     private Double L7D = 0D;
 
     @Column(name = "L3D")
-	@JsonProperty("l3d")
+	@JsonProperty("L3D")
     private Double L3D = 0D;
 
     @Column(name = "RETENTION_MTD")
-	@JsonProperty("retention_mtd")
+	@JsonProperty("RETENTION_MTD")
     private Double retentionMtd = 0D;
 
     @Column(name = "RETENTION_L7D")
-	@JsonProperty("retention_l7d")
+	@JsonProperty("RETENTION_L7D")
     private Double retentionL7d = 0D;
 
     @Column(name = "RETENTION_L3D")
-	@JsonProperty("retention_l3d")
+	@JsonProperty("RETENTION_L3D")
     private Double retentionL3d = 0D;
 
     @Column(name = "AVERAGE_UNEXPIRED_LOCKIN")
-	@JsonProperty("average_unexpired_lockin")
+	@JsonProperty("AVERAGE_UNEXPIRED_LOCKIN")
     private Double averageUnexpiredLockin = 0D;
 
     @Column(name = "BOOKING_TYPE")
-	@JsonProperty("booking_type")
+	@JsonProperty("BOOKING_TYPE")
     private Integer bookingType;
 
     @Column(name = "BEDS_CS_NMI")
-	@JsonProperty("beds_cs_nmi")
+	@JsonProperty("BEDS_CS_NMI")
     private Double bedsCsNmi;
 
     

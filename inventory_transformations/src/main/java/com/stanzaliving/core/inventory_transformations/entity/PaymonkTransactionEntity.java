@@ -19,27 +19,27 @@ public class PaymonkTransactionEntity implements Serializable {
 
     @Id
     @Column(name = "TRANSACTION_ID", insertable = false, nullable = false)
-	@JsonProperty("transaction_id")
+	@JsonProperty("TRANSACTION_ID")
     private Integer transactionId;
 
     @Column(name = "BATCH_ID")
-	@JsonProperty("batch_id")
+	@JsonProperty("BATCH_ID")
     private String batchId;
 
     @Column(name = "PAYMONK_STATUS")
-	@JsonProperty("paymonk_status")
+	@JsonProperty("PAYMONK_STATUS")
     private String paymonkStatus;
 
     @Column(name = "PAYMONK_TRANSACTION_ID")
-	@JsonProperty("paymonk_transaction_id")
+	@JsonProperty("PAYMONK_TRANSACTION_ID")
     private String paymonkTransactionId;
 
     @Column(name = "SENDER_ID")
-	@JsonProperty("sender_id")
+	@JsonProperty("SENDER_ID")
     private String senderId;
 
     @Column(name = "BATCH_CLOSED")
-	@JsonProperty("batch_closed")
+	@JsonProperty("BATCH_CLOSED")
     private Boolean batchClosed;
 
     

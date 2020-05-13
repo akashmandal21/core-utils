@@ -17,23 +17,23 @@ public class WriteOffTransactionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "TRANSACTION_ID")
-	@JsonProperty("transaction_id")
+	@JsonProperty("TRANSACTION_ID")
     private Integer transactionId;
 
     @Column(name = "WRITE_OFF_REASON")
-	@JsonProperty("write_off_reason")
+	@JsonProperty("WRITE_OFF_REASON")
     private String writeOffReason;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "CREATED_BY")
-	@JsonProperty("created_by")
+	@JsonProperty("CREATED_BY")
     private String createdBy;
 
     

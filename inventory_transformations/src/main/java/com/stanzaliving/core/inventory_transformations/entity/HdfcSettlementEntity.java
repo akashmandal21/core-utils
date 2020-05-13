@@ -18,43 +18,43 @@ public class HdfcSettlementEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SETTLEMENT_ID", insertable = false, nullable = false)
-	@JsonProperty("settlement_id")
+	@JsonProperty("SETTLEMENT_ID")
     private Integer settlementId;
 
     @Column(name = "BANK_STATEMENT_ID")
-	@JsonProperty("bank_statement_id")
+	@JsonProperty("BANK_STATEMENT_ID")
     private Integer bankStatementId = 0;
 
     @Column(name = "TRANSACTION_DATE")
-	@JsonProperty("transaction_date")
+	@JsonProperty("TRANSACTION_DATE")
     private Timestamp transactionDate;
 
     @Column(name = "VALUE_DATE")
-	@JsonProperty("value_date")
+	@JsonProperty("VALUE_DATE")
     private Timestamp valueDate;
 
     @Column(name = "TRANSACTION_AMOUNT")
-	@JsonProperty("transaction_amount")
+	@JsonProperty("TRANSACTION_AMOUNT")
     private Double transactionAmount;
 
     @Column(name = "DEBIT_CREDIT")
-	@JsonProperty("debit_credit")
+	@JsonProperty("DEBIT_CREDIT")
     private String debitCredit;
 
     @Column(name = "TRANSACTION_DESCRIPTION", columnDefinition = "text")
-	@JsonProperty("transaction_description")
+	@JsonProperty("TRANSACTION_DESCRIPTION")
     private String transactionDescription;
 
     @Column(name = "REFERENCE_NUMBER")
-	@JsonProperty("reference_number")
+	@JsonProperty("REFERENCE_NUMBER")
     private String referenceNumber;
 
     @Column(name = "TRANSACTION_BRANCH")
-	@JsonProperty("transaction_branch")
+	@JsonProperty("TRANSACTION_BRANCH")
     private String transactionBranch;
 
     @Column(name = "SETTLEMENT_TYPE_ID")
-	@JsonProperty("settlement_type_id")
+	@JsonProperty("SETTLEMENT_TYPE_ID")
     private Integer settlementTypeId = 0;
 
     

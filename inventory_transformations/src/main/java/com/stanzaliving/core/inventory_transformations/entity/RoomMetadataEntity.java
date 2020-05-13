@@ -19,51 +19,51 @@ public class RoomMetadataEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ROOM_METADATA_ID", insertable = false, nullable = false)
-	@JsonProperty("room_metadata_id")
+	@JsonProperty("ROOM_METADATA_ID")
     private Integer roomMetadataId;
 
     @Column(name = "START_DATE")
-	@JsonProperty("start_date")
+	@JsonProperty("START_DATE")
     private Date startDate;
 
     @Column(name = "END_DATE")
-	@JsonProperty("end_date")
+	@JsonProperty("END_DATE")
     private Date endDate;
 
     @Column(name = "ROOM_ID")
-	@JsonProperty("room_id")
+	@JsonProperty("ROOM_ID")
     private Integer roomId;
 
     @Column(name = "BLOCKED")
-	@JsonProperty("blocked")
+	@JsonProperty("BLOCKED")
     private Boolean BLOCKED;
 
     @Column(name = "DEAD")
-	@JsonProperty("dead")
+	@JsonProperty("DEAD")
     private Boolean DEAD;
 
     @Column(name = "OCCUPANCY")
-	@JsonProperty("occupancy")
+	@JsonProperty("OCCUPANCY")
     private Integer OCCUPANCY;
 
     @Column(name = "UPDATED")
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "BED_COUNT")
-	@JsonProperty("bed_count")
+	@JsonProperty("BED_COUNT")
     private Integer bedCount;
 
     @Column(name = "SELF_CONVERTED")
-	@JsonProperty("self_converted")
+	@JsonProperty("SELF_CONVERTED")
     private Boolean selfConverted = Boolean.FALSE;
 
     @Column(name = "CONVERSION_CHARGE")
-	@JsonProperty("conversion_charge")
+	@JsonProperty("CONVERSION_CHARGE")
     private Integer conversionCharge = 0;
 
     

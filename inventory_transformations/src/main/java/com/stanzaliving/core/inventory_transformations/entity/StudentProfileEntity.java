@@ -19,11 +19,11 @@ public class StudentProfileEntity implements Serializable {
 
     @Id
     @Column(name = "STUDENT_ID", insertable = false, nullable = false)
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "RISK_PROFILE")
-	@JsonProperty("risk_profile")
+	@JsonProperty("RISK_PROFILE")
     private Integer riskProfile;
 
     

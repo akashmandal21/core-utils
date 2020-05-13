@@ -17,52 +17,52 @@ public class PayuSettlementTransactionEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "SETTLEMENT_ID", nullable = false)
-	@JsonProperty("settlement_id")
+	@JsonProperty("SETTLEMENT_ID")
     private String settlementId;
 
     @Column(name = "TRANS_ACTION")
-	@JsonProperty("trans_action")
+	@JsonProperty("TRANS_ACTION")
     private String transAction;
 
     @Id
     @Column(name = "PAYU_ID", insertable = false, nullable = false)
-	@JsonProperty("payu_id")
+	@JsonProperty("PAYU_ID")
     private String payuId;
 
     @Column(name = "TRANS_AMOUNT")
-	@JsonProperty("trans_amount")
+	@JsonProperty("TRANS_AMOUNT")
     private Double transAmount = 0D;
 
     @Column(name = "MERCHANT_SERVICE_FEE")
-	@JsonProperty("merchant_service_fee")
+	@JsonProperty("MERCHANT_SERVICE_FEE")
     private Double merchantServiceFee = 0D;
 
     @Column(name = "MERCHANT_SERVICE_TAX")
-	@JsonProperty("merchant_service_tax")
+	@JsonProperty("MERCHANT_SERVICE_TAX")
     private Double merchantServiceTax = 0D;
 
     @Column(name = "MERCHANT_TRANS_ID")
-	@JsonProperty("merchant_trans_id")
+	@JsonProperty("MERCHANT_TRANS_ID")
     private String merchantTransId;
 
     @Column(name = "PAYMENT_ID")
-	@JsonProperty("payment_id")
+	@JsonProperty("PAYMENT_ID")
     private String paymentId;
 
     @Column(name = "PAYMENT_MODE")
-	@JsonProperty("payment_mode")
+	@JsonProperty("PAYMENT_MODE")
     private String paymentMode;
 
     @Column(name = "PAYMENT_STATUS")
-	@JsonProperty("payment_status")
+	@JsonProperty("PAYMENT_STATUS")
     private String paymentStatus;
 
     @Column(name = "PAYMENT_ADDED_ON")
-	@JsonProperty("payment_added_on")
+	@JsonProperty("PAYMENT_ADDED_ON")
     private String paymentAddedOn;
 
     @Column(name = "PAYMENT_AMOUNT")
-	@JsonProperty("payment_amount")
+	@JsonProperty("PAYMENT_AMOUNT")
     private String paymentAmount;
 
     
