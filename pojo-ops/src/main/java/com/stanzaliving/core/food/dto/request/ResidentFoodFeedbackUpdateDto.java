@@ -20,8 +20,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ResidentFoodFeedbackUpdateDto {
 
-	@NotBlank(message = "ResidentFoodFeedbackUuid cannot be blank")
-	private String residentFoodFeedbackUuid;
+	@NotBlank(message = "ResidentFoodFeedbackId cannot be blank")
+	private String residentFoodFeedbackId;
 
 	@NotNull(message = "Rating cannot be null")
 	private Float rating;
