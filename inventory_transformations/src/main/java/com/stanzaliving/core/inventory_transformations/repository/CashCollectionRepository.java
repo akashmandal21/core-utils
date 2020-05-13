@@ -6,6 +6,7 @@
 //import org.springframework.stereotype.Repository;
 //
 ////
+//@Repository
 //public interface CashCollectionRepository extends JpaRepository<CashCollectionEntity, Void>, JpaSpecificationExecutor<CashCollectionEntity> {
 //
 //}

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 
+@Repository
 public interface TemporaryInvoiceRepository extends JpaRepository<TemporaryInvoiceEntity, Integer>, JpaSpecificationExecutor<TemporaryInvoiceEntity> {
 
 }

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 
+@Repository
 public interface BrokerSlabDetailsRepository extends JpaRepository<BrokerSlabDetailsEntity, Integer>, JpaSpecificationExecutor<BrokerSlabDetailsEntity> {
 
 }

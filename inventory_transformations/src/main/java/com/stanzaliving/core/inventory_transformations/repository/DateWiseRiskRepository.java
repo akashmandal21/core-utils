@@ -8,6 +8,7 @@
 //import java.util.Date;
 //
 //
+//@Repository
 //public interface DateWiseRiskRepository extends JpaRepository<DateWiseRiskEntity, Date>, JpaSpecificationExecutor<DateWiseRiskEntity> {
 //
 //}

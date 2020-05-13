@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 
+@Repository
 public interface ResidenceTypeRepository extends JpaRepository<ResidenceTypeEntity, Integer>, JpaSpecificationExecutor<ResidenceTypeEntity> {
 
 }

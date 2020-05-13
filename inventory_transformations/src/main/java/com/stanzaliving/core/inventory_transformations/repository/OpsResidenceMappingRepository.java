@@ -6,6 +6,7 @@
 //import org.springframework.stereotype.Repository;
 //
 ////
+//@Repository
 //public interface OpsResidenceMappingRepository extends JpaRepository<OpsResidenceMappingEntity, Void>, JpaSpecificationExecutor<OpsResidenceMappingEntity> {
 //
 //}

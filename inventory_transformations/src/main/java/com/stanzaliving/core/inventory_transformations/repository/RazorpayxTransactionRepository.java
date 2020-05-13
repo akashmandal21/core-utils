@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 
+@Repository
 public interface RazorpayxTransactionRepository extends JpaRepository<RazorpayxTransactionEntity, Integer>, JpaSpecificationExecutor<RazorpayxTransactionEntity> {
 
 }

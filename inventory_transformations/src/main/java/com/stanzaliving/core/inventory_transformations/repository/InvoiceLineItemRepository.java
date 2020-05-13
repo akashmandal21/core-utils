@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 
+@Repository
 public interface InvoiceLineItemRepository extends JpaRepository<InvoiceLineItemEntity, Integer>, JpaSpecificationExecutor<InvoiceLineItemEntity> {
 
 }

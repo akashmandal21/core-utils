@@ -6,6 +6,7 @@
 //import org.springframework.stereotype.Repository;
 //
 ////
+//@Repository
 //public interface StudentRoomImagesOrigRepository extends JpaRepository<StudentRoomImagesOrigEntity, Integer>, JpaSpecificationExecutor<StudentRoomImagesOrigEntity> {
 //
 //}

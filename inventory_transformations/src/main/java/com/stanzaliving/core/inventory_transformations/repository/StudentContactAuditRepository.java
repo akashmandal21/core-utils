@@ -6,6 +6,7 @@
 //import org.springframework.stereotype.Repository;
 //
 ////
+//@Repository
 //public interface StudentContactAuditRepository extends JpaRepository<StudentContactAuditEntity, Void>, JpaSpecificationExecutor<StudentContactAuditEntity> {
 //
 //}

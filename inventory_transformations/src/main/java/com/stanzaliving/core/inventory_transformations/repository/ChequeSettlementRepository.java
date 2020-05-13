@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 
+@Repository
 public interface ChequeSettlementRepository extends JpaRepository<ChequeSettlementEntity, Integer>, JpaSpecificationExecutor<ChequeSettlementEntity> {
 
 }

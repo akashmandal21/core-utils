@@ -6,6 +6,7 @@
 //import org.springframework.stereotype.Repository;
 //
 ////
+//@Repository
 //public interface OpsMicromarketMappingRepository extends JpaRepository<OpsMicromarketMappingEntity, Void>, JpaSpecificationExecutor<OpsMicromarketMappingEntity> {
 //
 //}

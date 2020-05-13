@@ -6,6 +6,7 @@
 //import org.springframework.stereotype.Repository;
 //
 ////
+//@Repository
 //public interface InvoicePaymentModeRepository extends JpaRepository<InvoicePaymentModeEntity, Void>, JpaSpecificationExecutor<InvoicePaymentModeEntity> {
 //
 //}

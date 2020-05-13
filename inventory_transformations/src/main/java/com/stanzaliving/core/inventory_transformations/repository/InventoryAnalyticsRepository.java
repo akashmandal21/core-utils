@@ -6,6 +6,7 @@
 //import org.springframework.stereotype.Repository;
 //
 ////
+//@Repository
 //public interface InventoryAnalyticsRepository extends JpaRepository<InventoryAnalyticsEntity, Void>, JpaSpecificationExecutor<InventoryAnalyticsEntity> {
 //
 //}

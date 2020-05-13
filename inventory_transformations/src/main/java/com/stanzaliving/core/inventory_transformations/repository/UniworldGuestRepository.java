@@ -6,6 +6,7 @@
 //import org.springframework.stereotype.Repository;
 //
 ////
+//@Repository
 //public interface UniworldGuestRepository extends JpaRepository<UniworldGuestEntity, Integer>, JpaSpecificationExecutor<UniworldGuestEntity> {
 //
 //}

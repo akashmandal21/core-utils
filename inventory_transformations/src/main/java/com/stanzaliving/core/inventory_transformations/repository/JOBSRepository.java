@@ -6,6 +6,7 @@
 ////import org.springframework.stereotype.Repository;
 ////
 ////
-////public interface JOBSRepository extends JpaRepository<JobsEntity, Integer>, JpaSpecificationExecutor<JobsEntity> {
+////@Repository
+//public interface JOBSRepository extends JpaRepository<JobsEntity, Integer>, JpaSpecificationExecutor<JobsEntity> {
 ////
 ////}

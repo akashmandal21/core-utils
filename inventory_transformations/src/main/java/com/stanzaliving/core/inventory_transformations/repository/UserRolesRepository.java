@@ -6,6 +6,7 @@
 //import org.springframework.stereotype.Repository;
 //
 ////
+//@Repository
 //public interface UserRolesRepository extends JpaRepository<UserRolesEntity, Void>, JpaSpecificationExecutor<UserRolesEntity> {
 //
 //}

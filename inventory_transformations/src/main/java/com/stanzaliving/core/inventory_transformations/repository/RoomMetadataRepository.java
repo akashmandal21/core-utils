@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 
+@Repository
 public interface RoomMetadataRepository extends JpaRepository<RoomMetadataEntity, Integer>, JpaSpecificationExecutor<RoomMetadataEntity> {
 
 }

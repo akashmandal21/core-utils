@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 
+@Repository
 public interface StudentProfileRepository extends JpaRepository<StudentProfileEntity, String>, JpaSpecificationExecutor<StudentProfileEntity> {
 
 }
