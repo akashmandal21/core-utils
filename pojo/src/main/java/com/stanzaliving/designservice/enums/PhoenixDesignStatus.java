@@ -12,12 +12,11 @@ public enum PhoenixDesignStatus {
 	IN_DRAFT("In draft","#e5e3e3"),
 	SUBMITTED("Submitted","#e5e3e3"),
 	TRANSFORMATIONS("Sent For Approval","#e5e3e3"),
+	APPROVED_BY_TRANSFORMATIONS("Approved By Transformations","#e5e3e3"),
+	SENT_BACK_BY_TRANSFORMATIONS("Sent Back By Transformations","#e5e3e3"),
 	PENDING_AT_LEADERSHIP("Deviation Approval pending at Andy","#e5e3e3"),
 	APPROVED_BY_LEADERSHIP("Deviations approved","#e5e3e3"),
-	SENT_BACK_BY_LEADERSHIP("Sent Back by Leadership","#e5e3e3"),
-	APPROVED_BY_TRANSFORMATIONS("Approved By Transformations","#e5e3e3"),
-	SENT_BACK_BY_TRANSFORMATIONS("Sent Back By Transformations","#e5e3e3");
-
+	SENT_BACK_BY_LEADERSHIP("Sent Back by Leadership","#e5e3e3");
 	
 	/*
 	 * NOT_STARTED("Not Started","#e5e3e3"), IN_DRAFT("In draft","#e5e3e3"),
