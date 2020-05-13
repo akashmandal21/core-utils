@@ -30,6 +30,8 @@ public class CityMetadataDto {
 	
 	private long stateId;
 	
+	private String stateUuid;
+	
 	private String cityCode;
 	
 	private double latitude;
