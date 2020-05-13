@@ -5,15 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Data
 @Table(name = "RESIDENCE_ANCILLARY_SERVICES")
+@IdClass(ResidenceAncillaryServicesEntity.class)
 public class ResidenceAncillaryServicesEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 

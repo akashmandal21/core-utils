@@ -5,15 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
 @Table(name = "RESIDENCE_CONSUMABLES")
 @Entity
+@IdClass(ResidenceConsumablesEntity.class)
 public class ResidenceConsumablesEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -22,7 +20,7 @@ public class ResidenceConsumablesEntity implements Serializable {
 	@JsonProperty("residence_id")
     private Integer residenceId;
 
-    @Id
+    //@Id
     @Column(insertable = false, name = "CONSUMABLES_ID", nullable = false)
 	@JsonProperty("consumables_id")
     private Integer consumablesId;

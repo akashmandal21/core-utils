@@ -1,149 +1,149 @@
-package com.stanzaliving.core.inventory_transformations.entity;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-
-import lombok.Data;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-@Data
-//@Entity
-@Table(name = "BOOKING_TIMELINE_HISTORY")
-public class BookingTimelineHistoryEntity implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    @Column(name = "CREATED_TIMESTAMP")
-	@JsonProperty("created_timestamp")
-    private Timestamp createdTimestamp;
-
-    @Column(name = "BOOKING_ID")
-	@JsonProperty("booking_id")
-    private Integer bookingId;
-
-    @Column(name = "BOOKING_AMOUNT")
-	@JsonProperty("booking_amount")
-    private Double bookingAmount;
-
-    @Column(name = "BOOKING_STATUS")
-	@JsonProperty("booking_status")
-    private String bookingStatus;
-
-    @Column(name = "CHEQUE_NUMBER")
-	@JsonProperty("cheque_number")
-    private String chequeNumber;
-
-    @Column(name = "CHEQUE_PHOTO")
-	@JsonProperty("cheque_photo")
-    private String chequePhoto;
-
-    @Column(name = "CONTRACT_ID")
-	@JsonProperty("contract_id")
-    private Integer contractId;
-
-    @Column(name = "contract_months", nullable = false)
-	@JsonProperty("contract_months")
-    private Double contractMonths;
-
-    @Column(name = "CONTRACT_NAME")
-	@JsonProperty("contract_name")
-    private String contractName;
-
-    @Column(name = "CREATED_BY")
-	@JsonProperty("created_by")
-    private String createdBy;
-
-    @Column(name = "MOVE_IN_DATE")
-	@JsonProperty("move_in_date")
-    private Timestamp moveInDate;
-
-    @Column(name = "PAYMENT_TERM_ID")
-	@JsonProperty("payment_term_id")
-    private Integer paymentTermId;
-
-    @Column(name = "PAYMENT_TERM_INSTALLMENTS")
-	@JsonProperty("payment_term_installments")
-    private Integer paymentTermInstallments;
-
-    @Column(name = "PAYMENT_TERM_NAME")
-	@JsonProperty("payment_term_name")
-    private String paymentTermName;
-
-    @Column(name = "PHONE")
-	@JsonProperty("phone")
-    private String PHONE;
-
-    @Column(name = "SPECIAL_REQUEST_DESCRIPTION")
-	@JsonProperty("special_request_description")
-    private String specialRequestDescription;
-
-    @Column(name = "UPGRADE_DESCRIPTION")
-	@JsonProperty("upgrade_description")
-    private String upgradeDescription;
-
-    @Column(name = "LEAD_ID")
-	@JsonProperty("lead_id")
-    private Integer leadId;
-
-    @Column(name = "PAYMENT_MODE_ID")
-	@JsonProperty("payment_mode_id")
-    private Integer paymentModeId;
-
-    @Column(name = "SPECIAL_REQUEST_ID")
-	@JsonProperty("special_request_id")
-    private Integer specialRequestId;
-
-    @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
-    private String studentId;
-
-    @Column(name = "TEMPORARY_STUDENT_ID")
-	@JsonProperty("temporary_student_id")
-    private Integer temporaryStudentId;
-
-    @Column(name = "UPGRADE_ID")
-	@JsonProperty("upgrade_id")
-    private Integer upgradeId;
-
-    @Column(name = "CONTRACT_START_DATE")
-	@JsonProperty("contract_start_date")
-    private Timestamp contractStartDate;
-
-    @Column(name = "REVISE_AT")
-	@JsonProperty("revise_at")
-    private Timestamp reviseAt;
-
-    @Column(name = "ROOM_ID")
-	@JsonProperty("room_id")
-    private Integer roomId;
-
-    @Column(name = "CONTRACT_END_DATE")
-	@JsonProperty("contract_end_date")
-    private Timestamp contractEndDate;
-
-    @Column(name = "STARTS_MID_MONTH")
-	@JsonProperty("starts_mid_month")
-    private Boolean startsMidMonth;
-
-    @Column(name = "CONFIRMATION_DATE")
-	@JsonProperty("confirmation_date")
-    private Timestamp confirmationDate;
-
-    @Column(name = "LAST_REMINDED_DATE")
-	@JsonProperty("last_reminded_date")
-    private Timestamp lastRemindedDate;
-
-    @Column(name = "LAST_REMINDED_COUNT")
-	@JsonProperty("last_reminded_count")
-    private Integer lastRemindedCount = 0;
-
-    @Column(name = "AUTO_CANCEL_TIME")
-	@JsonProperty("auto_cancel_time")
-    private Timestamp autoCancelTime;
-
-    
-}
+//package com.stanzaliving.core.inventory_transformations.entity;
+//
+//import com.fasterxml.jackson.annotation.JsonProperty;
+//
+//
+//import lombok.Data;
+//
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
+//import javax.persistence.Table;
+//import java.io.Serializable;
+//import java.sql.Timestamp;
+//
+//@Data
+////@Entity
+//@Table(name = "BOOKING_TIMELINE_HISTORY")
+//public class BookingTimelineHistoryEntity implements Serializable {
+//    private static final long serialVersionUID = 1L;
+//
+//    @Column(name = "CREATED_TIMESTAMP")
+//	@JsonProperty("created_timestamp")
+//    private Timestamp createdTimestamp;
+//
+//    @Column(name = "BOOKING_ID")
+//	@JsonProperty("booking_id")
+//    private Integer bookingId;
+//
+//    @Column(name = "BOOKING_AMOUNT")
+//	@JsonProperty("booking_amount")
+//    private Double bookingAmount;
+//
+//    @Column(name = "BOOKING_STATUS")
+//	@JsonProperty("booking_status")
+//    private String bookingStatus;
+//
+//    @Column(name = "CHEQUE_NUMBER")
+//	@JsonProperty("cheque_number")
+//    private String chequeNumber;
+//
+//    @Column(name = "CHEQUE_PHOTO")
+//	@JsonProperty("cheque_photo")
+//    private String chequePhoto;
+//
+//    @Column(name = "CONTRACT_ID")
+//	@JsonProperty("contract_id")
+//    private Integer contractId;
+//
+//    @Column(name = "contract_months", nullable = false)
+//	@JsonProperty("contract_months")
+//    private Double contractMonths;
+//
+//    @Column(name = "CONTRACT_NAME")
+//	@JsonProperty("contract_name")
+//    private String contractName;
+//
+//    @Column(name = "CREATED_BY")
+//	@JsonProperty("created_by")
+//    private String createdBy;
+//
+//    @Column(name = "MOVE_IN_DATE")
+//	@JsonProperty("move_in_date")
+//    private Timestamp moveInDate;
+//
+//    @Column(name = "PAYMENT_TERM_ID")
+//	@JsonProperty("payment_term_id")
+//    private Integer paymentTermId;
+//
+//    @Column(name = "PAYMENT_TERM_INSTALLMENTS")
+//	@JsonProperty("payment_term_installments")
+//    private Integer paymentTermInstallments;
+//
+//    @Column(name = "PAYMENT_TERM_NAME")
+//	@JsonProperty("payment_term_name")
+//    private String paymentTermName;
+//
+//    @Column(name = "PHONE")
+//	@JsonProperty("phone")
+//    private String PHONE;
+//
+//    @Column(name = "SPECIAL_REQUEST_DESCRIPTION")
+//	@JsonProperty("special_request_description")
+//    private String specialRequestDescription;
+//
+//    @Column(name = "UPGRADE_DESCRIPTION")
+//	@JsonProperty("upgrade_description")
+//    private String upgradeDescription;
+//
+//    @Column(name = "LEAD_ID")
+//	@JsonProperty("lead_id")
+//    private Integer leadId;
+//
+//    @Column(name = "PAYMENT_MODE_ID")
+//	@JsonProperty("payment_mode_id")
+//    private Integer paymentModeId;
+//
+//    @Column(name = "SPECIAL_REQUEST_ID")
+//	@JsonProperty("special_request_id")
+//    private Integer specialRequestId;
+//
+//    @Column(name = "STUDENT_ID")
+//	@JsonProperty("student_id")
+//    private String studentId;
+//
+//    @Column(name = "TEMPORARY_STUDENT_ID")
+//	@JsonProperty("temporary_student_id")
+//    private Integer temporaryStudentId;
+//
+//    @Column(name = "UPGRADE_ID")
+//	@JsonProperty("upgrade_id")
+//    private Integer upgradeId;
+//
+//    @Column(name = "CONTRACT_START_DATE")
+//	@JsonProperty("contract_start_date")
+//    private Timestamp contractStartDate;
+//
+//    @Column(name = "REVISE_AT")
+//	@JsonProperty("revise_at")
+//    private Timestamp reviseAt;
+//
+//    @Column(name = "ROOM_ID")
+//	@JsonProperty("room_id")
+//    private Integer roomId;
+//
+//    @Column(name = "CONTRACT_END_DATE")
+//	@JsonProperty("contract_end_date")
+//    private Timestamp contractEndDate;
+//
+//    @Column(name = "STARTS_MID_MONTH")
+//	@JsonProperty("starts_mid_month")
+//    private Boolean startsMidMonth;
+//
+//    @Column(name = "CONFIRMATION_DATE")
+//	@JsonProperty("confirmation_date")
+//    private Timestamp confirmationDate;
+//
+//    @Column(name = "LAST_REMINDED_DATE")
+//	@JsonProperty("last_reminded_date")
+//    private Timestamp lastRemindedDate;
+//
+//    @Column(name = "LAST_REMINDED_COUNT")
+//	@JsonProperty("last_reminded_count")
+//    private Integer lastRemindedCount = 0;
+//
+//    @Column(name = "AUTO_CANCEL_TIME")
+//	@JsonProperty("auto_cancel_time")
+//    private Timestamp autoCancelTime;
+//
+//
+//}
