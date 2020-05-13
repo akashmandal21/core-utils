@@ -48,4 +48,6 @@ public class PricingViewEstateData {
 	private List<String> keyPositives;
 	
 	private List<String> keyNegatives;
+	
+	private String landType;
 }

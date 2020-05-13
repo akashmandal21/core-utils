@@ -71,4 +71,6 @@ public class PricingApprovalScreenDto extends AbstractDto{
 
 	private PricingViewEstateData pricingViewEstateData;
 	private PropertyNamingDto propertyNamingDto;
+	
+	private String legalDocumentType;
 }
