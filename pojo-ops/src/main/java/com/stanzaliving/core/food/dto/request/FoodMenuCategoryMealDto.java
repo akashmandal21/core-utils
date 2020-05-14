@@ -28,6 +28,8 @@ public class FoodMenuCategoryMealDto {
 
 	private MealType mealType;
 
+	private boolean status;
+
 	private boolean mondayActive;
 
 	private boolean tuesdayActive;
