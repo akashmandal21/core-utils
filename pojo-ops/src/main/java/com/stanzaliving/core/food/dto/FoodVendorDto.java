@@ -27,4 +27,6 @@ public class FoodVendorDto extends AbstractDto {
 
 	private String contactEmail;
 
+	private boolean stanzaKitchen;
+
 }
