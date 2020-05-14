@@ -23,6 +23,9 @@ public class FoodItemCsvUploadDto {
 
 	@JsonProperty("Brand")
 	private String defaultBrand;
+	
+	@JsonProperty("Category")
+	private String category;
 
 	@JsonProperty("ItemType")
 	private FoodItemType itemType;

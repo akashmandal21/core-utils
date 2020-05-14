@@ -20,6 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodMenuCategoryResponseDto {
+
 	private String menuCategoryId;
 
 	private String city;
