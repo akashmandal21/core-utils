@@ -17,8 +17,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodVendorRequestDto {
 
-	private String vendorId;
-	
 	@NotBlank(message = "name Cannot be blank")
 	private String name;
 
