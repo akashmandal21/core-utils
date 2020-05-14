@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.stanzaliving.core.food.enums.FoodItemType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,8 +24,8 @@ public class FoodItemCsvUploadDto {
 	@JsonProperty("Brand")
 	private String defaultBrand;
 
-	@JsonProperty("SpecialVeg")
-	private Boolean specialVeg;
+	@JsonProperty("ItemType")
+	private FoodItemType itemType;
 
 	@JsonProperty("Quantifiable")
 	private Boolean quantifiable;
