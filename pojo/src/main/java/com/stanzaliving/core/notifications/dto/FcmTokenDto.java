@@ -2,6 +2,7 @@ package com.stanzaliving.core.notifications.dto;
 
 import com.stanzaliving.core.enums.Platform;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,6 +10,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
 public class FcmTokenDto {
 
 	private Long id;
