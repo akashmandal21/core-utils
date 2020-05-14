@@ -42,6 +42,7 @@ public class PropertyBasicInfo {
     private boolean landlordHandedOver;
 
     private String sowAtlUrl;
+    private String llhodocUrl;
 
     private Integer numBeds;
     private Integer rentFreeDays;
