@@ -19,7 +19,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidentFoodFeedbackDto extends AbstractDto {
+public class ResidentFoodFeedbackDto {
+	
+	private String residentFoodFeedbackId;
 
 	private String foodOrderId;
 
