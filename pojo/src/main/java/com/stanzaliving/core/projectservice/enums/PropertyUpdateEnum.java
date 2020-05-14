@@ -16,6 +16,7 @@ public enum  PropertyUpdateEnum {
     PROJECT_SITE_ENGINEER_CHANGED("Project Site Engineer Changed",true,NotificationTaskType.PROPERTY_REMOVED),
     PROJECT_MANAGER_CHANGED("Project manager Changed",true,NotificationTaskType.PROPERTY_REMOVED),
 
+
     //GC
     GC_ZONAL_HEAD_ASSIGNED("GC Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED,Department.GC),
 
@@ -93,6 +94,7 @@ public enum  PropertyUpdateEnum {
 
     //FOR All other events where there are multiple complete signals. For e.g. Multiple POs/Invoices etc. Marker Event Only
     CHECK_COMPLETED_FROM_SOURCE_SERVICE("Check Completed Status from Source Service",false,null,null),
+    LLHODOC_UPLOADED("LL HO Doc Uploaded",true,null),
 
     PROPERTY_DROPPED("Property Dropped",true,NotificationTaskType.PROPERTY_DROPPED,Department.PROJECTS);
 
