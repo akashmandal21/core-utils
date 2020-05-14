@@ -41,19 +41,16 @@ public class PaginationUtility {
 	 * @refactoredOn 12-May-2020
 	 */
 
-
 	public int correctLimit(int limit) {
 		limit = Math.max(1, limit);
 		limit = Math.min(1000, limit);
 		return limit;
 	}
 
-
 	public int correctPageNo(int pageNo) {
 		pageNo = Math.max(1, pageNo);
 		return pageNo;
 	}
-
 
 	public Pageable getPageRequest(int pageNo, int limit, String sortBy, Direction sortDirection) {
 		limit = correctLimit(limit);
@@ -66,29 +63,23 @@ public class PaginationUtility {
 		}
 	}
 
-
 	public Pageable getPageRequest(int pageNo, int limit) {
 		return getPageRequest(pageNo, limit, null, null);
 	}
-
 
 	@Deprecated
 	public Pageable getPageRequset(int pageNo, int limit) {
 		return getPageRequest(pageNo, limit);
 	}
 
-
 	@Deprecated
 	public Pageable getPageRequset(int pageNo, int limit, String sortBy, Direction sortDirection) {
 		return getPageRequset(pageNo, limit, sortBy, sortDirection);
 	}
 
-
-
 	public Pageable getPageRequest(PageAndSortDto pageAndSortDto) {
 		return getPageRequest(pageAndSortDto.getPageNo(), pageAndSortDto.getLimit(), pageAndSortDto.getSortBy(), Direction.valueOf(pageAndSortDto.getSortOrder()));
 	}
-
 
 	public Pageable getPageRequsetMultipleSortKeys(int pageNo, int limit, Direction sortDirection, String... properties) {
 		pageNo = correctPageNo(pageNo);
