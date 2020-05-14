@@ -20,6 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MealTypeVendorMapDto {
+
 	private MealType mealType;
 
 	private List<VendorMappingDto> vendors;
