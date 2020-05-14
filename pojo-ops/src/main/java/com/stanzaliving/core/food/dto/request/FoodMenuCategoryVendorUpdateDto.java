@@ -1,8 +1,12 @@
 package com.stanzaliving.core.food.dto.request;
 
-
 import com.stanzaliving.core.operations.enums.MealType;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -18,6 +22,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodMenuCategoryVendorUpdateDto {
+
 	private MealType mealType;
 
 	private boolean status;

@@ -1,10 +1,13 @@
 package com.stanzaliving.core.food.dto.request;
 
-import com.stanzaliving.core.operations.enums.MealType;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  *
@@ -21,6 +24,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodMenuCategoryVendorRequestDto {
+
 	private String menuCategoryId;
 
 	private String vendorId;
