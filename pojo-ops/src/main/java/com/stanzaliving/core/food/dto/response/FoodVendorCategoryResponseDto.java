@@ -20,6 +20,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodVendorCategoryResponseDto {
 
+	private String categoryId;
+	
 	private String categoryName;
 
 	private boolean status;
