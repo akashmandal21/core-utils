@@ -2,8 +2,6 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,20 +15,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidentFoodItemFeedbackDto {
-
-	private String residentFoodFeedbackId;
-
-	private String itemId;
+public class CityDto {
 	
-	private String item;
-
-	private Float rating;
-
-	private String reason;
-
-	private String comment;
+	private String cityName;
 	
-	private List<String> expectedItemFeedback;
+	private List<MicromarketHostelDto> micromarketHostelDtos;
 
 }

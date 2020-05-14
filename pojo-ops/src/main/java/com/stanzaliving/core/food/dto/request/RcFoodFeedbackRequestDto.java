@@ -1,4 +1,4 @@
-package com.stanzaliving.core.food.dto;
+package com.stanzaliving.core.food.dto.request;
 
 import java.time.LocalDate;
 
@@ -17,15 +17,16 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidenceFoodMenuFeedbackDto {
+public class RcFoodFeedbackRequestDto {
 
-	private String residenceId;
+	private String residenceFoodMenuId;
 
-	private LocalDate menuDate;
+	private String userId;
 
-	private MealType mealType;
+	private String vendorId;
 
-	private Float menuRating;
+	private MealType meal;
+	
+	private LocalDate date;
 
-	private ResidentFoodFeedbackDto residentfeedbackDto;
 }
