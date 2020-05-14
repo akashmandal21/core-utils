@@ -2,6 +2,9 @@ package com.stanzaliving.core.food.dto.request;
 
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,9 +28,12 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodMenuCategoryVendorRequestDto {
 
+	@NotBlank(message = "Menu Category Id is Mandatory")
 	private String menuCategoryId;
 
+	@NotBlank(message = "Vendor Id is Mandatory")
 	private String vendorId;
 
+	@NotEmpty(message = "Meal Type Costs are mandatory")
 	private List<FoodMenuCategoryVendorUpdateDto> mealCosts;
 }
