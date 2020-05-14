@@ -11,6 +11,10 @@ public enum PhoenixDesignStatus {
 	NOT_STARTED("Not Available","#e5e3e3"),
 	IN_DRAFT("In draft","#e5e3e3"),
 	SUBMITTED("Submitted","#e5e3e3"),
+	ZONAL_HEAD("Approved by Zonal Head","#e5e3e3"),
+	SENT_BACK_BY_ZONAL_HEAD("Sent Back by Zonal Head","#e5e3e3"),
+	DESIGN_HEAD("Approved By Design Head","#e5e3e3"),
+	SENT_BACK_BY_DESIGN_HEAD("Sent Back by Design Head","#e5e3e3"),
 	TRANSFORMATIONS("Sent For Approval","#e5e3e3"),
 	APPROVED_BY_TRANSFORMATIONS("Approved By Transformations","#e5e3e3"),
 	SENT_BACK_BY_TRANSFORMATIONS("Sent Back By Transformations","#e5e3e3");

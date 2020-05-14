@@ -1,5 +1,6 @@
 package com.stanzaliving.designservice.request.dto;
 
+import com.stanzaliving.designservice.enums.ApprovalActions;
 import com.stanzaliving.designservice.enums.PhoenixDesignStatus;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import lombok.ToString;
 @ToString
 public class PhoenixDesignStatusUpdateRequestDto {
 
+    private ApprovalActions approvalAction;
     private PhoenixDesignStatus phoenixDesignStatus;
 
     private String propertyUuid;
