@@ -34,7 +34,7 @@ public class AdditionalItemsRequestDto {
 	private Integer stdQty=0;
 	
 	@Builder.Default
-	private Integer stdWeight=0;
+	private Double stdWeight=0d;
 	
 	private FoodItemType itemType; 
 
