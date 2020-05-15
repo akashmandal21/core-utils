@@ -54,7 +54,7 @@ public class ResidenceUIDto {
 	@NotNull(message = "Residence Gender is Mandatory")
 	private EstateGender estateGender;
 
-	private Boolean status;
+	private boolean status;
 
 	@NotNull(message = "Residence Number of Beds is Mandatory")
 	@Min(value = 1, message = "Number of Beds cannot be less than 1")
@@ -63,4 +63,6 @@ public class ResidenceUIDto {
 	@NotNull(message = "Residence Number of Rooms is Mandatory")
 	@Min(value = 1, message = "Number of Rooms cannot be less than 1")
 	private Integer numberOfRooms;
+	
+	private Integer coreResidenceId;
 }

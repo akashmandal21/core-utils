@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.request;
 
-
 import com.stanzaliving.core.food.dto.DayWiseFoodMenuDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -21,6 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WeekWiseMenu {
+
 	private Integer weekNumber;
 
 	private List<DayWiseFoodMenuDto> dayWiseFoodMenu;

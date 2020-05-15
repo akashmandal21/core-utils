@@ -20,11 +20,15 @@ public class FoodVendorDto extends AbstractDto {
 	private String name;
 
 	private String cityId;
+	
+	private String cityName;
 
 	private String contactName;
 
 	private String contactNumber;
 
 	private String contactEmail;
+
+	private boolean stanzaKitchen;
 
 }
