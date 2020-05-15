@@ -1,9 +1,11 @@
 package com.stanzaliving.core.food.dto.request;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.util.Set;
 
 /**
  * @author piyush srivastava
@@ -19,6 +21,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VendorMappingDto {
+
 	private String vendorId;
 
 	private boolean primary;

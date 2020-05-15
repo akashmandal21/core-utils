@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto.response;
 
+import java.util.List;
+
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -17,11 +19,16 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodVendorCategoryResponseDto {
+
+	private String categoryId;
+	
 	private String categoryName;
 
 	private boolean status;
 
 	private boolean pricing;
 
-	private long hostelCount;
+	private long residenceCount;
+
+	private List<VendorMealCostDto> mealCostDtos;
 }

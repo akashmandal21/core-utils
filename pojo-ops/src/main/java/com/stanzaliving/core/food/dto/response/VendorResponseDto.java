@@ -18,6 +18,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class VendorResponseDto {
 
+	private String vendorId;
+	
 	private String vendorName;
 
 	private String cityId;
