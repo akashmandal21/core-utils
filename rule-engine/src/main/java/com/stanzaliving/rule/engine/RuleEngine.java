@@ -7,8 +7,8 @@ import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
 
-import com.stanzaliving.core.base.enums.RuleOperatorEnum;
 import com.stanzaliving.core.rule.engine.dto.ConditionCombinationDto;
+import com.stanzaliving.core.rule.engine.enums.RuleOperatorEnum;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;

@@ -1,12 +1,17 @@
 package com.stanzaliving.core.food.dto.response;
 
 
-import com.stanzaliving.core.enums.ResidenceBrand;
-import com.stanzaliving.core.user.enums.Gender;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import java.util.Set;
+
+import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.estate.enums.EstateGender;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -26,7 +31,7 @@ public class ResidenceVendorResponseDto {
 
 	private ResidenceBrand residenceBrand;
 
-	private Gender gender;
+	private EstateGender gender;
 
 	private String micromarket;
 

@@ -17,8 +17,7 @@ public enum Gender {
 
 	MALE("Male"),
 	FEMALE("Female"),
-	OTHERS("Others"),
-	MIX("Mix");
+	OTHERS("Others");
 
 	private String genderName;
 }

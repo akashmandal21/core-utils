@@ -4,9 +4,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.estate.enums.EstateGender;
 import com.stanzaliving.core.food.enums.FoodPreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
-import com.stanzaliving.core.user.enums.Gender;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,6 +43,6 @@ public class ResidenceConfigUpdateDto {
 	private ResidenceBrand residenceBrand;
 
 	@NotNull(message = "Residence Gender is mandatory")
-	private Gender gender;
+	private EstateGender gender;
 
 }
