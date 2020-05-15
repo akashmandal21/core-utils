@@ -1,7 +1,12 @@
 package com.stanzaliving.core.rule.engine.dto;
 
-import com.stanzaliving.core.base.enums.RuleOperatorEnum;
-import lombok.*;
+import com.stanzaliving.core.rule.engine.enums.RuleOperatorEnum;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -22,7 +27,7 @@ public class ConditionDto {
 	private String leftOperand;
 
 	private RuleOperatorEnum operator;
-	
+
 	private String operatorValue;
 
 	private String rightOperand;
