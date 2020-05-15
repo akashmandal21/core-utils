@@ -1,7 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
 import com.stanzaliving.core.enums.ResidenceBrand;
-import com.stanzaliving.core.user.enums.Gender;
+import com.stanzaliving.core.estate.enums.EstateGender;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +26,7 @@ public class FoodOrderSummaryDto {
 
 	private ResidenceBrand brand;
 
-	private Gender gender;
+	private EstateGender gender;
 
 	private Integer mir;
 
