@@ -23,5 +23,7 @@ public interface EstateAttributeService {
 			String propertyId);
 	
 	EstateAttributeEntity fetchDetailByEstateIdAndAttributeName(String estateId, String attributeName);
+
+	List<Long> getAllEstateIdsByAttributeName(String attributeName, String attributeValue);
 		
 }

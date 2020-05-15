@@ -31,6 +31,7 @@ public enum  PropertyUpdateEnum {
 
     //Project Schedule
     PROJECT_SCHEDULE_CREATION_COMPLETE("Full Project Schedule created",true,NotificationTaskType.FULL_PROJECT_SCHEDULE_CREATED_ON_APP),
+    TASK_STARTED("Task start",false, NotificationTaskType.TASK_MARKED_STARTED_ON_APP),
     TASK_DELAYED("Task marked delayed",false,NotificationTaskType.TASK_MARKED_DELAYED_ON_APP),
     TASK_COMPLETED("Task marked Completed",false,NotificationTaskType.TASK_MARKED_COMPLETED_ON_APP),
 
@@ -65,12 +66,35 @@ public enum  PropertyUpdateEnum {
     //BOQ Completed
     DESIGN_BOQ_COMPLETED("Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED),
 
+    //EXTRA BOQ
+    DESIGN_EXTRA_BOQ_SUBMITTED("Extra Boq Submitted For Approval",true,NotificationTaskType.MASTER_BOQ_SUBMITTED),
+    DESIGN_EXTRA_BOQ_SENT_BACK("Extra Boq Sent Back",true,NotificationTaskType.MASTER_BOQ_REJECTED),
+    DESIGN_EXTRA_BOQ_APPROVED("Extra Boq Approved",true,NotificationTaskType.MASTER_BOQ_APPROVED),
+    DESIGN_EXTRA_BOI_APPROVED("Extra Boq Boi Approved",true,NotificationTaskType.MASTER_BOI_APPROVED),
+    DESIGN_EXTRA_GC_APPROVED("Extra Boq Gc Approved",true,NotificationTaskType.MASTER_GC_APPROVED),
+    DESIGN_EXTRA_BOQ_COMPLETED("Extra Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED),
 
     //HOTO Submitted
     PROJECTS_HOTO_GENERATED("HOTO Generated",true,NotificationTaskType.HOTO_DOC_GENERATED),
     PROJECTS_HOTO_MODIFIED("HOTO Modified",true,NotificationTaskType.HOTO_DOC_MODIFIED),
-    PROJECTS_HOTO_SIGNED_UPLOADED("HOTO Signed Uploaded",true,NotificationTaskType.HOTO_SIGNED_UPLOADED);
+    PROJECTS_HOTO_SIGNED_UPLOADED("HOTO Signed Uploaded",true,NotificationTaskType.HOTO_SIGNED_UPLOADED),
 
+    //PO SERVICE
+    PO_SUBMITTED("PO Submitted",false,NotificationTaskType.PO_SUBMITTED),
+    PO_REJECTED("PO Rejected",false,NotificationTaskType.PO_REJECTED),
+    PO_APPROVED("PO Approved",false,NotificationTaskType.PO_APPROVED),
+    WAREHOUSE_PO_APPROVED("Warehouse PO Approved",false, NotificationTaskType.WAREHOUSE_PO_APPROVED),
+
+
+    //GRN SERVICE
+    GRN_BOI_ITEM_RECEIVED("BOI Item Receiving in GRN",false,NotificationTaskType.GRN_BOI_ITEM_RECEIVED),
+    GRN_BOI_ITEM_INSTALLATION("BOI Item Installation in GRN",false,NotificationTaskType.GRN_BOI_ITEM_INSTALLATION),
+    GRN_GC_ITEM_COMPLETION("GC Item completion in GRN",false,NotificationTaskType.GRN_GC_ITEM_COMPLETION),
+
+    //FOR All other events where there are multiple complete signals. For e.g. Multiple POs/Invoices etc. Marker Event Only
+    CHECK_COMPLETED_FROM_SOURCE_SERVICE("Check Completed Status from Source Service",false,null,null),
+
+    PROPERTY_DROPPED("Property Dropped",true,NotificationTaskType.PROPERTY_DROPPED,Department.PROJECTS);
 
     private String updateTaskName;
     private boolean needToPersist;

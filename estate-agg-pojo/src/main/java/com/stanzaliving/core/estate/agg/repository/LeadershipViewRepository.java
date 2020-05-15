@@ -1,7 +1,7 @@
 package com.stanzaliving.core.estate.agg.repository;
 
-import com.stanzaliving.core.mongobase.repository.AbstractMongoRepository;
 import com.stanzaliving.core.estate.agg.entity.LeadershipViewEntity;
+import com.stanzaliving.core.mongobase.repository.AbstractMongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import java.util.Optional;

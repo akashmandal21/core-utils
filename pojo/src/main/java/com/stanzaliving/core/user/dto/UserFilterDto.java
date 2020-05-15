@@ -17,6 +17,8 @@ import java.util.List;
 public class UserFilterDto {
 	private List<String> userIds;
 
+	private String name;
+
 	private String mobile;
 
 	private String isoCode;
@@ -29,5 +31,5 @@ public class UserFilterDto {
 
 	private Department department;
 
-	PaginationRequest pageRequest;
+	private PaginationRequest pageRequest;
 }
