@@ -19,10 +19,16 @@ import lombok.experimental.SuperBuilder;
 public class FoodOrderSummaryDto {
 
 	private String city;
+	
+	private String cityId;
 
 	private String micromarket;
+	
+	private String micromarketId;
 
 	private String residence;
+	
+	private String residenceId;
 
 	private ResidenceBrand brand;
 
