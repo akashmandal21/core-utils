@@ -30,6 +30,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodMenuCategoryAddRequestDto {
 
+	private String categoryId;
+
 	@NotBlank(message = "City is Mandatory for Menu Category")
 	private String cityId;
 

@@ -27,15 +27,23 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResidenceVendorResponseDto {
+	private String residenceId;
+
 	private String residenceName;
 
 	private ResidenceBrand residenceBrand;
 
 	private EstateGender gender;
 
+	private String microMarketId;
+
 	private String micromarket;
 
+	private String cityId;
+
 	private String city;
+
+	private String menuCategoryId;
 
 	private String menuCategory;
 

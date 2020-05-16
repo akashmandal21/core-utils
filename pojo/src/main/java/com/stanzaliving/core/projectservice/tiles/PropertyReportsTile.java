@@ -10,6 +10,7 @@ import lombok.Getter;
 public enum PropertyReportsTile {
 
     ATL("ATL", true, true, false, null, null, ""),
+    LLHODOC("LL HO Doc",false,true,false,null,null,""),
     AS_IS("As-Is Report", true, true, true, Department.PROJECTS, PropertyUpdateEnum.PROJECT_AS_IS_COMPLETED, "asisdrawings"),
     SFR("SFR", true, true, false, Department.PROJECTS, PropertyUpdateEnum.PROJECT_SFR_COMPLETED, "sfr-report"),
     //OFR("OFR",true,true),
