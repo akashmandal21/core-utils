@@ -60,7 +60,7 @@ public class PhoenixBedCountDesignCDC {
 
 
     @JsonProperty("design_status")
-    private PhoenixDesignStatus phoenixDesignStatus;
+    private String phoenixDesignStatus;//Change PhoenixDesignStatus to String
 
     @JsonProperty("commercial_approved")
     private boolean commercialApproved = false;

@@ -38,7 +38,7 @@ public class BedCountDto extends AbstractDto implements Serializable{
 	private Integer deviationInBedCount;
 		
 	private BedCountStatus bedCountStatusold;
-	private PhoenixDesignStatus bedCountStatus;
+	private String bedCountStatus; //CHanged from PhoenixDesignStatus to String
 
 	private Integer version;
 	

@@ -1,5 +1,6 @@
 package com.stanzaliving.core.phoenix.embeddedinfos;
 
+import com.stanzaliving.core.agg.commons.EnumDecoder;
 import com.stanzaliving.designservice.enums.PhoenixDesignStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,10 +38,13 @@ public class DesignBedCountFinalInfo {
 
     private Integer noOfFloors;
 
-    private PhoenixDesignStatus phoenixDesignStatus;
+    private String phoenixDesignStatus; //Changed from PhoenixDesignStatus enum to String
 
     private boolean commercialApproved = false;
 
     private String phoenixDesignRemark;
 
+    public PhoenixDesignStatus getPhoenixDesignStatusEnum(){
+        return EnumDecoder.getEnum(phoenixDesignStatus,PhoenixDesignStatus.class);
+    }
 }
