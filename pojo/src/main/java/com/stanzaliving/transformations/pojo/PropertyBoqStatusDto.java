@@ -25,7 +25,7 @@ import lombok.ToString;
 public class PropertyBoqStatusDto {
 
 	private String propertyUuid;
-	private String boqStatus;
+	private BoqStatus boqStatus;
 	private String boqStatusDesc;
 	private String colorCode;
 }
