@@ -11,7 +11,6 @@ import com.stanzaliving.core.rule.engine.dto.ConditionCombinationDto;
 import com.stanzaliving.core.rule.engine.enums.RuleOperatorEnum;
 
 import lombok.experimental.UtilityClass;
-import lombok.extern.log4j.Log4j2;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -19,8 +18,6 @@ import lombok.extern.log4j.Log4j2;
  * @date 01-May-2020
  *
  */
-
-@Log4j2
 @UtilityClass
 public class RuleEngine {
 
@@ -92,9 +89,7 @@ public class RuleEngine {
 
 	public List<ConditionCombinationDto> parseRule(ConditionCombinationDto ruleConditions, Map<String, Integer> valuesMap) {
 		expressionVariables = valuesMap;
-		log.info("Parsing Rule ");
-		List<ConditionCombinationDto> result = validate(Collections.singletonList(ruleConditions), null, null);
+		return validate(Collections.singletonList(ruleConditions), null, null);
 
-		return result;
 	}
 }
