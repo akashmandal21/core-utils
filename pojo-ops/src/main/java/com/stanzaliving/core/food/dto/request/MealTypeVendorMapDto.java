@@ -23,6 +23,8 @@ public class MealTypeVendorMapDto {
 
 	private MealType mealType;
 
+	private String mealTypeName;
+
 	private List<VendorMappingDto> vendors;
 
 }

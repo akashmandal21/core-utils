@@ -23,6 +23,8 @@ import lombok.experimental.SuperBuilder;
 public class VendorMappingDto {
 
 	private String vendorId;
+	
+	private String vendorName;
 
 	private boolean primary;
 }
