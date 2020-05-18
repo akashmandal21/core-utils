@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
+import com.stanzaliving.core.food.enums.FoodItemType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -31,5 +33,12 @@ public class FoodOrderItemReceiveDto {
 	
 	@Builder.Default
 	private Boolean isLatelyRemoved=false;
+	
+	@Builder.Default
+	private Boolean received=false;
+	
+	private FoodItemType foodItemType;
+	
+	private Boolean quantifiable;
 	
 }
