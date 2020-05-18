@@ -1,4 +1,7 @@
-package com.stanzaliving.core.food.dto;
+package com.stanzaliving.core.food.dto.response;
+
+
+import java.util.Set;
 
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.estate.enums.EstateGender;
@@ -10,30 +13,31 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
+ *
+ * @date 13-May-2020
+ *
+ */
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderSummaryDto {
+public class ResidenceVendorResponseDto {
+	private String residenceName;
 
-	private String city;
-
-	private String micromarket;
-
-	private String residence;
-
-	private ResidenceBrand brand;
+	private ResidenceBrand residenceBrand;
 
 	private EstateGender gender;
 
-	private Integer mir;
+	private String micromarket;
 
-	private Double budgetPerMir;
+	private String city;
 
-	private Double expectedCostPerMir;
+	private String menuCategory;
 
-	private Boolean utilization;
-
+	private Set<String> vendors;
 }

@@ -2,8 +2,6 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +20,7 @@ public class ResidentFoodItemFeedbackDto {
 	private String residentFoodFeedbackId;
 
 	private String itemId;
-	
+
 	private String item;
 
 	private Float rating;
@@ -30,7 +28,7 @@ public class ResidentFoodItemFeedbackDto {
 	private String reason;
 
 	private String comment;
-	
+
 	private List<String> expectedItemFeedback;
 
 }

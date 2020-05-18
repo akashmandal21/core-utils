@@ -4,9 +4,9 @@
 package com.stanzaliving.core.food.dto;
 
 import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.estate.enums.EstateGender;
 import com.stanzaliving.core.food.enums.FoodPreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
-import com.stanzaliving.core.user.enums.Gender;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -47,5 +47,5 @@ public class ResidenceConfigDto {
 
 	private FoodPreference foodPreference;
 
-	private Gender gender;
+	private EstateGender gender;
 }

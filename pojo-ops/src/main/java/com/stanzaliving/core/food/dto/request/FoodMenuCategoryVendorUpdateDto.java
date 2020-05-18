@@ -12,8 +12,7 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @date 08-May-2020
- *
+ * @date 14-May-2020
  */
 
 @Getter
@@ -22,30 +21,17 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryMealDto {
-
-	private String menuCategoryId;
+public class FoodMenuCategoryVendorUpdateDto {
 
 	private MealType mealType;
 
 	private boolean status;
 
-	private boolean mondayActive;
+	private Double residentVegCost;
 
-	private boolean tuesdayActive;
+	private Double residentNonVegCost;
 
-	private boolean wednesdayActive;
+	private Double nonStanzaStaffVegCost;
 
-	private boolean thursdayActive;
-
-	private boolean fridayActive;
-
-	private boolean saturdayActive;
-
-	private boolean sundayActive;
-
-	private Double expectedVegCost;
-
-	private Double expectedNonVegCost;
-
+	private Double nonStanzaStaffNonVegCost;
 }

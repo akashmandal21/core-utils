@@ -2,6 +2,7 @@ package com.stanzaliving.core.sqljpa.specification.utils;
 
 import java.util.Objects;
 
+import com.stanzaliving.core.dto.PageAndSortDto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,46 +35,56 @@ public class PaginationUtility {
 	 * 
 	 * 
 	 * @author debendra.dhinda
+	 *
+	 * @refactoredBy piyush srivastava
+	 *
+	 * @refactoredOn 12-May-2020
 	 */
-	public Pageable getPageRequset(int pageNo, int limit, String sortBy, Direction sortDirection) {
 
-		Pageable pagination = null;
+	public int correctLimit(int limit) {
+		limit = Math.max(1, limit);
+		limit = Math.min(1000, limit);
+		return limit;
+	}
+
+	public int correctPageNo(int pageNo) {
+		pageNo = Math.max(1, pageNo);
+		return pageNo;
+	}
+
+	public Pageable getPageRequest(int pageNo, int limit, String sortBy, Direction sortDirection) {
+		limit = correctLimit(limit);
+		pageNo = correctPageNo(pageNo);
 
 		if (StringUtils.isNotBlank(sortBy) && Objects.nonNull(sortDirection)) {
-
-			if (pageNo > 0 && limit > 0 && limit < 1000) {
-				pagination = PageRequest.of(pageNo - 1, limit, sortDirection, sortBy);
-			} else {
-				pagination = PageRequest.of(0, 10, sortDirection, sortBy);
-			}
-
+			return PageRequest.of(pageNo - 1, limit, sortDirection, sortBy);
 		} else {
-			pagination = getPageRequset(pageNo, limit);
+			return PageRequest.of(pageNo - 1, limit);
 		}
+	}
 
-		return pagination;
+	public Pageable getPageRequest(int pageNo, int limit) {
+		return getPageRequest(pageNo, limit, null, null);
+	}
+
+	@Deprecated
+	public Pageable getPageRequset(int pageNo, int limit) {
+		return getPageRequest(pageNo, limit);
+	}
+
+	@Deprecated
+	public Pageable getPageRequset(int pageNo, int limit, String sortBy, Direction sortDirection) {
+		return getPageRequset(pageNo, limit, sortBy, sortDirection);
+	}
+
+	public Pageable getPageRequest(PageAndSortDto pageAndSortDto) {
+		return getPageRequest(pageAndSortDto.getPageNo(), pageAndSortDto.getLimit(), pageAndSortDto.getSortBy(), Direction.valueOf(pageAndSortDto.getSortOrder()));
 	}
 
 	public Pageable getPageRequsetMultipleSortKeys(int pageNo, int limit, Direction sortDirection, String... properties) {
-
-		if (pageNo > 0 && limit > 0 && limit < 1000) {
-			return PageRequest.of(pageNo - 1, limit, sortDirection, properties);
-		} else {
-			return PageRequest.of(0, limit, sortDirection, properties);
-		}
-	}
-
-	public Pageable getPageRequset(int pageNo, int limit) {
-
-		Pageable pagination = null;
-
-		if (pageNo > 0 && limit > 0 && limit < 1000) {
-			pagination = PageRequest.of(pageNo - 1, limit);
-		} else {
-			pagination = PageRequest.of(0, 10);
-		}
-
-		return pagination;
+		pageNo = correctPageNo(pageNo);
+		limit = correctLimit(limit);
+		return PageRequest.of(pageNo - 1, limit, sortDirection, properties);
 	}
 
 }
