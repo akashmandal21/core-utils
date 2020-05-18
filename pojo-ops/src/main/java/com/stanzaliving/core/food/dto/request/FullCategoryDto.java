@@ -29,7 +29,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FullCategoryDto {
 
-	private FoodMenuCategoryAddRequestDto category;
+	private FoodMenuCategoryMetadataDto category;
 
 	@NotNull(message = "Composition Rules are mandatory")
 	private CompositionRuleDto rules;

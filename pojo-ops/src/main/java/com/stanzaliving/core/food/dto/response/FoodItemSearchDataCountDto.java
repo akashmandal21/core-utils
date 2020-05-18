@@ -10,7 +10,6 @@ import lombok.experimental.SuperBuilder;
  *
  */
 
-
 @Getter
 @Setter
 @ToString
@@ -18,6 +17,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodItemSearchDataCountDto {
+
 	private Long dataMissing;
 
 	private Long dataComplete;

@@ -28,7 +28,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryAddRequestDto {
+public class FoodMenuCategoryMetadataDto {
 
 	private String categoryId;
 
