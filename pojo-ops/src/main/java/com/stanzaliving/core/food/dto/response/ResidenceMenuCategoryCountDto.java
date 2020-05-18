@@ -16,7 +16,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AssignedMenuCategoryCountDto {
+public class ResidenceMenuCategoryCountDto {
+
 	private Long notAssignedCategory;
 
 	private Long assignedCategory;

@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto.request;
 
+import javax.validation.constraints.NotBlank;
+
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -17,7 +19,11 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResidenceCategoryDto {
+
+	@NotBlank(message = "Residence Id is mandatory")
+	private String residenceId;
+
+	@NotBlank(message = "Menu Category Id is mandatory")
 	private String menuCategoryId;
 
-	private String residenceId;
 }
