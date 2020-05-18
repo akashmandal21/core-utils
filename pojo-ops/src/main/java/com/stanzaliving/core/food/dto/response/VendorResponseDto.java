@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.response;
 
-
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -11,7 +10,6 @@ import lombok.experimental.SuperBuilder;
  *
  */
 
-
 @Getter
 @Setter
 @ToString
@@ -19,6 +17,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VendorResponseDto {
+
+	private String vendorId;
+	
 	private String vendorName;
 
 	private String cityId;
