@@ -26,7 +26,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
+@JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "elecricityRoomMeterCost" })
 public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
 	private PassThrough passThrough;
@@ -38,11 +38,14 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	private int variableCostsForCommonAreaPerMonth;
 	private int acCostsForRoomForMonth;
 	private int avgFreeUnitsProvidedPerBed;
+	private int elecricityRoomMeterCost;
+	private int roomPassThroughAmount;
+	private int acPassThroughAmount;
 
 	@Builder.Default
 	private double loadForAcRooms = Constants.LOAD_FOR_AC_ROOMS;
 
 	@Builder.Default
 	private double loadForNonAcRooms = Constants.LOAD_FOR_NON_AC_ROOMS;
-	
+
 }

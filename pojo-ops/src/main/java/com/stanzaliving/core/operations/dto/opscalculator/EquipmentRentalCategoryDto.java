@@ -28,5 +28,6 @@ public class EquipmentRentalCategoryDto extends CategoryDto {
 
 	private int vendingMachine;
 	private int coffeeMachine;
+	private int elecricityRoomMeterCost;
 
 }
