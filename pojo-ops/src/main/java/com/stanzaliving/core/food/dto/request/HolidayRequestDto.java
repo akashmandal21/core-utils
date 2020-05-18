@@ -29,6 +29,9 @@ public class HolidayRequestDto {
 	private LocalDate date;
 	
 	private HolidayType holidayType;
+	
+	@NotNull
+	Boolean holiday;
 
 	private String description;
 
