@@ -1,11 +1,9 @@
 package com.stanzaliving.core.food.dto.request;
 
-import java.time.LocalDate;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
-import com.stanzaliving.core.food.enums.HolidayType;
+import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,25 +12,24 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * @author piyush srivastava
+ *
+ * @date 13-May-2020
+ *
+ */
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class HolidayRequestDto {
+public class ResidenceVendorMapDto {
 
-	@NotBlank(message = "residenceId Cannot be blank")
+	@NotBlank(message = "Residence Id is Mandatory")
 	private String residenceId;
 
-	@NotNull(message = "date cannot be null")
-	private LocalDate date;
-	
-	private HolidayType holidayType;
-	
-	@NotNull
-	Boolean holiday;
-
-	private String description;
-
+	@NotEmpty(message = "Meal Type Vendors are mandatory")
+	private List<MealTypeVendorMapDto> mealVendors;
 }

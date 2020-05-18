@@ -2,10 +2,8 @@ package com.stanzaliving.core.food.dto.request;
 
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
-import com.stanzaliving.core.food.dto.CompositionRuleDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,9 +13,10 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
+ *
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @date 09-May-2020
+ * @date 14-May-2020
  *
  */
 
@@ -27,15 +26,14 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FullCategoryDto {
+public class FoodMenuCategoryVendorRequestDto {
 
-	private FoodMenuCategoryMetadataDto category;
+	@NotBlank(message = "Menu Category Id is Mandatory")
+	private String menuCategoryId;
 
-	@NotNull(message = "Composition Rules are mandatory")
-	private CompositionRuleDto rules;
+	@NotBlank(message = "Vendor Id is Mandatory")
+	private String vendorId;
 
-	@NotEmpty(message = "Meal Mappings are mandatory")
-	private List<FoodMenuCategoryMealDto> meals;
-
-	private List<WeekWiseMenu> weekMenus;
+	@NotEmpty(message = "Meal Type Costs are mandatory")
+	private List<FoodMenuCategoryVendorUpdateDto> mealCosts;
 }

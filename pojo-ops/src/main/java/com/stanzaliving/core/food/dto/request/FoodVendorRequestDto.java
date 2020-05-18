@@ -31,4 +31,6 @@ public class FoodVendorRequestDto {
 	@NotBlank(message = "contactEmail Cannot be blank")
 	private String contactEmail;
 
+	private boolean stanzaKitchen;
+
 }

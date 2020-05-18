@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.apache.commons.collections.CollectionUtils;
 
-import com.stanzaliving.core.base.enums.RuleOperatorEnum;
 import com.stanzaliving.core.rule.engine.dto.ConditionCombinationDto;
+import com.stanzaliving.core.rule.engine.enums.RuleOperatorEnum;
 
 import lombok.experimental.UtilityClass;
-import lombok.extern.log4j.Log4j2;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -19,8 +19,6 @@ import lombok.extern.log4j.Log4j2;
  * @date 01-May-2020
  *
  */
-
-@Log4j2
 @UtilityClass
 public class RuleEngine {
 
@@ -71,30 +69,31 @@ public class RuleEngine {
 		}
 
 		for (ConditionCombinationDto conditionCombinationDto : conditionCombinationDtos) {
-			List<ConditionCombinationDto> subConditionCombinations = conditionCombinationDto.getConditions();
 
-			if (CollectionUtils.isEmpty(subConditionCombinations)) {
-				if (parentValue != valid(conditionCombinationDto)) {
-					resultDto.add(conditionCombinationDto);
-				} else if ("any".equals(parentAgregator)) {
-					return Collections.emptyList();
+			if (Objects.nonNull(conditionCombinationDto)) {
+
+				List<ConditionCombinationDto> subConditionCombinations = conditionCombinationDto.getConditions();
+
+				if (CollectionUtils.isEmpty(subConditionCombinations)) {
+					if (parentValue != valid(conditionCombinationDto)) {
+						resultDto.add(conditionCombinationDto);
+					} else if ("any".equals(parentAgregator)) {
+						return Collections.emptyList();
+					}
+				} else {
+					String aggregator = conditionCombinationDto.getAggregator();
+					Boolean value = conditionCombinationDto.getValue();
+					resultDto.addAll(validate(subConditionCombinations, aggregator, value));
+					return resultDto;
 				}
-			} else {
-				String aggregator = conditionCombinationDto.getAggregator();
-				Boolean value = conditionCombinationDto.getValue();
-				resultDto.addAll(validate(subConditionCombinations, aggregator, value));
-				return resultDto;
 			}
-
 		}
 		return resultDto;
 	}
 
 	public List<ConditionCombinationDto> parseRule(ConditionCombinationDto ruleConditions, Map<String, Integer> valuesMap) {
 		expressionVariables = valuesMap;
-		log.info("Parsing Rule ");
-		List<ConditionCombinationDto> result = validate(Collections.singletonList(ruleConditions), null, null);
+		return validate(Collections.singletonList(ruleConditions), null, null);
 
-		return result;
 	}
 }

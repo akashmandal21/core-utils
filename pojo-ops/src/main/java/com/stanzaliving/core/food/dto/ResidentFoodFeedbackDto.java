@@ -3,7 +3,6 @@ package com.stanzaliving.core.food.dto;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResidentFoodFeedbackDto {
-	
+
 	private String residentFoodFeedbackId;
 
 	private String foodOrderId;

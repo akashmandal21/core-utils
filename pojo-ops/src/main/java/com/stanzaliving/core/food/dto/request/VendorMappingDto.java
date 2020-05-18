@@ -1,8 +1,4 @@
-package com.stanzaliving.core.food.dto.response;
-
-import java.util.List;
-
-import com.stanzaliving.core.food.dto.MenuItemDto;
+package com.stanzaliving.core.food.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +10,7 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author piyush srivastava
  *
- * @date 12-May-2020
+ * @date 13-May-2020
  *
  */
 
@@ -24,11 +20,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryWiseMealItems {
+public class VendorMappingDto {
 
-	private String categoryId;
+	private String vendorId;
+	
+	private String vendorName;
 
-	private String categoryName;
-
-	private List<MenuItemDto> items;
+	private boolean primary;
 }

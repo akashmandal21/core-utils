@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto;
 
-
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -22,6 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DayWiseFoodMenuDto {
+
 	private DayOfWeek dayOfWeek;
 
 	private List<MealWiseFoodMenuDto> mealWiseFoodMenus;

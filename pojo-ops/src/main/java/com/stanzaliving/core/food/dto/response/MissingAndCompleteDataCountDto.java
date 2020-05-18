@@ -6,7 +6,7 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @date 05-May-2020
+ * @date 15-May-2020
  *
  */
 
@@ -16,9 +16,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodItemSearchDataCountDto {
+public class MissingAndCompleteDataCountDto {
+	private Long completeData;
 
-	private Long dataMissing;
-
-	private Long dataComplete;
+	private Long missingData;
 }

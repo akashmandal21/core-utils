@@ -1,15 +1,14 @@
 package com.stanzaliving.core.food.dto.request;
 
-import com.stanzaliving.core.food.dto.DayWiseFoodMenuDto;
+import javax.validation.constraints.NotBlank;
+
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
-import java.util.List;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @date 09-May-2020
+ * @date 15-May-2020
  *
  */
 
@@ -19,10 +18,12 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class WeekWiseMenu {
+public class ResidenceCategoryDto {
 
-	private Integer weekNumber;
+	@NotBlank(message = "Residence Id is mandatory")
+	private String residenceId;
 
-	private List<DayWiseFoodMenuDto> dayWiseFoodMenu;
+	@NotBlank(message = "Menu Category Id is mandatory")
+	private String menuCategoryId;
 
 }

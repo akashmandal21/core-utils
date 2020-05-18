@@ -2,7 +2,8 @@ package com.stanzaliving.core.food.dto.response;
 
 import java.util.List;
 
-import com.stanzaliving.core.food.dto.MenuItemDto;
+import com.stanzaliving.core.food.dto.ResidenceConfigDto;
+import com.stanzaliving.core.food.dto.request.MealTypeVendorMapDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,10 +13,9 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @author piyush srivastava
+ * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @date 12-May-2020
- *
+ * @date 15-May-2020
  */
 
 @Getter
@@ -24,11 +24,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryWiseMealItems {
+public class ResidenceMealWiseVendorDto extends ResidenceConfigDto {
 
-	private String categoryId;
-
-	private String categoryName;
-
-	private List<MenuItemDto> items;
+	private List<MealTypeVendorMapDto> mealVendors;
 }

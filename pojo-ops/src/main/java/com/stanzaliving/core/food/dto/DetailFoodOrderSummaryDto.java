@@ -15,20 +15,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidentFoodItemFeedbackDto {
+public class DetailFoodOrderSummaryDto {
 
-	private String residentFoodFeedbackId;
+	private BudgetStatusDto budgetStatusDto;
 
-	private String itemId;
+	private HolidayAndUtilzationDto holidayAndUtilzationDto;
 
-	private String item;
-
-	private Float rating;
-
-	private String reason;
-
-	private String comment;
-
-	private List<String> expectedItemFeedback;
+	private List<FoodOrderSummaryDto> residentsFoodOrderSummaries;
 
 }
