@@ -23,13 +23,15 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-@JsonIgnoreProperties({ "utilization" })
-public class InternCategoryDto extends CategoryDto {
+@JsonIgnoreProperties({ "utilization", "count" })
+public class OeCategoryDto extends CategoryDto {
+	
+	private double countDec;
 
 	@Builder.Default
-	private int gst = Constants.GST_INTERN_PERCENT;
+	private int gst = Constants.GST_RC_PERCENT;
 
 	@Builder.Default
-	private int margin = Constants.MARGIN_INTERN_PERCENT;
+	private int margin = Constants.MARGIN_RC_PERCENT;
 
 }

@@ -26,8 +26,10 @@ public class Constants {
 	public static final double GST_HK = 0.18;
 	public static final double MARGIN_LAUNDRY = 0.10;
 	public static final double GST_LAUNDRY = 0.18;
-	public static final double MARGIN_INTERN = 0.10;
-	public static final double GST_INTERN = 0.18;
+	public static final double MARGIN_RC = 0.10;
+	public static final double GST_RC = 0.18;
+	public static final double MARGIN_OE = 0.10;
+	public static final double GST_OE = 0.18;
 	public static final double MARGIN_SECURITY = 0.10;
 	public static final double GST_SECURITY = 0.18;
 	public static final double MARGIN_SUBSCRIPTION_SUPPLIES = 0.10;
@@ -38,13 +40,17 @@ public class Constants {
 	public static final double GST_FOOD_STANZA_KITCHEN = 0.05;
 	public static final double MARGIN_FOOD_VENDOR = 0.10;
 	public static final double GST_FOOD_VENDOR = 0.05;
+	public static final double MARGIN_UNIFORM_COSTS = 0.10;
+	public static final double GST_UNIFORM_COSTS = 0.18;
 
 	public static final int MARGIN_HK_PERCENT = 10;
 	public static final int GST_HK_PERCENT = 18;
 	public static final int MARGIN_LAUNDRY_PERCENT = 10;
 	public static final int GST_LAUNDRY_PERCENT = 18;
-	public static final int MARGIN_INTERN_PERCENT = 10;
-	public static final int GST_INTERN_PERCENT = 18;
+	public static final int MARGIN_RC_PERCENT = 10;
+	public static final int GST_RC_PERCENT = 18;
+	public static final int MARGIN_OE_PERCENT = 10;
+	public static final int GST_OE_PERCENT = 18;
 	public static final int MARGIN_SECURITY_PERCENT = 10;
 	public static final int GST_SECURITY_PERCENT = 18;
 	public static final int MARGIN_SUBSCRIPTION_SUPPLIES_PERCENT = 10;
@@ -55,5 +61,7 @@ public class Constants {
 	public static final int GST_FOOD_STANZA_KITCHEN_PERCENT = 5;
 	public static final int MARGIN_FOOD_VENDOR_PERCENT = 10;
 	public static final int GST_FOOD_VENDOR_PERCENT = 5;
+	public static final int MARGIN_UNIFORM_COSTS_PERCENT = 10;
+	public static final int GST_UNIFORM_COSTS_PERCENT = 18;
 
 }

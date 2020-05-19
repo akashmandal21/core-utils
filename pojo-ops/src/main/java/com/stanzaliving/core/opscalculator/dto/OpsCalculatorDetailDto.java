@@ -36,8 +36,9 @@ public class OpsCalculatorDetailDto {
 	private SubscriptionAndSuppliesCategoryDto subscriptionAndSuppliesCategoryDto;
 	private LaundryCostCategoryDto laundryCostCategoryDto;
 	private EquipmentRentalCategoryDto equipmentRentalCategoryDto;
-	private InternCategoryDto internCategoryDto;
+	private PersonnelCategoryDto personnelCategoryDto;
 	private AuditCategoryDto auditCategoryDto;
+	private UniformCostsCategoryDto uniformCostsCategoryDto;
 	private UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
-
+	
 }
