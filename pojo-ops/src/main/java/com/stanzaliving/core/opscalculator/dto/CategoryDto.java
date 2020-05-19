@@ -2,7 +2,7 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.dto.opscalculator;
+package com.stanzaliving.core.opscalculator.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

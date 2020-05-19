@@ -2,9 +2,10 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.dto.opscalculator;
+package com.stanzaliving.core.opscalculator.dto;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,12 +21,7 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-@AllArgsConstructor
-public class WaterTankerSlotDetail {
-
-	private String startDate;
-	private String endDate;
-	private int cost;
-	private int capacity;
+@JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "contribution", "enabled" })
+public class UnderwrittenCostCategoryDto extends CategoryDto {
 
 }

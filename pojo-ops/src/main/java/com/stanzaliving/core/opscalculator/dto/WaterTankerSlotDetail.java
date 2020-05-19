@@ -2,9 +2,7 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.dto.opscalculator;
-
-import java.time.LocalDate;
+package com.stanzaliving.core.opscalculator.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,13 +21,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OpsCalculatorDto {
+public class WaterTankerSlotDetail {
 
-	private String uuid;
-	private String residenceId;
-	private String versionName;
-	private LocalDate fromDate;
-	private OpsCalculatorDetailDto opsCalculatorDetailDto;
-	private String serviceMixId;
+	private String startDate;
+	private String endDate;
+	private int cost;
+	private int capacity;
 
 }

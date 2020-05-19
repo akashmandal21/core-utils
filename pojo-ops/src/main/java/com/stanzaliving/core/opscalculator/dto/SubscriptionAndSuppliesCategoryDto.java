@@ -2,10 +2,10 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.dto.opscalculator;
+package com.stanzaliving.core.opscalculator.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.stanzaliving.core.operations.constants.opscalculator.Constants;
+import com.stanzaliving.core.opscalculator.constants.Constants;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,17 +25,17 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({ "count", "rate" })
-public class LaundryCostCategoryDto extends CategoryDto {
+@JsonIgnoreProperties({ "count", "rate", "utilization" })
+public class SubscriptionAndSuppliesCategoryDto extends CategoryDto {
 
-	private int clothesPerPersonPerMonth;
-	private int weightForClothes;
-	private int costPerKg;
-
-	@Builder.Default
-	private int gst = Constants.GST_LAUNDRY_PERCENT;
+	private int internet;
+	private int cleaningSupplies;
+	private int foodSupplies;
 
 	@Builder.Default
-	private int margin = Constants.MARGIN_LAUNDRY_PERCENT;
+	private int gst = Constants.GST_SUBSCRIPTION_SUPPLIES_PERCENT;
+
+	@Builder.Default
+	private int margin = Constants.MARGIN_SUBSCRIPTION_SUPPLIES_PERCENT;
 
 }

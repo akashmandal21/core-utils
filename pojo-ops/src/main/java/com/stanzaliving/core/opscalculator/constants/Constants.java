@@ -2,7 +2,7 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.constants.opscalculator;
+package com.stanzaliving.core.opscalculator.constants;
 
 /**
  * @author nipunaggarwal
@@ -10,13 +10,15 @@ package com.stanzaliving.core.operations.constants.opscalculator;
  */
 public class Constants {
 
+	public static final String SERVICE_NAME = "OpsCalculatorService";
+
 	public static final String RUPEE_SYMBOL = "(\u20B9)";
 
 	public static final double DEFUALT_OCCUPANCY = 0.9;
 	public static final double MINIMUM_OCCUPANCY = 0.75;
 
 	public static final int DEFUALT_OCCUPANCY_PERCENT = 90;
-	
+
 	public static final double LOAD_FOR_AC_ROOMS = 1.80;
 	public static final double LOAD_FOR_NON_AC_ROOMS = 0.45;
 

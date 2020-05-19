@@ -2,7 +2,7 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.dto.opscalculator;
+package com.stanzaliving.core.opscalculator.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,11 +23,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
-public class UtilitiesCategoryDto extends CategoryDto {
+@JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "gstAmount" })
+public class EquipmentRentalCategoryDto extends CategoryDto {
 
-	private UtilitiesWaterCategoryDto utilitiesWaterCategoryDto;
-	private UtilitiesDgCategoryDto utilitiesDgCategoryDto;
-	private UtilitiesElectricityCategoryDto utilitiesElectricityCategoryDto;
+	private int vendingMachine;
+	private int coffeeMachine;
+	private int elecricityRoomMeterCost;
 
 }
