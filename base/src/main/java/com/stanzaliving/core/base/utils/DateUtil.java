@@ -464,14 +464,10 @@ public class DateUtil {
 	}
 	
 	public static Date getTodayEndDate() {
-		Date today = new Date();
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(today);
-		calendar.set(Calendar.HOUR_OF_DAY, 23);
-		calendar.set(Calendar.MINUTE, 59);
-		calendar.set(Calendar.SECOND, 59);
-		calendar.set(Calendar.MILLISECOND, 0);
-		return calendar.getTime();
+
+		LocalDateTime today = LocalDateTime.now().withHour(23).withMinute(59).withSecond(59);
+
+		return convertToDate(today);
 	}
 	
 	public static Date addDaysToDate(Date d1, long days) {
@@ -481,14 +477,13 @@ public class DateUtil {
 	}
 	
 	public static Date addDayAndSetHour(Integer days, Integer hour) {
-		Date tomorrow = addDaysToDate(new Date(), days);
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(tomorrow);
-		calendar.set(Calendar.HOUR_OF_DAY, hour);
-		calendar.set(Calendar.MINUTE, 0);
-		calendar.set(Calendar.SECOND, 0);
-		calendar.set(Calendar.MILLISECOND, 0);
-		return calendar.getTime();
+
+		LocalDateTime tomorrow = LocalDateTime.now().plusDays(days);
+		tomorrow.withHour(hour);
+		tomorrow.withMinute(0);
+		tomorrow.withSecond(0);
+
+		return convertToDate(tomorrow);
 	}
 
 }
