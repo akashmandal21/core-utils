@@ -3,12 +3,14 @@ package com.stanzaliving.core.sqljpa.conveter;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -18,10 +20,17 @@ import lombok.extern.log4j.Log4j2;
 
 @Converter
 @Log4j2
+@Component
 public class StringMapConverter implements AttributeConverter<Map<String, String>, String> {
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    
+    private static ObjectMapper objectMapper = null;
+    
+    @PostConstruct
+    public void init() {
+    	objectMapper = new ObjectMapper();
+    }
+    
     
     @Override
     public String convertToDatabaseColumn(Map<String, String> map) {
