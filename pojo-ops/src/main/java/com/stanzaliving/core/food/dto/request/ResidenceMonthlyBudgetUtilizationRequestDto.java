@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto.request;
 
+import java.time.Month;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +21,7 @@ public class ResidenceMonthlyBudgetUtilizationRequestDto {
 	
 	private Integer budgetYear;
 	
-	private Integer budgetMonth;
+	private Month budgetMonth;
 	
 	private Double budgetPerMir;
 
