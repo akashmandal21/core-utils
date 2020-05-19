@@ -21,12 +21,8 @@ import com.stanzaliving.core.security.context.SecurityContextHolder;
 import com.stanzaliving.core.security.helper.UserMicroserviceHelper;
 import com.stanzaliving.core.security.service.AuthService;
 import com.stanzaliving.core.user.acl.request.dto.UserAccessDto;
-import com.stanzaliving.core.user.dto.UserDto;
 import com.stanzaliving.core.user.dto.UserProfileDto;
 
-import lombok.extern.log4j.Log4j2;
-
-@Log4j2
 public class AuthServiceImpl implements AuthService {
 
 	private StanzaRestClient restClient;
@@ -68,7 +64,6 @@ public class AuthServiceImpl implements AuthService {
 
 	@Override
 	public ResponseDto<UserProfileDto> validateToken(String token) {
-		log.debug("Validating token: " + token);
 		return getUserByToken(token);
 	}
 

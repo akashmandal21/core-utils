@@ -38,17 +38,23 @@ public enum FoodItemBackgroundColor {
 	private static List<ListingDto> colorList = new ArrayList<>();
 
 	private static Map<String, FoodItemBackgroundColor> colorByNameMap = new HashMap<>();
+	private static Map<String, FoodItemBackgroundColor> colorByCodeMap = new HashMap<>();
 
 	static {
 
 		for (FoodItemBackgroundColor itemBackgroundColor : FoodItemBackgroundColor.values()) {
 			colorByNameMap.put(itemBackgroundColor.getColorName(), itemBackgroundColor);
+			colorByCodeMap.put(itemBackgroundColor.getColorCode(), itemBackgroundColor);
 			colorList.add(ListingDto.builder().id(itemBackgroundColor.getColorName()).name(itemBackgroundColor.getColorCode()).build());
 		}
 	}
 
 	public static FoodItemBackgroundColor getColorByName(String colorName) {
 		return colorByNameMap.get(colorName);
+	}
+
+	public static FoodItemBackgroundColor getColorByCode(String colorCode) {
+		return colorByCodeMap.get(colorCode);
 	}
 
 	public static List<ListingDto> getItemBackgroundColors() {
