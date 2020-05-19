@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.apache.commons.collections.CollectionUtils;
 
@@ -68,21 +69,24 @@ public class RuleEngine {
 		}
 
 		for (ConditionCombinationDto conditionCombinationDto : conditionCombinationDtos) {
-			List<ConditionCombinationDto> subConditionCombinations = conditionCombinationDto.getConditions();
 
-			if (CollectionUtils.isEmpty(subConditionCombinations)) {
-				if (parentValue != valid(conditionCombinationDto)) {
-					resultDto.add(conditionCombinationDto);
-				} else if ("any".equals(parentAgregator)) {
-					return Collections.emptyList();
+			if (Objects.nonNull(conditionCombinationDto)) {
+
+				List<ConditionCombinationDto> subConditionCombinations = conditionCombinationDto.getConditions();
+
+				if (CollectionUtils.isEmpty(subConditionCombinations)) {
+					if (parentValue != valid(conditionCombinationDto)) {
+						resultDto.add(conditionCombinationDto);
+					} else if ("any".equals(parentAgregator)) {
+						return Collections.emptyList();
+					}
+				} else {
+					String aggregator = conditionCombinationDto.getAggregator();
+					Boolean value = conditionCombinationDto.getValue();
+					resultDto.addAll(validate(subConditionCombinations, aggregator, value));
+					return resultDto;
 				}
-			} else {
-				String aggregator = conditionCombinationDto.getAggregator();
-				Boolean value = conditionCombinationDto.getValue();
-				resultDto.addAll(validate(subConditionCombinations, aggregator, value));
-				return resultDto;
 			}
-
 		}
 		return resultDto;
 	}

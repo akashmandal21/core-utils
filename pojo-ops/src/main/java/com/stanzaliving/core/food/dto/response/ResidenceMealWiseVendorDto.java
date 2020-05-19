@@ -1,13 +1,16 @@
 package com.stanzaliving.core.food.dto.response;
 
+import java.util.List;
+
 import com.stanzaliving.core.food.dto.ResidenceConfigDto;
 import com.stanzaliving.core.food.dto.request.MealTypeVendorMapDto;
-import com.stanzaliving.core.food.dto.request.ResidenceVendorMapDto;
-import com.stanzaliving.core.operations.enums.MealType;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -22,5 +25,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResidenceMealWiseVendorDto extends ResidenceConfigDto {
+
 	private List<MealTypeVendorMapDto> mealVendors;
 }

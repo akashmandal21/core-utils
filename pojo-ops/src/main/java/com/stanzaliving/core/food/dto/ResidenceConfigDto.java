@@ -37,6 +37,10 @@ public class ResidenceConfigDto {
 
 	private String microMarketName;
 
+	private String cityId;
+	
+	private String cityName;
+	
 	private String menuCategoryId;
 	
 	private String menuCategoryName;
