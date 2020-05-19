@@ -12,4 +12,6 @@ public interface AuthService {
 
 	ResponseDto<UserProfileDto> getUserProfile();
 
+	ResponseDto<UserProfileDto> getUserByToken(String token);
+
 }
