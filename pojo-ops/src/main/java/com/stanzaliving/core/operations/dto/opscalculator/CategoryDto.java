@@ -32,5 +32,6 @@ public abstract class CategoryDto {
 	private int costPerAvailableBed;
 	private int costPerOccupiedBed;
 	private double contribution;
+	private boolean enabled = true;
 
 }
