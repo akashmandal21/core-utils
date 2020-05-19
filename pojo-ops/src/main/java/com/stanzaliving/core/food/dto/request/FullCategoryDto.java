@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.request;
 
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.dto.CompositionRuleDto;
@@ -28,11 +29,12 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FullCategoryDto {
 
-	private FoodMenuCategoryAddRequestDto category;
+	private FoodMenuCategoryMetadataDto category;
 
 	@NotNull(message = "Composition Rules are mandatory")
 	private CompositionRuleDto rules;
 
+	@NotEmpty(message = "Meal Mappings are mandatory")
 	private List<FoodMenuCategoryMealDto> meals;
 
 	private List<WeekWiseMenu> weekMenus;

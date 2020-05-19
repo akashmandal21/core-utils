@@ -1,9 +1,8 @@
 package com.stanzaliving.core.food.dto;
 
-import com.stanzaliving.core.food.enums.FoodItemType;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,17 +15,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderItemShortageDto {
+public class DetailFoodOrderSummaryDto {
 
-	private String item;
+	private BudgetStatusDto budgetStatusDto;
 
-	private String itemId;
+	private HolidayAndUtilzationDto holidayAndUtilzationDto;
 
-	@Builder.Default
-	private Integer shortagePax = null;
-
-	private FoodItemType foodItemType;
-
-	private Boolean quantifiable;
+	private List<FoodOrderSummaryDto> residentsFoodOrderSummaries;
 
 }

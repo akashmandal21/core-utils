@@ -28,7 +28,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryAddRequestDto {
+public class FoodMenuCategoryMetadataDto {
+
+	private String categoryId;
 
 	@NotBlank(message = "City is Mandatory for Menu Category")
 	private String cityId;

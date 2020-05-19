@@ -1,5 +1,7 @@
 package com.stanzaliving.transformations.pojo;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -21,7 +23,9 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidenceUIDto {
+public class ResidenceUIDto implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	private long id;
 

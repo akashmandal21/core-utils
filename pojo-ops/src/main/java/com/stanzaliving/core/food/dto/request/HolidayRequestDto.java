@@ -3,6 +3,7 @@ package com.stanzaliving.core.food.dto.request;
 import java.time.LocalDate;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.enums.HolidayType;
 
@@ -24,10 +25,13 @@ public class HolidayRequestDto {
 	@NotBlank(message = "residenceId Cannot be blank")
 	private String residenceId;
 
-	@NotBlank(message = "residenceId Cannot be blank")
+	@NotNull(message = "date cannot be null")
 	private LocalDate date;
-
+	
 	private HolidayType holidayType;
+	
+	@NotNull
+	Boolean holiday;
 
 	private String description;
 
