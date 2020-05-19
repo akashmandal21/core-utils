@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
+import com.stanzaliving.core.food.enums.FoodItemType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 public class FoodOrderItemLeftoverDto {
 
 	private String name;
-	
+
 	private String itemId;
 
 	@Builder.Default
@@ -25,5 +27,9 @@ public class FoodOrderItemLeftoverDto {
 
 	@Builder.Default
 	private Double leftoverWeight = null;
+
+	private FoodItemType foodItemType;
+
+	private Boolean quantifiable;
 
 }

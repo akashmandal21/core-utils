@@ -24,6 +24,8 @@ public class MealBudgetCalendarDto {
 
 	@NotNull
 	private String residenceId;
+	
+	private String residenceName;
 
 	@NotNull
 	private Integer month;

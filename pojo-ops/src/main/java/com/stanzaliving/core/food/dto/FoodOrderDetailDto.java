@@ -32,10 +32,10 @@ public class FoodOrderDetailDto {
 	private String vendorName;
 
 	@Builder.Default
-	private Integer vegPax=0;
+	private Integer vegPax = 0;
 
 	@Builder.Default
-	private Integer nonVegPax=0;
+	private Integer nonVegPax = 0;
 
 	@Builder.Default
 	private Double vegCost = 0d;
@@ -68,9 +68,15 @@ public class FoodOrderDetailDto {
 
 	@Builder.Default
 	private Double totalCost = 0d;
-	
+
 	private Integer sequence;
-	
+
 	private List<AdditionalItemsRequestDto> additionalItemsDtos;
+
+	@Builder.Default
+	private Double plannesUtilization = 0d;
+
+	@Builder.Default
+	private Double actualUtilization = 0d;
 
 }

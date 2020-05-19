@@ -1,6 +1,9 @@
-package com.stanzaliving.core.rule.engine.dto;
+package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.rule.engine.enums.RuleOperatorEnum;
+import java.util.List;
+
+import com.stanzaliving.core.food.dto.ResidenceConfigDto;
+import com.stanzaliving.core.food.dto.request.MealTypeVendorMapDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,8 +15,7 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @date 01-May-2020
- *
+ * @date 15-May-2020
  */
 
 @Getter
@@ -22,13 +24,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ConditionDto {
+public class ResidenceMealWiseVendorDto extends ResidenceConfigDto {
 
-	private String leftOperand;
-
-	private RuleOperatorEnum operator;
-
-	private String operatorValue;
-
-	private String rightOperand;
+	private List<MealTypeVendorMapDto> mealVendors;
 }
