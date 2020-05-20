@@ -72,7 +72,7 @@ public class AuthServiceImpl implements AuthService {
 		return getUserByToken(token);
 	}
 
-	public ResponseDto<UserProfileDto> getUserByToken(String token) {
+	private ResponseDto<UserProfileDto> getUserByToken(String token) {
 
 		Object postBody = null;
 
