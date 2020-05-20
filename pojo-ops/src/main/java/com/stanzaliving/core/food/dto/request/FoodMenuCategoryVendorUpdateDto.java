@@ -27,9 +27,9 @@ public class FoodMenuCategoryVendorUpdateDto {
 
 	private boolean status;
 
-	private Double residentVegCost;
+	private Double residenceVegCost;
 
-	private Double residentNonVegCost;
+	private Double residenceNonVegCost;
 
 	private Double nonStanzaStaffVegCost;
 
