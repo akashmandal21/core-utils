@@ -1,6 +1,7 @@
 package com.stanzaliving.pushnotification.pojo;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 
 import com.stanzaliving.core.notifications.enums.AppName;
@@ -17,7 +18,10 @@ public class PushNotificationDto {
 	private Collection<String> userIds;
 	private String imageUrl;
 	private AppName appName;
-	
-	Map<String,String> data;
+	private Date createdAt;
+	private Date messageReadAt;
+	private String uuid;
+
+	private Map<String,String> data;
 
 }
