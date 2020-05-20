@@ -23,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class IngredientStockStatusResponseDto {
 
-	private String siteId;
+	private String vendorId;
 	private String ingredientId;
 	private String ingredientUnit;
 	private Double ingredientQty;
