@@ -59,6 +59,7 @@
 		<module>pushnotification-client</module>
 		<module>fr-client</module>
 		<module>inventory_transformations</module>
+		<module>phoenix-aggregation-client</module>
 	</modules>
 
 	<build>

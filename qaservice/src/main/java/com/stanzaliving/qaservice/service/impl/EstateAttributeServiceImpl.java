@@ -111,4 +111,21 @@ public class EstateAttributeServiceImpl implements EstateAttributeService {
 		return estateAttributeRepository.findByEstateIdAndAttributeName(
 						estateId, attributeName);
 	}
+	
+	@Override
+	public List<Long> getAllEstateIdsByAttributeName(String attributeName, String attributeValue) {
+		
+		List<Long> result = new ArrayList<>();
+		List<EstateAttributeEntity> estateAttributeEntities = 
+				estateAttributeRepository.findByAttributeNameAndAttributeValue(attributeName, attributeValue);
+	
+		if(!CollectionUtils.isEmpty(estateAttributeEntities)) {
+			
+			estateAttributeEntities.forEach(record -> {
+				result.add(Long.valueOf(record.getEstateId()));
+			});
+		}
+		
+		return result;
+	}
 }
