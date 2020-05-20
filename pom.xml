@@ -61,6 +61,7 @@
 		<module>internet-client</module>
 		<module>operations-client</module>
     <module>attendance-client</module>
+    <module>campaign-client</module>
   </modules>
 
 	<build>

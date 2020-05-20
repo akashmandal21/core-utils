@@ -462,5 +462,28 @@ public class DateUtil {
 		calendar.set(Calendar.MILLISECOND, 0);
 		return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
 	}
+	
+	public static Date getTodayEndDate() {
+
+		LocalDateTime today = LocalDateTime.now().withHour(23).withMinute(59).withSecond(59);
+
+		return convertToDate(today);
+	}
+	
+	public static Date addDaysToDate(Date d1, long days) {
+		long ltime = d1.getTime() + days * 24 * 60 * 60 * 1000;
+		Date newdate = new Date(ltime);
+		return newdate;
+	}
+	
+	public static Date addDayAndSetHour(Integer days, Integer hour) {
+
+		LocalDateTime tomorrow = LocalDateTime.now().plusDays(days);
+		tomorrow.withHour(hour);
+		tomorrow.withMinute(0);
+		tomorrow.withSecond(0);
+
+		return convertToDate(tomorrow);
+	}
 
 }
