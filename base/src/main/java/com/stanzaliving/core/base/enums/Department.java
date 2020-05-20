@@ -1,5 +1,8 @@
 package com.stanzaliving.core.base.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum Department {
     TECH ("Tech"),
     FINANCE ("Finance"),
@@ -12,10 +15,11 @@ public enum Department {
     PROCUREMENT ("Procurement"),
     DESIGN ("Design"),
     PROJECTS ("Projects"),
-    TRANSFORMATIONS ("Transformations"),
+    TRANSFORMATIONS ("Transformation"),
     SALES ("Sales"),
     WEB ("Web"),
-    GC("GC Procurement");
+    GC("GC Procurement"),
+    WAREHOUSE("Warehouse");
     
     public String departmentName;
 	

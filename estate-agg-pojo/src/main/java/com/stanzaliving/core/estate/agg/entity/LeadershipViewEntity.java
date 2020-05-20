@@ -1,5 +1,6 @@
 package com.stanzaliving.core.estate.agg.entity;
 
+import com.stanzaliving.core.estate.embeddedInfos.*;
 import com.stanzaliving.core.estate.enums.EstateStatus;
 import com.stanzaliving.core.mongobase.entity.AbstractMongoEntity;
 import lombok.AllArgsConstructor;
@@ -30,7 +31,7 @@ public class LeadershipViewEntity extends AbstractMongoEntity {
 
     DesignBedInfo designBedInfo;
 
-    Map<EstateStatus,EstateStatusStruct> estateStatusHistory;
+    Map<EstateStatus, EstateStatusStruct> estateStatusHistory;
 
     AnalyticsKeys analyticsKeys;
 

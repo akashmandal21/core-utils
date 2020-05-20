@@ -1,5 +1,6 @@
 package com.stanzaliving.core.user.dto;
 
+import com.stanzaliving.core.user.acl.dto.RoleDto;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleDto;
 import com.stanzaliving.core.user.acl.request.dto.AddRoleAccessDto;
 import lombok.*;
@@ -26,5 +27,5 @@ public class UserManagerAndRoleDto {
 
 	UserProfileDto manager;
 
-	List<UserDeptLevelRoleDto> roles;
+	List<RoleDto> roles;
 }
