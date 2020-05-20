@@ -11,6 +11,9 @@ package com.stanzaliving.core.opscalculator.constants;
 public class Constants {
 
 	public static final String SERVICE_NAME = "OpsCalculatorService";
+	
+	public static final int DAYS_IN_YEAR = 365;
+	public static final int MONTHS = 12;
 
 	public static final String RUPEE_SYMBOL = "(\u20B9)";
 
