@@ -3,6 +3,8 @@ package com.stanzaliving.pushnotification.pojo;
 import java.util.Collection;
 import java.util.Map;
 
+import com.stanzaliving.core.notifications.enums.AppName;
+
 import lombok.Data;
 
 @Data
@@ -14,7 +16,7 @@ public class PushNotificationDto {
 	private Collection<String> mobileNumbers;
 	private Collection<String> userIds;
 	private String imageUrl;
-	private String appName;
+	private AppName appName;
 	
 	Map<String,String> data;
 

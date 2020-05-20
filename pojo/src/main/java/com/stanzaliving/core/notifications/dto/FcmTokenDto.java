@@ -1,6 +1,7 @@
 package com.stanzaliving.core.notifications.dto;
 
 import com.stanzaliving.core.enums.Platform;
+import com.stanzaliving.core.notifications.enums.AppName;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +22,7 @@ public class FcmTokenDto {
 	
 	private String uuid;
 	
-	private String appName;
+	private AppName appName;
 	
 	private String mobileNumber;
 	
