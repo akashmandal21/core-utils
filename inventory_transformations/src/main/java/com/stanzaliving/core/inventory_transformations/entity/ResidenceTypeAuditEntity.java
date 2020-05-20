@@ -18,55 +18,55 @@ public class ResidenceTypeAuditEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "RESIDENCE_TYPE_AUDIT_ID", nullable = false)
-	@JsonProperty("residence_type_audit_id")
+	@JsonProperty("RESIDENCE_TYPE_AUDIT_ID")
     private Integer residenceTypeAuditId;
 
     @Column(name = "RESIDENCE_ID", nullable = false)
-	@JsonProperty("residence_id")
+	@JsonProperty("RESIDENCE_ID")
     private Integer residenceId;
 
     @Column(name = "ADMIN_CHARGES")
-	@JsonProperty("admin_charges")
+	@JsonProperty("ADMIN_CHARGES")
     private Integer adminCharges;
 
     @Column(name = "NON_REFUNDABLE_SECURITY_DEPOSIT")
-	@JsonProperty("non_refundable_security_deposit")
+	@JsonProperty("NON_REFUNDABLE_SECURITY_DEPOSIT")
     private Integer nonRefundableSecurityDeposit;
 
     @Column(name = "REFUNDABLE_SECURITY_DEPOSIT")
-	@JsonProperty("refundable_security_deposit")
+	@JsonProperty("REFUNDABLE_SECURITY_DEPOSIT")
     private Integer refundableSecurityDeposit;
 
     @Column(name = "ADVANCE_RENTAL")
-	@JsonProperty("advance_rental")
+	@JsonProperty("ADVANCE_RENTAL")
     private Integer advanceRental;
 
     @Column(name = "RETENTION_BOOKING_AMOUNT")
-	@JsonProperty("retention_booking_amount")
+	@JsonProperty("RETENTION_BOOKING_AMOUNT")
     private Double retentionBookingAmount;
 
     @Column(name = "TYPE", nullable = false)
-	@JsonProperty("type")
+	@JsonProperty("TYPE")
     private Integer TYPE;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     @Column(name = "PENALTY_AMOUNT")
-	@JsonProperty("penalty_amount")
+	@JsonProperty("PENALTY_AMOUNT")
     private Double penaltyAmount = 0D;
 
     @Column(name = "RESIDENCE_TYPE")
-	@JsonProperty("residence_type")
+	@JsonProperty("RESIDENCE_TYPE")
     private Integer residenceType;
 
     @Column(name = "CREATED_BY")
-	@JsonProperty("created_by")
+	@JsonProperty("CREATED_BY")
     private String createdBy;
 
     

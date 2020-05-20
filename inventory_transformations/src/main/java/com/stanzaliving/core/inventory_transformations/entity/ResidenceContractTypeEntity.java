@@ -18,31 +18,31 @@ public class ResidenceContractTypeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "RESIDENCE_CONTRACT_TYPE_ID", insertable = false, nullable = false)
-	@JsonProperty("residence_contract_type_id")
+	@JsonProperty("RESIDENCE_CONTRACT_TYPE_ID")
     private Integer residenceContractTypeId;
 
     @Column(name = "RESIDENCE_ID", nullable = false)
-	@JsonProperty("residence_id")
+	@JsonProperty("RESIDENCE_ID")
     private Integer residenceId;
 
     @Column(name = "CONTRACT_ID", nullable = false)
-	@JsonProperty("contract_id")
+	@JsonProperty("CONTRACT_ID")
     private Integer contractId;
 
     @Column(name = "TYPE", nullable = false)
-	@JsonProperty("type")
+	@JsonProperty("TYPE")
     private Integer TYPE;
 
     @Column(name = "IS_ACTIVE", nullable = false, columnDefinition = "tinyint")
-	@JsonProperty("is_active")
+	@JsonProperty("IS_ACTIVE")
     private Integer active = 1;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "UDATED", nullable = false)
-	@JsonProperty("udated")
+	@JsonProperty("UDATED")
     private Timestamp UDATED;
 
     

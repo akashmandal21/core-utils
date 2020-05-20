@@ -17,19 +17,19 @@ public class InvoiceTransactionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "INVOICE_TRANSACTION_ID", nullable = false)
-	@JsonProperty("invoice_transaction_id")
+	@JsonProperty("INVOICE_TRANSACTION_ID")
     private Integer invoiceTransactionId;
 
     @Column(name = "AMOUNT_DUE")
-	@JsonProperty("amount_due")
+	@JsonProperty("AMOUNT_DUE")
     private Double amountDue;
 
     @Column(name = "INVOICE_ID")
-	@JsonProperty("invoice_id")
+	@JsonProperty("INVOICE_ID")
     private Integer invoiceId;
 
     @Column(name = "TRANSACTION_ID")
-	@JsonProperty("transaction_id")
+	@JsonProperty("TRANSACTION_ID")
     private Integer transactionId;
 
     

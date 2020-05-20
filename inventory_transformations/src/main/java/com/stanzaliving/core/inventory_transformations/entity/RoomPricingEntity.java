@@ -20,51 +20,51 @@ public class RoomPricingEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "ROOM_ID", nullable = false)
-	@JsonProperty("room_id")
+	@JsonProperty("ROOM_ID")
     private Integer roomId;
 
     @Column(name = "ATTRIBUTES_PRICE")
-	@JsonProperty("attributes_price")
+	@JsonProperty("ATTRIBUTES_PRICE")
     private Integer attributesPrice;
 
     @Column(name = "BASE_PRICE", nullable = false)
-	@JsonProperty("base_price")
+	@JsonProperty("BASE_PRICE")
     private Integer basePrice;
 
     @Column(name = "BUFFER_PRICE", nullable = false)
-	@JsonProperty("buffer_price")
+	@JsonProperty("BUFFER_PRICE")
     private Integer bufferPrice;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("enabled")
+	@JsonProperty("ENABLED")
     private Boolean ENABLED;
 
     @Column(name = "MANDATORY_SERVICES_PRICE", nullable = false)
-	@JsonProperty("mandatory_services_price")
+	@JsonProperty("MANDATORY_SERVICES_PRICE")
     private Integer mandatoryServicesPrice;
 
     @Column(name = "ROOM_PRICE", nullable = false)
-	@JsonProperty("room_price")
+	@JsonProperty("ROOM_PRICE")
     private Integer roomPrice;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     @Column(name = "CGST")
-	@JsonProperty("cgst")
+	@JsonProperty("CGST")
     private Double CGST;
 
     @Column(name = "IGST")
-	@JsonProperty("igst")
+	@JsonProperty("IGST")
     private Double IGST;
 
     @Column(name = "SGST")
-	@JsonProperty("sgst")
+	@JsonProperty("SGST")
     private Double SGST;
 
     

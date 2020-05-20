@@ -20,31 +20,31 @@ public class StudentPrimaryGuardianEntity implements Serializable {
 
     @Id
     @Column(name = "STUDENT_ID", insertable = false, nullable = false)
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "EMAIL")
-	@JsonProperty("email")
+	@JsonProperty("EMAIL")
     private String EMAIL;
 
     @Column(name = "MOBILE")
-	@JsonProperty("mobile")
+	@JsonProperty("MOBILE")
     private String MOBILE;
 
     @Column(name = "NAME")
-	@JsonProperty("name")
+	@JsonProperty("NAME")
     private String NAME;
 
     @Column(name = "RELATION_TO_STUDENT")
-	@JsonProperty("relation_to_student")
+	@JsonProperty("RELATION_TO_STUDENT")
     private String relationToStudent;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     

@@ -18,47 +18,47 @@ public class CommercialCardBookingAuditEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("booking_id")
+	@JsonProperty("BOOKING_ID")
     private Integer bookingId;
 
     @Column(name = "COMMERCIAL_CARD_ID")
-	@JsonProperty("commercial_card_id")
+	@JsonProperty("COMMERCIAL_CARD_ID")
     private Integer commercialCardId;
 
     @Column(name = "REFUNDABLE_SECURITY")
-	@JsonProperty("refundable_security")
+	@JsonProperty("REFUNDABLE_SECURITY")
     private Double refundableSecurity = 0D;
 
     @Column(name = "MONTHLY_MAINTENANCE_FEE")
-	@JsonProperty("monthly_maintenance_fee")
+	@JsonProperty("MONTHLY_MAINTENANCE_FEE")
     private Double monthlyMaintenanceFee = 0D;
 
     @Column(name = "ANNUAL_MAINTENANCE_FEE")
-	@JsonProperty("annual_maintenance_fee")
+	@JsonProperty("ANNUAL_MAINTENANCE_FEE")
     private Double annualMaintenanceFee = 0D;
 
     @Column(name = "ADVANCE_RENTAL_MONTHS")
-	@JsonProperty("advance_rental_months")
+	@JsonProperty("ADVANCE_RENTAL_MONTHS")
     private Integer advanceRentalMonths = 1;
 
     @Column(name = "VARIABLE_SECURITY_DEPOSIT")
-	@JsonProperty("variable_security_deposit")
+	@JsonProperty("VARIABLE_SECURITY_DEPOSIT")
     private Double variableSecurityDeposit = 0D;
 
     @Column(name = "CREATED_BY")
-	@JsonProperty("created_by")
+	@JsonProperty("CREATED_BY")
     private String createdBy;
 
     @Column(name = "UPDATED")
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     

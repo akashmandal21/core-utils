@@ -19,59 +19,59 @@ public class StudentVerificationEntity implements Serializable {
 
     @Id
     @Column(name = "STUDENT_ID", insertable = false, nullable = false)
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "AADHAR", nullable = false)
-	@JsonProperty("aadhar")
+	@JsonProperty("AADHAR")
     private Integer AADHAR = 0;
 
     @Column(name = "PAN", nullable = false)
-	@JsonProperty("pan")
+	@JsonProperty("PAN")
     private Integer PAN = 0;
 
     @Column(name = "OTHER_ID", nullable = false)
-	@JsonProperty("other_id")
+	@JsonProperty("OTHER_ID")
     private Integer otherId = 0;
 
     @Column(name = "ACCOUNT_NUMBER", nullable = false)
-	@JsonProperty("account_number")
+	@JsonProperty("ACCOUNT_NUMBER")
     private Integer accountNumber = 0;
 
     @Column(name = "NOC", nullable = false)
-	@JsonProperty("noc")
+	@JsonProperty("NOC")
     private Integer NOC = 0;
 
     @Column(name = "POLICE_VERIFICATION", nullable = false)
-	@JsonProperty("police_verification")
+	@JsonProperty("POLICE_VERIFICATION")
     private Integer policeVerification = 0;
 
     @Column(name = "USER_STATUS", nullable = false)
-	@JsonProperty("user_status")
+	@JsonProperty("USER_STATUS")
     private Integer userStatus = 0;
 
     @Column(name = "AADHAR_RR")
-	@JsonProperty("aadhar_rr")
+	@JsonProperty("AADHAR_RR")
     private String aadharRr;
 
     @Column(name = "PAN_RR")
-	@JsonProperty("pan_rr")
+	@JsonProperty("PAN_RR")
     private String panRr;
 
     @Column(name = "OTHER_ID_RR")
-	@JsonProperty("other_id_rr")
+	@JsonProperty("OTHER_ID_RR")
     private String otherIdRr;
 
     @Column(name = "ACCOUNT_NUMBER_RR")
-	@JsonProperty("account_number_rr")
+	@JsonProperty("ACCOUNT_NUMBER_RR")
     private String accountNumberRr;
 
     @Column(name = "NOC_RR")
-	@JsonProperty("noc_rr")
+	@JsonProperty("NOC_RR")
     private String nocRr;
 
     @Column(name = "POLICE_VERIFICATION_RR")
-	@JsonProperty("police_verification_rr")
+	@JsonProperty("POLICE_VERIFICATION_RR")
     private String policeVerificationRr;
 
     

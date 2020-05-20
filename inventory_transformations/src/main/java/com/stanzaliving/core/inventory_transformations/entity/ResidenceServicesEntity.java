@@ -18,39 +18,39 @@ public class ResidenceServicesEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, name = "RESIDENCE_SERVICE_ID", nullable = false)
-	@JsonProperty("residence_service_id")
+	@JsonProperty("RESIDENCE_SERVICE_ID")
     private Integer residenceServiceId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "ENABLED", nullable = false)
-	@JsonProperty("enabled")
+	@JsonProperty("ENABLED")
     private Boolean ENABLED;
 
     @Column(name = "OPTIONAL", nullable = false)
-	@JsonProperty("optional")
+	@JsonProperty("OPTIONAL")
     private Boolean OPTIONAL;
 
     @Column(name = "PRICE", nullable = false)
-	@JsonProperty("price")
+	@JsonProperty("PRICE")
     private Double PRICE;
 
     @Column(name = "PRICE_TYPE", nullable = false)
-	@JsonProperty("price_type")
+	@JsonProperty("PRICE_TYPE")
     private Integer priceType;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     @Column(name = "RESIDENCE_ID")
-	@JsonProperty("residence_id")
+	@JsonProperty("RESIDENCE_ID")
     private Integer residenceId;
 
     @Column(name = "SERVICE_ID")
-	@JsonProperty("service_id")
+	@JsonProperty("SERVICE_ID")
     private Integer serviceId;
 
     

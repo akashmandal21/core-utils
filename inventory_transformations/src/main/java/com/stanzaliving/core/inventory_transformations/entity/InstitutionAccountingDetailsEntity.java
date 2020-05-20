@@ -19,27 +19,27 @@ public class InstitutionAccountingDetailsEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "INSTITUTION_ID", nullable = false)
-	@JsonProperty("institution_id")
+	@JsonProperty("INSTITUTION_ID")
     private Integer institutionId;
 
     @Column(name = "ACCOUNTS_EMAIL", nullable = false)
-	@JsonProperty("accounts_email")
+	@JsonProperty("ACCOUNTS_EMAIL")
     private String accountsEmail;
 
     @Column(name = "ACCOUNTS_Phone", nullable = false)
-	@JsonProperty("accounts_phone")
+	@JsonProperty("ACCOUNTS_PHONE")
     private String accountsPhone;
 
     @Column(name = "ACCOUNTS_POC", nullable = false)
-	@JsonProperty("accounts_poc")
+	@JsonProperty("ACCOUNTS_POC")
     private String accountsPoc;
 
     @Column(name = "GST_NUMBER", nullable = false)
-	@JsonProperty("gst_number")
+	@JsonProperty("GST_NUMBER")
     private String gstNumber;
 
     @Column(name = "PAN_NUMBER", nullable = false)
-	@JsonProperty("pan_number")
+	@JsonProperty("PAN_NUMBER")
     private String panNumber;
 
     

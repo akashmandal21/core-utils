@@ -17,23 +17,23 @@ public class BrokerSlabDetailsEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "AMOUNT_PER_LEADS", nullable = false)
-	@JsonProperty("amount_per_leads")
+	@JsonProperty("AMOUNT_PER_LEADS")
     private Integer amountPerLeads;
 
     @Column(name = "MAX_LEADS", nullable = false)
-	@JsonProperty("max_leads")
+	@JsonProperty("MAX_LEADS")
     private Integer maxLeads;
 
     @Column(name = "MIN_LEADS", nullable = false)
-	@JsonProperty("min_leads")
+	@JsonProperty("MIN_LEADS")
     private Integer minLeads;
 
     @Column(name = "BROKER_SLAB_ID")
-	@JsonProperty("broker_slab_id")
+	@JsonProperty("BROKER_SLAB_ID")
     private Integer brokerSlabId;
 
     

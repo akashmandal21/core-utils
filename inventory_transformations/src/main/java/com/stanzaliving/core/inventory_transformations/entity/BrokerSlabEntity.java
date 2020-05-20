@@ -17,15 +17,15 @@ public class BrokerSlabEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "SLAB_NAME", nullable = false)
-	@JsonProperty("slab_name")
+	@JsonProperty("SLAB_NAME")
     private String slabName;
 
     @Column(name = "RESTRICTED_VISIBILITY", nullable = false)
-	@JsonProperty("restricted_visibility")
+	@JsonProperty("RESTRICTED_VISIBILITY")
     private Boolean restrictedVisibility;
 
     

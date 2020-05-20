@@ -19,27 +19,27 @@ public class StudentLocalGuardianEntity implements Serializable {
 
     @Id
     @Column(name = "STUDENT_ID", insertable = false, nullable = false)
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "MOBILE")
-	@JsonProperty("mobile")
+	@JsonProperty("MOBILE")
     private String MOBILE;
 
     @Column(name = "NAME")
-	@JsonProperty("name")
+	@JsonProperty("NAME")
     private String NAME;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     @Column(name = "GUARDIAN_ADDRESS_ID")
-	@JsonProperty("guardian_address_id")
+	@JsonProperty("GUARDIAN_ADDRESS_ID")
     private Integer guardianAddressId;
 
     

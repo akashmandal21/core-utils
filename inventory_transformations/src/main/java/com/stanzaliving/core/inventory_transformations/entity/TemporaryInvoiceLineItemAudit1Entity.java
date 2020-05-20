@@ -17,19 +17,19 @@ public class TemporaryInvoiceLineItemAudit1Entity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TEMPORARY_INVOICE_LINE_ITEM_ID", insertable = false, nullable = false)
-	@JsonProperty("temporary_invoice_line_item_id")
+	@JsonProperty("TEMPORARY_INVOICE_LINE_ITEM_ID")
     private Integer temporaryInvoiceLineItemId;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("amount")
+	@JsonProperty("AMOUNT")
     private Double AMOUNT;
 
     @Column(name = "LINE_ITEM")
-	@JsonProperty("line_item")
+	@JsonProperty("LINE_ITEM")
     private String lineItem;
 
     @Column(name = "TEMPORARY_INVOICE_ID")
-	@JsonProperty("temporary_invoice_id")
+	@JsonProperty("TEMPORARY_INVOICE_ID")
     private Integer temporaryInvoiceId;
 
     

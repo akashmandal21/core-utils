@@ -16,41 +16,41 @@ public class TransactionSettlementsEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "TRANSACTION_ID")
-	@JsonProperty("transaction_id")
+	@JsonProperty("TRANSACTION_ID")
     private Integer transactionId;
 
     @Column(name = "SETTLEMENT_ID")
-	@JsonProperty("settlement_id")
+	@JsonProperty("SETTLEMENT_ID")
     private String settlementId;
 
     @Column(name = "SETTLEMENT_ON")
-	@JsonProperty("settlement_on")
+	@JsonProperty("SETTLEMENT_ON")
     private Timestamp settlementOn;
 
     @Column(name = "SETTLEMENT_TYPE")
-	@JsonProperty("settlement_type")
+	@JsonProperty("SETTLEMENT_TYPE")
     private String settlementType;
 
     @Column(name = "SETTLEMENT_AMOUNT")
-	@JsonProperty("settlement_amount")
+	@JsonProperty("SETTLEMENT_AMOUNT")
     private Double settlementAmount = 0D;
 
     @Column(name = "ADDED_ON")
-	@JsonProperty("added_on")
+	@JsonProperty("ADDED_ON")
     private Timestamp addedOn;
 
     @Column(name = "STATUS")
-	@JsonProperty("status")
+	@JsonProperty("STATUS")
     private String STATUS;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TRANSACTION_SETTLEMENTS_ID", insertable = false, nullable = false)
-	@JsonProperty("transaction_settlements_id")
+	@JsonProperty("TRANSACTION_SETTLEMENTS_ID")
     private Integer transactionSettlementsId;
 
     @Column(name = "TRANSACTION_AMOUNT")
-	@JsonProperty("transaction_amount")
+	@JsonProperty("TRANSACTION_AMOUNT")
     private Double transactionAmount;
 
     

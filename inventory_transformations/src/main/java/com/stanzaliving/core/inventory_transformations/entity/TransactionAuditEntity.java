@@ -18,63 +18,63 @@ public class TransactionAuditEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TRANSACTION_AUDIT_ID", insertable = false, nullable = false)
-	@JsonProperty("transaction_audit_id")
+	@JsonProperty("TRANSACTION_AUDIT_ID")
     private Integer transactionAuditId;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("amount")
+	@JsonProperty("AMOUNT")
     private Double AMOUNT;
 
     @Column(name = "GATEWAY_TRANCATION_ID1")
-	@JsonProperty("gateway_trancation_id1")
+	@JsonProperty("GATEWAY_TRANCATION_ID1")
     private String gatewayTrancationId1;
 
     @Column(name = "STATUS")
-	@JsonProperty("status")
+	@JsonProperty("STATUS")
     private String STATUS;
 
     @Column(name = "TRANSACTION_DATE", nullable = false)
-	@JsonProperty("transaction_date")
+	@JsonProperty("TRANSACTION_DATE")
     private Timestamp transactionDate;
 
     @Column(name = "PAYMENT_MODE_ID")
-	@JsonProperty("payment_mode_id")
+	@JsonProperty("PAYMENT_MODE_ID")
     private Integer paymentModeId;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "RECEIPT_ID")
-	@JsonProperty("receipt_id")
+	@JsonProperty("RECEIPT_ID")
     private String receiptId;
 
     @Column(name = "TEMPORARY_STUDENT_ID")
-	@JsonProperty("temporary_student_id")
+	@JsonProperty("TEMPORARY_STUDENT_ID")
     private Integer temporaryStudentId;
 
     @Column(name = "GATEWAY_TRANSACTION_ID")
-	@JsonProperty("gateway_transaction_id")
+	@JsonProperty("GATEWAY_TRANSACTION_ID")
     private String gatewayTransactionId;
 
     @Column(name = "COMPLETION_DATE")
-	@JsonProperty("completion_date")
+	@JsonProperty("COMPLETION_DATE")
     private Timestamp completionDate;
 
     @Column(name = "CREATED_BY")
-	@JsonProperty("created_by")
+	@JsonProperty("CREATED_BY")
     private String createdBy;
 
     @Column(name = "TRANSACTION_TYPE")
-	@JsonProperty("transaction_type")
+	@JsonProperty("TRANSACTION_TYPE")
     private String transactionType = "BOOKING";
 
     @Column(name = "ADDED_DATE")
-	@JsonProperty("added_date")
+	@JsonProperty("ADDED_DATE")
     private Timestamp addedDate;
 
     @Column(name = "TRANSACTION_ID")
-	@JsonProperty("transaction_id")
+	@JsonProperty("TRANSACTION_ID")
     private Integer transactionId;
 
     

@@ -20,87 +20,87 @@ public class PaymonkSettlementEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "PAYMONK_TRANSACTION_ID", nullable = false)
-	@JsonProperty("paymonk_transaction_id")
+	@JsonProperty("PAYMONK_TRANSACTION_ID")
     private String paymonkTransactionId;
 
     @Column(name = "TYPE", nullable = false)
-	@JsonProperty("type")
+	@JsonProperty("TYPE")
     private String TYPE;
 
     @Column(name = "PRODUCT_ID")
-	@JsonProperty("product_id")
+	@JsonProperty("PRODUCT_ID")
     private String productId;
 
     @Column(name = "ORDER_AMOUNT")
-	@JsonProperty("order_amount")
+	@JsonProperty("ORDER_AMOUNT")
     private Double orderAmount = 0D;
 
     @Column(name = "PAYMENT_AMOUNT")
-	@JsonProperty("payment_amount")
+	@JsonProperty("PAYMENT_AMOUNT")
     private Double paymentAmount = 0D;
 
     @Column(name = "ORDER_STATUS")
-	@JsonProperty("order_status")
+	@JsonProperty("ORDER_STATUS")
     private String orderStatus;
 
     @Column(name = "PAYMENT_STATUS")
-	@JsonProperty("payment_status")
+	@JsonProperty("PAYMENT_STATUS")
     private String paymentStatus;
 
     @Column(name = "CREATED_AT")
-	@JsonProperty("created_at")
+	@JsonProperty("CREATED_AT")
     private Timestamp createdAt;
 
     @Column(name = "UPDATED_AT")
-	@JsonProperty("updated_at")
+	@JsonProperty("UPDATED_AT")
     private Timestamp updatedAt;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "STUDENT_NAME")
-	@JsonProperty("student_name")
+	@JsonProperty("STUDENT_NAME")
     private String studentName;
 
     @Column(name = "SENDER_ID")
-	@JsonProperty("sender_id")
+	@JsonProperty("SENDER_ID")
     private String senderId;
 
     @Column(name = "MOBILE_NUMBER")
-	@JsonProperty("mobile_number")
+	@JsonProperty("MOBILE_NUMBER")
     private String mobileNumber;
 
     @Column(name = "BATCH_ID")
-	@JsonProperty("batch_id")
+	@JsonProperty("BATCH_ID")
     private String batchId;
 
     @Column(name = "IS_SETTLED")
-	@JsonProperty("is_settled")
+	@JsonProperty("IS_SETTLED")
     private Integer settled = 0;
 
     @Column(name = "BATCH_NAME")
-	@JsonProperty("batch_name")
+	@JsonProperty("BATCH_NAME")
     private String batchName;
 
     @Column(name = "SETTLED_DATE")
-	@JsonProperty("settled_date")
+	@JsonProperty("SETTLED_DATE")
     private Timestamp settledDate;
 
     @Column(name = "BATCH_STATUS")
-	@JsonProperty("batch_status")
+	@JsonProperty("BATCH_STATUS")
     private String batchStatus;
 
     @Column(name = "SENDER_NAME")
-	@JsonProperty("sender_name")
+	@JsonProperty("SENDER_NAME")
     private String senderName;
 
     @Column(name = "PROPERTY_NAME")
-	@JsonProperty("property_name")
+	@JsonProperty("PROPERTY_NAME")
     private String propertyName;
 
     @Column(name = "CITY")
-	@JsonProperty("city")
+	@JsonProperty("CITY")
     private String CITY;
 
     

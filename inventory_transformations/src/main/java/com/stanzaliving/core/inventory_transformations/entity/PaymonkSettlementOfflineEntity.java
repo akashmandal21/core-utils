@@ -20,43 +20,43 @@ public class PaymonkSettlementOfflineEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "PAYMONK_ID", nullable = false)
-	@JsonProperty("paymonk_id")
+	@JsonProperty("PAYMONK_ID")
     private Integer paymonkId;
 
     @Column(name = "RETAILER")
-	@JsonProperty("retailer")
+	@JsonProperty("RETAILER")
     private String RETAILER;
 
     @Column(name = "MOBILE_NUMBER")
-	@JsonProperty("mobile_number")
+	@JsonProperty("MOBILE_NUMBER")
     private String mobileNumber;
 
     @Column(name = "ORDER_AMOUNT")
-	@JsonProperty("order_amount")
+	@JsonProperty("ORDER_AMOUNT")
     private Double orderAmount;
 
     @Column(name = "ORDER_STATUS")
-	@JsonProperty("order_status")
+	@JsonProperty("ORDER_STATUS")
     private String orderStatus;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "STUDENT_NAME")
-	@JsonProperty("student_name")
+	@JsonProperty("STUDENT_NAME")
     private String studentName;
 
     @Column(name = "SENDER_NAME")
-	@JsonProperty("sender_name")
+	@JsonProperty("SENDER_NAME")
     private String senderName;
 
     @Column(name = "SENDER_ID")
-	@JsonProperty("sender_id")
+	@JsonProperty("SENDER_ID")
     private Integer senderId;
 
     @Column(name = "CREATED_AT")
-	@JsonProperty("created_at")
+	@JsonProperty("CREATED_AT")
     private Timestamp createdAt;
 
     

@@ -17,23 +17,23 @@ public class AgreementAddendumMappingEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "AGREEMENT_DOCUMENT_ID")
-	@JsonProperty("agreement_document_id")
+	@JsonProperty("AGREEMENT_DOCUMENT_ID")
     private String agreementDocumentId;
 
     @Column(name = "ADDENDUM_DOCUMENT_ID")
-	@JsonProperty("addendum_document_id")
+	@JsonProperty("ADDENDUM_DOCUMENT_ID")
     private String addendumDocumentId;
 
     @Column(name = "ADDENDUM_URL")
-	@JsonProperty("addendum_url")
+	@JsonProperty("ADDENDUM_URL")
     private String addendumUrl;
 
     @Column(name = "ADDENDUM_DOCUMENT_IS_SIGNED")
-	@JsonProperty("addendum_document_is_signed")
+	@JsonProperty("ADDENDUM_DOCUMENT_IS_SIGNED")
     private String addendumDocumentIsSigned;
 
     

@@ -20,103 +20,103 @@ public class RazorpayReconEntity implements Serializable {
 
     @Id
     @Column(name = "ENTITY_ID", insertable = false, nullable = false)
-	@JsonProperty("entity_id")
+	@JsonProperty("ENTITY_ID")
     private String entityId;
 
     @Column(name = "TYPE")
-	@JsonProperty("type")
+	@JsonProperty("TYPE")
     private String TYPE;
 
     @Column(name = "DEBIT")
-	@JsonProperty("debit")
+	@JsonProperty("DEBIT")
     private Integer DEBIT = 0;
 
     @Column(name = "CREDIT")
-	@JsonProperty("credit")
+	@JsonProperty("CREDIT")
     private Integer CREDIT = 0;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("amount")
+	@JsonProperty("AMOUNT")
     private Integer AMOUNT = 0;
 
     @Column(name = "CURRENCY")
-	@JsonProperty("currency")
+	@JsonProperty("CURRENCY")
     private String CURRENCY;
 
     @Column(name = "FEE")
-	@JsonProperty("fee")
+	@JsonProperty("FEE")
     private Integer FEE = 0;
 
     @Column(name = "TAX")
-	@JsonProperty("tax")
+	@JsonProperty("TAX")
     private Integer TAX = 0;
 
     @Column(name = "ON_HOLD")
-	@JsonProperty("on_hold")
+	@JsonProperty("ON_HOLD")
     private Boolean onHold = Boolean.FALSE;
 
     @Column(name = "SETTLED")
-	@JsonProperty("settled")
+	@JsonProperty("SETTLED")
     private Boolean SETTLED = Boolean.FALSE;
 
     @Column(name = "CREATED_AT")
-	@JsonProperty("created_at")
+	@JsonProperty("CREATED_AT")
     private Timestamp createdAt;
 
     @Column(name = "SETTLED_AT")
-	@JsonProperty("settled_at")
+	@JsonProperty("SETTLED_AT")
     private Timestamp settledAt;
 
     @Column(name = "SETTLEMENT_ID")
-	@JsonProperty("settlement_id")
+	@JsonProperty("SETTLEMENT_ID")
     private String settlementId;
 
     @Column(name = "DESCRIPTION")
-	@JsonProperty("description")
+	@JsonProperty("DESCRIPTION")
     private String DESCRIPTION;
 
     @Column(name = "PAYMENT_ID")
-	@JsonProperty("payment_id")
+	@JsonProperty("PAYMENT_ID")
     private String paymentId;
 
     @Column(name = "SETTLEMENT_UTR")
-	@JsonProperty("settlement_utr")
+	@JsonProperty("SETTLEMENT_UTR")
     private String settlementUtr;
 
     @Column(name = "ORDER_ID")
-	@JsonProperty("order_id")
+	@JsonProperty("ORDER_ID")
     private String orderId;
 
     @Column(name = "ORDER_RECEIPT")
-	@JsonProperty("order_receipt")
+	@JsonProperty("ORDER_RECEIPT")
     private String orderReceipt;
 
     @Column(name = "METHOD")
-	@JsonProperty("method")
+	@JsonProperty("METHOD")
     private String METHOD;
 
     @Column(name = "CARD_NETWORK")
-	@JsonProperty("card_network")
+	@JsonProperty("CARD_NETWORK")
     private String cardNetwork;
 
     @Column(name = "CARD_ISSUER")
-	@JsonProperty("card_issuer")
+	@JsonProperty("CARD_ISSUER")
     private String cardIssuer;
 
     @Column(name = "CARD_TYPE")
-	@JsonProperty("card_type")
+	@JsonProperty("CARD_TYPE")
     private String cardType;
 
     @Column(name = "DISPUTE_ID")
-	@JsonProperty("dispute_id")
+	@JsonProperty("DISPUTE_ID")
     private String disputeId;
 
     @Column(name = "ADDED_AT")
-	@JsonProperty("added_at")
+	@JsonProperty("ADDED_AT")
     private Timestamp addedAt;
 
     @Column(name = "NOTES")
-	@JsonProperty("notes")
+	@JsonProperty("NOTES")
     private String NOTES;
 
     

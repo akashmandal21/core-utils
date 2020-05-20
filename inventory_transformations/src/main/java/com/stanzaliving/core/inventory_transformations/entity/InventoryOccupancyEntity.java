@@ -18,47 +18,47 @@ public class InventoryOccupancyEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "START_DATE", nullable = false)
-	@JsonProperty("start_date")
+	@JsonProperty("START_DATE")
     private Timestamp startDate;
 
     @Column(name = "END_DATE", nullable = false)
-	@JsonProperty("end_date")
+	@JsonProperty("END_DATE")
     private Timestamp endDate;
 
     @Column(name = "ROOM_ID")
-	@JsonProperty("room_id")
+	@JsonProperty("ROOM_ID")
     private Integer roomId;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("booking_id")
+	@JsonProperty("BOOKING_ID")
     private Integer bookingId;
 
     @Column(name = "INVENTORY_ID", nullable = false)
-	@JsonProperty("inventory_id")
+	@JsonProperty("INVENTORY_ID")
     private Integer inventoryId;
 
     @Column(name = "RESIDENCE_ID")
-	@JsonProperty("residence_id")
+	@JsonProperty("RESIDENCE_ID")
     private Integer residenceId;
 
     @Column(name = "UPDATED")
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "BLOCKED")
-	@JsonProperty("blocked")
+	@JsonProperty("BLOCKED")
     private Boolean BLOCKED = false;
 
     @Column(name = "BEDS")
-	@JsonProperty("beds")
+	@JsonProperty("BEDS")
     private Double BEDS;
 
     

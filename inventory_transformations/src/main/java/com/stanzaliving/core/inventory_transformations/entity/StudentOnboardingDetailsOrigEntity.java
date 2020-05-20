@@ -20,87 +20,87 @@ public class StudentOnboardingDetailsOrigEntity implements Serializable {
 
     @Id
     @Column(name = "STUDENT_ID", insertable = false, nullable = false)
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     @Column(name = "AADHAR")
-	@JsonProperty("aadhar")
+	@JsonProperty("AADHAR")
     private String AADHAR;
 
     @Column(name = "AADHAR_PHOTO")
-	@JsonProperty("aadhar_photo")
+	@JsonProperty("AADHAR_PHOTO")
     private String aadharPhoto;
 
     @Column(name = "ACCOUNT_NAME")
-	@JsonProperty("account_name")
+	@JsonProperty("ACCOUNT_NAME")
     private String accountName;
 
     @Column(name = "ACCOUNT_NUMBER")
-	@JsonProperty("account_number")
+	@JsonProperty("ACCOUNT_NUMBER")
     private String accountNumber;
 
     @Column(name = "BIOMETRIC_ID")
-	@JsonProperty("biometric_id")
+	@JsonProperty("BIOMETRIC_ID")
     private String biometricId;
 
     @Column(name = "CANCELLED_CHEQUE")
-	@JsonProperty("cancelled_cheque")
+	@JsonProperty("CANCELLED_CHEQUE")
     private String cancelledCheque;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "IFSC_CODE")
-	@JsonProperty("ifsc_code")
+	@JsonProperty("IFSC_CODE")
     private String ifscCode;
 
     @Column(name = "NOC")
-	@JsonProperty("noc")
+	@JsonProperty("NOC")
     private String NOC;
 
     @Column(name = "OTHER_ID")
-	@JsonProperty("other_id")
+	@JsonProperty("OTHER_ID")
     private String otherId;
 
     @Column(name = "OTHER_ID_PHOTO")
-	@JsonProperty("other_id_photo")
+	@JsonProperty("OTHER_ID_PHOTO")
     private String otherIdPhoto;
 
     @Column(name = "PAN_CARD")
-	@JsonProperty("pan_card")
+	@JsonProperty("PAN_CARD")
     private String panCard;
 
     @Column(name = "PAN_CARD_PHOTO")
-	@JsonProperty("pan_card_photo")
+	@JsonProperty("PAN_CARD_PHOTO")
     private String panCardPhoto;
 
     @Column(name = "POLICE_VERIFICATION")
-	@JsonProperty("police_verification")
+	@JsonProperty("POLICE_VERIFICATION")
     private String policeVerification;
 
     @Column(name = "STATUS")
-	@JsonProperty("status")
+	@JsonProperty("STATUS")
     private String STATUS;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     @Column(name = "PAN_TYPE")
-	@JsonProperty("pan_type")
+	@JsonProperty("PAN_TYPE")
     private String panType;
 
     @Column(name = "CREATED_BY")
-	@JsonProperty("created_by")
+	@JsonProperty("CREATED_BY")
     private String createdBy;
 
     @Column(name = "ELEC_METER_READING")
-	@JsonProperty("elec_meter_reading")
+	@JsonProperty("ELEC_METER_READING")
     private Integer elecMeterReading = 0;
 
     @Column(name = "COMMENTS")
-	@JsonProperty("comments")
+	@JsonProperty("COMMENTS")
     private String COMMENTS;
 
     

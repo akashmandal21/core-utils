@@ -20,99 +20,99 @@ public class BookingCommercialsAuditEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "BOOKING_AUDIT_ID", nullable = false)
-	@JsonProperty("booking_audit_id")
+	@JsonProperty("BOOKING_AUDIT_ID")
     private Integer bookingAuditId;
 
     @Column(name = "ADMIN_CHARGES")
-	@JsonProperty("admin_charges")
+	@JsonProperty("ADMIN_CHARGES")
     private Double adminCharges;
 
     @Column(name = "ADVANCE_AMOUNT")
-	@JsonProperty("advance_amount")
+	@JsonProperty("ADVANCE_AMOUNT")
     private Double advanceAmount;
 
     @Column(name = "MANDATORY_SERVICE_PRICE")
-	@JsonProperty("mandatory_service_price")
+	@JsonProperty("MANDATORY_SERVICE_PRICE")
     private Double mandatoryServicePrice;
 
     @Column(name = "NON_REFUNDABLE_SECURITY")
-	@JsonProperty("non_refundable_security")
+	@JsonProperty("NON_REFUNDABLE_SECURITY")
     private Double nonRefundableSecurity;
 
     @Column(name = "OPTIONAL_SERVICE_PRICE")
-	@JsonProperty("optional_service_price")
+	@JsonProperty("OPTIONAL_SERVICE_PRICE")
     private Double optionalServicePrice;
 
     @Column(name = "REFUNDABLE_SECURITY")
-	@JsonProperty("refundable_security")
+	@JsonProperty("REFUNDABLE_SECURITY")
     private Double refundableSecurity;
 
     @Column(name = "ROOM_PRICE")
-	@JsonProperty("room_price")
+	@JsonProperty("ROOM_PRICE")
     private Double roomPrice;
 
     @Column(name = "TOTAL_AMOUNT")
-	@JsonProperty("total_amount")
+	@JsonProperty("TOTAL_AMOUNT")
     private Double totalAmount;
 
     @Column(name = "DISCOUNT_ID")
-	@JsonProperty("discount_id")
+	@JsonProperty("DISCOUNT_ID")
     private String discountId;
 
     @Column(name = "BOOKING_AMOUNT")
-	@JsonProperty("booking_amount")
+	@JsonProperty("BOOKING_AMOUNT")
     private Double bookingAmount;
 
     @Column(name = "ADVANCE_RENTAL")
-	@JsonProperty("advance_rental")
+	@JsonProperty("ADVANCE_RENTAL")
     private Double advanceRental;
 
     @Column(name = "CGST")
-	@JsonProperty("cgst")
+	@JsonProperty("CGST")
     private Double CGST;
 
     @Column(name = "IGST")
-	@JsonProperty("igst")
+	@JsonProperty("IGST")
     private Double IGST;
 
     @Column(name = "SGST")
-	@JsonProperty("sgst")
+	@JsonProperty("SGST")
     private Double SGST;
 
     @Column(name = "ADVANCE_RENTAL_MONTHS")
-	@JsonProperty("advance_rental_months")
+	@JsonProperty("ADVANCE_RENTAL_MONTHS")
     private Integer advanceRentalMonths;
 
     @Column(name = "BUFFER_PRICE")
-	@JsonProperty("buffer_price")
+	@JsonProperty("BUFFER_PRICE")
     private Double bufferPrice;
 
     @Column(name = "VALID_FROM")
-	@JsonProperty("valid_from")
+	@JsonProperty("VALID_FROM")
     private Timestamp validFrom;
 
     @Column(name = "VALID_TO")
-	@JsonProperty("valid_to")
+	@JsonProperty("VALID_TO")
     private Timestamp validTo;
 
     @Column(name = "INITIAL_ADVANCE_RENTAL_MONTHS")
-	@JsonProperty("initial_advance_rental_months")
+	@JsonProperty("INITIAL_ADVANCE_RENTAL_MONTHS")
     private Integer initialAdvanceRentalMonths;
 
     @Column(name = "VAS_PRICE")
-	@JsonProperty("vas_price")
+	@JsonProperty("VAS_PRICE")
     private Double vasPrice = 0D;
 
     @Column(name = "SALES_BUFFER_PRICE")
-	@JsonProperty("sales_buffer_price")
+	@JsonProperty("SALES_BUFFER_PRICE")
     private Double salesBufferPrice = 0D;
 
     @Column(name = "SECURITY_DEPOSIT")
-	@JsonProperty("security_deposit")
+	@JsonProperty("SECURITY_DEPOSIT")
     private Double securityDeposit = 0D;
 
     @Column(name = "MAINTENANCE_FEE")
-	@JsonProperty("maintenance_fee")
+	@JsonProperty("MAINTENANCE_FEE")
     private Double maintenanceFee = 0D;
 
     

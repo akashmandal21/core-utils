@@ -18,67 +18,67 @@ public class ResidencesEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Long id;
 
     @Column(name = "uuid", nullable = false, columnDefinition = "char")
-	@JsonProperty("uuid")
+	@JsonProperty("UUID")
     private String uuid;
 
     @Column(name = "residence_name", nullable = false)
-	@JsonProperty("residence_name")
+	@JsonProperty("RESIDENCE_NAME")
     private String residenceName;
 
     @Column(name = "micromarket_id", nullable = false, columnDefinition = "char")
-	@JsonProperty("micromarket_id")
+	@JsonProperty("MICROMARKET_ID")
     private String micromarketId;
 
     @Column(name = "residence_type", nullable = false)
-	@JsonProperty("residence_type")
+	@JsonProperty("RESIDENCE_TYPE")
     private String residenceType;
 
     @Column(name = "brand_name", nullable = false)
-	@JsonProperty("brand_name")
+	@JsonProperty("BRAND_NAME")
     private String brandName;
 
     @Column(name = "bed_count", nullable = false)
-	@JsonProperty("bed_count")
+	@JsonProperty("BED_COUNT")
     private Integer bedCount = 0;
 
     @Column(name = "room_count", nullable = false)
-	@JsonProperty("room_count")
+	@JsonProperty("ROOM_COUNT")
     private Integer roomCount = 0;
 
     @Column(name = "estate_gender", nullable = false)
-	@JsonProperty("estate_gender")
+	@JsonProperty("ESTATE_GENDER")
     private String estateGender;
 
     @Column(name = "core_residence_id")
-	@JsonProperty("core_residence_id")
+	@JsonProperty("CORE_RESIDENCE_ID")
     private Integer coreResidenceId;
 
     @Column(name = "core_residence_name")
-	@JsonProperty("core_residence_name")
+	@JsonProperty("CORE_RESIDENCE_NAME")
     private String coreResidenceName;
 
     @Column(name = "status")
-	@JsonProperty("status")
+	@JsonProperty("STATUS")
     private Boolean status = Boolean.FALSE;
 
     @Column(name = "created_at")
-	@JsonProperty("created_at")
+	@JsonProperty("CREATED_AT")
     private Timestamp createdAt;
 
     @Column(name = "created_by", columnDefinition = "char")
-	@JsonProperty("created_by")
+	@JsonProperty("CREATED_BY")
     private String createdBy;
 
     @Column(name = "updated_at")
-	@JsonProperty("updated_at")
+	@JsonProperty("UPDATED_AT")
     private Timestamp updatedAt;
 
     @Column(name = "updated_by", columnDefinition = "char")
-	@JsonProperty("updated_by")
+	@JsonProperty("UPDATED_BY")
     private String updatedBy;
 
     

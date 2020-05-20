@@ -18,39 +18,39 @@ public class RblSettlementEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SETTLEMENT_ID", insertable = false, nullable = false)
-	@JsonProperty("settlement_id")
+	@JsonProperty("SETTLEMENT_ID")
     private Integer settlementId;
 
     @Column(name = "BANK_STATEMENT_ID")
-	@JsonProperty("bank_statement_id")
+	@JsonProperty("BANK_STATEMENT_ID")
     private Integer bankStatementId = 0;
 
     @Column(name = "TRANSACTION_DATE")
-	@JsonProperty("transaction_date")
+	@JsonProperty("TRANSACTION_DATE")
     private Timestamp transactionDate;
 
     @Column(name = "TRANSACTION_DETAILS")
-	@JsonProperty("transaction_details")
+	@JsonProperty("TRANSACTION_DETAILS")
     private String transactionDetails;
 
     @Column(name = "CHEQUE_ID")
-	@JsonProperty("cheque_id")
+	@JsonProperty("CHEQUE_ID")
     private String chequeId;
 
     @Column(name = "VALUE_DATE")
-	@JsonProperty("value_date")
+	@JsonProperty("VALUE_DATE")
     private Timestamp valueDate;
 
     @Column(name = "WITHDRAWAL_AMOUNT")
-	@JsonProperty("withdrawal_amount")
+	@JsonProperty("WITHDRAWAL_AMOUNT")
     private Double withdrawalAmount;
 
     @Column(name = "DEPOSIT_AMOUNT")
-	@JsonProperty("deposit_amount")
+	@JsonProperty("DEPOSIT_AMOUNT")
     private Double depositAmount;
 
     @Column(name = "SETTLEMENT_TYPE_ID")
-	@JsonProperty("settlement_type_id")
+	@JsonProperty("SETTLEMENT_TYPE_ID")
     private Integer settlementTypeId = 0;
 
     

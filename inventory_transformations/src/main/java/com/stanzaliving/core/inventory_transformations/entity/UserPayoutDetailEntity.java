@@ -16,47 +16,47 @@ public class UserPayoutDetailEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", insertable = false, nullable = false)
-	@JsonProperty("id")
+	@JsonProperty("ID")
     private Integer ID;
 
     @Column(name = "UNIQUE_IDENTIFIER")
-	@JsonProperty("unique_identifier")
+	@JsonProperty("UNIQUE_IDENTIFIER")
     private String uniqueIdentifier;
 
     @Column(name = "NAME")
-	@JsonProperty("name")
+	@JsonProperty("NAME")
     private String NAME;
 
     @Column(name = "PAYOUT_MODE_ID")
-	@JsonProperty("payout_mode_id")
+	@JsonProperty("PAYOUT_MODE_ID")
     private Integer payoutModeId;
 
     @Column(name = "USER_TYPE")
-	@JsonProperty("user_type")
+	@JsonProperty("USER_TYPE")
     private Integer userType;
 
     @Column(name = "USERNAME")
-	@JsonProperty("username")
+	@JsonProperty("USERNAME")
     private String USERNAME;
 
     @Column(name = "METADATA", columnDefinition = "json")
-	@JsonProperty("metadata")
+	@JsonProperty("METADATA")
     private String METADATA;
 
     @Column(name = "CREATED", nullable = false)
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "UPDATED", nullable = false)
-	@JsonProperty("updated")
+	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
 
     @Column(name = "VERIFIED")
-	@JsonProperty("verified")
+	@JsonProperty("VERIFIED")
     private Boolean VERIFIED = Boolean.FALSE;
 
     @Column(name = "BLOCKED")
-	@JsonProperty("blocked")
+	@JsonProperty("BLOCKED")
     private Boolean BLOCKED = Boolean.FALSE;
 
     

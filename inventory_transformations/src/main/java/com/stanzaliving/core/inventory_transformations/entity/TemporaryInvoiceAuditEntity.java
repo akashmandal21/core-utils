@@ -18,47 +18,47 @@ public class TemporaryInvoiceAuditEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TEMPORARY_INVOICE_AUDIT_ID", insertable = false, nullable = false)
-	@JsonProperty("temporary_invoice_audit_id")
+	@JsonProperty("TEMPORARY_INVOICE_AUDIT_ID")
     private Integer temporaryInvoiceAuditId;
 
     @Column(name = "INVOICE_DUE")
-	@JsonProperty("invoice_due")
+	@JsonProperty("INVOICE_DUE")
     private Double invoiceDue;
 
     @Column(name = "INVOICE_PAID")
-	@JsonProperty("invoice_paid")
+	@JsonProperty("INVOICE_PAID")
     private Double invoicePaid;
 
     @Column(name = "CREATED")
-	@JsonProperty("created")
+	@JsonProperty("CREATED")
     private Timestamp CREATED;
 
     @Column(name = "DUE_DATE")
-	@JsonProperty("due_date")
+	@JsonProperty("DUE_DATE")
     private Timestamp dueDate;
 
     @Column(name = "EXECUTION_DATE")
-	@JsonProperty("execution_date")
+	@JsonProperty("EXECUTION_DATE")
     private Timestamp executionDate;
 
     @Column(name = "FROM_DATE")
-	@JsonProperty("from_date")
+	@JsonProperty("FROM_DATE")
     private Timestamp fromDate;
 
     @Column(name = "INVOICE_AMOUNT")
-	@JsonProperty("invoice_amount")
+	@JsonProperty("INVOICE_AMOUNT")
     private Double invoiceAmount;
 
     @Column(name = "INVOICE_TYPE")
-	@JsonProperty("invoice_type")
+	@JsonProperty("INVOICE_TYPE")
     private Integer invoiceType;
 
     @Column(name = "TO_DATE")
-	@JsonProperty("to_date")
+	@JsonProperty("TO_DATE")
     private Timestamp toDate;
 
     @Column(name = "STUDENT_ID")
-	@JsonProperty("student_id")
+	@JsonProperty("STUDENT_ID")
     private String studentId;
 
     

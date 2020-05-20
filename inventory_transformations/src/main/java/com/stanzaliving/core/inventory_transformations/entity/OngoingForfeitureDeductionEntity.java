@@ -20,63 +20,63 @@ public class OngoingForfeitureDeductionEntity implements Serializable {
 
     @Id
     @Column(insertable = false, name = "BOOKING_ID", nullable = false)
-	@JsonProperty("booking_id")
+	@JsonProperty("BOOKING_ID")
     private Integer bookingId;
 
     @Column(name = "INVENTORY_ID")
-	@JsonProperty("inventory_id")
+	@JsonProperty("INVENTORY_ID")
     private Integer inventoryId;
 
     @Column(name = "ONBOARDED", nullable = false)
-	@JsonProperty("onboarded")
+	@JsonProperty("ONBOARDED")
     private Integer ONBOARDED = 0;
 
     @Column(name = "CONTRACT_END_DATE")
-	@JsonProperty("contract_end_date")
+	@JsonProperty("CONTRACT_END_DATE")
     private Timestamp contractEndDate;
 
     @Column(name = "CANCELLED_DATE")
-	@JsonProperty("cancelled_date")
+	@JsonProperty("CANCELLED_DATE")
     private Timestamp cancelledDate;
 
     @Column(name = "TOTAL_AMOUNT", nullable = false)
-	@JsonProperty("total_amount")
+	@JsonProperty("TOTAL_AMOUNT")
     private Double totalAmount = 0D;
 
     @Column(name = "REMAINING_AMOUNT", nullable = false)
-	@JsonProperty("remaining_amount")
+	@JsonProperty("REMAINING_AMOUNT")
     private Double remainingAmount = 0D;
 
     @Column(name = "SECURITY_DEPOSIT_AMOUNT", nullable = false)
-	@JsonProperty("security_deposit_amount")
+	@JsonProperty("SECURITY_DEPOSIT_AMOUNT")
     private Double securityDepositAmount = 0D;
 
     @Column(name = "ADVENCE_RENTAL_AMOUNT", nullable = false)
-	@JsonProperty("advence_rental_amount")
+	@JsonProperty("ADVENCE_RENTAL_AMOUNT")
     private Double advenceRentalAmount = 0D;
 
     @Column(name = "ONE_DAY_RENT", nullable = false)
-	@JsonProperty("one_day_rent")
+	@JsonProperty("ONE_DAY_RENT")
     private Double oneDayRent = 0D;
 
     @Column(name = "DEDUCTIONS_MADE", nullable = false)
-	@JsonProperty("deductions_made")
+	@JsonProperty("DEDUCTIONS_MADE")
     private Integer deductionsMade = 0;
 
     @Column(name = "CREATED_AT", nullable = false)
-	@JsonProperty("created_at")
+	@JsonProperty("CREATED_AT")
     private Timestamp createdAt;
 
     @Column(name = "UPDATED_AT", nullable = false)
-	@JsonProperty("updated_at")
+	@JsonProperty("UPDATED_AT")
     private Timestamp updatedAt;
 
     @Column(name = "METADATA", columnDefinition = "json")
-	@JsonProperty("metadata")
+	@JsonProperty("METADATA")
     private String METADATA;
 
     @Column(name = "BOOKING_TYPE", nullable = false)
-	@JsonProperty("booking_type")
+	@JsonProperty("BOOKING_TYPE")
     private Integer bookingType = 0;
 
     

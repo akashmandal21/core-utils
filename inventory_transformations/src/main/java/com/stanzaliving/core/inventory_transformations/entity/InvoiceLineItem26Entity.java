@@ -17,23 +17,23 @@ public class InvoiceLineItem26Entity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "INVOICE_LINE_ITEM_ID", insertable = false, nullable = false)
-	@JsonProperty("invoice_line_item_id")
+	@JsonProperty("INVOICE_LINE_ITEM_ID")
     private Integer invoiceLineItemId;
 
     @Column(name = "AMOUNT")
-	@JsonProperty("amount")
+	@JsonProperty("AMOUNT")
     private Double AMOUNT;
 
     @Column(name = "LINE_ITEM")
-	@JsonProperty("line_item")
+	@JsonProperty("LINE_ITEM")
     private String lineItem;
 
     @Column(name = "INVOICE_ID")
-	@JsonProperty("invoice_id")
+	@JsonProperty("INVOICE_ID")
     private Integer invoiceId;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("booking_id")
+	@JsonProperty("BOOKING_ID")
     private Integer bookingId;
 
     

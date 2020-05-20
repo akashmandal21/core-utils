@@ -19,19 +19,19 @@ public class PayuSettlementEntity implements Serializable {
 
     @Id
     @Column(name = "SETTLEMENT_ID", insertable = false, nullable = false)
-	@JsonProperty("settlement_id")
+	@JsonProperty("SETTLEMENT_ID")
     private String settlementId;
 
     @Column(name = "SETTLEMENT_COMPLETED_DATE")
-	@JsonProperty("settlement_completed_date")
+	@JsonProperty("SETTLEMENT_COMPLETED_DATE")
     private String settlementCompletedDate;
 
     @Column(name = "SETTLEMENT_AMOUNT")
-	@JsonProperty("settlement_amount")
+	@JsonProperty("SETTLEMENT_AMOUNT")
     private Double settlementAmount = 0D;
 
     @Column(name = "UTR_NUMBER")
-	@JsonProperty("utr_number")
+	@JsonProperty("UTR_NUMBER")
     private String utrNumber;
 
     

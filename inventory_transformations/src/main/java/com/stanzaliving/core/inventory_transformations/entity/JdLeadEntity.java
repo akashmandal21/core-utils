@@ -20,79 +20,79 @@ public class JdLeadEntity implements Serializable {
 
     @Id
     @Column(name = "LEAD_ID", insertable = false, nullable = false)
-	@JsonProperty("lead_id")
+	@JsonProperty("LEAD_ID")
     private String leadId;
 
     @Column(name = "LEAD_TYPE")
-	@JsonProperty("lead_type")
+	@JsonProperty("LEAD_TYPE")
     private String leadType;
 
     @Column(name = "PREFIX")
-	@JsonProperty("prefix")
+	@JsonProperty("PREFIX")
     private String PREFIX;
 
     @Column(name = "NAME")
-	@JsonProperty("name")
+	@JsonProperty("NAME")
     private String NAME;
 
     @Column(name = "MOBILE")
-	@JsonProperty("mobile")
+	@JsonProperty("MOBILE")
     private String MOBILE;
 
     @Column(name = "PHONE")
-	@JsonProperty("phone")
+	@JsonProperty("PHONE")
     private String PHONE;
 
     @Column(name = "EMAIL")
-	@JsonProperty("email")
+	@JsonProperty("EMAIL")
     private String EMAIL;
 
     @Column(name = "LEAD_DATE")
-	@JsonProperty("lead_date")
+	@JsonProperty("LEAD_DATE")
     private Timestamp leadDate;
 
     @Column(name = "CATEGORY")
-	@JsonProperty("category")
+	@JsonProperty("CATEGORY")
     private String CATEGORY;
 
     @Column(name = "CITY")
-	@JsonProperty("city")
+	@JsonProperty("CITY")
     private String CITY;
 
     @Column(name = "AREA")
-	@JsonProperty("area")
+	@JsonProperty("AREA")
     private String AREA;
 
     @Column(name = "BRANCH_AREA")
-	@JsonProperty("branch_area")
+	@JsonProperty("BRANCH_AREA")
     private String branchArea;
 
     @Column(name = "DNC_MOBILE")
-	@JsonProperty("dnc_mobile")
+	@JsonProperty("DNC_MOBILE")
     private Integer dncMobile = 0;
 
     @Column(name = "DNC_PHONE")
-	@JsonProperty("dnc_phone")
+	@JsonProperty("DNC_PHONE")
     private Integer dncPhone = 0;
 
     @Column(name = "COMPANY")
-	@JsonProperty("company")
+	@JsonProperty("COMPANY")
     private String COMPANY;
 
     @Column(name = "PINCODE")
-	@JsonProperty("pincode")
+	@JsonProperty("PINCODE")
     private String PINCODE;
 
     @Column(name = "LEAD_TIME")
-	@JsonProperty("lead_time")
+	@JsonProperty("LEAD_TIME")
     private String leadTime;
 
     @Column(name = "BRANCH_PIN")
-	@JsonProperty("branch_pin")
+	@JsonProperty("BRANCH_PIN")
     private String branchPin;
 
     @Column(name = "PARENT_ID")
-	@JsonProperty("parent_id")
+	@JsonProperty("PARENT_ID")
     private String parentId;
 
     
