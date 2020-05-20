@@ -299,7 +299,7 @@ public class UserClientApi {
 
 	}
 
-	private ResponseDto<UserProfileDto> getUserByUuid(String userUuid) {
+	public ResponseDto<UserProfileDto> getUserProfileByUuid(String userUuid) {
 
 		Object postBody = null;
 
