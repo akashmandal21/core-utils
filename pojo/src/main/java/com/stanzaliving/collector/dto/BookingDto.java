@@ -1,5 +1,6 @@
 package com.stanzaliving.collector.dto;
 
+import com.stanzaliving.collector.enums.BookingType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,4 +17,6 @@ public class BookingDto {
     Date contractStartDate;
     Date contractEndDate;
     String ventaUserUuid;
+    String lockIn;
+    BookingType bookingType;
 }
