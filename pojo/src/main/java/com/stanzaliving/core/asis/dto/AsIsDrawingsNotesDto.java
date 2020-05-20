@@ -1,6 +1,7 @@
 package com.stanzaliving.core.asis.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
 
@@ -34,6 +35,7 @@ public class AsIsDrawingsNotesDto implements Serializable{
 	
 	@NotBlank(message = "Discussion notes can't be empty.")
 	private String notes;
-	
+
+	private Date dateFormat;
 	
 }

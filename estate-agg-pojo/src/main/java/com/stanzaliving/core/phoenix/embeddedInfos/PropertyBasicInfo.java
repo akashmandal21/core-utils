@@ -43,6 +43,8 @@ public class PropertyBasicInfo {
 
     private String sowAtlUrl;
 
+    private String llhodocUrl;
+
     private Integer numBeds;
     private Integer rentFreeDays;
     private Integer numRooms;
