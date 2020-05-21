@@ -8,6 +8,7 @@ import java.util.Objects;
 
 import org.apache.commons.collections.CollectionUtils;
 
+import com.stanzaliving.core.base.utils.NumberUtils;
 import com.stanzaliving.core.rule.engine.dto.ConditionCombinationDto;
 import com.stanzaliving.core.rule.engine.enums.RuleOperatorEnum;
 
@@ -26,39 +27,41 @@ public class RuleEngine {
 
 	private Boolean valid(ConditionCombinationDto combinationDto) {
 
-		Long rightValue = Long.valueOf(combinationDto.getRightOperand());
-		Long leftValue = Long.valueOf(expressionVariables.getOrDefault(combinationDto.getLeftOperand(), 0));
-
-		RuleOperatorEnum operator = combinationDto.getOperator();
-
 		boolean valid = true;
 
-		switch (operator) {
+		if (NumberUtils.parsableToLong(combinationDto.getRightOperand())) {
 
-			case EQ:
-				valid = rightValue.equals(leftValue);
-				break;
+			Long rightValue = Long.valueOf(combinationDto.getRightOperand());
+			Long leftValue = Long.valueOf(expressionVariables.getOrDefault(combinationDto.getLeftOperand(), 0));
 
-			case GT:
-				valid = leftValue > rightValue;
-				break;
+			RuleOperatorEnum operator = combinationDto.getOperator();
 
-			case GT_EQ:
-				valid = leftValue >= rightValue;
-				break;
+			switch (operator) {
 
-			case LT:
-				valid = leftValue < rightValue;
-				break;
+				case EQ:
+					valid = rightValue.equals(leftValue);
+					break;
 
-			case LT_EQ:
-				valid = leftValue <= rightValue;
-				break;
+				case GT:
+					valid = leftValue > rightValue;
+					break;
 
-			default:
-				break;
+				case GT_EQ:
+					valid = leftValue >= rightValue;
+					break;
+
+				case LT:
+					valid = leftValue < rightValue;
+					break;
+
+				case LT_EQ:
+					valid = leftValue <= rightValue;
+					break;
+
+				default:
+					break;
+			}
 		}
-
 		return valid;
 	}
 

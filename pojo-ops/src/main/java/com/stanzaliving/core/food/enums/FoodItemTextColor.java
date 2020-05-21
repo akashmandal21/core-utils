@@ -33,17 +33,23 @@ public enum FoodItemTextColor {
 	private static List<ListingDto> colorList = new ArrayList<>();
 
 	private static Map<String, FoodItemTextColor> colorByNameMap = new HashMap<>();
+	private static Map<String, FoodItemTextColor> colorByCodeMap = new HashMap<>();
 
 	static {
 
 		for (FoodItemTextColor itemTextColor : FoodItemTextColor.values()) {
 			colorByNameMap.put(itemTextColor.getColorName(), itemTextColor);
+			colorByCodeMap.put(itemTextColor.getColorCode(), itemTextColor);
 			colorList.add(ListingDto.builder().id(itemTextColor.getColorName()).name(itemTextColor.getColorCode()).build());
 		}
 	}
 
 	public static FoodItemTextColor getColorByName(String colorName) {
 		return colorByNameMap.get(colorName);
+	}
+	
+	public static FoodItemTextColor getColorByCode(String colorCode) {
+		return colorByCodeMap.get(colorCode);
 	}
 
 	public static List<ListingDto> getItemTextColors() {

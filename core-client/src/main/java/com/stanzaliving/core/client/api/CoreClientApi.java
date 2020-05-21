@@ -246,7 +246,18 @@ public class CoreClientApi {
 
 		ParameterizedTypeReference<Map<String, Integer>> returnType = new ParameterizedTypeReference<Map<String, Integer>>() {
 		};
+		
+		Map<String, Integer> response = new HashMap<>();
+			
+		try {
+			
+		 response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		 
+		} catch (Exception e) {
 
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			log.error("exception while getting user code map from core", e);
+			
+		}
+		return response;
 	}
 }
