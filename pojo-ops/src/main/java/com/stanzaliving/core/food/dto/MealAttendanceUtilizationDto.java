@@ -17,6 +17,8 @@ public class MealAttendanceUtilizationDto {
 	
 	private Integer attendance;
 	
-	private Double utilization;
+	private Double plannedUtilization;
+	
+	private Double actualUtilization;
 	
 }
