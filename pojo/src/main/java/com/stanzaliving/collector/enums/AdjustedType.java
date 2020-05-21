@@ -1,5 +1,37 @@
 package com.stanzaliving.collector.enums;
 
+import com.stanzaliving.collector.dto.UserRentAggregationDto;
+import com.stanzaliving.core.base.utils.DateUtil;
+
+import java.time.LocalDate;
+
 public enum AdjustedType {
-    NONE, BOTH, AR_ONLY, SD_ONLY;
+    NONE{
+        public Double getAmount(UserRentAggregationDto userRentAggregationDto) {
+            return 0.0;
+        }
+    }, BOTH{
+        public Double getAmount(UserRentAggregationDto userRentAggregationDto) {
+            return AR_ONLY.getAmount(userRentAggregationDto) + userRentAggregationDto.getSecurityDeposit();
+        }
+    }, AR_ONLY{
+        public Double getAmount(UserRentAggregationDto userRentAggregationDto) {
+            LocalDate todayDate = LocalDate.now();
+            if(todayDate.isBefore(userRentAggregationDto.getContractEndDate()
+                    .minusMonths(userRentAggregationDto.getAdvanceRentalDuration())) || todayDate.isEqual(userRentAggregationDto.getAdvanceRentalFromDate())){
+                return userRentAggregationDto.getAdvanceRentalAmount();
+            }
+            if(todayDate.isAfter(userRentAggregationDto.getAdvanceRentalFromDate()) && todayDate.isBefore(userRentAggregationDto.getAdvanceRentalToDate())){
+                Double perDayAdvanceRental = userRentAggregationDto.getAdvanceRentalAmount()/DateUtil.getCountOfDates(userRentAggregationDto.getAdvanceRentalFromDate()
+                        , userRentAggregationDto.getAdvanceRentalToDate());
+                return DateUtil.getCountOfDates(todayDate, userRentAggregationDto.getAdvanceRentalToDate())*perDayAdvanceRental;
+            }
+            return 0.0;
+        }
+    }, SD_ONLY{
+        public Double getAmount(UserRentAggregationDto userRentAggregationDto) {
+            return userRentAggregationDto.getSecurityDeposit();
+        }
+    };
+    public abstract Double getAmount(UserRentAggregationDto userRentAggregationDto);
 }
