@@ -24,10 +24,8 @@ public class RentDashboardRequestDto extends BaseRequestDto {
 
     @NotNull
     List<ResidenceType> residenceTypeList;
-    LocalDate fromDate;
     @NotNull
     AdjustedType adjustedType;
     @NotNull
     LabelType labelType;
-    DataValueType dataValueType;
 }

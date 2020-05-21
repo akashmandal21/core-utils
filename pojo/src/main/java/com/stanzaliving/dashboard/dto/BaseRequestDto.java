@@ -21,6 +21,8 @@ public class BaseRequestDto implements Cloneable {
 
     private List<String> residenceUuid;
 
+    private String accessLevel;
+
     protected Object clone() {
         try {
             return super.clone();

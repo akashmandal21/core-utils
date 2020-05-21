@@ -7,15 +7,15 @@ import java.time.LocalDate;
 
 public enum AdjustedType {
     NONE{
-        public Double getAmount(UserRentAggregationDto userRentAggregationDto) {
+        public Double getAdjustedAmountForActionTrackerByResidents(UserRentAggregationDto userRentAggregationDto) {
             return 0.0;
         }
     }, BOTH{
-        public Double getAmount(UserRentAggregationDto userRentAggregationDto) {
-            return AR_ONLY.getAmount(userRentAggregationDto) + userRentAggregationDto.getSecurityDeposit();
+        public Double getAdjustedAmountForActionTrackerByResidents(UserRentAggregationDto userRentAggregationDto) {
+            return AR_ONLY.getAdjustedAmountForActionTrackerByResidents(userRentAggregationDto) + userRentAggregationDto.getSecurityDeposit();
         }
     }, AR_ONLY{
-        public Double getAmount(UserRentAggregationDto userRentAggregationDto) {
+        public Double getAdjustedAmountForActionTrackerByResidents(UserRentAggregationDto userRentAggregationDto) {
             LocalDate todayDate = LocalDate.now();
             if(todayDate.isBefore(userRentAggregationDto.getContractEndDate()
                     .minusMonths(userRentAggregationDto.getAdvanceRentalDuration())) || todayDate.isEqual(userRentAggregationDto.getAdvanceRentalFromDate())){
@@ -29,9 +29,9 @@ public enum AdjustedType {
             return 0.0;
         }
     }, SD_ONLY{
-        public Double getAmount(UserRentAggregationDto userRentAggregationDto) {
+        public Double getAdjustedAmountForActionTrackerByResidents(UserRentAggregationDto userRentAggregationDto) {
             return userRentAggregationDto.getSecurityDeposit();
         }
     };
-    public abstract Double getAmount(UserRentAggregationDto userRentAggregationDto);
+    public abstract Double getAdjustedAmountForActionTrackerByResidents(UserRentAggregationDto userRentAggregationDto);
 }
