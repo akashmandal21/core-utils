@@ -23,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public abstract class CategoryDto {
 
-	private int count;
+	private double count;
 	private int rate;
 	private int utilization;
 	private int margin;

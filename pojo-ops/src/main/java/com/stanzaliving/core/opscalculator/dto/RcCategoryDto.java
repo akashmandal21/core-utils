@@ -23,10 +23,8 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-@JsonIgnoreProperties({ "utilization", "count" })
+@JsonIgnoreProperties({ "utilization" })
 public class RcCategoryDto extends CategoryDto {
-
-	private double countDec;
 
 	@Builder.Default
 	private int gst = Constants.GST_RC_PERCENT;
