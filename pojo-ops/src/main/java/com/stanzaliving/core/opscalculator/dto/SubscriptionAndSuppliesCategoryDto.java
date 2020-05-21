@@ -29,6 +29,10 @@ import lombok.experimental.SuperBuilder;
 public class SubscriptionAndSuppliesCategoryDto extends CategoryDto {
 
 	private int internet;
+
+	@Builder.Default
+	private boolean internetEnabled = false;
+
 	private int cleaningSupplies;
 	private int foodSupplies;
 
