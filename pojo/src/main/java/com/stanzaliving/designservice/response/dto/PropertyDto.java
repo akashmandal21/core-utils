@@ -29,4 +29,5 @@ public class PropertyDto {
 	private Date submittedOn;
 	private String addedBy;
 	private String colorCode;
+	private String houseName;
 }
