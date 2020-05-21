@@ -39,7 +39,7 @@ public class EntityNameHelper {
      */
     public static String parseFieldName(String columnName) {
         if (!columnName.contains("_")) {
-            return columnName;
+            return columnName.toLowerCase();
         }
         columnName = columnName.toLowerCase();
         if (columnName.startsWith("is_")) {
