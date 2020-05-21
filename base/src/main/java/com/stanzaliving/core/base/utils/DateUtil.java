@@ -342,4 +342,25 @@ public class DateUtil {
 		return cal.getTime();
 	}
 
+	public static Date addToDate(Date dateToBeAdjusted, Integer days, Integer months, Integer  years, Boolean normalizeDate){
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(dateToBeAdjusted);
+		if(normalizeDate) {
+			calendar.set(Calendar.MINUTE, 0);
+			calendar.set(Calendar.SECOND, 0);
+			calendar.set(Calendar.HOUR_OF_DAY, 0);
+			calendar.set(Calendar.MILLISECOND, 0);
+		}
+		if(days!=null) {
+			calendar.add(Calendar.DAY_OF_MONTH, days);
+		}
+		if(months!=null) {
+			calendar.add(Calendar.MONTH, months);
+		}
+		if(years!=null) {
+			calendar.add(Calendar.YEAR, years);
+		}
+		return calendar.getTime();
+	}
+
 }
