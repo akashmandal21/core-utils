@@ -77,85 +77,85 @@ public class SalesTrackerEntity implements Serializable {
 	@JsonProperty("LIVE_BEDS")
     private Double liveBeds = 0D;
 
-    @Column(name = "AVERAGE_COMMITTED_LOCKIN")
-	@JsonProperty("AVERAGE_COMMITTED_LOCKIN")
-    private Double averageCommittedLockin = 0D;
-
-    @Column(name = "UNIQUE_SALES")
-	@JsonProperty("UNIQUE_SALES")
-    private Double uniqueSales = 0D;
-
-    @Column(name = "UPCOMING_TERMINATIONS")
-	@JsonProperty("UPCOMING_TERMINATIONS")
-    private Double upcomingTerminations = 0D;
-
-    @Column(name = "UPCOMING_MOVE_INS")
-	@JsonProperty("UPCOMING_MOVE_INS")
-    private Double upcomingMoveIns = 0D;
-
-    @Column(name = "LIVE_BOOKINGS", nullable = false)
-	@JsonProperty("LIVE_BOOKINGS")
-    private Integer liveBookings;
-
-    @Column(name = "RUNNING_FORFEITURE", nullable = false)
-	@JsonProperty("RUNNING_FORFEITURE")
-    private Integer runningForfeiture;
-
-    @Column(name = "CREATED", nullable = false)
-	@JsonProperty("CREATED")
-    private Date CREATED;
-
-    @Column(name = "LIVE_OCCUPANCY")
-	@JsonProperty("LIVE_OCCUPANCY")
-    private Double liveOccupancy = 0D;
-
-    @Column(name = "ONBOARDED_BEDS")
-	@JsonProperty("ONBOARDED_BEDS")
-    private Integer onboardedBeds = 0;
-
-    @Column(name = "FORWARD_GROSS_OCCUPANCY")
-	@JsonProperty("FORWARD_GROSS_OCCUPANCY")
-    private Double forwardGrossOccupancy = 0D;
-
-    @Column(name = "FORWARD_NET_OCCUPANCY")
-	@JsonProperty("FORWARD_NET_OCCUPANCY")
-    private Double forwardNetOccupancy = 0D;
-
-    @Column(name = "MTD")
-	@JsonProperty("MTD")
-    private Double MTD = 0D;
-
-    @Column(name = "L7D")
-	@JsonProperty("L7D")
-    private Double L7D = 0D;
-
-    @Column(name = "L3D")
-	@JsonProperty("L3D")
-    private Double L3D = 0D;
-
-    @Column(name = "RETENTION_MTD")
-	@JsonProperty("RETENTION_MTD")
-    private Double retentionMtd = 0D;
-
-    @Column(name = "RETENTION_L7D")
-	@JsonProperty("RETENTION_L7D")
-    private Double retentionL7d = 0D;
-
-    @Column(name = "RETENTION_L3D")
-	@JsonProperty("RETENTION_L3D")
-    private Double retentionL3d = 0D;
-
-    @Column(name = "AVERAGE_UNEXPIRED_LOCKIN")
-	@JsonProperty("AVERAGE_UNEXPIRED_LOCKIN")
-    private Double averageUnexpiredLockin = 0D;
-
-    @Column(name = "BOOKING_TYPE")
-	@JsonProperty("BOOKING_TYPE")
-    private Integer bookingType;
-
-    @Column(name = "BEDS_CS_NMI")
-	@JsonProperty("BEDS_CS_NMI")
-    private Double bedsCsNmi;
+//    @Column(name = "AVERAGE_COMMITTED_LOCKIN")
+//	@JsonProperty("AVERAGE_COMMITTED_LOCKIN")
+//    private Double averageCommittedLockin = 0D;
+//
+//    @Column(name = "UNIQUE_SALES")
+//	@JsonProperty("UNIQUE_SALES")
+//    private Double uniqueSales = 0D;
+//
+//    @Column(name = "UPCOMING_TERMINATIONS")
+//	@JsonProperty("UPCOMING_TERMINATIONS")
+//    private Double upcomingTerminations = 0D;
+//
+//    @Column(name = "UPCOMING_MOVE_INS")
+//	@JsonProperty("UPCOMING_MOVE_INS")
+//    private Double upcomingMoveIns = 0D;
+//
+//    @Column(name = "LIVE_BOOKINGS", nullable = false)
+//	@JsonProperty("LIVE_BOOKINGS")
+//    private Integer liveBookings;
+//
+//    @Column(name = "RUNNING_FORFEITURE", nullable = false)
+//	@JsonProperty("RUNNING_FORFEITURE")
+//    private Integer runningForfeiture;
+//
+//    @Column(name = "CREATED", nullable = false)
+//	@JsonProperty("CREATED")
+//    private Date CREATED;
+//
+//    @Column(name = "LIVE_OCCUPANCY")
+//	@JsonProperty("LIVE_OCCUPANCY")
+//    private Double liveOccupancy = 0D;
+//
+//    @Column(name = "ONBOARDED_BEDS")
+//	@JsonProperty("ONBOARDED_BEDS")
+//    private Integer onboardedBeds = 0;
+//
+//    @Column(name = "FORWARD_GROSS_OCCUPANCY")
+//	@JsonProperty("FORWARD_GROSS_OCCUPANCY")
+//    private Double forwardGrossOccupancy = 0D;
+//
+//    @Column(name = "FORWARD_NET_OCCUPANCY")
+//	@JsonProperty("FORWARD_NET_OCCUPANCY")
+//    private Double forwardNetOccupancy = 0D;
+//
+//    @Column(name = "MTD")
+//	@JsonProperty("MTD")
+//    private Double MTD = 0D;
+//
+//    @Column(name = "L7D")
+//	@JsonProperty("L7D")
+//    private Double L7D = 0D;
+//
+//    @Column(name = "L3D")
+//	@JsonProperty("L3D")
+//    private Double L3D = 0D;
+//
+//    @Column(name = "RETENTION_MTD")
+//	@JsonProperty("RETENTION_MTD")
+//    private Double retentionMtd = 0D;
+//
+//    @Column(name = "RETENTION_L7D")
+//	@JsonProperty("RETENTION_L7D")
+//    private Double retentionL7d = 0D;
+//
+//    @Column(name = "RETENTION_L3D")
+//	@JsonProperty("RETENTION_L3D")
+//    private Double retentionL3d = 0D;
+//
+//    @Column(name = "AVERAGE_UNEXPIRED_LOCKIN")
+//	@JsonProperty("AVERAGE_UNEXPIRED_LOCKIN")
+//    private Double averageUnexpiredLockin = 0D;
+//
+//    @Column(name = "BOOKING_TYPE")
+//	@JsonProperty("BOOKING_TYPE")
+//    private Integer bookingType;
+//
+//    @Column(name = "BEDS_CS_NMI")
+//	@JsonProperty("BEDS_CS_NMI")
+//    private Double bedsCsNmi;
 
     
 }
