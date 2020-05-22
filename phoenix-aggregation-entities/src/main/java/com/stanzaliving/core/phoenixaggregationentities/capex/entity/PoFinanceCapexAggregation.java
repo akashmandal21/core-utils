@@ -17,7 +17,7 @@ import javax.persistence.UniqueConstraint;
 @AllArgsConstructor
 @Entity(name = "vendor_finance_payment_entity")
 @Table(name = "vendor_finance_payment_entity",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"property_meta_info_id","vendor_uuid","po_type"}))
+        uniqueConstraints = @UniqueConstraint(columnNames = {"property_meta_info_id","vendor_uuid","po_type","item_code","invoice_type"}))
 public class PoFinanceCapexAggregation extends AbstractJpaEntity {
 
     @Column(name = "property_meta_info_id",nullable = false)
@@ -26,18 +26,21 @@ public class PoFinanceCapexAggregation extends AbstractJpaEntity {
     @Column(name = "vendor_uuid",nullable = false)
     private String vendorUuid;
 
+    @Column(name = "item_code",nullable = false)
+    private String itemCode;
+
     @Column(name = "po_type",nullable = false)
     private String poType;
 
-    @Column(name = "total_amount", nullable = false)
-    private Double totalAmount;
+    @Column(name="invoice_type",nullable = false)
+    private String invoiceType;
 
-    @Column(name = "regular_amount")
-    private Double regularAmount;
+    @Column(name = "item_quantity", nullable = false)
+    private Double itemQuantity;
 
-    @Column(name = "advance_amount")
-    private Double advanceAmount;
+    @Column(name = "total_billed_amount")
+    private Double billedAmount;
 
-    @Column(name = "total_invoices")
-    private Integer totalInvoiceCount;
+    @Column(name = "total_wt_paid_amount")
+    private Double totalWeightedPaidAmount;
 }

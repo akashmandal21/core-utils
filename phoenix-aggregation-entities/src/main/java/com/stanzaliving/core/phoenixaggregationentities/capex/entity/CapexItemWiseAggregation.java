@@ -52,6 +52,12 @@ public class CapexItemWiseAggregation extends AbstractJpaEntity {
     @Column(name = "budgeted_quantity", nullable = false)
     private Double budgetedQuantity;
 
+    @Column(name = "budgeted_wt_committed_cost")
+    private Double budgetedWeightedCommittedCost;
+
+    @Column(name = "budgeted_wt_actual_cost")
+    private Double budgetedWeightedActualCost;
+
     @Column(name = "committed_wt_cost")
     private Double committedWeightedCost;
 

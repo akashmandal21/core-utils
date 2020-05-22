@@ -15,6 +15,5 @@ public class PoItemAggregationDto {
     private String itemCode;
     private Double quantity;
     private Double amount;
-    private Double itemCostWeight;
     private String poType;
 }

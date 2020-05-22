@@ -9,9 +9,9 @@ import lombok.*;
 @AllArgsConstructor
 public class PoFinanceAggregationDto {
     private String poUuid;
-    private Double totalAmount;
-    private Double regularAmount;
-    private Double advanceAmount;
-    private Integer totalInvoices;
-    private String poType;
+    private String itemCode;
+    private String invoiceType;
+    private Double quantity;
+    private Double totalItemAmount;
+    private Double totalWeightedPaidAmount;
 }
