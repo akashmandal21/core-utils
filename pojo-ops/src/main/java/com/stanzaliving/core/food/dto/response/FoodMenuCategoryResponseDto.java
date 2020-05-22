@@ -22,6 +22,8 @@ import java.util.List;
 public class FoodMenuCategoryResponseDto {
 
 	private String menuCategoryId;
+	
+	private boolean stanzaKitchen;
 
 	private String city;
 
