@@ -2,7 +2,9 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.food.dto.response;
+package com.stanzaliving.core.operations.dto.opscalculator;
+
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,11 +23,13 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class IngredientStockStatusResponseDto {
+public class OpsCalculatorDto {
 
-	private String vendorId;
-	private String ingredientId;
-	private String ingredientUnit;
-	private Double ingredientQty;
+	private String uuid;
+	private String residenceId;
+	private String versionName;
+	private LocalDate fromDate;
+	private OpsCalculatorDetailDto opsCalculatorDetailDto;
+	private String serviceMixId;
 
 }

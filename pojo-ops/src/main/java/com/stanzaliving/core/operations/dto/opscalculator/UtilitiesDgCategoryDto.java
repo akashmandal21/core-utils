@@ -2,7 +2,9 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.food.dto.response;
+package com.stanzaliving.core.operations.dto.opscalculator;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,11 +23,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class IngredientStockStatusResponseDto {
+@JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
+public class UtilitiesDgCategoryDto extends CategoryDto{
 
-	private String vendorId;
-	private String ingredientId;
-	private String ingredientUnit;
-	private Double ingredientQty;
+	private int dg;
 
 }

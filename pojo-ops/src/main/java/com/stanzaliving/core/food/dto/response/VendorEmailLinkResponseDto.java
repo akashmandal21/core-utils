@@ -1,9 +1,10 @@
 /**
  * 
  */
-package com.stanzaliving.core.food.dto.request;
+package com.stanzaliving.core.food.dto.response;
 
-import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author naveen.kumar
  *
- * @date 18-Apr-2020
+ * @date 20-May-2020
  *
  **/
 @Getter
@@ -24,10 +25,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TagRequestDto {
+public class VendorEmailLinkResponseDto {
 
-	@NotBlank(message = "Tag Name Cannot be blank")
-	private String tagName;
-	
-	private boolean serviceMixEnabled;
+	private String vendorId;
+
+	private String vendorName;
+
+	private Set<LocalDate> orderDates;
 }

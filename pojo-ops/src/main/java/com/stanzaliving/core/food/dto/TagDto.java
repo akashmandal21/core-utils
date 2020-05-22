@@ -27,4 +27,5 @@ import lombok.experimental.SuperBuilder;
 public class TagDto extends AbstractDto {
 
 	private String tagName;
+	private Boolean serviceMixEnabled;
 }

@@ -2,7 +2,7 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.food.dto.response;
+package com.stanzaliving.core.operations.dto.opscalculator;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,11 +21,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class IngredientStockStatusResponseDto {
+public class WaterTankerSlotDetail {
 
-	private String vendorId;
-	private String ingredientId;
-	private String ingredientUnit;
-	private Double ingredientQty;
+	private String startDate;
+	private String endDate;
+	private int cost;
+	private int capacity;
 
 }

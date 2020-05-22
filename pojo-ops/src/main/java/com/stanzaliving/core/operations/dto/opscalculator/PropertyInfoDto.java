@@ -2,9 +2,12 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.food.dto.response;
+package com.stanzaliving.core.operations.dto.opscalculator;
+
+import com.stanzaliving.core.operations.constants.opscalculator.Constants;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,11 +24,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class IngredientStockStatusResponseDto {
+public class PropertyInfoDto {
 
-	private String vendorId;
-	private String ingredientId;
-	private String ingredientUnit;
-	private Double ingredientQty;
+	private int bedCount;
+	private int roomCount;
+
+	@Builder.Default
+	private int occupancy = Constants.DEFUALT_OCCUPANCY_PERCENT;
 
 }
