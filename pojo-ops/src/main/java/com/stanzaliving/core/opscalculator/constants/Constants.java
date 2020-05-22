@@ -11,11 +11,12 @@ package com.stanzaliving.core.opscalculator.constants;
 public class Constants {
 
 	public static final String SERVICE_NAME = "OpsCalculatorService";
-	
+
 	public static final int DAYS_IN_YEAR = 365;
 	public static final int MONTHS = 12;
 
 	public static final String RUPEE_SYMBOL = "(\u20B9)";
+	public static final String DECIMAL_FORMAT_TWO_PLACES = "#.##";
 
 	public static final double DEFUALT_OCCUPANCY = 0.9;
 	public static final double MINIMUM_OCCUPANCY = 0.75;

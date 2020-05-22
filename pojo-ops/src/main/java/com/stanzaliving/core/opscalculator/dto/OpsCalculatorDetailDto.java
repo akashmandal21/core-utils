@@ -7,6 +7,7 @@ package com.stanzaliving.core.opscalculator.dto;
 import com.stanzaliving.core.enums.ResidenceBrand;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,8 +26,13 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class OpsCalculatorDetailDto {
 
+	@Builder.Default
+	private ResidenceBrand residenceBrand = ResidenceBrand.PRIMA;
+
+	@Builder.Default
+	private ResidenceBrand[] allResidenceBrands = ResidenceBrand.values();
+
 	private String residenceId;
-	private ResidenceBrand residenceBrand;
 	private PropertyInfoDto propertyInfoDto;
 	private FoodCategoryDto foodCategoryDto;
 	private UtilitiesCategoryDto utilitiesCategoryDto;
@@ -40,5 +46,5 @@ public class OpsCalculatorDetailDto {
 	private AuditCategoryDto auditCategoryDto;
 	private UniformCostsCategoryDto uniformCostsCategoryDto;
 	private UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
-	
+
 }
