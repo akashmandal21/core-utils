@@ -26,8 +26,12 @@ import lombok.experimental.SuperBuilder;
 public class FoodItemResponseDto {
 
 	private String name;
-	private String uuid;
+
+	private String torqusSku;
+
 	private boolean status;
+
 	private String categoryId;
+
 	private FoodItemType itemType;
 }
