@@ -1,13 +1,18 @@
 package com.stanzaliving.core.food.dto.request;
 
+import java.util.List;
+
+import javax.validation.constraints.NotNull;
+
 import com.stanzaliving.core.food.dto.CompositionRuleDto;
 import com.stanzaliving.core.food.dto.DayWiseFoodMenuDto;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"

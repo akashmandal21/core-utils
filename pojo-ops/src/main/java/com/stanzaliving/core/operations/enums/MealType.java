@@ -40,6 +40,7 @@ public enum MealType {
 	private static Map<Integer, MealType> mealMapById = new HashMap<>();
 	private static Map<String, MealType> mealMapByName = new HashMap<>();
 	private static List<String> mealIds = new ArrayList<>();
+	private static Map<MealType, String> mealMapByType = new HashMap<>();
 
 	private static List<EnumListing<MealType>> enumListings = new ArrayList<>();
 
@@ -49,7 +50,7 @@ public enum MealType {
 			mealMapById.put(mealType.getMealId(), mealType);
 			mealMapByName.put(mealType.getMealName(), mealType);
 			mealIds.add(mealType.getMealId().toString());
-
+			mealMapByType.put(mealType, mealType.getMealName());
 			enumListings.add(EnumListing.of(mealType, mealType.getMealName()));
 		}
 
@@ -65,6 +66,10 @@ public enum MealType {
 
 	}
 
+	public static Map<MealType, String> getMealMapByType() {
+		return mealMapByType;
+	}
+	
 	public static String getMealName(String mealId) {
 
 		if (mealMapById.containsKey(StanzaParseUtils.getIntValue(mealId))) {
