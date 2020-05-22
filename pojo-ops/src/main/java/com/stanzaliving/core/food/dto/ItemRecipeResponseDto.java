@@ -25,7 +25,7 @@ public class ItemRecipeResponseDto {
 
 	private String uuid;
 	private String siteId;
-	private String itemId;
+	private String itemSku;
 	private String ingredientId;
 	private String ingredientName;
 	private String ingredientUnit;
