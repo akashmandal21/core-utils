@@ -7,10 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum FoodRoleType {
 
-	CITY_MANAGER("CITY MANAGER"),
-	CITY_FB_MANAGER("CITY F&B MANAGER"),
-	CLUSTER_MANAGER("CLUSTER MANAGER"),
-	CENTRAL_FB_MANAGER("CENTRAL F&B MANAGER");
+	CITY_MANAGER("City Manager"),
+	CITY_FB_MANAGER("City F&B Manager"),
+	CLUSTER_MANAGER("Cluster Manager"),
+	CENTRAL_FB_MANAGER("Central F&B Manager");
 
 	private String roleType;
 
