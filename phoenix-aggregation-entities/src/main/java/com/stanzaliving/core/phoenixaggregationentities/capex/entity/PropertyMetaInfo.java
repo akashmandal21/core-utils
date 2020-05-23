@@ -33,6 +33,9 @@ public class PropertyMetaInfo extends AbstractJpaEntity {
     @Column(name = "zone",nullable = false)
     private String zone;
 
+    @Column(name = "num_beds",nullable = false)
+    private Integer numBeds;
+
     @Column(name="master_boq_approval_date",nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date masterBoqApprovalDate;

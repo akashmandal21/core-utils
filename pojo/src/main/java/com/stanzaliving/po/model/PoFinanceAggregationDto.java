@@ -13,5 +13,6 @@ public class PoFinanceAggregationDto {
     private String invoiceType;
     private Double quantity;
     private Double totalItemAmount;
+    private Double totalWeightedPaidQuantity;
     private Double totalWeightedPaidAmount;
 }

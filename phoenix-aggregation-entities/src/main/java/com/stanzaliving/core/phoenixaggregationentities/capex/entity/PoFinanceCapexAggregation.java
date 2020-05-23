@@ -43,4 +43,7 @@ public class PoFinanceCapexAggregation extends AbstractJpaEntity {
 
     @Column(name = "total_wt_paid_amount")
     private Double totalWeightedPaidAmount;
+
+    @Column(name = "total_wt_paid_quantity")
+    private Double totalWeightedPaidQuantity;
 }
