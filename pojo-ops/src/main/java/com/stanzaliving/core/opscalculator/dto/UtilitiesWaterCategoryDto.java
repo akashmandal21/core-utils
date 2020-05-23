@@ -39,6 +39,9 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 	private WaterSupplySource waterSupplySource = WaterSupplySource.BOREWELL;
 
 	@Builder.Default
+	private WaterSupplySource[] allWaterSupplySources = WaterSupplySource.values();
+
+	@Builder.Default
 	private boolean waterTanker = false;
 
 	@Builder.Default
