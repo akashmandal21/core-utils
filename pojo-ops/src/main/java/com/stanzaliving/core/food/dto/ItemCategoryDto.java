@@ -17,13 +17,13 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemCategoryDto {
 
-	private String uuid;
+	private String torqusSku;
 	private String name;
 	private boolean status;
 
