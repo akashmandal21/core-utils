@@ -17,7 +17,7 @@ public class VasItemDto extends FoodMenuItemDto {
 
 	private String itemId;
 	
-	private String itemCost;
+	private Double itemCost;
 	
 	private String itemQuantity;
 	
