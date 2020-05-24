@@ -25,7 +25,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ItemRecipeCsvItemRequestDto {
 
-	private String itemId;
+	private String itemSku;
 	private String itemName;
 	private String quantity;
 	private Collection<ItemRecipeCsvIngredientRequestDto> ingredients;

@@ -1,8 +1,6 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.core.food.dto;
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,20 +9,24 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemCategoryDto {
+public class FoodOrderHistoryDto {
+	
+	private String meal;
 
-	private String torqusSku;
-	private String name;
-	private boolean status;
+	private Integer students;
+
+	private Integer avgAttendance;
+
+	private Integer vegOrder;
+
+	private Integer nonVegOrder;
+
+	private List<FoodOrderHistoryAdditionalItemDto> additionalItemDtos;
 
 }

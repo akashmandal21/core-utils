@@ -16,9 +16,9 @@ public enum RuleOperatorEnum {
 	GT_EQ(">=", ">="),
 	LT("<", "<"),
 	LT_EQ("<=", "<="),
-	EQ("=", "="),
-	CONGICUTIVE("--", "in consecutive days"),
-	NOT_CONGIVUTIVE("---", "not in consecutive days");
+	EQ("=", "=");
+	//CONGICUTIVE("--", "in consecutive days"),
+	//NOT_CONGIVUTIVE("---", "not in consecutive days");
 
 	public String operator;
 

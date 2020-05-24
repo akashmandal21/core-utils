@@ -41,10 +41,13 @@ public class FoodMenuCategoryMetadataDto {
 	@NotNull(message = "Stanza Kitchen Flag is Mandatory")
 	private Boolean stanzaKitchen;
 
+	@NotNull(message = "Food Region Selection is Mandatory")
 	private FoodRegion foodRegion;
 
+	@NotNull(message = "Serve Type Selection is Mandatory")
 	private FoodServeType foodServeType;
 
+	@NotNull(message = "Brand Selection is Mandatory")
 	private ResidenceBrand residenceBrand;
 
 }

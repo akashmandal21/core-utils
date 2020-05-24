@@ -48,7 +48,7 @@ public class DateUtil {
 
 		return null;
 	}
-	
+
 	public String convertLocalDateTimeToDateFormatString(LocalDateTime localDateTime, DateFormat dateFormat) {
 
 		if (localDateTime != null) {
@@ -462,21 +462,21 @@ public class DateUtil {
 		calendar.set(Calendar.MILLISECOND, 0);
 		return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
 	}
-	
-	public static Date getTodayEndDate() {
+
+	public Date getTodayEndDate() {
 
 		LocalDateTime today = LocalDateTime.now().withHour(23).withMinute(59).withSecond(59);
 
 		return convertToDate(today);
 	}
-	
-	public static Date addDaysToDate(Date d1, long days) {
+
+	public Date addDaysToDate(Date d1, long days) {
 		long ltime = d1.getTime() + days * 24 * 60 * 60 * 1000;
 		Date newdate = new Date(ltime);
 		return newdate;
 	}
-	
-	public static Date addDayAndSetHour(Integer days, Integer hour) {
+
+	public Date addDayAndSetHour(Integer days, Integer hour) {
 
 		LocalDateTime tomorrow = LocalDateTime.now().plusDays(days);
 		tomorrow.withHour(hour);
@@ -484,6 +484,21 @@ public class DateUtil {
 		tomorrow.withSecond(0);
 
 		return convertToDate(tomorrow);
+	}
+
+	public int getLeaderboardWeekNumberForDate(LocalDate localDate) {
+
+		int weekNumber = 1;
+
+		if (22 >= localDate.getDayOfMonth()) {
+			weekNumber = 4;
+		} else if (15 >= localDate.getDayOfMonth()) {
+			weekNumber = 3;
+		} else if (8 >= localDate.getDayOfMonth()) {
+			weekNumber = 2;
+		}
+
+		return weekNumber;
 	}
 
 }

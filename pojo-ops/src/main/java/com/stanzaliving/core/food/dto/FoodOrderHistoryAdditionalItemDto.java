@@ -1,7 +1,3 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.core.food.dto;
 
 import lombok.AllArgsConstructor;
@@ -11,20 +7,20 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemCategoryDto {
+public class FoodOrderHistoryAdditionalItemDto {
 
-	private String torqusSku;
-	private String name;
-	private boolean status;
+	private String item;
+
+	private Double weight;
+
+	private Integer qty;
+
+	private Integer additionalQty;
 
 }
