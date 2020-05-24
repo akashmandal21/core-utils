@@ -6,9 +6,9 @@ import lombok.experimental.SuperBuilder;
 import javax.validation.constraints.NotBlank;
 
 /**
- * @author naveen.kumar
+ * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @date 22-Apr-2020
+ * @date 24-May-2020
  *
  **/
 @Getter
@@ -17,7 +17,7 @@ import javax.validation.constraints.NotBlank;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryIdNameDto {
+public class FoodMenuCategoryCopyRequestDto {
 
 	@NotBlank(message = "Category Id is mandatory")
 	private String categoryId;
