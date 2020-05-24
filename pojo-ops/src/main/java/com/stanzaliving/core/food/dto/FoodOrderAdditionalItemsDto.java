@@ -15,12 +15,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderAdditionalItemsDto extends AbstractDto{
-	
+public class FoodOrderAdditionalItemsDto extends AbstractDto {
+
 	private String orderId;
-	
+
 	private String itemId;
-	
+
 	private Integer pax;
 
 }
