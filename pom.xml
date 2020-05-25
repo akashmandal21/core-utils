@@ -60,6 +60,7 @@
 		<module>rule-engine</module>
 		<module>internet-client</module>
 		<module>operations-client</module>
+		<module>food-service-client</module>
     <module>attendance-client</module>
     <module>campaign-client</module>
   </modules>
