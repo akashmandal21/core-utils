@@ -2,7 +2,6 @@
 package org.venta.client.api;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -11,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
+import org.venta.client.dto.ResidenceGstModel;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -35,7 +35,7 @@ public class VentaInternalDataControllerApi {
 		this.restClient = stanzaRestClient;
 	}
 	
-	public ResponseDto<List<Map>> getGstDetailsForResidences() {
+	public List<ResidenceGstModel> getGstDetailsForResidences() {
 		
 		Object postBody = null;
 		
@@ -49,10 +49,10 @@ public class VentaInternalDataControllerApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 		
-		ParameterizedTypeReference<ResponseDto<List<Map>>> returnType = new ParameterizedTypeReference<ResponseDto<List<Map>>>() {
+		ParameterizedTypeReference<List<ResidenceGstModel>> returnType = new ParameterizedTypeReference<List<ResidenceGstModel>>() {
 		};
 		
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, null, returnType);
 		
 	}
 
