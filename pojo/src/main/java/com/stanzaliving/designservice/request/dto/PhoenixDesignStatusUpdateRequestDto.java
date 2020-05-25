@@ -1,5 +1,6 @@
 package com.stanzaliving.designservice.request.dto;
 
+import com.stanzaliving.designservice.enums.BedType;
 import com.stanzaliving.designservice.enums.PhoenixDesignStatus;
 import com.stanzaliving.transformations.enums.SubBrandName;
 import lombok.Getter;
@@ -13,7 +14,7 @@ public class PhoenixDesignStatusUpdateRequestDto {
 
     private PhoenixDesignStatus phoenixDesignStatus;
 
-    private SubBrandName subBrandName;
+    private BedType bedType;
 
     private String propertyUuid;
 
