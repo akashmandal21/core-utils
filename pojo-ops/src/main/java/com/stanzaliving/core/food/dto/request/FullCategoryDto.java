@@ -29,6 +29,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FullCategoryDto {
 
+	@NotNull(message = "Category Metadata is Mandatory")
 	private FoodMenuCategoryMetadataDto category;
 
 	@NotNull(message = "Composition Rules are mandatory")
@@ -37,5 +38,6 @@ public class FullCategoryDto {
 	@NotEmpty(message = "Meal Mappings are mandatory")
 	private List<FoodMenuCategoryMealDto> meals;
 
+	@NotEmpty(message = "Weekly Menu is mandatory")
 	private List<WeekWiseMenu> weekMenus;
 }

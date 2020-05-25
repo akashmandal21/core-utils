@@ -14,8 +14,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.base.StanzaConstants;
@@ -48,7 +50,7 @@ public class DateUtil {
 
 		return null;
 	}
-	
+
 	public String convertLocalDateTimeToDateFormatString(LocalDateTime localDateTime, DateFormat dateFormat) {
 
 		if (localDateTime != null) {
@@ -462,21 +464,21 @@ public class DateUtil {
 		calendar.set(Calendar.MILLISECOND, 0);
 		return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
 	}
-	
-	public static Date getTodayEndDate() {
+
+	public Date getTodayEndDate() {
 
 		LocalDateTime today = LocalDateTime.now().withHour(23).withMinute(59).withSecond(59);
 
 		return convertToDate(today);
 	}
-	
-	public static Date addDaysToDate(Date d1, long days) {
+
+	public Date addDaysToDate(Date d1, long days) {
 		long ltime = d1.getTime() + days * 24 * 60 * 60 * 1000;
 		Date newdate = new Date(ltime);
 		return newdate;
 	}
-	
-	public static Date addDayAndSetHour(Integer days, Integer hour) {
+
+	public Date addDayAndSetHour(Integer days, Integer hour) {
 
 		LocalDateTime tomorrow = LocalDateTime.now().plusDays(days);
 		tomorrow.withHour(hour);
@@ -484,6 +486,43 @@ public class DateUtil {
 		tomorrow.withSecond(0);
 
 		return convertToDate(tomorrow);
+	}
+
+	public int getLeaderboardWeekNumberForDate(LocalDate localDate) {
+
+		int weekNumber = 1;
+
+		if (localDate.getDayOfMonth() >= 22) {
+			weekNumber = 4;
+		} else if (localDate.getDayOfMonth() >= 15) {
+			weekNumber = 3;
+		} else if (localDate.getDayOfMonth() >= 8) {
+			weekNumber = 2;
+		}
+
+		return weekNumber;
+	}
+	
+	public static Map<String, LocalDate> getStartAndEndDateForFoodOrder(Integer week, LocalDate date) {
+
+		Map<String, LocalDate> dateMap = new HashMap<>();
+		if (week == 1) {
+			dateMap.put("startDate", date.withDayOfMonth(1));
+			dateMap.put("endDate", date);
+			return dateMap;
+		} else if (week == 2) {
+			dateMap.put("startDate", date.withDayOfMonth(8));
+			dateMap.put("endDate", date);
+			return dateMap;
+		} else if (week == 3) {
+			dateMap.put("startDate", date.withDayOfMonth(15));
+			dateMap.put("endDate", date);
+			return dateMap;
+		} else {
+			dateMap.put("startDate", date.withDayOfMonth(22));
+			dateMap.put("endDate", date);
+			return dateMap;
+		}
 	}
 
 }

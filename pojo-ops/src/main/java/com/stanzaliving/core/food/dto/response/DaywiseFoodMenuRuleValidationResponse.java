@@ -4,7 +4,7 @@ package com.stanzaliving.core.food.dto.response;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
+import java.util.Collection;
 
 @Getter
 @Setter
@@ -16,8 +16,8 @@ public class DaywiseFoodMenuRuleValidationResponse {
 
 	private boolean compositionRulesSatisfied;
 
-	private List<DaywiseWeeklyRuleMealResponseDto> weeklyRules;
+	private Collection<DaywiseWeeklyRuleMealResponseDto> weeklyRules;
 
-	private List<DailyDaywiseMealResponseDto> dailyRules;
+	private Collection<DailyDaywiseRuleMealResponseDto> dailyRules;
 }
 
