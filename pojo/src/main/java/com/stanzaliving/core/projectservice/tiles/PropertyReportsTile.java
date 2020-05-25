@@ -22,7 +22,7 @@ public enum PropertyReportsTile {
     GC_SCHEDULE("GC Schedule", true, true, true, Department.GC, PropertyUpdateEnum.PROJECT_SITE_ENGINEER_ASSIGNED, "gc",
             Arrays.asList(PropertyUpdateEnum.PROJECT_SITE_ENGINEER_ASSIGNED)),
     BED_COUNT_FINALIZATION("Bed Count Finalization", true, false, false, Department.DESIGN, PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED, "bedcount",
-            Arrays.asList(PropertyUpdateEnum.PROJECT_AS_IS_COMPLETED)),
+            Arrays.asList(PropertyUpdateEnum.PROJECT_AS_IS_COMPLETED,PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED)),
     GFC("GFC Drawings", true, true, false, Department.DESIGN, PropertyUpdateEnum.DESIGN_GFC_APPROVED, "gfcdrawings",
             Arrays.asList(PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED)),
     BOQ("Master BOQ Formation", true, true, true, Department.DESIGN, PropertyUpdateEnum.DESIGN_BOQ_COMPLETED, "boq",
