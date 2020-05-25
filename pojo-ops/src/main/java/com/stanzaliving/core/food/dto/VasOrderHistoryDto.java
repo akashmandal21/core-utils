@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,15 +15,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VasItemDto extends FoodMenuItemDto {
+public class VasOrderHistoryDto extends VasItemDto {
 
-	private String residenceMenuId;
-	
-	private String itemId;
-	
-	private Double itemCost;
-	
-	private String itemQuantity;
-	
 	private Integer orderedQuantity;
+	
+	private Date orderTime;
 }

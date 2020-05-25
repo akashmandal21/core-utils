@@ -3,7 +3,8 @@ package com.stanzaliving.core.food.dto.response;
 import java.util.List;
 import java.util.Map;
 
-import com.stanzaliving.core.food.dto.VasItemDto;
+import com.stanzaliving.core.food.dto.VasOrderHistoryDto;
+import com.stanzaliving.core.food.enums.PackageCollectionStatus;
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -19,12 +20,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VasMenuResponseDto {
+public class VasOrderHistoryResponseDto {
 
-	private Map<MealType, List<VasItemDto>> menuMap;
+	private Map<MealType, List<VasOrderHistoryDto>> menuMap;
 	
 	private Map<MealType, String> mealMapByMealType;
-	
-	private Integer maxItemsAllowed;
-	
+
+	private Map<MealType, PackageCollectionStatus> mealMapByPaymentStatus;
+
 }

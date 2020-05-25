@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-import org.apache.commons.lang3.tuple.Pair;
+import com.stanzaliving.core.food.dto.VasItemOrder;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 public class VasOrderRequestDtoData {
 	
 	@NotNull(message = "Please choose item and quantity.") 
-	private List<Pair<String, Integer>> itemIdsAndQuantity;
+	private List<VasItemOrder> vasItemOrders;
 	
 	@NotNull(message = "Please specify residence.") 
 	private String residenceFoodMenuId;
