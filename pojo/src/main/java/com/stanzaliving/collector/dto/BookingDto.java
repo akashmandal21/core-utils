@@ -19,4 +19,7 @@ public class BookingDto {
     String ventaUserUuid;
     String lockIn;
     BookingType bookingType;
+    Date actualContractEndDate;
+    Integer contractMonths;
+    Boolean isStartMidMonth;
 }
