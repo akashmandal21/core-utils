@@ -19,6 +19,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WeeklyDatewiseMealResponseDto {
+
 	private LocalDate date;
+	
 	private List<MealType> meals;
 }
