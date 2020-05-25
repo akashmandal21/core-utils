@@ -2,13 +2,13 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.dto.opscalculator;
+package com.stanzaliving.core.opscalculator.dto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.stanzaliving.core.operations.constants.opscalculator.WaterSupplySource;
+import com.stanzaliving.core.opscalculator.constants.WaterSupplySource;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,6 +37,9 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 
 	@Builder.Default
 	private WaterSupplySource waterSupplySource = WaterSupplySource.BOREWELL;
+
+	@Builder.Default
+	private WaterSupplySource[] allWaterSupplySources = WaterSupplySource.values();
 
 	@Builder.Default
 	private boolean waterTanker = false;

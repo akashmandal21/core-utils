@@ -2,10 +2,10 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.dto.opscalculator;
+package com.stanzaliving.core.opscalculator.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.stanzaliving.core.operations.constants.opscalculator.Constants;
+import com.stanzaliving.core.opscalculator.constants.Constants;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,6 +29,10 @@ import lombok.experimental.SuperBuilder;
 public class SubscriptionAndSuppliesCategoryDto extends CategoryDto {
 
 	private int internet;
+
+	@Builder.Default
+	private boolean internetEnabled = false;
+
 	private int cleaningSupplies;
 	private int foodSupplies;
 

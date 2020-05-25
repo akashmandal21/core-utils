@@ -2,10 +2,11 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.dto.opscalculator;
+package com.stanzaliving.core.opscalculator.dto;
 
 import java.time.LocalDate;
-import java.util.Map;
+
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,14 +25,17 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ServiceMixDto {
+public class OpsCalculatorDto {
 
+	@NotNull(message = "Residence id is mandatory")
 	private String residenceId;
-	private String cityId;
-	private String microMarketId;
+
+	@NotNull(message = "Service mix id is mandatory")
+	private String serviceMixId;
+
+	private String uuid;
 	private String versionName;
-	private Long version;
 	private LocalDate fromDate;
-	private Map<String, Object> config;
+	private OpsCalculatorDetailDto opsCalculatorDetailDto;
 
 }

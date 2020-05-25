@@ -2,7 +2,7 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.dto.opscalculator;
+package com.stanzaliving.core.opscalculator.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public abstract class CategoryDto {
 
-	private int count;
+	private double count;
 	private int rate;
 	private int utilization;
 	private int margin;
@@ -32,5 +32,6 @@ public abstract class CategoryDto {
 	private int costPerAvailableBed;
 	private int costPerOccupiedBed;
 	private double contribution;
+	private boolean enabled = true;
 
 }

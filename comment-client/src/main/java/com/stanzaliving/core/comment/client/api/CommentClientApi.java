@@ -18,6 +18,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.commentsservice.dto.CommentsDto;
+import com.stanzaliving.core.commentsservice.request.dto.CommentsGetRequest;
+import com.stanzaliving.core.commentsservice.response.dto.CommentsResponseDto;
 
 /**
  * @author naveen.kumar
@@ -32,7 +34,7 @@ public class CommentClientApi {
 	public CommentClientApi(StanzaRestClient stanzaRestClient) {
 		this.restClient = stanzaRestClient;
 	}
-	
+
 	public ResponseDto<List<CommentsDto>> getAllCommentsByEstateUuid(String estateUuid) {
 		Object postBody = null;
 
@@ -40,7 +42,7 @@ public class CommentClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		uriVariables.put("estateUuid", estateUuid);
-		
+
 		String path = UriComponentsBuilder.fromPath("/internal/get/all/{estateUuid}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -54,7 +56,7 @@ public class CommentClientApi {
 
 		ParameterizedTypeReference<ResponseDto<List<CommentsDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CommentsDto>>>() {
 		};
-		
+
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 	}
@@ -77,7 +79,7 @@ public class CommentClientApi {
 
 		ParameterizedTypeReference<ResponseDto<CommentsDto>> returnType = new ParameterizedTypeReference<ResponseDto<CommentsDto>>() {
 		};
-		
+
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, commentsDto, headerParams, accept, returnType);
 
 	}
@@ -139,7 +141,7 @@ public class CommentClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		uriVariables.put("contextId", contextId);
-		uriVariables.put("subContextId",subContextId);
+		uriVariables.put("subContextId", subContextId);
 
 		String path = UriComponentsBuilder.fromPath("/internal/get/all/context/{contextId}/subcontext/{subContextId}").buildAndExpand(uriVariables)
 				.toUriString();
@@ -155,6 +157,28 @@ public class CommentClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<CommentsResponseDto> getCommentsForCommentsGetRequest(CommentsGetRequest commentsGetRequest) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/list").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<CommentsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<CommentsResponseDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, commentsGetRequest, headerParams, accept, returnType);
+
 	}
 
 }

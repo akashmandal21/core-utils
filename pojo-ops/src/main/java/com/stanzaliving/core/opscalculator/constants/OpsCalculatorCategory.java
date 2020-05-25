@@ -2,7 +2,7 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.constants.opscalculator;
+package com.stanzaliving.core.opscalculator.constants;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,11 +21,13 @@ public enum OpsCalculatorCategory {
 	EQUIPMENT("equipment"),
 	FOOD("food"),
 	HK("hk"),
-	INTERN("intern"),
 	LAUNDRY("laundry"),
+	OE("oe"),
+	RC("rc"),
 	REPAIR("repair"),
 	SECURITY("security"),
 	SUBSCRIPTION("subscription"),
+	UNIFORM_COSTS("uniform_costs"),
 	WATER("water");
 
 	private String opsCalculatorCategory;

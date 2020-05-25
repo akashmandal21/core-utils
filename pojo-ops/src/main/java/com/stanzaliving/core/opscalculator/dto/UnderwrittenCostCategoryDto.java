@@ -2,7 +2,7 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.operations.dto.opscalculator;
+package com.stanzaliving.core.opscalculator.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -21,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-@JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "contribution" })
+@JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "contribution", "enabled" })
 public class UnderwrittenCostCategoryDto extends CategoryDto {
 
 }
