@@ -1,4 +1,4 @@
-package org.venta.client.api.cache;
+package com.stanzaliving.core.backendlocator.client.cache;
 
 import java.util.List;
 import java.util.Map;
@@ -8,12 +8,12 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.venta.client.api.VentaInternalDataControllerApi;
-import org.venta.client.dto.ResidenceGstDto;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.stanzaliving.core.backendlocator.client.api.VentaClientApi;
+import com.stanzaliving.core.backendlocator.client.dto.ResidenceGstDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -23,7 +23,7 @@ import lombok.extern.log4j.Log4j2;
 public class ResidenceGstCache {
 	
 	@Autowired
-	VentaInternalDataControllerApi ventaInternalDataControllerApi;
+	VentaClientApi ventaInternalDataControllerApi;
 	
 	// load residence gst details in cache
 	   private LoadingCache<String,Map<String,ResidenceGstDto>> allResdiencesGstDetails = CacheBuilder.newBuilder()

@@ -1,4 +1,4 @@
-package org.venta.client.dto;
+package com.stanzaliving.core.backendlocator.client.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
