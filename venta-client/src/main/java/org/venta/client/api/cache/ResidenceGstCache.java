@@ -3,12 +3,13 @@ package org.venta.client.api.cache;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.venta.client.api.VentaInternalDataControllerApi;
-import org.venta.client.dto.ResidenceGstModel;
+import org.venta.client.dto.ResidenceGstDto;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -22,12 +23,13 @@ public class ResidenceGstCache {
 	@Autowired
 	VentaInternalDataControllerApi ventaInternalDataControllerApi;
 	
-	   private LoadingCache<String,Map<String,ResidenceGstModel>> allResdiencesGstDetails = CacheBuilder.newBuilder()
-	            .build(
-	                    new CacheLoader<String, Map<String,ResidenceGstModel>>() {
+	   private LoadingCache<String,Map<String,ResidenceGstDto>> allResdiencesGstDetails = CacheBuilder.newBuilder()
+			   .expireAfterWrite(3, TimeUnit.HOURS) 
+			   .build(
+	                    new CacheLoader<String, Map<String,ResidenceGstDto>>() {
 	                        @Override
-	                        public Map<String,ResidenceGstModel> load(String key) {
-	                        	List<ResidenceGstModel> resultMap =  ventaInternalDataControllerApi.getGstDetailsForResidences();
+	                        public Map<String,ResidenceGstDto> load(String key) {
+	                        	List<ResidenceGstDto> resultMap =  ventaInternalDataControllerApi.getGstDetailsForResidences();
 	                        	
 	                        	return resultMap.stream().collect(
 	                        		      Collectors.toMap
@@ -35,11 +37,11 @@ public class ResidenceGstCache {
 	                        }
 	                    });
 	   
-	   public ResidenceGstModel getGstForAllResidences(String key) {
+	   public ResidenceGstDto getGstForAllResidences(String key) {
 	        
 		   try {
-			   Map<String,ResidenceGstModel> resultMap = allResdiencesGstDetails.get("residence");
-			return (ResidenceGstModel) resultMap.get(key);
+			   Map<String,ResidenceGstDto> resultMap = allResdiencesGstDetails.get("residence");
+			return (ResidenceGstDto) resultMap.get(key);
 		} catch (ExecutionException e) {
 			return null;
 			}

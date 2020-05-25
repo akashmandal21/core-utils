@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-public class ResidenceGstModel {
+public class ResidenceGstDto {
     String residenceUuid;
     double cgst;
     double sgst;
