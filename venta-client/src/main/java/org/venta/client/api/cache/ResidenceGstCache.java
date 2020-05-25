@@ -15,14 +15,17 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
+import lombok.extern.log4j.Log4j2;
 
 
-
+// cache for storing gst details of residences present in venta
+@Log4j2
 public class ResidenceGstCache {
 	
 	@Autowired
 	VentaInternalDataControllerApi ventaInternalDataControllerApi;
 	
+	// load residence gst details in cache
 	   private LoadingCache<String,Map<String,ResidenceGstDto>> allResdiencesGstDetails = CacheBuilder.newBuilder()
 			   .expireAfterWrite(3, TimeUnit.HOURS) 
 			   .build(
@@ -37,12 +40,14 @@ public class ResidenceGstCache {
 	                        }
 	                    });
 	   
+	   // get gst details for particular residence
 	   public ResidenceGstDto getGstForAllResidences(String key) {
 	        
 		   try {
 			   Map<String,ResidenceGstDto> resultMap = allResdiencesGstDetails.get("residence");
 			return (ResidenceGstDto) resultMap.get(key);
 		} catch (ExecutionException e) {
+			log.error("Error occurred while fetching gst details for residence ", key, e);
 			return null;
 			}
 		   
