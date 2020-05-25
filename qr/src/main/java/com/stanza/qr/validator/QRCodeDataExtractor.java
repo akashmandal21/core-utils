@@ -1,26 +1,16 @@
 package com.stanza.qr.validator;
 
-import boofcv.abst.fiducial.QrCodeDetector;
-import boofcv.alg.fiducial.qrcode.QrCode;
-import boofcv.factory.fiducial.FactoryFiducial;
-import boofcv.io.image.ConvertBufferedImage;
-import boofcv.io.image.UtilImageIO;
-import boofcv.struct.image.GrayU8;
-import com.google.zxing.*;
-import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
-import com.google.zxing.common.HybridBinarizer;
-import com.google.zxing.multi.ByQuadrantReader;
-import com.stanzaliving.core.base.exception.StanzaException;
-import org.junit.Test;
-
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.UUID;
+
+import javax.imageio.ImageIO;
+
+import com.stanzaliving.core.base.exception.StanzaException;
+
+import boofcv.io.image.UtilImageIO;
 
 public class QRCodeDataExtractor
 {
