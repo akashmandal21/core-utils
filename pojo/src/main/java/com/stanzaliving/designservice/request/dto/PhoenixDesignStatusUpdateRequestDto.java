@@ -14,7 +14,7 @@ public class PhoenixDesignStatusUpdateRequestDto {
 
     private PhoenixDesignStatus phoenixDesignStatus;
 
-    private BedType bedType;
+    private BedType subBrandName;
 
     private String propertyUuid;
 
