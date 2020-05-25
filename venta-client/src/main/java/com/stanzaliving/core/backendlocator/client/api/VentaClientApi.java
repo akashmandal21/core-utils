@@ -1,4 +1,6 @@
-
+/**
+ * 
+ */
 package com.stanzaliving.core.backendlocator.client.api;
 
 import java.util.HashMap;
@@ -20,10 +22,8 @@ import com.stanzaliving.venta.BedCountDetailsDto;
 
 import lombok.extern.log4j.Log4j2;
 
-
-
 /**
- * @author Abhishek.kumar
+ * @author raj.kumar
  *
  * @date 12-May-2020
  *
@@ -37,7 +37,7 @@ public class VentaClientApi {
 	public VentaClientApi(StanzaRestClient stanzaRestClient) {
 		this.restClient = stanzaRestClient;
 	}
-	
+
 	public ResponseDto<List<BedCountDetailsDto>> getLiveBedDetails(List<String> micromarketNameList) {
 		Object postBody = null;
 
