@@ -20,4 +20,6 @@ public class FoodMenuItemWeightDto {
 	private String menuDate;
 
 	private List<ItemWeightDto> itemWeightDtos;
+	
+	private String itemWeightList;
 }
