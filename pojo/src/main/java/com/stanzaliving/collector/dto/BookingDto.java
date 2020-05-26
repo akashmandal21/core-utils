@@ -22,4 +22,5 @@ public class BookingDto {
     Date actualContractEndDate;
     Integer contractMonths;
     Boolean isStartMidMonth;
+    Boolean hasMovedIn;
 }
