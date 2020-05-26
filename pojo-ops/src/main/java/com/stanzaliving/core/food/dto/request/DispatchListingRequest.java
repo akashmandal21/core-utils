@@ -1,7 +1,5 @@
 package com.stanzaliving.core.food.dto.request;
 
-import java.time.LocalDate;
-
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.operations.enums.MealType;
@@ -22,7 +20,7 @@ import lombok.ToString;
 public class DispatchListingRequest {
 
 	@NotNull(message = "Please provide menu date")
-	private LocalDate menuDate;
+	private String menuDate;
 	
 	private String residenceId;
 	
