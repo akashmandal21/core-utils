@@ -6,7 +6,9 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.DayOfWeek;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,6 +18,6 @@ import java.util.List;
 @AllArgsConstructor
 public class DailyDaywiseMealResponseDto {
 	private DayOfWeek dayOfWeek;
-//	private List<DailyRuleMealResponseDto> rules;
-	private List<MealType> meals;
+
+	private Set<MealType> meals;
 }
