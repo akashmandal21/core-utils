@@ -524,5 +524,54 @@ public class DateUtil {
 			return dateMap;
 		}
 	}
+	
+	public static List<LocalDate> getWeekFirstAndLastDaysForLeaderboard(LocalDate date) {
+
+		List<LocalDate> weekFirstAndLastDays = new ArrayList<>();
+		Integer dayOfMonth = date.getDayOfMonth();
+
+		if (dayOfMonth >= 1 && dayOfMonth <= 7) {
+			weekFirstAndLastDays.add(date.withDayOfMonth(1));
+			weekFirstAndLastDays.add(date.withDayOfMonth(7));
+			return weekFirstAndLastDays;
+		} else if (dayOfMonth >= 8 && dayOfMonth <= 14) {
+			weekFirstAndLastDays.add(date.withDayOfMonth(8));
+			weekFirstAndLastDays.add(date.withDayOfMonth(14));
+			return weekFirstAndLastDays;
+		} else if (dayOfMonth >= 15 && dayOfMonth <= 21) {
+			weekFirstAndLastDays.add(date.withDayOfMonth(15));
+			weekFirstAndLastDays.add(date.withDayOfMonth(21));
+			return weekFirstAndLastDays;
+		} else {
+			weekFirstAndLastDays.add(date.withDayOfMonth(22));
+			weekFirstAndLastDays.add(date.withDayOfMonth(date.lengthOfMonth()));
+			return weekFirstAndLastDays;
+		}
+	}
+	
+	public static List<LocalDate> getFirstAndTillDayOfCurrentWeekForLeaderboard(LocalDate date) {
+
+		List<LocalDate> firstAndTillDayOfCurrentWeek = new ArrayList<>();
+		Integer dayOfMonth = date.getDayOfMonth();
+
+		if (dayOfMonth >= 1 && dayOfMonth <= 7) {
+			firstAndTillDayOfCurrentWeek.add(date.withDayOfMonth(1));
+			firstAndTillDayOfCurrentWeek.add(date.withDayOfMonth(7));
+			return firstAndTillDayOfCurrentWeek;
+		} else if (dayOfMonth >= 8 && dayOfMonth <= 14) {
+			firstAndTillDayOfCurrentWeek.add(date.withDayOfMonth(8));
+			firstAndTillDayOfCurrentWeek.add(date.withDayOfMonth(14));
+			return firstAndTillDayOfCurrentWeek;
+		} else if (dayOfMonth >= 15 && dayOfMonth <= 21) {
+			firstAndTillDayOfCurrentWeek.add(date.withDayOfMonth(15));
+			firstAndTillDayOfCurrentWeek.add(date.withDayOfMonth(21));
+			return firstAndTillDayOfCurrentWeek;
+		} else {
+			firstAndTillDayOfCurrentWeek.add(date.withDayOfMonth(22));
+			firstAndTillDayOfCurrentWeek.add(date);
+			return firstAndTillDayOfCurrentWeek;
+		}
+
+	}
 
 }
