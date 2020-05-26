@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.response;
 
-
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -14,10 +13,11 @@ import java.util.Collection;
 @AllArgsConstructor
 public class DaywiseFoodMenuRuleValidationResponse {
 
+	private int activeWeek;
+
 	private boolean compositionRulesSatisfied;
 
 	private Collection<DaywiseWeeklyRuleMealResponseDto> weeklyRules;
 
 	private Collection<DailyDaywiseRuleMealResponseDto> dailyRules;
 }
-
