@@ -40,6 +40,9 @@ public class PhoenixBedCountDesignCDC {
     @JsonProperty("no_of_beds")
     private Integer noOfBeds;
 
+    @JsonProperty("phoenix_beds")
+    private Integer phoenixBeds;
+
     @JsonProperty("pheonix_rooms")
     private Integer phoenixRooms;
 
