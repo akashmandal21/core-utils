@@ -573,27 +573,6 @@ public class DateUtil {
 		}
 
 	}
-	
-	public String getDatePhrase(LocalDate localDate) {
-
-		if (localDate.getDayOfMonth() == 1 || localDate.getDayOfMonth() == 21 || localDate.getDayOfMonth() == 31) {
-
-			return "st";
-		}
-
-		if (localDate.getDayOfMonth() == 2 || localDate.getDayOfMonth() == 22) {
-
-			return "nd";
-		}
-
-		if (localDate.getDayOfMonth() == 3 || localDate.getDayOfMonth() == 23) {
-
-			return "rd";
-		}
-
-		return "th";
-
-	}
 
 	public String getDatePhrase(LocalDate localDate) {
 
