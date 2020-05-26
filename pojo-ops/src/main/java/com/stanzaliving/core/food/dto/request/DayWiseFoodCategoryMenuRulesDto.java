@@ -27,9 +27,12 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DayWiseFoodCategoryMenuRulesDto {
-	@NotNull(message = "composition Rules can't be blank")
+
+	private int activeWeek;
+	
+	@NotNull(message = "Composition Rules can't be blank")
 	private CompositionRuleDto rules;
 
-	@NotNull(message = "meal is required.")
-	List<DayWiseFoodMenuDto> dayWiseFoodMenuDtos;
+	@NotNull(message = "Daywise meals are required")
+	private List<DayWiseFoodMenuDto> dayWiseFoodMenuDtos;
 }
