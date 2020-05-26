@@ -13,6 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PlanOfActionResponseDto {
-    String created;
+    String date;
     List<String> description;
 }
