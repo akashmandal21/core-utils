@@ -35,11 +35,11 @@ public class PageResponse<T> {
 
 	private List<T> data;
 
-	public static <T> PageResponse<T> of(int page, int records, int totalPages, int totalRecords) {
+	public static <T> PageResponse<T> of(int page, int records, int totalPages, long totalRecords) {
 		return new PageResponse<>(page, records, totalPages, totalRecords, new ArrayList<>());
 	}
 
-	public static <T> PageResponse<T> of(int page, int records, int totalPages, int totalRecords, List<T> data) {
+	public static <T> PageResponse<T> of(int page, int records, int totalPages, long totalRecords, List<T> data) {
 		return new PageResponse<>(page, records, totalPages, totalRecords, data);
 	}
 }
