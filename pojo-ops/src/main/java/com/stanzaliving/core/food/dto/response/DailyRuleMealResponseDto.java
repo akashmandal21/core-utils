@@ -21,5 +21,6 @@ import lombok.experimental.SuperBuilder;
 public class DailyRuleMealResponseDto extends ConditionDto {
 
 	private Boolean passed;
+
 	private List<MealType> meals;
 }
