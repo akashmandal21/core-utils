@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.base.common.dto;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -24,7 +26,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class ListingDto {
+public class ListingDto implements Serializable {
+
+	private static final long serialVersionUID = 5307953344200311760L;
 
 	private String id;
 
