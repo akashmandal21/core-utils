@@ -11,6 +11,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
@@ -28,7 +29,7 @@ public class FoodServiceClientApi {
 
 	public FoodMenuCategoryBasicDetailsDto getMenuCategory(String id) {
 		ResponseDto<FoodMenuCategoryBasicDetailsDto> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/menu/category/{id}").buildAndExpand(id).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/menu/category/getById/{id}").buildAndExpand(id).toUriString();
 		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -76,7 +77,29 @@ public class FoodServiceClientApi {
 
 	}
 	
-	
-	
+	public List<ListingDto> getServiceMixEnabledFoodItemTags() {
+		ResponseDto<List<ListingDto>> responseDto = null;
+		String path = UriComponentsBuilder.fromPath("/internal/tag/get/serviceMixListing").build().toUriString();
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ListingDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ListingDto>>>() {};
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("exception while listing internet plans", e);
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
+	}
 	
 }
