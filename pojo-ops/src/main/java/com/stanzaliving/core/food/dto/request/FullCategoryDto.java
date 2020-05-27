@@ -29,6 +29,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FullCategoryDto {
 
+	private boolean copied;
+
 	@NotNull(message = "Category Metadata is Mandatory")
 	private FoodMenuCategoryMetadataDto category;
 
