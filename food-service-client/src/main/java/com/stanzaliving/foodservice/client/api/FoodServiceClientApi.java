@@ -1,6 +1,9 @@
 package com.stanzaliving.foodservice.client.api;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import org.springframework.core.ParameterizedTypeReference;
@@ -54,9 +57,12 @@ public class FoodServiceClientApi {
 	
 	public FoodMenuCategoryBasicDetailsDto getMenuCategoryByCityIdAndName(String cityId, String name) {
 		ResponseDto<FoodMenuCategoryBasicDetailsDto> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/menu/category/getByCityIdAndName").queryParam("cityId", cityId).queryParam("name", name).build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/menu/category/getByCityIdAndName").build().toUriString();
 		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.put("cityId", Arrays.asList(cityId));
+		queryParams.put("name", Arrays.asList(name));
+		
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
