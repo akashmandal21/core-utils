@@ -1,13 +1,11 @@
 package com.stanzaliving.collector.dto.response;
 
 import com.stanzaliving.dashboard.dto.FeElementDto;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Data
+@ToString(callSuper = true)
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
