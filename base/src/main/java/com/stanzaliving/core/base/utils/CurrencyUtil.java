@@ -5,6 +5,9 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 public class CurrencyUtil {
+
+    public static final Double DEFAULT_USD_TO_INR_RATE = 70d;
+
     public static String getRupeeSignAndCommaSeparatedAmount(Double amount){
         Locale locale = new Locale("en","IN");
         DecimalFormat decimalFormat = (DecimalFormat) DecimalFormat.getCurrencyInstance(locale);

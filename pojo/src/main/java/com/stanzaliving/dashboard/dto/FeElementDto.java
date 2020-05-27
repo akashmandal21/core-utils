@@ -72,6 +72,14 @@ public class FeElementDto {
 		this.type = FeElementType.PERCENT_DOUBLE;
 	}
 
+	public FeElementDto(double numerator, double denominator, boolean isHover) {
+		this.numerator = (int) numerator;
+		this.denominator = (int) denominator;
+		this.value = denominator != 0 ? (double) (numerator * 100) / (double) denominator : 0;
+		this.isHover = isHover;
+		this.type = FeElementType.PERCENT_DOUBLE;
+	}
+
 	public FeElementDto(String value) {
 		this.value = value;
 		this.type = FeElementType.STRING;
