@@ -20,5 +20,7 @@ public class ActionTrackerByResidentsResponseDto extends RentDetailsResponseDto 
     FeElementDto contractEndDate;
     FeElementDto ventaUserUuid;
     FeElementDto ventaUserName;
+    FeElementDto planOfAction;
+
 }
 
