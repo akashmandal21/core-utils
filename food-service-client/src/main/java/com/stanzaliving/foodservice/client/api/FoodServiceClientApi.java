@@ -51,4 +51,32 @@ public class FoodServiceClientApi {
 
 	}
 	
+	public FoodMenuCategoryBasicDetailsDto getMenuCategoryByCityIdAndName(String cityId, String name) {
+		ResponseDto<FoodMenuCategoryBasicDetailsDto> responseDto = null;
+		String path = UriComponentsBuilder.fromPath("/internal/menu/category/getByCityIdAndName").queryParam("cityId", cityId).queryParam("name", name).build().toUriString();
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<FoodMenuCategoryBasicDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<FoodMenuCategoryBasicDetailsDto>>() {};
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("exception while listing internet plans", e);
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
+	}
+	
+	
+	
+	
 }
