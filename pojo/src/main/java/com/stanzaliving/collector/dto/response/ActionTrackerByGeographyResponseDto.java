@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class ActionTrackerByGeographyResponseDto extends RentDetailsResponseDto  {
 
-    FeElementDto pendingAmountContributionPercentage;
     FeElementDto pendingAmountForLastMonthAndBefore;
+    FeElementDto pendingAmountContributionPercentage;
     FeElementDto pendingAmountContributionPercentageForLastMonthAndBefore;
 }
