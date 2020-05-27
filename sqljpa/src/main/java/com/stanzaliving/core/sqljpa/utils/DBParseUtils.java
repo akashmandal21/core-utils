@@ -5,6 +5,7 @@ package com.stanzaliving.core.sqljpa.utils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 
 import org.apache.commons.lang3.ObjectUtils;
 
@@ -66,6 +67,13 @@ public class DBParseUtils {
 		BigDecimal value = (BigDecimal) object;
 
 		return ObjectUtils.defaultIfNull(value, BigDecimal.valueOf(0));
+	}
+
+	public Date getDateValue(Object object) {
+
+		Date value = (Date) object;
+
+		return ObjectUtils.defaultIfNull(value, new Date());
 	}
 
 }
