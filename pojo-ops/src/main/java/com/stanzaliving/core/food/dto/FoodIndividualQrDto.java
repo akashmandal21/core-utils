@@ -28,4 +28,7 @@ public class FoodIndividualQrDto {
 	private int itemQuantity;
 	
 	private Object itemData;
+	
+	private int numberOfContainers;
+	
 }
