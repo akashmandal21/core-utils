@@ -18,5 +18,7 @@ import lombok.experimental.SuperBuilder;
 public class VasOrderRequestDto {
 
 	private List<VasOrderRequestDtoData> data;
+	
+	private String studentId;
 
 }

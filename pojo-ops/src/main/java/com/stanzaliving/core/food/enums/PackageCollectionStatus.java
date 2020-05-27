@@ -8,7 +8,7 @@ import lombok.Getter;
 
 public enum PackageCollectionStatus {
 
-	COLLECTION_PENDING("Collection Pending"),COLLECTED("Collected");
+	COLLECTION_PENDING("Collection Pending"),COLLECTED("Collected"),CANCELLED("Cancelled");
 	
 	private String name;
 }
