@@ -41,5 +41,7 @@ public class DispatchListingDto {
 	
 	private String residenceMenuUuid;
 	
+	private String dispatchListUuid;
+	
 	
 }
