@@ -219,11 +219,11 @@ public class ExceptionInterceptor {
 	}
 
 	@ExceptionHandler(InvalidDataAccessApiUsageException.class)
-	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@ResponseStatus(HttpStatus.FAILED_DEPENDENCY)
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleInvalidDataAccessException(InvalidDataAccessApiUsageException e) {
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got NoRecordException for exceptionId: " + exceptionId, e);
+		log.error("Got InvalidDataAccessApiUsageException for exceptionId: " + exceptionId, e);
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
