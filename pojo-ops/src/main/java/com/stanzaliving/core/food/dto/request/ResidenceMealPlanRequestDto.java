@@ -3,12 +3,10 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.dto.ResidenceMealLevelPlanDto;
 
@@ -35,9 +33,6 @@ public class ResidenceMealPlanRequestDto {
 
 	@NotBlank(message = "Residence Id is mandatory")
 	private String residenceId;
-
-	@NotNull(message = "Meal Plan Activation Date is Mandatory")
-	private LocalDate activationDate;
 
 	@NotEmpty(message = "Residence Meal Level Plans Cannot be Blank")
 	private List<ResidenceMealLevelPlanDto> residenceMealLevelPlanDtos;
