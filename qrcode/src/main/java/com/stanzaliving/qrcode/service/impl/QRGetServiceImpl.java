@@ -66,13 +66,18 @@ public class QRGetServiceImpl implements QRGetService {
 			
 			String outputFile = s3UploadService.upload(s3Bucket, filePath, outputfile, "jpeg", s3Client, false);
 			
-			QRData qrData = QRData.builder().contextId(contextId).data(qrContent).qrContextType(qrContextType)
-					.subContextId(subContextId).bucket(s3Bucket).content(data).filePath(outputFile).fileName(filePath)
-					.build();
+			if(Objects.nonNull(outputFile)) {
+				
+				QRData qrData = QRData.builder().contextId(contextId).data(qrContent).qrContextType(qrContextType)
+						.subContextId(subContextId).bucket(s3Bucket).content(data).filePath(outputFile).fileName(filePath)
+						.build();
+				
+				qrData = qrDataRepository.save(qrData);
+				
+				return s3DownloadService.getPreSignedUrl(s3Bucket, outputFile, 3600, s3Client);
+			}
 			
-			qrData = qrDataRepository.save(qrData);
-			
-			return s3DownloadService.getPreSignedUrl(s3Bucket, outputFile, 3600, s3Client);
+			return null;
 			
 		} catch (IOException e) {
 			log.error("Got error while generating image ",e);

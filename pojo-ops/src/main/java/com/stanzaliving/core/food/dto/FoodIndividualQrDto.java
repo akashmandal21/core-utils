@@ -31,4 +31,5 @@ public class FoodIndividualQrDto {
 	
 	private int numberOfContainers;
 	
+	
 }

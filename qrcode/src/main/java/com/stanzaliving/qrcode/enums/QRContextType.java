@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public enum QRContextType {
 
-    FOODTABLE, 
-    VASTABLE, 
+    FOODTABLE_VEG,
+    FOODTABLE_NONVEG,
+    VASTABLE,
     DISPATCHSUMMARY, 
     VASORDERSUMMARY;	
 }

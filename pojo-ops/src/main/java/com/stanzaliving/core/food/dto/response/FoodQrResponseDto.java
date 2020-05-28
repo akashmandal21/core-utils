@@ -1,7 +1,5 @@
 package com.stanzaliving.core.food.dto.response;
 
-import java.awt.image.BufferedImage;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -9,6 +9,6 @@ public enum DispatchSummaryItemType {
 
 	VEG("Veg Meals"), NONVEG("Non Veg Meals"), STAFF("Staff Meals"), VAS_VEG("Vas Veg"), VAS_NON_VEG("Vas Non-Veg");
 
-	private String mealName;
+	private String mealName; 
 
 }

@@ -6,5 +6,5 @@ import com.stanzaliving.qrcode.entity.QRData;
 
 public interface QRScanService {
 
-	QRData getQRData(BufferedImage image);
+	QRData getQRData(String code);
 }
