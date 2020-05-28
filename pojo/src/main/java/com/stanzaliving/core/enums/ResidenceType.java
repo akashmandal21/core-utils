@@ -39,7 +39,7 @@ public enum ResidenceType {
 	}
 
 	public static ResidenceType getVentaResidenceType(int id) {
-		return residenceTypeMap.get(id);
+		return ventaResidenceTypeMap.get(id);
 	}
 
 	public static ResidenceType getResidentTypeForTargetUser(String targetUser) {
