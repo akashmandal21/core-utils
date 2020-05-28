@@ -31,12 +31,15 @@ import com.stanzaliving.core.user.dto.UserManagerProfileRequestDto;
 import com.stanzaliving.core.user.dto.UserProfileDto;
 import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * @author naveen.kumar
  *
  * @date 03-Nov-2019
  *
  **/
+@Log4j2
 public class UserClientApi {
 
 	private StanzaRestClient restClient;
@@ -317,7 +320,12 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<List<UserContactDetailsResponseDto>>> userContactResponse = new ParameterizedTypeReference<ResponseDto<List<UserContactDetailsResponseDto>>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryMap, null, headerParams, accept, userContactResponse);
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryMap, null, headerParams, accept, userContactResponse);
+		} catch (Exception e) {
+			log.error("exception while fetching contact detials from user service", e);
+			return null;
+		}
 	}
 
 	public ResponseDto<UserProfileDto> getUserProfileByUuid(String userUuid) {
