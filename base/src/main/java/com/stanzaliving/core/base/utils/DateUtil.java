@@ -20,6 +20,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import org.apache.commons.text.CaseUtils;
+
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.enums.DatePart;
@@ -593,6 +595,11 @@ public class DateUtil {
 
 		return "th";
 
+	}
+	
+	public String convertToStringDate(LocalDate menuDate) {
+
+		return String.valueOf(menuDate.getDayOfMonth()) + " " + CaseUtils.toCamelCase(menuDate.getMonth().toString(), true) + " " + String.valueOf(menuDate.getYear());
 	}
 
 }
