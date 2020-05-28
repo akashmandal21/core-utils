@@ -18,9 +18,9 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@ToString
 @SuperBuilder
 @NoArgsConstructor
+@ToString(callSuper = true)
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "contribution", "enabled" })
 public class UnderwrittenCostCategoryDto extends CategoryDto {
 

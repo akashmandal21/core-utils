@@ -19,10 +19,10 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
 public class UtilitiesCategoryDto extends CategoryDto {
 

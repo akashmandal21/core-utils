@@ -20,9 +20,9 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@ToString
 @SuperBuilder
 @NoArgsConstructor
+@ToString(callSuper = true)
 @JsonIgnoreProperties({ "utilization" })
 public class RcCategoryDto extends CategoryDto {
 

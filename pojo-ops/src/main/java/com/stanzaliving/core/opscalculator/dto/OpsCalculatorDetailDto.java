@@ -20,10 +20,10 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
 public class OpsCalculatorDetailDto {
 
 	@Builder.Default

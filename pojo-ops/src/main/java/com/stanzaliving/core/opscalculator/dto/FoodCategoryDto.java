@@ -21,10 +21,10 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
 @JsonIgnoreProperties({ "count" })
 public class FoodCategoryDto extends CategoryDto {
 
