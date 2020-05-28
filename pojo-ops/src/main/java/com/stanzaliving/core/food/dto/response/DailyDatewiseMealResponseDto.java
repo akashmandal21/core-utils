@@ -19,5 +19,6 @@ import lombok.experimental.SuperBuilder;
 public class DailyDatewiseMealResponseDto {
 
 	private LocalDate date;
+	
 	private List<DailyRuleMealResponseDto> rules;
 }
