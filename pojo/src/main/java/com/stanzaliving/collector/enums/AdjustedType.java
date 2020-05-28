@@ -17,6 +17,9 @@ public enum AdjustedType {
     }, AR_ONLY{
         public Double getAdjustedAmountForActionTrackerByResidents(UserRentAggregationDto userRentAggregationDto) {
             LocalDate todayDate = LocalDate.now();
+            if (userRentAggregationDto.getAdvanceRentalDuration().equals(0)) {
+                return 0d;
+            }
             if(todayDate.isBefore(userRentAggregationDto.getContractEndDate()
                     .minusMonths(userRentAggregationDto.getAdvanceRentalDuration())) || todayDate.isEqual(userRentAggregationDto.getAdvanceRentalFromDate())){
                 return userRentAggregationDto.getAdvanceRentalAmount();
