@@ -60,7 +60,7 @@ public class QRGetServiceImpl implements QRGetService {
 		
 			String filePath = getFilePath(contextId, subContextId, qrContextType);
 			
-			File outputfile = new File(filePath+".jpg");
+			File outputfile = new File("/tmp/"+filePath+".jpg");
 
 			ImageIO.write(image, "jpg", outputfile);
 			
