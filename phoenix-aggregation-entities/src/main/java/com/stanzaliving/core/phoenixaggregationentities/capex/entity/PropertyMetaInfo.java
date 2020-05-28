@@ -21,6 +21,9 @@ public class PropertyMetaInfo extends AbstractJpaEntity {
     @Column(name = "property_uuid", nullable = false)
     private String propertyUuid;
 
+    @Column(name = "property_name",nullable = false)
+    private String propertyName;
+
     @Column(name = "city",nullable = false)
     private String city;
 
