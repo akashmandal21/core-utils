@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.response;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 import com.stanzaliving.core.operations.enums.MealType;
 
@@ -22,5 +23,5 @@ public class WeeklyDatewiseMealResponseDto {
 
 	private LocalDate date;
 	
-	private List<MealType> meals;
+	private Set<MealType> meals;
 }

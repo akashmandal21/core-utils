@@ -26,7 +26,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodItemUpdateRequestDto extends FoodItemAddRequestDto {
 
-	@NotBlank(message = "Item Name is Mandatory")
+	@NotBlank(message = "Item UUID is Mandatory")
 	private String uuid;
 
 }

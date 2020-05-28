@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto.response;
 
 import java.util.List;
+import java.util.Set;
 
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.rule.engine.dto.ConditionDto;
@@ -22,5 +23,5 @@ public class DailyRuleMealResponseDto extends ConditionDto {
 
 	private Boolean passed;
 
-	private List<MealType> meals;
+	private Set<MealType> meals;
 }
