@@ -48,4 +48,8 @@ public class CityUIDto {
 	@NotNull(message = "City Number of Rooms is Mandatory")
 	@Min(value = 1, message = "Number of Rooms cannot be less than 1")
 	private Integer targetRooms;
+
+	private String zoneUuid;
+
+	private String zoneName;
 }

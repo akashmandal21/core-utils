@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.transformations.pojo;
 
@@ -27,13 +27,15 @@ public class CityMetadataDto {
 	private String uuid;
 
 	private String cityName;
-	
+
 	private long stateId;
-	
+
+	private String zoneUuid;
+
 	private String cityCode;
-	
+
 	private double latitude;
-	
+
 	private double longitude;
-	
+
 }
