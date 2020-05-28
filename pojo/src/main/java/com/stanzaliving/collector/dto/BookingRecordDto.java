@@ -14,6 +14,4 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public abstract class BookingRecordDto extends RecordDto {
     String bookingUuid;
-
-    public abstract int compareTo(BookingInvoiceTransactionRecordDto bookingInvoiceTransactionRecordDto);
 }
