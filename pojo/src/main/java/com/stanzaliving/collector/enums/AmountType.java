@@ -12,7 +12,7 @@ public enum AmountType {
             }
 
             if((fromDate.isBefore(userCommercialToDate) && fromDate.isAfter(userCommercialFromDate)) || fromDate.equals(userCommercialToDate) ) {
-                Integer noOfDays = DateUtil.getCountOfDates(userCommercialFromDate, userCommercialFromDate);
+                Integer noOfDays = DateUtil.getCountOfDates(userCommercialFromDate, userCommercialToDate);
                 return  (DateUtil.getCountOfDates(userCommercialFromDate, fromDate.minusDays(1)) * amount)/noOfDays;
             }
             return 0.0;
@@ -23,7 +23,7 @@ public enum AmountType {
                 return amount*(-1);
             }
             if((fromDate.isBefore(userCommercialToDate) && fromDate.isAfter(userCommercialFromDate)) || fromDate.equals(userCommercialToDate) ) {
-                Integer noOfDays = DateUtil.getCountOfDates(userCommercialFromDate, userCommercialFromDate);
+                Integer noOfDays = DateUtil.getCountOfDates(userCommercialFromDate, userCommercialToDate);
                 return  (-1)*(DateUtil.getCountOfDates(userCommercialFromDate, fromDate.minusDays(1)) * amount)/noOfDays;
             }
             return 0.0;
