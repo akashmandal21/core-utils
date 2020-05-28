@@ -41,5 +41,17 @@ public class QRData extends AbstractJpaEntity {
 	
     @Column(name = "scanned_times", columnDefinition = "INT(10)")
     private int scannedTimes;
+    
+    @Column(name = "content",columnDefinition = "text")
+    private String content;
+    
+	@Column(name = "bucket", columnDefinition = "varchar(50) NOT NULL")
+	private String bucket;
+
+	@Column(name = "file_path", columnDefinition = "varchar(255) NOT NULL")
+	private String filePath;
+
+	@Column(name = "file_name", columnDefinition = "varchar(255) NOT NULL")
+	private String fileName;
 
 }

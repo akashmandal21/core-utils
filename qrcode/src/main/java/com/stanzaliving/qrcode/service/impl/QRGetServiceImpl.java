@@ -1,13 +1,20 @@
 package com.stanzaliving.qrcode.service.impl;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
+import javax.imageio.ImageIO;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.amazonaws.services.s3.AmazonS3;
 import com.stanza.qr.generator.QRGeneratorUtility;
+import com.stanzaliving.core.amazons3.service.S3DownloadService;
+import com.stanzaliving.core.amazons3.service.S3UploadService;
 import com.stanzaliving.qrcode.entity.QRData;
 import com.stanzaliving.qrcode.enums.QRContextType;
 import com.stanzaliving.qrcode.repository.QRDataRepository;
@@ -22,8 +29,20 @@ public class QRGetServiceImpl implements QRGetService {
 	@Autowired
 	private QRDataRepository qrDataRepository;
 	
+	@Autowired
+	private S3UploadService s3UploadService;
+
+	@Autowired
+	private AmazonS3 s3Client;
+	
+	@Value("${aws.s3.bucket}")
+	private String s3Bucket;
+
+	@Autowired
+	private S3DownloadService s3DownloadService;
+
 	@Override
-	public BufferedImage getQRCode(String contextId, String subContextId, QRContextType qrContextType) {
+	public String getQRCode(String contextId, String subContextId, QRContextType qrContextType,String data) {
 		
 		if(Objects.isNull(contextId) || Objects.isNull(qrContextType)) {
 			
@@ -38,21 +57,47 @@ public class QRGetServiceImpl implements QRGetService {
 		
 		try {
 			image = QRGeneratorUtility.generateQRImageUsingLong(qrContent);
+		
+			String filePath = getFilePath(contextId, subContextId, qrContextType);
+			
+			File outputfile = new File(filePath+".jpg");
+
+			ImageIO.write(image, "jpg", outputfile);
+			
+			String outputFile = s3UploadService.upload(s3Bucket, filePath, outputfile, "jpeg", s3Client, false);
+			
+			QRData qrData = QRData.builder().contextId(contextId).data(qrContent).qrContextType(qrContextType)
+					.subContextId(subContextId).bucket(s3Bucket).content(data).filePath(outputFile).fileName(filePath)
+					.build();
+			
+			qrData = qrDataRepository.save(qrData);
+			
+			return s3DownloadService.getPreSignedUrl(s3Bucket, outputFile, 3600, s3Client);
+			
 		} catch (IOException e) {
 			log.error("Got error while generating image ",e);
 			return null;
 		}
 		
-		if(Objects.nonNull(image)) {
-			QRData qrData = QRData.builder().contextId(contextId).data(qrContent).qrContextType(qrContextType).subContextId(subContextId).build();
-			
-			qrData = qrDataRepository.save(qrData);
-			
-			return (Objects.nonNull(image))?image:null;
+	}
+	
+	String getFilePath(String contextId, String subContextId, QRContextType qrContextType) {
+		
+		
+		StringBuilder filePath = new StringBuilder();
+		
+		filePath.append(qrContextType.name());
+		
+		if(Objects.nonNull(contextId)) {
+			filePath.append("-");
+			filePath.append(contextId);
+		}
+		if(Objects.nonNull(subContextId)) {
+			filePath.append("-");
+			filePath.append(subContextId);
 		}
 		
-		return null;
-		
+		return filePath.toString();
 	}
 
 }
