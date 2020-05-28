@@ -29,6 +29,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodMenuDto {
 
+	private String foodMenuUuid;
+
 	private MealType meal;
 
 	private LocalTime startTime;
