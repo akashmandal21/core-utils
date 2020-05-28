@@ -1,7 +1,11 @@
 package com.stanzaliving.core.food.dto.request;
 
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import com.stanzaliving.core.food.dto.ExpectedItemFeedbackReasonDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,5 +27,7 @@ public class ResidentFoodItemFeedbackUpdateDto {
 
 	@NotNull(message = "Rating cannot be null")
 	private Float rating;
+	
+	private List<ExpectedItemFeedbackReasonDto> expectedItemFeedbackReasons;
 
 }
