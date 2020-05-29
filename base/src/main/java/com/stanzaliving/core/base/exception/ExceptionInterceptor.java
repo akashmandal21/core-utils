@@ -193,7 +193,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(PreconditionFailedException.class)
 	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handlePreconditionFailedException(PreconditionFailedException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
