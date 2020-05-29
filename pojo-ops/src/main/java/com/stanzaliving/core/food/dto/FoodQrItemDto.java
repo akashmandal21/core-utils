@@ -25,6 +25,5 @@ public class FoodQrItemDto {
 	private String houseName;
 	private String mealType;
 	private String foodItemType;
-	private Long menuDate;
 	private List<String> foodItemNames;
 }
