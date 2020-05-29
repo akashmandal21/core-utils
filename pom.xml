@@ -60,6 +60,7 @@
 		<module>fr-client</module>
 		<module>inventory_transformations</module>
 		<module>phoenix-aggregation-client</module>
+		<module>internet-integration-client</module>
 	</modules>
 
 	<build>
