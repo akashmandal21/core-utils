@@ -1,4 +1,4 @@
-package com.stanzaliving.core.food.dto;
+package com.stanzaliving.core.food.dto.response;
 
 import java.util.List;
 
@@ -15,13 +15,14 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MicromarketMenuCategoryDto {
+public class VasOrderSummaryDto {
 
-	private String micromarketName;
+	private String residenceName;
 
-	private List<String> fbManagerNames;
+	private String mealType;
 
-	private List<String> fbManagerContactNos;
+	private String menuDate;
 
-	private List<VendorEmailDto> vendorEmailDtos;
+	private List<VasResidentOrderDto> vasResidentOrderDtos;
+
 }

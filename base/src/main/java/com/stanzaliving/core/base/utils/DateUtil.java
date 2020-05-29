@@ -11,14 +11,18 @@ import java.time.Period;
 import java.time.YearMonth;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+
+import org.apache.commons.text.CaseUtils;
 
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
@@ -593,6 +597,20 @@ public class DateUtil {
 
 		return "th";
 
+	}
+	
+	public String convertToAMPM(LocalTime localTime) {
+
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
+	            .withLocale(Locale.US);
+
+		return localTime.format(timeFormatter);
+		
+	}
+	
+	public String convertToStringDate(LocalDate menuDate) {
+
+		return String.valueOf(menuDate.getDayOfMonth()) + " " + CaseUtils.toCamelCase(menuDate.getMonth().toString(), true) + " " + String.valueOf(menuDate.getYear());
 	}
 
 }

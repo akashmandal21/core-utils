@@ -27,5 +27,9 @@ public class VasOrderHistoryResponseDto {
 	private Map<MealType, String> mealMapByMealType;
 
 	private Map<MealType, PackageCollectionStatus> mealMapByPaymentStatus;
+	
+	private boolean orderCancellable;
+	
+	private double totalCost;
 
 }

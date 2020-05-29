@@ -1,8 +1,4 @@
-package com.stanzaliving.core.food.dto;
-
-import java.util.List;
-
-import com.stanzaliving.core.base.common.dto.ListingDto;
+package com.stanzaliving.core.food.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,10 +13,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MicromarketHostelDto {
-	
-	private String micromarketName;
-	
-	private List<ListingDto> hostels;
+public class VasItemOrderDto {
+
+	private String itemName;
+
+	private Integer quantity;
 
 }
