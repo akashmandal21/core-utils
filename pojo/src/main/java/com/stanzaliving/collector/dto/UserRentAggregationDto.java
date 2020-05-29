@@ -5,33 +5,34 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 
 
-@Builder
+@SuperBuilder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserRentAggregationDto {
-    private String ventaUserUuid;
-    private String ventaUserName;
-    private String bookingUuid;
-    private String residenceUuid;
-    private String micromarketUuid;
-    private String cityUuid;
-    private Double tillDateInvoiceAmount;
-    private Double tillDatePending;
-    private Double securityDeposit;
-    private Integer advanceRentalDuration;
-    private LocalDate contractStartDate;
-    private LocalDate contractEndDate;
-    private ResidenceType residenceType;
-    private LocalDate lastInternetUsedDate;
-    private LocalDate lastPaymentDate;
-    private String bookingStatus;
-    private Boolean hasMovedIn;
-    private Double advanceRentalAmount;
-    private LocalDate advanceRentalFromDate;
-    private LocalDate advanceRentalToDate;
+    String ventaUserUuid;
+    String ventaUserName;
+    String bookingUuid;
+    String residenceUuid;
+    String micromarketUuid;
+    String cityUuid;
+    Double tillDateInvoiceAmount;
+    Double tillDatePending;
+    Double securityDeposit;
+    Integer advanceRentalDuration;
+    LocalDate contractStartDate;
+    LocalDate contractEndDate;
+    ResidenceType residenceType;
+    LocalDate lastInternetUsedDate;
+    LocalDate lastPaymentDate;
+    String bookingStatus;
+    Boolean hasMovedIn;
+    Double advanceRentalAmount;
+    LocalDate advanceRentalFromDate;
+    LocalDate advanceRentalToDate;
 }
