@@ -21,4 +21,6 @@ public class MealAttendanceUtilizationDto {
 	
 	private Double actualUtilization;
 	
+	private Integer mealSequence;
+	
 }
