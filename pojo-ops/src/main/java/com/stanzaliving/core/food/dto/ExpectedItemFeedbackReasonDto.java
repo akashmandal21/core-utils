@@ -1,8 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,13 +14,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MicromarketMenuCategoryDto {
+public class ExpectedItemFeedbackReasonDto {
 
-	private String micromarketName;
+	private String suggestion;
 
-	private List<String> fbManagerNames;
+	@Builder.Default
+	private Boolean selected = false;
 
-	private List<String> fbManagerContactNos;
-
-	private List<VendorEmailDto> vendorEmailDtos;
 }

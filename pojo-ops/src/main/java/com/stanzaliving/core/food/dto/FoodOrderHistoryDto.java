@@ -15,13 +15,18 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MicromarketMenuCategoryDto {
+public class FoodOrderHistoryDto {
+	
+	private String meal;
 
-	private String micromarketName;
+	private Integer students;
 
-	private List<String> fbManagerNames;
+	private Integer avgAttendance;
 
-	private List<String> fbManagerContactNos;
+	private Integer vegOrder;
 
-	private List<VendorEmailDto> vendorEmailDtos;
+	private Integer nonVegOrder;
+
+	private List<FoodOrderHistoryAdditionalItemDto> additionalItemDtos;
+
 }

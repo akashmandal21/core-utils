@@ -21,6 +21,6 @@ public class MicromarketHostelDto {
 	
 	private String micromarketName;
 	
-	List<ListingDto> hostels;
+	private List<ListingDto> hostels;
 
 }

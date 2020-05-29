@@ -23,6 +23,9 @@ public class WeekWiseMenu {
 
 	private Integer weekNumber;
 
+	@Builder.Default
+	private boolean compositionRulePassed = true;
+
 	private List<DayWiseFoodMenuDto> dayWiseFoodMenu;
 
 }

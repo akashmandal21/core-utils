@@ -1,10 +1,9 @@
 package com.stanzaliving.core.food.dto.response;
 
-import java.time.DayOfWeek;
 import java.util.List;
-import java.util.Set;
 
 import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.core.rule.engine.dto.ConditionDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,23 +12,17 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-
-/**
- * @author piyush srivastava
- *
- * @date 12-May-2020
- *
- */
-
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+public class DailyDaywiseRuleMealResponseDto extends ConditionDto {
+	private Boolean passed;
 
-public class WeeklyDaywiseMealResponseDto {
-	private DayOfWeek dayOfWeek;
+	private List<DailyDaywiseMealResponseDto> passedMeals;
 
-	private Set<MealType> meals;
+	private List<DailyDaywiseMealResponseDto> failedMeals;
+
 }

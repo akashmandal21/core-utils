@@ -23,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ItemRecipeCsvIngredientRequestDto {
 
-	private String itemId;
+	private String itemSku;
 	private String ingredientId;
 	private String ingredientName;
 	private String quantity;

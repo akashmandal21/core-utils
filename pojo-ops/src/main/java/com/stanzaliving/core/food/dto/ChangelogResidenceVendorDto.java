@@ -3,42 +3,44 @@
  */
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalTime;
-import java.util.List;
+import java.time.LocalDate;
 
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 /**
  * @author naveen.kumar
  *
- * @date 23-Apr-2020
+ * @date 24-May-2020
  *
  **/
 @Getter
 @Setter
 @ToString
-@SuperBuilder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuDto {
+public class ChangelogResidenceVendorDto {
 
-	private String foodMenuUuid;
+	private String residenceId;
 
-	private MealType meal;
+	private String residenceName;
 
-	private LocalTime startTime;
+	private MealType mealType;
 
-	private LocalTime endTime;
+	private String mealTypeName;
 
-	private Integer sequence;
+	private String vendorId;
 
-	private List<FoodMenuItemDto> itemDtos;
+	private String vendorName;
 
+	private LocalDate changedDate;
+
+	private String changedBy;
 }

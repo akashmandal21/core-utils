@@ -1,6 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import com.stanzaliving.core.food.enums.TiffinOrderType;
 
@@ -19,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @ToString
 public class ActiveTiffinDto {
 
-	private LocalDateTime date;
+	private LocalDate date;
 
 	private Boolean status;
 

@@ -1,30 +1,22 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.core.food.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Getter
 @Setter
 @ToString
-@SuperBuilder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemCategoryDto {
+public class MealPacksInfoDto {
 
-	private String torqusSku;
-	private String name;
-	private boolean status;
+	private String mealName;
+
+	private Integer totalPacks;
 
 }
