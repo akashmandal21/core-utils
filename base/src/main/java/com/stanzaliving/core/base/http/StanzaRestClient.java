@@ -67,8 +67,8 @@ public class StanzaRestClient {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate();
 	}
-	
-	public StanzaRestClient(String basePath, int connectTimeOut, int readTimeOut){
+
+	public StanzaRestClient(String basePath, int connectTimeOut, int readTimeOut) {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate(connectTimeOut, readTimeOut);
 	}
@@ -96,7 +96,7 @@ public class StanzaRestClient {
 		RestTemplate template = new RestTemplate();
 
 		configureRestTemplate(template);
-		
+
 		// This allows us to read the response more than once - Necessary for debugging.
 		template.setRequestFactory(new BufferingClientHttpRequestFactory(template.getRequestFactory()));
 		return template;
@@ -117,12 +117,12 @@ public class StanzaRestClient {
 		RestTemplate template = new RestTemplate(getClientHttpRequestFactory(connectTimeOut, readTimeOut));
 
 		configureRestTemplate(template);
-	
+
 		// This allows us to read the response more than once - Necessary for debugging.
 		template.setRequestFactory(new BufferingClientHttpRequestFactory(template.getRequestFactory()));
 		return template;
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public void configureRestTemplate(RestTemplate template) {
 		for (HttpMessageConverter converter : template.getMessageConverters()) {
@@ -137,7 +137,7 @@ public class StanzaRestClient {
 				SimpleModule module = new SimpleModule();
 				module.addSerializer(new Java8LocalDateStdSerializer());
 				module.addDeserializer(LocalDate.class, new Java8LocalDateStdDeserializer());
-				
+
 				module.addSerializer(new Java8LocalTimeSerializer());
 				module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
 
@@ -146,7 +146,7 @@ public class StanzaRestClient {
 			}
 		}
 	}
-	
+
 	public HttpStatus getStatusCode() {
 		return statusCode;
 	}
@@ -200,7 +200,7 @@ public class StanzaRestClient {
 
 		return invokeAPI(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
 	}
-	
+
 	public <T> T invokeAPI(
 			String path,
 			HttpMethod method,
@@ -208,7 +208,7 @@ public class StanzaRestClient {
 			Object body,
 			HttpHeaders headerParams,
 			List<MediaType> accept,
-			ParameterizedTypeReference<T> returnType, 
+			ParameterizedTypeReference<T> returnType,
 			MediaType mediaType) {
 
 		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
@@ -226,7 +226,6 @@ public class StanzaRestClient {
 		requestBuilder.contentType(mediaType);
 
 		addHeadersToRequest(headerParams, requestBuilder);
-		addGUIDHeader();
 		addHeadersToRequest(defaultHeaders, requestBuilder);
 
 		log.debug("Accessing API: " + builder.toUriString());
@@ -238,8 +237,8 @@ public class StanzaRestClient {
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
 
 		} catch (RestClientException e) {
-			log.info("Exception caught while making rest call: ",e);
-			throw new StanzaHttpException("Exception caught while making rest call: "+e.getCause());
+			log.info("Exception caught while making rest call: ", e);
+			throw new StanzaHttpException("Exception caught while making rest call: " + e.getCause());
 		}
 
 		statusCode = responseEntity.getStatusCode();
@@ -292,8 +291,8 @@ public class StanzaRestClient {
 		try {
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
 		} catch (RestClientException e) {
-			log.info("Exception caught while making rest call: ",e);
-			throw new StanzaHttpException("Exception caught while making rest call: "+e.getCause());
+			log.info("Exception caught while making rest call: ", e);
+			throw new StanzaHttpException("Exception caught while making rest call: " + e.getCause());
 		}
 
 		statusCode = responseEntity.getStatusCode();
@@ -306,10 +305,10 @@ public class StanzaRestClient {
 				return null;
 			}
 			return responseEntity.getBody();
-		
+
 		} else if (responseEntity.getStatusCode() == HttpStatus.BAD_REQUEST) {
 			return null;
-			
+
 		} else {
 			// The error handler built into the RestTemplate should handle 400 and 500 series errors.
 			throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
@@ -328,6 +327,8 @@ public class StanzaRestClient {
 				}
 			}
 		}
+
+		headers.add(StanzaConstants.GUID, MDC.get(StanzaConstants.GUID));
 	}
 
 	public MultiValueMap<String, String> parameterToMultiValueMap(CollectionFormat collectionFormat, String name, Object value) {
@@ -386,15 +387,4 @@ public class StanzaRestClient {
 		}
 	}
 
-	// This method is called to add GUID header in internal API calls
-	public StanzaRestClient addGUIDHeader() {
-
-		if (defaultHeaders.containsKey(StanzaConstants.GUID)) {
-			defaultHeaders.remove(StanzaConstants.GUID);
-		}
-
-		defaultHeaders.add(StanzaConstants.GUID, MDC.get(StanzaConstants.GUID));
-
-		return this;
-	}
 }
