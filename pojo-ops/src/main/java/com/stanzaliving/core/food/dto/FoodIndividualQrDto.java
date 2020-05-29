@@ -33,5 +33,4 @@ public class FoodIndividualQrDto {
 	
 	private int vasItems;
 	
-	
 }
