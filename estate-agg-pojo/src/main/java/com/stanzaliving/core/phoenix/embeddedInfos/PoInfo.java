@@ -14,10 +14,10 @@ import java.util.Date;
 @Builder
 public class PoInfo {
     private String poUuid;
-    private PoType poType;
+    private String poType; // Changed from PoType enum to String
     private Date updatedAt;
     private String updatedBy;
-    private PoStatus poStatus;
+    private String poStatus; // Changed from PoStatus enum to String
     private Date approvalDate;
     private Boolean isRejected;
     private String vendorPocUuid;

@@ -22,7 +22,7 @@ public class AsIsInfo {
     private LocalDate dueDate;
     private String delayReason;
     private LocalDate siteVisitDate;
-    private SiteVisitStatus siteVisitStatus;
+    private String siteVisitStatus;//Change SiteVisitStatus to String
     private LocalDate asIsStartsOn;
-    private AsIsStatus asIsStatus;
+    private String asIsStatus; // Changed from AsIsStatus enum to String
 }

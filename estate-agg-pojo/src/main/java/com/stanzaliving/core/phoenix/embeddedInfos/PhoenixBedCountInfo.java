@@ -40,7 +40,7 @@ public class PhoenixBedCountInfo {
     private Integer deviationInBedCount;
 
     
-    private BedCountStatus bedCountStatus;
+    private String bedCountStatus; //Changed from BedCountStatus enum to String
 
     
     private String deviationReason;

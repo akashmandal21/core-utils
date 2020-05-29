@@ -17,7 +17,7 @@ public class HotoInfo {
     private String createdBy;
     private Date updatedAt;
     private String updatedBy;
-    private HOTODocumentStatus hotoDocumentStatus;
+    private String hotoDocumentStatus; //Changed from HOTODocumentStatus enum to String
     private String filePath;
     private String signedFilePath;
 }
