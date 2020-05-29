@@ -32,6 +32,10 @@ public class StanzaConstants {
 
 	public static final String GUID = "guid";
 	public static final String LUID = "luid";
+	
+	public static final String REQUEST_PATH = "RequestPath";
+	public static final String QUERY_STRING = "QueryString";
+	
 
 	public static final String MESSAGE_ID = "messageId";
 

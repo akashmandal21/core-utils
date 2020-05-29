@@ -70,6 +70,12 @@ public class SlackNotification {
 			log.trace("Send exception notification on Slack request exception: {}", exception);
 		}
 
+		StringBuilder slackMessage = createMessage(exception);
+
+		return sendPushNotificationRequest(slackMessage.toString(), endUrl);
+	}
+
+	private StringBuilder createMessage(Exception exception) {
 		Pair<String, String> ipAddress = getIpAddress();
 
 		StringBuilder slackMessage = new StringBuilder();
@@ -80,10 +86,14 @@ public class SlackNotification {
 				.append(ipAddress.getLeft())
 				.append("\n Hostname: ")
 				.append(ipAddress.getRight())
+				.append("\n ").append(StanzaConstants.REQUEST_PATH).append(": ")
+				.append(MDC.get(StanzaConstants.REQUEST_PATH))
+				.append("\n ").append(StanzaConstants.QUERY_STRING).append(": ")
+				.append(MDC.get(StanzaConstants.QUERY_STRING))
 				.append("\n Exception: ")
 				.append(exception.toString());
 
-		return sendPushNotificationRequest(slackMessage.toString(), endUrl);
+		return slackMessage;
 	}
 
 	private Pair<String, String> getIpAddress() {
@@ -108,19 +118,10 @@ public class SlackNotification {
 			log.trace("Send exception notification on Slack request exception: {}", exception);
 		}
 
-		Pair<String, String> ipAddress = getIpAddress();
-
 		StringBuilder slackMessage = new StringBuilder();
 		slackMessage.append("Application Name:")
 				.append(springApplicationName)
-				.append("\n GUID: ")
-				.append(MDC.get(StanzaConstants.GUID))
-				.append("\n IP Address: ")
-				.append(ipAddress.getLeft())
-				.append("\n Hostname: ")
-				.append(ipAddress.getRight())
-				.append("\n Exception: ")
-				.append(exception.toString());
+				.append("\n ").append(createMessage(exception));
 
 		return sendPushNotificationRequest(slackMessage.toString(), endUrl);
 	}
