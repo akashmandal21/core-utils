@@ -182,6 +182,7 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(RecordExistsException.class)
 	@ResponseStatus(code = HttpStatus.CONFLICT)
+	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleRecordExistsException(RecordExistsException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -192,6 +193,7 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(PreconditionFailedException.class)
 	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
+	@SendExceptionToSlack
 	public <T> ResponseDto<T> handlePreconditionFailedException(PreconditionFailedException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -231,6 +233,7 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(StanzaException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleStanzaException(StanzaException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
