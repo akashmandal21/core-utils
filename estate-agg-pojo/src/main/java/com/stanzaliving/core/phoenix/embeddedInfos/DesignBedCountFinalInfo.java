@@ -30,6 +30,8 @@ public class DesignBedCountFinalInfo {
 
     private Integer phoenixRooms;
 
+    private Integer phoenixBeds;
+
     private Integer primaBeds;
 
     private Integer summaBeds;
