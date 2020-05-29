@@ -27,4 +27,8 @@ public class VasMenuResponseDto {
 	
 	private Integer maxItemsAllowed;
 	
+	private String orderWindowTime;
+	
+	private boolean orderWindowClosed; 
+	
 }
