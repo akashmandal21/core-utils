@@ -39,7 +39,7 @@ public class GCScheduleStatusCDC {
     private String propertyUuid;
 
     @JsonProperty("schedule_status")
-    private GcScheduleStatus gcScheduleStatus;
+    private String gcScheduleStatus; //Change GcScheduleStatus to String
 
     @JsonProperty("file_path")
     private String filePath;
