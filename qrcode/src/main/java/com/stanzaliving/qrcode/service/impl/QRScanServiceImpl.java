@@ -26,7 +26,7 @@ public class QRScanServiceImpl implements QRScanService {
 	private QRScanHistoryRepository qrScanHistoryRepository;
 	
 	@Override
-	public QRData getQRData(String code) {
+	public QRData getQRData(String code,String userId) {
 		
 		log.info("Output after scan is {}",code);
 		
@@ -36,8 +36,12 @@ public class QRScanServiceImpl implements QRScanService {
 		
 		if(Objects.nonNull(qrData)) {
 			
+			if(Objects.isNull(userId)) {
+				userId = SecurityUtils.getCurrentUserId();
+			}
+			
 			qrScanHistoryRepository.save(
-					QRScanHistory.builder().qrUUid(qrData.getUuid()).userId(SecurityUtils.getCurrentUserId()).build());
+					QRScanHistory.builder().qrUUid(qrData.getUuid()).userId(userId).build());
 			
 			qrData.setScannedTimes(qrData.getScannedTimes()+1);
 			
