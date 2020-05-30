@@ -226,7 +226,6 @@ public class StanzaRestClient {
 		requestBuilder.contentType(mediaType);
 
 		addHeadersToRequest(headerParams, requestBuilder);
-		addHeadersToRequest(defaultHeaders, requestBuilder);
 
 		log.debug("Accessing API: " + builder.toUriString());
 
@@ -281,7 +280,6 @@ public class StanzaRestClient {
 		requestBuilder.contentType(MediaType.APPLICATION_JSON);
 
 		addHeadersToRequest(headerParams, requestBuilder);
-		addHeadersToRequest(defaultHeaders, requestBuilder);
 
 		log.debug("Accessing API: " + builder.toUriString());
 
