@@ -21,8 +21,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodOrderDetailDto {
 
-	private Long id;
-
 	private String residenceFoodMenuId;
 
 	private MealType mealType;
