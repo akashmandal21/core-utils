@@ -1,5 +1,6 @@
 package com.stanzaliving.collector.dto;
 
+import com.stanzaliving.dashboard.dto.FeElementDto;
 import lombok.*;
 
 @Data
@@ -8,8 +9,9 @@ import lombok.*;
 @ToString
 @Builder
 public class ActionTrackerByResidentsSummary {
+    FeElementDto totalPending;
     @Builder.Default
-    Double totalPending = 0d;
+    Double totalPendingAmount = 0d;
     @Builder.Default
     Integer duesAndNoTaskAssigned = 0;
     @Builder.Default
