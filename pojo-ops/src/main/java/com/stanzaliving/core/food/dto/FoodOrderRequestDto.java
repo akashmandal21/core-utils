@@ -27,9 +27,11 @@ public class FoodOrderRequestDto {
 
 	private LocalDate menuDate;
 
-	private Boolean ordered;
-
-	private Boolean withinBudget;
+	@Builder.Default
+	private Boolean ordered = false;
+	
+	@Builder.Default
+	private Boolean withinBudget = false;
 
 	private Integer mir;
 
