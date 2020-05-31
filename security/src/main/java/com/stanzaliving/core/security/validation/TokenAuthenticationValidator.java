@@ -56,7 +56,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 
 				UserProfileDto dto = responseDto.getData();
 
-				log.debug("User Fetched after Authentication: " + dto);
+				log.debug("User Fetched after Authentication: {}", dto.getUuid());
 
 				request.setAttribute("userId", dto.getUuid());
 
@@ -78,6 +78,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 						.lastName(dto.getLastName())
 						.email(dto.getEmail())
 						.userUuid(dto.getUuid())
+						.department(dto.getDepartment())
 						.build();
 
 			}

@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 
+import com.stanzaliving.core.base.StanzaConstants;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -44,6 +45,7 @@ import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
 import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
 
 import lombok.extern.log4j.Log4j2;
+import org.slf4j.MDC;
 
 /**
  * @author naveen
@@ -55,13 +57,9 @@ public class StanzaRestClient {
 
 	private String basePath;
 
-	private HttpStatus statusCode;
-
 	private RestTemplate restTemplate;
 
 	private ObjectMapper objectMapper;
-
-	private MultiValueMap<String, String> responseHeaders;
 
 	private HttpHeaders defaultHeaders = new HttpHeaders();
 
@@ -151,14 +149,6 @@ public class StanzaRestClient {
 		}
 	}
 
-	public HttpStatus getStatusCode() {
-		return statusCode;
-	}
-
-	public MultiValueMap<String, String> getResponseHeaders() {
-		return responseHeaders;
-	}
-
 	public StanzaRestClient setUserAgent(String userAgent) {
 		addDefaultHeader("User-Agent", userAgent);
 		return this;
@@ -202,6 +192,19 @@ public class StanzaRestClient {
 			List<MediaType> accept,
 			ParameterizedTypeReference<T> returnType) {
 
+		return invokeAPI(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+	}
+
+	public <T> T invokeAPI(
+			String path,
+			HttpMethod method,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			ParameterizedTypeReference<T> returnType,
+			MediaType mediaType) {
+
 		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
 
 		if (queryParams != null) {
@@ -214,10 +217,9 @@ public class StanzaRestClient {
 			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
 		}
 
-		requestBuilder.contentType(MediaType.APPLICATION_JSON);
+		requestBuilder.contentType(mediaType);
 
 		addHeadersToRequest(headerParams, requestBuilder);
-		addHeadersToRequest(defaultHeaders, requestBuilder);
 
 		log.debug("Accessing API: " + builder.toUriString());
 
@@ -237,8 +239,7 @@ public class StanzaRestClient {
 			}
 		}
 
-		statusCode = responseEntity.getStatusCode();
-		responseHeaders = responseEntity.getHeaders();
+		HttpStatus statusCode = responseEntity.getStatusCode();
 
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
@@ -277,7 +278,6 @@ public class StanzaRestClient {
 		requestBuilder.contentType(MediaType.APPLICATION_JSON);
 
 		addHeadersToRequest(headerParams, requestBuilder);
-		addHeadersToRequest(defaultHeaders, requestBuilder);
 
 		log.debug("Accessing API: " + builder.toUriString());
 
@@ -296,8 +296,7 @@ public class StanzaRestClient {
 			}
 		}
 
-		statusCode = responseEntity.getStatusCode();
-		responseHeaders = responseEntity.getHeaders();
+		HttpStatus statusCode = responseEntity.getStatusCode();
 
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
@@ -306,6 +305,10 @@ public class StanzaRestClient {
 				return null;
 			}
 			return responseEntity.getBody();
+
+		} else if (responseEntity.getStatusCode() == HttpStatus.BAD_REQUEST) {
+			return null;
+
 		} else {
 			// The error handler built into the RestTemplate should handle 400 and 500 series errors.
 			throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
@@ -357,8 +360,7 @@ public class StanzaRestClient {
 			}
 		}
 
-		statusCode = responseEntity.getStatusCode();
-		responseHeaders = responseEntity.getHeaders();
+		HttpStatus statusCode = responseEntity.getStatusCode();
 
 		log.debug("API: " + builder.toUriString() + " Response: " + statusCode);
 
@@ -410,6 +412,8 @@ public class StanzaRestClient {
 				}
 			}
 		}
+
+		headers.add(StanzaConstants.GUID, MDC.get(StanzaConstants.GUID));
 	}
 
 	public MultiValueMap<String, String> parameterToMultiValueMap(CollectionFormat collectionFormat, String name, Object value) {

@@ -1,8 +1,13 @@
 package com.stanzaliving.core.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 
@@ -12,9 +17,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class HostelDto {
+public class HostelDto implements Serializable{
 
-    private int id;
+	private static final long serialVersionUID = -2471705318252387055L;
+
+	private Integer id;
 
     private String hostelName;
 
@@ -26,11 +33,11 @@ public class HostelDto {
 
     private String managerName;
 
-    private int microMarketId;
+    private Integer microMarketId;
 
     private String microMarketName;
 
-    private int cityId;
+    private Integer cityId;
 
     private String cityName;
 
@@ -48,9 +55,10 @@ public class HostelDto {
 
     private String latitude;
 
-    private int pincode;
+    private Integer pincode;
 
     private String hostelCode;
-
+    
+    private Integer imsResidenceId;
 }
 

@@ -11,5 +11,4 @@ public interface AuthService {
 	void validateUrlPermission(String userId, String uri);
 
 	ResponseDto<UserProfileDto> getUserProfile();
-
 }

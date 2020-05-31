@@ -36,6 +36,8 @@ public class AttributeNames {
 		
 		public static final String NUMBER_OF_TOWERS = "towerCount";
 		
+		public static final String FLOOR_STARTS_FROM = "startLeasedFloorFrom";
+		
 		public static final String NUMBER_OF_DINING_SPACE = "diningAreaCount";
 		
 		public static final String FLOOR_PLATE_SIZE = "floorPlateSize";
@@ -90,6 +92,8 @@ public class AttributeNames {
 
 		public static final String COMMENTS_ON_PROPERTY_ANALYSIS = "commentsOnPropertyAnalysis";
 
+		public static final String COMMENTS_ON_COMMERCIALS = "commentOnCommercials";
+		
 		public static final String COMMENTS = "comments";
 
 		public static final String KEY_POSITIVES = "keyPositives";
@@ -199,8 +203,14 @@ public class AttributeNames {
 		public static final String BASEMENT_OTHER_AREAS_MAY_REMARKS = "basementOtherAreasMayRemarks";
 		public static final String WATER_SUPPLY_BOREWELL_REMARKS = "waterSupplyBorewellRemarks";
 		public static final String WATER_TANK_CAPACITY_TO_BE_CALCULATED_REMARKS = "waterTankCapacityToBeCalculatedRemarks";
+		public static final String WATER_STORAGE_CLAUSE_B_REMARKS = "waterStorageClauseBRemarks";
+
 		public static final String ANY_MASONRY_PLASTER_CRACKS_REMARKS = "anyMasonryPlasterCracksRemarks";
 		public static final String EXTERNAL_DOOR_WINDOWS_REMARKS = "externalDoorWindowsRemarks";
+		
+		public static final String EXTERIOR_FACADE_CLOSER_REMARKS = "exteriorFacadeCloserRemarks";
+		public static final String FACADE_REPAINTING_REMARKS = "facadeRepaintingRemarks";
+
 		public static final String WEATHER_PROOF_ROOF_REMARKS = "weatherProofRoofRemarks";
 		public static final String USABLE_TERRACE_REMARKS = "usableTerraceRemarks";
 		public static final String FINISHED_FLOORING_REMARKS = "finishedFlooringRemarks";
@@ -319,8 +329,11 @@ public class AttributeNames {
 		public static final String WATER_SUPPLY_CLAUSE_E_TEXT_AREA = "waterSupplyClauseETextArea";
 
 		public static final String WATER_STORAGE_CLAUSE_A_TEXT_AREA = "waterStorageClauseATextArea";
+		public static final String WATER_STORAGE_CLAUSE_B_TEXT_AREA = "waterStorageClauseBTextArea";
 		public static final String FACADE_CLAUSE_A_TEXT_AREA = "facadeClauseATextArea";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA = "facadeClauseBTextArea";
+		public static final String FACADE_CLAUSE_C_TEXT_AREA = "facadeClauseCTextArea";
+		public static final String FACADE_CLAUSE_D_TEXT_AREA = "facadeClauseDTextArea";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA_1 = "facadeClauseBTextArea1";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA_2 = "facadeClauseBTextArea2";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA_3 = "facadeClauseBTextArea3";
@@ -372,6 +385,36 @@ public class AttributeNames {
 		public static final String DOCS_AND_A_M_C_CLAUSE_A_TEXT_AREA = "docsAndAMCClauseATextArea";
 		public static final String COMMON_AREAS_CLAUSE_A_TEXT_AREA = "commonAreasClauseATextArea";
 		
+		public static final String SIGNAGE_CLAUSE_A_TEXT_AREA = "signangeLevelClauseATextArea";
+		public static final String SIGNAGE_CLAUSE_A_REMARK = "signangeRemarks";
+		
+		public static final String IT_CLAUSE_A_TEXT_AREA = "ITLevelClauseATextArea";
+		public static final String IT_CLAUSE_A_REMARK = "cctvWithDvrRemarks";
+		
+		public static final String IT_CLAUSE_B_TEXT_AREA = "ITLevelClauseBTextArea";
+		public static final String IT_CLAUSE_B_REMARK = "highSpeedBroadbandRemarks";
+
+		public static final String IT_CLAUSE_C_TEXT_AREA = "ITLevelClauseCTextArea";
+		public static final String IT_CLAUSE_C_REMARK = "dthConnectionRemarks";
+
+		public static final String SUPERVISOR_ROOM_CLAUSE_A_TEXT_AREA = "SupervisorLevelClauseATextArea";
+		public static final String SUPERVISOR_ROOM_CLAUSE_A_REMARK = "supervisorRoomRemarks";
+
+		public static final String PARKING_CLAUSE_A_TEXT_AREA = "parkingLevelClauseATextArea";
+		public static final String PARKING_CLAUSE_A_REMARK = "parkingRemarks";
+		
+		public static final String LANDSCAPE_CLAUSE_A_TEXT_AREA = "landscapeLevelClauseATextArea";
+		public static final String LANDSCAPE_CLAUSE_A_REMARK = "softAndHardRemarks";
+		
+		public static final String LANDSCAPE_CLAUSE_B_TEXT_AREA = "landscapeLevelClauseBTextArea";
+		public static final String LANDSCAPE_CLAUSE_B_REMARK = "paversRemarks";
+
+		public static final String BOUNDARY_WALL_CLAUSE_A_TEXT_AREA = "boundaryWallClauseATextArea";
+		public static final String BOUNDARY_WALL_CLAUSE_A_REMARK = "boundaryWallPaintRemarks";
+		
+		public static final String BOUNDARY_WALL_CLAUSE_B_TEXT_AREA = "boundaryWallClauseBTextArea";
+		public static final String BOUNDARY_WALL_CLAUSE_B_REMARK = "lightFixtureOnEntraceRemarks";
+
 		public static final String DUE_DILIGINCE_CHECKLIST_1 = "dueDigilenceChecklist1";
 		public static final String DUE_DILIGINCE_CHECKLIST_2 = "dueDigilenceChecklist2";
 		public static final String DUE_DILIGINCE_CHECKLIST_3 = "dueDigilenceChecklist3";
@@ -414,10 +457,17 @@ public class AttributeNames {
 		public static final String CURRENT_YEAR = "currentYear";
 		public static final String SECURITY_DEPOSIT_AMOUNT_IFSRD = "securityDepositAmountForIFSRD";
 		public static final String CITY_NAME = "cityName";
+		public static final String ROOM_COUNT_FOR_ATL ="roomCountAtl";
 
 
 
-
+		/*********************************BTS Question Attributes******************************************/
+		public static final String ON_SIGNING_ATL_BTS = "onSigningATLBTS";
+		public static final String ON_FLOOR_SLAB_COMPLETION_BTS = "onFloorSlabCompletionBTS";
+		public static final String OTHERS_BTS = "othersBTS";
+		public static final String ON_COMPLETION_BTS = "onCompletionBTS";
+		
+		
 		public static final Map<ImmutablePair<String, String>, List<String>> kQuestionMap = new HashMap<ImmutablePair<String, String>, List<String>>() {
 			/**
 			 * 
@@ -435,7 +485,7 @@ public class AttributeNames {
 		
 		public static final List<String> amcKeys = new ArrayList<String>();
 		public static final List<String> landlordAgreedKeys = new ArrayList<String>();
-
+		public static final List<String> landlordKeysLOI = Arrays.asList("STRUCTURELOI","waterSupplyClauseABooleanLOI","waterSupplyClauseBBooleanLOI","waterSupplyClauseCBooleanLOI","waterSupplyClauseDBooleanLOI","waterStorageClauseABooleanLOI","facadeClauseABooleanLOI","facadeClauseBBooleanLOI","terraceLevelClauseABooleanLOI","terraceLevelClauseBBooleanLOI","terraceLevelClauseCBooleanLOI","terraceLevelClauseDBooleanLOI","terraceLevelClauseEBooleanLOI","terraceLevelClauseFBooleanLOI","occupiedLevelClauseABooleanLOI","occupiedLevelClauseBBooleanLOI","occupiedLevelClauseCBooleanLOI","occupiedLevelClauseDBooleanLOI","occupiedLevelClauseEBooleanLOI","occupiedLevelClauseFBooleanLOI","roomClauseABooleanLOI","roomClauseBBooleanLOI","roomClauseCBooleanLOI","roomClauseDBooleanLOI","roomClauseEBooleanLOI","roomClauseFBooleanLOI","sanitaryClauseABooleanLOI","sanitaryClauseBBooleanLOI","sanitaryClauseCBooleanLOI","sanitaryClauseDBooleanLOI","sanitaryClauseEBooleanLOI","whiteGoodsClauseABooleanLOI","whiteGoodsClauseBBooleanLOI","whiteGoodsClauseCBooleanLOI","whiteGoodsClauseDBooleanLOI","whiteGoodsClauseEBooleanLOI","electricalClauseABooleanLOI","electricalClauseBBooleanLOI","electricalClauseCBooleanLOI","electricalClauseDBooleanLOI","electricalClauseEBooleanLOI","powerBackupClauseABooleanLOI","powerBackupClauseBBooleanLOI","powerBackupClauseCBooleanLOI","powerBackupClauseDBooleanLOI","liftClauseABooleanLOI","liftClauseBBooleanLOI","liftClauseCBooleanLOI","liftClauseDBooleanLOI","liftClauseEBooleanLOI","docsAndAMCClauseABooleanLOI","commonAreasClauseABooleanLOI","waterSupplyClauseEBooleanLOI","facadeClauseCBooleanLOI","facadeClauseDBooleanLOI","occupiedLevelClauseGBooleanLOI","occupiedLevelClauseHBooleanLOI","occupiedLevelClauseIBooleanLOI","signangeLevelClauseABooleanLOI","ITLevelClauseABooleanLOI","ITLevelClauseBBooleanLOI","ITLevelClauseCBooleanLOI","SupervisorLevelClauseABooleanLOI","parkingLevelClauseABooleanLOI","landscapeLevelClauseABooleanLOI","landscapeLevelClauseBBooleanLOI","fireClauseABooleanLOI","fireClauseBBooleanLOI","seepageClauseABooleanLOI","seepageClauseBBooleanLOI","seepageClauseCBooleanLOI","boundaryWallClauseABooleanLOI","boundaryWallClauseBBooleanLOI");
 		
 		static {
 			amcKeys.add(ASSET_LIST_WITH_EXACT_COUNT_RETAINED);

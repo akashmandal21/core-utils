@@ -6,11 +6,9 @@ package com.stanzaliving.core.base.utils;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -29,8 +27,8 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class StanzaUtils {
 
-	private static RoundingMode ROUNDING_MODE =RoundingMode.HALF_EVEN;
-	private static int SCALE =3;
+	private static RoundingMode ROUNDING_MODE = RoundingMode.HALF_EVEN;
+	private static int SCALE = 3;
 
 	public static String hideSecret(String secretString) {
 
@@ -63,18 +61,18 @@ public class StanzaUtils {
 	public static String getOccupancyString(int occupancy) {
 
 		switch (occupancy) {
-		case 1:
-			return "[Single]";
-		case 2:
-			return "[Double]";
-		case 3:
-			return "[Triple]";
-		case 4:
-			return "[Four]";
-		case 5:
-			return "[Five]";
-		default:
-			return "[" + occupancy + "]";
+			case 1:
+				return "[Single]";
+			case 2:
+				return "[Double]";
+			case 3:
+				return "[Triple]";
+			case 4:
+				return "[Four]";
+			case 5:
+				return "[Five]";
+			default:
+				return "[" + occupancy + "]";
 		}
 
 	}
@@ -137,7 +135,7 @@ public class StanzaUtils {
 	}
 
 	public static String generateUniqueEmailId() {
-		return generateUniqueId().replaceAll("-", "") + "@stanzaliving.com";
+		return generateUniqueId().replaceAll("-", "") + StanzaConstants.ORGANIZATION_EMAIL_DOMAIN;
 	}
 
 	public static double roundToPlaces(double value, int places) {
@@ -170,76 +168,119 @@ public class StanzaUtils {
 		return new ArrayList<>(Arrays.asList(input.split("\\s*,\\s*")));
 	}
 
-
-
-
-
 	/***
 	 * Returns the percentage value of the supplied number as {@link BigDecimal}.
-	 * @param number {@link Number}
+	 * 
+	 * @param number
+	 *            {@link Number}
 	 * @return {@link BigDecimal}
 	 * @author debendra.dhinda
-	 * */
+	 */
 	public static BigDecimal getPercentageValueOf(Number number) {
-		return getBigDecimalValueOf(number).divide(getBigDecimalValueOf(100),StanzaUtils.SCALE,StanzaUtils.ROUNDING_MODE);
+		return getBigDecimalValueOf(number).divide(getBigDecimalValueOf(100), StanzaUtils.SCALE, StanzaUtils.ROUNDING_MODE);
 	}
 
 	/***
 	 * Returns the percentage value of the supplied string as {@link BigDecimal}.
-	 * @param number {@link String}
+	 * 
+	 * @param number
+	 *            {@link String}
 	 * @return {@link BigDecimal}
 	 * @author debendra.dhinda
-	 * */
+	 */
 	public static BigDecimal getPercentageValueOf(String number) {
-		return getBigDecimalValueOf(number).divide(getBigDecimalValueOf(100),StanzaUtils.SCALE,StanzaUtils.ROUNDING_MODE);
+		return getBigDecimalValueOf(number).divide(getBigDecimalValueOf(100), StanzaUtils.SCALE, StanzaUtils.ROUNDING_MODE);
 	}
 
 	/***
-	 * Returns the {@link BigDecimal}  representations of the supplied number.
+	 * Returns the {@link BigDecimal} representations of the supplied number.
 	 * Translates the number representation of a {@code BigDecimal}
 	 * into a {@code BigDecimal}, accepting the same number as the
 	 * {@link #BigDecimal(String)} constructor, with rounding
 	 * according to the context {@link MathContext.DECIMAL128}.
 	 *
-	 * @param  number string representation of a {@code BigDecimal}.
+	 * @param number
+	 *            string representation of a {@code BigDecimal}.
 	 * @author debendra.dhinda
-	 * */
+	 */
 	public static BigDecimal getBigDecimalValueOf(Number number) {
-		//return new BigDecimal(Double.toString(value));
+		// return new BigDecimal(Double.toString(value));
 		return new BigDecimal(number.toString(), MathContext.DECIMAL128);
 	}
 
 	/***
-	 * Returns the {@link BigDecimal}  representations of the supplied string.
+	 * Returns the {@link BigDecimal} representations of the supplied string.
 	 * Translates the number representation of a {@code BigDecimal}
 	 * into a {@code BigDecimal}, accepting the same number as the
 	 * {@link #BigDecimal(String)} constructor, with rounding
 	 * according to the context {@link MathContext.DECIMAL128}.
 	 *
-	 * @param  number string representation of a {@code BigDecimal}.
+	 * @param number
+	 *            string representation of a {@code BigDecimal}.
 	 * @author debendra.dhinda
-	 * */
+	 */
 	public static BigDecimal getBigDecimalValueOf(String value) {
-		//return new BigDecimal(Double.toString(value));
+		// return new BigDecimal(Double.toString(value));
 		return new BigDecimal(value, MathContext.DECIMAL128);
 	}
-
-
 
 	/**
 	 * Used {@link Math} class's {@code ceil()} method for rounding the supplied {@link BigDecimal} value.
 	 * 
-	 * @param value {@link BigDecimal} value to be ceiled
+	 * @param value
+	 *            {@link BigDecimal} value to be ceiled
 	 * @return value
 	 * @author debendra.dhinda
-	 * */
+	 */
 	public static Double roundOff(BigDecimal value) {
-		//return  (value!=null)? value.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue() :0;
-		return (value!=null) ? Math.ceil(value.doubleValue()) :0;
+		// return (value!=null)? value.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue() :0;
+		return (value != null) ? Math.ceil(value.doubleValue()) : 0;
 	}
 
-	public static double findPercentage(long total,long number) {
+	public static double findPercentage(long total, long number) {
 		return (total != 0) ? Math.round((number * 100.0 / total) * 100.0) / 100.0 : 0;
+	}
+
+	public static String formatToIndianNumberFormat(long value) {
+		if (value <= 999)
+			return Long.toString(value);
+		String thousandsPart = (value + "").substring((value + "").length() - 3);
+
+		long rest = value / 1000;
+		NumberFormat format = new DecimalFormat("##,##");
+		String formattedString = format.format(rest);
+		return formattedString + "," + thousandsPart;
+	}
+
+	/**
+	 * Convert the supplied size to it's corresponding unit
+	 * such as bytes,KB,MB,GB or TB.
+	 * 
+	 * @param size
+	 *            size to convert.
+	 * @author debendra.dhinda
+	 */
+	public static String convertSizeToBytesOrKBOrMBOrGb(long size) {
+		String sizeWithUnit = "";
+
+		double kb = size / 1024;
+		double mb = kb / 1024;
+		double gb = mb / 1024;
+		double tb = gb / 1024;
+
+		if (size < 1024L) {
+			sizeWithUnit = size + " Bytes";
+		} else if (size >= 1024 && size < (1024L * 1024)) {
+			sizeWithUnit = String.format("%.2f", kb) + " KB";
+		} else if (size >= (1024L * 1024) && size < (1024L * 1024 * 1024)) {
+			sizeWithUnit = String.format("%.2f", mb) + " MB";
+		} else if (size >= (1024L * 1024 * 1024) && size < (1024L * 1024 * 1024 * 1024)) {
+			sizeWithUnit = String.format("%.2f", gb) + " GB";
+		} else if (size >= (1024L * 1024 * 1024 * 1024)) {
+			sizeWithUnit = String.format("%.2f", tb) + " TB";
+		}
+
+		return sizeWithUnit;
 	}
 
 }

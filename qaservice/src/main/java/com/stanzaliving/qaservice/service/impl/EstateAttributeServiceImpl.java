@@ -48,9 +48,8 @@ public class EstateAttributeServiceImpl implements EstateAttributeService {
 		
 		for (EstateAttributeEntity estateAttributeEntity : estateAttributeEntityList) {
 			EstateAttributeEntity estateAttributeEntityDb = 
-					estateAttributeRepository.findByEstateIdAndAttributeName(
-					estateAttributeEntity.getEstateId(), estateAttributeEntity.getAttributeName());
-			
+					fetchDetailByEstateIdAndAttributeName(estateAttributeEntity.getEstateId(), estateAttributeEntity.getAttributeName());
+							
 			if (estateAttributeEntityDb == null) {
 				estateAttributeEntityDb = estateAttributeEntity;
 			} else {
@@ -105,4 +104,28 @@ public class EstateAttributeServiceImpl implements EstateAttributeService {
         
         return estateAttributeEntityList;
     }
+
+	@Override
+	public EstateAttributeEntity fetchDetailByEstateIdAndAttributeName(String estateId, String attributeName) {
+		
+		return estateAttributeRepository.findByEstateIdAndAttributeName(
+						estateId, attributeName);
+	}
+	
+	@Override
+	public List<Long> getAllEstateIdsByAttributeName(String attributeName, String attributeValue) {
+		
+		List<Long> result = new ArrayList<>();
+		List<EstateAttributeEntity> estateAttributeEntities = 
+				estateAttributeRepository.findByAttributeNameAndAttributeValue(attributeName, attributeValue);
+	
+		if(!CollectionUtils.isEmpty(estateAttributeEntities)) {
+			
+			estateAttributeEntities.forEach(record -> {
+				result.add(Long.valueOf(record.getEstateId()));
+			});
+		}
+		
+		return result;
+	}
 }

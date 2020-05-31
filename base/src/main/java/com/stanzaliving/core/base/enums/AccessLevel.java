@@ -3,12 +3,17 @@
  */
 package com.stanzaliving.core.base.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @author naveen.kumar
  *
  * @date 14-Nov-2019
  *
  **/
+@Getter
+@AllArgsConstructor
 public enum AccessLevel {
 
 	RESIDENCE(10),
@@ -19,10 +24,6 @@ public enum AccessLevel {
 	GLOBAL(60);
 
 	private int levelNum;
-
-	AccessLevel(int levelNum) {
-		this.levelNum = levelNum;
-	}
 
 	public boolean isLower(AccessLevel other) {
 		return this.levelNum < other.levelNum;

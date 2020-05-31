@@ -72,6 +72,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			return true;
 
 		} catch (StanzaHttpException ex) {
+			log.error("Found StanzaHttpException: {}", (ex != null ? ex.getMessage() : ""));
 			ResponseDto<Void> res = ResponseDto.failure("We are facing some internal issue, please try after sometime.");
 
 			if (ex.getStatusCode() > 0) {
@@ -84,6 +85,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			setResponse(request, response, res);
 
 		} catch (StanzaSecurityException ex) {
+			log.error("Found StanzaSecurityException: {}", (ex != null ? ex.getMessage() : ""));
 			returnError(request, response, ex);
 		}
 
@@ -91,13 +93,15 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 	}
 
 	private void returnError(HttpServletRequest request, HttpServletResponse response, StanzaSecurityException ex) throws IOException {
-	
+
 		String message = ex != null ? ex.getMessage() : "Token Is Invalid";
 
 		ResponseDto<Void> res = ResponseDto.failure(message);
 
 		if (ex != null) {
 			response.setStatus(ex.getStatusCode());
+		} else {
+			response.setStatus(HttpStatus.UNAUTHORIZED.value());
 		}
 
 		setResponse(request, response, res);
