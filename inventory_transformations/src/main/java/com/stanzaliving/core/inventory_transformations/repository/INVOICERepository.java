@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface INVOICERepository extends JpaRepository<InvoiceEntity, Integer>, JpaSpecificationExecutor<InvoiceEntity> {
 
+    InvoiceEntity findFirstByStanzaInvoiceId(String stanzaInvoiceId);
 }
