@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.util.Assert;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -109,7 +110,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 	private void setResponse(HttpServletRequest request, HttpServletResponse response, ResponseDto<Void> res) throws JsonProcessingException, IOException {
 		response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
-		response.setHeader("Content-Type", "application/json");
+		response.setHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE);
 
 		try (PrintWriter writer = response.getWriter()) {
 			writer.print(objectMapper.writeValueAsString(res));
