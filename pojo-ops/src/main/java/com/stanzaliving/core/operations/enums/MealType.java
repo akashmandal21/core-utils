@@ -5,6 +5,7 @@ package com.stanzaliving.core.operations.enums;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +41,7 @@ public enum MealType {
 	private static Map<Integer, MealType> mealMapById = new HashMap<>();
 	private static Map<String, MealType> mealMapByName = new HashMap<>();
 	private static List<String> mealIds = new ArrayList<>();
-	private static Map<MealType, String> mealMapByType = new HashMap<>();
+	private static Map<MealType, String> mealMapByType = new LinkedHashMap<>();
 
 	private static List<EnumListing<MealType>> enumListings = new ArrayList<>();
 
@@ -50,9 +51,12 @@ public enum MealType {
 			mealMapById.put(mealType.getMealId(), mealType);
 			mealMapByName.put(mealType.getMealName(), mealType);
 			mealIds.add(mealType.getMealId().toString());
-			mealMapByType.put(mealType, mealType.getMealName());
 			enumListings.add(EnumListing.of(mealType, mealType.getMealName()));
 		}
+		mealMapByType.put(BREAKFAST, BREAKFAST.getMealName());
+		mealMapByType.put(LUNCH, LUNCH.getMealName());
+		mealMapByType.put(EVENING_SNACKS, EVENING_SNACKS.getMealName());
+		mealMapByType.put(DINNER, DINNER.getMealName());
 
 	}
 
