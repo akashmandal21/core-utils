@@ -14,5 +14,9 @@ public class PerformanceTrackerResponseDto extends RentDetailsResponseDto {
     FeElementDto arrearsAmount;
     FeElementDto totalPendingAmount;
     FeElementDto totalPendingAmountContributionPercentage;
+    Double debugTransactionAmount = 0d;
+    Double debugPastTransactionAmount = 0d;
+    Double debugAdjustmentAmount = 0d;
+    Double debugPastPayableAmount = 0d;
 
 }

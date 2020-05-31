@@ -5,7 +5,6 @@ import lombok.*;
 
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class FeElementDto {
@@ -99,5 +98,10 @@ public class FeElementDto {
 		this.denominator = (int) denominator;
 		this.isHover = isHover;
 		this.type = feElementType;
+	}
+
+	@Override
+	public String toString() {
+		return String.valueOf(value);
 	}
 }
