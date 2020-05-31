@@ -32,6 +32,6 @@ public class FoodEmailTemplateConstants {
 	
 	public static final String FB_MANAGER_CONTACT_NUMBERS = "fbManagerContactNumbers";
 	
-	
+	public static final String DASHBOARD_LINK = "dashboardLink";
 	
 }
