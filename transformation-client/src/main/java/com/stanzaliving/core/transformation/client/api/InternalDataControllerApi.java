@@ -87,7 +87,7 @@ public class InternalDataControllerApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public ResponseDto<String> getCityName(double latitude, double longitude) {
 
 		Object postBody = null;
