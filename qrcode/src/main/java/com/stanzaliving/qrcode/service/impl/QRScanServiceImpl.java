@@ -61,7 +61,7 @@ public class QRScanServiceImpl implements QRScanService {
 
 	@Override
 	public List<QRData> getQRDataByQrContextType(List<QRContextType> qrContextType, int page, int limit) {		
-		Pageable pagination = PageRequest.of(page, limit, Direction.DESC, "createdAt");
+		Pageable pagination = PageRequest.of(page-1, limit, Direction.DESC, "createdAt");
 		return qrDataRepository.findByQrContextTypeIn(qrContextType, pagination);
 	}
 }
