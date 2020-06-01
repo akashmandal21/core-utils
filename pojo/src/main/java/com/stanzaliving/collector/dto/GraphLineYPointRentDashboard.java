@@ -1,5 +1,6 @@
 package com.stanzaliving.collector.dto;
 
+import com.stanzaliving.dashboard.dto.FeElementDto;
 import com.stanzaliving.dashboard.dto.GraphLineYPoint;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class GraphLineYPointRentDashboard extends GraphLineYPoint {
     Double y;
-    Double amount;
+    FeElementDto amount;
     Double percent;
     String heading;
 }
