@@ -31,4 +31,6 @@ public class VasMenuResponseDto {
 	
 	private boolean orderWindowClosed; 
 	
+	private boolean oldOrderAvailable;
+	
 }
