@@ -5,6 +5,8 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.food.enums.FoodItemType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,5 +27,7 @@ public class FoodQrItemDto {
 	private String houseName;
 	private String mealType;
 	private String foodItemType;
+	private int quantity;
+	private FoodItemType foodPreference; 
 	private List<String> foodItemNames;
 }
