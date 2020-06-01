@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
+import java.time.LocalDate;
+
 import com.stanzaliving.core.food.enums.DispatchSummaryItemType;
 
 import lombok.AllArgsConstructor;
@@ -32,5 +34,7 @@ public class FoodIndividualQrDto {
 	private int numberOfContainers;
 	
 	private int vasItems;
+	
+	private LocalDate menuDate;
 	
 }
