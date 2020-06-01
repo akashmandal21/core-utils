@@ -217,6 +217,11 @@ public class DateUtil {
 		Instant instant = date.toInstant();
 		return instant.atZone(zoneId).toLocalDate();
 	}
+	
+	public boolean isLocalDateExpired(LocalDate localDate) {
+		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
+		return localDate.isBefore(LocalDate.now(zoneId));
+	}
 
 	public LocalTime convertToLocalTime(Date date) {
 		if (date == null) {
