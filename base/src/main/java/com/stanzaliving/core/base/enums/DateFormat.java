@@ -22,7 +22,8 @@ public enum DateFormat {
 	DAY_OF_MONTH("d"),
 	DD_MMM_YYYY("dd-MMM-yyyy"),
 	DD_SPACE_MMM_SPACE_YYYY("dd MMM yyyy"),
-	MMM_YYYY("MMM, yyyy");
+	MMM_YYYY("MMM, yyyy"),
+	MMM_YY("MMM, yy");
 
 	private String value;
 
