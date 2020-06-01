@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class CurrencyUtil {
 
-    public static final Double DEFAULT_USD_TO_INR_RATE = 70d;
+    public static final Double DEFAULT_USD_TO_INR_RATE = 75d;
 
     public static String getRupeeSignAndCommaSeparatedAmount(Double amount){
         Locale locale = new Locale("en","IN");
