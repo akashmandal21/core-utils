@@ -3,12 +3,7 @@ package com.stanzaliving.core.base.utils;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Period;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -284,6 +279,14 @@ public class DateUtil {
 		LinkedHashSet<String> monthsList = new LinkedHashSet<>();
 		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
 			monthsList.add(customDateFormatter(date, DateFormat.MONTH_FULL_NAME));
+		}
+		return new ArrayList<>(monthsList);
+	}
+
+	public static List<Month> getListOfMonthEnum(LocalDate startDate, LocalDate endDate) {
+		LinkedHashSet<Month> monthsList = new LinkedHashSet<>();
+		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
+			monthsList.add(date.getMonth());
 		}
 		return new ArrayList<>(monthsList);
 	}

@@ -5,6 +5,8 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class GraphConstants {
 
+    public static final String RUN_RATE_Y_LABEL_RUPEE = "AMOUNT_PENDING (INR)";
+    public static final String RUN_RATE_Y_LABEL_DOLLAR = "AMOUNT_PENDING (USD)";
     public static final String GRAPH_X_TYPE = "{value}";
     public static final String GRAPH_Y_TYPE = "{value}%";
 
