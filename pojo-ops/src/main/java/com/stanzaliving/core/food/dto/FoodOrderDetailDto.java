@@ -24,6 +24,8 @@ public class FoodOrderDetailDto {
 	private String residenceFoodMenuId;
 
 	private MealType mealType;
+	
+	private String mealName;
 
 	private String vendorId;
 
