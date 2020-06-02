@@ -4,10 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.stanzaliving.core.base.exception.StanzaException;
@@ -62,5 +59,11 @@ public class QRScanServiceImpl implements QRScanService {
 	@Override
 	public List<QRData> getQRDataByQrContextType(String userUuid, List<QRContextType> qrContextType, Pageable pagination) {		
 		return qrDataRepository.findByCreatedByAndQrContextTypeIn(userUuid, qrContextType, pagination);
+	}
+	
+	@Override
+	public boolean isScanHistoryPresentForQrUuidAndUserId(String qrUuid, String userId) {
+		QRScanHistory qrScanHistory = qrScanHistoryRepository.findByQrUUidAndUserId(qrUuid, userId);
+		return qrScanHistory == null ? false : true;
 	}
 }

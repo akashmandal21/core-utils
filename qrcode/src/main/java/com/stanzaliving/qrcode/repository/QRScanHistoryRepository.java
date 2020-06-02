@@ -11,4 +11,5 @@ import com.stanzaliving.qrcode.entity.QRScanHistory;
 @Repository
 public interface QRScanHistoryRepository extends AbstractJpaRepository<QRScanHistory, Long> {
 
+	QRScanHistory findByQrUUidAndUserId(String qrUuid, String userId);
 }
