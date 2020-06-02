@@ -59,6 +59,7 @@
 		<module>pushnotification-client</module>
 		<module>fr-client</module>
 		<module>phoenix-aggregation-client</module>
+		<module>phoenix-aggregation-entities</module>
 	</modules>
 
 	<build>

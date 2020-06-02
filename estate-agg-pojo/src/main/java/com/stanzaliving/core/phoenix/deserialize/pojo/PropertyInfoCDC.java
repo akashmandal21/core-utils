@@ -182,10 +182,10 @@ public class PropertyInfoCDC {
     private String bdUserId;
 
     @JsonProperty("property_status")
-    private PropertyStatus propertyStatus;
+    private String propertyStatus;//Change PropertyStatus to String
 
     @JsonProperty("property_project_summary_status")
-    private ProjectSummaryStatus projectSummaryStatus;
+    private String projectSummaryStatus;//Change ProjectSummaryStatus to String
 
     @JsonProperty("sow_atl_url")
     private String sowAtlUrl;
