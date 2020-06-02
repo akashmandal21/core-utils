@@ -40,14 +40,6 @@ public class QRScanServiceImpl implements QRScanService {
 		
 		if(Objects.nonNull(qrData)) {
 			
-			if(Objects.isNull(userId)) {
-				userId = SecurityUtils.getCurrentUserId();
-			}
-			
-			log.debug("Saving scan history data for userId " + userId);
-			qrScanHistoryRepository.saveAndFlush(
-					QRScanHistory.builder().qrUUid(qrData.getUuid()).userId(userId).build());
-			
 			qrData.setScannedTimes(qrData.getScannedTimes()+1);
 			
 			qrDataRepository.save(qrData);
@@ -69,5 +61,21 @@ public class QRScanServiceImpl implements QRScanService {
 		log.debug(" QR Scan History for qrUuid " + qrUuid + " UserId " + userId);
 		log.debug(qrScanHistory);
 		return CollectionUtils.isEmpty(qrScanHistory) ? false : true;
+	}
+	
+	@Override
+	public void updateScanHistory(QRData qrData, String userId) {
+		
+		if(Objects.nonNull(qrData)) {
+			
+			if(Objects.isNull(userId)) {
+				userId = SecurityUtils.getCurrentUserId();
+			}
+			
+			log.debug("Saving scan history data for userId " + userId);
+			qrScanHistoryRepository.saveAndFlush(
+					QRScanHistory.builder().qrUUid(qrData.getUuid()).userId(userId).build());
+			
+		}
 	}
 }
