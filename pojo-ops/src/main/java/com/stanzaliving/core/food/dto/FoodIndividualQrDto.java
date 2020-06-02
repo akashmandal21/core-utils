@@ -37,4 +37,6 @@ public class FoodIndividualQrDto {
 	
 	private LocalDate menuDate;
 	
+	private String residenceFoodMenuId;
+	
 }
