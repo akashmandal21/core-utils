@@ -16,8 +16,8 @@ public enum PoStatus {
 	LEADERSHIP_APPROVED("Approved By Leadership",-1), //REMOVED
 	SENT_BACK_BY_LEADERSHIP("Sent Back By Leadership",-1),//REMOVED
 	WORK_COMPLETED("Work Completed",3),
-	INVOICE_SUBMITTED("Invoice Submitted",4),
-	SENT_BACK_BY_FINANCE("Sent Back By Finance",-1),
+	INVOICE_SUBMITTED("Invoice Submitted",4),//REMOVED
+	SENT_BACK_BY_FINANCE("Sent Back By Finance",-1),//REMOVED
 	TH_PARTIAL_CANCELLATION_PENDING("Transformation Head Partial Cancellation Pending",1),
 	TH_PARTIALLY_CANCELLED("Partially Cancelled By Transformation Head",-1),
 	TH_CANCELLATION_PENDING("Transformation Head Cancellation Pending",1),
