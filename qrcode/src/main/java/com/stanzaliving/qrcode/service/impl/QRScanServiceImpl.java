@@ -3,6 +3,7 @@ package com.stanzaliving.qrcode.service.impl;
 import java.util.List;
 import java.util.Objects;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -64,9 +65,9 @@ public class QRScanServiceImpl implements QRScanService {
 	
 	@Override
 	public boolean isScanHistoryPresentForQrUuidAndUserId(String qrUuid, String userId) {
-		QRScanHistory qrScanHistory = qrScanHistoryRepository.findByQrUUidAndUserId(qrUuid, userId);
+		List<QRScanHistory> qrScanHistory = qrScanHistoryRepository.findByQrUUidAndUserId(qrUuid, userId);
 		log.debug(" QR Scan History for qrUuid " + qrUuid + " UserId " + userId);
 		log.debug(qrScanHistory);
-		return qrScanHistory == null ? false : true;
+		return CollectionUtils.isEmpty(qrScanHistory) ? false : true;
 	}
 }
