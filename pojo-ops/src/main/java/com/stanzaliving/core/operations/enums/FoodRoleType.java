@@ -21,8 +21,7 @@ public enum FoodRoleType {
 	HEAD_CHEF("Head Chef", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	CITY_CHEF_MANAGER("City Chef Manager", Department.FOOD_OPS, AccessLevel.CITY),
 	PURCHASE_MANAGER("Purchase Manager", Department.FOOD_OPS, AccessLevel.CITY),
-	STORE_MANAGER("Store Manager", Department.FOOD_OPS, AccessLevel.CITY),
-	;
+	STORE_MANAGER("Store Manager", Department.FOOD_OPS, AccessLevel.CITY);
 
 	private String roleType;
 
