@@ -1,5 +1,11 @@
 package com.stanzaliving.qrcode.exception;
 
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import javax.annotation.PostConstruct;
+
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -14,6 +20,11 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RestControllerAdvice
 public class QRExceptionInterceptor {
+	
+	@PostConstruct
+	public void init() {
+		log.debug("Qr Exception Interceptor");
+	}
 	
 	@SuppressWarnings("unchecked")
 	@ExceptionHandler(QRAlreadyScannedException.class)
@@ -42,4 +53,5 @@ public class QRExceptionInterceptor {
 
 		return (ResponseDto<T>) ResponseDto.failure(errorMessgae, e.getExObject());
 	}
+	
 }
