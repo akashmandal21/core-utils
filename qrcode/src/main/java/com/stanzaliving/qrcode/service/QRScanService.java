@@ -12,4 +12,8 @@ public interface QRScanService {
 	QRData getQRData(String code, String userId);
 
 	List<QRData> getQRDataByQrContextType(String userUuid, List<QRContextType> qrContextType, Pageable pagination);
+
+	boolean isScanHistoryPresentForQrUuidAndUserId(String qrUuid, String userId);
+
+	void updateScanHistory(QRData qrData, String userId);
 }

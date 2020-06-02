@@ -3,11 +3,9 @@ package com.stanzaliving.qrcode.service.impl;
 import java.util.List;
 import java.util.Objects;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.stanzaliving.core.base.exception.StanzaException;
@@ -42,13 +40,6 @@ public class QRScanServiceImpl implements QRScanService {
 		
 		if(Objects.nonNull(qrData)) {
 			
-			if(Objects.isNull(userId)) {
-				userId = SecurityUtils.getCurrentUserId();
-			}
-			
-			qrScanHistoryRepository.save(
-					QRScanHistory.builder().qrUUid(qrData.getUuid()).userId(userId).build());
-			
 			qrData.setScannedTimes(qrData.getScannedTimes()+1);
 			
 			qrDataRepository.save(qrData);
@@ -62,5 +53,29 @@ public class QRScanServiceImpl implements QRScanService {
 	@Override
 	public List<QRData> getQRDataByQrContextType(String userUuid, List<QRContextType> qrContextType, Pageable pagination) {		
 		return qrDataRepository.findByCreatedByAndQrContextTypeIn(userUuid, qrContextType, pagination);
+	}
+	
+	@Override
+	public boolean isScanHistoryPresentForQrUuidAndUserId(String qrUuid, String userId) {
+		List<QRScanHistory> qrScanHistory = qrScanHistoryRepository.findByQrUUidAndUserId(qrUuid, userId);
+		log.debug(" QR Scan History for qrUuid " + qrUuid + " UserId " + userId);
+		log.debug(qrScanHistory);
+		return CollectionUtils.isEmpty(qrScanHistory) ? false : true;
+	}
+	
+	@Override
+	public void updateScanHistory(QRData qrData, String userId) {
+		
+		if(Objects.nonNull(qrData)) {
+			
+			if(Objects.isNull(userId)) {
+				userId = SecurityUtils.getCurrentUserId();
+			}
+			
+			log.debug("Saving scan history data for userId " + userId);
+			qrScanHistoryRepository.saveAndFlush(
+					QRScanHistory.builder().qrUUid(qrData.getUuid()).userId(userId).build());
+			
+		}
 	}
 }

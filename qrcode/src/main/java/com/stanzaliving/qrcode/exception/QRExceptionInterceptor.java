@@ -15,6 +15,7 @@ import lombok.extern.log4j.Log4j2;
 @RestControllerAdvice
 public class QRExceptionInterceptor {
 	
+	@SuppressWarnings("unchecked")
 	@ExceptionHandler(QRAlreadyScannedException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	@SendExceptionToSlack
@@ -23,9 +24,22 @@ public class QRExceptionInterceptor {
 		String exceptionId = StanzaUtils.generateUniqueId();
 		log.error("Got QRAlreadyScannedException for exceptionId: " + exceptionId, e);
 
-		String errorMessgae = "QR Code is Already scanned";
+		String errorMessgae = e.getMessage();
 
-		return ResponseDto.failure(errorMessgae, exceptionId);
+		return (ResponseDto<T>) ResponseDto.failure(errorMessgae, e.getLastUpdatedAt());
 	}
 
+	@SuppressWarnings("unchecked")
+	@ExceptionHandler(QRInvalidScannedException.class)
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+	@SendExceptionToSlack
+	public <T> ResponseDto<T> invalidQRException(QRInvalidScannedException e) {
+
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got Invalid Qr Exception for exceptionId: " + exceptionId, e);
+
+		String errorMessgae = e.getMessage();
+
+		return (ResponseDto<T>) ResponseDto.failure(errorMessgae, e.getInvalidMessage());
+	}
 }
