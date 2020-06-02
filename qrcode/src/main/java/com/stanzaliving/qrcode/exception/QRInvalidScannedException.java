@@ -7,11 +7,11 @@ import lombok.Getter;
 public class QRInvalidScannedException extends RuntimeException {
 
 	private static final long serialVersionUID = -3368655266237942363L;
-	private String invalidMessage;
+	private Object exObject;
 	
-	public QRInvalidScannedException(String message,String invalidMessage) {
+	public QRInvalidScannedException(String message, Object exObject) {
 		super(message);
-		this.invalidMessage = invalidMessage;
+		this.exObject = exObject;
 	}
 
 	public QRInvalidScannedException(Throwable cause) {

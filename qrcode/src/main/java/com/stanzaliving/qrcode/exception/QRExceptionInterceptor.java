@@ -26,7 +26,7 @@ public class QRExceptionInterceptor {
 
 		String errorMessgae = e.getMessage();
 
-		return (ResponseDto<T>) ResponseDto.failure(errorMessgae, e.getLastUpdatedAt());
+		return (ResponseDto<T>) ResponseDto.failure(errorMessgae, e.getExObject());
 	}
 
 	@SuppressWarnings("unchecked")
@@ -40,6 +40,6 @@ public class QRExceptionInterceptor {
 
 		String errorMessgae = e.getMessage();
 
-		return (ResponseDto<T>) ResponseDto.failure(errorMessgae, e.getInvalidMessage());
+		return (ResponseDto<T>) ResponseDto.failure(errorMessgae, e.getExObject());
 	}
 }

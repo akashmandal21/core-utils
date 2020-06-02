@@ -1,7 +1,13 @@
 package com.stanzaliving.qrcode.service.impl;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +23,7 @@ import com.stanzaliving.qrcode.repository.QRDataRepository;
 import com.stanzaliving.qrcode.repository.QRScanHistoryRepository;
 import com.stanzaliving.qrcode.service.QRScanService;
 
+import boofcv.abst.filter.binary.GlobalBinaryFilter.Li;
 import lombok.extern.log4j.Log4j2;
 
 @Service
@@ -72,10 +79,27 @@ public class QRScanServiceImpl implements QRScanService {
 				userId = SecurityUtils.getCurrentUserId();
 			}
 			
-			log.debug("Saving scan history data for userId " + userId);
-			qrScanHistoryRepository.saveAndFlush(
-					QRScanHistory.builder().qrUUid(qrData.getUuid()).userId(userId).build());
+			List<QRScanHistory> qrScanHistory = 
+					qrScanHistoryRepository.findByQrUUidAndUserId(qrData.getUuid(), userId);
+			
+			if(CollectionUtils.isEmpty(qrScanHistory)) {
+				log.debug("Saving scan history data for userId " + userId);
+				qrScanHistoryRepository.saveAndFlush(
+						QRScanHistory.builder().qrUUid(qrData.getUuid()).userId(userId).build());
+			}
 			
 		}
+	}
+	
+	@Override
+	public Map<String, QRScanHistory> getQRScannedData(List<String> qrUuids, String userId) {
+		List<QRScanHistory> qrScanHistoryEntities =  
+				qrScanHistoryRepository.findByQrUUidInAndUserId(qrUuids, userId);
+		
+		if(CollectionUtils.isEmpty(qrScanHistoryEntities)) {
+			return new HashMap<>();
+		}
+		
+		return qrScanHistoryEntities.stream().collect(Collectors.toMap(QRScanHistory::getQrUUid, Function.identity()));
 	}
 }

@@ -1,18 +1,16 @@
 package com.stanzaliving.qrcode.exception;
 
-import java.util.Date;
-
 import lombok.Getter;
 
 @Getter
 public class QRAlreadyScannedException extends RuntimeException {
 
 	private static final long serialVersionUID = -3368655266237942363L;
-	private Date lastUpdatedAt;
+	private Object exObject;
 	
-	public QRAlreadyScannedException(String message,Date scannedTime) {
+	public QRAlreadyScannedException(String message, Object exObject) {
 		super(message);
-		this.lastUpdatedAt = scannedTime;
+		this.exObject = exObject;
 	}
 
 	public QRAlreadyScannedException(Throwable cause) {
