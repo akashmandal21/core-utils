@@ -24,10 +24,11 @@ import lombok.ToString;
 @AllArgsConstructor
 public class FoodQrItemDto {
 
+	private int quantity;
+	private double cost;
 	private String houseName;
 	private String mealType;
 	private String foodItemType;
-	private int quantity;
-	private FoodItemType foodPreference; 
+	private FoodItemType foodPreference;
 	private List<String> foodItemNames;
 }
