@@ -31,10 +31,11 @@ public class ResidenceMealPlanDto {
 
 	@NotBlank(message = "Residence Id is mandatory")
 	private String residenceId;
-	
+
 	private String residenceName;
 
 	@NotEmpty(message = "Residence Meal Level Plans Cannot be Blank")
 	private List<ResidenceMealLevelPlanDto> residenceMealLevelPlanDtos;
 
+	private boolean timingsConfigured;
 }
