@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -15,6 +16,7 @@ import lombok.ToString;
  * @date 30-Oct-2019
  *
  **/
+@Setter
 @Getter
 @ToString
 @Builder
@@ -29,6 +31,8 @@ public class CityMetadataDto {
 	private String cityName;
 	
 	private long stateId;
+	
+	private String stateUuid;
 	
 	private String cityCode;
 	

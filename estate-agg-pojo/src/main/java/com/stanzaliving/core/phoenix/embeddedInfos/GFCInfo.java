@@ -19,7 +19,7 @@ public class GFCInfo implements Comparable<GFCInfo>{
     private Date updatedAt;
     private String updatedBy;
     private LocalDate scheduledDueDate;
-    private GFCStatus gfcStatus;
+    private String gfcStatus; //Changed from GFCStatus enum to String
     private LocalDate dueDate;
     private Integer version;
 

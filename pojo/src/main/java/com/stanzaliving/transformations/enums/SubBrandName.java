@@ -10,7 +10,7 @@ public enum SubBrandName {
 
 	PRIMA("Prima"),
 	MAGMA("Magma"),
-	SAMA("Sama");
+	SAMA("Summa");
 
 	private String subBrand;
 

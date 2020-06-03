@@ -20,7 +20,8 @@ import lombok.Getter;
 public enum ResidenceType {
 
 	STELLO("Student"),
-	SUITS("Working Professional");
+	SUITS("Working Professional"),
+	SCHOLAR("Student");
 
 	private String targetUser;
 

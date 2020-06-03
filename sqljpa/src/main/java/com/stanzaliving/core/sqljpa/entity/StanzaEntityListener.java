@@ -8,7 +8,7 @@ import javax.persistence.PreUpdate;
 import org.apache.commons.lang3.StringUtils;
 
 import com.stanzaliving.core.base.utils.StanzaUtils;
-import com.stanzaliving.core.sqljpa.SecurityUtil;
+import com.stanzaliving.core.sqljpa.SQLSecurityUtil;
 
 /**
  * Entity listener for all Entities/Models
@@ -31,7 +31,7 @@ public class StanzaEntityListener {
 		}
 
 		if (StringUtils.isBlank(abstractEntity.getCreatedBy())) {
-			abstractEntity.setCreatedBy(SecurityUtil.getCurrentUserId());
+			abstractEntity.setCreatedBy(SQLSecurityUtil.getCurrentUserId());
 		}
 	}
 
@@ -42,8 +42,8 @@ public class StanzaEntityListener {
 			abstractEntity.setCreatedAt(new Date());
 		}
 
-		if (StringUtils.isNotBlank(SecurityUtil.getCurrentUserId())) {
-			abstractEntity.setUpdatedBy(SecurityUtil.getCurrentUserId());
+		if (StringUtils.isNotBlank(SQLSecurityUtil.getCurrentUserId())) {
+			abstractEntity.setUpdatedBy(SQLSecurityUtil.getCurrentUserId());
 		}
 
 		abstractEntity.setUpdatedAt(new Date());

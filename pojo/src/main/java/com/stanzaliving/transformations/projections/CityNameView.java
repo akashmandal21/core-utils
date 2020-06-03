@@ -16,11 +16,11 @@ import lombok.ToString;
 public class CityNameView {
 
 	private Long id;
-	
+
 	private String uuid;
-	
+
 	private String cityName;
-	
+
 	private Long stateId;
 
 }
