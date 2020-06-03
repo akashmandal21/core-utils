@@ -25,4 +25,6 @@ public class InvalidScanDto {
 	private Date updatedAt;
 	private String code;
 	private String message;
+	private String mealType;
+	
 }
