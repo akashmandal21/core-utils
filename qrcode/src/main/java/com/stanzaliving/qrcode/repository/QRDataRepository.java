@@ -13,4 +13,7 @@ public interface QRDataRepository extends AbstractJpaRepository<QRData, Long> {
 	QRData findByData(String data);
 	
 	List<QRData> findByCreatedByAndQrContextTypeIn(String userUuid, List<QRContextType> contextType, Pageable page);
+
+	List<QRData> findByUserIdAndQrContextTypeIn(String userUuid, List<QRContextType> contextType, Pageable page);
+
 }
