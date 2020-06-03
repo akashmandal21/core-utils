@@ -56,7 +56,7 @@ public class QRScanServiceImpl implements QRScanService {
 
 	@Override
 	public List<QRData> getQRDataByQrContextType(String userUuid, List<QRContextType> qrContextType, Pageable pagination) {		
-		return qrDataRepository.findByUserIdAndQrContextTypeIn(userUuid, qrContextType, pagination);
+		return qrDataRepository.findByQrContextTypeIn(qrContextType, pagination);
 	}
 	
 	@Override
