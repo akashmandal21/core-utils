@@ -51,6 +51,13 @@ public class QRGetServiceImpl implements QRGetService {
 			return null;
 		}
 		
+		QRData qrEntity = qrDataRepository.findByContextIdAndSubContextIdAndQrContextType
+														(contextId, subContextId, qrContextType);
+		
+		if(qrEntity != null) {
+			return s3DownloadService.getPreSignedUrl(s3Bucket, qrEntity.getFilePath(), 3600, s3Client);
+		}
+		
 		String qrContent = ((Long)System.nanoTime()).toString();
 		
 		BufferedImage image = null;

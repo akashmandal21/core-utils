@@ -1,11 +1,9 @@
 package com.stanzaliving.qrcode.service.impl;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -23,7 +21,6 @@ import com.stanzaliving.qrcode.repository.QRDataRepository;
 import com.stanzaliving.qrcode.repository.QRScanHistoryRepository;
 import com.stanzaliving.qrcode.service.QRScanService;
 
-import boofcv.abst.filter.binary.GlobalBinaryFilter.Li;
 import lombok.extern.log4j.Log4j2;
 
 @Service
@@ -63,11 +60,10 @@ public class QRScanServiceImpl implements QRScanService {
 	}
 	
 	@Override
-	public boolean isScanHistoryPresentForQrUuidAndUserId(String qrUuid, String userId) {
-		List<QRScanHistory> qrScanHistory = qrScanHistoryRepository.findByQrUUidAndUserId(qrUuid, userId);
+	public QRScanHistory getScanHistoryPresentForQrUuidAndUserId(String qrUuid, String userId) {
+		QRScanHistory qrScanHistory = qrScanHistoryRepository.findByQrUUidAndUserId(qrUuid, userId);
 		log.debug(" QR Scan History for qrUuid " + qrUuid + " UserId " + userId);
-		log.debug(qrScanHistory);
-		return CollectionUtils.isEmpty(qrScanHistory) ? false : true;
+		return qrScanHistory;
 	}
 	
 	@Override
@@ -79,10 +75,10 @@ public class QRScanServiceImpl implements QRScanService {
 				userId = SecurityUtils.getCurrentUserId();
 			}
 			
-			List<QRScanHistory> qrScanHistory = 
+			QRScanHistory qrScanHistory = 
 					qrScanHistoryRepository.findByQrUUidAndUserId(qrData.getUuid(), userId);
 			
-			if(CollectionUtils.isEmpty(qrScanHistory)) {
+			if(qrScanHistory == null) {
 				log.debug("Saving scan history data for userId " + userId);
 				qrScanHistoryRepository.saveAndFlush(
 						QRScanHistory.builder().qrUUid(qrData.getUuid()).userId(userId).build());

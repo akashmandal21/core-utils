@@ -23,7 +23,7 @@ public class VasScanResponseDto {
 
 	private List<VasItemDto> vasItemDtos;
 	
-	private MealType mealType;
+	private String mealType;
 	
 	private Date scanTime;
 	
