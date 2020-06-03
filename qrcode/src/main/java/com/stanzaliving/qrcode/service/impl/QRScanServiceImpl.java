@@ -1,11 +1,9 @@
 package com.stanzaliving.qrcode.service.impl;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -23,7 +21,6 @@ import com.stanzaliving.qrcode.repository.QRDataRepository;
 import com.stanzaliving.qrcode.repository.QRScanHistoryRepository;
 import com.stanzaliving.qrcode.service.QRScanService;
 
-import boofcv.abst.filter.binary.GlobalBinaryFilter.Li;
 import lombok.extern.log4j.Log4j2;
 
 @Service
@@ -59,7 +56,7 @@ public class QRScanServiceImpl implements QRScanService {
 
 	@Override
 	public List<QRData> getQRDataByQrContextType(String userUuid, List<QRContextType> qrContextType, Pageable pagination) {		
-		return qrDataRepository.findByUserIdAndQrContextTypeIn(userUuid, qrContextType, pagination);
+		return qrDataRepository.findByQrContextTypeIn(qrContextType, pagination);
 	}
 	
 	@Override
