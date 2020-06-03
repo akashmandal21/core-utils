@@ -1,11 +1,7 @@
 package com.stanzaliving.qrcode.exception;
 
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
 import javax.annotation.PostConstruct;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
