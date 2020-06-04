@@ -26,6 +26,8 @@ public class FoodOrderHistoryDto {
 	private Integer vegOrder;
 
 	private Integer nonVegOrder;
+	
+	private Integer sequence;
 
 	private List<FoodOrderHistoryAdditionalItemDto> additionalItemDtos;
 
