@@ -4,17 +4,14 @@ import java.util.Date;
 import java.util.UUID;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @ToString
-@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class KafkaDTO {
@@ -29,10 +26,8 @@ public class KafkaDTO {
 
 	private Object metadata;
 
-	@Builder.Default
 	private Date creationTime = new Date();
 
-	@Builder.Default
 	private String uniqueId = "k" + UUID.randomUUID().toString().replace("-", "");
 
 	public KafkaDTO(String type, String subType, String className, Object data) {
