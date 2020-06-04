@@ -2,6 +2,8 @@ package com.stanzaliving.core.food.dto.request;
 
 import java.time.Month;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +25,7 @@ public class ResidenceMonthlyBudgetUtilizationRequestDto {
 	
 	private Month budgetMonth;
 	
+	@NotNull(message = "budget per mir cannot be null")
 	private Double budgetPerMir;
 
 }
