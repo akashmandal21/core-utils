@@ -24,6 +24,8 @@ public class ResidenceFoodMenuFeedbackDto {
 	private LocalDate menuDate;
 
 	private MealType mealType;
+	
+	private Integer sequence;
 
 	private Float menuRating;
 
