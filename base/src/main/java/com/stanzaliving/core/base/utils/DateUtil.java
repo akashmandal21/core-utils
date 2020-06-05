@@ -30,7 +30,11 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @UtilityClass
 public class DateUtil {
-
+	
+	public String formatIst(Date date, String format) {
+		return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
+	}
+	
 	public String customDateFormatter(Date dateInput, DateFormat dateFormat) {
 
 		if (dateInput != null) {
@@ -216,6 +220,11 @@ public class DateUtil {
 		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
 		Instant instant = date.toInstant();
 		return instant.atZone(zoneId).toLocalDate();
+	}
+	
+	public boolean isLocalDateExpired(LocalDate localDate) {
+		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
+		return localDate.isBefore(LocalDate.now(zoneId));
 	}
 
 	public LocalTime convertToLocalTime(Date date) {
