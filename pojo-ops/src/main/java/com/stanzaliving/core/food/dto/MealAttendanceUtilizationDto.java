@@ -12,18 +12,18 @@ import lombok.ToString;
 @ToString
 @Builder
 public class MealAttendanceUtilizationDto {
-	
+
 	private String mealName;
-	
+
 	private Integer attendance;
-	
+
 	private Double plannedUtilization;
-	
+
 	private Double actualUtilization;
-	
+
 	private Integer mealSequence;
-	
+
 	@Builder.Default
-	private Boolean updated=false;
-	
+	private Boolean updated = false;
+
 }
