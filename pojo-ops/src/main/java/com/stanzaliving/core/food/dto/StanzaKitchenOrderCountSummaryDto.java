@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,5 +24,11 @@ public class StanzaKitchenOrderCountSummaryDto {
 	private Integer nonVegCount;
 
 	private Integer staffCount;
+
+	private List<ItemQuantityDto> vegItemQuantities;
+
+	private List<ItemQuantityDto> specialVegItemQuantities;
+
+	private List<ItemQuantityDto> nonVegItemQuantities;
 
 }

@@ -29,4 +29,8 @@ public class VasMealCountSummaryDto {
 
 	private List<VasItemOrderDto> nonVegItems;
 
+	private Integer totalVegItemQuantity;
+
+	private Integer totalNonVegItemQuantity;
+
 }

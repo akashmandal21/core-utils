@@ -444,29 +444,13 @@ public class DateUtil {
 	}
 
 	public LocalDate getMonthStartBeginningDate(Integer month, Integer year) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(new Date());
-		calendar.set(Calendar.YEAR, year);
-		calendar.set(Calendar.MONTH, month - 1);
-		calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
-		calendar.set(Calendar.HOUR_OF_DAY, 0);
-		calendar.set(Calendar.MINUTE, 0);
-		calendar.set(Calendar.SECOND, 0);
-		calendar.set(Calendar.MILLISECOND, 0);
-		return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
+
+		return LocalDate.of(year, month, 1);
 	}
 
 	public LocalDate getMonthEndBeginningDate(Integer month, Integer year) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(new Date());
-		calendar.set(Calendar.YEAR, year);
-		calendar.set(Calendar.MONTH, month - 1);
-		calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
-		calendar.set(Calendar.HOUR_OF_DAY, 0);
-		calendar.set(Calendar.MINUTE, 0);
-		calendar.set(Calendar.SECOND, 0);
-		calendar.set(Calendar.MILLISECOND, 0);
-		return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
+		LocalDate date = LocalDate.of(year, month, 1);
+		return date.withDayOfMonth(date.lengthOfMonth());
 	}
 
 	public Date getTodayEndDate() {
@@ -608,9 +592,9 @@ public class DateUtil {
 		
 	}
 	
-	public String convertToStringDate(LocalDate menuDate) {
+	public String convertToStringDate(LocalDate localDate) {
 
-		return String.valueOf(menuDate.getDayOfMonth()) + " " + CaseUtils.toCamelCase(menuDate.getMonth().toString(), true) + " " + String.valueOf(menuDate.getYear());
+		return String.valueOf(localDate.getDayOfMonth()) + " " + CaseUtils.toCamelCase(localDate.getMonth().toString(), true) + " " + String.valueOf(localDate.getYear());
 	}
 
 }

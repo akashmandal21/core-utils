@@ -18,8 +18,6 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class ResidenceMealUtilizationPercentResponseDto {
 
-	private Long id;
-
 	private String residenceId;
 
 	@Builder.Default
