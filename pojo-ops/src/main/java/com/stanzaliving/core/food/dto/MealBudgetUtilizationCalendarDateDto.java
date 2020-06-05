@@ -21,7 +21,7 @@ public class MealBudgetUtilizationCalendarDateDto {
 	private LocalDate date;
 
 	private FoodDayType dayType;
-	
+
 	private Boolean holiday;
 
 	private Integer mir;

@@ -23,4 +23,7 @@ public class MealAttendanceUtilizationDto {
 	
 	private Integer mealSequence;
 	
+	@Builder.Default
+	private Boolean updated=false;
+	
 }

@@ -31,7 +31,7 @@ public class FoodMenuDto {
 
 	private String foodMenuUuid;
 
-	private MealType meal;
+	private String meal;
 
 	private LocalTime startTime;
 
