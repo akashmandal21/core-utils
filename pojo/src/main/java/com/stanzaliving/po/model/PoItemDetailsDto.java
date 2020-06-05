@@ -43,4 +43,6 @@ public class PoItemDetailsDto {
 
     private Float propertyItemQuantity;
 
+    private Float shortPoApprovedQuantity;
+
 }

@@ -17,13 +17,10 @@ public class DesignBedCountFinalInfo {
     
     private Date createdAt;
 
-    
     private String createdBy;
 
-    
     private Date updatedAt;
 
-    
     private String updatedBy;
 
     private String bedCountUuid;

@@ -35,7 +35,6 @@ public class CityMetadataDto {
 
 	private String zoneUuid;
 
-
 	
 	private String stateUuid;
 	
