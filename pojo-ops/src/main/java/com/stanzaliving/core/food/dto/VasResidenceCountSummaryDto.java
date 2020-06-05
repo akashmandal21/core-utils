@@ -15,20 +15,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class StanzaKitchenOrderCountSummaryDto {
+public class VasResidenceCountSummaryDto {
 
-	private String mealName;
+	private String residenceName;
 
-	private Integer vegCount;
-
-	private Integer nonVegCount;
-
-	private Integer staffCount;
-
-	private List<ItemQuantityDto> vegItemQuantities;
-
-	private List<ItemQuantityDto> specialVegItemQuantities;
-
-	private List<ItemQuantityDto> nonVegItemQuantities;
+	List<VasMealCountSummaryDto> mealCountSummaryDtos;
 
 }

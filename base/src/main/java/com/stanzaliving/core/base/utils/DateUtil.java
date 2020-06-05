@@ -608,9 +608,9 @@ public class DateUtil {
 		
 	}
 	
-	public String convertToStringDate(LocalDate menuDate) {
+	public String convertToStringDate(LocalDate localDate) {
 
-		return String.valueOf(menuDate.getDayOfMonth()) + " " + CaseUtils.toCamelCase(menuDate.getMonth().toString(), true) + " " + String.valueOf(menuDate.getYear());
+		return String.valueOf(localDate.getDayOfMonth()) + " " + CaseUtils.toCamelCase(localDate.getMonth().toString(), true) + " " + String.valueOf(localDate.getYear());
 	}
 
 }
