@@ -25,6 +25,8 @@ public class ResidenceFoodMenuFeedbackDto {
 
 	private MealType mealType;
 	
+	private String mealName;
+	
 	private Integer sequence;
 
 	private Float menuRating;
