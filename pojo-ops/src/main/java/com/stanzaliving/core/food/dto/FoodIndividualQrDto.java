@@ -39,4 +39,7 @@ public class FoodIndividualQrDto {
 	
 	private String residenceFoodMenuId;
 	
+	private int numberOfMealsReceived;
+	
+	private int numberOfContainersReceived;
 }
