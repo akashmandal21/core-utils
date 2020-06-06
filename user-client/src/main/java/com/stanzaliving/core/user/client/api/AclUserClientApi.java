@@ -3,12 +3,11 @@
  */
 package com.stanzaliving.core.user.client.api;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.constants.SecurityConstants;
-import com.stanzaliving.core.base.enums.Department;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.user.acl.request.dto.AddUserDeptLevelRoleRequestDto;
-import com.stanzaliving.core.user.acl.request.dto.RevokeUserDeptLevelRoleRequestDto;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -16,14 +15,14 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.user.acl.request.dto.AddUserDeptLevelRoleRequestDto;
+import com.stanzaliving.core.user.acl.request.dto.RevokeUserDeptLevelRoleRequestDto;
 
 /**
  * @author naveen.kumar
@@ -107,7 +106,8 @@ public class AclUserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
 	}
-		public ResponseDto<List<String>> getUsersForRole(Department department, String roleName, String accessLevelId) {
+
+	public ResponseDto<List<String>> getUsersForRole(Department department, String roleName, String accessLevelId) {
 
 		if (Objects.isNull(department) || StringUtils.isBlank(roleName) || StringUtils.isEmpty(accessLevelId)) {
 			throw new IllegalArgumentException("Missing arguments");
@@ -115,9 +115,9 @@ public class AclUserClientApi {
 
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("department",department);
-		uriVariables.put("roleName",roleName);
-		uriVariables.put("accessLevelId",accessLevelId);
+		uriVariables.put("department", department);
+		uriVariables.put("roleName", roleName);
+		uriVariables.put("accessLevelId", accessLevelId);
 
 		String path = UriComponentsBuilder.fromPath("/internal/acl/useridByRoleName/{department}/{roleName}/{accessLevelId}").buildAndExpand(uriVariables).toUriString();
 
