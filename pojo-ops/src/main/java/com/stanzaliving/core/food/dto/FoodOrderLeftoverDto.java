@@ -25,12 +25,14 @@ public class FoodOrderLeftoverDto {
 
 	private MealType meal;
 
+	private String mealName;
+
 	private LocalDate date;
 
 	private String orderId;
-	
+
 	@Builder.Default
-	private Integer studentCount=0;
+	private Integer studentCount = 0;
 
 	@NotEmpty(message = "item leftover can not be empty")
 	private List<FoodOrderItemLeftoverDto> foodOrderItemLeftoverDtos;

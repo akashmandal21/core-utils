@@ -23,4 +23,6 @@ public class CityNameView {
 
 	private Long stateId;
 
+	private String zoneUuid;
+
 }

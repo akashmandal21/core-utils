@@ -59,13 +59,15 @@
 		<module>pushnotification-client</module>
 		<module>fr-client</module>
 		<module>phoenix-aggregation-client</module>
+		<module>phoenix-aggregation-entities</module>
 		<module>rule-engine</module>
 		<module>internet-client</module>
 		<module>operations-client</module>
 		<module>qrcode</module>
 		<module>attendance-client</module>
 		<module>campaign-client</module>
-	</modules>
+		<module>food-service-client</module>
+  </modules>
 
 	<build>
 		<plugins>

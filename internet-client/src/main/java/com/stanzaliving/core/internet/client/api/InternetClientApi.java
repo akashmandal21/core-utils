@@ -13,12 +13,14 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.internet.dto.InternetLoginSummaryDto;
+import com.stanzaliving.internet.dto.InternetPlanDto;
+import com.stanzaliving.internet.enums.InternetVendor;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -64,5 +66,30 @@ public class InternetClientApi {
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
+	
+	@GetMapping
+	public Map<InternetVendor, List<InternetPlanDto>> listPlans() {
+		ResponseDto<Map<InternetVendor, List<InternetPlanDto>>> responseDto = null;
+		String path = UriComponentsBuilder.fromPath("/internet/plans").build().toUriString();
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<InternetVendor, List<InternetPlanDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<InternetVendor, List<InternetPlanDto>>>>() {};
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("exception while listing internet plans", e);
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
+
+	}
 }
