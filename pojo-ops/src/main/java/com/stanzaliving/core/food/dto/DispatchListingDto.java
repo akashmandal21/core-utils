@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
+import java.time.LocalTime;
+
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -23,9 +25,9 @@ public class DispatchListingDto {
 	
 	private String mealTypeStr;
 	
-	private String mealDispatchTime;
+	private LocalTime mealDispatchTime;
 	
-	private String mealStartTime;
+	private LocalTime mealStartTime;
 	
 	private int vegMeals;
 	
