@@ -243,7 +243,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(ApiValidationException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleApiValidationException(ApiValidationException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();

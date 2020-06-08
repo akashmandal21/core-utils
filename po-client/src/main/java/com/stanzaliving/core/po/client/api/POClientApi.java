@@ -7,6 +7,7 @@ import java.util.Objects;
 
 import com.stanzaliving.po.enums.PoStatus;
 import com.stanzaliving.po.enums.PoType;
+import com.stanzaliving.po.model.PoAggregationDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -135,6 +136,34 @@ public class POClientApi {
         };
 
         String path = UriComponentsBuilder.fromPath("/internal/allPoStatus/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
+    }
+
+
+    public ResponseDto<PoAggregationDto> getAllPoAggregationsForProperty(String propertyUuid) {
+
+        log.info("HTTP Client call to get All PO aggregation for property {}",propertyUuid);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("propertyUuid", propertyUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<PoAggregationDto>> vddReturnType = new ParameterizedTypeReference<ResponseDto<PoAggregationDto>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal//getPoAggregationForProperty/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }

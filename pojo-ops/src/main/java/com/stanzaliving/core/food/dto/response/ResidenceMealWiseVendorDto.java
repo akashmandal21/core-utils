@@ -27,4 +27,6 @@ import lombok.experimental.SuperBuilder;
 public class ResidenceMealWiseVendorDto extends ResidenceConfigDto {
 
 	private List<MealTypeVendorMapDto> mealVendors;
+
+	private List<MealTypeVendorMapDto> availableVendors;
 }

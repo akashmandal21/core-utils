@@ -25,7 +25,8 @@ public enum DateFormat {
 	DD_MMM_YYYY("dd-MMM-yyyy"),
 	DD_SPACE_MMM_SPACE_YYYY("dd MMM yyyy"),
 	DD_MMM("dd MMM"),
-	DATE_TIME_TIME_ZONE("yyyy-MM-dd'T'HH:mm:ss'Z'");
+	DATE_TIME_TIME_ZONE("yyyy-MM-dd'T'HH:mm:ss'Z'"),
+	ELASTIC_SEARCH_WITH_MILI_SECONDS("yyyy-MM-dd HH:mm:ss.S");
 
 	private String value;
 

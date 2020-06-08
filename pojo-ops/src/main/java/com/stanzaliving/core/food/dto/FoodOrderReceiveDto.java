@@ -25,6 +25,8 @@ import lombok.experimental.SuperBuilder;
 public class FoodOrderReceiveDto {
 
 	private MealType meal;
+	
+	private String mealName;
 
 	private LocalDate date;
 

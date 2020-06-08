@@ -30,6 +30,8 @@ public class ResidentFoodFeedbackDto {
 	private LocalDate menuDate;
 
 	private MealType mealType;
+	
+	private String mealName;
 
 	private String userId;
 

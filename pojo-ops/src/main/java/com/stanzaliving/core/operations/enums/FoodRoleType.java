@@ -25,6 +25,7 @@ public enum FoodRoleType {
 
 	EMAIL_CC_FOOD_ORDER_DETAILS("Email CC - Food Order Details", Department.OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_ORDER_REMINDER("Email CC - Food Order Reminder", Department.OPS, AccessLevel.COUNTRY),
+	EMAIL_CC_MICROMARKET_FOOD_ORDER("Micromarket - Food Order", Department.OPS, AccessLevel.MICROMARKET),
 	EMAIL_CC_FOOD_MENU_CREATED("Email CC - Food Menu Created", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_MENU_APPROVED("Email CC - Food Menu Approved", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_MENU_REJECTED("Email CC - Food Menu Rejected", Department.FOOD_OPS, AccessLevel.COUNTRY),
