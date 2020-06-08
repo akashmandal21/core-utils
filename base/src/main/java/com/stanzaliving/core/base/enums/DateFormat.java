@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.base.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -11,6 +12,7 @@ import lombok.Getter;
  * @date 30-Sep-2019
  */
 @Getter
+@AllArgsConstructor
 public enum DateFormat {
 
 	YYYY_HIFEN_MM_HIFEN_DD("yyyy-MM-dd"),
@@ -23,12 +25,10 @@ public enum DateFormat {
 	DD_MMM_YYYY("dd-MMM-yyyy"),
 	DD_SPACE_MMM_SPACE_YYYY("dd MMM yyyy"),
 	MMM_YYYY("MMM, yyyy"),
-	MMM_YY("MMM, yy");
+	MMM_YY("MMM, yy"),
+	DATE_TIME_TIME_ZONE("yyyy-MM-dd'T'HH:mm:ss'Z'"),
+	ELASTIC_SEARCH_WITH_MILI_SECONDS("yyyy-MM-dd HH:mm:ss.S");
 
 	private String value;
-
-	DateFormat(String value) {
-		this.value = value;
-	}
 
 }

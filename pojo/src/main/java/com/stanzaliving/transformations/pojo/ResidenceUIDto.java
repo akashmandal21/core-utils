@@ -1,5 +1,7 @@
 package com.stanzaliving.transformations.pojo;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -21,7 +23,9 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidenceUIDto {
+public class ResidenceUIDto implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	private long id;
 
@@ -54,7 +58,7 @@ public class ResidenceUIDto {
 	@NotNull(message = "Residence Gender is Mandatory")
 	private EstateGender estateGender;
 
-	private Boolean status;
+	private boolean status;
 
 	@NotNull(message = "Residence Number of Beds is Mandatory")
 	@Min(value = 1, message = "Number of Beds cannot be less than 1")
@@ -63,4 +67,6 @@ public class ResidenceUIDto {
 	@NotNull(message = "Residence Number of Rooms is Mandatory")
 	@Min(value = 1, message = "Number of Rooms cannot be less than 1")
 	private Integer numberOfRooms;
+	
+	private Integer coreResidenceId;
 }

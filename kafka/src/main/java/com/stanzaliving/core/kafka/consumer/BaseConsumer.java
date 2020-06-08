@@ -25,7 +25,7 @@ public abstract class BaseConsumer<T> {
 
 		T data = null;
 
-		log.debug("BaseConsumer:: Received Payload= " + record);
+		log.info("BaseConsumer:: Received Payload {}", record);
 
 		try {
 
@@ -34,11 +34,11 @@ public abstract class BaseConsumer<T> {
 				@SuppressWarnings("unchecked")
 				Class<T> clazz = (Class<T>) Class.forName(record.key());
 
-				log.debug("BaseConsumer:: Retrived class: " + clazz);
+				log.info("BaseConsumer:: Retrived class: {}", clazz);
 
 				data = objectMapper.readValue(record.value(), clazz);
 
-				log.info("BaseConsumer:: Retrieved object: " + data);
+				log.info("BaseConsumer:: Retrieved object: {}", data);
 
 			} else {
 				log.warn("BaseConsumer:: Kafka Record Missing key");

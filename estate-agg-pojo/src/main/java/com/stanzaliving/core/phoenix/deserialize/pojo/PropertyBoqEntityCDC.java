@@ -1,6 +1,7 @@
 package com.stanzaliving.core.phoenix.deserialize.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.stanzaliving.core.agg.commons.EnumDecoder;
 import com.stanzaliving.core.boq_service.enums.BoqType;
 import com.stanzaliving.transformations.enums.BoqStatus;
 import com.stanzaliving.transformations.enums.BrandName;
@@ -75,17 +76,25 @@ public class PropertyBoqEntityCDC {
     private Integer attachedBalconiesCount;
 
     @JsonProperty( "boq_type")
-    private BoqType boqType;
+    private String boqType; //Change BoqType to String
 
     @JsonProperty( "boq_pr_uuid")
     private String boqPRUuid;
 
     @JsonProperty( "boq_status")
-    private BoqStatus boqStatus;
+    private String boqStatus;//Change BoqStatus to String
 
     @JsonProperty( "draft_saved")
     private Boolean draftSaved;
     
     @JsonProperty( "latest_version")
     private Integer latestVersion;
+
+    public BoqType getBoqTypeEnum(){
+        return EnumDecoder.getEnum(this.getBoqType(),BoqType.class);
+    }
+
+    public BoqStatus getBoqStatusEnum(){
+        return EnumDecoder.getEnum(this.getBoqStatus(),BoqStatus.class);
+    }
 }
