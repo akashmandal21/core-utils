@@ -13,6 +13,10 @@ public enum AmountType {
         public Double getAmount(LocalDate fromDate, LocalDate userCommercialFromDate, LocalDate userCommercialToDate, Double amount) {
             return getNetAmountTillFromDate(fromDate, userCommercialFromDate, userCommercialToDate, -1d * amount);
         }
+    }, CREDIT_NOTE{
+        public Double getAmount(LocalDate fromDate, LocalDate userCommercialFromDate, LocalDate userCommercialToDate, Double amount) {
+            return getNetAmountTillFromDate(fromDate, userCommercialFromDate, userCommercialToDate, -1d * amount);
+        }
     };
 
     private static Double getNetAmountTillFromDate(LocalDate fromDate, LocalDate userCommercialFromDate, LocalDate userCommercialToDate, double amount) {
