@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.core.boq_service.dtos.PoResponseDto;
+import com.stanzaliving.transformations.enums.BoqStatus;
 import com.stanzaliving.transformations.pojo.PropertyBoqStatusDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -103,6 +104,29 @@ public class BoqClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, poReturnType);
     }
+
+    public ResponseDto<PoResponseDto> getAllBoqsWithMinimumBoqStatus(String propertyId, BoqStatus minBoqStatus) {
+
+        log.info("HTTP Client call to get Boq Item Details by propertyId and minimum boq status {} {}" , propertyId,minBoqStatus);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<PoResponseDto>> poReturnType = new ParameterizedTypeReference<ResponseDto<PoResponseDto>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/boq/get/propertyboqitems/" + propertyId+"/"+minBoqStatus).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, poReturnType);
+    }
+
     public ResponseDto<PoResponseDto> getPropertyItemsForBoq(String propertyId, String boqUuid) {
 
         log.info("HTTP Client call to get Property Item Details by propertyId {}  and boqUuid {} " , propertyId,boqUuid);
