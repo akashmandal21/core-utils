@@ -21,6 +21,10 @@ public class FoodIndividualQrDto {
 	
 	private String itemName;
 	
+	private String itemLabelName;
+	
+	private String mealType;
+	
 	private String contextId;
 	
 	private String subContextId;
