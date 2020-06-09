@@ -75,7 +75,7 @@ public class SlackNotification {
 		return sendPushNotificationRequest(slackMessage.toString(), endUrl);
 	}
 
-	private StringBuilder createMessage(Exception exception) {
+	public StringBuilder createMessage(Exception exception) {
 		Pair<String, String> ipAddress = getIpAddress();
 
 		StringBuilder slackMessage = new StringBuilder();
