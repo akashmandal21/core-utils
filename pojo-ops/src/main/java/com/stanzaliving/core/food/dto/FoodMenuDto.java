@@ -6,8 +6,6 @@ package com.stanzaliving.core.food.dto;
 import java.time.LocalTime;
 import java.util.List;
 
-import com.stanzaliving.core.operations.enums.MealType;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

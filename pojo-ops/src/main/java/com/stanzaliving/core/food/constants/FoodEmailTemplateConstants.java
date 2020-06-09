@@ -34,5 +34,20 @@ public class FoodEmailTemplateConstants {
 
 	public static final String DASHBOARD_LINK = "dashboardLink";
 
+	public static final String VAS_ORDER_SUMMARY_DTO = "vasOrderSummaryDto";
+
+	public static final String MENU_DATE = "menuDate";
+
+	public static final String RESIDENCE_COUNT_SUMMARY_DTOS = "residenceCountSummaryDtos";
+
+	public static final String TOTAL_SUMMARY_COUNT = "totalSummaryCount";
+
+	public static final String VAS_RESIDENCE_COUNT_SUMMARY_DTOS = "vasResidenceCountSummaryDtos";
+
+	public static final String VAS_TOTAL_SUMMARY_COUNT = "vasTotalSummaryCount";
+
+	public static final String MEAL_DELIVERY_DTOS = "mealDeliveryDtos";
+
 	public static final String VENDOR_NAME = "vendorName";
 }
+

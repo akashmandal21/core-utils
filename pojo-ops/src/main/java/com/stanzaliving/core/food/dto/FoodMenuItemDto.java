@@ -21,6 +21,4 @@ public class FoodMenuItemDto {
 	
 	private FoodItemType foodPreference;
 	
-	
-
 }

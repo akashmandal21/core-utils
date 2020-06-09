@@ -19,6 +19,8 @@ public class ResidentFoodFeedbackCountDto {
 
 	private MealType mealType;
 
+	private String mealName;
+
 	private Long userCount;
 
 }
