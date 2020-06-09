@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.enums.DatePart;
+import static com.google.common.base.Preconditions.*;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
@@ -606,6 +607,19 @@ public class DateUtil {
 
 		return "th";
 
+	}
+
+	public String getDayOfMonthSuffix(final int n) {
+		checkArgument(n >= 1 && n <= 31, "illegal day of month: " + n);
+		if (n >= 11 && n <= 13) {
+			return "th";
+		}
+		switch (n % 10) {
+			case 1:  return "st";
+			case 2:  return "nd";
+			case 3:  return "rd";
+			default: return "th";
+		}
 	}
 
 }
