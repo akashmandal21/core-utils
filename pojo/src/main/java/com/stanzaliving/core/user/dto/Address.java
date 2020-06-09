@@ -36,5 +36,7 @@ public class Address {
 	private String postalCode;
 
 	private String countryName;
+	
+	private String cityUuid;
 
 }
