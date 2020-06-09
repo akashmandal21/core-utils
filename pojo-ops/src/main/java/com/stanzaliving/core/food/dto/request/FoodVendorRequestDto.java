@@ -17,18 +17,19 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodVendorRequestDto {
 
-	@NotBlank(message = "name Cannot be blank")
+	@NotBlank(message = "Vendor Name Cannot be blank")
 	private String name;
 
+	@NotBlank(message = "Vendor City Cannot be blank")
 	private String cityId;
 
-	@NotBlank(message = "contactName Cannot be blank")
+	@NotBlank(message = "Contact Name Cannot be blank")
 	private String contactName;
 
-	@NotBlank(message = "contactNumber Cannot be blank")
+	@NotBlank(message = "Contact Number Cannot be blank")
 	private String contactNumber;
 
-	@NotBlank(message = "contactEmail Cannot be blank")
+	@NotBlank(message = "Contact Email Cannot be blank")
 	private String contactEmail;
 
 	private boolean stanzaKitchen;

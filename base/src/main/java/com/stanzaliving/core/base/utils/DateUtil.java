@@ -30,7 +30,11 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @UtilityClass
 public class DateUtil {
-
+	
+	public String formatIst(Date date, String format) {
+		return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
+	}
+	
 	public String customDateFormatter(Date dateInput, DateFormat dateFormat) {
 
 		if (dateInput != null) {
@@ -216,6 +220,11 @@ public class DateUtil {
 		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
 		Instant instant = date.toInstant();
 		return instant.atZone(zoneId).toLocalDate();
+	}
+	
+	public boolean isLocalDateExpired(LocalDate localDate) {
+		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
+		return localDate.isBefore(LocalDate.now(zoneId));
 	}
 
 	public LocalTime convertToLocalTime(Date date) {
@@ -440,29 +449,13 @@ public class DateUtil {
 	}
 
 	public LocalDate getMonthStartBeginningDate(Integer month, Integer year) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(new Date());
-		calendar.set(Calendar.YEAR, year);
-		calendar.set(Calendar.MONTH, month - 1);
-		calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
-		calendar.set(Calendar.HOUR_OF_DAY, 0);
-		calendar.set(Calendar.MINUTE, 0);
-		calendar.set(Calendar.SECOND, 0);
-		calendar.set(Calendar.MILLISECOND, 0);
-		return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
+
+		return LocalDate.of(year, month, 1);
 	}
 
 	public LocalDate getMonthEndBeginningDate(Integer month, Integer year) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(new Date());
-		calendar.set(Calendar.YEAR, year);
-		calendar.set(Calendar.MONTH, month - 1);
-		calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
-		calendar.set(Calendar.HOUR_OF_DAY, 0);
-		calendar.set(Calendar.MINUTE, 0);
-		calendar.set(Calendar.SECOND, 0);
-		calendar.set(Calendar.MILLISECOND, 0);
-		return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
+		LocalDate date = LocalDate.of(year, month, 1);
+		return date.withDayOfMonth(date.lengthOfMonth());
 	}
 
 	public Date getTodayEndDate() {
@@ -571,6 +564,27 @@ public class DateUtil {
 			firstAndTillDayOfCurrentWeek.add(date);
 			return firstAndTillDayOfCurrentWeek;
 		}
+
+	}
+
+	public String getDatePhrase(LocalDate localDate) {
+
+		if (localDate.getDayOfMonth() == 1 || localDate.getDayOfMonth() == 21 || localDate.getDayOfMonth() == 31) {
+
+			return "st";
+		}
+
+		if (localDate.getDayOfMonth() == 2 || localDate.getDayOfMonth() == 22) {
+
+			return "nd";
+		}
+
+		if (localDate.getDayOfMonth() == 3 || localDate.getDayOfMonth() == 23) {
+
+			return "rd";
+		}
+
+		return "th";
 
 	}
 

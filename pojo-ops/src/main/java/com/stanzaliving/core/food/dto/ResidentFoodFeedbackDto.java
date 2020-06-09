@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import com.stanzaliving.core.operations.enums.MealType;
@@ -39,6 +40,10 @@ public class ResidentFoodFeedbackDto {
 	private String reason;
 
 	private String comment;
+	
+	private LocalTime startTime;
+	
+	private LocalTime endTime;
 
 	private List<ResidentFoodItemFeedbackDto> foodItemFeedbackDtos;
 

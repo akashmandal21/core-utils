@@ -1,9 +1,6 @@
-/**
- * 
- */
 package com.stanzaliving.core.food.dto.request;
 
-import javax.validation.constraints.NotBlank;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,21 +9,18 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author naveen.kumar
- *
- * @date 21-Apr-2020
- *
- **/
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodItemUpdateRequestDto extends FoodItemAddRequestDto {
+public class FoodItemCategoryFeedbackReasonCsvUploadDto {
 
-	@NotBlank(message = "Item UUID is Mandatory")
-	private String uuid;
+	@JsonProperty("ItemCategoryName")
+	private String itemCategoryName;
+
+	@JsonProperty("FeedbackReason")
+	private String feedbackReason;
 
 }

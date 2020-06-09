@@ -20,7 +20,9 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ActiveMealDto {
 
-	private MealType meal;
+	private String meal;
+	
+	private MealType mealType;
 
 	private LocalTime startTime;
 

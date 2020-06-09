@@ -3,6 +3,7 @@ package com.stanzaliving.core.food.dto;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -22,15 +23,15 @@ import lombok.ToString;
 @ToString
 public class MealBudgetCalendarDto {
 
-	@NotNull
+	@NotBlank(message = "Residence Id is mandatory")
 	private String residenceId;
 	
 	private String residenceName;
 
-	@NotNull
+	@NotNull(message = "Budget Month is mandatory")
 	private Integer month;
 
-	@NotNull
+	@NotNull(message = "Budget Year is mandatory")
 	private Integer year;
 
 	private Double monthlyBudget;
@@ -43,12 +44,12 @@ public class MealBudgetCalendarDto {
 	
 	private Double expectedUtilzation;
 	
-	@NotEmpty
+	@NotEmpty(message = "Day type utilization is mandatory")
 	private Map<FoodDayType, ResidenceMealUtilizationPercentResponseDto> dayTypeUtilizationRules;
 
 	private Map<FoodDayType, ResidenceMealUtilizationPercentResponseDto> prevDayTypeUtilizationRules;
 
-	@NotEmpty
+	@NotEmpty(message = "Meal wise utilization is mandatory")
 	private List<MealBudgetUtilizationCalendarDateDto> mealBudgetUtilizationCalendarDateDtoList;
 
 }

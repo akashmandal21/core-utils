@@ -182,6 +182,7 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(RecordExistsException.class)
 	@ResponseStatus(code = HttpStatus.CONFLICT)
+	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleRecordExistsException(RecordExistsException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -219,11 +220,11 @@ public class ExceptionInterceptor {
 	}
 
 	@ExceptionHandler(InvalidDataAccessApiUsageException.class)
-	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@ResponseStatus(HttpStatus.FAILED_DEPENDENCY)
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleInvalidDataAccessException(InvalidDataAccessApiUsageException e) {
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got NoRecordException for exceptionId: " + exceptionId, e);
+		log.error("Got InvalidDataAccessApiUsageException for exceptionId: " + exceptionId, e);
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
@@ -231,6 +232,7 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(StanzaException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleStanzaException(StanzaException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
