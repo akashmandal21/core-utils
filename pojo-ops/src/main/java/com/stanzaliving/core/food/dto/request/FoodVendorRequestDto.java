@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -37,6 +38,8 @@ public class FoodVendorRequestDto {
 	private String gstin;
 
 	private String fassai;
+
+	private MultipartFile fassaiCertificate;
 
 	private String gstCompanyName;
 
