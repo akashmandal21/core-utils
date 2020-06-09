@@ -622,4 +622,15 @@ public class DateUtil {
 		}
 	}
 
+	/**
+	 * Method to generate a standard date String for display purpose
+	 * @return Date string eg. 1st May, 2020
+	 */
+	public String getStandardDateString(Date dateInput) {
+		Integer datePart = getPartsFromDate(dateInput, DatePart.DATE);
+		return datePart
+				+ getDayOfMonthSuffix(datePart) + " "
+				+ customDateFormatter(dateInput, DateFormat.MMMM_YYYY);
+	}
+
 }
