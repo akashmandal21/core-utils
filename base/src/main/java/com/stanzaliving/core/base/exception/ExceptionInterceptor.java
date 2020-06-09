@@ -16,7 +16,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
@@ -37,7 +36,7 @@ public class ExceptionInterceptor {
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	@SendExceptionToSlack
-	public @ResponseBody <T> ResponseDto<T> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
+	public <T> ResponseDto<T> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
 		log.error("Got MethodArgumentNotValidException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
@@ -171,10 +170,42 @@ public class ExceptionInterceptor {
 
 	/************************ Application Specific Exceptions ************************/
 
+	@ExceptionHandler(NoRecordException.class)
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	public <T> ResponseDto<T> handleNoRecordException(NoRecordException e) {
+
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got NoRecordException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
+	@ExceptionHandler(RecordExistsException.class)
+	@ResponseStatus(code = HttpStatus.CONFLICT)
+	@SendExceptionToSlack
+	public <T> ResponseDto<T> handleRecordExistsException(RecordExistsException e) {
+
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got RecordExistsException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
+	@ExceptionHandler(PreconditionFailedException.class)
+	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
+	public <T> ResponseDto<T> handlePreconditionFailedException(PreconditionFailedException e) {
+
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got PreconditionFailedException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
 	@ExceptionHandler(RequestInProgressException.class)
 	@ResponseStatus(code = HttpStatus.ACCEPTED)
 	public <T> ResponseDto<T> handleRequestInProgressException(RequestInProgressException e) {
 		String exceptionId = StanzaUtils.generateUniqueId();
+
 		log.error("Got RequestInProgressException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -183,15 +214,17 @@ public class ExceptionInterceptor {
 	@ResponseStatus(code = HttpStatus.EXPECTATION_FAILED)
 	public <T> ResponseDto<T> handleTransactionFailException(TransactionFailException e) {
 		String exceptionId = StanzaUtils.generateUniqueId();
+
 		log.error("Got TransactionFailException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
-	@ExceptionHandler(PreconditionFailedException.class)
-	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
-	public <T> ResponseDto<T> handlePreconditionFailedException(PreconditionFailedException e) {
+	@ExceptionHandler(InvalidDataAccessApiUsageException.class)
+	@ResponseStatus(HttpStatus.FAILED_DEPENDENCY)
+	@SendExceptionToSlack
+	public <T> ResponseDto<T> handleInvalidDataAccessException(InvalidDataAccessApiUsageException e) {
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got PreconditionFailedException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		log.error("Got InvalidDataAccessApiUsageException for exceptionId: " + exceptionId, e);
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
@@ -199,6 +232,7 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(StanzaException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleStanzaException(StanzaException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
@@ -209,8 +243,7 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(ApiValidationException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
-	public @ResponseBody <T> ResponseDto<T> handleApiValidationException(ApiValidationException e) {
+	public <T> ResponseDto<T> handleApiValidationException(ApiValidationException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
 		log.error("Got ApiValidationException for exceptionId: " + exceptionId, e);
@@ -221,7 +254,7 @@ public class ExceptionInterceptor {
 	@ExceptionHandler(StanzaHttpException.class)
 	@ResponseStatus(value = HttpStatus.FAILED_DEPENDENCY)
 	@SendExceptionToSlack
-	public @ResponseBody <T> ResponseDto<T> handleStanzaHttpException(StanzaHttpException e) {
+	public <T> ResponseDto<T> handleStanzaHttpException(StanzaHttpException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
 		log.error("Got StanzaHttpException for exceptionId: " + exceptionId, e);
@@ -229,31 +262,10 @@ public class ExceptionInterceptor {
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
-	@ExceptionHandler(NoRecordException.class)
-	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	@SendExceptionToSlack
-	public <T> ResponseDto<T> handleNoRecordException(NoRecordException e) {
-
-		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got NoRecordException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
-
-		return ResponseDto.failure(e.getMessage(), exceptionId);
-	}
-
-
-	@ExceptionHandler(InvalidDataAccessApiUsageException.class)
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@SendExceptionToSlack
-	public <T> ResponseDto<T> handleInvalidDataAccessException(InvalidDataAccessApiUsageException e){
-		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got NoRecordException for exceptionId: " + exceptionId, e);
-		return ResponseDto.failure(e.getMessage(), exceptionId);
-	}
-
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@SendExceptionToSlack
-	public @ResponseBody <T> ResponseDto<T> handleException(Exception ex) {
+	public <T> ResponseDto<T> handleException(Exception ex) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
 		log.error("Got un-handled exception for exceptionId: " + exceptionId, ex);

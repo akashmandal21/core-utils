@@ -1,7 +1,9 @@
 package com.stanzaliving.core.phoenix.embeddedinfos;
 
+import com.stanzaliving.core.agg.commons.EnumDecoder;
 import com.stanzaliving.core.projectservice.enums.ProjectSummaryStatus;
 import com.stanzaliving.core.projectservice.enums.PropertyStatus;
+import com.stanzaliving.designservice.enums.PhoenixDesignStatus;
 import com.stanzaliving.po.enums.POSummaryStatus;
 import com.stanzaliving.po.enums.PoType;
 import lombok.AllArgsConstructor;
@@ -19,9 +21,9 @@ import java.util.Map;
 @AllArgsConstructor
 public class AnalyticKeys {
     @Indexed
-    private PropertyStatus propertyStatus;
+    private String propertyStatus; //Changed from Enum PropertyStatus to String
     @Indexed
-    private ProjectSummaryStatus projectSummaryStatus;
+    private String projectSummaryStatus;//Changed from Enum ProjectSummaryStatus to String
     @Indexed
     private Integer siteCompletionPct; //Based on Sub Step completion
     @Indexed
@@ -29,5 +31,16 @@ public class AnalyticKeys {
     private LocalDate expectedOpsHandoverDate;
     @Indexed
     private LocalDate liveDate;
-    private Map<PoType, POSummaryStatus> poTypeSummaryStatus;
+    /*
+    Map of PoType to PoSummary Status
+     */
+    private Map<String, String> poTypeSummaryStatus; //Changed from private Map<PoType, POSummaryStatus> poTypeSummaryStatus;
+
+    public PropertyStatus getPropertyStatusEnum(){
+        return EnumDecoder.getEnum(propertyStatus,PropertyStatus.class);
+    }
+
+    public ProjectSummaryStatus getProjectSummaryStatusEnum(){
+        return EnumDecoder.getEnum(projectSummaryStatus,ProjectSummaryStatus.class);
+    }
 }

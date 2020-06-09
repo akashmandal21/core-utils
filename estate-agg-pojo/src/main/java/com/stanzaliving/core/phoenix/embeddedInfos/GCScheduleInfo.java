@@ -18,7 +18,7 @@ public class GCScheduleInfo {
     private String createdBy;
     private Date updatedAt;
     private String updatedBy;
-    private GcScheduleStatus gcScheduleStatus;
+    private String gcScheduleStatus; //Changed from GcScheduleStatus enum to String
     private Integer fileVersion;
     private String filePath;
 }

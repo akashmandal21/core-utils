@@ -10,7 +10,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import java.util.Objects;
 
 @UtilityClass
-public class SecurityUtil {
+public class SQLSecurityUtil {
 
 	private static ObjectMapper objectMapper = new ObjectMapper();
 
