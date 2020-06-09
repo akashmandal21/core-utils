@@ -64,6 +64,7 @@
 		<module>food-service-client</module>
 		<module>attendance-client</module>
 		<module>campaign-client</module>
+   		<module>venta-client</module>
   </modules>
 
 	<build>
