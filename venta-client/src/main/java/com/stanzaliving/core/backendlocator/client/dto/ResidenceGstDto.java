@@ -16,5 +16,8 @@ public class ResidenceGstDto {
     double igst;
     
     @Builder.Default
-    double food = 5;
+    double foodCgst = 2.5;
+    
+    @Builder.Default
+    double foodSgst = 2.5;
 }
