@@ -60,4 +60,10 @@ public class FoodItemDto extends AbstractDto {
 	private int tagsCount;
 
 	private List<EnumListing<MealType>> meals;
+	
+	private String subCategoryId;
+	
+	private String subCategoryName;
+	
+	private boolean vasEnabled;
 }

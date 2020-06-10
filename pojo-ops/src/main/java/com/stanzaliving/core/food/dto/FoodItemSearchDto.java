@@ -46,4 +46,6 @@ public class FoodItemSearchDto {
 	private MealType mealType;
 
 	private PageAndSortDto pageDto;
+	
+	private String subCategory;
 }
