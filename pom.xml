@@ -57,6 +57,7 @@
 		<module>pushnotification-client</module>
 		<module>fr-client</module>
 		<module>phoenix-aggregation-client</module>
+   		<module>venta-client</module>
 		<module>phoenix-aggregation-entities</module>
 		<module>rule-engine</module>
 		<module>internet-client</module>
@@ -64,7 +65,6 @@
 		<module>food-service-client</module>
 		<module>attendance-client</module>
 		<module>campaign-client</module>
-   		<module>venta-client</module>
   </modules>
 
 	<build>
