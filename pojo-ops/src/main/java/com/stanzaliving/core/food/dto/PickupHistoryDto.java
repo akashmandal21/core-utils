@@ -1,24 +1,29 @@
+/**
+ * 
+ */
 package com.stanzaliving.core.food.dto;
 
-import com.stanzaliving.core.food.enums.FoodItemType;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
+/**
+ * @author raj.kumar
+ *
+ */
 @Getter
 @Setter
 @ToString
-@SuperBuilder
-@NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuItemDto {
-	
-	private String item;
-	
-	private FoodItemType foodPreference;
-	
+@NoArgsConstructor
+public class PickupHistoryDto {
+
+	private Object data;
+	private Date date;
+	private String qrContextType;
+		
 }

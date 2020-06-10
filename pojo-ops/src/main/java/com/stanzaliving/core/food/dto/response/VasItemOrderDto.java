@@ -1,6 +1,4 @@
-package com.stanzaliving.core.food.dto;
-
-import com.stanzaliving.core.food.enums.FoodItemType;
+package com.stanzaliving.core.food.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,10 +13,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuItemDto {
-	
-	private String item;
-	
-	private FoodItemType foodPreference;
-	
+public class VasItemOrderDto {
+
+	private String itemName;
+
+	private Integer quantity;
+
 }

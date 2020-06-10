@@ -1,6 +1,6 @@
 package com.stanzaliving.core.food.dto.request;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,16 +11,14 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
-@NoArgsConstructor
 @AllArgsConstructor
-public class FoodItemCategoryFeedbackReasonCsvUploadDto {
+@NoArgsConstructor
+public class VasOrderRequestDto {
 
-	@JsonProperty("ItemCategoryName")
-	private String itemCategoryName;
-
-	@JsonProperty("FeedbackReason")
-	private String feedbackReason;
+	private List<VasOrderRequestDtoData> data;
+	
+	private String studentId;
 
 }
