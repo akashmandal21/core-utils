@@ -28,6 +28,7 @@ import java.util.Map;
 public class PhoenixAggregationView extends AbstractMongoEntity {
 
     private PropertyBasicInfo propertyBasicInfo;
+    Map<String,Object> estateAttributes;
     /*
     Map of Department to Map of UserType and stakeholders uuid
      */

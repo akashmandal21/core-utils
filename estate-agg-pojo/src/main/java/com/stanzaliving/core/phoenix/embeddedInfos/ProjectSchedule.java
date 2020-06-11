@@ -11,5 +11,5 @@ import java.util.Map;
 @AllArgsConstructor
 @Builder
 public class ProjectSchedule {
-    Map<Integer,ProjectScheduleStep> projectScheduleSteps;
+    Map<String,ProjectScheduleStep> projectScheduleSteps;
 }
