@@ -3,6 +3,7 @@ package com.stanzaliving.core.food.dto;
 import java.util.Collection;
 
 import com.stanzaliving.core.dto.PageAndSortDto;
+import com.stanzaliving.core.food.enums.FoodItemBackgroundColor;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.operations.enums.MealType;
 
@@ -39,7 +40,7 @@ public class FoodItemSearchDto {
 
 	private String textColor;
 
-	private String bgColor;
+	private FoodItemBackgroundColor bgColor;
 
 	private String category;
 	
