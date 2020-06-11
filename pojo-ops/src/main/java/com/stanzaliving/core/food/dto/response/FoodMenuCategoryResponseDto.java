@@ -27,6 +27,10 @@ public class FoodMenuCategoryResponseDto {
 
 	private String city;
 
+	private String cityId;
+
+	List<String> micromarkets;
+
 	private String category;
 
 	private Double targetPrice;
@@ -42,5 +46,7 @@ public class FoodMenuCategoryResponseDto {
 	private boolean grammage;
 
 	private Long residenceCount;
+
+	private boolean dataMissing;
 
 }
