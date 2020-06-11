@@ -49,8 +49,7 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	@Builder.Default
 	private boolean roomMeterRequired = false;
 
-	@Builder.Default
-	private PassThrough passThrough = PassThrough.NONE;
+	private PassThrough passThrough;
 
 	@Builder.Default
 	private PassThrough[] allPassThroughs = PassThrough.values();
