@@ -68,8 +68,8 @@ public class MasterBoqDto {
         this.itemType = Enum.valueOf(ItemType.class,itemUseType);
         this.particular = particular;
         this.descSpec = descSpec;
-        this.acquisitionType = Enum.valueOf(AcquisitionType.class, acquisitionType);
-        this.orderUnit = Enum.valueOf(UnitType.class,orderUnit);
+        this.acquisitionType = Objects.nonNull(acquisitionType) ? Enum.valueOf(AcquisitionType.class, acquisitionType) : null;
+        this.orderUnit = Objects.nonNull(orderUnit) ? Enum.valueOf(UnitType.class,orderUnit) : null;
         this.length = length;
         this.breadth = breadth;
         this.height = height;
@@ -94,9 +94,11 @@ public class MasterBoqDto {
         this.itemType = Enum.valueOf(ItemType.class,itemUseType);
         this.particular = particular;
         this.descSpec = descSpec;
-        this.acquisitionType = Enum.valueOf(AcquisitionType.class, acquisitionType);
-        this.acquisitionTypeText=this.acquisitionType.getAcTypeText();
-        this.orderUnit = Enum.valueOf(UnitType.class,orderUnit);
+        if (Objects.nonNull(acquisitionType)) {
+            this.acquisitionType = Enum.valueOf(AcquisitionType.class, acquisitionType);
+            this.acquisitionTypeText=this.acquisitionType.getAcTypeText();
+        }
+        this.orderUnit = Objects.nonNull(orderUnit) ? Enum.valueOf(UnitType.class,orderUnit) : null;
         this.orderUnitText = (Objects.nonNull(this.orderUnit))?this.orderUnit.getUnitName():null;
         this.length = length;
         this.breadth = breadth;
@@ -108,8 +110,8 @@ public class MasterBoqDto {
             this.brandNames= Arrays.stream(brandNames.split(",")).map(f-> BrandName.valueOf(f.trim()).getBrand()).collect(Collectors.joining(", "));
         if(StringUtils.isNotEmpty(subBrandNames))
             this.subBrandNames=Arrays.stream(subBrandNames.split(",")).map(f-> SubBrandName.valueOf(f.trim()).getSubBrand()).collect(Collectors.joining(", "));;
-        this.areaOfUsesMap= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f.trim())).
-                collect(Collectors.toMap(f->f,f->f.getName()));
+        if(StringUtils.isNotEmpty(areaOfUseList))
+            this.areaOfUsesMap= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f.trim())).collect(Collectors.toMap(f->f,f->f.getName()));
         this.cgst = cgst;
         this.igst = igst;
         this.sgst = sgst;
