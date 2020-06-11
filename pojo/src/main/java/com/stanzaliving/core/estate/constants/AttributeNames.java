@@ -202,6 +202,7 @@ public class AttributeNames {
 		public static final String AUTOMATION_OF_WATER_STORAGE_REMARKS = "automationOfWaterStorageRemarks";
 		public static final String BASEMENT_OTHER_AREAS_MAY_REMARKS = "basementOtherAreasMayRemarks";
 		public static final String WATER_SUPPLY_BOREWELL_REMARKS = "waterSupplyBorewellRemarks";
+		public static final String WATER_SUPPLY_WATER_COST_REMARKS = "waterSupplyWaterCostRemarks";
 		public static final String WATER_TANK_CAPACITY_TO_BE_CALCULATED_REMARKS = "waterTankCapacityToBeCalculatedRemarks";
 		public static final String WATER_STORAGE_CLAUSE_B_REMARKS = "waterStorageClauseBRemarks";
 
@@ -230,6 +231,8 @@ public class AttributeNames {
 		public static final String ROOM_INTERIORS_REMARKS = "roomInteriorsRemarks";
 		public static final String BATHROOM_ACCESSORIES_REMARKS = "bathroomAccessoriesRemarks";
 		public static final String CURTAIN_RODS_REMARKS = "curtainRodsRemarks";
+		public static final String ROOM_PAINT_REMARKS = "roomPaintRemarks";
+
 		public static final String PLUMBING_PIPES_ASSOCIATED_COSTS_REMARKS = "plumbingPipesAssociatedCostsRemarks";
 		public static final String WATER_PRESSURE_FLOODING_ISSUES_REMARKS = "waterPressureFloodingIssuesRemarks";
 		public static final String REPLACEMENT_OF_BROKEN_DAMAGED_SANITARY_WARE_REMARKS = "replacementOfBrokenDamagedSanitaryWareRemarks";
@@ -240,6 +243,7 @@ public class AttributeNames {
 		public static final String STORAGE_GEYSER_REMARKS = "storageGeyserRemarks";
 		public static final String ELECTRICAL_SOLAR_BOILER_CAPACITY_REMARKS = "electricalSolarBoilerCapacityRemarks";
 		public static final String ALL_WHITE_GOODS_REQUIRING_DRAINAGE_POINT_REMARKS = "allWhiteGoodsRequiringDrainagePointRemarks";
+		public static final String WHITE_GOODS_REPLACEMENT_REMARKS = "whiteGoodsReplacementRemarks";
 		public static final String ENTIRE_LIAISONING_REMARKS = "entireLiaisoningRemarks";
 		public static final String WORK_ON_THE_H_T_SIDE_REMARKS = "workOnTheHTSideRemarks";
 		public static final String ROOM_WISE_SEPARATE_WIRING_REMARKS = "roomWiseSeparateWiringRemarks";
@@ -256,7 +260,15 @@ public class AttributeNames {
 		public static final String LIFT_LICENSE_RENEWAL_REMARKS = "liftLicenseRenewalRemarks";
 		public static final String ALL_TEST_CERTIFICATE_AND_DOCUMENTS = "allTestCertificateAndDocuments";
 		public static final String LIGHTING_AND_POWER_TO_BE_INSTALLED_REMARKS = "lightingAndPowerToBeInstalledRemarks";
+		public static final String INTERIOR_PAINT_COMMON_AREA_REMARKS = "interiorPaintCommonAreaRemarks";
+		public static final String BERGER_PAINT_CODE_COMMON_AREA_REMARKS = "bergerPaintCodeCommonAreaRemarks";
+		public static final String GENERAL_LIGHTING_COMMON_AREA_REMARKS = "generalCommonAreaLightingRemarks";
+		public static final String DIESEL_GENERATOR_AMC_COMMON_AREA_REMARKS = "dieselGenAMCCommonAreaRemarks";
 
+		public static final String INTERIOR_PAINT_CORRIDOR_REMARKS = "interiorPaintCorridorRemarks";
+		public static final String BERGER_PAINT_CODE_CORRIDOR_REMARKS = "bergerPaintCodeCorridorRemarks";
+		public static final String GENERAL_LIGHTING_CORRIDOR_REMARKS = "generalCorridorLightingRemarks";
+		public static final String DIESEL_GENERATOR_AMC_CORRIDOR_REMARKS = "dieselGenAMCCorridorRemarks";
 	//ATL Details  
 		public static final String STRUCTURE_CLAUSE_A_BOOLEAN = "structureClauseABoolean";
 		public static final String FIRE_CLAUSE_A_BOOLEAN = "fireClauseABoolean";
@@ -327,6 +339,7 @@ public class AttributeNames {
 		public static final String WATER_SUPPLY_CLAUSE_C_TEXT_AREA = "waterSupplyClauseCTextArea";
 		public static final String WATER_SUPPLY_CLAUSE_D_TEXT_AREA = "waterSupplyClauseDTextArea";
 		public static final String WATER_SUPPLY_CLAUSE_E_TEXT_AREA = "waterSupplyClauseETextArea";
+		public static final String WATER_SUPPLY_CLAUSE_F_TEXT_AREA = "waterSupplyClauseFTextArea";
 
 		public static final String WATER_STORAGE_CLAUSE_A_TEXT_AREA = "waterStorageClauseATextArea";
 		public static final String WATER_STORAGE_CLAUSE_B_TEXT_AREA = "waterStorageClauseBTextArea";
@@ -355,6 +368,7 @@ public class AttributeNames {
 		public static final String ROOM_CLAUSE_D_TEXT_AREA = "roomClauseDTextArea";
 		public static final String ROOM_CLAUSE_E_TEXT_AREA = "roomClauseETextArea";
 		public static final String ROOM_CLAUSE_F_TEXT_AREA = "roomClauseFTextArea";
+		public static final String ROOM_PAINT_CLAUSE_TEXT_AREA = "roomPaintClauseTextArea";
 		public static final String SANITARY_CLAUSE_A_TEXT_AREA = "sanitaryClauseATextArea";
 		public static final String SANITARY_CLAUSE_B_TEXT_AREA = "sanitaryClauseBTextArea";
 		public static final String SANITARY_CLAUSE_C_TEXT_AREA = "sanitaryClauseCTextArea";
@@ -365,6 +379,7 @@ public class AttributeNames {
 		public static final String WHITE_GOODS_CLAUSE_C_TEXT_AREA = "whiteGoodsClauseCTextArea";
 		public static final String WHITE_GOODS_CLAUSE_D_TEXT_AREA = "whiteGoodsClauseDTextArea";
 		public static final String WHITE_GOODS_CLAUSE_E_TEXT_AREA = "whiteGoodsClauseETextArea";
+		public static final String WHITE_GOODS_CLAUSE_F_TEXT_AREA = "whiteGoodsClauseFTextArea";
 		public static final String ELECTRICAL_CLAUSE_A_TEXT_AREA = "electricalClauseATextArea";
 		public static final String ELECTRICAL_CLAUSE_B_TEXT_AREA = "electricalClauseBTextArea";
 		public static final String ELECTRICAL_CLAUSE_C_TEXT_AREA = "electricalClauseCTextArea";
@@ -384,7 +399,11 @@ public class AttributeNames {
 		public static final String LIFT_CLAUSE_E_TEXT_AREA = "liftClauseETextArea";
 		public static final String DOCS_AND_A_M_C_CLAUSE_A_TEXT_AREA = "docsAndAMCClauseATextArea";
 		public static final String COMMON_AREAS_CLAUSE_A_TEXT_AREA = "commonAreasClauseATextArea";
-		
+		public static final String COMMON_AREAS_CLAUSE_B_TEXT_AREA = "commonAreasClauseBTextArea";
+		public static final String COMMON_AREAS_CLAUSE_C_TEXT_AREA = "commonAreasClauseCTextArea";
+		public static final String COMMON_AREAS_CLAUSE_D_TEXT_AREA = "commonAreasClauseDTextArea";
+		public static final String COMMON_AREAS_CLAUSE_E_TEXT_AREA = "commonAreasClauseETextArea";
+
 		public static final String SIGNAGE_CLAUSE_A_TEXT_AREA = "signangeLevelClauseATextArea";
 		public static final String SIGNAGE_CLAUSE_A_REMARK = "signangeRemarks";
 		
@@ -414,6 +433,11 @@ public class AttributeNames {
 		
 		public static final String BOUNDARY_WALL_CLAUSE_B_TEXT_AREA = "boundaryWallClauseBTextArea";
 		public static final String BOUNDARY_WALL_CLAUSE_B_REMARK = "lightFixtureOnEntraceRemarks";
+
+		public static final String CORRIDOR_CLAUSE_A_TEXT_AREA = "corridorClauseATextArea";
+		public static final String CORRIDOR_CLAUSE_B_TEXT_AREA = "corridorClauseBTextArea";
+		public static final String CORRIDOR_CLAUSE_C_TEXT_AREA = "corridorClauseCTextArea";
+		public static final String CORRIDOR_CLAUSE_D_TEXT_AREA = "corridorClauseDTextArea";
 
 		public static final String DUE_DILIGINCE_CHECKLIST_1 = "dueDigilenceChecklist1";
 		public static final String DUE_DILIGINCE_CHECKLIST_2 = "dueDigilenceChecklist2";
