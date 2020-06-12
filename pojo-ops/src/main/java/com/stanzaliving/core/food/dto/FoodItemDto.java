@@ -68,4 +68,6 @@ public class FoodItemDto extends AbstractDto {
 	private boolean vasEnabled;
 
 	private Boolean isGrammagePresent;
+
+	private Boolean menuTypeEligible;
 }
