@@ -42,4 +42,7 @@ public class FullCategoryDto {
 
 	@NotEmpty(message = "Weekly Menu is mandatory")
 	private List<WeekWiseMenu> weekMenus;
+
+	@NotEmpty(message = "micromarkets can't be empty")
+	private List<String> microMarkets;
 }
