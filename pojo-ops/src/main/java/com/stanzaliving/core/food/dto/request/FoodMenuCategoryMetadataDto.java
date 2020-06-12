@@ -7,8 +7,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.food.enums.FoodServeType;
+import com.stanzaliving.core.food.enums.MenuType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,5 +51,9 @@ public class FoodMenuCategoryMetadataDto {
 
 	@NotNull(message = "Brand Selection is Mandatory")
 	private ResidenceBrand residenceBrand;
+
+	private MenuType menuType;
+
+	private FoodItemBasePreference basePreference;
 
 }
