@@ -20,11 +20,13 @@ public enum FoodRoleType {
 	FB_HEAD("F&B Head", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	HEAD_CHEF("Head Chef", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	CITY_CHEF_MANAGER("City Chef Manager", Department.FOOD_OPS, AccessLevel.CITY),
+	CITY_MENU_CREATION("City - Menu Creation", Department.FOOD_OPS, AccessLevel.CITY),
 	PURCHASE_MANAGER("Purchase Manager", Department.FOOD_OPS, AccessLevel.CITY),
 	STORE_MANAGER("Store Manager", Department.FOOD_OPS, AccessLevel.CITY),
 
 	EMAIL_CC_FOOD_ORDER_DETAILS("Email CC - Food Order Details", Department.OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_ORDER_REMINDER("Email CC - Food Order Reminder", Department.OPS, AccessLevel.COUNTRY),
+	EMAIL_CC_MICROMARKET_FOOD_ORDER("Micromarket - Food Order", Department.OPS, AccessLevel.MICROMARKET),
 	EMAIL_CC_FOOD_MENU_CREATED("Email CC - Food Menu Created", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_MENU_APPROVED("Email CC - Food Menu Approved", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_MENU_REJECTED("Email CC - Food Menu Rejected", Department.FOOD_OPS, AccessLevel.COUNTRY),

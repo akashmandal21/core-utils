@@ -24,7 +24,7 @@ public class FoodOrderDetailDto {
 	private String residenceFoodMenuId;
 
 	private MealType mealType;
-	
+
 	private String mealName;
 
 	private String vendorId;
@@ -43,9 +43,11 @@ public class FoodOrderDetailDto {
 	@Builder.Default
 	private Double nonVegCost = 0d;
 
-	private Integer stanzaStaffVegPax;
+	@Builder.Default
+	private Integer stanzaStaffVegPax = 0;
 
-	private Integer stanzaStaffNonVegPax;
+	@Builder.Default
+	private Integer stanzaStaffNonVegPax = 0;
 
 	@Builder.Default
 	private Double stanzaStaffVegCost = 0d;

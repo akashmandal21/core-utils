@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>core-utils</artifactId>
@@ -57,12 +59,14 @@
 		<module>pushnotification-client</module>
 		<module>fr-client</module>
 		<module>phoenix-aggregation-client</module>
+		<module>phoenix-aggregation-entities</module>
 		<module>rule-engine</module>
 		<module>internet-client</module>
 		<module>operations-client</module>
+		<module>qrcode</module>
+		<module>attendance-client</module>
+		<module>campaign-client</module>
 		<module>food-service-client</module>
-    <module>attendance-client</module>
-    <module>campaign-client</module>
   </modules>
 
 	<build>

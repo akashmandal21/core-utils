@@ -23,6 +23,8 @@ public class ActiveMealDto {
 	private String meal;
 	
 	private MealType mealType;
+	
+	private Integer sequence;
 
 	private LocalTime startTime;
 

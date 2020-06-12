@@ -24,6 +24,8 @@ public class FoodOrderShortageDto {
 
 	private MealType meal;
 
+	private String mealName;
+
 	private LocalDate date;
 
 	private String orderId;
