@@ -25,6 +25,11 @@ public class Constants {
 
 	public static final double LOAD_FOR_AC_ROOMS = 1.80;
 	public static final double LOAD_FOR_NON_AC_ROOMS = 0.45;
+	
+	public static final int HK_RATE_NUMERATOR_VALUE = 30;
+	public static final int HK_RATE_DENOMINATOR_VALUE = 30;
+	
+	public static final int ELECTRICITY_ROOM_METER_OPEX_COST_PER_MONTH = 70;
 
 	public static final double MARGIN_HK = 0.10;
 	public static final double GST_HK = 0.18;
