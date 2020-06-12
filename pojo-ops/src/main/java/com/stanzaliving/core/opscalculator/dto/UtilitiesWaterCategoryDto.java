@@ -34,9 +34,7 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 	private int drinkingWater;
 	private int dependability;
 	private int avgStudentConsumptionPerDay;
-
-	@Builder.Default
-	private WaterSupplySource waterSupplySource = WaterSupplySource.BOREWELL;
+	private WaterSupplySource waterSupplySource;
 
 	@Builder.Default
 	private WaterSupplySource[] allWaterSupplySources = WaterSupplySource.values();
