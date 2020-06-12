@@ -18,5 +18,5 @@ public class ItemCategoryCountDto {
 	private String categoryName;
 	
 	private Integer itemCount;
-
+	
 }

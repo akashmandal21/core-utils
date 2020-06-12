@@ -1,11 +1,8 @@
 package com.stanzaliving.core.food.dto.response;
 
-import java.util.List;
-
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,13 +15,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealItemSummaryDto {
-
-	private MealType meal;
-
-	private List<MealItemCategoryCountDto> categoryCountDtos;
+public class MealItemCategoryCountDto {
 	
-	@Builder.Default
-	private Integer mealItemCount=0;
+	private String categoryName;
+	
+	private Integer itemCount;
+	
+	private MealType meal;
 
 }
