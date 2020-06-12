@@ -66,4 +66,8 @@ public class FoodItemDto extends AbstractDto {
 	private String subCategoryName;
 	
 	private boolean vasEnabled;
+
+	private Boolean isGrammagePresent;
+
+	private Boolean menuTypeEligible;
 }
