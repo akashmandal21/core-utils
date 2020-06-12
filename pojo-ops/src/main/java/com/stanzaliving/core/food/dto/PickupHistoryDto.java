@@ -25,5 +25,7 @@ public class PickupHistoryDto {
 	private Object data;
 	private Date date;
 	private String qrContextType;
-		
+	private boolean requestReplacement;
+	private String requestReplacementText;
+	private String qrUuid;	
 }
