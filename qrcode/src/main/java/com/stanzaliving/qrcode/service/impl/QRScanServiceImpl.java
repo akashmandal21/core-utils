@@ -98,4 +98,16 @@ public class QRScanServiceImpl implements QRScanService {
 		
 		return qrScanHistoryEntities.stream().collect(Collectors.toMap(QRScanHistory::getQrUUid, Function.identity()));
 	}
+	
+	@Override
+	public Map<String, QRScanHistory> getQRScannedDataByQrUuids(List<String> qrUuids) {
+		List<QRScanHistory> qrScanHistoryEntities =  
+				qrScanHistoryRepository.findByQrUUidIn(qrUuids);
+		
+		if(CollectionUtils.isEmpty(qrScanHistoryEntities)) {
+			return new HashMap<>();
+		}
+		
+		return qrScanHistoryEntities.stream().collect(Collectors.toMap(QRScanHistory::getQrUUid, Function.identity()));
+	}
 }

@@ -20,4 +20,6 @@ public interface QRScanService {
 	void updateScanHistory(QRData qrData, String userId);
 
 	Map<String, QRScanHistory> getQRScannedData(List<String> qrUuids, String userId);
+
+	Map<String, QRScanHistory> getQRScannedDataByQrUuids(List<String> qrUuids);
 }
