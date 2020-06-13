@@ -18,10 +18,16 @@ import lombok.ToString;
 @ToString
 public class MealRequestReplacementDto {
 
-	private String mealDate;
-	private String qrUuid;
 	private String userId;
 	private String userName;
-	private MealReplacementReason replacementReason;
 	
+	private int quantity;
+	private String mealType;
+	private String foodItemType;
+
+	private String mealDate;
+	private String qrUuid;
+	private String residenceFoodMenuId;
+	private MealReplacementReason replacementReason;
+		
 }
