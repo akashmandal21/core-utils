@@ -224,7 +224,7 @@ public class LegalClientApi {
 
     }
     
-    public ResponseDto<Boolean> checkLanguageDeviationExist(String estateUuid) {
+    public ResponseDto<Boolean> checkLanguageDeviationExist(String estateUuid, String buildingType) {
 
         if (Objects.isNull(estateUuid)) {
             return null;
@@ -240,7 +240,7 @@ public class LegalClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/legal/check/languagedeviation/{estateUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
+        queryParams.add("buildingType",buildingType);
 
         final HttpHeaders headerParams = new HttpHeaders();
 

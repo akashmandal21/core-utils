@@ -490,7 +490,10 @@ public class AttributeNames {
 		public static final String ON_FLOOR_SLAB_COMPLETION_BTS = "onFloorSlabCompletionBTS";
 		public static final String OTHERS_BTS = "othersBTS";
 		public static final String ON_COMPLETION_BTS = "onCompletionBTS";
-		
+
+
+		/*********************************Leased Inventory Annexure******************************************/
+		public static final String LEASED_INVENTORY_LIST = "leasedInventory";
 		
 		public static final Map<ImmutablePair<String, String>, List<String>> kQuestionMap = new HashMap<ImmutablePair<String, String>, List<String>>() {
 			/**

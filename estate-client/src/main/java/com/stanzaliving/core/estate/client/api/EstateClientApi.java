@@ -76,6 +76,41 @@ public class EstateClientApi {
 
     }
 
+    public ResponseDto<EstateAttributeDto> getSpecificEstateAttributeByEstateUuidOrEstateId(String estateUuid, String estateId, String attributeName) {
+
+        if (StringUtils.isEmpty(estateUuid) && StringUtils.isEmpty(estateId)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/attributes/fetchattribute/"+attributeName).buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        if (StringUtils.isNotEmpty(estateUuid)) {
+            queryParams.putAll(restClient.parameterToMultiValueMap(null, "estateUuid", estateUuid));
+        }
+        if (StringUtils.isNotEmpty(estateId)) {
+            queryParams.putAll(restClient.parameterToMultiValueMap(null, "estateId", estateId));
+        }
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<EstateAttributeDto>> returnType = new ParameterizedTypeReference<ResponseDto<EstateAttributeDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
     public ResponseDto<Void> approveByLeadership(Long estateId) {
 
         if (Objects.isNull(estateId)) {
