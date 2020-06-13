@@ -28,8 +28,6 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count" })
 public class FoodCategoryDto extends CategoryDto {
 
-	private int annualLeave;
-
 	@Builder.Default
 	private int gst = Constants.GST_FOOD_VENDOR_PERCENT;
 

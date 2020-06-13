@@ -31,7 +31,6 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
 	private int acRooms;
 	private int fixedElectricityChargesPerKwh;
-	private int roomMeterOpexCostPerMonth;
 	private int variableCostsForRoomPerMonth;
 	private int variableCostsForCommonAreaPerMonth;
 	private int acCostsForRoomForMonth;
@@ -39,6 +38,9 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	private int elecricityRoomMeterCost;
 	private int roomPassThroughAmount;
 	private int acPassThroughAmount;
+	
+	@Builder.Default
+	private int roomMeterOpexCostPerMonth = Constants.ELECTRICITY_ROOM_METER_OPEX_COST_PER_MONTH;
 
 	@Builder.Default
 	private double loadForAcRooms = Constants.LOAD_FOR_AC_ROOMS;
@@ -49,8 +51,7 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	@Builder.Default
 	private boolean roomMeterRequired = false;
 
-	@Builder.Default
-	private PassThrough passThrough = PassThrough.NONE;
+	private PassThrough passThrough;
 
 	@Builder.Default
 	private PassThrough[] allPassThroughs = PassThrough.values();
