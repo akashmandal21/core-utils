@@ -16,10 +16,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodItemSubCategoryCsvUploadDto {
-	
+
 	@JsonProperty("Category")
 	private String category;
-	
+
 	@JsonProperty("SubCategory")
 	private String subCategory;
 
