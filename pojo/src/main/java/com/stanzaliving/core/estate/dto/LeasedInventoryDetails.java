@@ -7,5 +7,5 @@ import lombok.ToString;
 @ToString
 public class LeasedInventoryDetails {
     private String itemName;
-    private String itemCount;
+    private Double itemCount;
 }
