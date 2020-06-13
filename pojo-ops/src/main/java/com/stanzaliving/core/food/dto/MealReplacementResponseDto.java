@@ -22,4 +22,7 @@ public class MealReplacementResponseDto {
 	private int quantity;
 	private String replacementReason;
 	private Long timestamp;
+	private String mealReplacementUuid;
+	private String comment;
+	
 }
