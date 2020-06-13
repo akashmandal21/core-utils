@@ -52,8 +52,10 @@ public class FoodMenuCategoryMetadataDto {
 	@NotNull(message = "Brand Selection is Mandatory")
 	private ResidenceBrand residenceBrand;
 
+	@NotNull(message = "Menu Type Selection is mandatory")
 	private MenuType menuType;
 
+	@NotNull(message = "Base preference is mandatory")
 	private FoodItemBasePreference basePreference;
 
 }

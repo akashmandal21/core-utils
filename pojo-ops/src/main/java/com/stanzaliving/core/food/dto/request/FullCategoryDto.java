@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.request;
 
 import java.util.List;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -32,7 +33,7 @@ public class FullCategoryDto {
 	private boolean copied;
 
 	@NotNull(message = "Category Metadata is Mandatory")
-	private FoodMenuCategoryMetadataDto category;
+	private @Valid FoodMenuCategoryMetadataDto category;
 
 	private CompositionRuleDto rules;
 
