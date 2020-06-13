@@ -34,15 +34,13 @@ public class FullCategoryDto {
 	@NotNull(message = "Category Metadata is Mandatory")
 	private FoodMenuCategoryMetadataDto category;
 
-	@NotNull(message = "Composition Rules are mandatory")
 	private CompositionRuleDto rules;
 
 	@NotEmpty(message = "Meal Mappings are mandatory")
 	private List<FoodMenuCategoryMealDto> meals;
 
-	@NotEmpty(message = "Weekly Menu is mandatory")
 	private List<WeekWiseMenu> weekMenus;
 
-	@NotEmpty(message = "micromarkets can't be empty")
+	@NotEmpty(message = "Micromarkets are mandatory")
 	private List<String> microMarkets;
 }
