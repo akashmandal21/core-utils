@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.enums;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,7 +11,8 @@ import lombok.Getter;
  **/
 @Getter
 @AllArgsConstructor
-public enum FoodVendorDocument {
+public enum FoodVendorDocumentType {
+
 	FASSAI_LICENCE_CERITIFACTE("Food Licence"),
 	GSTIN_CERTIFICATE("GST Certificate");
 
