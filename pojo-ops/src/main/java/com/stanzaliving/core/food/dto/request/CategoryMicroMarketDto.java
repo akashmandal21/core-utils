@@ -20,5 +20,5 @@ import java.util.Set;
 public class CategoryMicroMarketDto {
 	private String menuCategoryId;
 
-	private Set<String> microMarkets;
+	private String microMarketId;
 }
