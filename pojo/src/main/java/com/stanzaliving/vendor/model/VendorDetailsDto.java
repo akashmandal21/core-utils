@@ -48,4 +48,6 @@ public class VendorDetailsDto {
 
     private Boolean isWarehouse;
 
+    private String mouDocument;
+
 }
