@@ -7,7 +7,6 @@ import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
-import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.MenuType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,5 +45,4 @@ public class FoodMenuCategoryDto extends AbstractDto {
 
 	private MenuType menuType;
 
-	private FoodItemBasePreference foodItemBasePreference;
 }
