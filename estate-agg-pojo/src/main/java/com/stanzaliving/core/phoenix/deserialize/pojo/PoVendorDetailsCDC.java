@@ -46,4 +46,7 @@ public class PoVendorDetailsCDC {
 
     @JsonProperty("comparison_document_url")
     private String comparisonDocumentUrl;
+
+    @JsonProperty("is_warehouse_vendor")
+    private Boolean isWarehouseVendor;
 }

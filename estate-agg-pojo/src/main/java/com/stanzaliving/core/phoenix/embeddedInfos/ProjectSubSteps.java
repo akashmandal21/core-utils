@@ -29,6 +29,7 @@ public class ProjectSubSteps implements Comparable<ProjectSubSteps> {
     private LocalDate actualStartDate;
     private LocalDate actualEndDate;
     private Double completionPercent;
+    private Integer tat;
 
     @Override
     public int compareTo(ProjectSubSteps o) {

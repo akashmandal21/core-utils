@@ -22,6 +22,7 @@ public class PoInfo {
     private Boolean isRejected;
     private String vendorPocUuid;
     private String vendorDetailsUuid;
+    private Boolean isWarehouseVendor;
 
     public PoInfo(String uuid){
         this.poUuid = uuid;

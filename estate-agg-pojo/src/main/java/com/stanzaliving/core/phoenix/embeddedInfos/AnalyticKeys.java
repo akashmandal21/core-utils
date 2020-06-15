@@ -36,6 +36,18 @@ public class AnalyticKeys {
      */
     private Map<String, String> poTypeSummaryStatus; //Changed from private Map<PoType, POSummaryStatus> poTypeSummaryStatus;
 
+
+    /*
+    Project Schedule Analytic keys
+     */
+
+    private LocalDate llHODate;
+    private LocalDate opsHODate;
+    private LocalDate maxScheduledDate;
+    private LocalDate maxActualDate;
+    private Integer houseTatDays;
+    private Integer houseCompletionDelayDays;
+
     public PropertyStatus getPropertyStatusEnum(){
         return EnumDecoder.getEnum(propertyStatus,PropertyStatus.class);
     }

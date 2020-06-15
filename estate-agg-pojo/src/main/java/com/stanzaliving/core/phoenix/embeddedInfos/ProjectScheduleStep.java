@@ -34,6 +34,7 @@ public class ProjectScheduleStep  implements Comparable<ProjectScheduleStep> {
     private Double completionPercent;
     private Integer numSubStepCompleted;
     private Integer numSubSteps;
+    private Integer tat;
     Map<String,ProjectSubSteps> projectSubSteps;
 
     @Override
