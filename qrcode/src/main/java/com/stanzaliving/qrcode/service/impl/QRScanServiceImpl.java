@@ -72,7 +72,7 @@ public class QRScanServiceImpl implements QRScanService {
 		List<QRContextType> qrContextTypeList = Arrays.asList(QRContextType.FOODTABLE_VEG, QRContextType.FOODTABLE_NONVEG);
 		
 		/*
-		 * User can scan either one food type either veg or non-veg
+		 * User can scan either one food type, veg or non-veg
 		 */
 		QRScanHistory qrScanHistory = 
 				qrScanHistoryRepository.findByContextIdAndQrContextTypeInAndUserId(contextId, qrContextTypeList, userId);
@@ -84,11 +84,10 @@ public class QRScanServiceImpl implements QRScanService {
 	}
 	
 	@Override
-	public QRScanHistory checkScanHistoryForVas(String contextId, String userId) {
-		List<QRContextType> qrContextTypeList = Arrays.asList(QRContextType.VASTABLE);
+	public QRScanHistory checkScanHistory(String contextId, String userId, QRContextType qrContextType) {
 		
 		QRScanHistory qrScanHistory = 
-				qrScanHistoryRepository.findByContextIdAndQrContextTypeInAndUserId(contextId, qrContextTypeList, userId);
+				qrScanHistoryRepository.findByContextIdAndQrContextTypeAndUserId(contextId, qrContextType, userId);
 		
 		log.info("Qr scan history for contextId " + contextId + " userId " + userId);
 		log.info("Scan history " + qrScanHistory);
@@ -107,11 +106,12 @@ public class QRScanServiceImpl implements QRScanService {
 			
 			QRScanHistory qrScanHistory = null;
 			
-			if(qrData.getQrContextType() == QRContextType.VASTABLE)
-				qrScanHistory = checkScanHistoryForVas(qrData.getContextId(), userId);
+			if(qrData.getQrContextType() == QRContextType.FOODTABLE_VEG || 
+			   qrData.getQrContextType() == QRContextType.FOODTABLE_NONVEG)
+				qrScanHistory = checkScanHistoryForVegAndNonVegFood(qrData.getContextId(), userId);			
 			else
-				qrScanHistory = checkScanHistoryForVegAndNonVegFood(qrData.getContextId(), userId);
-			
+				qrScanHistory = checkScanHistory(qrData.getContextId(), userId, qrData.getQrContextType());
+
 			
 			if(qrScanHistory == null) {
 				log.debug("Saving scan history data for userId " + userId);

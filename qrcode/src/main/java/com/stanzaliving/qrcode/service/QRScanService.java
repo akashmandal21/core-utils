@@ -29,5 +29,5 @@ public interface QRScanService {
 
 	QRScanHistory checkScanHistoryForVegAndNonVegFood(String contextId, String userId);
 
-	QRScanHistory checkScanHistoryForVas(String contextId, String userId);
+	QRScanHistory checkScanHistory(String contextId, String userId, QRContextType qrContextType);
 }
