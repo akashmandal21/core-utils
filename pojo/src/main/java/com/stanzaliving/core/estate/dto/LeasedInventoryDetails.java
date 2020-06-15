@@ -6,6 +6,7 @@ import lombok.ToString;
 @Data
 @ToString
 public class LeasedInventoryDetails {
-    private String itemName;
-    private Double itemCount;
+    private String leasedInventoryItemName;
+    private Double leasedInventoryItemCount;
 }
+

@@ -280,6 +280,8 @@ public class AttributeNames {
 		public static final String WATER_SUPPLY_CLAUSE_B_BOOLEAN = "waterSupplyClauseBBoolean";
 		public static final String WATER_SUPPLY_CLAUSE_C_BOOLEAN = "waterSupplyClauseCBoolean";
 		public static final String WATER_SUPPLY_CLAUSE_D_BOOLEAN = "waterSupplyClauseDBoolean";
+		public static final String WATER_SUPPLY_CLAUSE_E_BOOLEAN = "waterSupplyClauseEBoolean";
+		public static final String WATER_SUPPLY_CLAUSE_F_BOOLEAN = "waterSupplyClauseFBoolean";
 		public static final String WATER_STORAGE_CLAUSE_A_BOOLEAN = "waterStorageClauseABoolean";
 		public static final String FACADE_CLAUSE_A_BOOLEAN = "facadeClauseABoolean";
 		public static final String FACADE_CLAUSE_B_BOOLEAN = "facadeClauseBBoolean";
