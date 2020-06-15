@@ -3,6 +3,7 @@ package com.stanzaliving.core.food.dto.response;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.food.enums.FoodRegion;
 
+import com.stanzaliving.core.food.enums.MenuType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,4 +28,6 @@ public class FoodMenuCategoryBasicDetailsDto {
 	private ResidenceBrand residenceBrand;
 
 	private FoodRegion foodRegion;
+
+	private MenuType menuType;
 }

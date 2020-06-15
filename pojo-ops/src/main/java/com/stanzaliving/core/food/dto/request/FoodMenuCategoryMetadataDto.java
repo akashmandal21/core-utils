@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.food.enums.FoodServeType;
+import com.stanzaliving.core.food.enums.MenuType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,9 @@ public class FoodMenuCategoryMetadataDto {
 	@NotBlank(message = "City is Mandatory for Menu Category")
 	private String cityId;
 
+	@NotBlank(message = "microMarket is Mandatory for Menu Category")
+	private String microMarketId;
+
 	@NotBlank(message = "Name is Mandatory for Menu Category")
 	private String categoryName;
 
@@ -49,5 +53,8 @@ public class FoodMenuCategoryMetadataDto {
 
 	@NotNull(message = "Brand Selection is Mandatory")
 	private ResidenceBrand residenceBrand;
+
+	@NotNull(message = "Menu Type Selection is mandatory")
+	private MenuType menuType;
 
 }
