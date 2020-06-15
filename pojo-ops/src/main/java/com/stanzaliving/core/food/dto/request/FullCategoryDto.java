@@ -41,7 +41,4 @@ public class FullCategoryDto {
 	private List<FoodMenuCategoryMealDto> meals;
 
 	private List<WeekWiseMenu> weekMenus;
-
-	@NotEmpty(message = "Micromarkets are mandatory")
-	private List<String> microMarkets;
 }

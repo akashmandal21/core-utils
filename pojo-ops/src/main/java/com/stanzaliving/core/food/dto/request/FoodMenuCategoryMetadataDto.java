@@ -37,6 +37,9 @@ public class FoodMenuCategoryMetadataDto {
 	@NotBlank(message = "City is Mandatory for Menu Category")
 	private String cityId;
 
+	@NotBlank(message = "microMarket is Mandatory for Menu Category")
+	private String microMarketId;
+
 	@NotBlank(message = "Name is Mandatory for Menu Category")
 	private String categoryName;
 

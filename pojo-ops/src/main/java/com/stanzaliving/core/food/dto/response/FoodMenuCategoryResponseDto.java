@@ -29,7 +29,9 @@ public class FoodMenuCategoryResponseDto {
 
 	private String cityId;
 
-	List<String> micromarkets;
+	private String microMarket;
+
+	private String microMarketId;
 
 	private String category;
 
