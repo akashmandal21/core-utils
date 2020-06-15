@@ -2,6 +2,8 @@ package com.stanzaliving.core.food.dto.response;
 
 import java.util.List;
 
+import com.stanzaliving.core.food.dto.VendorCostDto;
+
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -21,14 +23,24 @@ import lombok.experimental.SuperBuilder;
 public class FoodVendorCategoryResponseDto {
 
 	private String categoryId;
-	
+
 	private String categoryName;
 
 	private boolean status;
 
 	private boolean pricing;
 
+	private boolean pricesPendingForApproval;
+	
+	private boolean editingAllowed;
+	
 	private long residenceCount;
 
 	private List<VendorMealCostDto> mealCostDtos;
+
+	private VendorCostDto totalCurrentCost;
+
+	private VendorCostDto totalBudgetedCost;
+
+	private VendorCostDto totalApprovalPendingCost;
 }
