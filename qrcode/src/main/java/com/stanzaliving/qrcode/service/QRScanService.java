@@ -26,4 +26,8 @@ public interface QRScanService {
 	boolean removeScanHistoryByQrUuidAndUserId(String qrUuid, String userId);
 	
 	QRData getQRDataByUuid(String uuid);
+
+	QRScanHistory checkScanHistoryForVegAndNonVegFood(String contextId, String userId);
+
+	QRScanHistory checkScanHistoryForVas(String contextId, String userId);
 }

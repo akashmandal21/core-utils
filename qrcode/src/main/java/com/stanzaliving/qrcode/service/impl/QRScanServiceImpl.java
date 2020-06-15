@@ -68,6 +68,35 @@ public class QRScanServiceImpl implements QRScanService {
 	}
 	
 	@Override
+	public QRScanHistory checkScanHistoryForVegAndNonVegFood(String contextId, String userId) {
+		List<QRContextType> qrContextTypeList = Arrays.asList(QRContextType.FOODTABLE_VEG, QRContextType.FOODTABLE_NONVEG);
+		
+		/*
+		 * User can scan either one food type either veg or non-veg
+		 */
+		QRScanHistory qrScanHistory = 
+				qrScanHistoryRepository.findByContextIdAndQrContextTypeInAndUserId(contextId, qrContextTypeList, userId);
+		
+		log.info("Qr scan history for contextId " + contextId + " userId " + userId);
+		log.info("Scan history " + qrScanHistory);
+		
+		return qrScanHistory;
+	}
+	
+	@Override
+	public QRScanHistory checkScanHistoryForVas(String contextId, String userId) {
+		List<QRContextType> qrContextTypeList = Arrays.asList(QRContextType.VASTABLE);
+		
+		QRScanHistory qrScanHistory = 
+				qrScanHistoryRepository.findByContextIdAndQrContextTypeInAndUserId(contextId, qrContextTypeList, userId);
+		
+		log.info("Qr scan history for contextId " + contextId + " userId " + userId);
+		log.info("Scan history " + qrScanHistory);
+		
+		return qrScanHistory;
+	}
+	
+	@Override
 	public void updateScanHistory(QRData qrData, String userId) {
 		
 		if(Objects.nonNull(qrData)) {
@@ -76,13 +105,20 @@ public class QRScanServiceImpl implements QRScanService {
 				userId = SecurityUtils.getCurrentUserId();
 			}
 			
-			QRScanHistory qrScanHistory = 
-					qrScanHistoryRepository.findByQrUUidAndUserId(qrData.getUuid(), userId);
+			QRScanHistory qrScanHistory = null;
+			
+			if(qrData.getQrContextType() == QRContextType.VASTABLE)
+				qrScanHistory = checkScanHistoryForVas(qrData.getContextId(), userId);
+			else
+				qrScanHistory = checkScanHistoryForVegAndNonVegFood(qrData.getContextId(), userId);
+			
 			
 			if(qrScanHistory == null) {
 				log.debug("Saving scan history data for userId " + userId);
 				qrScanHistoryRepository.saveAndFlush(
-						QRScanHistory.builder().qrUUid(qrData.getUuid()).userId(userId).build());
+						QRScanHistory.builder().qrContextType(qrData.getQrContextType())
+									.contextId(qrData.getContextId())
+								    .qrUUid(qrData.getUuid()).userId(userId).build());
 			}
 			
 		}
