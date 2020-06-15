@@ -16,11 +16,11 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MealItemCategoryCountDto {
-	
+
 	private String categoryName;
-	
+
 	private Integer itemCount;
-	
+
 	private MealType meal;
 
 }

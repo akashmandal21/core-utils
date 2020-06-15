@@ -44,11 +44,11 @@ public class FoodItemDto extends AbstractDto {
 	private boolean quantifiable;
 
 	private String textColor;
-	
+
 	private String textColorName;
 
 	private String bgColor;
-	
+
 	private String bgColorName;
 
 	private String categoryId;
@@ -60,11 +60,11 @@ public class FoodItemDto extends AbstractDto {
 	private int tagsCount;
 
 	private List<EnumListing<MealType>> meals;
-	
+
 	private String subCategoryId;
-	
+
 	private String subCategoryName;
-	
+
 	private boolean vasEnabled;
 
 	private Boolean isGrammagePresent;

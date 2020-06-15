@@ -22,9 +22,11 @@ public class MealItemSummaryDto {
 
 	private MealType meal;
 
+	private String mealName;
+
 	private List<MealItemCategoryCountDto> categoryCountDtos;
-	
+
 	@Builder.Default
-	private Integer mealItemCount=0;
+	private Integer mealItemCount = 0;
 
 }
