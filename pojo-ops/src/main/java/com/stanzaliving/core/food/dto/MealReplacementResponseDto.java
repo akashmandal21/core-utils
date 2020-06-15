@@ -20,9 +20,11 @@ public class MealReplacementResponseDto {
 	private String mealType;
 	private String foodType;
 	private int quantity;
-	private String replacementReason;
 	private Long timestamp;
-	private String mealReplacementUuid;
 	private String comment;
-	
+	private String mealReplacementUuid;
+	private String replacementReason;
+	private String rcActionStatus;
+	private String rcActionStatusText;
+		
 }
