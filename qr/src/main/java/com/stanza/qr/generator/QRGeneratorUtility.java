@@ -16,17 +16,6 @@ public class QRGeneratorUtility
     public final static int DEFAULT_PIXEL_SCALE = 2;
     public final static int DEFAULT_NUM_BORDERS = 2;
 
-//    public static BufferedImage generateUUIDAndQRImage() throws IOException
-//    {
-//        UUID uuid = UUID.randomUUID();
-//        return generateQRImageForUuid(createNumericSegmentsForUUID(uuid.toString()),DEFAULT_ECC_LEVEL,DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
-//    }
-
-//    public static BufferedImage generateQRImageUsingUuid(String uuidString) throws IOException
-//    {
-//        List<QrSegment> list = createNumericSegmentsForUUID(uuidString);
-//        return generateQRImageForUuid(list,DEFAULT_ECC_LEVEL,DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
-//    }
 
     public static BufferedImage generateQRImageUsingLong(String longString) throws IOException
     {
@@ -43,15 +32,6 @@ public class QRGeneratorUtility
         baos.close();
         return imageInByte;
     }
-
-//    private static List<QrSegment> createNumericSegmentsForUUID(String uuidString)
-//    {
-//        UUID uuid=UUID.fromString(uuidString);
-//        List<QrSegment> list = new ArrayList<>(2);
-//        list.add(QrSegment.makeNumeric(Long.toUnsignedString(uuid.getMostSignificantBits())));
-//        list.add(QrSegment.makeNumeric(Long.toUnsignedString(uuid.getLeastSignificantBits())));
-//        return list;
-//    }
 
     private static List<QrSegment> createNumericSegmentsForLong(String longString)
     {
@@ -73,10 +53,5 @@ public class QRGeneratorUtility
         List<QrSegment> list = QrSegment.makeSegments(text);
         return QrCode.encodeSegments(list,DEFAULT_ECC_LEVEL).toImage(DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
     }
-
-//    public static void main(String args[]) throws IOException {
-//        ImageIO.write(generateUUIDAndQRImage(), "png", new File("qr-code.png"));
-//
-//    }
 
 }

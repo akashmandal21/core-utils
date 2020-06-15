@@ -19,26 +19,26 @@ import lombok.experimental.SuperBuilder;
 public class FoodOrderItemReceiveDto {
 
 	private String name;
-	
+
 	private String itemId;
 
 	@Builder.Default
-	private Integer quantity=null;
+	private Integer quantity = null;
 
 	@Builder.Default
-	private Double weight=null;
+	private Double weight = null;
 
 	@Builder.Default
-	private Boolean isLatelyAdded=false;
-	
+	private Boolean isLatelyAdded = false;
+
 	@Builder.Default
-	private Boolean isLatelyRemoved=false;
-	
+	private Boolean isLatelyRemoved = false;
+
 	@Builder.Default
-	private Boolean received=false;
-	
+	private Boolean received = false;
+
 	private FoodItemType foodItemType;
-	
+
 	private Boolean quantifiable;
-	
+
 }
