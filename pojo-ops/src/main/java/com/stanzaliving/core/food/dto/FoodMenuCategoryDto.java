@@ -39,4 +39,6 @@ public class FoodMenuCategoryDto extends AbstractDto {
 	private boolean menuRulesSatisfied;
 
 	private boolean stanzaKitchenCategory;
+	
+	private List<ResidenceConfigDto> mappedResidences;
 }
