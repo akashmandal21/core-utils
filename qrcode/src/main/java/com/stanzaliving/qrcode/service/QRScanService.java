@@ -24,4 +24,6 @@ public interface QRScanService {
 	Map<String, QRScanHistory> getQRScannedDataByQrUuids(List<String> qrUuids);
 	
 	boolean removeScanHistoryByQrUuidAndUserId(String qrUuid, String userId);
+	
+	QRData getQRDataByUuid(String uuid);
 }

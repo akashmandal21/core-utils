@@ -1,5 +1,6 @@
 package com.stanzaliving.qrcode.service.impl;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -122,5 +123,16 @@ public class QRScanServiceImpl implements QRScanService {
 		
 		qrScanHistoryRepository.delete(qrScanHistory);
 		return true;
+	}
+
+	@Override
+	public QRData getQRDataByUuid(String uuid) {
+		List<QRData> qrResult = qrDataRepository.findByUuidIn(Arrays.asList(uuid));
+		
+		if(qrResult.isEmpty()) {
+			return null;
+		}
+		
+		return qrResult.get(0);
 	}
 }
