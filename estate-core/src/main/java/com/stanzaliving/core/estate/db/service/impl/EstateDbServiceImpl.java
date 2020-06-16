@@ -93,6 +93,7 @@ public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Lo
 //		estateEntities.forEach(f->log.info("Status {} BDDash {}",f.getEstateStatus(),BDDashboardStatus.statusMap.get(f.getEstateStatus())));
 
 		Map<BDDashboardStatus, Long> bdDashboardStatusMap = estateEntities.stream().map(EstateEntity::getEstateStatus)
+				.filter(status -> status!=EstateStatus.DROPPED)
 																					.map(status -> BDDashboardStatus.statusMap.get(status))
 																					.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		
