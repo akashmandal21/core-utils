@@ -26,8 +26,8 @@ public class TransactionEntity implements Serializable {
     private Double AMOUNT;
 
     @Column(name = "GATEWAY_TRANCATION_ID1")
-	@JsonProperty("GATEWAY_TRANCATION_ID1")
-    private String gatewayTrancationId1;
+	@JsonProperty("TRANSACTION_REFERENCE")
+    private String transactionReference;
 
     @Column(name = "STATUS")
 	@JsonProperty("STATUS")
@@ -83,7 +83,7 @@ public class TransactionEntity implements Serializable {
 
     @Column(name = "BOOKING_ID")
 	@JsonProperty("BOOKING_ID")
-    private Integer bookingId;
+    private String bookingId;
 
     
 }

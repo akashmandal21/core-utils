@@ -47,7 +47,7 @@ public class StudentLedgerEntity implements Serializable {
 
     @Column(name = "BOOKING_ID")
 	@JsonProperty("BOOKING_ID")
-    private Integer bookingId;
+    private String bookingId;
 
     
 }
