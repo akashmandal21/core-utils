@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @Data
@@ -35,7 +36,11 @@ public class ProjectScheduleStep  implements Comparable<ProjectScheduleStep> {
     private Integer numSubStepCompleted;
     private Integer numSubSteps;
     private Integer tat;
-    Map<String,ProjectSubSteps> projectSubSteps;
+    List<ProjectSubSteps> projectSubSteps;
+
+    public ProjectScheduleStep(int stepNumber){
+        this.stepNumber=stepNumber;
+    }
 
     @Override
     public int compareTo(ProjectScheduleStep o) {
