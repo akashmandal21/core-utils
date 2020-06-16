@@ -5,6 +5,7 @@ package com.stanzaliving.qrcode.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import com.stanzaliving.core.sqljpa.repository.AbstractJpaRepository;
@@ -26,4 +27,5 @@ public interface QRScanHistoryRepository extends AbstractJpaRepository<QRScanHis
 
 	QRScanHistory findByContextIdAndQrContextTypeAndUserId(String contextId, QRContextType contextType, String userId);
 
+	List<QRScanHistory> findByQrContextTypeInAndUserId(List<QRContextType> qrContextTypes, String userId, Pageable pagination);
 }
