@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+import com.stanzaliving.core.operations.enums.MealType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +23,10 @@ public class UserResidenceFoodMenuResponseDto {
 	
 	private String userResidenceFoodMenuId;
 	
+	private String residenceFoodMenuId;
+	
+	private MealType meal;
+	
 	private String mealName;
 	
 	private LocalDate date;
@@ -33,7 +39,9 @@ public class UserResidenceFoodMenuResponseDto {
 	
 	private boolean defaultChoice;
 	
-	private List<FoodPrefernceComboResponseDto> prefernceComboResponseDtos;
+	private List<FoodPrefernceComboResponseDto> preferenceComboResponseDtos;
+	
+	private List<FoodPreferenceComboItemDto> selectedComboItems;
 	
 
 }

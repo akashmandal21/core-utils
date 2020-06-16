@@ -1,6 +1,9 @@
 package com.stanzaliving.core.food.dto.request;
 
+import java.time.LocalDate;
+
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,5 +27,14 @@ public class UserResidenceFoodMenuRequestDto {
 	private String residenceFoodMenuId;
 	
 	private String userResidenceFoodMenuId;
+	
+	@NotBlank(message = "MealName Cannot be blank")
+	private String mealName;
+	
+	@NotNull(message = "Date Cannot be null")
+	private LocalDate date;
+	
+	@NotBlank(message = "Base Preference Cannot be blank")
+	private String itemBasePreference;
 
 }

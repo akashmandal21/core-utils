@@ -1,5 +1,8 @@
 package com.stanzaliving.core.food.enums;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,10 +15,25 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum  FoodItemBasePreference {
+public enum FoodItemBasePreference {
+
 	REGULAR("Regular"),
 	RICE_BASE("Rice Base"),
 	ROTI_BASE("Roti Base");
 
 	private String basePreference;
+
+	private static Map<String, FoodItemBasePreference> preferenceMapByName = new HashMap<>();
+
+	static {
+
+		for (FoodItemBasePreference basePreference : FoodItemBasePreference.values()) {
+			preferenceMapByName.put(basePreference.getBasePreference(), basePreference);
+		}
+
+	}
+
+	public static FoodItemBasePreference getPreferenceByName(String basePreference) {
+		return preferenceMapByName.get(basePreference);
+	}
 }
