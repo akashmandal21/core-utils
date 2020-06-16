@@ -49,6 +49,6 @@ public class FoodMenuCategoryResponseDto {
 
 	private Long residenceCount;
 
-	private boolean dataMissing;
+	private boolean dataComplete;
 
 }
