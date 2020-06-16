@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.mchange.v2.lang.StringUtils;
 import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.security.helper.SecurityUtils;
 import com.stanzaliving.qrcode.entity.QRData;
@@ -35,11 +36,13 @@ public class QRScanServiceImpl implements QRScanService {
 	private QRScanHistoryRepository qrScanHistoryRepository;
 	
 	@Override
-	public QRData getQRData(String code,String userId) {
+	public QRData getQRData(String code,String userId, String residenceFoodMenuId) {
 		
 		log.info("Output after scan is {}",code);
 		
 		QRData qrData = qrDataRepository.findByData(code);
+		
+		validateWithResidenceFoodMenuId(residenceFoodMenuId, qrData);
 		
 		log.info("QRData after scan is {}",qrData);
 		
@@ -53,6 +56,17 @@ public class QRScanServiceImpl implements QRScanService {
 		}
 		
 		throw new StanzaException("Invalid QrCode");
+	}
+
+	private void validateWithResidenceFoodMenuId(String residenceFoodMenuId, QRData qrData) {
+		
+		if((qrData.getQrContextType() == QRContextType.FOODTABLE_VEG ||
+		   qrData.getQrContextType() == QRContextType.FOODTABLE_NONVEG)
+		   && StringUtils.nonEmptyString(residenceFoodMenuId)
+		   && !residenceFoodMenuId.equals(qrData.getContextId())) {
+			
+			throw new StanzaException("Invalid QrCode");
+		}
 	}
 
 	@Override

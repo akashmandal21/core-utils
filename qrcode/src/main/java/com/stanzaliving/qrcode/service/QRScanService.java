@@ -11,7 +11,7 @@ import com.stanzaliving.qrcode.enums.QRContextType;
 
 public interface QRScanService {
 
-	QRData getQRData(String code, String userId);
+	QRData getQRData(String code, String userId, String residenceFoodMenuId);
 
 	List<QRData> getQRDataByQrContextType(String userUuid, List<QRContextType> qrContextType, Pageable pagination);
 
