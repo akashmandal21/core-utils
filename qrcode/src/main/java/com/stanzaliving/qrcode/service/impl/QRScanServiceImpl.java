@@ -9,11 +9,11 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.mchange.v2.lang.StringUtils;
 import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.security.helper.SecurityUtils;
 import com.stanzaliving.qrcode.entity.QRData;
@@ -62,7 +62,7 @@ public class QRScanServiceImpl implements QRScanService {
 		
 		if((qrData.getQrContextType() == QRContextType.FOODTABLE_VEG ||
 		   qrData.getQrContextType() == QRContextType.FOODTABLE_NONVEG)
-		   && StringUtils.nonEmptyString(residenceFoodMenuId)
+		   && StringUtils.isNotEmpty(residenceFoodMenuId)
 		   && !residenceFoodMenuId.equals(qrData.getContextId())) {
 			
 			throw new StanzaException("Invalid QrCode");
