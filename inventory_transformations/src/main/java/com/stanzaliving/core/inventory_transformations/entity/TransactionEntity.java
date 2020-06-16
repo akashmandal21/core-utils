@@ -25,7 +25,7 @@ public class TransactionEntity implements Serializable {
 	@JsonProperty("AMOUNT")
     private Double AMOUNT;
 
-    @Column(name = "GATEWAY_TRANCATION_ID1")
+    @Column(name = "TRANSACTION_REFERENCE")
 	@JsonProperty("TRANSACTION_REFERENCE")
     private String transactionReference;
 
