@@ -28,6 +28,9 @@ public class FullCategoryDto {
 
 	private boolean copied;
 
+	@Builder.Default
+	private boolean draftAvailable = false;
+
 	@NotNull(message = "Category Metadata is Mandatory")
 	private @Valid FoodMenuCategoryMetadataDto category;
 
@@ -38,6 +41,4 @@ public class FullCategoryDto {
 
 	private List<WeekWiseMenu> weekMenus;
 
-	@Builder.Default
-	private boolean draftAvailable = false;
 }

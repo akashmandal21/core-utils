@@ -39,8 +39,6 @@ public class FoodMenuCategoryResponseDto {
 
 	private String targetPriceUnit;
 
-	private List<FoodMenuCategoryMealDto> applicableMeals;
-
 	private boolean skeletalRuleVerified;
 
 	private boolean sampleMenu;
@@ -50,5 +48,9 @@ public class FoodMenuCategoryResponseDto {
 	private Long residenceCount;
 
 	private boolean dataComplete;
+
+	private boolean draftAvailable;
+
+	private List<FoodMenuCategoryMealDto> applicableMeals;
 
 }
