@@ -158,18 +158,15 @@ public class QRScanServiceImpl implements QRScanService {
 		}
 		
 		qrScanHistoryRepository.delete(qrScanHistory);
+		
 		return true;
 	}
 
 	@Override
 	public QRData getQRDataByUuid(String uuid) {
-		List<QRData> qrResult = qrDataRepository.findByUuidIn(Arrays.asList(uuid));
+		QRData qrResult = qrDataRepository.findFirstByUuid(uuid);
 		
-		if(qrResult.isEmpty()) {
-			return null;
-		}
-		
-		return qrResult.get(0);
+		return qrResult;
 	}
 	
 	@Override
