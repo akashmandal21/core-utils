@@ -19,6 +19,7 @@ public enum FoodRoleType {
 	CENTRAL_FB_MANAGER("Central F&B Manager", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	FB_HEAD("F&B Head", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	HEAD_CHEF("Head Chef", Department.FOOD_OPS, AccessLevel.COUNTRY),
+	VENDOR_PRICE_APPROVER("Country - Vendor Price Approver", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	CITY_CHEF_MANAGER("City Chef Manager", Department.FOOD_OPS, AccessLevel.CITY),
 	CITY_MENU_CREATION("City - Menu Creation", Department.FOOD_OPS, AccessLevel.CITY),
 	PURCHASE_MANAGER("Purchase Manager", Department.FOOD_OPS, AccessLevel.CITY),
@@ -30,7 +31,8 @@ public enum FoodRoleType {
 	EMAIL_CC_FOOD_MENU_CREATED("Email CC - Food Menu Created", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_MENU_APPROVED("Email CC - Food Menu Approved", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_MENU_REJECTED("Email CC - Food Menu Rejected", Department.FOOD_OPS, AccessLevel.COUNTRY),
-	EMAIL_CC_FOOD_MENU_CREATION_REMINDER("Email CC - Food Menu Creation Reminder", Department.FOOD_OPS, AccessLevel.COUNTRY);
+	EMAIL_CC_FOOD_MENU_CREATION_REMINDER("Email CC - Food Menu Creation Reminder", Department.FOOD_OPS, AccessLevel.COUNTRY),
+	EMAIL_CC_FOOD_MENU_WEEKLY_SUMMARY("Email CC - Food Menu Weekly Summary", Department.FOOD_OPS, AccessLevel.COUNTRY);
 
 	private String roleType;
 
