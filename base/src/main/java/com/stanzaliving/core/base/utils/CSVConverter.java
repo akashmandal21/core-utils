@@ -46,6 +46,29 @@ public class CSVConverter {
 		return csvString;
 	}
 
+	@SuppressWarnings("rawtypes")
+	public static final String getCSVStringBeautified(List list) {
+		String csvString = "";
+
+		if (CollectionUtils.isNotEmpty(list)) {
+
+			StringBuilder csvSB = new StringBuilder();
+
+			for (int i = 0; i < list.size(); i++) {
+
+				if (!csvSB.toString().isEmpty()) {
+					csvSB.append(", ");
+				}
+
+				csvSB.append(list.get(i));
+			}
+
+			csvString = csvSB.toString();
+		}
+
+		return csvString;
+	}
+
 	/**
 	 * Converts Array of long to csv format
 	 * 
