@@ -19,7 +19,7 @@ public class FoodPrefernceComboResponseDto {
 	
 	private boolean selected;
 	
-	private String comboName;
+	private String preferenceName;
 	
 	private List<FoodPreferenceComboItemDto> comboItemDtos;
 

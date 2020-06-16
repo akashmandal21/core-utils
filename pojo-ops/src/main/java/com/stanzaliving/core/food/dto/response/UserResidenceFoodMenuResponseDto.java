@@ -29,7 +29,7 @@ public class UserResidenceFoodMenuResponseDto {
 	
 	private LocalTime endTime;
 	
-	private String combo;
+	private String basePreference;
 	
 	private boolean defaultChoice;
 	
