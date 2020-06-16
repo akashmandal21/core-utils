@@ -1,5 +1,6 @@
 package com.stanzaliving.qrcode.service.impl;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -34,11 +36,13 @@ public class QRScanServiceImpl implements QRScanService {
 	private QRScanHistoryRepository qrScanHistoryRepository;
 	
 	@Override
-	public QRData getQRData(String code,String userId) {
+	public QRData getQRData(String code,String userId, String residenceFoodMenuId) {
 		
 		log.info("Output after scan is {}",code);
 		
 		QRData qrData = qrDataRepository.findByData(code);
+		
+		validateWithResidenceFoodMenuId(residenceFoodMenuId, qrData);
 		
 		log.info("QRData after scan is {}",qrData);
 		
@@ -54,6 +58,17 @@ public class QRScanServiceImpl implements QRScanService {
 		throw new StanzaException("Invalid QrCode");
 	}
 
+	private void validateWithResidenceFoodMenuId(String residenceFoodMenuId, QRData qrData) {
+		
+		if((qrData.getQrContextType() == QRContextType.FOODTABLE_VEG ||
+		   qrData.getQrContextType() == QRContextType.FOODTABLE_NONVEG)
+		   && StringUtils.isNotEmpty(residenceFoodMenuId)
+		   && !residenceFoodMenuId.equals(qrData.getContextId())) {
+			
+			throw new StanzaException("Invalid QrCode");
+		}
+	}
+
 	@Override
 	public List<QRData> getQRDataByQrContextType(String userUuid, List<QRContextType> qrContextType, Pageable pagination) {		
 		return qrDataRepository.findByQrContextTypeIn(qrContextType, pagination);
@@ -67,6 +82,34 @@ public class QRScanServiceImpl implements QRScanService {
 	}
 	
 	@Override
+	public QRScanHistory checkScanHistoryForVegAndNonVegFood(String contextId, String userId) {
+		List<QRContextType> qrContextTypeList = Arrays.asList(QRContextType.FOODTABLE_VEG, QRContextType.FOODTABLE_NONVEG);
+		
+		/*
+		 * User can scan either one food type, veg or non-veg
+		 */
+		QRScanHistory qrScanHistory = 
+				qrScanHistoryRepository.findByContextIdAndQrContextTypeInAndUserId(contextId, qrContextTypeList, userId);
+		
+		log.info("Qr scan history for contextId " + contextId + " userId " + userId);
+		log.info("Scan history " + qrScanHistory);
+		
+		return qrScanHistory;
+	}
+	
+	@Override
+	public QRScanHistory checkScanHistory(String contextId, String userId, QRContextType qrContextType) {
+		
+		QRScanHistory qrScanHistory = 
+				qrScanHistoryRepository.findByContextIdAndQrContextTypeAndUserId(contextId, qrContextType, userId);
+		
+		log.info("Qr scan history for contextId " + contextId + " userId " + userId);
+		log.info("Scan history " + qrScanHistory);
+		
+		return qrScanHistory;
+	}
+	
+	@Override
 	public void updateScanHistory(QRData qrData, String userId) {
 		
 		if(Objects.nonNull(qrData)) {
@@ -75,13 +118,21 @@ public class QRScanServiceImpl implements QRScanService {
 				userId = SecurityUtils.getCurrentUserId();
 			}
 			
-			QRScanHistory qrScanHistory = 
-					qrScanHistoryRepository.findByQrUUidAndUserId(qrData.getUuid(), userId);
+			QRScanHistory qrScanHistory = null;
+			
+			if(qrData.getQrContextType() == QRContextType.FOODTABLE_VEG || 
+			   qrData.getQrContextType() == QRContextType.FOODTABLE_NONVEG)
+				qrScanHistory = checkScanHistoryForVegAndNonVegFood(qrData.getContextId(), userId);			
+			else
+				qrScanHistory = checkScanHistory(qrData.getContextId(), userId, qrData.getQrContextType());
+
 			
 			if(qrScanHistory == null) {
 				log.debug("Saving scan history data for userId " + userId);
 				qrScanHistoryRepository.saveAndFlush(
-						QRScanHistory.builder().qrUUid(qrData.getUuid()).userId(userId).build());
+						QRScanHistory.builder().qrContextType(qrData.getQrContextType())
+									.contextId(qrData.getContextId())
+								    .qrUUid(qrData.getUuid()).userId(userId).build());
 			}
 			
 		}
@@ -97,5 +148,48 @@ public class QRScanServiceImpl implements QRScanService {
 		}
 		
 		return qrScanHistoryEntities.stream().collect(Collectors.toMap(QRScanHistory::getQrUUid, Function.identity()));
+	}
+	
+	@Override
+	public Map<String, QRScanHistory> getQRScannedDataByQrUuids(List<String> qrUuids) {
+		List<QRScanHistory> qrScanHistoryEntities =  
+				qrScanHistoryRepository.findByQrUUidIn(qrUuids);
+		
+		if(CollectionUtils.isEmpty(qrScanHistoryEntities)) {
+			return new HashMap<>();
+		}
+		
+		return qrScanHistoryEntities.stream().collect(Collectors.toMap(QRScanHistory::getQrUUid, Function.identity()));
+	}
+
+	@Override
+	public boolean removeScanHistoryByQrUuidAndUserId(String qrUuid, String userId) {
+		QRScanHistory qrScanHistory =
+					qrScanHistoryRepository.findByQrUUidAndUserId(qrUuid, userId);
+		
+		if(qrScanHistory == null) {
+			return false;
+		}
+		
+		qrScanHistoryRepository.delete(qrScanHistory);
+		
+		return true;
+	}
+
+	@Override
+	public QRData getQRDataByUuid(String uuid) {
+		QRData qrResult = qrDataRepository.findFirstByUuid(uuid);
+		
+		return qrResult;
+	}
+	
+	@Override
+	public List<QRScanHistory> getQrScanHistoryByQrContextTypeAndUserId(String userId, List<QRContextType> qrContextType, Pageable pagination) {		
+		return qrScanHistoryRepository.findByQrContextTypeInAndUserId(qrContextType, userId, pagination);
+	}
+
+	@Override
+	public List<QRData> getQRDataByUuidIn(List<String> uuids) {
+		return qrDataRepository.findByUuidIn(uuids);
 	}
 }

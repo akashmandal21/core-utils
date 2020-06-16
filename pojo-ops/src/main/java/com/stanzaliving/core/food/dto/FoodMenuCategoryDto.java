@@ -45,4 +45,6 @@ public class FoodMenuCategoryDto extends AbstractDto {
 
 	private MenuType menuType;
 
+	private boolean dataComplete;
+
 }
