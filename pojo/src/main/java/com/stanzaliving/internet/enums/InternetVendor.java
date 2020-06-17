@@ -5,7 +5,8 @@ import lombok.Getter;
 @Getter
 public enum InternetVendor {
 
-	SPECTRA("SPECTRA");
+	SPECTRA("SPECTRA"),
+	JIO("Jio");
 
 	private String vendor;
 
