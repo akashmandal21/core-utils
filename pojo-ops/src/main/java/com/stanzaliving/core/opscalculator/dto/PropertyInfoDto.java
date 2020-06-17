@@ -28,6 +28,7 @@ public class PropertyInfoDto {
 
 	private int bedCount;
 	private int roomCount;
+	private int annualLeave;
 
 	@Builder.Default
 	private int occupancy = Constants.DEFUALT_OCCUPANCY_PERCENT;
