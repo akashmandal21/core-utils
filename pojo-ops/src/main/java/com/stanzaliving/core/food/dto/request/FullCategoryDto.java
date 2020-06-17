@@ -8,11 +8,7 @@ import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.dto.CompositionRuleDto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -32,6 +28,9 @@ public class FullCategoryDto {
 
 	private boolean copied;
 
+	@Builder.Default
+	private boolean draftAvailable = false;
+
 	@NotNull(message = "Category Metadata is Mandatory")
 	private @Valid FoodMenuCategoryMetadataDto category;
 
@@ -41,4 +40,5 @@ public class FullCategoryDto {
 	private List<FoodMenuCategoryMealDto> meals;
 
 	private List<WeekWiseMenu> weekMenus;
+
 }

@@ -32,7 +32,8 @@ public enum FoodRoleType {
 	EMAIL_CC_FOOD_MENU_APPROVED("Email CC - Food Menu Approved", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_MENU_REJECTED("Email CC - Food Menu Rejected", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_MENU_CREATION_REMINDER("Email CC - Food Menu Creation Reminder", Department.FOOD_OPS, AccessLevel.COUNTRY),
-	EMAIL_CC_FOOD_MENU_WEEKLY_SUMMARY("Email CC - Food Menu Weekly Summary", Department.FOOD_OPS, AccessLevel.COUNTRY);
+	EMAIL_CC_FOOD_MENU_WEEKLY_SUMMARY("Email CC - Food Menu Weekly Summary", Department.FOOD_OPS, AccessLevel.COUNTRY),
+	EMAIL_CC_VENDOR_PRICE_APPROVED("Email CC - Vendor Price Approved", Department.FOOD_OPS, AccessLevel.COUNTRY);
 
 	private String roleType;
 

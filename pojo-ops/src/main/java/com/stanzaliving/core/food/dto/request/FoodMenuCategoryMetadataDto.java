@@ -59,4 +59,6 @@ public class FoodMenuCategoryMetadataDto {
 
 	private boolean dataComplete;
 
+	private boolean published;
+
 }
