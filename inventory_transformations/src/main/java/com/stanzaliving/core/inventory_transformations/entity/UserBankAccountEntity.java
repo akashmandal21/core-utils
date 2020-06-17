@@ -15,11 +15,10 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "USER_BANK_ACCOUNT")
 @Data
-public class BrokerAccountEntity implements Serializable {
+public class UserBankAccountEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id()
-    @GeneratedValue
     @Column(name="ID")
     private int id;
 
