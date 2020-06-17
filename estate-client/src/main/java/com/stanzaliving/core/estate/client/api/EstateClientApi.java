@@ -376,7 +376,7 @@ public class EstateClientApi {
         ParameterizedTypeReference<ResponseDto<List<QuestionDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<QuestionDto>>>() {
         };
         
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public ResponseDto<List<Long>> getAllEstateIdsByAttributeNameAndValue(String attributeName, String attributeValue) {
