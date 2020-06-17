@@ -74,7 +74,9 @@ public class FoodOrderDetailDto {
 	private Integer sequence;
 
 	private List<AdditionalItemsRequestDto> additionalItemsDtos;
-
+	
+	private List<FoodOrderBasePreferenceDto> foodOrderBasePreferenceDto;
+	
 	@Builder.Default
 	private Double plannesUtilization = 0d;
 
