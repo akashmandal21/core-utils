@@ -32,11 +32,5 @@ public class MealWiseFoodMenuDto {
 
 	private String mealTypeName;
 
-	private Float mealRating;
-
-	private Double mealCost;
-
-	private Double budgetedCost;
-
-	private List<MenuItemDto> menuItems;
+	private List<MealFoodMenuDto> menuDtos;
 }

@@ -12,8 +12,9 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum  FoodItemBasePreference {
-	REGULAR("Regular"),
+public enum FoodItemBasePreference {
+
+	BALANCED("Balanced"),
 	RICE_BASE("Rice Base"),
 	ROTI_BASE("Roti Base");
 
