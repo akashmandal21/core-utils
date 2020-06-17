@@ -11,7 +11,7 @@ import com.stanzaliving.qrcode.enums.QRContextType;
 
 public interface QRScanService {
 
-	QRData getQRData(String code, String userId);
+	QRData getQRData(String code, String userId, String residenceFoodMenuId);
 
 	List<QRData> getQRDataByQrContextType(String userUuid, List<QRContextType> qrContextType, Pageable pagination);
 
@@ -20,4 +20,19 @@ public interface QRScanService {
 	void updateScanHistory(QRData qrData, String userId);
 
 	Map<String, QRScanHistory> getQRScannedData(List<String> qrUuids, String userId);
+
+	Map<String, QRScanHistory> getQRScannedDataByQrUuids(List<String> qrUuids);
+	
+	boolean removeScanHistoryByQrUuidAndUserId(String qrUuid, String userId);
+	
+	QRData getQRDataByUuid(String uuid);
+	
+	List<QRData> getQRDataByUuidIn(List<String> uuids);
+
+	QRScanHistory checkScanHistoryForVegAndNonVegFood(String contextId, String userId);
+
+	QRScanHistory checkScanHistory(String contextId, String userId, QRContextType qrContextType);
+
+	List<QRScanHistory> getQrScanHistoryByQrContextTypeAndUserId(String userId, List<QRContextType> qrContextType,
+			Pageable pagination);
 }
