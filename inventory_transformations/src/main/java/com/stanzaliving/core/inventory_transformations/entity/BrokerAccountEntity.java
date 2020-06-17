@@ -13,15 +13,20 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "BROKER_ACCOUNT")
+@Table(name = "USER_BANK_ACCOUNT")
 @Data
 public class BrokerAccountEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @Column(insertable = false, name = "BROKER_ID", nullable = false)
-	@JsonProperty("BROKER_ID")
-    private Integer brokerId;
+    @Id()
+    @GeneratedValue
+    @Column(name="ID")
+    private int id;
+
+    //	@MapsId
+//	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @Column(name="USER_ID")
+    private String userId;
 
     @Column(name = "ACCOUNT_NAME", nullable = false)
 	@JsonProperty("ACCOUNT_NAME")
@@ -70,6 +75,9 @@ public class BrokerAccountEntity implements Serializable {
     @Column(name = "UPDATED", nullable = false)
 	@JsonProperty("UPDATED")
     private Timestamp UPDATED;
+
+    @Column(name="USER_TYPE")
+    private String userType;
 
     
 }
