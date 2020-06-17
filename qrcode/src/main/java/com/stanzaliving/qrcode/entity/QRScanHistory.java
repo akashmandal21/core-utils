@@ -2,9 +2,12 @@ package com.stanzaliving.qrcode.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
+import com.stanzaliving.qrcode.enums.QRContextType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,4 +32,11 @@ public class QRScanHistory extends AbstractJpaEntity {
 	@Column(name = "user_id", columnDefinition = "char(40)")
 	private String userId;
 	
+	@Column(name = "context_id", columnDefinition = "char(40)", nullable = false)
+    private String contextId;
+	
+	@Column(name="qr_context_type")
+	@Enumerated(EnumType.STRING)
+	private QRContextType qrContextType;
+
 }

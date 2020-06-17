@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum RequestReplacementReason {
+public enum MealReplacementReason {
 
 	FOREIGN_PARTICLES_FOUND("Foreign particles found"), 
 	MEAL_CONTENTS_MESSED_UP("Meal contents were messed up"), 
