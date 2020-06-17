@@ -49,5 +49,17 @@ public class FoodEmailTemplateConstants {
 	public static final String MEAL_DELIVERY_DTOS = "mealDeliveryDtos";
 
 	public static final String VENDOR_NAME = "vendorName";
+	
+	public static final String HOUSE_NAME = "houseName";
+	
+	public static final String MEAL_NAME = "mealName";
+	
+	public static final String SHORTAGE_DATE = "date";
+	
+	public static final String VEG_COUNT = "vegCount";
+	
+	public static final String NON_VEG_COUNT = "nonVegCount";
+	
+	public static final String NON_SL_STAFF_COUNT = "nonSlStaffCount";
 }
 
