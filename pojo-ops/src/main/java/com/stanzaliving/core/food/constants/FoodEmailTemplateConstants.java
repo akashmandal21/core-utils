@@ -61,5 +61,11 @@ public class FoodEmailTemplateConstants {
 	public static final String NON_VEG_COUNT = "nonVegCount";
 	
 	public static final String NON_SL_STAFF_COUNT = "nonSlStaffCount";
+	
+	public static final String HOSTEL_NAME = "hostelName";
+	
+	public static final String RC_NAME = "rcName";
+	
+	public static final String RC_MOBILE_NUMBER = "rcMobileNumber";
 }
 

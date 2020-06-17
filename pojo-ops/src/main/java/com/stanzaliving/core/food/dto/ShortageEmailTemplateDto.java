@@ -22,6 +22,7 @@ public class ShortageEmailTemplateDto {
 	private String mobileNumber;
 	private String residenceId;
 	private String residenceMenuId;
+	private String menuDate;
 	
 	private MealAndContainterCountDto vegCount;
 	private MealAndContainterCountDto nonVegCount;
