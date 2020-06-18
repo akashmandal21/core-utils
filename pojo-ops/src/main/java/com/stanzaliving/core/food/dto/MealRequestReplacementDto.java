@@ -3,7 +3,7 @@
  */
 package com.stanzaliving.core.food.dto;
 
-import com.stanzaliving.core.food.enums.MealReplacementReason;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,16 +20,11 @@ public class MealRequestReplacementDto {
 
 	private String userId;
 	private String userName;
-	
-	private int quantity;
 	private String mealType;
-	private String foodItemType;
-	private String foodItemTypeName;
 	private String qrContexType;
-	
 	private String mealDate;
-	private String qrUuid;
 	private String residenceFoodMenuId;
-	private MealReplacementReason replacementReason;
-		
+	private String qrUuid;
+	
+	private List<FoodItemDetail> foodItemDetails;		
 }
