@@ -1,4 +1,4 @@
-package com.stanzaliving.core.phoenix.embeddedinfos;
+package com.stanzaliving.core.phoenix.embeddedInfos;
 
 import com.stanzaliving.core.gcservice.enums.GcScheduleStatus;
 import lombok.AllArgsConstructor;
