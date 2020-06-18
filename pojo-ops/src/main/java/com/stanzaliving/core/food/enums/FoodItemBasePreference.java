@@ -1,7 +1,13 @@
 package com.stanzaliving.core.food.enums;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.stanzaliving.core.user.enums.EnumListing;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +23,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum FoodItemBasePreference {
 
-	REGULAR("Regular"),
+	BALANCED("Balanced"),
 	RICE_BASE("Rice Base"),
 	ROTI_BASE("Roti Base");
 
@@ -25,10 +31,14 @@ public enum FoodItemBasePreference {
 
 	private static Map<String, FoodItemBasePreference> preferenceMapByName = new HashMap<>();
 
+	private static List<EnumListing<FoodItemBasePreference>> enumListings = new ArrayList<>();
+
 	static {
 
-		for (FoodItemBasePreference basePreference : FoodItemBasePreference.values()) {
-			preferenceMapByName.put(basePreference.getBasePreference(), basePreference);
+		for (FoodItemBasePreference foodItemBasePreference : FoodItemBasePreference.values()) {
+			preferenceMapByName.put(foodItemBasePreference.getBasePreference(), foodItemBasePreference);
+
+			enumListings.add(EnumListing.of(foodItemBasePreference, foodItemBasePreference.getBasePreference()));
 		}
 
 	}
@@ -36,4 +46,30 @@ public enum FoodItemBasePreference {
 	public static FoodItemBasePreference getPreferenceByName(String basePreference) {
 		return preferenceMapByName.get(basePreference);
 	}
+
+	public static List<EnumListing<FoodItemBasePreference>> getBasePreferenceListing() {
+		return enumListings;
+	}
+
+	public static List<FoodItemBasePreference> getFoodItemBasePreferenceListFromCSV(String csvString) {
+
+		List<FoodItemBasePreference> foodItemBasePreferences = new ArrayList<>();
+
+		if (StringUtils.isNotBlank(csvString)) {
+
+			String[] splitString = csvString.split(",");
+
+			for (String string : splitString) {
+
+				if (FoodItemBasePreference.valueOf(string) != null) {
+					foodItemBasePreferences.add(FoodItemBasePreference.valueOf(string));
+				}
+
+			}
+
+		}
+
+		return foodItemBasePreferences;
+	}
+
 }

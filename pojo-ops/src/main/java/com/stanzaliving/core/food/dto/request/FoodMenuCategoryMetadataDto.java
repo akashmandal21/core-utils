@@ -3,10 +3,16 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
+import java.util.List;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
@@ -56,6 +62,14 @@ public class FoodMenuCategoryMetadataDto {
 
 	@NotNull(message = "Menu Type Selection is mandatory")
 	private MenuType menuType;
+
+	@NotEmpty(message = "Base Preference selection is mandatory")
+	private List<FoodItemBasePreference> basePreferences;
+
+	@NotNull(message = "Food Margin is mandatory")
+	@Min(value = -99, message = "Food Margin cannot be less than -99%")
+	@Max(value = 99, message = "Food Margin cannot be greater than 99%")
+	private Double foodMargin;
 
 	private boolean dataComplete;
 
