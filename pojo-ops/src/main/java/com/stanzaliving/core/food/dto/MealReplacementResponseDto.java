@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,10 +24,8 @@ public class MealReplacementResponseDto {
 	private Long timestamp;
 	private String comment;
 	private String mealReplacementUuid;
-	private String replacementReason;
 	private String rcActionStatus;
 	private String rcActionStatusText;
-	private String foodItemType;
-	private String foodItemTypeName;
-			
+	
+	private List<FoodItemDetail> foodItemDetails;			
 }

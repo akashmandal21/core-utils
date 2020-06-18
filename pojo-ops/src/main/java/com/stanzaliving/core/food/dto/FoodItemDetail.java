@@ -19,6 +19,7 @@ public class FoodItemDetail {
 	public String quantity;
 	public String foodItemType;
 	public String foodItemTypeName;
+	public String replacementReasonDesc;
 	public MealReplacementReason replacementReason;
-
+	
 }
