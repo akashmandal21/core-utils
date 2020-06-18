@@ -24,6 +24,7 @@ public class MealRequestReplacementDto {
 	private int quantity;
 	private String mealType;
 	private String foodItemType;
+	private String foodItemTypeName;
 	private String qrContexType;
 	
 	private String mealDate;

@@ -18,7 +18,6 @@ public class MealReplacementResponseDto {
 
 	private String userName;
 	private String mealType;
-	private String foodType;
 	private int quantity;
 	private Long timestamp;
 	private String comment;
@@ -26,5 +25,7 @@ public class MealReplacementResponseDto {
 	private String replacementReason;
 	private String rcActionStatus;
 	private String rcActionStatusText;
-		
+	private String foodItemType;
+	private String foodItemTypeName;
+			
 }
