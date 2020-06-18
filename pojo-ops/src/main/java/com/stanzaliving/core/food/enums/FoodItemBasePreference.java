@@ -22,7 +22,6 @@ import lombok.Getter;
 public enum FoodItemBasePreference {
 
 	BALANCED("Balanced"),
-	REGULAR("Regular"),
 	RICE_BASE("Rice Base"),
 	ROTI_BASE("Roti Base");
 
