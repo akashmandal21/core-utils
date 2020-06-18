@@ -34,6 +34,8 @@ public class FoodVendorCategoryResponseDto {
 	
 	private boolean editingAllowed;
 	
+	private boolean stanzaKitchen;
+	
 	private long residenceCount;
 
 	private List<VendorMealCostDto> mealCostDtos;
