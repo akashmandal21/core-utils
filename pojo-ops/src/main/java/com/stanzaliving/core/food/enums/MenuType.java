@@ -19,7 +19,7 @@ import lombok.Getter;
 public enum MenuType {
 
 	PURE_VEG("Pure Veg"),
-	VEG_AND_NON_VEG("Veg and Non-Veg");
+	VEG_AND_NON_VEG("Veg & Non-Veg");
 
 	private String menuTypeName;
 
