@@ -36,5 +36,8 @@ public class UserResidenceFoodMenuRequestDto {
 	
 	@NotBlank(message = "Base Preference Cannot be blank")
 	private String itemBasePreference;
+	
+	@NotBlank(message = "Food Region Cannot be blank")
+	private String foodRegion;
 
 }

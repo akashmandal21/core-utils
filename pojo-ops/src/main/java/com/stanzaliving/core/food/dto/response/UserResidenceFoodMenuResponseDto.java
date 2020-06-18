@@ -37,6 +37,8 @@ public class UserResidenceFoodMenuResponseDto {
 	
 	private String basePreference;
 	
+	private String foodRegion;
+	
 	private boolean defaultChoice;
 	
 	private List<FoodPrefernceComboResponseDto> preferenceComboResponseDtos;
