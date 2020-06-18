@@ -14,11 +14,13 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @ToString
 public class ItemSubCategoryDto {
-	
+
 	private String subCategoryId;
-	
+
 	private String subCategoryName;
-	
+
 	private String categoryId;
+
+	private String categoryName;
 
 }
