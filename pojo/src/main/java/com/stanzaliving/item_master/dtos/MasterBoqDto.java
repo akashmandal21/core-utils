@@ -1,8 +1,13 @@
 package com.stanzaliving.item_master.dtos;
 
 import com.stanzaliving.item_master.enums.AcquisitionType;
+import com.stanzaliving.item_master.enums.ConsumptionPattern;
 import com.stanzaliving.item_master.enums.DimensionUnits;
+import com.stanzaliving.item_master.enums.ItemMaterial;
 import com.stanzaliving.item_master.enums.ItemType;
+import com.stanzaliving.item_master.enums.OrderingPattern;
+import com.stanzaliving.item_master.enums.ProductionTimeUnit;
+import com.stanzaliving.item_master.enums.StorageType;
 import com.stanzaliving.transformations.enums.AreaOfUse;
 import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.SubBrandName;
@@ -53,6 +58,12 @@ public class MasterBoqDto {
     private String igst;
     private String sgst;
     private String hsnCode;
+    private StorageType storageType;
+    private OrderingPattern orderingPattern;
+    private ConsumptionPattern consumptionPattern;
+    private ItemMaterial itemMaterial;
+    private Float productionTime;
+    private ProductionTimeUnit productionTimeUnit;
 
     //For Native Queries. SqlResultSetMapped to MasterBoq in ItemMasterDetails
     public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
