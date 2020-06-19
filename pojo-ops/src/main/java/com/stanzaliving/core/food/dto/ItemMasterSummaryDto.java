@@ -18,17 +18,17 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemMasterSummaryDto {
-	
+
 	private Integer categoriesCount;
-	
+
 	private List<ItemCategoryCountDto> categoryCountDtos;
-	
+
 	private Integer subCategoriesCount;
-	
+
 	private List<ItemSubCategoryCountDto> subCategoryCountDtos;
-	
+
 	private Integer itemCount;
-	
+
 	private long tagCounts;
-	
+
 }
