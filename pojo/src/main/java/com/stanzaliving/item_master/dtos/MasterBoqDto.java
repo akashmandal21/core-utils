@@ -52,6 +52,7 @@ public class MasterBoqDto {
     private String cgst;
     private String igst;
     private String sgst;
+    private String hsnCode;
 
     //For Native Queries. SqlResultSetMapped to MasterBoq in ItemMasterDetails
     public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
@@ -84,7 +85,7 @@ public class MasterBoqDto {
                         String particular, String descSpec,
                         String acquisitionType, String orderUnit, String length, String breadth, String height,
                         String thumbnailUrl,String imageUrl,String specDocumentUrl,String brandNames, String subBrandNames, String areaOfUseList,
-                        String cgst, String igst, String sgst) {
+                        String cgst, String igst, String sgst, String hsnCode) {
         this.lastUpdatedAt=lastUpdatedAt;
         this.categoryUuid=categoryUuid;
         this.itemId = itemId;
@@ -115,6 +116,7 @@ public class MasterBoqDto {
         this.cgst = cgst;
         this.igst = igst;
         this.sgst = sgst;
+        this.hsnCode = hsnCode;
     }
 
 }

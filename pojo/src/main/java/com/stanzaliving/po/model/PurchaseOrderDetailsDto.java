@@ -37,4 +37,8 @@ public class PurchaseOrderDetailsDto {
     
     private boolean acceptRegularInvoices;
 
+    private String keyTerm;
+
+    private String confirmatoryEmailUrl;
+
 }
