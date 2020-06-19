@@ -94,6 +94,12 @@ public enum  PropertyUpdateEnum {
     GRN_BOI_ITEM_INSTALLATION("BOI Item Installation in GRN",false,NotificationTaskType.GRN_BOI_ITEM_INSTALLATION),
     GRN_GC_ITEM_COMPLETION("GC Item completion in GRN",false,NotificationTaskType.GRN_GC_ITEM_COMPLETION),
 
+    //SERVICE MIX
+    SERVICE_MIX_OPENED("Service Mix moved to In Draft",true,NotificationTaskType.SERVICE_MIX_OPENED),
+    SERVICE_MIX_APPROVED("Service Mix Approved",true,NotificationTaskType.SERVICE_MIX_APPROVED),
+    SERVICE_MIX_REJECTED("Service Mix Sent Back",true,NotificationTaskType.SERVICE_MIX_REJECTED),
+    SERVICE_MIX_COMPLETED("Service Mix Completed",true,NotificationTaskType.SERVICE_MIX_COMPLETED),
+
     //FOR All other events where there are multiple complete signals. For e.g. Multiple POs/Invoices etc. Marker Event Only
     CHECK_COMPLETED_FROM_SOURCE_SERVICE("Check Completed Status from Source Service",false,null,null),
     LLHODOC_UPLOADED("LL HO Doc Uploaded",true,null),
