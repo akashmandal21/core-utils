@@ -14,9 +14,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemCategoryCountDto {
-	
+
 	private String categoryName;
-	
+
 	private Integer itemCount;
-	
+
 }
