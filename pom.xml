@@ -25,6 +25,7 @@
 		<module>kafka</module>
 		<module>pojo</module>
 		<module>pojo-ops</module>
+		<module>pojo-wanda</module>
 		<module>security</module>
 		<module>properties</module>
 		<module>utilservice</module>
