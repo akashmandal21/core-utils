@@ -23,11 +23,13 @@ public enum DateFormat {
 	YEAR_IN_WEEK_OF_YEAR("YYYY"),
 	DAY_OF_MONTH("d"),
 	DD_MMM_YYYY("dd-MMM-yyyy"),
+	DATE_TIME_TIME_ZONE("yyyy-MM-dd'T'HH:mm:ss'Z'"),
 	DD_SPACE_MMM_SPACE_YYYY("dd MMM yyyy"),
 	DD_MMM("dd MMM"),
-	DATE_TIME_TIME_ZONE("yyyy-MM-dd'T'HH:mm:ss'Z'"),
 	ELASTIC_SEARCH_WITH_MILI_SECONDS("yyyy-MM-dd HH:mm:ss.S"),
-	MMMM_YYYY("MMMM, yyyy");//June, 2020
+	MMMM_YYYY("MMMM, yyyy"),//June, 2020
+	MMM_YYYY("MMM, yyyy"),
+	MMM_YY("MMM, yy");
 
 	private String value;
 

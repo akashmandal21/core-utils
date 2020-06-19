@@ -3,13 +3,7 @@ package com.stanzaliving.core.base.utils;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Period;
-import java.time.YearMonth;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
@@ -324,7 +318,15 @@ public class DateUtil {
 		return new ArrayList<>(monthsList);
 	}
 
-	public List<String> getYearWeekSqlListOfWeeks(LocalDate startDate, LocalDate endDate) {
+	public static List<Month> getListOfMonthEnum(LocalDate startDate, LocalDate endDate) {
+		LinkedHashSet<Month> monthsList = new LinkedHashSet<>();
+		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
+			monthsList.add(date.getMonth());
+		}
+		return new ArrayList<>(monthsList);
+	}
+
+	public static List<String> getYearWeekSqlListOfWeeks(LocalDate startDate, LocalDate endDate) {
 		LinkedHashSet<String> weeksList = new LinkedHashSet<>();
 		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
 			Integer weekNumber = Integer.parseInt(customDateFormatter(date, DateFormat.WEEK_OF_YEAR));
@@ -410,6 +412,19 @@ public class DateUtil {
 		}
 		return calendar.getTime();
 	}
+	public static String getDayOfMonthSuffix(LocalDate date) {
+		int n = date.getDayOfMonth();
+		if (n >= 11 && n <= 13) {
+			return "th";
+		}
+		switch (n % 10) {
+			case 1:  return "st";
+			case 2:  return "nd";
+			case 3:  return "rd";
+			default: return "th";
+		}
+	}
+
 	public Date getFormatedCleanDate(Date date, String format) {
 
 		if (format == null || format.equals(""))
@@ -612,16 +627,16 @@ public class DateUtil {
 		return "th";
 
 	}
-	
+
 	public String convertToAMPM(LocalTime localTime) {
 
 		DateTimeFormatter timeFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
 	            .withLocale(Locale.US);
 
 		return localTime.format(timeFormatter);
-		
+
 	}
-	
+
 	public String convertToStringDate(LocalDate localDate) {
 
 		return String.valueOf(localDate.getDayOfMonth()) + " " + CaseUtils.toCamelCase(localDate.getMonth().toString(), true) + " " + String.valueOf(localDate.getYear());
