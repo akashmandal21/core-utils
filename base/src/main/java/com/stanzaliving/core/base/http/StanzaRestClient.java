@@ -221,7 +221,7 @@ public class StanzaRestClient {
 
 		addHeadersToRequest(headerParams, requestBuilder);
 
-		log.info("Accessing API: " + builder.toUriString());
+		log.info("Accessing API: {}", builder.toUriString());
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
 
@@ -279,7 +279,7 @@ public class StanzaRestClient {
 
 		addHeadersToRequest(headerParams, requestBuilder);
 
-		log.info("Accessing API: " + builder.toUriString());
+		log.info("Accessing API: {}", builder.toUriString());
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
 
@@ -341,7 +341,7 @@ public class StanzaRestClient {
 		addHeadersToRequest(headerParams, requestBuilder);
 		addHeadersToRequest(defaultHeaders, requestBuilder);
 
-		log.debug("Accessing API: " + builder.toUriString());
+		log.info("Accessing API: {}", builder.toUriString());
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
 
@@ -362,7 +362,7 @@ public class StanzaRestClient {
 
 		HttpStatus statusCode = responseEntity.getStatusCode();
 
-		log.debug("API: " + builder.toUriString() + " Response: " + statusCode);
+		log.debug("API: {}, Response: {}", builder.toUriString(), statusCode);
 
 		if (isSuccessCode(statusCode)) {
 			if (returnType == null) {
@@ -371,12 +371,13 @@ public class StanzaRestClient {
 
 			try {
 
-				log.debug("Response from API: " + responseEntity);
-				log.debug("Parsing Response Body to " + returnType);
+				log.debug("Response from API: {}", responseEntity);
+				log.debug("Parsing Response Body to {}", returnType);
 
 				return objectMapper.readValue(responseEntity.getBody(), returnType);
 			} catch (Exception e) {
-				throw new StanzaHttpException("Error reading response: ", statusCode.value(), e);
+				log.error("Error reading response: ", e);
+				throw new StanzaHttpException("Error while reading response", statusCode.value(), e);
 			}
 		}
 
