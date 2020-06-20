@@ -218,6 +218,8 @@ public class StanzaRestClient {
 
 		HttpStatus statusCode = responseEntity.getStatusCode();
 
+		log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
+		
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
 		} else if (responseEntity.getStatusCode().is2xxSuccessful()) {
@@ -275,6 +277,8 @@ public class StanzaRestClient {
 
 		HttpStatus statusCode = responseEntity.getStatusCode();
 
+		log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
+		
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
 		} else if (responseEntity.getStatusCode().is2xxSuccessful()) {
@@ -351,7 +355,7 @@ public class StanzaRestClient {
 
 		HttpStatus statusCode = responseEntity.getStatusCode();
 
-		log.debug("API: {}, Response: {}", builder.toUriString(), statusCode);
+		log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
 
 		if (isSuccessCode(statusCode)) {
 			if (returnType == null) {
