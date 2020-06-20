@@ -20,6 +20,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.exception.StanzaHttpException;
@@ -114,7 +115,7 @@ public class AuthClientApi {
 				TypeReference<ResponseDto<UserProfileDto>> responseType = new TypeReference<ResponseDto<UserProfileDto>>() {
 				};
 
-				return restClient.getObjectMapper().readValue(responseEntity.getBody(), responseType);
+				return new ObjectMapper().readValue(responseEntity.getBody(), responseType);
 			} catch (Exception e) {
 				log.error("Error reading response: ", e);
 				throw new StanzaHttpException("Error while reading response", statusCode.value(), e);
