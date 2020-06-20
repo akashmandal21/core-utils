@@ -45,6 +45,7 @@ import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
 import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
 import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
 
+import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.slf4j.MDC;
 
@@ -54,6 +55,7 @@ import org.slf4j.MDC;
  * @date 17-Oct-2019
  */
 @Log4j2
+@Getter
 public class StanzaRestClient {
 
 	private String basePath;
@@ -72,10 +74,6 @@ public class StanzaRestClient {
 	public StanzaRestClient(String basePath, int connectTimeOut, int readTimeOut) {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate(connectTimeOut, readTimeOut);
-	}
-
-	public ObjectMapper getObjectMapper() {
-		return this.objectMapper;
 	}
 
 	public enum CollectionFormat {
