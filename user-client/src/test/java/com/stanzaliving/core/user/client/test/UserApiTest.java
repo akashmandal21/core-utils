@@ -69,6 +69,8 @@ public class UserApiTest {
 		
 		JavaType type = mapper.getTypeFactory().constructParametricType(ResponseDto.class, UserProfileDto.class);
 
+		System.out.println(type);
+		
 		ResponseDto<UserProfileDto> responseDto = mapper.readValue(json, type);
 
 		System.out.println(responseDto);

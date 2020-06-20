@@ -456,6 +456,7 @@ public class StanzaRestClient {
 			try {
 
 				log.debug("Response from API: {}", responseEntity);
+				log.debug("Response Body from API: {}", responseEntity.getBody());
 				log.debug("Parsing Response Body to {}", javaType);
 
 				return objectMapper.readValue(responseEntity.getBody(), javaType);
