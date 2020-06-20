@@ -16,6 +16,7 @@ import org.junit.Test;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -65,8 +66,10 @@ public class UserApiTest {
 
 		TypeReference<ResponseDto<UserProfileDto>> returnType = new TypeReference<ResponseDto<UserProfileDto>>() {
 		};
+		
+		JavaType type = mapper.getTypeFactory().constructParametricType(ResponseDto.class, UserProfileDto.class);
 
-		ResponseDto<UserProfileDto> responseDto = mapper.readValue(json, returnType);
+		ResponseDto<UserProfileDto> responseDto = mapper.readValue(json, type);
 
 		System.out.println(responseDto);
 

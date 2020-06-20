@@ -33,6 +33,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -71,6 +72,10 @@ public class StanzaRestClient {
 	public StanzaRestClient(String basePath, int connectTimeOut, int readTimeOut) {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate(connectTimeOut, readTimeOut);
+	}
+
+	public ObjectMapper getObjectMapper() {
+		return this.objectMapper;
 	}
 
 	public enum CollectionFormat {
@@ -376,6 +381,84 @@ public class StanzaRestClient {
 				log.debug("Parsing Response Body to {}", returnType.getType());
 
 				return objectMapper.readValue(responseEntity.getBody(), returnType);
+			} catch (Exception e) {
+				log.error("Error reading response: ", e);
+				throw new StanzaHttpException("Error while reading response", statusCode.value(), e);
+			}
+		}
+
+		if (HttpStatus.NO_CONTENT == responseEntity.getStatusCode()) {
+			return null;
+		}
+
+		if (isAccessDenied(statusCode)) {
+			throw new StanzaSecurityException("Access Denied for User", statusCode.value());
+		} else {
+			// The error handler built into the RestTemplate should handle 400 and 500 series errors.
+			throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
+		}
+	}
+
+	public <T> T invokeAPI(
+			String path,
+			HttpMethod method,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			JavaType javaType) {
+
+		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
+
+		if (queryParams != null) {
+			builder.queryParams(queryParams);
+		}
+
+		final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
+
+		if (accept != null) {
+			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
+		}
+
+		requestBuilder.contentType(MediaType.APPLICATION_JSON);
+
+		addHeadersToRequest(headerParams, requestBuilder);
+		addHeadersToRequest(defaultHeaders, requestBuilder);
+
+		log.info("Accessing API: {}", builder.toUriString());
+
+		RequestEntity<Object> requestEntity = requestBuilder.body(body);
+
+		ResponseEntity<String> responseEntity = null;
+		try {
+			responseEntity = restTemplate.exchange(requestEntity, String.class);
+
+		} catch (RestClientException e) {
+
+			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			} else {
+
+				log.error("Exception caught while making rest call: ", e);
+				throw new StanzaHttpException(e.getMessage(), e);
+			}
+		}
+
+		HttpStatus statusCode = responseEntity.getStatusCode();
+
+		log.debug("API: {}, Response: {}", builder.toUriString(), statusCode);
+
+		if (isSuccessCode(statusCode)) {
+			if (javaType == null) {
+				return null;
+			}
+
+			try {
+
+				log.debug("Response from API: {}", responseEntity);
+				log.debug("Parsing Response Body to {}", javaType);
+
+				return objectMapper.readValue(responseEntity.getBody(), javaType);
 			} catch (Exception e) {
 				log.error("Error reading response: ", e);
 				throw new StanzaHttpException("Error while reading response", statusCode.value(), e);

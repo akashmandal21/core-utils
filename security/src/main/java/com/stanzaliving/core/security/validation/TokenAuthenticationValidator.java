@@ -47,7 +47,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 			}
 		}
 
-		log.info("Auth Requested For Token: " + token);
+		log.info("Auth Requested For Token: {}", token);
 
 		if (StringUtils.isNotBlank(token)) {
 			ResponseDto<UserProfileDto> responseDto = authService.validateToken(token);
