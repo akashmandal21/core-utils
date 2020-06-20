@@ -73,7 +73,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			return true;
 
 		} catch (StanzaHttpException ex) {
-			log.error("Found StanzaHttpException: {}", (ex.getMessage() != null ? ex.getMessage() : ""));
+			log.error("Found StanzaHttpException: {}", ex.getMessage());
 			ResponseDto<Void> res = ResponseDto.failure("We are facing some internal issue, please try after sometime.");
 
 			if (ex.getStatusCode() > 0) {
@@ -86,7 +86,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			setResponse(request, response, res);
 
 		} catch (StanzaSecurityException ex) {
-			log.error("Found StanzaSecurityException: {}", (ex != null ? ex.getMessage() : ""));
+			log.error("Found StanzaSecurityException: {}", ex.getMessage());
 			returnError(request, response, ex);
 		}
 
