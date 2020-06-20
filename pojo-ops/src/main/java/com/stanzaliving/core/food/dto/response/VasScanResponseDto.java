@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.core.food.dto.VasItemDto;
-import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,4 +27,6 @@ public class VasScanResponseDto {
 	private Date scanTime;
 	
 	private Double totalPayment;
+	
+	private boolean isMealReplacement; 
 }

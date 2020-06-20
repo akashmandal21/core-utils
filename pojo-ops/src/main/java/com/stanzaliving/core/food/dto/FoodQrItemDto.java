@@ -33,4 +33,5 @@ public class FoodQrItemDto {
 	private String residenceFoodMenuId;
 	private String foodText;
 	private List<String> foodItemNames;
+	private boolean isMealReplacement;
 }

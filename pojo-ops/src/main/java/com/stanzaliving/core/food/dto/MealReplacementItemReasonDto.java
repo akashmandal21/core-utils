@@ -1,5 +1,7 @@
+/**
+ * 
+ */
 package com.stanzaliving.core.food.dto;
-
 
 import com.stanzaliving.core.food.enums.MealReplacementReason;
 
@@ -14,13 +16,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class FoodItemDetail {
-	
-	private String quantity;
-	private String foodItemType;
-	private String foodItemTypeName;
-	
+public class MealReplacementItemReasonDto {
+
 	private String mealReplacementItemUuid;
-	private MealReplacementReason replacementReason;
-	private String replacementReasonDesc;
+	private MealReplacementReason mealReplacementReason;
 }
