@@ -56,7 +56,7 @@ public class AuthClientApi {
 	}
 
 	public ResponseDto<UserProfileDto> getUserByToken(String token) {
-		return getUserByToken(token);
+		return getUserProfileByToken(token);
 	}
 
 	public ResponseDto<Boolean> checkUrlPermission(String userId, String url) {
