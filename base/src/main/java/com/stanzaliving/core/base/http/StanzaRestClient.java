@@ -221,7 +221,7 @@ public class StanzaRestClient {
 
 		addHeadersToRequest(headerParams, requestBuilder);
 
-		log.debug("Accessing API: " + builder.toUriString());
+		log.info("Accessing API: " + builder.toUriString());
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
 
@@ -279,7 +279,7 @@ public class StanzaRestClient {
 
 		addHeadersToRequest(headerParams, requestBuilder);
 
-		log.debug("Accessing API: " + builder.toUriString());
+		log.info("Accessing API: " + builder.toUriString());
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
 

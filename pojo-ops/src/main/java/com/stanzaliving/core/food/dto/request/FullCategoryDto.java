@@ -2,16 +2,13 @@ package com.stanzaliving.core.food.dto.request;
 
 import java.util.List;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.dto.CompositionRuleDto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -31,15 +28,17 @@ public class FullCategoryDto {
 
 	private boolean copied;
 
-	@NotNull(message = "Category Metadata is Mandatory")
-	private FoodMenuCategoryMetadataDto category;
+	@Builder.Default
+	private boolean draftAvailable = false;
 
-	@NotNull(message = "Composition Rules are mandatory")
+	@NotNull(message = "Category Metadata is Mandatory")
+	private @Valid FoodMenuCategoryMetadataDto category;
+
 	private CompositionRuleDto rules;
 
 	@NotEmpty(message = "Meal Mappings are mandatory")
 	private List<FoodMenuCategoryMealDto> meals;
 
-	@NotEmpty(message = "Weekly Menu is mandatory")
 	private List<WeekWiseMenu> weekMenus;
+
 }

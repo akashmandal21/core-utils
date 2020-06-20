@@ -17,7 +17,11 @@ public enum PoStatus {
 	SENT_BACK_BY_LEADERSHIP("Sent Back By Leadership",-1),//REMOVED
 	WORK_COMPLETED("Work Completed",3),
 	INVOICE_SUBMITTED("Invoice Submitted",4),
-	SENT_BACK_BY_FINANCE("Sent Back By Finance",-1);
+	SENT_BACK_BY_FINANCE("Sent Back By Finance",-1),
+	TH_PARTIAL_CANCELLATION_PENDING("Transformation Head Partial Cancellation Pending",1),
+	TH_PARTIALLY_CANCELLED("Partially Cancelled By Transformation Head",-1),
+	TH_CANCELLATION_PENDING("Transformation Head Cancellation Pending",1),
+	TH_CANCELLED("Cancelled By Transformation Head",-1);
 
 	private String status;
 	private Integer order;

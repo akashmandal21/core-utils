@@ -243,11 +243,10 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(ApiValidationException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleApiValidationException(ApiValidationException e) {
 
 		String exceptionId = StanzaUtils.generateUniqueId();
-		log.error("Got ApiValidationException for exceptionId: " + exceptionId, e);
+		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}

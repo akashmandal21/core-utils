@@ -27,13 +27,17 @@ public class FoodMenuCategoryResponseDto {
 
 	private String city;
 
+	private String cityId;
+
+	private String microMarket;
+
+	private String microMarketId;
+
 	private String category;
 
 	private Double targetPrice;
 
 	private String targetPriceUnit;
-
-	private List<FoodMenuCategoryMealDto> applicableMeals;
 
 	private boolean skeletalRuleVerified;
 
@@ -42,5 +46,11 @@ public class FoodMenuCategoryResponseDto {
 	private boolean grammage;
 
 	private Long residenceCount;
+
+	private boolean dataComplete;
+
+	private boolean draftAvailable;
+
+	private List<FoodMenuCategoryMealDto> applicableMeals;
 
 }

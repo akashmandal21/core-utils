@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
+import com.stanzaliving.core.food.enums.MenuType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,4 +40,11 @@ public class FoodMenuCategoryDto extends AbstractDto {
 	private boolean menuRulesSatisfied;
 
 	private boolean stanzaKitchenCategory;
+	
+	private List<ResidenceConfigDto> mappedResidences;
+
+	private MenuType menuType;
+
+	private boolean dataComplete;
+
 }

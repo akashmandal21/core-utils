@@ -11,14 +11,18 @@ import java.time.Period;
 import java.time.YearMonth;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+
+import org.apache.commons.text.CaseUtils;
 
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
@@ -30,7 +34,11 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @UtilityClass
 public class DateUtil {
-
+	
+	public String formatIst(Date date, String format) {
+		return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
+	}
+	
 	public String customDateFormatter(Date dateInput, DateFormat dateFormat) {
 
 		if (dateInput != null) {
@@ -216,6 +224,11 @@ public class DateUtil {
 		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
 		Instant instant = date.toInstant();
 		return instant.atZone(zoneId).toLocalDate();
+	}
+	
+	public boolean isLocalDateExpired(LocalDate localDate) {
+		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
+		return localDate.isBefore(LocalDate.now(zoneId));
 	}
 
 	public LocalTime convertToLocalTime(Date date) {
@@ -577,6 +590,20 @@ public class DateUtil {
 
 		return "th";
 
+	}
+	
+	public String convertToAMPM(LocalTime localTime) {
+
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
+	            .withLocale(Locale.US);
+
+		return localTime.format(timeFormatter);
+		
+	}
+	
+	public String convertToStringDate(LocalDate localDate) {
+
+		return String.valueOf(localDate.getDayOfMonth()) + " " + CaseUtils.toCamelCase(localDate.getMonth().toString(), true) + " " + String.valueOf(localDate.getYear());
 	}
 
 }
