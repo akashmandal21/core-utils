@@ -3,15 +3,13 @@
  */
 package com.stanzaliving.core.base.http;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 
-import com.stanzaliving.core.base.StanzaConstants;
+import org.slf4j.MDC;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -32,22 +30,12 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.base.exception.StanzaSecurityException;
-import com.stanzaliving.core.base.localdate.Java8LocalDateStdDeserializer;
-import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
-import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
-import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
 
-import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
-import org.slf4j.MDC;
 
 /**
  * @author naveen
@@ -55,7 +43,6 @@ import org.slf4j.MDC;
  * @date 17-Oct-2019
  */
 @Log4j2
-@Getter
 public class StanzaRestClient {
 
 	private String basePath;
@@ -69,11 +56,13 @@ public class StanzaRestClient {
 	public StanzaRestClient(String basePath) {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate();
+		objectMapper = BaseMapperConfig.getDefaultMapper();
 	}
 
 	public StanzaRestClient(String basePath, int connectTimeOut, int readTimeOut) {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate(connectTimeOut, readTimeOut);
+		objectMapper = BaseMapperConfig.getDefaultMapper();
 	}
 
 	public enum CollectionFormat {
@@ -132,22 +121,7 @@ public class StanzaRestClient {
 
 			if (converter instanceof AbstractJackson2HttpMessageConverter) {
 				ObjectMapper mapper = ((AbstractJackson2HttpMessageConverter) converter).getObjectMapper();
-
-				mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-				mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);
-				mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
-
-				SimpleModule module = new SimpleModule();
-				module.addSerializer(new Java8LocalDateStdSerializer());
-				module.addDeserializer(LocalDate.class, new Java8LocalDateStdDeserializer());
-
-				module.addSerializer(new Java8LocalTimeSerializer());
-				module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
-
-				mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-				mapper.registerModule(module);
-
-				this.objectMapper = mapper;
+				mapper = BaseMapperConfig.configureMapper(mapper);
 			}
 		}
 	}
@@ -376,88 +350,8 @@ public class StanzaRestClient {
 
 				log.debug("Response from API: {}", responseEntity);
 				log.debug("Parsing Response Body to {}", returnType);
-				log.debug("Parsing Response Body to {}", returnType.getType());
 
 				return objectMapper.readValue(responseEntity.getBody(), returnType);
-			} catch (Exception e) {
-				log.error("Error reading response: ", e);
-				throw new StanzaHttpException("Error while reading response", statusCode.value(), e);
-			}
-		}
-
-		if (HttpStatus.NO_CONTENT == responseEntity.getStatusCode()) {
-			return null;
-		}
-
-		if (isAccessDenied(statusCode)) {
-			throw new StanzaSecurityException("Access Denied for User", statusCode.value());
-		} else {
-			// The error handler built into the RestTemplate should handle 400 and 500 series errors.
-			throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
-		}
-	}
-
-	public <T> T invokeAPI(
-			String path,
-			HttpMethod method,
-			MultiValueMap<String, String> queryParams,
-			Object body,
-			HttpHeaders headerParams,
-			List<MediaType> accept,
-			JavaType javaType) {
-
-		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
-
-		if (queryParams != null) {
-			builder.queryParams(queryParams);
-		}
-
-		final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
-
-		if (accept != null) {
-			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
-		}
-
-		requestBuilder.contentType(MediaType.APPLICATION_JSON);
-
-		addHeadersToRequest(headerParams, requestBuilder);
-		addHeadersToRequest(defaultHeaders, requestBuilder);
-
-		log.info("Accessing API: {}", builder.toUriString());
-
-		RequestEntity<Object> requestEntity = requestBuilder.body(body);
-
-		ResponseEntity<String> responseEntity = null;
-		try {
-			responseEntity = restTemplate.exchange(requestEntity, String.class);
-
-		} catch (RestClientException e) {
-
-			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
-				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-			} else {
-
-				log.error("Exception caught while making rest call: ", e);
-				throw new StanzaHttpException(e.getMessage(), e);
-			}
-		}
-
-		HttpStatus statusCode = responseEntity.getStatusCode();
-
-		log.debug("API: {}, Response: {}", builder.toUriString(), statusCode);
-
-		if (isSuccessCode(statusCode)) {
-			if (javaType == null) {
-				return null;
-			}
-
-			try {
-
-				log.debug("Response from API: {}", responseEntity);
-				log.debug("Response Body from API: {}", responseEntity.getBody());
-				log.debug("Parsing Response Body to {}", javaType);
-
-				return objectMapper.readValue(responseEntity.getBody(), javaType);
 			} catch (Exception e) {
 				log.error("Error reading response: ", e);
 				throw new StanzaHttpException("Error while reading response", statusCode.value(), e);
