@@ -373,6 +373,7 @@ public class StanzaRestClient {
 
 				log.debug("Response from API: {}", responseEntity);
 				log.debug("Parsing Response Body to {}", returnType);
+				log.debug("Parsing Response Body to {}", returnType.getType());
 
 				return objectMapper.readValue(responseEntity.getBody(), returnType);
 			} catch (Exception e) {

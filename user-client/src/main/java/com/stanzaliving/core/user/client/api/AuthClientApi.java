@@ -21,6 +21,9 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.request.dto.UserAccessDto;
 import com.stanzaliving.core.user.dto.UserProfileDto;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class AuthClientApi {
 
 	private StanzaRestClient restClient;
@@ -78,6 +81,9 @@ public class AuthClientApi {
 
 		TypeReference<ResponseDto<UserProfileDto>> returnType = new TypeReference<ResponseDto<UserProfileDto>>() {
 		};
+
+		log.debug("Expected Return Type: {}", returnType);
+
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
