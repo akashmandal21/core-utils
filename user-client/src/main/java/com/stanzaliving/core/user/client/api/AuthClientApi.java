@@ -29,8 +29,7 @@ public class AuthClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public ResponseDto<UserProfileDto> getUserProfileByToken(String token) {
-
+	public ResponseDto<UserProfileDto> getUserByToken(String token) {
 		Object postBody = null;
 
 		// create path and map variables
@@ -53,10 +52,6 @@ public class AuthClientApi {
 		TypeReference<ResponseDto<UserProfileDto>> returnType = new TypeReference<ResponseDto<UserProfileDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-	}
-
-	public ResponseDto<UserProfileDto> getUserByToken(String token) {
-		return getUserProfileByToken(token);
 	}
 
 	public ResponseDto<Boolean> checkUrlPermission(String userId, String url) {
