@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author naveen.kumar
  *
- * @date 23-Apr-2020
+ * @date 19-Jun-2020
  *
  **/
 @Getter
@@ -26,17 +26,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealWiseFoodMenuDto {
+public class MealWiseMenusDto {
 
 	private MealType mealType;
 
 	private String mealTypeName;
 
-	private Float mealRating;
-
-	private Double mealCost;
-
-	private Double budgetedCost;
-
-	private List<MenuItemDto> menuItems;
+	private List<MealFoodMenuDto> menuDtos;
 }
