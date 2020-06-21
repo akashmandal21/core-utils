@@ -94,16 +94,6 @@ public class StanzaRestClient {
 		return template;
 	}
 
-	private SimpleClientHttpRequestFactory getClientHttpRequestFactory(int connectTimeOut, int readTimeOut) {
-		SimpleClientHttpRequestFactory clientHttpRequestFactory = new SimpleClientHttpRequestFactory();
-		// Connect timeout
-		clientHttpRequestFactory.setConnectTimeout(connectTimeOut);
-
-		// Read timeout
-		clientHttpRequestFactory.setReadTimeout(readTimeOut);
-		return clientHttpRequestFactory;
-	}
-
 	private RestTemplate buildRestTemplate(int connectTimeOut, int readTimeOut) {
 
 		RestTemplate template = new RestTemplate(getClientHttpRequestFactory(connectTimeOut, readTimeOut));
@@ -113,6 +103,16 @@ public class StanzaRestClient {
 		// This allows us to read the response more than once - Necessary for debugging.
 		template.setRequestFactory(new BufferingClientHttpRequestFactory(template.getRequestFactory()));
 		return template;
+	}
+
+	private SimpleClientHttpRequestFactory getClientHttpRequestFactory(int connectTimeOut, int readTimeOut) {
+		SimpleClientHttpRequestFactory clientHttpRequestFactory = new SimpleClientHttpRequestFactory();
+		// Connect timeout
+		clientHttpRequestFactory.setConnectTimeout(connectTimeOut);
+
+		// Read timeout
+		clientHttpRequestFactory.setReadTimeout(readTimeOut);
+		return clientHttpRequestFactory;
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -202,6 +202,10 @@ public class StanzaRestClient {
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
 
+		return getResponse(requestEntity, returnType, builder);
+	}
+
+	private <T> T getResponse(RequestEntity<Object> requestEntity, ParameterizedTypeReference<T> returnType, final UriComponentsBuilder builder) {
 		ResponseEntity<T> responseEntity = null;
 		try {
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
@@ -209,6 +213,8 @@ public class StanzaRestClient {
 		} catch (RestClientException e) {
 			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
 				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			} else if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("403")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.FORBIDDEN);
 			} else {
 
 				log.error("Exception caught while making rest call: ", e);
@@ -219,7 +225,7 @@ public class StanzaRestClient {
 		HttpStatus statusCode = responseEntity.getStatusCode();
 
 		log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
-		
+
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
 		} else if (responseEntity.getStatusCode().is2xxSuccessful()) {
@@ -262,12 +268,19 @@ public class StanzaRestClient {
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
 
+		return getResponse(requestEntity, returnType, builder);
+	}
+
+	private <T> T getResponse(RequestEntity<Object> requestEntity, Class<T> returnType, final UriComponentsBuilder builder) {
+
 		ResponseEntity<T> responseEntity = null;
 		try {
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
 		} catch (RestClientException e) {
 			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
 				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			} else if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("403")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.FORBIDDEN);
 			} else {
 
 				log.error("Exception caught while making rest call: ", e);
@@ -278,7 +291,7 @@ public class StanzaRestClient {
 		HttpStatus statusCode = responseEntity.getStatusCode();
 
 		log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
-		
+
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
 		} else if (responseEntity.getStatusCode().is2xxSuccessful()) {
@@ -338,6 +351,13 @@ public class StanzaRestClient {
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
 
+		ResponseEntity<String> responseEntity = getResponse(requestEntity);
+
+		return processResponse(returnType, builder, responseEntity);
+	}
+
+	private ResponseEntity<String> getResponse(RequestEntity<Object> requestEntity) {
+
 		ResponseEntity<String> responseEntity = null;
 		try {
 			responseEntity = restTemplate.exchange(requestEntity, String.class);
@@ -346,12 +366,19 @@ public class StanzaRestClient {
 
 			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
 				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			} else if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("403")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.FORBIDDEN);
 			} else {
 
 				log.error("Exception caught while making rest call: ", e);
 				throw new StanzaHttpException(e.getMessage(), e);
 			}
 		}
+
+		return responseEntity;
+	}
+
+	private <T> T processResponse(TypeReference<T> returnType, UriComponentsBuilder builder, ResponseEntity<String> responseEntity) {
 
 		HttpStatus statusCode = responseEntity.getStatusCode();
 
@@ -363,7 +390,6 @@ public class StanzaRestClient {
 			}
 
 			try {
-
 				return objectMapper.readValue(responseEntity.getBody(), returnType);
 			} catch (Exception e) {
 				log.error("Error reading response: ", e);
