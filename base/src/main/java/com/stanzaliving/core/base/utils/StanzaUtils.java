@@ -283,4 +283,11 @@ public class StanzaUtils {
 		return sizeWithUnit;
 	}
 
+
+	public String getString(Object obj) {
+		return Objects.isNull(obj) ? null : obj.toString();
+	}
+
+
+
 }
