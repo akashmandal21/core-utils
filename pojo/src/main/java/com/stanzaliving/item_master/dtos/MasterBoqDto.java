@@ -32,7 +32,7 @@ public class MasterBoqDto {
     private String itemUuid;
     private String itemCode;
     private String categoryName;
-    private String itemType;
+    private ItemType itemType;
     private String particular;
     private String descSpec;
     private AcquisitionType acquisitionType;
@@ -64,6 +64,7 @@ public class MasterBoqDto {
     private ItemMaterial itemMaterial;
     private Float productionTime;
     private ProductionTimeUnit productionTimeUnit;
+    private String itemTypeStr;
 
     //For Native Queries. SqlResultSetMapped to MasterBoq in ItemMasterDetails
     public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
@@ -77,7 +78,7 @@ public class MasterBoqDto {
         this.itemUuid = itemUuid;
         this.itemCode = itemCode;
         this.categoryName = categoryName;
-        this.itemType = Enum.valueOf(ItemType.class,itemUseType).getTypeText();
+        this.itemType = Enum.valueOf(ItemType.class,itemUseType);
         this.particular = particular;
         this.descSpec = descSpec;
         this.acquisitionType = Objects.nonNull(acquisitionType) ? Enum.valueOf(AcquisitionType.class, acquisitionType) : null;
@@ -88,6 +89,8 @@ public class MasterBoqDto {
         this.thumbnailUrl = thumbnailUrl;
         this.imageUrl=imageUrl;
         this.docUrl=specDocumentUrl;
+        this.itemTypeStr = Enum.valueOf(ItemType.class,itemUseType).getTypeText();
+
     }
 
     //For Native Queries. SqlResultSetMapped to MasterBoqForDesign in ItemMasterDetails
@@ -103,7 +106,7 @@ public class MasterBoqDto {
         this.itemUuid = itemUuid;
         this.itemCode = itemCode;
         this.categoryName = categoryName;
-        this.itemType = Enum.valueOf(ItemType.class,itemUseType).getTypeText();
+        this.itemType = Enum.valueOf(ItemType.class, itemUseType);
         this.particular = particular;
         this.descSpec = descSpec;
         if (Objects.nonNull(acquisitionType)) {
@@ -128,6 +131,7 @@ public class MasterBoqDto {
         this.igst = igst;
         this.sgst = sgst;
         this.hsnCode = hsnCode;
+        this.itemTypeStr = Enum.valueOf(ItemType.class, itemUseType).getTypeText();
     }
 
 }
