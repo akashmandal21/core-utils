@@ -29,6 +29,7 @@ public class MealReplacementResponseDto {
 	private String rcActionStatus;
 	private String rcActionStatusText;
 	private Date createdAt;
+	private String qrContextType;
 	private MealRequestReplacementStatus mealRequestReplacementStatus;
 	
 	private List<FoodItemDetail> foodItemDetails;			
