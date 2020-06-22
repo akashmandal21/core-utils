@@ -39,6 +39,8 @@ public class FoodMenuCategoryResponseDto {
 
 	private String targetPriceUnit;
 
+	private boolean published;
+	
 	private boolean skeletalRuleVerified;
 
 	private boolean sampleMenu;
