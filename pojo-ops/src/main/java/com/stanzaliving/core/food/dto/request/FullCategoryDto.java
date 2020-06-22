@@ -26,7 +26,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FullCategoryDto {
 
-	private boolean copied;
+	private boolean publishable;
 
 	@Builder.Default
 	private boolean draftAvailable = false;
