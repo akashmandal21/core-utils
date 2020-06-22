@@ -32,7 +32,7 @@ public class MasterBoqDto {
     private String itemUuid;
     private String itemCode;
     private String categoryName;
-    private ItemType itemType;
+    private String itemType;
     private String particular;
     private String descSpec;
     private AcquisitionType acquisitionType;
@@ -77,7 +77,7 @@ public class MasterBoqDto {
         this.itemUuid = itemUuid;
         this.itemCode = itemCode;
         this.categoryName = categoryName;
-        this.itemType = Enum.valueOf(ItemType.class,itemUseType);
+        this.itemType = Enum.valueOf(ItemType.class,itemUseType).getTypeText();
         this.particular = particular;
         this.descSpec = descSpec;
         this.acquisitionType = Objects.nonNull(acquisitionType) ? Enum.valueOf(AcquisitionType.class, acquisitionType) : null;
@@ -103,7 +103,7 @@ public class MasterBoqDto {
         this.itemUuid = itemUuid;
         this.itemCode = itemCode;
         this.categoryName = categoryName;
-        this.itemType = Enum.valueOf(ItemType.class,itemUseType);
+        this.itemType = Enum.valueOf(ItemType.class,itemUseType).getTypeText();
         this.particular = particular;
         this.descSpec = descSpec;
         if (Objects.nonNull(acquisitionType)) {
