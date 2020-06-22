@@ -19,6 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CountNameListDto {
+
 	private Integer count;
 
 	private List<CountNameDto> nameWiseCount;
