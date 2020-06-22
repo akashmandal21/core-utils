@@ -17,6 +17,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CountNameDto {
+
 	private String id;
 
 	private String name;
