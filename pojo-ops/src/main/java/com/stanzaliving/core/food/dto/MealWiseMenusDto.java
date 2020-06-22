@@ -3,8 +3,9 @@
  */
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalDate;
 import java.util.List;
+
+import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author naveen.kumar
  *
- * @date 23-Apr-2020
+ * @date 19-Jun-2020
  *
  **/
 @Getter
@@ -25,9 +26,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DateWiseFoodMenuDto {
+public class MealWiseMenusDto {
 
-	private LocalDate menuDate;
+	private MealType mealType;
 
-	private List<MealWiseMenusDto> mealWiseFoodMenus;
+	private String mealTypeName;
+
+	private List<MealFoodMenuDto> menuDtos;
 }
