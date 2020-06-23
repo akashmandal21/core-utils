@@ -1,17 +1,17 @@
 package com.stanzaliving.operations.dto.servicemix;
 
+import java.util.Map;
+
+import com.stanzaliving.core.operations.enums.MealType;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-public class FoodMenu {
-	private boolean active;
+public class FoodMenu extends BooleanService {
 	private String category;
 	private boolean stanzaKitchen;
-	private Double BREAKFAST;
-	private Double LUNCH;
-	private Double EVENING_SNACKS;
-	private Double DINNER;
+	private Map<MealType, Double> meals;
 	private Double totalPrice;
 }

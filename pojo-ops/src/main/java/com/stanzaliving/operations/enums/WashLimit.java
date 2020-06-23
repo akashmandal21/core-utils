@@ -5,9 +5,9 @@ import lombok.Getter;
 @Getter
 public enum WashLimit {
 	
-	Quantity("Quantity"),
-	Weight("Weight"),
-	Unlimited("Unlimited");
+	QUANTITY("Quantity"),
+	WEIGHT("Weight"),
+	UNLIMITED("Unlimited");
 	
 	private String value;
 	

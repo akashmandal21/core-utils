@@ -10,7 +10,7 @@ public class Config {
 	private FoodComposition foodComposition;
 	private FoodMenu foodMenu;
 	private InternetService internet;
-	private HouseKeepingService houseKeeping;
+	private HouseKeeping houseKeeping;
 	private Security security;
 	private Laundry laundry;
 	private Electricity electricity;

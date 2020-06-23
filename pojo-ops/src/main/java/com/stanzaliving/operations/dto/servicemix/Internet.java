@@ -7,8 +7,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class Internet {
-	private boolean active;
+public class Internet extends BooleanService {
 	private String planId;
 	private InternetVendor vendor;
 	private int devices;

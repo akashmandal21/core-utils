@@ -4,8 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
-public class Supplies {
-	private boolean active;
-	private String repetition;
+@Setter 
+public class PowerBackup extends BooleanService {
+	private PowerBackup type;
 }

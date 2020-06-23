@@ -11,6 +11,6 @@ import lombok.Setter;
 public class Transport extends BooleanService {
 	private TransportAvailabilityMode availability;
 	private TransportSchedule schedule;
-	private double freeKm;
+	private Double freeKm;
 	
 }

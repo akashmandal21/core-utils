@@ -1,5 +1,7 @@
 package com.stanzaliving.operations.dto.servicemix;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,9 +9,13 @@ import lombok.Setter;
 @Setter
 public class Electricity extends BooleanService {
 	private ElectricityService room;
-	private ElectricityService common_area;
+	
+	@JsonProperty("common_area")
+	private ElectricityService commonArea;
 	private MultiTimeSlotService geyser;
 	private MultiTimeSlotService commonGeyser;
 	private MultiTimeSlotService ac;
-	private PowerBackup power_backup;
+	
+	@JsonProperty("power_backup")
+	private PowerBackup powerBackup;
 }

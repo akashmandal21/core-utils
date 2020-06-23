@@ -3,14 +3,14 @@ package com.stanzaliving.operations.enums;
 import lombok.Getter;
 
 @Getter
-public enum Supplies {
+public enum SuppliesEnum {
 	
 	BRAKFAST_ONLY("Breakfast Only"),
 	ALL_DAY("All day");
 	
 	private String value;
 	
-	private Supplies(String value) {
+	private SuppliesEnum(String value) {
 		this.value = value;
 	}
 	

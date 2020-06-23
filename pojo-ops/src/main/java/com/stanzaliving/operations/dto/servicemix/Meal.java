@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class HouseKeeping {
-	private boolean active;
-	private int daysPerWeek;
+public class Meal extends BooleanService {
+	private int days;
+	private String endTime;
+	private String startTime;
 }
