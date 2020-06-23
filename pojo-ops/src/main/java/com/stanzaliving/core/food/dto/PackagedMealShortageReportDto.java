@@ -15,10 +15,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderReceiveBasePreferenceDto {
+public class PackagedMealShortageReportDto {
 	
 	private String basePreference;
-	
-	private List<BasePreferenceReceivingDto> basePreferenceReceivingDtos;
+
+	private List<MealShortageReportDto> shortageReportDtos;
 
 }

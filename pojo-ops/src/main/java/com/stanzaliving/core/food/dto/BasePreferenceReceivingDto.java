@@ -1,8 +1,9 @@
 package com.stanzaliving.core.food.dto;
 
-import java.util.List;
+import com.stanzaliving.core.food.enums.FoodItemType;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,10 +16,15 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderReceiveBasePreferenceDto {
+public class BasePreferenceReceivingDto {
 	
-	private String basePreference;
+	private String dispatchSummaryitemsId;
 	
-	private List<BasePreferenceReceivingDto> basePreferenceReceivingDtos;
+	private FoodItemType itemType;
+	
+	private Integer actual;
+	
+	@Builder.Default
+	private Integer expected=0;
 
 }

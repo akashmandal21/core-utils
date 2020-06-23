@@ -1,6 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
-import java.util.List;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,10 +15,16 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderReceiveBasePreferenceDto {
+public class VasItemShortageDto {
 	
 	private String basePreference;
 	
-	private List<BasePreferenceReceivingDto> basePreferenceReceivingDtos;
+	@NotBlank(message = "item id can not be blank")
+	private String itemId;
+	
+	@NotBlank(message = "residence food menu id can not be blank")
+	private String residenceFoodMenuId;
+	
+	private Integer shortage;
 
 }

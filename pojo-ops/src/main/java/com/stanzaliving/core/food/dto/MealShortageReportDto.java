@@ -1,6 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
-import java.util.List;
+import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,10 +15,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderReceiveBasePreferenceDto {
+public class MealShortageReportDto {
 	
-	private String basePreference;
+	private String dispatchSummaryItemId;
 	
-	private List<BasePreferenceReceivingDto> basePreferenceReceivingDtos;
+	private MealType meal;
+	
+	private Integer shortage;
 
 }
