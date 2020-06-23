@@ -27,4 +27,6 @@ public class VasOrderFoodMenuDto {
     private MealType mealType;
 
     private String menuCategoryId;
+
+    private String microMarketId;
 }
