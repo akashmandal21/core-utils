@@ -23,5 +23,6 @@ public class FoodItemDetail {
 	
 	private String mealReplacementItemUuid;
 	private MealReplacementReason replacementReason;
+	private String replacementReasonOther;
 	private String replacementReasonDesc;
 }

@@ -11,8 +11,9 @@ import lombok.Getter;
 public enum MealReplacementReason {
 
 	WRONG_ITEM_IN_THE_PACKET("Wrong item in the packet"),
-	FOREIGN_PARTICLES_FOUND("Foreign particles found"), 
-	MEAL_CONTENTS_MESSED_UP("Meal contents were messed up"), 
+	FOREIGN_PARTICLES_FOUND("Foreign particle found"), 
+	MEAL_CONTENTS_MESSED_UP("Content messed up"), 
+	FOREIGH_PARTICLE("Foreign particle"),
 	SOMETHING_ELSE("Something else");
 
 	private String reason; 
@@ -31,7 +32,7 @@ public enum MealReplacementReason {
 	public static Map<MealReplacementReason, String> nonVasItemReason() {
 		Map<MealReplacementReason, String> nonVasItemReasonMap = new LinkedHashMap<>();
 		
-		nonVasItemReasonMap.put(FOREIGN_PARTICLES_FOUND,  FOREIGN_PARTICLES_FOUND.getReason());
+		nonVasItemReasonMap.put(FOREIGH_PARTICLE,  FOREIGH_PARTICLE.getReason());
 		nonVasItemReasonMap.put(MEAL_CONTENTS_MESSED_UP, MEAL_CONTENTS_MESSED_UP.getReason());
 		nonVasItemReasonMap.put(SOMETHING_ELSE, SOMETHING_ELSE.getReason());
 
