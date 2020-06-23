@@ -19,4 +19,6 @@ public class OtherServices extends BooleanService {
 	
 	@JsonProperty("coffee_machine")
 	private BooleanService coffeeMachine;
+	
+	private Supplies supplies;
 }
