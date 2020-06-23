@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto;
 
-import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
