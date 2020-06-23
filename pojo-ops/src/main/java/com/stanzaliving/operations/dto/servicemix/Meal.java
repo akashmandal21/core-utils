@@ -1,5 +1,7 @@
 package com.stanzaliving.operations.dto.servicemix;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,6 +9,5 @@ import lombok.Setter;
 @Setter
 public class Meal extends BooleanService {
 	private int days;
-	private String endTime;
-	private String startTime;
+	private List<String> time;
 }
