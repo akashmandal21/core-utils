@@ -1,31 +1,34 @@
-package com.stanzaliving.core.food.dto.response;
-
-import com.stanzaliving.core.food.dto.VendorCostDto;
-import com.stanzaliving.core.operations.enums.MealType;
-
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 /**
  * 
+ */
+package com.stanzaliving.core.food.dto;
+
+import com.stanzaliving.core.operations.enums.MealType;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+/**
  * @author naveen.kumar
  *
- * @date 14-May-2020
+ * @date 13-Jun-2020
  *
- */
+ **/
 @Getter
 @Setter
 @ToString
-@SuperBuilder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VendorMealCostDto {
+public class MealWiseVendorPricesDto {
 
 	private MealType mealType;
 
-	private String mealTypeName;
-
-	private boolean status;
+	private String mealName;
 
 	private VendorCostDto currentCost;
 

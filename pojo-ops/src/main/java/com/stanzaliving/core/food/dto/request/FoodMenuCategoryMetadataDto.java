@@ -3,12 +3,20 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
+import java.util.List;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.food.enums.FoodServeType;
+import com.stanzaliving.core.food.enums.MenuType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,12 +36,15 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryMetadataDto {
+public class FoodMenuCategoryMetadataDto extends AbstractDto {
 
 	private String categoryId;
 
 	@NotBlank(message = "City is Mandatory for Menu Category")
 	private String cityId;
+
+	@NotBlank(message = "microMarket is Mandatory for Menu Category")
+	private String microMarketId;
 
 	@NotBlank(message = "Name is Mandatory for Menu Category")
 	private String categoryName;
@@ -49,5 +60,20 @@ public class FoodMenuCategoryMetadataDto {
 
 	@NotNull(message = "Brand Selection is Mandatory")
 	private ResidenceBrand residenceBrand;
+
+	@NotNull(message = "Menu Type Selection is mandatory")
+	private MenuType menuType;
+
+	@NotEmpty(message = "Base Preference selection is mandatory")
+	private List<FoodItemBasePreference> basePreferences;
+
+	@NotNull(message = "Food Margin is mandatory")
+	@Min(value = -99, message = "Food Margin cannot be less than -99%")
+	@Max(value = 99, message = "Food Margin cannot be greater than 99%")
+	private Double foodMargin;
+
+	private boolean dataComplete;
+
+	private boolean published;
 
 }

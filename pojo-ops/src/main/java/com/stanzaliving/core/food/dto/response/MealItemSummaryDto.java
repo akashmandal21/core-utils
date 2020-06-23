@@ -1,23 +1,16 @@
 package com.stanzaliving.core.food.dto.response;
 
-import java.time.DayOfWeek;
-import java.util.Set;
+import java.util.List;
 
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-/**
- * @author piyush srivastava
- *
- * @date 12-May-2020
- *
- */
 
 @Getter
 @Setter
@@ -25,10 +18,15 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+public class MealItemSummaryDto {
 
-public class WeeklyDaywiseMealResponseDto {
+	private MealType meal;
 
-	private DayOfWeek dayOfWeek;
+	private String mealName;
 
-	private Set<MealType> meals;
+	private List<MealItemCategoryCountDto> categoryCountDtos;
+
+	@Builder.Default
+	private Integer mealItemCount = 0;
+
 }
