@@ -13,7 +13,7 @@ public enum MealReplacementReason {
 	WRONG_ITEM_IN_THE_PACKET("Wrong item in the packet"),
 	FOREIGN_PARTICLES_FOUND("Foreign particle found"), 
 	MEAL_CONTENTS_MESSED_UP("Content messed up"), 
-	FOREIGH_PARTICLE("Foreign particle"),
+	FOREIGN_PARTICLE("Foreign particle"),
 	SOMETHING_ELSE("Something else");
 
 	private String reason; 
@@ -32,7 +32,7 @@ public enum MealReplacementReason {
 	public static Map<MealReplacementReason, String> nonVasItemReason() {
 		Map<MealReplacementReason, String> nonVasItemReasonMap = new LinkedHashMap<>();
 		
-		nonVasItemReasonMap.put(FOREIGH_PARTICLE,  FOREIGH_PARTICLE.getReason());
+		nonVasItemReasonMap.put(FOREIGN_PARTICLE,  FOREIGN_PARTICLE.getReason());
 		nonVasItemReasonMap.put(MEAL_CONTENTS_MESSED_UP, MEAL_CONTENTS_MESSED_UP.getReason());
 		nonVasItemReasonMap.put(SOMETHING_ELSE, SOMETHING_ELSE.getReason());
 
