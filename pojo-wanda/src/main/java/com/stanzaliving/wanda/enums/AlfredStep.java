@@ -9,6 +9,6 @@ public enum AlfredStep {
 	
 	SELFBOOKING,
 	ONBOARDING,
-	ONBOARDED;
+	HOMESCREEN;
 
 }

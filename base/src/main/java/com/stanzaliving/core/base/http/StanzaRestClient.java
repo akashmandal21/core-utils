@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 
 import com.stanzaliving.core.base.StanzaConstants;
 import org.springframework.core.ParameterizedTypeReference;
@@ -225,7 +226,10 @@ public class StanzaRestClient {
 
 		requestBuilder.contentType(mediaType);
 
-		addHeadersToRequest(headerParams, requestBuilder);
+		if(Objects.nonNull(headerParams)) {
+			
+			addHeadersToRequest(headerParams, requestBuilder);
+		}
 
 		log.info("Accessing API: " + builder.toUriString());
 
