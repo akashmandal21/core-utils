@@ -1,7 +1,5 @@
 package com.stanzaliving.operations.dto.servicemix;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +8,12 @@ import lombok.Setter;
 public class LunchTiffin extends BooleanService {
 	private int days;
 	
-	private List<String> pickupTime;
-	private List<String> deliveryTime;
+	private String pickupStartTime;
+	private String pickupEndTime;
+	
+	private String deliveryStartTime;
+	private String deliveryEndTime;
+	
+	
 	
 }
