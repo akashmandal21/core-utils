@@ -33,4 +33,8 @@ public class PendingBookingDto {
 	private String imageOverlayMessage;
 	
 	private LocalDate moveInDate;
+	
+	private String bookingId;
+	
+	private String houseId;
 }

@@ -25,5 +25,7 @@ public class StayDetailsDto extends PendingBookingDto {
 
 	private List<PackagedServicesDto> packagedServices;
 
-	private List<VasServicesDto> vasServices;
+	private List<VasServicesDto> selectedVasServices;
+	
+	private List<VasServicesDto> topupVasServices;
 }

@@ -9,7 +9,7 @@ import lombok.Getter;
 @Builder
 public class VasServicesDto{
 
-	private String serviceId;
+	private Integer serviceId;
 	
 	private double serviceCost;
 	
