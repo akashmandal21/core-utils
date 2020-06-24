@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
@@ -34,6 +35,12 @@ public class FoodOrderBasePreferenceDto {
 	private FoodRegion region;
 
 	private String regionName;
+	
+	private String combo;
+	
+	private LocalTime mealStartTime;
+	
+	private LocalTime mealEndTime;
 
 	private List<AdditionalItemsRequestDto> additionalItemsDtos;
 
