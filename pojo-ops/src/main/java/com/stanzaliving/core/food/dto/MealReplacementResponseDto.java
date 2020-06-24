@@ -31,6 +31,7 @@ public class MealReplacementResponseDto {
 	private Date createdAt;
 	private String qrContextType;
 	private MealRequestReplacementStatus mealRequestReplacementStatus;
+	private String mealRequestReplacementStatusReason;
 	
 	private List<FoodItemDetail> foodItemDetails;			
 }
