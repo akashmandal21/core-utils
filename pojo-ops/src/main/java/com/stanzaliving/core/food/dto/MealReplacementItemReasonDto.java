@@ -20,4 +20,5 @@ public class MealReplacementItemReasonDto {
 
 	private String mealReplacementItemUuid;
 	private MealReplacementReason mealReplacementReason;
+	private String replacementReasonOther;
 }
