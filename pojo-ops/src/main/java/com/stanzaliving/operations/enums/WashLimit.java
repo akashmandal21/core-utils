@@ -3,7 +3,7 @@ package com.stanzaliving.operations.enums;
 import lombok.Getter;
 
 @Getter
-public enum WashLimit {
+public enum WashLimit implements EnumValue{
 	
 	QUANTITY("Quantity"),
 	WEIGHT("Weight"),

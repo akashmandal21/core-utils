@@ -3,7 +3,7 @@ package com.stanzaliving.operations.enums;
 import lombok.Getter;
 
 @Getter
-public enum PaymentMode {
+public enum PaymentMode implements EnumValue{
 	
 	PREPAID("Prepaid"),
 	INCLUDED("Included"),

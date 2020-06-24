@@ -3,7 +3,7 @@ package com.stanzaliving.operations.enums;
 import lombok.Getter;
 
 @Getter
-public enum SuppliesEnum {
+public enum SuppliesEnum implements EnumValue{
 	
 	BRAKFAST_ONLY("Breakfast Only"),
 	ALL_DAY("All day");

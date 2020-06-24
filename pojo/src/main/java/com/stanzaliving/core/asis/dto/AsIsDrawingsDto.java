@@ -1,10 +1,6 @@
 package com.stanzaliving.core.asis.dto;
 
 import java.io.Serializable;
-import java.util.Date;
-
-import com.stanzaliving.core.base.common.dto.AbstractDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.stanzaliving.operations.enums;
 
-public enum GymLocation {
+public enum GymLocation implements EnumValue{
 	
 	IN_RESIDENCE("In-Residence"),
 	OTHER_RESIDENCE("Other Residence");
