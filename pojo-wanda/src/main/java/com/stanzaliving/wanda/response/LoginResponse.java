@@ -9,9 +9,7 @@ import lombok.Builder;
 @Builder
 @AllArgsConstructor
 @Getter
-public class LoginResponse<T> {
-
-	T t;
+public class LoginResponse {
 	
 	private String firstName;
 	
