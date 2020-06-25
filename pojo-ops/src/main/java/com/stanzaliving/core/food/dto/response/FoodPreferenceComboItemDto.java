@@ -3,7 +3,6 @@ package com.stanzaliving.core.food.dto.response;
 import com.stanzaliving.core.food.enums.FoodItemType;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,11 +19,9 @@ public class FoodPreferenceComboItemDto {
 
 	private String itemName;
 
-	@Builder.Default
-	private Integer stdQty = 0;
+	private Integer stdQty;
 
-	@Builder.Default
-	private Integer stdWeight = 0;
+	private Integer stdWeight;
 
 	private FoodItemType itemType;
 

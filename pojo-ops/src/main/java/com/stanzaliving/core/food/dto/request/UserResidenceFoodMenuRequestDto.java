@@ -5,6 +5,10 @@ import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.food.enums.FoodItemBasePreference;
+import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.operations.enums.MealType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,16 +32,13 @@ public class UserResidenceFoodMenuRequestDto {
 	
 	private String userResidenceFoodMenuId;
 	
-	@NotBlank(message = "MealName Cannot be blank")
-	private String mealName;
+	private MealType meal;
 	
 	@NotNull(message = "Date Cannot be null")
 	private LocalDate date;
 	
-	@NotBlank(message = "Base Preference Cannot be blank")
-	private String itemBasePreference;
+	private FoodItemBasePreference itemBasePreference;
 	
-	@NotBlank(message = "Food Region Cannot be blank")
-	private String foodRegion;
+	private FoodRegion foodRegion;
 
 }

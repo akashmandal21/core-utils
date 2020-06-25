@@ -3,7 +3,6 @@ package com.stanzaliving.core.food.dto.response;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,10 +17,11 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodPrefernceComboResponseDto {
 	
-	@Builder.Default
-	private boolean selected=false;
+	private boolean selected;
 	
 	private String preferenceName;
+	
+	private String foodRegionName;
 	
 	private List<FoodPreferenceComboItemDto> comboItemDtos;
 
