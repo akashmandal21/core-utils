@@ -7,6 +7,8 @@ package com.stanzaliving.website.response.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * @author nipunaggarwal
@@ -14,7 +16,9 @@ import lombok.Getter;
  */
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
+@Setter
 public class MealPlanResponseDTO {
 	
 	private int mealPlanId;

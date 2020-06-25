@@ -12,6 +12,8 @@ import com.stanzaliving.website.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * @author nipunaggarwal
@@ -19,7 +21,9 @@ import lombok.Getter;
  */
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
+@Setter
 public class ResidenceResponseDTO {
 
 	private int residenceId;
