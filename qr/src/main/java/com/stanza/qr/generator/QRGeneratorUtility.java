@@ -23,6 +23,12 @@ public class QRGeneratorUtility
         return generateQRImage(list,DEFAULT_ECC_LEVEL,DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
     }
 
+    public static BufferedImage generateQRImage(String string) throws IOException
+    {
+        List<QrSegment> list = createSegments(string);
+        return generateQRImage(list,DEFAULT_ECC_LEVEL,DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
+    }
+
     public static byte[] getImageByteArray(BufferedImage image) throws IOException
     {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -38,6 +44,10 @@ public class QRGeneratorUtility
         List<QrSegment> list = new ArrayList<>(1);
         list.add(QrSegment.makeNumeric(longString));
         return list;
+    }
+
+    private static List<QrSegment> createSegments(String inputString){
+        return QrSegment.makeSegments(inputString);
     }
 
     private static BufferedImage generateQRImage(List<QrSegment> list, QrCode.Ecc ecc, int scale, int numBorders) throws IOException
