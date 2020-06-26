@@ -99,4 +99,12 @@ public class TransformationCache {
 		return name;
 	}
 
+	public ResidenceMetadataDto getResidenceDataFromUuid(String residenceUuid) {
+		return internalDataControllerApi.getResidenceData(residenceUuid).getData();
+	}
+
+	public MicroMarketMetadataDto getMicromarketDataFromUuid(String micromarketUuid) {
+		return internalDataControllerApi.getMicromarketData(micromarketUuid).getData();
+	}
+
 }
