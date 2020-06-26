@@ -341,7 +341,7 @@ public class InternalDataControllerApi {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("micromarketUuid",micromarketUuid);
-		String path = UriComponentsBuilder.fromPath("/internal/residence/get/micromarket/{micromarketUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/micromarket/get/{micromarketUuid}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
