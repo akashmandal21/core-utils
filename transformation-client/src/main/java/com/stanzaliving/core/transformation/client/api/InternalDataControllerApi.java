@@ -312,7 +312,7 @@ public class InternalDataControllerApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<ResidenceMetadataDto> getResidenceData(String residenceUuid) {
+	public ResponseDto<ResidenceDto> getResidenceData(String residenceUuid) {
 		Object postBody = null;
 
 		// create path and map variables
@@ -330,7 +330,7 @@ public class InternalDataControllerApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<ResidenceMetadataDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceMetadataDto>>() {
+		ParameterizedTypeReference<ResponseDto<ResidenceDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
