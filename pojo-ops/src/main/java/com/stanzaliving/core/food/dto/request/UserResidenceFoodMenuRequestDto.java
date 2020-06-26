@@ -6,6 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
+import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.operations.enums.MealType;
 
@@ -40,5 +41,7 @@ public class UserResidenceFoodMenuRequestDto {
 	private FoodItemBasePreference itemBasePreference;
 	
 	private FoodRegion foodRegion;
+	
+	private FoodItemType foodItemType;
 
 }

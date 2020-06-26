@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
+import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.operations.enums.MealType;
 
@@ -44,6 +45,10 @@ public class UserResidenceFoodMenuResponseDto {
 	private FoodRegion foodRegion;
 	
 	private String foodRegionName;
+	
+	private FoodItemType foodItemType;
+	
+	private String foodItemTypeName;
 	
 	private boolean defaultChoice;
 	
