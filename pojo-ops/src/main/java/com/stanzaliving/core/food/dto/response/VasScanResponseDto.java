@@ -21,11 +21,11 @@ import lombok.experimental.SuperBuilder;
 public class VasScanResponseDto {
 
 	private List<VasItemDto> vasItemDtos;
-	
+
 	private String mealType;
-	
+
 	private Date scanTime;
-	
+
 	private Double totalPayment;
 	
 	private boolean isMealReplacement; 
