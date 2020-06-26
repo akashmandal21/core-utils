@@ -1,5 +1,6 @@
 package com.stanzaliving.operations.dto.servicemix;
 
+import com.stanzaliving.core.enums.DataUnit;
 import com.stanzaliving.internet.enums.InternetVendor;
 
 import lombok.Getter;
@@ -12,4 +13,10 @@ public class Internet extends BooleanService {
 	private InternetVendor vendor;
 	private int devices;
 	private Double totalPrice;
+	private String planName;
+	private int data;
+	private DataUnit dataUnit;
+	private int speed;
+	private DataUnit speedUnit;
+	private int validity;
 }
