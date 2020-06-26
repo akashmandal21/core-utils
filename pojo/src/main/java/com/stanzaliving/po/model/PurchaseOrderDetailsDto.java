@@ -1,11 +1,14 @@
 package com.stanzaliving.po.model;
 
+import com.stanzaliving.po.enums.PoLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.Date;
 
 @Setter
 @Getter
@@ -40,5 +43,13 @@ public class PurchaseOrderDetailsDto {
     private String keyTerm;
 
     private String confirmatoryEmailUrl;
+
+    private PoLevel poLevel;
+
+    private String levelDetails;
+
+    private String poStartDate;
+
+    private String poEndDate;
 
 }

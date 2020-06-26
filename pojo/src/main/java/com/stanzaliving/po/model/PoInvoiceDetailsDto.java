@@ -39,4 +39,6 @@ public class PoInvoiceDetailsDto {
 
     private List<PoPaymentDetailsDto> poPaymentDetailsDtos;
 
+    private Double amountPaidToVendor;
+
 }

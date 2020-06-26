@@ -21,7 +21,10 @@ public enum PoStatus {
 	TH_PARTIAL_CANCELLATION_PENDING("Transformation Head Partial Cancellation Pending",1),
 	TH_PARTIALLY_CANCELLED("Partially Cancelled By Transformation Head",-1),
 	TH_CANCELLATION_PENDING("Transformation Head Cancellation Pending",1),
-	TH_CANCELLED("Cancelled By Transformation Head",-1);
+	TH_CANCELLED("Cancelled By Transformation Head",-1),
+	PO_CLOSED("Po Closed", 5),
+	SALES_CT_APPROVAL_PENDING("Sales Central Team Approval Pending",1),
+	SALES_CT_APPROVED("Approved By Sales Central Team",2);
 
 	private String status;
 	private Integer order;
