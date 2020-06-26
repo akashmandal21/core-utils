@@ -28,5 +28,7 @@ public class ServiceMixSerializableDto {
 	
 	private LocalDate fromDate;
 	
+	private boolean scheduled;
+	
     private Config config;
 }
