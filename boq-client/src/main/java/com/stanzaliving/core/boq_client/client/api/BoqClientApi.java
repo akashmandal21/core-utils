@@ -83,6 +83,29 @@ public class BoqClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public ResponseDto<TileStatusDto> getServiceMixTileStatus(TileDeciderDto tileDeciderDto) {
+        log.info("HTTP Client call to get Service Mix Tile Status dto with DTO {}", tileDeciderDto);
+
+        Object postBody = tileDeciderDto;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/serviceMix/get/property/tileStatus")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<TileStatusDto>> returnType = new ParameterizedTypeReference<ResponseDto<TileStatusDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
     public ResponseDto<PoResponseDto> getPropertyItems(String propertyId) {
 
         log.info("HTTP Client call to get Property Item Details by propertyIds " + propertyId);
