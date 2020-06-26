@@ -27,4 +27,6 @@ public class VasScanResponseDto {
 	private Date scanTime;
 
 	private Double totalPayment;
+	
+	private boolean isMealReplacement; 
 }

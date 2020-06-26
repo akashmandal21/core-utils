@@ -6,8 +6,12 @@ package com.stanzaliving.core.food.dto;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-
+import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.food.enums.FoodItemBasePreference;
+import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,16 +39,30 @@ public class FoodMenuCategoryDto extends AbstractDto {
 
 	private String cityName;
 
+	private String microMarketId;
+
+	private String microMarketName;
+
 	private List<ResidenceConfigDto> residences;
 
 	private boolean menuRulesSatisfied;
 
 	private boolean stanzaKitchenCategory;
-	
+
 	private List<ResidenceConfigDto> mappedResidences;
+
+	private ResidenceBrand residenceBrand;
+
+	private FoodRegion foodRegion;
+
+	private FoodServeType foodServeType;
+
+	private Double foodMargin;
 
 	private MenuType menuType;
 
 	private boolean dataComplete;
+
+	private List<FoodItemBasePreference> basePreferences;
 
 }
