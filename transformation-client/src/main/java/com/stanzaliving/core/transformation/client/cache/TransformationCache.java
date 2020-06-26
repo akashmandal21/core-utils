@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
+import com.stanzaliving.transformations.pojo.ResidenceDto;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.cache.CacheBuilder;
@@ -99,7 +100,7 @@ public class TransformationCache {
 		return name;
 	}
 
-	public ResidenceMetadataDto getResidenceDataFromUuid(String residenceUuid) {
+	public ResidenceDto getResidenceDataFromUuid(String residenceUuid) {
 		return internalDataControllerApi.getResidenceData(residenceUuid).getData();
 	}
 
