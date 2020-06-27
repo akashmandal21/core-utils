@@ -18,8 +18,7 @@ public enum PoType {
 	MERCHANDISE("Merchandise"),
 	MANPOWER("Manpower"),
 	MATERIAL_TRANSPORTATION("Material Transportation"),
-	FACILITATION_CHARGES("Facilitation Charges"),
-	OTHER("Others");
+	FACILITATION_CHARGES("Facilitation Charges");
 	
 	private String type;
 	
