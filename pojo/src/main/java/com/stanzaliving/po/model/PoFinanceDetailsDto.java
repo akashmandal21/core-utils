@@ -38,4 +38,6 @@ public class PoFinanceDetailsDto {
 
     private Double regularInvoiceAmount;
 
+    private String poTerms;
+
 }

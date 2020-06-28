@@ -40,13 +40,13 @@ public class PurchaseOrderDetailsDto {
     
     private boolean acceptRegularInvoices;
 
-    private String keyTerm;
-
     private String confirmatoryEmailUrl;
 
     private PoLevel poLevel;
 
-    private String levelDetails;
+    private String poLevelDetailId;
+
+    private String poLevelDetail;
 
     private String poStartDate;
 
