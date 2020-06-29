@@ -16,6 +16,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 public class ServiceMixSerializableDto {
+	private String uuid;
+	
 	private String residenceId;
 	
 	private String cityId;

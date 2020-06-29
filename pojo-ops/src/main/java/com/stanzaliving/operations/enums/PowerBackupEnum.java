@@ -1,5 +1,7 @@
 package com.stanzaliving.operations.enums;
 
+import com.stanzaliving.core.enums.helpers.EnumValue;
+
 import lombok.Getter;
 
 @Getter

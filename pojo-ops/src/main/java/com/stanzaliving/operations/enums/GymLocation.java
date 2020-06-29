@@ -1,5 +1,7 @@
 package com.stanzaliving.operations.enums;
 
+import com.stanzaliving.core.enums.helpers.EnumValue;
+
 public enum GymLocation implements EnumValue{
 	
 	IN_RESIDENCE("In-Residence"),

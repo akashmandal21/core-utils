@@ -1,5 +1,7 @@
 package com.stanzaliving.operations.enums;
 
+import com.stanzaliving.core.enums.helpers.EnumValue;
+
 public enum TransportAvailabilityMode implements EnumValue{
 	PICKUP_DROP("Pick and Drop"),
 	PICKUP("Pick"),
