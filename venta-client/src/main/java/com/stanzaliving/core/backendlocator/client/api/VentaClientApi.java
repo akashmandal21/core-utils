@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -73,6 +74,18 @@ public class VentaClientApi {
 		
 		return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, null, returnType);
 		
+	}
+	public List<UserLuggageDto> getUsersWithLuggage() {
+
+		String path = UriComponentsBuilder.fromPath("/getAllLuggageUsers").buildAndExpand().toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		ParameterizedTypeReference<List<UserLuggageDto>> returnType = new ParameterizedTypeReference<List<UserLuggageDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, null, returnType);
+
 	}
 
 }
