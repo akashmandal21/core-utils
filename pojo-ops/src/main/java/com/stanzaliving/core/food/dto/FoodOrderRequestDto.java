@@ -3,6 +3,9 @@ package com.stanzaliving.core.food.dto;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,15 +24,17 @@ public class FoodOrderRequestDto {
 
 	private String groupOrderId;
 
+	@NotBlank(message = "Residence Id is mandatory")
 	private String residenceId;
 
 	private String residenceName;
 
+	@NotNull(message = "Food Order Date is mandatory")
 	private LocalDate menuDate;
 
 	@Builder.Default
 	private Boolean ordered = false;
-	
+
 	@Builder.Default
 	private Boolean withinBudget = false;
 

@@ -19,4 +19,6 @@ public class VasItemOrderDto {
 
 	private Integer quantity;
 
+	private Integer weight;
+
 }
