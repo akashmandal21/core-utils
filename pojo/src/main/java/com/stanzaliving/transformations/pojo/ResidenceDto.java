@@ -46,4 +46,6 @@ public class ResidenceDto extends AbstractDto {
 	private Integer coreResidenceId;
 
 	private String coreResidenceName;
+	
+	private String residenceSlug;
 }
