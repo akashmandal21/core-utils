@@ -10,6 +10,13 @@ public enum ItemType {
     BOI("BOI"),
     GC("GC"),
     ASIS("As-Is"),
+    COLLATERAL("Collateral"),
+    BRANDING("Branding"),
+    TRANSIT_MEDIA("Transit Media"),
+    MERCHANDISE("Merchandise"),
+    MANPOWER("Manpower"),
+    MATERIAL_TRANSPORTATION("Material Transportation"),
+    FACILITATION_CHARGES("Facilitation Charges"),
     OTHER("Others");
 
     private String typeText;

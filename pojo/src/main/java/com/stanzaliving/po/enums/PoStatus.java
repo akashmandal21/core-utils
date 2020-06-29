@@ -1,30 +1,42 @@
 package com.stanzaliving.po.enums;
 
+import com.stanzaliving.core.base.enums.Department;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import java.util.Arrays;
+import java.util.List;
 
 @AllArgsConstructor
 @Getter
 public enum PoStatus {
 
+    IN_DRAFT("In Draft", 0, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.SALES)),
+    TH_APPROVAL_PENDING("Transformation Head Approval Pending", 1, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS)),
+    TH_APPROVED("Approved By Transformation Head", 2, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS)),
+    SENT_BACK_BY_TH("Sent Back By Transformation Head", -1, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS)),
+    TH_PARTIAL_CANCELLATION_PENDING("Transformation Head Partial Cancellation Pending", 1, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS)),
+    TH_PARTIALLY_CANCELLED("Partially Cancelled By Transformation Head", -1, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS)),
+    TH_CANCELLATION_PENDING("Transformation Head Cancellation Pending", 1, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS)),
+    TH_CANCELLED("Cancelled By Transformation Head", -1, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS)),
+    SALES_CT_APPROVAL_PENDING("Sales Central Team Approval Pending", 1, Arrays.asList(Department.SALES)),
+    SALES_CT_APPROVED("Approved By Sales Central Team", 2, Arrays.asList(Department.SALES)),
+    SENT_BACK_BY_SALES_CT("Sent Back By Sales Central Team", -1, Arrays.asList(Department.SALES)),
+    SALES_CT_PARTIAL_CANCELLATION_PENDING("Sales Central Team Partial Cancellation Pending", 1, Arrays.asList(Department.SALES)),
+    SALES_CT_PARTIALLY_CANCELLED("Partially Cancelled By Sales Central Team", -1, Arrays.asList(Department.SALES)),
+    SALES_CT_CANCELLATION_PENDING("Sales Central Team Cancellation Pending", 1, Arrays.asList(Department.SALES)),
+    SALES_CT_CANCELLED("Cancelled By Sales Central Team", -1, Arrays.asList(Department.SALES)),
+    WORK_COMPLETED("Work Completed", 3, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS, Department.SALES)),
+    INVOICE_SUBMITTED("Invoice Submitted", 4, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS, Department.SALES, Department.FINANCE)),
+    PO_CLOSED("Po Closed", 5, Arrays.asList(Department.SALES)),
+    SENT_BACK_BY_FINANCE("Sent back by finance", 8, Arrays.asList(Department.LEADERSHIP));
 
-	IN_DRAFT("In Draft",0),
-	TH_APPROVAL_PENDING("Transformation Head Approval Pending",1),
-	TH_APPROVED("Approved By Transformation Head",2),
-	SENT_BACK_BY_TH("Sent Back By Transformation Head",-1),
-	LEADERSHIP_APPROVAL_PENDING("Leadership Approval Pending",-1), //REMOVED
-	LEADERSHIP_APPROVED("Approved By Leadership",-1), //REMOVED
-	SENT_BACK_BY_LEADERSHIP("Sent Back By Leadership",-1),//REMOVED
-	WORK_COMPLETED("Work Completed",3),
-	INVOICE_SUBMITTED("Invoice Submitted",4),
-	SENT_BACK_BY_FINANCE("Sent Back By Finance",-1),
-	TH_PARTIAL_CANCELLATION_PENDING("Transformation Head Partial Cancellation Pending",1),
-	TH_PARTIALLY_CANCELLED("Partially Cancelled By Transformation Head",-1),
-	TH_CANCELLATION_PENDING("Transformation Head Cancellation Pending",1),
-	TH_CANCELLED("Cancelled By Transformation Head",-1);
+    private String status;
 
-	private String status;
-	private Integer order;
+    private Integer order;
+
+    private List<Department> departments;
+
 }
 
 

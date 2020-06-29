@@ -15,7 +15,8 @@ public enum UnitType {
 	KILOGRAM("kg"),
 	RFT("Running Feet"),
 	LS("Lump sum"),
-	PER_BED("Per Bed");
+	PER_BED("Per Bed"),
+	MANDAYS("Mandays");
 
 	private String unitName;
 

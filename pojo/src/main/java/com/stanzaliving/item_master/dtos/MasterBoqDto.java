@@ -1,8 +1,13 @@
 package com.stanzaliving.item_master.dtos;
 
 import com.stanzaliving.item_master.enums.AcquisitionType;
+import com.stanzaliving.item_master.enums.ConsumptionPattern;
 import com.stanzaliving.item_master.enums.DimensionUnits;
+import com.stanzaliving.item_master.enums.ItemMaterial;
 import com.stanzaliving.item_master.enums.ItemType;
+import com.stanzaliving.item_master.enums.OrderingPattern;
+import com.stanzaliving.item_master.enums.ProductionTimeUnit;
+import com.stanzaliving.item_master.enums.StorageType;
 import com.stanzaliving.transformations.enums.AreaOfUse;
 import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.SubBrandName;
@@ -52,6 +57,14 @@ public class MasterBoqDto {
     private String cgst;
     private String igst;
     private String sgst;
+    private String hsnCode;
+    private StorageType storageType;
+    private OrderingPattern orderingPattern;
+    private ConsumptionPattern consumptionPattern;
+    private ItemMaterial itemMaterial;
+    private Float productionTime;
+    private ProductionTimeUnit productionTimeUnit;
+    private String itemTypeStr;
 
     //For Native Queries. SqlResultSetMapped to MasterBoq in ItemMasterDetails
     public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
@@ -68,14 +81,16 @@ public class MasterBoqDto {
         this.itemType = Enum.valueOf(ItemType.class,itemUseType);
         this.particular = particular;
         this.descSpec = descSpec;
-        this.acquisitionType = Enum.valueOf(AcquisitionType.class, acquisitionType);
-        this.orderUnit = Enum.valueOf(UnitType.class,orderUnit);
+        this.acquisitionType = Objects.nonNull(acquisitionType) ? Enum.valueOf(AcquisitionType.class, acquisitionType) : null;
+        this.orderUnit = Objects.nonNull(orderUnit) ? Enum.valueOf(UnitType.class,orderUnit) : null;
         this.length = length;
         this.breadth = breadth;
         this.height = height;
         this.thumbnailUrl = thumbnailUrl;
         this.imageUrl=imageUrl;
         this.docUrl=specDocumentUrl;
+        this.itemTypeStr = Enum.valueOf(ItemType.class,itemUseType).getTypeText();
+
     }
 
     //For Native Queries. SqlResultSetMapped to MasterBoqForDesign in ItemMasterDetails
@@ -84,19 +99,21 @@ public class MasterBoqDto {
                         String particular, String descSpec,
                         String acquisitionType, String orderUnit, String length, String breadth, String height,
                         String thumbnailUrl,String imageUrl,String specDocumentUrl,String brandNames, String subBrandNames, String areaOfUseList,
-                        String cgst, String igst, String sgst) {
+                        String cgst, String igst, String sgst, String hsnCode) {
         this.lastUpdatedAt=lastUpdatedAt;
         this.categoryUuid=categoryUuid;
         this.itemId = itemId;
         this.itemUuid = itemUuid;
         this.itemCode = itemCode;
         this.categoryName = categoryName;
-        this.itemType = Enum.valueOf(ItemType.class,itemUseType);
+        this.itemType = Enum.valueOf(ItemType.class, itemUseType);
         this.particular = particular;
         this.descSpec = descSpec;
-        this.acquisitionType = Enum.valueOf(AcquisitionType.class, acquisitionType);
-        this.acquisitionTypeText=this.acquisitionType.getAcTypeText();
-        this.orderUnit = Enum.valueOf(UnitType.class,orderUnit);
+        if (Objects.nonNull(acquisitionType)) {
+            this.acquisitionType = Enum.valueOf(AcquisitionType.class, acquisitionType);
+            this.acquisitionTypeText=this.acquisitionType.getAcTypeText();
+        }
+        this.orderUnit = Objects.nonNull(orderUnit) ? Enum.valueOf(UnitType.class,orderUnit) : null;
         this.orderUnitText = (Objects.nonNull(this.orderUnit))?this.orderUnit.getUnitName():null;
         this.length = length;
         this.breadth = breadth;
@@ -108,11 +125,13 @@ public class MasterBoqDto {
             this.brandNames= Arrays.stream(brandNames.split(",")).map(f-> BrandName.valueOf(f.trim()).getBrand()).collect(Collectors.joining(", "));
         if(StringUtils.isNotEmpty(subBrandNames))
             this.subBrandNames=Arrays.stream(subBrandNames.split(",")).map(f-> SubBrandName.valueOf(f.trim()).getSubBrand()).collect(Collectors.joining(", "));;
-        this.areaOfUsesMap= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f.trim())).
-                collect(Collectors.toMap(f->f,f->f.getName()));
+        if(StringUtils.isNotEmpty(areaOfUseList))
+            this.areaOfUsesMap= Arrays.asList(areaOfUseList.split(",")).stream().map(f->AreaOfUse.valueOf(f.trim())).collect(Collectors.toMap(f->f,f->f.getName()));
         this.cgst = cgst;
         this.igst = igst;
         this.sgst = sgst;
+        this.hsnCode = hsnCode;
+        this.itemTypeStr = Enum.valueOf(ItemType.class, itemUseType).getTypeText();
     }
 
 }

@@ -1,5 +1,6 @@
 package com.stanzaliving.po.model;
 
+import com.stanzaliving.po.enums.PoType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +12,7 @@ public class PropertyItemDetailsDto {
 
     private String propertyId;
 
-    private String poType;
+    private PoType poType;
 
     private String itemId;
 
