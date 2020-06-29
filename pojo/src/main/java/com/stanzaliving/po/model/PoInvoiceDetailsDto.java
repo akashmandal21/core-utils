@@ -1,5 +1,6 @@
 package com.stanzaliving.po.model;
 
+import com.stanzaliving.po.enums.InvoiceStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -38,6 +39,8 @@ public class PoInvoiceDetailsDto {
     private Double amountPaid;
 
     private List<PoPaymentDetailsDto> poPaymentDetailsDtos;
+
+    private InvoiceStatus invoiceStatus;
 
     private Double amountPaidToVendor;
 

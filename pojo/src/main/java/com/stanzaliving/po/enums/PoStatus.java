@@ -28,8 +28,7 @@ public enum PoStatus {
     SALES_CT_CANCELLED("Cancelled By Sales Central Team", -1, Arrays.asList(Department.SALES)),
     WORK_COMPLETED("Work Completed", 3, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS, Department.SALES)),
     INVOICE_SUBMITTED("Invoice Submitted", 4, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS, Department.SALES, Department.FINANCE)),
-    PO_CLOSED("Po Closed", 5, Arrays.asList(Department.SALES)),
-    SENT_BACK_BY_FINANCE("Sent back by finance", 8, Arrays.asList(Department.LEADERSHIP));
+    PO_CLOSED("Po Closed", 5, Arrays.asList(Department.SALES));
 
     private String status;
 
