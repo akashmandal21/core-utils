@@ -1,9 +1,11 @@
 package com.stanzaliving.internet.enums;
 
+import com.stanzaliving.core.enums.helpers.EnumValue;
+
 import lombok.Getter;
 
 @Getter
-public enum InternetVendor {
+public enum InternetVendor implements EnumValue {
 
 	SPECTRA("SPECTRA"),
 	JIO("Jio");
@@ -16,6 +18,11 @@ public enum InternetVendor {
 
 	private InternetVendor(String vendor) {
 		this.vendor = vendor;
+	}
+
+	@Override
+	public String getValue() {
+		return vendor;
 	}
 
 }
