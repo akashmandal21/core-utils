@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class VasItemDto extends FoodMenuItemDto {
 
-//	private String residenceMenuId;
+	private String residenceMenuId;
 
 	private String itemId;
 	
