@@ -1,25 +1,26 @@
 package com.stanzaliving.wanda.response;
 
-import com.stanzaliving.wanda.enums.AlfredStep;
+import com.stanzaliving.core.user.enums.Gender;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Builder
 @AllArgsConstructor
-@Getter
-public class LoginResponse {
+public class UserPersonalDetailsUpdateResponse {
 	
 	private String firstName;
 	
 	private String lastName;
 	
-	private String mobile;
+	private String mobileNumber;
 	
 	private String email;
 	
-	private String userId;
+	private Gender gender;
 	
-	private AlfredStep alfredStep;
 }

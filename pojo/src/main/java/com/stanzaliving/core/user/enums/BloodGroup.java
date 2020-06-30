@@ -1,4 +1,4 @@
-package com.stanzaliving.wanda.enums;
+package com.stanzaliving.core.user.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
