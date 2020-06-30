@@ -7,8 +7,8 @@ import lombok.Setter;
 @Setter
 public class Config {
 	private FoodService foodService;
-	//private FoodComposition foodComposition;
-	//private FoodMenu foodMenu;
+	private FoodComposition foodComposition;
+	private FoodMenu foodMenu;
 	private InternetService internet;
 	private HouseKeeping houseKeeping;
 	private Security security;
