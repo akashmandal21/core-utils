@@ -23,6 +23,6 @@ public class PoResponse {
 
     private Boolean isShortCloseAllowed = Boolean.TRUE;
 
-    private Boolean isCancellationAllowed = Boolean.TRUE;
+    private Boolean isCancellationAllowed = Boolean.FALSE;
 
 }
