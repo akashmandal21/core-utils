@@ -35,7 +35,7 @@ public class InventoryOccupancyEntity implements Serializable {
 
     @Column(name = "BOOKING_ID")
 	@JsonProperty("BOOKING_ID")
-    private Integer bookingId;
+    private String bookingId;
 
     @Column(name = "INVENTORY_ID", nullable = false)
 	@JsonProperty("INVENTORY_ID")
