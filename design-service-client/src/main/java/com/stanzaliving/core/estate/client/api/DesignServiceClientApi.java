@@ -17,7 +17,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.designservice.enums.DesignStatus;
-import com.stanzaliving.designservice.response.dto.BedTypeCountResponseDto;
 import com.stanzaliving.designservice.response.dto.PropertyBedCountReponseDto;
 
 import lombok.extern.log4j.Log4j2;
