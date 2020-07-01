@@ -1,5 +1,8 @@
 package com.stanzaliving.core.user.enums;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -234,4 +237,17 @@ public enum Nationality {
 	ZIMBABWEAN("Zimbabwean");
 
 	private String name;
+
+	private static List<EnumListing<Nationality>> nationalities= new ArrayList<>();
+
+	static {
+		for (Nationality nationality : Nationality.values()) {
+			nationalities.add(EnumListing.of(nationality, nationality.getName()));
+		}
+	}
+	
+	public static List<EnumListing<Nationality>> getNationalities() {
+		return nationalities;
+	}
+
 }

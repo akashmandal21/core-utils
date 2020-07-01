@@ -1,5 +1,8 @@
 package com.stanzaliving.core.user.enums;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -17,4 +20,16 @@ public enum BloodGroup {
 	AB_NEGATIVE("AB-");
 
 	private String name;
+	
+	private static List<EnumListing<BloodGroup>> bloodGroups = new ArrayList<>();
+
+	static {
+		for (BloodGroup bloodGroup : BloodGroup.values()) {
+			bloodGroups.add(EnumListing.of(bloodGroup, bloodGroup.getName()));
+		}
+	}
+	
+	public static List<EnumListing<BloodGroup>> getBloodGroups() {
+		return bloodGroups;
+	}
 }
