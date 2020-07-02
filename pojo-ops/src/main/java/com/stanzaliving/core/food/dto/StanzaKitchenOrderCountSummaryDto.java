@@ -19,11 +19,11 @@ public class StanzaKitchenOrderCountSummaryDto {
 
 	private String mealName;
 
-	private Integer vegCount;
+	private String vegCount;
 
-	private Integer nonVegCount;
+	private String nonVegCount;
 
-	private Integer staffCount;
+	private String staffCount;
 
 	private List<ItemQuantityDto> vegItemQuantities;
 
