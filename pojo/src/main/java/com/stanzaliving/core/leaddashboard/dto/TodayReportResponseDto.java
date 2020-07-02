@@ -21,6 +21,7 @@ public class TodayReportResponseDto {
 	private int noOfFollowUps;
 	private int droppedPercentage;
 	private int followUpPercentage;
+	private int uniqueVisitCount;
 	
 	private boolean replaceData;
 	

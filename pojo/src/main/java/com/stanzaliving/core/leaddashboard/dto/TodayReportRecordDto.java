@@ -29,4 +29,5 @@ public class TodayReportRecordDto {
 	private int totalFollowUps;
 	private int totalFollowUpsPercentage;
 
+	private int uniqueVisitCount;
 }
