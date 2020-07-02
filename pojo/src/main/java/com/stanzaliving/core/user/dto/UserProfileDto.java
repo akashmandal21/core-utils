@@ -4,8 +4,11 @@
 package com.stanzaliving.core.user.dto;
 
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.user.enums.BloodGroup;
 import com.stanzaliving.core.user.enums.Gender;
 import com.stanzaliving.core.user.enums.MaritalStatus;
+import com.stanzaliving.core.user.enums.Nationality;
+
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -53,4 +56,9 @@ public class UserProfileDto extends UserDto {
 	private LocalDate anniversaryDate;
 
 	private Address address;
+	
+	private Nationality nationality;
+	
+	private BloodGroup bloodGroup;
+	
 }
