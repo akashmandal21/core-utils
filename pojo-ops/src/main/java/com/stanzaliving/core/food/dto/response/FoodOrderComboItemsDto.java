@@ -38,6 +38,8 @@ public class FoodOrderComboItemsDto {
 
 	private FoodItemType itemType;
 
+	private boolean quantifiable;
+
 	private Integer orderedQuantity;
 
 	private Double orderedWeight;
