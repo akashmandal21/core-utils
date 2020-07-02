@@ -14,8 +14,10 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommercialsResponseDto {
+    private String moveInDate;
     private String contractStartDate;
     private String contractPeriod;
+    private String stayLockInPeriod;
     private String contractEndDate;
     private MonthlyFeeDto monthlyFee;
     private Double securityDeposit;
