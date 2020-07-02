@@ -39,5 +39,5 @@ public class StanzaConstants {
 
 	public static final String MESSAGE_ID = "messageId";
 
-	public static final String YES_KEY = "YES";
+	public static final String NO_KEY = "NO";
 }
