@@ -20,8 +20,10 @@ import lombok.ToString;
 @Setter
 public class CommercialDetailsResponseDto {
 
-	private LocalDate moveInDate;
-
+	private String moveInDate;
+	
+	private String moveInDateStr;
+	
 	private String moveInDateText;
 	
 	private String contractStartDate;
