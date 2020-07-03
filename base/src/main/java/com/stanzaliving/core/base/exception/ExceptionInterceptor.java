@@ -201,6 +201,26 @@ public class ExceptionInterceptor {
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
+	@ExceptionHandler(RequestAlreadyApprovedException.class)
+	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
+	public <T> ResponseDto<T> handleRequestAlreadyApprovedException(RequestAlreadyApprovedException e) {
+
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got RequestAlreadyApprovedException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
+	@ExceptionHandler(RequestAlreadyRejectedException.class)
+	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
+	public <T> ResponseDto<T> handleRequestAlreadyRejectedException(RequestAlreadyRejectedException e) {
+
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got RequestAlreadyRejectedException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
 	@ExceptionHandler(RequestInProgressException.class)
 	@ResponseStatus(code = HttpStatus.ACCEPTED)
 	public <T> ResponseDto<T> handleRequestInProgressException(RequestInProgressException e) {

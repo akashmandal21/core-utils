@@ -38,8 +38,8 @@ public enum PricingStepStatus{
 	PENDING_ANDY_APPROVAL("Pending Andy Approval", Arrays.asList(EstateStatus.SIGNED_ATL_UPLOADED), "#f7ca18" ,12),
 	SENT_BACK("Sent Back",Arrays.asList(EstateStatus.SENT_BACK_BY_LEADERSHIP, EstateStatus.SENT_BACK_L1_BY_LEADERSHIP),"#00b5cc" ,13),
 	PENDING_ATL_UPLOADING("Pending ATL Uploading", Arrays.asList(EstateStatus.ATL_UPLOAD_PENDING,EstateStatus.SHORTLISTED,EstateStatus.SENT_BACK_BY_CENTRAL_BD_TEAM, EstateStatus.SENT_BACK_BY_LEGAL), "#131313" ,14),
-	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875" ,15);
-
+	PROPERTY_NAMING_DONE("Property Naming Done", Arrays.asList(EstateStatus.APPROVED_BY_LEADERSHIP), "#019875" ,15),
+    DROPPED("Property Naming Done", Arrays.asList(EstateStatus.DROPPED), "#019875" ,16);
 
 	private String pricingStatus;
 	
@@ -107,6 +107,8 @@ public enum PricingStepStatus{
 
 		statusMap.put(EstateStatus.SENT_FOR_SANDEEP_APPROVAL, PENDING_SANDEEP_APPROVAL);
 		statusMap.put(EstateStatus.SENT_BACK_BY_SANDEEP, SENT_BACK_BY_SANDEEP);
+		
+		statusMap.put(EstateStatus.DROPPED, DROPPED);
 
 
 	}

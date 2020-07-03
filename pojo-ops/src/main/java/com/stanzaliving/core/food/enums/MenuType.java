@@ -18,10 +18,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MenuType {
 
-	PURE_VEG("Pure Veg"),
-	VEG_AND_NON_VEG("Veg & Non-Veg");
+	PURE_VEG("Pure Veg", "PureVeg"),
+	VEG_AND_NON_VEG("Veg & Non-Veg", "VegNonVeg");
 
 	private String menuTypeName;
+
+	private String nameForCategory;
 
 	private static List<EnumListing<MenuType>> enumListings = new ArrayList<>();
 

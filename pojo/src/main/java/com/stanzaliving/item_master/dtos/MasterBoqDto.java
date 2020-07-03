@@ -1,7 +1,6 @@
 package com.stanzaliving.item_master.dtos;
 
 import com.stanzaliving.item_master.enums.AcquisitionType;
-import com.stanzaliving.item_master.enums.DimensionUnits;
 import com.stanzaliving.item_master.enums.ItemType;
 import com.stanzaliving.transformations.enums.AreaOfUse;
 import com.stanzaliving.transformations.enums.BrandName;
