@@ -4,8 +4,6 @@ import com.stanzaliving.core.operations.dto.report.RecordDto;
 import com.stanzaliving.core.operations.dto.report.food.ComplianceRecordDto;
 import com.stanzaliving.core.operations.dto.response.report.FeElementDto;
 import com.stanzaliving.core.operations.enums.FeElementType;
-import com.stanzaliving.core.operations.enums.MealType;
-
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 

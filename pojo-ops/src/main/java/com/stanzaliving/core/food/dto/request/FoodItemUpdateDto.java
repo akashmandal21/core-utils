@@ -43,4 +43,8 @@ public class FoodItemUpdateDto {
 	private FoodItemType foodItemType;
 
 	private Set<String> tagIds;
+	
+	private String subCategory;
+	
+	private boolean vasEnabled;
 }
