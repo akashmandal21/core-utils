@@ -7,14 +7,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
 public class ServiceMixSerializableDto {
 	private String uuid;
 	
@@ -32,5 +30,5 @@ public class ServiceMixSerializableDto {
 	
 	private boolean scheduled;
 	
-    private Config config;
+    private Config config = new Config();
 }
