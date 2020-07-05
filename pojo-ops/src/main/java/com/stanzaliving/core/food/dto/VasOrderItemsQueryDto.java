@@ -33,6 +33,8 @@ public class VasOrderItemsQueryDto {
 
 	private String itemName;
 
+	private boolean quantifiable;
+
 	private Integer orderedQuantity;
 
 	private Integer orderedWeight;
