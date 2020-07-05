@@ -35,7 +35,7 @@ public class VasOrderItemsQueryDto {
 
 	private boolean quantifiable;
 
-	private Integer orderedQuantity;
+	private Integer orderQuantity;
 
-	private Integer orderedWeight;
+	private Integer unitWeight;
 }

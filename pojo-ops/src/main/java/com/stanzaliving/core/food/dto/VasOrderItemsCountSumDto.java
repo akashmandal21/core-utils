@@ -36,5 +36,5 @@ public class VasOrderItemsCountSumDto {
 
 	private Integer itemCount;
 
-	private Integer orderedQuantity;
+	private Integer orderQuantity;
 }
