@@ -23,6 +23,8 @@ public class MenuCategoryStatusResponseDto {
 	
 	private String categoryName;
 	
+	private String micromarketName;
+	
 	private boolean menuCreated;
 
 }
