@@ -21,7 +21,7 @@ public enum DateFormat {
 	MONTH_FULL_NAME("MMMM"),
 	DD_MMM("dd MMM"),
 	DD_MMM_YY("dd MMM''YY"),
-	D_DD_MMM_YY("EEE, DD MMM''YY"),
+	D_DD_MMM_YY("EEE, dd MMM''YY"),
 	WEEK_OF_YEAR("w"),
 	YEAR_IN_WEEK_OF_YEAR("YYYY"),
 	DAY_OF_MONTH("d"),
