@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.enums;
 
