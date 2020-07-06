@@ -13,7 +13,7 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class PaymentPlanGetResponse {
+public class BookingChargesDto {
 
 	private String bookingId;
 	
