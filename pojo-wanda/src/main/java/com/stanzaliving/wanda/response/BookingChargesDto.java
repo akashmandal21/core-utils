@@ -33,6 +33,8 @@ public class BookingChargesDto {
 	
 	private String advanceRentMonths;
 	
+	private Double totalDiscount;
+	
 	private double minimumAmount;
 	
 	private String payAmountText;
