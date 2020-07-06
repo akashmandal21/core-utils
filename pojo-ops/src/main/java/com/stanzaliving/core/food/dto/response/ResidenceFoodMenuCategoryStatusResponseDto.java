@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto.response;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,16 +16,24 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidenceFoodMenuCategoryDraftResponseDto {
-	
+public class ResidenceFoodMenuCategoryStatusResponseDto {
+
 	private boolean draftAvailable;
-	
+
 	private String menuCategory;
-	
+
 	private String menuCategoryName;
-	
+
 	private LocalDate startDate;
-	
+
 	private boolean serviceMixUpdate;
+
+	private boolean submitForApprovalEnable;
+
+	private boolean approvalPending;
+	
+	private LocalDateTime submitDateTime;
+	
+	private String message;
 
 }
