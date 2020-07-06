@@ -37,5 +37,7 @@ public class VasOrderItemsQueryDto {
 
 	private Integer orderQuantity;
 
-	private Integer unitWeight;
+	private Integer grammageQuantity;
+
+	private Integer unitGrammageWeight;
 }
