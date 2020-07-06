@@ -30,6 +30,8 @@ public class CommercialDetailsResponseDto {
 	private String contractPeriod;
 	
 	private String contractPeriodText;
+
+	private int contractId;
 	
 	private MonthlyFeeDto monthlyFeeDto;
 	

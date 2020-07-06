@@ -17,6 +17,7 @@ public class CommercialsResponseDto {
     private String contractStartDate;
     private String contractPeriod;
     private double contractMonths;
+    private int contractId;
     private String stayLockInPeriod;
     private String contractEndDate;
     private MonthlyFeeDto monthlyFee;
