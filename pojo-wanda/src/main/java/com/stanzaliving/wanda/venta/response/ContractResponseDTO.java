@@ -17,4 +17,6 @@ public class ContractResponseDTO {
     private double months;
 
     private boolean enabled;
+    
+    private String amountSavedText;
 }
