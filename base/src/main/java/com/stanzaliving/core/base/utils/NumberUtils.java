@@ -99,6 +99,8 @@ public class NumberUtils {
 			return null;
 		}
 		
-		return india.format(amount);
+		int intamount = amount.intValue();
+		
+		return india.format(intamount);
 	}
 }

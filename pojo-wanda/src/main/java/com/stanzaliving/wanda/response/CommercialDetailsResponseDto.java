@@ -1,8 +1,5 @@
 package com.stanzaliving.wanda.response;
 
-import java.time.LocalDate;
-import java.util.List;
-
 import com.stanzaliving.wanda.venta.response.MonthlyFeeDto;
 
 import lombok.AllArgsConstructor;
@@ -50,6 +47,6 @@ public class CommercialDetailsResponseDto {
 	
 	private String advanceFeeText;
 	
-	private List<String> advanceFeeDescription;
+	private String advanceFeeDescription;
 	
 }
