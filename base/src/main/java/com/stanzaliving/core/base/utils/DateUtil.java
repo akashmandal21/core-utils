@@ -1,11 +1,22 @@
 package com.stanzaliving.core.base.utils;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.*;
+import java.time.DayOfWeek;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+import java.time.Period;
+import java.time.YearMonth;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -21,7 +32,6 @@ import org.apache.commons.text.CaseUtils;
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.enums.DatePart;
-import static com.google.common.base.Preconditions.*;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
@@ -664,6 +674,11 @@ public class DateUtil {
 		return datePart
 				+ getDayOfMonthSuffix(datePart) + " "
 				+ customDateFormatter(dateInput, DateFormat.MMMM_YYYY);
+	}
+	
+	public static LocalDate getNextDayOfWeek(LocalDate date, DayOfWeek day) {
+
+		return date.with(TemporalAdjusters.next(day));
 	}
 
 }
