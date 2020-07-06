@@ -1,5 +1,7 @@
 package com.stanzaliving.wanda.venta.response;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,17 +19,17 @@ public class PaymentInitialResponseDto {
 	
 	private DiscountResponseDto discountResponseDto;
 	
-	private double securityDeposit;
+	private Double securityDeposit;
 	
-	private double maintenanceAmount;
+	private Double maintenanceAmount;
 
-	private double advanceRent;
+	private Double advanceRent;
 	
-	private double totalAmount;
+	private Double totalAmount;
 	
-	private int advanceRentMonths;
+	private Integer advanceRentMonths;
 	
-	private double minimumAmount;
+	private Double minimumAmount;
 	
-	private double contractStartDate;
+	private LocalDate contractStartDate;
 }

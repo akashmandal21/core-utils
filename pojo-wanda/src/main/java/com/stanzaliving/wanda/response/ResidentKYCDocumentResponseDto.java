@@ -2,6 +2,7 @@ package com.stanzaliving.wanda.response;
 
 import java.util.List;
 
+import com.stanzaliving.wanda.enums.DocumentSideType;
 import com.stanzaliving.wanda.enums.DocumentUploadType;
 
 import lombok.AllArgsConstructor;
@@ -22,5 +23,9 @@ public class ResidentKYCDocumentResponseDto {
 	private List<DocumentUploadType> validDocuments;
 	
 	private DocumentUploadType[] documentTypes;
+	
+	private List<DocumentUploadType> dualSideDocuments;
+	
+	private DocumentSideType[] documentSideTypes;
 	
 }

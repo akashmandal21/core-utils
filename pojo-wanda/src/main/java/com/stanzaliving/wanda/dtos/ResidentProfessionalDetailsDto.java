@@ -9,12 +9,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
+@ToString
 public class ResidentProfessionalDetailsDto {
 
 	@NotBlank(message = "User Id is Required")

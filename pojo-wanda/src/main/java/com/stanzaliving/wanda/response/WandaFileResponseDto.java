@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.response;
 
+import com.stanzaliving.wanda.enums.DocumentSideType;
 import com.stanzaliving.wanda.enums.DocumentUploadType;
 import com.stanzaliving.wanda.enums.ResidentDocumentContext;
 
@@ -19,6 +20,8 @@ public class WandaFileResponseDto {
 	private ResidentDocumentContext residentDocumentContext;
 	
 	private DocumentUploadType documentUploadType;
+	
+	private DocumentSideType documentSideType;
 	
 	private String filePath;
 	

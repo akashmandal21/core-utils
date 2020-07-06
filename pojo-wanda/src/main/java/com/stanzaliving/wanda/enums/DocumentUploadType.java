@@ -11,6 +11,8 @@ public enum DocumentUploadType {
 
 	private static List<DocumentUploadType> foriegnDocumentTypes = new ArrayList<DocumentUploadType>(4);
 	
+	private static List<DocumentUploadType> dualSideDocuments = new ArrayList<DocumentUploadType>(4);
+	
 	static {
 		indianDocumentTypes.add(DRIVING_LICENSE);
 		indianDocumentTypes.add(OTHERS);
@@ -19,6 +21,10 @@ public enum DocumentUploadType {
 	
 		foriegnDocumentTypes.add(PASSPORT);
 		foriegnDocumentTypes.add(VISA);
+		
+		dualSideDocuments.add(PASSPORT);
+		dualSideDocuments.add(ADHAAR_CARD);
+		dualSideDocuments.add(DRIVING_LICENSE);
 	}
 	
 	public static List<DocumentUploadType> getIndianDocuments(){
@@ -27,5 +33,9 @@ public enum DocumentUploadType {
 	
 	public static List<DocumentUploadType> getForeignDocuments(){
 		return foriegnDocumentTypes;
+	}
+	
+	public static List<DocumentUploadType> getDualSideDocuments(){
+		return dualSideDocuments;
 	}
 }
