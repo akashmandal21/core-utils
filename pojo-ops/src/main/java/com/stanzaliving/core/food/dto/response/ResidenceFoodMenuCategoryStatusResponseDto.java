@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.response;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,5 +36,7 @@ public class ResidenceFoodMenuCategoryStatusResponseDto {
 	private Date submitDateTime;
 	
 	private String message;
+	
+	private List<String> approvers;
 
 }
