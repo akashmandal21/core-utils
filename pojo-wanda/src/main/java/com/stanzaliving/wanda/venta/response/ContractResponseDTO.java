@@ -17,6 +17,8 @@ public class ContractResponseDTO {
     private double months;
 
     private boolean enabled;
-    
-    private String amountSavedText;
+
+    private Double discountAmount = 0.0;
+
+    private String discountCode;
 }
