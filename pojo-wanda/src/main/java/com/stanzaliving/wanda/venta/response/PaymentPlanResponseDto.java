@@ -13,6 +13,5 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaymentPlanResponseDto {
-
-
+    private List<InstallmentResponseDto> paymentPlan;
 }
