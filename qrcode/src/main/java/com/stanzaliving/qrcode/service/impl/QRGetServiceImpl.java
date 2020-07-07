@@ -2,11 +2,11 @@ package com.stanzaliving.qrcode.service.impl;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.Objects;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -54,11 +54,16 @@ public class QRGetServiceImpl implements QRGetService {
 		QRData qrEntity = qrDataRepository.findByContextIdAndSubContextIdAndQrContextType(contextId, subContextId, qrContextType);
 
 		if (qrEntity != null) {
+
+			log.info("QR already exists for contextType: {} with contextId: {} and subcontextId: {}", qrContextType, contextId, subContextId);
+
 			return s3DownloadService.getPreSignedUrl(s3Bucket, qrEntity.getFilePath(), 3600, s3Client);
 		}
 
 		try {
-			
+
+			log.info("Generating QR for contextType: {} with contextId: {} and subcontextId: {}", qrContextType, contextId, subContextId);
+
 			String qrContent = ((Long) System.nanoTime()).toString();
 			BufferedImage image = QRGeneratorUtility.generateQRImageUsingLong(qrContent);
 
@@ -71,7 +76,9 @@ public class QRGetServiceImpl implements QRGetService {
 
 			String outputFile = s3UploadService.upload(s3Bucket, filePath, fileName, outputfile, MediaType.IMAGE_JPEG_VALUE, s3Client, false);
 
-			if (Objects.nonNull(outputFile)) {
+			if (StringUtils.isNotBlank(outputFile)) {
+
+				log.info("Generated QR on path: {}", outputFile);
 
 				QRData qrData = QRData.builder().contextId(contextId).data(qrContent).qrContextType(qrContextType)
 						.subContextId(subContextId).bucket(s3Bucket).content(data).filePath(outputFile).fileName(fileName)
@@ -82,8 +89,10 @@ public class QRGetServiceImpl implements QRGetService {
 				return s3DownloadService.getPreSignedUrl(s3Bucket, outputFile, 3600, s3Client);
 			}
 
-		} catch (IOException e) {
-			log.error("Got error while generating image ", e);
+			log.warn("Failed to upload file: {} on path: {} on s3", fileName, filePath);
+
+		} catch (Exception e) {
+			log.error("Got error while generating QR: ", e);
 		}
 
 		return null;
