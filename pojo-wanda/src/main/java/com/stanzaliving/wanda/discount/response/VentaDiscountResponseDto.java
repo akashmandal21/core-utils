@@ -14,13 +14,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class VentaDiscountResponseDto {
-    String discountCode;
-    Boolean canBeApplied;
-    Double amount;
-    DiscountValueType discountValueType;
-    DiscountValue discountValue;
-    Double percentageOfRent;
-    Boolean isAutomatic;
-    List<String> description;
+    private String discountCode;
+    private Boolean canBeApplied;
+    private Double amount;
+    private DiscountValueType discountValueType;
+    private DiscountValue discountValue;
+    private Double percentageOfRent;
+    private Boolean isAutomatic;
+    private List<String> description;
     private BookingDiscountCriteriasDto bookingDiscountCriterias;
 }

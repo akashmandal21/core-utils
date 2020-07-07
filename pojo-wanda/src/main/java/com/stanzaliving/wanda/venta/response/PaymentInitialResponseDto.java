@@ -19,6 +19,8 @@ public class PaymentInitialResponseDto {
 	
 	private DiscountResponseDto discountResponseDto;
 	
+	private int installmentMonth;
+	
 	private Double securityDeposit;
 	
 	private Double maintenanceAmount;
