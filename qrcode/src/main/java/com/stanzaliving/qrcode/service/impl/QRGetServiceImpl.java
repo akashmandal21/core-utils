@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 
 import com.amazonaws.services.s3.AmazonS3;
@@ -68,7 +69,7 @@ public class QRGetServiceImpl implements QRGetService {
 
 			ImageIO.write(image, "jpg", outputfile);
 
-			String outputFile = s3UploadService.upload(s3Bucket, filePath, fileName, outputfile, "jpeg", s3Client, false);
+			String outputFile = s3UploadService.upload(s3Bucket, filePath, fileName, outputfile, MediaType.IMAGE_JPEG_VALUE, s3Client, false);
 
 			if (Objects.nonNull(outputFile)) {
 
