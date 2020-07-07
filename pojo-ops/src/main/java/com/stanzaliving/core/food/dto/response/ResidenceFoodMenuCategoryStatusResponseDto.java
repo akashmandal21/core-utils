@@ -44,5 +44,9 @@ public class ResidenceFoodMenuCategoryStatusResponseDto {
 	private String upcomingCategory;
 	
 	private LocalDate upcomingCategoryEffectiveStartDate;
+	
+	private String draftCategory;
+	
+	private String draftCategoryName;
 
 }
