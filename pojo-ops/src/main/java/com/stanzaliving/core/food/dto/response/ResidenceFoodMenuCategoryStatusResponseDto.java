@@ -38,5 +38,11 @@ public class ResidenceFoodMenuCategoryStatusResponseDto {
 	private String message;
 	
 	private List<String> approvers;
+	
+	private boolean upcomingCategoryExists;
+	
+	private String upcomingCategory;
+	
+	private LocalDate upcomingCategoryEffectiveStartDate;
 
 }
