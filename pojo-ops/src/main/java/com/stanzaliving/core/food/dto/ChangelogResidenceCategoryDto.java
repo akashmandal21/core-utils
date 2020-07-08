@@ -37,4 +37,6 @@ public class ChangelogResidenceCategoryDto {
 	private LocalDate changedDate;
 
 	private String changedBy;
+	
+	private String action;
 }
