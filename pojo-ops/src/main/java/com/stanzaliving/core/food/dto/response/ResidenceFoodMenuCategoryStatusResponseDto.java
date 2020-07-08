@@ -26,7 +26,7 @@ public class ResidenceFoodMenuCategoryStatusResponseDto {
 	private String menuCategoryName;
 
 	private LocalDate startDate;
-
+	
 	private boolean serviceMixUpdate;
 
 	private boolean submitForApprovalEnable;
@@ -48,5 +48,7 @@ public class ResidenceFoodMenuCategoryStatusResponseDto {
 	private String draftCategory;
 	
 	private String draftCategoryName;
+	
+	private LocalDate draftStartdate;
 
 }
