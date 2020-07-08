@@ -18,7 +18,7 @@ public enum ItemType {
     MATERIAL_TRANSPORTATION("Material Transportation"),
     FACILITATION_CHARGES("Facilitation Charges"),
     OTHER("Others"),
-    LABOUR("Labour");
+    MISCELLANEOUS("Miscellaneous");
 
 
     private String typeText;

@@ -32,7 +32,8 @@ public enum ItemMaterial {
     PLASTIC("Plastic"),
     MULTIPLE("Multiple"),
     METAL_AND_PLASTIC("Metal & Plastic"),
-    NYLON_COATED_METAL_AND_PLASTIC("Nylon, Coated Metal & Plastic");
+    NYLON_COATED_METAL_AND_PLASTIC("Nylon, Coated Metal & Plastic"),
+    LABOUR("Labour");
 
     private String itemMaterialText;
 
