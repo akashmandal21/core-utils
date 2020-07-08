@@ -18,4 +18,6 @@ public class ChangeContractDto {
 	private String amountSavedText;
 	
 	private boolean currentlySelected;
+	
+	private String couponCode;
 }
