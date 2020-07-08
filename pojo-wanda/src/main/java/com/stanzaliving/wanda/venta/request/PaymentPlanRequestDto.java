@@ -15,7 +15,6 @@ import javax.validation.constraints.NotNull;
 public class PaymentPlanRequestDto {
     @NotNull
     private String bookingUuid;
-    @NotNull
     private String installmentType;
     @Builder.Default
     private Boolean savePaymentPlan = Boolean.FALSE;
