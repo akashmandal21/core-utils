@@ -42,6 +42,8 @@ public class CategoryNameRequestDto {
 	private FoodRegion foodRegion;
 	
 	private MenuType menuType;
+	
+	private String suffix;
 
 	@Min(0)
 	@Max(7)
