@@ -1,9 +1,10 @@
 package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -15,15 +16,10 @@ import java.time.LocalDate;
 @Setter
 @ToString
 @SuperBuilder
-@AllArgsConstructor
 @NoArgsConstructor
-public class DateDto {
-	private LocalDate startDate;
+@AllArgsConstructor
+public class MealVendorsQueryDto {
+	private MealType mealType;
 
-	private String startDateFormat;
-
-	private LocalDate endDate;
-
-	private String endDateFormat;
-
+	private List<String> vendorIds;
 }
