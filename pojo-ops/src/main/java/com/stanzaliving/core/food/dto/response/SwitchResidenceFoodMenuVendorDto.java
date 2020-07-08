@@ -14,26 +14,10 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SwitchResidenceFoodMenuVendorDto {
-	private String residenceId;
-
-	private String residenceName;
-
-	private String cityId;
-
-	private String cityName;
-
-	private String menuCategoryId;
-
-	private String menuCategoryName;
-
-	private Set<String> currentVendors;
-
-	private String residenceBrand;
-
-	private String gender;
+public class SwitchResidenceFoodMenuVendorDto extends ResidenceVendorResponseDto {
+	private List<DateWiseMealVendorDto> mealVendors;
 }
