@@ -30,6 +30,7 @@ public class FoodServiceClientApi {
 	}
 
 	public FoodMenuCategoryBasicDetailsDto getMenuCategory(String id) {
+
 		ResponseDto<FoodMenuCategoryBasicDetailsDto> responseDto = null;
 		String path = UriComponentsBuilder.fromPath("/internal/menu/category/getById/{id}").buildAndExpand(id).toUriString();
 
@@ -48,7 +49,7 @@ public class FoodServiceClientApi {
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("exception while listing internet plans", e);
+			log.error("Error while fetching basic details for menu category: {}", id, e);
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
@@ -76,7 +77,7 @@ public class FoodServiceClientApi {
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("exception while listing internet plans", e);
+			log.error("Error while seaching menu categories for city: {} with name: {}", cityId, name, e);
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
@@ -102,20 +103,20 @@ public class FoodServiceClientApi {
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("exception while listing internet plans", e);
+			log.error("Error while fetching list of tags: ", e);
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
 
 	}
-	
+
 	public FullCategoryDto getFullCategoryById(String id) {
 		ResponseDto<FullCategoryDto> responseDto = null;
 		String path = UriComponentsBuilder.fromPath("/internal/menu/category/getFullCategoryById").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.put("categoryId", Arrays.asList(id));
-		
+
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {
@@ -129,20 +130,20 @@ public class FoodServiceClientApi {
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("exception while listing internet plans", e);
+			log.error("Error while fetching menu category details for id: {}", id, e);
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
 
 	}
-	
+
 	public FullCategoryDto getFullCategoryByName(String name) {
 		ResponseDto<FullCategoryDto> responseDto = null;
 		String path = UriComponentsBuilder.fromPath("/internal/menu/category/getFullCategoryByName").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.put("categoryName", Arrays.asList(name));
-		
+
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {
@@ -156,7 +157,7 @@ public class FoodServiceClientApi {
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("exception while listing internet plans", e);
+			log.error("Error while fetching menu category details by name: {}", name, e);
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
