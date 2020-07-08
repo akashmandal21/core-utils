@@ -9,8 +9,8 @@ import java.util.Map;
 @AllArgsConstructor
 @Getter
 public enum InvoiceType {
-    RENTAL(0), SERVICES(1), BOOKING(2), VAS(3), PENALTY(4), ANNUAL_MAINTENANCE(5), SECURITY_DEPOSIT(6),
-    CREDIT_NOTE(7);
+    RENTAL(0), SERVICES(1), BOOKING(2), VAS(3), PENALTY(4), ANNUAL_MAINTENANCE(5), SECURITY_DEPOSIT(6), FOOD(7), PROCESSING(8),
+    CREDIT_NOTE(-1);
 
     private int id;
 
