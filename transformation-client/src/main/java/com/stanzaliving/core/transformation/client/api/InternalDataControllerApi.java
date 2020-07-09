@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.transformation.client.api;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -309,6 +310,52 @@ public class InternalDataControllerApi {
 		ParameterizedTypeReference<ResponseDto<TileStatusDto>> returnType = new ParameterizedTypeReference<ResponseDto<TileStatusDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<ResidenceDto> getResidenceData(String residenceUuid) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/residence/get").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.put("residenceUuid", Arrays.asList(residenceUuid));
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<ResidenceDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<MicroMarketMetadataDto> getMicromarketData(String micromarketUuid) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("micromarketUuid",micromarketUuid);
+		String path = UriComponentsBuilder.fromPath("/internal/micromarket/get/{micromarketUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<MicroMarketMetadataDto>> returnType = new ParameterizedTypeReference<ResponseDto<MicroMarketMetadataDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
 	}
 
 	public ResponseDto<List<ResidenceMetadataDto>> getAllResidences() {

@@ -3,6 +3,11 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.util.Date;
+import java.util.List;
+
+import com.stanzaliving.core.food.enums.MealRequestReplacementStatus;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -18,13 +23,15 @@ public class MealReplacementResponseDto {
 
 	private String userName;
 	private String mealType;
-	private String foodType;
-	private int quantity;
 	private Long timestamp;
 	private String comment;
 	private String mealReplacementUuid;
-	private String replacementReason;
 	private String rcActionStatus;
 	private String rcActionStatusText;
-		
+	private Date createdAt;
+	private String qrContextType;
+	private MealRequestReplacementStatus mealRequestReplacementStatus;
+	private String mealRequestReplacementStatusReason;
+	
+	private List<FoodItemDetail> foodItemDetails;			
 }
