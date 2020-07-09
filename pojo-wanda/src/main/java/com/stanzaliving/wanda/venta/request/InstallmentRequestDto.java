@@ -1,20 +1,16 @@
 package com.stanzaliving.wanda.venta.request;
 
-
+import com.stanzaliving.wanda.enums.InstallmentTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
-
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentPlanRequestDto {
-    @NotNull
+public class InstallmentRequestDto {
     private String bookingUuid;
-    @Builder.Default
-    private Boolean savePaymentPlan = Boolean.FALSE;
+    private InstallmentTypeEnum InstallmentType;
 }
