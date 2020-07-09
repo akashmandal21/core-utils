@@ -4,6 +4,8 @@ import com.stanzaliving.core.food.dto.response.DateWiseMealVendorDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -19,8 +21,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MapResidenceMealVendorDto {
+	@NotBlank(message = "residence Id is required")
 	private String residenceId;
 
-	private List<DateWiseMealVendorDto> mealVendors;
+	@NotNull(message = "date wise vendors are required")
+	private List<DateWiseMealVendorDto> dateMealVendors;
 
 }
