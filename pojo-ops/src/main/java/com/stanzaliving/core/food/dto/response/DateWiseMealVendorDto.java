@@ -3,6 +3,7 @@ package com.stanzaliving.core.food.dto.response;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -19,10 +20,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DateWiseMealVendorDto {
+	@NotNull(message = "menu date is required")
 	private LocalDate menuDate;
 
 	private boolean changeVendorAllowed;
 
+	@NotNull(message = "meal vendors for date can not be null")
 	private List<MealTypeVendorDto> mealVendors;
 
 }
