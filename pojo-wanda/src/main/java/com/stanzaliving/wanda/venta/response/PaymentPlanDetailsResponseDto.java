@@ -22,5 +22,7 @@ import lombok.NoArgsConstructor;
 public class PaymentPlanDetailsResponseDto {
 
 	private List<InstallmentDetailsResponseDto> paymentPlan;
+	private String installmentType;
+    private Boolean isSelected;
 
 }
