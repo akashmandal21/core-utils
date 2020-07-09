@@ -1,33 +1,30 @@
-/**
- * 
- */
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalDate;
-import java.util.List;
+import com.stanzaliving.core.food.enums.FoodItemType;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author naveen.kumar
- *
- * @date 23-Apr-2020
- *
- **/
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DateWiseFoodMenuDto {
+public class BasePreferenceReceivingDto {
+	
+	private String dispatchSummaryitemsId;
+	
+	private FoodItemType itemType;
+	
+	private Integer actual;
+	
+	@Builder.Default
+	private Integer expected=0;
 
-	private LocalDate menuDate;
-
-	private List<MealWiseMenusDto> mealWiseFoodMenus;
 }
