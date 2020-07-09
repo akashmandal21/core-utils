@@ -19,6 +19,9 @@ public class VasItemOrderDto {
 
 	private Integer quantity;
 
+	// grammage quantity
+	private Integer pcs;
+
 	private Integer weight;
 
 }
