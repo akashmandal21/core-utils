@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class InstallmentRequestDto {
     private String bookingUuid;
-    private InstallmentTypeEnum InstallmentType;
+    private InstallmentTypeEnum installmentType;
 }
