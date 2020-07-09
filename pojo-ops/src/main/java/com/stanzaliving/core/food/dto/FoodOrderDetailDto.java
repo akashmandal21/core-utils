@@ -82,5 +82,7 @@ public class FoodOrderDetailDto {
 
 	@Builder.Default
 	private Double actualUtilization = 0d;
+	
+	private boolean packaged;
 
 }

@@ -1,10 +1,9 @@
-package com.stanzaliving.core.food.dto;
+package com.stanzaliving.core.food.dto.response;
 
-import java.time.LocalTime;
 import java.util.List;
 
-import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
+import com.stanzaliving.core.food.enums.FoodPreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 
 import lombok.AllArgsConstructor;
@@ -20,28 +19,26 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderBasePreferenceDto {
+public class FoodPreferenceComboResponseDto {
 
 	private String residenceFoodMenuId;
 
-	private String vendorId;
+	private boolean selected;
 
-	private String vendorName;
+	private String comboName;
 
 	private FoodItemBasePreference basePreference;
 
 	private String basePreferenceName;
 
-	private FoodRegion region;
+	private FoodRegion foodRegion;
 
-	private String regionName;
-	
-	private String combo;
-	
-	private LocalTime mealStartTime;
-	
-	private LocalTime mealEndTime;
+	private String foodRegionName;
 
-	private List<AdditionalItemsRequestDto> additionalItemsDtos;
+	private FoodPreference foodPreference;
+
+	private String foodPreferenceName;
+
+	private List<FoodPreferenceComboItemDto> comboItemDtos;
 
 }

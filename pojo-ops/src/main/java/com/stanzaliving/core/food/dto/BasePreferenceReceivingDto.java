@@ -1,6 +1,6 @@
-package com.stanzaliving.core.food.dto.response;
+package com.stanzaliving.core.food.dto;
 
-import java.util.List;
+import com.stanzaliving.core.food.enums.FoodItemType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,13 +16,15 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodPrefernceComboResponseDto {
+public class BasePreferenceReceivingDto {
+	
+	private String dispatchSummaryitemsId;
+	
+	private FoodItemType itemType;
+	
+	private Integer actual;
 	
 	@Builder.Default
-	private boolean selected=false;
-	
-	private String preferenceName;
-	
-	private List<FoodPreferenceComboItemDto> comboItemDtos;
+	private Integer expected=0;
 
 }

@@ -19,31 +19,24 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserResidenceFoodMenuResponseDto {
-	
+public class UserMenuPreferenceResponseDto {
+
 	private String userResidenceFoodMenuId;
-	
-	private String residenceFoodMenuId;
-	
+
 	private MealType meal;
-	
+
 	private String mealName;
-	
+
 	private LocalDate date;
-	
+
 	private LocalTime startTime;
-	
+
 	private LocalTime endTime;
-	
-	private String basePreference;
-	
-	private String foodRegion;
-	
+
 	private boolean defaultChoice;
-	
-	private List<FoodPrefernceComboResponseDto> preferenceComboResponseDtos;
-	
+
+	private List<FoodPreferenceComboResponseDto> preferenceComboResponseDtos;
+
 	private List<FoodPreferenceComboItemDto> selectedComboItems;
-	
 
 }
