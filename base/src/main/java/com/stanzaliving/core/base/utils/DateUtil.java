@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -39,11 +40,11 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @UtilityClass
 public class DateUtil {
-	
+
 	public String formatIst(Date date, String format) {
 		return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
 	}
-	
+
 	public String customDateFormatter(Date dateInput, DateFormat dateFormat) {
 
 		if (dateInput != null) {
@@ -230,7 +231,7 @@ public class DateUtil {
 		Instant instant = date.toInstant();
 		return instant.atZone(zoneId).toLocalDate();
 	}
-	
+
 	public boolean isLocalDateExpired(LocalDate localDate) {
 		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
 		return localDate.isBefore(LocalDate.now(zoneId));
@@ -336,6 +337,14 @@ public class DateUtil {
 		return new ArrayList<>(monthsList);
 	}
 
+	public static LinkedHashMap<Month, Integer> getOrderedMapOfMonthYearEnum(LocalDate startDate, LocalDate endDate) {
+		LinkedHashMap<Month, Integer> monthsYearMap = new LinkedHashMap<>();
+		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
+			monthsYearMap.put(date.getMonth(), date.getYear());
+		}
+		return monthsYearMap;
+	}
+
 	public static List<String> getYearWeekSqlListOfWeeks(LocalDate startDate, LocalDate endDate) {
 		LinkedHashSet<String> weeksList = new LinkedHashSet<>();
 		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
@@ -402,7 +411,7 @@ public class DateUtil {
 		return cal.getTime();
 	}
 
-	public static Date addToDate(Date dateToBeAdjusted, Integer days, Integer months, Integer  years, Boolean normalizeDate) {
+	public static Date addToDate(Date dateToBeAdjusted, Integer days, Integer months, Integer years, Boolean normalizeDate) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(dateToBeAdjusted);
 		if (normalizeDate) {
@@ -422,16 +431,21 @@ public class DateUtil {
 		}
 		return calendar.getTime();
 	}
+
 	public static String getDayOfMonthSuffix(LocalDate date) {
 		int n = date.getDayOfMonth();
 		if (n >= 11 && n <= 13) {
 			return "th";
 		}
 		switch (n % 10) {
-			case 1:  return "st";
-			case 2:  return "nd";
-			case 3:  return "rd";
-			default: return "th";
+			case 1:
+				return "st";
+			case 2:
+				return "nd";
+			case 3:
+				return "rd";
+			default:
+				return "th";
 		}
 	}
 
@@ -545,7 +559,7 @@ public class DateUtil {
 
 		return weekNumber;
 	}
-	
+
 	public static Map<String, LocalDate> getStartAndEndDateForFoodOrder(Integer week, LocalDate date) {
 
 		Map<String, LocalDate> dateMap = new HashMap<>();
@@ -567,7 +581,7 @@ public class DateUtil {
 			return dateMap;
 		}
 	}
-	
+
 	public static List<LocalDate> getWeekFirstAndLastDaysForLeaderboard(LocalDate date) {
 
 		List<LocalDate> weekFirstAndLastDays = new ArrayList<>();
@@ -591,7 +605,7 @@ public class DateUtil {
 			return weekFirstAndLastDays;
 		}
 	}
-	
+
 	public static List<LocalDate> getFirstAndTillDayOfCurrentWeekForLeaderboard(LocalDate date) {
 
 		List<LocalDate> firstAndTillDayOfCurrentWeek = new ArrayList<>();
@@ -641,7 +655,7 @@ public class DateUtil {
 	public String convertToAMPM(LocalTime localTime) {
 
 		DateTimeFormatter timeFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
-	            .withLocale(Locale.US);
+				.withLocale(Locale.US);
 
 		return localTime.format(timeFormatter);
 
@@ -658,15 +672,20 @@ public class DateUtil {
 			return "th";
 		}
 		switch (n % 10) {
-			case 1:  return "st";
-			case 2:  return "nd";
-			case 3:  return "rd";
-			default: return "th";
+			case 1:
+				return "st";
+			case 2:
+				return "nd";
+			case 3:
+				return "rd";
+			default:
+				return "th";
 		}
 	}
 
 	/**
 	 * Method to generate a standard date String for display purpose
+	 * 
 	 * @return Date string eg. 1st May, 2020
 	 */
 	public String getStandardDateString(Date dateInput) {
@@ -675,7 +694,7 @@ public class DateUtil {
 				+ getDayOfMonthSuffix(datePart) + " "
 				+ customDateFormatter(dateInput, DateFormat.MMMM_YYYY);
 	}
-	
+
 	public static LocalDate getNextDayOfWeek(LocalDate date, DayOfWeek day) {
 
 		return date.with(TemporalAdjusters.next(day));
