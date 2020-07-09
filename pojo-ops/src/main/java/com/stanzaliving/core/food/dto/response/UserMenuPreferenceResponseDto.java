@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.response;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.core.operations.enums.MealType;
@@ -33,10 +34,12 @@ public class UserMenuPreferenceResponseDto {
 
 	private LocalTime endTime;
 
+	private Date windowCloseTime;
+
 	private boolean defaultChoice;
 
-	private List<FoodPreferenceComboResponseDto> preferenceComboResponseDtos;
+	private FoodPreferenceComboResponseDto selectedCombo;
 
-	private List<FoodPreferenceComboItemDto> selectedComboItems;
+	private List<FoodPreferenceComboResponseDto> preferenceComboResponseDtos;
 
 }
