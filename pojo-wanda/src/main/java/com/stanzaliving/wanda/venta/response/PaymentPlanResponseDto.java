@@ -14,4 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 public class PaymentPlanResponseDto {
     private List<InstallmentResponseDto> paymentPlan;
+    private String installmentType;
+    private Boolean isSelected;
 }
