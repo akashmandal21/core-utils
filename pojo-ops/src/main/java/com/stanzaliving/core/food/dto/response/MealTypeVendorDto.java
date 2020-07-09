@@ -1,10 +1,8 @@
 package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
-import java.time.LocalDate;
-import java.util.List;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -18,11 +16,12 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DateWiseMealVendorDto {
-	private LocalDate menuDate;
+public class MealTypeVendorDto {
+	private MealType mealType;
 
-	private boolean changeVendorAllowed;
+	private String mealName;
 
-	private List<MealTypeVendorDto> mealVendors;
+	private String vendorId;
 
+	private String vendorName;
 }
