@@ -20,4 +20,8 @@ public class ChangeContractDto {
 	private boolean currentlySelected;
 	
 	private String couponCode;
+	
+	private String couponText;
+	
+	private String couponDescription;
 }
