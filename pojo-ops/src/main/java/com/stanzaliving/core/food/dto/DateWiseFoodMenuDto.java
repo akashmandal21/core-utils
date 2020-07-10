@@ -29,5 +29,5 @@ public class DateWiseFoodMenuDto {
 
 	private LocalDate menuDate;
 
-	private List<MealWiseMenusDto> mealWiseFoodMenus;
+	private List<MealWiseFoodMenuDto> mealWiseFoodMenus;
 }

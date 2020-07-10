@@ -1,9 +1,7 @@
 package com.stanzaliving.core.food.enums;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -29,22 +27,14 @@ public enum FoodItemBasePreference {
 
 	private String basePreference;
 
-	private static Map<String, FoodItemBasePreference> preferenceMapByName = new HashMap<>();
-
 	private static List<EnumListing<FoodItemBasePreference>> enumListings = new ArrayList<>();
 
 	static {
 
 		for (FoodItemBasePreference foodItemBasePreference : FoodItemBasePreference.values()) {
-			preferenceMapByName.put(foodItemBasePreference.getBasePreference(), foodItemBasePreference);
-
 			enumListings.add(EnumListing.of(foodItemBasePreference, foodItemBasePreference.getBasePreference()));
 		}
 
-	}
-
-	public static FoodItemBasePreference getPreferenceByName(String basePreference) {
-		return preferenceMapByName.get(basePreference);
 	}
 
 	public static List<EnumListing<FoodItemBasePreference>> getBasePreferenceListing() {
@@ -71,5 +61,4 @@ public enum FoodItemBasePreference {
 
 		return foodItemBasePreferences;
 	}
-
 }

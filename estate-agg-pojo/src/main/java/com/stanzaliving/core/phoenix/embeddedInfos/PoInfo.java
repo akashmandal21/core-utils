@@ -1,4 +1,4 @@
-package com.stanzaliving.core.phoenix.embeddedInfos;
+package com.stanzaliving.core.phoenix.embeddedinfos;
 
 import com.stanzaliving.po.enums.PoStatus;
 import com.stanzaliving.po.enums.PoType;
