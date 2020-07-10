@@ -24,5 +24,7 @@ public class FoodPreferenceComboItemDto {
 	private Integer stdWeight;
 
 	private FoodItemType itemType;
+	
+	private boolean quantifiable;
 
 }
