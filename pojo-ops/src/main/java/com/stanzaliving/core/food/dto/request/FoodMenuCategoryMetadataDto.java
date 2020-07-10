@@ -70,6 +70,4 @@ public class FoodMenuCategoryMetadataDto extends AbstractDto {
 
 	private boolean published;
 
-	private String suffix;
-	
 }

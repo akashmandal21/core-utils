@@ -43,8 +43,6 @@ public class CategoryNameRequestDto {
 	
 	private MenuType menuType;
 	
-	private String suffix;
-
 	@Min(0)
 	@Max(7)
 	private int breakfastCount;
