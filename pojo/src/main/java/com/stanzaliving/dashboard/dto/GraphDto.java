@@ -17,6 +17,8 @@ public class GraphDto {
 
 	private String chartTitle;
 
+	FeElementDto chartSubHeading;
+
 	private String xLabel;
 
 	private String yLabel;

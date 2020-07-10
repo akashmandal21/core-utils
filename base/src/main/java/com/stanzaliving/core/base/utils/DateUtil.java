@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.*;
 
 import org.apache.commons.text.CaseUtils;
 
@@ -334,6 +335,14 @@ public class DateUtil {
 			monthsList.add(date.getMonth());
 		}
 		return new ArrayList<>(monthsList);
+	}
+
+	public static LinkedHashMap<Month, Integer> getOrderedMapOfMonthYearEnum(LocalDate startDate, LocalDate endDate) {
+		LinkedHashMap<Month, Integer> monthsYearMap = new LinkedHashMap<>();
+		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
+			monthsYearMap.put(date.getMonth(), date.getYear());
+		}
+		return monthsYearMap;
 	}
 
 	public static List<String> getYearWeekSqlListOfWeeks(LocalDate startDate, LocalDate endDate) {
