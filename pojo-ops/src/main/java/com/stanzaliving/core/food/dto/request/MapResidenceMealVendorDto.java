@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -21,10 +22,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MapResidenceMealVendorDto {
-	@NotBlank(message = "residence Id is required")
+	@NotBlank(message = "Residence id is required")
 	private String residenceId;
 
-	@NotNull(message = "date wise vendors are required")
+	@NotEmpty(message = "Date wise vendors are required")
 	private List<DateWiseMealVendorDto> dateMealVendors;
 
 }

@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -19,12 +20,12 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MealTypeVendorDto {
-	@NotBlank(message = "meal type is required")
+	@NotNull(message = "Meal type is required")
 	private MealType mealType;
 
 	private String mealName;
 
-	@NotBlank(message = "vendor Id is required")
+	@NotBlank(message = "Vendor Id is required")
 	private String vendorId;
 
 	private String vendorName;
