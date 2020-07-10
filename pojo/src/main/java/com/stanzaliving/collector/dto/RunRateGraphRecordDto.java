@@ -10,7 +10,19 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 public class RunRateGraphRecordDto {
-    Double pendingAmount = 0d;
-    Double payableAmount = 0d;
+    @Builder.Default
+    Double currentPayableAmount = 0d;
+    @Builder.Default
+    Double pastPayableAmount = 0d;
+    @Builder.Default
+    Double currentPendingAmount = 0d;
+    @Builder.Default
+    Double pastPendingAmount = 0d;
+    @Builder.Default
+    Double surplusTransactionAmount = 0d;
+    @Builder.Default
+    Double pastTransactionAmount = 0d;
+    @Builder.Default
+    Double currentTransactionAmount = 0d;
     LocalDate date;
 }
