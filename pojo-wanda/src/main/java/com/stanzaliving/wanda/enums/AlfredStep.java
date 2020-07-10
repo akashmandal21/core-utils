@@ -12,10 +12,14 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum AlfredStep {
 
-	SELFBOOKING(Arrays.asList("PAYMENT PENDING" )),
-	ONBOARDING(Arrays.asList("ONBOARDING PENDING","ONBOARDING IN PROGRESS","AGREEMENT SENT","AWAITING CONFIRMATION","ONBOARDING COMPLETED")),
-	HOMESCREEN(Arrays.asList("REFUND INITIATED"));
+	SELFBOOKING(1, Arrays.asList("AWAITING CONFIRMATION")),
+	PAYMENT_PENDING(2, Arrays.asList("PAYMENT PENDING")),
+	ONBOARDING(3, Arrays.asList("ONBOARDING PENDING", "ONBOARDING IN PROGRESS")),
+	AGREEMENT(4, Arrays.asList("ONBOARDING COMPLETED")),
+	KYC(5, Arrays.asList("AGREEMENT SENT")),
+	HOMESCREEN(6, Arrays.asList("REFUND INITIATED"));
 
+	private Integer sequenceId;
 	private List<String> bookingStatuses;
 
 	private static final Map<AlfredStep, List<String>> bookingStatusMap = new HashMap<AlfredStep, List<String>>();
