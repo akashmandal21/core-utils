@@ -17,10 +17,13 @@ public class ServiceMixSerializableDto {
 	private String uuid;
 	
 	private String residenceId;
+	private String residenceName;
 	
 	private String cityId;
-
-	private String microMarketId;
+	private String cityName;
+	
+	private String micromarketId;
+	private String micromarketName;
 	
 	private String versionName;
 	

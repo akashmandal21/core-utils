@@ -23,6 +23,9 @@ public class CompositionRuleDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@NotNull(message = "default rule is required")
+	private ConditionCombinationDto defaultRule;
+	
 	@NotNull(message = "Weekly rule is required")
 	private ConditionCombinationDto weeklyRule;
 
