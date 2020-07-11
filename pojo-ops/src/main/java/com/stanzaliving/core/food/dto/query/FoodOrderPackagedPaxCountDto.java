@@ -34,4 +34,6 @@ public class FoodOrderPackagedPaxCountDto {
 	private Integer stanzaStaffVegPaxCount;
 
 	private Integer nonStanzaStaffVegPaxCount;
+
+	private boolean comboOrder;
 }
