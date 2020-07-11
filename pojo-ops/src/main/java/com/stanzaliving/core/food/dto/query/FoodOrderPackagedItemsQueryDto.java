@@ -32,8 +32,6 @@ public class FoodOrderPackagedItemsQueryDto {
 
 	private String residenceMenuId;
 
-	private FoodItemBasePreference itemBasePreference;
-
 	private MealType mealType;
 
 	private FoodItemType itemType;
