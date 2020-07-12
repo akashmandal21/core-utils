@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.time.LocalDate;
+
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.estate.enums.EstateGender;
 import com.stanzaliving.core.food.enums.FoodPreference;
@@ -52,4 +54,6 @@ public class ResidenceConfigDto {
 	private FoodPreference foodPreference;
 
 	private EstateGender gender;
+	
+	private LocalDate startDate;
 }

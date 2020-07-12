@@ -42,7 +42,7 @@ public class CategoryNameRequestDto {
 	private FoodRegion foodRegion;
 	
 	private MenuType menuType;
-
+	
 	@Min(0)
 	@Max(7)
 	private int breakfastCount;
