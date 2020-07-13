@@ -1,6 +1,7 @@
 package com.stanzaliving.wanda.response;
 
 import com.stanzaliving.core.user.enums.Gender;
+import com.stanzaliving.core.user.enums.Nationality;
 import com.stanzaliving.wanda.enums.AlfredStep;
 
 import lombok.AllArgsConstructor;
@@ -23,6 +24,8 @@ public class LoginResponse {
 	private String userId;
 	
 	private Gender gender;
+	
+	private Nationality nationality;
 	
 	private AlfredStep alfredStep;
 }
