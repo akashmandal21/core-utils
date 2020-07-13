@@ -12,6 +12,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum AlfredStep {
 
+	PROFILE_COMPLETION(0,Arrays.asList("PROFILE")),
 	SELFBOOKING(1, Arrays.asList("AWAITING CONFIRMATION")),
 	PAYMENT_PENDING(2, Arrays.asList("PAYMENT PENDING")),
 	ONBOARDING(3, Arrays.asList("ONBOARDING PENDING", "ONBOARDING IN PROGRESS")),
