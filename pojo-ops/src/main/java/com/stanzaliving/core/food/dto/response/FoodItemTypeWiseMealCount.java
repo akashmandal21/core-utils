@@ -22,4 +22,5 @@ public class FoodItemTypeWiseMealCount {
 	private String itemTypeName;
 
 	private Integer numberOfMeals;
+	private Integer numberOfMealsReceived;
 }
