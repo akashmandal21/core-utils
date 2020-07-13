@@ -5,6 +5,7 @@ package com.stanzaliving.core.leaddashboard.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.leaddashboard.enums.LeadSourceEnum;
 
 import lombok.Data;
@@ -21,7 +22,10 @@ public class LeadVisitHistoryDto {
 	private String lastName;
 	private int visitCount;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss Z", timezone="Asia/Kolkata")
 	private Date visitScheduledDate;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss Z", timezone="Asia/Kolkata")
 	private Date visitCompletedDate;
 	private String residenceVisited;
 	private String visitorHostEmail;
