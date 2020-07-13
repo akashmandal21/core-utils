@@ -22,10 +22,10 @@ public class LeadVisitHistoryDto {
 	private String lastName;
 	private int visitCount;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss Z", timezone="Asia/Kolkata")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone="Asia/Kolkata")
 	private Date visitScheduledDate;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss Z", timezone="Asia/Kolkata")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone="Asia/Kolkata")
 	private Date visitCompletedDate;
 	private String residenceVisited;
 	private String visitorHostEmail;
