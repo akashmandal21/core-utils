@@ -16,6 +16,8 @@ import java.util.List;
 public class HistogramDto {
     private String chartTitle;
 
+    private FeElementDto chartSubHeading;
+
     private String xLabel;
 
     private String yLabel;

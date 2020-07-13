@@ -3,7 +3,7 @@ package com.stanzaliving.core.food.dto.response;
 import java.util.List;
 
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
-import com.stanzaliving.core.food.enums.FoodPreference;
+import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodRegion;
 
 import lombok.AllArgsConstructor;
@@ -35,7 +35,7 @@ public class FoodPreferenceComboResponseDto {
 
 	private String foodRegionName;
 
-	private FoodPreference foodPreference;
+	private FoodItemType foodPreference;
 
 	private String foodPreferenceName;
 

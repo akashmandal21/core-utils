@@ -1,8 +1,9 @@
 package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.food.enums.FoodItemType;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,16 +16,17 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodPreferenceComboItemDto {
+public class MenuCategoryStatusResponseDto {
 
-	private String itemName;
+	private LocalDate startDate;
 
-	private Integer stdQty;
+	private LocalDate endDate;
 
-	private Integer stdWeight;
+	private String categoryName;
 
-	private FoodItemType itemType;
-	
-	private boolean quantifiable;
+	private String micromarketName;
+
+	@Builder.Default
+	private boolean menuCreated = true;
 
 }

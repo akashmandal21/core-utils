@@ -110,7 +110,7 @@ public class QRScanServiceImpl implements QRScanService {
 	}
 	
 	@Override
-	public void updateScanHistory(QRData qrData, String userId) {
+	public void updateScanHistory(QRData qrData, String userId,boolean status) {
 		
 		if(Objects.nonNull(qrData)) {
 			
@@ -132,7 +132,9 @@ public class QRScanServiceImpl implements QRScanService {
 				qrScanHistoryRepository.saveAndFlush(
 						QRScanHistory.builder().qrContextType(qrData.getQrContextType())
 									.contextId(qrData.getContextId())
-								    .qrUUid(qrData.getUuid()).userId(userId).build());
+								    .qrUUid(qrData.getUuid()).userId(userId)
+								    .status(status)
+								    .build());
 			}
 			
 		}
@@ -191,5 +193,19 @@ public class QRScanServiceImpl implements QRScanService {
 	@Override
 	public List<QRData> getQRDataByUuidIn(List<String> uuids) {
 		return qrDataRepository.findByUuidIn(uuids);
+	}
+
+	@Override
+	public QRScanHistory checkScanHistoryForComboVegAndNonVegFood(String contextId, String userId) {
+		
+		List<QRContextType> qrContextTypeList = Arrays.asList(QRContextType.COMBO_VEG, QRContextType.COMBO_NONVEG);
+		
+		QRScanHistory qrScanHistory = 
+				qrScanHistoryRepository.findByContextIdAndQrContextTypeInAndUserId(contextId, qrContextTypeList, userId);
+		
+		log.info("Qr scan history for contextId " + contextId + " userId " + userId);
+		log.info("Scan history " + qrScanHistory);
+		
+		return qrScanHistory;
 	}
 }
