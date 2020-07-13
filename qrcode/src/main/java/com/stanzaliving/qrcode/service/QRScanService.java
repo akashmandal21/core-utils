@@ -36,5 +36,4 @@ public interface QRScanService {
 	List<QRScanHistory> getQrScanHistoryByQrContextTypeAndUserId(String userId, List<QRContextType> qrContextType,
 			Pageable pagination);
 
-	QRScanHistory checkScanHistoryForComboVegAndNonVegFood(String contextId, String userId);
 }

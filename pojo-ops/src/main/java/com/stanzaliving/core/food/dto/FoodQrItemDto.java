@@ -41,4 +41,5 @@ public class FoodQrItemDto {
 	private boolean incorrectQr;
 	private String scannedCombo;
 	private String requestedCombo;
+	private boolean pickMealDisable;
 }
