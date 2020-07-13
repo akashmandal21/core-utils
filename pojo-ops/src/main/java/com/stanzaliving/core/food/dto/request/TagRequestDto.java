@@ -27,7 +27,5 @@ import lombok.experimental.SuperBuilder;
 public class TagRequestDto {
 
 	@NotBlank(message = "Tag Name Cannot be blank")
-	private String tagName;
-	
-	private boolean serviceMixEnabled;
+	private String tagName;	
 }

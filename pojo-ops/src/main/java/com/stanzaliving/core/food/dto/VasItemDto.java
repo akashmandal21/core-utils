@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 public class VasItemDto extends FoodMenuItemDto {
 
 	private String residenceMenuId;
-	
+
 	private String itemId;
 	
 	private Double itemCost;

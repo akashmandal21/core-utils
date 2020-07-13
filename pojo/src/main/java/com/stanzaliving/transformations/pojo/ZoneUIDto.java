@@ -1,7 +1,6 @@
 package com.stanzaliving.transformations.pojo;
 
 
-import com.stanzaliving.transformations.enums.TimeZone;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
