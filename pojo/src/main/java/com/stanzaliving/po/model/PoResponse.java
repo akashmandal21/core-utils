@@ -21,8 +21,8 @@ public class PoResponse {
 
     private Boolean isSubmitted = Boolean.FALSE;
 
-    private Boolean isShortCloseAllowed = Boolean.TRUE;
+    private Boolean isShortCloseAllowed;
 
-    private Boolean isCancellationAllowed = Boolean.TRUE;
+    private Boolean isCancellationAllowed;
 
 }
