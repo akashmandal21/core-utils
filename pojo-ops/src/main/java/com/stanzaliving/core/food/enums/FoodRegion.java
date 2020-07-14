@@ -43,7 +43,7 @@ public enum FoodRegion {
 			enumListings.add(EnumListing.of(foodRegion, foodRegion.getRegionName()));
 
 			if (MIX != foodRegion) {
-				multiMenuRegions.add(EnumListing.of(foodRegion, foodRegion.getRegionName()));
+				multiMenuRegions.add(EnumListing.of(foodRegion, foodRegion.getLabel()));
 			}
 		}
 
