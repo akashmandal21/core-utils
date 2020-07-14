@@ -1,10 +1,7 @@
-/**
- * 
- */
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalDate;
-import java.util.List;
+import com.stanzaliving.core.food.enums.FoodItemBasePreference;
+import com.stanzaliving.core.food.enums.FoodRegion;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,21 +10,15 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author naveen.kumar
- *
- * @date 23-Apr-2020
- *
- **/
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DateWiseFoodMenuDto {
+public class RegionBasePreferenceDto {
 
-	private LocalDate menuDate;
+	private FoodRegion foodRegion;
 
-	private List<MealWiseMenusDto> mealWiseFoodMenus;
+	private FoodItemBasePreference basePreference;
 }

@@ -12,6 +12,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class FoodReportGraphRequestDto extends FoodReportRequestDto {
 
-    Frequency frequency = Frequency.DAILY;
+	@Builder.Default
+	private Frequency frequency = Frequency.DAILY;
 
 }

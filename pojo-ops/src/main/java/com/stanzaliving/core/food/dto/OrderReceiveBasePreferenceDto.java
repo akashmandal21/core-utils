@@ -1,9 +1,5 @@
-/**
- * 
- */
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -13,21 +9,16 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author naveen.kumar
- *
- * @date 23-Apr-2020
- *
- **/
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DateWiseFoodMenuDto {
+public class OrderReceiveBasePreferenceDto {
+	
+	private String basePreference;
+	
+	private List<BasePreferenceReceivingDto> basePreferenceReceivingDtos;
 
-	private LocalDate menuDate;
-
-	private List<MealWiseMenusDto> mealWiseFoodMenus;
 }

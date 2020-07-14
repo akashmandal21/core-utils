@@ -34,4 +34,7 @@ public class FoodQrItemDto {
 	private String foodText;
 	private List<String> foodItemNames;
 	private boolean isMealReplacement;
+	private boolean incorrectQr;
+	private String scannedCombo;
+	private String requestedCombo;
 }
