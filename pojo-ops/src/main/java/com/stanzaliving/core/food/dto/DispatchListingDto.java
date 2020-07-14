@@ -22,6 +22,8 @@ import lombok.ToString;
 public class DispatchListingDto {
 
 	private String residenceName;
+
+	private String residenceId;
 	
 	private MealType mealType;
 	

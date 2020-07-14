@@ -195,17 +195,4 @@ public class QRScanServiceImpl implements QRScanService {
 		return qrDataRepository.findByUuidIn(uuids);
 	}
 
-	@Override
-	public QRScanHistory checkScanHistoryForComboVegAndNonVegFood(String contextId, String userId) {
-		
-		List<QRContextType> qrContextTypeList = Arrays.asList(QRContextType.COMBO_VEG, QRContextType.COMBO_NONVEG);
-		
-		QRScanHistory qrScanHistory = 
-				qrScanHistoryRepository.findByContextIdAndQrContextTypeInAndUserId(contextId, qrContextTypeList, userId);
-		
-		log.info("Qr scan history for contextId " + contextId + " userId " + userId);
-		log.info("Scan history " + qrScanHistory);
-		
-		return qrScanHistory;
-	}
 }

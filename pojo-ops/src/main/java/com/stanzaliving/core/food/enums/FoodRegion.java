@@ -23,12 +23,13 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum FoodRegion {
 
-	MIX("Mix"),
-	NORTH("North Indian"),
-	SOUTH("South Indian"),
-	CONTINENTAL("Continental");
+	MIX("Mix", "Mix"),
+	NORTH("North Indian", "North"),
+	SOUTH("South Indian", "South"),
+	CONTINENTAL("Continental", "Continental");
 
 	private String regionName;
+	private String label;
 
 	private static Map<String, FoodRegion> regionMapByName = new HashMap<>();
 
