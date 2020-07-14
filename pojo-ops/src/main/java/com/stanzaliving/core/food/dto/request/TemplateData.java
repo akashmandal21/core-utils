@@ -1,9 +1,11 @@
 package com.stanzaliving.core.food.dto.request;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.util.Map;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -18,5 +20,6 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TemplateData {
+
 	private String templateData;
 }
