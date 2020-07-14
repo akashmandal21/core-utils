@@ -1,11 +1,5 @@
 package com.stanzaliving.core.commentsservice.request.dto;
 
-import java.util.Date;
-import java.util.List;
-
-import com.stanzaliving.core.commentsservice.dto.CommentsDto;
-import com.stanzaliving.core.commentsservice.dto.CommentsDto.CommentsDtoBuilder;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

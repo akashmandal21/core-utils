@@ -4,8 +4,6 @@ import com.stanzaliving.core.operations.enums.Frequency;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotNull;
-
 @Getter
 @Setter
 @ToString(callSuper = true)

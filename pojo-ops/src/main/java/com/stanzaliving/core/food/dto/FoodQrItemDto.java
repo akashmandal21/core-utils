@@ -3,11 +3,9 @@
  */
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import com.stanzaliving.core.food.enums.FoodItemType;
-import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,4 +33,5 @@ public class FoodQrItemDto {
 	private String residenceFoodMenuId;
 	private String foodText;
 	private List<String> foodItemNames;
+	private boolean isMealReplacement;
 }

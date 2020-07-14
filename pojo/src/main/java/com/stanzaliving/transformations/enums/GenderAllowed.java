@@ -1,6 +1,5 @@
 package com.stanzaliving.transformations.enums;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
