@@ -42,4 +42,5 @@ public class FoodQrItemDto {
 	private String scannedCombo;
 	private String requestedCombo;
 	private boolean pickMealDisable;
+	private boolean baseCombo;
 }
