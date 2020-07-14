@@ -40,5 +40,7 @@ public class FoodPreferenceComboResponseDto {
 	private String foodPreferenceName;
 
 	private List<FoodPreferenceComboItemDto> comboItemDtos;
+	
+	private String slogan;
 
 }
