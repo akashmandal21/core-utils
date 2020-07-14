@@ -8,4 +8,5 @@ import lombok.Setter;
 public class Tag extends BooleanService {
 	private String uuid;
 	private int repetition;
+	private String name;
 }

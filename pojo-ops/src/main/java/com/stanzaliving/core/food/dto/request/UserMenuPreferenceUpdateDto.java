@@ -3,7 +3,7 @@ package com.stanzaliving.core.food.dto.request;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.stanzaliving.core.food.enums.FoodPreference;
+import com.stanzaliving.core.food.enums.FoodItemType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +29,6 @@ public class UserMenuPreferenceUpdateDto {
 	private String userResidenceFoodMenuId;
 
 	@NotNull(message = "Food Preference Selection is mandatory")
-	private FoodPreference foodPreference;
+	private FoodItemType foodPreference;
 
 }

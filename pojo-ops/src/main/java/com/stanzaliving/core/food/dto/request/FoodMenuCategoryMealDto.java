@@ -55,5 +55,11 @@ public class FoodMenuCategoryMealDto {
 	private LocalTime mealStartTime;
 
 	private LocalTime mealEndTime;
+	
+	private LocalTime pickupStartTime;
+	private LocalTime pickupEndTime;
+	
+	private LocalTime deliveryStartTime;
+	private LocalTime deliveryEndTime;
 
 }

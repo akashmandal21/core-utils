@@ -8,12 +8,10 @@ import lombok.Setter;
 public class LunchTiffin extends BooleanService {
 	private int days;
 	
-	//private String pickupStartTime;
-	//private String pickupEndTime;
+	private String pickupStartTime;
+	private String pickupEndTime;
 	
-	//private String deliveryStartTime;
-	//private String deliveryEndTime;
-	
-	
-	
+	private String deliveryStartTime;
+	private String deliveryEndTime;
+
 }
