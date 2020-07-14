@@ -6,8 +6,10 @@ import com.stanzaliving.wanda.dtos.AmenitiesDto;
 
 import com.stanzaliving.wanda.enums.PropertyCategory;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class ResidenceAmenitiesDetailsDto {
 	
 	private Boolean rofr;
