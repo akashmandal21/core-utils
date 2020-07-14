@@ -3,6 +3,10 @@ package com.stanzaliving.wanda.response;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -32,6 +36,7 @@ public class PendingBookingDto {
 	
 	private String imageOverlayMessage;
 	
+	@JsonSerialize(using = Java8LocalDateStdSerializer.class)
 	private LocalDate moveInDate;
 	
 	private String bookingId;

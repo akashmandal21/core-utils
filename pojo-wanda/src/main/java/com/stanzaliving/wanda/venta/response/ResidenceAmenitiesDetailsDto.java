@@ -26,7 +26,9 @@ public class ResidenceAmenitiesDetailsDto {
 	
 	private String cityName;
 	
-	private String Occupancy;
+	private String occupancy;
+	
+	private Double monthlyFee;
 	
 	private String roomNumber;
 	
