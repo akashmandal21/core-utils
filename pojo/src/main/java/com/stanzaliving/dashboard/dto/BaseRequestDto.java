@@ -17,13 +17,10 @@ import java.util.List;
 @Log4j2
 public class BaseRequestDto implements Cloneable {
 
-    @NotEmpty(message = "CityUuid must not be empty")
     private List<String> cityUuid;
 
-    @NotEmpty(message = "MicromarketUuid must not be empty")
     private List<String> micromarketUuid;
 
-    @NotEmpty(message = "ResidenceUuid must not be empty")
     private List<String> residenceUuid;
 
     private String accessLevel;
