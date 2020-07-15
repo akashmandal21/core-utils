@@ -21,6 +21,8 @@ public class StayDetailsDto extends PendingBookingDto {
 
 	private String persuasion;
 
+	private String roomNumber;
+	
 	private List<AmenitiesDto> amenities;
 
 	private List<PackagedServicesDto> packagedServices;

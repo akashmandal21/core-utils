@@ -1,6 +1,6 @@
 package com.stanzaliving.wanda.response;
 
-import com.stanzaliving.wanda.venta.response.MonthlyFeeDto;
+import com.stanzaliving.wanda.dtos.MonthlyFee;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,7 +33,7 @@ public class CommercialDetailsResponseDto {
 
 	private int contractId;
 	
-	private MonthlyFeeDto monthlyFeeDto;
+	private MonthlyFee monthlyFeeDto;
 	
 	private String monthlyFeeText;
 	
