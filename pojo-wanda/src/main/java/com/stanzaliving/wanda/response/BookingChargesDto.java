@@ -1,7 +1,5 @@
 package com.stanzaliving.wanda.response;
 
-import java.time.LocalDate;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,19 +21,19 @@ public class BookingChargesDto {
 	
 	private String couponCodeText;
 	
-	private double securityDeposit;
+	private Double securityDeposit;
 	
-	private double maintenanceAmount;
+	private Double maintenanceAmount;
 
-	private double advanceRent;
+	private Double advanceRent;
 	
-	private double totalAmount;
+	private Double totalAmount;
 	
 	private String advanceRentMonths;
 	
 	private Double totalDiscount;
 	
-	private double minimumAmount;
+	private Double minimumAmount;
 	
 	private String payAmountText;
 }
