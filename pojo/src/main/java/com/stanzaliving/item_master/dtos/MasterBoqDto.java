@@ -68,6 +68,8 @@ public class MasterBoqDto {
     private ProductionTimeUnit productionTimeUnit;
     private String itemTypeStr;
     private CostHead costHead;
+    private String consumptionPatternStr;
+    private String itemMaterialStr;
 
     //For Native Queries. SqlResultSetMapped to MasterBoq in ItemMasterDetails
     public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
@@ -138,8 +140,14 @@ public class MasterBoqDto {
         this.itemTypeStr = Enum.valueOf(ItemType.class, itemUseType).getTypeText();
         this.storageType = Objects.nonNull(storageType) ? Enum.valueOf(StorageType.class, storageType) : null;
         this.orderingPattern = Objects.nonNull(orderingPattern) ? Enum.valueOf(OrderingPattern.class, orderingPattern) : null;
-        this.consumptionPattern = Objects.nonNull(consumptionPattern) ? Enum.valueOf(ConsumptionPattern.class, consumptionPattern) : null;
-        this.itemMaterial = Objects.nonNull(itemMaterial) ? Enum.valueOf(ItemMaterial.class, itemMaterial) : null;
+        if (Objects.nonNull(consumptionPattern)) {
+            this.consumptionPattern = Enum.valueOf(ConsumptionPattern.class, consumptionPattern);
+            this.consumptionPatternStr = this.consumptionPattern.getConsumptionPatternText();
+        }
+        if (Objects.nonNull(itemMaterial)) {
+            this.itemMaterial = Enum.valueOf(ItemMaterial.class, itemMaterial);
+            this.itemMaterialStr = this.itemMaterial.getItemMaterialText();
+        }
         this.productionTimeUnit = Objects.nonNull(productionTimeUnit) ? Enum.valueOf(ProductionTimeUnit.class, productionTimeUnit) : null;
         this.productionTime = productionTime;
         this.costHead = Objects.nonNull(costHead) ? Enum.valueOf(CostHead.class, costHead) : null;
