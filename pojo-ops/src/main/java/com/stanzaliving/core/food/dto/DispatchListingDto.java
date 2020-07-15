@@ -41,6 +41,9 @@ public class DispatchListingDto {
 	
 	@Builder.Default
 	private int staffMeals=0;
+
+	@Builder.Default
+	private int slStaffMeals =0;
 	
 	@Builder.Default
 	private int vasVegMeals=0;
