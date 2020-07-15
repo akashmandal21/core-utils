@@ -51,4 +51,6 @@ public class CommercialDetailsResponseDto {
 	
 	private String advanceFeeDescription;
 	
+	private String maxDate;
+	
 }
