@@ -25,5 +25,6 @@ public class CommercialsResponseDto {
     private Double maintenanceFee;
     private Integer advanceMonths;
     private Double advanceFee;
+    private String maxDate;
     private List<Map<String, String>> adjustedAdvanceRentalMonths;
 }
