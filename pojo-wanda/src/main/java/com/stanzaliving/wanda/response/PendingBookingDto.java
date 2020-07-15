@@ -28,7 +28,7 @@ public class PendingBookingDto {
 	
 	private String cityName;
 	
-	private double amount;
+	private String amount;
 	
 	private String occupancy;
 	
