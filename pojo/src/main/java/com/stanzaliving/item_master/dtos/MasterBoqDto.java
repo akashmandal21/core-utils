@@ -2,6 +2,7 @@ package com.stanzaliving.item_master.dtos;
 
 import com.stanzaliving.item_master.enums.AcquisitionType;
 import com.stanzaliving.item_master.enums.ConsumptionPattern;
+import com.stanzaliving.item_master.enums.CostHead;
 import com.stanzaliving.item_master.enums.DimensionUnits;
 import com.stanzaliving.item_master.enums.ItemMaterial;
 import com.stanzaliving.item_master.enums.ItemType;
@@ -18,6 +19,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -65,6 +67,7 @@ public class MasterBoqDto {
     private Float productionTime;
     private ProductionTimeUnit productionTimeUnit;
     private String itemTypeStr;
+    private CostHead costHead;
 
     //For Native Queries. SqlResultSetMapped to MasterBoq in ItemMasterDetails
     public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
@@ -98,8 +101,9 @@ public class MasterBoqDto {
                         String categoryName, String itemUseType,
                         String particular, String descSpec,
                         String acquisitionType, String orderUnit, String length, String breadth, String height,
-                        String thumbnailUrl,String imageUrl,String specDocumentUrl,String brandNames, String subBrandNames, String areaOfUseList,
-                        String cgst, String igst, String sgst, String hsnCode) {
+                        String thumbnailUrl, String imageUrl, String specDocumentUrl, String brandNames, String subBrandNames, String areaOfUseList,
+                        String cgst, String igst, String sgst, String hsnCode, String storageType, String orderingPattern,
+                        String consumptionPattern, String itemMaterial, String productionTimeUnit, BigDecimal productionTime, String costHead) {
         this.lastUpdatedAt=lastUpdatedAt;
         this.categoryUuid=categoryUuid;
         this.itemId = itemId;
@@ -132,6 +136,13 @@ public class MasterBoqDto {
         this.sgst = sgst;
         this.hsnCode = hsnCode;
         this.itemTypeStr = Enum.valueOf(ItemType.class, itemUseType).getTypeText();
+        this.storageType = Objects.nonNull(storageType) ? Enum.valueOf(StorageType.class, storageType) : null;
+        this.orderingPattern = Objects.nonNull(orderingPattern) ? Enum.valueOf(OrderingPattern.class, orderingPattern) : null;
+        this.consumptionPattern = Objects.nonNull(consumptionPattern) ? Enum.valueOf(ConsumptionPattern.class, consumptionPattern) : null;
+        this.itemMaterial = Objects.nonNull(itemMaterial) ? Enum.valueOf(ItemMaterial.class, itemMaterial) : null;
+        this.productionTimeUnit = Objects.nonNull(productionTimeUnit) ? Enum.valueOf(ProductionTimeUnit.class, productionTimeUnit) : null;
+        this.productionTime = Objects.nonNull(productionTime) ? productionTime.floatValue() : null;
+        this.costHead = Objects.nonNull(costHead) ? Enum.valueOf(CostHead.class, costHead) : null;
     }
 
 }
