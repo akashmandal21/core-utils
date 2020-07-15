@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.designservice.response.dto.DesignFileBackendAndBedTypesResponseDto;
 import com.stanzaliving.designservice.response.dto.PhoenixBedCountResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -171,6 +172,40 @@ public class DesignServiceClientApi {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Got error while getting phoenix bed count {}", e);
+            return null;
+        }
+    }
+
+    public ResponseDto<DesignFileBackendAndBedTypesResponseDto> getDesignFileAndAssociatedFloorData(String propertyUuid) {
+
+        log.debug("Get design file and associated floor data " + propertyUuid);
+
+        if (Objects.isNull(propertyUuid))
+            return null;
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("propertyUuid", propertyUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/designData/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<DesignFileBackendAndBedTypesResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DesignFileBackendAndBedTypesResponseDto>>() {
+        };
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Got error while getting design file and associated floor data {}", e);
             return null;
         }
     }

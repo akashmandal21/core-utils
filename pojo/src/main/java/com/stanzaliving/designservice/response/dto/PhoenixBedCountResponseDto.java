@@ -1,5 +1,6 @@
 package com.stanzaliving.designservice.response.dto;
 
+import com.stanzaliving.designservice.enums.BedType;
 import com.stanzaliving.designservice.enums.PhoenixDesignStatus;
 import lombok.Getter;
 import lombok.Setter;
@@ -47,5 +48,7 @@ public class PhoenixBedCountResponseDto {
     private String designDescription;
 
     private Date updatedAt;
+
+    private BedType bedType;
 
 }
