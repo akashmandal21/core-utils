@@ -103,7 +103,7 @@ public class MasterBoqDto {
                         String acquisitionType, String orderUnit, String length, String breadth, String height,
                         String thumbnailUrl, String imageUrl, String specDocumentUrl, String brandNames, String subBrandNames, String areaOfUseList,
                         String cgst, String igst, String sgst, String hsnCode, String storageType, String orderingPattern,
-                        String consumptionPattern, String itemMaterial, String productionTimeUnit, BigDecimal productionTime, String costHead) {
+                        String consumptionPattern, String itemMaterial, String productionTimeUnit, Float productionTime, String costHead) {
         this.lastUpdatedAt=lastUpdatedAt;
         this.categoryUuid=categoryUuid;
         this.itemId = itemId;
@@ -141,7 +141,7 @@ public class MasterBoqDto {
         this.consumptionPattern = Objects.nonNull(consumptionPattern) ? Enum.valueOf(ConsumptionPattern.class, consumptionPattern) : null;
         this.itemMaterial = Objects.nonNull(itemMaterial) ? Enum.valueOf(ItemMaterial.class, itemMaterial) : null;
         this.productionTimeUnit = Objects.nonNull(productionTimeUnit) ? Enum.valueOf(ProductionTimeUnit.class, productionTimeUnit) : null;
-        this.productionTime = Objects.nonNull(productionTime) ? productionTime.floatValue() : null;
+        this.productionTime = productionTime;
         this.costHead = Objects.nonNull(costHead) ? Enum.valueOf(CostHead.class, costHead) : null;
     }
 
