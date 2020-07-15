@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.grn.GrnQuantity;
 import com.stanzaliving.po.enums.PoType;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -26,7 +27,7 @@ public class GrnClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<Map<String, Integer>> getGrnQuantityForPo(PoType poType, String poUuid) {
+    public ResponseDto<List<GrnQuantity>> getGrnQuantityForPo(PoType poType, String poUuid) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -43,7 +44,7 @@ public class GrnClientApi {
         queryParams.set("poType", poType.name());
         queryParams.set("poUuid", poUuid);
 
-        ParameterizedTypeReference<ResponseDto<Map<String, Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Integer>>>() {
+        ParameterizedTypeReference<ResponseDto<List<GrnQuantity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GrnQuantity>>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
