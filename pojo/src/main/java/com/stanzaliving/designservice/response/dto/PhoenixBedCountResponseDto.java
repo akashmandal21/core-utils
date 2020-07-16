@@ -12,40 +12,40 @@ import java.util.Date;
 @ToString
 public class PhoenixBedCountResponseDto {
 
-    private String propertyUuid;
+	private String propertyUuid;
 
-    private Integer noOfRooms;
+	private Integer noOfRooms;
 
-    private int bdBedCount;
+	private int bdBedCount;
 
-    private int primaBed;
+	private int primaBed;
 
-    private int magnaBed;
+	private int magnaBed;
 
-    private int summaBed;
+	private int summaBed;
 
-    private int primaRoom;
+	private int primaRoom;
 
-    private int magnaRoom;
+	private int magnaRoom;
 
-    private int summaRoom;
-    
-    private Integer phoenixBed;
-    
-    private Integer phoenixRoom;
+	private int summaRoom;
 
-    private String phoenixDesignRemark;
+	private Integer phoenixBed;
 
-    private String reasonForNoPrima;
+	private Integer phoenixRoom;
 
-    private String reasonForNoMagna;
+	private String phoenixDesignRemark;
 
-    private String reasonForNoSumma;
+	private String reasonForNoPrima;
 
-    private PhoenixDesignStatus phoenixDesignStatus;
+	private String reasonForNoMagna;
 
-    private String designDescription;
+	private String reasonForNoSumma;
 
-    private Date updatedAt;
+	private PhoenixDesignStatus phoenixDesignStatus;
+
+	private String designDescription;
+
+	private Date updatedAt;
 
 }

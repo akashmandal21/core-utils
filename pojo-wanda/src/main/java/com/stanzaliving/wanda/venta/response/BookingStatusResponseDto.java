@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class BookingStatusResponseDto {
+    private String houseName;
     private String bookingUuid;
     private String bookingStatus;
     private AlfredStep alfredStep;
