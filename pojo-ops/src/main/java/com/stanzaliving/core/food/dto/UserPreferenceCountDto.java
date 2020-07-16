@@ -17,13 +17,13 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserPreferenceCountDto {
-	
+
 	@Builder.Default
-	private Integer totalVeg=0;
-	
+	private Integer totalVeg = 0;
+
 	@Builder.Default
-	private Integer totalNonveg=0;
-	
+	private Integer totalNonveg = 0;
+
 	private List<ItemTypeUserPreferenceCountDto> preferenceCountDtos;
 
 }
