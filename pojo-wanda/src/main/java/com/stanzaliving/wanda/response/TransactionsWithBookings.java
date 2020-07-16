@@ -2,8 +2,6 @@ package com.stanzaliving.wanda.response;
 
 import java.util.List;
 
-import org.apache.commons.lang3.tuple.Pair;
-
 import com.stanzaliving.wanda.dtos.TransactionDto;
 
 import lombok.AllArgsConstructor;
@@ -23,11 +21,14 @@ public class TransactionsWithBookings {
 
 	private BookingChargesDto bookingChargesDto;
 	
-	private String totalAmountPaid;
+	private String totalAmountPaidStr;
+	
+	private Double totalAmountPaid;
 	
 	private List<TransactionDto> transactions;
 	
 	private String currentOutstandingStr;
 	
-	private double currentOutstanding;
+	private Double currentOutstanding;
+	
 }
