@@ -36,7 +36,7 @@ public class StringListConverter implements AttributeConverter<List<String>, Str
 
         List<String> response = new ArrayList<>();
 
-        Stream.of(string.split(SPLIT_CHAR)).forEach(s -> response.add(s.replace(SPLIT_CHAR, "")));
+        Stream.of(string.split(SPLIT_CHAR)).forEach(s -> response.add(s.replace("\\", "")));
 
         return response;
     }
