@@ -1,8 +1,11 @@
 package com.stanzaliving.core.sqljpa.conveter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Stream;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
@@ -30,7 +33,11 @@ public class StringListConverter implements AttributeConverter<List<String>, Str
     	if(StringUtils.isEmpty(string)) {
     		return Collections.emptyList();
     	}
-    	
-        return Arrays.asList(string.split(SPLIT_CHAR));
+
+        List<String> response = new ArrayList<>();
+
+        Stream.of(string.split(SPLIT_CHAR)).forEach(s -> response.add(s.replace(SPLIT_CHAR, "")));
+
+        return response;
     }
 }
