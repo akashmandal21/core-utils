@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -11,8 +12,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
 public class InstituteCourseDegreeResponseDto {
-    List<EducationalInstitutionResponseDto> educationalInstitutionResponseDtoList;
-    List<CourseResponseDto> courseResponseDtoList;
-    List<DegreeResponseDto> degreeResponseDtoList;
+    private List<EducationalInstitutionResponseDto> educationalInstitutionResponseDTOList;
+    private List<CourseResponseDto> courseResponseDTOList;
+    private List<DegreeResponseDto> degreeResponseDTOList;
 }
