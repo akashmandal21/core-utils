@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
+import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -37,4 +38,6 @@ public class MultiMenuComboPaxCount {
 	private Double stanzaStaffVegPaxCount;
 
 	private Double nonStanzaStaffPaxCount;
+
+	private FoodRegion foodRegion;
 }
