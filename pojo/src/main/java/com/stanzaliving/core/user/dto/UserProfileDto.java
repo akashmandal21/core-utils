@@ -3,16 +3,20 @@
  */
 package com.stanzaliving.core.user.dto;
 
+import java.time.LocalDate;
+
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.user.enums.BloodGroup;
 import com.stanzaliving.core.user.enums.Gender;
 import com.stanzaliving.core.user.enums.MaritalStatus;
 import com.stanzaliving.core.user.enums.Nationality;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.time.LocalDate;
 
 /**
  * @author naveen
@@ -60,5 +64,9 @@ public class UserProfileDto extends UserDto {
 	private Nationality nationality;
 	
 	private BloodGroup bloodGroup;
+	
+	private String nextDestination;
+	
+	private LocalDate arrivalDate;
 	
 }

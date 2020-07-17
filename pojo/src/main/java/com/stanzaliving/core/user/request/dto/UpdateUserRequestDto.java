@@ -47,4 +47,12 @@ public class UpdateUserRequestDto {
 	private BloodGroup bloodGroup;
 	
 	private Nationality nationality;
+	
+	private String foriegnCountryCode;
+	
+	private String foriegnMobileNumber;
+	
+	private LocalDate dateOfArrival;
+	
+	private String nextDestination;
 }
