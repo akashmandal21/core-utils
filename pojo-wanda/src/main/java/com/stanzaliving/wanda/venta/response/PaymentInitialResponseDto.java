@@ -1,6 +1,7 @@
 package com.stanzaliving.wanda.venta.response;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,4 +35,6 @@ public class PaymentInitialResponseDto {
 	private Double minimumAmount;
 	
 	private LocalDate contractStartDate;
+	
+	private Map<String, Double> bookingCharges;
 }

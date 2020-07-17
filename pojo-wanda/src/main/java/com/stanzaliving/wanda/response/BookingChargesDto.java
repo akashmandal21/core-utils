@@ -1,5 +1,7 @@
 package com.stanzaliving.wanda.response;
 
+import java.util.Map;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -36,4 +38,6 @@ public class BookingChargesDto {
 	private Double minimumAmount;
 	
 	private String payAmountText;
+	
+	private Map<String, String> charges;
 }
