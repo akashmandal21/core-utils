@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 public enum DispatchSummaryItemType {
 
+
 	VEG("Veg Meals", "Veg",1),
 	NONVEG("Non Veg Meals", "Non-Veg",2),
 	STAFF("Non-SL Staff Meals", "Non-SL Staff",5),
