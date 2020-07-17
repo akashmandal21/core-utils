@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodItemType;
+import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -43,4 +44,6 @@ public class FoodOrderComboItemsDto {
 	private Integer orderedQuantity;
 
 	private Double orderedWeight;
+
+	private FoodRegion foodRegion;
 }
