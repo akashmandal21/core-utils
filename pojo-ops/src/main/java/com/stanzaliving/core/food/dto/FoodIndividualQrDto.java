@@ -35,6 +35,8 @@ public class FoodIndividualQrDto {
 	private List<FoodItemTypeWiseMealCount> itemTypeWiseMealCounts;
 
 	private DispatchSummaryItemType contextType;
+
+	private String mealTypeName;
 	
 	private int itemQuantity;
 	
