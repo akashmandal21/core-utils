@@ -3,6 +3,7 @@ package com.stanzaliving.core.food.dto.response;
 import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,13 +17,16 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MenuCategoryStatusResponseDto {
-	
+
 	private LocalDate startDate;
-	
+
 	private LocalDate endDate;
-	
+
 	private String categoryName;
-	
-	private boolean menuCreated;
+
+	private String micromarketName;
+
+	@Builder.Default
+	private boolean menuCreated = true;
 
 }
