@@ -40,4 +40,6 @@ public class BookingChargesDto {
 	private String payAmountText;
 	
 	private Map<String, String> charges;
+	
+	private String textForRemainingAmount;
 }

@@ -55,7 +55,6 @@ public class DateUtil {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateFormat.getValue());
 			return formatter.format(dateInput);
 		}
-
 		return null;
 	}
 
