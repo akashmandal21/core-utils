@@ -20,7 +20,7 @@ public class VendorDetailsDto {
 
     private String uuid;
 
-    private List<VendorType> vendorTypes;
+    private List<VendorType> vendorType;
 
     private String companyName;
 
