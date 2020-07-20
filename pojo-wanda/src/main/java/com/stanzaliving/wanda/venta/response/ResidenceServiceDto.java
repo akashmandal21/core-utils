@@ -15,4 +15,6 @@ public class ResidenceServiceDto {
     private Integer serviceId;
     private String serviceImage;
     private String description;
+    private String serviceDisclaimer;
+    private String bgColor;
 }

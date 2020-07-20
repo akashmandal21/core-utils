@@ -24,4 +24,6 @@ public class VasServicesDto{
 	private String serviceDescription;
 	
 	private String serviceDisclaimer;
+	
+	private String bgColor;
 }
