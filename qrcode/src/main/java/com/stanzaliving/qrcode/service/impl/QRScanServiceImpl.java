@@ -41,13 +41,13 @@ public class QRScanServiceImpl implements QRScanService {
 		log.info("Output after scan is {}",code);
 		
 		QRData qrData = qrDataRepository.findByData(code);
-		
-		validateWithResidenceFoodMenuId(residenceFoodMenuId, qrData);
-		
-		log.info("QRData after scan is {}",qrData);
+
 		
 		if(Objects.nonNull(qrData)) {
-			
+
+			log.info("QRData after scan is {}",qrData);
+			validateWithResidenceFoodMenuId(residenceFoodMenuId, qrData);
+
 			qrData.setScannedTimes(qrData.getScannedTimes()+1);
 			
 			qrDataRepository.save(qrData);
@@ -110,7 +110,7 @@ public class QRScanServiceImpl implements QRScanService {
 	}
 	
 	@Override
-	public void updateScanHistory(QRData qrData, String userId) {
+	public void updateScanHistory(QRData qrData, String userId,boolean status) {
 		
 		if(Objects.nonNull(qrData)) {
 			
@@ -132,7 +132,9 @@ public class QRScanServiceImpl implements QRScanService {
 				qrScanHistoryRepository.saveAndFlush(
 						QRScanHistory.builder().qrContextType(qrData.getQrContextType())
 									.contextId(qrData.getContextId())
-								    .qrUUid(qrData.getUuid()).userId(userId).build());
+								    .qrUUid(qrData.getUuid()).userId(userId)
+								    .status(status)
+								    .build());
 			}
 			
 		}
@@ -192,4 +194,5 @@ public class QRScanServiceImpl implements QRScanService {
 	public List<QRData> getQRDataByUuidIn(List<String> uuids) {
 		return qrDataRepository.findByUuidIn(uuids);
 	}
+
 }

@@ -56,7 +56,6 @@ public class FoodMenuCategoryMetadataDto extends AbstractDto {
 	@NotNull(message = "Serve Type Selection is Mandatory")
 	private FoodServeType foodServeType;
 
-	@NotNull(message = "Brand Selection is Mandatory")
 	private ResidenceBrand residenceBrand;
 
 	@NotNull(message = "Menu Type Selection is mandatory")
@@ -65,6 +64,10 @@ public class FoodMenuCategoryMetadataDto extends AbstractDto {
 	private List<FoodItemBasePreference> basePreferences;
 
 	private Double foodMargin;
+
+	private Double utilityCost;
+
+	private Double packagingCost;
 
 	private boolean dataComplete;
 
