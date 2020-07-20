@@ -31,6 +31,7 @@ public class FoodQrItemDto {
 	private String houseName;
 	private String mealType;
 	private String foodItemType;
+	private String displayName;
 	private FoodItemBasePreference foodItemBasePreference;
 	private FoodRegion foodRegion;
 	private FoodItemType foodPreference;

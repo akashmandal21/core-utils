@@ -5,6 +5,7 @@ package com.stanzaliving.core.leaddashboard.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.leaddashboard.enums.CurrentLeadStatusEnum;
 import com.stanzaliving.core.leaddashboard.enums.LeadDropTypeEnum;
 import com.stanzaliving.core.leaddashboard.enums.LeadQualifiedEnum;
@@ -44,7 +45,11 @@ public class LeadDetailRequestDto {
 //	private Date visitScheduledDate;
 //	private Date visitCompletedMarkedDate;
 //	
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone="Asia/Kolkata")
 	private Date postVisitDroppedMarkedDate;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone="Asia/Kolkata")
 	private Date bookedTime;
 	
 	private String leadCreationDate;
