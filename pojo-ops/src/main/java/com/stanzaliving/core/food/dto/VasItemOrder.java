@@ -9,13 +9,13 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class VasItemOrder {
 
 	private int orderQuantity;
-	
+
 	private String itemId;
 }
