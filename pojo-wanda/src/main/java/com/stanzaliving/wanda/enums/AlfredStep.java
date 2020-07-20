@@ -18,7 +18,8 @@ public enum AlfredStep {
 	ONBOARDING(3, Arrays.asList("ONBOARDING PENDING", "ONBOARDING IN PROGRESS")),
 	AGREEMENT(4, Arrays.asList("ONBOARDING COMPLETED")),
 	KYC(5, Arrays.asList("AGREEMENT SENT")),
-	HOMESCREEN(6, Arrays.asList("REFUND INITIATED"));
+	UPDATE_BY_SALES_POC(6, Arrays.asList("REFUND INITIATED")),
+	HOMESCREEN(7, Arrays.asList("REFUND INITIATED"));
 
 	private Integer sequenceId;
 	private List<String> bookingStatuses;
