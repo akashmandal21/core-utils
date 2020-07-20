@@ -41,13 +41,13 @@ public class QRScanServiceImpl implements QRScanService {
 		log.info("Output after scan is {}",code);
 		
 		QRData qrData = qrDataRepository.findByData(code);
-		
-		validateWithResidenceFoodMenuId(residenceFoodMenuId, qrData);
-		
-		log.info("QRData after scan is {}",qrData);
+
 		
 		if(Objects.nonNull(qrData)) {
-			
+
+			log.info("QRData after scan is {}",qrData);
+			validateWithResidenceFoodMenuId(residenceFoodMenuId, qrData);
+
 			qrData.setScannedTimes(qrData.getScannedTimes()+1);
 			
 			qrDataRepository.save(qrData);

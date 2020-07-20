@@ -27,4 +27,5 @@ public class ShortageEmailTemplateDto {
 	private MealAndContainterCountDto vegCount;
 	private MealAndContainterCountDto nonVegCount;
 	private MealAndContainterCountDto nonSlStaffCount;
+	private MealAndContainterCountDto slStaffCount;
 }
