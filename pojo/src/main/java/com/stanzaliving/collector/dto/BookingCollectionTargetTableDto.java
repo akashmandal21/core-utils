@@ -30,5 +30,7 @@ public class BookingCollectionTargetTableDto extends RecordDto {
     Double tMinusThreeCollection = 0d;
     @Builder.Default
     Double l7DayAvgCollection = 0d;
-    
+    @Builder.Default
+    Double l30DayAvgCollection = 0d;
+
 }

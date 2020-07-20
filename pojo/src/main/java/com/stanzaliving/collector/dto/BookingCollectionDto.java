@@ -22,4 +22,6 @@ public class BookingCollectionDto {
     Double tMinusThreeCollection = 0d;
     @Builder.Default
     Double l7DayAvgCollection = 0d;
+    @Builder.Default
+    Double l30DayAvgCollection = 0d;
 }
