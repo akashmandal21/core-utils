@@ -65,6 +65,10 @@ public class FoodMenuCategoryMetadataDto extends AbstractDto {
 
 	private Double foodMargin;
 
+	private Double utilityCost;
+
+	private Double packagingCost;
+
 	private boolean dataComplete;
 
 	private boolean published;
