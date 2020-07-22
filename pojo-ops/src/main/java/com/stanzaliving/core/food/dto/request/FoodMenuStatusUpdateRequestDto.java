@@ -24,4 +24,6 @@ public class FoodMenuStatusUpdateRequestDto extends FoodMenuSubmitRequestDto {
 
 	@NotNull(message = "Menu Status is Mandatory")
 	private FoodMenuStatus menuStatus;
+
+	private String comment;
 }
