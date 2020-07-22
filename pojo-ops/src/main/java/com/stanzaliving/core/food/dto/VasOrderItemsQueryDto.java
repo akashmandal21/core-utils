@@ -2,10 +2,13 @@ package com.stanzaliving.core.food.dto;
 
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.operations.enums.MealType;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"

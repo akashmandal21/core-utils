@@ -17,7 +17,7 @@ public interface QRScanService {
 
 	QRScanHistory getScanHistoryPresentForQrUuidAndUserId(String qrUuid, String userId);
 
-	void updateScanHistory(QRData qrData, String userId);
+	void updateScanHistory(QRData qrData, String userId, boolean status);
 
 	Map<String, QRScanHistory> getQRScannedData(List<String> qrUuids, String userId);
 
@@ -35,4 +35,5 @@ public interface QRScanService {
 
 	List<QRScanHistory> getQrScanHistoryByQrContextTypeAndUserId(String userId, List<QRContextType> qrContextType,
 			Pageable pagination);
+
 }

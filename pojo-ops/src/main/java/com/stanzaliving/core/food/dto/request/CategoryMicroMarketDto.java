@@ -1,6 +1,10 @@
 package com.stanzaliving.core.food.dto.request;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -16,6 +20,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryMicroMarketDto {
+
 	private String menuCategoryId;
 
 	private String microMarketId;
