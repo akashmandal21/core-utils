@@ -23,4 +23,17 @@ public class OtherServices extends BooleanService {
 	private BooleanService coffeeMachine = new BooleanService();
 	
 	private Supplies supplies = new Supplies();
+	
+	private BooleanService washingMachine = new BooleanService();
+	
+	private BooleanService microwave = new BooleanService();
+	
+	private BooleanService singleDoorFridge = new BooleanService();
+	
+	private BooleanService doubleDoorFridge = new BooleanService();
+	
+	private BooleanService waterDispenser = new BooleanService();
+	
+	private BooleanService dryer = new BooleanService();
+	
 }
