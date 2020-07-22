@@ -11,7 +11,7 @@ public enum PoLevel {
 
     NATIONAL("National"),
     CITY("City"),
-    MICROMARKET("Micro Market");
+    MICROMARKET("Cluster");
 
     private String level;
 
