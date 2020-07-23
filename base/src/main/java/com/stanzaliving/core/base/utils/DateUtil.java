@@ -199,7 +199,7 @@ public class DateUtil {
 		return Period.between(one, two).getYears();
 	}
 
-	public LocalDate convertToLocalDate(Date date) {
+	public LocalDate convertToLocalDate(Date date, String timeZone) {
 		if (date == null) {
 			return null;
 		}
@@ -208,9 +208,17 @@ public class DateUtil {
 			return ((java.sql.Date) date).toLocalDate();
 		}
 
-		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
+		ZoneId zoneId = ZoneId.of(timeZone);
 		Instant instant = date.toInstant();
 		return instant.atZone(zoneId).toLocalDate();
+	}
+
+	public LocalDate convertToLocalDate(Date date) {
+		return convertToLocalDate(date, StanzaConstants.IST_TIMEZONE);
+	}
+
+	public LocalDate convertToLocalDateFromUTC(Date date) {
+		return convertToLocalDate(date, StanzaConstants.UTC_TIMEZONE);
 	}
 	
 	public boolean isLocalDateExpired(LocalDate localDate) {
