@@ -25,4 +25,6 @@ public class PoResponse {
 
     private Boolean isCancellationAllowed;
 
+    private Boolean isEditable;
+
 }
