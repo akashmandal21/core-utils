@@ -12,8 +12,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum CategoryDraftStatus {
+
 	UNDER_DRAFT("Under Draft"),
-	SUBMITTED("Submitted"),
+	SUBMITTED("Submitted - Pending Approval"),
 	APPROVED("Approved"),
 	REJECTED("Rejected");
 
