@@ -24,6 +24,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ConditionDto {
 
+	private String leftOperandUuid;
+	
 	private String leftOperand;
 
 	private RuleOperatorEnum operator;
