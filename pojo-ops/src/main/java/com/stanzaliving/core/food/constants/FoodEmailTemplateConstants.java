@@ -15,6 +15,8 @@ public class FoodEmailTemplateConstants {
 	public static final String MENU_CATEGORY_NAME = "menuCategoryName";
 
 	public static final String MENU_WEEK = "menuWeek";
+	
+	public static final String COMMENT = "comment";
 
 	public static final String MEAL_COST_PER_DAY = "mealCostPerDay";
 
