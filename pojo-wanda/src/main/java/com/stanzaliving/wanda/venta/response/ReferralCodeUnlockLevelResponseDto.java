@@ -14,4 +14,6 @@ public class ReferralCodeUnlockLevelResponseDto {
     private Integer minCriteria;
     private Integer maxCriteria;
     private Double amount;
+    @Builder.Default
+    private Boolean currentLevel = Boolean.FALSE;
 }
