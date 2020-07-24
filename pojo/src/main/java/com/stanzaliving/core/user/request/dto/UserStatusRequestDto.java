@@ -10,7 +10,6 @@ import lombok.experimental.SuperBuilder;
  *
  */
 
-
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -18,6 +17,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 public class UserStatusRequestDto {
+
 	private String userId;
 
 	private Boolean status;

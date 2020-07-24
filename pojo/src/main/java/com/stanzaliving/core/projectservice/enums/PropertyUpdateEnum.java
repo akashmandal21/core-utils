@@ -57,6 +57,7 @@ public enum  PropertyUpdateEnum {
     DESIGN_BED_COUNT_SUBMITTED_DEVIATION("Design Bed Count Submitted with deviation",false,NotificationTaskType.DESIGN_BED_COUNT_SUBMITTED_WITH_DEVIATION),
     DESIGN_BED_COUNT_SENT_BACK("Design Bed Count Sent Back",false,NotificationTaskType.DESIGN_BED_COUNT_SENT_BACK),
     DESIGN_BED_COUNT_FINALIZATION_COMPLETED("Bed Count finalization Completed",true,NotificationTaskType.DESIGN_BED_COUNT_DEVIATION_APPROVED),
+    DESIGN_SUB_BRAND_UPDATE("Sub Brand added by Transformation head",true,NotificationTaskType.DESIGN_SUB_BRAND_UPDATE),
 
     DESIGN_BOQ_SUBMITTED("Boq Submitted For Approval",true,NotificationTaskType.MASTER_BOQ_SUBMITTED),
     DESIGN_BOQ_SENT_BACK("Boq Sent Back",true,NotificationTaskType.MASTER_BOQ_REJECTED),
@@ -85,12 +86,20 @@ public enum  PropertyUpdateEnum {
     PO_REJECTED("PO Rejected",false,NotificationTaskType.PO_REJECTED),
     PO_APPROVED("PO Approved",false,NotificationTaskType.PO_APPROVED),
     WAREHOUSE_PO_APPROVED("Warehouse PO Approved",false, NotificationTaskType.WAREHOUSE_PO_APPROVED),
-
+    PO_CANCELLED("PO Cancelled", false, NotificationTaskType.PO_CANCELLED),
+    PO_PARTIALLY_CANCELLED("PO Partially Cancelled", false, NotificationTaskType.PO_PARTIALLY_CANCELLED),
 
     //GRN SERVICE
     GRN_BOI_ITEM_RECEIVED("BOI Item Receiving in GRN",false,NotificationTaskType.GRN_BOI_ITEM_RECEIVED),
     GRN_BOI_ITEM_INSTALLATION("BOI Item Installation in GRN",false,NotificationTaskType.GRN_BOI_ITEM_INSTALLATION),
     GRN_GC_ITEM_COMPLETION("GC Item completion in GRN",false,NotificationTaskType.GRN_GC_ITEM_COMPLETION),
+
+    //SERVICE MIX
+    SERVICE_MIX_OPENED("Service Mix moved to In Draft",true,NotificationTaskType.SERVICE_MIX_OPENED),
+    SERVICE_MIX_SUBMITTED("Service Mix Submitted",true,NotificationTaskType.SERVICE_MIX_SUBMITTED),
+    SERVICE_MIX_APPROVED("Service Mix Approved",true,NotificationTaskType.SERVICE_MIX_APPROVED),
+    SERVICE_MIX_REJECTED("Service Mix Sent Back",true,NotificationTaskType.SERVICE_MIX_REJECTED),
+    SERVICE_MIX_COMPLETED("Service Mix Completed",true,NotificationTaskType.SERVICE_MIX_COMPLETED),
 
     //FOR All other events where there are multiple complete signals. For e.g. Multiple POs/Invoices etc. Marker Event Only
     CHECK_COMPLETED_FROM_SOURCE_SERVICE("Check Completed Status from Source Service",false,null,null),

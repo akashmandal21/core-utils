@@ -47,7 +47,7 @@ public class GFCEntityCDC {
     private LocalDate scheduledDueDate;
 
     @JsonProperty("gfc_status")
-    private GFCStatus gfcStatus;
+    private String gfcStatus;//Change GFCStatus to String
 
     @JsonProperty("due_date")
     @JsonDeserialize(using = TimestampDeserializser.class)

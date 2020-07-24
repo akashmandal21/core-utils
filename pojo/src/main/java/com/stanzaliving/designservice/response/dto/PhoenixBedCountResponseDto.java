@@ -30,9 +30,9 @@ public class PhoenixBedCountResponseDto {
 
     private int summaRoom;
     
-    private int phoenixBed;
+    private Integer phoenixBed;
     
-    private int phoenixRoom;
+    private Integer phoenixRoom;
 
     private String phoenixDesignRemark;
 

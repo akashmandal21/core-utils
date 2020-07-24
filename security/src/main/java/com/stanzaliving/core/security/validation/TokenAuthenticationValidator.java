@@ -1,5 +1,6 @@
 package com.stanzaliving.core.security.validation;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import javax.servlet.http.Cookie;
@@ -46,16 +47,16 @@ public class TokenAuthenticationValidator implements RequestValidator {
 			}
 		}
 
-		log.debug("Auth Requested For Token: " + token);
+		log.info("Auth Requested For Token: {}", token);
 
 		if (StringUtils.isNotBlank(token)) {
 			ResponseDto<UserProfileDto> responseDto = authService.validateToken(token);
 
-			if (responseDto.isStatus()) {
+			if (Objects.nonNull(responseDto) && responseDto.isStatus()) {
 
 				UserProfileDto dto = responseDto.getData();
 
-				log.debug("User Fetched after Authentication: " + dto);
+				log.debug("User Fetched after Authentication: {}", dto.getUuid());
 
 				request.setAttribute("userId", dto.getUuid());
 

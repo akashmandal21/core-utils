@@ -13,35 +13,39 @@ import java.util.UUID;
 @Log4j2
 public class UIDInterceptor extends HandlerInterceptorAdapter {
 
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
 
-        String guid = UUID.randomUUID().toString().replace("-", "");     //globally unique identifier
-        String luid = UUID.randomUUID().toString().replace("-", "");     //locally unique identifier
+		String guid = UUID.randomUUID().toString().replace("-", ""); // globally unique identifier
+		String luid = UUID.randomUUID().toString().replace("-", ""); // locally unique identifier
 
-        guid = (null != request.getHeader(StanzaConstants.GUID)) ? request.getHeader(StanzaConstants.GUID) : guid;
+		guid = (null != request.getHeader(StanzaConstants.GUID)) ? request.getHeader(StanzaConstants.GUID) : guid;
 
         MDC.put(StanzaConstants.GUID, guid);
         MDC.put(StanzaConstants.LUID, luid);
+		MDC.put(StanzaConstants.GUID, guid);
+		MDC.put(StanzaConstants.LUID, luid);
+		MDC.put(StanzaConstants.REQUEST_PATH, request.getRequestURI());
+		MDC.put(StanzaConstants.QUERY_STRING, request.getQueryString());
 
-        log.info("RequestReceived URI " + ((HttpServletRequest) request).getRequestURI() +
-                " QueryString " + ((HttpServletRequest) request).getQueryString() +
-                " App Version " + ((HttpServletRequest) request).getHeader("appversion"));
+		log.info("RequestReceived URI {} QueryString {} AppVersion {}", request.getRequestURI(), request.getQueryString(), request.getHeader("appversion"));
 
-        request.setAttribute(StanzaConstants.GUID, guid);
-        request.setAttribute(StanzaConstants.LUID, luid);
+		request.setAttribute(StanzaConstants.GUID, guid);
+		request.setAttribute(StanzaConstants.LUID, luid);
 
-        return true;
-    }
+		return true;
+	}
 
-    public boolean postHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
+	public boolean postHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
 
-        log.info("ResponseSent Code " + response.getStatus());
+		log.info("ResponseSent Code " + response.getStatus());
 
-        MDC.remove(StanzaConstants.GUID);
-        MDC.remove(StanzaConstants.LUID);
+		MDC.remove(StanzaConstants.GUID);
+		MDC.remove(StanzaConstants.LUID);
+		MDC.remove(StanzaConstants.REQUEST_PATH);
+		MDC.remove(StanzaConstants.QUERY_STRING);
 
-        return true;
-    }
+		return true;
+	}
 
 }

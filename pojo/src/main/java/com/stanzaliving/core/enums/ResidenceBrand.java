@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.enums;
 
@@ -12,6 +12,6 @@ package com.stanzaliving.core.enums;
 public enum ResidenceBrand {
 
 	PRIMA,
-	MEGMA,
+	MAGNA,
 	SUMMA
 }

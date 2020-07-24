@@ -28,9 +28,16 @@ public class StanzaConstants {
 	public static final String ORGANIZATION_NAME = "Stanza Living";
 	public static final String ORGANIZATION_DOMAIN = "https://www.stanzaliving.com";
 
+	public static final String ORGANIZATION_EMAIL_DOMAIN = "@stanzaliving.com";
+
 	public static final String GUID = "guid";
 	public static final String LUID = "luid";
+	
+	public static final String REQUEST_PATH = "RequestPath";
+	public static final String QUERY_STRING = "QueryString";
+	
 
 	public static final String MESSAGE_ID = "messageId";
 
+	public static final String NO_KEY = "NO";
 }

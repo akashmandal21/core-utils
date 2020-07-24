@@ -3,6 +3,7 @@ package com.stanzaliving.core.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -19,6 +20,7 @@ import com.stanzaliving.core.base.enums.DocumentStatus;
 import com.stanzaliving.core.base.enums.DocumentType;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.FullUserDto;
+import com.stanzaliving.core.dto.HostelDto;
 import com.stanzaliving.core.dto.RCDetailDto;
 import com.stanzaliving.core.dto.UserDetailDto;
 import com.stanzaliving.core.dto.UserRegistrationDto;
@@ -198,5 +200,64 @@ public class CoreClientApi {
 		}
 
 		return null;
+	}
+	
+	public List<HostelDto> getListOfAllHostelDto() {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/hostel/").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+		log.info("header {}",token);
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<HostelDto>> returnType = new ParameterizedTypeReference<List<HostelDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public Map<String, Integer> getUserCodeIdMap(Set<String> userCodes) {
+
+		Object postBody = userCodes;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/user/userCodeId").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+		log.info("header {}", token);
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Map<String, Integer>> returnType = new ParameterizedTypeReference<Map<String, Integer>>() {
+		};
+		
+		Map<String, Integer> response = new HashMap<>();
+			
+		try {
+			
+		 response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		 
+		} catch (Exception e) {
+
+			log.error("exception while getting user code map from core", e);
+			
+		}
+		return response;
 	}
 }
