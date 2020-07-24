@@ -23,6 +23,8 @@ public class VasServicesDto{
 	
 	private String serviceDescription;
 	
+	private String serviceShortText;
+	
 	private String serviceDisclaimer;
 	
 	private String bgColor;
