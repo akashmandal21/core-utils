@@ -21,6 +21,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MultiMenuComboPaxCount {
+
 	private LocalDate menuDate;
 
 	private String vendorId;
@@ -40,4 +41,6 @@ public class MultiMenuComboPaxCount {
 	private Double nonStanzaStaffPaxCount;
 
 	private FoodRegion foodRegion;
+
+	private boolean defaultMenu;
 }
