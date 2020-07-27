@@ -46,9 +46,9 @@ public class FoodOrderComboItemsDto {
 
 	private boolean quantifiable;
 
-	private Integer orderedQuantity;
+	private Integer itemQuantity;
 
-	private Double orderedWeight;
+	private Double itemWeight;
 
 	private FoodRegion foodRegion;
 }
