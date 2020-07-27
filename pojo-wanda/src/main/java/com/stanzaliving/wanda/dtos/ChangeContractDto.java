@@ -15,6 +15,8 @@ public class ChangeContractDto {
 	
 	private String contractMonths;
 	
+	private Double numberOfMonths;
+	
 	private String amountSavedText;
 	
 	private boolean currentlySelected;
