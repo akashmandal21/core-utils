@@ -18,5 +18,5 @@ import lombok.experimental.SuperBuilder;
 public class CategoryApprovalUpdatedRuleDto {
 	private String rule;
 
-	private boolean isUpdated;
+	private boolean updated;
 }
