@@ -19,6 +19,8 @@ public class ContractResponseDTO {
     private boolean enabled;
 
     private Double discountAmount = 0.0;
+    
+	private Boolean preSelectedContractId;
 
     private String discountCode;
 }
