@@ -2,29 +2,31 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.wanda.response;
+package com.stanzaliving.wanda.dtos;
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @author nipunaggarwal
  *
  */
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Getter
 @Setter
-public class ReferralCodeDetailDto {
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class HowItWorksDto {
 
 	private Integer sequenceId;
 	private String title;
-	private String referralCode;
-	private String imgUrl;
-	private String text;
+	private List<HowItWorksDetailDto> steps;
 
 }
