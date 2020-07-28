@@ -33,4 +33,6 @@ public class WandaFileResponseDto {
 	
 	private String userId;
 	
+	private String bookingUuid;
+	
 }
