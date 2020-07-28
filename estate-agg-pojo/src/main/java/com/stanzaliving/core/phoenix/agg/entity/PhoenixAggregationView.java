@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.stanzaliving.core.agg.commons.EnumDecoder;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.estate.embeddedInfos.DesignBedInfo;
 import com.stanzaliving.core.mongobase.entity.AbstractMongoEntity;
@@ -22,6 +21,7 @@ import com.stanzaliving.core.phoenix.embeddedInfos.PoInfo;
 import com.stanzaliving.core.phoenix.embeddedInfos.ProjectSchedule;
 import com.stanzaliving.core.phoenix.embeddedInfos.PropertyBasicInfo;
 import com.stanzaliving.core.phoenix.embeddedInfos.PropertyUpdateDetail;
+import com.stanzaliving.core.agg.commons.EnumDecoder;
 import com.stanzaliving.core.projectservice.enums.GFCStatus;
 import com.stanzaliving.core.projectservice.enums.PropertyUpdateEnum;
 import com.stanzaliving.core.user.enums.UserType;
