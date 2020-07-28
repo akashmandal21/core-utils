@@ -3,9 +3,11 @@ package com.stanzaliving.core.enums;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public enum Platform {
 	Android("android"), Ios("ios");
 	
@@ -17,10 +19,6 @@ public enum Platform {
 		for (Platform e : Platform.values()) {
 			byPlatform.put(e.getPlatform(), e);
 		}
-	}
-	
-	private Platform(String platform) {
-		this.platform = platform;
 	}
 	
 	public static boolean existsInPlatform(String platform) {
