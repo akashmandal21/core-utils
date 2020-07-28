@@ -28,6 +28,8 @@ public class FeaturephoneUserDto {
 	private String profilePictureUrl;
 	
 	private String room;
+	
+	private Boolean featurePhone;
 
 	private String foodPickedAt;
 }
