@@ -66,20 +66,19 @@ public class UserOtpClientApi {
 			throw new IllegalArgumentException("Please check all the provided params!!");
 		}
 
-		Object postBody = prepareMobileOtpRequestDto(mobile, userType);
+		MobileOtpRequestDto postBody = prepareMobileOtpRequestDto(mobile, userType);
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
+		final String[] accepts = { "*/*" };
+
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {};
 
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
 }
