@@ -29,4 +29,5 @@ public class FeaturephoneUserDto {
 	
 	private String room;
 
+	private String foodPickedAt;
 }
