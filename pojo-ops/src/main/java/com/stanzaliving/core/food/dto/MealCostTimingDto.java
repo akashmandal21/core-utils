@@ -24,9 +24,9 @@ public class MealCostTimingDto {
 
 	private Double nonSL;
 
-	private LocalTime startTime;
+	private String startTime;
 
-	private LocalTime endTime;
+	private String endTime;
 
 	private boolean isVegChanged;
 
