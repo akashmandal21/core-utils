@@ -31,4 +31,6 @@ public class WandaFileResponseDto {
 	
 	private String metadata;
 	
+	private String userId;
+	
 }
