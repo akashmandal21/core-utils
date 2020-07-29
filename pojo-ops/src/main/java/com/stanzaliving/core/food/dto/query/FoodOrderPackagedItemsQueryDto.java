@@ -34,14 +34,16 @@ public class FoodOrderPackagedItemsQueryDto {
 
 	private MealType mealType;
 
+	private String itemId;
+
 	private FoodItemType itemType;
 
 	private String itemName;
 
 	private boolean quantifiable;
 
-	private Integer orderedQuantity;
+	private Integer itemQuantity;
 
-	private Double orderedWeight;
+	private Integer itemWeight;
 
 }
