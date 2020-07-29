@@ -15,6 +15,8 @@ public class VasServicesDto{
 	
 	private double serviceCost;
 	
+	private String serviceCostStr;
+	
 	private String duration;
 
 	private String serviceName;
