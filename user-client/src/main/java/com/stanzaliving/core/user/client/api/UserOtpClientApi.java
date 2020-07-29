@@ -5,6 +5,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.enums.OtpType;
 import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.user.request.dto.MobileOtpRequestDto;
+import com.stanzaliving.core.user.request.dto.MobileOtpValidateRequestDto;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -42,25 +43,29 @@ public class UserOtpClientApi {
 				.build();
 	}
 
-	public ResponseDto<Void> sendOtpRequest(String mobile, UserType userType) {
+	private MobileOtpValidateRequestDto prepareMobileOtpValidationDto(String mobile, UserType userType, String otp) {
+		return MobileOtpValidateRequestDto.builder()
+				.mobile(mobile)
+				.userType(userType)
+				.otpType(OtpType.MOBILE_VERIFICATION)
+				.isoCode("IN")
+				.otp(otp)
+				.build();
+	}
+
+	public void sendOtpRequest(String mobile, UserType userType) {
 		String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/request").toUriString();
 
-		return sendOtpRequest(mobile, userType, path);
+		sendOtpRequest(mobile, userType, path);
 	}
 
-	public ResponseDto<Void> resendOtp(String mobile, UserType userType) {
+	public void resendOtp(String mobile, UserType userType) {
 		String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/resend").toUriString();
 
-		return sendOtpRequest(mobile, userType, path);
+		sendOtpRequest(mobile, userType, path);
 	}
 
-	public ResponseDto<Void> validateOtp(String mobile, UserType userType) {
-		String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/validate").toUriString();
-
-		return sendOtpRequest(mobile, userType, path);
-	}
-
-	public ResponseDto<Void> sendOtpRequest(String mobile, UserType userType, String path) {
+	private void sendOtpRequest(String mobile, UserType userType, String path) {
 
 		if (StringUtils.isBlank(mobile) || Objects.isNull(userType)) {
 			throw new IllegalArgumentException("Please check all the provided params!!");
@@ -78,7 +83,30 @@ public class UserOtpClientApi {
 
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {};
 
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+	public void validateOtp(String mobile, UserType userType, String otp) {
+		String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/validate").toUriString();
+
+		if (StringUtils.isBlank(mobile) || Objects.isNull(userType)) {
+			throw new IllegalArgumentException("Please check all the provided params!!");
+		}
+
+		MobileOtpValidateRequestDto postBody = prepareMobileOtpValidationDto(mobile, userType, otp);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {};
+
+		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 
 }
