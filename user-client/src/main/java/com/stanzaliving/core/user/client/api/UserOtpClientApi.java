@@ -34,44 +34,44 @@ public class UserOtpClientApi {
 	}
 
 
-	private MobileOtpRequestDto prepareMobileOtpRequestDto(String mobile, UserType userType) {
+	private MobileOtpRequestDto prepareMobileOtpRequestDto(String mobile, UserType userType, OtpType otpType, String isoCode) {
 		return MobileOtpRequestDto.builder()
 				.mobile(mobile)
 				.userType(userType)
-				.otpType(OtpType.MOBILE_VERIFICATION)
-				.isoCode("IN")
+				.otpType(otpType)
+				.isoCode(isoCode)
 				.build();
 	}
 
-	private MobileOtpValidateRequestDto prepareMobileOtpValidationDto(String mobile, UserType userType, String otp) {
+	private MobileOtpValidateRequestDto prepareMobileOtpValidationDto(String mobile, UserType userType, String otp, OtpType otpType, String isoCode) {
 		return MobileOtpValidateRequestDto.builder()
 				.mobile(mobile)
 				.userType(userType)
-				.otpType(OtpType.MOBILE_VERIFICATION)
-				.isoCode("IN")
+				.otpType(otpType)
+				.isoCode(isoCode)
 				.otp(otp)
 				.build();
 	}
 
-	public void sendOtpRequest(String mobile, UserType userType) {
+	public void sendOtpRequest(String mobile, UserType userType, OtpType otpType, String isoCode) {
 		String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/request").toUriString();
 
-		sendOtpRequest(mobile, userType, path);
+		sendOtpRequest(mobile, userType, path, otpType, isoCode);
 	}
 
-	public void resendOtp(String mobile, UserType userType) {
+	public void resendOtp(String mobile, UserType userType, OtpType otpType, String isoCode) {
 		String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/resend").toUriString();
 
-		sendOtpRequest(mobile, userType, path);
+		sendOtpRequest(mobile, userType, path, otpType, isoCode);
 	}
 
-	private void sendOtpRequest(String mobile, UserType userType, String path) {
+	private void sendOtpRequest(String mobile, UserType userType, String path, OtpType otpType, String isoCode) {
 
 		if (StringUtils.isBlank(mobile) || Objects.isNull(userType)) {
 			throw new IllegalArgumentException("Please check all the provided params!!");
 		}
 
-		MobileOtpRequestDto postBody = prepareMobileOtpRequestDto(mobile, userType);
+		MobileOtpRequestDto postBody = prepareMobileOtpRequestDto(mobile, userType, otpType, isoCode);
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -86,14 +86,14 @@ public class UserOtpClientApi {
 		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public void validateOtp(String mobile, UserType userType, String otp) {
+	public void validateOtp(String mobile, UserType userType, String otp, OtpType otpType, String isoCode) {
 		String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/validate").toUriString();
 
 		if (StringUtils.isBlank(mobile) || Objects.isNull(userType)) {
 			throw new IllegalArgumentException("Please check all the provided params!!");
 		}
 
-		MobileOtpValidateRequestDto postBody = prepareMobileOtpValidationDto(mobile, userType, otp);
+		MobileOtpValidateRequestDto postBody = prepareMobileOtpValidationDto(mobile, userType, otp, otpType, isoCode);
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
