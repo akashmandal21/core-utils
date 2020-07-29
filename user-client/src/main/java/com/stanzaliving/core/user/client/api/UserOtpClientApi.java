@@ -26,7 +26,7 @@ import java.util.Objects;
 
 @Log4j2
 public class UserOtpClientApi {
-	private StanzaRestClient restClient;
+	private final StanzaRestClient restClient;
 
 	public UserOtpClientApi(StanzaRestClient stanzaRestClient) {
 		this.restClient = stanzaRestClient;
