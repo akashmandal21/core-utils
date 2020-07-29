@@ -1,7 +1,10 @@
 package com.stanzaliving.core.user.dto.response;
 
-import com.stanzaliving.core.base.enums.Department;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**

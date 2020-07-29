@@ -42,6 +42,7 @@ public enum MealType {
 	private static Map<String, MealType> mealMapByName = new HashMap<>();
 	private static List<String> mealIds = new ArrayList<>();
 	private static Map<MealType, String> mealMapByType = new LinkedHashMap<>();
+	private static Map<String, String> mealMapByTypeStr = new LinkedHashMap<>();
 
 	private static List<EnumListing<MealType>> enumListings = new ArrayList<>();
 
@@ -58,6 +59,11 @@ public enum MealType {
 		mealMapByType.put(EVENING_SNACKS, EVENING_SNACKS.getMealName());
 		mealMapByType.put(DINNER, DINNER.getMealName());
 
+		mealMapByTypeStr.put(BREAKFAST.toString(), BREAKFAST.getMealName());
+		mealMapByTypeStr.put(LUNCH.toString(), LUNCH.getMealName());
+		mealMapByTypeStr.put(EVENING_SNACKS.toString(), EVENING_SNACKS.getMealName());
+		mealMapByTypeStr.put(DINNER.toString(), DINNER.getMealName());
+
 	}
 
 	public static Integer getMealId(String mealName) {
@@ -72,6 +78,10 @@ public enum MealType {
 
 	public static Map<MealType, String> getMealMapByType() {
 		return mealMapByType;
+	}
+
+	public static Map<String, String> getMealMapByTypeStr() {
+		return mealMapByTypeStr;
 	}
 	
 	public static String getMealName(String mealId) {

@@ -283,4 +283,12 @@ public class StanzaUtils {
 		return sizeWithUnit;
 	}
 
+	public String getQuotedString(Collection<String> list) {
+		return "'" + String.join("','", list) + "'";
+	}
+
+	public String getString(Object obj) {
+		return Objects.isNull(obj) ? null : obj.toString();
+	}
+
 }

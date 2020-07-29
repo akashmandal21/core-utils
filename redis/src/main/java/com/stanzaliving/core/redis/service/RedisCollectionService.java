@@ -28,4 +28,6 @@ public interface RedisCollectionService {
 	boolean existsInObjectSet(String setName, Object key);
 
 	boolean addInObjectSet(String setName, Object key);
+
+	void clearMap(String mapName);
 }

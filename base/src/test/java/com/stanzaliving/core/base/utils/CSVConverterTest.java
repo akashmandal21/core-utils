@@ -7,8 +7,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.stanzaliving.core.base.utils.CSVConverter;
-
 public class CSVConverterTest {
 
 	@Test

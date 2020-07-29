@@ -3,12 +3,12 @@
  */
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalDate;
 import java.util.List;
 
+import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodItemType;
-import com.stanzaliving.core.operations.enums.MealType;
 
+import com.stanzaliving.core.food.enums.FoodRegion;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,8 +31,17 @@ public class FoodQrItemDto {
 	private String houseName;
 	private String mealType;
 	private String foodItemType;
+	private String displayName;
+	private FoodItemBasePreference foodItemBasePreference;
+	private FoodRegion foodRegion;
 	private FoodItemType foodPreference;
 	private String residenceFoodMenuId;
 	private String foodText;
 	private List<String> foodItemNames;
+	private boolean isMealReplacement;
+	private boolean incorrectQr;
+	private String scannedCombo;
+	private String requestedCombo;
+	private boolean pickMealDisable;
+	private boolean baseCombo;
 }

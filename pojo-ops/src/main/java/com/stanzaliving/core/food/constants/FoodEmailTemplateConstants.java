@@ -15,6 +15,8 @@ public class FoodEmailTemplateConstants {
 	public static final String MENU_CATEGORY_NAME = "menuCategoryName";
 
 	public static final String MENU_WEEK = "menuWeek";
+	
+	public static final String COMMENT = "comment";
 
 	public static final String MEAL_COST_PER_DAY = "mealCostPerDay";
 
@@ -49,5 +51,23 @@ public class FoodEmailTemplateConstants {
 	public static final String MEAL_DELIVERY_DTOS = "mealDeliveryDtos";
 
 	public static final String VENDOR_NAME = "vendorName";
+	
+	public static final String HOUSE_NAME = "houseName";
+	
+	public static final String MEAL_NAME = "mealName";
+	
+	public static final String SHORTAGE_DATE = "date";
+	
+	public static final String VEG_COUNT = "vegCount";
+	
+	public static final String NON_VEG_COUNT = "nonVegCount";
+	
+	public static final String NON_SL_STAFF_COUNT = "nonSlStaffCount";
+	
+	public static final String HOSTEL_NAME = "hostelName";
+	
+	public static final String RC_NAME = "rcName";
+	
+	public static final String RC_MOBILE_NUMBER = "rcMobileNumber";
 }
 

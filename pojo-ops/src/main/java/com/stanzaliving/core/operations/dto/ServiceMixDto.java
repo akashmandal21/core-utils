@@ -25,7 +25,7 @@ public class ServiceMixDto extends AbstractDto {
 	
 	private String cityId;
 
-	private String microMarketId;
+	private String micromarketId;
 	
 	private String versionName;
 	
