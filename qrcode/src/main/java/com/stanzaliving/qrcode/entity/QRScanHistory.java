@@ -42,7 +42,7 @@ public class QRScanHistory extends AbstractJpaEntity {
 	@Enumerated(EnumType.STRING)
 	private QRContextType qrContextType;
 
-	@Column(name = "validation_type", columnDefinition = "varchar(50) DEFAULT 'SELF'")
+	@Column(name = "validation_type", columnDefinition = "varchar(100) DEFAULT 'SELF'")
 	@Enumerated(EnumType.STRING)
 	private FeaturePhoneQrValidation qrValidationType;
 
