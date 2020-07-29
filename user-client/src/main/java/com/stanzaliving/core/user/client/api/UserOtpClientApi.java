@@ -86,7 +86,7 @@ public class UserOtpClientApi {
 		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public void validateOtp(String mobile, UserType userType, String otp, OtpType otpType, String isoCode) {
+	public ResponseDto<Void> validateOtp(String mobile, UserType userType, String otp, OtpType otpType, String isoCode) {
 		String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/validate").toUriString();
 
 		if (StringUtils.isBlank(mobile) || Objects.isNull(userType)) {
@@ -105,7 +105,7 @@ public class UserOtpClientApi {
 
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {};
 
-		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
 
