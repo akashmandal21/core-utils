@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
+import com.stanzaliving.qrcode.enums.FeaturePhoneQrValidation;
 import com.stanzaliving.qrcode.enums.QRContextType;
 
 import lombok.AllArgsConstructor;
@@ -41,4 +42,10 @@ public class QRScanHistory extends AbstractJpaEntity {
 	@Enumerated(EnumType.STRING)
 	private QRContextType qrContextType;
 
+	@Column(name = "validation_type", columnDefinition = "varchar(50) DEFAULT 'SELF'")
+	@Enumerated(EnumType.STRING)
+	private FeaturePhoneQrValidation qrValidationType;
+
+	@Column(name = "validated_image_path", columnDefinition = "varchar(1000)")
+	private String validatedImagePath;
 }
