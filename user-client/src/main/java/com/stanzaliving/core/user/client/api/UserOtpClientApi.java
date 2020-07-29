@@ -53,19 +53,19 @@ public class UserOtpClientApi {
 				.build();
 	}
 
-	public void sendOtpRequest(String mobile, UserType userType, OtpType otpType, String isoCode) {
+	public ResponseDto<Void> sendOtpRequest(String mobile, UserType userType, OtpType otpType, String isoCode) {
 		String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/request").toUriString();
 
-		sendOtpRequest(mobile, userType, path, otpType, isoCode);
+		return sendOtpRequest(mobile, userType, path, otpType, isoCode);
 	}
 
-	public void resendOtp(String mobile, UserType userType, OtpType otpType, String isoCode) {
+	public ResponseDto<Void> resendOtp(String mobile, UserType userType, OtpType otpType, String isoCode) {
 		String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/resend").toUriString();
 
-		sendOtpRequest(mobile, userType, path, otpType, isoCode);
+		return sendOtpRequest(mobile, userType, path, otpType, isoCode);
 	}
 
-	private void sendOtpRequest(String mobile, UserType userType, String path, OtpType otpType, String isoCode) {
+	private ResponseDto<Void> sendOtpRequest(String mobile, UserType userType, String path, OtpType otpType, String isoCode) {
 
 		if (StringUtils.isBlank(mobile) || Objects.isNull(userType)) {
 			throw new IllegalArgumentException("Please check all the provided params!!");
@@ -83,7 +83,7 @@ public class UserOtpClientApi {
 
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {};
 
-		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
 	public ResponseDto<Void> validateOtp(String mobile, UserType userType, String otp, OtpType otpType, String isoCode) {
