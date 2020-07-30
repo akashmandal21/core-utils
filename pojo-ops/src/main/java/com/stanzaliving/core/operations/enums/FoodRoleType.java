@@ -24,6 +24,9 @@ public enum FoodRoleType {
 	CITY_MENU_CREATION("City - Menu Creation", Department.FOOD_OPS, AccessLevel.CITY),
 	PURCHASE_MANAGER("Purchase Manager", Department.FOOD_OPS, AccessLevel.CITY),
 	STORE_MANAGER("Store Manager", Department.FOOD_OPS, AccessLevel.CITY),
+	COUNTRY_MENU_CATEGORY_APPROVER_L1("Country - Menu Category Approver - L1", Department.FOOD_OPS, AccessLevel.COUNTRY),
+	COUNTRY_MENU_CATEGORY_APPROVER_L2("Country - Menu Category Approver - L2", Department.FOOD_OPS, AccessLevel.COUNTRY),
+
 
 	EMAIL_CC_FOOD_ORDER_DETAILS("Email CC - Food Order Details", Department.OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_ORDER_REMINDER("Email CC - Food Order Reminder", Department.OPS, AccessLevel.COUNTRY),
@@ -34,7 +37,8 @@ public enum FoodRoleType {
 	EMAIL_CC_FOOD_MENU_CREATION_REMINDER("Email CC - Food Menu Creation Reminder", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_MENU_WEEKLY_SUMMARY("Email CC - Food Menu Weekly Summary", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_VENDOR_PRICE_APPROVED("Email CC - Vendor Price Approved", Department.FOOD_OPS, AccessLevel.COUNTRY),
-	
+	EMAIL_CC_FOOD_MENU_CATEGORY_APPROVED("Email CC - Food Menu Category Approved", Department.FOOD_OPS, AccessLevel.COUNTRY),
+
 	HOSTEL_MENU_CHANGE_COST_APPROVER("Country - Hostel Menu Change Cost Approver", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	HOSTEL_MENU_CHANGE_NON_COST_APPROVER("Country - Hostel Menu Change Non Cost Approver", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_HOSTEL_MENU_CHANGE_APPROVED("Email CC - Hostel Menu Change Approved", Department.FOOD_OPS, AccessLevel.COUNTRY);
