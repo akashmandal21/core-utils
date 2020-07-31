@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.collections.CollectionUtils;
 
+import com.stanzaliving.core.base.utils.StanzaUtils;
 import com.stanzaliving.core.food.dto.request.FoodMenuCategoryMealDto;
 import com.stanzaliving.core.food.dto.request.FoodMenuCategoryMetadataDto;
 import com.stanzaliving.core.food.dto.request.FullCategoryDto;
@@ -82,7 +83,7 @@ public class MenuCategoryMealUtils {
 			}
 		}
 
-		return trueCost;
+		return StanzaUtils.roundToPlaces(trueCost, 1);
 	}
 
 }
