@@ -132,13 +132,19 @@ public class QRScanServiceImpl implements QRScanService {
 			log.info("Saving scan history data for userId {}", userId);
 
 			if (qrScanHistory == null) {
-				qrScanHistoryRepository.saveAndFlush(
-						QRScanHistory.builder().qrContextType(qrData.getQrContextType())
+				qrScanHistory =
+						QRScanHistory.builder()
+								.qrContextType(qrData.getQrContextType())
 								.contextId(qrData.getContextId())
 								.qrUUid(qrData.getUuid())
 								.userId(userId)
 								.status(status)
-								.build());
+								.build();
+
+				log.info("Adding QR Scan History: {}", qrScanHistory);
+
+				qrScanHistory = qrScanHistoryRepository.saveAndFlush(qrScanHistory);
+
 			} else {
 
 				qrScanHistory.setStatus(status);
