@@ -37,4 +37,12 @@ public class PoInvoiceItemDetailsDto {
 
     private Float poItemQuantity;
 
+    private String cgst;
+
+    private String igst;
+
+    private String sgst;
+
+    private Double gstAmount;
+
 }
