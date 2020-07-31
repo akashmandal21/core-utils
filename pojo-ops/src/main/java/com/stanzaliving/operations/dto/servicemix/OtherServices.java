@@ -14,13 +14,26 @@ public class OtherServices extends BooleanService {
 	private MultiTimeSlotService cafetaria = new MultiTimeSlotService();
 	
 	@JsonProperty("room_dth")
-	private BooleanService roomDth = new BooleanService();
+	private AcquiredBooleanService roomDth = new AcquiredBooleanService();
 	
 	@JsonProperty("vending_machine")
-	private BooleanService vendingMachine = new BooleanService();
+	private AcquiredBooleanService vendingMachine = new AcquiredBooleanService();
 	
 	@JsonProperty("coffee_machine")
-	private BooleanService coffeeMachine = new BooleanService();
+	private AcquiredBooleanService coffeeMachine = new AcquiredBooleanService();
 	
 	private Supplies supplies = new Supplies();
+	
+	private AcquiredBooleanService washingMachine = new AcquiredBooleanService();
+	
+	private AcquiredBooleanService microwave = new AcquiredBooleanService();
+	
+	private AcquiredBooleanService singleDoorFridge = new AcquiredBooleanService();
+	
+	private AcquiredBooleanService doubleDoorFridge = new AcquiredBooleanService();
+	
+	private AcquiredBooleanService waterDispenser = new AcquiredBooleanService();
+	
+	private AcquiredBooleanService dryer = new AcquiredBooleanService();
+	
 }
