@@ -17,21 +17,23 @@ import lombok.ToString;
 @Builder
 @ToString(callSuper = true)
 public class StaffMealBudgetUtilizationCalendarDateDto {
-	
+
 	private LocalDate date;
 
 	private FoodDayType dayType;
 
 	private boolean holiday;
-	
-	private boolean nonVegDay; 
 
-	private Integer slStaffCount;
-	
-	private Integer nonSLStaffCount;
+	private boolean nonVegDay;
+
+	@Builder.Default
+	private Integer slStaffCount = 0;
+
+	@Builder.Default
+	private Integer nonSLStaffCount = 0;
 
 	private Double slStaffCost;
-	
+
 	private Double nonSLStaffCost;
 
 	private List<StaffMealAttendanceUtilizationDto> mealAttendanceUtilizationDtoList;

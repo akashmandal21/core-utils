@@ -15,9 +15,11 @@ public class StaffMealAttendanceUtilizationDto {
 
 	private String mealName;
 
-	private Double slStaffUtilization;
-	
-	private Double nonSlStaffUtilization;
+	@Builder.Default
+	private Double slStaffUtilization = 0d;
+
+	@Builder.Default
+	private Double nonSlStaffUtilization = 0d;
 
 	private Integer mealSequence;
 
