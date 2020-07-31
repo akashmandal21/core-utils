@@ -9,6 +9,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalTime;
+
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
  *
@@ -47,5 +49,17 @@ public class FoodMenuCategoryMealDto {
 	private Double expectedVegCost;
 
 	private Double expectedNonVegCost;
+
+	private Double nonStanzaStaffCost;
+
+	private LocalTime mealStartTime;
+
+	private LocalTime mealEndTime;
+	
+	private LocalTime pickupStartTime;
+	private LocalTime pickupEndTime;
+	
+	private LocalTime deliveryStartTime;
+	private LocalTime deliveryEndTime;
 
 }

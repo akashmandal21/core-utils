@@ -33,7 +33,7 @@ public class ResidentFoodItemFeedbackRequestDto {
 	private String reason;
 
 	private String comment;
-	
+
 	private List<ExpectedItemFeedbackReasonDto> expectedItemFeedbackReasons;
 
 }

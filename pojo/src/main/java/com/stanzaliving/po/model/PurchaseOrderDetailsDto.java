@@ -52,4 +52,6 @@ public class PurchaseOrderDetailsDto {
 
     private String poEndDate;
 
+    private String cancellationReason;
+
 }

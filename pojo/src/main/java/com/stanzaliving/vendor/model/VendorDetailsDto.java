@@ -1,5 +1,6 @@
 package com.stanzaliving.vendor.model;
 
+import com.stanzaliving.vendor.enums.VendorType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,7 +20,7 @@ public class VendorDetailsDto {
 
     private String uuid;
 
-    private String vendorType;
+    private List<VendorType> vendorType;
 
     private String companyName;
 

@@ -87,12 +87,19 @@ public enum  PropertyUpdateEnum {
     PO_APPROVED("PO Approved",false,NotificationTaskType.PO_APPROVED),
     WAREHOUSE_PO_APPROVED("Warehouse PO Approved",false, NotificationTaskType.WAREHOUSE_PO_APPROVED),
     PO_CANCELLED("PO Cancelled", false, NotificationTaskType.PO_CANCELLED),
-    PO_PARTIALLY_CANCELLED("PO Partially Cancelled", false, NotificationTaskType.PO_PARTIALLY_CANCELLED),
+    PO_SHORT_CLOSED("PO Short Closed", false, NotificationTaskType.PO_SHORT_CLOSED),
 
     //GRN SERVICE
     GRN_BOI_ITEM_RECEIVED("BOI Item Receiving in GRN",false,NotificationTaskType.GRN_BOI_ITEM_RECEIVED),
     GRN_BOI_ITEM_INSTALLATION("BOI Item Installation in GRN",false,NotificationTaskType.GRN_BOI_ITEM_INSTALLATION),
     GRN_GC_ITEM_COMPLETION("GC Item completion in GRN",false,NotificationTaskType.GRN_GC_ITEM_COMPLETION),
+
+    //SERVICE MIX
+    SERVICE_MIX_OPENED("Service Mix moved to In Draft",true,NotificationTaskType.SERVICE_MIX_OPENED),
+    SERVICE_MIX_SUBMITTED("Service Mix Submitted",true,NotificationTaskType.SERVICE_MIX_SUBMITTED),
+    SERVICE_MIX_APPROVED("Service Mix Approved",true,NotificationTaskType.SERVICE_MIX_APPROVED),
+    SERVICE_MIX_REJECTED("Service Mix Sent Back",true,NotificationTaskType.SERVICE_MIX_REJECTED),
+    SERVICE_MIX_COMPLETED("Service Mix Completed",true,NotificationTaskType.SERVICE_MIX_COMPLETED),
 
     //FOR All other events where there are multiple complete signals. For e.g. Multiple POs/Invoices etc. Marker Event Only
     CHECK_COMPLETED_FROM_SOURCE_SERVICE("Check Completed Status from Source Service",false,null,null),

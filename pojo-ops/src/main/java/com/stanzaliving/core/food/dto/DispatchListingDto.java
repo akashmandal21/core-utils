@@ -1,6 +1,8 @@
 package com.stanzaliving.core.food.dto;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.stanzaliving.core.operations.enums.MealType;
 
@@ -20,6 +22,8 @@ import lombok.ToString;
 public class DispatchListingDto {
 
 	private String residenceName;
+
+	private String residenceId;
 	
 	private MealType mealType;
 	
@@ -29,21 +33,32 @@ public class DispatchListingDto {
 	
 	private LocalTime mealStartTime;
 	
-	private int vegMeals;
+	@Builder.Default
+	private int vegMeals=0;
 	
-	private int nonVegMeals;
+	@Builder.Default
+	private int nonVegMeals=0;
 	
-	private int staffMeals;
+	@Builder.Default
+	private int staffMeals=0;
+//
+//	@Builder.Default
+//	private int slStaffMeals =0;
 	
-	private int vasVegMeals;
+	@Builder.Default
+	private int vasVegMeals=0;
 	
-	private int vasNonVegMeals;
+	@Builder.Default
+	private int vasNonVegMeals=0;
 	
 	private boolean printable;
 	
 	private String residenceMenuUuid;
 	
 	private String dispatchListUuid;
+	
+	@Builder.Default
+	private List<String> dispatchSummaryIds=new ArrayList<>();
 	
 	
 }

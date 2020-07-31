@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
+import com.stanzaliving.transformations.pojo.*;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.cache.CacheBuilder;
@@ -11,9 +12,6 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.transformation.client.api.InternalDataControllerApi;
-import com.stanzaliving.transformations.pojo.CityMetadataDto;
-import com.stanzaliving.transformations.pojo.MicroMarketMetadataDto;
-import com.stanzaliving.transformations.pojo.ResidenceMetadataDto;
 
 public class TransformationCache {
 
@@ -68,6 +66,22 @@ public class TransformationCache {
 		return allResidenceCache.getUnchecked("residence");
 	}
 
+
+	private LoadingCache<String, List<ResidenceUIDto>> allResidenceWithCoreCache = CacheBuilder.newBuilder()
+			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.build(
+					new CacheLoader<String, List<ResidenceUIDto>>() {
+
+						@Override
+						public List<ResidenceUIDto> load(String key) {
+							return internalDataControllerApi.getResidenceDetailList().getData();
+						}
+					});
+
+	public List<ResidenceUIDto> getAllResidencesWithCoreData() {
+		return allResidenceWithCoreCache.getUnchecked("residenceWithCore");
+	}
+
 	// It shouldn't be done this way, especially iterating part
 	public String getAccessLevelNameByUuid(String uuid, String accessLevel) {
 
@@ -97,6 +111,14 @@ public class TransformationCache {
 		}
 
 		return name;
+	}
+
+	public ResidenceDto getResidenceDataFromUuid(String residenceUuid) {
+		return internalDataControllerApi.getResidenceData(residenceUuid).getData();
+	}
+
+	public MicroMarketMetadataDto getMicromarketDataFromUuid(String micromarketUuid) {
+		return internalDataControllerApi.getMicromarketData(micromarketUuid).getData();
 	}
 
 }
