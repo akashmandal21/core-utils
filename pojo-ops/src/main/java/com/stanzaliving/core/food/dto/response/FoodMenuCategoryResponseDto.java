@@ -43,6 +43,8 @@ public class FoodMenuCategoryResponseDto {
 
 	private Double targetPrice;
 
+	private Double truePrice;
+	
 	private String targetPriceUnit;
 
 	private boolean published;
