@@ -1,6 +1,5 @@
 package com.stanzaliving.dashboard.dto;
 
-import com.stanzaliving.core.base.enums.AccessLevel;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.log4j.Log4j2;

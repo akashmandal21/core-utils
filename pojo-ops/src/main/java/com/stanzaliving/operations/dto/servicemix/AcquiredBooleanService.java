@@ -1,14 +1,14 @@
 package com.stanzaliving.operations.dto.servicemix;
 
-import com.stanzaliving.operations.enums.PowerBackupEnum;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
-@Setter 
+@Setter
 @ToString(callSuper = true)
-public class PowerBackup extends AcquiredBooleanService {
-	private PowerBackupEnum type;
+public class AcquiredBooleanService extends BooleanService {
+	private Integer items;
+	private String acquisition;
+	private Double monthlyRentalPerItem;
 }
