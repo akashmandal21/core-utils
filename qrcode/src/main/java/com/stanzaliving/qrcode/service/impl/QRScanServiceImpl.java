@@ -129,7 +129,7 @@ public class QRScanServiceImpl implements QRScanService {
 				qrScanHistory = checkScanHistory(qrData.getContextId(), userId, qrData.getQrContextType());
 			}
 
-			log.info("Saving scan history data for userId {}", userId);
+			log.info("Saving scan history data for userId {} with status: {}", userId, status);
 
 			if (qrScanHistory == null) {
 				qrScanHistory =
@@ -148,6 +148,7 @@ public class QRScanServiceImpl implements QRScanService {
 			} else {
 
 				qrScanHistory.setStatus(status);
+				log.info("Updating QR Scan History: {}", qrScanHistory);
 				qrScanHistoryRepository.save(qrScanHistory);
 			}
 
