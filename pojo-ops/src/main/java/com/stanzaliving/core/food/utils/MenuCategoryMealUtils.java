@@ -71,19 +71,30 @@ public class MenuCategoryMealUtils {
 
 				for (FoodMenuCategoryMealDto categoryMealDto : mealDtos) {
 
-					int mealActiveDays = MenuCategoryMealUtils.getDaysPerWeekCount(categoryMealDto);
+					double mealCost = getMealTrueCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
 
-					double mealUtilityCost = utilityCost * (mealActiveDays / totalMealsInWeek);
-					double mealPackagingCost = packagingCost * (mealActiveDays / totalMealsInWeek);
-
-					trueCost +=
-							(categoryMealDto.getExpectedVegCost() + mealUtilityCost + mealPackagingCost) / (1 - foodMargin / 100);
+					trueCost += mealCost;
 				}
 
 			}
 		}
 
-		return StanzaUtils.roundToPlaces(trueCost, 1);
+		return StanzaUtils.roundOff(trueCost);
+	}
+
+	public double getMealTrueCost(FoodMenuCategoryMealDto categoryMealDto, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+
+		int mealActiveDays = MenuCategoryMealUtils.getDaysPerWeekCount(categoryMealDto);
+
+		double mealUtilityCost = utilityCost * ((double) mealActiveDays / (double) totalMealsInWeek);
+		double mealPackagingCost = packagingCost * ((double) mealActiveDays / (double) totalMealsInWeek);
+
+		double mealCost =
+				(categoryMealDto.getExpectedVegCost() + mealUtilityCost + mealPackagingCost) / (1 - foodMargin / 100);
+
+		mealCost = mealCost * (7 / mealActiveDays);
+
+		return StanzaUtils.roundOff(mealCost);
 	}
 
 }
