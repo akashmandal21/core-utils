@@ -26,9 +26,9 @@ public class FeaturephoneUserDto {
 	private String email;
 
 	private String profilePictureUrl;
-	
+
 	private String room;
-	
+
 	private Boolean featurePhone;
 
 	private String foodPickedAt;
