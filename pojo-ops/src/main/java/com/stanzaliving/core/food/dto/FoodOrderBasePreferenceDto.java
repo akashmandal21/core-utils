@@ -38,6 +38,8 @@ public class FoodOrderBasePreferenceDto {
 
 	private String combo;
 
+	private String comboName;
+	
 	private LocalTime mealStartTime;
 
 	private LocalTime mealEndTime;

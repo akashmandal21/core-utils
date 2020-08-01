@@ -40,6 +40,8 @@ public class MealFoodMenuDto {
 	private Double budgetedCost;
 	
 	private boolean defaultMenu;
+	
+	private String menuName;
 
 	private List<MenuItemDto> menuItems;
 }
