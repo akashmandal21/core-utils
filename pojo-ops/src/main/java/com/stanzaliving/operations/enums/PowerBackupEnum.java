@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 public enum PowerBackupEnum implements EnumValue{
-	INVERTOR("Invertor"),
+	INVERTOR("Inverter"),
 	DG("DG");
 	
 	private String value;

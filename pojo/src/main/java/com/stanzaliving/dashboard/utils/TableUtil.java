@@ -1,6 +1,5 @@
 package com.stanzaliving.dashboard.utils;
 
-import com.stanzaliving.collector.dto.request.RentDashboardRequestDto;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.dashboard.dto.BaseRequestDto;
 import org.apache.commons.collections.CollectionUtils;
