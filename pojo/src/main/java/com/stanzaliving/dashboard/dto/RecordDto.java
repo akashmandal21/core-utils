@@ -1,6 +1,5 @@
 package com.stanzaliving.dashboard.dto;
 
-import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.dashboard.constants.ReportConstants;
 import lombok.*;
 import lombok.experimental.SuperBuilder;

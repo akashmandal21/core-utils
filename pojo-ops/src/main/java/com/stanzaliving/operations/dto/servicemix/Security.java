@@ -8,8 +8,8 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 public class Security extends BooleanService {
-	private BooleanService bioMetric;
-	private BooleanService cardAccess;
-	private NightCurfew nightCurfew;
-	private Blanket blanket;
+	private BooleanService bioMetric = new BooleanService();
+	private BooleanService cardAccess = new BooleanService();
+	private NightCurfew nightCurfew = new NightCurfew();
+	private Blanket blanket = new Blanket();
 }

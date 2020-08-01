@@ -14,9 +14,9 @@ public class Electricity extends BooleanService {
 	
 	@JsonProperty("common_area")
 	private ElectricityService commonArea = new ElectricityService();
-	private MultiTimeSlotService geyser = new MultiTimeSlotService();
-	private MultiTimeSlotService commonGeyser = new MultiTimeSlotService();
-	private MultiTimeSlotService ac = new MultiTimeSlotService();
+	private ElectricityAddonService geyser = new ElectricityAddonService();
+	private ElectricityAddonService commonGeyser = new ElectricityAddonService();
+	private ElectricityAddonService ac = new ElectricityAddonService();
 	
 	@JsonProperty("power_backup")
 	private PowerBackup powerBackup = new PowerBackup();

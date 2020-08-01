@@ -28,8 +28,9 @@ public class FullCategoryDto {
 
 	private boolean publishable;
 
-	@Builder.Default
-	private boolean draftAvailable = false;
+	private boolean draftAvailable;
+
+	private boolean pendingApproval;
 
 	@NotNull(message = "Category Metadata is Mandatory")
 	private @Valid FoodMenuCategoryMetadataDto category;
