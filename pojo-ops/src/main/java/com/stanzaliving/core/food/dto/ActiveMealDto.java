@@ -30,6 +30,8 @@ public class ActiveMealDto {
 
 	private LocalTime endTime;
 
+	private boolean mealEndTimeClosed;
+
 	@Builder.Default
 	private Boolean leftover = false;
 
