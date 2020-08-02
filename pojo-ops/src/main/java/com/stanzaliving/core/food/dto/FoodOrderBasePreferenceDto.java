@@ -40,6 +40,8 @@ public class FoodOrderBasePreferenceDto {
 
 	private String comboName;
 	
+	private boolean defaultMenu;
+	
 	private LocalTime mealStartTime;
 
 	private LocalTime mealEndTime;
