@@ -18,6 +18,7 @@ import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.security.helper.SecurityUtils;
 import com.stanzaliving.qrcode.entity.QRData;
 import com.stanzaliving.qrcode.entity.QRScanHistory;
+import com.stanzaliving.qrcode.enums.FeaturePhoneQrValidation;
 import com.stanzaliving.qrcode.enums.QRContextType;
 import com.stanzaliving.qrcode.repository.QRDataRepository;
 import com.stanzaliving.qrcode.repository.QRScanHistoryRepository;
@@ -137,6 +138,7 @@ public class QRScanServiceImpl implements QRScanService {
 								.qrContextType(qrData.getQrContextType())
 								.contextId(qrData.getContextId())
 								.qrUUid(qrData.getUuid())
+								.qrValidationType(FeaturePhoneQrValidation.SELF)
 								.userId(userId)
 								.status(status)
 								.build();
