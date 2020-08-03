@@ -35,5 +35,7 @@ public class StaffMealUtilizationPercentResponseDto {
 	private Integer nonSLCount = 0;
 
 	private FoodDayType dayType;
+	
+	private String dayTypeName;
 
 }

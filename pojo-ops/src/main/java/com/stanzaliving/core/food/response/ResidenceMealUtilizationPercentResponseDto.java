@@ -44,4 +44,6 @@ public class ResidenceMealUtilizationPercentResponseDto {
 	private Double lunchTiffin = 0d;
 
 	private FoodDayType dayType;
+	
+	private String dayTypeName;
 }
