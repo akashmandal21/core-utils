@@ -29,5 +29,7 @@ public class MealBudgetUtilizationCalendarDateDto {
 	private Double cost;
 
 	private List<MealAttendanceUtilizationDto> mealAttendanceUtilizationDtoList;
+	
+	private Double utilzation;
 
 }
