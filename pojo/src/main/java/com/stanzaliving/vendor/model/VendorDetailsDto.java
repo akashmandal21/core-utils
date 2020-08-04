@@ -20,7 +20,7 @@ public class VendorDetailsDto {
 
     private String uuid;
 
-    private VendorType vendorType;
+    private List<VendorType> vendorType;
 
     private String companyName;
 
@@ -47,5 +47,7 @@ public class VendorDetailsDto {
     private String updatedBy;
 
     private Boolean isWarehouse;
+
+    private String mouDocument;
 
 }

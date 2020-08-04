@@ -1,7 +1,6 @@
 package com.stanzaliving.collector.dto.response;
 
 import com.stanzaliving.dashboard.dto.FeElementDto;
-import com.stanzaliving.dashboard.dto.RecordDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
