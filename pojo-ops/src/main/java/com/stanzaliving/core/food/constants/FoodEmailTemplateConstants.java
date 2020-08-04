@@ -10,6 +10,8 @@ public class FoodEmailTemplateConstants {
 
 	public static final String CITY_DTOS = "cityDtos";
 
+	public static final String RESIDENCE_DTOS = "residenceDtos";
+	
 	public static final String DATE = "date";
 
 	public static final String MENU_CATEGORY_NAME = "menuCategoryName";
