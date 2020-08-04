@@ -22,4 +22,10 @@ public class BudgetPlannerDto {
 	@Builder.Default
 	private Double budgetPerPerson = 0d;
 
+	@Builder.Default
+	private Integer mir = 0;
+
+	@Builder.Default
+	private Double maxCost = 0d;
+
 }
