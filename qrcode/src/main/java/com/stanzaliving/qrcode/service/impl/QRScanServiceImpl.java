@@ -150,6 +150,7 @@ public class QRScanServiceImpl implements QRScanService {
 			} else {
 
 				qrScanHistory.setStatus(status);
+				qrScanHistory.setQrContextType(qrData.getQrContextType());
 				log.info("Updating QR Scan History: {}", qrScanHistory);
 				qrScanHistoryRepository.save(qrScanHistory);
 			}
