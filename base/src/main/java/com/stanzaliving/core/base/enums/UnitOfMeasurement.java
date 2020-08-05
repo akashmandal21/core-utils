@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum UnitOfMeasurement {
 	KILOGRAM("Kg"),
 	LITRE("Ltr"),
-	Nos("Nos");
+	Number("Nos");
 
 	private final String unitName;
 }
