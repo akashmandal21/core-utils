@@ -50,26 +50,20 @@ public class FoodItemAddRequestDto {
 	@NotBlank(message = "Dish Sub Category is Mandatory")
 	private String subCategory;
 
-	@NotNull(message = "Meals selection is mandatory")
 	private List<MealType> meals;
 
 	private boolean addOnEnabled;
 
-	@NotBlank(message = "Dish Color is Mandatory")
 	private String bgColor;
 
-	@NotBlank(message = "Dish Text Color is Mandatory")
 	private String textColor;
 
-	@NotNull(message = "Dish Type is Mandatory")
 	private FoodItemType itemType;
 
-	@NotNull(message = "Dish Quantifiable flag is mandatory")
 	private Boolean quantifiable;
 
 	private String defaultBrand;
 
-	@NotNull(message = "Primary Tags are mandatory")
 	private Set<String> primaryTagIds;
 
 	private Set<CommercialTag> commercialTags;
