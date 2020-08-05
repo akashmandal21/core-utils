@@ -48,5 +48,7 @@ public class PoItemDetailsDto {
     private Float grnItemQuantity;
 
     private String hsnCode;
+    
+    private int totalGst;
 
 }

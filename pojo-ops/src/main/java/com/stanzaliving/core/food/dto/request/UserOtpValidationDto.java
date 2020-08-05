@@ -3,10 +3,12 @@ package com.stanzaliving.core.food.dto.request;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @date 27-July-2020
+ * @date 29-July-2020
  */
 
 @Getter
@@ -15,9 +17,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryApprovalUpdatedRuleDto {
+public class UserOtpValidationDto {
+	private String mobile;
 
-	private String rule;
-
-	private boolean updated;
+	private String otp;
 }
