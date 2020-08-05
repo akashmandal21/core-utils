@@ -66,7 +66,7 @@ public class FoodItemAddRequestDto {
 
 	private Set<String> primaryTagIds;
 
-	private Set<CommercialTag> commercialTags;
+	private CommercialTag commercialTag;
 
 	private boolean eggPresent;
 
