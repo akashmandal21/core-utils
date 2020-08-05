@@ -10,5 +10,5 @@ public enum RecipeType {
 	SEMI_PROCESSED ("Semi Processed"),
 	DIRECT_SALE ("Direct Sale");
 
-	private final String recipeName;
+	private final String typeName;
 }

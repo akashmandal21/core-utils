@@ -9,7 +9,10 @@ import java.util.Set;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.base.enums.UnitOfMeasurement;
+import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.FoodItemType;
+import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -33,27 +36,46 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodItemAddRequestDto {
 
-	@NotBlank(message = "Item Name is Mandatory")
+	@NotBlank(message = "Dish Name is Mandatory")
 	private String name;
 
-	@NotNull(message = "Item Type is Mandatory")
+	@NotNull(message = "Recipe Type is Mandatory")
+	private RecipeType recipeType;
+
+	private String description;
+
+	@NotBlank(message = "Dish Category is Mandatory")
+	private String category;
+
+	@NotBlank(message = "Dish Sub Category is Mandatory")
+	private String subCategory;
+
+	@NotNull(message = "Meals selection is mandatory")
+	private List<MealType> meals;
+
+	private boolean addOnEnabled;
+
+	@NotBlank(message = "Dish Color is Mandatory")
+	private String bgColor;
+
+	@NotBlank(message = "Dish Text Color is Mandatory")
+	private String textColor;
+
+	@NotNull(message = "Dish Type is Mandatory")
 	private FoodItemType itemType;
+
+	@NotNull(message = "Dish Quantifiable flag is mandatory")
+	private Boolean quantifiable;
 
 	private String defaultBrand;
 
-	private Set<String> tagIds;
+	@NotNull(message = "Primary Tags are mandatory")
+	private Set<String> primaryTagIds;
 
-	@NotNull(message = "Item Quantifiable flag is mandatory")
-	private Boolean quantifiable;
+	private Set<CommercialTag> commercialTags;
 
-	@NotBlank(message = "Item Text Color is Mandatory")
-	private String textColor;
+	private boolean eggPresent;
 
-	@NotBlank(message = "Item Background Color is Mandatory")
-	private String bgColor;
-
-	@NotBlank(message = "Item Category is Mandatory")
-	private String category;
-
-	private List<MealType> meals;
+	@NotNull(message = "Unit of Measurement is mandatory")
+	private UnitOfMeasurement unitOfMeasurement;
 }
