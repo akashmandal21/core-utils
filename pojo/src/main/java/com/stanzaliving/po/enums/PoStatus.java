@@ -13,7 +13,7 @@ public enum PoStatus {
 
     IN_DRAFT("In Draft", 0, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.SALES), "#ADADF4", "#0002CF"),
     TH_APPROVAL_PENDING("Transformation Head Approval Pending", 1, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS), "#ADADF4", "#0002CF"),
-    TH_APPROVED("Approved By Transformation Head", 2, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS), "#C9E6CA", "#2F9A34"),
+    TH_APPROVED("Approved By Transformation Head", 2, Arrays.asList(Department.FINANCE,Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS), "#C9E6CA", "#2F9A34"),
     SENT_BACK_BY_TH("Sent Back By Transformation Head", -1, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS), "#E5E5E5", "#3F3F3F"),
     TH_SHORT_CLOSE_PENDING("Transformation Head Short Close Pending", 1, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS), "#FEECD3", "#9A6E4E"),
     TH_SHORT_CLOSED("Short Closed By Transformation Head", -1, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS), "#FAD1CC", "#790A00"),
