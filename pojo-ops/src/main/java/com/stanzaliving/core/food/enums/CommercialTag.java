@@ -17,27 +17,4 @@ public enum CommercialTag {
 	LOW ("Low");
 
 	private final String tagName;
-
-
-	public static Set<CommercialTag> getCommercialTagFromCSV(String csvString) {
-
-		Set<CommercialTag> commercialTags = new HashSet<>();
-
-		if (StringUtils.isNotBlank(csvString)) {
-
-			String[] splitString = csvString.split(",");
-
-			for (String string : splitString) {
-
-				if (StringUtils.isNotBlank(string)) {
-					CommercialTag.valueOf(string);
-					commercialTags.add(CommercialTag.valueOf(string));
-				}
-
-			}
-
-		}
-
-		return commercialTags;
-	}
 }
