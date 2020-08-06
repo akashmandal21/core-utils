@@ -29,5 +29,9 @@ public class PaymentPlanDetailsResponseDto {
 	private String installmentType;
     private Boolean isSelected;
     private InstallmentTypeEnum installmentTypeEnum;
+    private String couponCode;
+    private double totalDiscount;
+    private String discountDescription;
+    private String couponText;
 
 }
