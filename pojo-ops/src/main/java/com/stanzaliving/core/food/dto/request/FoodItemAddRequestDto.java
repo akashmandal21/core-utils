@@ -72,4 +72,6 @@ public class FoodItemAddRequestDto {
 
 	@NotNull(message = "Unit of Measurement is mandatory")
 	private UnitOfMeasurement unitOfMeasurement;
+
+	private String imageId;
 }
