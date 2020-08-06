@@ -91,6 +91,8 @@ public class FoodItemDto extends AbstractDto {
 
 	private boolean eggPresent;
 
-	private String unitOfMeasurement;
+	private UnitOfMeasurement unitOfMeasurement;
+
+	private String unitOfMeasurementName;
 
 }

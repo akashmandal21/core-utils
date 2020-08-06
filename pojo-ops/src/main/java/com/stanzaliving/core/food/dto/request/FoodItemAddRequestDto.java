@@ -74,4 +74,6 @@ public class FoodItemAddRequestDto {
 	private UnitOfMeasurement unitOfMeasurement;
 
 	private String imageId;
+
+	private boolean status;
 }
