@@ -18,4 +18,5 @@ public class BookingStatusResponseDto {
     private AlfredStep alfredStep;
 	@Builder.Default
 	private Boolean agreementSent = false;
+	private String studentId;
 }
