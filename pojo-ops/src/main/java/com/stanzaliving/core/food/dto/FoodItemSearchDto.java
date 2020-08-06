@@ -5,6 +5,7 @@ import java.util.Collection;
 import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.food.enums.FoodItemBackgroundColor;
 import com.stanzaliving.core.food.enums.FoodItemType;
+import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -49,4 +50,6 @@ public class FoodItemSearchDto {
 	private PageAndSortDto pageDto;
 	
 	private String subCategory;
+
+	private RecipeType recipeType;
 }
