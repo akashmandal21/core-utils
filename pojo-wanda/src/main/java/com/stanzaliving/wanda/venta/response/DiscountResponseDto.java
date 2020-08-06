@@ -15,4 +15,5 @@ public class DiscountResponseDto {
     private String discountCode;
     private Double discountValueApplied;
     private List<String> discountMonthList;
+    private boolean status;
 }
