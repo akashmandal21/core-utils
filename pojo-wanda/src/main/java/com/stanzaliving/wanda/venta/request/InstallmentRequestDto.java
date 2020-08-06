@@ -13,4 +13,5 @@ import lombok.NoArgsConstructor;
 public class InstallmentRequestDto {
     private String bookingUuid;
     private InstallmentTypeEnum installmentType;
+    private String couponCode;
 }
