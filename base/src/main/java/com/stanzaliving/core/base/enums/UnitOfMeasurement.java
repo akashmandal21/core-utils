@@ -6,9 +6,10 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum UnitOfMeasurement {
+
 	KILOGRAM("Kg"),
 	LITRE("Ltr"),
-	Number("Nos");
+	NUMBER("Nos");
 
-	private final String unitName;
+	private String unitName;
 }
