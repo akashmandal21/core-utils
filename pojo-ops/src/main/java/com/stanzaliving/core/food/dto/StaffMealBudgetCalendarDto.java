@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.food.enums.FoodBudgetPlannerStatus;
 import com.stanzaliving.core.food.enums.FoodDayType;
 
 import lombok.AllArgsConstructor;
@@ -40,5 +41,7 @@ public class StaffMealBudgetCalendarDto {
 	
 	@NotEmpty(message = "Meal wise utilization is mandatory")
 	private List<StaffMealBudgetUtilizationCalendarDateDto> mealBudgetUtilizationCalendarDateDtoList;
+	
+	private FoodBudgetPlannerStatus budgetStatus;
 
 }
