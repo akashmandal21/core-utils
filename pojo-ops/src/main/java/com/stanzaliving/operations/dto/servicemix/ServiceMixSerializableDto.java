@@ -28,6 +28,8 @@ public class ServiceMixSerializableDto {
 	private String versionName;
 	
 	private Long version;
+
+	private String versionStatus;
 	
 	private LocalDate fromDate;
 	

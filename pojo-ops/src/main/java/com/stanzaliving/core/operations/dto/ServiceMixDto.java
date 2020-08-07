@@ -32,7 +32,9 @@ public class ServiceMixDto extends AbstractDto {
 	private Long version;
 	
 	private LocalDate fromDate;
-	
+
+	private String versionStatus;
+
     private Map<String, Object> config;
 	
 }
