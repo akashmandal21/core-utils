@@ -12,6 +12,8 @@ import lombok.ToString;
 @ToString
 @Builder
 public class BudgetPlannerDto {
+	
+	private String name;
 
 	@Builder.Default
 	private Double monthlyBudget = 0d;
