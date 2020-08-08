@@ -1,5 +1,7 @@
 package com.stanzaliving.core.base.utils;
 
+import org.apache.commons.lang3.ObjectUtils;
+
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -23,4 +25,11 @@ public class MathUtil {
 		return sum / count;
 
 	}
+
+	public Integer add(Integer a, Integer b) {
+
+		return ObjectUtils.defaultIfNull(a, 0) + ObjectUtils.defaultIfNull(b, 0);
+
+	}
+
 }
