@@ -13,11 +13,13 @@ import java.util.Map;
 @AllArgsConstructor
 public enum UnitOfMeasurement {
 
-	KILOGRAM("Kg"),
-	LITRE("Ltr"),
-	NUMBER("Nos");
+	KILOGRAM("Kg", 10),
+	LITRE("Ltr", 10),
+	NUMBER("Nos", 10);
 
 	private String unitName;
+
+	private Integer cookQty;
 
 	private static List<ListingDto> unitMeasurementListing = new ArrayList<>();
 
