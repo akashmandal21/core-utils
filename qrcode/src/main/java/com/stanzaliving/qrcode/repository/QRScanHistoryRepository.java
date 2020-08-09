@@ -29,5 +29,5 @@ public interface QRScanHistoryRepository extends AbstractJpaRepository<QRScanHis
 
 	List<QRScanHistory> findByContextIdInAndQrContextTypeInAndStatus(List<String> contextId, List<QRContextType> contextType, boolean status);
 
-	List<QRScanHistory> findByQrContextTypeInAndUserId(List<QRContextType> qrContextTypes, String userId, Pageable pagination);
+	List<QRScanHistory> findByQrContextTypeInAndUserIdAndStatus(List<QRContextType> qrContextTypes, String userId, Pageable pagination,boolean status);
 }
