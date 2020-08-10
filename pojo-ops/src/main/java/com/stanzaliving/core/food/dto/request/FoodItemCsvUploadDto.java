@@ -1,6 +1,6 @@
 package com.stanzaliving.core.food.dto.request;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.opencsv.bean.CsvBindByName;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -13,70 +13,74 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodItemCsvUploadDto {
 
-	@JsonProperty("Dish_Name")
+	@CsvBindByName(column = "Dish_Name")
 	private String name;
 
-	@JsonProperty("Status")
+	@CsvBindByName(column = "Status")
 	private String status;
 
-	@JsonProperty("Recipe_Type")
+	@CsvBindByName(column = "Recipe_Type")
 	private String recipeType;
 
-	@JsonProperty("Description")
+	@CsvBindByName(column = "Description")
 	private String description;
 
-	@JsonProperty("Brand")
+	@CsvBindByName(column = "Brand")
 	private String defaultBrand;
 	
-	@JsonProperty("Category")
+	@CsvBindByName(column = "Category")
 	private String category;
 
-	@JsonProperty("Sub_Category")
+	private String categoryId;
+
+	@CsvBindByName(column = "Sub_Category")
 	private String subCategory;
 
-	@JsonProperty("Meals")
+	private String subCategoryId;
+
+	@CsvBindByName(column = "Meals")
 	private String meals;
 
-	@JsonProperty("Add_On")
+	@CsvBindByName(column = "Add_On")
 	private String addOnEnabled;
 
-	@JsonProperty("Dish_Color")
+	@CsvBindByName(column = "Dish_Color")
 	private String bgColor;
 
-	@JsonProperty("TextColor")
+	@CsvBindByName(column = "TextColor")
 	private String textColor;
 
-	@JsonProperty("Dish_Type")
-	private FoodItemType itemType;
+	@CsvBindByName(column = "Dish_Type")
+	private String itemType;
 
-	@JsonProperty("Special_Veg")
+	@CsvBindByName(column = "Special_Veg")
 	private String specialVeg;
 
-	@JsonProperty("Quantifiable")
-	private Boolean quantifiable;
+	@CsvBindByName(column = "Quantifiable")
+	private String quantifiable;
 
-	@JsonProperty("UOM")
+	@CsvBindByName(column = "UOM")
 	private String unitOfMeasurement;
 
-	@JsonProperty("Cook Quantity")
+	@CsvBindByName(column = "Cook Quantity")
 	private String cookQuantity;
 
-	@JsonProperty("Grammage_per_pax")
+	@CsvBindByName(column = "Grammage_per_pax")
 	private Double grammagePerPax;
 
-	@JsonProperty("Ingredient")
+	@CsvBindByName(column = "Ingredient")
 	private String ingredient;
 
-	@JsonProperty("Ingredient UOM")
+	@CsvBindByName(column = "Ingredient UOM")
 	private String ingredientUOM;
 
-	@JsonProperty("Ingredient_Quantity")
+	@CsvBindByName(column = "Ingredient_Quantity")
 	private Double ingredientQty;
 
-	@JsonProperty("Commercial_tag")
+	@CsvBindByName(column = "Commercial_tag")
 	private String commercialTag;
 
-	@JsonProperty("Primary_tags")
+	@CsvBindByName(column = "Primary_tags")
 	private String primaryTags;
 
 }
