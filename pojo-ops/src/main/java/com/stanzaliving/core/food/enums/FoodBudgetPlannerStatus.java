@@ -10,7 +10,8 @@ public enum FoodBudgetPlannerStatus {
 	UNDER_DRAFT("Under Draft"),
 	SUBMITTED("Submitted - Pending Approval"),
 	APPROVED("Approved"),
-	BUDGETED("Budgeted");
+	BUDGETED("Budgeted"),
+	NOT_PLANNED("Not Planned");
 
 	private String budgetStatus;
 
