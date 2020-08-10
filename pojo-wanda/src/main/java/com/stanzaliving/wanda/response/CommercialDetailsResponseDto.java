@@ -51,6 +51,10 @@ public class CommercialDetailsResponseDto {
 	
 	private String advanceFeeDescription;
 	
+	private String lockInPeriod;
+	
+	private String lockInPeriodText;
+	
 	private String maxDate;
 	
 	private String instalmentType;
