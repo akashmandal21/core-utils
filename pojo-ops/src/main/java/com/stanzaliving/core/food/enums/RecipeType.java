@@ -12,9 +12,10 @@ import java.util.Map;
 @Getter
 @AllArgsConstructor
 public enum RecipeType {
-	FINISHED_DISH ("Finished Dish"),
-	SEMI_PROCESSED ("Semi Processed"),
-	DIRECT_SALE ("Direct Sale");
+
+	FINISHED_DISH("Finished Dish"),
+	SEMI_PROCESSED("Semi Processed"),
+	DIRECT_SALE("Direct Sale");
 
 	private final String typeName;
 

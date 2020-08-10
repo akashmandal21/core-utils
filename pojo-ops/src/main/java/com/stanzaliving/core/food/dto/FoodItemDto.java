@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.base.enums.UnitOfMeasurement;
+import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.RecipeType;

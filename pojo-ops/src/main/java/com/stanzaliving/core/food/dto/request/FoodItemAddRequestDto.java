@@ -9,7 +9,7 @@ import java.util.Set;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.stanzaliving.core.base.enums.UnitOfMeasurement;
+import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.RecipeType;

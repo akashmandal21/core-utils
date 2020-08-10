@@ -1,4 +1,4 @@
-package com.stanzaliving.core.base.enums;
+package com.stanzaliving.core.enums;
 
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import lombok.AllArgsConstructor;
@@ -13,13 +13,11 @@ import java.util.Map;
 @AllArgsConstructor
 public enum UnitOfMeasurement {
 
-	KILOGRAM("Kg", 10),
-	LITRE("Ltr", 10),
-	NUMBER("Nos", 10);
+	KILOGRAM("Kg"),
+	LITRE("Ltr"),
+	NUMBER("Nos");
 
 	private String unitName;
-
-	private Integer cookQty;
 
 	private static List<ListingDto> unitMeasurementListing = new ArrayList<>();
 
