@@ -51,4 +51,6 @@ public class PoItemDetailsDto {
     
     private int totalGst;
 
+    private Float remainingItemQuantity;
+
 }
