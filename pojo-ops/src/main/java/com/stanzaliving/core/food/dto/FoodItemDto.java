@@ -95,4 +95,5 @@ public class FoodItemDto extends AbstractDto {
 
 	private String unitOfMeasurementName;
 
+	private DishRecipeDetailsDto dishRecipeDetailsDto;
 }
