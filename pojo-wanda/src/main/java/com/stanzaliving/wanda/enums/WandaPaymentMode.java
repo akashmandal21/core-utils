@@ -9,7 +9,7 @@ public enum WandaPaymentMode {
 	
 	ONLINE("Online"),
 	CHEQUE("Cheque"),
-	PINELABS("Pine Labs"),
+	PINELABS("POS Terminal (Credit / Debit Cards)"),
 	CASH("Cash");
 
 	private String name;
