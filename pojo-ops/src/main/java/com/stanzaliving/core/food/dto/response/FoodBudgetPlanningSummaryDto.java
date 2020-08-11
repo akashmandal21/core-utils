@@ -45,7 +45,9 @@ public class FoodBudgetPlanningSummaryDto {
 
 	private Month lastMonth;
 
-	private Month secondLastMOnth;
+	private Month secondLastMonth;
+	
+	private Month thirdLastMonth;
 
 	private Double lastMonthBudgetPerPerson;
 
@@ -54,5 +56,11 @@ public class FoodBudgetPlanningSummaryDto {
 	private Double secondLastMonthBudgetPerPerson;
 
 	private Double secondLastMonthUtilization;
+	
+	private Double thirdLastMonthBudgetPerPerson;
+
+	private Double thirdLastMonthUtilization;
+	
+	private boolean approvalStatus;
 
 }
