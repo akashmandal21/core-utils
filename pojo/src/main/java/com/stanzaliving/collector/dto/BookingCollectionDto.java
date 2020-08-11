@@ -21,7 +21,15 @@ public class BookingCollectionDto {
     @Builder.Default
     Double tMinusThreeCollection = 0d;
     @Builder.Default
-    Double l7DayAvgCollection = 0d;
+    Double l7DayCollection = 0d;
     @Builder.Default
-    Double l30DayAvgCollection = 0d;
+    Double l30DayCollection = 0d;
+    @Builder.Default
+    Double tilltMinusThreeCollection = 0d;
+    @Builder.Default
+    Double tillL7DayCollection = 0d;
+    @Builder.Default
+    Double tillL30DayCollection = 0d;
+    @Builder.Default
+    Double negativeCollection = 0d;
 }
