@@ -152,7 +152,7 @@ public class MenuCategoryMealUtils {
 
 		double mealCost = getMealFnBCost(mealActiveDays, mealPrice, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
 
-		mealCost = mealCost * (7 / mealActiveDays);
+		mealCost = mealCost * ((double) 7 / (double) mealActiveDays);
 
 		return StanzaUtils.roundOff(mealCost);
 	}

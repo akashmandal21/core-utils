@@ -25,14 +25,16 @@ public class MenuCategoryMealUtilsTest {
 
 		List<FoodMenuCategoryMealDto> categoryMealDtos = new ArrayList<>();
 
-		categoryMealDtos.add(getMealDto(MealType.BREAKFAST, 9.7));
-		categoryMealDtos.add(getMealDtoPartial(MealType.LUNCH, 5.1));
-		//categoryMealDtos.add(getMealDto(MealType.EVENING_SNACKS, 7.1));
-		categoryMealDtos.add(getMealDto(MealType.DINNER, 22.9));
+		categoryMealDtos.add(getMealDto(MealType.BREAKFAST, 9.1));
+		categoryMealDtos.add(getMealDtoPartial(MealType.LUNCH, 4.4));
+		// categoryMealDtos.add(getMealDto(MealType.EVENING_SNACKS, 7.1));
+		categoryMealDtos.add(getMealDto(MealType.DINNER, 16.5));
 
-		double trueCost = MenuCategoryMealUtils.getTruePaxPrice(categoryMealDtos, true, 5.0, 3.0, 23.0);
+		double fnbCost = MenuCategoryMealUtils.getFnBPaxPrice(categoryMealDtos, true, 4.0, 3.0, 21.0);
+		double trueCost = MenuCategoryMealUtils.getTruePaxPrice(categoryMealDtos, true, 4.0, 3.0, 21.0);
 
-		System.out.println(trueCost);
+		System.out.println("fnbCost: " + fnbCost);
+		System.out.println("trueCost: " + trueCost);
 
 	}
 
@@ -50,8 +52,7 @@ public class MenuCategoryMealUtilsTest {
 				.sundayActive(true)
 				.build();
 	}
-	
-	
+
 	private FoodMenuCategoryMealDto getMealDtoPartial(MealType mealType, double vegCost) {
 		return FoodMenuCategoryMealDto.builder()
 				.mealType(mealType)
