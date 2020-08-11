@@ -51,6 +51,37 @@ public class MenuCategoryMealUtils {
 		return count;
 	}
 
+	public Double getFnBPaxPrice(FullCategoryDto foodMenuCategory, List<FoodMenuCategoryMealDto> mealDtos) {
+
+		FoodMenuCategoryMetadataDto categoryMetadataDto = foodMenuCategory.getCategory();
+		return getFnBPaxPrice(
+				mealDtos, categoryMetadataDto.getStanzaKitchen(), categoryMetadataDto.getUtilityCost(), categoryMetadataDto.getPackagingCost(), categoryMetadataDto.getFoodMargin());
+
+	}
+
+	public Double getFnBPaxPrice(List<FoodMenuCategoryMealDto> mealDtos, boolean stanzaKitchen, Double utilityCost, Double packagingCost, Double foodMargin) {
+
+		double fnbCost = 0d;
+
+		if (stanzaKitchen) {
+
+			int totalMealsInWeek = getWeeklyMealCount(mealDtos);
+
+			if (totalMealsInWeek > 0) {
+
+				for (FoodMenuCategoryMealDto categoryMealDto : mealDtos) {
+
+					double mealCost = getMealFnBCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+
+					fnbCost += mealCost;
+				}
+
+			}
+		}
+
+		return StanzaUtils.roundOff(fnbCost);
+	}
+
 	public Double getTruePaxPrice(FullCategoryDto foodMenuCategory, List<FoodMenuCategoryMealDto> mealDtos) {
 
 		FoodMenuCategoryMetadataDto categoryMetadataDto = foodMenuCategory.getCategory();
@@ -65,7 +96,7 @@ public class MenuCategoryMealUtils {
 
 		if (stanzaKitchen) {
 
-			int totalMealsInWeek = MenuCategoryMealUtils.getWeeklyMealCount(mealDtos);
+			int totalMealsInWeek = getWeeklyMealCount(mealDtos);
 
 			if (totalMealsInWeek > 0) {
 
@@ -82,15 +113,44 @@ public class MenuCategoryMealUtils {
 		return StanzaUtils.roundOff(trueCost);
 	}
 
-	public double getMealTrueCost(FoodMenuCategoryMealDto categoryMealDto, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+	public double getMealFnBCost(FoodMenuCategoryMealDto categoryMealDto, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+		return getMealFnBCost(categoryMealDto, categoryMealDto.getExpectedVegCost(), utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+	}
 
-		int mealActiveDays = MenuCategoryMealUtils.getDaysPerWeekCount(categoryMealDto);
+	public double getMealFnBCost(
+			FoodMenuCategoryMealDto categoryMealDto, Double mealPrice, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+
+		int mealActiveDays = getDaysPerWeekCount(categoryMealDto);
+
+		return getMealFnBCost(mealActiveDays, categoryMealDto.getExpectedVegCost(), utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+	}
+
+	public double getMealFnBCost(int mealActiveDays, Double mealPrice, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
 
 		double mealUtilityCost = utilityCost * ((double) mealActiveDays / (double) totalMealsInWeek);
 		double mealPackagingCost = packagingCost * ((double) mealActiveDays / (double) totalMealsInWeek);
 
-		double mealCost =
-				(categoryMealDto.getExpectedVegCost() + mealUtilityCost + mealPackagingCost) / (1 - foodMargin / 100);
+		double mealCost = (mealPrice + mealUtilityCost + mealPackagingCost) / (1 - foodMargin / 100);
+
+		return StanzaUtils.roundOff(mealCost);
+	}
+
+	public double getMealTrueCost(FoodMenuCategoryMealDto categoryMealDto, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+		return getMealTrueCost(categoryMealDto, categoryMealDto.getExpectedVegCost(), utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+	}
+
+	public double getMealTrueCost(
+			FoodMenuCategoryMealDto categoryMealDto, Double mealPrice, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+
+		int mealActiveDays = getDaysPerWeekCount(categoryMealDto);
+
+		return getMealTrueCost(mealActiveDays, categoryMealDto.getExpectedVegCost(), utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+	}
+
+	public double getMealTrueCost(
+			int mealActiveDays, Double mealPrice, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+
+		double mealCost = getMealFnBCost(mealActiveDays, mealPrice, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
 
 		mealCost = mealCost * (7 / mealActiveDays);
 
