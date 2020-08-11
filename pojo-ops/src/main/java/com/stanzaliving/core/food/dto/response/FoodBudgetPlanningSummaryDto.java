@@ -2,8 +2,6 @@ package com.stanzaliving.core.food.dto.response;
 
 import java.time.Month;
 
-import com.stanzaliving.core.base.enums.AccessLevel;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,20 +16,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodBudgetPlanningSummaryDto {
-
-	private AccessLevel accessLevel;
-
-	private String cityId;
-
-	private String cityName;
-
-	private String microMarketId;
-
-	private String microMarketName;
-
-	private String residenceId;
-
-	private String residenceName;
 
 	private Integer persons;
 
@@ -61,6 +45,24 @@ public class FoodBudgetPlanningSummaryDto {
 
 	private Double thirdLastMonthUtilization;
 	
-	private boolean approvalStatus;
-
+	private Double maxCost;
+	
+	private Double lastMonthmaxCost;
+	
+	private Double secondLastMonthmaxCost;
+	
+	private Double thirdLastMonthmaxCost;
+	
+	private Double lastMonthBudget;
+	
+	private Double secondLastMonthBudget;
+	
+	private Double thirdLastMonthBudget;
+	
+	private Integer lastMonthPersons;
+	
+	private Integer secondLastMonthPersons;
+	
+	private Integer thirdLastMonthPersons;
+	
 }
