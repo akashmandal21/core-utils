@@ -13,4 +13,5 @@ public class SalesResponseDto {
     private String bookingUuid;
     private String mobileNumber;
     private String name;
+    private String duration;
 }
