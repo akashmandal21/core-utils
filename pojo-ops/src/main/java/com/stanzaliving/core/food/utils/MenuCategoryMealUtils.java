@@ -51,6 +51,10 @@ public class MenuCategoryMealUtils {
 		return count;
 	}
 
+	public Double getFnBPaxPrice(FullCategoryDto foodMenuCategory) {
+		return getFnBPaxPrice(foodMenuCategory, foodMenuCategory.getMeals());
+	}
+
 	public Double getFnBPaxPrice(FullCategoryDto foodMenuCategory, List<FoodMenuCategoryMealDto> mealDtos) {
 
 		FoodMenuCategoryMetadataDto categoryMetadataDto = foodMenuCategory.getCategory();
@@ -63,23 +67,27 @@ public class MenuCategoryMealUtils {
 
 		double fnbCost = 0d;
 
-		if (stanzaKitchen) {
+		int totalMealsInWeek = getWeeklyMealCount(mealDtos);
 
-			int totalMealsInWeek = getWeeklyMealCount(mealDtos);
+		if (totalMealsInWeek > 0) {
 
-			if (totalMealsInWeek > 0) {
+			for (FoodMenuCategoryMealDto categoryMealDto : mealDtos) {
 
-				for (FoodMenuCategoryMealDto categoryMealDto : mealDtos) {
+				double mealCost = categoryMealDto.getExpectedVegCost();
 
-					double mealCost = getMealFnBCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
-
-					fnbCost += mealCost;
+				if (stanzaKitchen) {
+					mealCost += getMealFnBCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
 				}
 
+				fnbCost += mealCost;
 			}
 		}
 
 		return StanzaUtils.roundOff(fnbCost);
+	}
+
+	public Double getTruePaxPrice(FullCategoryDto foodMenuCategory) {
+		return getTruePaxPrice(foodMenuCategory, foodMenuCategory.getMeals());
 	}
 
 	public Double getTruePaxPrice(FullCategoryDto foodMenuCategory, List<FoodMenuCategoryMealDto> mealDtos) {
@@ -94,20 +102,21 @@ public class MenuCategoryMealUtils {
 
 		double trueCost = 0d;
 
-		if (stanzaKitchen) {
+		int totalMealsInWeek = getWeeklyMealCount(mealDtos);
 
-			int totalMealsInWeek = getWeeklyMealCount(mealDtos);
+		if (totalMealsInWeek > 0) {
 
-			if (totalMealsInWeek > 0) {
+			for (FoodMenuCategoryMealDto categoryMealDto : mealDtos) {
 
-				for (FoodMenuCategoryMealDto categoryMealDto : mealDtos) {
+				double mealCost = categoryMealDto.getExpectedVegCost();
 
-					double mealCost = getMealTrueCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
-
-					trueCost += mealCost;
+				if (stanzaKitchen) {
+					mealCost = getMealTrueCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
 				}
 
+				trueCost += mealCost;
 			}
+
 		}
 
 		return StanzaUtils.roundOff(trueCost);
