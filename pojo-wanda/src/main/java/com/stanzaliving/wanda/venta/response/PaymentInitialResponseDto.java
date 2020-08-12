@@ -36,5 +36,7 @@ public class PaymentInitialResponseDto {
 	
 	private LocalDate contractStartDate;
 	
+	private LocalDate paymentDueDate;
+	
 	private Map<String, Double> bookingCharges;
 }
