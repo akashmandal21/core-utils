@@ -17,5 +17,6 @@ public class InstallmentResponseDto {
     private String toDate;
     private Double invoiceAmount;
     private Double amountPaid;
+    private String dueDateStr;
     private List<InstallmentLineItemResponseDto> installmentLineItemResponseDtoList;
 }
