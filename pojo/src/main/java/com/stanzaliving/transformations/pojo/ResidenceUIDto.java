@@ -69,4 +69,8 @@ public class ResidenceUIDto implements Serializable{
 	private Integer numberOfRooms;
 	
 	private Integer coreResidenceId;
+
+	private CityUIDto cityUIDto;
+
+	private MicroMarketUIDto microMarketUIDto;
 }
