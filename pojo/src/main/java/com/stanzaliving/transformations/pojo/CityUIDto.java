@@ -8,14 +8,20 @@ import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.base.location.GeoPointDto;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @ToString
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 public class CityUIDto {
 
@@ -48,7 +54,6 @@ public class CityUIDto {
 	@NotNull(message = "City Number of Rooms is Mandatory")
 	@Min(value = 1, message = "Number of Rooms cannot be less than 1")
 	private Integer targetRooms;
-
 
 	private String zoneUuid;
 
