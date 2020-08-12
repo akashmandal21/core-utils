@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.ObjectUtils;
 
 import com.stanzaliving.core.base.utils.StanzaUtils;
 import com.stanzaliving.core.food.dto.request.FoodMenuCategoryMealDto;
@@ -58,12 +59,11 @@ public class MenuCategoryMealUtils {
 	public Double getFnBPaxPrice(FullCategoryDto foodMenuCategory, List<FoodMenuCategoryMealDto> mealDtos) {
 
 		FoodMenuCategoryMetadataDto categoryMetadataDto = foodMenuCategory.getCategory();
-		return getFnBPaxPrice(
-				mealDtos, categoryMetadataDto.getStanzaKitchen(), categoryMetadataDto.getUtilityCost(), categoryMetadataDto.getPackagingCost(), categoryMetadataDto.getFoodMargin());
+		return getFnBPaxPrice(mealDtos, categoryMetadataDto.getUtilityCost(), categoryMetadataDto.getPackagingCost(), categoryMetadataDto.getFoodMargin());
 
 	}
 
-	public Double getFnBPaxPrice(List<FoodMenuCategoryMealDto> mealDtos, boolean stanzaKitchen, Double utilityCost, Double packagingCost, Double foodMargin) {
+	public Double getFnBPaxPrice(List<FoodMenuCategoryMealDto> mealDtos, Double utilityCost, Double packagingCost, Double foodMargin) {
 
 		double fnbCost = 0d;
 
@@ -73,11 +73,7 @@ public class MenuCategoryMealUtils {
 
 			for (FoodMenuCategoryMealDto categoryMealDto : mealDtos) {
 
-				double mealCost = categoryMealDto.getExpectedVegCost();
-
-				if (stanzaKitchen) {
-					mealCost = getMealFnBCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
-				}
+				double mealCost = getMealFnBCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
 
 				fnbCost += mealCost;
 			}
@@ -93,12 +89,11 @@ public class MenuCategoryMealUtils {
 	public Double getTruePaxPrice(FullCategoryDto foodMenuCategory, List<FoodMenuCategoryMealDto> mealDtos) {
 
 		FoodMenuCategoryMetadataDto categoryMetadataDto = foodMenuCategory.getCategory();
-		return getTruePaxPrice(
-				mealDtos, categoryMetadataDto.getStanzaKitchen(), categoryMetadataDto.getUtilityCost(), categoryMetadataDto.getPackagingCost(), categoryMetadataDto.getFoodMargin());
+		return getTruePaxPrice(mealDtos, categoryMetadataDto.getUtilityCost(), categoryMetadataDto.getPackagingCost(), categoryMetadataDto.getFoodMargin());
 
 	}
 
-	public Double getTruePaxPrice(List<FoodMenuCategoryMealDto> mealDtos, boolean stanzaKitchen, Double utilityCost, Double packagingCost, Double foodMargin) {
+	public Double getTruePaxPrice(List<FoodMenuCategoryMealDto> mealDtos, Double utilityCost, Double packagingCost, Double foodMargin) {
 
 		double trueCost = 0d;
 
@@ -108,11 +103,7 @@ public class MenuCategoryMealUtils {
 
 			for (FoodMenuCategoryMealDto categoryMealDto : mealDtos) {
 
-				double mealCost = categoryMealDto.getExpectedVegCost();
-
-				if (stanzaKitchen) {
-					mealCost = getMealTrueCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
-				}
+				double mealCost = getMealTrueCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
 
 				trueCost += mealCost;
 			}
@@ -135,6 +126,10 @@ public class MenuCategoryMealUtils {
 	}
 
 	public double getMealFnBCost(int mealActiveDays, Double mealPrice, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+
+		utilityCost = ObjectUtils.defaultIfNull(utilityCost, 0d);
+		packagingCost = ObjectUtils.defaultIfNull(packagingCost, 0d);
+		foodMargin = ObjectUtils.defaultIfNull(foodMargin, 0d);
 
 		double mealUtilityCost = utilityCost * ((double) mealActiveDays / (double) totalMealsInWeek);
 		double mealPackagingCost = packagingCost * ((double) mealActiveDays / (double) totalMealsInWeek);

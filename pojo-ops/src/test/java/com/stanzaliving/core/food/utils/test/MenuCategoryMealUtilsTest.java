@@ -30,8 +30,8 @@ public class MenuCategoryMealUtilsTest {
 		// categoryMealDtos.add(getMealDto(MealType.EVENING_SNACKS, 7.1));
 		categoryMealDtos.add(getMealDto(MealType.DINNER, 16.5));
 
-		double fnbCost = MenuCategoryMealUtils.getFnBPaxPrice(categoryMealDtos, true, 4.0, 3.0, 21.0);
-		double trueCost = MenuCategoryMealUtils.getTruePaxPrice(categoryMealDtos, true, 4.0, 3.0, 21.0);
+		double fnbCost = MenuCategoryMealUtils.getFnBPaxPrice(categoryMealDtos, 4.0, 3.0, 21.0);
+		double trueCost = MenuCategoryMealUtils.getTruePaxPrice(categoryMealDtos, 4.0, 3.0, 21.0);
 
 		System.out.println("fnbCost: " + fnbCost);
 		System.out.println("trueCost: " + trueCost);
