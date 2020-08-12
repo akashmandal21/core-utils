@@ -76,7 +76,7 @@ public class MenuCategoryMealUtils {
 				double mealCost = categoryMealDto.getExpectedVegCost();
 
 				if (stanzaKitchen) {
-					mealCost += getMealFnBCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+					mealCost = getMealFnBCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
 				}
 
 				fnbCost += mealCost;
