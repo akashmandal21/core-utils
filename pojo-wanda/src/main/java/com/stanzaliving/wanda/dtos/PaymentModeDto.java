@@ -1,7 +1,5 @@
 package com.stanzaliving.wanda.dtos;
 
-import javax.persistence.SecondaryTable;
-
 import com.stanzaliving.wanda.enums.WandaPaymentMode;
 
 import lombok.AllArgsConstructor;
