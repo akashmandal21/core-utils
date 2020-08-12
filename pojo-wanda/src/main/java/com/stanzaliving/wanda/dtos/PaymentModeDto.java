@@ -5,6 +5,7 @@ import com.stanzaliving.wanda.enums.WandaPaymentMode;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -13,6 +14,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @Setter
+@NoArgsConstructor
 public class PaymentModeDto {
 
 	private WandaPaymentMode wandaPaymentMode;
