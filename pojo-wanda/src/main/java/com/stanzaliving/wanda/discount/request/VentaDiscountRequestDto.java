@@ -22,5 +22,5 @@ public class VentaDiscountRequestDto {
     private String cityUuid;
     private Double bookingMonthlyRent;
     private BookingDiscountCriteriasDto bookingDiscountCriterias;
-    private boolean isAlfredFlow;
+    private Boolean isAlfredFlow;
 }
