@@ -30,7 +30,7 @@ public class CommercialsResponseDto {
     private String maxDate;
     private List<Map<String, String>> adjustedAdvanceRentalMonths;
     private InstallmentTypeEnum instalmentType;
-    private ResidenceType residenceType;
+    private ResidenceType propertyType;
     private Double maintenanceFeeAdjustedInSD;
     
 }
