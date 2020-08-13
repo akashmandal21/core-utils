@@ -6,11 +6,15 @@ package com.stanzaliving.wanda.response;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.stanzaliving.wanda.dtos.ReferAndEarnBaseDto;
+
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author nipunaggarwal
@@ -18,13 +22,14 @@ import lombok.Setter;
  */
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Getter
 @Setter
-public class TotalEarnedUIResponseDto {
+@ToString(callSuper = true)
+@JsonIgnoreProperties({ "sequenceId" })
+public class TotalEarnedUIResponseDto extends ReferAndEarnBaseDto{
 
 	private String totalEarned;
-	private String rewardsEarnedImgUrl;
-	private List<EarningUIResponseDto> earningUIResponseDto;
+	private List<RewardsEarnedHistoryUIDto> history;
 
 }

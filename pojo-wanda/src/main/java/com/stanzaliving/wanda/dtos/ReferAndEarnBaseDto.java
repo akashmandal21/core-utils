@@ -8,21 +8,21 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
  * @author nipunaggarwal
  *
  */
+@AllArgsConstructor
+@NoArgsConstructor
 @SuperBuilder
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString(callSuper = true)
-public class HowItWorksDetailDto extends ReferAndEarnBaseDto {
+public abstract class ReferAndEarnBaseDto {
 
-	private String details;
+	private Integer sequenceId;
+	private String title;
+	private String imgUrl;
 
 }

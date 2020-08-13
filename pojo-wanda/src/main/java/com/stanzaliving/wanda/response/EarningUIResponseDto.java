@@ -5,10 +5,10 @@
 package com.stanzaliving.wanda.response;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author nipunaggarwal
@@ -16,16 +16,17 @@ import lombok.Setter;
  */
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Getter
 @Setter
-public class EarningUIResponseDto {
+public abstract class EarningUIResponseDto {
 
 	private String name;
 	private String amount;
 	private String payoutMode;
-	private String referredDate;
+	private String referredAt;
 	private String payoutDate;
+	private String createdAt;
 	private String source;
 	private String referredPaymentStatus;
 	private String transactionId;

@@ -26,6 +26,7 @@ public class EarningResponseDto {
     private String payoutMode;
     private String referredDate;
     private String payoutDate;
+    private String createdAt;
     private String source;
     private ReferredPaymentStatus referredPaymentStatus;
     private String transactionId;

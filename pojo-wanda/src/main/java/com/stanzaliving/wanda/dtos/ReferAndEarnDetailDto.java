@@ -30,6 +30,6 @@ public class ReferAndEarnDetailDto {
 	private UnlockLevelsAndEarnMoreDto unlockLevelsAndEarnMore;
 	private ReferralCodeDetailDto referralCode;
 	private YourReferralsDto yourReferrals;
-	private ReferralEarningResponseDto referralEarnings;
+	private ReferralEarningResponseDto yourEarnings;
 
 }

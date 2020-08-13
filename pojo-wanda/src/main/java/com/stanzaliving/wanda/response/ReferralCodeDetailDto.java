@@ -4,11 +4,14 @@
  */
 package com.stanzaliving.wanda.response;
 
+import com.stanzaliving.wanda.dtos.ReferAndEarnBaseDto;
+
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author nipunaggarwal
@@ -16,15 +19,13 @@ import lombok.Setter;
  */
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Getter
 @Setter
-public class ReferralCodeDetailDto {
+@ToString(callSuper = true)
+public class ReferralCodeDetailDto extends ReferAndEarnBaseDto {
 
-	private Integer sequenceId;
-	private String title;
 	private String referralCode;
-	private String imgUrl;
 	private String text;
 
 }
