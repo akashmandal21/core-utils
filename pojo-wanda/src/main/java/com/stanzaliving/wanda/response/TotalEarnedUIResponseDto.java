@@ -4,6 +4,8 @@
  */
 package com.stanzaliving.wanda.response;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,9 +21,10 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class ReferralEarningResponseDto {
+public class TotalEarnedUIResponseDto {
 
-	private TotalEarnedUIResponseDto totalEarnedUIResponseDto;
-	private AmountReceivedUIDto amountReceivedUIDto;
+	private String totalEarned;
+	private String rewardsEarnedImgUrl;
+	private List<EarningUIResponseDto> earningUIResponseDto;
 
 }

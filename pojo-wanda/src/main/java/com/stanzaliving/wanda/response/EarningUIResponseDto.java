@@ -19,9 +19,15 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class ReferralEarningResponseDto {
+public class EarningUIResponseDto {
 
-	private TotalEarnedUIResponseDto totalEarnedUIResponseDto;
-	private AmountReceivedUIDto amountReceivedUIDto;
+	private String name;
+	private String amount;
+	private String payoutMode;
+	private String referredDate;
+	private String payoutDate;
+	private String source;
+	private String referredPaymentStatus;
+	private String transactionId;
 
 }
