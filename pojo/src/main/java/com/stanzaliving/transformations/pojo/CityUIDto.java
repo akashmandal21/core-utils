@@ -1,5 +1,6 @@
 package com.stanzaliving.transformations.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.validation.constraints.Min;
@@ -23,7 +24,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class CityUIDto {
+public class CityUIDto implements Serializable {
+
+	private static final long serialVersionUID = -5229262681044709946L;
 
 	@NotBlank(message = "City UUID is Mandatory")
 	private String uuid;
