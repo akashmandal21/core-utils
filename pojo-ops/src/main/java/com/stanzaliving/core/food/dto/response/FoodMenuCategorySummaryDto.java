@@ -17,6 +17,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodMenuCategorySummaryDto {
+
 	private Integer total;
 
 	private Integer published;

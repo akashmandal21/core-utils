@@ -10,6 +10,8 @@ import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.food.enums.FoodServeType;
+import com.stanzaliving.core.food.enums.GrammageHeavynessLevel;
+import com.stanzaliving.core.food.enums.MenuCategoryType;
 import com.stanzaliving.core.food.enums.MenuType;
 
 import lombok.AllArgsConstructor;
@@ -65,4 +67,7 @@ public class FoodMenuCategoryDto extends AbstractDto {
 
 	private List<FoodItemBasePreference> basePreferences;
 
+	private MenuCategoryType categoryType;
+
+	private GrammageHeavynessLevel grammageHeavynessLevel;
 }
