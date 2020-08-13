@@ -24,6 +24,7 @@ public enum FoodRoleType {
 	CITY_MENU_CREATION("City - Menu Creation", Department.FOOD_OPS, AccessLevel.CITY),
 	PURCHASE_MANAGER("Purchase Manager", Department.FOOD_OPS, AccessLevel.CITY),
 	STORE_MANAGER("Store Manager", Department.FOOD_OPS, AccessLevel.CITY),
+	CITY_FOOD_PREPARATION("City - Food Preparation", Department.FOOD_OPS, AccessLevel.CITY),
 	COUNTRY_MENU_CATEGORY_APPROVER_L1("Country - Menu Category Approver - L1", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	COUNTRY_MENU_CATEGORY_APPROVER_L2("Country - Menu Category Approver - L2", Department.FOOD_OPS, AccessLevel.COUNTRY),
 
