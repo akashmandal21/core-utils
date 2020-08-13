@@ -1,6 +1,7 @@
 package com.stanzaliving.core.user.dto.response;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +22,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = { "userId" })
 public class UserContactDetailsResponseDto {
 
 	private String userId;
