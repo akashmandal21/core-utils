@@ -25,4 +25,6 @@ public class PackagedServicesDto {
 	
 	private String bgColor;
 	
+	private boolean tappable;
+	
 }
