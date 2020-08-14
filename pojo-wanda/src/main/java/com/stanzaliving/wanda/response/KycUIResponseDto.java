@@ -4,10 +4,10 @@
  */
 package com.stanzaliving.wanda.response;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.stanzaliving.wanda.dtos.ReferAndEarnBaseDto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,16 +18,16 @@ import lombok.experimental.SuperBuilder;
  * @author nipunaggarwal
  *
  */
-@AllArgsConstructor
-@NoArgsConstructor
 @SuperBuilder
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "imgUrl", "text" })
-public class ReferralEarningResponseDto extends ReferAndEarnBaseDto{
+public class KycUIResponseDto extends ReferAndEarnBaseDto {
 
-	private TotalEarnedUIResponseDto rewardsEarnedHistory;
-	private AmountReceivedUIDto amountReceivedHistory;
+	@Builder.Default
+	private Boolean isKycUpdated = Boolean.FALSE;
+	private String text;
 
 }

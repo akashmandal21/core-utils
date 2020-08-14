@@ -26,11 +26,9 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "imgUrl" })
+@JsonIgnoreProperties({ "imgUrl", "text" })
 public class YourReferralsDto extends ReferAndEarnBaseDto{
 	
-	private Integer sequenceId;
-	private String title;
 	private List<ReferralStatusCountResponseDto> referralCounts;
 
 }

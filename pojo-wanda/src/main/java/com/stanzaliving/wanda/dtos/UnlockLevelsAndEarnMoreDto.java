@@ -26,7 +26,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "imgUrl" })
+@JsonIgnoreProperties({ "imgUrl", "text" })
 public class UnlockLevelsAndEarnMoreDto extends ReferAndEarnBaseDto{
 
 	private List<ReferralLevelResponseDto> levels;

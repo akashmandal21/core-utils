@@ -24,5 +24,6 @@ public abstract class ReferAndEarnBaseDto {
 	private Integer sequenceId;
 	private String title;
 	private String imgUrl;
+	private String text;
 
 }

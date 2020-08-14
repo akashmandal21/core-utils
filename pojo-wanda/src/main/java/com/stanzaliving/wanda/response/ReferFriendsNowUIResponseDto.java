@@ -6,9 +6,7 @@ package com.stanzaliving.wanda.response;
 
 import com.stanzaliving.wanda.dtos.ReferAndEarnBaseDto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
@@ -17,14 +15,10 @@ import lombok.experimental.SuperBuilder;
  * @author nipunaggarwal
  *
  */
-@AllArgsConstructor
-@NoArgsConstructor
-@SuperBuilder
 @Getter
 @Setter
+@SuperBuilder
 @ToString(callSuper = true)
-public class ReferralCodeDetailDto extends ReferAndEarnBaseDto {
-
-	private String referralCode;
+public class ReferFriendsNowUIResponseDto extends ReferAndEarnBaseDto {
 
 }
