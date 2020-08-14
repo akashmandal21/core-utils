@@ -24,7 +24,8 @@ public enum AreaOfUse {
 	BRANDING("Branding"),
 	ELECTRONIC("Electronic"),
 	GYM("Gym"),
-	COMMON_AREA("Common Area");
+	COMMON_AREA("Common Area"),
+	LOGISTICS("Logistics");
 	
 	private String name;
 
@@ -35,7 +36,6 @@ public enum AreaOfUse {
 	public static Map<String, AreaOfUse> areaofUseMap = new HashMap<>();
 
 	static {
-
 		areaofUseMap.put("Room", AreaOfUse.ROOM);
 		areaofUseMap.put("Reception", AreaOfUse.RECEPTION);
 		areaofUseMap.put("Entertainment", AreaOfUse.ENTERTAINMENT);
@@ -46,6 +46,7 @@ public enum AreaOfUse {
 		areaofUseMap.put("Electronic", AreaOfUse.ELECTRONIC);
 		areaofUseMap.put("Gym", AreaOfUse.GYM);
 		areaofUseMap.put("Common Area", AreaOfUse.COMMON_AREA);
+		areaofUseMap.put("Logistics", AreaOfUse.LOGISTICS);
 	}
 
 }

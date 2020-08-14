@@ -7,9 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum FoodServeType {
 
-	PACKAGED("Packaged"),
-	NON_PACKAGED("Non-Packaged");
+	PACKAGED("Packaged", "Boxed"),
+	NON_PACKAGED("Non-Packaged", "Buffet");
 
 	private String serveTypeName;
+	private String commonName;
 
 }

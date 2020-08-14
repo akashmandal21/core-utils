@@ -20,7 +20,9 @@ import lombok.ToString;
 @NoArgsConstructor
 public class VasItemCostDto {
 
-	private String itemId;
 	private Double cost;
 	private Double gst;
+	private String itemId;
+	private int itemQuantity;
+	private int itemWeight;
 }
