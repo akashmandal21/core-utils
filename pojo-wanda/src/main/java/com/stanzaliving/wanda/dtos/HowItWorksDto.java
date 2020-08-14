@@ -25,7 +25,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "imgUrl" })
+@JsonIgnoreProperties({ "imgUrl", "text" })
 public class HowItWorksDto extends ReferAndEarnBaseDto{
 
 	private List<HowItWorksDetailDto> steps;

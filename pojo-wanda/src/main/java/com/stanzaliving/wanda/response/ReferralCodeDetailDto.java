@@ -26,6 +26,5 @@ import lombok.experimental.SuperBuilder;
 public class ReferralCodeDetailDto extends ReferAndEarnBaseDto {
 
 	private String referralCode;
-	private String text;
 
 }

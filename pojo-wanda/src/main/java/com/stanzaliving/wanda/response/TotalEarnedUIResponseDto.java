@@ -26,7 +26,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "sequenceId" })
+@JsonIgnoreProperties({ "sequenceId", "text" })
 public class TotalEarnedUIResponseDto extends ReferAndEarnBaseDto{
 
 	private String totalEarned;
