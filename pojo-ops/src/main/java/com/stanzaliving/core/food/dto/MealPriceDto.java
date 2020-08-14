@@ -18,6 +18,8 @@ import lombok.experimental.SuperBuilder;
 public class MealPriceDto {
 
 	private MealType mealType;
+	
+	private String mealTypeName;
 
 	private double price;
 
