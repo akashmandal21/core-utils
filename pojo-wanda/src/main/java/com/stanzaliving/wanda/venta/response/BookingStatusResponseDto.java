@@ -19,4 +19,13 @@ public class BookingStatusResponseDto {
 	@Builder.Default
 	private Boolean agreementSent = false;
 	private String studentId;
+	private Boolean adhaarVerifiedStatus;
+    private String adhaarRejectedReason;
+    private Boolean panVerifiedStatus;
+    private String panRejectedReason;
+    private Boolean otherIdVerifiedStatus;
+    private String otherIdRejectedReason;
+    private Boolean policeVerificationStatus;
+    private String policeVerificationRejectedReason;
+
 }

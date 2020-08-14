@@ -19,8 +19,9 @@ public enum AlfredStep {
 	ONBOARDING(4, Arrays.asList("AWAITING CONFIRMATION")),
 	AGREEMENT(5, Arrays.asList("AGREEMENT SENT")),
 	KYC(6, Arrays.asList("ONBOARDING PENDING", "ONBOARDING IN PROGRESS","VERIFICATION PENDING")),
-	UPDATE_BY_SALES_POC(7, Arrays.asList("NEEDS ATTENTION")),
-	HOMESCREEN(8, Arrays.asList("REFUND INITIATED"));
+	KYC_REJECTED(7,Arrays.asList("KYC REJECTED")),
+	UPDATE_BY_SALES_POC(8, Arrays.asList("NEEDS ATTENTION")),
+	HOMESCREEN(9, Arrays.asList("REFUND INITIATED"));
 
 	private Integer sequenceId;
 	private List<String> bookingStatuses;
