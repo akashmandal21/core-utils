@@ -6,6 +6,7 @@ package com.stanzaliving.wanda.dtos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.stanzaliving.wanda.response.KycUIResponseDto;
+import com.stanzaliving.wanda.response.ReferFriendsNowUIResponseDto;
 import com.stanzaliving.wanda.response.ReferralCodeDetailDto;
 import com.stanzaliving.wanda.response.ReferralEarningResponseDto;
 
@@ -35,5 +36,6 @@ public class ReferAndEarnDetailDto extends ReferAndEarnBaseDto {
 	private YourReferralsDto yourReferrals;
 	private ReferralEarningResponseDto yourEarnings;
 	private KycUIResponseDto kycAndPaymentDetails;
+	private ReferFriendsNowUIResponseDto referFriendsNow;
 
 }
