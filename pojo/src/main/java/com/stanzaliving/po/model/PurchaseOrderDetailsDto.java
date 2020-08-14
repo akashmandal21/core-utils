@@ -58,4 +58,6 @@ public class PurchaseOrderDetailsDto {
 
     private String createdAt;
 
+    private Long cityId;
+
 }
