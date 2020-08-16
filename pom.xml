@@ -68,7 +68,8 @@
 		<module>attendance-client</module>
 		<module>campaign-client</module>
 		<module>food-service-client</module>
-  </modules>
+        <module>generic-validation-core</module>
+    </modules>
 
 	<build>
 		<plugins>
