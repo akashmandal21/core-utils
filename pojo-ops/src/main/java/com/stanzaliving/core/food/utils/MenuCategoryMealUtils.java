@@ -122,7 +122,7 @@ public class MenuCategoryMealUtils {
 
 		int mealActiveDays = getDaysPerWeekCount(categoryMealDto);
 
-		return getMealFnBCost(mealActiveDays, categoryMealDto.getExpectedVegCost(), utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+		return getMealFnBCost(mealActiveDays, mealPrice, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
 	}
 
 	public double getMealFnBCost(int mealActiveDays, Double mealPrice, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
@@ -148,7 +148,7 @@ public class MenuCategoryMealUtils {
 
 		int mealActiveDays = getDaysPerWeekCount(categoryMealDto);
 
-		return getMealTrueCost(mealActiveDays, categoryMealDto.getExpectedVegCost(), utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+		return getMealTrueCost(mealActiveDays, mealPrice, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
 	}
 
 	public double getMealTrueCost(
