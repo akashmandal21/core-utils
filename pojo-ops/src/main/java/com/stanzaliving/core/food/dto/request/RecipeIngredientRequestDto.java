@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -29,7 +30,7 @@ public class RecipeIngredientRequestDto {
 	@NotBlank(message = "Ingredient name is mandatory")
 	private String ingredientName;
 
-	@NotEmpty(message = "Ingredient quantity is required for all ingredients")
+	@NotNull(message = "Ingredient quantity is required for all ingredients")
 	private Double quantity;
 
 }
