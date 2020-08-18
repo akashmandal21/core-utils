@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.Collection;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.food.enums.FoodItemBackgroundColor;
 import com.stanzaliving.core.food.enums.FoodItemType;
@@ -23,11 +24,11 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodItemSearchDto {
+public class FoodItemSearchDto extends AbstractDto {
 
 	private Collection<String> itemIds;
 
