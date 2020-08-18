@@ -9,6 +9,7 @@ public enum FieldType {
 
     ENUM("Enum Type"),
     BOOL("Yes/No"),
+    YES_NO("Yes/No"),
     HIDDEN("Auto Calculated"),
     NONDECIMAL("Integer number"),
     DECIMAL("Decimal Number"),

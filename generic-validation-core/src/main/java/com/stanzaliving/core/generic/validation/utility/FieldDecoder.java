@@ -40,6 +40,23 @@ public class FieldDecoder {
                         value = Enum.valueOf(enumClass,data.asText());
                         break;
 
+                    case YES_NO:
+                        if(data.asText().equalsIgnoreCase("yes"))
+                            value = Boolean.TRUE;
+                        else value = Boolean.FALSE;
+
+                    case BOOL:
+                        value = data.asBoolean();
+                        break;
+
+                    case DECIMAL:
+                        value = data.asDouble();
+                        break;
+
+                    case NONDECIMAL:
+                        value = data.asLong();
+                        break;
+
                     case OBJECT:
                         Class clazz = ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null);
                         value = objectMapper.treeToValue(data, clazz);

@@ -18,6 +18,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.util.Pair;
 
@@ -38,20 +39,35 @@ public abstract class TemplateProcessor {
     
 
     public Map<String, UiParentField> getBasicUIData(TemplateFilter templateFilter, String templateName,
-                                                     Map<String,Object> additionalData, Object sourceClass, Map<String,Field> fieldMap) throws Exception {
+                                                     Map<String,Object> additionalData, Object sourceClass, Map<String,Field> fieldMap) {
 
         log.info("Request {} {}",sourceClass,fieldMap);
         Query query = templateFilter.getFilterCriterion();
+//        test(templateName,templateFilter);
+        log.info("Query {}",query);
         Map<String, Templates> templates = mongoTemplate.find(query, Templates.class).stream().collect(Collectors.toMap(f->f.getTemplateName(), Function.identity()));
         if(MapUtils.isNotEmpty(templates) && Objects.nonNull(templates.get(templateName))){
 
-            Map<String, UiParentField> fields = getUiFields(templateName,templates,fieldMap,sourceClass,additionalData);
+            Map<String, UiParentField> fields = getUiFields(templateName,templates,fieldMap,sourceClass,additionalData,sourceClass);
             return fields;
         }else {
             log.error("No Templates configured for the provided filters {}",templateFilter.getFormattedString());
             throw new NoRecordException("No Such Combination exist for provided filters "+templateFilter.getFormattedString());
         }
     }
+
+//    private void test(String templateName, TemplateFilter templateFilter){
+//        Query query = templateFilter.getFilterCriterion();
+//        query.addCriteria(Criteria.where("templateName").is(templateName));
+//        log.info("Query {}",query);
+//        Templates template = mongoTemplate.findOne(query,Templates.class);
+//        if(Objects.nonNull(template)){
+//            template.getFields().stream().forEach(f->{
+//                if(f.getFieldType()==FieldType.TEMPLATE)
+//                    test(f.getFieldName(),templateFilter);
+//            });
+//        }
+//    }
 
     public Pair<Boolean,Map<String, UiParentField>> storeSubmittedUIData(TemplateFilter templateFilter, String templateName,
                                                                          Map<String,JsonNode> uiSubmittedDto, boolean isDraft, boolean isSaveOnError,
@@ -97,7 +113,7 @@ public abstract class TemplateProcessor {
                                                                         Map<String,Field> fields, Object sourceClass,
                                                                         boolean allowSkipNewFields, Object baseObject){
 
-        log.info("Processing Template {} {}",templateName,fields);
+        log.info("Processing Template {} {} {}",templateName,fields,data);
         final int currErrors = errorInfo.getNumErrors();
         Map<String, UiParentField> uiFieldMap = new LinkedHashMap<>();
         Templates template = templates.get(templateName);
@@ -110,7 +126,7 @@ public abstract class TemplateProcessor {
 
             if(Objects.isNull(fields.get(templateField.getFieldName())))
             {
-                log.error("Template field {} not found in Dto Struture, skip processing",templateField.getFieldName(),fields);
+                log.error("Template field {} not found in Dto Struture, skip processing {}",templateField.getFieldName(),allowSkipNewFields);
                 if(allowSkipNewFields)
                     continue;
                 else
@@ -122,11 +138,14 @@ public abstract class TemplateProcessor {
 
             Field field = fields.get(templateField.getFieldName());
             field.setAccessible(true);
-
             switch (templateField.getFieldType()) {
                 case TEXT:
                 case LIST:
                 case ENUM:
+                case BOOL:
+                case DECIMAL:
+                case YES_NO:
+                case NONDECIMAL:
                 case OBJECT:
 
                     UiField uiField = null;
@@ -150,6 +169,7 @@ public abstract class TemplateProcessor {
                     break;
 
                 case TEMPLATE:
+                    log.info("Template Found {} {} {}",templateField.getFieldName(),templateField.getFieldSubType(),dataPresent);
                     UiParentField uiBasicField = null;
                     if (!dataPresent)
                     {
@@ -166,10 +186,8 @@ public abstract class TemplateProcessor {
                             Object obj = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);
                             Map<String, Field> fieldMap = Arrays.stream(clazz.getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
                             Map<String, JsonNode> nestedStruct = ValueAdapters.convertValue(uiBasicField.getData(), new TypeReference<Map<String, JsonNode>>() {},objectMapper);
-
                             Pair<Boolean, Map<String, UiParentField>> nestedData = verifyAndStoreData(nestedStruct, templateField.getFieldName(),
                                     templates, isDraft, errorInfo, saveDraftOnError, additionalData, fieldMap, obj,allowSkipNewFields,baseObject);
-
                             uiBasicField.setErrorOccurred(nestedData.getFirst());
                             uiBasicField.setData(objectMapper.valueToTree(nestedData.getSecond()));
                             if (!nestedData.getFirst() || saveDraftOnError)
@@ -195,12 +213,13 @@ public abstract class TemplateProcessor {
                                         objects.add(obj);
                                 }
                             } else
-                                nestedData.add(getUiFields(templateField.getFieldName(), templates, null, null, additionalData));
+                                nestedData.add(getUiFields(templateField.getFieldName(), templates, null, null, additionalData,baseObject));
                             if (!errorInfo.isErrorOccurred() || saveDraftOnError)
                                 ValueAdapters.setFieldValDirectly(templateName,templateField,field,sourceClass,objects);
                             uiBasicField.setData(objectMapper.valueToTree(nestedData));
                         }
                     }
+                    log.info("UiBaseField {}",uiBasicField);
                     uiFieldMap.put(templateField.getFieldName(), uiBasicField);
                     break;
 
@@ -212,7 +231,8 @@ public abstract class TemplateProcessor {
         log.info(uiFieldMap);
         if(validError.isErrorOccurred())
             updateErrorInfo(errorInfo,validError.getNumErrors());
-        return Pair.of(currErrors == errorInfo.getNumErrors(),uiFieldMap);
+        log.info("Finished Processing template {}",templateName);
+        return Pair.of(currErrors < errorInfo.getNumErrors(),uiFieldMap);
     }
 
     private void updateErrorInfo(ErrorInfo errorInfo){
@@ -226,7 +246,7 @@ public abstract class TemplateProcessor {
     }
 
     private Map<String, UiParentField> getUiFields(String templateName, Map<String,Templates> templates, Map<String,Field> fields, Object sourceClass ,
-                                                   Map<String,Object> additionalData){//, boolean readOnly, boolean approveAllowed){
+                                                   Map<String,Object> additionalData, Object baseObject){
 
         Map<String, UiParentField> uiFieldMap = new LinkedHashMap<>();
         log.info("Processing Template {}",templateName);
@@ -249,9 +269,14 @@ public abstract class TemplateProcessor {
                     throw new StanzaException("Internal Error Occurred");
                 }
             }
+
             switch (templateField.getFieldType()) {
                 case TEXT:
                 case ENUM:
+                case BOOL:
+                case DECIMAL:
+                case NONDECIMAL:
+                case YES_NO:
                 case LIST:
                 case OBJECT:
                     UiField uiField = getUiFieldTemplate(templateField, fieldVal, additionalData);
@@ -269,7 +294,7 @@ public abstract class TemplateProcessor {
 
                             if (Objects.nonNull(fieldVal))
                                 fieldMap = Arrays.stream(fieldVal.getClass().getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
-                            Map<String, UiParentField> nestedData = getUiFields(templateField.getFieldName(), templates, fieldMap, fieldVal, additionalData);
+                            Map<String, UiParentField> nestedData = getUiFields(templateField.getFieldName(), templates, fieldMap, fieldVal, additionalData,baseObject);
 
                             uiBasicField.setData(objectMapper.valueToTree(nestedData));
 
@@ -279,13 +304,13 @@ public abstract class TemplateProcessor {
                                 ((List<Object>) fieldVal).stream().forEach(f -> {
                                     Map<String, Field> fieldMap = Arrays.stream(f.getClass().getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
                                     try {
-                                        nestedData.add(getUiFields(templateField.getFieldName(), templates, fieldMap, f, additionalData));
+                                        nestedData.add(getUiFields(templateField.getFieldName(), templates, fieldMap, f, additionalData,baseObject));
                                     } catch (Exception e) {
                                         e.printStackTrace();
                                     }
                                 });
                             } else
-                                nestedData.add(getUiFields(templateField.getFieldName(), templates, null, null, additionalData));
+                                nestedData.add(getUiFields(templateField.getFieldName(), templates, null, null, additionalData,baseObject));
 
                             uiBasicField.setData(objectMapper.valueToTree(nestedData));
                         }
@@ -297,32 +322,48 @@ public abstract class TemplateProcessor {
                     log.error("No Matching field type found for template field: {} in template {}", templateField, template.getTemplateName());
             }
         }
-
+        enrichFieldInfo(templateName,uiFieldMap,baseObject,sourceClass,additionalData);
         return uiFieldMap;
     }
 
     private UiField getUiFieldTemplate(TemplateField templateField, Object fieldVal, Map<String,Object> additionalData){
+        /*
+            The re editable functionality needs to be improved when edit shall be locked based on different roles or approval cycles.
+         */
+        Integer order = (Integer) additionalData.get("entityState");
+        boolean editable = templateField.isEditable();
+        if(Objects.nonNull(order) && Objects.nonNull(templateField.getEditableOrder()))
+            editable = order<=templateField.getEditableOrder();
 
-        JsonNode defaultValue = templateField.getDefaultValue();
+        Object defaultValue = templateField.getDefaultValue();
 
         UiField uiField = UiField.builder()
                 .fieldName(templateField.getFieldName())
                 .alias(templateField.getAlias())
                 .defaultErrorMsgValidation(templateField.getDefaultErrorMsgValidation())
-                .editable(templateField.isEditable())
+                .editable(editable)
+                .uiFieldType(templateField.getUiType())
                 .mandatory(templateField.isMandatory())
                 .allowedExtensions(templateField.getAllowedExtensions())
                 .isMultiSelect(templateField.getIsMultiSelect())
                 .validator(templateField.getValidator())
                 .regex(templateField.getRegex())
+                .options(templateField.getOptions())
                 .build();
-        if (templateField.getUiType() == UIFieldType.OPTION_LIST)
+        if (Objects.nonNull(templateField.getOptionProvider()) && (templateField.getUiType() == UIFieldType.OPTION_LIST || templateField.getUiType() == UIFieldType.OPTION_LIST_MS))
             uiField.setOptions(this.getListOptions(templateField.getOptionProvider(), additionalData));
         try {
             if (Objects.nonNull(fieldVal))
+            {
+                if(templateField.getFieldType()==FieldType.YES_NO)
+                    uiField.setValue(objectMapper.valueToTree(((Boolean)fieldVal)?"Yes":"No"));
                 uiField.setValue(objectMapper.valueToTree(fieldVal));
+            }
             else if (defaultValue != null)
-                uiField.setValue(defaultValue);
+            {
+                JsonNode jsonNode = objectMapper.valueToTree(defaultValue);
+                uiField.setValue(jsonNode);
+            }
         }catch (Exception e) {
             log.error("Unable to decode stored value using {} {} {} ",fieldVal, defaultValue, templateField.getFieldName(),e);
         }
@@ -339,5 +380,6 @@ public abstract class TemplateProcessor {
     }
 
     public abstract ErrorInfo addValidationErrors(String templateName,Map<String,UiParentField>  data, Object baseObject, Object currentSection);
+    public abstract void enrichFieldInfo(String templateName,Map<String,UiParentField>  data, Object baseObject, Object currentSection, Map<String,Object> additionalData);
 
 }

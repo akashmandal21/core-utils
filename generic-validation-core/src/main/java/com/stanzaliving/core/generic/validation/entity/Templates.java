@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Map;
 
@@ -17,10 +19,11 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document("generic_templates")
-@TypeAlias("generic_templates")
+@Document("templates")
+@TypeAlias("templates")
 public class Templates extends AbstractMongoEntity {
 
+    @NotBlank
     private String templateOwner;
     private TemplateType templateType;
     private boolean baseTemplate;

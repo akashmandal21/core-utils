@@ -43,7 +43,7 @@ public class ValueAdapters {
             throw new StanzaException("Internal Error Occurred");
         }
     }
-    public Object instantiateClass(Class clazz,String templateName, TemplateField templateField, Field field){
+    public <T>T instantiateClass(Class<T> clazz,String templateName, TemplateField templateField, Field field){
         try {
             return clazz.newInstance();
         }catch (Exception e) {

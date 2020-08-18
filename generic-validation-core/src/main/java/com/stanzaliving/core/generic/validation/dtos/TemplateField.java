@@ -18,9 +18,9 @@ public class TemplateField {
     private String fieldName;
     private boolean mandatory;
     private boolean editable;
-    private boolean reEditable=true;
+    private Integer editableOrder;
     private String alias;
-    private JsonNode defaultValue;
+    private Object defaultValue;
     private FieldType fieldType;
     private FieldType fieldSubType;
     private TemplateType templateType;
