@@ -19,7 +19,7 @@ public class PoListForFinanceDto {
 
     private String houseName;
 
-    private String cityId;
+    private Long cityId;
 
     private String poStatus;
 

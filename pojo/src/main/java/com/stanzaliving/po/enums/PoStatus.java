@@ -27,6 +27,7 @@ public enum PoStatus {
     SALES_CT_SHORT_CLOSE_PENDING("Short Close Pending", 1, Arrays.asList(Department.SALES), "#FEECD3", "#9A6E4E"),
     SALES_CT_SHORT_CLOSED("Short Closed", -1, Arrays.asList(Department.SALES), "#FAD1CC", "#790A00"),
     SENT_BACK_BY_FINANCE("Sent Back By Finance", -1, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS, Department.SALES, Department.FINANCE), "#E5E5E5", "#3F3F3F"),
+    GRN_STARTED("GRN Started", 3, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS, Department.SALES), "#F1F3C2", "#898F07"),
     WORK_COMPLETED("GRN Work Completed", 3, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS, Department.SALES, Department.FINANCE), "#F1F3C2", "#898F07"),
     INVOICE_SUBMITTED("Invoice Submitted", 4, Arrays.asList(Department.DESIGN, Department.PROCUREMENT, Department.GC, Department.TRANSFORMATIONS, Department.SALES, Department.FINANCE), "#CAFFF3", "#0B6550"),
     PO_CLOSED("PO Closed", 5, Arrays.asList(Department.SALES,Department.FINANCE), "#FFDEB4", "#F5413B");
