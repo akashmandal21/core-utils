@@ -69,6 +69,18 @@ public abstract class TemplateProcessor {
 //        }
 //    }
 
+    public void verifyEntityWithTemplate(TemplateFilter templateFilter,String templateName, List<String> errors, Object sourceClass, Map<String,Field> fieldMap, boolean allowSkipOnNewFields) throws MalFormedRecordException {
+
+        Query query = templateFilter.getFilterCriterion();
+        Map<String,Templates> templates = mongoTemplate.find(query, Templates.class).stream().collect(Collectors.toMap(f->f.getTemplateName(), Function.identity()));
+        if(MapUtils.isNotEmpty(templates) && Objects.nonNull(templates.get(templateName))){
+            verifyEntityData(templateName,templates,errors,fieldMap,sourceClass,sourceClass,allowSkipOnNewFields);
+        }else {
+            log.error("No Templates configured for the provided filters {}",templateFilter.getFormattedString());
+            throw new NoRecordException("No Such Combination exist for provided filters "+templateFilter.getFormattedString());
+        }
+    }
+
     public Pair<Boolean,Map<String, UiParentField>> storeSubmittedUIData(TemplateFilter templateFilter, String templateName,
                                                                          Map<String,JsonNode> uiSubmittedDto, boolean isDraft, boolean isSaveOnError,
                                                                          ErrorInfo errorInfo, Map<String,Object> additionalData,
@@ -233,6 +245,64 @@ public abstract class TemplateProcessor {
             updateErrorInfo(errorInfo,validError.getNumErrors());
         log.info("Finished Processing template {}",templateName);
         return Pair.of(currErrors < errorInfo.getNumErrors(),uiFieldMap);
+    }
+
+    private void verifyEntityData(String templateName, Map<String,Templates> templates, List<String> errors,
+                                  Map<String,Field> fields, Object sourceClass, Object baseObject, boolean allowSkipNewFields) throws MalFormedRecordException
+    {
+
+        log.info("Processing Template {} {}",templateName,fields);
+        Templates template = templates.get(templateName);
+
+        for (TemplateField templateField : template.getFields()) {
+
+            log.info("Processing Field {}", templateField.getFieldName());
+            boolean needed = templateField.isMandatory();
+            if(Objects.isNull(fields.get(templateField.getFieldName())))
+            {
+                log.error("Template field {} not found in Entity Structure, {} skip processing",templateField.getFieldName(),allowSkipNewFields);
+                if(allowSkipNewFields)
+                    continue;
+                else
+                    throw new MalFormedRecordException(templateField.getFieldName()+" Field not found");
+            }
+
+            FieldType subFieldType = templateField.getFieldSubType();
+
+            Field field = fields.get(templateField.getFieldName());
+            Object fieldVal = null;
+            try {
+                field.setAccessible(true);
+                fieldVal = field.get(sourceClass);
+            }catch (Exception ex){
+                log.error("Error occurred duing field access {} while processing template: {} , template field:{}",field,templateName,templateField);
+                throw new StanzaException("Internal Error Occurred");
+            }
+
+            if(needed && Objects.isNull(fieldVal))
+                errors.add((templateField.getFieldType()==FieldType.TEMPLATE ? "Section "+templateField.getFieldName() : templateField.getFieldName())+" is missing");
+
+            if(Objects.nonNull(fieldVal) && templateField.getFieldType()==FieldType.TEMPLATE){
+                    log.info("Template Found {} {}", templateField.getFieldName(), templateField.getFieldSubType());
+
+                    if (subFieldType == FieldType.OBJECT) {
+                        Class clazz = field.getType();
+                        Map<String, Field> fieldMap = Arrays.stream(clazz.getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
+                        verifyEntityData(templateName, templates, errors, fieldMap, fieldVal, baseObject, allowSkipNewFields);
+
+                    } else if (subFieldType == FieldType.LIST) {
+                        List<Object> objects = (List<Object>) fieldVal;
+                        for (Object object : objects) {
+                            Map<String, Field> fieldMap = Arrays.stream(object.getClass().getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
+                            verifyEntityData(templateName, templates, errors, fieldMap, object, baseObject, allowSkipNewFields);
+                        }
+                    }
+            }
+        }
+        ErrorInfo validError = addValidationErrors(templateName,null,baseObject,sourceClass);
+        if(CollectionUtils.isNotEmpty(validError.getErrorList()))
+            errors.addAll(validError.getErrorList());
+        log.info("Finished Processing template {}",templateName);
     }
 
     private void updateErrorInfo(ErrorInfo errorInfo){
