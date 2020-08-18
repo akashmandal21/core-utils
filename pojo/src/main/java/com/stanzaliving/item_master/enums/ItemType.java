@@ -3,6 +3,10 @@ package com.stanzaliving.item_master.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 @AllArgsConstructor
 @Getter
 public enum ItemType {
@@ -22,7 +26,7 @@ public enum ItemType {
     AUDIO_STREAMING("Audio Streaming"),
     DISPLAY("Display"),
     EMAIL_MARKETING("Email Marketing"),
-    ENGAGEMENT_ACTIVITY ("Engagement Activity"),
+    ENGAGEMENT_ACTIVITY("Engagement Activity"),
     ONLINE_PROMOTIONS("Online Promotions"),
     SEARCH("Search"),
     SMS_MARKETING("SMS Marketing"),
@@ -60,5 +64,22 @@ public enum ItemType {
     OTHER("Others");
 
     private String typeText;
+
+    public static Map<String, ItemType> itemTypeByNameMap = new HashMap<>();
+
+    static {
+
+        for (ItemType itemType : ItemType.values()) {
+            itemTypeByNameMap.put(itemType.getTypeText(), itemType);
+        }
+    }
+
+    public static ItemType getItemTypeByName(String itemTypeName) {
+
+        if (Objects.isNull(itemTypeName))
+            return null;
+
+        return itemTypeByNameMap.get(itemTypeName);
+    }
 
 }

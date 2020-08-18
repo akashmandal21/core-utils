@@ -3,6 +3,10 @@ package com.stanzaliving.item_master.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 @AllArgsConstructor
 @Getter
 public enum ItemMaterial {
@@ -36,5 +40,22 @@ public enum ItemMaterial {
     VINYL_SUNBOARD_WITH_MS_FRAME("Vinyl Sunboard with MS Frame");
 
     private String itemMaterialText;
+
+    public static Map<String, ItemMaterial> itemMaterialByNameMap = new HashMap<>();
+
+    static {
+
+        for (ItemMaterial itemMaterial : ItemMaterial.values()) {
+            itemMaterialByNameMap.put(itemMaterial.getItemMaterialText(), itemMaterial);
+        }
+    }
+
+    public static ItemMaterial getItemMaterialByName(String itemMaterialTypeName) {
+
+        if (Objects.isNull(itemMaterialTypeName))
+            return null;
+
+        return itemMaterialByNameMap.get(itemMaterialTypeName);
+    }
 
 }
