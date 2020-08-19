@@ -15,6 +15,7 @@ public class BookingStatusResponseDto {
     private String houseName;
     private String bookingUuid;
     private String bookingStatus;
+    private boolean hasMovedIn;
     private AlfredStep alfredStep;
 	@Builder.Default
 	private Boolean agreementSent = false;
