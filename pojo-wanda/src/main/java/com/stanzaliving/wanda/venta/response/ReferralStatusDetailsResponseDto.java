@@ -23,8 +23,14 @@ public class ReferralStatusDetailsResponseDto {
 	private String status;
 	private String name;
 	private String contactNumber;
+	private String email;
+	private String payoutMode;
+	private String source;
 	private String submittedOn;
+	private String bookedOn;
 	private Double amountPaid;
 	private String paidOn;
+	private String mmName;
+	private String cityName;
 
 }
