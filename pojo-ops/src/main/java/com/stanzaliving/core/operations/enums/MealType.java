@@ -58,11 +58,15 @@ public enum MealType {
 		mealMapByType.put(LUNCH, LUNCH.getMealName());
 		mealMapByType.put(EVENING_SNACKS, EVENING_SNACKS.getMealName());
 		mealMapByType.put(DINNER, DINNER.getMealName());
+		mealMapByType.put(LUNCH_TIFFIN, LUNCH_TIFFIN.getMealName());
+		mealMapByType.put(BRUNCH, BRUNCH.getMealName());
 
 		mealMapByTypeStr.put(BREAKFAST.toString(), BREAKFAST.getMealName());
 		mealMapByTypeStr.put(LUNCH.toString(), LUNCH.getMealName());
 		mealMapByTypeStr.put(EVENING_SNACKS.toString(), EVENING_SNACKS.getMealName());
 		mealMapByTypeStr.put(DINNER.toString(), DINNER.getMealName());
+		mealMapByTypeStr.put(LUNCH_TIFFIN.toString(), LUNCH_TIFFIN.getMealName());
+		mealMapByTypeStr.put(BRUNCH.toString(), BRUNCH.getMealName());
 
 	}
 
