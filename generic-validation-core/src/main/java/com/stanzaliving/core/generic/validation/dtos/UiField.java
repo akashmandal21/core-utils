@@ -26,6 +26,5 @@ public class UiField extends UiParentField {
     private List<String> allowedExtensions;
     private List<Object> options;
     private Boolean isMultiSelect;
-    private String errorMsg;
     private UIFieldType uiFieldType;
 }

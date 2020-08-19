@@ -16,4 +16,5 @@ public class UiParentField extends UiBaseField  {
     private boolean editable;
     private boolean canApprove;
     private boolean errorOccurred;
+    private String errorMsg;
 }
