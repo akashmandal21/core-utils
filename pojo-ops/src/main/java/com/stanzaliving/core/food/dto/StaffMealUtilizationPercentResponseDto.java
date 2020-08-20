@@ -6,36 +6,34 @@ import java.util.List;
 import com.stanzaliving.core.food.enums.FoodDayType;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-@Data
+@Getter
+@Setter
+@ToString
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(callSuper = true)
 public class StaffMealUtilizationPercentResponseDto {
 
 	private String residenceId;
 
-	@Builder.Default
-	private Double average = 0d;
+	private double average;
 
 	private LocalDate date;
 
 	private List<StaffMealUtilizationDto> mealUtilizationDtos;
 
-	@Builder.Default
-	private Integer slCount = 0;
+	private int slCount;
 
-	@Builder.Default
-	private Integer nonSLCount = 0;
+	private int nonSLCount;
 
 	private FoodDayType dayType;
-	
+
 	private String dayTypeName;
 
 }

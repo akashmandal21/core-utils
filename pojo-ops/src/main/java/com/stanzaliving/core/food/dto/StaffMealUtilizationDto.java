@@ -1,27 +1,30 @@
 package com.stanzaliving.core.food.dto;
 
+import com.stanzaliving.core.operations.enums.MealType;
+
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-@Data
+@Getter
+@Setter
+@ToString
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(callSuper = true)
 public class StaffMealUtilizationDto {
+
+	private MealType mealType;
 
 	private String mealName;
 
-	@Builder.Default
-	private Double slStaffUtilization = 0d;
+	private double slStaffUtilization;
 
-	@Builder.Default
-	private Double nonSLStaffUtilization = 0d;
-	
+	private double nonSLStaffUtilization;
+
 	private Integer sequence;
 
 }

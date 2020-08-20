@@ -15,10 +15,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class StaffMealCostDto {
 
-	@Builder.Default
-	private Double slStaffCost = 0d;
+	private double slStaffCost;
 
-	@Builder.Default
-	private Double nonSLStaffCost = 0d;
+	private double nonSLStaffCost;
 
 }

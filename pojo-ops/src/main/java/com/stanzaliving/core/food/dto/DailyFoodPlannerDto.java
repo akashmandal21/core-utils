@@ -16,13 +16,13 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DailyFoodPlannerDto {
-	
+
 	private LocalDate date;
-	
+
 	private Integer mir;
-	
+
 	private Double budgetedCost;
-	
+
 	private Double maxCost;
 
 }

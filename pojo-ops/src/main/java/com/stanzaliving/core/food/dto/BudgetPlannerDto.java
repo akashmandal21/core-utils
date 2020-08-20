@@ -2,32 +2,29 @@ package com.stanzaliving.core.food.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
+@Getter
+@Setter
 @Builder
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class BudgetPlannerDto {
-	
+
 	private String name;
 
-	@Builder.Default
-	private Double monthlyBudget = 0d;
+	private double monthlyBudget;
 
-	@Builder.Default
-	private Double utilisation = 0d;
+	private double utilisation;
 
-	@Builder.Default
-	private Double budgetPerPerson = 0d;
+	private double budgetPerPerson;
 
-	@Builder.Default
-	private Integer mir = 0;
+	private int mir;
 
-	@Builder.Default
-	private Double maxCost = 0d;
+	private double maxCost;
 
 }
