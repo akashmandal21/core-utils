@@ -5,7 +5,6 @@ import lombok.Getter;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @AllArgsConstructor
 @Getter
@@ -28,10 +27,6 @@ public enum StorageType {
     }
 
     public static StorageType getStorageTypeByName(String storageTypeTypeName) {
-
-        if (Objects.isNull(storageTypeTypeName))
-            return null;
-
         return storageTypeByNameMap.get(storageTypeTypeName);
     }
 

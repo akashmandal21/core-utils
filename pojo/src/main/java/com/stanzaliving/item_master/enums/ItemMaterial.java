@@ -37,7 +37,8 @@ public enum ItemMaterial {
     SUNBOARD_WITH_VINYL("Sunboard with Vinyl"),
     VINYL_SUNBOARD("Vinyl - Sunboard"),
     VINYL("Vinyl"),
-    VINYL_SUNBOARD_WITH_MS_FRAME("Vinyl Sunboard with MS Frame");
+    VINYL_SUNBOARD_WITH_MS_FRAME("Vinyl Sunboard with MS Frame"),
+    NA("NA");
 
     private String itemMaterialText;
 
@@ -51,10 +52,6 @@ public enum ItemMaterial {
     }
 
     public static ItemMaterial getItemMaterialByName(String itemMaterialTypeName) {
-
-        if (Objects.isNull(itemMaterialTypeName))
-            return null;
-
         return itemMaterialByNameMap.get(itemMaterialTypeName);
     }
 

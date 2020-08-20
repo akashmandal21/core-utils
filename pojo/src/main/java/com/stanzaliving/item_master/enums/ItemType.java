@@ -5,7 +5,6 @@ import lombok.Getter;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @AllArgsConstructor
 @Getter
@@ -61,7 +60,10 @@ public enum ItemType {
     SALES_TEAM_INCENTIVE("Sales Team Incentive"),
     CRM("CRM"),
     TELEPHONY("Telephony"),
-    OTHER("Others");
+    OTHER("Others"),
+    OTHER_DISCOUNT("Other Discount"),
+    BRAND_AWARENESS("Brand Awareness"),
+    LEAD_NURTURING("Lead Nurturing");
 
     private String typeText;
 
@@ -75,10 +77,6 @@ public enum ItemType {
     }
 
     public static ItemType getItemTypeByName(String itemTypeName) {
-
-        if (Objects.isNull(itemTypeName))
-            return null;
-
         return itemTypeByNameMap.get(itemTypeName);
     }
 

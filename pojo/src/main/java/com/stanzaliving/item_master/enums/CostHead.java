@@ -5,7 +5,6 @@ import lombok.Getter;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @AllArgsConstructor
 @Getter
@@ -26,10 +25,6 @@ public enum CostHead {
     }
 
     public static CostHead getCostHeadByName(String costHeadName) {
-
-        if (Objects.isNull(costHeadName))
-            return null;
-
         return costHeadByNameMap.get(costHeadName);
     }
 

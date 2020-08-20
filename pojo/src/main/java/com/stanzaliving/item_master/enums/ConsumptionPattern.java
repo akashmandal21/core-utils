@@ -13,7 +13,8 @@ public enum ConsumptionPattern {
 
     TIME_BASED("Time Based"),
     ONE_TIME("One Time"),
-    MULTIPLE("Multiple");
+    MULTIPLE("Multiple"),
+    DELIVERY_BASED("Delivery Based");
 
     private String consumptionPatternText;
 
@@ -27,10 +28,6 @@ public enum ConsumptionPattern {
     }
 
     public static ConsumptionPattern getConsumptionPatternByName(String consumptionPatternTypeName) {
-
-        if (Objects.isNull(consumptionPatternTypeName))
-            return null;
-
         return consumptionPatternByNameMap.get(consumptionPatternTypeName);
     }
 

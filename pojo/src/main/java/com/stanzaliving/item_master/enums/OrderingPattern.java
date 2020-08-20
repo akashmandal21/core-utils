@@ -26,10 +26,6 @@ public enum OrderingPattern {
     }
 
     public static OrderingPattern getOrderingPatternByName(String orderingPatternTypeName) {
-
-        if (Objects.isNull(orderingPatternTypeName))
-            return null;
-
         return orderingPatternByNameMap.get(orderingPatternTypeName);
     }
 

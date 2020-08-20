@@ -2,7 +2,6 @@ package com.stanzaliving.transformations.enums;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import lombok.Getter;
 
@@ -17,7 +16,10 @@ public enum UnitType {
     RFT("Running Feet"),
     LS("Lump sum"),
     PER_BED("Per Bed"),
-    MANDAYS("Mandays");
+    MANDAYS("Mandays"),
+    PULSE("Pulse"),
+    FLAT_RATE("Flat Rate"),
+    PERCENTAGE("Percentage");
 
     private String unitName;
 
@@ -35,10 +37,6 @@ public enum UnitType {
     }
 
     public static UnitType getUnitTypeByName(String unitName) {
-
-        if (Objects.isNull(unitName))
-            return null;
-
         return unitByNameMap.get(unitName);
     }
 
