@@ -13,4 +13,5 @@ public class DegreeResponseDto {
     private int degreeId;
     private String name;
     private boolean enabled;
+    private int maxYears;
 }
