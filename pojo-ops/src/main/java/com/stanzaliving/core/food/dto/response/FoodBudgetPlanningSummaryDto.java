@@ -19,6 +19,8 @@ public class FoodBudgetPlanningSummaryDto {
 
 	private Integer persons;
 
+	private Double personsAvg;
+
 	private Double budgetPerPerson;
 
 	private Double monthlyBudget;
@@ -30,7 +32,7 @@ public class FoodBudgetPlanningSummaryDto {
 	private Month lastMonth;
 
 	private Month secondLastMonth;
-	
+
 	private Month thirdLastMonth;
 
 	private Double lastMonthBudgetPerPerson;
@@ -40,29 +42,35 @@ public class FoodBudgetPlanningSummaryDto {
 	private Double secondLastMonthBudgetPerPerson;
 
 	private Double secondLastMonthUtilization;
-	
+
 	private Double thirdLastMonthBudgetPerPerson;
 
 	private Double thirdLastMonthUtilization;
-	
+
 	private Double maxCost;
-	
+
 	private Double lastMonthmaxCost;
-	
+
 	private Double secondLastMonthmaxCost;
-	
+
 	private Double thirdLastMonthmaxCost;
-	
+
 	private Double lastMonthBudget;
-	
+
 	private Double secondLastMonthBudget;
-	
+
 	private Double thirdLastMonthBudget;
-	
+
 	private Integer lastMonthPersons;
-	
+
 	private Integer secondLastMonthPersons;
-	
+
 	private Integer thirdLastMonthPersons;
-	
+
+	private Double lastMonthPersonsAvg;
+
+	private Double secondLastMonthPersonsAvg;
+
+	private Double thirdLastMonthPersonsAvg;
+
 }

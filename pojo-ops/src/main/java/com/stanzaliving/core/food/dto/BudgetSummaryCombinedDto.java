@@ -1,7 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,31 +15,28 @@ import lombok.experimental.SuperBuilder;
 @ToString
 public class BudgetSummaryCombinedDto {
 
-	@Builder.Default
-	private Integer residents = 0;
+	private int residents;
 
-	@Builder.Default
-	private Double residentsMonthlyBudget = 0d;
+	private double residentsCountAvg;
 
-	@Builder.Default
-	private Double residentMaxCost = 0d;
+	private double residentsMonthlyBudget;
 
-	@Builder.Default
-	private Integer staff = 0;
+	private double residentMaxCost;
 
-	@Builder.Default
-	private Double staffMonthlyBudget = 0d;
+	private int staff;
 
-	@Builder.Default
-	private Double staffMaxCost = 0d;
+	private double staffCountAvg;
 
-	@Builder.Default
-	private Integer nonStaff = 0;
+	private double staffMonthlyBudget;
 
-	@Builder.Default
-	private Double nonStaffMonthlyBudget = 0d;
+	private double staffMaxCost;
 
-	@Builder.Default
-	private Double nonStaffMaxCost = 0d;
+	private int nonStaff;
+
+	private double nonSlCountAvg;
+
+	private double nonStaffMonthlyBudget;
+
+	private double nonStaffMaxCost;
 
 }

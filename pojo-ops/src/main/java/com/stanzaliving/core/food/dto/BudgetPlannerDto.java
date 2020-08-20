@@ -25,6 +25,8 @@ public class BudgetPlannerDto {
 
 	private int mir;
 
+	private double mirAvg;
+
 	private double maxCost;
 
 }
