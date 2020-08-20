@@ -52,7 +52,7 @@ public class MasterBoqDto {
     private Map<AreaOfUse,String> areaOfUsesMap;
     private String brandNames;
     private String subBrandNames;
-    private Double rate;
+    private BigDecimal rate;
     private Boolean isRentalAvailable;
     private Double rentalRate;
     private String orderUnitText;
