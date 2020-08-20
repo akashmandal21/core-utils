@@ -22,10 +22,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class StaffMealBudgetCalendarDto {
-	
+
 	@NotBlank(message = "Residence Id is mandatory")
 	private String residenceId;
-	
+
 	private String residenceName;
 
 	@NotNull(message = "Budget Month is mandatory")
@@ -33,15 +33,15 @@ public class StaffMealBudgetCalendarDto {
 
 	@NotNull(message = "Budget Year is mandatory")
 	private Integer year;
-	
+
 	@NotEmpty(message = "Day type utilization is mandatory")
 	private Map<FoodDayType, StaffMealUtilizationPercentResponseDto> dayTypeUtilizationRules;
-	
+
 	private Map<FoodDayType, StaffMealUtilizationPercentResponseDto> prevDayTypeUtilizationRules;
-	
+
 	@NotEmpty(message = "Meal wise utilization is mandatory")
 	private List<StaffMealBudgetUtilizationCalendarDateDto> mealBudgetUtilizationCalendarDateDtoList;
-	
+
 	private FoodBudgetPlannerStatus budgetStatus;
 
 }
