@@ -12,6 +12,7 @@ import com.stanzaliving.core.generic.validation.enums.FieldType;
 import com.stanzaliving.core.generic.validation.enums.UIFieldType;
 import com.stanzaliving.core.generic.validation.filter.TemplateFilter;
 import com.stanzaliving.core.generic.validation.utility.FieldDecoder;
+import com.stanzaliving.core.generic.validation.utility.FieldValidator;
 import com.stanzaliving.core.generic.validation.utility.ValueAdapters;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
@@ -256,7 +257,7 @@ public abstract class TemplateProcessor {
 
         for (TemplateField templateField : template.getFields()) {
 
-            log.info("Processing Field {}", templateField.getFieldName());
+            log.info("Processing Field {} {}", templateField.getFieldName(),templateField.isMandatory());
             boolean needed = templateField.isMandatory();
             if(Objects.isNull(fields.get(templateField.getFieldName())))
             {
@@ -280,7 +281,18 @@ public abstract class TemplateProcessor {
             }
 
             if(needed && Objects.isNull(fieldVal))
-                errors.add((templateField.getFieldType()==FieldType.TEMPLATE ? "Section "+templateField.getFieldName() : templateField.getFieldName())+" is missing");
+            {
+                log.info("Error : Mandatory is null {}",templateField.getFieldName());
+                errors.add((templateField.getFieldType()==FieldType.TEMPLATE ? "Section "+templateField.getFieldName() : templateField.getFieldName())+" is missing or incorrect");
+            }
+            if(Objects.nonNull(fieldVal) && templateField.getFieldType()!=FieldType.TEMPLATE && Objects.nonNull(templateField.getValidator()))
+            {
+                UiField temp = new UiField();
+                temp.setFieldName(templateField.getFieldName());
+                temp.setDefaultErrorMsgValidation(templateField.getDefaultErrorMsgValidation());
+                if(!FieldValidator.validateFieldValueUsingValidator(templateField.getValidator(), templateField.getRegex(), fieldVal,temp))
+                    errors.add(templateField.getFieldName()+":"+temp.getErrorMsg());
+            }
 
             if(Objects.nonNull(fieldVal) && templateField.getFieldType()==FieldType.TEMPLATE){
                     log.info("Template Found {} {}", templateField.getFieldName(), templateField.getFieldSubType());
@@ -288,13 +300,13 @@ public abstract class TemplateProcessor {
                     if (subFieldType == FieldType.OBJECT) {
                         Class clazz = field.getType();
                         Map<String, Field> fieldMap = Arrays.stream(clazz.getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
-                        verifyEntityData(templateName, templates, errors, fieldMap, fieldVal, baseObject, allowSkipNewFields);
+                        verifyEntityData(templateField.getFieldName(), templates, errors, fieldMap, fieldVal, baseObject, allowSkipNewFields);
 
                     } else if (subFieldType == FieldType.LIST) {
                         List<Object> objects = (List<Object>) fieldVal;
                         for (Object object : objects) {
                             Map<String, Field> fieldMap = Arrays.stream(object.getClass().getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
-                            verifyEntityData(templateName, templates, errors, fieldMap, object, baseObject, allowSkipNewFields);
+                            verifyEntityData(templateField.getFieldName(), templates, errors, fieldMap, object, baseObject, allowSkipNewFields);
                         }
                     }
             }
