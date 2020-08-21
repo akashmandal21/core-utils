@@ -13,6 +13,8 @@ public enum LeadSubStatus {
 	PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow Up"),
 	RNR("RNR"),
 	
+	DISQUALIFIED("Disqualified"),
+
 	PRE_VISIT_SCHEDULED_FOLLOW_UP("Pre Visit Scheduled Follow Up"),
 	PRE_VISIT_SCHEDULED_DROP("Pre Visit Scheduled Drop"),
 
