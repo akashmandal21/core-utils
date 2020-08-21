@@ -28,7 +28,6 @@ public enum UnitType {
         this.unitName = unitName;
     }
 
-
 	public static Map<String, UnitType> unitByNameMap = new HashMap<>();
 
 	static {
@@ -37,6 +36,7 @@ public enum UnitType {
 			unitByNameMap.put(unitType.getUnitName(), unitType);
 		}
 	}
+
 
 
     public static UnitType getUnitTypeByName(String unitName) {
