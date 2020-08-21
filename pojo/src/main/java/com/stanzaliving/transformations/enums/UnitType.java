@@ -16,8 +16,8 @@ public enum UnitType {
 	RFT("Running Feet"),
 	LS("Lump sum"),
 	PER_BED("Per Bed"),
-	MANDAYS("Mandays");
-
+	MANDAYS("Mandays"),
+	LTS("ltr");
 	private String unitName;
 
 	private UnitType(String unitName) {
