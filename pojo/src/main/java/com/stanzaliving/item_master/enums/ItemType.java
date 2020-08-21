@@ -57,12 +57,12 @@ public enum ItemType {
     SALES_TEAM_INCENTIVE("Sales Team Incentive"),
     CRM("CRM"),
     TELEPHONY("Telephony"),
-    OTHER("Others");
+    OTHER("Others"),
     OTHER_DISCOUNT("Other Discount"),
     BRAND_AWARENESS("Brand Awareness"),
     LEAD_NURTURING("Lead Nurturing");
 
-    
+
     private String typeText;
 
 }
