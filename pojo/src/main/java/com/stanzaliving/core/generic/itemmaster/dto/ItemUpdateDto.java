@@ -5,11 +5,18 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.generic.itemmaster.enums.ItemAction;
 import com.stanzaliving.transformations.enums.UnitType;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
+
+@Getter
+@Setter
+@ToString(callSuper = true)
 @SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ItemUpdateDto extends AbstractDto {
 
     private Department department;
