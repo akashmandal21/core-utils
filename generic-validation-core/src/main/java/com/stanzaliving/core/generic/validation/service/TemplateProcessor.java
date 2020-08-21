@@ -437,7 +437,8 @@ public abstract class TemplateProcessor {
                 .regex(templateField.getRegex())
                 .options(templateField.getOptions())
                 .build();
-        if (Objects.nonNull(templateField.getOptionProvider()) && (templateField.getUiType() == UIFieldType.OPTION_LIST || templateField.getUiType() == UIFieldType.OPTION_LIST_MS))
+        if (Objects.nonNull(templateField.getOptionProvider()) && (templateField.getUiType() == UIFieldType.OPTION_LIST ||
+                templateField.getUiType() == UIFieldType.OPTION_LIST_MS || templateField.getUiType() == UIFieldType.OPTION_LIST_ARR))
             uiField.setOptions(this.getListOptions(templateField.getOptionProvider(), additionalData));
         try {
             if (Objects.nonNull(fieldVal))
