@@ -7,6 +7,8 @@ import com.stanzaliving.core.generic.itemmaster.enums.ItemAction;
 import com.stanzaliving.transformations.enums.UnitType;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @SuperBuilder
 public class ItemUpdateDto extends AbstractDto {
 
@@ -15,6 +17,6 @@ public class ItemUpdateDto extends AbstractDto {
 
     private String itemName;
     private String itemDescription;
-    private UIKeyValue usageTypeOrArea;
+    private List<UIKeyValue> usageTypeOrArea;
     private UnitType unitOfMeasurement;
 }
