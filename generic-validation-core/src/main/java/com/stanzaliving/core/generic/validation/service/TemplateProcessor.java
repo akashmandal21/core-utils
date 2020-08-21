@@ -194,7 +194,7 @@ public abstract class TemplateProcessor {
                     }else {
                         uiBasicField = ValueAdapters.convertValue(data.get(templateField.getFieldName()), new TypeReference<UiParentField>() {},objectMapper);
 
-                        if (subFieldType == FieldType.OBJECT) {
+                        if (subFieldType == FieldType.OBJECT && templateField.getUiType()!=UIFieldType.MODAL) {
                             Class clazz = field.getType();
                             Object obj = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);
                             Map<String, Field> fieldMap = Arrays.stream(clazz.getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
@@ -214,7 +214,11 @@ public abstract class TemplateProcessor {
                             List<Map<String, UiParentField>> nestedData = new ArrayList<>();
                             List<Map<String, JsonNode>> nestedStruct = ValueAdapters.convertValue(uiBasicField.getData(), new TypeReference<List<Map<String, JsonNode>>>() {},objectMapper);
 
+                            if(CollectionUtils.isNotEmpty(nestedStruct) && templateField.getUiType()==UIFieldType.MODAL)
+                               nestedStruct.remove(nestedStruct.size()-1); //This will remove the last index of the nested struct because, we expect a blank Map as that's skeleton.
+
                             if (CollectionUtils.isNotEmpty(nestedStruct)) {
+
                                 for (Map<String, JsonNode> f : nestedStruct) {
                                     Object obj = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);
                                     Pair<Boolean, Map<String, UiParentField>> derivedData = verifyAndStoreData(f, templateField.getFieldName(), templates, isDraft,
@@ -369,9 +373,7 @@ public abstract class TemplateProcessor {
                     log.info("Template found {}", templateField.getFieldName());
                     UiParentField uiBasicField = getUiBasicField(templateField, templates.get(templateField.getFieldName()));
 
-//                    if (templateField.getUiType() != UIFieldType.MODAL || Objects.nonNull(field)) {
-
-                        if (subFieldType == FieldType.OBJECT) {
+                        if (subFieldType == FieldType.OBJECT && templateField.getUiType() != UIFieldType.MODAL) {
                             Map<String, Field> fieldMap = null;
 
                             if (Objects.nonNull(fieldVal))
@@ -392,6 +394,9 @@ public abstract class TemplateProcessor {
                                     }
                                 });
                             } else
+                                nestedData.add(getUiFields(templateField.getFieldName(), templates, null, null, additionalData,baseObject));
+
+                            if(Objects.nonNull(fieldVal) && templateField.getUiType() == UIFieldType.MODAL)
                                 nestedData.add(getUiFields(templateField.getFieldName(), templates, null, null, additionalData,baseObject));
 
                             uiBasicField.setData(objectMapper.valueToTree(nestedData));
