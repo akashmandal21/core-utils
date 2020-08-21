@@ -1,5 +1,7 @@
 package com.stanzaliving.core.mongobase.entity;
 
+import com.stanzaliving.core.security.helper.SecurityUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
@@ -26,9 +28,12 @@ public  class MongoEventListener extends AbstractMongoEventListener<Object> {
             if (ver.getUpdatedAt() == null) {
                 ver.setUpdatedAt(new Date());
             }
-//            if (StringUtils.isBlank(ver.getCreatedBy())) {
-//                ver.setCreatedBy(SecurityUtils.getCurrentUserId());
-//            }
+            if (StringUtils.isBlank(ver.getCreatedBy())) {
+                ver.setCreatedBy(SecurityUtils.getCurrentUserId());
+            }
+            if (StringUtils.isBlank(ver.getUpdatedBy())) {
+                ver.setUpdatedBy(SecurityUtils.getCurrentUserId());
+            }
         }
     }
 
