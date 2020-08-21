@@ -26,7 +26,7 @@ public class NewEmailDto {
     private String content;
     private String internalTemplateId;
     private Map<String, Object> emailData;
-    private Map<String, String> attachment;
+    private List<EmailAttachmentDto> htmlAttachment;
     private Personalization personalization;
     private List<AttachmentDto> attachments;
 
