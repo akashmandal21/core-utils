@@ -2,6 +2,7 @@ package com.stanzaliving.core.generic.validation.utility;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.generic.validation.dtos.*;
 import com.stanzaliving.core.generic.validation.enums.FieldType;
 import lombok.experimental.UtilityClass;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @UtilityClass
 @Log4j2
@@ -63,14 +65,21 @@ public class FieldDecoder {
                         break;
 
                     case LIST:
-                        List<Object> listElements = new ArrayList<>();
-                        Iterator<JsonNode> iter = data.iterator();
-                        Class valueClass = ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null);
-                        while (iter.hasNext()) {
-                            listElements.add(objectMapper.treeToValue(iter.next(), valueClass));
-                        }
-                        if (CollectionUtils.isNotEmpty(listElements))
-                            value = listElements;
+                        value = objectMapper.convertValue(data,ArrayList.class).stream().
+                                map(f->objectMapper.convertValue(f, ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null))).collect(Collectors.toList());
+//                        List<Object> listElements = new ArrayList<>();
+//                        Iterator<JsonNode> iter = data.iterator();
+//                        Class valueClass = ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null);
+//
+//                        while (iter.hasNext()) {
+//                            JsonNode node = iter.next();
+//                            log.info("Field Name {} {} {}",templateField.getFieldName(),valueClass.getName(),objectMapper.convertValue(node, valueClass).getClass());
+//
+//                            listElements.add(ValueAdapters.getValue(node,valueClass,objectMapper));
+//                        }
+//                        log.info(listElements.stream().map(f->((UIKeyValue)f).getValue()).collect(Collectors.toList()));
+//                        if (CollectionUtils.isNotEmpty(listElements))
+//                            value = listElements;
                         break;
 
                     default:

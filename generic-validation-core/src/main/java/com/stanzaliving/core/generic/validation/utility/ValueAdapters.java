@@ -56,6 +56,7 @@ public class ValueAdapters {
     public void setFieldVal(String templateName, TemplateField templateField, Field field,Object source,
                              JsonNode value, ObjectMapper objectMapper){
         try {
+            log.info("Field Name {} {}",templateField.getFieldName(),field.getType());
             Object setVal = objectMapper.treeToValue(value,field.getType());
             if(Objects.nonNull(setVal))
                 field.set(source, setVal);
