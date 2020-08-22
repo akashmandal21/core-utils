@@ -173,10 +173,10 @@ public abstract class TemplateProcessor {
                     } else {
                         uiField = ValueAdapters.getValue(data.get(templateField.getFieldName()), UiField.class,objectMapper);
 
-                        boolean decodeResult = FieldDecoder.decodeValue(uiField, templateField, needed, objectMapper, errorInfo);
+                        boolean decodeResult = FieldDecoder.decodeValue(uiField, templateField, needed, objectMapper, errorInfo,field,sourceClass);
                         log.info("Decode status field-name:{} result:{}", templateField.getFieldName(), decodeResult);
-                        if (decodeResult && Objects.nonNull(uiField.getValue()))
-                            ValueAdapters.setFieldVal(templateName,templateField,field,sourceClass,uiField.getValue(),objectMapper);
+//                        if (decodeResult && Objects.nonNull(uiField.getValue()))
+//                            ValueAdapters.setFieldVal(templateName,templateField,field,sourceClass,uiField.getValue(),objectMapper);
                     }
                     uiFieldMap.put(templateField.getFieldName(), uiField);
                     break;
@@ -194,6 +194,10 @@ public abstract class TemplateProcessor {
                     }else {
                         uiBasicField = ValueAdapters.convertValue(data.get(templateField.getFieldName()), new TypeReference<UiParentField>() {},objectMapper);
 
+                        /*
+                            In case of MODAL type UI Section, we send a blank skeleton always as well as expect a blank skeleton recieve side as well.
+                            MODAL type would always have to be LIST Of Section, because we will have to send a skeleton.
+                         */
                         if (subFieldType == FieldType.OBJECT && templateField.getUiType()!=UIFieldType.MODAL) {
                             Class clazz = field.getType();
                             Object obj = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);

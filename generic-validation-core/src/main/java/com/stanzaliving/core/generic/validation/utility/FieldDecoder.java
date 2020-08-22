@@ -11,6 +11,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,14 +22,14 @@ import java.util.stream.Collectors;
 @Log4j2
 public class FieldDecoder {
 
-    public boolean decodeValue(UiField uiSubmitField, TemplateField templateField, boolean needed, ObjectMapper objectMapper, ErrorInfo  errorInfo){
-
+    public boolean decodeValue(UiField uiSubmitField, TemplateField templateField, boolean needed, ObjectMapper objectMapper, ErrorInfo  errorInfo, Field field, Object source){
+        Object value = null;
         boolean success = true;
         try {
             FieldType fieldType = templateField.getFieldType();
             JsonNode data = uiSubmitField.getValue();
             log.info("Value data {} field type {} needed {}",data,fieldType,needed);
-            Object value = null;
+
 
             if (Objects.nonNull(data))
             {
@@ -87,6 +88,7 @@ public class FieldDecoder {
                         value = null;
                 }
             }
+
             if (needed && Objects.isNull(value))
                 uiSubmitField.setErrorMsg("Field is mandatory");
 
@@ -106,6 +108,14 @@ public class FieldDecoder {
             uiSubmitField.setErrorOccurred(true);
             errorInfo.setErrorOccurred(true);
             errorInfo.setNumErrors(errorInfo.getNumErrors()+1);
+        }else {
+            if(Objects.nonNull(value)) {
+                try {
+                    field.set(source,objectMapper.convertValue(value,field.getType()));
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return success;
     }
