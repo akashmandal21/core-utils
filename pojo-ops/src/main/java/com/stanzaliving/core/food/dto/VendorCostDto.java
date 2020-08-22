@@ -35,4 +35,6 @@ public class VendorCostDto {
 	private Double deltaNonVeg;
 	
 	private Double deltaNonStanzaStaffVeg;
+	
+	private Double menuPrice;
 }

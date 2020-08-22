@@ -148,8 +148,9 @@ public class QRScanServiceImpl implements QRScanService {
 				qrScanHistory = qrScanHistoryRepository.saveAndFlush(qrScanHistory);
 
 			} else {
-
+				qrScanHistory.setQrUUid(qrData.getUuid());
 				qrScanHistory.setStatus(status);
+				qrScanHistory.setQrContextType(qrData.getQrContextType());
 				log.info("Updating QR Scan History: {}", qrScanHistory);
 				qrScanHistoryRepository.save(qrScanHistory);
 			}
@@ -204,7 +205,7 @@ public class QRScanServiceImpl implements QRScanService {
 
 	@Override
 	public List<QRScanHistory> getQrScanHistoryByQrContextTypeAndUserId(String userId, List<QRContextType> qrContextType, Pageable pagination) {
-		return qrScanHistoryRepository.findByQrContextTypeInAndUserId(qrContextType, userId, pagination);
+		return qrScanHistoryRepository.findByQrContextTypeInAndUserIdAndStatus(qrContextType, userId, pagination,true);
 	}
 
 	@Override
