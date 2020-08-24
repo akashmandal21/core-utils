@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Setter
@@ -30,13 +31,13 @@ public class PoInvoiceDetailsDto {
 
     private String feeOrTax;
 
-    private Double invoiceAmount;
+    private BigDecimal invoiceAmount;
 
     private String invoiceUrl;
 
     private String createdAt;
 
-    private Double amountPaid;
+    private BigDecimal amountPaid;
 
     private List<PoPaymentDetailsDto> poPaymentDetailsDtos;
 
