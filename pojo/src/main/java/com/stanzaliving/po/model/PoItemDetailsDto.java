@@ -53,4 +53,8 @@ public class PoItemDetailsDto {
 
     private Float remainingItemQuantity;
 
+    private String itemRateStr;
+
+    private String itemAmountStr;
+
 }
