@@ -23,8 +23,8 @@ public enum Department {
 	SALES("Sales","SM"),
 	WEB("Web",null),
 	GC("GC Procurement",null),
-	WAREHOUSE("Warehouse",null);
-
+	WAREHOUSE("Warehouse",null),
+	CUSTOMER_EXPERIENCE("Customer Experience","CX");
 	public String departmentName;
 	public String shortCode;
 }
