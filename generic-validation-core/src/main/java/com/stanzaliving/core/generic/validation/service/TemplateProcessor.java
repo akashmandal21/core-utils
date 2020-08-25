@@ -186,7 +186,7 @@ public abstract class TemplateProcessor {
                     UiParentField uiBasicField = null;
                     if (!dataPresent)
                     {
-                        uiBasicField = getUiBasicField(templateField, templates.get(templateField.getFieldName()));
+                        uiBasicField = getUiBasicField(templateField, templates.get(templateField.getFieldName()),additionalData);
                         if(needed){
                             uiBasicField.setErrorOccurred(true);
                             updateErrorInfo(errorInfo);
@@ -375,7 +375,7 @@ public abstract class TemplateProcessor {
 
                 case TEMPLATE:
                     log.info("Template found {}", templateField.getFieldName());
-                    UiParentField uiBasicField = getUiBasicField(templateField, templates.get(templateField.getFieldName()));
+                    UiParentField uiBasicField = getUiBasicField(templateField, templates.get(templateField.getFieldName()),additionalData);
 
                         if (subFieldType == FieldType.OBJECT && templateField.getUiType() != UIFieldType.MODAL) {
                             Map<String, Field> fieldMap = null;
@@ -462,12 +462,17 @@ public abstract class TemplateProcessor {
         return uiField;
     }
 
-    private UiParentField getUiBasicField(TemplateField templateField, Templates template){
+    private UiParentField getUiBasicField(TemplateField templateField, Templates template, Map<String,Object> additionalData){
+        Integer order = (Integer) additionalData.get("entityState");
+        boolean editable = templateField.isEditable();
+        if(Objects.nonNull(order) && Objects.nonNull(templateField.getEditableOrder()))
+            editable = order<=templateField.getEditableOrder();
         return UiParentField.builder()
                 .fieldName(templateField.getFieldName())
                 .uiPlacement(template.getTemplateType())
                 .alias(templateField.getAlias())
                 .mandatory(templateField.isMandatory())
+                .editable(editable)
                 .build();
     }
 
