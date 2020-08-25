@@ -83,4 +83,7 @@ public class FoodItemCsvUploadDto {
 	@CsvBindByName(column = "Primary_tags")
 	private String primaryTags;
 
+	@CsvBindByName(column = "Dish Region")
+	private String dishRegion;
+
 }
