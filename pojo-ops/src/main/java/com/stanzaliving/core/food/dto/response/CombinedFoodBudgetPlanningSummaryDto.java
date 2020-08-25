@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.food.enums.FoodBudgetPlannerStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,4 +42,5 @@ public class CombinedFoodBudgetPlanningSummaryDto {
 
 	private boolean approved;
 
+	private FoodBudgetPlannerStatus budgetStatus;
 }
