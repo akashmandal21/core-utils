@@ -1,7 +1,6 @@
-package com.stanzaliving.core.phoenix.embeddedInfos;
+package com.stanzaliving.core.phoenix.embeddedinfos;
 
 import com.stanzaliving.core.agg.commons.EnumDecoder;
-import com.stanzaliving.designservice.enums.PhoenixDesignStatus;
 import com.stanzaliving.transformations.enums.BoqStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
