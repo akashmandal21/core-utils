@@ -37,24 +37,43 @@ public abstract class TemplateProcessor {
 
     @Autowired
     private ObjectMapper objectMapper;
-    
+
+    private Map<String,Templates> getTemplates(TemplateFilter templateFilter, String templateName){
+
+        Query query = templateFilter.getFilterCriterion();
+        log.info("Template Request Query {}",query);
+        Map<String, Templates> templates = mongoTemplate.find(query, Templates.class).stream().collect(Collectors.toMap(f->f.getTemplateName(), Function.identity()));
+        if(MapUtils.isEmpty(templates) || Objects.isNull(templates.get(templateName))) {
+            log.error("No Templates configured for the provided filters {}",templateFilter.getFormattedString());
+            throw new NoRecordException("No Such Combination exist for provided filters "+templateFilter.getFormattedString());
+        }
+        return templates;
+    }
+
+    public List<String> getAvailableFields(TemplateFilter templateFilter, String templateName){
+        log.info("Request to get available fields for Form {} {}");
+
+        Map<String, Templates> templates = getTemplates(templateFilter,templateName);
+
+        fillAvailableFields(templateName,templates,);
+    }
+    private void fillAvailableFields(String templateName, String path, Map<String,Templates> templates, List<String> availableFields){
+        Templates template = templates.get(templateName);
+
+
+        for (TemplateField templateField : template.getFields()) {
+            if(templateField.getFieldType()!=FieldType.TEMPLATE)
+        }
+
+    }
 
     public Map<String, UiParentField> getBasicUIData(TemplateFilter templateFilter, String templateName,
                                                      Map<String,Object> additionalData, Object sourceClass, Map<String,Field> fieldMap) {
 
-        log.info("Request {} {}",sourceClass,fieldMap);
-        Query query = templateFilter.getFilterCriterion();
-//        test(templateName,templateFilter);
-        log.info("Query {}",query);
-        Map<String, Templates> templates = mongoTemplate.find(query, Templates.class).stream().collect(Collectors.toMap(f->f.getTemplateName(), Function.identity()));
-        if(MapUtils.isNotEmpty(templates) && Objects.nonNull(templates.get(templateName))){
+        log.info("Request to render UI Form {} {}",sourceClass,fieldMap);
 
-            Map<String, UiParentField> fields = getUiFields(templateName,templates,fieldMap,sourceClass,additionalData,sourceClass);
-            return fields;
-        }else {
-            log.error("No Templates configured for the provided filters {}",templateFilter.getFormattedString());
-            throw new NoRecordException("No Such Combination exist for provided filters "+templateFilter.getFormattedString());
-        }
+        Map<String, Templates> templates = getTemplates(templateFilter,templateName);
+        return getUiFields(templateName,templates,fieldMap,sourceClass,additionalData,sourceClass);
     }
 
 //    private void test(String templateName, TemplateFilter templateFilter){
@@ -72,31 +91,21 @@ public abstract class TemplateProcessor {
 
     public void verifyEntityWithTemplate(TemplateFilter templateFilter,String templateName, List<String> errors, Object sourceClass, Map<String,Field> fieldMap, boolean allowSkipOnNewFields) throws MalFormedRecordException {
 
-        Query query = templateFilter.getFilterCriterion();
-        Map<String,Templates> templates = mongoTemplate.find(query, Templates.class).stream().collect(Collectors.toMap(f->f.getTemplateName(), Function.identity()));
-        if(MapUtils.isNotEmpty(templates) && Objects.nonNull(templates.get(templateName))){
-            verifyEntityData(templateName,templates,errors,fieldMap,sourceClass,sourceClass,allowSkipOnNewFields);
-        }else {
-            log.error("No Templates configured for the provided filters {}",templateFilter.getFormattedString());
-            throw new NoRecordException("No Such Combination exist for provided filters "+templateFilter.getFormattedString());
-        }
+        log.info("Request to Verify data from CSV {} {}",sourceClass,fieldMap);
+
+        Map<String, Templates> templates = getTemplates(templateFilter,templateName);
+        verifyEntityData(templateName,templates,errors,fieldMap,sourceClass,sourceClass,allowSkipOnNewFields);
     }
 
     public Pair<Boolean,Map<String, UiParentField>> storeSubmittedUIData(TemplateFilter templateFilter, String templateName,
                                                                          Map<String,JsonNode> uiSubmittedDto, boolean isDraft, boolean isSaveOnError,
                                                                          ErrorInfo errorInfo, Map<String,Object> additionalData,
                                                                          Object sourceClass, Map<String,Field> fieldMap, boolean allowSkipOnNewFields){
+        log.info("Request to Store data Submitted with validations {} {}",sourceClass,fieldMap);
 
-        Query query = templateFilter.getFilterCriterion();
-        Map<String,Templates> templates = mongoTemplate.find(query, Templates.class).stream().collect(Collectors.toMap(f->f.getTemplateName(), Function.identity()));
-        if(MapUtils.isNotEmpty(templates) && Objects.nonNull(templates.get(templateName))){
-            Pair<Boolean,Map<String, UiParentField>> fields = verifyAndStoreData(uiSubmittedDto,templateName,templates, isDraft,errorInfo,isSaveOnError,
-                    additionalData,fieldMap,sourceClass,allowSkipOnNewFields,sourceClass);
-            return Pair.of(fields.getFirst(),fields.getSecond());
-        }else {
-            log.error("No Templates configured for the provided filters {}",templateFilter.getFormattedString());
-            throw new NoRecordException("No Such Combination exist for provided filters "+templateFilter.getFormattedString());
-        }
+        Map<String, Templates> templates = getTemplates(templateFilter,templateName);
+        return verifyAndStoreData(uiSubmittedDto,templateName,templates, isDraft,errorInfo,isSaveOnError,
+                additionalData,fieldMap,sourceClass,allowSkipOnNewFields,sourceClass);
     }
 
 
