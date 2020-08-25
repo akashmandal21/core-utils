@@ -166,7 +166,7 @@ public abstract class TemplateProcessor {
                     throw new StanzaException("Internal Error Occurred");
             }
             boolean needed = templateField.isMandatory() && !isDraft;
-            boolean dataPresent = mainDataPresent && Objects.nonNull(data.get(templateField.getFieldName()));
+            boolean dataPresent = mainDataPresent && Objects.nonNull(data.get(templateField.getFieldName())) && (!data.get(templateField.getFieldName()).isNull());
             FieldType subFieldType = templateField.getFieldSubType();
 
             Field field = fields.get(templateField.getFieldName());
@@ -192,7 +192,7 @@ public abstract class TemplateProcessor {
                         }
                     } else {
                         uiField = ValueAdapters.getValue(data.get(templateField.getFieldName()), UiField.class,objectMapper);
-
+                        uiField.setErrorMsg(null);
                         boolean decodeResult = FieldDecoder.decodeValue(uiField, templateField, needed, objectMapper, errorInfo,field,sourceClass);
                         log.info("Decode status field-name:{} result:{}", templateField.getFieldName(), decodeResult);
 //                        if (decodeResult && Objects.nonNull(uiField.getValue()))
@@ -213,7 +213,7 @@ public abstract class TemplateProcessor {
                         }
                     }else {
                         uiBasicField = ValueAdapters.convertValue(data.get(templateField.getFieldName()), new TypeReference<UiParentField>() {},objectMapper);
-
+                        uiBasicField.setErrorMsg(null);
                         /*
                             In case of MODAL type UI Section, we send a blank skeleton always as well as expect a blank skeleton recieve side as well.
                             MODAL type would always have to be LIST Of Section, because we will have to send a skeleton.

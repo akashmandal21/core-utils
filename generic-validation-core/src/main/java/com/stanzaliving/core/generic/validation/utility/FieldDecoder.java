@@ -32,8 +32,9 @@ public class FieldDecoder {
             log.info("Value data {} field type {} needed {}",data,fieldType,needed);
 
 
-            if (Objects.nonNull(data))
+            if (Objects.nonNull(data) && (!data.isNull()))
             {
+                log.info("Ent");
                 switch (fieldType) {
                     case TEXT:
                         value = data.asText();
@@ -90,6 +91,7 @@ public class FieldDecoder {
                 }
             }
 
+
             if (needed && Objects.isNull(value))
                 uiSubmitField.setErrorMsg("Field is mandatory");
 
@@ -99,23 +101,27 @@ public class FieldDecoder {
             if (StringUtils.isNotEmpty(uiSubmitField.getErrorMsg()))
                 success = false;
 
+            log.info("Ent {} {}",uiSubmitField.getErrorMsg());
         }catch (Exception ex){
             uiSubmitField.setErrorMsg("Field "+templateField.getFieldName()+" not in required format");
             log.error("Field Decoding failed {} {} ",templateField.getFieldName(),uiSubmitField,ex);
             success=false;
         }
+
         if(!success)
         {
             uiSubmitField.setErrorOccurred(true);
             errorInfo.setErrorOccurred(true);
             errorInfo.setNumErrors(errorInfo.getNumErrors()+1);
         }else {
-
+                log.info(value);
                 try {
                     if(Objects.nonNull(value))
                         field.set(source,objectMapper.convertValue(value,field.getType()));
                     else
+                    {
                         field.set(source,null);
+                    }
                 } catch (IllegalAccessException e) {
                     log.error("Unable to set the field value {}",e.getMessage());
                     success = false;
