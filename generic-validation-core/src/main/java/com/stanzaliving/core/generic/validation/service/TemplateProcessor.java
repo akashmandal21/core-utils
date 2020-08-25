@@ -17,6 +17,7 @@ import com.stanzaliving.core.generic.validation.utility.ValueAdapters;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -54,17 +55,26 @@ public abstract class TemplateProcessor {
         log.info("Request to get available fields for Form {} {}");
 
         Map<String, Templates> templates = getTemplates(templateFilter,templateName);
-
-        fillAvailableFields(templateName,templates,);
+        List<String> fields = new ArrayList<>();
+        fillAvailableFields(templateName,"",templates,fields);
+        return fields;
     }
     private void fillAvailableFields(String templateName, String path, Map<String,Templates> templates, List<String> availableFields){
         Templates template = templates.get(templateName);
-
+        if(StringUtils.isEmpty(path))
+            path = templateName;
+        else
+            path = path+"."+templateName+".";
 
         for (TemplateField templateField : template.getFields()) {
             if(templateField.getFieldType()!=FieldType.TEMPLATE)
+            {
+                fillAvailableFields(templateField.getFieldName(),path,templates,availableFields);
+            }else{
+                String fieldName = path+templateField.getFieldName();
+                availableFields.add(fieldName);
+            }
         }
-
     }
 
     public Map<String, UiParentField> getBasicUIData(TemplateFilter templateFilter, String templateName,

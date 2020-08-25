@@ -15,5 +15,5 @@ public enum FieldOptionProvider {
     //Item master Providers
     ItemCategoryProvider,CostHeadProvider,ItemSubCategoryProvider,ItemTypeProvider,UOMProvider,GstPCTProvider,
     ItemColorProvider,LBHUOMProvider,SLBrandProvider,SLSubBrandProvider, UsageTypeProvider,ConsumptionTypeProvider,
-    StorageTypeProvider,ItemBrandProvider;
+    StorageTypeProvider,ItemBrandProvider,BaseItemProvider;
 }

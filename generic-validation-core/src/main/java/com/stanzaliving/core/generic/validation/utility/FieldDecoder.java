@@ -22,7 +22,8 @@ import java.util.stream.Collectors;
 @Log4j2
 public class FieldDecoder {
 
-    public boolean decodeValue(UiField uiSubmitField, TemplateField templateField, boolean needed, ObjectMapper objectMapper, ErrorInfo  errorInfo, Field field, Object source){
+    public boolean decodeValue(UiField uiSubmitField, TemplateField templateField, boolean needed, ObjectMapper objectMapper,
+                               ErrorInfo  errorInfo, Field field, Object source){
         Object value = null;
         boolean success = true;
         try {
@@ -109,13 +110,18 @@ public class FieldDecoder {
             errorInfo.setErrorOccurred(true);
             errorInfo.setNumErrors(errorInfo.getNumErrors()+1);
         }else {
-            if(Objects.nonNull(value)) {
+
                 try {
-                    field.set(source,objectMapper.convertValue(value,field.getType()));
+                    if(Objects.nonNull(value))
+                        field.set(source,objectMapper.convertValue(value,field.getType()));
+                    else
+                        field.set(source,null);
                 } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                    log.error("Unable to set the field value {}",e.getMessage());
+                    success = false;
+                    uiSubmitField.setErrorMsg("Intenal Error occurred");
                 }
-            }
+
         }
         return success;
     }
