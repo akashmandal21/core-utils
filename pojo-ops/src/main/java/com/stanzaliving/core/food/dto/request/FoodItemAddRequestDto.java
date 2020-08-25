@@ -4,9 +4,8 @@
 package com.stanzaliving.core.food.dto.request;
 
 import com.stanzaliving.core.enums.UnitOfMeasurement;
-import com.stanzaliving.core.food.dto.ItemRecipeResponseDto;
-import com.stanzaliving.core.food.dto.RecipeIngredientDto;
 import com.stanzaliving.core.food.enums.CommercialTag;
+import com.stanzaliving.core.food.enums.DishRegion;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
@@ -15,7 +14,6 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Set;
@@ -67,6 +65,9 @@ public class FoodItemAddRequestDto {
 	private CommercialTag commercialTag;
 
 	private boolean eggPresent;
+
+	@NotNull(message = "Dish Region selection is mandatory")
+	private DishRegion dishRegion;
 
 	@NotNull(message = "Unit of Measurement is mandatory")
 	private UnitOfMeasurement unitOfMeasurement;
