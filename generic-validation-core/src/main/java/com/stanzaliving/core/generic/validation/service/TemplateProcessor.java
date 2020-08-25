@@ -67,6 +67,7 @@ public abstract class TemplateProcessor {
             path = path+"."+templateName+".";
 
         for (TemplateField templateField : template.getFields()) {
+            log.info("Template Field {}",templateField);
             if(templateField.getFieldType()!=FieldType.TEMPLATE)
             {
                 fillAvailableFields(templateField.getFieldName(),path,templates,availableFields);
