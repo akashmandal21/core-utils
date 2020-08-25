@@ -2,7 +2,6 @@ package com.stanzaliving.core.food.dto;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 
 import com.stanzaliving.core.food.dto.response.FoodItemTypeWiseMealCount;
 import com.stanzaliving.core.food.enums.DispatchSummaryItemType;

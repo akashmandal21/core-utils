@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public class VasOrderRequestDto {
 
 	private List<VasOrderRequestDtoData> data;
-	
+
 	private String studentId;
 
 	@NotNull(message = "Please specify residence id.")

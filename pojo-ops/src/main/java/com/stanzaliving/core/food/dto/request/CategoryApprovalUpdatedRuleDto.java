@@ -16,6 +16,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryApprovalUpdatedRuleDto {
+
 	private String rule;
 
 	private boolean updated;

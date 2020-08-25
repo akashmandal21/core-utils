@@ -19,6 +19,7 @@ import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.DocumentStatus;
 import com.stanzaliving.core.base.enums.DocumentType;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.dto.FeaturephoneUserDto;
 import com.stanzaliving.core.dto.FullUserDto;
 import com.stanzaliving.core.dto.HostelDto;
 import com.stanzaliving.core.dto.RCDetailDto;
@@ -259,5 +260,31 @@ public class CoreClientApi {
 			
 		}
 		return response;
+	}
+	
+	public List<FeaturephoneUserDto> getFeaturePhoneUsers(String hostel) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/user/list/feature/phone").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("hostel", hostel);
+		queryParams.add("featurePhone", Boolean.TRUE.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<FeaturephoneUserDto>> returnType = new ParameterizedTypeReference<List<FeaturephoneUserDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 }

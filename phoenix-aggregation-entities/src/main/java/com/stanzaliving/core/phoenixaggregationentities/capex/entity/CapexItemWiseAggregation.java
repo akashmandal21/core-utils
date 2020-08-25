@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Builder
@@ -38,29 +39,29 @@ public class CapexItemWiseAggregation extends AbstractJpaEntity {
     private String acquistionType;
 
     @Column(name = "item_area_of_use_wt",nullable = false)
-    private Double itemAreaOfUseWeight;
+    private BigDecimal itemAreaOfUseWeight;
 
     @Column(name = "master_boq_quantity",nullable = false)
-    private Double masterBoqQuantity;
+    private BigDecimal masterBoqQuantity;
 
     @Column(name = "master_boq_cost",nullable = false)
-    private Double masterBoqCost;
+    private BigDecimal masterBoqCost;
 
     @Column(name = "budgeted_cost", nullable = false)
-    private Double budgetedCost;
+    private BigDecimal budgetedCost;
 
     @Column(name = "budgeted_quantity", nullable = false)
-    private Double budgetedQuantity;
+    private BigDecimal budgetedQuantity;
 
     @Column(name = "budgeted_wt_committed_cost")
-    private Double budgetedWeightedCommittedCost;
+    private BigDecimal budgetedWeightedCommittedCost;
 
     @Column(name = "budgeted_wt_actual_cost")
-    private Double budgetedWeightedActualCost;
+    private BigDecimal budgetedWeightedActualCost;
 
     @Column(name = "committed_wt_cost")
-    private Double committedWeightedCost;
+    private BigDecimal committedWeightedCost;
 
     @Column(name = "actual_wt_cost")
-    private Double actualWeightedCost;
+    private BigDecimal actualWeightedCost;
 }
