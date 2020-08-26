@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.response;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import com.stanzaliving.wanda.dtos.AmenitiesDto;
@@ -25,7 +26,7 @@ public class StayDetailsDto extends PendingBookingDto {
 	
 	private List<AmenitiesDto> amenities;
 
-	private List<PackagedServicesDto> packagedServices;
+	private LinkedHashSet<PackagedServicesDto> packagedServices;
 
 	private List<VasServicesDto> selectedVasServices;
 	
