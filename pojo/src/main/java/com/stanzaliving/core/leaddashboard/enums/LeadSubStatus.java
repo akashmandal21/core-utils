@@ -10,6 +10,7 @@ public enum LeadSubStatus {
 	NEW_LEAD("New Lead"),
 	CALLED("Called"),
 	CONNECTED("Connected"),
+	QUALIFIED("Qualified"),
 	PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow Up"),
 	RNR("RNR"),
 	
