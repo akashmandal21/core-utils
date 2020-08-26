@@ -39,29 +39,29 @@ public class CapexItemWiseAggregation extends AbstractJpaEntity {
     private String acquistionType;
 
     @Column(name = "item_area_of_use_wt",nullable = false)
-    private BigDecimal itemAreaOfUseWeight;
+    private Double itemAreaOfUseWeight;
 
     @Column(name = "master_boq_quantity",nullable = false)
-    private BigDecimal masterBoqQuantity;
+    private Double masterBoqQuantity;
 
     @Column(name = "master_boq_cost",nullable = false)
-    private BigDecimal masterBoqCost;
+    private Double masterBoqCost;
 
     @Column(name = "budgeted_cost", nullable = false)
-    private BigDecimal budgetedCost;
+    private Double budgetedCost;
 
     @Column(name = "budgeted_quantity", nullable = false)
-    private BigDecimal budgetedQuantity;
+    private Double budgetedQuantity;
 
     @Column(name = "budgeted_wt_committed_cost")
-    private BigDecimal budgetedWeightedCommittedCost;
+    private Double budgetedWeightedCommittedCost;
 
     @Column(name = "budgeted_wt_actual_cost")
-    private BigDecimal budgetedWeightedActualCost;
+    private Double budgetedWeightedActualCost;
 
     @Column(name = "committed_wt_cost")
-    private BigDecimal committedWeightedCost;
+    private Double committedWeightedCost;
 
     @Column(name = "actual_wt_cost")
-    private BigDecimal actualWeightedCost;
+    private Double actualWeightedCost;
 }
