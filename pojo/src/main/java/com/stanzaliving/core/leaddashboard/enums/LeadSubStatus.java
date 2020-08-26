@@ -15,12 +15,17 @@ public enum LeadSubStatus {
 	
 	DISQUALIFIED("Disqualified"),
 
-	PRE_VISIT_SCHEDULED_FOLLOW_UP("Pre Visit Scheduled Follow Up"),
-	PRE_VISIT_SCHEDULED_DROP("Pre Visit Scheduled Drop"),
+	PRE_VISIT_SCHEDULED_FOLLOW_UP("Pre Visit 1 Scheduled Follow Up"),
+	PRE_VISIT_SCHEDULED_DROP("Pre Visit  Scheduled Drop"),
 
-	POST_VISIT_DROP("Post Visit Drop"),
-	POST_VISIT_FOLLOW_UP("Post Visit Follow Up"),
-	POST_VISIT_FOLLOW_UP_COMPLETED("Post Visit Follow Up Completed");
+	POST_VISIT_1_DROP("Post Visit 1 Drop"),
+	POST_VISIT_1_FOLLOW_UP("Post Visit 1 Follow Up"),
+	POST_VISIT_1_FOLLOW_UP_COMPLETED("Post Visit 1 Follow Up Completed"),
+	
+
+	POST_VISIT_2_DROP("Post Visit 2 Drop"),
+	POST_VISIT_2_FOLLOW_UP("Post Visit 2 Follow Up"),
+	POST_VISIT_2_FOLLOW_UP_COMPLETED("Post Visit 2 Follow Up Completed");
 	
 	private String statusDescription;
 }
