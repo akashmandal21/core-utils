@@ -39,27 +39,55 @@ public enum TimelineStatusEnum {
 	BOOKED("Booked"),
 	DROPPED("Dropped"),
 	
-	VISIT_STARTED("Visit Started"),
-	VISIT_SCHEDULED("Visit Scheduled"),
-	VISIT_COMPLETED("Visit Completed"),
-	POST_VISIT_DROP("Post Visit Drop"),
-	POST_VISIT_FOLLOW_UP("Post Visit Follow Up"),
-	POST_VISIT_FOLLOW_UP_COMPLETED("Post Visit Follow Up Completed");
+	VISIT_1_STARTED("Visit 1 Started"),
+	VISIT_1_SCHEDULED("Visit 1 Scheduled"),
+	VISIT_1_COMPLETED("Visit 1 Completed"),
+	POST_VISIT_1_DROP("Post Visit 1 Drop"),
+	POST_VISIT_1_FOLLOW_UP("Post Visit 1 Follow Up"),
+	POST_VISIT_1_FOLLOW_UP_COMPLETED("Post Visit 1 Follow Up Completed"),
 	
+	VISIT_2_STARTED("Visit 2 Started"),
+	VISIT_2_SCHEDULED("Visit 2 Scheduled"),
+	VISIT_2_COMPLETED("Visit 2 Completed"),
+	POST_VISIT_2_DROP("Post Visit 2 Drop"),
+	POST_VISIT_2_FOLLOW_UP("Post Visit 2 Follow Up"),
+	POST_VISIT_2_FOLLOW_UP_COMPLETED("Post Visit 2 Follow Up Completed"),
+
+	VISIT_3_STARTED("Visit 3 Started"),
+	VISIT_3_SCHEDULED("Visit 3 Scheduled"),
+	VISIT_3_COMPLETED("Visit 3 Completed"),
+	POST_VISIT_3_DROP("Post Visit 3 Drop"),
+	POST_VISIT_3_FOLLOW_UP("Post Visit 3 Follow Up"),
+	POST_VISIT_3_FOLLOW_UP_COMPLETED("Post Visit 3 Follow Up Completed"),
+
+	VISIT_4_STARTED("Visit 4 Started"),
+	VISIT_4_SCHEDULED("Visit 4 Scheduled"),
+	VISIT_4_COMPLETED("Visit 4 Completed"),
+	POST_VISIT_4_DROP("Post Visit 4 Drop"),
+	POST_VISIT_4_FOLLOW_UP("Post Visit 4 Follow Up"),
+	POST_VISIT_4_FOLLOW_UP_COMPLETED("Post Visit 4 Follow Up Completed"),
+
+	VISIT_5_STARTED("Visit 5 Started"),
+	VISIT_5_SCHEDULED("Visit 5 Scheduled"),
+	VISIT_5_COMPLETED("Visit 5 Completed"),
+	POST_VISIT_5_DROP("Post Visit 5 Drop"),
+	POST_VISIT_5_FOLLOW_UP("Post Visit 5 Follow Up"),
+	POST_VISIT_5_FOLLOW_UP_COMPLETED("Post Visit 5 Follow Up Completed");
+
 	
 	private String currentLeadStatusName;
 	
-	public static Set<TimelineStatusEnum> countAssociatedWithStatus() {
-		Set<TimelineStatusEnum> leadStatus = new HashSet<>();
-		
-		
-		leadStatus.add(VISIT_STARTED);
-		leadStatus.add(VISIT_SCHEDULED);
-		leadStatus.add(VISIT_COMPLETED);
-		leadStatus.add(POST_VISIT_DROP);
-		leadStatus.add(POST_VISIT_FOLLOW_UP);
-		leadStatus.add(POST_VISIT_FOLLOW_UP_COMPLETED);
-		
-		return leadStatus;
-	}
+//	public static Set<TimelineStatusEnum> countAssociatedWithStatus() {
+//		Set<TimelineStatusEnum> leadStatus = new HashSet<>();
+//		
+//		
+//		leadStatus.add(VISIT_STARTED);
+//		leadStatus.add(VISIT_SCHEDULED);
+//		leadStatus.add(VISIT_COMPLETED);
+//		leadStatus.add(POST_VISIT_DROP);
+//		leadStatus.add(POST_VISIT_FOLLOW_UP);
+//		leadStatus.add(POST_VISIT_FOLLOW_UP_COMPLETED);
+//		
+//		return leadStatus;
+//	}
 }
