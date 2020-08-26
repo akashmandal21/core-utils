@@ -19,4 +19,5 @@ public enum GSTSlabs {
     private String fieldTypeText;
     private Double gstPct;
 
+
 }
