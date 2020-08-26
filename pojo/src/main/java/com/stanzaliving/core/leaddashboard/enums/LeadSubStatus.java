@@ -15,6 +15,7 @@ public enum LeadSubStatus {
 	
 	DISQUALIFIED("Disqualified"),
 
+	PRE_VISIT_FOLLOW_UP("Pre Visit Follow Up"),
 	PRE_VISIT_SCHEDULED_FOLLOW_UP("Pre Visit 1 Scheduled Follow Up"),
 	PRE_VISIT_SCHEDULED_DROP("Pre Visit  Scheduled Drop"),
 

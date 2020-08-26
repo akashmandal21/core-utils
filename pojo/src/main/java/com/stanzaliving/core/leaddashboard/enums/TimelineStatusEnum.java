@@ -38,6 +38,8 @@ public enum TimelineStatusEnum {
 	BOOKED("Booked"),
 	DROPPED("Dropped"),
 	
+	PRE_VISIT_FOLLOW_UP("Pre Visit Follow Up"),
+
 	VISIT_1_STARTED("Visit 1 Started"),
 	VISIT_1_SCHEDULED("Visit 1 Scheduled"),
 	VISIT_1_COMPLETED("Visit 1 Completed"),
