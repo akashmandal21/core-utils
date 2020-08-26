@@ -16,5 +16,5 @@ public class UpdatedBoqItemRequest {
     private String itemUuid;
     private boolean status;
     private Date lastUpdatedAt;
-    private BigDecimal rate;
+    private Double rate;
 }
