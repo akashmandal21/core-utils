@@ -1,9 +1,9 @@
 package com.stanzaliving.core.food.dto;
 
 import java.time.LocalDate;
+import java.util.Set;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.food.enums.HolidayType;
+import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,18 +14,14 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class HolidayDto extends AbstractDto {
-
-	private String residenceId;
-
+public class DateMealsDto {
+	
 	private LocalDate date;
-
-	private HolidayType holidayType;
-
-	private String description;
+	
+	private Set<MealType> meals;
 
 }

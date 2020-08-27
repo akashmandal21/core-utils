@@ -9,7 +9,6 @@ import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.enums.FoodBudgetPlannerStatus;
 import com.stanzaliving.core.food.enums.FoodDayType;
-import com.stanzaliving.core.food.response.ResidenceMealUtilizationPercentResponseDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,11 +21,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class MealBudgetCalendarDto {
+public class StaffMealBudgetCalendarDto {
 
 	@NotBlank(message = "Residence Id is mandatory")
 	private String residenceId;
-	
+
 	private String residenceName;
 
 	@NotNull(message = "Budget Month is mandatory")
@@ -35,24 +34,14 @@ public class MealBudgetCalendarDto {
 	@NotNull(message = "Budget Year is mandatory")
 	private Integer year;
 
-	private Double monthlyBudget;
-	
-	private Double estimatedMonthlyCost;
-	
-	private Double mtdUtlization;
-	
-	private Double targetUtilzation;
-	
-	private Double expectedUtilzation;
-	
 	@NotEmpty(message = "Day type utilization is mandatory")
-	private Map<FoodDayType, ResidenceMealUtilizationPercentResponseDto> dayTypeUtilizationRules;
+	private Map<FoodDayType, StaffMealUtilizationPercentResponseDto> dayTypeUtilizationRules;
 
-	private Map<FoodDayType, ResidenceMealUtilizationPercentResponseDto> prevDayTypeUtilizationRules;
+	private Map<FoodDayType, StaffMealUtilizationPercentResponseDto> prevDayTypeUtilizationRules;
 
 	@NotEmpty(message = "Meal wise utilization is mandatory")
-	private List<MealBudgetUtilizationCalendarDateDto> mealBudgetUtilizationCalendarDateDtoList;
-	
+	private List<StaffMealBudgetUtilizationCalendarDateDto> mealBudgetUtilizationCalendarDateDtoList;
+
 	private FoodBudgetPlannerStatus budgetStatus;
 
 }

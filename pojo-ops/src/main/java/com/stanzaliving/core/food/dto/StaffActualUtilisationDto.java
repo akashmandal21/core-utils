@@ -1,6 +1,8 @@
 package com.stanzaliving.core.food.dto;
 
-import java.util.List;
+import java.time.LocalDate;
+
+import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,25 +18,22 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BudgetFoodOrderRequestDto {
+public class StaffActualUtilisationDto {
+	
+	private LocalDate date;
 
-	private List<FoodOrderRequestDto> foodOrderRequestDtos;
-
-	private Integer hostels;
-
-	private Integer ordered;
-
-	private Integer pending;
+	private MealType meal;
 
 	@Builder.Default
-	private Double plannedUtilization = 0d;
+	private Integer slStaff = 0;
 
 	@Builder.Default
-	private Double actualUtilization = 0d;
+	private Integer nonSlStaff = 0;
 
 	@Builder.Default
-	private Boolean editingAllowed = true;
+	private Double slStaffCost = 0d;
 
-	private String orderEditingMessage;
+	@Builder.Default
+	private Double nonSlstaffCost = 0d;
 
 }
