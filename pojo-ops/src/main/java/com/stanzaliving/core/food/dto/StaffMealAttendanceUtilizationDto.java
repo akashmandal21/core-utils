@@ -13,17 +13,17 @@ import lombok.ToString;
 @Data
 @ToString
 @Builder
-public class MealAttendanceUtilizationDto {
+public class StaffMealAttendanceUtilizationDto {
 
 	private MealType mealType;
 
 	private String mealName;
 
-	private Integer attendance;
+	@Builder.Default
+	private Double slStaffUtilization = 0d;
 
-	private Double plannedUtilization;
-
-	private Double actualUtilization;
+	@Builder.Default
+	private Double nonSlStaffUtilization = 0d;
 
 	private Integer mealSequence;
 

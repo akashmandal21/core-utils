@@ -50,4 +50,8 @@ public class FoodOrderPackagedItemsQueryDto {
 
 	private Integer itemWeight;
 
+	private boolean defaultMenu;
+
+	private String comments;
+
 }
