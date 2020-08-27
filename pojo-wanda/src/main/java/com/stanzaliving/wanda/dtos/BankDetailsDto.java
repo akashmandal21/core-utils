@@ -27,4 +27,7 @@ public class BankDetailsDto {
 	private String benefeciaryName;
 	
 	private String userId;
+	
+	@Builder.Default
+	private Boolean isVerified = false;
 }
