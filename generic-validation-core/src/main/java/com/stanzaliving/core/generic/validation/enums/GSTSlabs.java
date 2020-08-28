@@ -14,7 +14,7 @@ public enum GSTSlabs {
 
     NA("Not Applicable",null),
     ZERO("0 %",0.0),
-    FIVE("5 %",5.0),
+    FIVE("05 %",5.0),
     TWELEVE("12 %",12.0),
     EIGHTEEN("18 %",18.0),
     TWENTY_EIGHT("28 %",28.0);
