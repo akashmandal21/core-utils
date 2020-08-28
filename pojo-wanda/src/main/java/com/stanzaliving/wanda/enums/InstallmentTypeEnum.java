@@ -2,9 +2,11 @@ package com.stanzaliving.wanda.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @Getter
+@NoArgsConstructor
 public enum InstallmentTypeEnum {
     STANDARD_MONTHLY("Standard Monthly"),
     ONE_INSTALLMENT("1 Instalment"),

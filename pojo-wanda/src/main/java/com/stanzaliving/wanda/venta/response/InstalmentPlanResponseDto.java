@@ -8,5 +8,5 @@ import lombok.Getter;
 public class InstalmentPlanResponseDto {
     private String name;
     private InstallmentTypeEnum instalmentTypeEnum;
-    private Integer upFrontPaymentMonth;
+    private Double upFrontPaymentMonth;
 }
