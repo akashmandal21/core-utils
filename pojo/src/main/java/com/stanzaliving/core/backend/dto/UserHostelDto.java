@@ -1,4 +1,4 @@
-package com.stanzaliving.core.dto;
+package com.stanzaliving.core.backend.dto;
 
 import lombok.*;
 
@@ -10,10 +10,12 @@ import lombok.*;
 
 @Getter
 @Setter
+@Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserHostelDto {
+
 	private String userCode;
 
 	private Integer hostelId;

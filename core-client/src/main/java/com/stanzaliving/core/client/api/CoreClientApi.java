@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.stanzaliving.core.dto.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -15,11 +14,18 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.DocumentStatus;
 import com.stanzaliving.core.base.enums.DocumentType;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.dto.FeaturephoneUserDto;
+import com.stanzaliving.core.dto.FullUserDto;
+import com.stanzaliving.core.dto.HostelDto;
+import com.stanzaliving.core.dto.RCDetailDto;
+import com.stanzaliving.core.dto.UserDetailDto;
+import com.stanzaliving.core.dto.UserRegistrationDto;
 
 import lombok.extern.log4j.Log4j2;
 
