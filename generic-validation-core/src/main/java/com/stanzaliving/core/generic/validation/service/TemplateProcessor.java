@@ -52,7 +52,7 @@ public abstract class TemplateProcessor {
     }
 
     public List<String> getAvailableFields(TemplateFilter templateFilter, String templateName){
-        log.info("Request to get available fields for Form {} {}");
+        log.info("Request to get available fields for Form {} {}",templateFilter,templateName);
 
         Map<String, Templates> templates = getTemplates(templateFilter,templateName);
         List<String> fields = new ArrayList<>();
@@ -61,18 +61,19 @@ public abstract class TemplateProcessor {
     }
     private void fillAvailableFields(String templateName, String path, Map<String,Templates> templates, List<String> availableFields){
         Templates template = templates.get(templateName);
-        if(StringUtils.isEmpty(path))
-            path = templateName;
-        else
-            path = path+"."+templateName+".";
+        log.info("Temp {}",template);
+        if(StringUtils.isNotEmpty(path))
+            path = path+"."+templateName;
 
         for (TemplateField templateField : template.getFields()) {
             log.info("Template Field {}",templateField);
-            if(templateField.getFieldType()!=FieldType.TEMPLATE)
+            if(templateField.getFieldType()==FieldType.TEMPLATE)
             {
+                if(StringUtils.isEmpty(path))
+                    path = templateName;
                 fillAvailableFields(templateField.getFieldName(),path,templates,availableFields);
             }else{
-                String fieldName = path+templateField.getFieldName();
+                String fieldName = ((StringUtils.isNotEmpty(path))?path+".":"")+templateField.getFieldName();
                 availableFields.add(fieldName);
             }
         }

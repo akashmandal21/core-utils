@@ -3,7 +3,9 @@ package com.stanzaliving.core.generic.validation.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @AllArgsConstructor
@@ -19,5 +21,20 @@ public enum GSTSlabs {
     private String fieldTypeText;
     private Double gstPct;
 
+
+    private static List<GSTSlabs> sortedGstSlabs = new ArrayList<>();
+
+    static {
+        sortedGstSlabs.add(NA);
+        sortedGstSlabs.add(ZERO);
+        sortedGstSlabs.add(FIVE);
+        sortedGstSlabs.add(TWELEVE);
+        sortedGstSlabs.add(EIGHTEEN);
+        sortedGstSlabs.add(TWENTY_EIGHT);
+    }
+
+    public static List<GSTSlabs> getSortedGstSlabs(){
+        return sortedGstSlabs;
+    }
 
 }
