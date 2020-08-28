@@ -62,18 +62,20 @@ public abstract class TemplateProcessor {
     private void fillAvailableFields(String templateName, String path, Map<String,Templates> templates, List<String> availableFields){
         Templates template = templates.get(templateName);
         log.info("Temp {}",template);
-        if(StringUtils.isNotEmpty(path))
+        if(StringUtils.isEmpty(path))
+            path = templateName;
+        else
             path = path+"."+templateName;
 
         for (TemplateField templateField : template.getFields()) {
             log.info("Template Field {}",templateField);
             if(templateField.getFieldType()==FieldType.TEMPLATE)
             {
-                if(StringUtils.isEmpty(path))
-                    path = templateName;
+//                if(StringUtils.isEmpty(path))
+//                    path = templateName;
                 fillAvailableFields(templateField.getFieldName(),path,templates,availableFields);
             }else{
-                String fieldName = ((StringUtils.isNotEmpty(path))?path+".":"")+templateField.getFieldName();
+                String fieldName = path+"."+templateField.getFieldName(); //((StringUtils.isNotEmpty(path))?path+".":"")+templateField.getFieldName();
                 availableFields.add(fieldName);
             }
         }
