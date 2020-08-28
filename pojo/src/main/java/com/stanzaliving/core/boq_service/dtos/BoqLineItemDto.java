@@ -40,6 +40,7 @@ public class BoqLineItemDto implements Comparable<BoqLineItemDto>{
     private String brandName;
     private String subBrandName;
     private BigDecimal rate;
+    private BigDecimal masterRate;
     private LineItemStatus lineItemStatus;
     private boolean itemApproved;
 
