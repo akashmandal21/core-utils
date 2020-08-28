@@ -1,6 +1,6 @@
 package com.stanzaliving.core.generic.itemmaster.enums;
 
 public enum  ItemAction {
-    ADDED,UPDATED,DEACTIVATED
+    ADDED,UPDATED,DEACTIVATED,DUMP
 }
 
