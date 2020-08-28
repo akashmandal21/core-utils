@@ -39,7 +39,8 @@ public enum TimelineStatusEnum {
 	DROPPED("Dropped"),
 	
 	PRE_VISIT_FOLLOW_UP("Pre Visit Follow Up"),
-
+	PRE_VISIT_DROP("Pre Visit Drop"),
+	
 	VISIT_1_STARTED("Visit 1 Started"),
 	VISIT_1_SCHEDULED("Visit 1 Scheduled"),
 	VISIT_1_COMPLETED("Visit 1 Completed"),
