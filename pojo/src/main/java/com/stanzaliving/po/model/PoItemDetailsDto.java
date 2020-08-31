@@ -47,7 +47,7 @@ public class PoItemDetailsDto {
 
     private BigDecimal shortPoApprovedQuantity;
 
-    private Float grnItemQuantity;
+    private Integer grnItemQuantity;
 
     private String hsnCode;
     
