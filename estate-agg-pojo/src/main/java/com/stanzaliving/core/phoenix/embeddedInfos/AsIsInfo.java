@@ -1,7 +1,5 @@
-package com.stanzaliving.core.phoenix.embeddedInfos;
+package com.stanzaliving.core.phoenix.embeddedinfos;
 
-import com.stanzaliving.core.asis.enums.SiteVisitStatus;
-import com.stanzaliving.core.projectservice.enums.AsIsStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

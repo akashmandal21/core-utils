@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.food.enums.FoodServeType;
+import com.stanzaliving.core.food.enums.MenuCategoryType;
 import com.stanzaliving.core.food.enums.MenuType;
 
 import lombok.AllArgsConstructor;
@@ -30,19 +31,22 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CategoryNameRequestDto {
 
+	@NotNull(message = "Category Type Selection is mandatory for name generation")
+	private MenuCategoryType categoryType;
+
 	@NotNull(message = "City Selection is mandatory for name generation")
 	private String cityId;
-	
+
 	private String microMarketId;
 
 	private ResidenceBrand residenceBrand;
-	
+
 	private FoodServeType foodServeType;
-	
+
 	private FoodRegion foodRegion;
-	
+
 	private MenuType menuType;
-	
+
 	@Min(0)
 	@Max(7)
 	private int breakfastCount;
