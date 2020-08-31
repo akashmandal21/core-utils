@@ -9,5 +9,8 @@ public class LeadQuestionIdentifier {
 
     public static final String PRE_VISIT_SCHEDULED_DROP_REASON = "preVisitScheduledDropReason";
 
+    public static final String VISIT_1_SCHEDULED_DATE = "visit1ScheduledDate";
+    public static final String VISIT_1_SCHEDULED_PROPERTY_VISITING = "visit1PropertyVisiting";
+
     public static final String PRE_VISIT_DROP = "preVisitDrop";
 }
