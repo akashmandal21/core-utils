@@ -40,7 +40,7 @@ public enum TimelineStatusEnum {
 	
 	PRE_VISIT_FOLLOW_UP("Pre Visit Follow Up"),
 	PRE_VISIT_DROP("Pre Visit Drop"),
-	
+
 	VISIT_1_STARTED("Visit 1 Started"),
 	VISIT_1_SCHEDULED("Visit 1 Scheduled"),
 	VISIT_1_COMPLETED("Visit 1 Completed"),
@@ -75,8 +75,8 @@ public enum TimelineStatusEnum {
 	VISIT_5_COMPLETED("Visit 5 Completed"),
 	POST_VISIT_5_DROP("Post Visit 5 Drop"),
 	POST_VISIT_5_FOLLOW_UP("Post Visit 5 Follow Up"),
-	POST_VISIT_5_FOLLOW_UP_COMPLETED("Post Visit 5 Follow Up Completed");	
-	
+	POST_VISIT_5_FOLLOW_UP_COMPLETED("Post Visit 5 Follow Up Completed");
+
 	private String currentLeadStatusName;
 	
 //	public static Set<TimelineStatusEnum> countAssociatedWithStatus() {
