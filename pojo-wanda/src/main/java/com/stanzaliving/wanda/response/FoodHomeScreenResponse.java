@@ -22,4 +22,6 @@ public class FoodHomeScreenResponse {
 	private String foodTitle;
 	
 	private String foodItems;
+	
+	private boolean today;
 }
