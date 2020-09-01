@@ -4,6 +4,7 @@ import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -25,10 +26,14 @@ public class UserMenuPreferenceForMealsDto {
 
 	private MealType nextMeal;
 
+	private String nextMealName;
+
+	private long nextMealItemsCount;
+
 	private UserMenuPreferenceResponseDto nextMealPreferences;
 
-	private List<UserMenuPreferenceResponseDto> userPreferenceForNextDay;
-
+	private LocalTime preferenceWindowCloseTime;
+	
 	private ApplicableMealDto nextVasMeal;
 
 }
