@@ -61,18 +61,19 @@ public enum ItemType {
     CRM("CRM"),
     TELEPHONY("Telephony"),
     OTHER("Others"),
-    OTHER_DISCOUNT("Other Discount"),
-    BRAND_AWARENESS("Brand Awareness"),
-    LEAD_NURTURING("Lead Nurturing");
+    LEAD_NURTURING("Lead Nurturing"),
+    COVID("Covid");
 
     private String typeText;
 
     public static Map<String, ItemType> itemTypeByNameMap = new HashMap<>();
+    public static Map<String, ItemType> itemTypeByUpperCaseNameMap = new HashMap<>();
 
     static {
 
         for (ItemType itemType : ItemType.values()) {
             itemTypeByNameMap.put(itemType.getTypeText(), itemType);
+            itemTypeByUpperCaseNameMap.put(itemType.getTypeText().toUpperCase(), itemType);
         }
     }
 
