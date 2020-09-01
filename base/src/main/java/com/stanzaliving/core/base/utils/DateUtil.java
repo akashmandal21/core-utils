@@ -264,6 +264,11 @@ public class DateUtil {
 		return Math.abs(difference);
 	}
 
+	public long daysBetweenWithSign(Date one, Date two) {
+		long difference = ((one.getTime() - two.getTime()) / StanzaConstants.MILLI_SECONDS_IN_DAY);
+		return difference;
+	}
+
 	public int getMaxDaysInMonth(LocalDate date) {
 		return date.lengthOfMonth();
 	}
