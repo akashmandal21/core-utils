@@ -30,4 +30,7 @@ public class BankDetailsDto {
 	
 	@Builder.Default
 	private Boolean isVerified = false;
+	
+	@Builder.Default
+	private Boolean isPreferred = Boolean.FALSE;
 }
