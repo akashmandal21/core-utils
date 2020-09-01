@@ -25,7 +25,8 @@ public enum AreaOfUse {
 	ELECTRONIC("Electronic"),
 	GYM("Gym"),
 	COMMON_AREA("Common Area"),
-	LOGISTICS("Logistics");
+	LOGISTICS("Logistics"),
+	PROVISIONAL("Provisional");
 	
 	private String name;
 
