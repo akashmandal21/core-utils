@@ -235,6 +235,11 @@ public class DateUtil {
 		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
 		return localDate.isBefore(LocalDate.now(zoneId));
 	}
+	
+	public LocalDate getLocalDate() {
+		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
+		return LocalDate.now(zoneId);
+	}
 
 	public LocalTime convertToLocalTime(Date date) {
 		if (date == null) {

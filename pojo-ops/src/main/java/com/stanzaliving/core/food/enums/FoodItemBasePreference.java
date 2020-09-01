@@ -24,13 +24,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum FoodItemBasePreference {
 
-	BALANCED("Balanced"),
-	RICE_BASE("Rice Base"),
-	ROTI_BASE("Roti Base");
+	BALANCED("Balanced", "Balanced Thali"),
+	RICE_BASE("Rice Base", "Rice Thali"),
+	ROTI_BASE("Roti Base", "Roti Thali");
 
 	private String basePreference;
-
-	private static Map<String, FoodItemBasePreference> preferenceMapByName = new HashMap<>();
+	private String label;
 
 	private static Map<FoodRegion, List<EnumListing<FoodItemBasePreference>>> preferencesByRegionMap = new HashMap<>();
 
@@ -39,8 +38,6 @@ public enum FoodItemBasePreference {
 	static {
 
 		for (FoodItemBasePreference foodItemBasePreference : FoodItemBasePreference.values()) {
-			preferenceMapByName.put(foodItemBasePreference.getBasePreference(), foodItemBasePreference);
-
 			enumListings.add(EnumListing.of(foodItemBasePreference, foodItemBasePreference.getBasePreference()));
 		}
 
@@ -49,10 +46,6 @@ public enum FoodItemBasePreference {
 		preferencesByRegionMap.put(FoodRegion.CONTINENTAL, Arrays.asList(EnumListing.of(BALANCED, BALANCED.getBasePreference())));
 		preferencesByRegionMap.put(FoodRegion.MIX, Arrays.asList(EnumListing.of(BALANCED, BALANCED.getBasePreference())));
 
-	}
-
-	public static FoodItemBasePreference getPreferenceByName(String basePreference) {
-		return preferenceMapByName.get(basePreference);
 	}
 
 	public static List<EnumListing<FoodItemBasePreference>> getBasePreferenceListing() {

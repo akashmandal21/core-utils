@@ -5,6 +5,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import javax.validation.ConstraintViolationException;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.MDC;
 import org.springframework.beans.PropertyAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.annotation.SendExceptionToSlack;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.utils.StanzaUtils;
@@ -38,7 +40,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got MethodArgumentNotValidException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 
 		FieldError fieldError = e.getBindingResult().getFieldError();
@@ -58,7 +60,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handlePropertyAccessException(PropertyAccessException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got PropertyAccessException for exceptionId: " + exceptionId, e);
 
 		String errorMessgae = "Incorrect Value For Parameter: " + e.getPropertyName() + " in Request. Dirty Value: " + e.getValue();
@@ -86,7 +88,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got MethodArgumentTypeMismatchException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 
 		String errorMessage = "Incorrect Type For Parameter: " + e.getName() + " in Request. Expected: " + e.getRequiredType() + ", Found: " + e.getValue();
@@ -99,7 +101,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got MissingServletRequestParameterException for exceptionId: " + exceptionId, e);
 
 		String errorMessage = "Missing Parameter: " + e.getParameterName() + " in Request";
@@ -112,7 +114,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleBindException(BindException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got MissingServletRequestParameterException for exceptionId: " + exceptionId, e);
 
 		BindingResult bindingResult = e.getBindingResult();
@@ -133,7 +135,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got HttpMessageNotReadableException for exceptionId: " + exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -144,7 +146,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleInvalidFormatException(InvalidFormatException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got InvalidFormatException for exceptionId: " + exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -155,7 +157,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleSQLIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got SQLIntegrityConstraintViolationException for exceptionId:" + exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -166,7 +168,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleConstraintViolationException(ConstraintViolationException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got ConstraintViolationException for exceptionId:" + exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -177,7 +179,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleDataIntegrityViolationException(DataIntegrityViolationException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got DataIntegrityViolationException for exceptionId:" + exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -189,7 +191,7 @@ public class ExceptionInterceptor {
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public <T> ResponseDto<T> handleNoRecordException(NoRecordException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got NoRecordException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -200,7 +202,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleRecordExistsException(RecordExistsException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got RecordExistsException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -210,7 +212,7 @@ public class ExceptionInterceptor {
 	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
 	public <T> ResponseDto<T> handlePreconditionFailedException(PreconditionFailedException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got PreconditionFailedException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -220,7 +222,7 @@ public class ExceptionInterceptor {
 	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
 	public <T> ResponseDto<T> handleRequestAlreadyApprovedException(RequestAlreadyApprovedException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got RequestAlreadyApprovedException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -230,7 +232,7 @@ public class ExceptionInterceptor {
 	@ResponseStatus(code = HttpStatus.PRECONDITION_FAILED)
 	public <T> ResponseDto<T> handleRequestAlreadyRejectedException(RequestAlreadyRejectedException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got RequestAlreadyRejectedException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -239,7 +241,7 @@ public class ExceptionInterceptor {
 	@ExceptionHandler(RequestInProgressException.class)
 	@ResponseStatus(code = HttpStatus.ACCEPTED)
 	public <T> ResponseDto<T> handleRequestInProgressException(RequestInProgressException e) {
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 
 		log.error("Got RequestInProgressException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -248,7 +250,7 @@ public class ExceptionInterceptor {
 	@ExceptionHandler(TransactionFailException.class)
 	@ResponseStatus(code = HttpStatus.EXPECTATION_FAILED)
 	public <T> ResponseDto<T> handleTransactionFailException(TransactionFailException e) {
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 
 		log.error("Got TransactionFailException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -258,7 +260,7 @@ public class ExceptionInterceptor {
 	@ResponseStatus(HttpStatus.FAILED_DEPENDENCY)
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleInvalidDataAccessException(InvalidDataAccessApiUsageException e) {
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got InvalidDataAccessApiUsageException for exceptionId: " + exceptionId, e);
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -270,7 +272,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleStanzaException(StanzaException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got StanzaException for exceptionId: " + exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -280,7 +282,7 @@ public class ExceptionInterceptor {
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	public <T> ResponseDto<T> handleApiValidationException(ApiValidationException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -291,7 +293,7 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleStanzaHttpException(StanzaHttpException e) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got StanzaHttpException for exceptionId: " + exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
@@ -302,10 +304,21 @@ public class ExceptionInterceptor {
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleException(Exception ex) {
 
-		String exceptionId = StanzaUtils.generateUniqueId();
+		String exceptionId = getExceptionId();
 		log.error("Got un-handled exception for exceptionId: " + exceptionId, ex);
 
 		return ResponseDto.failure(ex.getMessage(), exceptionId);
+	}
+
+	private String getExceptionId() {
+		String exceptionId = MDC.get(StanzaConstants.GUID);
+
+		if (StringUtils.isBlank(exceptionId)) {
+			exceptionId = StanzaUtils.generateUniqueId();
+		}
+
+		return exceptionId;
+
 	}
 
 }
