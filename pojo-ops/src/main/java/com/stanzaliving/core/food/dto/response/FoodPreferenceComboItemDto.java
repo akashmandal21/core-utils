@@ -27,4 +27,6 @@ public class FoodPreferenceComboItemDto {
 	
 	private boolean quantifiable;
 
+	private boolean hideGrammage;
+
 }
