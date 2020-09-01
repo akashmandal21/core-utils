@@ -10,4 +10,5 @@ public class PendingDuesDetailsResponseDto {
     private Long duesPaid;
     private Long duesTillDate;
     private Long currentOutstanding;
+    private String dueDate;
 }
