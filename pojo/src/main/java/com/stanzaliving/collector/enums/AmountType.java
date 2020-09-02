@@ -9,9 +9,17 @@ public enum AmountType {
         public Double getAmount(LocalDate fromDate, LocalDate userCommercialFromDate, LocalDate userCommercialToDate, Double amount) {
             return getNetAmountTillFromDate(fromDate, userCommercialFromDate, userCommercialToDate, amount);
         }
+    }, RENT_CANCELLED {
+        public Double getAmount(LocalDate fromDate, LocalDate userCommercialFromDate, LocalDate userCommercialToDate, Double amount) {
+            return getNetAmountTillFromDate(fromDate, userCommercialFromDate, userCommercialToDate, -1d * amount);
+        }
     }, DISCOUNT{
         public Double getAmount(LocalDate fromDate, LocalDate userCommercialFromDate, LocalDate userCommercialToDate, Double amount) {
             return getNetAmountTillFromDate(fromDate, userCommercialFromDate, userCommercialToDate, -1d * amount);
+        }
+    }, DISCOUNT_CANCELLED {
+        public Double getAmount(LocalDate fromDate, LocalDate userCommercialFromDate, LocalDate userCommercialToDate, Double amount) {
+            return getNetAmountTillFromDate(fromDate, userCommercialFromDate, userCommercialToDate, amount);
         }
     }, CREDIT_NOTE{
         public Double getAmount(LocalDate fromDate, LocalDate userCommercialFromDate, LocalDate userCommercialToDate, Double amount) {
