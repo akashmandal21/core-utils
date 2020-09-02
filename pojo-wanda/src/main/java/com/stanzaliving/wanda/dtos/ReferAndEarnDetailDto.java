@@ -37,6 +37,5 @@ public class ReferAndEarnDetailDto extends ReferAndEarnBaseDto {
 	private ReferralEarningResponseDto yourEarnings;
 	private KycUIResponseDto kycAndPaymentDetails;
 	private ReferFriendsNowUIResponseDto referFriendsNow;
-	private String messageToShare;
 
 }
