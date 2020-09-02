@@ -88,7 +88,7 @@ public class FoodItemDto extends AbstractDto {
 
 	private CommercialTag commercialTag;
 
-	private Set<String> commercialTagsName;
+	private String commercialTagName;
 
 	private boolean eggPresent;
 
