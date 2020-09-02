@@ -30,14 +30,14 @@ public class FieldDecoder {
             FieldType fieldType = templateField.getFieldType();
             JsonNode data = uiSubmitField.getValue();
             log.info("Value data {} field type {} needed {}",data,fieldType,needed);
-
-
             if (Objects.nonNull(data) && (!data.isNull()))
             {
-                log.info("Ent");
                 switch (fieldType) {
                     case TEXT:
-                        value = data.asText();
+                        if(data.asText().length()==0)
+                            value = null;
+                        else
+                            value = data.asText();
                         break;
 
                     case ENUM:
