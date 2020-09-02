@@ -3,6 +3,9 @@
  */
 package com.stanzaliving.core.leaddashboard.enums;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -70,4 +73,16 @@ public enum LeadSourceEnum {
 
 
 	private String leadSourceName;
+	
+	private static Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
+
+	static {
+		for(LeadSourceEnum leadSource : LeadSourceEnum.values()) {
+			leadSourceDescMap.put(leadSource, leadSource.getLeadSourceName());
+		}		
+	}
+	
+	public static Map<LeadSourceEnum, String> getLeadSources() {
+		return leadSourceDescMap;
+	}
 }
