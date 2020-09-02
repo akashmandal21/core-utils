@@ -91,7 +91,6 @@ public class FieldDecoder {
                 }
             }
 
-
             if (needed && Objects.isNull(value))
                 uiSubmitField.setErrorMsg("Field is mandatory");
 
