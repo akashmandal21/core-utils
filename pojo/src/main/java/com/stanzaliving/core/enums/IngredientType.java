@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum IngredientType {
 
-	INGREDIENT("Ingredient"),
+	RAW_INGREDIENT("Raw Ingredient"),
 	PROCESSED_INGREDIENT("Processed Ingredient");
 
 	private String typeName;
