@@ -72,5 +72,6 @@ public class ScheduledVisitsResponseDTO {
 	private String category;
 	private String fbclId;
 	private String creative;
+	private boolean apiStatus;
 
 }
