@@ -25,5 +25,6 @@ public class ReferAndEarnPaymentDetailDto {
 
 	private List<ReferralPaymentModeUIResponseDto> paymentDetails;
 	private List<ReferralPaymentModeUIResponseDto> idDetails;
+	private String keyForPaymentEmpty;
 
 }
