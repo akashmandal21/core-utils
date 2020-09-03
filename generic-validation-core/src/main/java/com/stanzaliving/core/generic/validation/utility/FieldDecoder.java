@@ -68,12 +68,13 @@ public class FieldDecoder {
                         break;
 
                     case LIST:
-                        value = objectMapper.convertValue(data,ArrayList.class).stream().
-                                filter(f->Objects.nonNull(f) && !((JsonNode)f).isNull()).
-                                map(f->objectMapper.convertValue(f, ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null))).collect(Collectors.toList());
-
+                        /*below needs to be improved. now the below snippet throws error of being LinkedHashMap not Json Node*/
 //                        value = objectMapper.convertValue(data,ArrayList.class).stream().
+//                                filter(f->Objects.nonNull(f) && !((JsonNode)f).isNull()).
 //                                map(f->objectMapper.convertValue(f, ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null))).collect(Collectors.toList());
+
+                        value = objectMapper.convertValue(data,ArrayList.class).stream().
+                                map(f->objectMapper.convertValue(f, ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null))).collect(Collectors.toList());
 
 //                        List<Object> listElements = new ArrayList<>();
 //                        Iterator<JsonNode> iter = data.iterator();
