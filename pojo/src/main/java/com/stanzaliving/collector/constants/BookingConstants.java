@@ -8,4 +8,5 @@ public class BookingConstants {
     public final static String ONBOARDING_COMPLETED_STATUS = "ONBOARDING COMPLETED";
     public final static String CANCELLED_STATUS = "CANCELLED";
     public final static String REFUND_INITIATED_STATUS = "REFUND INITIATED";
+    public static final String CONTRACT_TERMINATED = "CONTRACT TERMINATED";
 }

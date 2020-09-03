@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -25,9 +26,9 @@ public class BoqLineItemDto implements Comparable<BoqLineItemDto>{
     private String unitType;
     private BoqItemProvider budgetBy;
     private BoqItemProvider doneBy;
-    private Float slQty ;
-    private Float llQty;
-    private Float quantity;
+    private BigDecimal slQty ;
+    private BigDecimal llQty;
+    private BigDecimal quantity;
     private String image;
     private String originalImageUrl;
     private String documentUrl;
@@ -38,7 +39,7 @@ public class BoqLineItemDto implements Comparable<BoqLineItemDto>{
     private List<String> areaOfUseList;
     private String brandName;
     private String subBrandName;
-    private Double rate;
+    private BigDecimal rate;
     private LineItemStatus lineItemStatus;
     private boolean itemApproved;
 

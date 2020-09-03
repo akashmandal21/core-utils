@@ -27,13 +27,13 @@
 
 		<dependency>
 			<groupId>com.stanzaliving.core</groupId>
-			<artifactId>pojo</artifactId>
+			<artifactId>user-client</artifactId>
 			<version>${global.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.stanzaliving.core</groupId>
-			<artifactId>user-client</artifactId>
+			<artifactId>pojo</artifactId>
 			<version>${global.version}</version>
 		</dependency>
 

@@ -18,6 +18,6 @@ import java.time.LocalDate;
 public class PerformanceTrackerRequestDto extends RentDashboardRequestDto {
     @NotNull
     DataValueType dataValueType;
-    @NotNull
+    //@NotNull
     LocalDate fromDate;
 }

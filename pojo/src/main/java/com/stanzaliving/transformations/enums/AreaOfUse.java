@@ -25,7 +25,8 @@ public enum AreaOfUse {
 	ELECTRONIC("Electronic"),
 	GYM("Gym"),
 	COMMON_AREA("Common Area"),
-	LOGISTICS("Logistics");
+	LOGISTICS("Logistics"),
+	PROVISIONAL("Provisional");
 	
 	private String name;
 
@@ -47,6 +48,7 @@ public enum AreaOfUse {
 		areaofUseMap.put("Gym", AreaOfUse.GYM);
 		areaofUseMap.put("Common Area", AreaOfUse.COMMON_AREA);
 		areaofUseMap.put("Logistics", AreaOfUse.LOGISTICS);
+		areaofUseMap.put("Provisional", AreaOfUse.PROVISIONAL);
 	}
 
 }
