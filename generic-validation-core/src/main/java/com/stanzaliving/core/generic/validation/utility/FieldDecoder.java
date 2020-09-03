@@ -74,7 +74,9 @@ public class FieldDecoder {
 //                                map(f->objectMapper.convertValue(f, ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null))).collect(Collectors.toList());
 
                         List<Object> elems = (List<Object>) objectMapper.convertValue(data,ArrayList.class).stream().
-                                map(f->objectMapper.convertValue(f, ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null))).collect(Collectors.toList());
+                                map(f->objectMapper.convertValue(f, ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null))).
+                                filter(f->Objects.nonNull(f)).collect(Collectors.toList());
+
                         if(elems.size()>0)
                             value = elems;
                         else
