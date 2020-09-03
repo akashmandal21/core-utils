@@ -1,16 +1,18 @@
 package com.stanzaliving.core.phoenix.embeddedinfos;
 
+import java.time.LocalDate;
+import java.util.Map;
+
+import org.springframework.data.mongodb.core.index.Indexed;
+
 import com.stanzaliving.core.agg.commons.EnumDecoder;
 import com.stanzaliving.core.projectservice.enums.ProjectSummaryStatus;
 import com.stanzaliving.core.projectservice.enums.PropertyStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.index.Indexed;
-
-import java.time.LocalDate;
-import java.util.Map;
 
 @Data
 @Builder
