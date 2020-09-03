@@ -48,7 +48,7 @@ public class FoodItemAddRequestDto {
 
 	private List<MealType> meals;
 
-	private boolean addOnEnabled;
+	private Boolean addOnEnabled;
 
 	private String bgColor;
 
@@ -64,7 +64,7 @@ public class FoodItemAddRequestDto {
 
 	private CommercialTag commercialTag;
 
-	private boolean eggPresent;
+	private Boolean eggPresent;
 
 	@NotNull(message = "Dish Region selection is mandatory")
 	private DishRegion dishRegion;
