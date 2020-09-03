@@ -77,7 +77,8 @@ public class FieldDecoder {
                                 map(f->objectMapper.convertValue(f, ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null))).collect(Collectors.toList());
                         if(elems.size()>0)
                             value = elems;
-                        else value = null;
+                        else
+                            value = null;
 
 //                        List<Object> listElements = new ArrayList<>();
 //                        Iterator<JsonNode> iter = data.iterator();
