@@ -12,9 +12,9 @@ import java.util.Map;
 @Getter
 @AllArgsConstructor
 public enum CommercialTag {
-	HIGH ("High"),
+	PREMIUM("Premium"),
 	MEDIUM ("Medium"),
-	LOW ("Low");
+	ECONOMY("Economy");
 
 	private final String tagName;
 
