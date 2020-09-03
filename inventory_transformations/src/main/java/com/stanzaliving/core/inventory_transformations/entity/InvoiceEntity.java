@@ -82,8 +82,12 @@ public class InvoiceEntity implements Serializable {
     private Integer parentCompany = 0;
 
     @Column(name = "BOOKING_ID")
-	@JsonProperty("BOOKING_ID")
+    @JsonProperty("BOOKING_ID")
     private String bookingId;
+
+    @Column(name = "INVOICE_DATE")
+    @JsonProperty("INVOICE_DATE")
+    private Timestamp invoiceDate;
 
     
 }

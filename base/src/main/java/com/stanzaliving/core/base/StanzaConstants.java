@@ -17,6 +17,7 @@ public class StanzaConstants {
 
 	public static final String DATE_SEPARATOR = "-";
 	public static final String IST_TIMEZONE = "Asia/Kolkata";
+	public static final String UTC_TIMEZONE = "UTC";
 	public static final ZoneId IST_TIMEZONEID = ZoneId.of(IST_TIMEZONE);
 	public static final String INDIA_COUNTRY_CODE = "91";
 	public static final String INDIA_ISO_CODE = "IN";
