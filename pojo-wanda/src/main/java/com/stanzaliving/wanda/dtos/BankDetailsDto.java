@@ -20,6 +20,8 @@ public class BankDetailsDto {
 	
 	private BankNames bankNames;
 	
+	private String bankNameStr;
+	
 	@NotEmpty
 	private String ifscCode;
 	
