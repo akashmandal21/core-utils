@@ -1,5 +1,6 @@
 package com.stanzaliving.item_master.dtos;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.item_master.enums.AcquisitionType;
 
 import com.stanzaliving.item_master.enums.ConsumptionPattern;
@@ -30,6 +31,7 @@ import java.util.stream.Collectors;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MasterBoqDto {
     private Date lastUpdatedAt;
     private String categoryUuid;
@@ -73,6 +75,37 @@ public class MasterBoqDto {
     private CostHead costHead;
     private String consumptionPatternStr;
     private String itemMaterialStr;
+    private Double itemLength;
+    private Double itemBreadth;
+    private Double itemHeight;
+    private DimensionUnits heightUnit;
+    private DimensionUnits breadthUnit;
+    private DimensionUnits lengthUnit;
+    private BigDecimal globalRate;
+    private BigDecimal globalRentalRate;
+    private ItemCostDto cityRate;
+
+    public void updateDimensions(){
+        if(Objects.nonNull(this.getItemLength()) && Objects.nonNull(this.getLengthUnit()))
+            length = this.getItemLength()+" "+this.getLengthUnit().getDimUnit();
+        if(Objects.nonNull(this.getItemHeight()) && Objects.nonNull(this.getHeightUnit()))
+            height = this.getItemHeight()+" "+this.getHeightUnit().getDimUnit();
+        if(Objects.nonNull(this.getItemBreadth()) && Objects.nonNull(this.getBreadthUnit()))
+            breadth = this.getItemBreadth()+" "+this.getBreadthUnit().getDimUnit();
+    }
+    public void updateRateFromCity(){
+        if(Objects.nonNull(globalRate))
+            this.rate = globalRate.doubleValue();
+        if(Objects.nonNull(globalRentalRate))
+            this.rentalRate = globalRentalRate.doubleValue();
+        if(Objects.nonNull(rate)&& Objects.nonNull(cityRate) && Objects.nonNull(cityRate.getRate()))
+        {
+            this.rate = cityRate.getRate().doubleValue();
+            if(Objects.nonNull(rentalRate) && Objects.nonNull(cityRate.getRentalRate()) && Objects.nonNull(isRentalAvailable) && isRentalAvailable)
+                this.rentalRate = cityRate.getRentalRate().doubleValue();
+            this.cityRate = null;
+        }
+    }
 
     //For Native Queries. SqlResultSetMapped to MasterBoq in ItemMasterDetails
     public MasterBoqDto(Date lastUpdatedAt, String categoryUuid, Long itemId, String itemUuid, String itemCode,
