@@ -77,7 +77,7 @@ public enum TimelineStatusEnum {
 	POST_VISIT_5_FOLLOW_UP("Post Visit 5 Follow Up"),
 	POST_VISIT_5_FOLLOW_UP_COMPLETED("Post Visit 5 Follow Up Completed");
 
-	private String currentLeadStatusName;
+	private String statusName;
 	
 //	public static Set<TimelineStatusEnum> countAssociatedWithStatus() {
 //		Set<TimelineStatusEnum> leadStatus = new HashSet<>();
