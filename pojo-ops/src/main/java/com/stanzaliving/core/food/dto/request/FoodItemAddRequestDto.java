@@ -67,8 +67,9 @@ public class FoodItemAddRequestDto {
 
 	private Boolean eggPresent;
 
-	@NotNull(message = "Dish Region selection is mandatory")
 	private DishRegion dishRegion;
+
+	private Integer shelfLife;
 
 	@NotNull(message = "Unit of Measurement is mandatory")
 	private UnitOfMeasurement unitOfMeasurement;

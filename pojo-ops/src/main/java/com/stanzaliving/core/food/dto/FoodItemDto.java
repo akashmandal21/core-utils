@@ -103,4 +103,6 @@ public class FoodItemDto extends AbstractDto {
 	private DishRegion dishRegion;
 
 	private String dishRegionName;
+
+	private Integer shelfLife;
 }
