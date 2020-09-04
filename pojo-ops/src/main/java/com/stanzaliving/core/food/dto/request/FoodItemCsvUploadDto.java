@@ -80,4 +80,7 @@ public class FoodItemCsvUploadDto {
 	@CsvBindByName(column = "Dish Region")
 	private String dishRegion;
 
+	@CsvBindByName(column = "Shelf Life")
+	private Integer shelfLife;
+
 }
