@@ -39,7 +39,6 @@ public class FoodItemAddRequestDto {
 	@NotNull(message = "Recipe Type is Mandatory")
 	private RecipeType recipeType;
 
-	@Size(max = 500, message = "description can not have more than 500 letters")
 	private String description;
 
 	@NotBlank(message = "Dish Category is Mandatory")
