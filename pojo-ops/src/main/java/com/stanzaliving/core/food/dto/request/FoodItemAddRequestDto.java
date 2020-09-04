@@ -15,6 +15,7 @@ import lombok.experimental.SuperBuilder;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Set;
 
@@ -38,6 +39,7 @@ public class FoodItemAddRequestDto {
 	@NotNull(message = "Recipe Type is Mandatory")
 	private RecipeType recipeType;
 
+	@Size(max = 500, message = "description can not have more than 500 letters")
 	private String description;
 
 	@NotBlank(message = "Dish Category is Mandatory")
