@@ -52,7 +52,9 @@ public enum AreaOfUse {
 		areaofUseMap.put("Logistics", AreaOfUse.LOGISTICS);
 		areaofUseMap.put("Provisional", AreaOfUse.PROVISIONAL);
 
+
 		Arrays.stream(AreaOfUse.values()).forEach(f->areaofUseUpperCaseMap.put(f.getName().toUpperCase(),f));
+
 	}
 
 }

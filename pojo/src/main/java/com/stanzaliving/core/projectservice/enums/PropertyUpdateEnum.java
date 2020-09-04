@@ -9,6 +9,9 @@ import lombok.Getter;
 @Getter
 public enum  PropertyUpdateEnum {
 
+    PROPERTY_ADDED("Property Added in Phoenix",false,null,null),
+    PROPERTY_UPDATED("Property Updated in Phoenix",false,null,null),
+
     //Projects
     PROJECT_ZONAL_HEAD_ASSIGNED("Project Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED, Department.PROJECTS),
     PROJECT_MANAGER_ASSIGNED("Project manager Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
