@@ -46,4 +46,8 @@ public enum DishRegion {
 	public static List<ListingDto> getDishRegionListing() {
 		return dishRegionListing;
 	}
+
+	public static DishRegion getDishRegionByName(String regionName) {
+		return dishRegionNameMap.get(regionName);
+	}
 }
