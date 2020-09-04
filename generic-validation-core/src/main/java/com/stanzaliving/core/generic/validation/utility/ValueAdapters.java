@@ -17,6 +17,16 @@ import java.util.Objects;
 public class ValueAdapters {
 
 
+    public Object getFieldVal(Field field, Object sourceClass){
+        try {
+            Object obj = field.get(sourceClass);
+            return obj;
+        } catch (IllegalAccessException e) {
+            log.info("Exception occurred while getting the value of the Field Object",e);
+            throw new StanzaException("Internal Error Occurred");
+        }
+    }
+
     public <T>T getValue(JsonNode value, Class<T> clazz, ObjectMapper objectMapper){
         try {
             return objectMapper.treeToValue(value,clazz);

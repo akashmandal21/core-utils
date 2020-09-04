@@ -149,7 +149,8 @@ public abstract class TemplateProcessor {
                                                                         Map<String,Field> fields, Object sourceClass,
                                                                         boolean allowSkipNewFields, Object baseObject){
 
-        log.info("Processing Template {} {} {}",templateName,fields,data);
+        log.info("Processing Template {} ",templateName);
+//        log.info("Source class {}",baseObject);
         final int currErrors = errorInfo.getNumErrors();
         Map<String, UiParentField> uiFieldMap = new LinkedHashMap<>();
         Templates template = templates.get(templateName);
@@ -225,7 +226,10 @@ public abstract class TemplateProcessor {
                          */
                         if (subFieldType == FieldType.OBJECT && templateField.getUiType()!=UIFieldType.MODAL) {
                             Class clazz = field.getType();
-                            Object obj = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);
+                            Object obj = ValueAdapters.getFieldVal(field,sourceClass);
+                            if(Objects.isNull(obj))
+                                obj = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);
+
                             Map<String, Field> fieldMap = Arrays.stream(clazz.getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
                             Map<String, JsonNode> nestedStruct = ValueAdapters.convertValue(uiBasicField.getData(), new TypeReference<Map<String, JsonNode>>() {},objectMapper);
                             Pair<Boolean, Map<String, UiParentField>> nestedData = verifyAndStoreData(nestedStruct, templateField.getFieldName(),
@@ -273,8 +277,9 @@ public abstract class TemplateProcessor {
                     log.error("No Matching field type found for template field: {} in template {}", templateField, template.getTemplateName());
             }
         }
+//        log.info("Source class {}",baseObject);
         ErrorInfo validError = addValidationErrors(templateName,uiFieldMap,baseObject,sourceClass);
-        log.info(uiFieldMap);
+//        log.info(uiFieldMap);
         if(validError.isErrorOccurred())
             updateErrorInfo(errorInfo,validError.getNumErrors());
         log.info("Finished Processing template {}",templateName);
