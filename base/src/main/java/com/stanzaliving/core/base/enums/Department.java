@@ -23,8 +23,9 @@ public enum Department {
 	SALES("Sales"),
 	WEB("Web"),
 	GC("GC Procurement"),
-	WAREHOUSE("Warehouse");
-
+	WAREHOUSE("Warehouse"),
+	CX("Customer Experience","CX"),
+	ADMIN("Admin","AD");
 	public String departmentName;
-
+	public String shortCode;
 }
