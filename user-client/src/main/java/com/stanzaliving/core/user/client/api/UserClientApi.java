@@ -3,10 +3,7 @@
  */
 package com.stanzaliving.core.user.client.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
@@ -247,6 +244,10 @@ public class UserClientApi {
 	}
 
 	public ResponseDto<List<String>> getUserIdsByDepartmentRolenameAccessLevelId(Department department, String roleName, String accessLevelId) {
+		return getUserIdsByDepartmentRolenameAccessLevelId(department, roleName, Arrays.asList(accessLevelId));
+	}
+
+	public ResponseDto<List<String>> getUserIdsByDepartmentRolenameAccessLevelId(Department department, String roleName, List<String> accessLevelId) {
 
 		Object postBody = null;
 
