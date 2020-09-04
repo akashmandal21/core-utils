@@ -38,4 +38,8 @@ public enum RecipeType {
 	public static Map<String, RecipeType> getRecipeTypeNameMap() {
 		return recipeTypeNameMap;
 	}
+
+	public static RecipeType getRecipeTypeByName(String recipeName) {
+		return recipeTypeNameMap.get(recipeName);
+	}
 }

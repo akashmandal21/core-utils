@@ -37,4 +37,8 @@ public enum CommercialTag {
 	public static Map<String, CommercialTag> getCommercialTagNameMap() {
 		return commercialTagNameMap;
 	}
+
+	public static CommercialTag getCommercialTagByName(String tagName) {
+		return commercialTagNameMap.get(tagName);
+	}
 }

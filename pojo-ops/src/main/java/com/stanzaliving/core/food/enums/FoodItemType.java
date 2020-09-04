@@ -28,4 +28,8 @@ public enum FoodItemType {
 		return foodItemTypeMap;
 	}
 
+	public static FoodItemType getFoodItemByName(String typeName) {
+		return foodItemTypeMap.get(typeName);
+	}
+
 }
