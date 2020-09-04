@@ -62,17 +62,11 @@ public class FoodItemCsvUploadDto {
 	@CsvBindByName(column = "UOM")
 	private String unitOfMeasurement;
 
-	@CsvBindByName(column = "Cook Quantity")
-	private String cookQuantity;
-
 	@CsvBindByName(column = "Grammage_per_pax")
 	private Double grammagePerPax;
 
 	@CsvBindByName(column = "Ingredient")
 	private String ingredient;
-
-	@CsvBindByName(column = "Ingredient UOM")
-	private String ingredientUOM;
 
 	@CsvBindByName(column = "Ingredient_Quantity")
 	private Double ingredientQty;
