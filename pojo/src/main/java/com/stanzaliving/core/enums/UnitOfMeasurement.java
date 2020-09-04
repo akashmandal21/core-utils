@@ -38,4 +38,8 @@ public enum UnitOfMeasurement {
 	public static Map<String, UnitOfMeasurement> getUnitOfMeasurementNameMap() {
 		return unitOfMeasurementNameMap;
 	}
+
+	public static UnitOfMeasurement getUnitOfMeasurementByUnitName(String unitName) {
+		return unitOfMeasurementNameMap.get(unitName);
+	}
 }
