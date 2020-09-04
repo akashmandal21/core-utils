@@ -15,6 +15,7 @@ public enum CostHead {
     CAPEX("Capex"),
     OPEX("Opex");
 
+    
     private String costHeadText;
 
     public static Map<String, CostHead> costHeadByNameMap = new HashMap<>();
