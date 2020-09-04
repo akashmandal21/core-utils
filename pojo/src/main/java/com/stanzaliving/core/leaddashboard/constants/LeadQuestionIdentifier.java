@@ -13,4 +13,9 @@ public class LeadQuestionIdentifier {
     public static final String VISIT_1_SCHEDULED_PROPERTY_VISITING = "visit1PropertyVisiting";
 
     public static final String PRE_VISIT_DROP = "preVisitDrop";
+    
+    public static final String PRE_QUALIFICATION_FOLLOW_UP_STATUS_DATE = "preQualificationFollowUpStatusDate";
+    public static final String PRE_VISIT_SCHEDULED_FOLLOW_UP_DATE = "preVisitScheduledFollowUpDate";
+    
+    public static final String PRE_QUALIFICATION_FOLLOW_UP_DATE = "preQualificationFollowUpDate";
 }
