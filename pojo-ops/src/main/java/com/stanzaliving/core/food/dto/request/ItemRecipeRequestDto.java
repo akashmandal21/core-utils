@@ -30,7 +30,6 @@ public class ItemRecipeRequestDto {
 	private Double grammagePerPax;
 
 	@Valid
-	@NotNull(message = "Ingredients are required for saving a dish")
 	private List<RecipeIngredientRequestDto> ingredients;
 
 }
