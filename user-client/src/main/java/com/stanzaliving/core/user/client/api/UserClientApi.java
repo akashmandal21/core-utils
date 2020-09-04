@@ -256,7 +256,7 @@ public class UserClientApi {
 
 		uriVariables.put("department", department);
 		uriVariables.put("roleName", roleName);
-		uriVariables.put("accessLevelId", accessLevelId);
+		uriVariables.put("accessLevelId", StringUtils.join(accessLevelId, ','));
 
 		String path = UriComponentsBuilder.fromPath("/internal/acl/useridByRoleName/{department}/{roleName}/{accessLevelId}")
 				.buildAndExpand(uriVariables).toUriString();
