@@ -17,6 +17,7 @@ public enum UnitType {
     LS("Lump sum"),
     PER_BED("Per Bed"),
     MANDAYS("Mandays"),
+    LTS("ltr"),
     PULSE("Pulse"),
     FLAT_RATE("Flat Rate"),
     PERCENTAGE("Percentage");
