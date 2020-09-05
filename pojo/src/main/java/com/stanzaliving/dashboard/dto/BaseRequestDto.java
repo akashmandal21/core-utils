@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.log4j.Log4j2;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Getter
