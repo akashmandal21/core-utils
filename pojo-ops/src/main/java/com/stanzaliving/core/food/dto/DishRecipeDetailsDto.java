@@ -28,7 +28,7 @@ public class DishRecipeDetailsDto {
 
 	private int cookQuantity;
 
-	private double standardQuantity;
+	private Double standardQuantity;
 
 	private double estimatedCost;
 
