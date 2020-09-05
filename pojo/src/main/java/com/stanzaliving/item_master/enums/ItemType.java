@@ -61,9 +61,8 @@ public enum ItemType {
     CRM("CRM"),
     TELEPHONY("Telephony"),
     OTHER("Others"),
-    OTHER_DISCOUNT("Other Discount"),
-    BRAND_AWARENESS("Brand Awareness"),
-    LEAD_NURTURING("Lead Nurturing");
+    LEAD_NURTURING("Lead Nurturing"),
+    COVID("Covid");
 
     private String typeText;
 
