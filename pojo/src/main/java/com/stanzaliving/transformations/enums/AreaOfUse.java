@@ -54,7 +54,6 @@ public enum AreaOfUse {
 
 
 		Arrays.stream(AreaOfUse.values()).forEach(f->areaofUseUpperCaseMap.put(f.getName().toUpperCase(),f));
-
 	}
 
 }
