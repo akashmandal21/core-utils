@@ -59,7 +59,7 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
-    public ResponseDto<Boolean> acceptInvoiceFlag(String poDetailsId) {
+    public ResponseDto<Boolean> acceptInvoiceFlag(String poDetailsId, String userName) {
 
         if (Objects.isNull(poDetailsId)) {
             return null;
@@ -75,6 +75,8 @@ public class POClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/update/regularinvoice/{poDetailsId}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.putAll(restClient.parameterToMultiValueMap(null, "userName", userName));
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -167,4 +169,37 @@ public class POClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
+
+    public ResponseDto<Boolean> grnStarted(String poDetailsId, String userName) {
+
+        if (Objects.isNull(poDetailsId))
+            return null;
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("poDetailsId", poDetailsId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/update/grn/started/{poDetailsId}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.putAll(restClient.parameterToMultiValueMap(null, "userName", userName));
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
 }
