@@ -258,7 +258,6 @@ public class StanzaUtils {
 		return decimalFormat.format(value);
 	}
 
-
 	/**
 	 * Convert the supplied size to it's corresponding unit
 	 * such as bytes,KB,MB,GB or TB.
