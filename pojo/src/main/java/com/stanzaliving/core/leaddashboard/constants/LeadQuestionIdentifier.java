@@ -20,4 +20,6 @@ public class LeadQuestionIdentifier {
     public static final String PRE_QUALIFICATION_FOLLOW_UP_DATE = "preQualificationFollowUpDate";
     
     public static final String LEAD_UNREACHABLE_ANSWER = "Lead Unreachable (EOD)";
+    
+    public static final String DROPPED = "Dropped";
 }
