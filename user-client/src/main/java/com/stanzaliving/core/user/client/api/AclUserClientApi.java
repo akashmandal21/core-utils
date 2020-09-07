@@ -135,7 +135,7 @@ public class AclUserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<Map<String, String>> getUserIdAccessLevelIdByDepartmentRolenameAccessLevelId(Department department, String roleName, List<String> accessLevelId) {
+	public ResponseDto<Map<String, List<String>>> getUserIdAccessLevelIdByDepartmentRolenameAccessLevelId(Department department, String roleName, List<String> accessLevelId) {
 
 		Object postBody = null;
 
@@ -158,7 +158,7 @@ public class AclUserClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<Map<String, String>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, String>>>() {
+		ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
