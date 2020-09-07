@@ -28,7 +28,7 @@ public class VasMealItemResponseDto {
 
 	private String itemTypeName;
 
-	private Double price;
+	private ItemPriceDto prices;
 
 	private Integer itemQty;
 
