@@ -25,15 +25,13 @@ public  class MongoEventListener extends AbstractMongoEventListener<Object> {
             if (ver.getCreatedAt() == null) {
                 ver.setCreatedAt(new Date());
             }
-            if (ver.getUpdatedAt() == null) {
-                ver.setUpdatedAt(new Date());
-            }
             if (StringUtils.isBlank(ver.getCreatedBy())) {
                 ver.setCreatedBy(SecurityUtils.getCurrentUserId());
             }
-            if (StringUtils.isBlank(ver.getUpdatedBy())) {
+            if (StringUtils.isNotBlank(SecurityUtils.getCurrentUserId())) {
                 ver.setUpdatedBy(SecurityUtils.getCurrentUserId());
             }
+            ver.setUpdatedAt(new Date());
         }
     }
 
