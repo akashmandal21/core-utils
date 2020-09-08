@@ -1,10 +1,7 @@
 /**
- * @author nipunaggarwal
- *
+ * 
  */
 package com.stanzaliving.core.food.dto;
-
-import com.stanzaliving.core.food.enums.FoodItemType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,22 +11,19 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @author nipunaggarwal
+ * @author naveen.kumar
  *
- */
+ * @date 10 Aug, 2020
+ *
+ **/
 @Getter
 @Setter
-@ToString(callSuper = true)
 @SuperBuilder
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodItemResponseDto {
+public class RecipeIngredientDto extends IngredientDto {
 
-	private String name;
+	private double quantity;
 
-	private boolean status;
-
-	private String categoryId;
-
-	private FoodItemType itemType;
 }
