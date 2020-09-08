@@ -4,10 +4,7 @@ import com.stanzaliving.core.base.common.dto.ListingDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @AllArgsConstructor
@@ -22,6 +19,8 @@ public enum UnitOfMeasurement {
 	private String unitName;
 
 	private static List<ListingDto> unitMeasurementListing = new ArrayList<>();
+
+	private static List<ListingDto> greaterUnitMeasurementListing = new ArrayList<>();
 
 	private static Map<String, UnitOfMeasurement> unitOfMeasurementNameMap = new HashMap<>();
 
@@ -42,6 +41,19 @@ public enum UnitOfMeasurement {
 		createShortUnitsMap();
 
 		createGreaterUnitMap();
+
+		createGreaterUnitListing();
+
+	}
+
+	private static void createGreaterUnitListing() {
+
+		Set<UnitOfMeasurement> greaterUnits = greaterUnitsMap.keySet();
+
+		for (UnitOfMeasurement unitOfMeasurement: greaterUnits) {
+			greaterUnitMeasurementListing.add(ListingDto.builder().id(unitOfMeasurement.name()).name(unitOfMeasurement.getUnitName()).build());
+		}
+
 	}
 
 	private static void createShortUnitsMap() {
@@ -59,6 +71,10 @@ public enum UnitOfMeasurement {
 
 	public static List<ListingDto> getUnitMeasurementListing() {
 		return unitMeasurementListing;
+	}
+
+	public static List<ListingDto> getGreaterUnitMeasurementListing() {
+		return greaterUnitMeasurementListing;
 	}
 
 	public static Map<String, UnitOfMeasurement> getUnitOfMeasurementNameMap() {
