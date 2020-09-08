@@ -15,7 +15,9 @@ public enum UnitOfMeasurement {
 
 	KILOGRAM("Kg"),
 	LITRE("Ltr"),
-	NUMBER("Nos");
+	NUMBER("Nos"),
+	GRAM("gm"),
+	MILI_LITRE("ml");
 
 	private String unitName;
 
@@ -23,13 +25,37 @@ public enum UnitOfMeasurement {
 
 	private static Map<String, UnitOfMeasurement> unitOfMeasurementNameMap = new HashMap<>();
 
+	private static Map<String, UnitOfMeasurement> unitOfMeasurementStrMap = new HashMap<>();
+
+	private static Map<UnitOfMeasurement, UnitOfMeasurement> shortUnitsMap = new HashMap<>();
+
+	private static Map<UnitOfMeasurement, UnitOfMeasurement> greaterUnitsMap = new HashMap<>();
+
 	static {
 
 		for (UnitOfMeasurement unitOfMeasurement : UnitOfMeasurement.values()) {
 			unitMeasurementListing.add(ListingDto.builder().id(unitOfMeasurement.name()).name(unitOfMeasurement.getUnitName()).build());
 			unitOfMeasurementNameMap.putIfAbsent(unitOfMeasurement.getUnitName(), unitOfMeasurement);
+			unitOfMeasurementStrMap.putIfAbsent(unitOfMeasurement.name(), unitOfMeasurement);
 		}
+
+		createShortUnitsMap();
+
+		createGreaterUnitMap();
 	}
+
+	private static void createShortUnitsMap() {
+		shortUnitsMap.put(UnitOfMeasurement.MILI_LITRE, UnitOfMeasurement.LITRE);
+		shortUnitsMap.put(UnitOfMeasurement.GRAM, UnitOfMeasurement.KILOGRAM);
+		shortUnitsMap.put(UnitOfMeasurement.NUMBER, UnitOfMeasurement.NUMBER);
+	}
+
+	private static void createGreaterUnitMap() {
+		greaterUnitsMap.put(UnitOfMeasurement.LITRE, UnitOfMeasurement.MILI_LITRE);
+		greaterUnitsMap.put(UnitOfMeasurement.KILOGRAM, UnitOfMeasurement.GRAM);
+		greaterUnitsMap.put(UnitOfMeasurement.NUMBER, UnitOfMeasurement.NUMBER);
+	}
+
 
 	public static List<ListingDto> getUnitMeasurementListing() {
 		return unitMeasurementListing;
@@ -41,5 +67,17 @@ public enum UnitOfMeasurement {
 
 	public static UnitOfMeasurement getUnitOfMeasurementByUnitName(String unitName) {
 		return unitOfMeasurementNameMap.get(unitName);
+	}
+
+	public static UnitOfMeasurement getUnitOfMeasurementByName(String unitEnumName) {
+		return unitOfMeasurementStrMap.get(unitEnumName);
+	}
+
+	public static UnitOfMeasurement getShortUnit(UnitOfMeasurement greaterUnit) {
+		return greaterUnitsMap.get(greaterUnit);
+	}
+
+	public static UnitOfMeasurement getGreaterUnit(UnitOfMeasurement shortUnit) {
+		return shortUnitsMap.get(shortUnit);
 	}
 }
