@@ -4,9 +4,14 @@
 package com.stanzaliving.core.food.dto;
 
 import java.util.List;
+import java.util.Set;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.enums.UnitOfMeasurement;
+import com.stanzaliving.core.food.enums.CommercialTag;
+import com.stanzaliving.core.food.enums.DishRegion;
 import com.stanzaliving.core.food.enums.FoodItemType;
+import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
 
@@ -72,4 +77,32 @@ public class FoodItemDto extends AbstractDto {
 	private Boolean menuTypeEligible;
 
 	private boolean dataComplete;
+
+	private boolean addOnEnabled;
+
+	private RecipeType recipeType;
+
+	private String recipeTypeName;
+
+	private String description;
+
+	private CommercialTag commercialTag;
+
+	private String commercialTagName;
+
+	private boolean eggPresent;
+
+	private UnitOfMeasurement unitOfMeasurement;
+
+	private String unitOfMeasurementName;
+
+	private DishRecipeDetailsDto dishRecipeDetailsDto;
+
+	private String imageUrl;
+
+	private DishRegion dishRegion;
+
+	private String dishRegionName;
+
+	private Integer shelfLife;
 }
