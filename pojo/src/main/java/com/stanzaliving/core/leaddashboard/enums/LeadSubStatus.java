@@ -7,14 +7,14 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum LeadSubStatus {
 
-	NEW_LEAD("New Lead","#F45E58"),
+	NEW_LEAD("New Lead","#6D7278"),
 	CALLED("Called","#F45E58"),
 	CONNECTED("Connected","#F45E58"),
 	QUALIFIED("Qualified","#F45E58"),
 	PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow Up","#F45E58"),
 	RNR("RNR","#50514F"),
 	
-	BOOKED("Booked", "#F45E58"),
+	BOOKED("Booked", "#6DD400"),
 	DISQUALIFIED("Disqualified","#F45E58"),
 
 	PRE_VISIT_FOLLOW_UP("Pre Visit Follow Up","#F45E58"),
@@ -26,7 +26,7 @@ public enum LeadSubStatus {
 	VISIT_1_STARTED("Visit 1 Started","#EEC583"),
 	VISIT_1_SCHEDULED("Visit 1 Scheduled","#EEC583"),
 	VISIT_1_COMPLETED("Visit 1 Completed","#EEC583"),
-	POST_VISIT_1_DROP("Post Visit 1 Drop","#EEC583"),
+	POST_VISIT_1_DROP("Post Visit 1 Drop","#E02020"),
 	POST_VISIT_1_FOLLOW_UP("Post Visit 1 Follow Up","#EEC583"),
 	POST_VISIT_1_FOLLOW_UP_COMPLETED("Post Visit 1 Follow Up Completed","#EEC583"),
 	
