@@ -38,7 +38,9 @@ public abstract class BaseConsumer<T> {
 
 				log.info("BaseConsumer:: Retrived class: {}", clazz);
 
-				data = getDto(record, clazz);
+				data = objectMapper.readValue(record.value(), clazz);
+
+				log.info("BaseConsumer:: Retrieved object: {}", data);
 
 			} else {
 				log.warn("BaseConsumer:: Kafka Record Missing key");
@@ -53,7 +55,9 @@ public abstract class BaseConsumer<T> {
 		return data;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected T getDto(ConsumerRecord<String, String> record, Class clazz) {
+
 		record.headers().forEach(header -> {
 			if (StanzaConstants.MESSAGE_ID.equalsIgnoreCase(header.key()))
 				MDC.put(StanzaConstants.GUID, new String(header.value()));
