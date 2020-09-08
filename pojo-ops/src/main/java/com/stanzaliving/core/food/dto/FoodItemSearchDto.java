@@ -53,4 +53,6 @@ public class FoodItemSearchDto extends AbstractDto {
 	private String subCategory;
 
 	private RecipeType recipeType;
+	
+	private Boolean dataComplete;
 }
