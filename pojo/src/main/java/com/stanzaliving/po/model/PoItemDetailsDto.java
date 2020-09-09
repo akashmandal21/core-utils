@@ -51,7 +51,7 @@ public class PoItemDetailsDto {
 
     private String hsnCode;
     
-    private int totalGst;
+    private double totalGst;
 
     private BigDecimal remainingItemQuantity;
 
