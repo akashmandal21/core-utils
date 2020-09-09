@@ -69,7 +69,7 @@ public class CoreClientApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, UserDetailDto.class);
 		} catch (Exception e) {
-			log.error("Error while getting user Details from Core by userCode. " + path + queryParams.toString(), e);
+			log.error("Error while getting user Details from Core by userCode: {}", userCode, e);
 		}
 		return null;
 	}
