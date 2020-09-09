@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.query;
 
 import java.time.LocalDate;
 
+import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.operations.enums.MealType;
 
@@ -53,5 +54,7 @@ public class FoodOrderPackagedItemsQueryDto {
 	private boolean defaultMenu;
 
 	private String comments;
+
+	private UnitOfMeasurement unitOfMeasurement;
 
 }
