@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.response;
 
 import java.time.LocalDate;
 
+import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodRegion;
@@ -51,4 +52,6 @@ public class FoodOrderComboItemsDto {
 	private Double itemWeight;
 
 	private FoodRegion foodRegion;
+
+	private UnitOfMeasurement unitOfMeasurement;
 }

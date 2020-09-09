@@ -1,12 +1,12 @@
 package com.stanzaliving.core.food.dto;
 
-import com.stanzaliving.core.food.enums.FoodItemType;
-import lombok.Builder;
-import lombok.Data;
-
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import com.stanzaliving.core.food.enums.FoodItemType;
+
+import lombok.Builder;
+import lombok.Data;
 
 @Data
 @Builder

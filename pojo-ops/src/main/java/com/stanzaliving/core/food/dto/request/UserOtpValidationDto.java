@@ -1,9 +1,11 @@
 package com.stanzaliving.core.food.dto.request;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import javax.validation.constraints.NotBlank;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -18,6 +20,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserOtpValidationDto {
+
 	private String mobile;
 
 	private String otp;

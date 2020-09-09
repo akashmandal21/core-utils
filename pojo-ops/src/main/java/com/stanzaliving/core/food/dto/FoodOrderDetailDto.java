@@ -85,4 +85,5 @@ public class FoodOrderDetailDto {
 
 	private boolean packaged;
 
+	private String comments;
 }

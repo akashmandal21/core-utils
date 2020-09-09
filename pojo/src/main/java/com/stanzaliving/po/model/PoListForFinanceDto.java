@@ -4,6 +4,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @Builder
@@ -19,11 +21,11 @@ public class PoListForFinanceDto {
 
     private String houseName;
 
-    private String cityId;
+    private Long cityId;
 
     private String poStatus;
 
-    private Double amountAlreadyPaid;
+    private BigDecimal amountAlreadyPaid;
 
     private String paymentStatus;
 

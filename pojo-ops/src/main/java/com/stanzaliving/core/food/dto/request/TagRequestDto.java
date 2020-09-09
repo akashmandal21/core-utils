@@ -5,6 +5,7 @@ package com.stanzaliving.core.food.dto.request;
 
 import javax.validation.constraints.NotBlank;
 
+import com.stanzaliving.core.food.enums.FoodItemType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,5 +28,8 @@ import lombok.experimental.SuperBuilder;
 public class TagRequestDto {
 
 	@NotBlank(message = "Tag Name Cannot be blank")
-	private String tagName;	
+	private String tagName;
+
+	@NotBlank(message = "Tag Type is mandatory")
+	private FoodItemType tagType;
 }

@@ -3,6 +3,7 @@ package com.stanzaliving.core.grn.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import com.stanzaliving.grn.GrnQuantity;
 import com.stanzaliving.po.enums.PoType;
@@ -27,7 +28,7 @@ public class GrnClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<List<GrnQuantity>> getGrnQuantityForPo(PoType poType, String poUuid) {
+    public ResponseDto<List<GrnQuantity>> getGrnQuantityForPo(PoType poType, String poUuid, String propertyUuid) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -43,6 +44,9 @@ public class GrnClientApi {
 
         queryParams.set("poType", poType.name());
         queryParams.set("poUuid", poUuid);
+
+        if (Objects.nonNull(propertyUuid))
+            queryParams.set("propertyUuid", propertyUuid);
 
         ParameterizedTypeReference<ResponseDto<List<GrnQuantity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GrnQuantity>>>() {
         };
