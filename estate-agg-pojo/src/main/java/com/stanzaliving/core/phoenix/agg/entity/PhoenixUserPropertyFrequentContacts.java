@@ -6,7 +6,7 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.stanzaliving.core.mongobase.entity.AbstractMongoEntity;
-import com.stanzaliving.core.phoenix.embeddedInfos.FrequentContacts;
+import com.stanzaliving.core.phoenix.embeddedinfos.FrequentContacts;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -218,7 +218,7 @@ public class DateUtil {
 		return Period.between(one, two).getYears();
 	}
 
-	public LocalDate convertToLocalDate(Date date) {
+	public LocalDate convertToLocalDate(Date date, String timeZone) {
 		if (date == null) {
 			return null;
 		}
@@ -227,11 +227,19 @@ public class DateUtil {
 			return ((java.sql.Date) date).toLocalDate();
 		}
 
-		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
+		ZoneId zoneId = ZoneId.of(timeZone);
 		Instant instant = date.toInstant();
 		return instant.atZone(zoneId).toLocalDate();
 	}
 
+	public LocalDate convertToLocalDate(Date date) {
+		return convertToLocalDate(date, StanzaConstants.IST_TIMEZONE);
+	}
+
+	public LocalDate convertToLocalDateFromUTC(Date date) {
+		return convertToLocalDate(date, StanzaConstants.UTC_TIMEZONE);
+	}
+	
 	public boolean isLocalDateExpired(LocalDate localDate) {
 		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
 		return localDate.isBefore(LocalDate.now(zoneId));
@@ -259,6 +267,11 @@ public class DateUtil {
 	public long daysBetween(Date one, Date two) {
 		long difference = ((one.getTime() - two.getTime()) / StanzaConstants.MILLI_SECONDS_IN_DAY);
 		return Math.abs(difference);
+	}
+
+	public long daysBetweenWithSign(Date one, Date two) {
+		long difference = ((one.getTime() - two.getTime()) / StanzaConstants.MILLI_SECONDS_IN_DAY);
+		return difference;
 	}
 
 	public int getMaxDaysInMonth(LocalDate date) {
