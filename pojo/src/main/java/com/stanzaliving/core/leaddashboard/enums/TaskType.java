@@ -14,8 +14,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum TaskType {
 
-	SYSTEM_GENERATED("System Generated"),
-	SELF_CREATED("Self Created");
+	SYSTEM_GENERATED("System Generated", "#E02020"),
+	SELF_CREATED("Self Created", "#6DD400");
 	
 	private String taskTypeDesc;
+	private String colorCode;
 }
