@@ -198,6 +198,10 @@ public class DateUtil {
 	public LocalDate convertToLocalDate(long timestamp) {
 		return Instant.ofEpochMilli(timestamp).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toLocalDate();
 	}
+	
+	public LocalDateTime convertToLocalDateTime(long timestamp) {
+		return Instant.ofEpochMilli(timestamp).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toLocalDateTime();
+	}
 
 	public Date convertToDate(LocalTime localTime) {
 
