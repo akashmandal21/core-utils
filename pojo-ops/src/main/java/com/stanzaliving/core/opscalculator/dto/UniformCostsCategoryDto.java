@@ -25,8 +25,18 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 @JsonIgnoreProperties({ "utilization" })
 public class UniformCostsCategoryDto extends CategoryDto {
-	
+
+	boolean rcOeUniformRequired;
+	boolean hkUniformRequired;
+
 	private int lifeOfUniform;
+
+	UniformRequirementDto rcOeUniformRequirementDto;
+	UniformRequirementDto hkUniformRequirementDto;
+
+	UniformRequirementDto rcOeUniformCharges;
+	UniformRequirementDto hkUniformCharges;
+
 
 	@Builder.Default
 	private int gst = Constants.GST_UNIFORM_COSTS_PERCENT;

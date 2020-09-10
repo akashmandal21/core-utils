@@ -27,12 +27,22 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "gstAmount" })
 public class EquipmentRentalCategoryDto extends CategoryDto {
 
-	private int vendingMachine;
+	private int vendingMachineCount;
+	private int vendingMachineRent;
+	private int vendingMachineCharges;
+
+	private int coffeeMachineCount;
+	private int coffeeMachineRent;
+	private int coffeeMachineCharges;
+
+	private Integer washingMachineCount;
+	private Integer washingMachineRent;
+	private Integer washingMachineCharges;
+
 
 	@Builder.Default
 	private boolean vendingMachineEnabled = false;
 
-	private int coffeeMachine;
 
 	@Builder.Default
 	private boolean coffeeMachineEnabled = false;

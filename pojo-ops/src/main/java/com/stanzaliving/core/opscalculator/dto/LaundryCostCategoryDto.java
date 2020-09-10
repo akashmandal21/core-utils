@@ -29,8 +29,9 @@ import lombok.experimental.SuperBuilder;
 public class LaundryCostCategoryDto extends CategoryDto {
 
 	private int clothesPerPersonPerMonth;
-	private int weightForClothes;
+	private double weightPerCloth;
 	private int costPerKg;
+	private int utilizationPercent;
 
 	@Builder.Default
 	private int gst = Constants.GST_LAUNDRY_PERCENT;

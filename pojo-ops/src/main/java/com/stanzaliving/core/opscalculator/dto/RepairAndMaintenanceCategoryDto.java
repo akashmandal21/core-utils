@@ -28,6 +28,7 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count", "rate", "utilization" })
 public class RepairAndMaintenanceCategoryDto extends CategoryDto {
 
+	private int facadeCleaningCharges;
 	private int buildingMaintenance;
 	private int repairAndMaintenance;
 

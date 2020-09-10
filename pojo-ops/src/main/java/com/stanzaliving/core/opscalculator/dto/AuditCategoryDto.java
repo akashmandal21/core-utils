@@ -26,6 +26,15 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "gstAmount" })
 public class AuditCategoryDto extends CategoryDto {
 
-	private int audit;
+	boolean isPhysicalAudit;
+	boolean isCctvAudit;
+
+	private int cctvAuditCostPerBed;
+	private int mgForCctvAudit;
+	private int physicalAuditCostPerMonth;
+
+
+	private int physicalAuditCharges;
+	private int cctvAuditCharges;
 
 }

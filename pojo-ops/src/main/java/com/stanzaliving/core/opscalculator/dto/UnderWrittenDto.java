@@ -22,13 +22,13 @@ public class UnderWrittenDto {
     private HouseKeepingCategoryDto houseKeepingCategoryDto;
     private SecurityCategoryDto securityCategoryDto;
 
-    
-    private RepairAndMaintenanceCategoryDto repairAndMaintenanceCategoryDto;
-    private SubscriptionAndSuppliesCategoryDto subscriptionAndSuppliesCategoryDto;
-    private LaundryCostCategoryDto laundryCostCategoryDto;
-    private EquipmentRentalCategoryDto equipmentRentalCategoryDto;
+
     private PersonnelCategoryDto personnelCategoryDto;
     private AuditCategoryDto auditCategoryDto;
     private UniformCostsCategoryDto uniformCostsCategoryDto;
+    private EquipmentRentalCategoryDto equipmentRentalCategoryDto;
+    private LaundryCostCategoryDto laundryCostCategoryDto;
+    private SubscriptionAndSuppliesCategoryDto subscriptionAndSuppliesCategoryDto;
+    private RepairAndMaintenanceCategoryDto repairAndMaintenanceCategoryDto;
     private UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
 }

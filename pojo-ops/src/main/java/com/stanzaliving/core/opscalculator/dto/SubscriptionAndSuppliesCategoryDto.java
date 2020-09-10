@@ -28,13 +28,15 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count", "rate", "utilization" })
 public class SubscriptionAndSuppliesCategoryDto extends CategoryDto {
 
-	private int internet;
+//	private int internet;
+//
+//	@Builder.Default
+//	private boolean internetEnabled = false;
 
-	@Builder.Default
-	private boolean internetEnabled = false;
-
-	private int cleaningSupplies;
-	private int foodSupplies;
+	private int suppliesCharges;
+	private boolean isSuppliesApplicable;
+	private int dthCharges;
+	private boolean isDthApplicable;
 
 	@Builder.Default
 	private int gst = Constants.GST_SUBSCRIPTION_SUPPLIES_PERCENT;
