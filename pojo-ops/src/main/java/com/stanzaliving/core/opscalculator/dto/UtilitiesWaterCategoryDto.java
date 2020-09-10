@@ -31,18 +31,41 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
 public class UtilitiesWaterCategoryDto extends CategoryDto {
 
-	private int drinkingWater;
-	private int dependability;
+	private int overallCharges;
+	private int fixedCharges;
+	private int variableCharges;
+	private int landlordReceivables;
+
+
+	private List<WaterSupplySource> waterSupplySource;
+	private String drinkingWaterSource;
 	private int avgStudentConsumptionPerDay;
-	private WaterSupplySource waterSupplySource;
+
+	private int govtSupplyDependencyWithoutTanker;
+	private int govtSupplyDependencyWithTanker;
+	private int govtSupplyFixedCharges;
+	private int govtSupplyUnitRate;
+
 
 	@Builder.Default
 	private WaterSupplySource[] allWaterSupplySources = WaterSupplySource.values();
 
 	@Builder.Default
-	private boolean waterTanker = false;
+	private List<WaterTankerSlotDetail> waterTankerSlotDetails = new ArrayList<WaterTankerSlotDetail>();
+
+
+	private int waterJarCapacity;
+	private int waterJarCost;
+	private int waterJarCount;
+
+	private int landlordReceivablePercent;
+	private String landlordReceivableCalculatedOn;
+
+
+	private int dependability;
 
 	@Builder.Default
-	private List<WaterTankerSlotDetail> waterTankerSlotDetails = new ArrayList<WaterTankerSlotDetail>();
+	private boolean waterTanker = false;
+
 
 }

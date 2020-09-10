@@ -26,6 +26,14 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "utilization" })
 public class SecurityCategoryDto extends CategoryDto {
 
+	private String securityType;
+	private int employeeCount;
+	private double ratePerMonth;
+
+	private int securityCharges;
+	private int inHouseSecurityCharges;
+
+
 	@Builder.Default
 	private int gst = Constants.GST_SECURITY_PERCENT;
 

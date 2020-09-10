@@ -25,8 +25,12 @@
 			<artifactId>guava</artifactId>
 			<version>29.0-jre</version>
 		</dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<parent>
 		<groupId>com.stanzaliving.core</groupId>

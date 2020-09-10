@@ -28,6 +28,24 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count" })
 public class FoodCategoryDto extends CategoryDto {
 
+	Double menuPricePerDay;
+
+	Integer weekDays;
+	Integer weekdayUtilization;
+	Integer weekendDays;
+	Integer weekendUtilization;
+	Integer holidays;
+	Integer holidayUtilization;
+	Integer specialDayUtilization;
+	Integer opsSLStaffPerDay;
+	Integer opsNonSLMorningStaffPerDay;
+	Integer opsNonSLEveningStaffPerDay;
+	Integer overallUtilization;
+
+
+
+
+
 	@Builder.Default
 	private int gst = Constants.GST_FOOD_VENDOR_PERCENT;
 

@@ -27,5 +27,6 @@ public class WaterTankerSlotDetail {
 	private String endDate;
 	private int cost;
 	private int capacity;
+	private int dependency;
 
 }

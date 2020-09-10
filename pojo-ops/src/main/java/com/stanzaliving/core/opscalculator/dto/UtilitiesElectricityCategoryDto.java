@@ -29,16 +29,18 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "elecricityRoomMeterCost" })
 public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
-	private int acRooms;
-	private int fixedElectricityChargesPerKwh;
-	private int variableCostsForRoomPerMonth;
-	private int variableCostsForCommonAreaPerMonth;
-	private int acCostsForRoomForMonth;
-	private int avgFreeUnitsProvidedPerBed;
-	private int elecricityRoomMeterCost;
-	private int roomPassThroughAmount;
-	private int acPassThroughAmount;
-	
+	private int totalCharges;
+	private int fixedCharges;
+	private int variableCharges;
+	private int acPassThroughCharges;
+	private int roomPassThroughCharges;
+	private int landlordReceivables;
+
+	private PassThrough passThrough;
+
+	@Builder.Default
+	private boolean roomMeterRequired = false;
+
 	@Builder.Default
 	private int roomMeterOpexCostPerMonth = Constants.ELECTRICITY_ROOM_METER_OPEX_COST_PER_MONTH;
 
@@ -48,12 +50,35 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	@Builder.Default
 	private double loadForNonAcRooms = Constants.LOAD_FOR_NON_AC_ROOMS;
 
-	@Builder.Default
-	private boolean roomMeterRequired = false;
+	private int acRoomsCount;
+	private int avgFreeUnitsProvidedPerBed;
+	private double landlordReceivablesInPercent;
 
-	private PassThrough passThrough;
+	private int unitsInRoom;
+	private int unitsInCommonArea;
+	private int unitsForACPassThrough;
+	private double unitRateOfElectricityBoard;
+	private double unitRateForResidents;
+	private int electricityFixedCharges;
+	private double otherChargesPercent;
+	private double variableCostPerNonACRoom;
+	private double commonAreaVariableCostPerNonACRoom;
+	private double acVariableCostPerACRoom;
+
+	private int fixedElectricityChargesPerKwh;
 
 	@Builder.Default
 	private PassThrough[] allPassThroughs = PassThrough.values();
+
+
+
+	private int variableCostsForRoomPerMonth;
+	private int variableCostsForCommonAreaPerMonth;
+	private int acCostsForRoomForMonth;
+	private int elecricityRoomMeterCost;
+
+
+
+
 
 }
