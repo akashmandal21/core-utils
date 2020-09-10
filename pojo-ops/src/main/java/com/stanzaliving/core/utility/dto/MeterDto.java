@@ -24,5 +24,6 @@ public class MeterDto extends AbstractDto {
     private ReadingDto lReading;
     private ReadingDto oReading;
     private Double unitConsumed;
+    private Double average;
     private List<ReadingDto> readings;
 }
