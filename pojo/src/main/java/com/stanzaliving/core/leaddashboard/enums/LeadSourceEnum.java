@@ -75,14 +75,20 @@ public enum LeadSourceEnum {
 	private String leadSourceName;
 	
 	private static Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
-
+	private static Map<String, LeadSourceEnum> leadNameSourceMap = new HashMap<>();
+	
 	static {
 		for(LeadSourceEnum leadSource : LeadSourceEnum.values()) {
 			leadSourceDescMap.put(leadSource, leadSource.getLeadSourceName());
+			leadNameSourceMap.put(leadSource.getLeadSourceName(), leadSource);
 		}		
 	}
 	
 	public static Map<LeadSourceEnum, String> getLeadSources() {
 		return leadSourceDescMap;
+	}
+	
+	public static LeadSourceEnum getLeadSourceEnumByName(String name) {
+		return leadNameSourceMap.get(name);
 	}
 }
