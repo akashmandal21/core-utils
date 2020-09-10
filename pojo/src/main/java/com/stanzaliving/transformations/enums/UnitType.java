@@ -19,7 +19,9 @@ public enum UnitType {
     MANDAYS("Mandays"),
     PULSE("Pulse"),
     FLAT_RATE("Flat Rate"),
-    PERCENTAGE("Percentage");
+    PERCENTAGE("Percentage"),
+    LITERS("Ltrs"),
+    ;
 
     private String unitName;
 
