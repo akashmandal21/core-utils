@@ -5,6 +5,7 @@ package com.stanzaliving.core.food.dto;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -44,10 +45,12 @@ public class ExtraFoodOrderRequestDto {
 
 	@NotNull(message = "Veg Pax is mandatory")
 	@Min(value = 0, message = "Veg Pax Value cannot be less than 0")
+	@Max(value = 999, message = "Veg Pax Value cannot be more than 999")
 	private Integer vegPax;
 
 	@NotNull(message = "Non Veg Pax is mandatory")
 	@Min(value = 0, message = "Non Veg Pax Value cannot be less than 0")
+	@Max(value = 999, message = "Non Veg Pax Value cannot be more than 999")
 	private Integer nonVegPax;
 
 	@NotBlank(message = "Extra Food Order Reason is mandatory")
