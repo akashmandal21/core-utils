@@ -34,6 +34,7 @@ public class InstallmentUIResponseDto {
 	private String balance;
 	private String fromToDateStr;
 	private String dueDateStr;
+	private Boolean discountApplied;
 	private List<InstallmentLineItemUIResponseDto> installmentLineItems;
 
 }

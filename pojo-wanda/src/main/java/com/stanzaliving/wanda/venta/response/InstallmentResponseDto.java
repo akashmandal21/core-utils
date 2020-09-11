@@ -22,6 +22,7 @@ public class InstallmentResponseDto {
     private Double amountPaid;
     private Double amountDue;
     private String dueDateStr;
+    private Boolean discountApplied;
     private List<InstallmentLineItemResponseDto> installmentLineItemResponseDtoList;
     
 }
