@@ -1,6 +1,5 @@
 package com.stanzaliving.core.leaddashboard.enums;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -18,7 +17,7 @@ public enum LeadSubStatus {
 	CONNECTED("Connected","#F45E58"),
 	QUALIFIED("Qualified","#6236FF"),
 	PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow Up","#44D7B6"),
-	RNR("RNR","#50514F"),
+	RNR("RNR","#32C5FF"),
 	
 	BOOKED("Booked", "#6DD400"),
 	DISQUALIFIED("Disqualified","#FA6400"),
