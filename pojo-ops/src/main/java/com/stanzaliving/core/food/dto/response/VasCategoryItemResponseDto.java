@@ -24,5 +24,5 @@ public class VasCategoryItemResponseDto {
 
 	private String categoryName;
 
-	private List<VasMealItemResponseDto> items;
+	private List<ItemCostResponseDto> items;
 }

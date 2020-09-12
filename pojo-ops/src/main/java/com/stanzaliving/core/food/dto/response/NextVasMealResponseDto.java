@@ -32,6 +32,6 @@ public class NextVasMealResponseDto {
 
 	private LocalDate mealDate;
 
-	private List<VasMealItemResponseDto> items;
+	private List<ItemCostResponseDto> items;
 
 }

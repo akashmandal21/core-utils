@@ -19,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class VasMealItemResponseDto {
+public class ItemCostResponseDto {
 	private String itemId;
 
 	private String itemName;
