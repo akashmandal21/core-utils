@@ -7,10 +7,8 @@ import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -40,5 +38,7 @@ public class FoodOrderMasterResponseDto {
 	private PackageCollectionStatus orderStatus;
 
 	private String foodOrderId;
+
+	private List<ItemCostResponseDto> items;
 
 }
