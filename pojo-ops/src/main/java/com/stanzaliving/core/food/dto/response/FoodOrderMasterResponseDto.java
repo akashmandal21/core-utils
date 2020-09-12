@@ -30,13 +30,19 @@ public class FoodOrderMasterResponseDto {
 
 	private FoodOrderType orderType;
 
+	private String orderTypeName;
+
 	private MealType mealType;
+
+	private String mealTypeName;
 
 	private String userId;
 
 	private LocalDate menuDate;
 
 	private PackageCollectionStatus orderStatus;
+
+	private String orderStatusName;
 
 	private String foodOrderId;
 
