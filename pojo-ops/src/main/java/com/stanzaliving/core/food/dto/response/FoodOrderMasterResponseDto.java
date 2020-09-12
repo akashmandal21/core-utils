@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto.response;
 
 
+import com.stanzaliving.core.food.dto.PriceDto;
 import com.stanzaliving.core.food.enums.FoodOrderType;
 import com.stanzaliving.core.food.enums.PackageCollectionStatus;
 import com.stanzaliving.core.operations.enums.MealType;
@@ -40,5 +41,7 @@ public class FoodOrderMasterResponseDto {
 	private String foodOrderId;
 
 	private List<ItemCostResponseDto> items;
+
+	private PriceDto prices;
 
 }
