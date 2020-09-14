@@ -1,6 +1,5 @@
 package com.stanzaliving.core.utility.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.transformations.enums.UnitType;
 import lombok.*;

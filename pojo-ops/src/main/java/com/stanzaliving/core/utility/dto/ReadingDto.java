@@ -1,11 +1,11 @@
 package com.stanzaliving.core.utility.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Getter
 @Setter
@@ -15,6 +15,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class ReadingDto extends AbstractDto {
     private Double reading;
-    private Date time;
+    private LocalDate time;
     private String image;
 }
