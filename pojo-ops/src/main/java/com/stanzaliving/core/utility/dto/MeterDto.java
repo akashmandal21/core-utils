@@ -11,11 +11,10 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MeterDto extends AbstractDto {
     private String tag;
     @NotBlank(message = "Meter Number Cannot be blank")

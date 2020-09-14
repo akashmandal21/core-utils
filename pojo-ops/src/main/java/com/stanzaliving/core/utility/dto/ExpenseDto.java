@@ -11,11 +11,10 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ExpenseDto extends AbstractDto {
     private String uuid;
     @NotBlank(message = "Type Id Cannot be Blank")

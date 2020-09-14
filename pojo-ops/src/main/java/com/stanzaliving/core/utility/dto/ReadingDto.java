@@ -9,11 +9,10 @@ import java.util.Date;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ReadingDto extends AbstractDto {
     private Double reading;
     private Date time;

@@ -9,11 +9,10 @@ import javax.validation.constraints.Min;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ExpenseDetailsDto extends AbstractDto {
     private Integer capacity;
     @Min(value = 0, message = "Rate Cannot Be Less Than Zero")

@@ -9,11 +9,10 @@ import java.util.Date;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class StatusReasonDto {
     private Date time;
     @NotBlank(message = "Reason Cannot be blank")

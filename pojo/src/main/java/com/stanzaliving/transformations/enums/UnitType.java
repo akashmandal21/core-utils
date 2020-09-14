@@ -20,7 +20,7 @@ public enum UnitType {
     PULSE("Pulse"),
     FLAT_RATE("Flat Rate"),
     PERCENTAGE("Percentage"),
-    LITERS("Ltrs"),
+    LITERS("Ltrs")
     ;
 
     private String unitName;

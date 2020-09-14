@@ -11,16 +11,16 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UtilityMasterDto extends AbstractDto {
     @NotBlank(message = "Name Cannot Be Blank")
     private String name;
     private String description;
     private UnitType unit;
+    private String unitName;
     private boolean expenseAllowed;
     private boolean metered;
     private List<UtilityExpenseTypeDto> type;
