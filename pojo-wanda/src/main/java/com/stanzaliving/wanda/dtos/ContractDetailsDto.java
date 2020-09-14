@@ -28,5 +28,6 @@ public class ContractDetailsDto {
 	private String securityDeposit;
 	private String advanceFee;
 	private String maintenanceFee;
+	private String contractEndDate;
 
 }
