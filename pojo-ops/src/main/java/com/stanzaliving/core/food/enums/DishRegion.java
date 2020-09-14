@@ -20,20 +20,20 @@ import java.util.Map;
 @Getter
 @AllArgsConstructor
 public enum DishRegion {
-	INDIAN("Mix"),
+
+	MIX("Mix"),
 	NORTH("North Indian"),
 	SOUTH("South Indian"),
 	CONTINENTAL("Continental");
 
 	private String regionName;
 
-
 	private static Map<String, DishRegion> dishRegionNameMap = new HashMap<>();
 
 	private static List<ListingDto> dishRegionListing = new ArrayList<>();
 
 	static {
-		for(DishRegion dishRegion: DishRegion.values()) {
+		for (DishRegion dishRegion : DishRegion.values()) {
 			dishRegionNameMap.put(dishRegion.getRegionName(), dishRegion);
 			dishRegionListing.add(ListingDto.builder().id(dishRegion.name()).name(dishRegion.getRegionName()).build());
 		}
