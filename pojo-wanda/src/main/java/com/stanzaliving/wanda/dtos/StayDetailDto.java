@@ -4,8 +4,6 @@
  */
 package com.stanzaliving.wanda.dtos;
 
-import com.stanzaliving.wanda.venta.response.ResidenceServicesDetailsDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,6 +25,6 @@ public class StayDetailDto {
 
 	private StayResidenceDto residenceDetails;
 	private StayDuesDto dueDetails;
-	private ResidenceServicesDetailsDto serviceDetails;
+	private StayServicesDto serviceDetails;
 
 }

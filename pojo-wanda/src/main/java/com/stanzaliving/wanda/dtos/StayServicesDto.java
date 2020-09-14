@@ -22,8 +22,8 @@ import lombok.experimental.SuperBuilder;
 public class StayServicesDto {
 
 	private String packagedServicesText;
-	private List<StayServicesDetailDto> packagedServices;
+	private List<PackagedServicesDto> packagedServices;
 	private String valueAddedServicesText;
-	private List<StayServicesDetailDto> valueAddedServices;
+	private List<VasServicesDto> valueAddedServices;
 
 }
