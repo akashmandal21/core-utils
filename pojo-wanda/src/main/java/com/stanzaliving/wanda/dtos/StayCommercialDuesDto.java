@@ -29,5 +29,6 @@ public class StayCommercialDuesDto {
 	private String paidThisMonth;
 	private String currentDues;
 	private String totalPaid;
+	private String month;
 
 }
