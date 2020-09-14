@@ -1,11 +1,12 @@
 package com.stanzaliving.core.phoenix.embeddedinfos;
 
-import com.stanzaliving.core.estate.embeddedInfos.LeadershipInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
+
+import com.stanzaliving.core.estate.embeddedinfos.LeadershipInfo;
 
 import java.time.LocalDate;
 import java.util.Date;

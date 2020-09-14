@@ -13,8 +13,12 @@
 			<artifactId>pojo</artifactId>
 			<version>${global.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+		</dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<parent>
 		<groupId>com.stanzaliving.core</groupId>

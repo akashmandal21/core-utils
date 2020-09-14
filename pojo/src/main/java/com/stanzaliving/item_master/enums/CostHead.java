@@ -11,8 +11,11 @@ import java.util.Map;
 public enum CostHead {
 
     BRANDING("Branding"),
-    LEAD_GEN("Lead Gen");
+    LEAD_GEN("Lead Gen"),
+    CAPEX("Capex"),
+    OPEX("Opex");
 
+    
     private String costHeadText;
 
     public static Map<String, CostHead> costHeadByNameMap = new HashMap<>();
