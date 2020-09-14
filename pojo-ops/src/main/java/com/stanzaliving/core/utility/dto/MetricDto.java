@@ -1,5 +1,6 @@
 package com.stanzaliving.core.utility.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.transformations.enums.UnitType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -15,6 +16,7 @@ public class MetricDto {
     private Double value;
     private String unitName;
 
+    @JsonProperty("unitName")
     public String getUnitName() {
         return unit == null ? null : unit.getUnitName();
     }
