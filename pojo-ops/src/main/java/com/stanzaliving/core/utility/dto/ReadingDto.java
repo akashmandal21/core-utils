@@ -4,7 +4,7 @@ import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 
 @Getter
@@ -15,6 +15,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class ReadingDto extends AbstractDto {
     private Double reading;
-    private LocalDate time;
+    private Date time;
     private String image;
 }

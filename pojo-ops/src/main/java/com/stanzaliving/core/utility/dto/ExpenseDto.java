@@ -5,7 +5,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -19,7 +19,7 @@ public class ExpenseDto extends AbstractDto {
     @NotBlank(message = "Type Id Cannot be Blank")
     private String typeId;
     private String name;
-    private LocalDate time;
+    private Date time;
     private Double amount;
     @NotBlank(message = "Bill Photo is mandatory for expense")
     private String image;

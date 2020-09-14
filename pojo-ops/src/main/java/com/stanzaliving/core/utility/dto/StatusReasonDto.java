@@ -4,7 +4,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StatusReasonDto {
-    private LocalDate time;
+    private Date time;
     @NotBlank(message = "Reason Cannot be blank")
     private String reason;
     private ReadingDto reading;
