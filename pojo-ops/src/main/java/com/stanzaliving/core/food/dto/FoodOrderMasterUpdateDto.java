@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodOrderType;
 import com.stanzaliving.core.food.enums.PackageCollectionStatus;
 import com.stanzaliving.core.operations.enums.MealType;
@@ -39,4 +40,6 @@ public class FoodOrderMasterUpdateDto{
 	private PackageCollectionStatus orderStatus;
 
 	private String foodOrderId;
+
+	private FoodItemType foodPreference;
 }
