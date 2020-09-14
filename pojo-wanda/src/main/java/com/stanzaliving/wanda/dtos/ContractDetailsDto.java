@@ -29,5 +29,6 @@ public class ContractDetailsDto {
 	private String advanceFee;
 	private String maintenanceFee;
 	private String contractEndDate;
+	private String contractPeriodText;
 
 }
