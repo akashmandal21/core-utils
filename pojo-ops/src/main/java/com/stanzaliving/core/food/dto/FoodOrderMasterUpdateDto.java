@@ -12,6 +12,7 @@ import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -42,4 +43,8 @@ public class FoodOrderMasterUpdateDto{
 	private String foodOrderId;
 
 	private FoodItemType foodPreference;
+
+	private LocalTime mealStartTime;
+
+	private LocalTime mealEndTime;
 }
