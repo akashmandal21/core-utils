@@ -90,6 +90,39 @@ public enum LeadSubStatus {
 		
 		return followUpVisitScheduledStatus.contains(leadSubStatus);
 	}
+
+	public static boolean visitToBeScheduledStatus(LeadSubStatus leadSubStatus) {
+		
+		Set<LeadSubStatus> visitToBeScheduled = new HashSet<>();
+		
+		visitToBeScheduled.add(QUALIFIED);
+		visitToBeScheduled.add(PRE_VISIT_SCHEDULED_FOLLOW_UP);
+		
+		return visitToBeScheduled.contains(leadSubStatus);
+	}
+	
+	public static boolean visitOneScheduled(LeadSubStatus leadSubStatus) {
+		
+		Set<LeadSubStatus> visitOneSchedule = new HashSet<>();
+		
+		visitOneSchedule.add(PRE_VISIT_FOLLOW_UP);
+		visitOneSchedule.add(VISIT_1_SCHEDULED);
+		
+		return visitOneSchedule.contains(leadSubStatus);
+	}
+	
+	public static boolean visitStarted(LeadSubStatus leadSubStatus) {
+		
+		Set<LeadSubStatus> visitStarted = new HashSet<>();
+		
+		visitStarted.add(VISIT_1_STARTED);
+		visitStarted.add(VISIT_2_STARTED);
+		visitStarted.add(VISIT_3_STARTED);
+		visitStarted.add(VISIT_4_STARTED);
+		visitStarted.add(VISIT_5_STARTED);
+		
+		return visitStarted.contains(leadSubStatus);
+	}
 	
 	public static Map<LeadSubStatus, String> pieChartStatuses() {
 		
@@ -101,6 +134,7 @@ public enum LeadSubStatus {
 		pieChartStatus.put(LeadSubStatus.PRE_QUALIFICATION_FOLLOW_UP, "Prequalification Follow Up Needed");
 		pieChartStatus.put(LeadSubStatus.QUALIFIED, "Visit to be scheduled");
 		pieChartStatus.put(LeadSubStatus.VISIT_1_SCHEDULED, "Visit 1 Scheduled");
+		pieChartStatus.put(LeadSubStatus.VISIT_1_STARTED, "Visit Started");
 		pieChartStatus.put(LeadSubStatus.VISIT_2_SCHEDULED, "Follow Up Visit Scheduled");
 		pieChartStatus.put(LeadSubStatus.POST_VISIT_1_FOLLOW_UP, "Post Visit Follow Up Needed");
 		pieChartStatus.put(LeadSubStatus.BOOKED, "Booked");
