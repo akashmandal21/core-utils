@@ -20,6 +20,7 @@ public enum DateFormat {
 	COMMENT_FORMAT("dd/MM/YYYY (HH:mm)"),
 	MONTH_FULL_NAME("MMMM"),
 	DD_MMM("dd MMM"),
+	MMM("MMM"),
 	DD_MMM_YY("dd MMM''YY"),
 	D_DD_MMM_YY("EEE, dd MMM''YY"),
 	WEEK_OF_YEAR("w"),
