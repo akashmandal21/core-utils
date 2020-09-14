@@ -16,4 +16,8 @@ public class MetricDto {
     private UnitType unit;
     private Double value;
     private String unitName;
+
+    public String getUnitName() {
+        return unit == null ? null : unit.getUnitName();
+    }
 }
