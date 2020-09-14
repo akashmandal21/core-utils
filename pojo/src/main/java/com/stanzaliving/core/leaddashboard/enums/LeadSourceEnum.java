@@ -68,6 +68,7 @@ public enum LeadSourceEnum {
 	UNATTRIBUTED("Unattributed"),
 	WEBSITE("Website"),
 	WEBSITE_VISIT("WebSite Visit"),
+	WEBSITE_RESIDENCE_CARD("Website - Residence Card"),
 	WHATSAPP("Whatsapp"),
 	ZOHO("Zoho");
 
