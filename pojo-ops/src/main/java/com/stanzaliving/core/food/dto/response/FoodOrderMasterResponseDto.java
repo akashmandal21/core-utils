@@ -41,9 +41,9 @@ public class FoodOrderMasterResponseDto {
 
 	private LocalDate menuDate;
 
-	private PackageCollectionStatus orderStatus;
+	private PackageCollectionStatus collectionStatus;
 
-	private String orderStatusName;
+	private String collectionStatusName;
 
 	private String foodOrderId;
 
