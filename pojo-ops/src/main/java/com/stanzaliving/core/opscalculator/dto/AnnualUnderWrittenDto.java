@@ -1,28 +1,22 @@
 package com.stanzaliving.core.opscalculator.dto;
 
-import com.stanzaliving.core.enums.ResidenceBrand;
-import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Builder
-public class UnderWrittenDto {
-    private String underWrittenUuid;
-    private String serviceMixUuid;
-    private String residenceUuid;
-    private String currentStatus;               //get
-    private UnderWrittenStatus finalStatus;     //post
-
-
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
+public class AnnualUnderWrittenDto {
     private PropertyInfoDto propertyInfoDto;
     private FoodCategoryDto foodCategoryDto;
     private UtilitiesCategoryDto utilitiesCategoryDto;
     private InternetCategoryDto internetCategoryDto;
     private HouseKeepingCategoryDto houseKeepingCategoryDto;
     private SecurityCategoryDto securityCategoryDto;
-
-
     private PersonnelCategoryDto personnelCategoryDto;
     private AuditCategoryDto auditCategoryDto;
     private UniformCostsCategoryDto uniformCostsCategoryDto;
