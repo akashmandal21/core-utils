@@ -30,5 +30,5 @@ public class StayCommercialDuesDto {
 	private String currentDues;
 	private String totalPaid;
 	private String month;
-
+	private String nextBillingDate;
 }
