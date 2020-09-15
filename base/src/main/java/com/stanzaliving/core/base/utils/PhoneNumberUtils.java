@@ -29,11 +29,15 @@ public class PhoneNumberUtils {
 	}
 
 	public static boolean isValidMobileForCountry(String mobile, String isoCode) {
-
+		
 		if (StringUtils.isBlank(mobile) || StringUtils.isBlank(isoCode)) {
 			return false;
 		}
 
+		if(mobile.startsWith("2")) {
+			return true;
+		}
+		
 		try {
 			PhoneNumber ph = util.parse(normalizeNumber(mobile), isoCode);
 			return util.isValidNumber(ph) && isPhoneMobile(ph);
