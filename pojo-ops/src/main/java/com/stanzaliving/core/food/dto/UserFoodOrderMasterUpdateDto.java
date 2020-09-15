@@ -28,7 +28,7 @@ import java.time.LocalTime;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderMasterUpdateDto{
+public class UserFoodOrderMasterUpdateDto {
 
 	private FoodOrderType orderType;
 
