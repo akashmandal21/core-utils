@@ -20,8 +20,10 @@ import java.time.LocalDate;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ApplicableMealDto {
+public class NextApplicableMealDto {
 	private MealType nextMeal;
+
+	private String nextMealName;
 
 	private LocalDate mealDate;
 }
