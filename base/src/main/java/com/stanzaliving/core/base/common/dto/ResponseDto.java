@@ -40,7 +40,7 @@ public class ResponseDto<T> {
 		this.message = message;
 	}
 
-	private ResponseDto(boolean status, String message, T data) {
+	protected ResponseDto(boolean status, String message, T data) {
 		this(status, message);
 		this.data = data;
 	}

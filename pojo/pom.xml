@@ -19,8 +19,6 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
-
 	<parent>
 		<groupId>com.stanzaliving.core</groupId>
 		<artifactId>core-utils</artifactId>

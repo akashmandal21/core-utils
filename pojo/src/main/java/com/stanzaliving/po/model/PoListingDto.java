@@ -35,4 +35,6 @@ public class PoListingDto {
 
     private String backgroundColorCode;
 
+    private Boolean isCancellationRejected;
+
 }

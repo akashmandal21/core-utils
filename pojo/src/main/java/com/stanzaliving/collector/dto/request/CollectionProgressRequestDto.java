@@ -11,6 +11,6 @@ import java.util.List;
 @Data
 @ToString(callSuper = true)
 public class CollectionProgressRequestDto extends BaseRequestDto {
-    @NotNull
+    @NotNull(message = "ResidenceTypeList must not be null")
     List<ResidenceType> residenceTypeList;
 }

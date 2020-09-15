@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.ObjectUtils;
 
 import com.stanzaliving.core.base.utils.StanzaUtils;
 import com.stanzaliving.core.food.dto.request.FoodMenuCategoryMealDto;
@@ -51,48 +52,115 @@ public class MenuCategoryMealUtils {
 		return count;
 	}
 
-	public Double getTruePaxPrice(FullCategoryDto foodMenuCategory, List<FoodMenuCategoryMealDto> mealDtos) {
+	public Double getFnBPaxPrice(FullCategoryDto foodMenuCategory) {
+		return getFnBPaxPrice(foodMenuCategory, foodMenuCategory.getMeals());
+	}
+
+	public Double getFnBPaxPrice(FullCategoryDto foodMenuCategory, List<FoodMenuCategoryMealDto> mealDtos) {
 
 		FoodMenuCategoryMetadataDto categoryMetadataDto = foodMenuCategory.getCategory();
-		return getTruePaxPrice(
-				mealDtos, categoryMetadataDto.getStanzaKitchen(), categoryMetadataDto.getUtilityCost(), categoryMetadataDto.getPackagingCost(), categoryMetadataDto.getFoodMargin());
+		return getFnBPaxPrice(mealDtos, categoryMetadataDto.getUtilityCost(), categoryMetadataDto.getPackagingCost(), categoryMetadataDto.getFoodMargin());
 
 	}
 
-	public Double getTruePaxPrice(List<FoodMenuCategoryMealDto> mealDtos, boolean stanzaKitchen, Double utilityCost, Double packagingCost, Double foodMargin) {
+	public Double getFnBPaxPrice(List<FoodMenuCategoryMealDto> mealDtos, Double utilityCost, Double packagingCost, Double foodMargin) {
+
+		double fnbCost = 0d;
+
+		int totalMealsInWeek = getWeeklyMealCount(mealDtos);
+
+		if (totalMealsInWeek > 0) {
+
+			for (FoodMenuCategoryMealDto categoryMealDto : mealDtos) {
+
+				double mealCost = getMealFnBCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+
+				fnbCost += mealCost;
+			}
+		}
+
+		return StanzaUtils.roundOff(fnbCost);
+	}
+
+	public Double getTruePaxPrice(FullCategoryDto foodMenuCategory) {
+		return getTruePaxPrice(foodMenuCategory, foodMenuCategory.getMeals());
+	}
+
+	public Double getTruePaxPrice(FullCategoryDto foodMenuCategory, List<FoodMenuCategoryMealDto> mealDtos) {
+
+		FoodMenuCategoryMetadataDto categoryMetadataDto = foodMenuCategory.getCategory();
+		return getTruePaxPrice(mealDtos, categoryMetadataDto.getUtilityCost(), categoryMetadataDto.getPackagingCost(), categoryMetadataDto.getFoodMargin());
+
+	}
+
+	public Double getTruePaxPrice(List<FoodMenuCategoryMealDto> mealDtos, Double utilityCost, Double packagingCost, Double foodMargin) {
 
 		double trueCost = 0d;
 
-		if (stanzaKitchen) {
+		int totalMealsInWeek = getWeeklyMealCount(mealDtos);
 
-			int totalMealsInWeek = MenuCategoryMealUtils.getWeeklyMealCount(mealDtos);
+		if (totalMealsInWeek > 0) {
 
-			if (totalMealsInWeek > 0) {
+			for (FoodMenuCategoryMealDto categoryMealDto : mealDtos) {
 
-				for (FoodMenuCategoryMealDto categoryMealDto : mealDtos) {
+				double mealCost = getMealTrueCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
 
-					double mealCost = getMealTrueCost(categoryMealDto, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
-
-					trueCost += mealCost;
-				}
-
+				trueCost += mealCost;
 			}
+
 		}
 
 		return StanzaUtils.roundOff(trueCost);
 	}
 
-	public double getMealTrueCost(FoodMenuCategoryMealDto categoryMealDto, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+	public double getMealFnBCost(FoodMenuCategoryMealDto categoryMealDto, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+		return getMealFnBCost(categoryMealDto, categoryMealDto.getExpectedVegCost(), utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+	}
 
-		int mealActiveDays = MenuCategoryMealUtils.getDaysPerWeekCount(categoryMealDto);
+	public double getMealFnBCost(
+			FoodMenuCategoryMealDto categoryMealDto, Double mealPrice, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+
+		int mealActiveDays = getDaysPerWeekCount(categoryMealDto);
+
+		return getMealFnBCost(mealActiveDays, mealPrice, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+	}
+
+	public double getMealFnBCost(int mealActiveDays, Double mealPrice, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+
+		if (mealPrice <= 0) {
+			return mealPrice;
+		}
+		
+		utilityCost = ObjectUtils.defaultIfNull(utilityCost, 0d);
+		packagingCost = ObjectUtils.defaultIfNull(packagingCost, 0d);
+		foodMargin = ObjectUtils.defaultIfNull(foodMargin, 0d);
 
 		double mealUtilityCost = utilityCost * ((double) mealActiveDays / (double) totalMealsInWeek);
 		double mealPackagingCost = packagingCost * ((double) mealActiveDays / (double) totalMealsInWeek);
 
-		double mealCost =
-				(categoryMealDto.getExpectedVegCost() + mealUtilityCost + mealPackagingCost) / (1 - foodMargin / 100);
+		double mealCost = (mealPrice + mealUtilityCost + mealPackagingCost) / (1 - foodMargin / 100);
 
-		mealCost = mealCost * (7 / mealActiveDays);
+		return StanzaUtils.roundOff(mealCost);
+	}
+
+	public double getMealTrueCost(FoodMenuCategoryMealDto categoryMealDto, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+		return getMealTrueCost(categoryMealDto, categoryMealDto.getExpectedVegCost(), utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+	}
+
+	public double getMealTrueCost(
+			FoodMenuCategoryMealDto categoryMealDto, Double mealPrice, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+
+		int mealActiveDays = getDaysPerWeekCount(categoryMealDto);
+
+		return getMealTrueCost(mealActiveDays, mealPrice, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+	}
+
+	public double getMealTrueCost(
+			int mealActiveDays, Double mealPrice, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
+
+		double mealCost = getMealFnBCost(mealActiveDays, mealPrice, utilityCost, packagingCost, foodMargin, totalMealsInWeek);
+
+		mealCost = mealCost * ((double) 7 / (double) mealActiveDays);
 
 		return StanzaUtils.roundOff(mealCost);
 	}
