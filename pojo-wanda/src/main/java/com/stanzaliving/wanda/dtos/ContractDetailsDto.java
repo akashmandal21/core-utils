@@ -23,6 +23,7 @@ public class ContractDetailsDto {
 
 	private String contractPeriod;
 	private String lockInPeriod;
+	private String lockInPeriodText;
 	private String monthlyFee;
 	private String vasPerMonth;
 	private String securityDeposit;
