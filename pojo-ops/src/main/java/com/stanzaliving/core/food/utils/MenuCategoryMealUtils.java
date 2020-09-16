@@ -127,6 +127,10 @@ public class MenuCategoryMealUtils {
 
 	public double getMealFnBCost(int mealActiveDays, Double mealPrice, Double utilityCost, Double packagingCost, Double foodMargin, int totalMealsInWeek) {
 
+		if (mealPrice <= 0) {
+			return mealPrice;
+		}
+		
 		utilityCost = ObjectUtils.defaultIfNull(utilityCost, 0d);
 		packagingCost = ObjectUtils.defaultIfNull(packagingCost, 0d);
 		foodMargin = ObjectUtils.defaultIfNull(foodMargin, 0d);

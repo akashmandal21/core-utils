@@ -16,15 +16,14 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class VasOrderRequestDtoData {
-	
-	@NotNull(message = "Please choose item and quantity.") 
-	private List<VasItemOrder> vasItemOrders;
 
+	@NotNull(message = "Please choose item and quantity.")
+	private List<VasItemOrder> vasItemOrders;
 
 	@NotNull(message = "Please specify meal type.")
 	private MealType mealType;
