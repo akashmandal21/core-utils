@@ -30,4 +30,8 @@ public class TransactionInitiateDto {
 	private String pgOrderId;
 
 	private String callbackUrl;
+	
+	private Integer amount;
+	
+	private String currency;
 }
