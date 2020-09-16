@@ -219,6 +219,8 @@ public class AttributeNames {
 		public static final String LL_TOILETS_AT_TERRACE_REMARKS = "llToiletsAtTerraceRemarks";
 		public static final String FFL_ON_TERRACE_REMARKS = "fflOnTerraceRemarks";
 		public static final String LL_EXTERIOR_FACADE_REMARKS = "llExteriorFacadeRemarks";
+		public static final String PROTECTIVE_RAILING_REMARKS = "protectiveRailingRemarks";
+		public static final String EXTERIOR_FACADE_REMARKS = "terraceExteriorFacade";
 		public static final String ENTIRE_INTERIOR_SPACE_REMARKS = "entireInteriorSpaceRemarks";
 		public static final String ANY_CRACKS_IN_THE_WALLS_REMARKS = "anyCracksInTheWallsRemarks";
 		public static final String GENERAL_LIGHTING_REMARKS = "generalLightingRemarks";
@@ -358,6 +360,8 @@ public class AttributeNames {
 		public static final String TERRACE_AREA_CLAUSE_D_TEXT_AREA = "terraceAreaClauseDTextArea";
 		public static final String TERRACE_AREA_CLAUSE_E_TEXT_AREA = "terraceAreaClauseETextArea";
 		public static final String TERRACE_AREA_CLAUSE_F_TEXT_AREA = "terraceAreaClauseFTextArea";
+		public static final String TERRACE_AREA_CLAUSE_G_TEXT_AREA = "terraceAreaClauseGTextArea";
+		public static final String TERRACE_AREA_CLAUSE_H_TEXT_AREA = "terraceAreaClauseHTextArea";
 		public static final String OCCUPIED_LEVELS_CLAUSE_A_TEXT_AREA = "occupiedLevelsClauseATextArea";
 		public static final String OCCUPIED_LEVELS_CLAUSE_B_TEXT_AREA = "occupiedLevelsClauseBTextArea";
 		public static final String OCCUPIED_LEVELS_CLAUSE_C_TEXT_AREA = "occupiedLevelsClauseCTextArea";
@@ -576,6 +580,8 @@ public class AttributeNames {
 			landlordAgreedKeys.add("terraceLevelClauseDBoolean");
 			landlordAgreedKeys.add("terraceLevelClauseEBoolean");
 			landlordAgreedKeys.add("terraceLevelClauseFBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseGBoolean");
+			landlordAgreedKeys.add("terraceLevelClauseHBoolean");
 			landlordAgreedKeys.add("waterStorageClauseABoolean");
 			landlordAgreedKeys.add("waterSupplyClauseABoolean");
 			landlordAgreedKeys.add("waterSupplyClauseBBoolean");
