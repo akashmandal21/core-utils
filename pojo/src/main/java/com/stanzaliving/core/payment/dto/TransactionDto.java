@@ -46,4 +46,6 @@ public class TransactionDto extends AbstractDto {
 	private StanzaPaymentService paymentService;
 
 	private String serviceTransactionId;
+	
+	private String refundTransactionId;
 }
