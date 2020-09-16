@@ -24,6 +24,7 @@ public enum ItemType {
     AUDIO_STREAMING("Audio Streaming","Audio Ads"),
     B2B_RELATIONSHIPS("B2B Relationships","B2B Relationships"),
     COLLATERAL("Collateral","Collateral"),
+    ContestsAndAwards("Contests and Awards","Contests and Awards"),
     CRM("CRM","CRM"),
     CREDIT_NOTE("Credit Note","Credit Note"),
     DATABASE_RESEARCH("Database Research","Database"),
@@ -56,6 +57,7 @@ public enum ItemType {
     TEMP_STAFF_COST("Temp Staff Cost","Temp Staff Cost"),
     TRANSIT_MEDIA("Transit Media","Transit Media"),
     VIDEO_STREAMING("Video Streaming","Video Ads");
+
 
     private String typeText;
     private String newSubCategoryText;
