@@ -26,5 +26,6 @@ public class TransactionUIResponseDto {
 	private String merchantTransactionId;
 	private String transactionDate;
 	private String transactionTime;
+	private String invoiceName;
 	
 }

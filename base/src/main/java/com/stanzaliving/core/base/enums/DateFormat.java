@@ -29,6 +29,7 @@ public enum DateFormat {
 	DD_MMM_YYYY("dd-MMM-yyyy"),
 	DATE_TIME_TIME_ZONE("yyyy-MM-dd'T'HH:mm:ss'Z'"),
 	DD_SPACE_MMM_SPACE_YYYY("dd MMM yyyy"),
+	DDMMMYYYY("ddMMMyyyy"),
 	ELASTIC_SEARCH_WITH_MILI_SECONDS("yyyy-MM-dd HH:mm:ss.S"),
 	MMMM_YYYY("MMMM, yyyy"),//June, 2020
 	MMM_YYYY("MMM, yyyy"),
