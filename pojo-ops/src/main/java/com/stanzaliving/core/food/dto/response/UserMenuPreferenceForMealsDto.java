@@ -5,7 +5,6 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalTime;
-import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -34,6 +33,6 @@ public class UserMenuPreferenceForMealsDto {
 
 	private LocalTime preferenceWindowCloseTime;
 	
-	private ApplicableMealDto nextVasMeal;
+	private NextApplicableMealDto nextVasMeal;
 
 }

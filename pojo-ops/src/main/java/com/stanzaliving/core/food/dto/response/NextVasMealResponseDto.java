@@ -1,11 +1,9 @@
 package com.stanzaliving.core.food.dto.response;
 
 
-import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -23,14 +21,9 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class NextVasMealResponseDto {
-	private MealType nextMeal;
-
-	private String nextMealName;
+public class NextVasMealResponseDto extends NextApplicableMealDto {
 
 	private long nextMealItemsCount;
-
-	private LocalDate mealDate;
 
 	private List<ItemCostResponseDto> items;
 

@@ -25,4 +25,6 @@ public class VasCategoryItemResponseDto {
 	private String categoryName;
 
 	private List<ItemCostResponseDto> items;
+
+	private Integer itemCount;
 }
