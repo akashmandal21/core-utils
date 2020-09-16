@@ -4,7 +4,9 @@
 package com.stanzaliving.core.payment.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.payment.enums.PaymentMode;
 import com.stanzaliving.core.payment.enums.PaymentStatus;
+import com.stanzaliving.core.payment.enums.StanzaPaymentService;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,9 +35,15 @@ public class TransactionDto extends AbstractDto {
 
 	private double amount;
 
+	private PaymentMode paymentMode;
+
 	private PaymentStatus paymentStatus;
 
 	private String userId;
 
 	private String paymentMetadata;
+
+	private StanzaPaymentService paymentService;
+
+	private String serviceTransactionId;
 }
