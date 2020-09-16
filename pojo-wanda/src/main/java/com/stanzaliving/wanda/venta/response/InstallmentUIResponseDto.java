@@ -37,5 +37,6 @@ public class InstallmentUIResponseDto {
 	private Boolean discountApplied;
 	private String invoiceName;
 	private List<InstallmentLineItemUIResponseDto> installmentLineItems;
+	private String type;
 
 }

@@ -24,5 +24,6 @@ public class InstallmentResponseDto {
     private String dueDateStr;
     private Boolean discountApplied;
     private List<InstallmentLineItemResponseDto> installmentLineItemResponseDtoList;
+    private String type;
     
 }
