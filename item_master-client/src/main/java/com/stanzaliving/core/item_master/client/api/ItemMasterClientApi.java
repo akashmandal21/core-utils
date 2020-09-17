@@ -8,8 +8,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.boq_service.BoqItemSearchRequestDto;
-import com.stanzaliving.item_master.dtos.BoqRequestDto;
-import com.stanzaliving.item_master.dtos.MasterBoqDto;
+import com.stanzaliving.core.base.common.dto.PageResponse;
+import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.item_master.dtos.*;
 import com.stanzaliving.transformations.pojo.MasterBoqResponseDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -209,12 +210,10 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<List<MasterBoqDto>> getBoqItems(List<String> itemUuid) {
-
-		Object postBody = itemUuid.toArray();
+	public ResponseDto<PageResponse<GenericItemDto>> getGenericItems(FilterDto filterDto) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		String path = UriComponentsBuilder.fromPath("/internal/details/fetch/boqItems")
+		String path = UriComponentsBuilder.fromPath("/internal/generic/post/items/fetchItems")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -226,9 +225,51 @@ public class ItemMasterClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<List<MasterBoqDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<MasterBoqDto>>>() {
+		ParameterizedTypeReference<ResponseDto<PageResponse<GenericItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<PageResponse<GenericItemDto>>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, filterDto, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<String>> getItemCodes(Department department, List<String> itemNames) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("department",department);
+		String path = UriComponentsBuilder.fromPath("/internal/generic/post/fetchItemCodes/{department}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, itemNames, headerParams, accept, returnType);
+	}
+	public ResponseDto<ItemMetaDto> getItemMetaInfo(Department department, Boolean includeNames) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("department",department);
+		uriVariables.put("includeNames",includeNames);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		String path = UriComponentsBuilder.fromPath("/internal/generic/get/metaInfo/{department}/{includeNames}").buildAndExpand(uriVariables).toUriString();
+
+		ParameterizedTypeReference<ResponseDto<ItemMetaDto>> returnType = new ParameterizedTypeReference<ResponseDto<ItemMetaDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
 
 }
