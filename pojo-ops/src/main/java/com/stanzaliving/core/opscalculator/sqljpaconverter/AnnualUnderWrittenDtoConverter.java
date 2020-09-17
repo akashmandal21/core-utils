@@ -53,10 +53,14 @@ public class AnnualUnderWrittenDtoConverter implements AttributeConverter<Annual
             return null;
         }
 
+        if (objectMapper == null) {
+            this.init();
+        }
+
         try {
             return objectMapper.writeValueAsString(annualUnderWrittenDto);
         } catch (JsonProcessingException e) {
-            log.error("Unable to convert annualUnderWrittenDto to json, error {}, annualUnderWrittenDto {}" , e.getMessage(), annualUnderWrittenDto, e);
+            log.error("Unable to convert annualUnderWrittenDto to json, error {}, annualUnderWrittenDto {}", e.getMessage(), annualUnderWrittenDto, e);
             return null;
         }
     }
@@ -69,9 +73,10 @@ public class AnnualUnderWrittenDtoConverter implements AttributeConverter<Annual
         }
 
         try {
-            return objectMapper.readValue(annualUnderWrittenDtoJson, new TypeReference<AnnualUnderWrittenDto>() {});
+            return objectMapper.readValue(annualUnderWrittenDtoJson, new TypeReference<AnnualUnderWrittenDto>() {
+            });
         } catch (IOException e) {
-            log.error("Unable to convert json to underWrittenDto , error {}, underWrittenDtoJson {}" , e.getMessage(), annualUnderWrittenDtoJson, e);
+            log.error("Unable to convert json to underWrittenDto , error {}, underWrittenDtoJson {}", e.getMessage(), annualUnderWrittenDtoJson, e);
             return null;
         }
     }
