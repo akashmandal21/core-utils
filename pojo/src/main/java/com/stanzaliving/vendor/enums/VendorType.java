@@ -65,6 +65,7 @@ public enum VendorType {
 	OTHER("Others"),
 	OTHER_DISCOUNT("Other Discount"),
 	BRAND_AWARENESS("Brand Awareness"),
+	ContestsAndAwards("Contests and Awards"),
 	LEAD_NURTURING("Lead Nurturing");
 
 	private String type;
