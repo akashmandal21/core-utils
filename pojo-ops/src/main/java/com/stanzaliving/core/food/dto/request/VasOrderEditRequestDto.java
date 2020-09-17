@@ -24,11 +24,8 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VasOrderEditRequestDto {
-	@NotBlank(message = "Vas Order Id is mandatory")
+public class VasOrderEditRequestDto extends VasOrderAddRequestDto {
+
 	private String vasOrderId;
 
-	@Valid
-	@NotNull(message = "Vas items selection is mandatory")
-	private List<ItemQuantityRequestDto> items;
 }
