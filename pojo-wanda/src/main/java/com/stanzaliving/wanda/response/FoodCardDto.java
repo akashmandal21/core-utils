@@ -22,4 +22,12 @@ public class FoodCardDto {
 	private String foodName;
 	
 	private String foodItems;
+	
+	private Boolean selected;
+	
+	private Boolean defaultChoice;
+	
+	private String residenceFoodMenuId;
+	
+	private String userResidenceFoodMenuId;
 }

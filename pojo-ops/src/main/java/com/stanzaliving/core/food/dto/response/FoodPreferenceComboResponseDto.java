@@ -34,6 +34,8 @@ public class FoodPreferenceComboResponseDto {
 	private String basePreferenceName;
 
 	private FoodRegion foodRegion;
+	
+	private String mealImg;
 
 	private String foodRegionName;
 
