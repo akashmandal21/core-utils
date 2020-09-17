@@ -37,4 +37,7 @@ public class BudgetFoodOrderRequestDto {
 
 	private String orderEditingMessage;
 
+	private boolean orderWindowClosed;
+
+	private boolean orderWindowNotOpenYet;
 }

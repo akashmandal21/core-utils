@@ -1,29 +1,33 @@
 /**
- * @author nipunaggarwal
- *
+ * 
  */
 package com.stanzaliving.core.food.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 /**
- * @author nipunaggarwal
+ * @author naveen.kumar
  *
- */
+ * @date 10 Aug, 2020
+ *
+ **/
 @Getter
 @Setter
+@Builder
 @ToString
-@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemCategoryDto {
+public class KitchenCostDto {
 
-	private String name;
-	private boolean status;
+	private String kitchenId;
+
+	private String kitchenName;
+
+	private double cost;
 
 }
