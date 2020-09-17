@@ -27,4 +27,6 @@ public class FoodOrderPageResponse {
 	
 	private boolean isOldOrder;
 	
+	private boolean hasNonVeg;
+	
 }
