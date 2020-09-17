@@ -41,4 +41,17 @@ public class LeadQuestionIdentifier {
     public static final String PROPERTY_3_VISITING = "visit3PropertyVisiting";
     public static final String PROPERTY_4_VISITING = "visit4PropertyVisiting";
     public static final String PROPERTY_5_VISITING = "visit5PropertyVisiting";
+    
+    public static final String VISIT_1_STARTED = "visit1Started";
+    public static final String VISIT_2_STARTED = "visit2Started";
+    public static final String VISIT_3_STARTED = "visit3Started";
+    public static final String VISIT_4_STARTED = "visit4Started";
+    public static final String VISIT_5_STARTED = "visit5Started";
+    
+    public static final String VISIT_1_COMPLETED = "visit1Completed";
+    public static final String VISIT_2_COMPLETED = "visit2Completed";
+    public static final String VISIT_3_COMPLETED = "visit3Completed";
+    public static final String VISIT_4_COMPLETED = "visit4Completed";
+    public static final String VISIT_5_COMPLETED = "visit5Completed";
+    
 }
