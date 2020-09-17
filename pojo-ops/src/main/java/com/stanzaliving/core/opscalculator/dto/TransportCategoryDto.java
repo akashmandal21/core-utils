@@ -9,7 +9,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class PestControlDto extends CategoryDto {
-    private int ratePerRoomPerMonth;
-    private int costPerMonthPerAvailableBed;
+public class TransportCategoryDto extends CategoryDto {
+    private int transportCostPerBedPerMonth;
 }

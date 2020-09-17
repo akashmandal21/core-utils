@@ -9,7 +9,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class GarbageCostDto extends CategoryDto {
-    private int costPerMonth;
-    private int costPerBedPerMonth;
+public class ManPowerAmcCostSlotDto {
+    private int manpowerCount;
+    @Builder.Default
+    private boolean AmcCostApplicable = false;
+    private int amcCostPerYear;
 }

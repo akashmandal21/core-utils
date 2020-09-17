@@ -23,5 +23,6 @@ public class AnnualUnderWrittenDto  {
     private LaundryCostCategoryDto laundryCostCategoryDto;
     private SubscriptionAndSuppliesCategoryDto subscriptionAndSuppliesCategoryDto;
     private RepairAndMaintenanceCategoryDto repairAndMaintenanceCategoryDto;
+    private TransportCategoryDto transportCategoryDto;
     private UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
 }

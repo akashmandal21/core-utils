@@ -9,9 +9,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class FacadeCleaningDto extends CategoryDto {
-    private int facadeAreaInSquareFeet;
-    private double ratePerSquareFeet;
-    private double frequencyPerYear;
-    private int costPerBedPerMonth;
+public class AmcCostSlotDto {
+    private int count;
+    private String capacity;
+    @Builder.Default
+    private boolean AmcCostApplicable = false;
+    private int amcCostPerYear;
 }
