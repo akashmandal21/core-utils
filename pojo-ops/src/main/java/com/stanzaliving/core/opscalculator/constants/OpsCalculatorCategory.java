@@ -28,7 +28,8 @@ public enum OpsCalculatorCategory {
 	SECURITY("security"),
 	SUBSCRIPTION("subscription"),
 	UNIFORM_COSTS("uniform_costs"),
-	WATER("water");
+	WATER("water"),
+	INTERNET("internet");
 
 	private String opsCalculatorCategory;
 }

@@ -30,8 +30,8 @@ public class SecurityCategoryDto extends CategoryDto {
 	private int employeeCount;
 	private double ratePerMonth;
 
-	private int securityCharges;
-	private int inHouseSecurityCharges;
+	private Integer securityCharges;
+	private Integer inHouseSecurityCharges;
 
 
 	@Builder.Default

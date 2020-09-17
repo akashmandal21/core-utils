@@ -28,14 +28,12 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count", "rate", "utilization" })
 public class RepairAndMaintenanceCategoryDto extends CategoryDto {
 
-	private int facadeCleaningCharges;
-	private int buildingMaintenance;
-	private int repairAndMaintenance;
-
-	@Builder.Default
-	private int gst = Constants.GST_REPAIR_MAINTENANCE_PERCENT;
-
-	@Builder.Default
-	private int margin = Constants.MARGIN_REPAIR_MAINTENANCE_PERCENT;
+	private PestControlDto pestControlDto;
+	private FloorCleaningDto floorCleaningDto;
+	private TankCleaningInfoDto tankCleaningInfoDto;
+	private FacadeCleaningDto facadeCleaningDto;
+	private UpholsteryCleaningDto upholsteryCleaningDto;
+	private FumigationPerBedBugsDto fumigationPerBedBugsDto;
+	private GarbageCostDto garbageCostDto;
 
 }

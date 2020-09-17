@@ -10,6 +10,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.stanzaliving.core.opscalculator.constants.WaterSupplySource;
 
+import com.stanzaliving.core.opscalculator.enums.LandlordReceivablesCalculationEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,6 +36,8 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 	private int fixedCharges;
 	private int variableCharges;
 	private int landlordReceivables;
+	private int variableCostPerLiter;
+	private int tankerCost;
 
 
 	private List<WaterSupplySource> waterSupplySource;
@@ -45,6 +48,8 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 	private int govtSupplyDependencyWithTanker;
 	private int govtSupplyFixedCharges;
 	private int govtSupplyUnitRate;
+	private int govtSupplyBillCharges;
+
 
 
 	@Builder.Default
@@ -59,13 +64,11 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 	private int waterJarCount;
 
 	private int landlordReceivablePercent;
-	private String landlordReceivableCalculatedOn;
+	private LandlordReceivablesCalculationEnum landlordReceivableCalculatedOn;
 
 
 	private int dependability;
 
 	@Builder.Default
 	private boolean waterTanker = false;
-
-
 }
