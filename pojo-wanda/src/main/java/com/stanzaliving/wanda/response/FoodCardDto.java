@@ -30,4 +30,7 @@ public class FoodCardDto {
 	private String residenceFoodMenuId;
 	
 	private String userResidenceFoodMenuId;
+	
+	private Integer quantity;
+	
 }
