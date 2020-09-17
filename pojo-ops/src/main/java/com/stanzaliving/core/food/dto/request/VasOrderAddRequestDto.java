@@ -25,16 +25,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VasOrderAddRequestDto {
-	@NotBlank(message = "Residence id is mandatory")
 	private String residenceId;
 
-	@NotBlank(message = "User id is mandatory")
 	private String userId;
 
-	@NotNull(message = "Menu date is mandatory.")
 	private LocalDate menuDate;
 
-	@NotNull(message = "Please specify meal type.")
 	private MealType mealType;
 
 	@Valid
