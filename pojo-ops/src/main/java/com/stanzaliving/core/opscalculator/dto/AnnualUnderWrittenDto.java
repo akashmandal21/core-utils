@@ -9,7 +9,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AnnualUnderWrittenDto {
+public class AnnualUnderWrittenDto  {
     private PropertyInfoDto propertyInfoDto;
     private FoodCategoryDto foodCategoryDto;
     private UtilitiesCategoryDto utilitiesCategoryDto;

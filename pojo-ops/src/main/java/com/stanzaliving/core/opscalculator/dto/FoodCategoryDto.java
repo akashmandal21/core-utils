@@ -28,19 +28,22 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count" })
 public class FoodCategoryDto extends CategoryDto {
 
-	Double menuPricePerDay;
+	private Double menuPricePerDay;
 
-	Integer weekDays;
-	Integer weekdayUtilization;
-	Integer weekendDays;
-	Integer weekendUtilization;
-	Integer holidays;
-	Integer holidayUtilization;
-	Integer specialDayUtilization;
-	Integer opsSLStaffPerDay;
-	Integer opsNonSLMorningStaffPerDay;
-	Integer opsNonSLEveningStaffPerDay;
-	Integer overallUtilization;
+	private Integer weekDays;
+	private Integer weekdayUtilization;
+	private Integer weekendDays;
+	private Integer weekendUtilization;
+	private Integer holidays;
+	private Integer holidayUtilization;
+	private Integer specialMealDays;
+	private Integer specialDayUtilization;
+	private Integer opsSLStaffPerDay;
+	private Integer opsNonSLMorningStaffPerDay;
+	private Integer opsNonSLEveningStaffPerDay;
+	private Integer nonSlStaffMenuPricePerDayForMorning;
+	private Integer nonSlStaffMenuPricePerDayForEvening;
+	private Integer overallUtilization;
 
 
 
