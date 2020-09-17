@@ -1,5 +1,10 @@
 package com.stanzaliving.core.base.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum DocumentStatus {
 
 	ALL("ALL"),
@@ -9,9 +14,5 @@ public enum DocumentStatus {
 	APPROVED("Approved Verification");
 
 	String name;
-
-	private DocumentStatus(String name) {
-		this.name = name;
-	}
 
 }

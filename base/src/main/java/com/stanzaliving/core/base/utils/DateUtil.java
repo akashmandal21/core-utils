@@ -720,5 +720,14 @@ public class DateUtil {
 
 		return date.with(TemporalAdjusters.next(day));
 	}
+	
+	 public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
+	        Calendar calStart = Calendar.getInstance();
+	        calStart.setTime(fromDate);
+	        Calendar calEnd = Calendar.getInstance();
+	        calEnd.setTime(toDate);
+	        int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
+	        return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
+	    }
 
 }

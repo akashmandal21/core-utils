@@ -51,7 +51,7 @@ public class PhoenixAggregationView extends AbstractMongoEntity {
     private Map<PropertyUpdateEnum,List<PropertyUpdateDetail>> propertyUpdateTracker;//Changed from Map<PropertyUpdateEnum,List<PropertyUpdateDetail>> to  Map<String,List<PropertyUpdateDetail>>
 
     private BoqInfo masterBoqInfo;
-    //Map<String,BoqInfo> extraBoqInfos; //boqPrUuid -> ExtraBoqs
+    private List<BoqInfo> extraBoqInfos;
     private ProjectSchedule projectSchedule;
     private HotoInfo hotoInfo;
     private String gfcStatus; //Changed GFCStatus ENum to String

@@ -28,4 +28,6 @@ public class PaymentPlanRequestDto {
     private float contractMonths;
     @Builder.Default
     private Boolean saveInvoices = true;
+    @Builder.Default
+    private Boolean isB2bFlow = true;
 }
