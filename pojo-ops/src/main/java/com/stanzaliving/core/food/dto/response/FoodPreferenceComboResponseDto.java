@@ -23,6 +23,8 @@ public class FoodPreferenceComboResponseDto {
 
 	private String residenceFoodMenuId;
 
+	private boolean defaultMenu;
+
 	private boolean selected;
 
 	private String comboName;

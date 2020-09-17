@@ -9,9 +9,9 @@ import java.time.LocalDate;
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @version 1.0
+ * @since 06-Sep-2020
  *
- * @since 31-Aug-2020
+ * @version 1.0
  */
 
 @Getter
@@ -20,8 +20,12 @@ import java.time.LocalDate;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ApplicableMealDto {
-	private MealType nextMeal;
+public class UserFeedbackResponseDto {
 
-	private LocalDate mealDate;
+	private LocalDate lastMealDate;
+
+	private MealType meal;
+
+	private String mealName;
+
 }

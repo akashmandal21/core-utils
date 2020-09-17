@@ -4,7 +4,7 @@ import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -14,25 +14,16 @@ import java.time.LocalTime;
  * @since 31-Aug-2020
  */
 
-
 @Getter
 @Setter
-@SuperBuilder
 @ToString
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserMenuPreferenceForMealsDto {
-
+public class NextApplicableMealDto {
 	private MealType nextMeal;
 
 	private String nextMealName;
 
-	private long nextMealItemsCount;
-
-	private UserMenuPreferenceResponseDto nextMealPreferences;
-
-	private LocalTime preferenceWindowCloseTime;
-	
-	private NextApplicableMealDto nextVasMeal;
-
+	private LocalDate mealDate;
 }
