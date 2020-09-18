@@ -5,6 +5,7 @@ package com.stanzaliving.core.food.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
+import com.stanzaliving.core.food.enums.FoodItemType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,10 @@ import lombok.experimental.SuperBuilder;
 public class TagDto extends AbstractDto {
 
 	private String tagName;
+
+	private FoodItemType tagType;
+
+	private String tagTypeName;
 
 	private Boolean serviceMixEnabled;
 	

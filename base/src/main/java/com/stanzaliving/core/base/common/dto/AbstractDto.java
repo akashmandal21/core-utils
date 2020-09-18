@@ -1,5 +1,6 @@
 package com.stanzaliving.core.base.common.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -15,7 +16,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class AbstractDto {
+public abstract class AbstractDto implements Serializable {
+
+	private static final long serialVersionUID = 1635296868115644218L;
 
 	protected Long id;
 

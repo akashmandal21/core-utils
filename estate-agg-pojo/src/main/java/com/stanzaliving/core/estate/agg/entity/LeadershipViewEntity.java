@@ -1,6 +1,6 @@
 package com.stanzaliving.core.estate.agg.entity;
 
-import com.stanzaliving.core.estate.embeddedInfos.*;
+import com.stanzaliving.core.estate.embeddedinfos.*;
 import com.stanzaliving.core.estate.enums.EstateStatus;
 import com.stanzaliving.core.mongobase.entity.AbstractMongoEntity;
 import lombok.AllArgsConstructor;
