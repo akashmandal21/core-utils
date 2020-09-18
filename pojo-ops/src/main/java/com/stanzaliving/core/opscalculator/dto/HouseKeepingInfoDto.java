@@ -6,5 +6,5 @@ import lombok.Data;
 public class HouseKeepingInfoDto {
     private int employeesCount;
     private int ratePerMonth;
-    private int leaveFactor;
+    private double leaveFactor;
 }
