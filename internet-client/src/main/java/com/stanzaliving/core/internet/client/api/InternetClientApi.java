@@ -60,7 +60,7 @@ public class InternetClientApi {
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("exception while fetching session details from internet", e);
+			log.error("Exception while fetching session details from internet: ", e);
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
@@ -85,7 +85,7 @@ public class InternetClientApi {
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("exception while listing internet plans", e);
+			log.error("Exception while listing internet plans: ", e);
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
@@ -116,7 +116,7 @@ public class InternetClientApi {
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("exception while listing internet plans", e);
+			log.error("Exception while getting plan details: {}", planId, e);
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
