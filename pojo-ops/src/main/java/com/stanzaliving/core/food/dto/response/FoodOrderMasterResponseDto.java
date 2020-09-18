@@ -49,12 +49,14 @@ public class FoodOrderMasterResponseDto {
 
 	private String userResidenceFoodMenuId;
 
-	private List<ItemCostResponseDto> items;
-
 	private PriceDto prices;
 
 	private FoodItemType foodPreference;
 
 	private Float orderRating;
+
+	private boolean collectionAllowed;
+
+	private List<ItemCostResponseDto> items;
 
 }
