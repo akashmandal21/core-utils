@@ -26,6 +26,5 @@ public class ItemQuantityRequestDto {
 	private String itemId;
 
 	@NotNull(message = "Item quantity should be greater than 0")
-	@Min(value = 0L, message = "Item quantity should be greater than 0")
 	private Integer quantity;
 }
