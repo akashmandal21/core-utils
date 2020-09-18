@@ -13,7 +13,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -66,12 +65,11 @@ public class InternetClientApi {
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
-	
-	@GetMapping
+
 	public Map<InternetVendor, List<InternetPlanDto>> listPlans() {
 		ResponseDto<Map<InternetVendor, List<InternetPlanDto>>> responseDto = null;
 		String path = UriComponentsBuilder.fromPath("/internet/plans").build().toUriString();
-		
+
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
@@ -81,7 +79,8 @@ public class InternetClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<Map<InternetVendor, List<InternetPlanDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<InternetVendor, List<InternetPlanDto>>>>() {};
+		ParameterizedTypeReference<ResponseDto<Map<InternetVendor, List<InternetPlanDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<InternetVendor, List<InternetPlanDto>>>>() {
+		};
 
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
@@ -90,6 +89,37 @@ public class InternetClientApi {
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
+
+	}
+
+	public InternetPlanDto getPlan(String planId) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("planId", planId);
+
+		String path = UriComponentsBuilder.fromPath("/internet/plans/{planId}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<InternetPlanDto>> returnType = new ParameterizedTypeReference<ResponseDto<InternetPlanDto>>() {
+		};
+
+		ResponseDto<InternetPlanDto> responseDto = null;
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("exception while listing internet plans", e);
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
 
 	}
 }
