@@ -54,4 +54,9 @@ public class LeadQuestionIdentifier {
     public static final String VISIT_4_COMPLETED = "visit4Completed";
     public static final String VISIT_5_COMPLETED = "visit5Completed";
     
+    public static final String POST_VISIT_1_FOLLOWUP_DATE = "postVisit1FollowUpDate";
+    public static final String POST_VISIT_2_FOLLOWUP_DATE = "postVisit2FollowUpDate";
+    public static final String POST_VISIT_3_FOLLOWUP_DATE = "postVisit3FollowUpDate";
+    public static final String POST_VISIT_4_FOLLOWUP_DATE = "postVisit4FollowUpDate";
+    public static final String POST_VISIT_5_FOLLOWUP_DATE = "postVisit5FollowUpDate";
 }
