@@ -10,68 +10,66 @@ import java.util.Map;
 @Getter
 public enum ItemType {
 
-    BOI("BOI"),
-    GC("GC"),
-    ASIS("As-Is"),
-    OFFLINE("Offline"),
-    ONLINE("Online"),
-    COLLATERAL("Collateral"),
-    MERCHANDISE("Merchandise"),
-    MISCELLANEOUS("Miscellaneous"),
-    SIGNAGE("Signage"),
-    TRANSIT_MEDIA("Transit Media"),
-    AFFILIATE("Affiliate"),
-    AGENCY("Agency"),
-    AUDIO_STREAMING("Audio Streaming"),
-    DISPLAY("Display"),
-    EMAIL_MARKETING("Email Marketing"),
-    ENGAGEMENT_ACTIVITY("Engagement Activity"),
-    ONLINE_PROMOTIONS("Online Promotions"),
-    SEARCH("Search"),
-    SMS_MARKETING("SMS Marketing"),
-    SOCIAL("Social"),
-    VIDEO_STREAMING("Video Streaming"),
-    CONTENT_CREATION("Content Creation"),
-    DATABASE_RESEARCH("Database Research"),
-    PHOTOGRAPHY_VIDEOGRAPHY("Photography/Videography"),
-    FACILITATION_CHARGES("Facilitation Charges"),
-    INTERN_COST("Intern Cost"),
-    PROMOTERS_COST("Promoters Cost"),
-    TEMP_STAFF_COST("Temp Staff Cost"),
-    B2B_RELATIONSHIPS("B2B Relationships"),
-    PARTNERS("Partners"),
-    STUDENTS("Students"),
-    ADDITIONAL_DISCOUNT_CN("Additional Discount CN"),
-    EXTENSION_DISCOUNT_CN("Extension Discount CN"),
-    MISSED_DISCOUNT_CN("Missed Discount CN"),
-    MISSING_REFERRAL_CN("Missing Referral CN"),
-    OTHER_CN("Other CN"),
-    RESIDENT_AWARD_CN("Resident Award CN"),
-    EARLY_BIRD_DISCOUNT("Early Bird Discount"),
-    FLASH_SALE("Flash Sale"),
-    GROUP_DISCOUNT("Group Discount"),
-    ONE_TIME_DISCOUNT("One time Discount"),
-    POC_DISCOUNT("POC Discount"),
-    POSTSEASON_DISCOUNT("Postseason Discount"),
-    RELATIONSHIP_DISCOUNT("Relationship Discount"),
-    RETENTION_DISCOUNT("Retention Discount"),
-    PRE_SALES_TEAM_INCENTIVE("Pre Sales Team Incentive"),
-    RETENTION_INCENTIVE("Retention Incentive"),
-    SALES_TEAM_INCENTIVE("Sales Team Incentive"),
-    CRM("CRM"),
-    TELEPHONY("Telephony"),
-    OTHER("Others"),
-    LEAD_NURTURING("Lead Nurturing"),
-    COVID("Covid");
+    //Transformations Categories
+    BOI("BOI","BOI"),
+    GC("GC","GC"),
+    ASIS("As-Is","ASIS"),
+    COVID("Covid","Covid"),
+    OTHER("Others","Others"),
+
+    //Sales Sub categories
+    AFFILIATE("Affiliate","Affiliate"),
+    ACTIVATIONS("Activations","Activations"),
+    AGENCY("Agency","Agency"),
+    AUDIO_STREAMING("Audio Streaming","Audio Ads"),
+    B2B_RELATIONSHIPS("B2B Relationships","B2B Relationships"),
+    COLLATERAL("Collateral","Collateral"),
+    ContestsAndAwards("Contests and Awards","Contests and Awards"),
+    CRM("CRM","CRM"),
+    CREDIT_NOTE("Credit Note","Credit Note"),
+    DATABASE_RESEARCH("Database Research","Database"),
+    DISPLAY("Display","Displays Ads"),
+    EMAIL_MARKETING("Email Marketing","Email Marketing"),
+    ENGAGEMENT_ACTIVITY("Engagement Activity","Engagement activity"),
+    EVENTS_ACTIVATIONS("Events-Activations","Events-Activations"),
+    FACILITATION_CHARGES("Facilitation Charges","Facilitation Charges"),
+    INTERN_COST("Intern Cost","Intern Cost"),
+    MERCHANDISE("Merchandise","Merchandise"),
+    MISCELLANEOUS("Miscellaneous","Miscellaneous"),
+    NEW_SALES_DISCOUNT("New Sales Discount","New Sales Discount"),
+    NEW_SALES_INCENTIVE("New Sales Incentive","New Sales Incentive"),
+    OTHER_SALES("Others","Others"),
+    ONLINE_PROMOTIONS("Online Promotions","Online promotions"),
+    PARTNERS("Partners","Partners"),
+    PARTNERSHIPS("Partnerships","Partnerships"),
+    PHOTOGRAPHY_VIDEOGRAPHY("Photography/Videography","Photography/Videography"),
+    PRE_SALES_INCENTIVE("Pre-Sales Incentive","Pre-sales Incentive"),
+    PROMOTERS_COST("Promoters Cost","Promoters Cost"),
+    PRE_SALES_DISCOUNT("Pre-sales Discount","Pre-sales Discount"),
+    RETENTION_DISCOUNT("Retention Discount","Retention Discount"),
+    RETENTION_INCENTIVE("Retention Incentive","Retention Incentive"),
+    SEARCH("Search","Search Ads"),
+    SIGNAGE("Signage","Signage"),
+    SMS_MARKETING("SMS Marketing","SMS Marketing"),
+    SOCIAL("Social","Social"),
+    STUDENTS("Students","Students"),
+    TELEPHONY("Telephony","Telephony"),
+    TEMP_STAFF_COST("Temp Staff Cost","Temp Staff Cost"),
+    TRANSIT_MEDIA("Transit Media","Transit Media"),
+    VIDEO_STREAMING("Video Streaming","Video Ads");
+
 
     private String typeText;
+    private String newSubCategoryText;
 
     public static Map<String, ItemType> itemTypeByNameMap = new HashMap<>();
+    public static Map<String, ItemType> itemTypeByUpperCaseNameMap = new HashMap<>();
 
     static {
 
         for (ItemType itemType : ItemType.values()) {
             itemTypeByNameMap.put(itemType.getTypeText(), itemType);
+            itemTypeByUpperCaseNameMap.put(itemType.getNewSubCategoryText().toUpperCase(), itemType);
         }
     }
 

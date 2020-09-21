@@ -5,8 +5,10 @@ package com.stanzaliving.core.user.request.dto;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.user.dto.Address;
+import com.stanzaliving.core.user.enums.BloodGroup;
 import com.stanzaliving.core.user.enums.Gender;
 import com.stanzaliving.core.user.enums.MaritalStatus;
+import com.stanzaliving.core.user.enums.Nationality;
 import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.utilservice.annotations.Email;
 import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
@@ -82,4 +84,8 @@ public class AddUserRequestDto {
 	private LocalDate anniversaryDate;
 
 	private Address address;
+	
+	private Nationality nationality;
+	
+	private BloodGroup bloodGroup;
 }

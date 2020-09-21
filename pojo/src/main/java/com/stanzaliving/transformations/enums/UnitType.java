@@ -30,15 +30,15 @@ public enum UnitType {
         this.unitName = unitName;
     }
 
+	public static Map<String, UnitType> unitByNameMap = new HashMap<>();
 
-    public static Map<String, UnitType> unitByNameMap = new HashMap<>();
+	static {
 
-    static {
+		for (UnitType unitType : UnitType.values()) {
+			unitByNameMap.put(unitType.getUnitName(), unitType);
+		}
+	}
 
-        for (UnitType unitType : UnitType.values()) {
-            unitByNameMap.put(unitType.getUnitName(), unitType);
-        }
-    }
 
 
     public static UnitType getUnitTypeByName(String unitName) {
