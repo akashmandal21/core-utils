@@ -57,7 +57,12 @@ public class ResidenceAddRequestDto {
 
 	private String coreResidenceName;
 
+	
+	private String residenceSlug;
+
+
 	private String estateUuid;
 
 	private String phoenixPropertyUuid;
+
 }

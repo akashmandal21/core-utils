@@ -61,6 +61,7 @@ public enum PoType {
 	TELEPHONY("Telephony"),
 	OTHER_DISCOUNT("Other Discount"),
 	BRAND_AWARENESS("Brand Awareness"),
+	ContestsAndAwards("Contests and Awards"),
 	LEAD_NURTURING("Lead Nurturing");
 	
 	private String type;

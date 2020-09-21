@@ -18,3 +18,4 @@ public class UIKeyValue {
     @NotBlank
     private String value;
 }
+
