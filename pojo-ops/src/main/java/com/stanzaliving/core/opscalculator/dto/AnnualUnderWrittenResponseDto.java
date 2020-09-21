@@ -32,4 +32,5 @@ public class AnnualUnderWrittenResponseDto extends AnnualUnderWrittenDto {
     private Integer roomCount;
 
     private Integer bedCount;
+
 }

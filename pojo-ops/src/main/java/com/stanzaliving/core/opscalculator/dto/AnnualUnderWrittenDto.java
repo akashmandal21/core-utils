@@ -10,19 +10,19 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AnnualUnderWrittenDto  {
-    private PropertyInfoDto propertyInfoDto;
-    private FoodCategoryDto foodCategoryDto;
-    private UtilitiesCategoryDto utilitiesCategoryDto;
-    private InternetCategoryDto internetCategoryDto;
-    private HouseKeepingCategoryDto houseKeepingCategoryDto;
-    private SecurityCategoryDto securityCategoryDto;
-    private PersonnelCategoryDto personnelCategoryDto;
-    private AuditCategoryDto auditCategoryDto;
-    private UniformCostsCategoryDto uniformCostsCategoryDto;
-    private EquipmentRentalCategoryDto equipmentRentalCategoryDto;
-    private LaundryCostCategoryDto laundryCostCategoryDto;
-    private SubscriptionAndSuppliesCategoryDto subscriptionAndSuppliesCategoryDto;
-    private RepairAndMaintenanceCategoryDto repairAndMaintenanceCategoryDto;
-    private TransportCategoryDto transportCategoryDto;
-    private UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
+    protected PropertyInfoDto propertyInfoDto;
+    protected FoodCategoryDto foodCategoryDto;
+    protected UtilitiesCategoryDto utilitiesCategoryDto;
+    protected InternetCategoryDto internetCategoryDto;
+    protected HouseKeepingCategoryDto houseKeepingCategoryDto;
+    protected SecurityCategoryDto securityCategoryDto;
+    protected PersonnelCategoryDto personnelCategoryDto;
+    protected AuditCategoryDto auditCategoryDto;
+    protected UniformCostsCategoryDto uniformCostsCategoryDto;
+    protected EquipmentRentalCategoryDto equipmentRentalCategoryDto;
+    protected LaundryCostCategoryDto laundryCostCategoryDto;
+    protected SubscriptionAndSuppliesCategoryDto subscriptionAndSuppliesCategoryDto;
+    protected RepairAndMaintenanceCategoryDto repairAndMaintenanceCategoryDto;
+    protected TransportCategoryDto transportCategoryDto;
+    protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
 }

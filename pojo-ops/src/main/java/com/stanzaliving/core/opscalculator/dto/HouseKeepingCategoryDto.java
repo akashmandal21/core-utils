@@ -34,9 +34,9 @@ public class HouseKeepingCategoryDto extends CategoryDto {
 	private HouseKeepingInfoDto houseKeepingInfo12HourDto;
 	private HouseKeepingInfoDto houseKeepingInfoContractDto;
 
-	private Integer houseKeeping8HourCharges;
-	private Integer houseKeeping12HourCharges;
-	private Integer houseKeepingContractHourCharges;
+	private int houseKeeping8HourCharges;
+	private int houseKeeping12HourCharges;
+	private int houseKeepingContractHourCharges;
 
 
 

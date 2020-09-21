@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public enum UnderWrittenStatus {
+    NEW("New"),
     UNDER_DRAFT("Under Draft"),
     SENT_FOR_APPROVAL("Sent For Approval"),
     APPROVED("Approved"),

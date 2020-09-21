@@ -4,11 +4,7 @@
  */
 package com.stanzaliving.core.opscalculator.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -23,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public abstract class CategoryDto {
 
-	private String CategoryName;
+	private String categoryName;
 	private int costPerAvailableBed;
 	private int costPerOccupiedBed;
 	private double contribution;
@@ -34,6 +30,8 @@ public abstract class CategoryDto {
 	private int margin;
 	private int gst;
 	private int gstAmount;
-	private boolean enabled = true;
+
+	@Builder.Default
+	private boolean enabled = true;		//default all services enabled
 
 }

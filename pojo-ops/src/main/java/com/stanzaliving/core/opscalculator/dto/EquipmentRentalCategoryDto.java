@@ -25,8 +25,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @ToString(callSuper = true)
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "gstAmount" })
-public class EquipmentRentalCategoryDto extends CategoryDto {
-
+public class  EquipmentRentalCategoryDto extends CategoryDto {
+//to be calculated only in case of rent
 	private int vendingMachineCount;
 	private int vendingMachineRent;
 	private int vendingMachineCharges;
@@ -35,9 +35,9 @@ public class EquipmentRentalCategoryDto extends CategoryDto {
 	private int coffeeMachineRent;
 	private int coffeeMachineCharges;
 
-	private Integer washingMachineCount;
-	private Integer washingMachineRent;
-	private Integer washingMachineCharges;
+	private int washingMachineCount;
+	private int washingMachineRent;
+	private int washingMachineCharges;
 
 
 	@Builder.Default
