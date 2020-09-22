@@ -259,4 +259,13 @@ public enum Nationality {
 		return nationalityCountryMappings;
 	}
 
+	public static Nationality getByCountryName(String countryName) {
+		for (EnumListing<Nationality> enumListing : nationalityCountryMappings) {
+			if (enumListing.getValue().contains(countryName)) {
+				return enumListing.getKey();
+			}
+		}
+		return INDIAN;
+	}
+
 }
