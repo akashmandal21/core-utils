@@ -374,7 +374,7 @@ public class AttributeNames {
 		public static final String ROOM_CLAUSE_D_TEXT_AREA = "roomClauseDTextArea";
 		public static final String ROOM_CLAUSE_E_TEXT_AREA = "roomClauseETextArea";
 		public static final String ROOM_CLAUSE_F_TEXT_AREA = "roomClauseFTextArea";
-		//public static final String ROOM_PAINT_CLAUSE_TEXT_AREA = "roomPaintClauseTextArea";
+		public static final String ROOM_PAINT_CLAUSE_TEXT_AREA = "roomPaintClauseTextArea";
 		public static final String SANITARY_CLAUSE_A_TEXT_AREA = "sanitaryClauseATextArea";
 		public static final String SANITARY_CLAUSE_B_TEXT_AREA = "sanitaryClauseBTextArea";
 		public static final String SANITARY_CLAUSE_C_TEXT_AREA = "sanitaryClauseCTextArea";
@@ -440,10 +440,10 @@ public class AttributeNames {
 		public static final String BOUNDARY_WALL_CLAUSE_B_TEXT_AREA = "boundaryWallClauseBTextArea";
 		public static final String BOUNDARY_WALL_CLAUSE_B_REMARK = "lightFixtureOnEntraceRemarks";
 
-//		public static final String CORRIDOR_CLAUSE_A_TEXT_AREA = "corridorClauseATextArea";
-//		public static final String CORRIDOR_CLAUSE_B_TEXT_AREA = "corridorClauseBTextArea";
-//		public static final String CORRIDOR_CLAUSE_C_TEXT_AREA = "corridorClauseCTextArea";
-//		public static final String CORRIDOR_CLAUSE_D_TEXT_AREA = "corridorClauseDTextArea";
+		public static final String CORRIDOR_CLAUSE_A_TEXT_AREA = "corridorClauseATextArea";
+		public static final String CORRIDOR_CLAUSE_B_TEXT_AREA = "corridorClauseBTextArea";
+		public static final String CORRIDOR_CLAUSE_C_TEXT_AREA = "corridorClauseCTextArea";
+		public static final String CORRIDOR_CLAUSE_D_TEXT_AREA = "corridorClauseDTextArea";
 
 		public static final String DUE_DILIGINCE_CHECKLIST_1 = "dueDigilenceChecklist1";
 		public static final String DUE_DILIGINCE_CHECKLIST_2 = "dueDigilenceChecklist2";
