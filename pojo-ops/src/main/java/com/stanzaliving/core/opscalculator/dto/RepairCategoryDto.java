@@ -31,6 +31,8 @@ public class RepairCategoryDto extends CategoryDto{
     @Builder.Default
     private List<EquipmentType> selectedEquipmentType = new ArrayList<>();
 
+    private List<DropDownDto> acTypeOptions = new ArrayList<>();
+
     List<AcAmcCostSlotDto> acAmcCostSlotDtos = new ArrayList<>();
     private int acAmcCost;
     List<AmcCostSlotDto> dgAmcCostSlotDtos = new ArrayList<>();

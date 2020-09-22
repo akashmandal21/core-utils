@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -15,6 +16,5 @@ import java.util.List;
 @NoArgsConstructor
 @SuperBuilder
 public class AcAmcCostSlotDto extends AmcCostSlotDto {
-    private List<DropDownDto> acTypeOptions = AcType.getAllAcTypeValues();
     private AcType acType;
 }
