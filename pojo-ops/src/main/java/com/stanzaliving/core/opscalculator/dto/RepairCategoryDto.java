@@ -27,7 +27,8 @@ public class RepairCategoryDto extends CategoryDto{
     private boolean fireExtinguisherAmcCostApplicable;
     private boolean firePanelAmcCostApplicable;
 
-    private List<DropDownDto> equipmentListOptions = EquipmentType.getAllEquipmentTypeValues();
+    private List<DropDownDto> equipmentListOptions = new ArrayList<>();
+    @Builder.Default
     private List<EquipmentType> selectedEquipmentType = new ArrayList<>();
 
     List<AcAmcCostSlotDto> acAmcCostSlotDtos = new ArrayList<>();

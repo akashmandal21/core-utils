@@ -15,6 +15,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,14 +30,15 @@ import java.util.List;
 @JsonIgnoreProperties({ "utilization" })
 public class SecurityCategoryDto extends CategoryDto {
 
-	private SecurityType securityType;
+	@Builder.Default
+	private SecurityType securityType = SecurityType.IN_HOUSE_SECURITY;
 	private int employeeCount;
 	private double ratePerMonth;
 
 	private int securityCharges;
 	private int inHouseSecurityCharges;
 
-	private List<DropDownDto> securityTypeOptions = SecurityType.getAllServiceTypeValues();
+	private List<DropDownDto> securityTypeOptions = new ArrayList<>();
 
 
 	@Builder.Default

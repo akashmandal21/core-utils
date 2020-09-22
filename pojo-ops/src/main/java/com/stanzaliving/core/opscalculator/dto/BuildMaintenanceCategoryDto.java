@@ -23,7 +23,8 @@ public class BuildMaintenanceCategoryDto extends CategoryDto {
     private boolean fumigationPerBedBugsApplicable;
     private boolean garbageCostApplicable;
 
-    private List<DropDownDto> serviceTypeOptions = ServiceType.getAllServiceTypeValues();
+    private List<DropDownDto> serviceTypeOptions = new ArrayList<>();
+    @Builder.Default
     private List<ServiceType> selectedServiceType= new ArrayList<>();
 
     private int pestControlRatePerRoomPerMonth;

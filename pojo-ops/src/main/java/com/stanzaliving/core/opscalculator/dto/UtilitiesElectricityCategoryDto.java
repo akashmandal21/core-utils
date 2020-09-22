@@ -49,7 +49,8 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	private UnitRate unitRate;
 	private double unitRateValue;
 
-	private List<DropDownDto> equipmentTypeOptions = ElectricityEquipmentType.getAllEquipmentTypeValues();
+	private List<DropDownDto> equipmentTypeOptions = new ArrayList<>();
+	@Builder.Default
 	private List<ElectricityEquipmentType> selectedEquipmentType = new ArrayList<>();
 
 	@Builder.Default

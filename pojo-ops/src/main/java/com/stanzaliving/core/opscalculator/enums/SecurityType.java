@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum SecurityType {
-    IN_HOUSE_SECURITY("In House Security Guard"), SECURITY("Security");
+    IN_HOUSE_SECURITY("In House Security Guard"), SECURITY("Security Guard");
     String name;
 
     public static List<DropDownDto> getAllServiceTypeValues(){
