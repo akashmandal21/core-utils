@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.stanzaliving.core.opscalculator.constants.Constants;
 import com.stanzaliving.core.opscalculator.constants.PassThrough;
 
+import com.stanzaliving.core.opscalculator.enums.ElectricityEquipmentType;
 import com.stanzaliving.core.opscalculator.enums.UnitRate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -48,8 +49,20 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	private UnitRate unitRate;
 	private double unitRateValue;
 
+	private List<DropDownDto> equipmentTypeOptions = ElectricityEquipmentType.getAllEquipmentTypeValues();
+	private List<ElectricityEquipmentType> selectedEquipmentType = new ArrayList<>();
+
 	@Builder.Default
 	private List<ElectricitySlotDetailsDto> electricitySlotDetailsDtos = new ArrayList<ElectricitySlotDetailsDto>();
+
+	private int unitsConsumedByLiftPerDay;
+	private int unitsConsumedByHeatPumpPerDay;
+	private int unitsConsumedByAcPerDay;
+	private int unitsConsumedByWashingMachinePerDay;
+	private int unitsConsumedByMicrowavePerDay;
+	private int unitsConsumedByBrainMariePerDay;
+	private int unitsConsumedByOthersEquipPerDay;
+
 
 	private int acRoomsCount;
 	private double landlordReceivablesInPercent;
