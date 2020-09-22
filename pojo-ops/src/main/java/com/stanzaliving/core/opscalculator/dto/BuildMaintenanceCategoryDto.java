@@ -1,5 +1,6 @@
 package com.stanzaliving.core.opscalculator.dto;
 
+import com.stanzaliving.core.opscalculator.enums.ServiceType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -15,11 +16,15 @@ import java.util.List;
 public class BuildMaintenanceCategoryDto extends CategoryDto {
     private boolean pestControlApplicable;
     private boolean floorCleaningApplicable;
-    private boolean tankCleaningInfoApplicable;
+    private boolean overheadTankCleaningInfoApplicable;
+    private boolean underGroundTankCleaningInfoApplicable;
     private boolean facadeCleaningApplicable;
     private boolean upholsteryCleaningApplicable;
     private boolean fumigationPerBedBugsApplicable;
     private boolean garbageCostApplicable;
+
+    private List<DropDownDto> serviceTypeOptions = ServiceType.getAllServiceTypeValues();
+    private List<ServiceType> selectedServiceType= new ArrayList<>();
 
     private int pestControlRatePerRoomPerMonth;
     private int pestCostPerMonthPerAvailableBed;
@@ -37,7 +42,8 @@ public class BuildMaintenanceCategoryDto extends CategoryDto {
     private int floorCleaningTotalCost;
     private int floorCleaningCostPerMonthPerAvailableBed;
 
-    List<TankCleaningSlotDto> tankCleaningSlotDtos = new ArrayList<>();
+    List<TankCleaningSlotDto> overheadTankCleaningSlotDtos = new ArrayList<>();
+    List<TankCleaningSlotDto> underGroundTankCleaningSlotDtos = new ArrayList<>();
     private int totalCostForTankCleaningPerYear;
     private int tankCleaningCostPerBedPerMonth;
 

@@ -1,5 +1,6 @@
 package com.stanzaliving.core.opscalculator.dto;
 
+import com.stanzaliving.core.opscalculator.enums.EquipmentType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -12,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString(callSuper = true)
 public class RepairCategoryDto extends CategoryDto{
-    private boolean amcCostApplicable;
+    private boolean  amcCostApplicable;
     private boolean manPowerApplicable;
     private boolean materialCostApplicable;
 
@@ -26,7 +27,10 @@ public class RepairCategoryDto extends CategoryDto{
     private boolean fireExtinguisherAmcCostApplicable;
     private boolean firePanelAmcCostApplicable;
 
-    List<AmcCostSlotDto> acAmcCostSlotDtos = new ArrayList<>();
+    private List<DropDownDto> equipmentListOptions = EquipmentType.getAllEquipmentTypeValues();
+    private List<EquipmentType> selectedEquipmentType = new ArrayList<>();
+
+    List<AcAmcCostSlotDto> acAmcCostSlotDtos = new ArrayList<>();
     private int acAmcCost;
     List<AmcCostSlotDto> dgAmcCostSlotDtos = new ArrayList<>();
     private int dgAmcCost;

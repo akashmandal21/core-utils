@@ -7,12 +7,15 @@ package com.stanzaliving.core.opscalculator.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.stanzaliving.core.opscalculator.constants.Constants;
 
+import com.stanzaliving.core.opscalculator.enums.SecurityType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 /**
  * @author nipunaggarwal
@@ -26,12 +29,14 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "utilization" })
 public class SecurityCategoryDto extends CategoryDto {
 
-	private String securityType;
+	private SecurityType securityType;
 	private int employeeCount;
 	private double ratePerMonth;
 
 	private Integer securityCharges;
 	private Integer inHouseSecurityCharges;
+
+	private List<WaterTankerSlotDetail.DropDownDto> securityTypeOptions = SecurityType.getAllServiceTypeValues();
 
 
 	@Builder.Default

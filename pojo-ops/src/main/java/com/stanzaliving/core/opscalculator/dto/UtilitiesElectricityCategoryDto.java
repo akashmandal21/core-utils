@@ -42,6 +42,7 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	private int nonAcRoomsWithRoomPassThroughCharges;
 	private int studentReceivablesUnitRate;
 	private int landlordReceivablesCharges;
+
 	private int totalChargesBeforePassThrough;
 
 	private UnitRate unitRate;
@@ -66,5 +67,13 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
 	private int roomPassThroughCharges;
 	private int acPassThroughCharges;
+
+	private int totalBillableUnitPerMonthForNonAcRoom;
+	private int totalBillableUnitPerMonthForAcRoom;
+	private int totalBillableUnitPerMonthForCA;
+	private int totalBillableUnitPerMonthForEquipment;
+
+	private boolean roomMeterRequired;
+	private int roomMeterOpexCost;
 
 }
