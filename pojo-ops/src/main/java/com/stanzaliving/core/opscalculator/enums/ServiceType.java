@@ -56,8 +56,8 @@ public enum ServiceType {
     String name;
     public static List<DropDownDto> getAllServiceTypeValues(){
         List<DropDownDto> dropDownDtoList = new ArrayList<>();
-        for(EquipmentType equipmentType : EquipmentType.values()){
-            dropDownDtoList.add(new DropDownDto(equipmentType.toString(), equipmentType.getName()));
+        for(ServiceType serviceType : ServiceType.values()){
+            dropDownDtoList.add(new DropDownDto(serviceType.toString(), serviceType.getName()));
         }
         return dropDownDtoList;
     }
