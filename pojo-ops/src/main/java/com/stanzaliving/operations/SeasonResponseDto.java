@@ -14,4 +14,5 @@ public class SeasonResponseDto {
     private LocalDate toDate;
     private String seasonName;
     private String uuid;
+    private String createdBy;
 }
