@@ -33,8 +33,8 @@ public class SecurityCategoryDto extends CategoryDto {
 	private int employeeCount;
 	private double ratePerMonth;
 
-	private Integer securityCharges;
-	private Integer inHouseSecurityCharges;
+	private int securityCharges;
+	private int inHouseSecurityCharges;
 
 	private List<DropDownDto> securityTypeOptions = SecurityType.getAllServiceTypeValues();
 

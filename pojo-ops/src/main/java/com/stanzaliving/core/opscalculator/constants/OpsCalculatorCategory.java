@@ -29,7 +29,11 @@ public enum OpsCalculatorCategory {
 	SUBSCRIPTION("subscription"),
 	UNIFORM_COSTS("uniform_costs"),
 	WATER("water"),
-	INTERNET("internet");
+	INTERNET("internet"),
+	UTILITIES("utilities"),
+	PERSONNEL("personnel"),
+	TRANSPORT("transport"),
+	UNDER_WRITTEN("underWritten");
 
 	private String opsCalculatorCategory;
 }

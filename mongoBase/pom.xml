@@ -25,7 +25,11 @@
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>com.stanzaliving.core</groupId>
+			<artifactId>pojo</artifactId>
+			<version>${global.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-apt</artifactId>
@@ -60,6 +64,12 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.10</version>
+		</dependency>
+		<dependency>
+			<groupId>com.stanzaliving.core</groupId>
+			<artifactId>security</artifactId>
+			<version>1.0.0</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 

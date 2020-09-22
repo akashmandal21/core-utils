@@ -28,7 +28,6 @@ public class AnnualUnderWrittenDtoConverter implements AttributeConverter<Annual
 
     private static ObjectMapper objectMapper = null;
 
-    @PostConstruct
     public void init() {
         objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

@@ -28,22 +28,22 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count" })
 public class FoodCategoryDto extends CategoryDto {
 
-	private Double menuPricePerDay;
+	private double menuPricePerDay;	//totalPrice from foodMenu in service-mix (after checking for enabled)  			//menu categoryId from Service Mix -> 	FoodServiceClientApi->getFullCategoryById  --> MenuCategoryMealUtils->getFnBPaxPrice
 
-	private Integer weekDays;
-	private Integer weekdayUtilization;
-	private Integer weekendDays;
-	private Integer weekendUtilization;
-	private Integer holidays;
-	private Integer holidayUtilization;
-	private Integer specialMealDays;
-	private Integer specialDayUtilization;
-	private Integer opsSLStaffPerDay;
-	private Integer opsNonSLMorningStaffPerDay;
-	private Integer opsNonSLEveningStaffPerDay;
-	private Integer nonSlStaffMenuPricePerDayForMorning;
-	private Integer nonSlStaffMenuPricePerDayForEvening;
-	private Integer overallUtilization;
+	private int weekDays;		//should be 30 minus remaining
+	private int weekdayUtilization;
+	private int weekendDays;
+	private int weekendUtilization;
+	private int holidays;
+	private int holidayUtilization;
+	private int specialMealDays; //menu categoryId from Service Mix -> 	FoodServiceClientApi->getFullCategoryById -> FullCategoryDto -> WeekWiseMenu -> weekNumber1 -> DayWiseFoodMenuDto -> MealWiseFoodMenuDto -> MenuItemDto -> itemType is either NON-Veg or special
+	private int specialDayUtilization;
+	private int opsSLStaffPerDay;
+	private double nonSlStaffMenuPricePerDayForMorning;		//FullCategoryDto -> FoodMenuCategoryMealDto (if status) -> nonStanzaStaffCost based on mealType
+	private double nonSlStaffMenuPricePerDayForEvening;		//FullCategoryDto -> FoodMenuCategoryMealDto (if status) -> nonStanzaStaffCost based on mealType
+	private int opsNonSLMorningStaffPerDay;
+	private int opsNonSLEveningStaffPerDay;
+	private int overallUtilization;
 
 
 
