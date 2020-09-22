@@ -61,5 +61,5 @@ public enum ServiceType {
         }
         return dropDownDtoList;
     }
-    public abstract void  setSelectedApplicableOption(BuildMaintenanceCategoryDto buildMaintenanceCategoryDto)
+    public abstract void  setSelectedApplicableOption(BuildMaintenanceCategoryDto buildMaintenanceCategoryDto);
 }

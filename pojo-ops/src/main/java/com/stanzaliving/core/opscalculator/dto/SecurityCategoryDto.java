@@ -36,7 +36,7 @@ public class SecurityCategoryDto extends CategoryDto {
 	private Integer securityCharges;
 	private Integer inHouseSecurityCharges;
 
-	private List<WaterTankerSlotDetail.DropDownDto> securityTypeOptions = SecurityType.getAllServiceTypeValues();
+	private List<DropDownDto> securityTypeOptions = SecurityType.getAllServiceTypeValues();
 
 
 	@Builder.Default
