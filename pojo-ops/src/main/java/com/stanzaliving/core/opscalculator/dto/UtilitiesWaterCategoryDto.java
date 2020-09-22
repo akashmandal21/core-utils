@@ -10,6 +10,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.stanzaliving.core.opscalculator.constants.WaterSupplySource;
 
+import com.stanzaliving.core.opscalculator.enums.DrinkingWaterSupplySources;
 import com.stanzaliving.core.opscalculator.enums.LandlordReceivablesCalculationEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,8 +41,10 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 	private int tankerCost;
 
 
-	private List<WaterSupplySource> waterSupplySource;
-	private String drinkingWaterSource;
+	@Builder.Default
+	private List<WaterSupplySource> waterSupplySource = new ArrayList<>();
+	@Builder.Default
+	private List<DrinkingWaterSupplySources> drinkingWaterSource = new ArrayList<>();
 	private int avgStudentConsumptionPerDay;
 
 	private int govtSupplyDependencyWithoutTanker;
@@ -56,6 +59,9 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 	private WaterSupplySource[] allWaterSupplySources = WaterSupplySource.values();
 
 	@Builder.Default
+	private DrinkingWaterSupplySources[] allDrinkingWaterSupplySources = DrinkingWaterSupplySources.values();
+
+	@Builder.Default
 	private List<WaterTankerSlotDetail> waterTankerSlotDetails = new ArrayList<WaterTankerSlotDetail>();
 
 
@@ -64,6 +70,8 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 	private int waterJarCount;
 
 	private int landlordReceivablePercent;
+	@Builder.Default
+	private List<DropDownDto> landLordReceivablesOptions = new ArrayList<>();
 	private LandlordReceivablesCalculationEnum landlordReceivableCalculatedOn;
 
 
