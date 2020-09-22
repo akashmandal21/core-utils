@@ -19,24 +19,27 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class InternetPlanDto extends AbstractDto {
 
+	private static final long serialVersionUID = -2437579710833694770L;
+
 	private InternetVendor vendor;
-	
+
 	private String planName;
-	
+
 	private int data;
-	
+
 	private DataUnit dataUnit;
 
 	private int speed;
-	
+
 	private DataUnit speedUnit;
 
 	private int validity;
-	
+
 	private Double basePrice;
 
 	private Double tax;
 
 	private Double totalPrice;
-	
+
+	private int userMGPercent;
 }

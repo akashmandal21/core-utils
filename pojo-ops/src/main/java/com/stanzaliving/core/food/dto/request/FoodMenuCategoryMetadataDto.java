@@ -13,6 +13,8 @@ import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.food.enums.FoodServeType;
+import com.stanzaliving.core.food.enums.GrammageHeavynessLevel;
+import com.stanzaliving.core.food.enums.MenuCategoryType;
 import com.stanzaliving.core.food.enums.MenuType;
 
 import lombok.AllArgsConstructor;
@@ -56,7 +58,6 @@ public class FoodMenuCategoryMetadataDto extends AbstractDto {
 	@NotNull(message = "Serve Type Selection is Mandatory")
 	private FoodServeType foodServeType;
 
-	@NotNull(message = "Brand Selection is Mandatory")
 	private ResidenceBrand residenceBrand;
 
 	@NotNull(message = "Menu Type Selection is mandatory")
@@ -66,8 +67,19 @@ public class FoodMenuCategoryMetadataDto extends AbstractDto {
 
 	private Double foodMargin;
 
+	private Double utilityCost;
+
+	private Double packagingCost;
+
 	private boolean dataComplete;
 
 	private boolean published;
+
+	private String draftStatus;
+
+	@NotNull(message = "Menu Category Type Selection is Mandatory")
+	private MenuCategoryType categoryType;
+
+	private GrammageHeavynessLevel grammageHeavynessLevel;
 
 }

@@ -31,10 +31,13 @@ public class BudgetFoodOrderRequestDto {
 
 	@Builder.Default
 	private Double actualUtilization = 0d;
-	
+
 	@Builder.Default
-	private Boolean editingAllowed=true;
-	
+	private Boolean editingAllowed = true;
+
 	private String orderEditingMessage;
 
+	private boolean orderWindowClosed;
+
+	private boolean orderWindowNotOpenYet;
 }

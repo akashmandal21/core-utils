@@ -1,8 +1,11 @@
 package com.stanzaliving.po.model;
 
+import com.stanzaliving.po.enums.PoType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.math.BigDecimal;
 
 @Setter
 @Getter
@@ -11,7 +14,7 @@ public class PropertyItemDetailsDto {
 
     private String propertyId;
 
-    private String poType;
+    private PoType poType;
 
     private String itemId;
 
@@ -23,9 +26,9 @@ public class PropertyItemDetailsDto {
 
     private String itemUom;
 
-    private Float itemQuantity;
+    private BigDecimal itemQuantity;
 
-    private Double itemRate;
+    private BigDecimal itemRate;
 
     private String cgst;
 

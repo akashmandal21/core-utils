@@ -8,15 +8,16 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Config {
-	private FoodService foodService;
-	//private FoodComposition foodComposition;
-	//private FoodMenu foodMenu;
-	private InternetService internet;
-	private HouseKeeping houseKeeping;
-	private Security security;
-	private Laundry laundry;
-	private Electricity electricity;
-	private GymService gym;
-	private TransportService transport;
-	private OtherServices other;
+
+	private FoodService foodService = new FoodService();
+	private FoodComposition foodComposition = new FoodComposition();
+	private FoodMenu foodMenu = new FoodMenu();
+	private InternetService internet = new InternetService();
+	private HouseKeeping houseKeeping = new HouseKeeping();
+	private Security security = new Security();
+	private Laundry laundry = new Laundry();
+	private Electricity electricity = new Electricity();
+	private GymService gym = new GymService();
+	private TransportService transport = new TransportService();
+	private OtherServices other = new OtherServices();
 }

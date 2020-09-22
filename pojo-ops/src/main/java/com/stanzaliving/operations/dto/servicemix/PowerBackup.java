@@ -9,6 +9,6 @@ import lombok.ToString;
 @Getter
 @Setter 
 @ToString(callSuper = true)
-public class PowerBackup extends BooleanService {
+public class PowerBackup extends AcquiredBooleanService {
 	private PowerBackupEnum type;
 }

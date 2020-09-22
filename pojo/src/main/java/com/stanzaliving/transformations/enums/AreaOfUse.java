@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.transformations.enums;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,7 +25,9 @@ public enum AreaOfUse {
 	BRANDING("Branding"),
 	ELECTRONIC("Electronic"),
 	GYM("Gym"),
-	COMMON_AREA("Common Area");
+	COMMON_AREA("Common Area"),
+	LOGISTICS("Logistics"),
+	PROVISIONAL("Provisional");
 	
 	private String name;
 
@@ -33,9 +36,9 @@ public enum AreaOfUse {
 	}
 	
 	public static Map<String, AreaOfUse> areaofUseMap = new HashMap<>();
+	public static Map<String, AreaOfUse> areaofUseUpperCaseMap = new HashMap<>();
 
 	static {
-
 		areaofUseMap.put("Room", AreaOfUse.ROOM);
 		areaofUseMap.put("Reception", AreaOfUse.RECEPTION);
 		areaofUseMap.put("Entertainment", AreaOfUse.ENTERTAINMENT);
@@ -46,6 +49,11 @@ public enum AreaOfUse {
 		areaofUseMap.put("Electronic", AreaOfUse.ELECTRONIC);
 		areaofUseMap.put("Gym", AreaOfUse.GYM);
 		areaofUseMap.put("Common Area", AreaOfUse.COMMON_AREA);
+		areaofUseMap.put("Logistics", AreaOfUse.LOGISTICS);
+		areaofUseMap.put("Provisional", AreaOfUse.PROVISIONAL);
+
+
+		Arrays.stream(AreaOfUse.values()).forEach(f->areaofUseUpperCaseMap.put(f.getName().toUpperCase(),f));
 	}
 
 }

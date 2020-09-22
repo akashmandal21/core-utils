@@ -8,13 +8,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class HouseKeeping extends BooleanService {
-	private WeeklyService room;
-	private WeeklyService bathroom;
-	private WeeklyService commonBathroom;
+	private WeeklyService room = new WeeklyService();
+	private WeeklyService bathroom = new WeeklyService();
+	private WeeklyService commonBathroom = new WeeklyService();
 	
 	@JsonProperty("common_area")
-	private WeeklyService commonArea;
+	private WeeklyService commonArea = new WeeklyService();
 	
 	@JsonProperty("linen_change")
-	private WeeklyService linenChange;
+	private WeeklyService linenChange = new WeeklyService();
 }

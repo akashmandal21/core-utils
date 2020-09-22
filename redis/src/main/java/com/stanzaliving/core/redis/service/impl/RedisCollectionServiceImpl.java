@@ -147,4 +147,9 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 		return getRedisObjectSet(setName).add(key);
 	}
 
+	@Override
+	public void clearMap(String mapName) {
+		redissonClient.getMap(mapName).clear();
+	}
+
 }

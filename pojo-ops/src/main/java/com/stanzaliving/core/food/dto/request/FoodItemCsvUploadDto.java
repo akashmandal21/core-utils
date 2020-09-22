@@ -1,13 +1,8 @@
 package com.stanzaliving.core.food.dto.request;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.opencsv.bean.CsvBindByName;
 import com.stanzaliving.core.food.enums.FoodItemType;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -18,31 +13,74 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodItemCsvUploadDto {
 
-	@JsonProperty("Name")
+	@CsvBindByName(column = "Dish_Name")
 	private String name;
 
-	@JsonProperty("Brand")
+	@CsvBindByName(column = "Status")
+	private String status;
+
+	@CsvBindByName(column = "Recipe_Type")
+	private String recipeType;
+
+	@CsvBindByName(column = "Description")
+	private String description;
+
+	@CsvBindByName(column = "Brand")
 	private String defaultBrand;
 	
-	@JsonProperty("Category")
+	@CsvBindByName(column = "Category")
 	private String category;
 
-	@JsonProperty("ItemType")
-	private FoodItemType itemType;
+	private String categoryId;
 
-	@JsonProperty("Quantifiable")
-	private Boolean quantifiable;
+	@CsvBindByName(column = "Sub_Category")
+	private String subCategory;
 
-	@JsonProperty("TextColor")
-	private String textColor;
+	private String subCategoryId;
 
-	@JsonProperty("BgColor")
+	@CsvBindByName(column = "Meals")
+	private String meals;
+
+	@CsvBindByName(column = "Add_On")
+	private String addOnEnabled;
+
+	@CsvBindByName(column = "Dish_Color")
 	private String bgColor;
 
-	@JsonProperty("Tags")
-	private String tags;
+	@CsvBindByName(column = "TextColor")
+	private String textColor;
 
-	@JsonProperty("Meals")
-	private String meals;
+	@CsvBindByName(column = "Dish_Type")
+	private String itemType;
+
+	@CsvBindByName(column = "Special_Veg")
+	private String specialVeg;
+
+	@CsvBindByName(column = "Quantifiable")
+	private String quantifiable;
+
+	@CsvBindByName(column = "UOM")
+	private String unitOfMeasurement;
+
+	@CsvBindByName(column = "Grammage_per_pax")
+	private Double grammagePerPax;
+
+	@CsvBindByName(column = "Ingredient")
+	private String ingredient;
+
+	@CsvBindByName(column = "Ingredient_Quantity")
+	private Double ingredientQty;
+
+	@CsvBindByName(column = "Commercial_tag")
+	private String commercialTag;
+
+	@CsvBindByName(column = "Primary_tags")
+	private String primaryTags;
+
+	@CsvBindByName(column = "Dish Region")
+	private String dishRegion;
+
+	@CsvBindByName(column = "Shelf Life")
+	private Integer shelfLife;
 
 }

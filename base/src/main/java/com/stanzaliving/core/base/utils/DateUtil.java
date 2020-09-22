@@ -1,19 +1,38 @@
 package com.stanzaliving.core.base.utils;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.*;
+import java.time.DayOfWeek;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+import java.time.Period;
+import java.time.YearMonth;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.*;
+import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
 
 import org.apache.commons.text.CaseUtils;
 
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.enums.DatePart;
-import static com.google.common.base.Preconditions.*;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
@@ -21,11 +40,11 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @UtilityClass
 public class DateUtil {
-	
+
 	public String formatIst(Date date, String format) {
 		return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
 	}
-	
+
 	public String customDateFormatter(Date dateInput, DateFormat dateFormat) {
 
 		if (dateInput != null) {
@@ -42,7 +61,6 @@ public class DateUtil {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateFormat.getValue());
 			return formatter.format(dateInput);
 		}
-
 		return null;
 	}
 
@@ -199,7 +217,7 @@ public class DateUtil {
 		return Period.between(one, two).getYears();
 	}
 
-	public LocalDate convertToLocalDate(Date date) {
+	public LocalDate convertToLocalDate(Date date, String timeZone) {
 		if (date == null) {
 			return null;
 		}
@@ -208,14 +226,27 @@ public class DateUtil {
 			return ((java.sql.Date) date).toLocalDate();
 		}
 
-		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
+		ZoneId zoneId = ZoneId.of(timeZone);
 		Instant instant = date.toInstant();
 		return instant.atZone(zoneId).toLocalDate();
+	}
+
+	public LocalDate convertToLocalDate(Date date) {
+		return convertToLocalDate(date, StanzaConstants.IST_TIMEZONE);
+	}
+
+	public LocalDate convertToLocalDateFromUTC(Date date) {
+		return convertToLocalDate(date, StanzaConstants.UTC_TIMEZONE);
 	}
 	
 	public boolean isLocalDateExpired(LocalDate localDate) {
 		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
 		return localDate.isBefore(LocalDate.now(zoneId));
+	}
+	
+	public LocalDate getLocalDate() {
+		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
+		return LocalDate.now(zoneId);
 	}
 
 	public LocalTime convertToLocalTime(Date date) {
@@ -235,6 +266,11 @@ public class DateUtil {
 	public long daysBetween(Date one, Date two) {
 		long difference = ((one.getTime() - two.getTime()) / StanzaConstants.MILLI_SECONDS_IN_DAY);
 		return Math.abs(difference);
+	}
+
+	public long daysBetweenWithSign(Date one, Date two) {
+		long difference = ((one.getTime() - two.getTime()) / StanzaConstants.MILLI_SECONDS_IN_DAY);
+		return difference;
 	}
 
 	public int getMaxDaysInMonth(LocalDate date) {
@@ -392,7 +428,7 @@ public class DateUtil {
 		return cal.getTime();
 	}
 
-	public static Date addToDate(Date dateToBeAdjusted, Integer days, Integer months, Integer  years, Boolean normalizeDate) {
+	public static Date addToDate(Date dateToBeAdjusted, Integer days, Integer months, Integer years, Boolean normalizeDate) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(dateToBeAdjusted);
 		if (normalizeDate) {
@@ -412,16 +448,21 @@ public class DateUtil {
 		}
 		return calendar.getTime();
 	}
+
 	public static String getDayOfMonthSuffix(LocalDate date) {
 		int n = date.getDayOfMonth();
 		if (n >= 11 && n <= 13) {
 			return "th";
 		}
 		switch (n % 10) {
-			case 1:  return "st";
-			case 2:  return "nd";
-			case 3:  return "rd";
-			default: return "th";
+			case 1:
+				return "st";
+			case 2:
+				return "nd";
+			case 3:
+				return "rd";
+			default:
+				return "th";
 		}
 	}
 
@@ -535,7 +576,7 @@ public class DateUtil {
 
 		return weekNumber;
 	}
-	
+
 	public static Map<String, LocalDate> getStartAndEndDateForFoodOrder(Integer week, LocalDate date) {
 
 		Map<String, LocalDate> dateMap = new HashMap<>();
@@ -557,7 +598,7 @@ public class DateUtil {
 			return dateMap;
 		}
 	}
-	
+
 	public static List<LocalDate> getWeekFirstAndLastDaysForLeaderboard(LocalDate date) {
 
 		List<LocalDate> weekFirstAndLastDays = new ArrayList<>();
@@ -581,7 +622,7 @@ public class DateUtil {
 			return weekFirstAndLastDays;
 		}
 	}
-	
+
 	public static List<LocalDate> getFirstAndTillDayOfCurrentWeekForLeaderboard(LocalDate date) {
 
 		List<LocalDate> firstAndTillDayOfCurrentWeek = new ArrayList<>();
@@ -631,7 +672,7 @@ public class DateUtil {
 	public String convertToAMPM(LocalTime localTime) {
 
 		DateTimeFormatter timeFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
-	            .withLocale(Locale.US);
+				.withLocale(Locale.US);
 
 		return localTime.format(timeFormatter);
 
@@ -648,15 +689,20 @@ public class DateUtil {
 			return "th";
 		}
 		switch (n % 10) {
-			case 1:  return "st";
-			case 2:  return "nd";
-			case 3:  return "rd";
-			default: return "th";
+			case 1:
+				return "st";
+			case 2:
+				return "nd";
+			case 3:
+				return "rd";
+			default:
+				return "th";
 		}
 	}
 
 	/**
 	 * Method to generate a standard date String for display purpose
+	 * 
 	 * @return Date string eg. 1st May, 2020
 	 */
 	public String getStandardDateString(Date dateInput) {
@@ -665,5 +711,19 @@ public class DateUtil {
 				+ getDayOfMonthSuffix(datePart) + " "
 				+ customDateFormatter(dateInput, DateFormat.MMMM_YYYY);
 	}
+
+	public static LocalDate getNextDayOfWeek(LocalDate date, DayOfWeek day) {
+
+		return date.with(TemporalAdjusters.next(day));
+	}
+	
+	 public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
+	        Calendar calStart = Calendar.getInstance();
+	        calStart.setTime(fromDate);
+	        Calendar calEnd = Calendar.getInstance();
+	        calEnd.setTime(toDate);
+	        int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
+	        return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
+	    }
 
 }

@@ -27,8 +27,6 @@ public class FoodItemResponseDto {
 
 	private String name;
 
-	private String torqusSku;
-
 	private boolean status;
 
 	private String categoryId;

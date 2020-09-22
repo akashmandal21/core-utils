@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.dto.CompositionRuleDto;
+import com.stanzaliving.core.food.dto.TotalMealPriceDto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -28,8 +29,9 @@ public class FullCategoryDto {
 
 	private boolean publishable;
 
-	@Builder.Default
-	private boolean draftAvailable = false;
+	private boolean draftAvailable;
+
+	private boolean pendingApproval;
 
 	@NotNull(message = "Category Metadata is Mandatory")
 	private @Valid FoodMenuCategoryMetadataDto category;
@@ -40,5 +42,7 @@ public class FullCategoryDto {
 	private List<FoodMenuCategoryMealDto> meals;
 
 	private List<WeekWiseMenu> weekMenus;
+
+	private TotalMealPriceDto fnbMealPriceDto;
 
 }

@@ -252,6 +252,12 @@ public class StanzaUtils {
 		return formattedString + "," + thousandsPart;
 	}
 
+	public static String formatBigDecimalToIndianNumberFormat(BigDecimal value) {
+		Locale locale = new Locale("en","IN");
+		DecimalFormat decimalFormat = (DecimalFormat) DecimalFormat.getInstance(locale);
+		return decimalFormat.format(value);
+	}
+
 	/**
 	 * Convert the supplied size to it's corresponding unit
 	 * such as bytes,KB,MB,GB or TB.
@@ -283,7 +289,12 @@ public class StanzaUtils {
 		return sizeWithUnit;
 	}
 
+	public String getQuotedString(Collection<String> list) {
+		return "'" + String.join("','", list) + "'";
+	}
+
 	public String getString(Object obj) {
 		return Objects.isNull(obj) ? null : obj.toString();
 	}
+
 }
