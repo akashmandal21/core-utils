@@ -47,8 +47,10 @@ public class BuildMaintenanceCategoryDto extends CategoryDto {
     List<TankCleaningSlotDto> overheadTankCleaningSlotDtos = new ArrayList<>();
     @Builder.Default
     List<TankCleaningSlotDto> underGroundTankCleaningSlotDtos = new ArrayList<>();
-    private int totalCostForTankCleaningPerYear;
-    private int tankCleaningCostPerBedPerMonth;
+    private int totalCostForOverHeadTankCleaningPerYear;
+    private int totalCostForUnderGroundTankCleaningPerYear;
+    private int overHeadTankCleaningCostPerBedPerMonth;
+    private int underGroundTankCleaningCostPerBedPerMonth;
 
     private int facadeAreaInSquareFeet;
     private double facadeCleaningRatePerSquareFeet;

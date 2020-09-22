@@ -61,8 +61,7 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 	@Builder.Default
 	private DrinkingWaterSupplySources[] allDrinkingWaterSupplySources = DrinkingWaterSupplySources.values();
 
-	@Builder.Default
-	private List<WaterTankerSlotDetail> waterTankerSlotDetails = new ArrayList<WaterTankerSlotDetail>();
+	private List<WaterTankerSlotDetail> waterTankerSlotDetails =  new ArrayList<>();
 
 
 	private int waterJarCapacity;
