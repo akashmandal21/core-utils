@@ -12,7 +12,8 @@ public enum UnderWrittenStatus {
     UNDER_DRAFT("Under Draft"),
     SENT_FOR_APPROVAL("Sent For Approval"),
     APPROVED("Approved"),
-    REJECTED("Rejected");
+    REJECTED("Rejected"),
+    DISCARDED("Discarded");
 
     String status;
 }

@@ -38,4 +38,10 @@ public class AnnualUnderWrittenResponseDto extends AnnualUnderWrittenDto {
 
     private ResidenceBrand residenceBrand;
 
+    private String seasonUuid;
+
+    private String versionName;
+
+    private Integer versionNumber;
+
 }
