@@ -18,8 +18,10 @@ public enum VasOrderStatus {
 	PAYMENT_PENDING("Payment Pending"),
 	FAILURE("Failed"),
 	CANCELLED("Cancelled"),
+	DISCARDED("Discarded"),
 	CONFIRMED("Order Confirmed"),
-	TO_BE_REFUNDED("To Be Refunded");
+	TO_BE_REFUNDED("To Be Refunded"),
+	REFUNDED("Refunded");
 
 	private String statusName;
 }

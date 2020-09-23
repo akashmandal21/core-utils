@@ -47,4 +47,6 @@ public class FoodPreferenceComboResponseDto {
 	
 	private String slogan;
 
+	private String mealImg;
+
 }
