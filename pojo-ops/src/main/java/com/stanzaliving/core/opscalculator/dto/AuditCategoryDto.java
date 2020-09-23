@@ -33,6 +33,9 @@ public class AuditCategoryDto extends CategoryDto {
 	private int mgForCctvAudit;
 	private int physicalAuditCostPerMonth;
 
+	private int totalCctvAuditCostPerBed;
+	private int totalPhysicalAuditCostPerBed;
+
 
 	private int physicalAuditCharges;
 	private int cctvAuditCharges;
