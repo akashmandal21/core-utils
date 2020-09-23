@@ -1,10 +1,12 @@
 package com.stanzaliving.core.opscalculator.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
@@ -13,6 +15,7 @@ import java.time.LocalDate;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(callSuper = true)
 public class AnnualUnderWrittenResponseDto extends AnnualUnderWrittenDto {
 
     private String underWrittenUuid;
@@ -32,5 +35,7 @@ public class AnnualUnderWrittenResponseDto extends AnnualUnderWrittenDto {
     private Integer roomCount;
 
     private Integer bedCount;
+
+    private ResidenceBrand residenceBrand;
 
 }

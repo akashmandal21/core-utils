@@ -11,7 +11,8 @@ public class ServiceMixListingResponseDto {
     String versionName;
     Long versionNumber;
     LocalDate fromDate;
-    LocalDate toDate;           //not sure if possible
     String uuid;
-    Boolean selected;
+    String seasonUuid;
+    @Builder.Default
+    Boolean selected = false;
 }
