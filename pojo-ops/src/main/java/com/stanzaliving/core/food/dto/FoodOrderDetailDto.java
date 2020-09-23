@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
@@ -86,4 +87,9 @@ public class FoodOrderDetailDto {
 	private boolean packaged;
 
 	private String comments;
+
+	private boolean extraFoodOrderWindowClosed;
+
+	private Date extraFoodOrderWindowCloseTime;
+
 }

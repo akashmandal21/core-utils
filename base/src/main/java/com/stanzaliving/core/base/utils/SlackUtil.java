@@ -48,6 +48,29 @@ public class SlackUtil {
 		return slackMessage;
 	}
 
+	public StringBuilder createMessageForKafka(String topic, String record, String error) {
+		Pair<String, String> ipAddress = getIpAddress();
+
+		StringBuilder slackMessage = new StringBuilder();
+		slackMessage
+				.append("Event Time: ")
+				.append(DateUtil.convertLocalDateTimeToDateFormatString(LocalDateTime.now(), DateFormat.ELASTIC_SEARCH_WITH_MILI_SECONDS))
+				.append("\n GUID: ")
+				.append(MDC.get(StanzaConstants.GUID))
+				.append("\n IP Address: ")
+				.append(ipAddress.getLeft())
+				.append("\n Hostname: ")
+				.append(ipAddress.getRight())
+				.append("\n ").append("Topic: ")
+				.append(topic)
+				.append("\n ").append("Record: ")
+				.append(record)
+				.append("\n ").append("Error: ")
+				.append(error);
+
+		return slackMessage;
+	}
+
 	private Pair<String, String> getIpAddress() {
 
 		Pair<String, String> pair = Pair.of("", "");

@@ -37,6 +37,11 @@ public class KafkaDTO {
 		this.data = data;
 	}
 
+	public KafkaDTO(String className, Object data) {
+		this.className = className;
+		this.data = data;
+	}
+	
 	public KafkaDTO(String type, String subType, String className, Object data, Object metadata) {
 		this.type = type;
 		this.subType = subType;
