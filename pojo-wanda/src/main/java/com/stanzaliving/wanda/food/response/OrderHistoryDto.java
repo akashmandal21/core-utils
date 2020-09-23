@@ -45,4 +45,5 @@ public class OrderHistoryDto {
 	private String userResidenceFoodMenuId;
 	
 	private String menuDate;
+	
 }
