@@ -1,5 +1,6 @@
 package com.stanzaliving.core.leaddashboard.enums;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -143,17 +144,21 @@ public enum LeadSubStatus {
 		return pieChartStatus;
 	}
 	
-	public static boolean visitCompleted(LeadSubStatus leadSubStatus) {
+	public static LeadSubStatus visitCompletedEventPublish(LeadSubStatus leadSubStatus) {
 		
-		Set<LeadSubStatus> visitCompleted = new HashSet<>();
+		Map<LeadSubStatus, LeadSubStatus> visitCompleted = new HashMap<>();
 		
-		visitCompleted.add(VISIT_1_COMPLETED);
-		visitCompleted.add(VISIT_2_COMPLETED);
-		visitCompleted.add(VISIT_3_COMPLETED);
-		visitCompleted.add(VISIT_4_COMPLETED);
-		visitCompleted.add(VISIT_5_COMPLETED);
+		visitCompleted.put(VISIT_2_SCHEDULED, VISIT_1_COMPLETED);
+		visitCompleted.put(VISIT_3_SCHEDULED, VISIT_2_COMPLETED);
+		visitCompleted.put(VISIT_4_SCHEDULED, VISIT_3_COMPLETED);
+		visitCompleted.put(VISIT_5_SCHEDULED, VISIT_4_COMPLETED);
+		visitCompleted.put(POST_VISIT_1_FOLLOW_UP, VISIT_1_COMPLETED);
+		visitCompleted.put(POST_VISIT_2_FOLLOW_UP, VISIT_2_COMPLETED);
+		visitCompleted.put(POST_VISIT_3_FOLLOW_UP, VISIT_3_COMPLETED);
+		visitCompleted.put(POST_VISIT_4_FOLLOW_UP, VISIT_4_COMPLETED);
+		visitCompleted.put(POST_VISIT_5_FOLLOW_UP, VISIT_5_COMPLETED);
 		
-		return visitCompleted.contains(leadSubStatus);
+		return visitCompleted.get(leadSubStatus);
 	}
 	
 	public static boolean dropped(LeadSubStatus leadSubStatus) {
