@@ -143,4 +143,31 @@ public enum LeadSubStatus {
 		return pieChartStatus;
 	}
 	
+	public static boolean visitCompleted(LeadSubStatus leadSubStatus) {
+		
+		Set<LeadSubStatus> visitCompleted = new HashSet<>();
+		
+		visitCompleted.add(VISIT_1_COMPLETED);
+		visitCompleted.add(VISIT_2_COMPLETED);
+		visitCompleted.add(VISIT_3_COMPLETED);
+		visitCompleted.add(VISIT_4_COMPLETED);
+		visitCompleted.add(VISIT_5_COMPLETED);
+		
+		return visitCompleted.contains(leadSubStatus);
+	}
+	
+	public static boolean dropped(LeadSubStatus leadSubStatus) {
+		
+		Set<LeadSubStatus> dropped = new HashSet<>();
+		
+		dropped.add(DISQUALIFIED);
+		dropped.add(PRE_VISIT_DROP);
+		dropped.add(POST_VISIT_1_DROP);
+		dropped.add(POST_VISIT_2_DROP);
+		dropped.add(POST_VISIT_3_DROP);
+		dropped.add(POST_VISIT_4_DROP);
+		dropped.add(POST_VISIT_5_DROP);
+	
+		return dropped.contains(leadSubStatus);
+	}
 }
