@@ -35,8 +35,8 @@ public class UniformCostsCategoryDto extends CategoryDto {
 	UniformRequirementDto rcOeUniformRequirementDto;
 	UniformRequirementDto hkUniformRequirementDto;
 
-	int rcOeUniformCharges;
-	int hkUniformCharges;
+	private int totalRcOeUniformCostPerBed;
+	private int totalHkUniformCostPerBed;
 
 
 	@Builder.Default
