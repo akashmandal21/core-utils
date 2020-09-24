@@ -21,6 +21,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NextApplicableMealDto {
+
 	private MealType nextMeal;
 
 	private String nextMealName;
