@@ -28,6 +28,8 @@ public class ResidentFoodItemFeedbackDto {
 
 	private FoodItemType foodPreference;
 
+	private boolean quantifiable;
+	
 	private Integer quantiity;
 
 	private Integer weight;
