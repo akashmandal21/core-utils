@@ -41,11 +41,11 @@ public class  EquipmentRentalCategoryDto extends CategoryDto {
 
 
 	@Builder.Default
-	private boolean vendingMachineEnabled = false;
+	private boolean vendingMachineEnabled = true;
 
 
 	@Builder.Default
-	private boolean coffeeMachineEnabled = false;
+	private boolean coffeeMachineEnabled = true;
 
 	private int elecricityRoomMeterCost;
 

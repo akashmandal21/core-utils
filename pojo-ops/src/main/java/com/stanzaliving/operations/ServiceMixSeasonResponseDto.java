@@ -12,6 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ServiceMixSeasonResponseDto {
-    private String residenceId;
+    private String residenceUuid;
     private List<SeasonResponseDto> seasonResponseDtoList;
 }
