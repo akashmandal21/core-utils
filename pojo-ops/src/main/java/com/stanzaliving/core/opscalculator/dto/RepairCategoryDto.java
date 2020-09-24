@@ -64,17 +64,17 @@ public class RepairCategoryDto extends CategoryDto{
     private boolean lowMaterialCostApplicable;
 
     private double highMaterialCostComplaintPerBedPerMonth;
-    private int highMaterialCostComplaints;
+    private double highMaterialCostComplaints;
     private double highMaterialCostPerTicket;
     private int highMaterialCostPerBedPerMonth;
 
     private double mediumMaterialCostComplaintPerBedPerMonth;
-    private int mediumMaterialCostComplaints;
+    private double mediumMaterialCostComplaints;
     private double mediumMaterialCostPerTicket;
     private int mediumMaterialCostPerBedPerMonth;
 
     private double lowMaterialCostComplaintPerBedPerMonth;
-    private int lowMaterialCostComplaints;
+    private double lowMaterialCostComplaints;
     private double lowMaterialCostPerTicket;
     private int lowMaterialCostPerBedPerMonth;
 
