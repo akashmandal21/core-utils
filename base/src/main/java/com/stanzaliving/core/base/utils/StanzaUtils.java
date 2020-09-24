@@ -252,6 +252,17 @@ public class StanzaUtils {
 		return formattedString + "," + thousandsPart;
 	}
 
+	public static String formatToIndianNumberFormat(Double value) {
+		if (value <= 999)
+			return Double.toString(value);
+		String thousandsPart = (value + "").substring((value + "").length() - 3);
+
+		double rest = value / 1000;
+		NumberFormat format = new DecimalFormat("##,##");
+		String formattedString = format.format(rest);
+		return formattedString + "," + thousandsPart;
+	}
+
 	/**
 	 * Convert the supplied size to it's corresponding unit
 	 * such as bytes,KB,MB,GB or TB.
