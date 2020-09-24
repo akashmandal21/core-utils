@@ -29,7 +29,7 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "sequenceId", "text" })
 public class TotalEarnedUIResponseDto extends ReferAndEarnBaseDto{
 
-	private String totalEarned;
+	private String amount;
 	private List<RewardsEarnedHistoryUIDto> history;
 
 }

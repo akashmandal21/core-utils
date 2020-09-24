@@ -28,5 +28,6 @@ public class BookingStatusResponseDto {
     private String otherIdRejectedReason;
     private Boolean policeVerificationStatus;
     private String policeVerificationRejectedReason;
+    private Integer residenceId;
 
 }

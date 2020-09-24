@@ -23,6 +23,8 @@ public class FoodPreferenceComboResponseDto {
 
 	private String residenceFoodMenuId;
 
+	private boolean defaultMenu;
+
 	private boolean selected;
 
 	private String comboName;
@@ -32,7 +34,7 @@ public class FoodPreferenceComboResponseDto {
 	private String basePreferenceName;
 
 	private FoodRegion foodRegion;
-
+	
 	private String foodRegionName;
 
 	private FoodItemType foodPreference;
@@ -42,5 +44,7 @@ public class FoodPreferenceComboResponseDto {
 	private List<FoodPreferenceComboItemDto> comboItemDtos;
 	
 	private String slogan;
+
+	private String mealImg;
 
 }

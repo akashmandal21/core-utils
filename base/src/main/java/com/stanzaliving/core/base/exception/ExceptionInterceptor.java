@@ -67,6 +67,21 @@ public class ExceptionInterceptor {
 
 		return ResponseDto.failure(errorMessgae, exceptionId);
 	}
+	
+	@ExceptionHandler(StanzaSecurityException.class)
+	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+	@SendExceptionToSlack
+	public <T> ResponseDto<T> handleStanzaSecurityException(StanzaSecurityException e) {
+
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got StanzaSecurityException for exceptionId: " + exceptionId, e);
+
+		String errorMessgae = e.getMessage();
+
+		return ResponseDto.failure(errorMessgae, exceptionId);
+	}
+
+
 
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)

@@ -29,6 +29,11 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ResidenceDto extends AbstractDto {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4483658093423365401L;
+
 	private String residenceName;
 
 	private String micromarketUuid;
@@ -47,11 +52,9 @@ public class ResidenceDto extends AbstractDto {
 
 	private String coreResidenceName;
 
-	
 	private String residenceSlug;
 
 	private String estateUuid;
 
 	private String phoenixPropertyUuid;
-
 }
