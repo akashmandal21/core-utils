@@ -30,7 +30,7 @@ public class VasMasterAddRequestDto {
 	private String description;
 
 	@NotNull(message = "item type selection is mandatory")
-	private FoodItemType itemType;
+	private FoodItemType foodType;
 
 	@NotBlank(message = "Category selection is mandatory")
 	private String categoryId;
