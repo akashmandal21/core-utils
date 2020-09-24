@@ -3,6 +3,9 @@ package com.stanzaliving.core.food.dto.request;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
@@ -19,12 +22,16 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class VasMasterDishesRequestDto {
 
+	@NotBlank(message = "Dish selection is mandatory")
 	private String dishId;
 
+	@NotBlank(message = "Dish selection is mandatory")
 	private String dishName;
 
-	private boolean accompaniment;
+	@NotNull(message = "Accompaniment option can not be null")
+	private Boolean accompaniment;
 
+	@NotNull(message = "Grammage is mandatory for dishes")
 	private Integer grammageAmount;
 
 	private Double grammageQuantity;

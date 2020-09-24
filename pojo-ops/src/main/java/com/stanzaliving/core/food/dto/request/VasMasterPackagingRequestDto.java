@@ -5,6 +5,8 @@ import com.stanzaliving.core.food.enums.VasItemState;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -22,10 +24,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VasMasterPackagingRequestDto {
+	@NotBlank(message = "Package selected is not valid")
 	private String packagingId;
 
+	@NotNull(message = "Item State selection is mandatory")
 	private VasItemState itemState;
 
+	@NotNull(message = "Packaging material selection is mandatory")
 	private PackagingMaterial masterMaterial;
 
 	private List<CityPackagingMaterialDto> cityMaterial;

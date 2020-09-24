@@ -3,6 +3,8 @@ package com.stanzaliving.core.food.dto.request;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -19,8 +21,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VasMasterRecipeRequestDto {
+	@NotNull(message = "Cook Quantity selection is mandatory")
 	private Double cookQuantity;
 
+	@NotEmpty(message = "Ingredients selection are mandatory")
 	private List<RecipeIngredientRequestDto> ingredients;
 
 }
