@@ -1,7 +1,11 @@
 package com.stanzaliving.core.food.enums;
 
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -19,4 +23,18 @@ public enum VasItemState {
 	SEMI_SOLID("Semi Solid");
 
 	private String stateName;
+
+	private static final List<EnumListing<VasItemState>> enumListing = new ArrayList<>();
+
+	static {
+		for (VasItemState itemState: VasItemState.values()) {
+			EnumListing<VasItemState> listing = new EnumListing<>(itemState, itemState.getStateName());
+
+			enumListing.add(listing);
+		}
+	}
+
+	public static List<EnumListing<VasItemState>> getEnumListing() {
+		return enumListing;
+	}
 }
