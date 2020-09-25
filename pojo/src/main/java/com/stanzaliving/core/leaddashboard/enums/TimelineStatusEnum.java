@@ -79,17 +79,30 @@ public enum TimelineStatusEnum {
 
 	private String statusName;
 	
-//	public static Set<TimelineStatusEnum> countAssociatedWithStatus() {
-//		Set<TimelineStatusEnum> leadStatus = new HashSet<>();
-//		
-//		
-//		leadStatus.add(VISIT_STARTED);
-//		leadStatus.add(VISIT_SCHEDULED);
-//		leadStatus.add(VISIT_COMPLETED);
-//		leadStatus.add(POST_VISIT_DROP);
-//		leadStatus.add(POST_VISIT_FOLLOW_UP);
-//		leadStatus.add(POST_VISIT_FOLLOW_UP_COMPLETED);
-//		
-//		return leadStatus;
-//	}
+
+	public static boolean visitCompleted(TimelineStatusEnum timelineStatus) {
+		
+		Set<TimelineStatusEnum> visitCompleted = new HashSet<>();
+		
+		visitCompleted.add(VISIT_1_COMPLETED);
+		visitCompleted.add(VISIT_2_COMPLETED);
+		visitCompleted.add(VISIT_3_COMPLETED);
+		visitCompleted.add(VISIT_4_COMPLETED);
+		visitCompleted.add(VISIT_5_COMPLETED);
+	
+	    return visitCompleted.contains(timelineStatus);
+	}
+	
+	public static boolean postVisitDrop(TimelineStatusEnum timelineStatus) {
+		
+		Set<TimelineStatusEnum> postVisitDrop = new HashSet<>();
+		
+		postVisitDrop.add(POST_VISIT_1_DROP);
+		postVisitDrop.add(POST_VISIT_2_DROP);
+		postVisitDrop.add(POST_VISIT_3_DROP);
+		postVisitDrop.add(POST_VISIT_4_DROP);
+		postVisitDrop.add(POST_VISIT_5_DROP);
+	
+	    return postVisitDrop.contains(timelineStatus);
+	}
 }
