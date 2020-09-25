@@ -43,7 +43,7 @@ public class VasMasterAddRequestDto {
 	private Integer serves;
 
 	@NotNull(message = "Self life selection is mandatory")
-	private Double selfLife;
+	private Integer selfLife;
 
 	@NotNull(message = "Proposed price is mandatory")
 	private Integer proposedPrice;
