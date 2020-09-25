@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.response;
 
-
 import com.stanzaliving.core.food.dto.PriceDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodOrderType;
@@ -10,6 +9,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -27,6 +27,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodOrderMasterResponseDto {
+
 	private String masterOrderId;
 
 	private FoodOrderType orderType;
@@ -40,6 +41,10 @@ public class FoodOrderMasterResponseDto {
 	private String userId;
 
 	private LocalDate menuDate;
+	
+	private LocalTime mealStartTime;
+	
+	private LocalTime mealEndTime;
 
 	private PackageCollectionStatus collectionStatus;
 
@@ -56,6 +61,8 @@ public class FoodOrderMasterResponseDto {
 	private Float orderRating;
 
 	private boolean collectionAllowed;
+
+	private boolean changePreferenceAllowed;
 
 	private List<ItemCostResponseDto> items;
 

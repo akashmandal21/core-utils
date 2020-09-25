@@ -1,11 +1,16 @@
 package com.stanzaliving.core.food.dto.request;
 
-import lombok.*;
-import lombok.experimental.SuperBuilder;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.util.List;
+import javax.validation.constraints.NotEmpty;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -26,7 +31,7 @@ public class UserMenuPreferencesUpdateDto {
 	@NotBlank(message = "User Id Cannot be blank")
 	private String userId;
 
-	@NotNull(message = "Menu preferences selection are mandatory")
-	List<UserMenuPreferenceAddDto> menuPreferences;
+	@NotEmpty(message = "Menu preferences selection are mandatory")
+	private List<UserMenuPreferenceAddDto> menuPreferences;
 
 }

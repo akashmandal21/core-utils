@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.FoodItemType;
 
 import lombok.AllArgsConstructor;
@@ -24,8 +25,18 @@ public class ResidentFoodItemFeedbackDto {
 	private String itemId;
 
 	private String item;
-	
+
 	private FoodItemType foodPreference;
+
+	private boolean quantifiable;
+	
+	private Integer quantiity;
+
+	private Integer weight;
+
+	private UnitOfMeasurement unit;
+
+	private String unitName;
 
 	private Float rating;
 
