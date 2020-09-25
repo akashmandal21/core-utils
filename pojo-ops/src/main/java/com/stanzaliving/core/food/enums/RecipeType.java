@@ -13,11 +13,13 @@ import java.util.Map;
 @AllArgsConstructor
 public enum RecipeType {
 
-	FINISHED_DISH("Finished Dish"),
-	SEMI_PROCESSED("Semi Processed"),
-	DIRECT_SALE("Direct Sale");
+	FINISHED_DISH("Finished Dish", 5),
+	SEMI_PROCESSED("Semi Processed", 0),
+	DIRECT_SALE("Direct Sale", 18);
 
 	private final String typeName;
+
+	private final Integer gstPercentage;
 
 	private static List<ListingDto> recipeList = new ArrayList<>();
 
