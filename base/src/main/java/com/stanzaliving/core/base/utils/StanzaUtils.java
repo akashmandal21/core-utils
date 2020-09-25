@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.Format;
 import java.text.NumberFormat;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -253,8 +254,8 @@ public class StanzaUtils {
 	}
 
 	public static String formatToIndianNumberFormat(Double value) {
-		NumberFormat formatter = NumberFormat.getInstance(new Locale("en", "IN"));
-		return formatter.format(value);
+		Format format = com.ibm.icu.text.NumberFormat.getInstance(new Locale("en", "IN"));
+		return format.format(value);
 	}
 
 	/**
