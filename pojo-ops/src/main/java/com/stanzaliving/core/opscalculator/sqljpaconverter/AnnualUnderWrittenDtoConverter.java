@@ -70,6 +70,10 @@ public class AnnualUnderWrittenDtoConverter implements AttributeConverter<Annual
         if (StringUtils.isBlank(annualUnderWrittenDtoJson)) {
             return null;
         }
+        
+        if (objectMapper == null) {
+            this.init();
+        }
 
         try {
             return objectMapper.readValue(annualUnderWrittenDtoJson, new TypeReference<AnnualUnderWrittenDto>() {
