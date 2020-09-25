@@ -10,10 +10,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SeasonResponseDto {
-    private String fromDate;
-    private String toDate;
+    private LocalDate fromDate;
+    private LocalDate toDate;
     private String seasonName;
     private String uuid;
     private String createdBy;
-    private String createdAt;
+    private LocalDate createdAt;
 }
