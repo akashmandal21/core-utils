@@ -49,6 +49,9 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	private UnitRate unitRate;
 	private double unitRateValue;
 
+	@Builder.Default
+	private int daysInMonth = 30;
+
 	private List<DropDownDto> equipmentTypeOptions = new ArrayList<>();
 	@Builder.Default
 	private List<ElectricityEquipmentType> selectedEquipmentType = new ArrayList<>();
