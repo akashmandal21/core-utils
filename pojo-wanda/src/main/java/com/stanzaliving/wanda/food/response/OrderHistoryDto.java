@@ -46,4 +46,6 @@ public class OrderHistoryDto {
 	
 	private String menuDate;
 	
+	private boolean editable;
+	
 }
