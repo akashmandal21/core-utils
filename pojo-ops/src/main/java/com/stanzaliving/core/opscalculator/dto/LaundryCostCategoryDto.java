@@ -32,6 +32,8 @@ public class LaundryCostCategoryDto extends CategoryDto {
 	private double weightPerCloth;
 	private int costPerKg;
 	private int utilizationPercent;
+	private boolean leninLaundryInclude;
+	private int leninCost;
 
 	@Builder.Default
 	private int gst = Constants.GST_LAUNDRY_PERCENT;
