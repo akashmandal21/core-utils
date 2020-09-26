@@ -29,7 +29,6 @@ public class VasMasterAddRequestDto {
 
 	private String description;
 
-	@NotNull(message = "item type selection is mandatory")
 	private FoodItemType foodType;
 
 	private Boolean eggPresent;
