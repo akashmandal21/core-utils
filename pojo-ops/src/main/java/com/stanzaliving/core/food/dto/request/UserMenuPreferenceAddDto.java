@@ -22,6 +22,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserMenuPreferenceAddDto {
+
 	@NotBlank(message = "Residence Food Menu Id Cannot be blank")
 	private String residenceFoodMenuId;
 
