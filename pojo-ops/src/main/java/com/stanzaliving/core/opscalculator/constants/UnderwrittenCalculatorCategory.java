@@ -13,7 +13,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum OpsCalculatorCategory {
+public enum UnderwrittenCalculatorCategory {
 
 	AUDIT("audit"),
 	DG("dg"),
@@ -35,5 +35,5 @@ public enum OpsCalculatorCategory {
 	TRANSPORT("transport"),
 	UNDER_WRITTEN("underWritten");
 
-	private String opsCalculatorCategory;
+	private String underwrittenCalculatorCategory;
 }

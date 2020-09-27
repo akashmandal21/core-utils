@@ -37,7 +37,7 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 	private int fixedCharges;
 	private int variableCharges;
 	private int landlordReceivables;
-	private int variableCostPerLiter;
+	private double variableCostPerLiter;
 	private int tankerCost;
 
 
