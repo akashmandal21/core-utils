@@ -48,4 +48,6 @@ public class PhoenixBedCountResponseDto {
 
 	private Date updatedAt;
 
+	private Boolean isReOpenAllowed;
+
 }
