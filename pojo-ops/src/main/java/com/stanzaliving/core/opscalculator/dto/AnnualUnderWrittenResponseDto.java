@@ -44,4 +44,6 @@ public class AnnualUnderWrittenResponseDto extends AnnualUnderWrittenDto {
 
     private Integer versionNumber;
 
+    private String commentUuid;
+
 }
