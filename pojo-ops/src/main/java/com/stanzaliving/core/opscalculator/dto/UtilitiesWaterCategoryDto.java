@@ -48,7 +48,7 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 	private int govtSupplyDependencyWithoutTanker;
 	private int govtSupplyDependencyWithTanker;
 	private int govtSupplyFixedCharges;
-	private int govtSupplyUnitRate;
+	private double govtSupplyUnitRate;
 	private int govtSupplyBillCharges;
 
 
