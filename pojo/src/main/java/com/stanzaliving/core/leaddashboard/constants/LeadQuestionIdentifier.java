@@ -24,6 +24,8 @@ public class LeadQuestionIdentifier {
     
     public static final String DROPPED = "Dropped";
     
+    public static final String PRE_VISIT_FOLLOW_UP_DATE = "preVisitFollowUpDate";
+
     public static final String PROPERTY_1 = "property1";
     public static final String PROPERTY_2 = "property2";
     public static final String PROPERTY_3 = "property3";
