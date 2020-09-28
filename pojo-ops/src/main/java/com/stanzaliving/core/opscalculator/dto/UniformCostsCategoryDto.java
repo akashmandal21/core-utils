@@ -23,7 +23,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "utilization" })
 public class UniformCostsCategoryDto extends CategoryDto {
 
 	boolean rcOeUniformRequired;
