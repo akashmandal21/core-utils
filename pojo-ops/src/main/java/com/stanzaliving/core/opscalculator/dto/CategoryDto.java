@@ -27,4 +27,10 @@ public abstract class CategoryDto {
 	@Builder.Default
 	private boolean enabled = true;		//default all services enabled
 
+	public void clearValues() {
+		this.costPerAvailableBed = 0;
+		this.costPerOccupiedBed = 0;
+		this.contribution = 0d;
+	}
+
 }
