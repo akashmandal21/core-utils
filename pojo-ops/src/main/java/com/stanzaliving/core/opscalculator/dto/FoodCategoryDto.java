@@ -34,7 +34,7 @@ public class FoodCategoryDto extends CategoryDto {
 	private int weekdayUtilization;
 	private int weekendDays;
 	private int weekendUtilization;
-	private int monthlyHolidays;
+	private int holidays;
 	private int holidayUtilization;
 	private int specialMealDays; //menu categoryId from Service Mix -> 	FoodServiceClientApi->getFullCategoryById -> FullCategoryDto -> WeekWiseMenu -> weekNumber1 -> DayWiseFoodMenuDto -> MealWiseFoodMenuDto -> MenuItemDto -> itemType is either NON-Veg or special
 	private int specialDayUtilization;
