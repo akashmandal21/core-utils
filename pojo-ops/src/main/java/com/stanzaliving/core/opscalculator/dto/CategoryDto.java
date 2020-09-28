@@ -24,10 +24,6 @@ public abstract class CategoryDto {
 	private int costPerOccupiedBed;
 	private double contribution;
 
-	private double count;
-	private int rate;
-	private int utilization;
-
 	@Builder.Default
 	private boolean enabled = true;		//default all services enabled
 
