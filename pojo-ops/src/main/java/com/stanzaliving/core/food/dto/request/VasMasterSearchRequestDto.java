@@ -26,8 +26,4 @@ public class VasMasterSearchRequestDto {
 	private VasType vasType;
 
 	private Boolean dataComplete;
-
-	private int pageNo;
-
-	private int limit;
 }
