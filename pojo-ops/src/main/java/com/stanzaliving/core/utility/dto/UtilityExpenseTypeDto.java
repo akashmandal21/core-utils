@@ -11,5 +11,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UtilityExpenseTypeDto extends AbstractDto {
-    private String name;
+
+	private static final long serialVersionUID = -6390207925359407259L;
+
+	private String name;
 }

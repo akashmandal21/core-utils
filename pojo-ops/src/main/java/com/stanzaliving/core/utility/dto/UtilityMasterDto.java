@@ -15,12 +15,21 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UtilityMasterDto extends AbstractDto {
-    @NotBlank(message = "Name Cannot Be Blank")
-    private String name;
-    private String description;
-    private UnitType unit;
-    private String unitName;
-    private boolean expenseAllowed;
-    private boolean metered;
-    private List<UtilityExpenseTypeDto> type;
+
+	private static final long serialVersionUID = 8176152543619690427L;
+	
+	@NotBlank(message = "Name Cannot Be Blank")
+	private String name;
+	
+	private String description;
+	
+	private UnitType unit;
+	
+	private String unitName;
+	
+	private boolean expenseAllowed;
+	
+	private boolean metered;
+	
+	private List<UtilityExpenseTypeDto> utilityExpenseTypeDtos;
 }
