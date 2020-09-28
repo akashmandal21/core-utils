@@ -1,5 +1,8 @@
 package com.stanzaliving.core.food.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
@@ -9,7 +12,11 @@ package com.stanzaliving.core.food.enums;
  */
 
 
+@Getter
+@AllArgsConstructor
 public enum VasType {
-	VAS,
-	ADD_ON;
+	VAS("Vas"),
+	ADD_ON("Add On");
+
+	private String vasTypeName;
 }
