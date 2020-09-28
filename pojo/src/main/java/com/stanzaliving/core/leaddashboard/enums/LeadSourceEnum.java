@@ -43,9 +43,11 @@ public enum LeadSourceEnum {
 	GOOGLE_MAPS("Google Maps"),
 	GOOGLE_PLAY_STORE("Google Play Store"),
 	HOTSTAR("Hotstar"),
+	HOUSING("Housing"),
 	INBOUND_CALL("Inbound Call"),
 	INSTAGRAM("Instagram"),
 	JUST_DIAL("Just Dial"),
+	JUSTDIAL("Justdial"),
 	LEAD_LP("Lead Lp"),
 	MAGIC_BRICKS("Magicbricks"),
 	MAKAAN("Makaan"),
@@ -66,13 +68,14 @@ public enum LeadSourceEnum {
 	STANZA_CARE("Stanza Care"),
 	STUDENT_APP("Student App"),
 	STUDENT_REFERRAL("Student Referral"),
+	SULEKHA("Sulekha"),
 	UNATTRIBUTED("Unattributed"),
 	WEBSITE("Website"),
 	WEBSITE_VISIT("WebSite Visit"),
 	WEBSITE_RESIDENCE_CARD("Website - Residence Card"),
 	WHATSAPP("Whatsapp"),
+	WHATSAPP_WEBSITE("Whatsapp-Website"),
 	ZOHO("Zoho");
-
 
 	private String leadSourceName;
 	
