@@ -33,4 +33,5 @@ public class FoodCardDto {
 	
 	private Integer quantity;
 	
+	private double price;
 }
