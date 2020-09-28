@@ -13,8 +13,11 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StatusReasonDto {
-    private Date time;
-    @NotBlank(message = "Reason Cannot be blank")
-    private String reason;
-    private ReadingDto reading;
+
+	private Date time;
+	
+	@NotBlank(message = "Reason Cannot be blank")
+	private String reason;
+	
+	private ReadingDto reading;
 }
