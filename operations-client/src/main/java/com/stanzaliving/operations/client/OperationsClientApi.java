@@ -159,7 +159,7 @@ public class OperationsClientApi {
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception while fetching Season List from residenceId: ", e);
+			log.error("Exception while fetching Season List from residenceId: {}", residenceIds, e);
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
