@@ -17,7 +17,7 @@ public enum ExistingUnderWrittenAlert {
     SENT_FOR_APPROVAL(UnderWrittenStatus.SENT_FOR_APPROVAL, "Underwritten Already Sent for Approval!", "Underwritten has already been sent for approval for some or all dates selected. Overlapping underwritten cannot be created."),
     APPROVED(UnderWrittenStatus.APPROVED, "Approved Underwritten Already Exists!", "Underwritten has already been approved for some or all dates selected. Overlapping underwritten cannot be created."),
     NONE(UnderWrittenStatus.NEW, "", ""),
-    GAPES_NOT_ALLOWED(UnderWrittenStatus.NEW, "Gaps not allowed between underwrittens within a season", "From date of underwritten need to be the immediate next day from the end date of previous underwritten in the selected season. Gaps are not allowed.")
+    GAPS_NOT_ALLOWED(UnderWrittenStatus.NEW, "Gaps not allowed between underwrittens within a season", "From date of underwritten need to be the immediate next day from the end date of previous underwritten in the selected season. Gaps are not allowed.")
     ;
 
     UnderWrittenStatus underWrittenStatus;
