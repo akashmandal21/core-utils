@@ -250,7 +250,7 @@ public class ItemMasterClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, itemNames, headerParams, accept, returnType);
 	}
-	public ResponseDto<List<GenericItemDto>> getItemInfoFromItemCodes(List<String> itemCodes) {
+	public ResponseDto<List<GenericItemDto>> getItemInfoFromItemCodes(FilterDto filterDto) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		String path = UriComponentsBuilder.fromPath("/internal/generic/post/items/getItemsFromItemCodes")
@@ -267,7 +267,7 @@ public class ItemMasterClientApi {
 
 		ParameterizedTypeReference<ResponseDto<List<GenericItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericItemDto>>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, itemCodes, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, filterDto, headerParams, accept, returnType);
 	}
 	public ResponseDto<ItemMetaDto> getItemMetaInfo(Department department, Boolean includeNames) {
 
