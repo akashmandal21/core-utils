@@ -10,5 +10,5 @@ import java.time.LocalDate;
 public class AnnualUnderwrittenSummaryResponseDto {
     LocalDate fromDate;
     LocalDate toDate;
-    Double amount;
+    double amount;
 }
