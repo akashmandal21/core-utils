@@ -24,7 +24,7 @@ public class AnnualUnderWrittenResponseDto extends AnnualUnderWrittenDto {
 
     private String residenceUuid;
 
-    private String currentStatus;               //get
+    private UnderWrittenStatus currentStatus;               //get
 
     private UnderWrittenStatus finalStatus;     //post
 
