@@ -27,4 +27,6 @@ public class AnnualUnderWrittenDto  {
     protected RepairAndMaintenanceCategoryDto repairAndMaintenanceCategoryDto;
     protected TransportCategoryDto transportCategoryDto;
     protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
+    protected double underWrittenDurationAmount;
+    protected double underWrittenDurationInDays;
 }
