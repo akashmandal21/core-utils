@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -12,7 +13,6 @@ import lombok.experimental.SuperBuilder;
  * @since 04-Sep-2020
  */
 
-
 @Getter
 @Setter
 @SuperBuilder
@@ -20,6 +20,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemCostResponseDto {
+
 	private String itemId;
 
 	private String itemName;
@@ -30,7 +31,15 @@ public class ItemCostResponseDto {
 
 	private ItemPriceDto prices;
 
+	private boolean quantifiable;
+
+	private Integer itemWeight;
+
 	private Integer itemQty;
+
+	private UnitOfMeasurement unit;
+	
+	private String unitName;
 
 	private String imageUrl;
 }
