@@ -1,23 +1,26 @@
 package com.stanzaliving.core.utility.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.transformations.enums.UnitType;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class MetricDto {
-    private UnitType unit;
-    private Double value;
-    private String unitName;
 
-    @JsonProperty("unitName")
-    public String getUnitName() {
-        return unit == null ? null : unit.getUnitName();
-    }
+	private Double value;
+
+	private UnitType unit;
+
+	private String unitName;
+
 }
