@@ -21,7 +21,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VasMasterRecipeRequestDto {
-	@NotNull(message = "Cook Quantity selection is mandatory")
 	private Double cookQuantity;
 
 	private Double grammagePerPax;

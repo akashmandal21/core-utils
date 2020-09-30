@@ -24,7 +24,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VasMasterAddRequestDto {
-	@NotBlank(message = "Name is mandatory")
 	private String name;
 
 	private String description;
@@ -33,7 +32,6 @@ public class VasMasterAddRequestDto {
 
 	private Boolean eggPresent;
 
-	@NotBlank(message = "Category selection is mandatory")
 	private String categoryId;
 
 	@NotNull(message = "Serve is mandatory. Possible values are in between 1 and 10")
@@ -47,7 +45,6 @@ public class VasMasterAddRequestDto {
 	@NotNull(message = "Proposed price is mandatory")
 	private Integer proposedPrice;
 
-	@NotNull(message = "Unit of measurement selection is mandatory")
 	private UnitOfMeasurement unitOfMeasurement;
 
 	@NotNull(message = "Image selection is mandatory")
