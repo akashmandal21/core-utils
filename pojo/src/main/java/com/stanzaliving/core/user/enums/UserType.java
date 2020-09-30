@@ -34,7 +34,8 @@ public enum UserType {
 	CONSUMER("Consumer"),
 	SYSTEM("System"),
 	CITY_TEAM("City Team"),
-	CENTRAL_TEAM("Central Team");
+	CENTRAL_TEAM("Central Team"),
+	EXTERNAL("External");
 
 	public String typeName;
 
