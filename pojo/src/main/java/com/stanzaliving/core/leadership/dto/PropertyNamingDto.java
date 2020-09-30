@@ -39,7 +39,7 @@ public class PropertyNamingDto {
 	private Long cityId;
 
 	private String propertyUuid;
-	
+
 	private String oldPropName;
 
 }
