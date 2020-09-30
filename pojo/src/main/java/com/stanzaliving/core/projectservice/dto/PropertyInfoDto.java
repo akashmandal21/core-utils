@@ -31,7 +31,6 @@ public class PropertyInfoDto {
     private int bdBedCount;
     private int roomCount;
 
-
     private String addressLine1;
     private String addressLine2;
     private String landmark;
