@@ -20,6 +20,5 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VasMasterUpdateRequestDto extends VasMasterAddRequestDto {
-	@NotBlank(message = "Vas Master Id is required for updating")
 	private String vasMasterId;
 }
