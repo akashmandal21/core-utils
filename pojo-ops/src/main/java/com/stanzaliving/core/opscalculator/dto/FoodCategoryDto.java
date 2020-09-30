@@ -30,7 +30,7 @@ public class FoodCategoryDto extends CategoryDto {
 
 	private double menuPricePerDay;	//totalPrice from foodMenu in service-mix (after checking for enabled)  			//menu categoryId from Service Mix -> 	FoodServiceClientApi->getFullCategoryById  --> MenuCategoryMealUtils->getFnBPaxPrice
 
-	private int weekDays;		//should be 30 minus remaining
+	private int weekDays;
 	private int weekdayUtilization;
 	private int weekendDays;
 	private int weekendUtilization;
