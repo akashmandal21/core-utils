@@ -28,6 +28,7 @@ public class ItemCostUIResponseDto {
 
 	private String itemId;
 	private String itemName;
+	private String itemDescription;
 	private FoodItemType itemType;
 	private String itemTypeName;
 	private ItemPriceUIDto prices;
