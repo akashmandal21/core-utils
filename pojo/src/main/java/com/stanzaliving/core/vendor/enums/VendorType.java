@@ -1,3 +1,4 @@
+
 package com.stanzaliving.core.vendor.enums;
 
 import lombok.AllArgsConstructor;
@@ -24,3 +25,4 @@ public enum VendorType {
     private String shortCode;
     private String shortClassCode;
 }
+
