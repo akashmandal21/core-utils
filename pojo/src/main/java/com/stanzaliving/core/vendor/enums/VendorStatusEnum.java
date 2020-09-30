@@ -24,7 +24,11 @@ public enum VendorStatusEnum {
     AUTO_APPROVED("Auto Approved",VendorConstants.approvalRestrictMax,"#60C3AD","#EDFFF5");
 
     private static Map<Integer,VendorStatusEnum> vendorStatusEnumMap = new HashMap<>();
+    private static int maxOrder;
+    private static int minOrder;
     static {
+        maxOrder = 3;
+        minOrder = -11;
         Arrays.stream(VendorStatusEnum.values()).forEach(f->vendorStatusEnumMap.put(f.getOrder(),f));
     }
 
@@ -35,6 +39,13 @@ public enum VendorStatusEnum {
 
     public static VendorStatusEnum getVendorStatus(Integer order){
         return vendorStatusEnumMap.get(order);
+    }
+
+    public static int getMaxOrder(){
+        return maxOrder;
+    }
+    public static int getMinOrder(){
+        return minOrder;
     }
 }
 
