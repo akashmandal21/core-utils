@@ -32,8 +32,24 @@ public class TransformationCache {
 						}
 					});
 
+
+	private LoadingCache<String, List<ZoneMetadataDto>> allZoneCache = CacheBuilder.newBuilder()
+			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.build(
+					new CacheLoader<String, List<ZoneMetadataDto>>() {
+
+						@Override
+						public List<ZoneMetadataDto> load(String key) {
+							return internalDataControllerApi.getAllZones().getData();
+						}
+					});
+
 	public List<CityMetadataDto> getAllCities() {
 		return allCityCache.getUnchecked("city");
+	}
+
+	public List<ZoneMetadataDto> getAllZones() {
+		return allZoneCache.getUnchecked("zone");
 	}
 
 	private LoadingCache<String, List<MicroMarketMetadataDto>> allMicroMarketCache = CacheBuilder.newBuilder()
@@ -111,6 +127,37 @@ public class TransformationCache {
 		}
 
 		return name;
+	}
+
+	// It shouldn't be done this way, especially iterating part
+	public String getUuidByAccessLevelName(String accessLevelName, String accessLevel) {
+
+		String uuid = "";
+
+		if (StringUtils.isNotBlank(accessLevelName)) {
+			AccessLevel level = AccessLevel.valueOf(accessLevel);
+			switch (level) {
+				case CITY:
+					Optional<CityMetadataDto> cityMetadataDtoOptional = getAllCities().stream().filter(entity -> entity.getCityName().equals(accessLevelName)).findFirst();
+					uuid = cityMetadataDtoOptional.isPresent() ? cityMetadataDtoOptional.get().getUuid() : "";
+					break;
+
+				case MICROMARKET:
+					Optional<MicroMarketMetadataDto> microMarketMetadataDtoOptional = getAllMicroMarkets().stream().filter(entity -> entity.getMicroMarketName().equals(accessLevelName)).findFirst();
+					uuid = microMarketMetadataDtoOptional.isPresent() ? microMarketMetadataDtoOptional.get().getUuid() : "";
+					break;
+
+				case RESIDENCE:
+					Optional<ResidenceMetadataDto> residenceMetadataDtoOptional = getAllResidences().stream().filter(entity -> entity.getResidenceName().equals(accessLevelName)).findFirst();
+					uuid = residenceMetadataDtoOptional.isPresent() ? residenceMetadataDtoOptional.get().getUuid() : "";
+					break;
+
+				default:
+					break;
+			}
+		}
+
+		return uuid;
 	}
 
 	public ResidenceDto getResidenceDataFromUuid(String residenceUuid) {
