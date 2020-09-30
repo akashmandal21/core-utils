@@ -20,6 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VasCategoryItemResponseDto {
+
 	private String categoryId;
 
 	private String categoryName;
