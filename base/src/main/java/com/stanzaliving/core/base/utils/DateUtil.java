@@ -729,5 +729,26 @@ public class DateUtil {
 	        int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
 	        return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
 	    }
+	 
+	 public static long getDifferenceBetweenDates(Date d1, Date d2, String differenceIn) {
+			long diff = d2.getTime() - d1.getTime();
+			long requiredValue;
+			switch (differenceIn) {
+			case "DAYS":
+				requiredValue = diff / (24 * 60 * 60 * 1000);
+				break;
+			case "HOURS":
+				requiredValue = diff / (60 * 60 * 1000) % 24;
+				break;
+			case "MINUTES":
+				requiredValue = diff / (60 * 1000) % 60;
+				break;
+			case "SECONDS":
+				requiredValue = diff / 1000 % 60;
+			default:
+				requiredValue = 0;
+			}
+			return requiredValue;
+		}
 
 }
