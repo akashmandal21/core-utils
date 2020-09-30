@@ -6,7 +6,7 @@ package com.stanzaliving.core.leaddashboard.dto;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.stanzaliving.core.leaddashboard.enums.CurrentLeadStatusEnum;
+import com.stanzaliving.core.leaddashboard.enums.TimelineStatusEnum;
 import com.stanzaliving.core.leaddashboard.enums.LeadDropTypeEnum;
 import com.stanzaliving.core.leaddashboard.enums.LeadQualifiedEnum;
 import com.stanzaliving.core.leaddashboard.enums.LeadSourceEnum;
@@ -32,7 +32,7 @@ public class LeadDetailRequestDto {
 	private String leadOwnerEmail;
 	private String lastPropertyVisited;
 	
-	private CurrentLeadStatusEnum currentLeadStatus;
+	private TimelineStatusEnum currentLeadStatus;
 	private LeadQualifiedEnum qualified;
 	private LeadDropTypeEnum dropType;
 	private PropertyTypeEnum propertyType;
