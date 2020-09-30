@@ -39,6 +39,8 @@ public class VasMasterResponseDto {
 
 	private Double proposedPrice;
 
+	private String imageUrl;
+
 	private List<DishDetailsResponseDto> dish;
 
 	private DishRecipeDetailsDto recipe;
