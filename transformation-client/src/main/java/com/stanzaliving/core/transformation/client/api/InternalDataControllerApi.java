@@ -454,6 +454,53 @@ public class InternalDataControllerApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<StateUIDto> getStateDtoUsingId(Long stateId) {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("stateId", stateId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/state/get/id/{stateId}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<StateUIDto>> returnType = new ParameterizedTypeReference<ResponseDto<StateUIDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+	public ResponseDto<CountryUIDto> getCountryDtoUsingId(Long countryId) {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("countryId", countryId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/country/get/id/{countryId}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<CountryUIDto>> returnType = new ParameterizedTypeReference<ResponseDto<CountryUIDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 	public ResponseDto<CityUIDto> getCityDtoUsingName(String name) {
 
 		Object postBody = null;
