@@ -16,20 +16,28 @@ public enum FoodItemType {
 
 	private String itemType;
 
+	private static Map<String, FoodItemType> foodItemTypeNameMap = new HashMap<>();
+
 	private static Map<String, FoodItemType> foodItemTypeMap = new HashMap<>();
 
 	static {
 		for (FoodItemType foodItemType : FoodItemType.values()) {
-			foodItemTypeMap.put(foodItemType.getItemType(), foodItemType);
+			foodItemTypeNameMap.put(foodItemType.getItemType(), foodItemType);
+
+			foodItemTypeMap.put(foodItemType.name(), foodItemType);
 		}
 	}
 
 	public static Map<String, FoodItemType> getFoodItemTypeNameMap() {
-		return foodItemTypeMap;
+		return foodItemTypeNameMap;
 	}
 
 	public static FoodItemType getFoodItemByName(String typeName) {
-		return foodItemTypeMap.get(typeName);
+		return foodItemTypeNameMap.get(typeName);
+	}
+
+	public static FoodItemType getFoodItemByType(String itemType) {
+		return foodItemTypeMap.get(itemType);
 	}
 
 }

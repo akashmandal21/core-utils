@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
 
 import lombok.AllArgsConstructor;
@@ -23,8 +24,12 @@ public class FoodPreferenceComboItemDto {
 
 	private Integer stdWeight;
 
+	private ListingDto units;
+
 	private FoodItemType itemType;
 	
 	private boolean quantifiable;
+
+	private boolean hideGrammage;
 
 }

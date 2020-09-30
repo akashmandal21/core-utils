@@ -47,6 +47,8 @@ public class ResidentFoodFeedbackDto {
 	
 	private LocalTime endTime;
 
+	private String imageUrl;
+	
 	private List<ResidentFoodItemFeedbackDto> foodItemFeedbackDtos;
 
 }
