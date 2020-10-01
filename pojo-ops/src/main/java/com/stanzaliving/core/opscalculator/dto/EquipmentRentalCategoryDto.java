@@ -83,6 +83,4 @@ public class  EquipmentRentalCategoryDto extends CategoryDto {
 	private int dryerRent;
 	private int dryerCharges;
 
-	private int elecricityRoomMeterCost;
-
 }

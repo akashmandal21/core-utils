@@ -92,5 +92,7 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
 	private boolean roomMeterRequired;
 	private int roomMeterOpexCost;
+	private int rentalRoomMeterCount;
+	private int elecricityRoomMeterCost;
 
 }
