@@ -2,8 +2,6 @@ package com.stanzaliving.transformations.projections;
 
 import lombok.*;
 
-import javax.persistence.Column;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
