@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UniformRequirementDto {
     int regularUniformCount;
-    int regularUniformAmountPerPiece;
+    double regularUniformAmountPerPiece;
     int winterUniformCount;
-    int winterUniformAmountPerPiece;
+    double winterUniformAmountPerPiece;
 }

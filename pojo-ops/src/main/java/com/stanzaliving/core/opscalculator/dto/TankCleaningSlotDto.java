@@ -12,7 +12,7 @@ import lombok.experimental.SuperBuilder;
 public class TankCleaningSlotDto {
     private int sizeOfTank;
     private int tankCount;
-    private double ratePerTank;
-    private double frequencyPerYear;
+    private int ratePerTank;
+    private int frequencyPerYear;
     private int costPerYear;
 }

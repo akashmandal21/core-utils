@@ -37,11 +37,4 @@ public class UniformCostsCategoryDto extends CategoryDto {
 	private int totalRcOeUniformCostPerBed;
 	private int totalHkUniformCostPerBed;
 
-
-	@Builder.Default
-	private int gst = Constants.GST_UNIFORM_COSTS_PERCENT;
-
-	@Builder.Default
-	private int margin = Constants.MARGIN_UNIFORM_COSTS_PERCENT;
-
 }

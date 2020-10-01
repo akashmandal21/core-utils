@@ -27,15 +27,15 @@ public class BuildMaintenanceCategoryDto extends CategoryDto {
     @Builder.Default
     private List<ServiceType> selectedServiceType= new ArrayList<>();
 
-    private int pestControlRatePerRoomPerMonth;
+    private double pestControlRatePerRoomPerMonth;
     private int pestCostPerMonthPerAvailableBed;
 
     private double noOfDaysRequired;
     private int floorCleaningFrequencyPerYear;
     private int floorCleaningMachineRentalPerMonth;
     private int floorCleaningRoomsCleanedPerDay;
-    private double floorCleaningManPowerCost;
-    private int floorCleaningManPowerCount;
+    private int floorCleaningManPowerCost;
+    private double floorCleaningManPowerCount;
     private double floorCleaningChemicalCostPerBed;
     private int floorCleaningTotalMachineCost;
     private int floorCleaningTotalManPowerCost;
@@ -54,7 +54,7 @@ public class BuildMaintenanceCategoryDto extends CategoryDto {
 
     private int facadeAreaInSquareFeet;
     private double facadeCleaningRatePerSquareFeet;
-    private double facadeCleaningFrequencyPerYear;
+    private int facadeCleaningFrequencyPerYear;
     private int facadeCleaningCostPerBedPerMonth;
 
     private int oneSeaterSofaSetCount;
@@ -62,10 +62,10 @@ public class BuildMaintenanceCategoryDto extends CategoryDto {
     private int threeSeaterSofaSetCount;
     private int fourSeaterSofaSetCount;
     private double upholsteryCleaningRatePerSeat;
-    private double upholsteryCleaningFrequencyPerYear;
+    private int upholsteryCleaningFrequencyPerYear;
     private int upholsteryCleaningCostPerAvailableBedPerMonth;
 
-    private int fumigationPerBedBugsRatePerRoomPerMonth;
+    private double fumigationPerBedBugsRatePerRoomPerMonth;
     private int fumigationPerBedBugsCostPerMonthPerAvailableBed;
 
     private int garbageCostPerMonth;

@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class HouseKeepingInfoDto {
-    private int employeesCount;
+    private double employeesCount;
     private int ratePerMonth;
     private double leaveFactor;
 }

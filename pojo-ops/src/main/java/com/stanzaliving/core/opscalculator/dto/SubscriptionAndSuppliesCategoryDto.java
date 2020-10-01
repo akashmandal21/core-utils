@@ -25,14 +25,13 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "count", "rate", "utilization" })
 public class SubscriptionAndSuppliesCategoryDto extends CategoryDto {
 
 	private boolean isSuppliesApplicable;
 	private boolean isDthApplicable;
 
 	private int tvsCount;
-	private double dthRechargeCostPerMonth;
+	private int dthRechargeCostPerMonth;
 	private int dthCost;
 	private int dthCostPerBedPerMonth;
 

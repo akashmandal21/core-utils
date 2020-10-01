@@ -35,13 +35,13 @@ import java.util.List;
 public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
 	private int totalCharges;
-	private int fixedCharges;
+	private double fixedCharges;
 	private int variableCharges;
 
 	private int acRoomsWithRoomPassThroughCharges;
 	private int acRoomsWithAcPassThroughCharges;
 	private int nonAcRoomsWithRoomPassThroughCharges;
-	private int studentReceivablesUnitRate;
+	private double studentReceivablesUnitRate;
 	private int landlordReceivablesCharges;
 
 	private int totalChargesBeforePassThrough;
@@ -69,7 +69,7 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
 
 	private int acRoomsCount;
-	private double landlordReceivablesInPercent;
+	private int landlordReceivablesInPercent;
 
 	private int totalUnitsInRoom;
 

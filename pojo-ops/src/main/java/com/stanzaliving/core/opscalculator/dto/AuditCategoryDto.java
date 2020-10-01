@@ -23,15 +23,14 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "gstAmount" })
 public class AuditCategoryDto extends CategoryDto {
 
 	boolean isPhysicalAudit;
 	boolean isCctvAudit;
 
-	private int cctvAuditCostPerBed;
+	private double cctvAuditCostPerBed;
 	private int mgForCctvAudit;
-	private int physicalAuditCostPerMonth;
+	private double physicalAuditCostPerMonth;
 
 	private int totalCctvAuditCostPerBed;
 	private int totalPhysicalAuditCostPerBed;

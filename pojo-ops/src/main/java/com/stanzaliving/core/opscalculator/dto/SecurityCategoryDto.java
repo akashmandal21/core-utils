@@ -32,8 +32,8 @@ public class SecurityCategoryDto extends CategoryDto {
 
 	@Builder.Default
 	private SecurityType securityType = SecurityType.IN_HOUSE_SECURITY;
-	private int employeeCount;
-	private double ratePerMonth;
+	private double employeeCount;
+	private int ratePerMonth;
 
 	private int securityCharges;
 	private int inHouseSecurityCharges;
