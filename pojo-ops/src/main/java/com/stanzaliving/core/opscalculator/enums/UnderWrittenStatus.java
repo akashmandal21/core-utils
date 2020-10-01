@@ -8,12 +8,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public enum UnderWrittenStatus {
-    NEW("New"),
-    UNDER_DRAFT("Under Draft"),
-    SENT_FOR_APPROVAL("Sent For Approval"),
-    APPROVED("Approved"),
-    REJECTED("Rejected"),
-    DISCARDED("Discarded");
+    NEW("New", ""),
+    UNDER_DRAFT("Under Draft", "Underwritten saved successfully"),
+    SENT_FOR_APPROVAL("Sent For Approval", "Underwritten submitted for approval"),
+    APPROVED("Approved", "Underwritten approved successfully"),
+    REJECTED("Rejected", "Underwritten rejected successfully"),
+    DISCARDED("Discarded", "Underwritten discarded successfully");
 
     String status;
+    String responseMsg;
 }
