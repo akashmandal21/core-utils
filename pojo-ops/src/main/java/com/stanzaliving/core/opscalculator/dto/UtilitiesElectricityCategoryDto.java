@@ -31,7 +31,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst", "elecricityRoomMeterCost" })
 public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
 	private int totalCharges;
