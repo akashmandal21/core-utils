@@ -32,8 +32,24 @@ public class TransformationCache {
 						}
 					});
 
+
+	private LoadingCache<String, List<ZoneMetadataDto>> allZoneCache = CacheBuilder.newBuilder()
+			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.build(
+					new CacheLoader<String, List<ZoneMetadataDto>>() {
+
+						@Override
+						public List<ZoneMetadataDto> load(String key) {
+							return internalDataControllerApi.getAllZones().getData();
+						}
+					});
+
 	public List<CityMetadataDto> getAllCities() {
 		return allCityCache.getUnchecked("city");
+	}
+
+	public List<ZoneMetadataDto> getAllZones() {
+		return allZoneCache.getUnchecked("zone");
 	}
 
 	private LoadingCache<String, List<MicroMarketMetadataDto>> allMicroMarketCache = CacheBuilder.newBuilder()

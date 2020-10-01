@@ -1,6 +1,7 @@
 package com.stanzaliving.core.sqljpa.specification;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Collection;
 import java.util.Date;
@@ -114,6 +115,26 @@ public class StanzaSpecification<T extends AbstractJpaEntity> implements Specifi
 			case LOCAL_DATE_GTE:
 				return builder.greaterThanOrEqualTo(
 						root.get(criteria.getKey()), LocalDate.parse(criteria.getValue().toString()));
+
+			case LOCAL_TIME_EQ:
+				return builder.equal(
+						root.get(criteria.getKey()), LocalTime.parse(criteria.getValue().toString()));
+
+			case LOCAL_TIME_LT:
+				return builder.lessThan(
+						root.get(criteria.getKey()), LocalTime.parse(criteria.getValue().toString()));
+
+			case LOCAL_TIME_GT:
+				return builder.greaterThan(
+						root.get(criteria.getKey()), LocalTime.parse(criteria.getValue().toString()));
+
+			case LOCAL_TIME_LTE:
+				return builder.lessThanOrEqualTo(
+						root.get(criteria.getKey()), LocalTime.parse(criteria.getValue().toString()));
+
+			case LOCAL_TIME_GTE:
+				return builder.greaterThanOrEqualTo(
+						root.get(criteria.getKey()), LocalTime.parse(criteria.getValue().toString()));
 
 			case REGEXP:
 				Pattern regexPattern = Pattern.compile(String.valueOf(criteria.getValue()));
