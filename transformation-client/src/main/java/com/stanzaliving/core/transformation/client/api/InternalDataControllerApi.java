@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.transformations.pojo.*;
+import com.stanzaliving.transformations.projections.StanzaGstView;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -497,6 +498,29 @@ public class InternalDataControllerApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<CountryUIDto>> returnType = new ParameterizedTypeReference<ResponseDto<CountryUIDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+	public ResponseDto<StanzaGstView> getStanzaGst(String stateId) {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("stateUuid", stateId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/stanzagst/{stateUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<StanzaGstView>> returnType = new ParameterizedTypeReference<ResponseDto<StanzaGstView>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
