@@ -34,6 +34,7 @@ import lombok.experimental.SuperBuilder;
 public class UtilitiesWaterCategoryDto extends CategoryDto {
 
 	private int overallCharges;
+	private int fixedCharges;
 	private int variableCharges;
 	private int landlordReceivables;
 	private int tankerCost;
