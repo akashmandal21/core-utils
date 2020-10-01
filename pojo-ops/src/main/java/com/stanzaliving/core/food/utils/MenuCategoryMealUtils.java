@@ -201,28 +201,6 @@ public class MenuCategoryMealUtils {
     }
 
     private static Integer getMealActiveDays(FoodMenuCategoryMealDto foodMenuCategoryMealDto) {
-        int mealActiveDays = 0;
-        if (foodMenuCategoryMealDto.isMondayActive()) {
-            mealActiveDays += 1;
-        }
-        if (foodMenuCategoryMealDto.isTuesdayActive()) {
-            mealActiveDays += 1;
-        }
-        if (foodMenuCategoryMealDto.isWednesdayActive()) {
-            mealActiveDays += 1;
-        }
-        if (foodMenuCategoryMealDto.isThursdayActive()) {
-            mealActiveDays += 1;
-        }
-        if (foodMenuCategoryMealDto.isFridayActive()) {
-            mealActiveDays += 1;
-        }
-        if (foodMenuCategoryMealDto.isSaturdayActive()) {
-            mealActiveDays += 1;
-        }
-        if (foodMenuCategoryMealDto.isSundayActive()) {
-            mealActiveDays += 1;
-        }
-        return mealActiveDays;
+        return getDaysPerWeekCount(foodMenuCategoryMealDto);
     }
 }

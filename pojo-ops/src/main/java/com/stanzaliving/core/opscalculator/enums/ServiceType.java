@@ -54,12 +54,18 @@ public enum ServiceType {
     };
 
     String name;
+    
     public static List<DropDownDto> getAllServiceTypeValues(){
-        List<DropDownDto> dropDownDtoList = new ArrayList<>();
+        return dropDownDtoList;
+    }
+
+    static List<DropDownDto> dropDownDtoList = new ArrayList<>();
+
+    static {
         for(ServiceType serviceType : ServiceType.values()){
             dropDownDtoList.add(new DropDownDto(serviceType.toString(), serviceType.getName()));
         }
-        return dropDownDtoList;
     }
+
     public abstract void  setSelectedApplicableOption(BuildMaintenanceCategoryDto buildMaintenanceCategoryDto);
 }

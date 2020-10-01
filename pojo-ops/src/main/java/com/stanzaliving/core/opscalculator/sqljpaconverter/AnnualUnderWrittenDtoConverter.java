@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.stanzaliving.core.base.http.BaseMapperConfig;
 import com.stanzaliving.core.base.localdate.Java8LocalDateStdDeserializer;
 import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
 import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
@@ -29,19 +30,7 @@ public class AnnualUnderWrittenDtoConverter implements AttributeConverter<Annual
     private static ObjectMapper objectMapper = null;
 
     public void init() {
-        objectMapper = new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
-
-        SimpleModule module = new SimpleModule();
-        module.addSerializer(new Java8LocalDateStdSerializer());
-        module.addDeserializer(LocalDate.class, new Java8LocalDateStdDeserializer());
-
-        module.addSerializer(new Java8LocalTimeSerializer());
-        module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
-
-        objectMapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-        objectMapper.registerModule(module);
+        objectMapper = BaseMapperConfig.getDefaultMapper();
     }
 
 

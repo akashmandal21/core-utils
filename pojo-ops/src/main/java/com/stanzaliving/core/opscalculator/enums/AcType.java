@@ -12,11 +12,17 @@ import java.util.List;
 public enum AcType {
     SPLIT("Split"), WINDOW("Window"), CENTRAL("Central");
     String name;
-    public static List<DropDownDto> getAllAcTypeValues(){
-        List<DropDownDto> dropDownDtoList = new ArrayList<>();
+
+    static List<DropDownDto> dropDownDtoList = new ArrayList<>();
+
+    static {
         for(AcType acType : AcType.values()){
             dropDownDtoList.add(new DropDownDto(acType.toString(), acType.getName()));
         }
+    }
+
+    public static List<DropDownDto> getAllAcTypeValues(){
         return dropDownDtoList;
     }
+
 }

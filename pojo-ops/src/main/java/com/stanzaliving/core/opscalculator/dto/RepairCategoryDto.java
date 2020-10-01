@@ -27,28 +27,39 @@ public class RepairCategoryDto extends CategoryDto{
     private boolean fireExtinguisherAmcCostApplicable;
     private boolean firePanelAmcCostApplicable;
 
+    @Builder.Default
     private List<DropDownDto> equipmentListOptions = new ArrayList<>();
     @Builder.Default
     private List<EquipmentType> selectedEquipmentType = new ArrayList<>();
 
+    @Builder.Default
     private List<DropDownDto> acTypeOptions = new ArrayList<>();
 
+    @Builder.Default
     List<AcAmcCostSlotDto> acAmcCostSlotDtos = new ArrayList<>();
     private int acAmcCost;
+    @Builder.Default
     List<AmcCostSlotDto> dgAmcCostSlotDtos = new ArrayList<>();
     private int dgAmcCost;
+    @Builder.Default
     List<AmcCostSlotDto> liftAmcCostSlotDtos = new ArrayList<>();
     private int liftAmcCost;
+    @Builder.Default
     List<AmcCostSlotDto> centralHeatersAmcCostSlotDtos = new ArrayList<>();
     private int centralHeaterAmcCost;
+    @Builder.Default
     List<AmcCostSlotDto> roAmcCostSlotDtos = new ArrayList<>();
     private int roAmcCost;
+    @Builder.Default
     List<ManPowerAmcCostSlotDto> manPowerAmcCostSlotDtos = new ArrayList<>();
     private int manPowerAmcCost;
+    @Builder.Default
     List<AmcCostSlotDto> washingMachineAmcCostSlotDtos = new ArrayList<>();
     private int washingMachineAmcCost;
+    @Builder.Default
     List<AmcCostSlotDto> fireExtinguisherAmcCostSlotDtos = new ArrayList<>();
     private int fireExtinguisherAmcCost;
+    @Builder.Default
     List<AmcCostSlotDto> firePanelAmcCostSlotDtos = new ArrayList<>();
     private int firePanelAmcCost;
     private int totalAmcCostPerBedPerMonth;

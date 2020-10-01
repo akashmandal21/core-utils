@@ -38,6 +38,7 @@ public class SecurityCategoryDto extends CategoryDto {
 	private int securityCharges;
 	private int inHouseSecurityCharges;
 
+	@Builder.Default
 	private List<DropDownDto> securityTypeOptions = new ArrayList<>();
 
 
