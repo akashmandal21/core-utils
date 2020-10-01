@@ -12,37 +12,37 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum ElectricityEquipmentType {
-    LIFT(" # of units consumed by Lifts/day"){
+    LIFT(" # Units consumed by Lifts/day"){
         public int unitConsumed(UtilitiesElectricityCategoryDto utilitiesElectricityCategoryDto){
             return utilitiesElectricityCategoryDto.getUnitsConsumedByLiftPerDay();
         }
     },
-    HEAT_PUMP(" # of units consumed by heat pump/day"){
+    HEAT_PUMP(" # Units consumed by Heat pump/day"){
         public int unitConsumed(UtilitiesElectricityCategoryDto utilitiesElectricityCategoryDto){
             return utilitiesElectricityCategoryDto.getUnitsConsumedByHeatPumpPerDay();
         }
     },
-    CENTRAL_AC(" # of units consumed by Central AC/day"){
+    CENTRAL_AC(" # Units consumed by Central AC/day"){
         public int unitConsumed(UtilitiesElectricityCategoryDto utilitiesElectricityCategoryDto){
             return utilitiesElectricityCategoryDto.getUnitsConsumedByAcPerDay();
         }
     },
-    WASHING_MACHINE(" # of units consumed by Washing Machine/day"){
+    WASHING_MACHINE(" # Units consumed by Washing Machine/day"){
         public int unitConsumed(UtilitiesElectricityCategoryDto utilitiesElectricityCategoryDto){
             return utilitiesElectricityCategoryDto.getUnitsConsumedByWashingMachinePerDay();
         }
     },
-    MICROWAVE(" # of units consumed by Microwave/day"){
+    MICROWAVE(" # Units consumed by Microwave/day"){
         public int unitConsumed(UtilitiesElectricityCategoryDto utilitiesElectricityCategoryDto){
             return utilitiesElectricityCategoryDto.getUnitsConsumedByMicrowavePerDay();
         }
     },
-    BRAIN_MARIE(" # of units consumed by Bain Marie/day"){
+    BRAIN_MARIE(" # Units consumed by Bain Marie/day"){
         public int unitConsumed(UtilitiesElectricityCategoryDto utilitiesElectricityCategoryDto){
             return utilitiesElectricityCategoryDto.getUnitsConsumedByBrainMariePerDay();
         }
     },
-    OTHERS_EQUIPMENT(" # of units consumed by Others Equip./day"){
+    OTHERS_EQUIPMENT(" # Units consumed by Others Equip./day"){
         public int unitConsumed(UtilitiesElectricityCategoryDto utilitiesElectricityCategoryDto){
             return utilitiesElectricityCategoryDto.getUnitsConsumedByOthersEquipPerDay();
         }
