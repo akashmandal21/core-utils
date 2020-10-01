@@ -50,6 +50,7 @@ public enum LeadSourceEnum {
 	JUSTDIAL("Justdial"),
 	LEAD_LP("Lead Lp"),
 	LEAD_LP_FORM_1("Lead LP-form-1"),
+	LEAD_LP_FORM_2("Lead LP-form-2"),
 	MAGIC_BRICKS("Magicbricks"),
 	MAKAAN("Makaan"),
 	NINETY_NINE_ACRES("99Acres"),
