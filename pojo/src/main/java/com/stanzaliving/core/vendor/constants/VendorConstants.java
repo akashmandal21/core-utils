@@ -15,6 +15,7 @@ public class VendorConstants {
     public static final String currentAction = "currentAction";
     public static final String oldVendorMasterKey = "oldVendorMaster";
     public static final String removedLocationsAndItemsKey = "removedLocationsAndItemsKey";
+    public static final String autoFillGstKey = "autoFillGstKey";
 
 
     public static final Integer editRestrictMax = 10000000;

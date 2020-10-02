@@ -20,7 +20,7 @@ public enum VendorStatusEnum {
     L2_APPROVED("Approved",2,"#60C3AD","#EDFFF5"),
     L1_REJECTED("Rejected L1", VendorConstants.rejectionStart-1,"#F55F71","#FFF1F1"),
     L2_REJECTED("Rejected L2",VendorConstants.rejectionStart-2,"#FF5238","#FFF1F1"),
-    POST_DRAFT("Post Draft",-2,"#7A7D7E","#E6E9EA"),
+//    POST_DRAFT("Post Draft",-2,"#7A7D7E","#E6E9EA"),
     AUTO_APPROVED("Auto Approved",VendorConstants.approvalRestrictMax,"#60C3AD","#EDFFF5");
 
     private static Map<Integer,VendorStatusEnum> vendorStatusEnumMap = new HashMap<>();
