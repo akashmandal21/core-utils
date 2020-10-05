@@ -21,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(callSuper = true)
+@ToString(callSuper = true, exclude = { "image" })
 public class ExpenseDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1230936259535791728L;

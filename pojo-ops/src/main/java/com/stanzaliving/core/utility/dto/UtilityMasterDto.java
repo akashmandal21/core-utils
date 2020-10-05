@@ -31,5 +31,7 @@ public class UtilityMasterDto extends AbstractDto {
 	
 	private boolean metered;
 	
+	private int maxDailyReadings;
+	
 	private List<UtilityExpenseTypeDto> utilityExpenseTypeDtos;
 }
