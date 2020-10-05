@@ -5,6 +5,7 @@
 package com.stanzaliving.wanda.vas.response;
 
 import com.stanzaliving.core.enums.UnitOfMeasurement;
+import com.stanzaliving.core.food.dto.response.ItemPriceDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
 
 import lombok.AllArgsConstructor;
@@ -31,7 +32,7 @@ public class ItemCostUIResponseDto {
 	private String itemDescription;
 	private FoodItemType itemType;
 	private String itemTypeName;
-	private ItemPriceUIDto prices;
+	private ItemPriceDto prices;
 	private Integer itemWeight;
 	private Integer itemQty;
 	private UnitOfMeasurement unit;
