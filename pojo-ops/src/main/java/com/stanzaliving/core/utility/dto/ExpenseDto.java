@@ -3,7 +3,9 @@ package com.stanzaliving.core.utility.dto;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
@@ -16,10 +18,10 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
 public class ExpenseDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1230936259535791728L;
@@ -36,5 +38,6 @@ public class ExpenseDto extends AbstractDto {
 	@NotBlank(message = "Bill Photo is mandatory for expense")
 	private String image;
 
-	private List<ExpenseDetailsDto> details;
+	@NotEmpty(message = "Atleast 1 expense needs to be present")
+	private List<@Valid ExpenseDetailsDto> details;
 }
