@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.response;
 
+import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.website.response.dto.MealPlanResponseDTO;
 
 import lombok.AllArgsConstructor;
@@ -26,6 +27,8 @@ public class FoodHomeScreenResponse {
 	private String foodItems;
 	
 	private String mealType;
+	
+	private MealType mType;
 	
 	private boolean today;
 }
