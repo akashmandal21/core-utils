@@ -254,11 +254,7 @@ public class DateUtil {
 		LocalDate start = convertToLocalDate(one);
 		LocalDate end = convertToLocalDate(two);
 
-		if (!start.isBefore(end)) {
-			return ChronoUnit.DAYS.between(start, end);
-		}
-
-		return -1 * ChronoUnit.DAYS.between(end, start);
+		return ChronoUnit.DAYS.between(start, end);
 	}
 
 	public int getMaxDaysInMonth(LocalDate date) {
