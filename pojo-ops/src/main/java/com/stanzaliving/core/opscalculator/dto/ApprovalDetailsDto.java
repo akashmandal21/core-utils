@@ -27,7 +27,7 @@ public class ApprovalDetailsDto {
 
     private LocalDate underwrittenToDate;
 
-    private Integer days;
+    private Integer underWrittenDays;
 
     private LocalDate submittedOn;
 
@@ -36,5 +36,7 @@ public class ApprovalDetailsDto {
     private UnderWrittenStatus underWrittenStatus;
 
     private ApprovalStatus approvalStatus;
+
+    private Integer PendingApprovalDays;
 
 }
