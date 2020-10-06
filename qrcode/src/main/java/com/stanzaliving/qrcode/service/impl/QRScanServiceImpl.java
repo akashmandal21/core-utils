@@ -91,8 +91,7 @@ public class QRScanServiceImpl implements QRScanService {
 		QRScanHistory qrScanHistory =
 				qrScanHistoryRepository.findByContextIdAndQrContextTypeInAndUserId(contextId, qrContextTypeList, userId);
 
-		log.info("Qr scan history for contextId " + contextId + " userId " + userId);
-		log.info("Scan history " + qrScanHistory);
+		log.info("Qr scan history for contextId: {} and userId: {} is {}", contextId, userId, qrScanHistory);
 
 		return qrScanHistory;
 	}
@@ -205,7 +204,7 @@ public class QRScanServiceImpl implements QRScanService {
 
 	@Override
 	public List<QRScanHistory> getQrScanHistoryByQrContextTypeAndUserId(String userId, List<QRContextType> qrContextType, Pageable pagination) {
-		return qrScanHistoryRepository.findByQrContextTypeInAndUserIdAndStatus(qrContextType, userId, pagination,true);
+		return qrScanHistoryRepository.findByQrContextTypeInAndUserIdAndStatus(qrContextType, userId, pagination, true);
 	}
 
 	@Override
