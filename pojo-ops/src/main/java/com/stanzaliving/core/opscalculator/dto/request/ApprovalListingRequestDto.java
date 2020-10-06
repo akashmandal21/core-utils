@@ -15,8 +15,8 @@ import java.util.List;
 @Builder
 public class ApprovalListingRequestDto {
     private List<String> residenceUuids = new ArrayList<>();
-    private int start;
-    private int size;
+    private int page;
+    private int limit;
     private String role;
     private List<ApprovalStatus> approvalStatusList;
 }

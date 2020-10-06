@@ -39,4 +39,6 @@ public class ApprovalDetailsDto {
 
     private Integer PendingApprovalDays;
 
+    private Integer residenceCount;
+
 }
