@@ -41,4 +41,6 @@ public class ApprovalDetailsDto {
 
     private Integer residenceCount;
 
+    private String pendingFromText;
+
 }
