@@ -26,9 +26,7 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class PropertyInfoDto {
 
-	private int bedCount;
-	private int roomCount;
-	private int annualLeave;
+	private int annualHolidayCount;
 
 	@Builder.Default
 	private int occupancy = Constants.DEFUALT_OCCUPANCY_PERCENT;
