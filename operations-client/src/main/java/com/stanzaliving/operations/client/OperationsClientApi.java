@@ -12,6 +12,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -135,6 +136,10 @@ public class OperationsClientApi {
 	}
 
 	public List<ServiceMixSeasonResponseDto> getSeasonByResidenceId(List<String> residenceIds) {
+
+		if(CollectionUtils.isEmpty(residenceIds)){
+			return new ArrayList<>();
+		}
 
 		Object postBody = residenceIds;
 
