@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.qrcode.repository;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
@@ -30,4 +31,6 @@ public interface QRScanHistoryRepository extends AbstractJpaRepository<QRScanHis
 	List<QRScanHistory> findByContextIdInAndQrContextTypeInAndStatus(List<String> contextId, List<QRContextType> contextType, boolean status);
 
 	List<QRScanHistory> findByQrContextTypeInAndUserIdAndStatus(List<QRContextType> qrContextTypes, String userId, Pageable pagination,boolean status);
+
+	List<QRScanHistory> findByQrContextTypeInAndStatus(Collection<QRContextType> qrContextType, boolean status);
 }

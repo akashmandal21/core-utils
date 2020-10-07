@@ -1,41 +1,22 @@
 package com.stanzaliving.core.base.utils;
 
-import static com.google.common.base.Preconditions.checkArgument;
+import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.enums.DateFormat;
+import com.stanzaliving.core.base.enums.DatePart;
+import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
+import org.apache.commons.text.CaseUtils;
 
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
-import java.time.Period;
-import java.time.YearMonth;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.TemporalAdjusters;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
-import org.apache.commons.text.CaseUtils;
-
-import com.stanzaliving.core.base.StanzaConstants;
-import com.stanzaliving.core.base.enums.DateFormat;
-import com.stanzaliving.core.base.enums.DatePart;
-
-import lombok.experimental.UtilityClass;
-import lombok.extern.log4j.Log4j2;
+import static com.google.common.base.Preconditions.checkArgument;
 
 @Log4j2
 @UtilityClass
@@ -398,7 +379,11 @@ public class DateUtil {
 	}
 
 	public Integer getCountOfDates(LocalDate startDate, LocalDate endDate) {
-		return getListOfDates(startDate, endDate).size();
+		if (startDate.isBefore(endDate)) {
+			return getListOfDates(startDate, endDate).size();
+		} else {
+			return -1 * getListOfDates(endDate, startDate).size();
+		}
 	}
 
 	public LocalDate getCurrentMonthStartDate() {

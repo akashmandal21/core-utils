@@ -34,5 +34,13 @@ public class ServiceMixDto extends AbstractDto {
 	private LocalDate fromDate;
 	
     private Map<String, Object> config;
+
+    private String seasonUuid;
+
+    private String seasonName;
+
+    private LocalDate seasonFromDate;
+
+    private LocalDate seasonToDate;
 	
 }
