@@ -24,4 +24,5 @@ public class VendorConstants {
     public static final String tempVendorInitials = "TEMP";
     public static final String sampleCsvStartLine="Data Starts Here:";
     public static final String vendorItemRateGlobalCityUuid="0";
+    public static final String approvedText = "Approved";
 }
