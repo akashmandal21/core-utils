@@ -70,6 +70,7 @@
 		<module>campaign-client</module>
 		<module>food-service-client</module>
         <module>generic-validation-core</module>
+        <module>payment-client</module>
     </modules>
 
 	<build>

@@ -25,18 +25,20 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MealType {
 
-	BREAKFAST(1, "Breakfast", 1),
-	LUNCH(2, "Lunch", 2),
-	EVENING_SNACKS(3, "Evening Snacks", 5),
-	DINNER(4, "Dinner", 6),
-	BRUNCH(5, "Brunch", 2),
-	LUNCH_TIFFIN(6, "Lunch Tiffin", 4);
+	BREAKFAST(1, "Breakfast", 1, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png"),
+	LUNCH(2, "Lunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png"),
+	EVENING_SNACKS(3, "Evening Snacks", 5, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png"),
+	DINNER(4, "Dinner", 6, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png"),
+	BRUNCH(5, "Brunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png"),
+	LUNCH_TIFFIN(6, "Lunch Tiffin", 4, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png");
 
 	private Integer mealId;
 
 	private String mealName;
 
 	private Integer sequence;
+
+	private String imageUrl;
 
 	private static Map<Integer, MealType> mealMapById = new HashMap<>();
 	private static Map<String, MealType> mealMapByName = new HashMap<>();

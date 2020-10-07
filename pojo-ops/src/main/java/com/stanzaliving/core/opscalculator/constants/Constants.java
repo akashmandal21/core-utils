@@ -72,5 +72,10 @@ public class Constants {
 	public static final int GST_FOOD_VENDOR_PERCENT = 5;
 	public static final int MARGIN_UNIFORM_COSTS_PERCENT = 10;
 	public static final int GST_UNIFORM_COSTS_PERCENT = 18;
+	public static final double HUNDRED_VALUE_IN_DOUBLE = 100.0;
+	public static final int TWO_VALUE_IN_INTEGER = 2;
+	public static final double DAYS_IN_YEAR_IN_DOUBLE = 365.0;
+	public static final double DAYS_IN_MONTH_IN_DOUBLE = 30.0;
+	public static final double MONTH_IN_YEAR_IN_DOUBLE = 12.0;
 
 }
