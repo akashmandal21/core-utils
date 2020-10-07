@@ -57,7 +57,4 @@ public class AsIsDataDto extends AbstractDto implements Serializable {
 	private boolean asIsMarkedComplted;
 	private List<AsIsDrawingsDto> asIsDrawings;
 	private List<CommentsDto> commentsDtos;
-
-	private List<CommentsDto> commentsDtos;
-
 }
