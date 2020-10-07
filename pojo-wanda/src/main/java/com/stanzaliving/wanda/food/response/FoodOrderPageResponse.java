@@ -1,12 +1,8 @@
 package com.stanzaliving.wanda.food.response;
 
 import java.time.LocalTime;
-import java.util.List;
+import java.util.Date;
 import java.util.Map;
-
-import org.apache.commons.lang3.tuple.Pair;
-
-import com.stanzaliving.wanda.response.FoodCardDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,4 +25,5 @@ public class FoodOrderPageResponse {
 	
 	private boolean hasNonVeg;
 	
+	private Date closeTime;
 }
