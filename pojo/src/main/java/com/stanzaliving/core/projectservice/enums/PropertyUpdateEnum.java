@@ -26,9 +26,9 @@ public enum  PropertyUpdateEnum {
     //AS-IS Intermediate
     PROJECT_AS_IS_VENDOR_ASSIGNED("As is Vendor Assigned",true,NotificationTaskType.AS_IS_VENDOR_ASSIGNED),
     PROJECT_AS_IS_UPLOADED("As is Sent for Approval",false,NotificationTaskType.AS_IS_UPLOADED, null, "As-Is Drawings"),
-    PROJECT_AS_IS_SENT_BACK("As is Sent Back by PM",false,NotificationTaskType.AS_IS_REJECTED, null, "As-Is"),
+    PROJECT_AS_IS_SENT_BACK("As is Sent Back by PM",false,NotificationTaskType.AS_IS_REJECTED, null, "As-Is Drawings"),
 
-    PROJECT_AS_IS_COMPLETED("As-Is Completed",true,NotificationTaskType.AS_IS_APPROVED, null, "As-Is"),
+    PROJECT_AS_IS_COMPLETED("As-Is Completed",true,NotificationTaskType.AS_IS_APPROVED, null, "As-Is Drawings"),
 
     PROJECT_SFR_COMPLETED("SFR Completed",true,NotificationTaskType.SFR_SUBMITTED),
     PROJECT_OFR_COMPLETED("OFR Completed",true,NotificationTaskType.OFR_COMPLETED),
@@ -50,11 +50,11 @@ public enum  PropertyUpdateEnum {
 
     //GFC Intermediate
     DESIGN_GFC_UPLOADED("GFC Sent for Approval",false,NotificationTaskType.GFC_DRAWINGS_UPLOADED, null, "GFC drawings"),
-    DESIGN_GFC_SENT_BACK("GFC Sent Back",false,NotificationTaskType.GFC_DRAWINGS_REJECTED, null, "GFC"),
+    DESIGN_GFC_SENT_BACK("GFC Sent Back",false,NotificationTaskType.GFC_DRAWINGS_REJECTED, null, "GFC drawings"),
     DESIGN_GFC_APPROVAL("GFC Approval",false,NotificationTaskType.GFC_DRAWINGS_APPROVED, null, "GFC drawings"),
 
     //GFC Completed
-    DESIGN_GFC_APPROVED("GFC Completed",true,NotificationTaskType.GFC_DRAWINGS_APPROVED, null, "GFC"),
+    DESIGN_GFC_APPROVED("GFC Completed",true,NotificationTaskType.GFC_DRAWINGS_APPROVED, null, "GFC drawings"),
 
     DESIGN_BED_COUNT_SUBMITTED_NO_DEVIATION("Design Bed Count Submitted with no deviation",false,NotificationTaskType.DESIGN_BED_COUNT_SUBMITTED_WITH_NO_DEVIATION),
     DESIGN_BED_COUNT_SUBMITTED_DEVIATION("Design Bed Count Submitted with deviation",false,NotificationTaskType.DESIGN_BED_COUNT_SUBMITTED_WITH_DEVIATION),
