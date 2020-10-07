@@ -84,6 +84,7 @@ public class MasterBoqDto {
     private BigDecimal globalRate;
     private BigDecimal globalRentalRate;
     private ItemCostDto cityRate;
+    private BigDecimal maxQuantity;
 
     public void updateDimensions(){
         if(Objects.nonNull(this.getItemLength()) && Objects.nonNull(this.getLengthUnit()))
