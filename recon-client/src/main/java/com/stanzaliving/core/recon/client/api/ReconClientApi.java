@@ -65,7 +65,7 @@ public class ReconClientApi {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/lead/capture/detail").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/lead/tracker/capture/detail").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
