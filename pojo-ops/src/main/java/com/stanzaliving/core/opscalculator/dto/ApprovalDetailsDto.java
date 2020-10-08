@@ -47,4 +47,10 @@ public class ApprovalDetailsDto {
 
     private String textColorCode;
 
+    private String residenceUuid;
+
+    private String serviceMixUuid;
+
+    private String seasonUuid;
+
 }
