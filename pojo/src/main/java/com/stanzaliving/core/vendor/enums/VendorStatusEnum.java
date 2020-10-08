@@ -23,6 +23,8 @@ public enum VendorStatusEnum {
 //    POST_DRAFT("Post Draft",-2,"#7A7D7E","#E6E9EA"),
     AUTO_APPROVED("Auto Approved",VendorConstants.approvalRestrictMax,"#60C3AD","#EDFFF5");
 
+//    APPROVED("Approved",10,"#60C3AD","#EDFFF5");
+
     private static Map<Integer,VendorStatusEnum> vendorStatusEnumMap = new HashMap<>();
     private static int maxOrder;
     private static int minOrder;
