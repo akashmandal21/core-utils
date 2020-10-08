@@ -172,4 +172,26 @@ public class BoqClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, poReturnType);
     }
 
+    public ResponseDto<PoResponseDto> getPropertyItemsForBoq(String propertyId, String boqUuid, Boolean allowedSubmitted) {
+
+        log.info("HTTP Client call to get Property Item Details by propertyId {}  and boqUuid {} " , propertyId,boqUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<PoResponseDto>> poReturnType = new ParameterizedTypeReference<ResponseDto<PoResponseDto>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/boq/get/boqItemsForPo/" + propertyId+"/"+boqUuid+"/"+allowedSubmitted).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, poReturnType);
+    }
+
 }
