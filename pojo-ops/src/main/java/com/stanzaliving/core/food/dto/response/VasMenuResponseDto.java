@@ -1,7 +1,6 @@
 package com.stanzaliving.core.food.dto.response;
 
 import java.util.List;
-import java.util.Map;
 
 import com.stanzaliving.core.operations.enums.MealType;
 
@@ -32,5 +31,5 @@ public class VasMenuResponseDto {
 
 	private List<ItemCategoryCountDto> categoryCount;
 
-	List<VasMenuItemResponseDto> items;
+	List<DailyVasMenuItemResponseDto> menuItems;
 }
