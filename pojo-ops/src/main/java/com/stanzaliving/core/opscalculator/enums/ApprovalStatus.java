@@ -20,7 +20,9 @@ public enum ApprovalStatus {
 
     static {
         for(ApprovalStatus approvalStatus : ApprovalStatus.values()){
-            dropDownDtoList.add(new DropDownDto(approvalStatus.toString(), approvalStatus.getStatus()));
+            if(!ApprovalStatus.APPROVED_BY_L2.equals(approvalStatus) && !ApprovalStatus.APPROVED_BY_L1.equals(approvalStatus)) {
+                dropDownDtoList.add(new DropDownDto(approvalStatus.toString(), approvalStatus.getStatus()));
+            }
         }
     }
 }
