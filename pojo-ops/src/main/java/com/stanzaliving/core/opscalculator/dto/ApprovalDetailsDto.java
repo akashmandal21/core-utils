@@ -43,4 +43,8 @@ public class ApprovalDetailsDto {
 
     private String pendingFromText;
 
+    private String bgColorCode;
+
+    private String textColorCode;
+
 }
