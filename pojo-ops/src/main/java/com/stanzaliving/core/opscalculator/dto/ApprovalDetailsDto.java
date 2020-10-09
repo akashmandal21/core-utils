@@ -37,6 +37,8 @@ public class ApprovalDetailsDto {
 
     private ApprovalStatus approvalStatus;
 
+    private String approvalStatusDisplayText;
+
     private Integer PendingApprovalDays;
 
     private Integer residenceCount;
