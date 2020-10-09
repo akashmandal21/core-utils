@@ -16,6 +16,5 @@ public class ApprovalStatusRequestDto {
     @NotBlank(message = "undeWritten Uuid can not be null")
     private String underWrittenUuid;
 
-    @NotBlank(message = "approval Status can not be null")
     private ApprovalStatus approvalStatus;
 }
