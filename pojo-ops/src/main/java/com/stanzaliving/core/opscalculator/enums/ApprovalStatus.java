@@ -29,15 +29,11 @@ public enum ApprovalStatus {
             if(!ApprovalStatus.APPROVED_BY_L2.equals(approvalStatus) && !ApprovalStatus.APPROVED_BY_L1.equals(approvalStatus)) {
                 dropDownDtoListForL1.add(new DropDownDto(approvalStatus.toString(), approvalStatus.getStatus()));
             }
-        }
-    }
-
-    static {
-        for(ApprovalStatus approvalStatus : ApprovalStatus.values()){
             if(!ApprovalStatus.APPROVED_BY_L2.equals(approvalStatus) && !ApprovalStatus.APPROVED_BY_L1.equals(approvalStatus) &&
                     !ApprovalStatus.PENDING_APPROVAL_ON_L1.equals(approvalStatus) && !ApprovalStatus.REJECTED_BY_L1.equals(approvalStatus)) {
                 dropDownDtoListForL2.add(new DropDownDto(approvalStatus.toString(), approvalStatus.getStatus()));
             }
         }
     }
+
 }
