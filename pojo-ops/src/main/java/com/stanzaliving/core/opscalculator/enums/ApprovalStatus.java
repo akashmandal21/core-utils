@@ -13,7 +13,7 @@ public enum ApprovalStatus {
     PENDING_APPROVAL_ON_L1("Pending L1 Approval", "#FFEAB6", "#FFB701")
     ,PENDING_APPROVAL_ON_L2("Pending L2 Approval", "#FFEAB6", "#FFB701")
     ,L1_REJECTED("L1 Rejected", " #FFF1F1", "#F55F71")
-    ,L2_REJECTED("L1 Rejected", " #FFF1F1", "#F55F71")
+    ,L2_REJECTED("L2 Rejected", " #FFF1F1", "#F55F71")
     ,APPROVED_BY_L1("Approved By L1", "#FFEAB6", "#FFB701")
     ,APPROVED_BY_L2("Approved By L2", "#FFEAB6", "#FFB701");
     String status;
