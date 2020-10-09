@@ -26,7 +26,8 @@ public enum FoodItemBasePreference {
 
 	BALANCED("Balanced", "Balanced Thali"),
 	RICE_BASE("Rice Base", "Rice Thali"),
-	ROTI_BASE("Roti Base", "Roti Thali");
+	ROTI_BASE("Roti Base", "Roti Thali"),
+	COMBO("Combo", "Combo");
 
 	private String basePreference;
 	private String label;
@@ -42,9 +43,10 @@ public enum FoodItemBasePreference {
 		}
 
 		preferencesByRegionMap.put(FoodRegion.NORTH, enumListings);
-		preferencesByRegionMap.put(FoodRegion.SOUTH, Arrays.asList(EnumListing.of(RICE_BASE, RICE_BASE.getBasePreference())));
+		preferencesByRegionMap.put(FoodRegion.SOUTH, Arrays.asList(EnumListing.of(RICE_BASE, RICE_BASE.getBasePreference()), EnumListing.of(COMBO, COMBO.getBasePreference())));
 		preferencesByRegionMap.put(FoodRegion.CONTINENTAL, Arrays.asList(EnumListing.of(BALANCED, BALANCED.getBasePreference())));
 		preferencesByRegionMap.put(FoodRegion.MIX, Arrays.asList(EnumListing.of(BALANCED, BALANCED.getBasePreference())));
+		preferencesByRegionMap.put(FoodRegion.INDIAN, Arrays.asList(EnumListing.of(COMBO, COMBO.getBasePreference())));
 
 	}
 
@@ -75,6 +77,10 @@ public enum FoodItemBasePreference {
 
 	public static List<EnumListing<FoodItemBasePreference>> getPreferencesForRegion(FoodRegion foodRegion) {
 		return preferencesByRegionMap.getOrDefault(foodRegion, new ArrayList<>());
+	}
+
+	public static Map<FoodRegion, List<EnumListing<FoodItemBasePreference>>> getPreferenceByRegionMap() {
+		return preferencesByRegionMap;
 	}
 
 }
