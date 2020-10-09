@@ -20,12 +20,23 @@ public enum ApprovalStatus {
     String bgColorCode;
     String textColorCode;
 
-    public static List<DropDownDto> dropDownDtoList = new ArrayList<>();
+    public static List<DropDownDto> dropDownDtoListForL1 = new ArrayList<>();
+    public static List<DropDownDto> dropDownDtoListForL2 = new ArrayList<>();
+
 
     static {
         for(ApprovalStatus approvalStatus : ApprovalStatus.values()){
             if(!ApprovalStatus.APPROVED_BY_L2.equals(approvalStatus) && !ApprovalStatus.APPROVED_BY_L1.equals(approvalStatus)) {
-                dropDownDtoList.add(new DropDownDto(approvalStatus.toString(), approvalStatus.getStatus()));
+                dropDownDtoListForL1.add(new DropDownDto(approvalStatus.toString(), approvalStatus.getStatus()));
+            }
+        }
+    }
+
+    static {
+        for(ApprovalStatus approvalStatus : ApprovalStatus.values()){
+            if(!ApprovalStatus.APPROVED_BY_L2.equals(approvalStatus) && !ApprovalStatus.APPROVED_BY_L1.equals(approvalStatus) &&
+                    !ApprovalStatus.PENDING_APPROVAL_ON_L1.equals(approvalStatus) && !ApprovalStatus.REJECTED_BY_L1.equals(approvalStatus)) {
+                dropDownDtoListForL2.add(new DropDownDto(approvalStatus.toString(), approvalStatus.getStatus()));
             }
         }
     }
