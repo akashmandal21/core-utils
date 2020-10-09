@@ -14,9 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class ApprovalListingRequestDto {
+    @Builder.Default
     private List<String> residenceUuids = new ArrayList<>();
     private int page;
     private int limit;
     private String role;
-    private List<ApprovalStatus> approvalStatusList;
+    @Builder.Default
+    private List<ApprovalStatus> approvalStatusList = new ArrayList<>();
 }
