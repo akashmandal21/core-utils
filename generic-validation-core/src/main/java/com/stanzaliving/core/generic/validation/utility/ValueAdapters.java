@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.generic.validation.dtos.TemplateField;
+import com.stanzaliving.core.generic.validation.fieldProcessors.ValueChecker;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
@@ -16,8 +17,7 @@ import java.util.Objects;
 @Log4j2
 public class ValueAdapters {
 
-
-    public Object getFieldVal(Field field, Object sourceClass){
+  public Object getFieldVal(Field field, Object sourceClass){
         try {
             Object obj = field.get(sourceClass);
             return obj;
@@ -76,13 +76,24 @@ public class ValueAdapters {
             log.error("Error saving data to field {}, template {} template field {}",field, templateName,templateField, ex);
         }
     }
-
-    public void setFieldValDirectly(String templateName, TemplateField templateField, Field field,Object source, Object value){
+    public boolean setFieldValDirectly(String templateName, TemplateField templateField, Field field,Object source, Object value){
         try {
-            field.set(source, value);
+            if(value instanceof ValueChecker){
+                log.info("Template {} fieldName {}",templateName,field.getName());
+                if(((ValueChecker)value).allNull())
+                {
+                    field.set(source,null);
+                    return false;
+                }
+                else
+                    field.set(source, value);
+            }else
+                field.set(source, value);
         }catch (Exception ex){
             log.error("Error saving data to field {}, template {} template field {}",field, templateName,templateField, ex);
+            return false;
         }
+        return true;
     }
 
 }

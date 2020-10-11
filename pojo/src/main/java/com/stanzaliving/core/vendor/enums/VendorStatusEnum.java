@@ -1,6 +1,7 @@
 package com.stanzaliving.core.vendor.enums;
 
-import com.stanzaliving.core.vendor.constants.VendorConstants;
+
+import com.stanzaliving.core.generic.constants.GenericConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -18,9 +19,9 @@ public enum VendorStatusEnum {
     SUBMITTED("Pending Approval L1",0,"#FFB701","#FFEAB6"),
     L1_APPROVED("Pending Approval L2",1,"#DEB76A","#FFEAB6"),
     L2_APPROVED("L2 Approved",2,"#60C3AD","#EDFFF5"),
-    L1_REJECTED("Rejected L1", VendorConstants.rejectionStart-1,"#F55F71","#FFF1F1"),
-    L2_REJECTED("Rejected L2",VendorConstants.rejectionStart-2,"#FF5238","#FFF1F1"),
-    AUTO_APPROVED("Auto Approved",VendorConstants.approvalRestrictMax,"#60C3AD","#EDFFF5");
+    L1_REJECTED("Rejected L1", GenericConstants.rejectionStart-1,"#F55F71","#FFF1F1"),
+    L2_REJECTED("Rejected L2", GenericConstants.rejectionStart-2,"#FF5238","#FFF1F1"),
+    AUTO_APPROVED("Auto Approved",GenericConstants.approvalRestrictMax,"#60C3AD","#EDFFF5");
 
 //    APPROVED("Approved",10,"#60C3AD","#EDFFF5");
 

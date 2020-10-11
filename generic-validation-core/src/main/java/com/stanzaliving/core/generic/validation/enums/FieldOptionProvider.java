@@ -8,9 +8,9 @@ import lombok.Getter;
 public enum FieldOptionProvider {
 
     //Vendor Master Providers
-    VendorTypeProvider,VendorDepartmentProvider,CountryProvide,CityProvider,StateProvider,CompanyTypeProvider,
-    MSMEProvider,VendorItemNameProvider,AccountTypeProvider,FinancialYearProvider,VendorCountryProvider,
-    VendorStateProvider,VendorCityProvider,
+    VendorTypeProvider,VendorDepartmentProvider,CountryProvider,CityProvider,StateProvider,CompanyTypeProvider,
+    AccountTypeProvider,FinancialYearProvider,YesNoProvider,CurrencyProvider,ProjectYearProvider,HouseNameProvider,
+    KitchenStoreProvider,SupplyCityProvider,
 
     //Item master Providers
     ItemCategoryProvider,CostHeadProvider,ItemSubCategoryProvider,ItemTypeProvider,UOMProvider,GstPCTProvider,
