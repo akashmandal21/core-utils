@@ -1,6 +1,7 @@
 package com.stanzaliving.core.utility.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.transformations.enums.UnitType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -33,5 +34,5 @@ public class UtilityMasterDto extends AbstractDto {
 	
 	private int maxDailyReadings;
 	
-	private List<UtilityExpenseTypeDto> utilityExpenseTypeDtos;
+	private List<ListingDto> utilityExpenseTypeDtos;
 }
