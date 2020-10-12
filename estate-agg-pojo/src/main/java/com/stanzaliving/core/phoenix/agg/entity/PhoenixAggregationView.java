@@ -3,6 +3,9 @@ package com.stanzaliving.core.phoenix.agg.entity;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.phoenix.embeddedinfos.InvoiceInfo;
+import com.stanzaliving.core.phoenix.embeddedinfos.ServiceMixInfo;
+import com.stanzaliving.core.phoenix.embeddedinfos.SfrInfo;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -49,7 +52,6 @@ public class PhoenixAggregationView extends AbstractMongoEntity {
     Map of PropertyUpdateEnum to List of PropertyUpdateDetail
      */
     private Map<PropertyUpdateEnum,List<PropertyUpdateDetail>> propertyUpdateTracker;//Changed from Map<PropertyUpdateEnum,List<PropertyUpdateDetail>> to  Map<String,List<PropertyUpdateDetail>>
-
     private BoqInfo masterBoqInfo;
     private List<BoqInfo> extraBoqInfos;
     private ProjectSchedule projectSchedule;
@@ -63,6 +65,9 @@ public class PhoenixAggregationView extends AbstractMongoEntity {
     private GCScheduleInfo gcScheduleInfo;
     private List<PoInfo> poDetails; //Po Details Uuid to PoInfo Mapping.
     private AnalyticKeys analyticKeys;
+    private List<SfrInfo> sfrInfos;
+    private List<ServiceMixInfo> serviceMixInfos;
+    private List<InvoiceInfo> invoiceInfos;
 
     public GFCStatus getGFCStatusEnum(){
         return EnumDecoder.getEnum(gfcStatus,GFCStatus.class);
