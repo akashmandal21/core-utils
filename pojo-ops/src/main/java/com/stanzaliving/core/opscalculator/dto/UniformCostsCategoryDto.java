@@ -23,15 +23,18 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "utilization" })
 public class UniformCostsCategoryDto extends CategoryDto {
-	
-	private int lifeOfUniform;
+
+	boolean rcOeUniformRequired;
+	boolean hkUniformRequired;
 
 	@Builder.Default
-	private int gst = Constants.GST_UNIFORM_COSTS_PERCENT;
+	private int lifeOfUniform = 12;
 
-	@Builder.Default
-	private int margin = Constants.MARGIN_UNIFORM_COSTS_PERCENT;
+	UniformRequirementDto rcOeUniformRequirementDto;
+	UniformRequirementDto hkUniformRequirementDto;
+
+	private int totalRcOeUniformCostPerBed;
+	private int totalHkUniformCostPerBed;
 
 }

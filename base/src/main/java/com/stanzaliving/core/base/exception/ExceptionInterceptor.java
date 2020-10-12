@@ -298,6 +298,17 @@ public class ExceptionInterceptor {
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
+	@ExceptionHandler(IllegalArgumentException.class)
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	@SendExceptionToSlack
+	public <T> ResponseDto<T> handleIllegalArgumentException(IllegalArgumentException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got IllegalArgumentException for exceptionId: {} with error {}" + exceptionId, e.getMessage(), e);
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
 	@ExceptionHandler(ApiValidationException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	public <T> ResponseDto<T> handleApiValidationException(ApiValidationException e) {

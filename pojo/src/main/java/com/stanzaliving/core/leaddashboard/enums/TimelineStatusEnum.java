@@ -3,7 +3,11 @@
  */
 package com.stanzaliving.core.leaddashboard.enums;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
@@ -104,5 +108,43 @@ public enum TimelineStatusEnum {
 		postVisitDrop.add(POST_VISIT_5_DROP);
 	
 	    return postVisitDrop.contains(timelineStatus);
+	}
+	
+	public static List<TimelineStatusEnum> getVisitHistoryStatuses() {
+		
+		List<TimelineStatusEnum> visitHistoryStatuses = new ArrayList<>();
+		
+		visitHistoryStatuses.add(VISIT_1_SCHEDULED);
+		visitHistoryStatuses.add(VISIT_2_SCHEDULED);
+		visitHistoryStatuses.add(VISIT_3_SCHEDULED);
+		visitHistoryStatuses.add(VISIT_4_SCHEDULED);
+		visitHistoryStatuses.add(VISIT_5_SCHEDULED);
+	
+		visitHistoryStatuses.add(VISIT_1_COMPLETED);
+		visitHistoryStatuses.add(VISIT_2_COMPLETED);
+		visitHistoryStatuses.add(VISIT_3_COMPLETED);
+		visitHistoryStatuses.add(VISIT_4_COMPLETED);
+		visitHistoryStatuses.add(VISIT_5_COMPLETED);
+		
+		return visitHistoryStatuses;
+	}
+	
+	public static int getVisitScheduleCompletedCount(TimelineStatusEnum status) {
+		
+		Map<TimelineStatusEnum, Integer> visitHistoryStatusCount = new HashMap<>();
+		
+		visitHistoryStatusCount.put(VISIT_1_SCHEDULED, 1);
+		visitHistoryStatusCount.put(VISIT_2_SCHEDULED, 2);
+		visitHistoryStatusCount.put(VISIT_3_SCHEDULED, 3);
+		visitHistoryStatusCount.put(VISIT_4_SCHEDULED, 4);
+		visitHistoryStatusCount.put(VISIT_5_SCHEDULED, 5);
+	
+		visitHistoryStatusCount.put(VISIT_1_COMPLETED, 1);
+		visitHistoryStatusCount.put(VISIT_2_COMPLETED, 2);
+		visitHistoryStatusCount.put(VISIT_3_COMPLETED, 3);
+		visitHistoryStatusCount.put(VISIT_4_COMPLETED, 4);
+		visitHistoryStatusCount.put(VISIT_5_COMPLETED, 5);
+		
+		return visitHistoryStatusCount.get(status);
 	}
 }
