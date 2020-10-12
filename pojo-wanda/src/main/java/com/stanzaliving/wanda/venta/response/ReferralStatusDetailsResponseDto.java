@@ -32,5 +32,6 @@ public class ReferralStatusDetailsResponseDto {
 	private String paidOn;
 	private String mmName;
 	private String cityName;
+	private TdsBreakUpResponseDTO amountBreakup;
 
 }
