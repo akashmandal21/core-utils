@@ -71,9 +71,9 @@ public interface ApprovalProcessor {
             this.setApprovalLevel(rejectionLevel);
             return;
         }
-        ActorAction currentRole = (ActorAction) additionalData.get(GenericConstants.actorRoleKey);
+        ActorRole currentRole = (ActorRole) additionalData.get(GenericConstants.actorRoleKey);
 
-        boolean canApprove = (currentRole==ActorAction.APPROVE) && (currentUserApprovedLevel-this.getApprovalLevel()==1 || currentUserApprovedLevel-this.getApprovalLevel()==0) &&
+        boolean canApprove = (currentRole==ActorRole.APPROVE) && (currentUserApprovedLevel-this.getApprovalLevel()==1 || currentUserApprovedLevel-this.getApprovalLevel()==0) &&
                 (Objects.isNull(field.getApprovalDetails()) || CommonUtilities.canApprove((Department)additionalData.get(GenericConstants.queryDepartmentKey),currentUserApprovedLevel,field.getApprovalDetails()));
         if(canApprove){
             if(uiParentField.isApproved())
