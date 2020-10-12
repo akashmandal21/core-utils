@@ -30,5 +30,8 @@ public class PaytmDetailsDto {
 	private String userName;
 
 	@Builder.Default
-	private Boolean isVerified = false;
+	private Boolean isVerified = Boolean.TRUE;
+	
+	@Builder.Default
+	private Boolean isPreferred = Boolean.FALSE;
 }

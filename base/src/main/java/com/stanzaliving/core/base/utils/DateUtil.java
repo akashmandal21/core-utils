@@ -179,6 +179,10 @@ public class DateUtil {
 	public LocalDate convertToLocalDate(long timestamp) {
 		return Instant.ofEpochMilli(timestamp).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toLocalDate();
 	}
+	
+	public LocalDateTime convertToLocalDateTime(long timestamp) {
+		return Instant.ofEpochMilli(timestamp).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toLocalDateTime();
+	}
 
 	public Date convertToDate(LocalTime localTime) {
 
@@ -710,5 +714,49 @@ public class DateUtil {
 	        int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
 	        return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
 	    }
+	 
+	 public static long getDifferenceBetweenDates(Date d1, Date d2, String differenceIn) {
+			long diff = d2.getTime() - d1.getTime();
+			long requiredValue;
+			switch (differenceIn) {
+			case "DAYS":
+				requiredValue = diff / (24 * 60 * 60 * 1000);
+				break;
+			case "HOURS":
+				requiredValue = diff / (60 * 60 * 1000) % 24;
+				break;
+			case "MINUTES":
+				requiredValue = diff / (60 * 1000) % 60;
+				break;
+			case "SECONDS":
+				requiredValue = diff / 1000 % 60;
+			default:
+				requiredValue = 0;
+			}
+			return requiredValue;
+		}
+	 
+	public String getCurrentDateInSpecificFormat(LocalDate localDate) {
+		int dayOfMonth = localDate.getDayOfMonth();
+		String dayNumberSuffix = getDayNumberSuffix(dayOfMonth);
+		String dayWithNumberSuffix = dayOfMonth + dayNumberSuffix;
+		return dayWithNumberSuffix;
+	}
+
+	private String getDayNumberSuffix(int day) {
+		if (day >= 11 && day <= 13) {
+			return "th";
+		}
+		switch (day % 10) {
+			case 1:
+				return "st";
+			case 2:
+				return "nd";
+			case 3:
+				return "rd";
+			default:
+				return "th";
+		}
+	}
 
 }
