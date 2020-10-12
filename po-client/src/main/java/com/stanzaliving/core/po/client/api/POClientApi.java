@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.stanzaliving.po.enums.PoStatus;
-import com.stanzaliving.po.enums.PoType;
-import com.stanzaliving.po.model.PoAggregationDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -19,6 +16,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.generic.po.response.PoClientResponse;
+import com.stanzaliving.po.enums.PoStatus;
+import com.stanzaliving.po.enums.PoType;
+import com.stanzaliving.po.model.PoAggregationDto;
 import com.stanzaliving.po.model.PoResponse;
 import com.stanzaliving.po.model.PropertyPoStatusSummaryDto;
 
@@ -228,6 +229,36 @@ public class POClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<Map<String, BigDecimal>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, BigDecimal>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+    
+    public ResponseDto<PoClientResponse> getGenericPoDetails(String poUuid) {
+
+        if (Objects.isNull(poUuid))
+            return null;
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("poUuid", poUuid);
+
+        String path = UriComponentsBuilder.fromPath("/get/generic/po/{poUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<PoClientResponse>> returnType = new ParameterizedTypeReference<ResponseDto<PoClientResponse>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
