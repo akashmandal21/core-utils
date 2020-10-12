@@ -47,6 +47,8 @@ public class AnnualUnderWrittenResponseDto extends AnnualUnderWrittenDto {
 
     private String commentUuid;
 
+    private String approvedCommentUuid;
+
     private ApprovalStatus approvalStatus;
 
 }
