@@ -23,6 +23,7 @@ import lombok.experimental.SuperBuilder;
 @Setter
 public class ReferAndEarnPaymentDetailDto {
 
+	private String configureText;
 	private List<ReferralPaymentModeUIResponseDto> paymentDetails;
 	private List<ReferralPaymentModeUIResponseDto> idDetails;
 	private String keyForPaymentEmpty;
