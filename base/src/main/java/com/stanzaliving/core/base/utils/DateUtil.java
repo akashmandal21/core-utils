@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 
@@ -219,12 +220,12 @@ public class DateUtil {
 	public LocalDate convertToLocalDateFromUTC(Date date) {
 		return convertToLocalDate(date, StanzaConstants.UTC_TIMEZONE);
 	}
-	
+
 	public boolean isLocalDateExpired(LocalDate localDate) {
 		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
 		return localDate.isBefore(LocalDate.now(zoneId));
 	}
-	
+
 	public LocalDate getLocalDate() {
 		ZoneId zoneId = ZoneId.of(StanzaConstants.IST_TIMEZONE);
 		return LocalDate.now(zoneId);
@@ -245,13 +246,15 @@ public class DateUtil {
 	}
 
 	public long daysBetween(Date one, Date two) {
-		long difference = ((one.getTime() - two.getTime()) / StanzaConstants.MILLI_SECONDS_IN_DAY);
-		return Math.abs(difference);
+		return Math.abs(daysBetweenWithSign(one, two));
 	}
 
 	public long daysBetweenWithSign(Date one, Date two) {
-		long difference = ((one.getTime() - two.getTime()) / StanzaConstants.MILLI_SECONDS_IN_DAY);
-		return difference;
+
+		LocalDate start = convertToLocalDate(one);
+		LocalDate end = convertToLocalDate(two);
+
+		return ChronoUnit.DAYS.between(start, end);
 	}
 
 	public int getMaxDaysInMonth(LocalDate date) {
@@ -701,14 +704,14 @@ public class DateUtil {
 
 		return date.with(TemporalAdjusters.next(day));
 	}
-	
-	 public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
-	        Calendar calStart = Calendar.getInstance();
-	        calStart.setTime(fromDate);
-	        Calendar calEnd = Calendar.getInstance();
-	        calEnd.setTime(toDate);
-	        int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
-	        return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
-	    }
+
+	public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
+		Calendar calStart = Calendar.getInstance();
+		calStart.setTime(fromDate);
+		Calendar calEnd = Calendar.getInstance();
+		calEnd.setTime(toDate);
+		int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
+		return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
+	}
 
 }

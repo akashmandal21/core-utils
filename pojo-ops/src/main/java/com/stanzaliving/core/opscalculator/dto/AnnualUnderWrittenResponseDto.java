@@ -2,6 +2,7 @@ package com.stanzaliving.core.opscalculator.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.opscalculator.enums.ApprovalStatus;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -45,5 +46,9 @@ public class AnnualUnderWrittenResponseDto extends AnnualUnderWrittenDto {
     private Integer versionNumber;
 
     private String commentUuid;
+
+    private String approvedCommentUuid;
+
+    private ApprovalStatus approvalStatus;
 
 }
