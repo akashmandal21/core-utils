@@ -9,12 +9,15 @@ import lombok.Getter;
 @Getter
 public enum  PropertyUpdateEnum {
 
+    PROPERTY_ADDED("Property Added in Phoenix",false,null,null),
+    PROPERTY_UPDATED("Property Updated in Phoenix",false,null,null),
+
     //Projects
     PROJECT_ZONAL_HEAD_ASSIGNED("Project Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED, Department.PROJECTS),
     PROJECT_MANAGER_ASSIGNED("Project manager Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
     PROJECT_SITE_ENGINEER_ASSIGNED("Project Site Engineer Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
-    PROJECT_SITE_ENGINEER_CHANGED("Project Site Engineer Changed",true,NotificationTaskType.PROPERTY_REMOVED),
-    PROJECT_MANAGER_CHANGED("Project manager Changed",true,NotificationTaskType.PROPERTY_REMOVED),
+    PROJECT_SITE_ENGINEER_CHANGED("Project Site Engineer Changed",true,NotificationTaskType.PROPERTY_REMOVED, null, "Project Site Engineer"),
+    PROJECT_MANAGER_CHANGED("Project manager Changed",true,NotificationTaskType.PROPERTY_REMOVED, null, "Project Manager"),
 
 
     //GC
@@ -22,10 +25,10 @@ public enum  PropertyUpdateEnum {
 
     //AS-IS Intermediate
     PROJECT_AS_IS_VENDOR_ASSIGNED("As is Vendor Assigned",true,NotificationTaskType.AS_IS_VENDOR_ASSIGNED),
-    PROJECT_AS_IS_UPLOADED("As is Sent for Approval",false,NotificationTaskType.AS_IS_UPLOADED),
-    PROJECT_AS_IS_SENT_BACK("As is Sent Back by PM",false,NotificationTaskType.AS_IS_REJECTED),
+    PROJECT_AS_IS_UPLOADED("As is Sent for Approval",false,NotificationTaskType.AS_IS_UPLOADED, null, "As-Is Drawings"),
+    PROJECT_AS_IS_SENT_BACK("As is Sent Back by PM",false,NotificationTaskType.AS_IS_REJECTED, null, "As-Is Drawings"),
 
-    PROJECT_AS_IS_COMPLETED("As-Is Completed",true,NotificationTaskType.AS_IS_APPROVED),
+    PROJECT_AS_IS_COMPLETED("As-Is Completed",true,NotificationTaskType.AS_IS_APPROVED, null, "As-Is Drawings"),
 
     PROJECT_SFR_COMPLETED("SFR Completed",true,NotificationTaskType.SFR_SUBMITTED),
     PROJECT_OFR_COMPLETED("OFR Completed",true,NotificationTaskType.OFR_COMPLETED),
@@ -43,15 +46,15 @@ public enum  PropertyUpdateEnum {
     //Design
     DESIGN_ZONAL_HEAD_ASSIGNED("Design Zonal Head Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED, Department.DESIGN),
     DESIGN_COORDINATOR_ASSIGNED("Design Coordinator Assigned",true,NotificationTaskType.PROPERTY_ASSIGNED),
-    DESIGN_COORDINATOR_CHANGED("Design Coordinator changed",true,NotificationTaskType.PROPERTY_REMOVED),
+    DESIGN_COORDINATOR_CHANGED("Design Coordinator changed",true,NotificationTaskType.PROPERTY_REMOVED, null, "Design Coordinator"),
 
     //GFC Intermediate
-    DESIGN_GFC_UPLOADED("GFC Sent for Approval",false,NotificationTaskType.GFC_DRAWINGS_UPLOADED),
-    DESIGN_GFC_SENT_BACK("GFC Sent Back",false,NotificationTaskType.GFC_DRAWINGS_REJECTED),
-    DESIGN_GFC_APPROVAL("GFC Approval",false,NotificationTaskType.GFC_DRAWINGS_APPROVED),
+    DESIGN_GFC_UPLOADED("GFC Sent for Approval",false,NotificationTaskType.GFC_DRAWINGS_UPLOADED, null, "GFC drawings"),
+    DESIGN_GFC_SENT_BACK("GFC Sent Back",false,NotificationTaskType.GFC_DRAWINGS_REJECTED, null, "GFC drawings"),
+    DESIGN_GFC_APPROVAL("GFC Approval",false,NotificationTaskType.GFC_DRAWINGS_APPROVED, null, "GFC drawings"),
 
     //GFC Completed
-    DESIGN_GFC_APPROVED("GFC Completed",true,NotificationTaskType.GFC_DRAWINGS_APPROVED),
+    DESIGN_GFC_APPROVED("GFC Completed",true,NotificationTaskType.GFC_DRAWINGS_APPROVED, null, "GFC drawings"),
 
     DESIGN_BED_COUNT_SUBMITTED_NO_DEVIATION("Design Bed Count Submitted with no deviation",false,NotificationTaskType.DESIGN_BED_COUNT_SUBMITTED_WITH_NO_DEVIATION),
     DESIGN_BED_COUNT_SUBMITTED_DEVIATION("Design Bed Count Submitted with deviation",false,NotificationTaskType.DESIGN_BED_COUNT_SUBMITTED_WITH_DEVIATION),
@@ -59,22 +62,22 @@ public enum  PropertyUpdateEnum {
     DESIGN_BED_COUNT_FINALIZATION_COMPLETED("Bed Count finalization Completed",true,NotificationTaskType.DESIGN_BED_COUNT_DEVIATION_APPROVED),
     DESIGN_SUB_BRAND_UPDATE("Sub Brand added by Transformation head",true,NotificationTaskType.DESIGN_SUB_BRAND_UPDATE),
 
-    DESIGN_BOQ_SUBMITTED("Boq Submitted For Approval",true,NotificationTaskType.MASTER_BOQ_SUBMITTED),
-    DESIGN_BOQ_SENT_BACK("Boq Sent Back",true,NotificationTaskType.MASTER_BOQ_REJECTED),
-    DESIGN_BOQ_APPROVED("Boq Approved",true,NotificationTaskType.MASTER_BOQ_APPROVED),
-    DESIGN_BOI_APPROVED("Boi Approved",true,NotificationTaskType.MASTER_BOI_APPROVED),
-    DESIGN_GC_APPROVED("Gc Approved",true,NotificationTaskType.MASTER_GC_APPROVED),
+    DESIGN_BOQ_SUBMITTED("Boq Submitted For Approval",true,NotificationTaskType.MASTER_BOQ_SUBMITTED, null, "Master BOQ"),
+    DESIGN_BOQ_SENT_BACK("Boq Sent Back",true,NotificationTaskType.MASTER_BOQ_REJECTED, null, "Master BOQ"),
+    DESIGN_BOQ_APPROVED("Boq Approved",true,NotificationTaskType.MASTER_BOQ_APPROVED, null, "Master BOQ"),
+    DESIGN_BOI_APPROVED("Boi Approved",true,NotificationTaskType.MASTER_BOI_APPROVED, null, "Master BOQ"),
+    DESIGN_GC_APPROVED("Gc Approved",true,NotificationTaskType.MASTER_GC_APPROVED, null, "Master BOQ"),
 
     //BOQ Completed
-    DESIGN_BOQ_COMPLETED("Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED),
+    DESIGN_BOQ_COMPLETED("Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED, null, "Master BOQ"),
 
     //EXTRA BOQ
-    DESIGN_EXTRA_BOQ_SUBMITTED("Extra Boq Submitted For Approval",true,NotificationTaskType.MASTER_BOQ_SUBMITTED),
-    DESIGN_EXTRA_BOQ_SENT_BACK("Extra Boq Sent Back",true,NotificationTaskType.MASTER_BOQ_REJECTED),
-    DESIGN_EXTRA_BOQ_APPROVED("Extra Boq Approved",true,NotificationTaskType.MASTER_BOQ_APPROVED),
-    DESIGN_EXTRA_BOI_APPROVED("Extra Boq Boi Approved",true,NotificationTaskType.MASTER_BOI_APPROVED),
-    DESIGN_EXTRA_GC_APPROVED("Extra Boq Gc Approved",true,NotificationTaskType.MASTER_GC_APPROVED),
-    DESIGN_EXTRA_BOQ_COMPLETED("Extra Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED),
+    DESIGN_EXTRA_BOQ_SUBMITTED("Extra Boq Submitted For Approval",true,NotificationTaskType.MASTER_BOQ_SUBMITTED, null, "Extra BOQ"),
+    DESIGN_EXTRA_BOQ_SENT_BACK("Extra Boq Sent Back",true,NotificationTaskType.MASTER_BOQ_REJECTED, null, "Extra BOQ"),
+    DESIGN_EXTRA_BOQ_APPROVED("Extra Boq Approved",true,NotificationTaskType.MASTER_BOQ_APPROVED, null, "Extra BOQ"),
+    DESIGN_EXTRA_BOI_APPROVED("Extra Boq Boi Approved",true,NotificationTaskType.MASTER_BOI_APPROVED, null, "Extra BOQ"),
+    DESIGN_EXTRA_GC_APPROVED("Extra Boq Gc Approved",true,NotificationTaskType.MASTER_GC_APPROVED, null, "Extra BOQ"),
+    DESIGN_EXTRA_BOQ_COMPLETED("Extra Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED, null, "Extra BOQ"),
 
     //HOTO Submitted
     PROJECTS_HOTO_GENERATED("HOTO Generated",true,NotificationTaskType.HOTO_DOC_GENERATED),
@@ -111,10 +114,19 @@ public enum  PropertyUpdateEnum {
     private boolean needToPersist;
     private NotificationTaskType notificationTaskType;
     private Department defaultDepartment;
+    private String taskOrRoleName;
 
     PropertyUpdateEnum(String updateTaskName,boolean needToPersist, NotificationTaskType notificationTaskType){
         this.updateTaskName = updateTaskName;
         this.needToPersist=needToPersist;
         this.notificationTaskType=notificationTaskType;
     }
+
+    PropertyUpdateEnum(String updateTaskName,boolean needToPersist, NotificationTaskType notificationTaskType, Department defaultDepartment){
+        this.updateTaskName = updateTaskName;
+        this.needToPersist=needToPersist;
+        this.notificationTaskType=notificationTaskType;
+        this.defaultDepartment = defaultDepartment;
+    }
+
 }

@@ -62,18 +62,18 @@ public class StanzaUtils {
 	public static String getOccupancyString(int occupancy) {
 
 		switch (occupancy) {
-			case 1:
-				return "[Single]";
-			case 2:
-				return "[Double]";
-			case 3:
-				return "[Triple]";
-			case 4:
-				return "[Four]";
-			case 5:
-				return "[Five]";
-			default:
-				return "[" + occupancy + "]";
+		case 1:
+			return "[Single]";
+		case 2:
+			return "[Double]";
+		case 3:
+			return "[Triple]";
+		case 4:
+			return "[Four]";
+		case 5:
+			return "[Five]";
+		default:
+			return "[" + occupancy + "]";
 		}
 
 	}
@@ -102,15 +102,14 @@ public class StanzaUtils {
 	}
 
 	/**
-	 * Return a random integer number between the given range inclusive @start and excluding @end
+	 * Return a random integer number between the given range inclusive @start and
+	 * excluding @end
 	 * 
-	 * @param start
-	 *            - the smallest random number required
-	 * @param end
-	 *            - one less than the maximum random number required
-	 * @return random integer number between the given range inclusive @start and excluding @end
-	 * @throws IllegalArgumentException
-	 *             - if start is greater than equal to end
+	 * @param start - the smallest random number required
+	 * @param end   - one less than the maximum random number required
+	 * @return random integer number between the given range inclusive @start and
+	 *         excluding @end
+	 * @throws IllegalArgumentException - if start is greater than equal to end
 	 */
 	public static int getRandomNumberBetweenRange(int start, int end) {
 		return ThreadLocalRandom.current().nextInt(start, end);
@@ -172,36 +171,35 @@ public class StanzaUtils {
 	/***
 	 * Returns the percentage value of the supplied number as {@link BigDecimal}.
 	 * 
-	 * @param number
-	 *            {@link Number}
+	 * @param number {@link Number}
 	 * @return {@link BigDecimal}
 	 * @author debendra.dhinda
 	 */
 	public static BigDecimal getPercentageValueOf(Number number) {
-		return getBigDecimalValueOf(number).divide(getBigDecimalValueOf(100), StanzaUtils.SCALE, StanzaUtils.ROUNDING_MODE);
+		return getBigDecimalValueOf(number).divide(getBigDecimalValueOf(100), StanzaUtils.SCALE,
+				StanzaUtils.ROUNDING_MODE);
 	}
 
 	/***
 	 * Returns the percentage value of the supplied string as {@link BigDecimal}.
 	 * 
-	 * @param number
-	 *            {@link String}
+	 * @param number {@link String}
 	 * @return {@link BigDecimal}
 	 * @author debendra.dhinda
 	 */
 	public static BigDecimal getPercentageValueOf(String number) {
-		return getBigDecimalValueOf(number).divide(getBigDecimalValueOf(100), StanzaUtils.SCALE, StanzaUtils.ROUNDING_MODE);
+		return getBigDecimalValueOf(number).divide(getBigDecimalValueOf(100), StanzaUtils.SCALE,
+				StanzaUtils.ROUNDING_MODE);
 	}
 
 	/***
 	 * Returns the {@link BigDecimal} representations of the supplied number.
-	 * Translates the number representation of a {@code BigDecimal}
-	 * into a {@code BigDecimal}, accepting the same number as the
-	 * {@link #BigDecimal(String)} constructor, with rounding
-	 * according to the context {@link MathContext.DECIMAL128}.
+	 * Translates the number representation of a {@code BigDecimal} into a
+	 * {@code BigDecimal}, accepting the same number as the
+	 * {@link #BigDecimal(String)} constructor, with rounding according to the
+	 * context {@link MathContext.DECIMAL128}.
 	 *
-	 * @param number
-	 *            string representation of a {@code BigDecimal}.
+	 * @param number string representation of a {@code BigDecimal}.
 	 * @author debendra.dhinda
 	 */
 	public static BigDecimal getBigDecimalValueOf(Number number) {
@@ -211,13 +209,12 @@ public class StanzaUtils {
 
 	/***
 	 * Returns the {@link BigDecimal} representations of the supplied string.
-	 * Translates the number representation of a {@code BigDecimal}
-	 * into a {@code BigDecimal}, accepting the same number as the
-	 * {@link #BigDecimal(String)} constructor, with rounding
-	 * according to the context {@link MathContext.DECIMAL128}.
+	 * Translates the number representation of a {@code BigDecimal} into a
+	 * {@code BigDecimal}, accepting the same number as the
+	 * {@link #BigDecimal(String)} constructor, with rounding according to the
+	 * context {@link MathContext.DECIMAL128}.
 	 *
-	 * @param number
-	 *            string representation of a {@code BigDecimal}.
+	 * @param number string representation of a {@code BigDecimal}.
 	 * @author debendra.dhinda
 	 */
 	public static BigDecimal getBigDecimalValueOf(String value) {
@@ -226,15 +223,16 @@ public class StanzaUtils {
 	}
 
 	/**
-	 * Used {@link Math} class's {@code ceil()} method for rounding the supplied {@link BigDecimal} value.
+	 * Used {@link Math} class's {@code ceil()} method for rounding the supplied
+	 * {@link BigDecimal} value.
 	 * 
-	 * @param value
-	 *            {@link BigDecimal} value to be ceiled
+	 * @param value {@link BigDecimal} value to be ceiled
 	 * @return value
 	 * @author debendra.dhinda
 	 */
 	public static Double roundOff(BigDecimal value) {
-		// return (value!=null)? value.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue() :0;
+		// return (value!=null)? value.setScale(1,
+		// BigDecimal.ROUND_HALF_UP).doubleValue() :0;
 		return (value != null) ? Math.ceil(value.doubleValue()) : 0;
 	}
 
@@ -253,17 +251,22 @@ public class StanzaUtils {
 		return formattedString + "," + thousandsPart;
 	}
 
+	public static String formatBigDecimalToIndianNumberFormat(BigDecimal value) {
+		Locale locale = new Locale("en", "IN");
+		DecimalFormat decimalFormat = (DecimalFormat) DecimalFormat.getInstance(locale);
+		return decimalFormat.format(value);
+	}
+
 	public static String formatToIndianNumberFormat(Double value) {
 		Format format = com.ibm.icu.text.NumberFormat.getInstance(new Locale("en", "IN"));
 		return format.format(value);
 	}
 
 	/**
-	 * Convert the supplied size to it's corresponding unit
-	 * such as bytes,KB,MB,GB or TB.
+	 * Convert the supplied size to it's corresponding unit such as bytes,KB,MB,GB
+	 * or TB.
 	 * 
-	 * @param size
-	 *            size to convert.
+	 * @param size size to convert.
 	 * @author debendra.dhinda
 	 */
 	public static String convertSizeToBytesOrKBOrMBOrGb(long size) {

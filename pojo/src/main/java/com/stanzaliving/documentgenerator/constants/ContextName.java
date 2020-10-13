@@ -21,5 +21,6 @@ public class ContextName {
     public static final String LEGAL_LOI_DOC_ANNEXURE_E_DECLARATION_UNDERTAKING = "loiAnnexureE_DeclarationUndertaking";
     
     public static final String LEGAL_BTS_DOC = "BTSDoc";
+    public static final String LEGAL_LEASED_INVENTORY_DOC = "LeasedInventoryDoc";
 
 }

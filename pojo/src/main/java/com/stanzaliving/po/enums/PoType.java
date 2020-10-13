@@ -21,17 +21,17 @@ public enum PoType {
 	TRANSIT_MEDIA("Transit Media"),
 	AFFILIATE("Affiliate"),
 	AGENCY("Agency"),
-	AUDIO_STREAMING("Audio Streaming"),
-	DISPLAY("Display"),
+	AUDIO_STREAMING("Audio Ads"),
+	DISPLAY("Display Ads"),
 	EMAIL_MARKETING("Email Marketing"),
 	ENGAGEMENT_ACTIVITY ("Engagement Activity"),
 	ONLINE_PROMOTIONS("Online Promotions"),
-	SEARCH("Search"),
+	SEARCH("Search Ads"),
 	SMS_MARKETING("SMS Marketing"),
 	SOCIAL("Social"),
-	VIDEO_STREAMING("Video Streaming"),
+	VIDEO_STREAMING("Video Ads"),
 	CONTENT_CREATION("Content Creation"),
-	DATABASE_RESEARCH("Database Research"),
+	DATABASE_RESEARCH("Database"),
 	PHOTOGRAPHY_VIDEOGRAPHY("Photography/Videography"),
 	FACILITATION_CHARGES("Facilitation Charges"),
 	INTERN_COST("Intern Cost"),
@@ -54,15 +54,24 @@ public enum PoType {
 	POSTSEASON_DISCOUNT("Postseason Discount"),
 	RELATIONSHIP_DISCOUNT("Relationship Discount"),
 	RETENTION_DISCOUNT("Retention Discount"),
-	PRE_SALES_TEAM_INCENTIVE("Pre Sales Team Incentive"),
+	PRE_SALES_TEAM_INCENTIVE("Pre-Sales Incentive"),
 	RETENTION_INCENTIVE("Retention Incentive"),
-	SALES_TEAM_INCENTIVE("Sales Team Incentive"),
+	SALES_TEAM_INCENTIVE("New Sales Incentive"),
 	CRM("CRM"),
 	TELEPHONY("Telephony"),
 	OTHER_DISCOUNT("Other Discount"),
 	BRAND_AWARENESS("Brand Awareness"),
-	LEAD_NURTURING("Lead Nurturing");
-	
+	ContestsAndAwards("Contests and Awards"),
+	LEAD_NURTURING("Lead Nurturing"),
+
+	ACTIVATIONS("Activations"),
+	CREDIT_NOTE("Credit Note"),
+	NEW_SALES_DISCOUNT("New Sales Discount"),
+	PRE_SALES_DISCOUNT("Pre-sales Discount"),
+	EVENTS_ACTIVATIONS("Events-Activations"),
+	PARTNERSHIPS("Partnerships"),
+	OTHER("Others");
+
 	private String type;
 	
 }

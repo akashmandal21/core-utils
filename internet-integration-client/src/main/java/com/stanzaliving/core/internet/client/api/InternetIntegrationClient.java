@@ -3,10 +3,7 @@ package com.stanzaliving.core.internet.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-import com.stanzaliving.internet.dto.UserLastUsageDetailsDto;
-import com.stanzaliving.transformations.pojo.StateMetadataDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -16,11 +13,8 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.versioning.dto.VersionListRequestDto;
-import com.stanzaliving.versioning.dto.VersioningRequestDto;
-import com.stanzaliving.versioning.dto.VersioningResponseDto;
+import com.stanzaliving.internet.dto.UserLastUsageDetailsDto;
 
 public class InternetIntegrationClient {
 

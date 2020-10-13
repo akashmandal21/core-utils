@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.stanzaliving.core.base.exception.StanzaException;
+import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.security.helper.SecurityUtils;
 import com.stanzaliving.qrcode.entity.QRData;
 import com.stanzaliving.qrcode.entity.QRScanHistory;
@@ -55,7 +55,7 @@ public class QRScanServiceImpl implements QRScanService {
 			return qrData;
 		}
 
-		throw new StanzaException("Invalid QrCode");
+		throw new ApiValidationException("Invalid QrCode");
 	}
 
 	private void validateWithResidenceFoodMenuId(String residenceFoodMenuId, QRData qrData) {
@@ -65,7 +65,7 @@ public class QRScanServiceImpl implements QRScanService {
 				&& StringUtils.isNotEmpty(residenceFoodMenuId)
 				&& !residenceFoodMenuId.equals(qrData.getContextId())) {
 
-			throw new StanzaException("Invalid QrCode");
+			throw new ApiValidationException("Invalid QrCode");
 		}
 	}
 
@@ -91,8 +91,7 @@ public class QRScanServiceImpl implements QRScanService {
 		QRScanHistory qrScanHistory =
 				qrScanHistoryRepository.findByContextIdAndQrContextTypeInAndUserId(contextId, qrContextTypeList, userId);
 
-		log.info("Qr scan history for contextId " + contextId + " userId " + userId);
-		log.info("Scan history " + qrScanHistory);
+		log.info("Qr scan history for contextId: {} and userId: {} is {}", contextId, userId, qrScanHistory);
 
 		return qrScanHistory;
 	}
@@ -205,7 +204,7 @@ public class QRScanServiceImpl implements QRScanService {
 
 	@Override
 	public List<QRScanHistory> getQrScanHistoryByQrContextTypeAndUserId(String userId, List<QRContextType> qrContextType, Pageable pagination) {
-		return qrScanHistoryRepository.findByQrContextTypeInAndUserIdAndStatus(qrContextType, userId, pagination,true);
+		return qrScanHistoryRepository.findByQrContextTypeInAndUserIdAndStatus(qrContextType, userId, pagination, true);
 	}
 
 	@Override
