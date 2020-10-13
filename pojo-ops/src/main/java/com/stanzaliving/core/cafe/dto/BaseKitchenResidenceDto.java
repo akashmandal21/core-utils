@@ -21,6 +21,6 @@ public class BaseKitchenResidenceDto {
 	
 	private String baseKitchenName;
 	
-	private List<ResidenceMicromarketDto> residances;
+	private List<ResidenceMicromarketDto> residences;
 		
 }

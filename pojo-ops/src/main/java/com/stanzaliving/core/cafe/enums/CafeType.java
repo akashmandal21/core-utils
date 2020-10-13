@@ -15,7 +15,7 @@ public enum CafeType {
 
 	private String cafeTypeName;
 
-	public static final List<EnumListing<CafeType>> enumListing = new ArrayList<>();
+	private static final List<EnumListing<CafeType>> enumListing = new ArrayList<>();
 
 	public static List<EnumListing<CafeType>> getEnumListing() {
 		return enumListing;
