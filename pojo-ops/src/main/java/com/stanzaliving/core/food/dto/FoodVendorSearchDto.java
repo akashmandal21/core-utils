@@ -21,17 +21,10 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodVendorSearchDto {
-	private PaginationRequest pagination;
 
 	private String name;
 
 	private String cityId;
 
-	private String contactName;
-
-	private String contactNumber;
-
-	private String contactEmail;
-
-	private Collection<String> uuids;
+	private Boolean stanzaKitchen;
 }
