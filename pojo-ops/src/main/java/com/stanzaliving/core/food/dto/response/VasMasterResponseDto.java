@@ -1,7 +1,9 @@
 package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.dto.DishRecipeDetailsDto;
+import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -29,7 +31,11 @@ public class VasMasterResponseDto {
 
 	private String description;
 
-	private EnumListing foodType;
+	private EnumListing<FoodItemType> foodType;
+
+	private Boolean eggPresent;
+
+	private EnumListing<UnitOfMeasurement> uom;
 
 	private ListingDto category;
 

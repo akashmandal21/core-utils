@@ -26,7 +26,8 @@ public enum FoodRegion {
 	MIX("Mix"),
 	NORTH("North Indian"),
 	SOUTH("South Indian"),
-	CONTINENTAL("Continental");
+	CONTINENTAL("Continental"),
+	INDIAN("Indian");
 
 	private String regionName;
 

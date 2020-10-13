@@ -1,4 +1,6 @@
-package com.stanzaliving.core.cafe.dto;
+package com.stanzaliving.core.utility.dto;
+
+import com.stanzaliving.transformations.enums.UnitType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,16 +15,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidenceMicromarketDto {
+public class MetricDto {
 
-	private String residenceId;
+	private Double value;
 
-	private String residenceName;
+	private UnitType unit;
 
-	private String micromarketId;
-
-	private String micromarketName;
-
-	private boolean enabled;
+	private String unitName;
 
 }

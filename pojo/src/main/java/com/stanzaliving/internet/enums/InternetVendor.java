@@ -8,7 +8,8 @@ import lombok.Getter;
 public enum InternetVendor implements EnumValue {
 
 	SPECTRA("SPECTRA"),
-	JIO("Jio");
+	JIO("Jio"),
+	ION("Ion");
 
 	private String vendor;
 

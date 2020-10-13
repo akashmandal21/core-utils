@@ -478,4 +478,26 @@ public class InternalDataControllerApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<List<ResidenceDto>> getResidenceDetailsByResidenceUuids(List<String> residenceUuids){
+		Object postBody = residenceUuids;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/residence/details/get").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 }

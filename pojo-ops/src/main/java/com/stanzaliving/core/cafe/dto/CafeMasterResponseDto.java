@@ -1,5 +1,7 @@
 package com.stanzaliving.core.cafe.dto;
 
+import java.util.List;
+
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.cafe.enums.CafeType;
 
@@ -17,6 +19,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CafeMasterResponseDto extends AbstractDto {
+
 	/**
 	 * 
 	 */
@@ -24,26 +27,32 @@ public class CafeMasterResponseDto extends AbstractDto {
 
 	private String cafeName;
 
-	private String addressLine1;
-
 	private CafeType cafeType;
+
+	private String cafeTypeName;
+
+	private String addressLine1;
 
 	private String addressLine2;
 
 	private String cityId;
-	
+
 	private String cityName;
 
-	private String micromarketId;
-	
-	private String micromarketName;
+	private String stateId;
+
+	private String stateName;
+
+	private String countryId;
+
+	private String countryName;
 
 	private String baseKitchenId;
-	
+
 	private String baseKitchenName;
-	
+
 	private Integer pincode;
-	
-	private BaseKitchenResidenceDto baseKitchenResidenceDto;
+
+	private List<ResidenceMicromarketDto> residences;
 
 }
