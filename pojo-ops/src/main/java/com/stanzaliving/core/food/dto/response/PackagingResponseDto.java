@@ -22,5 +22,7 @@ import lombok.experimental.SuperBuilder;
 public class PackagingResponseDto {
 	private String name;
 
+	private Double grammage;
+
 	private EnumListing<UnitOfMeasurement> unit;
 }
