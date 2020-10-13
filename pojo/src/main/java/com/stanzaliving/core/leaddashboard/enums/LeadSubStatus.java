@@ -175,4 +175,17 @@ public enum LeadSubStatus {
 	
 		return dropped.contains(leadSubStatus);
 	}
+	
+	public static boolean postVisitDropStatus(LeadSubStatus leadSubStatus) {
+		Set<LeadSubStatus> postVisitDropStatus = new HashSet<>();
+		
+		postVisitDropStatus.add(POST_VISIT_1_DROP);
+		postVisitDropStatus.add(POST_VISIT_2_DROP);
+		postVisitDropStatus.add(POST_VISIT_3_DROP);
+		postVisitDropStatus.add(POST_VISIT_4_DROP);
+		postVisitDropStatus.add(POST_VISIT_5_DROP);
+		
+		return postVisitDropStatus.contains(leadSubStatus);
+
+	}
 }

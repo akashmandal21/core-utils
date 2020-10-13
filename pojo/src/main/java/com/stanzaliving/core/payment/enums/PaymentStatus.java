@@ -9,5 +9,6 @@ public enum PaymentStatus {
 	SUCCESS,
 	REFUND_INITIATED,
 	REFUNDED,
-	REFUND_FAILED;
+	REFUND_FAILED,
+	ACCEPTED;
 }
