@@ -36,23 +36,24 @@ import java.util.stream.Collectors;
 @Log4j2
 public abstract class TemplateProcessor {
 
-    @Autowired
-    private MongoTemplate mongoTemplate;
+//    @Autowired
+//    private MongoTemplate mongoTemplate;
 
     @Autowired
     private ObjectMapper objectMapper;
 
-    private Map<String,Templates> getTemplates(TemplateFilter templateFilter, String templateName){
-
-        Query query = templateFilter.getFilterCriterion();
-        log.info("Template Request Query {}",query);
-        Map<String, Templates> templates = mongoTemplate.find(query, Templates.class).stream().collect(Collectors.toMap(f->f.getTemplateName(), Function.identity()));
-        if(MapUtils.isEmpty(templates) || Objects.isNull(templates.get(templateName))) {
-            log.error("No Templates configured for the provided filters {}",templateFilter.getFormattedString());
-            throw new NoRecordException("No Such Combination exist for provided filters "+templateFilter.getFormattedString());
-        }
-        return templates;
-    }
+    public abstract Map<String,Templates> getTemplates(TemplateFilter templateFilter, String templateName);
+//    {
+//
+//        Query query = templateFilter.getFilterCriterion();
+//        log.info("Template Request Query {}",query);
+//        Map<String, Templates> templates = mongoTemplate.find(query, Templates.class).stream().collect(Collectors.toMap(f->f.getTemplateName(), Function.identity()));
+//        if(MapUtils.isEmpty(templates) || Objects.isNull(templates.get(templateName))) {
+//            log.error("No Templates configured for the provided filters {}",templateFilter.getFormattedString());
+//            throw new NoRecordException("No Such Combination exist for provided filters "+templateFilter.getFormattedString());
+//        }
+//        return templates;
+//    }
 
     public List<String> getAvailableFields(TemplateFilter templateFilter, String templateName){
         log.info("Request to get available fields for Form {} {}",templateFilter,templateName);
