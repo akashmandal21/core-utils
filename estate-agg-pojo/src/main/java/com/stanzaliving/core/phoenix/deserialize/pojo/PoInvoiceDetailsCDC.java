@@ -53,7 +53,7 @@ public class PoInvoiceDetailsCDC {
     private String feeOrTax;
 
     @JsonProperty("invoice_amount")
-    private Double invoiceAmount;
+    private String invoiceAmount;
 
     @JsonProperty("invoice_url")
     private String invoiceUrl;
