@@ -1,9 +1,12 @@
 package com.stanzaliving.core.cafe.dto;
 
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.cafe.enums.CafeType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,6 +22,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CafeMasterRequestDto extends AbstractDto {
+
 	/**
 	 * 
 	 */
@@ -27,11 +31,11 @@ public class CafeMasterRequestDto extends AbstractDto {
 	@NotBlank(message = "Cafe Name is mandatory")
 	private String cafeName;
 
+	@NotNull(message = "Cafe Type selection is mandatory")
+	private CafeType cafeType;
+
 	@NotBlank(message = "AddressLine1 filling is mandatory")
 	private String addressLine1;
-	
-	@NotBlank(message = "Cafe Type selection is mandatory")
-	private com.stanzaliving.core.cafe.enums.CafeType cafeType;
 
 	@NotBlank(message = "AddressLine2 filling is mandatory")
 	private String addressLine2;
@@ -39,17 +43,12 @@ public class CafeMasterRequestDto extends AbstractDto {
 	@NotNull(message = "City selection is mandatory")
 	private String cityId;
 
-	@NotNull(message = "Micromarket selection is mandatory")
-	private String micromarketId;
-	
 	@NotNull(message = "Base Kitchen selection is mandatory")
 	private String baseKitchenId;
 
-	@NotBlank(message = "Pincode is mandatory")
+	@NotNull(message = "Pincode is mandatory")
 	private Integer pincode;
-	
-	private BaseKitchenResidenceDto baseKitchenResidenceDto;
-	
-	
+
+	private List<ResidenceMicromarketDto> residences;
 
 }

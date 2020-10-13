@@ -18,9 +18,9 @@ import lombok.experimental.SuperBuilder;
 public class BaseKitchenResidenceDto {
 
 	private String baseKitchenId;
-	
+
 	private String baseKitchenName;
-	
+
 	private List<ResidenceMicromarketDto> residences;
-		
+
 }

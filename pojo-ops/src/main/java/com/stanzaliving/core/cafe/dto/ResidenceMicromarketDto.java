@@ -14,16 +14,15 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResidenceMicromarketDto {
+
 	private String residenceId;
 
 	private String residenceName;
-	
+
 	private String micromarketId;
 
 	private String micromarketName;
 
 	private boolean enabled;
-
-
 
 }

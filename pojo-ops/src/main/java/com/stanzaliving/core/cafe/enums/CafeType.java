@@ -11,7 +11,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum CafeType {
-	IN_HOUSE("In House"), EXTERNAL_CAFE("External Cafe");
+
+	IN_HOUSE("In House"),
+	EXTERNAL_CAFE("External Cafe");
 
 	private String cafeTypeName;
 
