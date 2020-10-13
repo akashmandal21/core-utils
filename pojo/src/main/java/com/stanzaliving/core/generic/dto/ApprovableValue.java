@@ -7,17 +7,17 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
-import java.util.*;
-import java.util.stream.Collectors;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@EqualsAndHashCode(exclude = {"label"})
-public class UIKeyValue {
-    @NotBlank
-    private String label;
+@EqualsAndHashCode
+public class ApprovableValue {
+
+    private String approved;
+
     @NotBlank
     private String value;
+
 }
 

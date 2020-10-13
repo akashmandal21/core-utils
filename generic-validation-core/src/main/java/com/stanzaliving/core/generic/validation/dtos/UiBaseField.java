@@ -21,4 +21,5 @@ public class UiBaseField {
     private TemplateType uiPlacement;
     private JsonNode data;
     private JsonNode value;
+    private JsonNode skeleton;
 }
