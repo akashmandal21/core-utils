@@ -33,6 +33,8 @@ public class MeterDto extends AbstractDto {
 	
 	private Date from;
 	
+	private Date deactivatedOn;
+	
 	private ReadingDto lReading;
 	
 	private ReadingDto oReading;
