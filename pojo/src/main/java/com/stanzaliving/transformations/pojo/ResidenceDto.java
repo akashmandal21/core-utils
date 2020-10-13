@@ -47,6 +47,8 @@ public class ResidenceDto extends AbstractDto {
 
 	private String coreResidenceName;
 
+	private String residenceSlug;
+
 	private String estateUuid;
 
 	private String phoenixPropertyUuid;

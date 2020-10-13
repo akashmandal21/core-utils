@@ -14,7 +14,8 @@ public enum ConsumptionPattern {
     TIME_BASED("Time Based"),
     ONE_TIME("One Time"),
     MULTIPLE("Multiple"),
-    DELIVERY_BASED("Delivery Based");
+    DELIVERY_BASED("Delivery Based"),
+    NA("Not Applicable");
 
     private String consumptionPatternText;
 

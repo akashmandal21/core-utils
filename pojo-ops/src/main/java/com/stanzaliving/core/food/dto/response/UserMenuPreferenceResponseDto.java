@@ -28,6 +28,10 @@ public class UserMenuPreferenceResponseDto {
 
 	private String mealName;
 
+	private String mealImg;
+
+	private boolean multiMenuPresent;
+
 	private LocalDate date;
 
 	private LocalTime startTime;

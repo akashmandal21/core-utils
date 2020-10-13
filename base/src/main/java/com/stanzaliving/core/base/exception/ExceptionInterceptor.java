@@ -182,6 +182,16 @@ public class ExceptionInterceptor {
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
+	@ExceptionHandler(MappingNotFoundException.class)
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	public <T> ResponseDto<T> handleMappingNotFoundException(MappingNotFoundException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got MappingNotFoundException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
 	@ExceptionHandler(RecordExistsException.class)
 	@ResponseStatus(code = HttpStatus.CONFLICT)
 	@SendExceptionToSlack
@@ -252,6 +262,16 @@ public class ExceptionInterceptor {
 
 	/************************ Stanza Specific Exceptions ************************/
 
+	@ExceptionHandler(AuthException.class)
+	@ResponseStatus(code = HttpStatus.UNAUTHORIZED)
+	public <T> ResponseDto<T> handleAuthException(AuthException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got AuthException for exceptionId: " + exceptionId, e);
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
 	@ExceptionHandler(StanzaException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	@SendExceptionToSlack
@@ -259,6 +279,17 @@ public class ExceptionInterceptor {
 
 		String exceptionId = getExceptionId();
 		log.error("Got StanzaException for exceptionId: " + exceptionId, e);
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
+	@ExceptionHandler(IllegalArgumentException.class)
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	@SendExceptionToSlack
+	public <T> ResponseDto<T> handleIllegalArgumentException(IllegalArgumentException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got IllegalArgumentException for exceptionId: {} with error {}" + exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -303,7 +334,6 @@ public class ExceptionInterceptor {
 		}
 
 		return exceptionId;
-
 	}
 
 }

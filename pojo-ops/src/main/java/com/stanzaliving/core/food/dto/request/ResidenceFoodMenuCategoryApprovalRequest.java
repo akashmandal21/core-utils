@@ -30,5 +30,7 @@ public class ResidenceFoodMenuCategoryApprovalRequest {
 	private LocalDate startDate;
 
 	private boolean serviceMixUpdate;
+	
+	private String changedBy;
 
 }
