@@ -41,6 +41,8 @@ public enum LeadSourceEnum {
 	DU_BEAT("DU Beat"),
 	EMPTY("Empty"),
 	FACEBOOK("Facebook"),
+	FILTER_COPY("Filtercopy"),
+	FACEBOOK_AD("facebook ad"),
 	FLAT_AND_FLATMATES("Flat and flatmates"),
 	FLP("FLP"),
 	FLYERS("Flyers"),
