@@ -17,6 +17,8 @@ public class ServiceMixInfo {
 
     private String serviceMixStatus;
 
+    private Integer serviceMixVersion;
+
     private Date serviceMixCreatedAt;
 
     private Date serviceMixUpdatedAt;

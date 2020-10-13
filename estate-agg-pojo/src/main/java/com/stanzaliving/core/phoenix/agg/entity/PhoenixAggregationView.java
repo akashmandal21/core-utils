@@ -65,8 +65,8 @@ public class PhoenixAggregationView extends AbstractMongoEntity {
     private GCScheduleInfo gcScheduleInfo;
     private List<PoInfo> poDetails; //Po Details Uuid to PoInfo Mapping.
     private AnalyticKeys analyticKeys;
-    private List<SfrInfo> sfrInfos;
-    private List<ServiceMixInfo> serviceMixInfos;
+    private SfrInfo sfrInfo;
+    private ServiceMixInfo serviceMixInfo;
     private List<InvoiceInfo> invoiceInfos;
 
     public GFCStatus getGFCStatusEnum(){

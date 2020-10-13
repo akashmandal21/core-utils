@@ -42,6 +42,6 @@ public class PropertyServiceMixEntityCDC {
     private String serviceMixStatus;
 
     @JsonProperty("current_version")
-    private Integer version=1;
+    private Integer version;
 
 }
