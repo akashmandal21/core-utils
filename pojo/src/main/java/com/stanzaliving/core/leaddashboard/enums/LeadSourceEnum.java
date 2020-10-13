@@ -38,6 +38,7 @@ public enum LeadSourceEnum {
 	DIRECT_WALK_IN("Direct Walk-in"),
 	DU_UPDATES("DU Updates"),
 	DU_BEAT("DU Beat"),
+	EMPTY("Empty"),
 	FACEBOOK("Facebook"),
 	FLAT_AND_FLATMATES("Flat and flatmates"),
 	FLP("FLP"),
