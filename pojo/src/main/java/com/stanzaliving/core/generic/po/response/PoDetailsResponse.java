@@ -18,7 +18,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PoClientResponse {
+public class PoDetailsResponse {
 
 	private String poUuid;
 	private PoType potype;
