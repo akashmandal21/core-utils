@@ -43,6 +43,6 @@ public class VasMenuItemReportResponseDto {
 
 	private Double rating;
 
-	private PriceDto priceDto;
+	private ItemPriceDto price;
 
 }
