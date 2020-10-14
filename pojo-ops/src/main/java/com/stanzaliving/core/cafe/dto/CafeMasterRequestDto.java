@@ -40,10 +40,16 @@ public class CafeMasterRequestDto extends AbstractDto {
 	@NotBlank(message = "AddressLine2 filling is mandatory")
 	private String addressLine2;
 
-	@NotNull(message = "City selection is mandatory")
+	@NotBlank(message = "City selection is mandatory")
 	private String cityId;
 
-	@NotNull(message = "Base Kitchen selection is mandatory")
+	@NotBlank(message = "State selection is mandatory")
+	private String stateId;
+
+	@NotBlank(message = "Country selection is mandatory")
+	private String countryId;
+
+	@NotBlank(message = "Base Kitchen selection is mandatory")
 	private String baseKitchenId;
 
 	@NotNull(message = "Pincode is mandatory")
