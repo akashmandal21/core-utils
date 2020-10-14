@@ -31,8 +31,8 @@ public class FieldValidator {
                 break;
 
             case MOBILE:
-                if(((String)value).length()!=10)
-                    err = "Mobile number length shall not exceed 10 digits.";
+                if(((String)value).length()<10)
+                    err = "Contact number length shall not exceed 10 digits.";
                 break;
 
             default:
