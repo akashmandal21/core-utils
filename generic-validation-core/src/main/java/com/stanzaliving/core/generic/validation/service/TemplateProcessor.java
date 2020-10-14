@@ -5,11 +5,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.exception.NoRecordException;
 import com.stanzaliving.core.base.exception.StanzaException;
+import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.core.generic.constants.GenericConstants;
 import com.stanzaliving.core.generic.validation.dtos.*;
 import com.stanzaliving.core.generic.validation.entity.Templates;
-import com.stanzaliving.core.generic.validation.enums.FieldOptionProvider;
-import com.stanzaliving.core.generic.validation.enums.FieldType;
-import com.stanzaliving.core.generic.validation.enums.UIFieldType;
+import com.stanzaliving.core.generic.validation.enums.*;
+import com.stanzaliving.core.generic.validation.fieldProcessors.AdaptableProcessor;
+import com.stanzaliving.core.generic.validation.fieldProcessors.ApprovalProcessor;
+import com.stanzaliving.core.generic.validation.fieldProcessors.TemplateListSection;
+import com.stanzaliving.core.generic.validation.fieldProcessors.ValueChecker;
 import com.stanzaliving.core.generic.validation.filter.TemplateFilter;
 import com.stanzaliving.core.generic.validation.utility.FieldDecoder;
 import com.stanzaliving.core.generic.validation.utility.FieldValidator;
@@ -20,7 +24,6 @@ import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.util.Pair;
 
@@ -33,23 +36,24 @@ import java.util.stream.Collectors;
 @Log4j2
 public abstract class TemplateProcessor {
 
-    @Autowired
-    private MongoTemplate mongoTemplate;
+//    @Autowired
+//    private MongoTemplate mongoTemplate;
 
     @Autowired
     private ObjectMapper objectMapper;
 
-    private Map<String,Templates> getTemplates(TemplateFilter templateFilter, String templateName){
-
-        Query query = templateFilter.getFilterCriterion();
-        log.info("Template Request Query {}",query);
-        Map<String, Templates> templates = mongoTemplate.find(query, Templates.class).stream().collect(Collectors.toMap(f->f.getTemplateName(), Function.identity()));
-        if(MapUtils.isEmpty(templates) || Objects.isNull(templates.get(templateName))) {
-            log.error("No Templates configured for the provided filters {}",templateFilter.getFormattedString());
-            throw new NoRecordException("No Such Combination exist for provided filters "+templateFilter.getFormattedString());
-        }
-        return templates;
-    }
+    public abstract Map<String,Templates> getTemplates(TemplateFilter templateFilter, String templateName);
+//    {
+//
+//        Query query = templateFilter.getFilterCriterion();
+//        log.info("Template Request Query {}",query);
+//        Map<String, Templates> templates = mongoTemplate.find(query, Templates.class).stream().collect(Collectors.toMap(f->f.getTemplateName(), Function.identity()));
+//        if(MapUtils.isEmpty(templates) || Objects.isNull(templates.get(templateName))) {
+//            log.error("No Templates configured for the provided filters {}",templateFilter.getFormattedString());
+//            throw new NoRecordException("No Such Combination exist for provided filters "+templateFilter.getFormattedString());
+//        }
+//        return templates;
+//    }
 
     public List<String> getAvailableFields(TemplateFilter templateFilter, String templateName){
         log.info("Request to get available fields for Form {} {}",templateFilter,templateName);
@@ -61,18 +65,15 @@ public abstract class TemplateProcessor {
     }
     private void fillAvailableFields(String templateName, String path, Map<String,Templates> templates, List<String> availableFields){
         Templates template = templates.get(templateName);
-        log.info("Temp {}",template);
         if(StringUtils.isEmpty(path))
             path = templateName;
         else
             path = path+"."+templateName;
 
         for (TemplateField templateField : template.getFields()) {
-            log.info("Template Field {}",templateField);
+//            log.info("Template Field {}",templateField);
             if(templateField.getFieldType()==FieldType.TEMPLATE)
             {
-//                if(StringUtils.isEmpty(path))
-//                    path = templateName;
                 fillAvailableFields(templateField.getFieldName(),path,templates,availableFields);
             }else{
                 String fieldName = path+"."+templateField.getFieldName(); //((StringUtils.isNotEmpty(path))?path+".":"")+templateField.getFieldName();
@@ -103,7 +104,9 @@ public abstract class TemplateProcessor {
 //        }
 //    }
 
-    public void verifyEntityWithTemplate(TemplateFilter templateFilter,String templateName, List<String> errors, Object sourceClass, Map<String,Field> fieldMap, boolean allowSkipOnNewFields) throws MalFormedRecordException {
+    //Todo:Need to update this method and the verify entity as there are other changes which might not be included in this.
+    public void verifyEntityWithTemplate(TemplateFilter templateFilter,String templateName, List<String> errors, Object sourceClass,
+                                         Map<String,Field> fieldMap, boolean allowSkipOnNewFields) throws MalFormedRecordException {
 
         log.info("Request to Verify data from CSV {} {}",sourceClass,fieldMap);
 
@@ -141,6 +144,121 @@ public abstract class TemplateProcessor {
         and so on and so forth.
 
      */
+
+
+
+
+
+    public Pair<Boolean,Map<String, UiParentField>> storeApprovalData(TemplateFilter templateFilter, String templateName,
+                                                                      Map<String,JsonNode> uiSubmittedDto,
+                                                                      ErrorInfo errorInfo, Map<String,Object> additionalData,
+                                                                      Object sourceClass, Map<String,Field> fieldMap, boolean allowSkipOnNewFields){
+        log.info("Request to Store Approvals Submitted with validations {} {}",sourceClass,fieldMap);
+
+        Map<String, Templates> templates = getTemplates(templateFilter,templateName);
+        return processApproval(uiSubmittedDto,templateName,templates,errorInfo,
+                additionalData,fieldMap,sourceClass,allowSkipOnNewFields,sourceClass);
+    }
+
+    private Pair<Boolean, Map<String, UiParentField>> processApproval(Map<String,JsonNode>  data, String templateName,
+                                                                      Map<String, Templates> templates, ErrorInfo errorInfo, Map<String,Object> additionalData,
+                                                                      Map<String,Field> fields, Object sourceClass, boolean allowSkipNewFields, Object baseObject){
+
+        log.info("Processing Template {} ",templateName);
+        final int currErrors = errorInfo.getNumErrors();
+        Map<String, UiParentField> uiFieldMap = new LinkedHashMap<>();
+        Templates template = templates.get(templateName);
+
+        boolean mainDataPresent = MapUtils.isNotEmpty(data);
+
+        for (TemplateField templateField : template.getFields()) {
+
+            log.info("Processing Field {}", templateField.getFieldName());
+
+            if (Objects.isNull(fields.get(templateField.getFieldName()))) {
+                log.error("Template field {} not found in Dto Struture, skip processing {}", templateField.getFieldName(), allowSkipNewFields);
+                if (allowSkipNewFields)
+                    continue;
+                else
+                    throw new StanzaException("Internal Error Occurred");
+            }
+            boolean dataPresent = mainDataPresent && Objects.nonNull(data.get(templateField.getFieldName())) && (!data.get(templateField.getFieldName()).isNull());
+            FieldType subFieldType = templateField.getFieldSubType();
+            Field field = fields.get(templateField.getFieldName());
+            field.setAccessible(true);
+            if(dataPresent) {
+                switch (templateField.getFieldType()) {
+                    case ADAPT:
+                        UiField uiField = ValueAdapters.getValue(data.get(templateField.getFieldName()), UiField.class, objectMapper);
+                        uiField.setErrorMsg(null);
+                        uiField.setErrorOccurred(false);
+                        if (templateField.isApprovable()) {
+                            Object value = FieldDecoder.decodeAdaptableValue(uiField, templateField, objectMapper, errorInfo);
+                            //Below case shall not happen
+//                            if (Objects.isNull(value) && templateField.isMandatory())
+//                                throw new StanzaException("Illegal operation, Mandatory field can't be blank when approvals start");
+                            if (Objects.nonNull(value)) {
+                                AdaptableProcessor approvalProcessor = (AdaptableProcessor) sourceClass;
+                                uiField.setValue(objectMapper.valueToTree(approvalProcessor.updateApprovalData(uiField, templateField, value, additionalData, errorInfo)));
+                            }
+                        }
+                        uiFieldMap.put(templateField.getFieldName(), uiField);
+
+                        break;
+
+                    case TEMPLATE:
+                        log.info("Template Found {} {} {}", templateField.getFieldName(), templateField.getFieldSubType(), dataPresent);
+                        UiParentField uiBasicField = ValueAdapters.convertValue(data.get(templateField.getFieldName()), new TypeReference<UiParentField>() {
+                        }, objectMapper);
+                        uiBasicField.setErrorMsg(null);
+                        uiBasicField.setErrorOccurred(false);
+                        if (templates.get(templateField.getFieldName()).getTemplateType() == TemplateType.MODAL) {
+                            uiBasicField.setSkeleton(objectMapper.valueToTree(getUiFields(templateField.getFieldName(), templates, null, null, additionalData, baseObject)));
+                        }
+
+                        Object obj = ValueAdapters.getFieldVal(field, sourceClass);
+                        if (subFieldType == FieldType.OBJECT) {
+                            Class clazz = field.getType();
+                            if (Objects.nonNull(obj)) {
+                                if(templateField.isApprovable()){
+                                    Map<String, Field> fieldMap = Arrays.stream(clazz.getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
+                                    Map<String, JsonNode> nestedStruct = ValueAdapters.convertValue(uiBasicField.getData(), new TypeReference<Map<String, JsonNode>>() {
+                                    }, objectMapper);
+                                    Pair<Boolean, Map<String, UiParentField>> nestedData = processApproval(nestedStruct, templateField.getFieldName(),
+                                            templates, errorInfo, additionalData, fieldMap, obj, allowSkipNewFields, baseObject);
+                                    uiBasicField.setErrorOccurred(nestedData.getFirst());
+                                    uiBasicField.setData(objectMapper.valueToTree(nestedData.getSecond()));
+
+                                    if (obj instanceof ApprovalProcessor)
+                                        ((ApprovalProcessor)obj).processApproval(uiBasicField,templateField,additionalData,errorInfo);
+                                }
+                            }
+                        } else if (subFieldType == FieldType.LIST) {
+                            if (Objects.nonNull(obj)) {
+                                if (templateField.isApprovable()) {
+                                    if (obj instanceof ApprovalProcessor)
+                                        ((ApprovalProcessor) obj).processApproval(uiBasicField, templateField, additionalData, errorInfo);
+                                }
+                            }
+                        }
+
+                        log.info("UiBaseField {}", uiBasicField);
+                        uiFieldMap.put(templateField.getFieldName(), uiBasicField);
+                        break;
+
+                    default:
+                        uiField = ValueAdapters.getValue(data.get(templateField.getFieldName()), UiField.class, objectMapper);
+                        uiField.setErrorMsg(null);
+                        uiField.setErrorOccurred(false);
+                        uiFieldMap.put(templateField.getFieldName(), uiField);
+                        break;
+                }
+            }
+
+        }
+        log.info("Finished Processing template {}",templateName);
+        return Pair.of(currErrors < errorInfo.getNumErrors(),uiFieldMap);
+    }
 
     private Pair<Boolean,Map<String, UiParentField>> verifyAndStoreData(Map<String,JsonNode>  data, String templateName,
                                                                         Map<String,Templates> templates, boolean isDraft,
@@ -184,11 +302,12 @@ public abstract class TemplateProcessor {
                 case YES_NO:
                 case NONDECIMAL:
                 case OBJECT:
+                case ADAPT:
 
                     UiField uiField = null;
 
                     if (!dataPresent) {
-                        uiField = getUiFieldTemplate(templateField, null, additionalData);
+                        uiField = getUiFieldTemplate(templateField, null, additionalData,null);
                         if(needed)
                         {
                             uiField.setErrorMsg("Field is mandatory");
@@ -198,10 +317,11 @@ public abstract class TemplateProcessor {
                         uiField = ValueAdapters.getValue(data.get(templateField.getFieldName()), UiField.class,objectMapper);
                         uiField.setErrorMsg(null);
                         uiField.setErrorOccurred(false);
-                        boolean decodeResult = FieldDecoder.decodeValue(uiField, templateField, needed, objectMapper, errorInfo,field,sourceClass);
+                        boolean decodeResult = FieldDecoder.decodeValue(uiField, templateField, needed, objectMapper, errorInfo,field,sourceClass,additionalData);
                         log.info("Decode status field-name:{} result:{}", templateField.getFieldName(), decodeResult);
 //                        if (decodeResult && Objects.nonNull(uiField.getValue()))
 //                            ValueAdapters.setFieldVal(templateName,templateField,field,sourceClass,uiField.getValue(),objectMapper);
+                        fillOptions(templateField,additionalData,uiField);
                     }
                     uiFieldMap.put(templateField.getFieldName(), uiField);
                     break;
@@ -224,9 +344,13 @@ public abstract class TemplateProcessor {
                             In case of MODAL type UI Section, we send a blank skeleton always as well as expect a blank skeleton recieve side as well.
                             MODAL type would always have to be LIST Of Section, because we will have to send a skeleton.
                          */
-                        if (subFieldType == FieldType.OBJECT && templateField.getUiType()!=UIFieldType.MODAL) {
+                        if(templates.get(templateField.getFieldName()).getTemplateType() == TemplateType.MODAL){
+                            uiBasicField.setSkeleton(objectMapper.valueToTree(getUiFields(templateField.getFieldName(), templates, null, null, additionalData,baseObject)));
+                        }
+                        boolean dataSaved = false;
+                        Object obj = ValueAdapters.getFieldVal(field,sourceClass);
+                        if (subFieldType == FieldType.OBJECT) {
                             Class clazz = field.getType();
-                            Object obj = ValueAdapters.getFieldVal(field,sourceClass);
                             if(Objects.isNull(obj))
                                 obj = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);
 
@@ -237,7 +361,7 @@ public abstract class TemplateProcessor {
                             uiBasicField.setErrorOccurred(nestedData.getFirst());
                             uiBasicField.setData(objectMapper.valueToTree(nestedData.getSecond()));
                             if (!nestedData.getFirst() || saveDraftOnError)
-                                ValueAdapters.setFieldValDirectly(templateName,templateField,field,sourceClass,obj);
+                                dataSaved = ValueAdapters.setFieldValDirectly(templateName,templateField,field,sourceClass,obj);
 
                         } else if (subFieldType == FieldType.LIST) {
                             List<Object> objects = new ArrayList<>();
@@ -247,26 +371,49 @@ public abstract class TemplateProcessor {
                             List<Map<String, UiParentField>> nestedData = new ArrayList<>();
                             List<Map<String, JsonNode>> nestedStruct = ValueAdapters.convertValue(uiBasicField.getData(), new TypeReference<List<Map<String, JsonNode>>>() {},objectMapper);
 
-                            if(CollectionUtils.isNotEmpty(nestedStruct) && templateField.getUiType()==UIFieldType.MODAL)
-                               nestedStruct.remove(nestedStruct.size()-1); //This will remove the last index of the nested struct because, we expect a blank Map as that's skeleton.
-
                             if (CollectionUtils.isNotEmpty(nestedStruct)) {
-
+                                log.info("List Data size {} {} ",nestedStruct.size(),nestedStruct);
                                 for (Map<String, JsonNode> f : nestedStruct) {
-                                    Object obj = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);
+                                    Object temp = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);
                                     Pair<Boolean, Map<String, UiParentField>> derivedData = verifyAndStoreData(f, templateField.getFieldName(), templates, isDraft,
-                                            errorInfo, saveDraftOnError, additionalData, fieldMap, obj,allowSkipNewFields,baseObject);
+                                            errorInfo, saveDraftOnError, additionalData, fieldMap, temp,allowSkipNewFields,baseObject);
                                     nestedData.add(derivedData.getSecond());
 
                                     uiBasicField.setErrorOccurred(uiBasicField.isErrorOccurred() || derivedData.getFirst());
                                     if (!derivedData.getFirst() || saveDraftOnError)
-                                        objects.add(obj);
+                                    {
+                                        if(temp instanceof ValueChecker)
+                                        {
+                                            if(!((ValueChecker)temp).allNull())
+                                                objects.add(temp);
+                                        }else
+                                            objects.add(temp);
+                                    }
                                 }
-                            } else
-                                nestedData.add(getUiFields(templateField.getFieldName(), templates, null, null, additionalData,baseObject));
+                            }
                             if (!errorInfo.isErrorOccurred() || saveDraftOnError)
-                                ValueAdapters.setFieldValDirectly(templateName,templateField,field,sourceClass,objects);
-                            uiBasicField.setData(objectMapper.valueToTree(nestedData));
+                            {
+                                if(CollectionUtils.isEmpty(objects))
+                                    ValueAdapters.setFieldValDirectly(templateName,templateField,field,sourceClass,null);
+                                if(Objects.isNull(obj))
+                                {
+                                    Class secClass = ValueAdapters.loadClass(templateField.getSectionClass(),templateName,templateField,field);
+                                    obj = ValueAdapters.instantiateClass(secClass,templateName,templateField,field);
+                                }
+                                ((TemplateListSection)obj).setData(objects);
+                                dataSaved = ValueAdapters.setFieldValDirectly(templateName,templateField,field,sourceClass,obj);
+                            }
+                            if(CollectionUtils.isNotEmpty(nestedData))
+                                uiBasicField.setData(objectMapper.valueToTree(nestedData));
+                        }
+                        if(needed && !dataSaved)
+                        {
+                            uiBasicField.setErrorOccurred(true);
+                            uiBasicField.setErrorMsg("Section is mandatory or value submitted is not recorded");
+                        }
+                        if(dataSaved){
+                            if(obj instanceof ApprovalProcessor)
+                                ((ApprovalProcessor)obj).checkAndUpdateApprovalLevels(templateField,additionalData);
                         }
                     }
                     log.info("UiBaseField {}",uiBasicField);
@@ -277,15 +424,14 @@ public abstract class TemplateProcessor {
                     log.error("No Matching field type found for template field: {} in template {}", templateField, template.getTemplateName());
             }
         }
-//        log.info("Source class {}",baseObject);
-        ErrorInfo validError = addValidationErrors(templateName,uiFieldMap,baseObject,sourceClass);
-//        log.info(uiFieldMap);
+        ErrorInfo validError = addValidationErrors(templateName,uiFieldMap,baseObject,sourceClass,isDraft,additionalData);
         if(validError.isErrorOccurred())
             updateErrorInfo(errorInfo,validError.getNumErrors());
         log.info("Finished Processing template {}",templateName);
         return Pair.of(currErrors < errorInfo.getNumErrors(),uiFieldMap);
     }
 
+    //Todo: fit the new Adapt field type in below method and alos update the List<Section> with new structure.
     private void verifyEntityData(String templateName, Map<String,Templates> templates, List<String> errors,
                                   Map<String,Field> fields, Object sourceClass, Object baseObject, boolean allowSkipNewFields) throws MalFormedRecordException
     {
@@ -325,6 +471,9 @@ public abstract class TemplateProcessor {
             }
             if(Objects.nonNull(fieldVal) && templateField.getFieldType()!=FieldType.TEMPLATE && Objects.nonNull(templateField.getValidator()))
             {
+                //Todo: Add condition for verifying adapt field. use AdaptableProcessor interface to extend this functionality to check any error
+                //Also, may be pass additionalData Object, which can help here
+
                 UiField temp = new UiField();
                 temp.setFieldName(templateField.getFieldName());
                 temp.setDefaultErrorMsgValidation(templateField.getDefaultErrorMsgValidation());
@@ -341,15 +490,18 @@ public abstract class TemplateProcessor {
                         verifyEntityData(templateField.getFieldName(), templates, errors, fieldMap, fieldVal, baseObject, allowSkipNewFields);
 
                     } else if (subFieldType == FieldType.LIST) {
-                        List<Object> objects = (List<Object>) fieldVal;
-                        for (Object object : objects) {
-                            Map<String, Field> fieldMap = Arrays.stream(object.getClass().getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
-                            verifyEntityData(templateField.getFieldName(), templates, errors, fieldMap, object, baseObject, allowSkipNewFields);
+                        if (Objects.nonNull(fieldVal))
+                        {
+                            List<Object> objects = ((TemplateListSection) fieldVal).getData();
+                            for (Object object : objects) {
+                                Map<String, Field> fieldMap = Arrays.stream(object.getClass().getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
+                                verifyEntityData(templateField.getFieldName(), templates, errors, fieldMap, object, baseObject, allowSkipNewFields);
+                            }
                         }
                     }
             }
         }
-        ErrorInfo validError = addValidationErrors(templateName,null,baseObject,sourceClass);
+        ErrorInfo validError = addValidationErrors(templateName,null,baseObject,sourceClass,false,null);
         if(CollectionUtils.isNotEmpty(validError.getErrorList()))
             errors.addAll(validError.getErrorList());
         log.info("Finished Processing template {}",templateName);
@@ -399,42 +551,48 @@ public abstract class TemplateProcessor {
                 case YES_NO:
                 case LIST:
                 case OBJECT:
-                    UiField uiField = getUiFieldTemplate(templateField, fieldVal, additionalData);
+                case ADAPT:
+                    UiField uiField = getUiFieldTemplate(templateField, fieldVal, additionalData,sourceClass);
                     uiFieldMap.put(templateField.getFieldName(), uiField);
                     break;
 
                 case TEMPLATE:
-                    log.info("Template found {}", templateField.getFieldName());
+                    log.info("Template found {} {}", templateField.getFieldName(),templateField.getUiType());
                     UiParentField uiBasicField = getUiBasicField(templateField, templates.get(templateField.getFieldName()),additionalData);
 
-                        if (subFieldType == FieldType.OBJECT && templateField.getUiType() != UIFieldType.MODAL) {
-                            Map<String, Field> fieldMap = null;
+                    if(Objects.nonNull(fieldVal) && fieldVal instanceof ApprovalProcessor)
+                        ((ApprovalProcessor)fieldVal).fillApprovalInfo(uiBasicField,templateField,additionalData);
 
-                            if (Objects.nonNull(fieldVal))
-                                fieldMap = Arrays.stream(fieldVal.getClass().getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
-                            Map<String, UiParentField> nestedData = getUiFields(templateField.getFieldName(), templates, fieldMap, fieldVal, additionalData,baseObject);
+                    if(templates.get(templateField.getFieldName()).getTemplateType() == TemplateType.MODAL)
+                        uiBasicField.setSkeleton(objectMapper.valueToTree(getUiFields(templateField.getFieldName(), templates, null, null, additionalData,baseObject)));
 
-                            uiBasicField.setData(objectMapper.valueToTree(nestedData));
+                    if (subFieldType == FieldType.OBJECT) {
+                        Map<String, Field> fieldMap = null;
 
-                        } else if (subFieldType == FieldType.LIST) {
-                            List<Map<String, UiParentField>> nestedData = new ArrayList<>();
-                            if (Objects.nonNull(fieldVal)) {
-                                ((List<Object>) fieldVal).stream().forEach(f -> {
-                                    Map<String, Field> fieldMap = Arrays.stream(f.getClass().getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
-                                    try {
-                                        nestedData.add(getUiFields(templateField.getFieldName(), templates, fieldMap, f, additionalData,baseObject));
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-                                });
-                            } else
-                                nestedData.add(getUiFields(templateField.getFieldName(), templates, null, null, additionalData,baseObject));
+                        if (Objects.nonNull(fieldVal))
+                            fieldMap = Arrays.stream(fieldVal.getClass().getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
+                        Map<String, UiParentField> nestedData = getUiFields(templateField.getFieldName(), templates, fieldMap, fieldVal, additionalData,baseObject);
 
-                            if(Objects.nonNull(fieldVal) && templateField.getUiType() == UIFieldType.MODAL)
-                                nestedData.add(getUiFields(templateField.getFieldName(), templates, null, null, additionalData,baseObject));
+                        uiBasicField.setData(objectMapper.valueToTree(nestedData));
 
-                            uiBasicField.setData(objectMapper.valueToTree(nestedData));
+                    } else if (subFieldType == FieldType.LIST) {
+                        List<Map<String, UiParentField>> nestedData = new ArrayList<>();
+                        if (Objects.nonNull(fieldVal)) {
+                            List<Object> objects = ((TemplateListSection)fieldVal).getData();
+
+                            objects.stream().forEach(f -> {
+                                Map<String, Field> fieldMap = Arrays.stream(f.getClass().getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
+//                                try {
+                                nestedData.add(getUiFields(templateField.getFieldName(), templates, fieldMap, f, additionalData,baseObject));
+//                                } catch (Exception e) {
+//                                    log.info("Error decoding section",e);
+//                                    throw new StanzaException("Internal Error Occurred");
+//                                }
+                            });
                         }
+                        if(CollectionUtils.isNotEmpty(nestedData))
+                            uiBasicField.setData(objectMapper.valueToTree(nestedData));
+                    }
 //                    }
                     uiFieldMap.put(templateField.getFieldName(), uiBasicField);
                     break;
@@ -447,14 +605,11 @@ public abstract class TemplateProcessor {
         return uiFieldMap;
     }
 
-    private UiField getUiFieldTemplate(TemplateField templateField, Object fieldVal, Map<String,Object> additionalData){
+    public UiField getUiFieldTemplate(TemplateField templateField, Object fieldVal, Map<String,Object> additionalData, Object source){
         /*
             The re editable functionality needs to be improved when edit shall be locked based on different roles or approval cycles.
          */
-        Integer order = (Integer) additionalData.get("entityState");
-        boolean editable = templateField.isEditable();
-        if(Objects.nonNull(order) && Objects.nonNull(templateField.getEditableOrder()))
-            editable = order<=templateField.getEditableOrder();
+        boolean editable = checkIfEditable(templateField,additionalData);
 
         Object defaultValue = templateField.getDefaultValue();
 
@@ -471,15 +626,23 @@ public abstract class TemplateProcessor {
                 .regex(templateField.getRegex())
                 .options(templateField.getOptions())
                 .build();
-        if (Objects.nonNull(templateField.getOptionProvider()) && (templateField.getUiType() == UIFieldType.OPTION_LIST ||
+        if (editable && Objects.nonNull(templateField.getOptionProvider()) && (templateField.getUiType() == UIFieldType.OPTION_LIST ||
                 templateField.getUiType() == UIFieldType.OPTION_LIST_MS || templateField.getUiType() == UIFieldType.OPTION_LIST_ARR))
             uiField.setOptions(this.getListOptions(templateField.getOptionProvider(), additionalData));
         try {
             if (Objects.nonNull(fieldVal))
             {
-                if(templateField.getFieldType()==FieldType.YES_NO)
-                    uiField.setValue(objectMapper.valueToTree(((Boolean)fieldVal)?"Yes":"No"));
-                uiField.setValue(objectMapper.valueToTree(fieldVal));
+                if(templateField.getFieldType()== FieldType.YES_NO)
+                    uiField.setValue(objectMapper.valueToTree(((Boolean)fieldVal)?new UIKeyValue(YesNoEnum.YES.getOption(),YesNoEnum.YES.name()) :
+                            new UIKeyValue(YesNoEnum.NO.getOption(),YesNoEnum.NO.name())));
+                else if(templateField.getFieldType()== FieldType.ADAPT)
+                {
+                    AdaptableProcessor adp = (AdaptableProcessor)source;
+                    fieldVal = adp.convertToUIValue(templateField,uiField,fieldVal,additionalData);
+                    uiField.setValue(objectMapper.valueToTree(fieldVal));
+                }
+                else
+                    uiField.setValue(objectMapper.valueToTree(fieldVal));
             }
             else if (defaultValue != null)
             {
@@ -493,10 +656,7 @@ public abstract class TemplateProcessor {
     }
 
     private UiParentField getUiBasicField(TemplateField templateField, Templates template, Map<String,Object> additionalData){
-        Integer order = (Integer) additionalData.get("entityState");
-        boolean editable = templateField.isEditable();
-        if(Objects.nonNull(order) && Objects.nonNull(templateField.getEditableOrder()))
-            editable = order<=templateField.getEditableOrder();
+        boolean editable = checkIfEditable(templateField,additionalData);
         return UiParentField.builder()
                 .fieldName(templateField.getFieldName())
                 .uiPlacement(template.getTemplateType())
@@ -506,7 +666,28 @@ public abstract class TemplateProcessor {
                 .build();
     }
 
-    public abstract ErrorInfo addValidationErrors(String templateName,Map<String,UiParentField>  data, Object baseObject, Object currentSection);
+    private boolean checkIfEditable(TemplateField templateField, Map<String,Object> additionalData){
+        boolean editable = templateField.isEditable();
+        Integer order = (Integer) additionalData.get(GenericConstants.entityState);
+        if(Objects.nonNull(order))
+        {
+            if(Objects.nonNull(templateField.getEditableOrder()))
+                editable = editable && order<=templateField.getEditableOrder();
+            else if(order== GenericConstants.editRestrictMax)
+                editable=false;
+        }
+        return editable;
+    }
+
+    public void fillOptions(TemplateField templateField, Map<String,Object> additionalData, UiField uiField){
+        boolean editable = checkIfEditable(templateField,additionalData);
+        if (editable && Objects.nonNull(templateField.getOptionProvider()) && (templateField.getUiType() == UIFieldType.OPTION_LIST ||
+                templateField.getUiType() == UIFieldType.OPTION_LIST_MS || templateField.getUiType() == UIFieldType.OPTION_LIST_ARR))
+            uiField.setOptions(this.getListOptions(templateField.getOptionProvider(), additionalData));
+    }
+
+    public abstract ErrorInfo addValidationErrors(String templateName, Map<String, UiParentField>  data, Object baseObject, Object currentSection,boolean saveDraft, Map<String,Object> additionalData);
+//    public abstract ErrorInfo addValidationErrors(String templateName,Map<String,UiParentField>  data, Object baseObject, Object currentSection);
     public abstract void enrichFieldInfo(String templateName,Map<String,UiParentField>  data, Object baseObject, Object currentSection, Map<String,Object> additionalData);
 
 }

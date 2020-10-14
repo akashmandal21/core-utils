@@ -1,6 +1,7 @@
 package com.stanzaliving.core.opscalculator.dto.response;
 
 import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.opscalculator.enums.ApprovalStatus;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 import lombok.*;
 
@@ -23,4 +24,5 @@ public class CurrentDateUnderWrittenResponseDto {
     private int bedCount;
     private int roomCount;
     private String status;
+    private ApprovalStatus approvalStatus;
 }

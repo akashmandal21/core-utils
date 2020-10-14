@@ -40,5 +40,6 @@ public class PropertyNamingDto {
 
 	private String propertyUuid;
 
-	private  String oldPropName;
+	private String oldPropName;
+
 }

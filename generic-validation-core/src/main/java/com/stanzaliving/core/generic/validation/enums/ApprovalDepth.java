@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum ApprovalLevel {
+public enum ApprovalDepth {
     OVERALL,ITEM_LEVEL,BOTH;
 }

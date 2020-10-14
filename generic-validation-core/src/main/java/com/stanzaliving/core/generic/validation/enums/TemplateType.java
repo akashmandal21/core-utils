@@ -6,7 +6,5 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum TemplateType {
-
-    BASE,TAB,SECTION,MODAL;
-
+    OTHER,BASE,TAB,SECTION,MODAL;
 }

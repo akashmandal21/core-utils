@@ -2,7 +2,6 @@ package com.stanzaliving.transformations.projections;
 
 import lombok.*;
 
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
