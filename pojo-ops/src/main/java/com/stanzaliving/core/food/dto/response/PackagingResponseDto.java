@@ -20,6 +20,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PackagingResponseDto {
+
+	private String packageId;
+
 	private String name;
 
 	private Double grammage;
