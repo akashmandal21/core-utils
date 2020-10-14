@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.vendor.dtos.GenericVendorDetailDto;
 import com.stanzaliving.vendor.model.VendorAndPocDetails;
 import com.stanzaliving.vendor.model.VendorDetailsDto;
 import com.stanzaliving.vendor.model.VendorPoDownloadDataDto;
@@ -120,6 +121,33 @@ public class VendorClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/getVendorPoDownloadData").toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, request, headerParams, accept, vddReturnType);
+    }
+
+    public ResponseDto<List<GenericVendorDetailDto>> getGenericVendorDetails(List<String> vendorIds, boolean isUuid) {
+
+        log.info("HTTP Client call to get Vendor Details DTO for UUID {}" , vendorIds);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("isUuid",isUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<List<GenericVendorDetailDto>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<GenericVendorDetailDto>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/getGenericVendorDetailsByIds/{isUuid}").buildAndExpand(uriVariables).toUriString();
+
+        map.put("ids", vendorIds);
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, map, headerParams, accept, vddReturnType);
     }
 
 }
