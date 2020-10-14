@@ -1,7 +1,5 @@
 package com.stanzaliving.core.cafe.dto;
 
-import java.util.List;
-
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
@@ -16,17 +14,26 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CafeMenuDto extends AbstractDto{
+public class CafeMenuItemDetailsDto  extends AbstractDto{
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private String itemId;
+	
+	private String itemName;
+	
+	private double itemPrice;
+	
+	private String itemCategoryId;
 
-	private String cafeId;
+	private String itemCategoryName;
+
+	private Integer availableInventoryCount;	
 	
-	private String cafeName;
-		
-	private List<CafeMenuItemDetailsDto> cafeMenuItemDetailsDtoList;
-	
+	private boolean enabled;
 	
 }
+
