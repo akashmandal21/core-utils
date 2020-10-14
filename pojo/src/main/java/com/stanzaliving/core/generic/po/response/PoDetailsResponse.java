@@ -7,6 +7,8 @@ import com.stanzaliving.core.generic.po.enums.PoStatusEnum;
 import com.stanzaliving.core.generic.po.enums.PoType;
 import com.stanzaliving.core.generic.po.grn.PoItemDetail;
 
+import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
+import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,12 +23,11 @@ import lombok.ToString;
 public class PoDetailsResponse {
 
 	private String poUuid;
-	private PoType potype;
-	private PoStatusEnum postatus;
+	private GenericPOType potype;
+	private GenericPOTOStatus postatus;
 	private BigDecimal otherFeeSubTotal;
 	private BigDecimal otherFeeGst;
 	private BigDecimal poAmount;
-	private BigDecimal gsriAmount;
 	private String vendorUuid;
 	private String propertUuid;
 	

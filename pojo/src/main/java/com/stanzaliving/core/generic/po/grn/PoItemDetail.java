@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import com.stanzaliving.core.base.enums.Department;
 
+import com.stanzaliving.core.generic.dto.UIKeyValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,16 +17,15 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PoItemDetail {
-
+	private Department itemDept;
 	private String itemUuid;
 	private String code;
-	private String category;
-	private String subCategory;
+	private UIKeyValue category;
+	private UIKeyValue subCategory;
+	private UIKeyValue costHead;
 	private String name;
 	private String description;
-	private Integer quantity;
+	private BigDecimal quantity;
 	private BigDecimal unitRate;
 	private BigDecimal gst;
-	private BigDecimal itemWeightAvg;
-	private Department department;
 }
