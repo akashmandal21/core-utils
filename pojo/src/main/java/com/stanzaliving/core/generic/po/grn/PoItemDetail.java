@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import com.stanzaliving.core.base.enums.Department;
 
 import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.transformations.enums.UnitType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ public class PoItemDetail {
 	private UIKeyValue subCategory;
 	private UIKeyValue costHead;
 	private String name;
+	private UnitType uom;
 	private String description;
 	private BigDecimal quantity;
 	private BigDecimal unitRate;
