@@ -58,13 +58,13 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	@Builder.Default
 	private List<ElectricitySlotDetailsDto> electricitySlotDetailsDtos = new ArrayList<ElectricitySlotDetailsDto>();
 
-	private int unitsConsumedByLiftPerDay;
-	private int unitsConsumedByHeatPumpPerDay;
-	private int unitsConsumedByAcPerDay;
-	private int unitsConsumedByWashingMachinePerDay;
-	private int unitsConsumedByMicrowavePerDay;
-	private int unitsConsumedByBrainMariePerDay;
-	private int unitsConsumedByOthersEquipPerDay;
+	private double unitsConsumedByLiftPerDay;
+	private double unitsConsumedByHeatPumpPerDay;
+	private double unitsConsumedByAcPerDay;
+	private double unitsConsumedByWashingMachinePerDay;
+	private double unitsConsumedByMicrowavePerDay;
+	private double unitsConsumedByBrainMariePerDay;
+	private double unitsConsumedByOthersEquipPerDay;
 
 
 	private int acRoomsCount;
@@ -93,5 +93,7 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	private int roomMeterOpexCost;
 	private int rentalRoomMeterCount;
 	private int elecricityRoomMeterCost;
+
+	private int netElectricityBillAfterPassthrough;
 
 }

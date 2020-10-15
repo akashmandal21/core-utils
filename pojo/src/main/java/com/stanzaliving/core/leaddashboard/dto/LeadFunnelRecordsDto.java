@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.leaddashboard.dto;
 
+import java.util.List;
+
 import com.stanzaliving.core.leaddashboard.enums.GeographyViewEnum;
 
 import lombok.Data;
@@ -29,6 +31,10 @@ public class LeadFunnelRecordsDto {
 	private LeadFunnelTotalLeadsDto totalLeads;
 	private LeadFunnelQualifiedDto qualified;
 	private LeadFunnelVisitsCompleted visitsCompleted;
+	
+	private List<String> accessLevelCityName;	
+	private List<String> accessLevelMicromarketName;
+	private List<String> accessLevelResidenceName;
 	
 	private int booked;
 	private int totalDropped;
