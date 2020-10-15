@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class AnnualUnderWrittenDto  {
+public class UnderWrittenDto {
     protected PropertyInfoDto propertyInfoDto;
     protected FoodCategoryDto foodCategoryDto;
     protected UtilitiesCategoryDto utilitiesCategoryDto;
