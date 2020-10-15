@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CafeMenuDto extends AbstractDto{
+public class CafeMenuRequestDto extends AbstractDto{
 	/**
 	 * 
 	 */
@@ -26,7 +26,7 @@ public class CafeMenuDto extends AbstractDto{
 	
 	private String cafeName;
 		
-	private List<CafeMenuItemDetailsDto> cafeMenuItemDetailsDtoList;
+	private List<CafeMenuItemsDto> cafeMenuItemDetailsDtoList;
 	
 	
 }
