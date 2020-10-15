@@ -17,7 +17,7 @@ public enum ElectricityEquipmentType {
     CENTRAL_AC(" # Units consumed by Central AC/day"),
     WASHING_MACHINE(" # Units consumed by Washing Machine/day"),
     MICROWAVE(" # Units consumed by Microwave/day"),
-    BRAIN_MARIE(" # Units consumed by Bain Marie/day"),
+    BAIN_MARIE(" # Units consumed by Bain Marie/day"),
     OTHERS_EQUIPMENT(" # Units consumed by Others Equip./day");
     String name;
     public static List<DropDownDto> getAllEquipmentTypeValues(){
