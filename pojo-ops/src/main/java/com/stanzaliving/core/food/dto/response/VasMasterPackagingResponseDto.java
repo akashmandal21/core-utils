@@ -28,7 +28,11 @@ import java.util.List;
 public class VasMasterPackagingResponseDto {
 	private String packagingId;
 
+	private String packagingName;
+
 	private EnumListing<VasItemState> itemState;
+
+	private Double grammage;
 
 	private EnumListing<PackagingMaterial> masterMaterial;
 
