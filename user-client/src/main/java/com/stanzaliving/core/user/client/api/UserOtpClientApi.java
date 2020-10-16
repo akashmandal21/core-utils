@@ -1,12 +1,8 @@
 package com.stanzaliving.core.user.client.api;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.user.enums.OtpType;
-import com.stanzaliving.core.user.enums.UserType;
-import com.stanzaliving.core.user.request.dto.MobileOtpRequestDto;
-import com.stanzaliving.core.user.request.dto.MobileOtpValidateRequestDto;
-import lombok.extern.log4j.Log4j2;
+import java.util.List;
+import java.util.Objects;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -16,8 +12,12 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.List;
-import java.util.Objects;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.user.enums.OtpType;
+import com.stanzaliving.core.user.enums.UserType;
+import com.stanzaliving.core.user.request.dto.MobileOtpRequestDto;
+import com.stanzaliving.core.user.request.dto.MobileOtpValidateRequestDto;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -25,14 +25,13 @@ import java.util.Objects;
  * @date 28-July-2020
  */
 
-@Log4j2
 public class UserOtpClientApi {
+
 	private final StanzaRestClient restClient;
 
 	public UserOtpClientApi(StanzaRestClient stanzaRestClient) {
 		this.restClient = stanzaRestClient;
 	}
-
 
 	private MobileOtpRequestDto prepareMobileOtpRequestDto(String mobile, UserType userType, OtpType otpType, String isoCode) {
 		return MobileOtpRequestDto.builder()
@@ -81,7 +80,8 @@ public class UserOtpClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {};
+		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
@@ -103,10 +103,10 @@ public class UserOtpClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {};
+		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-
 
 }
