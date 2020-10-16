@@ -3,6 +3,7 @@ package com.stanzaliving.core.cafe.dto;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.food.dto.response.ItemCategoryCountDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class CafeMenuResponseDto extends AbstractDto{
 	
 	private String cafeName;
 	
-//	private List<ItemCategoryCountDto> categoryCount;
+	private List<ItemCategoryCountDto> categoryCount;
 		
 	private List<CafeMenuItemsDto> cafeMenuItemDetailsDtoList;
 	

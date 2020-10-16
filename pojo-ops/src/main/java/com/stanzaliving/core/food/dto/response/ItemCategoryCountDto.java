@@ -15,6 +15,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ItemCategoryCountDto {
 
+	private String categoryId;
+
 	private String categoryName;
 
 	private Integer itemCount;

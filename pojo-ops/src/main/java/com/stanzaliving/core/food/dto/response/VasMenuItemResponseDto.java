@@ -1,15 +1,9 @@
 package com.stanzaliving.core.food.dto.response;
 
-import java.util.List;
-
+import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.operations.enums.MealType;
-
 import com.stanzaliving.core.user.enums.EnumListing;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -17,7 +11,7 @@ import lombok.experimental.SuperBuilder;
  *
  * @version 1.0
  *
- * @since 07-Oct-2020
+ * @since 08-Oct-2020
  */
 
 @Getter
@@ -26,10 +20,17 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VasMenuResponseDto {
-	private EnumListing<MealType> meal;
+public class VasMenuItemResponseDto {
+	private String vasMasterId;
 
-	private List<ItemCategoryCountDto> categoryCount;
+	private String vasItemName;
 
-	List<DailyVasMenuItemResponseDto> menuItems;
+	private EnumListing<FoodItemType> foodType;
+
+	private boolean eggPresent;
+
+	private boolean featured;
+
+	private Double price;
+
 }
