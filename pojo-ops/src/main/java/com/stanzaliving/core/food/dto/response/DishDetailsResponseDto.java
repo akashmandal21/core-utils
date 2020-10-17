@@ -31,7 +31,7 @@ public class DishDetailsResponseDto {
 
 	private EnumListing unit;
 
-	private Integer grammageAmount;
+	private Double grammageAmount;
 
 	private Double grammageQuantity;
 
