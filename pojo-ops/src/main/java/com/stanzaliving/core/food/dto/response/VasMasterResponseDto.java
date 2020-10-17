@@ -27,6 +27,8 @@ import java.util.List;
 public class VasMasterResponseDto {
 	private String vasMasterId;
 
+	private boolean status;
+
 	private String name;
 
 	private String description;
