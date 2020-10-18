@@ -63,7 +63,7 @@ public class BrokerEntity implements Serializable {
 
     @Column(name = "PAN_CARD_UPLOADED")
 	@JsonProperty("PAN_CARD_UPLOADED")
-    private Boolean panCardUploaded;
+    private Integer panCardUploaded;
 
     @Column(name = "STATUS")
 	@JsonProperty("STATUS")
