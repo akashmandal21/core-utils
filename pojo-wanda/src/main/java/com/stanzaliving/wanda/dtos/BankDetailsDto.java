@@ -20,6 +20,8 @@ public class BankDetailsDto {
 	
 	private BankNames bankNames;
 	
+	private String bankNameStr;
+	
 	@NotEmpty
 	private String ifscCode;
 	
@@ -27,4 +29,10 @@ public class BankDetailsDto {
 	private String benefeciaryName;
 	
 	private String userId;
+	
+	@Builder.Default
+	private Boolean isVerified = false;
+	
+	@Builder.Default
+	private Boolean isPreferred = Boolean.FALSE;
 }
