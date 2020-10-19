@@ -27,6 +27,8 @@ import java.util.List;
 public class VasMasterResponseDto {
 	private String vasMasterId;
 
+	private boolean status;
+
 	private String name;
 
 	private String description;
@@ -50,4 +52,6 @@ public class VasMasterResponseDto {
 	private List<DishDetailsResponseDto> dish;
 
 	private DishRecipeDetailsDto recipe;
+
+	private List<VasMasterPackagingResponseDto> packaging;
 }

@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.enums.UnitOfMeasurement;
+import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.food.enums.PackagingMaterial;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -8,9 +9,9 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @version 1.0
+ * @since 15-Oct-2020
  *
- * @since 12-Oct-2020
+ * @version 1.0
  */
 
 @Getter
@@ -19,13 +20,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PackagingResponseDto {
+public class CityPackagingMaterialResponseDto {
 
-	private String packageId;
+	private ListingDto city;
 
-	private String name;
+	private EnumListing<PackagingMaterial> material;
 
-	private Double grammage;
-
-	private EnumListing<UnitOfMeasurement> unit;
 }
