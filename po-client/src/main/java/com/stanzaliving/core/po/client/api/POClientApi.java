@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.generic.po.response.PoDetailsResponse;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -16,7 +17,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.generic.po.response.PoClientResponse;
 import com.stanzaliving.po.enums.PoStatus;
 import com.stanzaliving.po.enums.PoType;
 import com.stanzaliving.po.model.PoAggregationDto;
@@ -234,7 +234,7 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
     
-    public ResponseDto<PoClientResponse> getGenericPoDetails(String poUuid) {
+    public ResponseDto<PoDetailsResponse> getGenericPoDetails(String poUuid) {
 
         if (Objects.isNull(poUuid))
             return null;
@@ -258,7 +258,7 @@ public class POClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<PoClientResponse>> returnType = new ParameterizedTypeReference<ResponseDto<PoClientResponse>>() {
+        ParameterizedTypeReference<ResponseDto<PoDetailsResponse>> returnType = new ParameterizedTypeReference<ResponseDto<PoDetailsResponse>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
