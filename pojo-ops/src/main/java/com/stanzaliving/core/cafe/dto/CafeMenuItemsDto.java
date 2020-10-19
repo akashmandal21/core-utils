@@ -1,7 +1,5 @@
 package com.stanzaliving.core.cafe.dto;
 
-import javax.validation.constraints.NotBlank;
-
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
@@ -27,7 +25,6 @@ public class CafeMenuItemsDto  extends AbstractDto{
 	
 	private String itemName;
 	
-	@NotBlank(message = "Price filling is mandatory")
 	private double itemPrice;
 	
 	private Integer availableInventoryCount;	
