@@ -35,4 +35,5 @@ public class TodayReportResponseDto {
 	private int accessLevel;
 	
 	private List<TodayReportRecordDto> records;
+	private TodayReportRecordDto total;
 }
