@@ -1,5 +1,6 @@
 package com.stanzaliving.core.cafe.dto;
 
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
@@ -27,6 +28,10 @@ public class CafeMenuResponseDto extends AbstractDto{
 	
 	private String cafeName;
 	
+	private String cafeMenuId;
+	
+	private Date menuDate;
+
 	private List<ItemCategoryCountDto> categoryCount;
 		
 	private List<CafeMenuItemsDto> cafeMenuItemDetailsDtoList;
