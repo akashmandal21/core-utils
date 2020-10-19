@@ -74,6 +74,32 @@ public class CoreClientApi {
 		return null;
 	}
 
+	public UserDetailDto getUserDetailsByMobile(String mobile) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("mobileNumber", mobile);
+
+		String path = UriComponentsBuilder.fromPath("/user/userDetailDto/{mobileNumber}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, UserDetailDto.class);
+		} catch (Exception e) {
+			log.error("Error while getting user Details from Core by mobile: {}", mobile, e);
+		}
+		return null;
+	}
+
 	public ResponseDto<FullUserDto> getUserDetails(String userId, String token) {
 
 		Object postBody = null;

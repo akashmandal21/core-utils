@@ -111,6 +111,16 @@ public class UserOtpClientApi {
 	}
 
 	public ResponseDto<Void> sendOtpRequest(String mobile, UserType userType, OtpType otpType, String isoCode, String email) {
+
+		if (StringUtils.isBlank(email)) {
+			return sendOtpRequest(mobile, userType, otpType, isoCode);
+		}
+
+		return sendOtpOnMobileAndEmail(mobile, userType, otpType, isoCode, email);
+	}
+
+	private ResponseDto<Void> sendOtpOnMobileAndEmail(String mobile, UserType userType, OtpType otpType, String isoCode, String email) {
+
 		String path = UriComponentsBuilder.fromPath("/internal/otp/request").toUriString();
 
 		if (StringUtils.isBlank(mobile) || StringUtils.isBlank(email) || Objects.isNull(userType)) {
