@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import com.stanzaliving.core.generic.po.enums.PoStatusEnum;
 
+import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import lombok.*;
 
 
@@ -14,7 +15,7 @@ public class GenericPoUpdate {
 
 	private String poUuid;
 	
-	private PoStatusEnum poStatus;
+	private GenericPOTOStatus poStatus;
 	
 	private Boolean underShortCloseCycle;
 	
