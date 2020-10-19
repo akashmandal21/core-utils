@@ -1,10 +1,7 @@
 
 package com.stanzaliving.core.generic.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Map;
@@ -13,6 +10,7 @@ import java.util.Map;
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode
+@Builder
 public class UIKeyValueWithAddonInfo {
 
     @EqualsAndHashCode.Exclude

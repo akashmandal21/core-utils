@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.core.vendor.FilterVendorDto;
 import com.stanzaliving.core.vendor.dtos.GenericVendorDetailDto;
+import com.stanzaliving.transformations.projections.StanzaGstView;
 import com.stanzaliving.vendor.model.VendorAndPocDetails;
 import com.stanzaliving.vendor.model.VendorDetailsDto;
 import com.stanzaliving.vendor.model.VendorPoDownloadDataDto;
@@ -138,16 +141,64 @@ public class VendorClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        Map<String, List<String>> map = new HashMap<>();
 
         ParameterizedTypeReference<ResponseDto<List<GenericVendorDetailDto>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<GenericVendorDetailDto>>>() {
         };
 
-        String path = UriComponentsBuilder.fromPath("/internal/getGenericVendorDetailsByIds/{isUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/generic/internal/getGenericVendorDetailsByIds/{isUuid}").buildAndExpand(uriVariables).toUriString();
 
-        map.put("ids", vendorIds);
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, map, headerParams, accept, vddReturnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, vendorIds, headerParams, accept, vddReturnType);
     }
+
+    public ResponseDto<List<UIKeyValue>> getGenericVendorNames(FilterVendorDto filterVendorDto) {
+
+        log.info("HTTP Client call to get Vendor Names {}" , filterVendorDto);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<List<UIKeyValue>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<UIKeyValue>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/getVendorNames").buildAndExpand(uriVariables).toUriString();
+
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, filterVendorDto, headerParams, accept, vddReturnType);
+    }
+
+    public ResponseDto<GenericVendorDetailDto> getGenericVendorDetail(String vendorUuid, String stateUuid) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("vendorUuid", vendorUuid);
+        uriVariables.put("stateUuid", stateUuid);
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/getVendorDetailsByIds/{vendorUuid}/{stateUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<GenericVendorDetailDto>> returnType = new ParameterizedTypeReference<ResponseDto<GenericVendorDetailDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
 
 }
