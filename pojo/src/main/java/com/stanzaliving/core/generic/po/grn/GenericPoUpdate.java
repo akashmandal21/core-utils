@@ -2,10 +2,11 @@ package com.stanzaliving.core.generic.po.grn;
 
 import java.time.LocalDateTime;
 
-import com.stanzaliving.core.generic.po.enums.PoStatusEnum;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Data
