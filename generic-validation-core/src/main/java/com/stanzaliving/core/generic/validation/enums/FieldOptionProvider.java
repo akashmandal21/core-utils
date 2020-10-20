@@ -19,6 +19,7 @@ public enum FieldOptionProvider {
     AcquisitionTypeProvider,
 
 
-    poTypeProvider,poExpenseTypeProvider,deliveryLocationTypeProvider,deliveryLocationProvider,vendorProvider,vendorPocProvider,advanceTypeProvider,retentionTypeProvider,generalTnCProvider;
+    poTypeProvider,poExpenseTypeProvider,deliveryLocationTypeProvider,deliveryLocationProvider,deliveryAddressProvider,
+    vendorProvider,vendorPocProvider,advanceTypeProvider,retentionTypeProvider,specialTnCProvider,otherFeeTypeProvider;
 
 }
