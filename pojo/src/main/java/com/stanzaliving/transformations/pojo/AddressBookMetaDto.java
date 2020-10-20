@@ -47,9 +47,9 @@ public class AddressBookMetaDto {
 	
 	private String landmark;
 	
-	private double latitude;
+	private Double latitude;
 
-	private double longitude;
+	private Double longitude;
 
 
 }

@@ -208,7 +208,7 @@ public class VendorClientApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("vendorUuid",vendorUuid);
-        String path = UriComponentsBuilder.fromPath("/getVendorPaymentTerms/{vendorUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/generic/internal/getVendorPaymentTerms/{vendorUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
