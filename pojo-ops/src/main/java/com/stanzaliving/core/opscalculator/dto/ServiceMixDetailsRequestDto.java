@@ -15,6 +15,6 @@ public class ServiceMixDetailsRequestDto {
     private String residenceUuid;
     private int monthNumber;
     private int year;
-    private String monthlyUnderWrittenUUid;
+    private String monthlyUnderWrittenUuid;
     private String seasonUuid;
 }
