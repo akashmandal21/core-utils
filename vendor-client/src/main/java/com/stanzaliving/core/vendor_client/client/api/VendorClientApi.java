@@ -7,6 +7,7 @@ import java.util.Map;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.vendor.FilterVendorDto;
 import com.stanzaliving.core.vendor.dtos.GenericVendorDetailDto;
+import com.stanzaliving.transformations.pojo.CountryUIDto;
 import com.stanzaliving.transformations.projections.StanzaGstView;
 import com.stanzaliving.vendor.model.VendorAndPocDetails;
 import com.stanzaliving.vendor.model.VendorDetailsDto;
@@ -200,5 +201,27 @@ public class VendorClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public ResponseDto<String> getPaymentTerms(String vendorUuid) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("vendorUuid",vendorUuid);
+        String path = UriComponentsBuilder.fromPath("/getVendorPaymentTerms/{vendorUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 
 }

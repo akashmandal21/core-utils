@@ -18,4 +18,8 @@ public class AddressInformation {
     private String country;
     private String state;
     private String city;
+
+    private String countryName;
+    private String stateName;
+    private String cityName;
 }

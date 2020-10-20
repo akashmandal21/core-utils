@@ -552,6 +552,7 @@ public abstract class TemplateProcessor {
                 case LIST:
                 case OBJECT:
                 case ADAPT:
+                case ADAPT_RO:
                     UiField uiField = getUiFieldTemplate(templateField, fieldVal, additionalData,sourceClass);
                     uiFieldMap.put(templateField.getFieldName(), uiField);
                     break;
