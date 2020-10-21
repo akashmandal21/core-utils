@@ -19,7 +19,6 @@ public class MonthlyUnderWrittenDto extends UnderWrittenDto {
     private int year;
     private LocalDate fromDate;
     private LocalDate toDate;
-    private String serviceMixName;
     private String residenceUuid;
     private String monthlyUnderWrittenUuid;
     private String serviceMixUuid;

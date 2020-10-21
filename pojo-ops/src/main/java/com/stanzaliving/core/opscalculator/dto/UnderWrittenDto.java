@@ -1,12 +1,10 @@
 package com.stanzaliving.core.opscalculator.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -32,8 +30,7 @@ public class UnderWrittenDto {
     protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
     protected double underWrittenDurationAmount;
     protected double underWrittenDurationInDays;
-    protected List<LocalDate> weekDays;
-    protected List<LocalDate> weekendDays;
-    protected List<LocalDate> holidays;
+    @Builder.Default
+    protected List<LocalDate> holidays = new ArrayList<>();
     protected List<LocalDate> specialDays;
 }
