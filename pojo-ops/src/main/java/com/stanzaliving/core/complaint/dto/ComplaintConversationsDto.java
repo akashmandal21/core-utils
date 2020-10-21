@@ -1,6 +1,6 @@
-package com.stanzaliving.complaint.dto;
+package com.stanzaliving.core.complaint.dto;
 
-import com.stanzaliving.complaint.enums.ComplaintConversationType;
+import com.stanzaliving.core.complaint.enums.ComplaintConversationType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
