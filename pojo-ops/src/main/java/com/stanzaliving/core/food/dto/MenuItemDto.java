@@ -39,6 +39,10 @@ public class MenuItemDto {
 
 	private String itemTypeName;
 
+	private Double itemGrammage;
+
+	private Integer itemQty;
+
 	private boolean quantifiable;
 
 	private String textColor;
