@@ -25,4 +25,5 @@ public class LeadFunnelRecordsResponseDto {
 	private int accessLevel;
 	
 	private List<LeadFunnelRecordsDto> records;
+	private LeadFunnelRecordsDto total;
 }
