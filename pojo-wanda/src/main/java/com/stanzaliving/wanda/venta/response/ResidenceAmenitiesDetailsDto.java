@@ -39,4 +39,6 @@ public class ResidenceAmenitiesDetailsDto {
 	private List<AmenitiesDto> amenities;
 	
 	private Integer bedLeftNumber;
+	
+	private String userId;
 }

@@ -1,5 +1,7 @@
 package com.stanzaliving.wanda.venta.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,21 +11,23 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({ "code", "stateId", "stateName", "brokerAppVisible", "latitude", "longitude" })
 public class CityResponseDTO {
-    private int cityId;
 
-    private String name;
+	private int cityId;
 
-    private String code;
+	private String name;
 
-    private int stateId;
+	private String code;
 
-    private String stateName;
+	private int stateId;
 
-    private boolean brokerAppVisible;
+	private String stateName;
 
-    private double latitude;
+	private boolean brokerAppVisible;
 
-    private double longitude;
+	private double latitude;
+
+	private double longitude;
 
 }
