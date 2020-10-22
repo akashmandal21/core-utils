@@ -24,7 +24,7 @@ public class CafeMenuRequestDto extends AbstractDto{
 	private static final long serialVersionUID = 1L;
 	
 	private String cafeId;
-	
+		
 	private Date menuDate;
 		
 	private List<CafeMenuItemsDto> cafeMenuItemDetailsDtoList;

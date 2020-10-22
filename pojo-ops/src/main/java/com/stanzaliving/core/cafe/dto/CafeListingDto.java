@@ -3,7 +3,10 @@
  */
 package com.stanzaliving.core.cafe.dto;
 
-import com.stanzaliving.core.cafe.enums.CafeType;
+import java.util.List;
+
+import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.cafe.enums.Tags;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,7 +33,7 @@ public class CafeListingDto {
 
 	private String cafeName;
 
-	private CafeType cafeType;
+	private List<Tags> cafeType;
 
 	private String cafeTypeName;
 
@@ -38,7 +41,7 @@ public class CafeListingDto {
 
 	private String cityName;
 
-	private String baseKitchenId;
+	private List<ListingDto> baseKitchens;
 
 	private String baseKitchenName;
 }
