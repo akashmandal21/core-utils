@@ -1,4 +1,4 @@
-package com.stanzaliving.complaint.enums;
+package com.stanzaliving.core.complaint.enums;
 
 public enum  ComplaintConversationType {
 
