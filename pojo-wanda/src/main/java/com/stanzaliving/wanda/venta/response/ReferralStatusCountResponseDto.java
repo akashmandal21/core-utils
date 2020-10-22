@@ -21,5 +21,6 @@ public class ReferralStatusCountResponseDto {
 
 	private String status;
     private Integer count;
+    private String color;
 	
 }

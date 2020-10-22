@@ -23,4 +23,5 @@ public class PropertyActionRequestDto {
 	private String estateUuid;
 	private EstateStatus estateStatus; //This attribute set internally
 	private PropertyAction propertyAction;	
+	private String propertyName;
 }

@@ -30,6 +30,7 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "sequenceId" })
 public class ReferAndEarnDetailDto extends ReferAndEarnBaseDto {
 
+	private int showTdsBox;
 	private HowItWorksDto howItWorks;
 	private UnlockLevelsAndEarnMoreDto unlockLevelsAndEarnMore;
 	private ReferralCodeDetailDto referralCode;
