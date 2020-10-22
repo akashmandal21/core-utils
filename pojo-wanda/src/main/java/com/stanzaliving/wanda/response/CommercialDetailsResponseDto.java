@@ -60,5 +60,7 @@ public class CommercialDetailsResponseDto {
 	private String maxDate;
 	
 	private String instalmentType;
+
+	private Integer maintenanceFeeSelectionId;
 	
 }
