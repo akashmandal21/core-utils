@@ -3,7 +3,9 @@
  */
 package com.stanzaliving.core.cafe.dto;
 
-import com.stanzaliving.core.cafe.enums.CafeType;
+import java.util.List;
+
+import com.stanzaliving.core.cafe.enums.Tags;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,9 +15,9 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @author naveen.kumar
+ * @author Ashutosh.Chandra
  *
- * @date 13-Oct-2020
+ * @date 22-Oct-2020
  *
  **/
 @Getter
@@ -30,15 +32,12 @@ public class CafeListingDto {
 
 	private String cafeName;
 
-	private CafeType cafeType;
-
-	private String cafeTypeName;
+	private List<Tags> tags;
 
 	private String cityId;
 
 	private String cityName;
 
-	private String baseKitchenId;
+	private List<BaseKitchenDto> baseKitchens;
 
-	private String baseKitchenName;
 }

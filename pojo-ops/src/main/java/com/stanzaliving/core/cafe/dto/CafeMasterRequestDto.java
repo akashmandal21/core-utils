@@ -1,3 +1,4 @@
+
 package com.stanzaliving.core.cafe.dto;
 
 import java.util.List;
@@ -6,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.cafe.enums.CafeType;
+import com.stanzaliving.core.cafe.enums.Tags;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,8 +32,8 @@ public class CafeMasterRequestDto extends AbstractDto {
 	@NotBlank(message = "Cafe Name is mandatory")
 	private String cafeName;
 
-	@NotNull(message = "Cafe Type selection is mandatory")
-	private CafeType cafeType;
+	@NotNull(message = "Tags selection is mandatory")
+	private List<Tags> tags;
 
 	@NotBlank(message = "AddressLine1 filling is mandatory")
 	private String addressLine1;
@@ -49,9 +50,8 @@ public class CafeMasterRequestDto extends AbstractDto {
 	@NotBlank(message = "Country selection is mandatory")
 	private String countryId;
 
-	@NotBlank(message = "Base Kitchen selection is mandatory")
-	private String baseKitchenId;
-
+	private List<BaseKitchenDto> baseKitchens;
+	
 	@NotNull(message = "Pincode is mandatory")
 	private Integer pincode;
 

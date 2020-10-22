@@ -3,7 +3,7 @@ package com.stanzaliving.core.cafe.dto;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.cafe.enums.CafeType;
+import com.stanzaliving.core.cafe.enums.Tags;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,9 +27,9 @@ public class CafeMasterResponseDto extends AbstractDto {
 
 	private String cafeName;
 
-	private CafeType cafeType;
+	private List<Tags> tags;
 
-	private String cafeTypeName;
+	private List<String> tagNames;
 
 	private String addressLine1;
 
@@ -47,9 +47,7 @@ public class CafeMasterResponseDto extends AbstractDto {
 
 	private String countryName;
 
-	private String baseKitchenId;
-
-	private String baseKitchenName;
+	private List<BaseKitchenDto> baseKitchens;
 
 	private Integer pincode;
 
