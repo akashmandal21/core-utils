@@ -43,6 +43,4 @@ public class PdfDocumentDto implements Serializable{
 
 	private String footerText;
 
-	private String fontFamily;
-
 }
