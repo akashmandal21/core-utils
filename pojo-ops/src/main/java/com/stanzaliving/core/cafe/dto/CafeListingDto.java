@@ -2,7 +2,6 @@
  * 
  */
 package com.stanzaliving.core.cafe.dto;
-
 import java.util.List;
 
 import com.stanzaliving.core.cafe.enums.Tags;
@@ -33,7 +32,7 @@ public class CafeListingDto {
 	private String cafeName;
 
 	private List<Tags> tags;
-
+	
 	private String cityId;
 
 	private String cityName;

@@ -27,9 +27,11 @@ public class DishDetailsResponseDto {
 
 	private EnumListing foodType;
 
+	private boolean quantifiable;
+
 	private EnumListing unit;
 
-	private Integer grammageAmount;
+	private Double grammageAmount;
 
 	private Double grammageQuantity;
 

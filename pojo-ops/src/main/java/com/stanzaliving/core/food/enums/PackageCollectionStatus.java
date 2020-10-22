@@ -5,12 +5,12 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-
 public enum PackageCollectionStatus {
 
-	COLLECTION_PENDING("Collection Pending"),
-	COLLECTED("Collected"),
-	CANCELLED("Cancelled");
-	
+	COLLECTION_PENDING("Collection Pending", "Pending"),
+	COLLECTED("Collected", "Picked"),
+	CANCELLED("Cancelled", "Cancelled");
+
 	private String name;
+	private String displayName;
 }
