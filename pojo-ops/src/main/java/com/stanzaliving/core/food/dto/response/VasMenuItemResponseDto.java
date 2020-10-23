@@ -1,9 +1,13 @@
 package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.food.enums.FoodItemType;
-import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**

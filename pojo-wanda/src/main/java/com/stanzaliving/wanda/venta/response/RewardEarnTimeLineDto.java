@@ -19,6 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RewardEarnTimeLineDto {
 
+    private int showTdsBox;
 	private TotalEarnedResponseDto totalEarnedResponseDto;
     private AmountReceivedDto amountReceivedDto;
     

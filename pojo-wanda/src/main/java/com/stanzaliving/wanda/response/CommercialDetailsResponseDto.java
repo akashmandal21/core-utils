@@ -27,6 +27,8 @@ public class CommercialDetailsResponseDto {
 
 	private String contractStartDateText;
 	
+	private String contractEndDateText;
+	
 	private String contractPeriod;
 	
 	private String contractPeriodText;

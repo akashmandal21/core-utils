@@ -2,8 +2,6 @@ package com.stanzaliving.core.cafe.enums;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import com.stanzaliving.core.user.enums.EnumListing;
 
@@ -30,12 +28,6 @@ public enum Tags {
 			EnumListing<Tags> listing = EnumListing.of(tag, tag.getTagName());
 			enumListing.add(listing);
 		}
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(Stream.of(Tags.values())
-                .map(Tags::name)
-                .collect(Collectors.toList()));
 	}
 
 }

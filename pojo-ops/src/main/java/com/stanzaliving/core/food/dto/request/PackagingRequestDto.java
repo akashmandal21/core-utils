@@ -24,4 +24,6 @@ public class PackagingRequestDto {
 
 	private UnitOfMeasurement unitOfMeasurement;
 
+	private boolean status;
+
 }

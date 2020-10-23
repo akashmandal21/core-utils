@@ -29,7 +29,7 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "sequenceId", "text" })
 public class AmountReceivedUIDto extends ReferAndEarnBaseDto {
 
-	private String amountReceived;
+	private String amount;
 	private List<AmountReceivedHistoryUIDto> history;
 
 }
