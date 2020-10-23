@@ -19,47 +19,47 @@ public class AnnualUnderWrittenDtoConverter implements AttributeConverter<UnderW
 
     private static ObjectMapper objectMapper = null;
 
-    public void init() {
-        objectMapper = BaseMapperConfig.getDefaultMapper();
-    }
-
-
-    @Override
-    public String convertToDatabaseColumn(UnderWrittenDto underWrittenDto) {
-
-        if (null == underWrittenDto) {
-            return null;
+        public void init() {
+            objectMapper = BaseMapperConfig.getDefaultMapper();
         }
 
-        if (objectMapper == null) {
-            this.init();
+
+        @Override
+        public String convertToDatabaseColumn(UnderWrittenDto underWrittenDto) {
+
+            if (null == underWrittenDto) {
+                return null;
+            }
+
+            if (objectMapper == null) {
+                this.init();
+            }
+
+            try {
+                return objectMapper.writeValueAsString(underWrittenDto);
+            } catch (JsonProcessingException e) {
+                log.error("Unable to convert annualUnderWrittenDto to json, error {}, annualUnderWrittenDto {}", e.getMessage(), underWrittenDto, e);
+                return null;
+            }
         }
 
-        try {
-            return objectMapper.writeValueAsString(underWrittenDto);
-        } catch (JsonProcessingException e) {
-            log.error("Unable to convert annualUnderWrittenDto to json, error {}, annualUnderWrittenDto {}", e.getMessage(), underWrittenDto, e);
-            return null;
-        }
-    }
+        @Override
+        public UnderWrittenDto convertToEntityAttribute(String annualUnderWrittenDtoJson) {
 
-    @Override
-    public UnderWrittenDto convertToEntityAttribute(String annualUnderWrittenDtoJson) {
+            if (StringUtils.isBlank(annualUnderWrittenDtoJson)) {
+                return null;
+            }
 
-        if (StringUtils.isBlank(annualUnderWrittenDtoJson)) {
-            return null;
-        }
-        
-        if (objectMapper == null) {
-            this.init();
-        }
+            if (objectMapper == null) {
+                this.init();
+            }
 
-        try {
-            return objectMapper.readValue(annualUnderWrittenDtoJson, new TypeReference<UnderWrittenDto>() {
-            });
-        } catch (IOException e) {
-            log.error("Unable to convert json to underWrittenDto , error {}, underWrittenDtoJson {}", e.getMessage(), annualUnderWrittenDtoJson, e);
-            return null;
-        }
+            try {
+                return objectMapper.readValue(annualUnderWrittenDtoJson, new TypeReference<UnderWrittenDto>() {
+                });
+            } catch (IOException e) {
+                log.error("Unable to convert json to underWrittenDto , error {}, underWrittenDtoJson {}", e.getMessage(), annualUnderWrittenDtoJson, e);
+                return null;
+            }
     }
 }
