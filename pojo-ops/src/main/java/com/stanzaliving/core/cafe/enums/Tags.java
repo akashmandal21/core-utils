@@ -32,10 +32,4 @@ public enum Tags {
 		}
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(Stream.of(Tags.values())
-                .map(Tags::name)
-                .collect(Collectors.toList()));
-	}
-
 }
