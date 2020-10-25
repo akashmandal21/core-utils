@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +18,8 @@ import lombok.Setter;
 public class GrnQuantity {
 
     private String itemCode;
+    private String itemUuid;
 
     private Integer quantity;
-
+    private BigDecimal gsriRcvdQuantity;
 }

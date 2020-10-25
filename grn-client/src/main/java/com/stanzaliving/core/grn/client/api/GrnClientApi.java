@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import com.stanzaliving.grn.GrnQuantity;
 import com.stanzaliving.po.enums.PoType;
 import lombok.extern.log4j.Log4j2;
@@ -47,6 +48,27 @@ public class GrnClientApi {
 
         if (Objects.nonNull(propertyUuid))
             queryParams.set("propertyUuid", propertyUuid);
+
+        ParameterizedTypeReference<ResponseDto<List<GrnQuantity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GrnQuantity>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<GrnQuantity>> getGrnQuantitiesForPO(String poUuid) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/grn/get/quantity").buildAndExpand(uriVariables).toUriString();
+        queryParams.set("poUuid", poUuid);
 
         ParameterizedTypeReference<ResponseDto<List<GrnQuantity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GrnQuantity>>>() {
         };
