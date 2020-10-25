@@ -2,6 +2,7 @@ package com.stanzaliving.core.generic.po.grn;
 
 import java.time.LocalDateTime;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 
 import lombok.AllArgsConstructor;
@@ -21,5 +22,7 @@ public class GenericPoUpdate {
 	private LocalDateTime lastUpdatedAt;
 	
 	private String eventUuid;
+	
+	private Department department;
 
 }
