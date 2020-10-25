@@ -3,6 +3,7 @@ package com.stanzaliving.core.vendor.dtos;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.vendor.enums.VendorStatusEnum;
 import com.stanzaliving.core.vendor.enums.VendorType;
+import com.stanzaliving.vendor.model.VendorPocDetailsDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,6 +31,12 @@ public class GenericVendorDetailDto {
     private String companyWebsite;
 
     private AddressInformation registeredAddress;
+
+    private String gstin;
+
+    private String pan;
+
+    private List<VendorPocDetailsDto> vendorPOCs;
 
     private String createdBy;
 

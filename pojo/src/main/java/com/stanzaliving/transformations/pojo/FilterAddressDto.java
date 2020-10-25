@@ -2,16 +2,22 @@ package com.stanzaliving.transformations.pojo;
 
 import com.stanzaliving.transformations.enums.LocationType;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class FilterAddressDto {
 
-	private LocationType locationType;
+	private String addressUuid;
+
+	private List<LocationType> locationTypes;
 
 	private String locationUUID;
 	

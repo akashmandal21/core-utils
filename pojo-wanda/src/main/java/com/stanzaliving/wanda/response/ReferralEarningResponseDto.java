@@ -27,6 +27,7 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "imgUrl", "text" })
 public class ReferralEarningResponseDto extends ReferAndEarnBaseDto{
 
+	private int showTdsBox;
 	private TotalEarnedUIResponseDto rewardsEarnedHistory;
 	private AmountReceivedUIDto amountReceivedHistory;
 

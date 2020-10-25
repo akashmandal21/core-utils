@@ -11,11 +11,11 @@ import com.stanzaliving.core.generic.validation.enums.ActorAction;
 import com.stanzaliving.core.generic.validation.enums.ActorRole;
 import com.stanzaliving.core.generic.validation.utility.CommonUtilities;
 import com.stanzaliving.core.vendor.enums.VendorStatusEnum;
+import lombok.extern.log4j.Log4j2;
 
 
 import java.util.Map;
 import java.util.Objects;
-
 public interface ApprovalProcessor {
     void checkAndUpdateApprovalLevels(TemplateField field, Map<String,Object> additionalData);
     void processApproval(UiParentField uiParentField, TemplateField field, Map<String, Object> additionalData, ErrorInfo errorInfo);
@@ -124,6 +124,11 @@ public interface ApprovalProcessor {
 
     default boolean hasUpdatedApprovalLevelsOnChange(Integer approvalLevel, boolean tempVendor, boolean approvable){
         if(tempVendor)
+        {
+            this.setApprovalLevel(approvalLevel);
+            return true;
+        }
+        if(approvable && Objects.isNull(this.getApprovalLevel()))
         {
             this.setApprovalLevel(approvalLevel);
             return true;

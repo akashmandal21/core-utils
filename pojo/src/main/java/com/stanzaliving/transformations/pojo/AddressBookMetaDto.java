@@ -25,12 +25,20 @@ public class AddressBookMetaDto {
 
 	private String cityUuid;
 
+	private String cityName;
+
 	private String stateUuid;
+
+	private String stateName;
 
 	private String  countryUuid;
 
+	private String  countryName;
+
 	private String microMarketUuid;
-	
+
+	private String microMarketName;
+
 	private String pincode;
 
 	private String addressLine1;
@@ -39,9 +47,9 @@ public class AddressBookMetaDto {
 	
 	private String landmark;
 	
-	private double latitude;
+	private Double latitude;
 
-	private double longitude;
+	private Double longitude;
 
 
 }

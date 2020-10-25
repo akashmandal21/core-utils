@@ -2,11 +2,11 @@ package com.stanzaliving.transformations.enums;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import com.stanzaliving.core.vendor.enums.VendorType;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public enum LocationType {
@@ -17,13 +17,17 @@ public enum LocationType {
 	CORPORATE_OFFICE("Corporate Office", VendorType.IN_CORPORATE_OFFICE),
 	KITCHEN("Kitchen", VendorType.IN_KITCHEN),
 	STORE("Store", VendorType.IN_STORE),
-	CAFE("Cafe", VendorType.IN_CAFE);
-	
-	private String name;
+	CAFE("Cafe", VendorType.IN_CAFE),
+
+	CITY("City",null),
+	MICROMARKET("Micromarket",null),
+	NATIONAL("National",null);
+
+	private String locationTypeName;
 	private VendorType vendorType;
 	
-	private LocationType(String name, VendorType vendorType) {
-		this.name = name;
+	private LocationType(String locationTypeName, VendorType vendorType) {
+		this.locationTypeName = locationTypeName;
 		this.vendorType = vendorType;
 	}
 	
@@ -31,7 +35,8 @@ public enum LocationType {
 	static {
 
 		for (LocationType locType : LocationType.values()) {
-			locationByVendorMap.put(locType.getVendorType().name(), locType);
+			if(Objects.nonNull(locType.getVendorType()))
+				locationByVendorMap.put(locType.getVendorType().name(), locType);
 		}
 	}
 	

@@ -19,7 +19,8 @@ public enum FieldType {
     TEMPLATE("Section"),
     OBJECT("Single Object"),
     PLACEHOLDER("Not For save"),
-    ADAPT("Set using method");
+    ADAPT("Set using method"),
+    ADAPT_RO("Readonly adapt");
     private String fieldTypeText;
 
 }

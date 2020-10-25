@@ -36,6 +36,7 @@ public class PropertyInfoDto {
     private String landmark;
     private String postalCode;
     private String bdUserId;
+    private String siteEngineerUserId;
     private double latitude;
     private double longitude;
 }

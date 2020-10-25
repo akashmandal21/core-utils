@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.multipart.MultipartException;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.stanzaliving.core.base.StanzaConstants;
@@ -61,12 +62,27 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handlePropertyAccessException(PropertyAccessException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got PropertyAccessException for exceptionId: " + exceptionId, e);
+		log.error("Got PropertyAccessException for exceptionId: {}", exceptionId, e);
 
 		String errorMessgae = "Incorrect Value For Parameter: " + e.getPropertyName() + " in Request. Dirty Value: " + e.getValue();
 
 		return ResponseDto.failure(errorMessgae, exceptionId);
 	}
+	
+	@ExceptionHandler(StanzaSecurityException.class)
+	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+	@SendExceptionToSlack
+	public <T> ResponseDto<T> handleStanzaSecurityException(StanzaSecurityException e) {
+
+		String exceptionId = StanzaUtils.generateUniqueId();
+		log.error("Got StanzaSecurityException for exceptionId: " + exceptionId, e);
+
+		String errorMessgae = e.getMessage();
+
+		return ResponseDto.failure(errorMessgae, exceptionId);
+	}
+
+
 
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
@@ -87,7 +103,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got MissingServletRequestParameterException for exceptionId: " + exceptionId, e);
+		log.error("Got MissingServletRequestParameterException for exceptionId: {} ", exceptionId, e);
 
 		String errorMessage = "Missing Parameter: " + e.getParameterName() + " in Request";
 
@@ -121,7 +137,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got HttpMessageNotReadableException for exceptionId: " + exceptionId, e);
+		log.error("Got HttpMessageNotReadableException for exceptionId: {}", exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -143,7 +159,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleSQLIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got SQLIntegrityConstraintViolationException for exceptionId:" + exceptionId, e);
+		log.error("Got SQLIntegrityConstraintViolationException for exceptionId: {}", exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -154,7 +170,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleConstraintViolationException(ConstraintViolationException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got ConstraintViolationException for exceptionId:" + exceptionId, e);
+		log.error("Got ConstraintViolationException for exceptionId: {}", exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -165,7 +181,17 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleDataIntegrityViolationException(DataIntegrityViolationException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got DataIntegrityViolationException for exceptionId:" + exceptionId, e);
+		log.error("Got DataIntegrityViolationException for exceptionId: {}", exceptionId, e);
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+	
+	@ExceptionHandler(MultipartException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public <T> ResponseDto<T> handleMultipartException(MultipartException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got MultipartException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -267,7 +293,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleAuthException(AuthException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got AuthException for exceptionId: " + exceptionId, e);
+		log.error("Got AuthException for exceptionId: {}", exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -278,7 +304,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleStanzaException(StanzaException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got StanzaException for exceptionId: " + exceptionId, e);
+		log.error("Got StanzaException for exceptionId: {}", exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -289,7 +315,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleIllegalArgumentException(IllegalArgumentException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got IllegalArgumentException for exceptionId: {} with error {}" + exceptionId, e.getMessage(), e);
+		log.error("Got IllegalArgumentException for exceptionId: {} with Message {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -310,7 +336,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleStanzaHttpException(StanzaHttpException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got StanzaHttpException for exceptionId: " + exceptionId, e);
+		log.error("Got StanzaHttpException for exceptionId: {}", exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -321,7 +347,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleException(Exception ex) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got un-handled exception for exceptionId: " + exceptionId, ex);
+		log.error("Got un-handled exception for exceptionId: {}", exceptionId, ex);
 
 		return ResponseDto.failure(ex.getMessage(), exceptionId);
 	}

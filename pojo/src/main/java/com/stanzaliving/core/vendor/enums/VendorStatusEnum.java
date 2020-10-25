@@ -21,9 +21,10 @@ public enum VendorStatusEnum {
     L2_APPROVED("L2 Approved",2,"#60C3AD","#EDFFF5"),
     L1_REJECTED("Rejected L1", GenericConstants.rejectionStart-1,"#F55F71","#FFF1F1"),
     L2_REJECTED("Rejected L2", GenericConstants.rejectionStart-2,"#FF5238","#FFF1F1"),
-    AUTO_APPROVED("Auto Approved",GenericConstants.approvalRestrictMax,"#60C3AD","#EDFFF5");
+    AUTO_APPROVED("Auto Approved",GenericConstants.approvalRestrictMax,"#60C3AD","#EDFFF5"),
 
-//    APPROVED("Approved",10,"#60C3AD","#EDFFF5");
+    APPROVED("Approved",10,"#60C3AD","#EDFFF5"),
+    INACTIVE("Inactive",11,"#F55F71","#FFF1F1");
 
     private static Map<Integer,VendorStatusEnum> vendorStatusEnumMap = new HashMap<>();
     private static int maxOrder;

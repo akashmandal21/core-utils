@@ -3,8 +3,8 @@ package com.stanzaliving.wanda.venta.response;
 import java.util.List;
 import java.util.Map;
 
-import com.stanzaliving.core.enums.ResidenceType;
 import com.stanzaliving.wanda.enums.InstallmentTypeEnum;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,5 +32,6 @@ public class CommercialsResponseDto {
     private InstallmentTypeEnum instalmentType;
     private String propertyType;
     private Double maintenanceFeeAdjustedInSD;
+    private DateRange stayLockInRange;
     
 }

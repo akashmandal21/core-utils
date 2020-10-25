@@ -358,7 +358,8 @@ public abstract class TemplateProcessor {
                             Map<String, JsonNode> nestedStruct = ValueAdapters.convertValue(uiBasicField.getData(), new TypeReference<Map<String, JsonNode>>() {},objectMapper);
                             Pair<Boolean, Map<String, UiParentField>> nestedData = verifyAndStoreData(nestedStruct, templateField.getFieldName(),
                                     templates, isDraft, errorInfo, saveDraftOnError, additionalData, fieldMap, obj,allowSkipNewFields,baseObject);
-                            uiBasicField.setErrorOccurred(nestedData.getFirst());
+                            if(!isDraft)
+                                uiBasicField.setErrorOccurred(nestedData.getFirst());
                             uiBasicField.setData(objectMapper.valueToTree(nestedData.getSecond()));
                             if (!nestedData.getFirst() || saveDraftOnError)
                                 dataSaved = ValueAdapters.setFieldValDirectly(templateName,templateField,field,sourceClass,obj);
@@ -378,8 +379,8 @@ public abstract class TemplateProcessor {
                                     Pair<Boolean, Map<String, UiParentField>> derivedData = verifyAndStoreData(f, templateField.getFieldName(), templates, isDraft,
                                             errorInfo, saveDraftOnError, additionalData, fieldMap, temp,allowSkipNewFields,baseObject);
                                     nestedData.add(derivedData.getSecond());
-
-                                    uiBasicField.setErrorOccurred(uiBasicField.isErrorOccurred() || derivedData.getFirst());
+                                    if(!isDraft)
+                                        uiBasicField.setErrorOccurred(uiBasicField.isErrorOccurred() || derivedData.getFirst());
                                     if (!derivedData.getFirst() || saveDraftOnError)
                                     {
                                         if(temp instanceof ValueChecker)
@@ -552,6 +553,7 @@ public abstract class TemplateProcessor {
                 case LIST:
                 case OBJECT:
                 case ADAPT:
+                case ADAPT_RO:
                     UiField uiField = getUiFieldTemplate(templateField, fieldVal, additionalData,sourceClass);
                     uiFieldMap.put(templateField.getFieldName(), uiField);
                     break;
