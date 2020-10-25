@@ -23,6 +23,7 @@ public class GenericItemDto {
     private String itemCode;
     private String itemName;
     private String itemDescription;
+    private UIKeyValue itemType;
     private UIKeyValue uom;
 
 }

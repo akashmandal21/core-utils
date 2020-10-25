@@ -6,8 +6,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum PaymentChargeType {
-    FLAT("Flat Amount"),
-    PCT("%");
+    FLAT("Flat Amount","Flat"),
+    PCT("%","Month");
 
     private String chargeText;
+    private String refundableSDText;
 }
