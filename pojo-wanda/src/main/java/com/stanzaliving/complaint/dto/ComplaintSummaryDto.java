@@ -16,6 +16,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class ComplaintSummaryDto {
 
+	private String complaintType;
+
+	private String complaintTypeImgUrl;
+
 	private String complaintCategory;
 
 	private String complaintSubCategory;
@@ -24,8 +28,14 @@ public class ComplaintSummaryDto {
 
 	private List<String> attachmentUrl;
 
+	private String etr;
+
 	private Date closedOn;
 
 	private String closedOnComment;
+
+	private Date createdOn;
+
+	private Long cmsId;
 
 }

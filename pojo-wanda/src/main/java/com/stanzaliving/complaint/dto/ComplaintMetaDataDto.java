@@ -25,6 +25,9 @@ public class ComplaintMetaDataDto extends AbstractDto {
 	private String userId;
 
 	private EnumComplaintStatus complaintStatus;
+	
+	@NotBlank(message = "Complaint Type is Mandatory")
+	private String complaintTypeUuid;
 
 	@NotBlank(message = "Complaint Category is Mandatory")
 	private String complaintCategoryUuid;
