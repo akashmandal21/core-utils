@@ -3,6 +3,7 @@ package com.stanzaliving.core.food.dto.request;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
@@ -22,7 +23,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class ItemIdsRequestDto {
 
-	@NotNull(message = "Item Ids can not be null")
+	@NotEmpty(message = "Item Ids can not be empty")
 	private Set<String> itemIds;
 
 }
