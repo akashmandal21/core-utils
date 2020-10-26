@@ -35,5 +35,7 @@ public class ComplaintConversationsDto {
     private Date createdAt;
 
     private String createdAtText;
+    
+    private String contentUrl;
 
 }
