@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.util.LinkedHashMap;
+
 /**
  * @author nipunaggarwal
  *
@@ -30,5 +32,6 @@ public abstract class EarningUIResponseDto {
 	private String source;
 	private String referredPaymentStatus;
 	private String transactionId;
+	private LinkedHashMap<String, String> amountBreakUp;
 
 }

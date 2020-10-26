@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.LinkedHashMap;
+
 /**
  * @author nipunaggarwal
  *
@@ -33,5 +35,6 @@ public class ReferralStatusDetailsUIResponseDto {
 	private String amountEarned;
 	private String paidOn;
 	private String paymentMode;
+	private LinkedHashMap<String, String> amountBreakup;
 
 }

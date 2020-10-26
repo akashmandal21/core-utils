@@ -27,6 +27,8 @@ public class CommercialDetailsResponseDto {
 
 	private String contractStartDateText;
 	
+	private String contractEndDateText;
+	
 	private String contractPeriod;
 	
 	private String contractPeriodText;
@@ -58,5 +60,7 @@ public class CommercialDetailsResponseDto {
 	private String maxDate;
 	
 	private String instalmentType;
+
+	private Integer maintenanceFeeSelectionId;
 	
 }

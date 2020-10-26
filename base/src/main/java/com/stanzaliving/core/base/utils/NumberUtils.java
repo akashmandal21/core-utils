@@ -103,4 +103,18 @@ public class NumberUtils {
 		
 		return india.format(intamount);
 	}
+
+	//This function is same as round function but
+	//when we have the values like 0.5, 1.5, 2.5, 3.5 ,...
+	//then it always returns ceil value of the number.
+	//ex - 1.4 -> 1
+	//ex - 1.5 -> 2
+	//ex - 1.8 -> 2
+	public static int getRoundOff(double value){
+		double number = Math.floor(value);
+		if(value - number < 0.5){
+			return (int)number;
+		}
+		return (int) number +1;
+	}
 }

@@ -1,26 +1,19 @@
 package com.stanzaliving.core.opscalculator.sqljpaconverter;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.stanzaliving.core.base.http.BaseMapperConfig;
-import com.stanzaliving.core.base.localdate.Java8LocalDateStdDeserializer;
-import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
-import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
-import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
-import com.stanzaliving.core.opscalculator.dto.AnnualUnderWrittenDto;
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.lang3.StringUtils;
+import java.io.IOException;
 
-import javax.annotation.PostConstruct;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalTime;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stanzaliving.core.base.http.BaseMapperConfig;
+import com.stanzaliving.core.opscalculator.dto.AnnualUnderWrittenDto;
+
+import lombok.extern.log4j.Log4j2;
 
 @Converter
 @Log4j2
