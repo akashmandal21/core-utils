@@ -16,6 +16,6 @@ public class ApprovalDashboardSummeryDetailsDto {
     private Integer underWrittenCount;
     private Integer transformationCount;
     private Integer foodCategoriesCount;
-
+    private Integer monthlyUnderWrittenCount;
 
 }
