@@ -13,10 +13,12 @@ import java.util.List;
 public enum ApprovalStatus {
     PENDING_APPROVAL_ON_L1("Pending L1 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode())
     ,PENDING_APPROVAL_ON_L2("Pending L2 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode())
+    ,PENDING_APPROVAL_ON_L3("Pending L3 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode())
     ,L1_REJECTED("L1 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode())
     ,L2_REJECTED("L2 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode())
     ,APPROVED_BY_L1("Approved By L1", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode())
-    ,APPROVED_BY_L2("Approved By L2", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode());
+    ,APPROVED_BY_L2("Approved By L2", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode())
+    ,SENT_FOR_APPROVAL("Sent For Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode());
     private String status;
     private String bgColorCode;
     private String textColorCode;
