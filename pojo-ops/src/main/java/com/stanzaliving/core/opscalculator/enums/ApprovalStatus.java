@@ -16,8 +16,10 @@ public enum ApprovalStatus {
     ,PENDING_APPROVAL_ON_L3("Pending L3 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode())
     ,L1_REJECTED("L1 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode())
     ,L2_REJECTED("L2 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode())
+    ,L3_REJECTED("L3 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode())
     ,APPROVED_BY_L1("Approved By L1", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode())
     ,APPROVED_BY_L2("Approved By L2", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode())
+    ,APPROVED_BY_L3("Approved By L3", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode())
     ,SENT_FOR_APPROVAL("Sent For Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode());
     private String status;
     private String bgColorCode;
@@ -35,7 +37,9 @@ public enum ApprovalStatus {
 
     static {
         for(ApprovalStatus approvalStatus : ApprovalStatus.values()){
-            if(!ApprovalStatus.APPROVED_BY_L2.equals(approvalStatus) && !ApprovalStatus.APPROVED_BY_L1.equals(approvalStatus)) {
+            if(!ApprovalStatus.APPROVED_BY_L2.equals(approvalStatus) &&
+                    !ApprovalStatus.APPROVED_BY_L1.equals(approvalStatus)
+               && !ApprovalStatus.APPROVED_BY_L3.equals(approvalStatus)) {
                 dropDownDtoListForL1.add(new DropDownDto(approvalStatus.toString(), approvalStatus.getStatus()));
             }
             if(!ApprovalStatus.APPROVED_BY_L2.equals(approvalStatus) && !ApprovalStatus.APPROVED_BY_L1.equals(approvalStatus) &&
