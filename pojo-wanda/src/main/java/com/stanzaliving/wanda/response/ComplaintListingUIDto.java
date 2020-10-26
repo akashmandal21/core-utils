@@ -38,5 +38,9 @@ public class ComplaintListingUIDto {
 	private String backgroundText;
 
 	private String backgroundColor;
+	
+	private String complaintTypeName;
+	
+	private String complaintTypeImgUrl;
 
 }
