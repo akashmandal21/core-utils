@@ -22,6 +22,10 @@ public class ItemUpdateDto extends AbstractDto {
     private Department department;
     private ItemAction itemAction;
 
+    private UIKeyValue itemCategory;
+    private UIKeyValue itemSubCategory;
+    private UIKeyValue itemCostHead;
+
     private String itemName;
     private String itemDescription;
     private List<UIKeyValue> usageTypeOrArea;

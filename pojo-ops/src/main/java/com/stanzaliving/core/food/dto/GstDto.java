@@ -8,19 +8,21 @@ import lombok.experimental.SuperBuilder;
  *
  * @version 1.0
  *
- * @since 12-Sep-2020
+ * @since 25-Sep-2020
  */
 
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PriceDto extends GstDto {
-	private Double subTotal;
+public class GstDto {
+	private Double cgst;
 
-	private Double totalTax;
+	private Double sgst;
 
-	private Double grantTotal;
+	private Double igst;
+
+	private Integer gstPercentage;
 }
