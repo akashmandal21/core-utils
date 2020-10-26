@@ -37,5 +37,7 @@ public class ComplaintListingDto {
 	private Date closedAt;
 	@Builder.Default
 	private Boolean satisfied = Boolean.FALSE;
+	private String complaintTypeName;
+	private String complaintTypeImgUrl;
 
 }
