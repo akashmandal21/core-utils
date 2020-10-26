@@ -37,5 +37,7 @@ public class ComplaintConversationsDto {
     private String createdAtText;
     
     private String contentUrl;
+    
+    private boolean incoming;
 
 }
