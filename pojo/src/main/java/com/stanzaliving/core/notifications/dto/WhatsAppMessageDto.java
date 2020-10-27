@@ -1,7 +1,8 @@
 package com.stanzaliving.core.notifications.dto;
 
+import lombok.Builder;
 import lombok.Data;
-
+@Builder
 @Data
 public class WhatsAppMessageDto {
     private String phone;
