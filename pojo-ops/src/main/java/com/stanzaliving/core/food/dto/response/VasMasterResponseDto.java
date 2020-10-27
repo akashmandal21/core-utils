@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.dto.DishRecipeDetailsDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
+import com.stanzaliving.core.food.enums.VasType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -27,11 +28,15 @@ import java.util.List;
 public class VasMasterResponseDto {
 	private String vasMasterId;
 
+	private boolean status;
+
 	private String name;
 
 	private String description;
 
 	private EnumListing<FoodItemType> foodType;
+
+	private EnumListing<VasType> vasType;
 
 	private Boolean eggPresent;
 

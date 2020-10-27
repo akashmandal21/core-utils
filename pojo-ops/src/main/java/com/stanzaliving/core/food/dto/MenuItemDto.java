@@ -32,12 +32,20 @@ public class MenuItemDto {
 	private String itemId;
 
 	private String itemName;
-	
+
 	private String categoryId;
+
+	private ListingDto category;
+
+	private ListingDto subCategory;
 
 	private FoodItemType itemType;
 
 	private String itemTypeName;
+
+	private Double itemGrammage;
+
+	private Integer itemQty;
 
 	private boolean quantifiable;
 

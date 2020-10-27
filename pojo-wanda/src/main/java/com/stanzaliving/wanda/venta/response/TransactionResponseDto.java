@@ -10,7 +10,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransactionResponseDto {
-    private String paymentMode;
-    private String completionDate;
-    private Double amount;
+
+	private String paymentMode;
+	private String completionDate;
+	private Double amount;
+	private String internalTransactionId;
+	private String merchantTransactionId;
+	private Long transactionDate;
+
 }

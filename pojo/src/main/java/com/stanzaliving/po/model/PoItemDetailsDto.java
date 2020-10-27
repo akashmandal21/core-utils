@@ -55,4 +55,8 @@ public class PoItemDetailsDto {
 
     private BigDecimal remainingItemQuantity;
 
+    private String itemRateStr;
+
+    private String itemAmountStr;
+
 }
