@@ -47,7 +47,6 @@ public class VasMasterAddRequestDto {
 
 	private UnitOfMeasurement unitOfMeasurement;
 
-	@NotNull(message = "Image selection is mandatory")
 	private String imageId;
 
 	private Boolean status;
@@ -63,6 +62,5 @@ public class VasMasterAddRequestDto {
 	@Valid
 	@NotNull(message = "Recipe selection is mandatory")
 	private VasMasterRecipeRequestDto recipe;
-
 
 }

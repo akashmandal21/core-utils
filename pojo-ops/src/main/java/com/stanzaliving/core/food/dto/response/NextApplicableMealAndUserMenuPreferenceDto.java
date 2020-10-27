@@ -1,10 +1,10 @@
 package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 /**
@@ -12,7 +12,7 @@ import java.time.LocalTime;
  *
  * @version 1.0
  *
- * @since 31-Aug-2020
+ * @since 20-Oct-2020
  */
 
 
@@ -22,24 +22,14 @@ import java.time.LocalTime;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserMenuPreferenceForMealsDto {
-
-	private String vendorId;
-
-	private String nextDayVendorId;
-
-	private LocalDate mealDate;
-
-	private MealType nextMeal;
-
-	private String nextMealName;
+public class NextApplicableMealAndUserMenuPreferenceDto {
+	private EnumListing<MealType> nextMeal;
 
 	private long nextMealItemsCount;
 
 	private UserMenuPreferenceResponseDto nextMealPreferences;
 
 	private LocalTime preferenceWindowCloseTime;
-	
-	private NextApplicableMealDto nextVasMeal;
 
+	private NextApplicableMealV2Dto nextVasMeal;
 }

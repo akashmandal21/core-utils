@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.FoodItemType;
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -29,17 +30,25 @@ public class ItemCostResponseDto {
 
 	private String itemTypeName;
 
+	private EnumListing<FoodItemType> foodType;
+
 	private ItemPriceDto prices;
 
 	private boolean quantifiable;
 
 	private Integer itemWeight;
 
+	private Double grammagePerPax;
+
 	private Integer itemQty;
+
+	private Integer quantityPerPax;
 
 	private UnitOfMeasurement unit;
 	
 	private String unitName;
+
+	private EnumListing<UnitOfMeasurement> uom;
 
 	private String imageUrl;
 }

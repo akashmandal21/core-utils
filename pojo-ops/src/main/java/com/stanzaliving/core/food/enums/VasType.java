@@ -19,8 +19,8 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum VasType {
-	VAS("Vas"),
-	ADD_ON("Add On");
+	VAS("VAS"),
+	ADD_ON("Add-On");
 
 	private String vasTypeName;
 

@@ -1,45 +1,35 @@
 package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
  * @version 1.0
  *
- * @since 31-Aug-2020
+ * @since 20-Oct-2020
  */
-
 
 @Getter
 @Setter
-@SuperBuilder
 @ToString
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserMenuPreferenceForMealsDto {
-
-	private String vendorId;
-
-	private String nextDayVendorId;
+public class NextApplicableMealV2Dto {
 
 	private LocalDate mealDate;
 
-	private MealType nextMeal;
-
-	private String nextMealName;
+	private EnumListing<MealType> nextMeal;
 
 	private long nextMealItemsCount;
 
-	private UserMenuPreferenceResponseDto nextMealPreferences;
-
-	private LocalTime preferenceWindowCloseTime;
-	
-	private NextApplicableMealDto nextVasMeal;
+	private List<ItemCostResponseDto> items;
 
 }

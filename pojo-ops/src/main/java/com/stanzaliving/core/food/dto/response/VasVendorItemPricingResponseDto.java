@@ -1,22 +1,19 @@
 package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
  * @version 1.0
  *
- * @since 08-Oct-2020
+ * @since 19-Oct-2020
  */
 
 @Getter
@@ -25,18 +22,30 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VasMenuItemResponseDto {
+public class VasVendorItemPricingResponseDto {
+
 	private String vasMasterId;
 
 	private String vasItemName;
 
+	private List<String> accompaniments;
+
 	private EnumListing<FoodItemType> foodType;
 
-	private boolean eggPresent;
+	private ListingDto category;
 
-	private boolean featured;
+	private Double cost;
 
-	private Double price;
+	private Double marginPercent;
 
+	private Double sellPrice;
+
+	private Double gst;
+
+	private Double proposedPrice;
+
+	private Double finalPrice;
+
+	private boolean status;
 
 }
