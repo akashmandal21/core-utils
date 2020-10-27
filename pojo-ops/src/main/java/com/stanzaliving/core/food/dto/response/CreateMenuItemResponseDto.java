@@ -25,9 +25,9 @@ import java.util.Set;
 @AllArgsConstructor
 public class CreateMenuItemResponseDto {
 
-	private EnumListing<FoodRegion> foodRegion;
+	private FoodRegion foodRegion;
 
-	private EnumListing<FoodItemBasePreference> basePreference;
+	private FoodItemBasePreference basePreference;
 
 	private List<MenuItemDetailsDto> successItems;
 
