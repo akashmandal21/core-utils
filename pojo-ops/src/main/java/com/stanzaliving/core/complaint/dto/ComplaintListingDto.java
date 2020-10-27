@@ -39,5 +39,6 @@ public class ComplaintListingDto {
 	private Boolean satisfied = Boolean.FALSE;
 	private String complaintTypeName;
 	private String complaintTypeImgUrl;
+	private Long cmsId;
 
 }

@@ -42,5 +42,7 @@ public class ComplaintListingUIDto {
 	private String complaintTypeName;
 	
 	private String complaintTypeImgUrl;
+	
+	private Long cmsId;
 
 }
