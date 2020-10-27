@@ -16,6 +16,8 @@ public class CafeMenuItemResponseDto extends AbstractDto {
     protected boolean deliveryAllowed;
     protected boolean diningAllowed;
     protected boolean pickUpAllowed;
+    protected boolean discountAllowed;
+    protected Double discount;
     private String itemId;
 
 }

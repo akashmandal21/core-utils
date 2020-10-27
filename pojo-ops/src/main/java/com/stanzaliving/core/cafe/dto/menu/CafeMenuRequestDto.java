@@ -15,5 +15,6 @@ import java.util.List;
 public class CafeMenuRequestDto {
     private static final long serialVersionUID = 1L;
     private LocalDate menuDate;
+    private String uuid;
     private List<CafeMenuItemRequestDto> items;
 }
