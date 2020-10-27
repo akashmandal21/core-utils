@@ -18,5 +18,6 @@ public class CafeMenuResponseDto extends AbstractDto {
     private static final long serialVersionUID = 1L;
     private LocalDate menuDate;
     private Date lastPublished;
+    private String lastPublishedBy;
     private List<CafeMenuItemResponseDto> items;
 }
