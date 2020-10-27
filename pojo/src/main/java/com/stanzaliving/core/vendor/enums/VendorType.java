@@ -18,7 +18,7 @@ public enum VendorType {
     IN_CITY_OFFICE("Internal - City Office",VendorClassification.INTERNAL,"CO","IN"),
     EX_DOMESTIC("External - Domestic Vendor",VendorClassification.EXTERNAL,"DV","EX"),
     EX_ONLINE_VENDOR("External - Online Vendor",VendorClassification.EXTERNAL,"OV","EX"),
-    EX_INTL_VENDOR("External - International Vendor",VendorClassification.EXTERNAL,"OV","EX");
+    EX_INTL_VENDOR("External - International Vendor",VendorClassification.EXTERNAL,"IV","EX");
 
     private String vendorTypeName;
     private VendorClassification classfication;

@@ -4,6 +4,9 @@ import com.stanzaliving.core.generic.constants.GenericConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Getter
 @AllArgsConstructor
 public enum GenericPOTOStatus {
@@ -38,11 +41,39 @@ public enum GenericPOTOStatus {
 
 
 
+
+
+
+
     private String statusText;
     private String statusColor;
     private String bgColor;
     private Integer order;
     private boolean underShortClose;
     private boolean underCancel;
+
+    public static Map<GenericPOTOStatus,Boolean> cancelStatus = new HashMap<>(3);
+    public static Map<GenericPOTOStatus,Boolean> scStatus = new HashMap<>(3);
+    public static Map<GenericPOTOStatus,Boolean> scAllowedStatus = new HashMap<>(3);
+    public static Map<GenericPOTOStatus,Boolean> cancelAllowedStatus = new HashMap<>(3);
+
+    static {
+        cancelStatus.put(CANCEL_L1_APPROVAL_DUE,Boolean.TRUE);
+        cancelStatus.put(CANCEL_L2_APPROVAL_DUE,Boolean.TRUE);
+        cancelStatus.put(CANCEL_L3_APPROVAL_DUE,Boolean.TRUE);
+
+        scStatus.put(SC_L1_APPROVAL_DUE,Boolean.TRUE);
+        scStatus.put(SC_L2_APPROVAL_DUE,Boolean.TRUE);
+        scStatus.put(SC_L3_APPROVAL_DUE,Boolean.TRUE);
+
+        scAllowedStatus.put(CANCEL_L1_REJECTED,Boolean.TRUE);
+        scAllowedStatus.put(CANCEL_L2_REJECTED,Boolean.TRUE);
+        scAllowedStatus.put(CANCEL_L3_REJECTED,Boolean.TRUE);
+        scAllowedStatus.put(APPROVED,Boolean.TRUE);
+        scAllowedStatus.put(SHORTCLOSED,Boolean.TRUE);
+        scAllowedStatus.put(SC_L1_REJECTED,Boolean.TRUE);
+        scAllowedStatus.put(SC_L2_REJECTED,Boolean.TRUE);
+        scAllowedStatus.put(SC_L3_REJECTED,Boolean.TRUE);
+    }
 
 }
