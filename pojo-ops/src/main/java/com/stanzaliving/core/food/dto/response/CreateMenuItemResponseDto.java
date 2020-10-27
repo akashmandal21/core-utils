@@ -1,6 +1,8 @@
 package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.food.enums.FoodItemBasePreference;
+import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -22,6 +24,10 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateMenuItemResponseDto {
+
+	private EnumListing<FoodRegion> foodRegion;
+
+	private EnumListing<FoodItemBasePreference> basePreference;
 
 	private List<MenuItemDetailsDto> successItems;
 
