@@ -31,4 +31,5 @@ public class BookingStatusResponseDto {
     private String policeVerificationRejectedReason;
     private Integer residenceId;
     private BookingSource bookingSource;
+    private String bookingSubStatus;
 }
