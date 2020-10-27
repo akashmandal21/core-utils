@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.core.food.dto.MenuItemDto;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.user.enums.EnumListing;
@@ -29,7 +30,7 @@ public class CreateMenuItemResponseDto {
 
 	private FoodItemBasePreference basePreference;
 
-	private List<MenuItemDetailsDto> successItems;
+	private List<MenuItemDto> successItems;
 
 	private Set<String> failedItems;
 
