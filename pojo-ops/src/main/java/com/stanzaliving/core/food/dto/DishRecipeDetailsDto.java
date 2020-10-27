@@ -30,6 +30,8 @@ public class DishRecipeDetailsDto {
 
 	private Double standardQuantity;
 
+	private Integer quantityPerPax;
+
 	private double estimatedCost;
 
 	private List<KitchenCostDto> kitchenCostDtos;
