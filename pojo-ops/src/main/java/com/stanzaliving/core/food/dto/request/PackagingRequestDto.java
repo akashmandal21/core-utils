@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.request;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -16,14 +17,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PackagingRequestDto {
+public class PackagingRequestDto extends AbstractDto {
 
 	private String itemName;
 
 	private String desc;
 
 	private UnitOfMeasurement unitOfMeasurement;
-
-	private boolean status;
 
 }
