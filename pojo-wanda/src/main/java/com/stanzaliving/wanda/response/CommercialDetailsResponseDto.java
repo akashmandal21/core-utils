@@ -62,5 +62,7 @@ public class CommercialDetailsResponseDto {
 	private String instalmentType;
 
 	private Integer maintenanceFeeSelectionId;
+
+	private Boolean maintenanceFeeEditable;
 	
 }
