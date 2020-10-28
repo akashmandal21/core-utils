@@ -71,5 +71,9 @@ public class FoodEmailTemplateConstants {
 	public static final String RC_NAME = "rcName";
 	
 	public static final String RC_MOBILE_NUMBER = "rcMobileNumber";
+
+	public static final String WEEK_START_DATE = "weekStartDate";
+
+	public static final String SUBMITTED_BY = "submittedBy";
 }
 
