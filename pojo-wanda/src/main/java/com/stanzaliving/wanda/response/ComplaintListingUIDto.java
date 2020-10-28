@@ -45,4 +45,5 @@ public class ComplaintListingUIDto {
 	
 	private Long cmsId;
 
+	private Boolean satisfied;
 }
