@@ -34,7 +34,7 @@
 		<module>transformation-client</module>
 		<module>user-client</module>
 		<module>redis</module>
-		<module>mongobase</module>
+		<module>mongoBase</module>
 		<module>qr</module>
 		<module>qaservice</module>
 		<module>comment-client</module>
