@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class MonthlyUnderWrittenAlertDto {
-    private String name;
-    private String alertMessage;
+    private String title;
+    private String message;
 }
