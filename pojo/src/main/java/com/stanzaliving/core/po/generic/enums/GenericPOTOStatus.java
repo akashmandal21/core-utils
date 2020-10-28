@@ -4,8 +4,7 @@ import com.stanzaliving.core.generic.constants.GenericConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @AllArgsConstructor
@@ -52,28 +51,22 @@ public enum GenericPOTOStatus {
     private boolean underShortClose;
     private boolean underCancel;
 
-    public static Map<GenericPOTOStatus,Boolean> cancelStatus = new HashMap<>(3);
-    public static Map<GenericPOTOStatus,Boolean> scStatus = new HashMap<>(3);
-    public static Map<GenericPOTOStatus,Boolean> scAllowedStatus = new HashMap<>(3);
-    public static Map<GenericPOTOStatus,Boolean> cancelAllowedStatus = new HashMap<>(3);
+    public static Set<GenericPOTOStatus> cancelStatus = new HashSet<>(3);
+    public static Set<GenericPOTOStatus> cancelRejectStatus = new HashSet<>(3);
+    public static Set<GenericPOTOStatus> scStatus = new HashSet<>(3);
+    public static Set<GenericPOTOStatus> scRejectStatus = new HashSet<>(3);
+    public static Set<GenericPOTOStatus> scAllowedStatus = new HashSet<>(3);
+    public static Set<GenericPOTOStatus> firstApprovalCycle = new HashSet<>(3);
 
     static {
-        cancelStatus.put(CANCEL_L1_APPROVAL_DUE,Boolean.TRUE);
-        cancelStatus.put(CANCEL_L2_APPROVAL_DUE,Boolean.TRUE);
-        cancelStatus.put(CANCEL_L3_APPROVAL_DUE,Boolean.TRUE);
+        cancelStatus.addAll(Arrays.asList(CANCEL_L1_APPROVAL_DUE,CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE));
+        cancelRejectStatus.addAll(Arrays.asList(CANCEL_L1_REJECTED,CANCEL_L2_REJECTED,CANCEL_L3_REJECTED));
+        scStatus.addAll(Arrays.asList(SC_L1_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE));
+        scRejectStatus.addAll(Arrays.asList(SC_L1_REJECTED,SC_L2_REJECTED,SC_L3_REJECTED));
+        scAllowedStatus.addAll(Arrays.asList(CANCEL_L1_REJECTED,CANCEL_L2_REJECTED,CANCEL_L3_REJECTED,
+                APPROVED,SHORTCLOSED,SC_L1_REJECTED,SC_L2_REJECTED,SC_L3_REJECTED));
+        firstApprovalCycle.addAll(Arrays.asList(IN_DRAFT,L1_SENT_BACK,L2_SENT_BACK,L3_SENT_BACK,L1_APPROVAL_DUE,L2_APPROVAL_DUE,L3_APPROVAL_DUE));
 
-        scStatus.put(SC_L1_APPROVAL_DUE,Boolean.TRUE);
-        scStatus.put(SC_L2_APPROVAL_DUE,Boolean.TRUE);
-        scStatus.put(SC_L3_APPROVAL_DUE,Boolean.TRUE);
-
-        scAllowedStatus.put(CANCEL_L1_REJECTED,Boolean.TRUE);
-        scAllowedStatus.put(CANCEL_L2_REJECTED,Boolean.TRUE);
-        scAllowedStatus.put(CANCEL_L3_REJECTED,Boolean.TRUE);
-        scAllowedStatus.put(APPROVED,Boolean.TRUE);
-        scAllowedStatus.put(SHORTCLOSED,Boolean.TRUE);
-        scAllowedStatus.put(SC_L1_REJECTED,Boolean.TRUE);
-        scAllowedStatus.put(SC_L2_REJECTED,Boolean.TRUE);
-        scAllowedStatus.put(SC_L3_REJECTED,Boolean.TRUE);
     }
 
 }
