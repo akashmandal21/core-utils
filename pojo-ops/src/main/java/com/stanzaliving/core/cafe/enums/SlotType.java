@@ -16,15 +16,15 @@ public enum SlotType {
 
 	private String slotTypeName;
 
-	private static final List<EnumListing<Tags>> enumListing = new ArrayList<>();
+	private static final List<EnumListing<SlotType>> enumListing = new ArrayList<>();
 
-	public static List<EnumListing<Tags>> getEnumListing() {
+	public static List<EnumListing<SlotType>> getEnumListing() {
 		return enumListing;
 	}
 
 	static {
-		for (Tags tag : Tags.values()) {
-			EnumListing<Tags> listing = EnumListing.of(tag, tag.getTagName());
+		for (SlotType slotType : SlotType.values()) {
+			EnumListing<SlotType> listing = EnumListing.of(slotType, slotType.getSlotTypeName());
 			enumListing.add(listing);
 		}
 	}
