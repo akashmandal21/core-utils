@@ -1,6 +1,7 @@
 package com.stanzaliving.core.cafe.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.cafe.enums.ChargeType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +22,7 @@ public class ApplicableChargesDto extends AbstractDto{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String chargesType;
+	private ChargeType chargesType;
 	
 	private double value;
 	
