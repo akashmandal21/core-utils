@@ -14,9 +14,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BaseKitchenDto {
-	private String baseKitchenName;
-	
-	private String baseKitchenId;
-	
+
+	private String kitchenId;
+
+	private String kitchenName;
+
 	private boolean primaryKitchen;
 }
