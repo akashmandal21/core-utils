@@ -5,6 +5,8 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -12,8 +14,12 @@ import java.time.LocalDate;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CafeMenuScheduleDto {
-    private String slotId;
-    private LocalDate fromDate;
+public class CafeMenuSlotResponseDto {
+    private static final long serialVersionUID = 1L;
+    private Date lastPublished;
+    private String lastPublishedBy;
+
     private CafeMenuStateAction state;
+    private LocalDate stateFrom;
+    private List<CafeMenuResponseDto> menu;
 }
