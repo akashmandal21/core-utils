@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishImageUploadResponseDto {
+public class ImageUploadResponseDto {
 	private String uploadedFileUrl;
 
 	private String uploadedImageId;

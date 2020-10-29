@@ -4,6 +4,8 @@ import com.stanzaliving.core.generic.constants.GenericConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.*;
+
 @Getter
 @AllArgsConstructor
 public enum GenericPOTOStatus {
@@ -38,11 +40,35 @@ public enum GenericPOTOStatus {
 
 
 
+
+
+
+
     private String statusText;
     private String statusColor;
     private String bgColor;
     private Integer order;
     private boolean underShortClose;
     private boolean underCancel;
+
+    public static Set<GenericPOTOStatus> cancelStatus = new HashSet<>(5);
+    public static Set<GenericPOTOStatus> cancelRejectStatus = new HashSet<>(5);
+    public static Set<GenericPOTOStatus> scStatus = new HashSet<>(5);
+    public static Set<GenericPOTOStatus> scRejectStatus = new HashSet<>(5);
+    public static Set<GenericPOTOStatus> scAllowedStatus = new HashSet<>(10);
+    public static Set<GenericPOTOStatus> firstApprovalCycle = new HashSet<>(10);
+    public static Set<GenericPOTOStatus> firstApprovalRejects = new HashSet<>(5);
+
+    static {
+        cancelStatus.addAll(Arrays.asList(CANCEL_L1_APPROVAL_DUE,CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE));
+        cancelRejectStatus.addAll(Arrays.asList(CANCEL_L1_REJECTED,CANCEL_L2_REJECTED,CANCEL_L3_REJECTED));
+        scStatus.addAll(Arrays.asList(SC_L1_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE));
+        scRejectStatus.addAll(Arrays.asList(SC_L1_REJECTED,SC_L2_REJECTED,SC_L3_REJECTED));
+        scAllowedStatus.addAll(Arrays.asList(CANCEL_L1_REJECTED,CANCEL_L2_REJECTED,CANCEL_L3_REJECTED,
+                APPROVED,SHORTCLOSED,SC_L1_REJECTED,SC_L2_REJECTED,SC_L3_REJECTED));
+        firstApprovalCycle.addAll(Arrays.asList(IN_DRAFT,L1_SENT_BACK,L2_SENT_BACK,L3_SENT_BACK,L1_APPROVAL_DUE,L2_APPROVAL_DUE,L3_APPROVAL_DUE));
+        firstApprovalRejects.addAll(Arrays.asList(L1_SENT_BACK,L2_SENT_BACK,L3_SENT_BACK));
+
+    }
 
 }
