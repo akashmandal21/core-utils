@@ -1,9 +1,9 @@
 package com.stanzaliving.core.cafe.dto.menu;
 
-import com.stanzaliving.core.cafe.enums.CafeMenuCopyOption;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
@@ -13,8 +13,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CafeMenuCopyRequestDto {
+    @NotNull(message = "Empty Slot Id")
     private String slotId;
-    private CafeMenuCopyOption from;
-    private CafeMenuCopyOption to;
+    @NotNull(message = "Empty Copy Start Date")
     private LocalDate startDate;
 }

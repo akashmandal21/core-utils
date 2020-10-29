@@ -18,10 +18,14 @@ public class CafeMenuItemResponseDto extends AbstractDto {
     private boolean diningAllowed;
     private boolean pickUpAllowed;
     private boolean discountAllowed;
+    private boolean visible;
     private Double discount;
     private String itemId;
+    private String description;
     private String name;
     private Double price;
     private Double ratings;
+    private boolean containsEgg;
+    private boolean nonVeg;
 
 }
