@@ -3,19 +3,14 @@
  */
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalDate;
-
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.estate.enums.EstateGender;
 import com.stanzaliving.core.food.enums.FoodPreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.time.LocalDate;
 
 /**
  * @author naveen.kumar
@@ -56,4 +51,6 @@ public class ResidenceConfigDto {
 	private EstateGender gender;
 	
 	private LocalDate startDate;
+
+	private boolean operational;
 }

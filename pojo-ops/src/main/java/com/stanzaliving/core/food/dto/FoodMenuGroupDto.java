@@ -3,19 +3,14 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.food.enums.FoodMenuStatus;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
-
-import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.food.enums.FoodMenuStatus;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 /**
  * @author naveen.kumar
@@ -64,6 +59,8 @@ public class FoodMenuGroupDto extends AbstractDto {
 	private boolean editingAllowed;
 
 	private boolean centralApprovable;
+
+	private boolean operational;
 
 	private String residenceIds;
 
