@@ -1,14 +1,18 @@
 package com.stanzaliving.core.electricity.dto;
 
-import com.stanzaliving.core.electricity.constants.MeterType;
-import com.stanzaliving.core.electricity.constants.ReadingUnitType;
-import com.stanzaliving.core.utility.dto.MeterAddDto;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import com.stanzaliving.core.electricity.constants.MeterType;
+import com.stanzaliving.core.electricity.constants.ReadingUnitType;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -18,20 +22,25 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class EMeterAddDto {
 
-    @NotBlank(message = "Meter Category Cannot be blank")
-    private String categoryId;
+	@NotBlank(message = "Meter Category Cannot be blank")
+	private String categoryId;
 
-    @NotBlank(message = "Meter Number Cannot be blank")
-    private String number;
+	@NotBlank(message = "Meter Sub Category Cannot be blank")
+	private String subCategoryId;
 
-    @NotNull(message = "Start reading is mandatory")
-    @Min(value = 0, message = "Meter reading cannot be negative")
-    private Double reading;
+	@NotBlank(message = "Meter Number Cannot be blank")
+	private String number;
 
-    @NotBlank(message = "Meter image is mandatory")
-    private String image;
+	@NotNull(message = "Start reading is mandatory")
+	@Min(value = 0, message = "Meter reading cannot be negative")
+	private Double reading;
 
-    private MeterType meterType;
+	@NotBlank(message = "Meter image is mandatory")
+	private String image;
 
-    private ReadingUnitType unitType;
+	@NotNull(message = "Meter Type is mandatory")
+	private MeterType meterType;
+
+	@NotNull(message = "Reading Unit Type is mandatory")
+	private ReadingUnitType unitType;
 }
