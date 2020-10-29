@@ -12,12 +12,16 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CafeMenuItemResponseDto extends AbstractDto {
     private static final long serialVersionUID = 1L;
-    protected boolean featured;
-    protected boolean deliveryAllowed;
-    protected boolean diningAllowed;
-    protected boolean pickUpAllowed;
-    protected boolean discountAllowed;
-    protected Double discount;
+
+    private boolean featured;
+    private boolean deliveryAllowed;
+    private boolean diningAllowed;
+    private boolean pickUpAllowed;
+    private boolean discountAllowed;
+    private Double discount;
     private String itemId;
+    private String name;
+    private Double price;
+    private Double ratings;
 
 }
