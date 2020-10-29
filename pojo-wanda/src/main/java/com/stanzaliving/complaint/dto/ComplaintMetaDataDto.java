@@ -79,7 +79,6 @@ public class ComplaintMetaDataDto extends AbstractDto {
 	
 	private String userType;
 	
-	@Builder.Default
-	private Boolean satisfied = Boolean.FALSE;
+	private Boolean satisfied;
 
 }

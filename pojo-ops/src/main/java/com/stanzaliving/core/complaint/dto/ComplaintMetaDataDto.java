@@ -51,7 +51,7 @@ public class ComplaintMetaDataDto extends AbstractDto {
 	private String firstName;
 	private String lastName;
 	private String userType;
-	private boolean satisfied;
+	private Boolean satisfied;
 
 	private EnumComplaintStatus complaintStatus;
 
