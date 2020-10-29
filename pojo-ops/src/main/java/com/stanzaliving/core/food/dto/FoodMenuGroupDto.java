@@ -49,6 +49,8 @@ public class FoodMenuGroupDto extends AbstractDto {
 
 	private List<DateWiseFoodMenuDto> dateWiseFoodMenus;
 
+	private List<MealWiseRatingDto> weeklyRating;
+
 	private boolean compositionRulesSatisfied;
 
 	private boolean budgetUtilizationInLimit;
