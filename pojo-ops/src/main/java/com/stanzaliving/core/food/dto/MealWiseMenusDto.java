@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import com.stanzaliving.core.operations.enums.MealType;
@@ -33,4 +34,9 @@ public class MealWiseMenusDto {
 	private String mealTypeName;
 
 	private List<MealFoodMenuDto> menuDtos;
+
+	private String mealStartTime;
+
+	private String mealEndTime;
+
 }
