@@ -32,4 +32,6 @@ public class BookingStatusResponseDto {
     private Integer residenceId;
     private BookingSource bookingSource;
     private String bookingSubStatus;
+    private String androidVersion;
+    private String appleVersion;
 }
