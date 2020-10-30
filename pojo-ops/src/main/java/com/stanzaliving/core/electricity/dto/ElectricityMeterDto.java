@@ -21,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EMeterDto extends AbstractDto {
+public class ElectricityMeterDto extends AbstractDto {
 
 	private static final long serialVersionUID = -7575068647325350104L;
 
@@ -40,15 +40,15 @@ public class EMeterDto extends AbstractDto {
 
 	private Date deactivatedOn;
 
-	private EReadingDto lReading;
+	private ElectricityReadingDto lReading;
 
-	private EReadingDto oReading;
+	private ElectricityReadingDto oReading;
 
 	private Double unitConsumed;
 
 	private Double average;
 
-	private List<EReadingDto> readings;
+	private List<ElectricityReadingDto> readings;
 
 	private MeterType meterType;
 

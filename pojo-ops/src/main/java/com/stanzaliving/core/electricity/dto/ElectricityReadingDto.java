@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true, exclude = { "image" })
-public class EReadingDto extends AbstractDto {
+public class ElectricityReadingDto extends AbstractDto {
 
     private static final long serialVersionUID = -1670129756539320124L;
 

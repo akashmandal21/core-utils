@@ -20,7 +20,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EMeterAddDto {
+public class ElectricityMeterAddDto {
 
 	@NotBlank(message = "Meter Category Cannot be blank")
 	private String categoryId;
