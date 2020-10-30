@@ -4,6 +4,7 @@
 package com.stanzaliving.core.food.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.food.dto.response.ResidenceOperationalResponseDto;
 import com.stanzaliving.core.food.enums.FoodMenuStatus;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -47,6 +48,8 @@ public class FoodMenuGroupDto extends AbstractDto {
 	private boolean compositionRulesSatisfied;
 
 	private boolean budgetUtilizationInLimit;
+
+	private List<ResidenceOperationalResponseDto> residenceOperationals;
 
 	private boolean vendorSelected;
 
