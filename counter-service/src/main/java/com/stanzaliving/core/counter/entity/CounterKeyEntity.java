@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,15 +22,16 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @Table(name = "counter_key")
-public class CounterKeyEntity implements Serializable{
+public class CounterKeyEntity extends AbstractJpaEntity {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "key", columnDefinition = "varchar(100)")
+	@Column(name = "category_key")
 	private String key;
 	
 	@Column(name = "count")

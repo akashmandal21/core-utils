@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface CounterService {
 
-	public Long increaseCount(CounterKey counterKey);
+	Long increaseCount(CounterKey counterKey);
 		
 }
