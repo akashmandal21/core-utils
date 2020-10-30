@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -19,7 +20,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ResidenceOperationalResponseDto {
 
-	private String residenceId;
+	private ListingDto residence;
 
 	private boolean operational;
 
