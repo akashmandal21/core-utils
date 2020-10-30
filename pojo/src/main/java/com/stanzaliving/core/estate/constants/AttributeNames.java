@@ -554,6 +554,7 @@ public class AttributeNames {
 			landlordAgreedKeys.add("occupiedLevelClauseBBoolean");
 			landlordAgreedKeys.add("occupiedLevelClauseCBoolean");
 			landlordAgreedKeys.add("occupiedLevelClauseDBoolean");
+			landlordAgreedKeys.add("waterSupplyClauseEBoolean");
 			landlordAgreedKeys.add("occupiedLevelClauseEBoolean");
 			landlordAgreedKeys.add("occupiedLevelClauseFBoolean");
 			landlordAgreedKeys.add("powerBackupClauseABoolean");
