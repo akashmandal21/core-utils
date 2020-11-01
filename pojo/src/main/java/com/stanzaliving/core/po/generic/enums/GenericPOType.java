@@ -7,7 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum  GenericPOType {
     NON_RENTAL("Non-Rental Items/ Service PO"),
-    RENTAL("Rental Items PO");
+    RENTAL("Rental Items PO"),
+    ASIS("Asis PO");
 
     private String poTypeText;
 }

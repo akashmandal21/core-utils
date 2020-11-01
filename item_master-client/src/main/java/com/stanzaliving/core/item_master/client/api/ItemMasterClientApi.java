@@ -291,4 +291,25 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
 
+
+	public ResponseDto<List<GenericItemDto>> getGenericAsisItems(String cityUuid) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("cityUuid",cityUuid);
+		String path = UriComponentsBuilder.fromPath("/internal/generic/get/asisItems/{department}/{cityUuid}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<GenericItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericItemDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+	}
 }
