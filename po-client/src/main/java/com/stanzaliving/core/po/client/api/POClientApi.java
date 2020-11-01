@@ -234,39 +234,7 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
     
-    public ResponseDto<PoDetailsResponse> getGenericPoDetails(String poUuid) {
-
-        if (Objects.isNull(poUuid))
-            return null;
-
-        Object postBody = null;
-
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-
-        uriVariables.put("poUuid", poUuid);
-
-        String path = UriComponentsBuilder.fromPath("/get/generic/po/{poUuid}").buildAndExpand(uriVariables).toUriString();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        final HttpHeaders headerParams = new HttpHeaders();
-
-        final String[] accepts = {
-                "*/*"
-        };
-
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<PoDetailsResponse>> returnType = new ParameterizedTypeReference<ResponseDto<PoDetailsResponse>>() {
-        };
-
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-    }
-
-
-
-    public ResponseDto<PoDetailsResponse> getPoDetailsWithItems(String poUuid) {
+     public ResponseDto<PoDetailsResponse> getPoDetailsWithItems(String poUuid) {
 
         log.info("HTTP Client call to get PO Details with Items {}",poUuid);
 
