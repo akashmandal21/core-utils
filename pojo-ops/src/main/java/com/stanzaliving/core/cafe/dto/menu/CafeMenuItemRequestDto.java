@@ -17,8 +17,8 @@ public class CafeMenuItemRequestDto {
     private boolean deliveryAllowed;
     private boolean diningAllowed;
     private boolean pickUpAllowed;
-    private boolean discountAllowed;
-    private boolean visible;
+    private boolean dealOn;
+    private boolean visibleInMenu;
     private Double discount;
     @NotNull(message = "Empty Item Id")
     private String itemId;
