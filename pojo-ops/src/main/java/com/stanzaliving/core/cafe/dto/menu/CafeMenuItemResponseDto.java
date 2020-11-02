@@ -31,5 +31,6 @@ public class CafeMenuItemResponseDto extends AbstractDto {
 
     private Map<String,Double> ratings;
     private Map<String,Double> orders;
+    private boolean disable;
 
 }
