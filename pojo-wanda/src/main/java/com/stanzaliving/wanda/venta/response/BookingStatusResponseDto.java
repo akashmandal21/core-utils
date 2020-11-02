@@ -34,4 +34,5 @@ public class BookingStatusResponseDto {
     private String bookingSubStatus;
     private String androidVersion;
     private String appleVersion;
+    private boolean wp;
 }
