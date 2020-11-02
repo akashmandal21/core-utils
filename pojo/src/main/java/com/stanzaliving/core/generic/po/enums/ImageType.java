@@ -2,23 +2,19 @@ package com.stanzaliving.core.generic.po.enums;
 
 import java.util.HashMap;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum ImageType {
 
-	RECEIVED,
-	INSTALLED, 
-	RETURNED, 
-	REJECTED;
+	RECEIVED("receivedItem"),
+	INSTALLED("installedItem"), 
+	RETURNED("returnedItem"), 
+	REJECTED("rejectedItem");
 	
-	private static HashMap<String, ImageType> types;
-    static {
-        types = new HashMap<>();
-        for (ImageType r : ImageType.values()) {
-            types.put(r.toString(), r);
-        }
-    }
-
-    public static ImageType getImageType(String type) {
-        return types.get(type);
-    }
+	private String key;
+	
 	
 }
