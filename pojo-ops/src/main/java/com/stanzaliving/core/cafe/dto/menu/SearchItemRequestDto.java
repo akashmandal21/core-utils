@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -17,5 +18,7 @@ public class SearchItemRequestDto {
     private String cafeId;
     @NotNull(message = "Empty Residence Id")
     private String residenceId;
+
+    private LocalDate menuDate;
     private ItemListingMethod method;
 }

@@ -23,14 +23,20 @@ public class CafeMenuItemResponseDto extends AbstractDto {
     private boolean visibleInMenu;
     private Double discount;
     private String itemId;
+
+    //from vas master
     private String description;
     private String name;
-    private Double price;
     private boolean containsEgg;
     private boolean nonVeg;
+    private String category;
 
     private Map<String,Double> ratings;
     private Map<String,Double> orders;
-    private boolean disable;
+    private Double margin;
+
+    //from cafe pricing
+    private Double price;
+    private boolean disableAtCafe;
 
 }
