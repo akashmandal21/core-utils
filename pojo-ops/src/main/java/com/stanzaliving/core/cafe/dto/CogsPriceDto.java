@@ -1,5 +1,7 @@
 package com.stanzaliving.core.cafe.dto;
 
+import javax.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,15 +11,19 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString
 @SuperBuilder
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class BaseKitchenDto {
-
+public class CogsPriceDto {
+	
+	@NotBlank(message = "Kitchen Selection is mandatory")
 	private String kitchenId;
-
+	
 	private String kitchenName;
-
+		
+	private Double costPrice;
+	
 	private boolean primaryKitchen;
+
 }

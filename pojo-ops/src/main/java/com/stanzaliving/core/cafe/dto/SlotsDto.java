@@ -21,7 +21,9 @@ public class SlotsDto extends AbstractDto{
 
 	private static final long serialVersionUID = 1L;
 	
-	private String cafeResidanceMappingId;
+	private String cafeId;
+
+	private String residenceId ;
 	
 	private String slotName;
 	
