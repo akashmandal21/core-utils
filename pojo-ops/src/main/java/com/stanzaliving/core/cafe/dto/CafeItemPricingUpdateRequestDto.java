@@ -33,6 +33,8 @@ public class CafeItemPricingUpdateRequestDto {
 	
 	private boolean itemEnableStatus;
 	
+	private boolean residencePriceEnabled;
+	
 	private List<ResidenceItemPricingUpdateRequestDto> residenceItemPricingList;
 
 }	

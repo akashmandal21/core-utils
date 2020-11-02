@@ -33,11 +33,7 @@ public class PricingUpdateRequestDto extends AbstractDto{
 	private static final long serialVersionUID = 1L;
 
 	private String cafeId;
-	
-	private String cafeName;
-	
-//	private List<BaseKitchenDto> kitchens;
-	
+			
 	private List<CafeItemPricingUpdateRequestDto> cafeItemsPricingList;
 
 }
