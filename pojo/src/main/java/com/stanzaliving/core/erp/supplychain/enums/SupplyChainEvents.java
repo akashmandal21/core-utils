@@ -25,6 +25,7 @@ public enum SupplyChainEvents {
     PO_CANCEL_APPROVAL("PO Cancel Request Approval",true),
     PO_CANCEL_REJECTED("PO Cancel Request Rejected",true),
     PO_CANCELLED("PO Cancelled",true),
+    PO_DURATION_EXPIRED("PO Duration expired",false),
 
 
     GSRI_STARTED("GSRI Started",false),

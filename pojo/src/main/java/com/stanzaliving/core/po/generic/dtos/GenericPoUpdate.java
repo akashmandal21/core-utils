@@ -1,6 +1,7 @@
 package com.stanzaliving.core.po.generic.dtos;
 
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.erp.supplychain.enums.SupplyChainEvents;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,4 +22,6 @@ public class GenericPoUpdate {
     private LocalDateTime lastUpdatedAt;
 
     private Department department;
+
+    private SupplyChainEvents event;
 }
