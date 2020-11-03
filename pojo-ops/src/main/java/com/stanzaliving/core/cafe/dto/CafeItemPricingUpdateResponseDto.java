@@ -57,6 +57,8 @@ private String packaging;
 
 private boolean itemEnableStatus;
 
+private boolean residencePriceEnabled;
+
 private List<ResidenceItemPricingUpdateRequestDto> residenceItemPricingList;
 
 }	

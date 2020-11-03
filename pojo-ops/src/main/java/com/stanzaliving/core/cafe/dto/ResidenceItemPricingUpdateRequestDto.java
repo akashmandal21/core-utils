@@ -36,5 +36,4 @@ public class ResidenceItemPricingUpdateRequestDto {
 	
 	private Double margin;
 	
-	private boolean residencePriceEnabled;
 }
