@@ -4,7 +4,6 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.pojo.CurrentUser;
 import com.stanzaliving.core.user.client.api.UserClientApi;
 import com.stanzaliving.core.user.dto.UserProfileDto;
 import lombok.extern.log4j.Log4j2;
@@ -59,21 +58,22 @@ public class UserCache {
 
 						@Override
 						public UserProfileDto load(String key) {
-							try {
-								ResponseDto<UserProfileDto> responseDto = userClientApi.getUserProfileByUuid(key);
+							ResponseDto<UserProfileDto> responseDto = userClientApi.getUserProfileByUuid(key);
 
-								if (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) {
-									return responseDto.getData();
-								}
-							} catch (Exception e) {
-								log.error("Unable to get UserProfile from uuid {}", key, e);
+							if (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) {
+								return responseDto.getData();
 							}
 							return null;
 						}
 					});
 
 	public UserProfileDto getUserForUuid(String uuid) {
-		return userProfileCache.getUnchecked(uuid);
+		try {
+			return userProfileCache.getUnchecked(uuid);
+		} catch (Exception e) {
+			log.error("Unable to get UserProfile from uuid {}", uuid, e);
+			return null;
+		}
 	}
 
 	public String getUserName(String uuid) {
