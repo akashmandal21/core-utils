@@ -1,6 +1,7 @@
 package com.stanzaliving.core.opscalculator.dto.response;
 
 import com.stanzaliving.core.opscalculator.dto.UnderWrittenDto;
+import com.stanzaliving.core.opscalculator.enums.ApprovalStatus;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,5 +30,6 @@ public class MonthlyUnderWrittenDto extends UnderWrittenDto {
     private Double deviation;
     private Integer bedCount;
     private Integer roomCount;
+    private ApprovalStatus approvalStatus;
 
 }
