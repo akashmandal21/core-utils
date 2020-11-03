@@ -1,7 +1,5 @@
 package com.stanzaliving.core.generic.po.enums;
 
-import java.util.HashMap;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -9,11 +7,12 @@ import lombok.Getter;
 @Getter
 public enum ImageType {
 
-	RECEIVED("receivedItem"),
-	INSTALLED("installedItem"), 
-	RETURNED("returnedItem"), 
-	REJECTED("rejectedItem");
+	RECEIVED("Received Item", "receivedItem"),
+	INSTALLED("Installed Item", "installedItem"), 
+	RETURNED("Returned Item", "returnedItem"), 
+	REJECTED("Rejected Item", "rejectedItem");
 	
+	private String tabName;
 	private String key;
 	
 	
