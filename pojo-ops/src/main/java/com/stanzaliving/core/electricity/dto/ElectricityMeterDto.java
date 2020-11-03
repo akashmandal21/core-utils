@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.electricity.constants.MeterType;
 
+import com.stanzaliving.core.electricity.constants.ReadingUnitType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,6 +48,8 @@ public class ElectricityMeterDto extends AbstractDto {
 	private Double unitConsumed;
 
 	private Double average;
+	
+	private ReadingUnitType readingUnitType;
 
 	private List<ElectricityReadingDto> readings;
 
