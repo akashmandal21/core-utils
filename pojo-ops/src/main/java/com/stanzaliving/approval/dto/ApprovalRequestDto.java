@@ -2,14 +2,18 @@ package com.stanzaliving.approval.dto;
 
 import com.stanzaliving.approval.enums.ApprovalEntityType;
 import com.stanzaliving.approval.enums.ApprovalStatus;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.HashMap;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ApprovalRequestDto {
     
     Date requestTime;
