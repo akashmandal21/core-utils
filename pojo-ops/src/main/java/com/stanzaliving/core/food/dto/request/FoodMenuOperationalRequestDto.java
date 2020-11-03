@@ -8,6 +8,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -28,7 +29,7 @@ public class FoodMenuOperationalRequestDto {
 	@NotBlank(message = "Menu selection is mandatory")
 	private String menuGroupId;
 
-	@NotBlank(message = "Marking Operational flag is mandatory")
+	@NotNull(message = "Marking Operational flag is mandatory")
 	private Boolean operational;
 
 }
