@@ -1,7 +1,6 @@
 package com.stanzaliving.core.electricity.dto;
 
 
-import com.stanzaliving.core.electricity.constants.ReadingUnitType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -15,5 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MetricDto {
     private String categoryName;
-    List<ValueDto> valueDtos;
+    private Double totalValue;
+    private List<ValueDto> valueDtos;
+    
 }
