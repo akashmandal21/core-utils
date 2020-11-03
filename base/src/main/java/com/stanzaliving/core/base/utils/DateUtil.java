@@ -221,6 +221,10 @@ public class DateUtil {
 		return convertToLocalDate(date, StanzaConstants.IST_TIMEZONE);
 	}
 
+	public LocalDate getLocalDate(Date date) {
+		return convertToLocalDate(date);
+	}
+
 	public LocalDate convertToLocalDateFromUTC(Date date) {
 		return convertToLocalDate(date, StanzaConstants.UTC_TIMEZONE);
 	}
