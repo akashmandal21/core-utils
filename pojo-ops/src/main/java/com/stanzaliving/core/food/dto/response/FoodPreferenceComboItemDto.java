@@ -18,6 +18,12 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodPreferenceComboItemDto {
 
+	private String itemId;
+
+	private String categoryId;
+
+	private String subCategoryId;
+
 	private String itemName;
 
 	private Integer stdQty;
