@@ -23,5 +23,4 @@ public class GenericPoUpdate {
 
     private Department department;
 
-    private SupplyChainEvents event;
 }
