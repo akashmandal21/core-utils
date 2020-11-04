@@ -33,7 +33,7 @@ private String itemId;
 
 private String itemName;
 
-private Double gst;
+private Double gstAmount;
 
 private Double gstPercent;
 
