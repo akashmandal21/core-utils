@@ -85,7 +85,7 @@ public abstract class TemplateProcessor {
     public Map<String, UiParentField> getBasicUIData(TemplateFilter templateFilter, String templateName,
                                                      Map<String,Object> additionalData, Object sourceClass, Map<String,Field> fieldMap) {
 
-        log.info("Request to render UI Form {} {}",sourceClass,fieldMap);
+        log.info("Request to render UI Form ");
 
         Map<String, Templates> templates = getTemplates(templateFilter,templateName);
         return getUiFields(templateName,templates,fieldMap,sourceClass,additionalData,sourceClass);
@@ -118,7 +118,7 @@ public abstract class TemplateProcessor {
                                                                          Map<String,JsonNode> uiSubmittedDto, boolean isDraft, boolean isSaveOnError,
                                                                          ErrorInfo errorInfo, Map<String,Object> additionalData,
                                                                          Object sourceClass, Map<String,Field> fieldMap, boolean allowSkipOnNewFields){
-        log.info("Request to Store data Submitted with validations {} {}",sourceClass,fieldMap);
+        log.info("Request to Store data Submitted with validations ");
 
         Map<String, Templates> templates = getTemplates(templateFilter,templateName);
         return verifyAndStoreData(uiSubmittedDto,templateName,templates, isDraft,errorInfo,isSaveOnError,

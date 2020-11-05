@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @AllArgsConstructor
@@ -25,5 +26,13 @@ public class GenericItemDto {
     private String itemDescription;
     private UIKeyValue itemType;
     private UIKeyValue uom;
+    private String hsnSacCode;
+    private UIKeyValue gstSlabs;
+    private Double cgst;
+    private Double sgst;
+    private Double igst;
 
+    //Rates
+    private BigDecimal globalRate;
+    private BigDecimal cityRate;
 }

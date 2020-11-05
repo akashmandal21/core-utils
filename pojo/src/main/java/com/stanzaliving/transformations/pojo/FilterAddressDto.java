@@ -20,7 +20,9 @@ public class FilterAddressDto {
 	private List<LocationType> locationTypes;
 
 	private String locationUUID;
-	
+
+	private List<String> locations;
+
 	private String locationName;
 	
 	private String cityUUID;
