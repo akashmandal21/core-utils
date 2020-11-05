@@ -24,7 +24,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum FoodItemBasePreference {
 
-	BALANCED("Balanced", "Balanced Thali"),
+	BALANCED("Balanced", "Regular Thali"),
 	RICE_BASE("Rice Base", "Rice Thali"),
 	ROTI_BASE("Roti Base", "Roti Thali"),
 	COMBO("Combo", "Combo");
@@ -44,7 +44,7 @@ public enum FoodItemBasePreference {
 
 		preferencesByRegionMap.put(FoodRegion.NORTH, enumListings);
 		preferencesByRegionMap.put(FoodRegion.SOUTH, Arrays.asList(EnumListing.of(RICE_BASE, RICE_BASE.getBasePreference()), EnumListing.of(COMBO, COMBO.getBasePreference())));
-		preferencesByRegionMap.put(FoodRegion.CONTINENTAL, Arrays.asList(EnumListing.of(BALANCED, BALANCED.getBasePreference())));
+		preferencesByRegionMap.put(FoodRegion.CONTINENTAL, Arrays.asList(EnumListing.of(COMBO, COMBO.getBasePreference())));
 		preferencesByRegionMap.put(FoodRegion.MIX, Arrays.asList(EnumListing.of(BALANCED, BALANCED.getBasePreference())));
 		preferencesByRegionMap.put(FoodRegion.INDIAN, Arrays.asList(EnumListing.of(COMBO, COMBO.getBasePreference())));
 
