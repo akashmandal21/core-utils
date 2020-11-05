@@ -1,12 +1,7 @@
-/**
- * @author nipunaggarwal
- *
- */
-package com.stanzaliving.core.complaint.dto;
+package com.stanzaliving.complaint.dto;
 
 import java.util.Date;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,31 +9,32 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Getter
 @Setter
 @ToString
-@SuperBuilder
 @NoArgsConstructor
-@AllArgsConstructor
+@SuperBuilder
 public class ComplaintListingDto {
 
 	private String userId;
-	private String userName;
-	private String mobileNo;
-	private String roomNo;
-	private String complaintUuid;
+
 	private String complaintCategory;
-	private String complaintStatus;
+
+	private String mobileNo;
+
+	private String roomNo;
+
 	private Date created;
+
 	private Date closedAt;
+
+	private String complaintUuid;
+
+	private String complaintStatus;
+
+	private String userName;
+	
 	@Builder.Default
 	private Boolean satisfied = Boolean.FALSE;
-	private String complaintTypeName;
-	private String complaintTypeImgUrl;
-	private Long cmsId;
 
 }

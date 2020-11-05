@@ -1,7 +1,3 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.core.complaint.dto;
 
 import lombok.AllArgsConstructor;
@@ -12,30 +8,24 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author nipunaggarwal
- *
- */
+import javax.validation.constraints.NotBlank;
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ComplaintFAQDto {
+public class CreateComplaintFAQDto {
 
 	private String complaintFAQUuid;
-	private String question;
-	private String answer;
-	private Integer sequenceId;
-	private String residenceId;
-	private String complaintCategoryTypeId;
-	private String complaintcategoryTypeName;
-	
-	@Builder.Default
-	private Boolean commonlyAskedQuestion = Boolean.FALSE;
 
-	@Builder.Default
-	private Boolean status = Boolean.TRUE;
+	@NotBlank(message = "Question can't be blank")
+	private String question;
+
+	@NotBlank(message = "Answer can't be blank")
+	private String answer;
+
+	private Integer sequenceId;
 
 }
