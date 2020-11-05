@@ -20,6 +20,7 @@ import java.util.List;
 public class PoDetailsResponse {
 
     private String poUuid;
+    private String poNumber;
     private GenericPOType potype;
     private GenericPOTOStatus postatus;
     private BigDecimal otherFeeSubTotal;
