@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RequestMapping("/question")
-@RestController
+//@RestController
 public class QuestionController {
 
     @Autowired
