@@ -26,7 +26,7 @@ public class ApplicableChargesDto extends AbstractDto{
 	
 	private Double value;
 	
-	private String gst;
+	private Double gst;
 	
 	private boolean mandatory;
 	
