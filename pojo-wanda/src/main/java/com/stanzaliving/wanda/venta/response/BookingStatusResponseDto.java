@@ -31,4 +31,9 @@ public class BookingStatusResponseDto {
     private String policeVerificationRejectedReason;
     private Integer residenceId;
     private BookingSource bookingSource;
+    private String bookingSubStatus;
+    private String androidVersion;
+    private String appleVersion;
+    private String userCategory;
+    private boolean wp;
 }
