@@ -25,6 +25,8 @@ public class OfferDto {
 	@NotNull(message = "Offer Name is mandatory")
     String  offerName;
 	
+    String whatsappMessage;
+	
 	@NotNull(message = "Validity Date is mandatory")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = StanzaConstants.IST_TIMEZONE)
 	Date validityDate;

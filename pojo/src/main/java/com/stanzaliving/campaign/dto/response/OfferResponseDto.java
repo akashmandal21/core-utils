@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 public class OfferResponseDto{
 
 	
-	Long OfferId;
-    String OfferUuid;
-    String OfferName;
-	
+	Long offerId;
+    String offerUuid;
+    String offerName;
+    String whatsappMessage;
 }
