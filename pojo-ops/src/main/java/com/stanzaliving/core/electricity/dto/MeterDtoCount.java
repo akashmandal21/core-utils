@@ -1,9 +1,12 @@
 package com.stanzaliving.core.electricity.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.ListingCountDto;
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -16,9 +19,9 @@ public class MeterDtoCount extends AbstractDto {
 
     private static final long serialVersionUID = -6295408942604978666L;
     
-    private Map<String, Long> meterTypeCount;
+    private List<ListingCountDto> meterTypeCount;
     
-    private Map<String, Long> meterCategoryWiseCount;
+    private List<ListingCountDto> meterCategoryWiseCount;
     
     private long activeMeterCount;
     
