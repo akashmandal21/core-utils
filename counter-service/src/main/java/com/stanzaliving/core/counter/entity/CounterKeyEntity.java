@@ -1,12 +1,11 @@
 package com.stanzaliving.core.counter.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
