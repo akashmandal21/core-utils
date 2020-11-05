@@ -73,7 +73,8 @@ public enum VendorType {
 	NEW_SALES_DISCOUNT("New Sales Discount"),
 	PRE_SALES_DISCOUNT("Pre-sales Discount"),
 	EVENTS_ACTIVATIONS("Events-Activations"),
-	PARTNERSHIPS("Partnerships");
+	PARTNERSHIPS("Partnerships"),
+	B2B_INCENTIVE("B2B Incentive");
 
 
 	private String type;
