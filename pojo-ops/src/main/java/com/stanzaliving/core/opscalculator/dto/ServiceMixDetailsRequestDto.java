@@ -19,4 +19,6 @@ public class ServiceMixDetailsRequestDto {
     private String seasonUuid;
     @Builder.Default
     private boolean newServiceMixAvailable = false;
+    @Builder.Default
+    private boolean newUnderwritten = false;
 }
