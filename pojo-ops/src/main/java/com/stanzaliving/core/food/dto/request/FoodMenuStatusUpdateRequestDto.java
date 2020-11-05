@@ -25,6 +25,4 @@ public class FoodMenuStatusUpdateRequestDto extends FoodMenuSubmitRequestDto {
 	private FoodMenuStatus menuStatus;
 
 	private String comment;
-
-	private Boolean operational;
 }
