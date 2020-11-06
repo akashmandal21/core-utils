@@ -12,13 +12,15 @@ public class MonthUtils {
 
     public Date getFirstDateOfMonth(Integer year, Integer month) {
 
-        if (month == null || year == null) {
-            LocalDate now = LocalDate.now();
+        LocalDate now = LocalDate.now();
+        if (year == null) {
             year = now.getYear();
-            month = now.getMonthValue();
-        } else {
-            validateMonth(year, month);
         }
+        if (month == null) {
+            month = now.getMonthValue();
+        }
+        validateMonth(year, month);
+
 
         return DateUtil.convertToDate(DateUtil.getMonthStartBeginningDate(month, year));
     }
