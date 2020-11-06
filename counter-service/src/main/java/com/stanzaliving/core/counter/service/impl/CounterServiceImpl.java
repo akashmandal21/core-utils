@@ -75,17 +75,28 @@ public class CounterServiceImpl implements CounterService{
 	
 	
 	public void test(String loopId) {
-		
-		List<String> key = new ArrayList<>();
-		
-		for(int i=0;i<1000;i++) {
-			key.add(getKey("AD","NC"));
+		if(loopId.equals("TH"))
+			test1();
+		else {
+			List<String> key = new ArrayList<>();
+
+			for (int i = 0; i < 50000; i++) {
+				key.add(getKey("TH", "NC"));
+			}
+
+			key.forEach(k -> {
+				log.info(loopId + "-" + k);
+			});
 		}
 		
-		key.forEach(k->{
-			log.info(loopId+"-"+k);
-		});
-		
+	}
+
+	public void test1() {
+
+		for(int i=0;i<100000;i++){
+			countRepository.save(CounterKeyEntity.builder().count(i).key("TH_NC").build());
+		}
+
 	}
 
 	
