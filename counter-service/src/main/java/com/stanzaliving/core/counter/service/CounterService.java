@@ -6,5 +6,10 @@ import org.springframework.stereotype.Service;
 public interface CounterService {
 
 	Long increaseCount(CounterKey counterKey);
+
+	void populateDbData(String dep, String plat);
+
+	String getKey(String department, String platform);
 		
+	void test(String loopId);
 }

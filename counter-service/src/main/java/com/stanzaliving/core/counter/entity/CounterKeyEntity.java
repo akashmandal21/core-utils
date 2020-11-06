@@ -1,14 +1,16 @@
 package com.stanzaliving.core.counter.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
-
-import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,18 +23,25 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
 @Table(name = "counter_key")
-public class CounterKeyEntity extends AbstractJpaEntity {
+public class CounterKeyEntity implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected Long id;
 
 	@Column(name = "category_key")
 	private String key;
 	
 	@Column(name = "count")
-	private Long count;
+	private Integer count;
+	
+	@Builder.Default
+	@Column(name = "status", columnDefinition = "bit(1) default 1")
+	protected boolean status = true;
 }

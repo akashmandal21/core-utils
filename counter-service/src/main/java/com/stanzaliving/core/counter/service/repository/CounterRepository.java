@@ -16,4 +16,6 @@ public interface CounterRepository extends JpaRepository<CounterKeyEntity, Long>
 
 	CounterKeyEntity findByKey(String key);
 
+	//String getKey(String department, String platform);
+
 }
