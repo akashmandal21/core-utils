@@ -376,4 +376,25 @@ public class ItemMasterClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
+	public ResponseDto<List<ItemDto>> searchItemsWithFilters(Department department, String searchText, FilterDto filterDto) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("department",department);
+		uriVariables.put("searchText",searchText);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		String path = UriComponentsBuilder.fromPath("/internal/generic/get/searchwithfilter/{department}/{searchText}").buildAndExpand(uriVariables).toUriString();
+
+		ParameterizedTypeReference<ResponseDto<List<ItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ItemDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, filterDto, headerParams, accept, returnType);
+	}
 }
