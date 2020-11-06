@@ -38,5 +38,8 @@ public class CafeListingDto {
 	private String cityName;
 
 	private List<BaseKitchenDto> baseKitchens;
+	
+	private long mappedResidenceCount;
+	
 
 }

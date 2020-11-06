@@ -26,4 +26,6 @@ public class MonthlyFee {
 	private String totalWithoutVAS;
 
 	private List<Pair<String, String>> vasFees;
+
+	private String maintenanceFee;
 }
