@@ -21,11 +21,9 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class ItemPricingUpdateRequestDto {
 	@NotBlank(message = "Vas Item Selection is mandatory")
-	private String ItemId;
+	private String vasItemId;
 
 	private Double finalPrice;
-	
-	private double marginPercent;
 
 	private Boolean status;
 }

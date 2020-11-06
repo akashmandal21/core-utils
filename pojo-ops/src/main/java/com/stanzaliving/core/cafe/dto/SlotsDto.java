@@ -1,5 +1,6 @@
 package com.stanzaliving.core.cafe.dto;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
@@ -29,10 +30,12 @@ public class SlotsDto extends AbstractDto{
 	
 	private SlotType slotType;
 	
-	private String deliveryTime;
+	private LocalTime deliveryTime;
 
-	private String orderingWindow;
-	
+	private LocalTime orderingWindowStartTime;
+
+	private LocalTime orderingWindowEndTime;
+
 	private List<ApplicableChargesDto> applicableCharges;
 	
 
