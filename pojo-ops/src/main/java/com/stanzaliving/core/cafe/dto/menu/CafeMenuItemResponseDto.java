@@ -1,6 +1,5 @@
 package com.stanzaliving.core.cafe.dto.menu;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -12,7 +11,7 @@ import java.util.Map;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CafeMenuItemResponseDto extends AbstractDto {
+public class CafeMenuItemResponseDto {
     private static final long serialVersionUID = 1L;
 
     private boolean featured;
