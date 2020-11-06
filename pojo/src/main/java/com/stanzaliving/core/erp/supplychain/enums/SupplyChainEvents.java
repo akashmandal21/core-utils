@@ -84,4 +84,8 @@ public enum SupplyChainEvents {
         parentSCEvents.put(ADV_PAYMENT_COMPLETE, Arrays.asList(ADV_INV_APPROVED));
     }
 
+
+    public static List<SupplyChainEvents> getPossibleEvents(SupplyChainEvents currentSupplyChainEvents) {
+        return parentSCEvents.get(currentSupplyChainEvents);
+    }
 }
