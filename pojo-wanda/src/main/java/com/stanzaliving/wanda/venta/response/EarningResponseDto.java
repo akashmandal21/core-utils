@@ -30,5 +30,6 @@ public class EarningResponseDto {
     private String source;
     private ReferredPaymentStatus referredPaymentStatus;
     private String transactionId;
+    private TdsBreakUpResponseDTO amountBreakUp;
 
 }

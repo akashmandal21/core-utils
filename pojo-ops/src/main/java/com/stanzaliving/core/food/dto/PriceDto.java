@@ -13,18 +13,12 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PriceDto {
+public class PriceDto extends GstDto {
 	private Double subTotal;
-
-	private Double sgst;
-
-	private Double cgst;
-
-	private Double igst;
 
 	private Double totalTax;
 

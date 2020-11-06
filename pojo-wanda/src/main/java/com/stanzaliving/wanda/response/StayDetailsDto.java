@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.response;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import com.stanzaliving.wanda.dtos.AmenitiesDto;

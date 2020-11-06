@@ -1,6 +1,7 @@
 package com.stanzaliving.wanda.venta.response;
 
 import com.stanzaliving.wanda.enums.AlfredStep;
+import com.stanzaliving.wanda.venta.enums.BookingSource;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,5 +29,11 @@ public class BookingStatusResponseDto {
     private String otherIdRejectedReason;
     private Boolean policeVerificationStatus;
     private String policeVerificationRejectedReason;
-
+    private Integer residenceId;
+    private BookingSource bookingSource;
+    private String bookingSubStatus;
+    private String androidVersion;
+    private String appleVersion;
+    private String userCategory;
+    private boolean wp;
 }
