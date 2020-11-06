@@ -17,5 +17,6 @@ public class CafeRDto {
     private String name;
     private Integer itemCount;
     private List<ServingMode> modes;
+    private boolean currentlyActive;
 
 }
