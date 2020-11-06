@@ -61,6 +61,10 @@ public class FoodMenuGroupDto extends AbstractDto {
 
 	private boolean autoSubmitted;
 
+	private boolean centralFAndBAutoApproved;
+
+	private boolean vendorAutoApproved;
+
 	private boolean comboAllowed;
 	
 	private boolean editingAllowed;
