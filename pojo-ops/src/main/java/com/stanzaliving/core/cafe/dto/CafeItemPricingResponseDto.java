@@ -32,5 +32,7 @@ public class CafeItemPricingResponseDto {
 	
 	private List<BaseKitchenDto> kitchens = new ArrayList<>();
 	
+	private long enabledItemCount;
+	
 	private List<CafeItemPricingUpdateResponseDto> cafeItemsPricingList=  new ArrayList<>();;
 }
