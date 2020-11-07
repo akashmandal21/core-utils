@@ -35,11 +35,11 @@ public class CounterKeyEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 
-	@Column(name = "category_key")
+	@Column(name = "category_key",unique = true)
 	private String key;
 	
-	@Column(name = "count")
-	private Integer count;
+	@Column(name = "count_down")
+	private Long count;
 	
 	@Builder.Default
 	@Column(name = "status", columnDefinition = "bit(1) default 1")
