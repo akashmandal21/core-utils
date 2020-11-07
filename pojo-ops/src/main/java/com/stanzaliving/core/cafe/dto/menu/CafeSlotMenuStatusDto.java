@@ -10,6 +10,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CafeSlotMenuStatusDto {
+    private String slotId;
     private boolean active;
     private Integer itemCount;
 }
