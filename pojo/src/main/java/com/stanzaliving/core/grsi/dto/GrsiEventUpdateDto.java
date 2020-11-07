@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
@@ -14,9 +15,13 @@ public class GrsiEventUpdateDto {
 
     private String grsiId;
     private String poToId;
-    private LocationType locationType;
-    private String addressUuid;
+    private LocationType targetLocationType;
+    private String targetAddressUuid;
+    private LocationType srcLocationType;
+    private String srcAddressUuid;
     private boolean po;
+    private String doneBy;
+    private Date doneAt;
 
     List<GrsiItemDto> gsriItems;
 }

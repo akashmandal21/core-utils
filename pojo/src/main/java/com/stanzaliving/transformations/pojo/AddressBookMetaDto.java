@@ -9,13 +9,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Setter
 @Getter
 @ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddressBookMetaDto {
+public class AddressBookMetaDto implements Serializable {
 	
 	private LocationType locationType;
 	
