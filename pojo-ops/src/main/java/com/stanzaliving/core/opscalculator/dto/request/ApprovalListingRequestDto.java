@@ -18,7 +18,7 @@ public class ApprovalListingRequestDto {
     private List<String> residenceUuids = new ArrayList<>();
     private int page;
     private int limit;
-    private String role;
+    //private String role;
     @Builder.Default
     private List<ApprovalStatus> approvalStatusList = new ArrayList<>();
 }
