@@ -6,6 +6,8 @@ import com.stanzaliving.core.cafe.order.constants.UserType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Getter
@@ -15,15 +17,20 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CafeOrderPDto {
+    @NotBlank(message = "Empty Cafe Id")
     private String cafeId;
     private String residenceId;
+    @NotNull(message = "Empty Serving Mode")
     private ServingMode servingMode;
-    
-    private UserType userType;
-    private String userId;
+    @NotNull(message = "Empty Payment Type")
     private PaymentType paymentType;
     private Double amount;
+    private Double gst;
+    @NotNull(message = "Empty Items Details")
     private List<CafeOrderItemPDto> items;
+    @NotNull(message = "Empty User Details")
+    private OrderUserPDto userDetails;
+
     private CafeOrderDeliveryPDto deliveryDetails;
 
 }

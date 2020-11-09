@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum DiscountType {
+    NA("NA"),
     FLAT_AMOUNT("Flat"),
     PERCENTAGE("Percentage");
     private final String type;

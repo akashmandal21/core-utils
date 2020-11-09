@@ -5,6 +5,10 @@ import com.stanzaliving.core.cafe.order.constants.ItemType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 @Getter
 @Setter
 @ToString(callSuper = true)
@@ -12,20 +16,33 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CafeOrderItemPDto {
+    @NotNull(message = "Empty Item Type")
     private ItemType type;
+    @NotBlank(message = "Empty Item Id")
     private String itemId;
     private String grammage;
-    private Integer quantity;
+    @Min(value = 1, message = "Atleast One Quantity is Required")
+    private int quantity;
 
     private Double grossPrice;
     private DiscountType discountType;
     private Double discount;
-    private Double netPrice;
+    @NotNull(message = "Empty Price")
+    @Min(value = 0, message = "Price should be positive")
+    private double netPrice;
+
+    private Double cgstPercentage;
+    private Double igstPercentage;
+    private Double sgstPercentage;
+
+    //netprice * quantity
+    private Double amount;
+
     private Double cgst;
     private Double igst;
     private Double sgst;
-    //price = (grossPrice-discount)*(1+(cgst+igst+sgst)/100)
-    private Double price;
-    
+
+    private Double totalAmount;
+
 
 }

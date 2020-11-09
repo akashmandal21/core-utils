@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 public enum ItemType {
     VAS("Vas Item"),
+    CHARGES("Charges"),
     COUPON("Coupon");
 
     private final String type;
