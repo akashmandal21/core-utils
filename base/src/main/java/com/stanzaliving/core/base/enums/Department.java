@@ -25,7 +25,8 @@ public enum Department {
 	GC("GC Procurement",null),
 	WAREHOUSE("Warehouse",null),
 	CX("Customer Experience","CX"),
-	ADMIN("Admin","AD");
+	ADMIN("Admin","AD"),
+	SCM("Supply Chain Mgmt","SM");
 	public String departmentName;
 	public String shortCode;
 }

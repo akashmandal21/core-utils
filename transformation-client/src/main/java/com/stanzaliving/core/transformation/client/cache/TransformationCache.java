@@ -1,8 +1,10 @@
 package com.stanzaliving.core.transformation.client.cache;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import com.stanzaliving.transformations.pojo.*;
 import org.apache.commons.lang3.StringUtils;
@@ -93,6 +95,84 @@ public class TransformationCache {
 							return internalDataControllerApi.getResidenceDetailList().getData();
 						}
 					});
+
+
+	private LoadingCache<String, Map<String,String>> allStatesNameCache = CacheBuilder.newBuilder()
+			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.build(
+					new CacheLoader<String, Map<String,String>>() {
+
+						@Override
+						public Map<String,String> load(String key) {
+							return internalDataControllerApi.getAllStates().getData().stream().collect(Collectors.toMap(f->f.getUuid(), f->f.getStateName()));
+						}
+					});
+
+	private LoadingCache<String, Map<String,String>> allCityNameCache = CacheBuilder.newBuilder()
+			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.build(
+					new CacheLoader<String, Map<String,String>>() {
+
+						@Override
+						public Map<String,String> load(String key) {
+							return internalDataControllerApi.getAllCities().getData().stream().collect(Collectors.toMap(f->f.getUuid(),f->f.getCityName()));
+						}
+					});
+
+	private LoadingCache<String, Map<String,String>> allMicromarketNameCache = CacheBuilder.newBuilder()
+			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.build(
+					new CacheLoader<String, Map<String,String>>() {
+
+						@Override
+						public Map<String,String> load(String key) {
+							return internalDataControllerApi.getAllMicroMarkets().getData().stream().collect(Collectors.toMap(f->f.getUuid(),f->f.getMicroMarketName()));
+						}
+					});
+
+
+	private LoadingCache<String, Map<String,String>> allCountryNameCache = CacheBuilder.newBuilder()
+			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.build(
+					new CacheLoader<String, Map<String,String>>() {
+
+						@Override
+						public Map<String,String> load(String key) {
+							return internalDataControllerApi.getAllCountries().getData().stream().collect(Collectors.toMap(f->f.getUuid(),f->f.getCountryName()));
+						}
+					});
+
+	public Map<String,String> getCityNames() {
+		return allCityNameCache.getUnchecked("cityName");
+	}
+	public Map<String,String> getMicromarketNames() {
+		return allStatesNameCache.getUnchecked("micromarketName");
+	}
+	public Map<String,String> getStateNames() {
+		return allStatesNameCache.getUnchecked("stateName");
+	}
+	public Map<String,String> getCountryNames() {
+		return allCountryNameCache.getUnchecked("countryName");
+	}
+
+	public String getLocationName(String locType, String uuid){
+		switch (locType){
+			case "cityName":
+				return getCityNames().get(uuid);
+
+			case "micromarketName":
+				return getMicromarketNames().get(uuid);
+
+			case "stateName":
+				return getStateNames().get(uuid);
+
+			case "countryName":
+				return getCountryNames().get(uuid);
+
+			default:
+				return "";
+		}
+	}
 
 	public List<ResidenceUIDto> getAllResidencesWithCoreData() {
 		return allResidenceWithCoreCache.getUnchecked("residenceWithCore");
