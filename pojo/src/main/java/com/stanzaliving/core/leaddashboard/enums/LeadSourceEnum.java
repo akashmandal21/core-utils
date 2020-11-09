@@ -104,6 +104,7 @@ public enum LeadSourceEnum {
 	WHATSAPP("Whatsapp"),
 	WHATSAPP_WEBSITE("Whatsapp-Website"),
 	PAGE_404("404 Page"),
+	PREBOOKING_VIRTUAL_TOUR("Prebooking-Virtual Tour"),
 	ZOHO("zoho");
 	
 	private String leadSourceName;

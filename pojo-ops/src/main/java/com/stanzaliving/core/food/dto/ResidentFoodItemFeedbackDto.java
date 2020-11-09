@@ -26,6 +26,10 @@ public class ResidentFoodItemFeedbackDto {
 
 	private String item;
 
+	private String categoryId;
+
+	private String subCategoryId;
+
 	private FoodItemType foodPreference;
 
 	private boolean quantifiable;
