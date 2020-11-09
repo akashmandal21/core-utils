@@ -72,6 +72,7 @@
         <module>generic-validation-core</module>
         <module>payment-client</module>
         <module>recon-client</module>
+        <module>notification-client</module>
     </modules>
 
 	<build>
