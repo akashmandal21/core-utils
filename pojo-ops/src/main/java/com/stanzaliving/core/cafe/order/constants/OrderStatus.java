@@ -2,11 +2,12 @@ package com.stanzaliving.core.cafe.order.constants;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.springframework.util.StringUtils;
 
 @Getter
 @AllArgsConstructor
 public enum OrderStatus {
-    INITIATED("Initiated", "order.created"),
+    CREATED("Created", "order.created"),
     CANCELLED("Cancelled", "order.cancelled"),
     PLACED("Placed", "order.placed"),
     CONFIRMED("Confirmed", "order.confirmed"),
@@ -18,4 +19,18 @@ public enum OrderStatus {
 
     private final String status;
     private final String event;
+
+    public static OrderStatus fromEvent(String eventType) {
+        if (StringUtils.isEmpty(eventType)) {
+            return null;
+        }
+
+        for (OrderStatus curStatus : OrderStatus.values()) {
+            if (curStatus.getEvent().equalsIgnoreCase(eventType)) {
+                return curStatus;
+            }
+        }
+
+        return null;
+    }
 }
