@@ -10,12 +10,5 @@ import com.stanzaliving.core.counter.entity.CounterKeyEntity;
 @Repository
 public interface CounterRepository extends JpaRepository<CounterKeyEntity, Long>{
 
-	@Query(value="select ck.count from #{#entityName} ck where ck.key:key for UPDATE;"
-			+ "Update #{#entityName} ck set ck.count=ck.count+1 where ck.key:key", nativeQuery = true)
-	Long increaseCount(@Param("key") String key);
-
 	CounterKeyEntity findByKey(String key);
-
-	//String getKey(String department, String platform);
-
 }
