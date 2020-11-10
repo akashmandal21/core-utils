@@ -37,7 +37,7 @@ public class CounterServiceImpl implements CounterService{
 	public Long increaseCount(CategoryKey categoryKey) throws CounterServiceException {
 		
 		String key = categoryKey.getKey();
-		
+		log.info("Key {}",key);
 		CounterKeyEntity count = countRepository.findByKey(key);
 
 		if(Objects.isNull(count))
@@ -67,6 +67,7 @@ public class CounterServiceImpl implements CounterService{
 
 	@Transactional
 	private CounterKeyEntity createCategoryRow(CategoryKey categoryKey){
+		log.info(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
 		return countRepository.save(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
 	}
 
