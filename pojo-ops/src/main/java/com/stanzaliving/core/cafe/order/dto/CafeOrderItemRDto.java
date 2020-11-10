@@ -26,10 +26,8 @@ public class CafeOrderItemRDto {
     private DiscountType discountType;
     private Double discount;
     private Double netPrice;
-    private Double cgst;
-    private Double igst;
-    private Double sgst;
-    //price = (grossPrice-discount)*(1+(cgst+igst+sgst)/100)
-    private Double price;
+    private Double cgstPercentage;
+    private Double igstPercentage;
+    private Double sgstPercentage;
 
 }
