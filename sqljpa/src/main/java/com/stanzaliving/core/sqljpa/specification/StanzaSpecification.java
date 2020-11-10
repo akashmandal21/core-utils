@@ -20,6 +20,8 @@ import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import com.stanzaliving.core.sqljpa.specification.utils.SearchCriteria;
 
+
+
 public class StanzaSpecification<T extends AbstractJpaEntity> implements Specification<T> {
 
 	private static final long serialVersionUID = 1L;
