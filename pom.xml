@@ -71,6 +71,7 @@
 		<module>food-service-client</module>
         <module>generic-validation-core</module>
         <module>payment-client</module>
+        <module>counter-service</module>
         <module>recon-client</module>
     </modules>
 
