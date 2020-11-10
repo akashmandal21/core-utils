@@ -30,5 +30,9 @@ public class FoodHomeScreenResponse {
 	
 	private MealType mType;
 	
+	private boolean mealFlag;
+	
 	private boolean today;
+	
+	private boolean showTomorrowMeals;
 }

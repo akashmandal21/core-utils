@@ -29,8 +29,9 @@ public class ComplaintFAQDto {
 	private String answer;
 	private Integer sequenceId;
 	private String residenceId;
-	private String complaintSubCategoryUuid;
-
+	private String complaintCategoryTypeId;
+	private String complaintcategoryTypeName;
+	
 	@Builder.Default
 	private Boolean commonlyAskedQuestion = Boolean.FALSE;
 
