@@ -60,6 +60,7 @@ public enum GenericPOTOStatus {
     public static Set<GenericPOTOStatus> firstApprovalCycle = new HashSet<>(10);
     public static Set<GenericPOTOStatus> firstApprovalRejects = new HashSet<>(5);
     public static Set<GenericPOTOStatus> approvals = new HashSet<>(10);
+    public static Set<GenericPOTOStatus> allValues = new HashSet<>(Arrays.asList(GenericPOTOStatus.values()));
 
     static {
         cancelStatus.addAll(Arrays.asList(CANCEL_L1_APPROVAL_DUE,CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE));
