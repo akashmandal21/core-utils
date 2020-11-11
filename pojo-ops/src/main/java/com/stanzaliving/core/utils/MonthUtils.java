@@ -10,28 +10,27 @@ import java.util.Date;
 @UtilityClass
 public class MonthUtils {
 
-    public Date getFirstDateOfMonth(Integer year, Integer month) {
+	public Date getFirstDateOfMonth(Integer year, Integer month) {
 
-        LocalDate now = LocalDate.now();
-        if (year == null) {
-            year = now.getYear();
-        }
-        if (month == null) {
-            month = now.getMonthValue();
-        }
-        validateMonth(year, month);
+		LocalDate now = LocalDate.now();
+		if (year == null) {
+			year = now.getYear();
+		}
+		if (month == null) {
+			month = now.getMonthValue();
+		}
+		validateMonth(year, month);
 
+		return DateUtil.convertToDate(DateUtil.getMonthStartBeginningDate(month, year));
+	}
 
-        return DateUtil.convertToDate(DateUtil.getMonthStartBeginningDate(month, year));
-    }
+	private void validateMonth(int year, int month) {
+		if (year <= 0) {
+			throw new ApiValidationException("Year value is invalid");
+		}
 
-    private void validateMonth(int year, int month) {
-        if (year <= 0) {
-            throw new ApiValidationException("Year value is invalid");
-        }
-
-        if (month < 1 || month > 12) {
-            throw new ApiValidationException("Month value should be between 1 to 12. Invalid Month Value " + month + ".");
-        }
-    }
+		if (month < 1 || month > 12) {
+			throw new ApiValidationException("Month value should be between 1 to 12. Invalid Month Value " + month + ".");
+		}
+	}
 }
