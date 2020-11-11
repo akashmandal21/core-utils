@@ -99,4 +99,7 @@ public class ResponseDto<T> {
 		return new ResponseDto<>(false, message, data, id, errorCode);
 	}
 
+	public boolean getStatus() {
+		return this.status;
+	}
 }

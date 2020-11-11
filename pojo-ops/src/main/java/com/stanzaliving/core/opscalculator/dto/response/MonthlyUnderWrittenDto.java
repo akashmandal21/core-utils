@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class MonthlyUnderWrittenDto extends UnderWrittenDto {
+public class  MonthlyUnderWrittenDto extends UnderWrittenDto {
     private int monthNumber;
     private int year;
     private LocalDate fromDate;
