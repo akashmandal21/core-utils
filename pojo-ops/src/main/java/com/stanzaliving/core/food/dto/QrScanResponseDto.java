@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author raj.kumar
@@ -16,6 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @ToString
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class QrScanResponseDto {
