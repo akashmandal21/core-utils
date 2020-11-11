@@ -71,6 +71,8 @@ public class FoodMenuApprovalResponseDto {
 	private int mtdBudgetDeviation;
 	
 	private boolean statusUpdateAllowed;
+
+	private boolean operational;
 	
 	private boolean menuApproved;
 }

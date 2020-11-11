@@ -3,6 +3,12 @@
  */
 package com.stanzaliving.core.base.utils;
 
+import com.stanzaliving.core.base.StanzaConstants;
+import lombok.experimental.UtilityClass;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.validator.routines.EmailValidator;
+
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
@@ -11,14 +17,6 @@ import java.text.Format;
 import java.text.NumberFormat;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
-
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.validator.routines.EmailValidator;
-
-import com.stanzaliving.core.base.StanzaConstants;
-
-import lombok.experimental.UtilityClass;
 
 /**
  * @author naveen
@@ -136,6 +134,19 @@ public class StanzaUtils {
 
 	public static String generateUniqueEmailId() {
 		return generateUniqueId().replaceAll("-", "") + StanzaConstants.ORGANIZATION_EMAIL_DOMAIN;
+	}
+
+	public static float roundToPlaces(float value, int places) {
+		float numberToDivide = 1;
+
+		while (places > 0) {
+			numberToDivide *= 10;
+			places--;
+		}
+
+		Float number = Float.valueOf(numberToDivide);
+
+		return Math.round(value * number) / number;
 	}
 
 	public static double roundToPlaces(double value, int places) {
