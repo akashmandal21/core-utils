@@ -11,9 +11,10 @@ import java.util.Date;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CafeOrderRDto {
+public class CafeConfirmedOrderRDto {
     private String orderId;
     private String orderCode;
     private String deliveryCode;
     private Date deliveryTime;
+    private Date orderTime;
 }
