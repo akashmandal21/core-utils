@@ -70,4 +70,6 @@ public class FoodMenuCategoryDto extends AbstractDto {
 	private MenuCategoryType categoryType;
 
 	private GrammageHeavynessLevel grammageHeavynessLevel;
+
+	private String menuCopiedMsg;
 }
