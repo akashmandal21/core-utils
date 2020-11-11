@@ -11,4 +11,5 @@ public class GenericConstants {
     public static final Integer approvalRestrictMax = 1000;
     public static final Integer rejectionStart=-8;
     public static final String sampleCsvStartLine="Data Starts Here:";
+    public static final String addressBookMapName = "addressBook";
 }

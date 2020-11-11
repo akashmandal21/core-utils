@@ -5,6 +5,7 @@ package com.stanzaliving.core.sqljpa.conveter;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Objects;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
@@ -23,6 +24,8 @@ public class LocalDateTimeAttributeConverter implements AttributeConverter<Local
 
 	@Override
 	public Date convertToDatabaseColumn(LocalDateTime attribute) {
+		if(Objects.isNull(attribute))
+			return null;
 		return DateUtil.convertToDate(attribute);
 	}
 

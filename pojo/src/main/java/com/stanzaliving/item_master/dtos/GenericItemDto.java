@@ -24,6 +24,7 @@ public class GenericItemDto {
     private String itemCode;
     private String itemName;
     private String itemDescription;
+    private String itemModel;
     private UIKeyValue itemType;
     private UIKeyValue uom;
     private String hsnSacCode;
@@ -31,6 +32,7 @@ public class GenericItemDto {
     private Double cgst;
     private Double sgst;
     private Double igst;
+    private Boolean inactive;
 
     //Rates
     private BigDecimal globalRate;

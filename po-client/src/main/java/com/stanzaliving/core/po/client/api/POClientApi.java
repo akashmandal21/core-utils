@@ -6,10 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.stanzaliving.core.po.generic.dtos.PoDetailsResponse;
-import com.stanzaliving.po.enums.PoStatus;
-import com.stanzaliving.po.enums.PoType;
-import com.stanzaliving.po.model.PoAggregationDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -20,6 +16,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.po.generic.dtos.PoDetailsResponse;
+import com.stanzaliving.po.enums.PoStatus;
+import com.stanzaliving.po.enums.PoType;
+import com.stanzaliving.po.model.PoAggregationDto;
 import com.stanzaliving.po.model.PoResponse;
 import com.stanzaliving.po.model.PropertyPoStatusSummaryDto;
 
@@ -233,10 +233,8 @@ public class POClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
-
-
-
-    public ResponseDto<PoDetailsResponse> getPoDetailsWithItems(String poUuid) {
+    
+     public ResponseDto<PoDetailsResponse> getPoDetailsWithItems(String poUuid) {
 
         log.info("HTTP Client call to get PO Details with Items {}",poUuid);
 
