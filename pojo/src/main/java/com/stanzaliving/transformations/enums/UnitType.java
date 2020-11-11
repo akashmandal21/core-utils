@@ -40,4 +40,7 @@ public enum UnitType {
 		return unitByNameMap.get(unitName);
 	}
 
+	public static Map<String, UnitType> getUnitByNameMap(){
+		return unitByNameMap;
+	}
 }
