@@ -16,8 +16,7 @@ import java.util.Date;
 public class CafeOrderPaymentDto {
     private PaymentMode mode;
     private Double amount;
-    private Date transactionStartTime;
-    private Date transactionEndTime;
+    private Date transactionTime;
     private String transactionId;
     private String bankReferenceNo;
     private String merchantReferenceNo;

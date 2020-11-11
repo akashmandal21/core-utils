@@ -1,6 +1,7 @@
 package com.stanzaliving.core.cafe.order.dto;
 
 import com.stanzaliving.core.cafe.order.constants.DiscountType;
+import com.stanzaliving.core.cafe.order.constants.ItemType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -11,6 +12,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CafeOrderItemRDto {
+    private ItemType type;
     private String itemId;
     private String name;
     private String image;

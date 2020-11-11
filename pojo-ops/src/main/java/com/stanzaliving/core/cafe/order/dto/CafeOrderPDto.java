@@ -2,7 +2,6 @@ package com.stanzaliving.core.cafe.order.dto;
 
 import com.stanzaliving.core.cafe.order.constants.PaymentType;
 import com.stanzaliving.core.cafe.order.constants.ServingMode;
-import com.stanzaliving.core.cafe.order.constants.UserType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
