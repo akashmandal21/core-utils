@@ -33,9 +33,9 @@ public enum GenericPOTOStatus {
     CANCEL_L2_REJECTED("L2 Approval Due","#F55F71","#f55f714d",GenericConstants.rejectionStart-2,false,false),
     CANCEL_L3_REJECTED("L3 Approval Due","#F55F71","#f55f714d",GenericConstants.rejectionStart-3,false,false),
 
-    APPROVED("L1 Approval Due","#60C3AD","#60c3ad4d",3,false,false),
-    SHORTCLOSED("L1 Approval Due","#790A00","#790a004d",4,false,false),
-    CANCELLED("L1 Approval Due","#5C49A2","#5c49a24d",5,false,false),
+    APPROVED("Approved","#60C3AD","#60c3ad4d",3,false,false),
+    SHORTCLOSED("Shortclosed","#790A00","#790a004d",4,false,false),
+    CANCELLED("Cancelled","#5C49A2","#5c49a24d",5,false,false),
     GSRI_COMPLETED("GSRI Closed","#60C3AD","#60c3ad4d",6,false,false),
     WORK_COMPLETED("Work Completed","#60C3AD","#60c3ad4d",6,false,false);
 
