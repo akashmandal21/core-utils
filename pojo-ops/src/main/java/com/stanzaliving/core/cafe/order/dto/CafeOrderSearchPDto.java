@@ -1,5 +1,6 @@
 package com.stanzaliving.core.cafe.order.dto;
 
+import com.stanzaliving.core.cafe.order.constants.OrderSearchFilter;
 import com.stanzaliving.core.cafe.order.constants.OrderSearchStatus;
 import com.stanzaliving.core.cafe.order.constants.OrderType;
 import lombok.*;
@@ -20,6 +21,10 @@ public class CafeOrderSearchPDto {
     private OrderType orderType;
     private LocalDate orderDate;
     private String residenceId;
-    private String slotId;
     private LocalTime deliveryTime;
+    private OrderSearchFilter filter;
+    private String name;
+    private String phone;
+    private String dispatchUserId;
+    private String orderCode;
 }

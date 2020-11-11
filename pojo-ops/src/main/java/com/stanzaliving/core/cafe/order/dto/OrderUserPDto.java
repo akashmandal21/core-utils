@@ -18,4 +18,5 @@ public class OrderUserPDto {
     private UserType userType;
     @NotBlank(message = "Empty User Id")
     private String userId;
+    private String phoneNo;
 }
