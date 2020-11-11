@@ -35,6 +35,8 @@ public class DispatchListingDto {
 	private LocalTime mealDispatchTime;
 
 	private LocalTime mealStartTime;
+	
+	private LocalTime printStartTime;
 
 	@Builder.Default
 	private int vegMeals = 0;
