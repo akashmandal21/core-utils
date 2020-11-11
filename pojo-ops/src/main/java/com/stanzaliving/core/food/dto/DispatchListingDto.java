@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,41 +25,42 @@ public class DispatchListingDto {
 	private String residenceName;
 
 	private String residenceId;
-	
+
+	private LocalDate menuDate;
+
 	private MealType mealType;
-	
+
 	private String mealTypeStr;
-	
+
 	private LocalTime mealDispatchTime;
-	
+
 	private LocalTime mealStartTime;
-	
+
 	@Builder.Default
-	private int vegMeals=0;
-	
+	private int vegMeals = 0;
+
 	@Builder.Default
-	private int nonVegMeals=0;
-	
+	private int nonVegMeals = 0;
+
 	@Builder.Default
-	private int staffMeals=0;
-//
-//	@Builder.Default
-//	private int slStaffMeals =0;
-	
+	private int staffMeals = 0;
+
+	// @Builder.Default
+	// private int slStaffMeals =0;
+
 	@Builder.Default
-	private int vasVegMeals=0;
-	
+	private int vasVegMeals = 0;
+
 	@Builder.Default
-	private int vasNonVegMeals=0;
-	
+	private int vasNonVegMeals = 0;
+
 	private boolean printable;
-	
+
 	private String residenceMenuUuid;
-	
+
 	private String dispatchListUuid;
-	
+
 	@Builder.Default
-	private List<String> dispatchSummaryIds=new ArrayList<>();
-	
-	
+	private List<String> dispatchSummaryIds = new ArrayList<>();
+
 }
