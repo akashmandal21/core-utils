@@ -7,6 +7,7 @@ package com.stanzaliving.core.complaint.dto;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,5 +35,10 @@ public class ComplaintListingDto {
 	private String complaintStatus;
 	private Date created;
 	private Date closedAt;
+	@Builder.Default
+	private Boolean satisfied = Boolean.FALSE;
+	private String complaintTypeName;
+	private String complaintTypeImgUrl;
+	private Long cmsId;
 
 }

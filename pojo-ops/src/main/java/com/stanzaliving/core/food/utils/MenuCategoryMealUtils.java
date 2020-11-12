@@ -15,6 +15,8 @@ import lombok.experimental.UtilityClass;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 
+import java.time.DayOfWeek;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -168,22 +170,25 @@ public class MenuCategoryMealUtils {
     }
 
     public static int getSpecialMealDaysCountInWeek(FullCategoryDto fullCategoryDto) {
-        int specialMealDays = 0;
+        return getSpecialMealDaysInWeek(fullCategoryDto).size();
+    }
+    public static List<DayOfWeek> getSpecialMealDaysInWeek(FullCategoryDto fullCategoryDto) {
+        List<DayOfWeek> specialDaysList = new ArrayList<>();
         if (fullCategoryDto == null) {
-            return specialMealDays;
+            return specialDaysList;
         }
         WeekWiseMenu weekWiseMenu = fullCategoryDto.getWeekMenus().stream().filter(menu -> menu.getWeekNumber().equals(1)).findAny().orElseGet(null);
         if (null == weekWiseMenu) {
-            return specialMealDays;
+            return specialDaysList;
         }
         for (DayWiseFoodMenuDto dayWiseFoodMenuDto : weekWiseMenu.getDayWiseFoodMenu()) {
             boolean specialDay = dayWiseFoodMenuDto.getMealWiseFoodMenus().stream().flatMap(mealWiseMenu -> mealWiseMenu.getMenuItems().stream())
                     .filter(menuItemDto -> FoodItemType.NON_VEG.equals(menuItemDto.getItemType()) || FoodItemType.SPECIAL_VEG.equals(menuItemDto.getItemType())).findAny().isPresent();
             if (specialDay) {
-                specialMealDays += 1;
+                specialDaysList.add(dayWiseFoodMenuDto.getDayOfWeek());
             }
         }
-        return specialMealDays;
+        return specialDaysList;
     }
 
     public static double getNonSlStaffMenuPricePerDay(FullCategoryDto fullCategoryDto, List<MealType> mealTypeList) {

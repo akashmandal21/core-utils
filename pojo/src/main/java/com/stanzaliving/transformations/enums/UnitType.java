@@ -39,6 +39,10 @@ public enum UnitType {
 	public static UnitType getUnitTypeByName(String unitName) {
 		return unitByNameMap.get(unitName);
 	}
+	
+	public static Map<String, UnitType> getUnitByNameMap(){
+		return unitByNameMap;
+	}
 
 	public static Map<String, UnitType> getUnitByNameMap(){
 		return unitByNameMap;
