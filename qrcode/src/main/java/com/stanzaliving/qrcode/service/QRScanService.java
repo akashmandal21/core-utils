@@ -1,5 +1,6 @@
 package com.stanzaliving.qrcode.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -35,5 +36,9 @@ public interface QRScanService {
 
 	List<QRScanHistory> getQrScanHistoryByQrContextTypeAndUserId(String userId, List<QRContextType> qrContextType,
 			Pageable pagination);
+
+	boolean existsByContextIdInAndQrContextTypeInAndUserIdAndStatus(Collection<String> contextIds, Collection<QRContextType> contextTypes, String userId, boolean status);
+
+	List<QRScanHistory> findByContextIdInAndQrContextTypeInAndUserIdAndStatus(Collection<String> contextIds, Collection<QRContextType> contextTypes, String userId, boolean status);
 
 }

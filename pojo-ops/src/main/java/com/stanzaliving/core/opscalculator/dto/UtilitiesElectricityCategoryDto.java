@@ -35,6 +35,7 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
 	private int totalCharges;
 	private double fixedCharges;
+	private int calculatedFixCharges;
 	private int variableCharges;
 
 	private int acRoomsWithRoomPassThroughCharges;
