@@ -12,10 +12,10 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @Builder
 public class ApprovalDashboardSummeryDetailsDto {
-    private Integer serviceMixCount;
-    private Integer underWrittenCount;
-    private Integer transformationCount;
-    private Integer foodCategoriesCount;
-
+    private int serviceMixCount;
+    private int underWrittenCount;
+    private int transformationCount;
+    private int foodCategoriesCount;
+    private int monthlyUnderWrittenCount;
 
 }
