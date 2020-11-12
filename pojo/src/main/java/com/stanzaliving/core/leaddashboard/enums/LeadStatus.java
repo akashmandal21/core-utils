@@ -17,8 +17,8 @@ public enum LeadStatus {
 	VISIT_SCHEDULED("Visit Scheduled"),
 	VISIT_STARTED("Visit Started"),
 	VISIT_COMPLETED("Visit Completed"),
-	BOOKED("Booked"),
-	POST_VISIT_FOLLOW_UP("Post Visit Follow Up");
+	BOOKED("Booked");
+	
 	private String statusDescription;
 	
 	public static boolean isLeadQualified(LeadStatus leadStatus) {
