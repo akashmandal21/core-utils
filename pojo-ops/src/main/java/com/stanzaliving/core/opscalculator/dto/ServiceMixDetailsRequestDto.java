@@ -17,8 +17,6 @@ public class ServiceMixDetailsRequestDto {
     private int year;
     private String monthlyUnderWrittenUuid;
     private String seasonUuid;
-    @Builder.Default
-    private boolean newServiceMixAvailable = false;
-    @Builder.Default
-    private boolean newUnderwritten = false;
+    private boolean newServiceMixAvailable;
+    private boolean newUnderwritten;
 }
