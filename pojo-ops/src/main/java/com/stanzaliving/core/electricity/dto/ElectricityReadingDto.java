@@ -29,4 +29,7 @@ public class ElectricityReadingDto extends AbstractDto {
 	private String image;
 
 	private ReadingUnitType unitType;
+
+	private boolean mandatoryDay;
+
 }
