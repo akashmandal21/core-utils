@@ -70,7 +70,7 @@ public class GrnClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         String path = UriComponentsBuilder.fromPath("/internal/generic/get/gsri/quantity").buildAndExpand(uriVariables).toUriString();
-        queryParams.set("poUuid", poUuid);
+        queryParams.set("poToUuid", poUuid);
 
         ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>>() {
         };
@@ -91,7 +91,7 @@ public class GrnClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         String path = UriComponentsBuilder.fromPath("/internal/generic/get/gsri/status").buildAndExpand(uriVariables).toUriString();
-        queryParams.set("poUuid", poUuid);
+        queryParams.set("poToUuid", poUuid);
 
         ParameterizedTypeReference<ResponseDto<GrsiUpdateDto>> returnType = new ParameterizedTypeReference<ResponseDto<GrsiUpdateDto>>() {
         };
