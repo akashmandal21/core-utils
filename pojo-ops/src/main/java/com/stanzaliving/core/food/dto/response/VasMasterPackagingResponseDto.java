@@ -30,9 +30,7 @@ public class VasMasterPackagingResponseDto {
 
 	private String packagingName;
 
-	private EnumListing<VasItemState> itemState;
-
-	private Double grammage;
+	private Integer qty;
 
 	private EnumListing<PackagingMaterial> masterMaterial;
 
