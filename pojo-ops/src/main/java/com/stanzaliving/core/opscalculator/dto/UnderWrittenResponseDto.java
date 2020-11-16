@@ -1,6 +1,5 @@
 package com.stanzaliving.core.opscalculator.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.opscalculator.enums.ApprovalStatus;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
@@ -17,7 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class AnnualUnderWrittenResponseDto extends AnnualUnderWrittenDto {
+public class UnderWrittenResponseDto extends UnderWrittenDto {
 
     private String underWrittenUuid;
 
