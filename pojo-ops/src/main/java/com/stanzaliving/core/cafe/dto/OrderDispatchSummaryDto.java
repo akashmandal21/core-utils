@@ -1,11 +1,17 @@
 package com.stanzaliving.core.cafe.dto;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.cafe.order.constants.OrderType;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -16,13 +22,13 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class OrderDispatchSummaryDto {
 
+    @NotNull(message = "Order Type can not be empty")
     private OrderType orderType;
-
-    private String orderId;
 
     @NotBlank(message = "Empty Cafe Id")
     private String cafeId;
 
+    @NotBlank(message = "Empty Residence Id")
     private String residenceId;
 
     @NotBlank(message = "Empty Slot Id")
@@ -30,19 +36,22 @@ public class OrderDispatchSummaryDto {
 
     private Integer rcCode;
     
-    private LocalDateTime rcGeneratedAt;
+    private Date rcGeneratedAt;
     
     private boolean receivingStatus;
     
-    private LocalDateTime rcReceivedAt;
+    private Date rcReceivedAt;
 
     private boolean orderStatus;
 
-    private Long hotbagsDispatchCount;
+    @NotNull(message = "Hotbags Dispatch Count can not be empty")
+    private Integer hotbagsDispatchCount;
 
-    private Long orderPackedCount;
+    @NotNull(message = "Order Packed Count can not be empty")
+    private Integer orderPackedCount;
 
-    private Long packetDispatchCount;
+    @NotNull(message = "Packet Dispatch Count can not be empty")
+    private Integer packetDispatchCount;
 
 	
 
