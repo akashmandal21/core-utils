@@ -10,5 +10,6 @@ public enum PaymentStatus {
 	REFUND_INITIATED,
 	REFUNDED,
 	REFUND_FAILED,
-	ACCEPTED;
+	ACCEPTED,
+	WRITE_OFF;
 }
