@@ -23,8 +23,7 @@ public class CafeOrderSearchPDto {
     private String residenceId;
     private LocalTime deliveryTime;
     private OrderSearchFilter filter;
-    private String name;
-    private String phone;
+    private String searchText;
     private String dispatchUserId;
     private String orderCode;
 }
