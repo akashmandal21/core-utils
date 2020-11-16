@@ -1,7 +1,6 @@
 package com.stanzaliving.core.food.dto.request;
 
 import com.stanzaliving.core.food.enums.PackagingMaterial;
-import com.stanzaliving.core.food.enums.VasItemState;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
