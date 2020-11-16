@@ -23,6 +23,8 @@ public class CafeOrderItemRDto {
     private boolean containsEggs;
     private boolean nonVeg;
 
+    private boolean mandatory;
+
 
     private Double grossPrice;
     private DiscountType discountType;
