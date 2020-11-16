@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 public enum OrderStatus {
@@ -32,5 +35,16 @@ public enum OrderStatus {
         }
 
         return null;
+    }
+
+    public static List<OrderStatus> statusInPlanning() {
+        List<OrderStatus> statuses = new ArrayList<>();
+        statuses.add(PLACED);
+        statuses.add(CONFIRMED);
+        statuses.add(PREPARING);
+        statuses.add(PREPARED);
+        statuses.add(PACKED);
+        statuses.add(DELIVERED);
+        return statuses;
     }
 }
