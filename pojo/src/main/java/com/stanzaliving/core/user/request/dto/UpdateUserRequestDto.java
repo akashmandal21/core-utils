@@ -55,4 +55,6 @@ public class UpdateUserRequestDto {
 	private LocalDate dateOfArrival;
 	
 	private String nextDestination;
+	
+	private String userMobile;
 }
