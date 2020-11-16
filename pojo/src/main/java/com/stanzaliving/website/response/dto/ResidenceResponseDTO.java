@@ -48,7 +48,10 @@ public class ResidenceResponseDTO {
 	private String slug;
 	private Integer fomoBedCount;
 	private Integer preBookingAmount;
-
+	private String fomoTag;
+	private int priorityOrder;
+	private String residenceType;
+	
 	@Builder.Default
 	private Set<FeatureResponseDTO> features = new HashSet<>(0);
 	@Builder.Default
