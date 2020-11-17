@@ -30,10 +30,10 @@ public enum InvoiceStatus {
     private String statusText;
 
     private String statusColor;
-      
-    private static Map<Integer, InvoiceStatus> invoiceApprovalLevelMap = new HashMap<>();
     
     private Integer order;
+      
+    private static Map<Integer, InvoiceStatus> invoiceApprovalLevelMap = new HashMap<>();
 
     public static Set<InvoiceStatus> approvalCycle = new HashSet<>(5);
 
