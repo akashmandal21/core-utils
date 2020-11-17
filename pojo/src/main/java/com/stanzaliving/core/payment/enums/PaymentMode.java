@@ -15,18 +15,22 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum PaymentMode {
 
-	NET_BANKING("Netbanking", 3),
 	CC("CC", 0),
-	CHEQUE("Cheque", 2),
 	CASH("Cash", 1),
-	MPOS("MPOS", 6),
+	CHEQUE("Cheque", 2),
+	NET_BANKING("Netbanking", 3),
 	QR("QR Code", 4),
+	VIRTUAL_ACCOUNT("Virtual Account", 5),
+	MPOS("MPOS", 6),
+	MANUAL_UPLOADS("Manual Uploads", 8),
 	PAYTM("PAYTM", 9),
 	ICICI("ICICI", 10),
+	BULK_PAYMENT("BULK PAYMENT", 11),
 	PINE_LAB("PINE LAB", 12),
-	RAZORPAY("Razorpay", 13),
-	MANUAL_UPLOADS("Manual Uploads", 8),
-	BULK_PAYMENT("BULK PAYMENT", 11);
+	I_SUREPAY("I SurePay", 13),
+	RAZORPAY("Razorpay", 16);
+
+
 
 	private String paymentModeDesc;
 	private int paymentModeId;
