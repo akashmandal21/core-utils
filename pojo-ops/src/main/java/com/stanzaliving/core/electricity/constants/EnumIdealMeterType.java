@@ -23,14 +23,6 @@ public enum EnumIdealMeterType {
         }
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public String getMeterType() {
-        return meterType;
-    }
-
     public static Map<Integer, EnumIdealMeterType> getByid() {
         return byId;
     }
