@@ -34,6 +34,7 @@ public class CafeOrderItemPDto {
     private Double cgstPercentage;
     private Double igstPercentage;
     private Double sgstPercentage;
+    private Double marginPercentage;
 
     //netprice * quantity
     private Double amount;
