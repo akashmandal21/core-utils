@@ -21,7 +21,7 @@ public class CafeOrderSearchPDto {
     private OrderType orderType;
     private LocalDate orderDate;
     private String residenceId;
-    private LocalTime deliveryTime;
+    private LocalTime slotTime;
     private OrderSearchFilter filter;
     private String searchText;
     private String dispatchUserId;
