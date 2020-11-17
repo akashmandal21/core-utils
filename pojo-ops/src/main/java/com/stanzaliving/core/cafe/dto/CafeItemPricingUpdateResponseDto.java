@@ -1,17 +1,18 @@
 package com.stanzaliving.core.cafe.dto;
 
-import java.util.List;
-
 import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.food.dto.response.DishDetailsResponseDto;
+import com.stanzaliving.core.food.dto.response.VasMasterPackagingResponseDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.user.enums.EnumListing;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 /**
  * @author ashutosh.chandra "ashutoshchandra.retainer@stanzaliving.com"
@@ -51,9 +52,9 @@ private EnumListing<FoodItemType> foodType;
 
 private ListingDto category;
 
-private String description;
+private List<DishDetailsResponseDto> description;
 
-private String packaging;
+private List<VasMasterPackagingResponseDto> packaging;
 
 private boolean itemEnableStatus;
 
