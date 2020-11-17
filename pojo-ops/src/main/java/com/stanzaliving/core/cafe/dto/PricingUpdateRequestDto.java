@@ -25,13 +25,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PricingUpdateRequestDto extends AbstractDto{
+public class PricingUpdateRequestDto {
 		
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	private String cafeId;
 			
 	private List<CafeItemPricingUpdateRequestDto> cafeItemsPricingList;
