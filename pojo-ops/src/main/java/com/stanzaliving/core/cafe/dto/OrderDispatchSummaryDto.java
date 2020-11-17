@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.cafe.order.constants.DispatchMode;
 import com.stanzaliving.core.cafe.order.constants.OrderType;
 
 import lombok.AllArgsConstructor;
@@ -53,6 +54,8 @@ public class OrderDispatchSummaryDto {
     @NotNull(message = "Packet Dispatch Count can not be empty")
     private Integer packetDispatchCount;
 
+    @NotNull(message = "Dispatch Mode can not be empty")
+    private DispatchMode dispatchMode;
 	
 
 }
