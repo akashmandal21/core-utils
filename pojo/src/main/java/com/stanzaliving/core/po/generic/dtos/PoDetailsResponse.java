@@ -34,7 +34,6 @@ public class PoDetailsResponse {
     private String vendorName;
     private LocationType deliveryLocationType;
     private UIKeyValue deliveryLocation;
-    private String hsnSacCode;
     private BigDecimal advanceAmount;
 
     List<PoItemDetail> poItemDetails;

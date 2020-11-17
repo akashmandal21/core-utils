@@ -8,9 +8,4 @@ public interface CounterService {
 
 	Long increaseCount(CategoryKey counterKey) throws CounterServiceException;
 
-//	void populateDbData(String dep, String plat);
-
-//	String getKey(String department, String platform);
-		
-//	void testHello(String loopId) throws InterruptedException;
 }

@@ -7,26 +7,27 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Department {
 
-	TECH("Tech","TP"),
-	FINANCE("Finance","FN"),
-	HR("HR","HR"),
-	LEGAL("Legal","LG"),
-	SUPERADMIN("Superadmin",null),
-	LEADERSHIP("Leadership",null),
-	BUSINESS_DEVELOPMENT("Real Estate","RE"),
-	OPS("Operations","OP"),
-	FOOD_OPS("Food Operations","FB"),
-	PROCUREMENT("Procurement",null),
-	DESIGN("Design",null),
-	PROJECTS("Projects",null),
-	TRANSFORMATIONS("Transformation","TN"),
-	SALES("Sales","SM"),
-	WEB("Web",null),
-	GC("GC Procurement",null),
-	WAREHOUSE("Warehouse",null),
-	CX("Customer Experience","CX"),
-	ADMIN("Admin","AD"),
-	SCM("Supply Chain Mgmt","SM");
+	TECH("Tech","TP","TCH"),
+	FINANCE("Finance","FN","FIN"),
+	HR("HR","HR","HRS"),
+	LEGAL("Legal","LG","LGL"),
+	SUPERADMIN("Superadmin",null,null),
+	LEADERSHIP("Leadership",null,null),
+	BUSINESS_DEVELOPMENT("Real Estate","RE","RET"),
+	OPS("Operations","OP","OPS"),
+	FOOD_OPS("Food Operations","FB","FNB"),
+	PROCUREMENT("Procurement",null,"TRN"),
+	DESIGN("Design",null,"TRN"),
+	PROJECTS("Projects",null,"TRN"),
+	TRANSFORMATIONS("Transformation","TN","TRN"),
+	SALES("Sales","SM","SNM"),
+	WEB("Web",null,null),
+	GC("GC Procurement",null,"TRN"),
+	WAREHOUSE("Warehouse",null,null),
+	CX("Customer Experience","CX","CXP"),
+	ADMIN("Admin","AD","ADM"),
+	SCM("Supply Chain Mgmt","SM","TRN");
 	public String departmentName;
 	public String shortCode;
+	public String genericPoShortCode;
 }

@@ -37,7 +37,7 @@ public class CounterServiceImpl implements CounterService{
 	public Long increaseCount(CategoryKey categoryKey) throws CounterServiceException {
 		
 		String key = categoryKey.getKey();
-		
+		log.info("Key {}",key);
 		CounterKeyEntity count = countRepository.findByKey(key);
 
 		if(Objects.isNull(count))
@@ -67,89 +67,8 @@ public class CounterServiceImpl implements CounterService{
 
 	@Transactional
 	private CounterKeyEntity createCategoryRow(CategoryKey categoryKey){
+		log.info(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
 		return countRepository.save(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
 	}
-
-//
-////	@Transactional
-//
-//
-////	@Override
-////	public void populateDbData(String dep, String plat) {
-////
-////		for(int i=1;i<=10000;i++) {
-////
-////			CounterKeyEntity countEntity = new CounterKeyEntity();
-////			countEntity.setCount(i);
-////			String counterKey = dep.concat("_").concat(plat).concat("_").concat(""+i);
-////			countEntity.setKey(counterKey);
-////			countRepository.save(countEntity);
-////		}
-////
-////	}
-//
-//	@Override
-//	@Transactional
-//	public String getKey(String department, String platform) {
-//
-//		String categoryKey = department.concat("_").concat(platform);
-//		Query query = entityManager.createQuery("SELECT count FROM counter_key WHERE id = (SELECT id FROM counter_key where status=1 limit 1 order by id asc) FOR UPDATE",Integer.class);
-//
-//		Integer count = (Integer) query.getSingleResult();
-//
-//		Query update = entityManager.createNativeQuery("Update counter_key SET status = counter_field + 1");
-//
-//		return count+"";
-//	}
-//
-//
-//	public void testAgain(Long id){
-//
-//	}
-//	@Retryable(value = javax.persistence.PersistenceException.class)
-//	@Transactional
-//	public void testHello(String loopId) throws InterruptedException {
-//
-//		Query query = entityManager.createNativeQuery("SELECT count_down FROM counter_key WHERE id = "+loopId+" FOR UPDATE");
-//
-//		Integer count = (Integer) query.getSingleResult();
-//		log.info("pre "+count);
-//		Thread.sleep(5000);
-//		Query update = entityManager.createNativeQuery("Update counter_key  SET count_down = count_down + 1 where id="+loopId+"");
-//
-//		update.executeUpdate();
-//		log.info("post "+count);
-//
-////		CounterKeyEntity ent = countRepository.findById(15001L).get();
-////		ent.setCount(100);
-////		countRepository.save(ent);
-////		if(loopId.equals("TH"))
-////			test1();
-////		else {
-////			List<String> key = new ArrayList<>();
-////			try {
-////
-////
-////				for (int i = 0; i < 5000; i++) {
-////					key.add(getKey("TH", "NC"));
-////				}
-////			}catch (Exception ex){
-////				log.error("Exception ",ex);
-////			}
-////
-////			key.forEach(k -> {
-////				log.info(loopId + "-" + k);
-////			});
-////		}
-//
-//	}
-//
-//	public void test1() {
-//
-//		for(int i=0;i<100000;i++){
-//			countRepository.save(CounterKeyEntity.builder().count(i).key("TH_NC").build());
-//		}
-//
-//	}
 
 }

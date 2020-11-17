@@ -14,4 +14,5 @@ public class PropertyBoqItemDto {
     String itemUuid;
     String itemCode;
     BigDecimal quantity;
+    BigDecimal unitRate;
 }

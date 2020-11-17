@@ -22,6 +22,5 @@ public class GrsiEventUpdateDto {
     private boolean po;
     private String doneBy;
     private Date doneAt;
-
-    List<GrsiItemDto> gsriItems;
+    private GrsiItemDto gsriItem;
 }
