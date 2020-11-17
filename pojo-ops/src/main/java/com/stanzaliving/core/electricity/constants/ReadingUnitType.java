@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public enum ReadingUnitType {
 
-    KVH("kVAh"),
+    KVAH("kVAh"),
     KWH("kWh");
 
     private String readingUnitName;
