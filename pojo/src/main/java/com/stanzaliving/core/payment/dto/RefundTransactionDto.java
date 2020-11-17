@@ -2,7 +2,9 @@ package com.stanzaliving.core.payment.dto;
 
 import com.stanzaliving.core.payment.enums.PaymentMode;
 import com.stanzaliving.core.payment.enums.StanzaPaymentService;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
@@ -19,6 +21,8 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @SuperBuilder
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class RefundTransactionDto {
 	private String userId;
 
