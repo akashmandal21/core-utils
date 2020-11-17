@@ -12,8 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 public enum MeterType {
 
-    IOT("IOT"),
-    NON_IOT("Non IOT");
+    IOT("Smart"),
+    NON_IOT("Regular");
 
     private String meterType;
 
