@@ -48,8 +48,10 @@ public class ElectricityMeterDto extends AbstractDto {
 	private Double unitConsumed;
 
 	private Double average;
-	
+
 	private ReadingUnitType readingUnitType;
+
+	private String readingUnitTypeName;
 
 	private List<ElectricityReadingDto> readings;
 
