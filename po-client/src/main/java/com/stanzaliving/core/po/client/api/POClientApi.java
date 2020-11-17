@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.invoice.enums.dto.InvoiceItemDto;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -287,4 +289,62 @@ public class POClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
+
+    public ResponseDto<List<InvoiceItemDto>> getPoToItems(String poToUuid, String searchText) {
+
+        log.info("HTTP Client call to get PoTo item details {}, {}", poToUuid, searchText);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("poToUuid", poToUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.add("searchText", searchText);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<List<InvoiceItemDto>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<InvoiceItemDto>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getPOTODetailsWithoutItems/{poToUuid}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
+    }
+
+    public ResponseDto<List<InvoiceItemDto>> getPoToItemsByItemUuids(String poToUuid, List<String> itemUuids) {
+
+        if (CollectionUtils.isEmpty(itemUuids))
+            return null;
+
+        Object postBody = itemUuids;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("poToUuid", poToUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getPOTODetailsWithoutItems/{poToUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<InvoiceItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<InvoiceItemDto>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
 }
