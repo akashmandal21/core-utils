@@ -25,7 +25,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MealType {
 
-	BREAKFAST(1, "Breakfast", 1, "https://res.cloudinary.com/stanza-living/image/upload/v1604331332/food/meals/Breakfast_Veg.png"),
+	BREAKFAST(1, "Breakfast", 1, "https://res.cloudinary.com/stanza-living/image/upload/v1604332446/food/meals/Indian_Combo.png"),
 	LUNCH(2, "Lunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png"),
 	EVENING_SNACKS(3, "Evening Snacks", 5, "https://res.cloudinary.com/stanza-living/image/upload/v1604332760/food/meals/Evening_Snacks.png"),
 	DINNER(4, "Dinner", 6, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png"),

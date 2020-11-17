@@ -32,5 +32,9 @@ public class FoodHomeScreenResponse {
 	
 	private boolean mealFlag;
 	
+	private String foodType;
+	
 	private boolean today;
+	
+	private boolean showTomorrowMeals;
 }
