@@ -26,8 +26,6 @@ public class RefundTransactionDto {
 
 	private StanzaPaymentService paymentService;
 
-	private PaymentMode paymentMode;
-
-	private double amount;
+	private Double amount;
 
 }
