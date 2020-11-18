@@ -1,6 +1,7 @@
 package com.stanzaliving.qrcode.service.impl;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -211,5 +212,27 @@ public class QRScanServiceImpl implements QRScanService {
 	public List<QRData> getQRDataByUuidIn(List<String> uuids) {
 		return qrDataRepository.findByUuidIn(uuids);
 	}
+
+	@Override
+	public boolean existsByContextIdInAndQrContextTypeInAndUserIdAndStatus(Collection<String> contextIds, Collection<QRContextType> contextTypes, String userId, boolean status) {
+
+		boolean scanHistoryExists =
+				qrScanHistoryRepository.existsByContextIdInAndQrContextTypeInAndUserIdAndStatus(contextIds, contextTypes, userId, status);
+
+		log.info("Qr scan history for contextIds: {} and userId: {} exists: {}", contextIds, userId, scanHistoryExists);
+
+		return scanHistoryExists;
+	}
+
+	@Override
+	public List<QRScanHistory> findByContextIdInAndQrContextTypeInAndUserIdAndStatus(Collection<String> contextIds, Collection<QRContextType> contextTypes, String userId, boolean status) {
+		List<QRScanHistory> scanHistories =
+				qrScanHistoryRepository.findByContextIdInAndQrContextTypeInAndUserIdAndStatus(contextIds, contextTypes, userId, status);
+
+		log.info("Qr scan history for contextIds: {} and userId: {} are: {}", contextIds, userId, scanHistories);
+
+		return scanHistories;
+	}
+
 
 }
