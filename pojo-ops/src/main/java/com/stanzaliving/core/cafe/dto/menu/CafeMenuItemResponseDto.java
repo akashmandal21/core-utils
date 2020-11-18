@@ -30,12 +30,14 @@ public class CafeMenuItemResponseDto {
     private boolean nonVeg;
     private String category;
 
-    private Map<String,Double> ratings;
-    private Map<String,Double> orders;
-    private Double margin;
+    private Map<String, Double> ratings;
+    private Map<String, Double> orders;
 
     //from cafe pricing
     private Double price;
+    private Double gstPercentage;
+    private Double finalPrice;
+    private Double marginPercentage;
     private boolean disableAtCafe;
 
 }

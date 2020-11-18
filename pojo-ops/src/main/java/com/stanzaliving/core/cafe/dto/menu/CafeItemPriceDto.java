@@ -12,5 +12,8 @@ import lombok.experimental.SuperBuilder;
 public class CafeItemPriceDto {
     private String itemId;
     private Double finalPrice;
+    private Double gstPercentage;
+    private Double price;
+    private Double marginPercentage;
     private boolean disableOnCafe;
 }

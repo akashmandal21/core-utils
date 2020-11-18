@@ -31,5 +31,4 @@ public class OrderedItemRDto {
     private Double totalAmount;
 
 
-
 }

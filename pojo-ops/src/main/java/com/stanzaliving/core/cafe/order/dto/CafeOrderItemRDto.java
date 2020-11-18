@@ -33,5 +33,6 @@ public class CafeOrderItemRDto {
     private Double cgstPercentage;
     private Double igstPercentage;
     private Double sgstPercentage;
+    private Double marginPercentage;
 
 }
