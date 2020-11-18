@@ -103,6 +103,7 @@ public class GrnClientApi {
     public ResponseDto<Map<EventType,Boolean>> getGrsiEventsAllowed(String poUuid) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("poToUuid", poUuid);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -113,7 +114,6 @@ public class GrnClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         String path = UriComponentsBuilder.fromPath("/internal/generic/grnEventAllowed/{poToUuid}").buildAndExpand(uriVariables).toUriString();
-        queryParams.set("poToUuid", poUuid);
 
         ParameterizedTypeReference<ResponseDto<Map<EventType,Boolean>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<EventType,Boolean>>>() {
         };
