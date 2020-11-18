@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.cafe.enums.RCReceivingStatus;
 import com.stanzaliving.core.cafe.order.constants.DispatchMode;
 import com.stanzaliving.core.cafe.order.constants.OrderType;
 
@@ -39,7 +40,7 @@ public class OrderDispatchSummaryDto {
     
     private Date rcGeneratedAt;
     
-    private boolean receivingStatus;
+    private RCReceivingStatus receivingStatus;
     
     private Date rcReceivedAt;
 
