@@ -1,5 +1,6 @@
 package com.stanzaliving.core.po.generic.dtos;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
@@ -23,6 +24,7 @@ public class PoDetailsResponse {
     private String poNumber;
     private GenericPOType potype;
     private GenericPOTOStatus postatus;
+    private Department department;
     private BigDecimal otherFeeSubTotal;
     private BigDecimal otherFeeGst;
     private BigDecimal poAmount;
