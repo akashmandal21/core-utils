@@ -8,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,6 +23,7 @@ public class CafeOrderSearchPDto {
     private LocalDate orderDate;
     private String residenceId;
     private LocalTime slotTime;
+    private List<String> slotIds;
     private OrderSearchFilter filter;
     private String searchText;
     private String dispatchUserId;

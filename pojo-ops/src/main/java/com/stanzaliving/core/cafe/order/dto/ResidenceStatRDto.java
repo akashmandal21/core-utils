@@ -5,6 +5,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -16,7 +17,7 @@ public class ResidenceStatRDto {
     private String residenceId;
     private Integer count;
     private String name;
-    private List<LocalTime> slots;
+    private Map<LocalTime, List<String>> slots;
     private LocalTime nextSlot;
 
 }
