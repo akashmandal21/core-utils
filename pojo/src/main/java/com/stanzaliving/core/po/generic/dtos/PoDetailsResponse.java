@@ -31,6 +31,8 @@ public class PoDetailsResponse {
     private LocalDate startDate;
     private LocalDate endDate;
     private String scopeOfWork;
+    private boolean isPo;
+    private String sourceLocation;
     private String vendorName;
     private LocationType deliveryLocationType;
     private UIKeyValue deliveryLocation;
