@@ -24,6 +24,7 @@ public class FilterDto {
     private Set<String> availableFields;
     //For internal requests
     private Set<String> itemCodes;
+    private List<String> itemUuids;
     private boolean excludingCodes;
     private Integer pageNum;
     private Integer limit;
