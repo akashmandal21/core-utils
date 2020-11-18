@@ -1,6 +1,7 @@
 package com.stanzaliving.core.cafe.order.dto;
 
 import com.stanzaliving.core.cafe.order.constants.OrderStatus;
+import com.stanzaliving.core.cafe.order.constants.RefundStatus;
 import com.stanzaliving.core.cafe.order.constants.RefundType;
 import com.stanzaliving.core.cafe.order.constants.ServingMode;
 import lombok.*;
@@ -20,10 +21,12 @@ public class CafeOrderRDto {
     private String orderCode;
     private Date orderTime;
     private Date deliveryTime;
+    private Date expectedDeliveryTime;
     private CafeOrderUserRDto user;
     private OrderStatus status;
     private boolean paymentDone;
     private RefundType refundType;
+    private RefundStatus refundStatus;
     private CafeOrderPaymentDto payment;
     private List<OrderedItemRDto> items;
     private Double amount;
