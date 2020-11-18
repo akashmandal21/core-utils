@@ -1,5 +1,7 @@
 package com.stanzaliving.core.generic.constants;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 
 public class GenericConstants {
@@ -14,6 +16,8 @@ public class GenericConstants {
     public static final Integer rejectionStart=-8;
     public static final String sampleCsvStartLine="Data Starts Here:";
     public static final String addressBookMapName = "addressBook";
+    public static final String inventorySummaryMapName = "inventorySummary";
     public static final int SCALE = 3;
     public static final RoundingMode roundingMode = RoundingMode.HALF_EVEN;
+    public static final BigDecimal HUNDRED =  new BigDecimal("100", MathContext.DECIMAL128);
 }

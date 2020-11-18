@@ -1,17 +1,18 @@
 package com.stanzaliving.core.opscalculator.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class AnnualUnderWrittenDto  {
+public class UnderWrittenDto {
     protected PropertyInfoDto propertyInfoDto;
     protected FoodCategoryDto foodCategoryDto;
     protected UtilitiesCategoryDto utilitiesCategoryDto;
@@ -29,4 +30,7 @@ public class AnnualUnderWrittenDto  {
     protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
     protected double underWrittenDurationAmount;
     protected double underWrittenDurationInDays;
+    @Builder.Default
+    protected List<LocalDate> holidays = new ArrayList<>();
+    protected List<LocalDate> specialDays;
 }

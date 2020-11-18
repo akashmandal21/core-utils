@@ -1,8 +1,6 @@
 package com.stanzaliving.transformations.enums;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import com.stanzaliving.core.vendor.enums.VendorType;
 
@@ -32,15 +30,22 @@ public enum LocationType {
 	}
 	
 	private static Map<String, LocationType> locationByVendorMap = new HashMap<>(); 
+	private static List<LocationType> locationAddressable = new ArrayList<>();
 	static {
 
 		for (LocationType locType : LocationType.values()) {
 			if(Objects.nonNull(locType.getVendorType()))
 				locationByVendorMap.put(locType.getVendorType().name(), locType);
 		}
+
+		locationAddressable.addAll(Arrays.asList(HOUSE,WAREHOUSE,CITY_OFFICE,CAFE,KITCHEN,STORE,CITY_OFFICE,CORPORATE_OFFICE));
 	}
 	
 	public static LocationType getLocationByVendorName(String name) {
 		return locationByVendorMap.get(name);
+	}
+
+	public static List<LocationType> getLocationAddressable(){
+		return locationAddressable;
 	}
 }

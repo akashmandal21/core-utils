@@ -73,6 +73,7 @@
         <module>payment-client</module>
         <module>counter-service</module>
         <module>recon-client</module>
+        <module>notification-client</module>
     </modules>
 
 	<build>
