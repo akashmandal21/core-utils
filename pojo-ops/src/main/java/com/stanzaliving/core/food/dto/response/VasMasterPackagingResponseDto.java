@@ -28,7 +28,5 @@ public class VasMasterPackagingResponseDto {
 
 	private Integer qty;
 
-	private EnumListing<PackagingMaterial> masterMaterial;
-
 	private List<CityPackagingMaterialResponseDto> cityMaterial;
 }

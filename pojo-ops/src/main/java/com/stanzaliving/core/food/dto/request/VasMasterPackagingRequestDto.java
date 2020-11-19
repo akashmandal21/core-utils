@@ -26,9 +26,6 @@ public class VasMasterPackagingRequestDto {
 	@NotBlank(message = "Package selected is not valid")
 	private String packagingId;
 
-	@NotNull(message = "Packaging material selection is mandatory")
-	private PackagingMaterial masterMaterial;
-
 	@NotNull(message = "Packaging Qty Selection is mandatory")
 	private int qty;
 
