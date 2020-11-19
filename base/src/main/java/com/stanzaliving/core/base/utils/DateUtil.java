@@ -45,7 +45,17 @@ public class DateUtil {
 		}
 		return null;
 	}
-	
+
+	public String customDateFormatter(LocalDateTime localDateTime, DateFormat dateFormat) {
+
+		if (Objects.nonNull(localDateTime)) {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateFormat.getValue());
+
+			return formatter.format(localDateTime);
+		}
+
+		return null;
+	}
 	
 	public String customTimeFormatter(LocalTime timeInput, DateFormat dateFormat) {
 
