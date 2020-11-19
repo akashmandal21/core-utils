@@ -20,12 +20,6 @@ public class PoHeaderDto {
 
     //Flags
     @Builder.Default
-    private boolean canApprove = false;
-    @Builder.Default
-    private boolean canDelete = false;
-    @Builder.Default
-    private boolean canOpenForEdit = false;
-    @Builder.Default
     private boolean canSendPoToVendor = false;
     @Builder.Default
     private boolean grnCompleted = false;
@@ -37,6 +31,8 @@ public class PoHeaderDto {
     private boolean grnRcvAllowed = false;
     @Builder.Default
     private boolean advanceAllowed = false;
+    @Builder.Default
+    private boolean regularInvoiceAllowed = false;
     @Builder.Default
     private boolean scRequest = false;
     @Builder.Default
