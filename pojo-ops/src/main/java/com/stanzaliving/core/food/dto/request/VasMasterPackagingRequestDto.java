@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.request;
 
-import com.stanzaliving.core.food.enums.PackagingMaterial;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -29,5 +28,5 @@ public class VasMasterPackagingRequestDto {
 	@NotNull(message = "Packaging Qty Selection is mandatory")
 	private int qty;
 
-	private List<CityPackagingMaterialDto> cityMaterial;
+	private List<CityPackagingRequestDto> cityWisePackaging;
 }

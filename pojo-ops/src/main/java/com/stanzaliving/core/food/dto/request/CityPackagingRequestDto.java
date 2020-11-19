@@ -21,7 +21,7 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CityPackagingMaterialDto {
+public class CityPackagingRequestDto {
 	@NotBlank(message = "City Selection is mandatory")
 	private String cityId;
 
