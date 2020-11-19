@@ -251,4 +251,29 @@ public class VendorClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, vddReturnType);
     }
+
+    public ResponseDto<String> getHouseVendorUuid(String propertyUuid) {
+
+        log.info("HTTP Client call to get Internal House vendor uuid {}" , propertyUuid);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("propertyUuid",propertyUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/getHouseVendorUuid/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, vddReturnType);
+    }
 }

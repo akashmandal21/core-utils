@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.generic.po.enums.EventType;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import com.stanzaliving.grn.GSRIReceivedQuantity;
@@ -57,7 +58,7 @@ public class GrnClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
-    public ResponseDto<List<GrnQuantity>> getGrnQuantitiesForPO(String poUuid) {
+    public ResponseDto<List<GSRIReceivedQuantity>> getGrnQuantitiesForPO(String poUuid) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -69,10 +70,10 @@ public class GrnClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/grn/get/quantity").buildAndExpand(uriVariables).toUriString();
-        queryParams.set("poUuid", poUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/gsri/quantity").buildAndExpand(uriVariables).toUriString();
+        queryParams.set("poToUuid", poUuid);
 
-        ParameterizedTypeReference<ResponseDto<List<GrnQuantity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GrnQuantity>>>() {
+        ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
@@ -90,8 +91,8 @@ public class GrnClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/grn/get/update").buildAndExpand(uriVariables).toUriString();
-        queryParams.set("poUuid", poUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/gsri/status").buildAndExpand(uriVariables).toUriString();
+        queryParams.set("poToUuid", poUuid);
 
         ParameterizedTypeReference<ResponseDto<GrsiUpdateDto>> returnType = new ParameterizedTypeReference<ResponseDto<GrsiUpdateDto>>() {
         };
@@ -99,9 +100,10 @@ public class GrnClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
-    public ResponseDto<List<GSRIReceivedQuantity>> getGSRIReceivedQuantitiesForPO(String poToUuid) {
+    public ResponseDto<Map<EventType,Boolean>> getGrsiEventsAllowed(String poUuid) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("poToUuid", poUuid);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -111,12 +113,12 @@ public class GrnClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/get/gsri/quantity").buildAndExpand(uriVariables).toUriString();
-        queryParams.set("poToUuid", poToUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/generic/grnEventAllowed/{poToUuid}").buildAndExpand(uriVariables).toUriString();
 
-        ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>>() {
+        ParameterizedTypeReference<ResponseDto<Map<EventType,Boolean>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<EventType,Boolean>>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
+
 }

@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,24 +25,17 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString(callSuper = true)
 @Table(name = "counter_key")
-public class CounterKeyEntity implements Serializable {
+public class CounterKeyEntity extends AbstractJpaEntity {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected Long id;
 
 	@Column(name = "category_key",unique = true)
 	private String key;
 	
 	@Column(name = "count_down")
 	private Long count;
-	
-	@Builder.Default
-	@Column(name = "status", columnDefinition = "bit(1) default 1")
-	protected boolean status = true;
 }

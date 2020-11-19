@@ -24,6 +24,7 @@ public class PoItemDetail {
     private UIKeyValue costHead;
     private String name;
     private UnitType uom;
+    private String hsnSacCode;
     private String description;
     private BigDecimal quantity;
     private BigDecimal unitRate;

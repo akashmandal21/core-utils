@@ -71,7 +71,9 @@ public enum PoType {
 	EVENTS_ACTIVATIONS("Events-Activations"),
 	PARTNERSHIPS("Partnerships"),
 	OTHER("Others"),
-	B2B_INCENTIVE("B2B Incentive");
+	B2B_INCENTIVE("B2B Incentive"),
+	KITCHEN_EQPT("Kitchen Equipments"),
+	UTENSILS_SW("Utensils and SmallWares");
 
 	private String type;
 	
