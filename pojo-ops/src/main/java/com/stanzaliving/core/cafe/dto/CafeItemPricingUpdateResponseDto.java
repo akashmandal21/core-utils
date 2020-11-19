@@ -29,37 +29,37 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CafeItemPricingUpdateResponseDto {
-	
-private String itemId;
 
-private String itemName;
+	private String itemId;
 
-private Double gstAmount;
+	private String itemName;
 
-private Double gstPercent;
+	private Double gstAmount;
 
-private Double masterPriceInclGst;
+	private Double gstPercent;
 
-private Double masterPriceExclGst;
+	private Double masterPriceInclGst;
 
-private Double margin;
+	private Double masterPriceExclGst;
 
-private List<CogsPriceDto> cogs;
+	private Double margin;
 
-private List<String> accompaniments;
+	private List<CogsPriceDto> cogs;
 
-private EnumListing<FoodItemType> foodType;
+	private List<String> accompaniments;
 
-private ListingDto category;
+	private EnumListing<FoodItemType> foodType;
 
-private List<DishDetailsResponseDto> description;
+	private ListingDto category;
 
-private List<VasMasterPackagingResponseDto> packaging;
+	private List<DishDetailsResponseDto> description;
 
-private boolean itemEnableStatus;
+	private List<VasMasterPackagingResponseDto> packaging;
 
-private boolean residencePriceEnabled;
+	private boolean itemEnableStatus;
 
-private List<ResidenceItemPricingUpdateRequestDto> residenceItemPricingList;
+	private boolean residencePriceEnabled;
 
-}	
+	private List<ResidenceItemPricingUpdateRequestDto> residenceItemPricingList;
+
+}
