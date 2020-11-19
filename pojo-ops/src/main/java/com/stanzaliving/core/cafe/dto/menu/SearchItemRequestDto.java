@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 @Getter
@@ -21,7 +22,7 @@ public class SearchItemRequestDto {
     private String residenceId;
     private LocalDate menuDate;
     private ItemListingMethod method;
-    private List<String> itemIds;
+    private Collection<String> itemIds;
     private boolean includeRating = true;
     private boolean includeOrders = true;
     private boolean includeResidencePrice = true;
