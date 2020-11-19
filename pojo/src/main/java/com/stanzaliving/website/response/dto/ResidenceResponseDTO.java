@@ -52,6 +52,13 @@ public class ResidenceResponseDTO {
 	private FomoTag fomoTag;
 	private int priorityOrder;
 	private String residenceType;
+	private String mobileNo;
+	private String phoneNo;
+	private boolean virtualTour;
+	private String gmbLink;
+	private String virtualTourImage;
+	private String cardCTA;
+	
 	
 	@Builder.Default
 	private Set<FeatureResponseDTO> features = new HashSet<>(0);
@@ -67,6 +74,7 @@ public class ResidenceResponseDTO {
 	private Set<ImageResponseDTO> images = new HashSet<>(0);
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
+	
 	private AddressResponseDTO address;
 
 }
