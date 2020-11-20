@@ -57,6 +57,7 @@ public enum GenericPOTOStatus {
     public static Set<GenericPOTOStatus> scStatus = new HashSet<>(5);
     public static Set<GenericPOTOStatus> scRejectStatus = new HashSet<>(5);
     public static Set<GenericPOTOStatus> scAllowedStatus = new HashSet<>(10);
+    public static Set<GenericPOTOStatus> firstApprovalStatus = new HashSet<>(3);
     public static Set<GenericPOTOStatus> firstApprovalCycle = new HashSet<>(10);
     public static Set<GenericPOTOStatus> firstApprovalRejects = new HashSet<>(5);
     public static Set<GenericPOTOStatus> approvals = new HashSet<>(10);
@@ -69,6 +70,7 @@ public enum GenericPOTOStatus {
         scRejectStatus.addAll(Arrays.asList(SC_L1_REJECTED,SC_L2_REJECTED,SC_L3_REJECTED));
         scAllowedStatus.addAll(Arrays.asList(CANCEL_L1_REJECTED,CANCEL_L2_REJECTED,CANCEL_L3_REJECTED,
                 APPROVED,SHORTCLOSED,SC_L1_REJECTED,SC_L2_REJECTED,SC_L3_REJECTED));
+        firstApprovalStatus.addAll(Arrays.asList(L1_APPROVAL_DUE,L2_APPROVAL_DUE,L3_APPROVAL_DUE));
         firstApprovalCycle.addAll(Arrays.asList(IN_DRAFT,L1_SENT_BACK,L2_SENT_BACK,L3_SENT_BACK,L1_APPROVAL_DUE,L2_APPROVAL_DUE,L3_APPROVAL_DUE));
         firstApprovalRejects.addAll(Arrays.asList(L1_SENT_BACK,L2_SENT_BACK,L3_SENT_BACK));
         approvals.addAll(Arrays.asList(CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE,L2_APPROVAL_DUE,APPROVED,SHORTCLOSED,CANCELLED));
