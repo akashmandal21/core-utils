@@ -1,16 +1,18 @@
 package com.stanzaliving.core.grsi.dto;
 
+import java.util.Date;
+
 import com.stanzaliving.transformations.enums.LocationType;
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 public class GrsiEventUpdateDto {
 
     private String grsiId;
