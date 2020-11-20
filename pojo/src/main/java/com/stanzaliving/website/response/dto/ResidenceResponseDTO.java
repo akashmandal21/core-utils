@@ -7,6 +7,7 @@ package com.stanzaliving.website.response.dto;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
 import lombok.AllArgsConstructor;
@@ -48,7 +49,17 @@ public class ResidenceResponseDTO {
 	private String slug;
 	private Integer fomoBedCount;
 	private Integer preBookingAmount;
-
+	private FomoTag fomoTag;
+	private int priorityOrder;
+	private String residenceType;
+	private String mobileNo;
+	private String phoneNo;
+	private boolean virtualTour;
+	private String gmbLink;
+	private String virtualTourImage;
+	private String cardCTA;
+	
+	
 	@Builder.Default
 	private Set<FeatureResponseDTO> features = new HashSet<>(0);
 	@Builder.Default
@@ -63,6 +74,7 @@ public class ResidenceResponseDTO {
 	private Set<ImageResponseDTO> images = new HashSet<>(0);
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
+	
 	private AddressResponseDTO address;
 
 }
