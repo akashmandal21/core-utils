@@ -87,9 +87,9 @@ public class StanzaUtils {
 	public static int generateDefaultOtpOfLength(int length) {
 
 		int otp = 0;
-		int count = 1;
+		int count = 4;
 
-		for (int i = 3; i < length; i++) {
+		for (int i = 0; i < length; i++) {
 
 			otp = (otp * 10) + count;
 
