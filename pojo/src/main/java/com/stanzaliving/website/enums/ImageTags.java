@@ -5,11 +5,13 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Gender {
-
-	MALE,
-	FEMALE,
-	CO_ED,
-	UNISEX;
-
+public enum ImageTags {
+	LIVINGAREA,
+	DININGAREA,
+	LOBBY,
+	COOMONAREA,
+	RECEPTION,
+	LIFT,
+	ROOM,
+	KITCHEN
 }

@@ -11,13 +11,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ResidenceNearbyLocationResponseDTO {
+public class LocationResponseDTO {
 
-	private int residenceNearbyLocationId;
-	private int nearbyLocationId;
-	private String nearbyLocationName;
-	private double distance;
-	@Builder.Default
-	private int locationOrder = 0;
-
+	private int residenceId;
+	private double latitude;
+	private double longitude;
+	private String gmbLink;
 }
