@@ -91,7 +91,7 @@ public class StanzaUtils {
 		int otp = 0;
 		int count = 1;
 
-		for (int i = 0; i < length; i++) {
+		for (int i = 3; i < length; i++) {
 
 			otp = (otp * 10) + count;
 
