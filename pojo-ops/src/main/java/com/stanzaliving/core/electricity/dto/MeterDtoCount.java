@@ -3,6 +3,7 @@ package com.stanzaliving.core.electricity.dto;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.CategoryCountDto;
 import com.stanzaliving.core.base.common.dto.ListingCountDto;
 
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ public class MeterDtoCount extends AbstractDto {
     
     private List<ListingCountDto> meterTypeCount;
     
-    private List<ListingCountDto> meterCategoryWiseCount;
+    private List<CategoryCountDto> meterCategoryWiseCount;
     
     private long activeMeterCount;
     
