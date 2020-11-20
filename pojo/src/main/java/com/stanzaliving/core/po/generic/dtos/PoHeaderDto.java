@@ -9,7 +9,6 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
-@Builder
 public class PoHeaderDto {
 
     private String poToUuid;
