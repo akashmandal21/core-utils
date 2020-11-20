@@ -3,7 +3,6 @@ package com.stanzaliving.core.electricity.dto;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.base.common.dto.CategoryCountDto;
 import com.stanzaliving.core.base.common.dto.ListingCountDto;
 
 import lombok.AllArgsConstructor;
