@@ -19,6 +19,13 @@ public class PoHeaderDto {
     private String propertyUuid;
 
     //Flags
+
+    @Builder.Default
+    private boolean showShortCloseButton;
+
+    @Builder.Default
+    private boolean showCancelButton;
+
     @Builder.Default
     private boolean canSendPoToVendor = false;
     @Builder.Default
