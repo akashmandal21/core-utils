@@ -9,22 +9,26 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
+@Builder
 public class PoHeaderDto {
 
     private String poToUuid;
     private String poToNumber;
     private boolean isPo;
     private GenericPOTOStatus potoStatus;
+    private String potoStatusText;
+    private String textColor;
+    private String backgroundColor;
     private GenericPOType poType;
     private String propertyUuid;
 
     //Flags
 
     @Builder.Default
-    private boolean showShortCloseButton;
+    private boolean showShortCloseButton=false;
 
     @Builder.Default
-    private boolean showCancelButton;
+    private boolean showCancelButton=false;
 
     @Builder.Default
     private boolean canSendPoToVendor = false;
