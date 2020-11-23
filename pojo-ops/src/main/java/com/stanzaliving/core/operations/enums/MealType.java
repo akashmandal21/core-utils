@@ -25,12 +25,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MealType {
 
-	BREAKFAST(1, "Breakfast", 1, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png"),
-	LUNCH(2, "Lunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png"),
-	EVENING_SNACKS(3, "Evening Snacks", 5, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png"),
-	DINNER(4, "Dinner", 6, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png"),
-	BRUNCH(5, "Brunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png"),
-	LUNCH_TIFFIN(6, "Lunch Tiffin", 4, "https://res.cloudinary.com/stanza-living/image/upload/f_auto,q_auto/v1581672881/vas-desktop.png");
+	BREAKFAST(1, "Breakfast", 1, "https://res.cloudinary.com/stanza-living/image/upload/v1604332446/food/meals/Indian_Combo.png"),
+	LUNCH(2, "Lunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png"),
+	EVENING_SNACKS(3, "Evening Snacks", 5, "https://res.cloudinary.com/stanza-living/image/upload/v1604332760/food/meals/Evening_Snacks.png"),
+	DINNER(4, "Dinner", 6, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png"),
+	BRUNCH(5, "Brunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/v1604331332/food/meals/Breakfast_Veg.png"),
+	LUNCH_TIFFIN(6, "Lunch Tiffin", 4, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png");
 
 	private Integer mealId;
 

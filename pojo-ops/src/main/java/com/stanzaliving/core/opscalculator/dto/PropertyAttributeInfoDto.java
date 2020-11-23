@@ -13,4 +13,14 @@ import lombok.NoArgsConstructor;
 public class PropertyAttributeInfoDto {
     private Integer availableBedCount;
     private Integer roomCount;
+    private Integer daysInMonth;
+    private Integer daysForCalculation;
+    @Builder.Default
+    private boolean annualUnderWritten = true;
+
+
+    public PropertyAttributeInfoDto(int availableBedCount, int roomCount) {
+        this.availableBedCount = availableBedCount;
+        this.roomCount = roomCount;
+    }
 }

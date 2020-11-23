@@ -27,6 +27,7 @@ import com.stanzaliving.core.dto.FullUserDto;
 import com.stanzaliving.core.dto.HostelDto;
 import com.stanzaliving.core.dto.RCDetailDto;
 import com.stanzaliving.core.dto.UserDetailDto;
+import com.stanzaliving.core.dto.UserHostelDetailsDto;
 import com.stanzaliving.core.dto.UserRegistrationDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -244,7 +245,7 @@ public class CoreClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
-		log.info("header {}", token);
+
 		final String[] accepts = {
 				"*/*"
 		};
@@ -371,4 +372,67 @@ public class CoreClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public List<UserHostelDetailsDto> getUserHostelDetails(Integer hostelId) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/user/hostel/details").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("hostelId", hostelId.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<UserHostelDetailsDto>> returnType = new ParameterizedTypeReference<List<UserHostelDetailsDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public boolean updateHostelOfUser(Integer userId, Integer hostelId) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("userId", userId);
+		uriVariables.put("hostelId", hostelId);
+
+		String path = UriComponentsBuilder.fromPath("/user/update/hostel/{userId}/{hostelId}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+		};
+
+		try {
+			String response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+			log.info("Response of updating user: {} hostel to {} - {}", userId, hostelId, response);
+
+			return true;
+
+		} catch (Exception e) {
+			log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
+		}
+
+		return false;
+	}
 }

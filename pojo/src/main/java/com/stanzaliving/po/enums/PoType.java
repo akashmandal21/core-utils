@@ -70,7 +70,10 @@ public enum PoType {
 	PRE_SALES_DISCOUNT("Pre-sales Discount"),
 	EVENTS_ACTIVATIONS("Events-Activations"),
 	PARTNERSHIPS("Partnerships"),
-	OTHER("Others");
+	OTHER("Others"),
+	B2B_INCENTIVE("B2B Incentive"),
+	KITCHEN_EQPT("Kitchen Equipments"),
+	UTENSILS_SW("Utensils and SmallWares");
 
 	private String type;
 	
