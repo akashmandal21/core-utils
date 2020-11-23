@@ -1,5 +1,6 @@
 package com.stanzaliving.core.cafe.order.dto;
 
+import com.stanzaliving.core.cafe.enums.SlotType;
 import com.stanzaliving.core.cafe.order.constants.PaymentType;
 import com.stanzaliving.core.cafe.order.constants.ServingMode;
 import lombok.*;
@@ -31,5 +32,7 @@ public class CafeOrderPDto {
     private OrderUserPDto userDetails;
 
     private CafeOrderDeliveryPDto deliveryDetails;
+    private SlotType slotType;
+    private String slotId;
 
 }

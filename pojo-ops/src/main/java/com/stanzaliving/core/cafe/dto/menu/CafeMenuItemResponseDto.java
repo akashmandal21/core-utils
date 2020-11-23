@@ -1,5 +1,6 @@
 package com.stanzaliving.core.cafe.dto.menu;
 
+import com.stanzaliving.core.cafe.dto.CafeVasItemDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -24,11 +25,7 @@ public class CafeMenuItemResponseDto {
     private String itemId;
 
     //from vas master
-    private String description;
-    private String name;
-    private boolean containsEgg;
-    private boolean nonVeg;
-    private String category;
+    private CafeVasItemDto itemDetails;
 
     private Map<String, Double> ratings;
     private Map<String, Double> orders;

@@ -1,5 +1,6 @@
 package com.stanzaliving.core.cafe.order.dto;
 
+import com.stanzaliving.core.cafe.dto.CafeVasItemDto;
 import com.stanzaliving.core.cafe.order.constants.DiscountType;
 import com.stanzaliving.core.cafe.order.constants.ItemType;
 import lombok.*;
@@ -15,10 +16,7 @@ public class OrderedItemRDto {
     private ItemType type;
     private String itemId;
     private int quantity;
-
-    private String name;
-    private boolean containsEggs;
-    private boolean nonVeg;
+    private CafeVasItemDto itemDetails;
     private Double grossPrice;
     private DiscountType discountType;
     private Double discount;

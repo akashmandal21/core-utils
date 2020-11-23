@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum RefundStatus {
+    TO_BE_REFUND("To Be Refund"),
     INITIATED("Initiated"),
     PENDING("Pending"),
     COMPLETED("Completed");
