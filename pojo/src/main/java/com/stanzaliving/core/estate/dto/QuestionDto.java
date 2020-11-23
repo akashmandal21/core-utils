@@ -30,4 +30,6 @@ public class QuestionDto extends AbstractDto {
     
     private String questionText;
 
+    private String metaData;
+
 }
