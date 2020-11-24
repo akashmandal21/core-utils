@@ -56,7 +56,10 @@ public enum ItemType {
     TELEPHONY("Telephony","Telephony"),
     TEMP_STAFF_COST("Temp Staff Cost","Temp Staff Cost"),
     TRANSIT_MEDIA("Transit Media","Transit Media"),
-    VIDEO_STREAMING("Video Streaming","Video Ads");
+    VIDEO_STREAMING("Video Streaming","Video Ads"),
+    B2B_INCENTIVE("B2B Incentive","B2B Incentive"),
+    KITCHEN_EQPT("Kitchen Equipments","Kitchen Equipments"),
+    UTENSILS_SW("Utensils and SmallWares","Utensils and SmallWares");
 
 
     private String typeText;
