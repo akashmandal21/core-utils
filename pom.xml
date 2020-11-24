@@ -74,6 +74,8 @@
         <module>counter-service</module>
         <module>recon-client</module>
         <module>notification-client</module>
+        <module>shortUrl-client</module>
+        
     </modules>
 
 	<build>
