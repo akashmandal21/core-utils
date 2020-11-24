@@ -31,8 +31,9 @@ public enum Role {
     ZONAL_HEAD("Zonal Head", AccessLevel.CITY, Department.OPS),
 
     /* operations-service */
-    COUNTRY_SERVICE_MIX_L1_APPROVER("Country- Service Mix L1 Approver", AccessLevel.COUNTRY, Department.OPS),
-    COUNTRY_SERVICE_MIX_L2_APPROVER("Country- Service Mix L2 Approver", AccessLevel.COUNTRY, Department.OPS),
+    COUNTRY_SERVICE_MIX_L1_APPROVER("Country - Service Mix L1 Approver", AccessLevel.COUNTRY, Department.OPS),
+    COUNTRY_SERVICE_MIX_L2_APPROVER("Country - Service Mix L2 Approver", AccessLevel.COUNTRY, Department.OPS),
+    COUNTRY_SERVICE_MIX_L3_APPROVER("Country - Service Mix L3 Approver", AccessLevel.COUNTRY, Department.OPS),
     EMAIL_CC_SERVICE_MIX_APPROVED("Email CC - Service Mix Approved", AccessLevel.COUNTRY, Department.OPS),
 
 

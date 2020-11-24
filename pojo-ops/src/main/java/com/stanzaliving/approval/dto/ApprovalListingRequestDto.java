@@ -19,6 +19,5 @@ public class ApprovalListingRequestDto {
     private List<String> residenceUuids = new ArrayList<>();
     private int page;
     private int limit;
-    private String roleName;
     private ApprovalEntityType approvalEntityType;
 }

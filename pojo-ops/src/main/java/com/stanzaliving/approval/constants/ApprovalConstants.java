@@ -14,7 +14,7 @@ import java.util.List;
 public class ApprovalConstants {
     public static final List<String> l1ApprovalRoles = Arrays.asList(Role.COUNTRY_SERVICE_MIX_L1_APPROVER.getRoleName());
     public static final List<String> l2ApprovalRoles = Arrays.asList(Role.COUNTRY_SERVICE_MIX_L2_APPROVER.getRoleName());
-    public static final List<String> l3ApprovalRoles = new ArrayList<>();
+    public static final List<String> l3ApprovalRoles = Arrays.asList(Role.COUNTRY_SERVICE_MIX_L3_APPROVER.getRoleName());
 
     public static final List<EnumListing<ApprovalStatus>> l1ApprovalStatusDropDown = Arrays.asList(
             EnumListing.of(ApprovalStatus.PENDING_L1_APPROVAL, ApprovalStatus.PENDING_L1_APPROVAL.getStatus()),
@@ -46,7 +46,9 @@ public class ApprovalConstants {
         put(ApprovalEntityType.SERVICE_MIX, Role.COUNTRY_SERVICE_MIX_L2_APPROVER);
     }};
 
-    public static final HashMap<ApprovalEntityType, Role> l3ApproverEntityTypeRoleMap = new HashMap<>();
+    public static final HashMap<ApprovalEntityType, Role> l3ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>(){{
+        put(ApprovalEntityType.SERVICE_MIX, Role.COUNTRY_SERVICE_MIX_L3_APPROVER);
+    }};
 
 
 
