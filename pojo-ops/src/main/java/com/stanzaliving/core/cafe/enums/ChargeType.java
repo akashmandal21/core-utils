@@ -12,6 +12,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ChargeType {
 	DELIVERY_CHARGES("Delivery Charges"),
+	CONVENIENCE_FEE("Convenience fee"),
 	IN_ROOM_DELIVERY_CHARGES("In Room Delivery Charges");
 
 	private String chargeTypeName;
