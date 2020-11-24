@@ -30,11 +30,11 @@ public class ApprovalRequestDto {
 
     HashMap<String, Object> metadata;
 
-    String l1ApprovalRole;
+    boolean l1ApprovalRequired;
 
-    String l2ApprovalRole;
+    boolean l2ApprovalRequired;
 
-    String l3ApprovalRole;
+    boolean l3ApprovalRequired;
     
     ApprovalStatus approvalStatus;
 
