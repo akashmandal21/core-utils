@@ -1,6 +1,5 @@
 package com.stanzaliving.core.cafe.dto;
 
-import com.stanzaliving.core.cafe.enums.ChargeType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,13 +13,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ApplicableChargesDto {
+public class ChargesApplicableDto {
 	
-	private ChargeType chargesType;
+	private ApplicableChargesDto chargesDto;
 	
-	private String chargeTypeName;
+	private boolean mandatory;
 	
-	private Double gst;
+	private Double chargeValue;
 
-	
 }
