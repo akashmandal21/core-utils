@@ -12,14 +12,13 @@ import lombok.Getter;
 @Getter
 public enum GSTSlabs {
 
-    NA("Not Applicable",null),
-    ZERO("0 %",0.0),
-    FIVE("05 %",5.0),
-    TWELEVE("12 %",12.0),
-    EIGHTEEN("18 %",18.0),
-    TWENTY_EIGHT("28 %",28.0);
-    private String fieldTypeText;
-    private Double gstPct;
+	ZERO("0"),
+    FIVE("5"),
+    TWELVE("12"),
+    EIGHTEEN("18"),
+    TWENTY_EIGHT("28");
+
+    private String gstPct;
     
     private static final List<EnumListing<GSTSlabs>> enumListing = new ArrayList<>();
 
@@ -28,8 +27,8 @@ public enum GSTSlabs {
 	}
 
 	static {
-		for (GSTSlabs chargeType : GSTSlabs.values()) {
-			EnumListing<GSTSlabs> listing = EnumListing.of(chargeType, String.valueOf(chargeType.getGstPct()));
+		for (GSTSlabs gstSlabs : GSTSlabs.values()) {
+			EnumListing<GSTSlabs> listing = EnumListing.of(gstSlabs, gstSlabs.getGstPct());
 			enumListing.add(listing);
 		}
 	}
