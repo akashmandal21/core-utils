@@ -313,7 +313,7 @@ public class POClientApi {
         ParameterizedTypeReference<ResponseDto<List<InvoiceItemDto>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<InvoiceItemDto>>>() {
         };
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getPOTODetailsWithoutItems/{poToUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/items/{poToUuid}").buildAndExpand(uriVariables).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
