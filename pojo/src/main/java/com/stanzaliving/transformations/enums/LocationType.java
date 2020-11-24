@@ -38,7 +38,7 @@ public enum LocationType {
 				locationByVendorMap.put(locType.getVendorType().name(), locType);
 		}
 
-		locationAddressable.addAll(Arrays.asList(HOUSE,WAREHOUSE,CITY_OFFICE,CAFE,KITCHEN,STORE,CITY_OFFICE,CORPORATE_OFFICE));
+		locationAddressable.addAll(Arrays.asList(HOUSE,WAREHOUSE,CITY_OFFICE,CAFE,KITCHEN,STORE,CORPORATE_OFFICE));
 	}
 	
 	public static LocationType getLocationByVendorName(String name) {
