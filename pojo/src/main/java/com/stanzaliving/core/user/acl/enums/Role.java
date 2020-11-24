@@ -30,12 +30,20 @@ public enum Role {
     CITY_MANAGER("City Manager", AccessLevel.CITY, Department.OPS),
     ZONAL_HEAD("Zonal Head", AccessLevel.CITY, Department.OPS),
 
-    /* operations-service */
+    /* operations-service / approval dashboard*/
     COUNTRY_SERVICE_MIX_L1_APPROVER("Country - Service Mix L1 Approver", AccessLevel.COUNTRY, Department.OPS),
     COUNTRY_SERVICE_MIX_L2_APPROVER("Country - Service Mix L2 Approver", AccessLevel.COUNTRY, Department.OPS),
     COUNTRY_SERVICE_MIX_L3_APPROVER("Country - Service Mix L3 Approver", AccessLevel.COUNTRY, Department.OPS),
     EMAIL_CC_SERVICE_MIX_APPROVED("Email CC - Service Mix Approved", AccessLevel.COUNTRY, Department.OPS),
 
+    /* ops-calculator-service / approval dashboard */
+    UNDER_WRITTEN_L1_APPROVER("Country - Season Underwritten L1 Approver", AccessLevel.COUNTRY, Department.OPS),
+    UNDER_WRITTEN_L2_APPROVER("Country - Season Underwritten L2 Approver", AccessLevel.COUNTRY, Department.OPS),
+
+    /* ops-calculator-service / approval dashboard */
+    MONTHLY_UNDER_WRITTEN_L1_APPROVER("Country - Monthly Underwritten L1 Approver", AccessLevel.COUNTRY, Department.OPS),
+    MONTHLY_UNDER_WRITTEN_L2_APPROVER("Country - Monthly Underwritten L2 Approver", AccessLevel.COUNTRY, Department.OPS),
+    MONTHLY_UNDER_WRITTEN_L3_APPROVER("Country - Monthly Underwritten L3 Approver", AccessLevel.COUNTRY, Department.OPS),
 
 
     /************************************ FOOD - OPS ************************************/

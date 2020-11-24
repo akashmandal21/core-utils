@@ -34,7 +34,7 @@ public class OpsCalculatorClient {
 		this.restClient = stanzaRestClient;
 	}
 
-	public ApprovalDashboardSummeryDetailsDto getApprovalPendingSummary(String roleName) {
+	public ApprovalDashboardSummeryDetailsDto getApprovalPendingSummary() {
 
 		Object postBody = null;
 
@@ -45,8 +45,6 @@ public class OpsCalculatorClient {
 		String path = UriComponentsBuilder.fromPath("/underwritten/annual/totalPending").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		queryParams.add("role", roleName);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
