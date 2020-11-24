@@ -35,8 +35,9 @@ public class SlotsDto extends AbstractDto{
 	private LocalTime orderingWindowStartTime;
 
 	private LocalTime orderingWindowEndTime;
+	
+	private List<ChargesApplicableDto> applicableCharges;
 
-	private List<ApplicableChargesDto> applicableCharges;
 	
 
 }
