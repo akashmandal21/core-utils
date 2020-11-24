@@ -41,7 +41,13 @@ public class ApprovalListingDto {
     LocalDate l3ActionTime;
 
     ApprovalStatus approvalStatus;
+    
+    String approvalDisplayText;
 
+    String bgColorCode;
+    
+    String textColorCode;
+    
     String residenceUuid;
 
     String residenceName;

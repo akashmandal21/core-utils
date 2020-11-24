@@ -14,7 +14,7 @@ public enum ApprovalStatus {
     L2_REJECTED("L2 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode()),
     PENDING_L3_APPROVAL("Pending L3 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode()),
     L3_REJECTED("L3 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode()),
-    APPROVED("Approved", ColorCode.GREEN.getColorCode(), ColorCode.BLACK.getColorCode()),        //color code need to be updated with product
+    APPROVED("Approved", ColorCode.GREEN.getColorCode(), ColorCode.WHITE.getColorCode()),        //color code need to be updated with product
     REJECTED("Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode());
 
     private String status;
