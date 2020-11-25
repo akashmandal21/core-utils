@@ -5,7 +5,6 @@ package com.stanzaliving.core.cafe.dto;
 import java.util.List;
 
 import com.stanzaliving.core.cafe.enums.CafeTags;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,7 +37,9 @@ public class CafeListingDto {
 	private String cityName;
 
 	private List<BaseKitchenDto> baseKitchens;
-	
+
+	private List<ResidenceMicromarketDto> residences;
+
 	private long mappedResidenceCount;
 	
 
