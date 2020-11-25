@@ -45,6 +45,11 @@ public enum Role {
     MONTHLY_UNDER_WRITTEN_L2_APPROVER("Country - Monthly Underwritten L2 Approver", AccessLevel.COUNTRY, Department.OPS),
     MONTHLY_UNDER_WRITTEN_L3_APPROVER("Country - Monthly Underwritten L3 Approver", AccessLevel.COUNTRY, Department.OPS),
 
+    /* food-service / approval dashboard */
+    FOOD_MENU_CATEGORY_L1_APPROVER("Country - food menu category L1 Approver", AccessLevel.COUNTRY, Department.FOOD_OPS),
+    FOOD_MENU_CATEGORY_L2_APPROVER("Country - food menu category L2 Approver", AccessLevel.COUNTRY, Department.FOOD_OPS),
+    FOOD_MENU_CATEGORY_L3_APPROVER("Country - food cost approver", AccessLevel.COUNTRY, Department.FOOD_OPS),
+
 
     /************************************ FOOD - OPS ************************************/
     CITY_CHEF_MANAGER("City Chef Manager", AccessLevel.CITY, Department.FOOD_OPS)
