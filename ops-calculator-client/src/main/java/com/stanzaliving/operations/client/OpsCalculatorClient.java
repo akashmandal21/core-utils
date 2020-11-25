@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.opscalculator.dto.response.ApprovalDashboardSummeryDetailsDto;
+import com.stanzaliving.core.pojo.CurrentUser;
 import com.stanzaliving.operations.ServiceMixSeasonResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -34,7 +35,7 @@ public class OpsCalculatorClient {
 		this.restClient = stanzaRestClient;
 	}
 
-	public ApprovalDashboardSummeryDetailsDto getApprovalPendingSummary() {
+	public ApprovalDashboardSummeryDetailsDto getApprovalPendingSummary(CurrentUser currentUser) {
 
 		Object postBody = null;
 
@@ -47,7 +48,9 @@ public class OpsCalculatorClient {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
-
+		if (currentUser != null) {
+			headerParams.add("cookie", "token=" + currentUser.getToken());
+		}
 		final String[] accepts = {
 				"*/*"
 		};
