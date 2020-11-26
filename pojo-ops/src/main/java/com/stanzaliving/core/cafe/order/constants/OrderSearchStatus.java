@@ -1,5 +1,6 @@
 package com.stanzaliving.core.cafe.order.constants;
 
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -32,5 +33,18 @@ public enum OrderSearchStatus {
                 break;
         }
         return status;
+    }
+
+    private static final List<EnumListing<OrderSearchStatus>> enumListing = new ArrayList<>();
+
+    public static List<EnumListing<OrderSearchStatus>> getEnumListing() {
+        return enumListing;
+    }
+
+    static {
+        for (OrderSearchStatus curOption : OrderSearchStatus.values()) {
+            EnumListing<OrderSearchStatus> listing = EnumListing.of(curOption, curOption.getStatus());
+            enumListing.add(listing);
+        }
     }
 }
