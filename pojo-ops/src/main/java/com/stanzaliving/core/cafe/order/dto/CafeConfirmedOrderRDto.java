@@ -17,4 +17,5 @@ public class CafeConfirmedOrderRDto {
     private String deliveryCode;
     private Date deliveryTime;
     private Date orderTime;
+    private CafePaymentStatusDto payment;
 }
