@@ -15,5 +15,6 @@ public class CafeItemPriceDto {
     private Double gstPercentage;
     private Double price;
     private Double marginPercentage;
+    private Double gst;
     private boolean disableOnCafe;
 }

@@ -33,6 +33,7 @@ public class CafeMenuItemResponseDto {
     //from cafe pricing
     private Double price;
     private Double gstPercentage;
+    private Double gst;
     private Double finalPrice;
     private Double marginPercentage;
     private boolean disableAtCafe;
