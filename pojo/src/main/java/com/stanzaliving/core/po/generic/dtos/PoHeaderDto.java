@@ -33,6 +33,9 @@ public class PoHeaderDto {
     private boolean showCancelButton=false;
 
     @Builder.Default
+    private boolean showDeleteButton = false;
+
+    @Builder.Default
     private boolean canSendPoToVendor = false;
     @Builder.Default
     private boolean grnCompleted = false;
