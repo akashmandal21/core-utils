@@ -27,6 +27,9 @@ public class CafeOrderItemRDto {
     private Double cgstPercentage;
     private Double igstPercentage;
     private Double sgstPercentage;
+    private Double cgst;
+    private Double igst;
+    private Double sgst;
     private Double marginPercentage;
 
 }
