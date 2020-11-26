@@ -15,7 +15,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApplicableChargesDto {
-	
+
+	private String chargeId;
+
 	private ChargeType chargesType;
 	
 	private String chargeTypeName;
