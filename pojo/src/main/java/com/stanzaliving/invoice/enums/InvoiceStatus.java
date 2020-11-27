@@ -54,7 +54,7 @@ public enum InvoiceStatus {
     }
     
     
-    public InvoiceStatus getInvoiceStatus(int approvalLevel) {
+    public static InvoiceStatus getInvoiceStatus(int approvalLevel) {
     	return invoiceApprovalLevelMap.get(approvalLevel);
     }
 
