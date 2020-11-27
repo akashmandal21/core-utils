@@ -1,6 +1,7 @@
 package com.stanzaliving.core.cafe.dto;
 
 import com.stanzaliving.core.food.dto.response.DishDetailsResponseDto;
+import com.stanzaliving.core.food.dto.response.VasMasterPackagingResponseDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -27,7 +28,9 @@ public class CafeVasItemDto {
     private List<DishDetailsResponseDto> dishes;
     private List<String> accompaniments;
     private boolean quantifiable;
-    private String grammage;
+    private Double grammage;
+    private Integer quantity;
     private FoodItemType foodType;
+    private List<VasMasterPackagingResponseDto> packaging;
 
 }
