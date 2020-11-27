@@ -1,4 +1,6 @@
-package com.stanzaliving.core.food.dto.response;
+package com.stanzaliving.core.cafe.dto;
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,12 +15,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemCategoryCountDto {
+public class BaseKitchenResidenceDto {
 
-	private String categoryId;
+	private String baseKitchenId;
 
-	private String categoryName;
+	private String baseKitchenName;
 
-	private Integer itemCount;
+	private List<ResidenceMicromarketDto> residences;
 
 }

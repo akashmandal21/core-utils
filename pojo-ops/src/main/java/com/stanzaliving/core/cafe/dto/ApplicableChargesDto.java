@@ -1,5 +1,6 @@
-package com.stanzaliving.core.food.dto.response;
+package com.stanzaliving.core.cafe.dto;
 
+import com.stanzaliving.core.cafe.enums.ChargeType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,12 +14,15 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemCategoryCountDto {
+public class ApplicableChargesDto {
 
-	private String categoryId;
+	private String chargeId;
 
-	private String categoryName;
+	private ChargeType chargesType;
+	
+	private String chargeTypeName;
+	
+	private Double gst;
 
-	private Integer itemCount;
-
+	
 }
