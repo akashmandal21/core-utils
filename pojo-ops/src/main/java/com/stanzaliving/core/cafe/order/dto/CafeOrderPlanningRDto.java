@@ -1,6 +1,6 @@
 package com.stanzaliving.core.cafe.order.dto;
 
-import com.stanzaliving.core.enums.UnitOfMeasurement;
+import com.stanzaliving.core.cafe.dto.CafeVasItemDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -11,19 +11,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CafeOrderPlanningRDto {
+    private CafeVasItemDto itemDetails;
     private String itemId;
-    private String name;
-    private String category;
-    private String description;
-    private Double grammage;
-    private Integer quantity;
-    private String packaging;
-    private String shelfLife;
-    private double gmv;
-    private int orderedQuantity;
-    private boolean quantifiable;
-    private String weight;
-    private boolean containsEgg;
-    private boolean nonVeg;
-    private UnitOfMeasurement unitOfMeasurement;
+    private int quantity;
 }
