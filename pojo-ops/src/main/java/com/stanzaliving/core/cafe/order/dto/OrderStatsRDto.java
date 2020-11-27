@@ -17,6 +17,6 @@ import java.util.Map;
 public class OrderStatsRDto {
     private OrderType orderType;
     private Integer count;
-    private Map<LocalTime,List<String>> slots;
+    private Map<LocalTime, List<String>> slots;
     private List<ResidenceStatRDto> residenceStats;
 }

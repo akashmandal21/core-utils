@@ -1,13 +1,9 @@
 package com.stanzaliving.core.cafe.order.constants;
 
-import com.stanzaliving.core.cafe.enums.CafeMenuCopyOption;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.util.StringUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import java.util.ArrayList;
 import java.util.List;
