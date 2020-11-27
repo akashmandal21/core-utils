@@ -20,5 +20,6 @@ public class CafeOrderUserRDto {
     private String residenceName;
     private String roomNo;
     private String image;
+    private String orderPhoneNo;
 
 }
