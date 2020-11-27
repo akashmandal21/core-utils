@@ -7,6 +7,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.Valid;
+
 @Getter
 @Setter
 @ToString
@@ -14,7 +16,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChargesApplicableDto {
-	
+
+	@Valid
 	private ApplicableChargesDto chargesDto;
 	
 	private boolean mandatory;

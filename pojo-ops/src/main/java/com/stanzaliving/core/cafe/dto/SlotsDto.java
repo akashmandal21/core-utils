@@ -12,6 +12,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import javax.validation.Valid;
+
 @Getter
 @Setter
 @ToString
@@ -35,7 +38,8 @@ public class SlotsDto extends AbstractDto{
 	private LocalTime orderingWindowStartTime;
 
 	private LocalTime orderingWindowEndTime;
-	
+
+	@Valid
 	private List<ChargesApplicableDto> applicableCharges;
 
 	

@@ -8,6 +8,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+
 @Getter
 @Setter
 @ToString
@@ -16,6 +18,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ApplicableChargesDto {
 
+	@NotBlank(message = "Charge selection is mandatory")
 	private String chargeId;
 
 	private ChargeType chargesType;
