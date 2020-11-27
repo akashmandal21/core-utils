@@ -20,6 +20,7 @@ public class NotificationConstants {
     public final String ORDER_DETAILS = "items";
     public final String USER_DETAILS = "user";
     public final String DELIVERY_PREFERENCE = "deliveryPreference";
+
     @UtilityClass
     public class SMSConstant {
         public final String USER_NAME = "userName";

@@ -4,7 +4,9 @@ import com.stanzaliving.core.cafe.order.constants.OrderType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -15,5 +17,6 @@ import java.util.List;
 public class OrderStatsRDto {
     private OrderType orderType;
     private Integer count;
+    private Map<LocalTime, List<String>> slots;
     private List<ResidenceStatRDto> residenceStats;
 }
