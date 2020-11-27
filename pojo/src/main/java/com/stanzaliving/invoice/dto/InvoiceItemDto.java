@@ -1,4 +1,4 @@
-package com.stanzaliving.invoice.enums.dto;
+package com.stanzaliving.invoice.dto;
 
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import lombok.AllArgsConstructor;
