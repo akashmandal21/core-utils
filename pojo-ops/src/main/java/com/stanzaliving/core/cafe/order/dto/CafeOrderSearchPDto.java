@@ -22,7 +22,7 @@ public class CafeOrderSearchPDto {
     private OrderType orderType;
     private LocalDate orderDate;
     private String residenceId;
-    private LocalTime slotTime;
+//    private LocalTime slotTime;
     private List<String> slotIds;
     private OrderSearchFilter filter;
     private String searchText;
