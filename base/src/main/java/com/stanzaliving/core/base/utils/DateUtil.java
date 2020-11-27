@@ -783,4 +783,24 @@ public class DateUtil {
 		}
 	}
 
+	/**
+	 * @apiNote written by piyush.srivastava "piyush.srivastava@stanzaliving.com"
+	 * @param time
+	 * @param startTime
+	 * @param endTime
+	 * @return boolean
+	 */
+	public boolean isInBetween(LocalTime time, LocalTime startTime, LocalTime endTime) {
+
+		boolean inBetween = false;
+
+		if (time.isAfter(startTime) && time.isBefore(endTime)) {
+
+			inBetween = true;
+
+		}
+
+		return inBetween;
+	}
+
 }
