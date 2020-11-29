@@ -18,7 +18,7 @@ public enum GSTSlabs {
     EIGHTEEN("18"),
     TWENTY_EIGHT("28");
 
-    private String gstPct;
+    private String gstPercent;
     
     private static final List<EnumListing<GSTSlabs>> enumListing = new ArrayList<>();
 
@@ -28,7 +28,7 @@ public enum GSTSlabs {
 
 	static {
 		for (GSTSlabs gstSlabs : GSTSlabs.values()) {
-			EnumListing<GSTSlabs> listing = EnumListing.of(gstSlabs, gstSlabs.getGstPct());
+			EnumListing<GSTSlabs> listing = EnumListing.of(gstSlabs, gstSlabs.getGstPercent());
 			enumListing.add(listing);
 		}
 	}
