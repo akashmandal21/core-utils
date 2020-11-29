@@ -30,6 +30,6 @@ public class FeedbackItemRequestDto {
 	@NotBlank(message = "Item selected is not valid")
 	private String itemId;
 
-	private List<String> feedbackOptionId;
+	private List<String> feedbackOptionIds;
 
 }
