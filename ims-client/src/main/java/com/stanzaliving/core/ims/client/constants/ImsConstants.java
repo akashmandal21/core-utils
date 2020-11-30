@@ -5,9 +5,16 @@ package com.stanzaliving.core.ims.client.constants;
  */
 public class ImsConstants {
 
-    public static final String PAYTM_OTP_URL = "/broker/payoutdetails";
+    public static final String PAYOUT_DETAILS = "/broker/payoutdetails";
 
     public static final String PAYTM_OTP_VALIDATE = "/broker/validatepaytm";
+
+    public static final String BANK_PENNY_TESTING = "/fundAccount/validate";
+
+    public static final String BANK_VERIFICATION = "/razorpayx/account/validation";
+
+    public static final String STORE_BANK_DETAILS = "brokers/document/bank";
+
 
 }
 
