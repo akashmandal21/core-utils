@@ -84,7 +84,7 @@ public class ImsClientApi {
     public ResponseDto<BrokerDocumentRequestDTO> validatePaytmOtp(String token, String paytmNumber, PayoutMode payoutMode,String validationKey) {
         String path = UriComponentsBuilder.fromPath(PAYTM_OTP_VALIDATE).toUriString();
 
-        ResponseDto<BrokerDocumentRequestDTO> validatePaytmOtp(path, token, paytmNumber, payoutMode, validationKey);
+        return validatePaytmOtp(path, token, paytmNumber, payoutMode, validationKey);
     }
 
     private ResponseDto<BrokerDocumentRequestDTO> validatePaytmOtp(String path, String token, String paytmNumber, PayoutMode payoutMode, String validationKey) {
