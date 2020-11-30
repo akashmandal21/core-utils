@@ -161,6 +161,16 @@ public class StanzaUtils {
 		return Math.round(value * number) / number;
 	}
 
+	public static String getRoundedValueString(BigDecimal value, int places) {
+		value.setScale(places,RoundingMode.HALF_EVEN);
+		return value.toPlainString();
+	}
+
+	public static BigDecimal getRoundedValue(BigDecimal value, int places) {
+		return value.setScale(places,RoundingMode.HALF_EVEN);
+	}
+
+
 	public static double roundOff(Double price) {
 
 		if (price != null) {
