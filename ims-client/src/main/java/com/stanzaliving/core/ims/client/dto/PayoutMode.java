@@ -12,11 +12,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaytmVerificationDto {
+public class PayoutMode {
 
-    private PayoutMode payoutMode;
+    private int payoutModeId;
 
-    private String paytmNumber;
-
-    private String validationKey;
+    private String name;
 }
