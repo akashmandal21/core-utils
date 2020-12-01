@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CafeOrderSearchPDto {
+    private String cafeId;
     private String orderId;
     private OrderSearchStatus searchStatus;
     private OrderType orderType;

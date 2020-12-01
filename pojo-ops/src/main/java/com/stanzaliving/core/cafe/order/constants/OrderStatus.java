@@ -12,14 +12,14 @@ import java.util.List;
 @AllArgsConstructor
 public enum OrderStatus {
     CREATED("Created", "order.created"),
-    CANCELLED("Cancelled", "order.cancelled"),
     PLACED("Placed", "order.placed"),
     CONFIRMED("Confirmed", "order.confirmed"),
     PREPARING("Preparing", "order.preparing"),
     PREPARED("Prepared", "order.prepared"),
     PACKED("Packed", "order.packed"),
     DISPATCHED("Dispatched", "order.dispatched"),
-    DELIVERED("Delivered", "order.delivered");
+    DELIVERED("Delivered", "order.delivered"),
+    CANCELLED("Cancelled", "order.cancelled");
 
     private final String status;
     private final String event;
@@ -38,14 +38,14 @@ public enum OrderStatus {
         return null;
     }
 
-    public static List<OrderStatus> statusInPlanning() {
+    public static List<OrderStatus> pendingStatus() {
         List<OrderStatus> statuses = new ArrayList<>();
         statuses.add(PLACED);
         statuses.add(CONFIRMED);
         statuses.add(PREPARING);
         statuses.add(PREPARED);
         statuses.add(PACKED);
-        statuses.add(DELIVERED);
+        statuses.add(DISPATCHED);
         return statuses;
     }
 
@@ -60,5 +60,9 @@ public enum OrderStatus {
             EnumListing<OrderStatus> listing = EnumListing.of(curOption, curOption.getStatus());
             enumListing.add(listing);
         }
+    }
+
+    public static boolean isPending(OrderStatus status) {
+        return pendingStatus().contains(status);
     }
 }
