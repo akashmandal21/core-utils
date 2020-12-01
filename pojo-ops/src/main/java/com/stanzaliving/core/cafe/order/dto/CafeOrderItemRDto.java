@@ -14,6 +14,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CafeOrderItemRDto {
     private ItemType type;
+    private String subType;
     private String itemId;
     private boolean featured;
     private boolean mandatory;
