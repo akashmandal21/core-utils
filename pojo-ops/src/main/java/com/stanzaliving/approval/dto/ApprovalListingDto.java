@@ -68,4 +68,10 @@ public class ApprovalListingDto {
     
     String possibleApproverString;
 
+    boolean l1ApprovalRequired;
+
+    boolean l2ApprovalRequired;
+
+    boolean l3ApprovalRequired;
+
 }
