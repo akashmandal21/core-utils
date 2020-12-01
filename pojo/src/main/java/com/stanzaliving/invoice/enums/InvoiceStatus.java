@@ -20,6 +20,7 @@ public enum InvoiceStatus {
     L1_APPROVAL_DUE("L1 Approval Due", "#FFB701", 0),
     L2_APPROVAL_DUE("L2 Approval Due", "#FFB701", 1),
     L3_APPROVAL_DUE("L3 Approval Due", "#FFB701", 2),
+
     L1_REJECTED("L1 Rejected", "#F55F71", GenericConstants.rejectionStart-1),
     L2_REJECTED("L2 Rejected", "#F55F71", GenericConstants.rejectionStart-2),
     L3_REJECTED("L3 Rejected", "#F55F71", GenericConstants.rejectionStart-3),
