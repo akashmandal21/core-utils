@@ -22,9 +22,9 @@ public enum InvoiceStatus {
     L1_REJECTED("L1 Rejected", "#F55F71", -1),
     L2_REJECTED("L2 Rejected", "#F55F71", -2),
     L3_REJECTED("L3 Rejected", "#F55F71", -3),
-    PAYMENT_PENDING("Payment Pending", null, 3),
-    PARTIALLY_PAID("Partially Paid", null, 4),
-    FULLY_PAID("Fully Paid", null, 4);
+    PAYMENT_PENDING("Payment Pending", null, 4),
+    PARTIALLY_PAID("Partially Paid", null, 5),
+    FULLY_PAID("Fully Paid", null, 5);
 
 
     private String statusText;
