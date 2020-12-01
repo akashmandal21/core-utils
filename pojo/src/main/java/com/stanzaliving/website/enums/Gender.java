@@ -1,16 +1,8 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.website.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Getter
 @AllArgsConstructor
 public enum Gender {

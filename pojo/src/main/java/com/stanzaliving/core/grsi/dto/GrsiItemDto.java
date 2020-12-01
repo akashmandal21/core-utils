@@ -1,6 +1,8 @@
 package com.stanzaliving.core.grsi.dto;
 
 import com.stanzaliving.core.base.enums.Department;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +13,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class GrsiItemDto {
 
     private String itemUuid;
@@ -19,5 +22,4 @@ public class GrsiItemDto {
     private LocalDate expiryDate;
     private BigDecimal effectivePrice;//Unit Rate
     private BigDecimal quantity;
-
 }

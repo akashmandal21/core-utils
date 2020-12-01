@@ -28,5 +28,7 @@ public class ImageResponseDTO {
 	private String imageType;
 	private int imageOrder;
 	private boolean enabled;
-
+	private String altTag;
+	private String imageTag;
+	private boolean featuredImage;
 }

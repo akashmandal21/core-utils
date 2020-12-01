@@ -35,9 +35,12 @@ public class PoDetailsResponse {
     private String scopeOfWork;
     private boolean isPo;
     private String sourceLocation;
+    private LocationType sourceLocationType;
+    private String sourceLocationUuid;
     private String vendorName;
     private LocationType deliveryLocationType;
     private UIKeyValue deliveryLocation;
     private BigDecimal advanceAmount;
+
     List<PoItemDetail> poItemDetails;
 }

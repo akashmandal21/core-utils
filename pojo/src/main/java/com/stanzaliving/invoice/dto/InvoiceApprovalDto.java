@@ -1,4 +1,4 @@
-package com.stanzaliving.invoice.dtos;
+package com.stanzaliving.invoice.dto;
 
 import java.util.Map;
 

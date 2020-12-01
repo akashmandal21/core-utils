@@ -23,6 +23,7 @@ public enum DateFormat {
 	DD_MMM("dd MMM"),
 	MMM("MMM"),
 	DD_MMM_YY("dd MMM''YY"),
+	DD_MMM_YY_HH_MM("dd MMM''YY HH:mm"),
 	D_DD_MMM_YY("EEE, dd MMM''YY"),
 	WEEK_OF_YEAR("w"),
 	YEAR_IN_WEEK_OF_YEAR("YYYY"),

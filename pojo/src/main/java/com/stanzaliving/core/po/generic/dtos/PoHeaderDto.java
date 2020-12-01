@@ -2,7 +2,10 @@ package com.stanzaliving.core.po.generic.dtos;
 
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
+import com.stanzaliving.core.po.generic.enums.PoDownloadEnum;
 import lombok.*;
+
+import java.util.Map;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,10 +18,20 @@ public class PoHeaderDto {
     private String poToNumber;
     private boolean isPo;
     private GenericPOTOStatus potoStatus;
+    private String potoStatusText;
+    private String textColor;
+    private String backgroundColor;
     private GenericPOType poType;
     private String propertyUuid;
 
     //Flags
+
+    @Builder.Default
+    private boolean showShortCloseButton=false;
+
+    @Builder.Default
+    private boolean showCancelButton=false;
+
     @Builder.Default
     private boolean canSendPoToVendor = false;
     @Builder.Default
@@ -37,4 +50,6 @@ public class PoHeaderDto {
     private boolean scRequest = false;
     @Builder.Default
     private boolean cancelRequest = false;
+
+    private Map<PoDownloadEnum,Boolean> downloadActions;
 }

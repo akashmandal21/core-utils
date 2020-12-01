@@ -7,9 +7,11 @@ import lombok.Getter;
 @Getter
 public enum InvoiceType {
 
-    REGULAR("Regular"),
-    ADVANCE("Advance");
+    REGULAR("Regular", "RG"),
+    ADVANCE("Advance", "AD");
 
     private String status;
+
+    public String shortCode;
 
 }
