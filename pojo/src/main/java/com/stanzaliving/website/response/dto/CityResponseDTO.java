@@ -25,5 +25,11 @@ public class CityResponseDTO {
 	private boolean enabled;
 	private String slug;
 	private String cityResidenceTypeText;
+	private String phone;
+	private String cityDescription;
+	private String imageAltTag;
+	private String cityImageUrl;
+	
+	
 
 }
