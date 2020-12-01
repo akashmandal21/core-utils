@@ -21,7 +21,12 @@ public enum AccessLevel {
 	CITY(30),
 	REGION(40),
 	COUNTRY(50),
-	GLOBAL(60);
+	GLOBAL(60),
+
+	//keep level num 0 for locationAcl
+	FOOD_VENDOR(0),
+	CAFE(0);
+
 
 	private int levelNum;
 

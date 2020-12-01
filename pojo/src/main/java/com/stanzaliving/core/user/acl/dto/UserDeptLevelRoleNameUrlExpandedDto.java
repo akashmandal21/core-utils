@@ -23,6 +23,8 @@ public class UserDeptLevelRoleNameUrlExpandedDto {
 
     private List<String> accessLevelEntityListUuid;
 
+    private List<String> accessLevelEntityListName;
+
     private List<String> rolesList;
 
     private List<String> urlList;
