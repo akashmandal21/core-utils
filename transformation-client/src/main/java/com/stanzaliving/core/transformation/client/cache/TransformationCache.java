@@ -44,12 +44,27 @@ public class TransformationCache {
 						}
 					});
 
+	private LoadingCache<AccessLevel, List<LocationDto>> allLocationsCache = CacheBuilder.newBuilder()
+			.expireAfterWrite(5, TimeUnit.MINUTES)
+			.build(
+					new CacheLoader<AccessLevel, List<LocationDto>>() {
+
+						@Override
+						public List<LocationDto> load(AccessLevel accessLevel) {
+							return internalDataControllerApi.getAllLocationsDtoList(accessLevel).getData();
+						}
+					});
+
 	public List<CityMetadataDto> getAllCities() {
 		return allCityCache.getUnchecked("city");
 	}
 
 	public List<ZoneMetadataDto> getAllZones() {
 		return allZoneCache.getUnchecked("zone");
+	}
+
+	public List<LocationDto> getAllLocations(AccessLevel accessLevel) {
+		return allLocationsCache.getUnchecked(accessLevel);
 	}
 
 	private LoadingCache<String, List<MicroMarketMetadataDto>> allMicroMarketCache = CacheBuilder.newBuilder()
@@ -124,6 +139,10 @@ public class TransformationCache {
 				default:
 					break;
 			}
+			if (AccessLevel.locationAccessLevelList.contains(level)) {
+				Optional<LocationDto> locationDtoOptional = getAllLocations(level).stream().filter(entity -> entity.getUuid().equals(uuid)).findFirst();
+				name = locationDtoOptional.isPresent() ? locationDtoOptional.get().getLocationName() : "";
+			}
 		}
 
 		return name;
@@ -154,6 +173,10 @@ public class TransformationCache {
 
 				default:
 					break;
+			}
+			if (AccessLevel.locationAccessLevelList.contains(level)) {
+				Optional<LocationDto> locationDtoOptional = getAllLocations(level).stream().filter(dto -> dto.getLocationName().equals(accessLevelName)).findFirst();
+				uuid = locationDtoOptional.isPresent() ? locationDtoOptional.get().getUuid() : "";
 			}
 		}
 

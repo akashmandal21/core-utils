@@ -6,6 +6,11 @@ package com.stanzaliving.core.base.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @author naveen.kumar
  *
@@ -27,6 +32,11 @@ public enum AccessLevel {
 	FOOD_VENDOR(0),
 	CAFE(0);
 
+	public static final List<AccessLevel> locationAccessLevelList;
+
+	static {
+		locationAccessLevelList = Arrays.stream(AccessLevel.values()).filter(accessLevel -> accessLevel.getLevelNum() == 0).collect(Collectors.toList());
+	}
 
 	private int levelNum;
 
