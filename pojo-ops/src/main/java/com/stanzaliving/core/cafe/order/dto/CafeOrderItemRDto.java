@@ -25,6 +25,7 @@ public class CafeOrderItemRDto {
     private DiscountType discountType;
     private Double discount;
     private Double netPrice;
+    private Double totalPrice;
     private Double cgstPercentage;
     private Double igstPercentage;
     private Double sgstPercentage;
