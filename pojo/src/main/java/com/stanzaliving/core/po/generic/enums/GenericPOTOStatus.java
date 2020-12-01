@@ -22,16 +22,16 @@ public enum GenericPOTOStatus {
     SC_L2_APPROVAL_DUE("SC L2 Approval Due","#DEB76A","#deb76a4d",1,true,false),
     SC_L3_APPROVAL_DUE("SC L3 Approval Due","#DEB76A","#deb76a4d",2,true,false),
     SC_L1_REJECTED("SC L1 Rejected","#FF5238","#ff52384d",GenericConstants.rejectionStart-1,false,false),
-    SC_L2_REJECTED("SC L2 Approval Due","#FF5238","#ff52384d",GenericConstants.rejectionStart-2,false,false),
-    SC_L3_REJECTED("SC L3 Approval Due","#FF5238","#ff52384d",GenericConstants.rejectionStart-3,false,false),
+    SC_L2_REJECTED("SC L2 Rejected","#FF5238","#ff52384d",GenericConstants.rejectionStart-2,false,false),
+    SC_L3_REJECTED("SC L3 Rejected","#FF5238","#ff52384d",GenericConstants.rejectionStart-3,false,false),
 
     //underCancelCycle =true
     CANCEL_L1_APPROVAL_DUE("Cancel L1 Due","#4B87E3","#E4EDFB",0,false,true),
     CANCEL_L2_APPROVAL_DUE("Cancel L2 Due","#4B87E3","#E4EDFB",1,false,true),
     CANCEL_L3_APPROVAL_DUE("Cancel L3 Due","#4B87E3","#E4EDFB",2,false,true),
-    CANCEL_L1_REJECTED("L1 Approval Due","#F55F71","#f55f714d",GenericConstants.rejectionStart-1,false,false),
-    CANCEL_L2_REJECTED("L2 Approval Due","#F55F71","#f55f714d",GenericConstants.rejectionStart-2,false,false),
-    CANCEL_L3_REJECTED("L3 Approval Due","#F55F71","#f55f714d",GenericConstants.rejectionStart-3,false,false),
+    CANCEL_L1_REJECTED("Cancel L1 Rejected","#F55F71","#f55f714d",GenericConstants.rejectionStart-1,false,false),
+    CANCEL_L2_REJECTED("Cancel L2 Rejected","#F55F71","#f55f714d",GenericConstants.rejectionStart-2,false,false),
+    CANCEL_L3_REJECTED("Cancel L3 Rejected","#F55F71","#f55f714d",GenericConstants.rejectionStart-3,false,false),
 
     APPROVED("Approved","#60C3AD","#60c3ad4d",3,false,false),
     SHORTCLOSED("Shortclosed","#790A00","#790a004d",4,false,false),
@@ -61,7 +61,7 @@ public enum GenericPOTOStatus {
     public static Set<GenericPOTOStatus> firstApprovalCycle = new HashSet<>(10);
     public static Set<GenericPOTOStatus> firstApprovalRejects = new HashSet<>(5);
     public static Set<GenericPOTOStatus> approvals = new HashSet<>(10);
-    public static Set<GenericPOTOStatus> allValues = new HashSet<>(Arrays.asList(GenericPOTOStatus.values()));
+    public static Set<GenericPOTOStatus> allValues = new HashSet<>();
 
     public static Set<GenericPOTOStatus> viewRole = new HashSet<>();
 
@@ -75,7 +75,7 @@ public enum GenericPOTOStatus {
         firstApprovalCycle.addAll(Arrays.asList(IN_DRAFT,L1_SENT_BACK,L2_SENT_BACK,L3_SENT_BACK,L1_APPROVAL_DUE,L2_APPROVAL_DUE,L3_APPROVAL_DUE));
         firstApprovalRejects.addAll(Arrays.asList(L1_SENT_BACK,L2_SENT_BACK,L3_SENT_BACK));
         approvals.addAll(Arrays.asList(CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE,L2_APPROVAL_DUE,L3_APPROVAL_DUE,APPROVED,SHORTCLOSED,CANCELLED));
-
+        Arrays.asList(GenericPOTOStatus.values()).stream().forEach(f->allValues.add(f));
         viewRole.addAll(Arrays.asList(CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE,APPROVED,SHORTCLOSED));
     }
 

@@ -146,7 +146,7 @@ public class TransformationCache {
 		return allCityNameCache.getUnchecked("cityName");
 	}
 	public Map<String,String> getMicromarketNames() {
-		return allStatesNameCache.getUnchecked("micromarketName");
+		return allMicromarketNameCache.getUnchecked("micromarketName");
 	}
 	public Map<String,String> getStateNames() {
 		return allStatesNameCache.getUnchecked("stateName");
