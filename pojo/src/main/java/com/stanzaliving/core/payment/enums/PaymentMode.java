@@ -22,12 +22,15 @@ public enum PaymentMode {
 	QR("QR Code", 4),
 	VIRTUAL_ACCOUNT("Virtual Account", 5),
 	MPOS("MPOS", 6),
+	SECURITY_CARRY_FORWARDS("Security Carry Forwards", 7),
 	MANUAL_UPLOADS("Manual Uploads", 8),
 	PAYTM("PAYTM", 9),
 	ICICI("ICICI", 10),
 	BULK_PAYMENT("BULK PAYMENT", 11),
 	PINE_LAB("PINE LAB", 12),
 	I_SUREPAY("I SurePay", 13),
+	RETENTION_CARRY_FORWARD("Retention Carry Forward",14),
+	RETENTION_SECURITY_CARRY_FORWARD("Retention Security Carry Forward",15),
 	RAZORPAY("Razorpay", 16);
 
 
@@ -37,11 +40,20 @@ public enum PaymentMode {
 
 	private static Map<String, PaymentMode> paymentDescModeMap = new HashMap<>();
 
+	private static Map<Integer, PaymentMode> paymentIdModeMap = new HashMap<>();
+
 	static {
 		for(PaymentMode paymentMode : PaymentMode.values()) {
 			paymentDescModeMap.put(paymentMode.getPaymentModeDesc(), paymentMode);
 		}
 		
+	}
+
+	static {
+		for(PaymentMode paymentMode : PaymentMode.values()) {
+			paymentIdModeMap.put(paymentMode.getPaymentModeId(), paymentMode);
+		}
+
 	}
 	
 	
@@ -52,4 +64,8 @@ public enum PaymentMode {
     public static PaymentMode getPaymentModeByDesc(String desc) {
     	return paymentDescModeMap.get(desc);
     }
+
+	public static PaymentMode getPaymentModeById(int id) {
+		return paymentIdModeMap.get(id);
+	}
 }
