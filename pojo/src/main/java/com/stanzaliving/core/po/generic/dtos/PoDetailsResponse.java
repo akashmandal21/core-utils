@@ -40,7 +40,7 @@ public class PoDetailsResponse {
     private String vendorName;
     private LocationType deliveryLocationType;
     private UIKeyValue deliveryLocation;
-
+    private BigDecimal advanceAmount;
 
     List<PoItemDetail> poItemDetails;
 }
