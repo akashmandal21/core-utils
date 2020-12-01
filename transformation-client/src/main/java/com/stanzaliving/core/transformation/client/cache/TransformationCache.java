@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
+import com.stanzaliving.core.user.acl.enums.AccessLevelEntityEnum;
 import com.stanzaliving.transformations.pojo.*;
 import org.apache.commons.lang3.StringUtils;
 
@@ -136,6 +137,12 @@ public class TransformationCache {
 					name = residenceMetadataDtoOptional.isPresent() ? residenceMetadataDtoOptional.get().getResidenceName() : "";
 					break;
 
+				case COUNTRY:
+					if (uuid.equals(AccessLevelEntityEnum.INDIA.getUuid())) {
+						name = AccessLevelEntityEnum.INDIA.toString();
+					}
+					break;
+
 				default:
 					break;
 			}
@@ -169,6 +176,12 @@ public class TransformationCache {
 				case RESIDENCE:
 					Optional<ResidenceMetadataDto> residenceMetadataDtoOptional = getAllResidences().stream().filter(entity -> entity.getResidenceName().equals(accessLevelName)).findFirst();
 					uuid = residenceMetadataDtoOptional.isPresent() ? residenceMetadataDtoOptional.get().getUuid() : "";
+					break;
+
+				case COUNTRY:
+					if (accessLevelName.equals(AccessLevelEntityEnum.INDIA.toString())) {
+						uuid = AccessLevelEntityEnum.INDIA.getUuid();
+					}
 					break;
 
 				default:
