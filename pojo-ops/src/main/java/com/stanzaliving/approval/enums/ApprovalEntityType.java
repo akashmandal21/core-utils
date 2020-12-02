@@ -16,5 +16,5 @@ public enum ApprovalEntityType {
 
     private String value;
 
-    public static final List<ApprovalEntityType> residenceUuidNotRequired = Arrays.asList(FOOD_MENU_CATEGORY);
+    public static final List<ApprovalEntityType> micormarketUuidBasedListing = Arrays.asList(FOOD_MENU_CATEGORY);
 }
