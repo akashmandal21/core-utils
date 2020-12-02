@@ -14,6 +14,7 @@ public enum Role {
     /************************************ SALES ************************************/
     SALES_CITY_HEAD("SALES_CITY_HEAD", AccessLevel.CITY, Department.SALES),
     SALES_ZONAL_HEAD("SALES_ZONAL_HEAD", AccessLevel.CITY, Department.SALES),
+    SALES_CLUSTER_MANAGER("SALES_CLUSTER_MANAGER", AccessLevel.MICROMARKET, Department.SALES),
 
     /* lead-service */
     RESIDENCE_LEAD_MANAGER("RESIDENCE_LEAD_MANAGER", AccessLevel.RESIDENCE, Department.SALES),
