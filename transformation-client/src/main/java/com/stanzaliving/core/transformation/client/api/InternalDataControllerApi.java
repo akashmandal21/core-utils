@@ -530,9 +530,9 @@ public class InternalDataControllerApi {
 
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("accessLevel", accessLevel);
+//		uriVariables.put("accessLevel", accessLevel);
 
-		String path = UriComponentsBuilder.fromPath("/internal/locations/all/").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/locations/all/" + accessLevel.toString()).buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
