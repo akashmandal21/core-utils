@@ -25,4 +25,5 @@ public class CafeOrderSearchPDto {
     private String searchText;
     private String dispatchUserId;
     private String orderCode;
+    private String deliveryCode;
 }
