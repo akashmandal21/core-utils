@@ -1,6 +1,7 @@
 package com.stanzaliving.transformations.pojo;
 
-import lombok.AccessLevel;
+//import lombok.AccessLevel;
+import com.stanzaliving.core.base.enums.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
