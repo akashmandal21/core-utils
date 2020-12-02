@@ -73,13 +73,13 @@ public class ImsClientApi {
 
     //    <----------------------------------------sendPaytmVerificationOtpRequest--------------------------------------->
 
-    public ResponseDto<BrokerDocumentRequestDTO> sendPaytmVerificationOtpRequest(String token, String paytmNumber, PayoutMode payoutMode) {
+    public ResponseDto<BrokerResponseDto> sendPaytmVerificationOtpRequest(String token, String paytmNumber, PayoutMode payoutMode) {
         String path = UriComponentsBuilder.fromPath(PAYOUT_DETAILS).toUriString();
 
         return sendPaytmVerificationOtpRequest(path, token, paytmNumber, payoutMode);
     }
 
-    private ResponseDto<BrokerDocumentRequestDTO> sendPaytmVerificationOtpRequest(String path, String token, String paytmNumber, PayoutMode payoutMode) {
+    private ResponseDto<BrokerResponseDto> sendPaytmVerificationOtpRequest(String path, String token, String paytmNumber, PayoutMode payoutMode) {
 
         if (StringUtils.isBlank(paytmNumber) || StringUtils.isBlank(payoutMode.getName())){
             throw new IllegalArgumentException("Please check all the provided params!!");
@@ -97,7 +97,7 @@ public class ImsClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>>() {
+        ParameterizedTypeReference<ResponseDto<BrokerResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerResponseDto>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
@@ -105,13 +105,13 @@ public class ImsClientApi {
 
     //    <----------------------------------------validatePaytmOtp--------------------------------------->
 
-    public ResponseDto<BrokerDocumentRequestDTO> validatePaytmOtp(String token, String paytmNumber, PayoutMode payoutMode,String validationKey) {
+    public ResponseDto<BrokerResponseDto> validatePaytmOtp(String token, String paytmNumber, PayoutMode payoutMode, String validationKey) {
         String path = UriComponentsBuilder.fromPath(PAYTM_OTP_VALIDATE).toUriString();
 
         return validatePaytmOtp(path, token, paytmNumber, payoutMode, validationKey);
     }
 
-    private ResponseDto<BrokerDocumentRequestDTO> validatePaytmOtp(String path, String token, String paytmNumber, PayoutMode payoutMode, String validationKey) {
+    private ResponseDto<BrokerResponseDto> validatePaytmOtp(String path, String token, String paytmNumber, PayoutMode payoutMode, String validationKey) {
 
         if (StringUtils.isBlank(paytmNumber) || StringUtils.isBlank(validationKey) || StringUtils.isBlank(payoutMode.getName())) {
             throw new IllegalArgumentException("Please check all the provided params!!");
@@ -129,7 +129,7 @@ public class ImsClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>>() {
+        ParameterizedTypeReference<ResponseDto<BrokerResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerResponseDto>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
@@ -137,13 +137,13 @@ public class ImsClientApi {
 
     //    <----------------------------------------addUPIDetails--------------------------------------->
 
-    public ResponseDto<BrokerDocumentRequestDTO> addUPIDetails(String token, String vpaAddress, PayoutMode payoutMode) {
+    public ResponseDto<BrokerResponseDto> addUPIDetails(String token, String vpaAddress, PayoutMode payoutMode) {
         String path = UriComponentsBuilder.fromPath(PAYOUT_DETAILS).toUriString();
 
         return addUPIDetails(path, token, vpaAddress, payoutMode);
     }
 
-    private ResponseDto<BrokerDocumentRequestDTO> addUPIDetails(String path, String token, String vpaAddress, PayoutMode payoutMode) {
+    private ResponseDto<BrokerResponseDto> addUPIDetails(String path, String token, String vpaAddress, PayoutMode payoutMode) {
 
         if (StringUtils.isBlank(vpaAddress) || StringUtils.isBlank(payoutMode.getName())) {
             throw new IllegalArgumentException("Please check all the provided params!!");
@@ -161,7 +161,7 @@ public class ImsClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>>() {
+        ParameterizedTypeReference<ResponseDto<BrokerResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerResponseDto>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
@@ -169,13 +169,13 @@ public class ImsClientApi {
 
     //    <----------------------------------------sendPennyForBankAccountVerification--------------------------------------->
 
-    public ResponseDto<BrokerDocumentRequestDTO> sendPennyForBankAccountVerification(String token, String accountName, String accountNumber, String ifscCode, Boolean Live) {
+    public ResponseDto<BrokerResponseDto> sendPennyForBankAccountVerification(String token, String accountName, String accountNumber, String ifscCode, Boolean Live) {
         String path = UriComponentsBuilder.fromPath(BANK_PENNY_TESTING).toUriString();
 
         return sendPennyForBankAccountVerification(path, token, accountName, accountNumber, ifscCode, Live);
     }
 
-    private ResponseDto<BrokerDocumentRequestDTO> sendPennyForBankAccountVerification(String path, String token, String accountName, String accountNumber, String ifscCode, Boolean Live) {
+    private ResponseDto<BrokerResponseDto> sendPennyForBankAccountVerification(String path, String token, String accountName, String accountNumber, String ifscCode, Boolean Live) {
 
         if (StringUtils.isBlank(accountName) || StringUtils.isBlank(accountNumber) || StringUtils.isBlank(ifscCode)) {
             throw new IllegalArgumentException("Please check all the provided params!!");
@@ -193,7 +193,7 @@ public class ImsClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>>() {
+        ParameterizedTypeReference<ResponseDto<BrokerResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerResponseDto>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
@@ -201,13 +201,13 @@ public class ImsClientApi {
 
     //    <----------------------------------------validateBankAccount--------------------------------------->
 
-        public ResponseDto<BrokerDocumentRequestDTO> validateBankAccount(String token, Double amount) {
+        public ResponseDto<BrokerResponseDto> validateBankAccount(String token, Double amount) {
         String path = UriComponentsBuilder.fromPath(BANK_VERIFICATION).toUriString();
 
         return validateBankAccount(path, token, amount);
     }
 
-    private ResponseDto<BrokerDocumentRequestDTO> validateBankAccount(String path, String token, Double amount) {
+    private ResponseDto<BrokerResponseDto> validateBankAccount(String path, String token, Double amount) {
 
         if (amount == null) {
             throw new IllegalArgumentException("Please check all the provided params!!");
@@ -227,7 +227,7 @@ public class ImsClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>>() {
+        ParameterizedTypeReference<ResponseDto<BrokerResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerResponseDto>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
@@ -235,13 +235,13 @@ public class ImsClientApi {
 
     //    <----------------------------------------addBankDetails--------------------------------------->
 
-    public ResponseDto<BrokerDocumentRequestDTO> addBankDetails(String token, String accountName, String accountNumber, String ifscCode) {
+    public ResponseDto<BrokerResponseDto> addBankDetails(String token, String accountName, String accountNumber, String ifscCode) {
         String path = UriComponentsBuilder.fromPath(STORE_BANK_DETAILS).toUriString();
 
         return addBankDetails(path, token, accountName, accountNumber, ifscCode);
     }
 
-    private ResponseDto<BrokerDocumentRequestDTO> addBankDetails(String path, String token, String accountName, String accountNumber, String ifscCode) {
+    private ResponseDto<BrokerResponseDto> addBankDetails(String path, String token, String accountName, String accountNumber, String ifscCode) {
 
         if (StringUtils.isBlank(accountName) || StringUtils.isBlank(accountNumber) || StringUtils.isBlank(ifscCode)) {
             throw new IllegalArgumentException("Please check all the provided params!!");
@@ -259,7 +259,7 @@ public class ImsClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerDocumentRequestDTO>>() {
+        ParameterizedTypeReference<ResponseDto<BrokerResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerResponseDto>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
