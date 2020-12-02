@@ -1,7 +1,10 @@
 package com.stanzaliving.transformations.pojo;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import lombok.*;
+import com.stanzaliving.core.base.enums.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Data
