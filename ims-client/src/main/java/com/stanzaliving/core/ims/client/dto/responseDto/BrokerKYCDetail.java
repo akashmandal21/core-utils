@@ -1,4 +1,4 @@
-package com.stanzaliving.core.ims.client.dto;
+package com.stanzaliving.core.ims.client.dto.responseDto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -12,16 +12,15 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BrokerPayoutDetailsDTO {
+public class BrokerKYCDetail {
+
     private Integer id;
 
-    private  Integer payoutModeId;
+    private Integer payoutModeId;
 
     private String identifier;
 
     private String value;
-
-    private Boolean preferredPaymentMode;
 
     private String accountNumber;
 
@@ -34,4 +33,6 @@ public class BrokerPayoutDetailsDTO {
     private String panNumber;
 
     private String panImage;
+
+    private Boolean preferredPaymentMode;
 }

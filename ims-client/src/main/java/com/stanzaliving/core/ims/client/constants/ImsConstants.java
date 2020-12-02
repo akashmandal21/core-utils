@@ -13,7 +13,17 @@ public class ImsConstants {
 
     public static final String BANK_VERIFICATION = "/razorpayx/account/validation";
 
-    public static final String STORE_BANK_DETAILS = "brokers/document/bank";
+    public static final String STORE_BANK_DETAILS = "/brokers/document/bank";
+
+    public static final String PAYOUT_MODES = "/broker/payoutMode";
+
+    public static final String CITY_DETAILS = "/city/brokerApp/";
+
+    public static final String CREATE_BROKER = "/nexusV2/broker/create";
+
+
+
+
 
 
 }

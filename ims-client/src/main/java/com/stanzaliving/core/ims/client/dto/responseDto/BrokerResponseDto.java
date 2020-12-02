@@ -1,5 +1,7 @@
-package com.stanzaliving.core.ims.client.dto;
+package com.stanzaliving.core.ims.client.dto.responseDto;
 
+import com.stanzaliving.core.ims.client.dto.BrokerDocumentRequestDTO;
+import com.stanzaliving.core.ims.client.dto.BrokerPreferredPaymentMode;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
