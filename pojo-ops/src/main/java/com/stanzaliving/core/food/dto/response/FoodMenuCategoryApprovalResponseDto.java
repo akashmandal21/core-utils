@@ -24,4 +24,8 @@ public class FoodMenuCategoryApprovalResponseDto {
     List<CategoryApprovalUpdatedRuleDto> publishedWeeklyRulesComposition;
     int residenceCount;
     List<String> residenceNames;
+    String cityUuid;
+    String cityName;
+    String micromarketUuid;
+    String micromarketName;
 }

@@ -39,5 +39,8 @@ public class ApprovalRequestDto {
     ApprovalStatus approvalStatus;
 
     String residenceUuid;
-    
+
+    String cityUuid;
+
+    String micromarketUuid;
 }
