@@ -1,10 +1,6 @@
 package com.stanzaliving.core.cafe.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -15,14 +11,14 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ResidenceMicromarketDto {
 
-	private String residenceId;
+    private String residenceId;
 
-	private String residenceName;
+    private String residenceName;
 
-	private String micromarketId;
+    private String micromarketId;
 
-	private String micromarketName;
+    private String micromarketName;
 
-	private boolean enabled;
+    private boolean enabled;
 
 }

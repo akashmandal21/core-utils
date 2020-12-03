@@ -7,10 +7,8 @@ import javax.validation.constraints.NotBlank;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
- *
- * @since 19-Oct-2020
- *
  * @version 1.0
+ * @since 19-Oct-2020
  */
 
 @Getter
@@ -20,10 +18,10 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemPricingUpdateRequestDto {
-	@NotBlank(message = "Vas Item Selection is mandatory")
-	private String vasItemId;
+    @NotBlank(message = "Vas Item Selection is mandatory")
+    private String vasItemId;
 
-	private Double finalPrice;
+    private Double finalPrice;
 
-	private Boolean status;
+    private Boolean status;
 }

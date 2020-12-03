@@ -1,17 +1,13 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.cafe.dto;
-import java.util.List;
 
 import com.stanzaliving.core.cafe.enums.CafeTags;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 /**
  * @author Ashutosh.Chandra
@@ -27,19 +23,19 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CafeListingDto {
 
-	private String uuid;
+    private String uuid;
 
-	private String cafeName;
+    private String cafeName;
 
-	private List<CafeTags> tags;
-	
-	private String cityId;
+    private List<CafeTags> tags;
 
-	private String cityName;
+    private String cityId;
 
-	private List<BaseKitchenDto> baseKitchens;
-	
-	private long mappedResidenceCount;
-	
+    private String cityName;
+
+    private List<BaseKitchenDto> baseKitchens;
+
+    private long mappedResidenceCount;
+
 
 }

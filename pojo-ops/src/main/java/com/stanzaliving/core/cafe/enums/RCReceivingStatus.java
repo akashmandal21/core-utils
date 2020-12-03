@@ -1,12 +1,11 @@
 package com.stanzaliving.core.cafe.enums;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.stanzaliving.core.user.enums.EnumListing;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
@@ -19,14 +18,14 @@ public enum RCReceivingStatus {
 
     private static final List<EnumListing<RCReceivingStatus>> enumListing = new ArrayList<>();
 
-	public static List<EnumListing<RCReceivingStatus>> getEnumListing() {
-		return enumListing;
-	}
+    public static List<EnumListing<RCReceivingStatus>> getEnumListing() {
+        return enumListing;
+    }
 
-	static {
-		for (RCReceivingStatus rcStatus : RCReceivingStatus.values()) {
-			EnumListing<RCReceivingStatus> listing = EnumListing.of(rcStatus, rcStatus.getStatus());
-			enumListing.add(listing);
-		}
-	}
+    static {
+        for (RCReceivingStatus rcStatus : RCReceivingStatus.values()) {
+            EnumListing<RCReceivingStatus> listing = EnumListing.of(rcStatus, rcStatus.getStatus());
+            enumListing.add(listing);
+        }
+    }
 }

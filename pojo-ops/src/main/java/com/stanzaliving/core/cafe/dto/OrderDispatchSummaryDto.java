@@ -1,20 +1,14 @@
 package com.stanzaliving.core.cafe.dto;
 
-import java.util.Date;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
 import com.stanzaliving.core.cafe.enums.RCReceivingStatus;
 import com.stanzaliving.core.cafe.order.constants.DispatchMode;
 import com.stanzaliving.core.cafe.order.constants.OrderType;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -37,11 +31,11 @@ public class OrderDispatchSummaryDto {
     private String slotId;
 
     private Integer rcCode;
-    
+
     private Date rcGeneratedAt;
-    
+
     private RCReceivingStatus receivingStatus;
-    
+
     private Date rcReceivedAt;
 
     private boolean orderStatus;
@@ -57,6 +51,6 @@ public class OrderDispatchSummaryDto {
 
     @NotNull(message = "Dispatch Mode can not be empty")
     private DispatchMode dispatchMode;
-	
+
 
 }

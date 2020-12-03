@@ -18,7 +18,7 @@ public class NotificationConstants {
         public final String ORDER_ID = "<orderId>";
         public final String ORDER_CODE = "<orderCode>";
         public final String ORDER_TIME = "<orderTime>";
-        public final String EXPECTED_DELIVERY_TIME ="<expectedDeliveryTime>";
+        public final String EXPECTED_DELIVERY_TIME = "<expectedDeliveryTime>";
         public final String DELIVERY_TIME = "<deliveryTime>";
         public final String DISPTACH_USER_ID = "<dispatchUserId>";
         public final String CAFE = "<cafe>";
