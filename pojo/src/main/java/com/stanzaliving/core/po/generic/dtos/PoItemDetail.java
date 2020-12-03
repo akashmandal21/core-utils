@@ -2,6 +2,7 @@ package com.stanzaliving.core.po.generic.dtos;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.core.generic.enums.GSTSlabs;
 import com.stanzaliving.transformations.enums.UnitType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class PoItemDetail {
     private UIKeyValue subCategory;
     private UIKeyValue costHead;
     private String name;
+    private GSTSlabs slab;
     private UnitType uom;
     private String hsnSacCode;
     private String description;

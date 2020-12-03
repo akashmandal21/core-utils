@@ -8,7 +8,7 @@ import java.util.Objects;
 
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
-import com.stanzaliving.invoice.dto.InvoiceItemFilter;
+import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;

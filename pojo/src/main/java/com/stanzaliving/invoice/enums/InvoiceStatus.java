@@ -34,32 +34,30 @@ public enum InvoiceStatus {
     
     private Integer order;
       
-    private static Map<Integer, InvoiceStatus> invoiceApprovalLevelMap = new HashMap<>();
-
-    public static Set<InvoiceStatus> approvalCycle = new HashSet<>(5);
-
-    public static Set<InvoiceStatus> approvalRejects = new HashSet<>(5);
-
-    public static Set<InvoiceStatus> paymentCycle = new HashSet<>(5);
-
-    
-    
-    static {
-    	for(InvoiceStatus invoiceStatus : InvoiceStatus.values()) {
-    		invoiceApprovalLevelMap.put(invoiceStatus.getOrder(), invoiceStatus);
-    	}
-
-        approvalCycle.addAll(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE));
-        approvalRejects.addAll(Arrays.asList(L1_REJECTED, L2_REJECTED, L3_REJECTED));
-        paymentCycle.addAll(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID));
-    }
-    
-    
-    public static InvoiceStatus getInvoiceStatus(int approvalLevel) {
-    	return invoiceApprovalLevelMap.get(approvalLevel);
-    }
-
-    
+//    private static Map<Integer, InvoiceStatus> invoiceApprovalLevelMap = new HashMap<>();
+//
+//    public static Set<InvoiceStatus> approvalCycle = new HashSet<>(5);
+//
+//    public static Set<InvoiceStatus> approvalRejects = new HashSet<>(5);
+//
+//    public static Set<InvoiceStatus> paymentCycle = new HashSet<>(5);
+//
+//
+//
+//    static {
+//    	for(InvoiceStatus invoiceStatus : InvoiceStatus.values()) {
+//    		invoiceApprovalLevelMap.put(invoiceStatus.getOrder(), invoiceStatus);
+//    	}
+//
+//        approvalCycle.addAll(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE));
+//        approvalRejects.addAll(Arrays.asList(L1_REJECTED, L2_REJECTED, L3_REJECTED));
+//        paymentCycle.addAll(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID));
+//    }
+//
+//
+//    public static InvoiceStatus getInvoiceStatus(int approvalLevel) {
+//    	return invoiceApprovalLevelMap.get(approvalLevel);
+//    }
     
 }
 
