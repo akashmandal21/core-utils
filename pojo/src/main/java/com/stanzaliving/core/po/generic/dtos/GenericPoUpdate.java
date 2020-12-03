@@ -23,4 +23,6 @@ public class GenericPoUpdate {
 
     private Department department;
 
+    private boolean po;
+
 }
