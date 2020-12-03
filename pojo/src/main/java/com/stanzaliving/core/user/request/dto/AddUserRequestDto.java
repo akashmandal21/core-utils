@@ -5,7 +5,6 @@ package com.stanzaliving.core.user.request.dto;
 
 import java.time.LocalDate;
 
-import javax.persistence.Convert;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -17,7 +16,6 @@ import com.stanzaliving.core.user.enums.Gender;
 import com.stanzaliving.core.user.enums.MaritalStatus;
 import com.stanzaliving.core.user.enums.Nationality;
 import com.stanzaliving.core.user.enums.UserType;
-import com.stanzaliving.core.user.utils.LocalDateAttributeConverter;
 import com.stanzaliving.core.utilservice.annotations.Email;
 import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
 
@@ -80,12 +78,10 @@ public class AddUserRequestDto {
 
 	private String profilePicture;
 
-	@Convert(converter = LocalDateAttributeConverter.class)
 	private LocalDate birthday;
 
 	private MaritalStatus maritalStatus;
 
-	@Convert(converter = LocalDateAttributeConverter.class)
 	private LocalDate anniversaryDate;
 
 	private Address address;
