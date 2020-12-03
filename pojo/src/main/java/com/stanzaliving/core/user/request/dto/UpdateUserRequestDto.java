@@ -59,5 +59,4 @@ public class UpdateUserRequestDto {
 	
 	private String userMobile;
 	
-	private UserType userType;
 }
