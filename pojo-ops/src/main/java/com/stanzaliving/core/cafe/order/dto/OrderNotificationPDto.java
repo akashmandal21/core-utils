@@ -14,11 +14,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class OrderNotificationPDto {
     private String orderId;
+    private String dispatchSummaryId;
     @NotNull(message = "Empty Order Status")
     private OrderStatus status;
-    private String cafeId;
-    private String residenceId;
-    private String slotId;
-    private String code;
     private boolean reminder;
 }

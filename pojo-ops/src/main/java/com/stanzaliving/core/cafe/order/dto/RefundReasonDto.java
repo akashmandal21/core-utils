@@ -9,7 +9,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ValidateRCCodeDto {
-    private String dispatchId;
-    private String code;
+public class RefundReasonDto {
+    private String id;
+    private String reason;
+    private boolean remarksMandatory;
 }
