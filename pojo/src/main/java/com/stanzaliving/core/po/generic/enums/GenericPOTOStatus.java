@@ -37,12 +37,7 @@ public enum GenericPOTOStatus {
     SHORTCLOSED("Shortclosed","#790A00","#790a004d",4,false,false),
     CANCELLED("Cancelled","#5C49A2","#5c49a24d",5,false,false),
     GSRI_COMPLETED("GSRI Closed","#60C3AD","#60c3ad4d",6,false,false),
-    WORK_COMPLETED("Work Completed","#60C3AD","#60c3ad4d",6,false,false);
-
-
-
-
-
+    WORK_COMPLETED("Work Completed","#60C3AD","#60c3ad4d",7,false,false);
 
 
     private String statusText;
