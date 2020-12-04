@@ -23,19 +23,20 @@ import java.util.List;
 @AllArgsConstructor
 public class CafeListingDto {
 
-    private String uuid;
+	private String uuid;
 
-    private String cafeName;
+	private String cafeName;
 
-    private List<CafeTags> tags;
+	private List<CafeTags> tags;
 
-    private String cityId;
+	private String cityId;
 
-    private String cityName;
+	private String cityName;
 
-    private List<BaseKitchenDto> baseKitchens;
+	private List<BaseKitchenDto> baseKitchens;
 
-    private long mappedResidenceCount;
+	private long mappedResidenceCount;
 
+	private List<ResidenceMicromarketDto> residences;
 
 }
