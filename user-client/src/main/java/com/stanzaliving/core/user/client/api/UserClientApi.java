@@ -23,7 +23,7 @@ import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
-import com.stanzaliving.core.user.dto.CityRolesRequestDto;
+import com.stanzaliving.core.user.dto.AccessLevelRoleRequestDto;
 import com.stanzaliving.core.user.dto.UserDto;
 import com.stanzaliving.core.user.dto.UserManagerProfileRequestDto;
 import com.stanzaliving.core.user.dto.UserProfileDto;
@@ -406,13 +406,13 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 	
-	public UserDto getUserDtoByRoleAndAccessLevel(CityRolesRequestDto cityRolesRequestDto) {
+	public UserDto getUserDtoByRoleAndAccessLevel(AccessLevelRoleRequestDto cityRolesRequestDto) {
 		Object postBody = null;
 
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/internal/list/users/role/city").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/user/role/accesslevel").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
