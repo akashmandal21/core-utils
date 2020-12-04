@@ -34,6 +34,19 @@ public class SecurityUtils {
 		return userName;
 	}
 
+	public static String getCurrentUserFirstName() {
+
+		CurrentUser currentUser = getCurrentUser();
+
+		String userName = "";
+
+		if (currentUser != null) {
+			userName = currentUser.getFirstName();
+		}
+
+		return userName;
+	}
+
 	public static String getCurrentUserId() {
 		CurrentUser currentUser = getCurrentUser();
 
@@ -104,4 +117,5 @@ public class SecurityUtils {
 		}
 		return currentUser;
 	}
+
 }
