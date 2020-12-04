@@ -4,8 +4,9 @@
  */
 package com.stanzaliving.website.response.dto;
 
-import java.util.Map;
+import java.util.List;
 
+import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.ImageTags;
 
 import lombok.AllArgsConstructor;
@@ -33,6 +34,6 @@ public class ImageResponseDTO {
 	private int imageOrder;
 	private boolean enabled;
 	private String altTag;
-	private Map<ImageTags, String> imageTag;
+	private List<EnumListing<ImageTags>> imageTag;
 	private boolean featuredImage;
 }
