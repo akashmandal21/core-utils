@@ -14,6 +14,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class BaseResponseDto {
 
+    public int retryCount;
+
     private Boolean panExists;
 
     private String message;

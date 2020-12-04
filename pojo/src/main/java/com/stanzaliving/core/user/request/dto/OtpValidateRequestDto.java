@@ -8,9 +8,8 @@ import javax.validation.constraints.Size;
 
 import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author naveen
@@ -20,6 +19,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString(callSuper = true)
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class OtpValidateRequestDto extends LoginRequestDto {
 
 	@NotBlank(message = "OTP cannot be blank")

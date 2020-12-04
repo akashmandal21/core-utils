@@ -369,17 +369,13 @@ public class ImsClientApi {
 
     //    <----------------------------------------createBroker--------------------------------------->
 
-    public List<CityResponseDto> createBroker(String token,BrokerDto brokerDto) {
+    public List<BrokerDetailsResponseDto> createBroker(BrokerDto brokerDto) {
         String path = UriComponentsBuilder.fromPath(CITY_DETAILS).toUriString();
 
-        return createBroker(path, token, brokerDto);
+        return createBroker(path, brokerDto);
     }
 
-    private List<CityResponseDto> createBroker(String path, String token,BrokerDto brokerDto) {
-
-        if (StringUtils.isBlank(token)) {
-            throw new IllegalArgumentException("Please check the token provided !");
-        }
+    private List<BrokerDetailsResponseDto> createBroker(String path,BrokerDto brokerDto) {
 
         if (Objects.isNull(brokerDto)) {
             throw new IllegalArgumentException("Request is null for adding user");
@@ -391,13 +387,11 @@ public class ImsClientApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
-
         final String[] accepts = { "*/*" };
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<List<CityResponseDto>> returnType = new ParameterizedTypeReference<List<CityResponseDto>>() {
+        ParameterizedTypeReference<List<BrokerDetailsResponseDto>> returnType = new ParameterizedTypeReference<List<BrokerDetailsResponseDto>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);

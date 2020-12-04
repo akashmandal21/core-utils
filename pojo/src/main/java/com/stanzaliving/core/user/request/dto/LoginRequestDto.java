@@ -9,11 +9,11 @@ import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author naveen
@@ -23,7 +23,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoginRequestDto {
