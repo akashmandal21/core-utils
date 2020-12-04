@@ -32,6 +32,7 @@ public class ResidenceResponseDTO {
 	private int residenceId;
 	private String name;
 	private Gender gender;
+	private String genderName;
 	private int micromarketId;
 	private String micromarketName;
 	private String micromarketSlug;
@@ -50,6 +51,7 @@ public class ResidenceResponseDTO {
 	private Integer fomoBedCount;
 	private Integer preBookingAmount;
 	private FomoTag fomoTag;
+	private String fomoTagName;
 	private int priorityOrder;
 	private String residenceType;
 	private String mobileNo;

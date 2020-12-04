@@ -24,8 +24,11 @@ public class ResidenceListResponseDTO {
 	private int cityId;
 	private String cityName;
 	private Gender gender;
+	private String genderName;
 	private Integer preBookingAmount;
 	private FomoTag fomoTag;
+	private String fomoTagName;
+	private String fomoTagcolour;
 	private int priorityOrder;
 	private boolean enabled;
 	private String slug;

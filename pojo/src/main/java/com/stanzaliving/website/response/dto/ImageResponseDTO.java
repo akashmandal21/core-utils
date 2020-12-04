@@ -4,6 +4,10 @@
  */
 package com.stanzaliving.website.response.dto;
 
+import java.util.Map;
+
+import com.stanzaliving.website.enums.ImageTags;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,6 +33,6 @@ public class ImageResponseDTO {
 	private int imageOrder;
 	private boolean enabled;
 	private String altTag;
-	private String imageTag;
+	private Map<ImageTags, String> imageTag;
 	private boolean featuredImage;
 }
