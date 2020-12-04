@@ -18,5 +18,6 @@ public class CafeMenuRequestDto {
     @NotNull(message = "Empty Menu Date")
     private LocalDate menuDate;
     private String uuid;
+    private boolean active;
     private List<CafeMenuItemRequestDto> items;
 }
