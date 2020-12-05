@@ -45,5 +45,9 @@ public class PoDetailsResponse {
     private UIKeyValue deliveryLocation;
     private BigDecimal advanceAmount;
 
+    private Integer advCreditDays;
+    private Integer genCreditDays;
+    private Integer retCreditDays;
+
     List<PoItemDetail> poItemDetails;
 }
