@@ -35,6 +35,7 @@ public enum CriteriaOperation {
 	REGEXP("regexp"),
 	FIND_IN_SET("find_in_set"),
 	ENUM_EQ("="),
+	ENUM_NOT_EQ("!="),
 	ENUM_IN("in"),
 	IS_NULL("is null");
 
