@@ -17,6 +17,8 @@ import java.time.LocalDateTime;
 public class GenericPoUpdate {
     private String poUuid;
 
+    private String propertyUuid;
+
     private GenericPOTOStatus poStatus;
 
     private LocalDateTime lastUpdatedAt;
@@ -24,5 +26,10 @@ public class GenericPoUpdate {
     private Department department;
 
     private boolean po;
+
+    private boolean asisPo;
+
+    @Builder.Default
+    private boolean asisAreaGsriCompleted=false;
 
 }
