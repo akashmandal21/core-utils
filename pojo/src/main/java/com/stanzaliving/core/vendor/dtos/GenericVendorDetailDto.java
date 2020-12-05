@@ -41,4 +41,8 @@ public class GenericVendorDetailDto {
     private String createdBy;
 
     private String updatedBy;
+
+    private Integer genCreditDays;
+    private Integer advCreditDays;
+    private Integer retCreditDays;
 }
