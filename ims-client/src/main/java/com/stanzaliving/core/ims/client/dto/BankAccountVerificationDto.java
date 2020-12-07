@@ -20,5 +20,5 @@ public class BankAccountVerificationDto {
 
     private String ifscCode;
 
-    private boolean Live;
+    private boolean Live = true;
 }

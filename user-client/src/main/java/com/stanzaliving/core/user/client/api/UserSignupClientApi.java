@@ -88,6 +88,9 @@ public class UserSignupClientApi {
         ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        ResponseDto<UserProfileDto> response  = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+//        userProfileDtoResponse.he
+         return response;
     }
 }

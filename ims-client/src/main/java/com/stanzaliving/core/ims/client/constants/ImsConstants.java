@@ -21,6 +21,10 @@ public class ImsConstants {
 
     public static final String CREATE_BROKER = "/nexusV2/broker/create";
 
+    public static final String BROKER_DETAILS = "/broker";
+
+    public static final String PAN_DETAILS = "/nexusV2/broker/document/pan";
+
 
 
 

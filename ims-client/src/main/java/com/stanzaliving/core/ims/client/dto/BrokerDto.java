@@ -18,6 +18,10 @@ public class BrokerDto {
 
     private String mobile;
 
+    private String email;
+
+    private String uuid;
+
     private Long cityId;
 
     private String referredBy;
