@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 @Builder
@@ -22,6 +23,8 @@ public class UserDeptLevelRoleNameUrlExpandedDto {
     private AccessLevel accessLevel;
 
     private List<String> accessLevelEntityListUuid;
+
+    private Map<String, String> accessLevelEntityNameUuidMap;
 
     private List<String> rolesList;
 
