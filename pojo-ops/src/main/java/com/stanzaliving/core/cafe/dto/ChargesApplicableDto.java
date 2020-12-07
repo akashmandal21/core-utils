@@ -1,9 +1,11 @@
 package com.stanzaliving.core.cafe.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import javax.validation.Valid;
 
 @Getter
 @Setter
@@ -13,11 +15,10 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class ChargesApplicableDto {
 
-    @Valid
-    private ApplicableChargesDto chargesDto;
+	private ApplicableChargesDto chargesDto;
 
-    private boolean mandatory;
+	private boolean mandatory;
 
-    private Double chargeValue;
+	private Double chargeValue;
 
 }

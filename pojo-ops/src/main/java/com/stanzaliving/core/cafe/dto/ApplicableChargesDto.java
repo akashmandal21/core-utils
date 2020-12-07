@@ -1,10 +1,13 @@
 package com.stanzaliving.core.cafe.dto;
 
 import com.stanzaliving.core.cafe.enums.ChargeType;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -14,14 +17,12 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class ApplicableChargesDto {
 
-    @NotBlank(message = "Charge selection is mandatory")
-    private String chargeId;
+	private String chargeId;
 
-    private ChargeType chargesType;
+	private ChargeType chargesType;
 
-    private String chargeTypeName;
+	private String chargeTypeName;
 
-    private Double gst;
-
+	private Double gst;
 
 }
