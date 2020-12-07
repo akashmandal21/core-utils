@@ -1,7 +1,3 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.website.response.dto;
 
 import lombok.AllArgsConstructor;
@@ -10,10 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
