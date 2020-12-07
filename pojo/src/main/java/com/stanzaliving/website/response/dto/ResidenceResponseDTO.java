@@ -43,6 +43,7 @@ public class ResidenceResponseDTO {
 	private String seoTitle;
 	private String seoDescription;
 	private String pricingPlan;
+	private int pricingPlanId;
 	private int startingPrice;
 	private double latitude;
 	private double longitude;
@@ -59,7 +60,8 @@ public class ResidenceResponseDTO {
 	private boolean virtualTour;
 	private String gmbLink;
 	private String virtualTourImage;
-	private String cardCTA;
+	private String cardCTAName;
+	private int cardCTAId;
 	
 	
 	@Builder.Default

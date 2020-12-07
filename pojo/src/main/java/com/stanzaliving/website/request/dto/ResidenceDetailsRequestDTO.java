@@ -33,6 +33,6 @@ public class ResidenceDetailsRequestDTO {
 	private boolean virtualTour;
 	private String cardCTA;
 	private FomoTag fomoTag;
-	private String virtualTourImage;
+	private String virtualTourURL;
 
 }

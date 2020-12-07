@@ -1,8 +1,9 @@
 package com.stanzaliving.website.response.dto;
 
-import com.stanzaliving.website.enums.FomoTag;
-import com.stanzaliving.website.enums.Gender;
-import com.stanzaliving.website.response.dto.ResidenceListResponseDTO.ResidenceListResponseDTOBuilder;
+import java.util.List;
+
+import com.stanzaliving.core.user.enums.EnumListing;
+import com.stanzaliving.website.enums.Status;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -27,5 +28,5 @@ public class MicromarketResponseDTO {
 	private String seoDescription;
 	private String phone;
 	private String micromarketDescription;
-
+	List<EnumListing<Status>> status;
 }

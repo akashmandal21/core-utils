@@ -1,5 +1,10 @@
 package com.stanzaliving.website.response.dto;
 
+import java.util.List;
+
+import com.stanzaliving.core.user.enums.EnumListing;
+import com.stanzaliving.website.enums.Status;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,7 +34,7 @@ public class CityResponseDTO {
 	private String cityDescription;
 	private String imageAltTag;
 	private String cityImageUrl;
-	
+	List<EnumListing<Status>> status;
 	
 
 }
