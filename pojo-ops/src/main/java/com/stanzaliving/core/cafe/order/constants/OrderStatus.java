@@ -49,6 +49,18 @@ public enum OrderStatus {
         return statuses;
     }
 
+    public static List<OrderStatus> allEligibleOrderStatus() {
+        List<OrderStatus> statuses = new ArrayList<>();
+        statuses.add(PLACED);
+        statuses.add(CONFIRMED);
+        statuses.add(PREPARING);
+        statuses.add(PREPARED);
+        statuses.add(PACKED);
+        statuses.add(DISPATCHED);
+        statuses.add(DELIVERED);
+        return statuses;
+    }
+
     private static final List<EnumListing<OrderStatus>> enumListing = new ArrayList<>();
 
     public static List<EnumListing<OrderStatus>> getEnumListing() {
