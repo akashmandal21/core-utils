@@ -19,10 +19,13 @@ public class LocationCreationDto implements Serializable {
 
     private static final long serialVersionUID = -4483658093423365401L;
 
-    @NotBlank
+    @NotBlank(message = "Location UUID is mandatory")
+    private String uuid;
+    
+    @NotBlank(message = "Location Name is mandatory")
     private String locationName;
 
-    @NotNull
+    @NotNull(message = "Location Access Level is mandatory")
     private AccessLevel accessLevel;
 
     private String createdByUuid;
