@@ -50,4 +50,7 @@ public class InvoiceItemDto {
 
     private BigDecimal advanceAdjustment;
 
+    private BigDecimal otherFee;
+    private BigDecimal wtdAvg;
+    private BigDecimal totalOtherFee;
 }

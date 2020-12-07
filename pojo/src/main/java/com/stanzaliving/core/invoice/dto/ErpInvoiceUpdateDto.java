@@ -16,6 +16,7 @@ public class ErpInvoiceUpdateDto {
     private BigDecimal advancePaid;
     private BigDecimal regularPaid;
     private BigDecimal totalInvoiced;
+    private BigDecimal otherFeeRaised;
     @Builder.Default
     private boolean itemsPending = true;
 }
