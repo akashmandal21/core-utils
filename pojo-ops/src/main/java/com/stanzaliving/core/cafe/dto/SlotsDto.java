@@ -1,13 +1,20 @@
 package com.stanzaliving.core.cafe.dto;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.cafe.enums.SlotType;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
-import javax.validation.Valid;
 import java.time.LocalTime;
 import java.util.List;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.cafe.enums.SlotType;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -17,24 +24,28 @@ import java.util.List;
 @AllArgsConstructor
 public class SlotsDto extends AbstractDto {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    private String cafeId;
+	@NotBlank(message = "Cafe is mandatory for slot")
+	private String cafeId;
 
-    private String residenceId;
+	@NotBlank(message = "Residence is mandatory for slot")
+	private String residenceId;
 
-    private String slotName;
+	@NotBlank(message = "Slot Name is mandatory")
+	private String slotName;
 
-    private SlotType slotType;
+	@NotNull(message = "Slot Type is mandatory")
+	private SlotType slotType;
 
-    private LocalTime deliveryTime;
+	private LocalTime deliveryTime;
 
-    private LocalTime orderingWindowStartTime;
+	@NotNull(message = "Ordering window start time is mandatory")
+	private LocalTime orderingWindowStartTime;
 
-    private LocalTime orderingWindowEndTime;
+	@NotNull(message = "Ordering window end time is mandatory")
+	private LocalTime orderingWindowEndTime;
 
-    @Valid
-    private List<ChargesApplicableDto> applicableCharges;
-
+	private List<ChargesApplicableDto> applicableCharges;
 
 }
