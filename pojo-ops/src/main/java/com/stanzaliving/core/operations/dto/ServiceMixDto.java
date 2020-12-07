@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
+import com.stanzaliving.operations.enums.ServiceMixStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,5 +43,7 @@ public class ServiceMixDto extends AbstractDto {
     private LocalDate seasonFromDate;
 
     private LocalDate seasonToDate;
+
+    private ServiceMixStatus serviceMixStatus;
 	
 }
