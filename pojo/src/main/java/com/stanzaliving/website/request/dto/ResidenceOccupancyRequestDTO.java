@@ -4,6 +4,11 @@
  */
 package com.stanzaliving.website.request.dto;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import com.stanzaliving.website.response.dto.ResidenceOccupancyResponseDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,11 +27,12 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ResidenceOccupancyRequestDTO {
-	
-	private int residenceOccupancyId;
-	private int occupancyId;
-	private String occupancyName;
+
+	private int residenceId;
 	private int startingPrice;
 	private String pricingPlan;
-	private int residenceId;
+
+	@Builder.Default
+	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
+
 }
