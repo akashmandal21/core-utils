@@ -15,11 +15,19 @@ import java.util.List;
 @Builder
 public class InvoiceItemFilter {
 
+    private boolean search;
+
     private List<UIKeyValue> costHead;
 
     private List<UIKeyValue> category;
 
     private List<UIKeyValue> subCategory;
+
+    private List<String> itemCodes;
+
+    private String itemUuid;
+
+    private boolean excludingCodes;
 
     private String searchKey;
 

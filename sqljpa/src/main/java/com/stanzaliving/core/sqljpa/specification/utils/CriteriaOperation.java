@@ -32,6 +32,7 @@ public enum CriteriaOperation {
 	LOCAL_TIME_LTE("<="),
 	LOCAL_TIME_GTE(">="),
 	IN("in"),
+	NOT_IN("not in"),
 	REGEXP("regexp"),
 	FIND_IN_SET("find_in_set"),
 	ENUM_EQ("="),
