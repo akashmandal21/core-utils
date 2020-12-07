@@ -28,4 +28,5 @@ public class BatchOrderDispatchSummaryRDto {
     private Date notificationTime;
     private String slotName;
     private LocalTime deliveryTime;
+    private String qrCodeURI;
 }
