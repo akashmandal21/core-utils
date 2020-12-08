@@ -59,7 +59,7 @@ public class ResidenceResponseDTO {
 	private String phoneNo;
 	private boolean virtualTour;
 	private String gmbLink;
-	private String virtualTourImage;
+	private String virtualTourURL;
 	private String cardCTAName;
 	private int cardCTAId;
 	
