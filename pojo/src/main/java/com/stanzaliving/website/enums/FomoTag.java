@@ -7,10 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum FomoTag {
 
-	ALMOSTFULL("Almost Full", "Black"), 
-	TOPSELLING("Top Selling", "Black"),
-	FILLINGFAST("Filling Fast", "Black"),
-	SOLDOUT("Sold Out", "Black");
+	ALMOSTFULL("Almost Full", "#283264"), 
+	TOPSELLING("Top Selling", "#645A87"),
+	FILLINGFAST("Filling Fast", "#FAB432"),
+	SOLDOUT("Sold Out", "#F05A78");
 
 	public String fomoTagName;
 	public String fomoTagColour;

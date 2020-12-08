@@ -38,4 +38,8 @@ public class ResidenceListResponseDTO {
 	private String virtualTourImage;
 	private boolean virtualTour;
 	private String cardCTA;
+	private String genderSlug;
+	private String citySlug;
+	private String micromarketSlug;
+	
 }

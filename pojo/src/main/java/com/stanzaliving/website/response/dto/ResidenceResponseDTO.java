@@ -64,6 +64,7 @@ public class ResidenceResponseDTO {
 	private String cardCTAName;
 	private int cardCTAId;
 	private int residenceTypeId;
+	private String genderSlug;
 	
 	@Builder.Default
 	private Set<FeatureResponseDTO> features = new HashSet<>(0);
