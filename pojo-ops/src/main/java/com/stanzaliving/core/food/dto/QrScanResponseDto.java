@@ -24,4 +24,9 @@ public class QrScanResponseDto {
 
 	private String qrContextType;
 	private Object data;
+	private long updatedAt;
+	private String code;
+	private String message;
+	private String mealType;
+
 }
