@@ -218,7 +218,7 @@ public class POClientApi {
 
         uriVariables.put("propertyUuid", propertyUuid);
 
-        String path = UriComponentsBuilder.fromPath("/internal/remaining/item/quantity/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/remaining/item/quantity/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
