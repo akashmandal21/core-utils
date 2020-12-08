@@ -228,6 +228,17 @@ public class StanzaRestClient {
             }
         }
 
+        // TODO: Need to improve code for getting Token from response header
+        System.out.println("headers======1====="+responseEntity.getHeaders());
+        System.out.println("headers=======2===="+responseEntity.getHeaders().size());
+        System.out.println("headers========3==="+responseEntity.getHeaders().get("Set-Cookie"));
+
+        List<String> strings = responseEntity.getHeaders().get("Set-Cookie");
+
+        if (strings != null && strings.size() > 0) {
+            String string = strings.get(0);
+            System.out.println("=======split=====" + string.substring("token=".length(), string.indexOf(";")));
+        }
         HttpStatus statusCode = responseEntity.getStatusCode();
 
         log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
