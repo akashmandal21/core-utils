@@ -235,10 +235,12 @@ public class StanzaRestClient {
 
         List<String> strings = responseEntity.getHeaders().get("Set-Cookie");
 
+        String token = null;
         if (strings != null && strings.size() > 0) {
             String string = strings.get(0);
-            System.out.println("=======split=====" + string.substring("token=".length(), string.indexOf(";")));
+            token = string.substring("token=".length(), string.indexOf(";"));
         }
+        System.out.println("=======token=====" + token);
         HttpStatus statusCode = responseEntity.getStatusCode();
 
         log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
