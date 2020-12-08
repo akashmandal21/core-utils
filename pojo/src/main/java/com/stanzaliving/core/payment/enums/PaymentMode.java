@@ -24,7 +24,8 @@ public enum PaymentMode {
 	PAYTM("PAYTM", 9),
 	ICICI("ICICI", 10),
 	PINE_LAB("PINE LAB", 12),
-	RAZORPAY("Razorpay", 13);
+	RAZORPAY("Razorpay", 13),
+	PAYTM_SDK("PAYTM SDK", 14);
 
 	private String paymentModeDesc;
 	private int paymentModeId;
