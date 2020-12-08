@@ -5,11 +5,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.po.enums.EventType;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
+import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import com.stanzaliving.grn.GSRIReceivedQuantity;
 import com.stanzaliving.grn.GrnQuantity;
+import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.po.enums.PoType;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -77,6 +80,28 @@ public class GrnClientApi {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<InvoiceItemDto>> getGrnQuantitiesForInvoice(Department department, String poUuid, InvoiceItemFilter invoiceItemFilter) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("poToUuid",poUuid);
+        uriVariables.put("department",department);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/gsri/invoice/quantity/{department}/{poToUuid}").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<List<InvoiceItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<InvoiceItemDto>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, invoiceItemFilter, headerParams, accept, returnType);
     }
 
     public ResponseDto<GrsiUpdateDto> getGrsiStatus(String poUuid) {

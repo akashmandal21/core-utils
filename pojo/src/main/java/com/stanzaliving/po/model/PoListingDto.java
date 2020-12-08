@@ -37,4 +37,6 @@ public class PoListingDto {
 
     private Boolean isCancellationRejected;
 
+    private boolean asisPo;
+
 }

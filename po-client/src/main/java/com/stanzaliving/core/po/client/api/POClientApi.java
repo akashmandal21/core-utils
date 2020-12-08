@@ -1,13 +1,12 @@
 package com.stanzaliving.core.po.client.api;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
+import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
+import com.stanzaliving.core.po.generic.dtos.VendorWisePoDetails;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
-import com.stanzaliving.invoice.dto.InvoiceItemFilter;
+import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -219,7 +218,7 @@ public class POClientApi {
 
         uriVariables.put("propertyUuid", propertyUuid);
 
-        String path = UriComponentsBuilder.fromPath("/internal/remaining/item/quantity/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/remaining/item/quantity/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -291,6 +290,28 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
+    public ResponseDto<Void> markGrnCompletion(GrsiUpdateDto grsiUpdateDto){
+        log.info("HTTP Client call to update PO for GRN Completion {}",grsiUpdateDto);
+
+        Object postBody = grsiUpdateDto;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/mark/poCompletion")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
     public ResponseDto<List<InvoiceItemDto>> getPoToItems(String poToUuid, InvoiceItemFilter invoiceItemFilter) {
 
         log.info("HTTP Client call to get PoTo item details {}, {}", poToUuid, invoiceItemFilter);
@@ -344,6 +365,49 @@ public class POClientApi {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<String> getVendorName(String propertyUuid, String vendorUuid) {
+
+        log.info("HTTP Client call to get vendor name for property {} and vendorUuid {} ", propertyUuid, vendorUuid);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("propertyUuid", propertyUuid);
+        uriVariables.put("vendorUuid", vendorUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getVendorName/{propertyUuid}/{vendorUuid}").buildAndExpand(uriVariables).toUriString();
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
+    }
+
+    public ResponseDto<Collection<VendorWisePoDetails>> getVendorWisePOs(String propertyUuid) {
+
+        log.info("HTTP Client call to get vendor wise POs for property {} ", propertyUuid);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("propertyUuid", propertyUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<Collection<VendorWisePoDetails>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Collection<VendorWisePoDetails>>>() {
+        };
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getVendorWisePODetails/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
 }

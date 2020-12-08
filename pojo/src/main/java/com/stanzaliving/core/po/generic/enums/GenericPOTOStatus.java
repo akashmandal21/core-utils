@@ -22,27 +22,22 @@ public enum GenericPOTOStatus {
     SC_L2_APPROVAL_DUE("SC L2 Approval Due","#DEB76A","#deb76a4d",1,true,false),
     SC_L3_APPROVAL_DUE("SC L3 Approval Due","#DEB76A","#deb76a4d",2,true,false),
     SC_L1_REJECTED("SC L1 Rejected","#FF5238","#ff52384d",GenericConstants.rejectionStart-1,false,false),
-    SC_L2_REJECTED("SC L2 Approval Due","#FF5238","#ff52384d",GenericConstants.rejectionStart-2,false,false),
-    SC_L3_REJECTED("SC L3 Approval Due","#FF5238","#ff52384d",GenericConstants.rejectionStart-3,false,false),
+    SC_L2_REJECTED("SC L2 Rejected","#FF5238","#ff52384d",GenericConstants.rejectionStart-2,false,false),
+    SC_L3_REJECTED("SC L3 Rejected","#FF5238","#ff52384d",GenericConstants.rejectionStart-3,false,false),
 
     //underCancelCycle =true
     CANCEL_L1_APPROVAL_DUE("Cancel L1 Due","#4B87E3","#E4EDFB",0,false,true),
     CANCEL_L2_APPROVAL_DUE("Cancel L2 Due","#4B87E3","#E4EDFB",1,false,true),
     CANCEL_L3_APPROVAL_DUE("Cancel L3 Due","#4B87E3","#E4EDFB",2,false,true),
-    CANCEL_L1_REJECTED("L1 Approval Due","#F55F71","#f55f714d",GenericConstants.rejectionStart-1,false,false),
-    CANCEL_L2_REJECTED("L2 Approval Due","#F55F71","#f55f714d",GenericConstants.rejectionStart-2,false,false),
-    CANCEL_L3_REJECTED("L3 Approval Due","#F55F71","#f55f714d",GenericConstants.rejectionStart-3,false,false),
+    CANCEL_L1_REJECTED("Cancel L1 Rejected","#F55F71","#f55f714d",GenericConstants.rejectionStart-1,false,false),
+    CANCEL_L2_REJECTED("Cancel L2 Rejected","#F55F71","#f55f714d",GenericConstants.rejectionStart-2,false,false),
+    CANCEL_L3_REJECTED("Cancel L3 Rejected","#F55F71","#f55f714d",GenericConstants.rejectionStart-3,false,false),
 
     APPROVED("Approved","#60C3AD","#60c3ad4d",3,false,false),
     SHORTCLOSED("Shortclosed","#790A00","#790a004d",4,false,false),
     CANCELLED("Cancelled","#5C49A2","#5c49a24d",5,false,false),
     GSRI_COMPLETED("GSRI Closed","#60C3AD","#60c3ad4d",6,false,false),
-    WORK_COMPLETED("Work Completed","#60C3AD","#60c3ad4d",6,false,false);
-
-
-
-
-
+    WORK_COMPLETED("Work Completed","#60C3AD","#60c3ad4d",7,false,false);
 
 
     private String statusText;
@@ -52,16 +47,26 @@ public enum GenericPOTOStatus {
     private boolean underShortClose;
     private boolean underCancel;
 
-    public static Set<GenericPOTOStatus> cancelStatus = new HashSet<>(5);
-    public static Set<GenericPOTOStatus> cancelRejectStatus = new HashSet<>(5);
-    public static Set<GenericPOTOStatus> scStatus = new HashSet<>(5);
-    public static Set<GenericPOTOStatus> scRejectStatus = new HashSet<>(5);
-    public static Set<GenericPOTOStatus> scAllowedStatus = new HashSet<>(10);
-    public static Set<GenericPOTOStatus> firstApprovalStatus = new HashSet<>(3);
-    public static Set<GenericPOTOStatus> firstApprovalCycle = new HashSet<>(10);
-    public static Set<GenericPOTOStatus> firstApprovalRejects = new HashSet<>(5);
-    public static Set<GenericPOTOStatus> approvals = new HashSet<>(10);
-    public static Set<GenericPOTOStatus> allValues = new HashSet<>(Arrays.asList(GenericPOTOStatus.values()));
+    @Getter
+    private static Set<GenericPOTOStatus> cancelStatus = new HashSet<>(5);
+    @Getter
+    private static Set<GenericPOTOStatus> cancelRejectStatus = new HashSet<>(5);
+    @Getter
+    private static Set<GenericPOTOStatus> scStatus = new HashSet<>(5);
+    @Getter
+    private static Set<GenericPOTOStatus> scRejectStatus = new HashSet<>(5);
+    @Getter
+    private static Set<GenericPOTOStatus> scAllowedStatus = new HashSet<>(10);
+    @Getter
+    private static Set<GenericPOTOStatus> firstApprovalStatus = new HashSet<>(3);
+    @Getter
+    private static Set<GenericPOTOStatus> firstApprovalCycle = new HashSet<>(10);
+    @Getter
+    private static Set<GenericPOTOStatus> firstApprovalRejects = new HashSet<>(5);
+    @Getter
+    private static Set<GenericPOTOStatus> approvals = new HashSet<>(10);
+    @Getter
+    private static Set<GenericPOTOStatus> allValues = new HashSet<>();
 
     public static Set<GenericPOTOStatus> viewRole = new HashSet<>();
 
@@ -75,8 +80,13 @@ public enum GenericPOTOStatus {
         firstApprovalCycle.addAll(Arrays.asList(IN_DRAFT,L1_SENT_BACK,L2_SENT_BACK,L3_SENT_BACK,L1_APPROVAL_DUE,L2_APPROVAL_DUE,L3_APPROVAL_DUE));
         firstApprovalRejects.addAll(Arrays.asList(L1_SENT_BACK,L2_SENT_BACK,L3_SENT_BACK));
         approvals.addAll(Arrays.asList(CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE,L2_APPROVAL_DUE,L3_APPROVAL_DUE,APPROVED,SHORTCLOSED,CANCELLED));
-
-        viewRole.addAll(Arrays.asList(CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE,APPROVED,SHORTCLOSED));
+        allValues.addAll(Arrays.asList(CANCEL_L1_APPROVAL_DUE,CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE,SC_L1_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE,IN_DRAFT,
+                L1_SENT_BACK,L2_SENT_BACK,L3_SENT_BACK,L1_APPROVAL_DUE,L2_APPROVAL_DUE,L3_APPROVAL_DUE,CANCEL_L1_REJECTED,CANCEL_L2_REJECTED,CANCEL_L3_REJECTED,APPROVED,SHORTCLOSED,
+                SC_L1_REJECTED,SC_L2_REJECTED,SC_L3_REJECTED,CANCELLED,GSRI_COMPLETED,WORK_COMPLETED));
+        viewRole.addAll(Arrays.asList(CANCEL_L1_APPROVAL_DUE,CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE,SC_L1_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE,APPROVED,SHORTCLOSED));
+        viewRole.addAll(scRejectStatus);
+        viewRole.addAll(cancelRejectStatus);
     }
+
 
 }

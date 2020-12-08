@@ -297,7 +297,7 @@ public class ItemMasterClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("cityUuid",cityUuid);
-		String path = UriComponentsBuilder.fromPath("/internal/generic/get/asisItems/{department}/{cityUuid}")
+		String path = UriComponentsBuilder.fromPath("/internal/generic/get/asisItems/{cityUuid}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();

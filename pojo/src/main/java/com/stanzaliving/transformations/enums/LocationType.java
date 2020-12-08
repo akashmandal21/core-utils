@@ -31,6 +31,7 @@ public enum LocationType {
 	
 	private static Map<String, LocationType> locationByVendorMap = new HashMap<>(); 
 	private static List<LocationType> locationAddressable = new ArrayList<>();
+	private static EnumSet<LocationType> locationAddressableSet = null;
 	static {
 
 		for (LocationType locType : LocationType.values()) {
@@ -38,7 +39,8 @@ public enum LocationType {
 				locationByVendorMap.put(locType.getVendorType().name(), locType);
 		}
 
-		locationAddressable.addAll(Arrays.asList(HOUSE,WAREHOUSE,CITY_OFFICE,CAFE,KITCHEN,STORE,CITY_OFFICE,CORPORATE_OFFICE));
+		locationAddressable.addAll(Arrays.asList(HOUSE,WAREHOUSE,CITY_OFFICE,CAFE,KITCHEN,STORE,CORPORATE_OFFICE));
+		locationAddressableSet = EnumSet.copyOf(locationAddressable);
 	}
 	
 	public static LocationType getLocationByVendorName(String name) {
@@ -47,5 +49,8 @@ public enum LocationType {
 
 	public static List<LocationType> getLocationAddressable(){
 		return locationAddressable;
+	}
+	public static EnumSet<LocationType> getLocationAddressableSet(){
+		return locationAddressableSet;
 	}
 }

@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 

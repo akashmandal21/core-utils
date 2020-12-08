@@ -5,6 +5,7 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @AllArgsConstructor
 @Getter
@@ -33,6 +34,20 @@ public enum GSTSlabs {
 
     public static List<GSTSlabs> getSortedGstSlabs(){
         return sortedGstSlabs;
+    }
+    public static GSTSlabs getSlab(Double gstPct){
+        if(Objects.isNull(gstPct))
+            return NA;
+        int gstBracket  = gstPct.intValue();
+        switch (gstBracket){
+            case 0: return ZERO;
+            case 5: return FIVE;
+            case 12: return TWELEVE;
+            case 18: return EIGHTEEN;
+            case 28: return TWENTY_EIGHT;
+            default:
+                return null;
+        }
     }
 
 }

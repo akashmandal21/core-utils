@@ -28,6 +28,8 @@ public class InvoiceItemDto {
 
     private UIKeyValue subCategory;
 
+    private boolean exceedEligible;
+
     private BigDecimal poQuantity;
 
     private BigDecimal poUnitRate;
@@ -35,6 +37,8 @@ public class InvoiceItemDto {
     private UIKeyValue poGst;
 
     private BigDecimal gsriQuantity;
+
+    private BigDecimal maxInvoiceQuantity;
 
     private BigDecimal invoiceQuantity;
 
@@ -46,4 +50,7 @@ public class InvoiceItemDto {
 
     private BigDecimal advanceAdjustment;
 
+    private BigDecimal otherFee;
+    private BigDecimal wtdAvg;
+    private BigDecimal totalOtherFee;
 }

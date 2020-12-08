@@ -1,4 +1,4 @@
-package com.stanzaliving.invoice.dto;
+package com.stanzaliving.core.invoice.dto;
 
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import lombok.AllArgsConstructor;
@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,11 +15,19 @@ import java.math.BigDecimal;
 @Builder
 public class InvoiceItemFilter {
 
-    private UIKeyValue costHead;
+    private boolean search;
 
-    private UIKeyValue category;
+    private List<UIKeyValue> costHead;
 
-    private UIKeyValue subCategory;
+    private List<UIKeyValue> category;
+
+    private List<UIKeyValue> subCategory;
+
+    private List<String> itemCodes;
+
+    private String itemUuid;
+
+    private boolean excludingCodes;
 
     private String searchKey;
 

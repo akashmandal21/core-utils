@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
+import com.stanzaliving.core.vendor.enums.VendorType;
 import com.stanzaliving.transformations.enums.LocationType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,6 +30,8 @@ public class PoDetailsResponse {
     private BigDecimal otherFeeGst;
     private BigDecimal poAmount;
     private String vendorUuid;
+    private VendorType vendorType;
+
     private String propertUuid;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -41,6 +44,10 @@ public class PoDetailsResponse {
     private LocationType deliveryLocationType;
     private UIKeyValue deliveryLocation;
     private BigDecimal advanceAmount;
+
+    private Integer advCreditDays;
+    private Integer genCreditDays;
+    private Integer retCreditDays;
 
     List<PoItemDetail> poItemDetails;
 }
