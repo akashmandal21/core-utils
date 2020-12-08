@@ -290,13 +290,13 @@ public class StanzaUtils {
 
 		if (size < 1024L) {
 			sizeWithUnit = size + " Bytes";
-		} else if (size >= 1024 && size < (1024L * 1024)) {
+		} else if (size < (1024L * 1024)) {
 			sizeWithUnit = String.format("%.2f", kb) + " KB";
-		} else if (size >= (1024L * 1024) && size < (1024L * 1024 * 1024)) {
+		} else if (size < (1024L * 1024 * 1024)) {
 			sizeWithUnit = String.format("%.2f", mb) + " MB";
-		} else if (size >= (1024L * 1024 * 1024) && size < (1024L * 1024 * 1024 * 1024)) {
+		} else if (size < (1024L * 1024 * 1024 * 1024)) {
 			sizeWithUnit = String.format("%.2f", gb) + " GB";
-		} else if (size >= (1024L * 1024 * 1024 * 1024)) {
+		} else  {
 			sizeWithUnit = String.format("%.2f", tb) + " TB";
 		}
 
