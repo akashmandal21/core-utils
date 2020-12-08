@@ -57,7 +57,7 @@ public class StanzaSpecification<T extends AbstractJpaEntity> implements Specifi
 			case NOT_IN:
 				if (criteria.getValue() instanceof Collection<?>) {
 					final Path<String> group = root.<String> get(criteria.getKey());
-					return group.in(((Collection<?>) criteria.getValue()).toArray());
+					return group.in(((Collection<?>) criteria.getValue()).toArray()).not();
 				}
 
 				return null;

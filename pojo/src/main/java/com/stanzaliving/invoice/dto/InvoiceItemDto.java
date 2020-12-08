@@ -22,6 +22,8 @@ public class InvoiceItemDto {
 
     private String itemDescription;
 
+    private String uom;
+
     private UIKeyValue costHead;
 
     private UIKeyValue category;
