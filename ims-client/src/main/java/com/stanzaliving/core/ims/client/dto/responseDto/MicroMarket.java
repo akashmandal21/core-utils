@@ -12,7 +12,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BrokerDetailsResponseDto extends BaseResponseDto {
+public class MicroMarket {
 
-    private BrokerResponseDto broker;
+    private int id;
+
+    private String name;
+
 }

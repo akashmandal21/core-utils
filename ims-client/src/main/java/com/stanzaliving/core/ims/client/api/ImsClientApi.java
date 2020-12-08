@@ -1,5 +1,6 @@
 package com.stanzaliving.core.ims.client.api;
 
+import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.ims.client.dto.*;
@@ -378,13 +379,13 @@ public class ImsClientApi {
 
     //    <----------------------------------------createBroker--------------------------------------->
 
-    public BrokerDetailsResponseDto createBroker(BrokerDto brokerDto) {
+    public BrokerDetailsResponseDto createBroker(BrokerDto brokerDto, String token) {
         String path = UriComponentsBuilder.fromPath(CREATE_BROKER).toUriString();
 
-        return createBroker(path, brokerDto);
+        return createBroker(path, brokerDto,token);
     }
 
-    private BrokerDetailsResponseDto createBroker(String path,BrokerDto brokerDto) {
+    private BrokerDetailsResponseDto createBroker(String path,BrokerDto brokerDto, String token) {
 
         if (Objects.isNull(brokerDto)) {
             throw new IllegalArgumentException("Request is null for adding user");
@@ -395,6 +396,8 @@ public class ImsClientApi {
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
 
         final String[] accepts = { "*/*" };
 
@@ -476,5 +479,173 @@ public class ImsClientApi {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    //    <----------------------------------------getTdsInfo--------------------------------------->
+
+    public TdsInfoResponseDto getTdsInfo() {
+        String path = UriComponentsBuilder.fromPath(TDS_INFO).toUriString();
+
+        return getTdsInfo(path);
+    }
+
+    private TdsInfoResponseDto getTdsInfo(String path) {
+
+        Object postBody = null;
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<TdsInfoResponseDto> returnType = new ParameterizedTypeReference<TdsInfoResponseDto>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+
+    //    <----------------------------------------updateTdsPercentageToMax--------------------------------------->
+
+    public TdsResponseDto updateTdsPercentageToMax(String token,String brokerMobile) {
+        String path = UriComponentsBuilder.fromPath(UPDATE_TDS_MAX).toUriString();
+
+        return updateTdsPercentageToMax(path, token, brokerMobile);
+    }
+
+    private TdsResponseDto updateTdsPercentageToMax(String path, String token, String brokerMobile) {
+
+        if (StringUtils.isBlank(brokerMobile)) {
+            throw new IllegalArgumentException("Please check all the Params");
+        }
+
+        Object postBody = null;
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.add("brokerMobile",brokerMobile);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<TdsResponseDto> returnType = new ParameterizedTypeReference<TdsResponseDto>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    //    <----------------------------------------getTdsDetailsForBroker--------------------------------------->
+
+    public BrokerTdsDetailResponse getTdsDetailsForBroker(String token, String brokerMobile, Double amount, String transactionId) {
+        String path = UriComponentsBuilder.fromPath(BROKER_TDS_DETAILS).toUriString();
+
+        return getTdsDetailsForBroker(path,token,brokerMobile,amount,transactionId);
+    }
+
+    private BrokerTdsDetailResponse getTdsDetailsForBroker(String path, String token, String brokerMobile, Double amount, String transactionId) {
+
+        if (amount == null || StringUtils.isBlank(brokerMobile)) {
+            throw new IllegalArgumentException("Please check all the provided params!!");
+        }
+
+        Object postBody = null;
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.add("amount", String.valueOf(amount));
+
+        queryParams.add("brokerMobile", brokerMobile );
+
+        if (!StringUtils.isBlank(transactionId)){
+            queryParams.add("transactionId", transactionId);
+        }
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<BrokerTdsDetailResponse> returnType = new ParameterizedTypeReference<BrokerTdsDetailResponse>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+
+    //    <----------------------------------------redeemPaymentBroker--------------------------------------->
+
+    public ResponseDto<Void> redeemPaymentBroker(PaymentRedeemDto paymentRedeemDto, String token) {
+        String path = UriComponentsBuilder.fromPath(PAYOUT_URL).toUriString();
+
+        return redeemPaymentBroker(path, paymentRedeemDto, token);
+    }
+
+    private ResponseDto<Void> redeemPaymentBroker(String path, PaymentRedeemDto paymentRedeemDto, String token) {
+
+        if (Objects.isNull(paymentRedeemDto)) {
+            throw new IllegalArgumentException("Request is null for Payment");
+        }
+
+        Object postBody = paymentRedeemDto;
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    //    <----------------------------------------changeBrokerPaymentMode--------------------------------------->
+
+    public BrokerKYCDetailReponseDto changeBrokerPaymentMode(String token, String brokerMobile, String paymentModeId) {
+        String path = UriComponentsBuilder.fromPath(CHANGE_PAYMENT_MODE).toUriString();
+
+        return changeBrokerPaymentMode(path, token, brokerMobile, paymentModeId);
+    }
+
+    private BrokerKYCDetailReponseDto changeBrokerPaymentMode(String path, String token, String brokerMobile, String paymentModeId) {
+
+        if (StringUtils.isBlank(token) || StringUtils.isBlank(brokerMobile) || StringUtils.isBlank(paymentModeId)) {
+            throw new IllegalArgumentException("Please check the params provided !");
+        }
+
+        Object postBody = null;
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.add("brokerMobile",brokerMobile);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<BrokerKYCDetailReponseDto> returnType = new ParameterizedTypeReference<BrokerKYCDetailReponseDto>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
     }
 }

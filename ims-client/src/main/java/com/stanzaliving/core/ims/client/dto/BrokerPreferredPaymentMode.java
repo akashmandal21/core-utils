@@ -13,9 +13,9 @@ import java.util.Map;
 @AllArgsConstructor
 public enum BrokerPreferredPaymentMode {
 
-    PAYTM("Paytm", 0),
-    BANKTRANSFER("Bank Transfer", 1),
-    VPA("UPI", 2);
+    PAYTM("Paytm", 1),
+    BANKTRANSFER("Bank Transfer", 2),
+    VPA("UPI", 3);
 
     private String paymentModeDesc;
     private int paymentModeId;

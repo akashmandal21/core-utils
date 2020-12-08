@@ -252,9 +252,11 @@ public class StanzaRestClient {
                 return null;
             }
             return responseEntity.getBody();
-        } else if (responseEntity.getStatusCode() == HttpStatus.UNAUTHORIZED) {
+        }
+        else if (responseEntity.getStatusCode() == HttpStatus.UNAUTHORIZED) {
             throw new StanzaSecurityException("Phone number entered doesn’t exist in the system. Please either login with the correct number or sign up.");
-        } else {
+        }
+        else {
             // The error handler built into the RestTemplate should handle 400 and 500 series errors.
             throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
         }

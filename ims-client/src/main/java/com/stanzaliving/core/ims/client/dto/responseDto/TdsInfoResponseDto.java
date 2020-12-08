@@ -12,7 +12,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BrokerDetailsResponseDto extends BaseResponseDto {
+public class TdsInfoResponseDto {
 
-    private BrokerResponseDto broker;
+    private String amount;
+
+    private String tdsWithPan;
+
+    private String tdsWithoutPan;
+
 }

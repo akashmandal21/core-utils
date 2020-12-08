@@ -12,17 +12,19 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BrokerDto {
+public class LeadDto {
 
-    private String name;
+    private String firstName;
 
-    private String mobile;
+    private String lastName;
+
+    private String mobileNumber;
 
     private String email;
 
-    private String userUuid;
+    private String gender;
 
     private Long cityId;
 
-    private String referredBy;
+    private Long localityId;
 }

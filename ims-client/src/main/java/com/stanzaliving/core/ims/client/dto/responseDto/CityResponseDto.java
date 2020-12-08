@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author harman
@@ -16,7 +17,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class CityResponseDto {
 
-   private Long cityId;
+   private int cityId;
 
    private String name;
 
@@ -25,6 +26,8 @@ public class CityResponseDto {
    private Long stateId;
 
    private String stateName;
+
+   private List<MicroMarket> microMarket;
 
 }
 
