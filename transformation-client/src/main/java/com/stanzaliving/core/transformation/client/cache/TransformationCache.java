@@ -114,6 +114,11 @@ public class TransformationCache {
 		return allResidenceWithCoreCache.getUnchecked("residenceWithCore");
 	}
 
+	public ResidenceUIDto getResidenceUIDtoByUuid (String residenceUuid) {
+		Optional<ResidenceUIDto> residenceUIDtoOptional = getAllResidencesWithCoreData().stream().filter(dto -> dto.getUuid().equals(residenceUuid)).findFirst();
+		return residenceUIDtoOptional.isPresent() ? residenceUIDtoOptional.get() : null;
+	}
+
 	// It shouldn't be done this way, especially iterating part
 	public String getAccessLevelNameByUuid(String uuid, String accessLevel) {
 

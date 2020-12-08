@@ -35,10 +35,10 @@ public enum EstateStatus {
 	REJECTED("Rejected"),
 	
 	//Level 2 Status
-	SENT_FOR_APPROVAL("L2 Sent To NH & TH"),
+	SENT_FOR_APPROVAL("L2 Sent To NH & Design Head"),
 	SENT_BACK("L2 Sent Back By NH"),
-	APPROVED_BY_NATIONAL_HEAD("Pending Transformation's Approval"),
-	SENT_BACK_BY_TRANSFORMATION("Sent Back By Transformations"),
+	APPROVED_BY_NATIONAL_HEAD("Pending Design Approval"),
+	SENT_BACK_BY_TRANSFORMATION("Sent Back By Design"),
 	APPROVED_BY_TRANSFORMATION("Pending NH's Approval"),
 	SHORTLISTED("Shortlisted"),
 	
