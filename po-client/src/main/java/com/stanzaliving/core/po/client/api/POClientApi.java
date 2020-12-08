@@ -1,10 +1,7 @@
 package com.stanzaliving.core.po.client.api;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.po.generic.dtos.VendorWisePoDetails;
@@ -392,7 +389,7 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
-    public ResponseDto<List<VendorWisePoDetails>> getVendorWisePOs(String propertyUuid) {
+    public ResponseDto<Collection<VendorWisePoDetails>> getVendorWisePOs(String propertyUuid) {
 
         log.info("HTTP Client call to get vendor wise POs for property {} ", propertyUuid);
 
@@ -407,7 +404,7 @@ public class POClientApi {
 
         Map<String, List<String>> map = new HashMap<>();
 
-        ParameterizedTypeReference<ResponseDto<List<VendorWisePoDetails>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<VendorWisePoDetails>>>() {
+        ParameterizedTypeReference<ResponseDto<Collection<VendorWisePoDetails>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Collection<VendorWisePoDetails>>>() {
         };
         String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getVendorWisePODetails/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
