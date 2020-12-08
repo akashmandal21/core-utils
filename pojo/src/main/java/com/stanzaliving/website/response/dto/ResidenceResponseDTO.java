@@ -53,6 +53,7 @@ public class ResidenceResponseDTO {
 	private Integer preBookingAmount;
 	private FomoTag fomoTag;
 	private String fomoTagName;
+	private String fomoTagcolour;
 	private int priorityOrder;
 	private String residenceType;
 	private String mobileNo;
@@ -62,7 +63,7 @@ public class ResidenceResponseDTO {
 	private String virtualTourURL;
 	private String cardCTAName;
 	private int cardCTAId;
-	
+	private int residenceTypeId;
 	
 	@Builder.Default
 	private Set<FeatureResponseDTO> features = new HashSet<>(0);
