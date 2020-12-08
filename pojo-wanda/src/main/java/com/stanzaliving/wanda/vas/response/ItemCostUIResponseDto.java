@@ -39,6 +39,7 @@ public class ItemCostUIResponseDto {
 	private String unitName;
 	private String imageUrl;
 	private String itemWeightUnitString;
+	private String categoryName;
 
 	@Builder.Default
 	private Boolean quantifiable = Boolean.FALSE;
