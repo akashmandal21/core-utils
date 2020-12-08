@@ -1,16 +1,13 @@
 package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.enums.UnitOfMeasurement;
-import com.stanzaliving.core.food.dto.request.CityPackagingMaterialDto;
-import com.stanzaliving.core.food.enums.PackagingMaterial;
-import com.stanzaliving.core.food.enums.VasItemState;
-import com.stanzaliving.core.user.enums.EnumListing;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -27,17 +24,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VasMasterPackagingResponseDto {
+
 	private String packagingId;
 
 	private String packagingName;
 
-	private EnumListing<VasItemState> itemState;
-
-	private EnumListing<UnitOfMeasurement> uom;
-
-	private Double grammage;
-
-	private EnumListing<PackagingMaterial> masterMaterial;
+	private Integer qty;
 
 	private List<CityPackagingMaterialResponseDto> cityMaterial;
 }
