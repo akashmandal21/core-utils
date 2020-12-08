@@ -51,16 +51,4 @@ public class CafeMenuItemResponseDto {
         return 0D;
     }
 
-    public Double getSgst() {
-        return gst == null ? 0D : StanzaUtils.roundToPlaces(gst / 2, 2);
-    }
-
-    public Double getCgst() {
-        return gst == null ? 0D : StanzaUtils.roundToPlaces(gst / 2, 2);
-    }
-
-    public Double getIgst() {
-        return 0D;
-    }
-
 }
