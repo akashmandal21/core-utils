@@ -1,5 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
+
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -16,7 +18,10 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ResidenceListResponseDTO {
+public class ResidenceListResponseDTO implements Serializable {
+
+	private static final long serialVersionUID = 1635296868115644218L;
+	
 	private int residenceId;
 	private String name;
 	private int micromarketId;

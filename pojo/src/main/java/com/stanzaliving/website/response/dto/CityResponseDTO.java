@@ -33,7 +33,7 @@ public class CityResponseDTO {
 	private String phone;
 	private String cityDescription;
 	private String imageAltTag;
-	private String cityImageUrl;
+	private String cityImgUrl;
 	List<EnumListing<Status>> status;
 	
 

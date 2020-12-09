@@ -1,11 +1,7 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.website.response.dto;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
@@ -17,21 +13,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class ResidenceResponseDTO {
+public class ResidenceDetailsResponseDTO {
 
 	private int residenceId;
 	private String name;
 	private Gender gender;
+	private String genderName;
 	private int micromarketId;
 	private String micromarketName;
 	private String micromarketSlug;
@@ -42,39 +35,33 @@ public class ResidenceResponseDTO {
 	private String seoTitle;
 	private String seoDescription;
 	private String pricingPlan;
+	private int pricingPlanId;
 	private int startingPrice;
 	private double latitude;
 	private double longitude;
 	private boolean enabled;
 	private String slug;
-	private Integer fomoBedCount;
 	private Integer preBookingAmount;
 	private FomoTag fomoTag;
+	private String fomoTagName;
+	private String fomoTagcolour;
 	private int priorityOrder;
 	private String residenceType;
 	private String mobileNo;
-	private String phoneNo;
-	private boolean virtualTour;
 	private String gmbLink;
-	private String virtualTourImage;
-	private String cardCTA;
-	
-	
-	@Builder.Default
-	private Set<FeatureResponseDTO> features = new HashSet<>(0);
-	@Builder.Default
-	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
-	@Builder.Default
-	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
-	@Builder.Default
-	private Set<MealPlanResponseDTO> mealPlans = new HashSet<>(0);
-	@Builder.Default
-	private Set<CommunityFeatureResponseDTO> communityFeatures = new HashSet<>(0);
-	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>(0);
-	@Builder.Default
-	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
-	
-	private AddressResponseDTO address;
+	private String virtualTourURL;
+	private String cardCTAName;
+	private int cardCTAId;
+	private int residenceTypeId;
+	private String genderSlug;
 
+	@Builder.Default
+	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = new ArrayList(0);
+
+	@Builder.Default
+	private List<ImageResponseDTO> images = new ArrayList(0);
+	@Builder.Default
+	private List<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new ArrayList(0);
+
+	private AddressResponseDTO address;
 }
