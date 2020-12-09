@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 
+import com.stanzaliving.core.base.common.dto.ResponseDto;
 import org.slf4j.MDC;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -228,19 +229,15 @@ public class StanzaRestClient {
             }
         }
 
-        // TODO: Need to improve code for getting Token from response header
-        System.out.println("headers======1====="+responseEntity.getHeaders());
-        System.out.println("headers=======2===="+responseEntity.getHeaders().size());
-        System.out.println("headers========3==="+responseEntity.getHeaders().get("Set-Cookie"));
+        List<String> headers = responseEntity.getHeaders().get("Set-Cookie");
+        if (headers != null && headers.size() > 0) {
+            String string = headers.get(0);
+            String token = string.substring("token=".length(), string.indexOf(";"));
 
-        List<String> strings = responseEntity.getHeaders().get("Set-Cookie");
-
-        String token = null;
-        if (strings != null && strings.size() > 0) {
-            String string = strings.get(0);
-            token = string.substring("token=".length(), string.indexOf(";"));
+            ResponseDto<Void> body = (ResponseDto) responseEntity.getBody();
+            body.setToken(token);
+            return (T) body;
         }
-        System.out.println("=======token=====" + token);
         HttpStatus statusCode = responseEntity.getStatusCode();
 
         log.info("API: {}, Response: {}", builder.toUriString(), statusCode);

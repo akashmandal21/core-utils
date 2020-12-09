@@ -31,6 +31,8 @@ public class ResponseDto<T> {
 
 	private int httpStatusCode;
 
+	private String token;
+
 	private ResponseDto(boolean status) {
 		this.status = status;
 	}
