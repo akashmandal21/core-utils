@@ -24,4 +24,5 @@ public class QrScanResponseDto {
 
 	private String qrContextType;
 	private Object data;
+
 }

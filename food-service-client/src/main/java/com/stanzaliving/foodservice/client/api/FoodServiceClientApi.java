@@ -1,8 +1,6 @@
 package com.stanzaliving.foodservice.client.api;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -161,6 +159,32 @@ public class FoodServiceClientApi {
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
+	}
+
+	public Map<String, Integer> getMenuCategoryResidenceCountMap() {
+		ResponseDto<Map<String, Integer>> responseDto = null;
+		String path = UriComponentsBuilder.fromPath("/internal/menu/category/getResidenceCountMap").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Integer>>>() {
+		};
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while getMenuCategoryResidenceCountMap", e);
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
 	}
 }
