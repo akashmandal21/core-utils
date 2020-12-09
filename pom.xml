@@ -72,10 +72,11 @@
         <module>generic-validation-core</module>
         <module>payment-client</module>
         <module>recon-client</module>
+		<module>ops-calculator-client</module>
         <module>notification-client</module>
         <module>shortUrl-client</module>
 		<module>ims-client</module>
-        
+
     </modules>
 
 	<build>

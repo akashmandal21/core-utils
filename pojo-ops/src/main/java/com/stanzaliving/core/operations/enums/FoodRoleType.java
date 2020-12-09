@@ -29,8 +29,8 @@ public enum FoodRoleType {
 	PURCHASE_MANAGER("Purchase Manager", Department.FOOD_OPS, AccessLevel.CITY),
 	STORE_MANAGER("Store Manager", Department.FOOD_OPS, AccessLevel.CITY),
 	CITY_FOOD_PREPARATION("City - Food Preparation", Department.FOOD_OPS, AccessLevel.CITY),
-	COUNTRY_MENU_CATEGORY_APPROVER_L1("Country - Menu Category Approver - L1", Department.FOOD_OPS, AccessLevel.COUNTRY),
-	COUNTRY_MENU_CATEGORY_APPROVER_L2("Country - Menu Category Approver - L2", Department.FOOD_OPS, AccessLevel.COUNTRY),
+	COUNTRY_MENU_CATEGORY_APPROVER_L1("Country - food menu category L1 Approver", Department.FOOD_OPS, AccessLevel.COUNTRY),
+	COUNTRY_MENU_CATEGORY_APPROVER_L2("Country - food menu category L2 Approver", Department.FOOD_OPS, AccessLevel.COUNTRY),
 
 	EMAIL_CC_FOOD_ORDER_DETAILS("Email CC - Food Order Details", Department.OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_ORDER_REMINDER("Email CC - Food Order Reminder", Department.OPS, AccessLevel.COUNTRY),
