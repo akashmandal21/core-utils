@@ -24,8 +24,6 @@ public class CafeOrderPDto {
     private ServingMode servingMode;
     @NotNull(message = "Empty Payment Type")
     private PaymentType paymentType;
-    private Double amount;
-    private Double gst;
     @NotNull(message = "Empty Items Details")
     private List<CafeOrderItemPDto> items;
     @NotNull(message = "Empty User Details")
