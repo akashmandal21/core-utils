@@ -7,6 +7,8 @@ public class ImsConstants {
 
     public static final String PAYOUT_DETAILS = "/broker/payoutdetails";
 
+    public static final String KYC_DETAILS = "/broker/payoutDetails";
+
     public static final String PAYTM_OTP_VALIDATE = "/broker/validatepaytm";
 
     public static final String BANK_PENNY_TESTING = "/fundAccount/validate";

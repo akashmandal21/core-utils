@@ -285,7 +285,7 @@ public class ImsClientApi {
     //    <----------------------------------------getBrokerKYCDetails--------------------------------------->
 
     public BrokerKYCDetailReponseDto getBrokerKYCDetails(String token, String brokerMobile) {
-        String path = UriComponentsBuilder.fromPath(PAYOUT_DETAILS).toUriString();
+        String path = UriComponentsBuilder.fromPath(KYC_DETAILS).toUriString();
 
         return getBrokerKYCDetails(path, token, brokerMobile);
     }
@@ -483,19 +483,21 @@ public class ImsClientApi {
 
     //    <----------------------------------------getTdsInfo--------------------------------------->
 
-    public TdsInfoResponseDto getTdsInfo() {
+    public TdsInfoResponseDto getTdsInfo(String token) {
         String path = UriComponentsBuilder.fromPath(TDS_INFO).toUriString();
 
-        return getTdsInfo(path);
+        return getTdsInfo(path,token);
     }
 
-    private TdsInfoResponseDto getTdsInfo(String path) {
+    private TdsInfoResponseDto getTdsInfo(String path, String token) {
 
         Object postBody = null;
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
 
         final String[] accepts = { "*/*" };
 

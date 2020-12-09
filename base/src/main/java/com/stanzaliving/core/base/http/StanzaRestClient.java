@@ -218,6 +218,7 @@ public class StanzaRestClient {
             responseEntity = restTemplate.exchange(requestEntity, returnType);
 
         } catch (RestClientException e) {
+            System.out.println("==============dddd================"+e.getMessage());
             if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
                 responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             } else if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("403")) {
@@ -233,6 +234,11 @@ public class StanzaRestClient {
         if (headers != null && headers.size() > 0) {
             String string = headers.get(0);
             String token = string.substring("token=".length(), string.indexOf(";"));
+
+        // TODO: Need to improve code for getting Token from response header
+        System.out.println("headers======1====="+responseEntity.getHeaders());
+        System.out.println("headers=======2===="+responseEntity.getHeaders().size());
+        System.out.println("headers========3==="+responseEntity.getHeaders().get("Set-Cookie"));
 
             ResponseDto<Void> body = (ResponseDto) responseEntity.getBody();
             body.setToken(token);
