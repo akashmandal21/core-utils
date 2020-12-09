@@ -10,6 +10,7 @@ import lombok.Getter;
 public enum LocationType {
 
 	HOUSE("House", VendorType.IN_HOUSE),
+	HOUSE_WAREHOUSE("House Warehouse", VendorType.IN_HOUSE_WAREHOUSE),
 	WAREHOUSE("Warehouse", VendorType.IN_WAREHOUSE),
 	CITY_OFFICE("City Office", VendorType.IN_CITY_OFFICE),
 	CORPORATE_OFFICE("Corporate Office", VendorType.IN_CORPORATE_OFFICE),
@@ -39,7 +40,7 @@ public enum LocationType {
 				locationByVendorMap.put(locType.getVendorType().name(), locType);
 		}
 
-		locationAddressable.addAll(Arrays.asList(HOUSE,WAREHOUSE,CITY_OFFICE,CAFE,KITCHEN,STORE,CORPORATE_OFFICE));
+		locationAddressable.addAll(Arrays.asList(HOUSE,WAREHOUSE,HOUSE_WAREHOUSE,CITY_OFFICE,CAFE,KITCHEN,STORE,CORPORATE_OFFICE));
 		locationAddressableSet = EnumSet.copyOf(locationAddressable);
 	}
 	
