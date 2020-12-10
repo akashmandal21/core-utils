@@ -22,6 +22,6 @@ public class MediaResponseDTO {
 	private String source;
 	private int position;
 	private String date;
-	private boolean enabled = true;
+	private boolean enabled;
 
 }

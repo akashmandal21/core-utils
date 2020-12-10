@@ -31,7 +31,7 @@ public class CityResponseDTO {
 	private String slug;
 	private String cityResidenceTypeText;
 	private String phone;
-	private String cityDescription;
+	private String description;
 	private String imageAltTag;
 	private String cityImgUrl;
 	List<EnumListing<Status>> status;

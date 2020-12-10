@@ -27,6 +27,6 @@ public class MicromarketResponseDTO {
 	private String seoTitle;
 	private String seoDescription;
 	private String phone;
-	private String micromarketDescription;
+	private String description;
 	List<EnumListing<Status>> status;
 }
