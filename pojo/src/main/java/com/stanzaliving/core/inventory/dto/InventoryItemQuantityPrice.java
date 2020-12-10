@@ -15,4 +15,5 @@ public class InventoryItemQuantityPrice {
     private String itemUuid;
     private BigDecimal effectivePrice;
     private BigDecimal quantity;
+    private String error;
 }

@@ -27,7 +27,8 @@ public class GenericPoUpdate {
 
     private boolean po;
 
-    private boolean asisPo;
+    @Builder.Default
+    private boolean asisPo=false;
 
     @Builder.Default
     private boolean asisAreaGsriCompleted=false;
