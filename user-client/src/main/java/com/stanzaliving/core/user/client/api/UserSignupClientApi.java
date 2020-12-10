@@ -1,6 +1,7 @@
 package com.stanzaliving.core.user.client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.exception.StanzaSecurityException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.dto.UserDto;
 import com.stanzaliving.core.user.dto.UserProfileDto;
@@ -30,7 +31,7 @@ public class UserSignupClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<String> signUpUser( AddUserRequestDto addUserRequestDto) {
+    public ResponseDto<String> signUpUser(AddUserRequestDto addUserRequestDto) {
 
         System.out.println(addUserRequestDto.getEmail());
         System.out.println(addUserRequestDto.getFirstName());
@@ -75,22 +76,24 @@ public class UserSignupClientApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("Uuid",uuid);
+        queryParams.add("Uuid", uuid);
 
-        queryParams.add("otp",otp);
+        queryParams.add("otp", otp);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
         };
 
-        ResponseDto<UserProfileDto> response  = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        ResponseDto<UserProfileDto> response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
-//        userProfileDtoResponse.he
-         return response;
+        if (!response.isStatus()) {
+            throw new StanzaSecurityException(response.getMessage());
+        }
+        return response;
     }
 }
