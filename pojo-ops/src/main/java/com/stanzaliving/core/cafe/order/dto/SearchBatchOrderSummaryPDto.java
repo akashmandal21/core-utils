@@ -19,5 +19,4 @@ public class SearchBatchOrderSummaryPDto {
     private String residenceId;
     @NotBlank(message = "Empty Slot Id")
     private String slotId;
-    private LocalDate orderDate;
 }
