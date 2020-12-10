@@ -20,5 +20,6 @@ public class CafeRDto {
     private List<ServingMode> modes;
     private Map<ServingMode, List<CafeMenuSlotRDto>> modeSlots;
     private boolean currentlyActive;
+    private String imageUri;
 
 }
