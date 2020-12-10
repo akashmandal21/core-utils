@@ -19,6 +19,6 @@ public class HostelVasEnabledUpdateDto {
 
 	private boolean vasEnabled;
 
-	private Set<String> hostelIds;
+	private Set<Integer> hostelIds;
 
 }

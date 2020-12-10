@@ -452,15 +452,7 @@ public class CoreClientApi {
 
 		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {};
 
-		try {
-
-			String response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, hostelVasEnabledUpdateDtos, headerParams, accept, returnType);
-
-		} catch (Exception e) {
-
-			log.error("Exception while updating hostel vas enabled", e);
-
-		}
+		restClient.invokeAPI(path, HttpMethod.POST, queryParams, hostelVasEnabledUpdateDtos, headerParams, accept, returnType);
 
 	}
 }
