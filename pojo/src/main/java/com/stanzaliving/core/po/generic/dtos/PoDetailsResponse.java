@@ -54,6 +54,7 @@ public class PoDetailsResponse {
 
     private List<PoItemDetail> poItemDetails;
 
+    private String poTypeText;
     private Long startDateMilis;
     private Long endDateMilis;
 }
