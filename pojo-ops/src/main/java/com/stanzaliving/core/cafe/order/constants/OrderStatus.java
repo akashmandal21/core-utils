@@ -61,6 +61,12 @@ public enum OrderStatus {
         return statuses;
     }
 
+    public static List<OrderStatus> allEligibleOrderStatusWithCancelled() {
+        List<OrderStatus> statuses = allEligibleOrderStatus();
+        statuses.add(CANCELLED);
+        return statuses;
+    }
+
     private static final List<EnumListing<OrderStatus>> enumListing = new ArrayList<>();
 
     public static List<EnumListing<OrderStatus>> getEnumListing() {
