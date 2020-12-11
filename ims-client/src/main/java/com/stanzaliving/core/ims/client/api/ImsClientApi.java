@@ -8,6 +8,9 @@ import com.stanzaliving.core.ims.client.dto.responseDto.*;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -16,6 +19,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -445,13 +449,13 @@ public class ImsClientApi {
 
     //    <----------------------------------------uploadPanDetails--------------------------------------->
 
-    public BrokerDetailsResponseDto uploadPanDetails(String token, String brokerMobile, String panHolderName, String panNumber, MultipartFile file) {
+    public BrokerDetailsResponseDto uploadPanDetails(String token, String brokerMobile, String panHolderName, String panNumber, MultipartFile file) throws IOException {
         String path = UriComponentsBuilder.fromPath(PAN_DETAILS).toUriString();
 
-        return getBrokerDetails(path, token, brokerMobile);
+        return uploadPanDetails(path, token, brokerMobile,panHolderName,panNumber,file);
     }
 
-    private BrokerDetailsResponseDto uploadPanDetails(String path, String token, String brokerMobile, String panHolderName, String panNumber, MultipartFile file) {
+    private BrokerDetailsResponseDto uploadPanDetails(String path, String token, String brokerMobile, String panHolderName, String panNumber, MultipartFile file) throws IOException {
 
         if (StringUtils.isBlank(brokerMobile) || StringUtils.isBlank(panHolderName) || StringUtils.isBlank(panNumber) || Objects.isNull(file)) {
             throw new IllegalArgumentException("Please check all the Params");
@@ -459,11 +463,16 @@ public class ImsClientApi {
 
         MultiValueMap<String, Object> postBody = new LinkedMultiValueMap<>();
 
-        postBody.add("file", file);
+        postBody.add("file",  file);
+
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         queryParams.add("brokerMobile",brokerMobile);
+
+        queryParams.add("panHolderName",panHolderName);
+
+        queryParams.add("panNumber",panNumber);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -619,15 +628,15 @@ public class ImsClientApi {
 
     //    <----------------------------------------changeBrokerPaymentMode--------------------------------------->
 
-    public BrokerKYCDetailReponseDto changeBrokerPaymentMode(String token, String brokerMobile, String paymentModeId) {
+    public BrokerKYCDetailReponseDto changeBrokerPaymentMode(String token, String brokerMobile, int paymentModeId) {
         String path = UriComponentsBuilder.fromPath(CHANGE_PAYMENT_MODE).toUriString();
 
         return changeBrokerPaymentMode(path, token, brokerMobile, paymentModeId);
     }
 
-    private BrokerKYCDetailReponseDto changeBrokerPaymentMode(String path, String token, String brokerMobile, String paymentModeId) {
+    private BrokerKYCDetailReponseDto changeBrokerPaymentMode(String path, String token, String brokerMobile, int paymentModeId) {
 
-        if (StringUtils.isBlank(token) || StringUtils.isBlank(brokerMobile) || StringUtils.isBlank(paymentModeId)) {
+        if (StringUtils.isBlank(token) || StringUtils.isBlank(brokerMobile) || StringUtils.isBlank(String.valueOf(paymentModeId))) {
             throw new IllegalArgumentException("Please check the params provided !");
         }
 
@@ -636,6 +645,9 @@ public class ImsClientApi {
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         queryParams.add("brokerMobile",brokerMobile);
+
+        queryParams.add("paymentModeId", String.valueOf(paymentModeId));
+
 
         final HttpHeaders headerParams = new HttpHeaders();
 
