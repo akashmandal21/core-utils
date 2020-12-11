@@ -28,8 +28,6 @@ public class UIDInterceptor extends HandlerInterceptorAdapter {
 		MDC.put(StanzaConstants.LUID, luid);
 		MDC.put(StanzaConstants.REQUEST_PATH, request.getRequestURI());
 		MDC.put(StanzaConstants.QUERY_STRING, request.getQueryString());
-
-		log.info("RequestReceived URI {} QueryString {} AppVersion {}", request.getRequestURI(), request.getQueryString(), request.getHeader("appversion"));
 		
 		Enumeration<String> headers = request.getHeaderNames();
 		
@@ -37,7 +35,7 @@ public class UIDInterceptor extends HandlerInterceptorAdapter {
 			
 			String headerName = (String) headers.nextElement();
 			
-			log.info("header {} value is {}",request.getHeader(headerName));
+			log.info("header {} value is {}",headerName,request.getHeader(headerName));
 			
 		}
 		
