@@ -12,7 +12,7 @@ public class StanzaSpecificationBuilder<T extends AbstractJpaEntity> {
 
 	private final List<SearchCriteria> params;
 
-	private final List<Specification<T>> externalSpecifications;
+		private final List<Specification<T>> externalSpecifications;
 
 	public StanzaSpecificationBuilder() {
 		params = new ArrayList<>();

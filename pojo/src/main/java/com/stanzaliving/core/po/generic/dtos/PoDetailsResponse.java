@@ -23,6 +23,8 @@ public class PoDetailsResponse {
 
     private String poUuid;
     private String poNumber;
+    private String poExpenseType;
+
     private GenericPOType potype;
     private GenericPOTOStatus postatus;
     private Department department;
@@ -44,10 +46,15 @@ public class PoDetailsResponse {
     private LocationType deliveryLocationType;
     private UIKeyValue deliveryLocation;
     private BigDecimal advanceAmount;
+    private BigDecimal retentionAmount;
 
     private Integer advCreditDays;
     private Integer genCreditDays;
     private Integer retCreditDays;
 
-    List<PoItemDetail> poItemDetails;
+    private List<PoItemDetail> poItemDetails;
+
+    private String poTypeText;
+    private Long startDateMilis;
+    private Long endDateMilis;
 }
