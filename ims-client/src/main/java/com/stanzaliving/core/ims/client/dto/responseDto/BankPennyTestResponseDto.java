@@ -12,9 +12,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BankVerificationResponseDto {
+public class BankPennyTestResponseDto extends BankVerificationResponseDto {
 
-    private String message;
-
-    private boolean status;
+    private Double amount;
 }

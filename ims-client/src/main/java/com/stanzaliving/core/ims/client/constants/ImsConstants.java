@@ -11,9 +11,9 @@ public class ImsConstants {
 
     public static final String PAYTM_OTP_VALIDATE = "/broker/validatepaytm";
 
-    public static final String BANK_PENNY_TESTING = "/fundAccount/validate";
+    public static final String BANK_PENNY_TESTING = "/nexusV2/bankTransfer/fundAccount/validate";
 
-    public static final String BANK_VERIFICATION = "/razorpayx/account/validation";
+    public static final String BANK_VERIFICATION = "/nexusV2/bankTransfer/account/validate";
 
     public static final String STORE_BANK_DETAILS = "/brokers/document/bank";
 

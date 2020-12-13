@@ -62,7 +62,11 @@ public class UserSignupClientApi {
 
         ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        ResponseDto<String> response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        if (!response.isStatus()) {
+            throw new StanzaSecurityException(response.getMessage());
+        }
+        return response;
     }
 
     public ResponseDto<UserProfileDto> validateSignUpOtp(String uuid, String otp) {

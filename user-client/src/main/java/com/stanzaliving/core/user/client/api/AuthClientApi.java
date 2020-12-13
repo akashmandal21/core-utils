@@ -139,7 +139,11 @@ public class AuthClientApi {
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
 		};
 
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		ResponseDto<Void> response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		if (!response.isStatus()) {
+			throw new StanzaSecurityException(response.getMessage());
+		}
+		return response;
 	}
 
 	public ResponseDto<Void> validateOtp(String mobile, UserType userType, String otp, String isoCode) {

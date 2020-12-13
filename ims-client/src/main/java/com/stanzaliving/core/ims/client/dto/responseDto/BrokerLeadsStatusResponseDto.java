@@ -12,9 +12,17 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BankVerificationResponseDto {
+public class BrokerLeadsStatusResponseDto {
 
-    private String message;
+    private int disquailifiedLeadsCount;
+
+    private int inProgressLeadsCount;
+
+    private int bookedLeadsCount;
+
+    private int totalLeadsCount;
+
+    private int preBookedLeadsCount;
 
     private boolean status;
 }

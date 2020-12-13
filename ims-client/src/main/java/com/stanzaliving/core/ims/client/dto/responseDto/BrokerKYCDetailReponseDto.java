@@ -20,5 +20,5 @@ public class BrokerKYCDetailReponseDto {
 
     private Boolean isPaytmBlocked;
 
-    private Boolean status;
+    private boolean status;
 }

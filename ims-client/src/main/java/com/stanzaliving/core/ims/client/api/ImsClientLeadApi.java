@@ -1,13 +1,12 @@
 package com.stanzaliving.core.ims.client.api;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.ims.client.dto.BrokerDto;
 import com.stanzaliving.core.ims.client.dto.LeadDto;
 import com.stanzaliving.core.ims.client.dto.responseDto.BaseResponseDto;
-import com.stanzaliving.core.ims.client.dto.responseDto.BrokerDetailsResponseDto;
+import com.stanzaliving.core.ims.client.dto.responseDto.BrokerLeadsDetailsResonseDto;
 import com.stanzaliving.core.ims.client.dto.responseDto.CityResponseDto;
+import com.stanzaliving.core.ims.client.dto.responseDto.BrokerLeadsStatusResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -69,13 +68,13 @@ public class ImsClientLeadApi {
 
     //    <----------------------------------------getLeadDetails--------------------------------------->
 
-    public ResponseDto<Void> getLeadDetails(String token,String brokerMobile) {
+    public BrokerLeadsStatusResponseDto getLeadDetails(String token, String brokerMobile) {
         String path = UriComponentsBuilder.fromPath(LEAD_DETAILS).toUriString();
 
         return getLeadDetails(path, token, brokerMobile);
     }
 
-    private ResponseDto<Void> getLeadDetails(String path, String token, String brokerMobile) {
+    private BrokerLeadsStatusResponseDto getLeadDetails(String path, String token, String brokerMobile) {
 
         if (org.apache.commons.lang3.StringUtils.isBlank(brokerMobile)) {
             throw new IllegalArgumentException("Please check all the Params");
@@ -95,7 +94,7 @@ public class ImsClientLeadApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        ParameterizedTypeReference<BrokerLeadsStatusResponseDto> returnType = new ParameterizedTypeReference<BrokerLeadsStatusResponseDto>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
@@ -103,13 +102,13 @@ public class ImsClientLeadApi {
 
     //    <----------------------------------------searchLead--------------------------------------->
 
-    public ResponseDto<Void> searchLead(String token,String brokerMobile, String searchTerm, String status, int start ,int size) {
+    public BrokerLeadsDetailsResonseDto searchLead(String token, String brokerMobile, String searchTerm, String status, int start , int size) {
         String path = UriComponentsBuilder.fromPath(SEARCH_LEAD).toUriString();
 
         return searchLead(path, token, brokerMobile,searchTerm,status,start,size);
     }
 
-    private ResponseDto<Void> searchLead(String path, String token, String brokerMobile, String searchTerm, String status, int start ,int size) {
+    private BrokerLeadsDetailsResonseDto searchLead(String path, String token, String brokerMobile, String searchTerm, String status, int start , int size) {
 
         if (org.apache.commons.lang3.StringUtils.isBlank(brokerMobile)) {
             throw new IllegalArgumentException("Please check all the Params");
@@ -134,7 +133,7 @@ public class ImsClientLeadApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        ParameterizedTypeReference<BrokerLeadsDetailsResonseDto> returnType = new ParameterizedTypeReference<BrokerLeadsDetailsResonseDto>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);

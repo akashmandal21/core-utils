@@ -20,6 +20,6 @@ public class BaseResponseDto {
 
     private String message;
 
-    private Boolean status;
+    private boolean status;
 
 }

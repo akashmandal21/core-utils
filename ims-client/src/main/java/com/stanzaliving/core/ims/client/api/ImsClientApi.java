@@ -2,6 +2,8 @@ package com.stanzaliving.core.ims.client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.exception.RecordExistsException;
+import com.stanzaliving.core.base.exception.StanzaSecurityException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.ims.client.dto.*;
 import com.stanzaliving.core.ims.client.dto.responseDto.*;
@@ -178,18 +180,23 @@ public class ImsClientApi {
         ParameterizedTypeReference<BrokerDetailsResponseDto> returnType = new ParameterizedTypeReference<BrokerDetailsResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        BrokerDetailsResponseDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+        if (!response.isStatus()) {
+            throw new RecordExistsException(response.getMessage());
+        }
+        return response;
     }
 
     //    <----------------------------------------sendPennyForBankAccountVerification--------------------------------------->
 
-    public BankVerificationResponseDto sendPennyForBankAccountVerification(String token, String brokerMobile, String accountName, String accountNumber, String ifscCode, Boolean Live) {
+    public BankPennyTestResponseDto sendPennyForBankAccountVerification(String token, String brokerMobile, String accountName, String accountNumber, String ifscCode, Boolean Live) {
         String path = UriComponentsBuilder.fromPath(BANK_PENNY_TESTING).toUriString();
 
         return sendPennyForBankAccountVerification(path, token, brokerMobile, accountName, accountNumber, ifscCode, Live);
     }
 
-    private BankVerificationResponseDto sendPennyForBankAccountVerification(String path, String token, String brokerMobile, String accountName, String accountNumber, String ifscCode, Boolean Live) {
+    private BankPennyTestResponseDto sendPennyForBankAccountVerification(String path, String token, String brokerMobile, String accountName, String accountNumber, String ifscCode, Boolean Live) {
 
         if (StringUtils.isBlank(accountName) || StringUtils.isBlank(accountNumber) || StringUtils.isBlank(ifscCode)) {
             throw new IllegalArgumentException("Please check all the provided params!!");
@@ -209,10 +216,16 @@ public class ImsClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<BankVerificationResponseDto> returnType = new ParameterizedTypeReference<BankVerificationResponseDto>() {
+        ParameterizedTypeReference<BankPennyTestResponseDto> returnType = new ParameterizedTypeReference<BankPennyTestResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        BankPennyTestResponseDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+        if (!response.isStatus()) {
+            throw new RecordExistsException(response.getMessage());
+        }
+        return response;
+
     }
 
     //    <----------------------------------------validateBankAccount--------------------------------------->
@@ -248,7 +261,12 @@ public class ImsClientApi {
         ParameterizedTypeReference<BankVerificationResponseDto> returnType = new ParameterizedTypeReference<BankVerificationResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        BankVerificationResponseDto response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+        if (!response.isStatus()) {
+            throw new RecordExistsException(response.getMessage());
+        }
+        return response;
     }
 
     //    <----------------------------------------addBankDetails--------------------------------------->
@@ -282,7 +300,13 @@ public class ImsClientApi {
         ParameterizedTypeReference<BaseResponseDto> returnType = new ParameterizedTypeReference<BaseResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        BaseResponseDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+        if (!response.isStatus()) {
+            throw new RecordExistsException(response.getMessage());
+        }
+        return response;
+        
     }
 
 
@@ -465,7 +489,6 @@ public class ImsClientApi {
 
         postBody.add("file",  file);
 
-
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         queryParams.add("brokerMobile",brokerMobile);
@@ -487,7 +510,12 @@ public class ImsClientApi {
         ParameterizedTypeReference<BrokerDetailsResponseDto> returnType = new ParameterizedTypeReference<BrokerDetailsResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        BrokerDetailsResponseDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+        if (!response.isStatus()){
+            throw new RecordExistsException(response.getMessage());
+        }
+        return response;
     }
 
     //    <----------------------------------------getTdsInfo--------------------------------------->
@@ -555,7 +583,13 @@ public class ImsClientApi {
 
     //    <----------------------------------------getTdsDetailsForBroker--------------------------------------->
 
-    public BrokerTdsDetailResponse getTdsDetailsForBroker(String token, String brokerMobile, Double amount, String transactionId) {
+    public BrokerTdsDetailResponse getTdsDetailsForBroker(String token, String brokerMobile, Double amount) {
+        String path = UriComponentsBuilder.fromPath(BROKER_TDS_DETAILS).toUriString();
+
+        return getTdsDetailsForBroker(path,token,brokerMobile,amount,null);
+    }
+
+    public BrokerTdsDetailResponse getTdsDetailsForBrokerByTransaction(String token, String brokerMobile, Double amount, String transactionId) {
         String path = UriComponentsBuilder.fromPath(BROKER_TDS_DETAILS).toUriString();
 
         return getTdsDetailsForBroker(path,token,brokerMobile,amount,transactionId);
@@ -575,7 +609,7 @@ public class ImsClientApi {
 
         queryParams.add("brokerMobile", brokerMobile );
 
-        if (!StringUtils.isBlank(transactionId)){
+        if (transactionId != null && !StringUtils.isBlank(transactionId)){
             queryParams.add("transactionId", transactionId);
         }
 
