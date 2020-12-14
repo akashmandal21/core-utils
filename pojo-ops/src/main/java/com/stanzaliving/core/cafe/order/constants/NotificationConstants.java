@@ -61,6 +61,7 @@ public class NotificationConstants {
         public final String RECEIVED_HOT_BAGS = "receivedHotBags";
         public final String RECEIVED_PACKETS = "receivedPacket";
         public final String RECEIVED_ORDER = "receivedOrder";
+        public final String QR_CODE = "qrCode";
 
     }
 }

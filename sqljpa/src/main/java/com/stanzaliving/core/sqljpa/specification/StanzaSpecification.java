@@ -78,28 +78,28 @@ public class StanzaSpecification<T extends AbstractJpaEntity> implements Specifi
             case DATE_LT:
                 if (criteria.getValue() instanceof LocalDate) {
                     return builder.lessThan(root.get(criteria.getKey()), Date.from(((LocalDate) criteria.getValue()).atStartOfDay(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant()));
-                }else {
-                    return builder.equal(root.get(criteria.getKey()), criteria.getValue());
+                } else {
+                    return builder.lessThan(root.get(criteria.getKey()), (Date) criteria.getValue());
                 }
             case DATE_GT:
                 if (criteria.getValue() instanceof LocalDate) {
                     return builder.greaterThan(root.get(criteria.getKey()), Date.from(((LocalDate) criteria.getValue()).atStartOfDay(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant()));
                 } else {
-                    return builder.equal(root.get(criteria.getKey()), criteria.getValue());
+                    return builder.greaterThan(root.get(criteria.getKey()),(Date) criteria.getValue());
                 }
             case DATE_LTE:
                 if (criteria.getValue() instanceof LocalDate) {
                     return builder.lessThanOrEqualTo(
                             root.get(criteria.getKey()), Date.from(((LocalDate) criteria.getValue()).atStartOfDay(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant()));
                 } else {
-                    return builder.equal(root.get(criteria.getKey()), criteria.getValue());
+                    return builder.lessThanOrEqualTo(root.get(criteria.getKey()), (Date) criteria.getValue());
                 }
             case DATE_GTE:
                 if (criteria.getValue() instanceof LocalDate) {
                     return builder.greaterThanOrEqualTo(
                             root.get(criteria.getKey()), Date.from(((LocalDate) criteria.getValue()).atStartOfDay(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant()));
                 } else {
-                    return builder.equal(root.get(criteria.getKey()), criteria.getValue());
+                    return builder.greaterThanOrEqualTo(root.get(criteria.getKey()), (Date) criteria.getValue());
                 }
             case LOCAL_DATE_EQ:
                 return builder.equal(
