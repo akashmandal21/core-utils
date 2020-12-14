@@ -1,14 +1,10 @@
 package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.food.dto.request.CityPackagingMaterialDto;
 import com.stanzaliving.core.food.enums.PackagingMaterial;
-import com.stanzaliving.core.food.enums.VasItemState;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -30,11 +26,7 @@ public class VasMasterPackagingResponseDto {
 
 	private String packagingName;
 
-	private EnumListing<VasItemState> itemState;
-
-	private Double grammage;
-
-	private EnumListing<PackagingMaterial> masterMaterial;
+	private Integer qty;
 
 	private List<CityPackagingMaterialResponseDto> cityMaterial;
 }
