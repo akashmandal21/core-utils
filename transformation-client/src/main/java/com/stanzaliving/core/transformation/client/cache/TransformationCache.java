@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
+import com.stanzaliving.core.user.acl.enums.AccessLevelEntityEnum;
 import com.stanzaliving.transformations.pojo.*;
 import org.apache.commons.lang3.StringUtils;
 
@@ -44,12 +45,27 @@ public class TransformationCache {
 						}
 					});
 
+	private LoadingCache<AccessLevel, List<LocationDto>> allLocationsCache = CacheBuilder.newBuilder()
+			.expireAfterWrite(5, TimeUnit.MINUTES)
+			.build(
+					new CacheLoader<AccessLevel, List<LocationDto>>() {
+
+						@Override
+						public List<LocationDto> load(AccessLevel accessLevel) {
+							return internalDataControllerApi.getAllLocationsDtoList(accessLevel).getData();
+						}
+					});
+
 	public List<CityMetadataDto> getAllCities() {
 		return allCityCache.getUnchecked("city");
 	}
 
 	public List<ZoneMetadataDto> getAllZones() {
 		return allZoneCache.getUnchecked("zone");
+	}
+
+	public List<LocationDto> getAllLocations(AccessLevel accessLevel) {
+		return allLocationsCache.getUnchecked(accessLevel);
 	}
 
 	private LoadingCache<String, List<MicroMarketMetadataDto>> allMicroMarketCache = CacheBuilder.newBuilder()
@@ -126,8 +142,18 @@ public class TransformationCache {
 					name = residenceMetadataDtoOptional.isPresent() ? residenceMetadataDtoOptional.get().getResidenceName() : "";
 					break;
 
+				case COUNTRY:
+					if (uuid.equals(AccessLevelEntityEnum.INDIA.getUuid())) {
+						name = AccessLevelEntityEnum.INDIA.toString();
+					}
+					break;
+
 				default:
 					break;
+			}
+			if (AccessLevel.locationAccessLevelList.contains(level)) {
+				Optional<LocationDto> locationDtoOptional = getAllLocations(level).stream().filter(entity -> entity.getUuid().equals(uuid)).findFirst();
+				name = locationDtoOptional.isPresent() ? locationDtoOptional.get().getLocationName() : "";
 			}
 		}
 
@@ -157,8 +183,18 @@ public class TransformationCache {
 					uuid = residenceMetadataDtoOptional.isPresent() ? residenceMetadataDtoOptional.get().getUuid() : "";
 					break;
 
+				case COUNTRY:
+					if (accessLevelName.equals(AccessLevelEntityEnum.INDIA.toString())) {
+						uuid = AccessLevelEntityEnum.INDIA.getUuid();
+					}
+					break;
+
 				default:
 					break;
+			}
+			if (AccessLevel.locationAccessLevelList.contains(level)) {
+				Optional<LocationDto> locationDtoOptional = getAllLocations(level).stream().filter(dto -> dto.getLocationName().equals(accessLevelName)).findFirst();
+				uuid = locationDtoOptional.isPresent() ? locationDtoOptional.get().getUuid() : "";
 			}
 		}
 
