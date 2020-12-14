@@ -17,8 +17,8 @@ public class CafeOrderPlanningPDto {
     @NotNull(message = "Empty Cafe Id")
     private String cafeId;
     private String residenceId;
-    @NotNull(message = "Empty Slot Time")
-    private LocalTime time;
+    @NotNull(message = "Empty Slot Id")
+    private String slotId;
     @NotNull(message = "Empty Search Status")
     private OrderSearchStatus searchStatus;
 }
