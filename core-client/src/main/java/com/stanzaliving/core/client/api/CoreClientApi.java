@@ -1,21 +1,5 @@
 package com.stanzaliving.core.client.api;
 
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
@@ -29,8 +13,23 @@ import com.stanzaliving.core.dto.RCDetailDto;
 import com.stanzaliving.core.dto.UserDetailDto;
 import com.stanzaliving.core.dto.UserHostelDetailsDto;
 import com.stanzaliving.core.dto.UserRegistrationDto;
-
+import com.stanzaliving.core.food.dto.request.HostelVasEnabledUpdateDto;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 @Log4j2
 public class CoreClientApi {
@@ -434,5 +433,26 @@ public class CoreClientApi {
 		}
 
 		return false;
+	}
+
+	public void updateHostelVasEnabled(List<HostelVasEnabledUpdateDto> hostelVasEnabledUpdateDtos) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/hostel/update/vasEnabled").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {};
+
+		restClient.invokeAPI(path, HttpMethod.POST, queryParams, hostelVasEnabledUpdateDtos, headerParams, accept, returnType);
+
 	}
 }
