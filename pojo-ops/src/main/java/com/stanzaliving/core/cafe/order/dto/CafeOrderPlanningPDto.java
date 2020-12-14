@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,7 +19,7 @@ public class CafeOrderPlanningPDto {
     private String cafeId;
     private String residenceId;
     @NotNull(message = "Empty Slot Id")
-    private String slotId;
+    private List<String> slotId;
     @NotNull(message = "Empty Search Status")
     private OrderSearchStatus searchStatus;
 }
