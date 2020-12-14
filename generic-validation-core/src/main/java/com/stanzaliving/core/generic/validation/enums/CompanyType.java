@@ -6,8 +6,8 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum CompanyType {
-    INDIVIDUAL("Sole proprietorship"),
-    PARTNERSHIP("Partnership firm"),
+    INDIVIDUAL("Sole Proprietorship"),
+    PARTNERSHIP("Partnership Firm"),
     LTD_LIABILITY_PARTNERSHIP("Limited Liability Partnership"),
     PVT_LTD("Private Limited Company"),
     PUB_LTD("Public Limited Company");
