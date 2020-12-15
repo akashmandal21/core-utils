@@ -26,18 +26,26 @@ public class OrderedItemRDto {
     private Double orderedCgst;
     private Double orderedIgst;
     private Double orderedSgst;
+    private Double orderedGST;
     private Double orderedTotalAmount;
 
     private int finalQuantity;
+
     private Double finalAmount;
     private Double finalCgst;
     private Double finalIgst;
     private Double finalSgst;
+    private Double finalGST;
     private Double finalTotalAmount;
 
     private boolean refunded;
     private String refundReason;
     private String refundRemarks;
+
+    private Double cgstPercentage;
+    private Double sgstPercentage;
+    private Double igstPercentage;
+    private Double totalGstPercentage;
 
 
 }

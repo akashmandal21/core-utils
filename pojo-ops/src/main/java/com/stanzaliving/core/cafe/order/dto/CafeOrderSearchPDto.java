@@ -1,9 +1,6 @@
 package com.stanzaliving.core.cafe.order.dto;
 
-import com.stanzaliving.core.cafe.order.constants.DispatchMode;
-import com.stanzaliving.core.cafe.order.constants.OrderSearchFilter;
-import com.stanzaliving.core.cafe.order.constants.OrderSearchStatus;
-import com.stanzaliving.core.cafe.order.constants.OrderType;
+import com.stanzaliving.core.cafe.order.constants.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -28,4 +25,5 @@ public class CafeOrderSearchPDto {
     private DispatchMode dispatchMode;
     private String orderCode;
     private String deliveryCode;
+    private ServingMode mode;
 }
