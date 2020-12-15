@@ -10,6 +10,7 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.po.enums.EventType;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.inventory.dto.InventoryActionRequestDto;
+import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
 import com.stanzaliving.core.inventory.dto.InventoryItemQuantityPrice;
 import com.stanzaliving.core.inventory.dto.InventoryTOResponse;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
@@ -41,7 +42,7 @@ public class InventoryClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<Collection<InventoryItemQuantityPrice>> getInventoryItems(String addressUuid, FilterDto filterDto) {
+    public ResponseDto<Collection<InventoryItemDetailedDto>> getInventoryItems(String addressUuid, FilterDto filterDto) {
 
         Object postBody = filterDto;
 
@@ -55,7 +56,7 @@ public class InventoryClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Collection<InventoryItemQuantityPrice>>> returnType = new ParameterizedTypeReference<ResponseDto<Collection<InventoryItemQuantityPrice>>>() {
+        ParameterizedTypeReference<ResponseDto<Collection<InventoryItemDetailedDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Collection<InventoryItemDetailedDto>>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
