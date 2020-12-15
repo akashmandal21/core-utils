@@ -63,7 +63,7 @@ public class VasMasterAddRequestDto {
 	@NotNull(message = "Recipe selection is mandatory")
 	private VasMasterRecipeRequestDto recipe;
 
-	@NotEmpty(message = "Feedback options selection is mandatory")
+//	@NotEmpty(message = "Feedback options selection is mandatory")
 	private List<String> feedbackOptions;
 
 }
