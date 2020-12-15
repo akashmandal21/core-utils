@@ -54,7 +54,8 @@ public class ResidenceDetailsResponseDTO {
 	private int cardCTAId;
 	private int residenceTypeId;
 	private String genderSlug;
-
+	private String phoneNo;
+	
 	@Builder.Default
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = new ArrayList(0);
 
