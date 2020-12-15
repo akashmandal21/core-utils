@@ -4,6 +4,7 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class NotificationConstants {
+    public final String STANZA_LOGO = "logo";
 
     @UtilityClass
     public class SMSConstant {
@@ -53,6 +54,9 @@ public class NotificationConstants {
         public final String ORDER_STATUS = "orderStatus";
         public final String SERVING_MODE = "mode";
         public final String ORDER_DETAILS = "items";
+        public final String VAS_ITEMS = "vasItems";
+        public final String CHARGES_ITEMS = "chargeItems";
+        public final String COUPON_ITEMS = "couponItems";
         public final String USER_DETAILS = "user";
         public final String DELIVERY_PREFERENCE = "deliveryPreference";
         public final String HOT_BAGS = "hotBagsCount";
