@@ -277,6 +277,15 @@ public class ExceptionInterceptor {
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
+	@ExceptionHandler(TransactionValidationException.class)
+	@ResponseStatus(code = HttpStatus.EXPECTATION_FAILED)
+	public <T> ResponseDto<T> handleTransactionValidationException(TransactionValidationException e) {
+		String exceptionId = getExceptionId();
+
+		log.error("Got TransactionFailException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
 	@ExceptionHandler(InvalidDataAccessApiUsageException.class)
 	@ResponseStatus(HttpStatus.FAILED_DEPENDENCY)
 	@SendExceptionToSlack

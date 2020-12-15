@@ -10,7 +10,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class OrderDispatchSummaryDto {
+public class DispatchACDto {
 
     private OrderType orderType;
 

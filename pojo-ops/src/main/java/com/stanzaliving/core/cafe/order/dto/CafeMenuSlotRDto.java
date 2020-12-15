@@ -16,4 +16,7 @@ public class CafeMenuSlotRDto {
     private String slotId;
     private SlotType slotType;
     private LocalTime deliveryTime;
+    private String slotName;
+    private LocalTime startTime;
+    private LocalTime endTime;
 }

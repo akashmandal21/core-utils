@@ -30,4 +30,21 @@ public enum DispatchMode {
         }
     }
 
+    public static List<EnumListing<DispatchMode>> getEnumListing(ServingMode mode) {
+        List<EnumListing<DispatchMode>> enumListings = new ArrayList<>();
+        switch (mode) {
+            case DELIVERY:
+            case PICK_UP:
+                enumListings.add(EnumListing.of(SELF_USER, SELF_USER.getMode()));
+                enumListings.add(EnumListing.of(OPERATIONS_TEAM, OPERATIONS_TEAM.getMode()));
+                enumListings.add(EnumListing.of(RC, RC.getMode()));
+                break;
+            case DINE_IN:
+                enumListings.add(EnumListing.of(SELF_USER, SELF_USER.getMode()));
+                break;
+            default:
+                break;
+        }
+        return enumListings;
+    }
 }

@@ -8,6 +8,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 /**
  *
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -23,7 +25,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = { "userId" })
-public class UserContactDetailsResponseDto {
+public class UserContactDetailsResponseDto implements Serializable {
 
 	private String userId;
 

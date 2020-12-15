@@ -24,7 +24,7 @@ public class MeterDtoCount extends AbstractDto {
     
     private List<ListingCountDto> meterTypeCount;
     
-    private List<ListingCountDto> meterCategoryWiseCount;
+    private List<CategoryCountDto> meterCategoryWiseCount;
     
     private long activeMeterCount;
     

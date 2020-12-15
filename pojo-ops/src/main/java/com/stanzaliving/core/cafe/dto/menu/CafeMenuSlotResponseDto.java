@@ -6,7 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.Map;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,5 +21,5 @@ public class CafeMenuSlotResponseDto {
 
     private CafeMenuStateAction state;
     private LocalDate stateFrom;
-    private Map<String, CafeMenuResponseDto> menu;
+    private List<CafeMenuResponseDto> menu;
 }

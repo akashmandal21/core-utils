@@ -7,7 +7,6 @@ import lombok.experimental.SuperBuilder;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.List;
 
 @Getter
 @Setter
@@ -27,4 +26,5 @@ public class SearchItemRequestDto {
     private boolean includeOrders = true;
     private boolean includeResidencePrice = true;
     private boolean activeOnly = true;
+    private boolean basicDetailsOnly = false;
 }

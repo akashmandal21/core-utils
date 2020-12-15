@@ -10,8 +10,8 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 public enum DeliveryType {
-    NORMAL("Normal"),
-    IN_ROOM("In Room");
+    NORMAL("Delivery"),
+    IN_ROOM("Room Delivery");
 
     private final String type;
 

@@ -1,6 +1,5 @@
 package com.stanzaliving.core.cafe.order.dto;
 
-import com.stanzaliving.core.cafe.order.constants.DiscountType;
 import com.stanzaliving.core.cafe.order.constants.ItemType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -24,26 +23,7 @@ public class CafeOrderItemPDto {
     @Min(value = 1, message = "Atleast One Quantity is Required")
     private int quantity;
 
-    private Double grossPrice;
-    private DiscountType discountType;
-    private Double discount;
-    @NotNull(message = "Empty Price")
-    @Min(value = 0, message = "Price should be positive")
-    private double netPrice;
 
-    private Double cgstPercentage;
-    private Double igstPercentage;
-    private Double sgstPercentage;
-    private Double marginPercentage;
-
-    //netprice * quantity
-    private Double amount;
-
-    private Double cgst;
-    private Double igst;
-    private Double sgst;
-
-    private Double totalAmount;
 
 
 }
