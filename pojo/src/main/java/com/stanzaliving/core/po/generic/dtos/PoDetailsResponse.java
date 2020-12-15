@@ -2,6 +2,7 @@ package com.stanzaliving.core.po.generic.dtos;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.core.invoice.dto.OtherFeeRowDto;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import com.stanzaliving.core.vendor.enums.VendorType;
@@ -53,7 +54,7 @@ public class PoDetailsResponse {
     private Integer retCreditDays;
 
     private List<PoItemDetail> poItemDetails;
-
+    private List<OtherFeeRowDto> otherFeeDtos;
     private String poTypeText;
     private Long startDateMilis;
     private Long endDateMilis;

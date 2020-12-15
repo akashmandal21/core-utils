@@ -3,6 +3,7 @@ package com.stanzaliving.core.po.client.api;
 import java.math.BigDecimal;
 import java.util.*;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.po.generic.dtos.VendorWisePoDetails;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
@@ -387,6 +388,27 @@ public class POClientApi {
         };
         String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getVendorName/{propertyUuid}/{vendorUuid}").buildAndExpand(uriVariables).toUriString();
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
+    }
+
+    public ResponseDto<String> getSelectedVendorNames(Department department, List<String> vendorUuids) {
+
+        log.info("HTTP Client call to get vendor names for department {} and vendorUuids {} ", department, vendorUuids);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("department", department);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getSelectedVendorNames/{department}").buildAndExpand(uriVariables).toUriString();
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, vendorUuids, headerParams, accept, vddReturnType);
     }
 
     public ResponseDto<Collection<VendorWisePoDetails>> getVendorWisePOs(String propertyUuid) {

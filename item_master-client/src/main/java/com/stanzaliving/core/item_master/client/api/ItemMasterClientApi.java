@@ -390,7 +390,7 @@ public class ItemMasterClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		String path = UriComponentsBuilder.fromPath("/internal/generic/get/searchwithfilter/{department}/{searchText}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/generic/post/searchwithfilter/{department}/{searchText}").buildAndExpand(uriVariables).toUriString();
 
 		ParameterizedTypeReference<ResponseDto<List<ItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ItemDto>>>() {
 		};
