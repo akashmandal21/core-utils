@@ -36,8 +36,8 @@ public enum GenericPOTOStatus {
     APPROVED("Approved","#60C3AD","#60c3ad4d",3,false,false),
     SHORTCLOSED("Shortclosed","#790A00","#790a004d",4,false,false),
     CANCELLED("Cancelled","#5C49A2","#5c49a24d",5,false,false),
-    GSRI_COMPLETED("GSRI Closed","#60C3AD","#60c3ad4d",6,false,false),
-    WORK_COMPLETED("Work Completed","#60C3AD","#60c3ad4d",7,false,false);
+    GSRI_COMPLETED("GSRI Closed","#60C3AD","#60c3ad4d",6,false,false);
+//    WORK_COMPLETED("Work Completed","#60C3AD","#60c3ad4d",7,false,false);
 
 
     private String statusText;
@@ -68,7 +68,8 @@ public enum GenericPOTOStatus {
     @Getter
     private static Set<GenericPOTOStatus> allValues = new HashSet<>();
 
-    public static Set<GenericPOTOStatus> viewRole = new HashSet<>();
+    @Getter
+    private static Set<GenericPOTOStatus> viewRole = new HashSet<>();
 
     static {
         cancelStatus.addAll(Arrays.asList(CANCEL_L1_APPROVAL_DUE,CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE));
@@ -82,7 +83,7 @@ public enum GenericPOTOStatus {
         approvals.addAll(Arrays.asList(CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE,L2_APPROVAL_DUE,L3_APPROVAL_DUE,APPROVED,SHORTCLOSED,CANCELLED));
         allValues.addAll(Arrays.asList(CANCEL_L1_APPROVAL_DUE,CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE,SC_L1_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE,IN_DRAFT,
                 L1_SENT_BACK,L2_SENT_BACK,L3_SENT_BACK,L1_APPROVAL_DUE,L2_APPROVAL_DUE,L3_APPROVAL_DUE,CANCEL_L1_REJECTED,CANCEL_L2_REJECTED,CANCEL_L3_REJECTED,APPROVED,SHORTCLOSED,
-                SC_L1_REJECTED,SC_L2_REJECTED,SC_L3_REJECTED,CANCELLED,GSRI_COMPLETED,WORK_COMPLETED));
+                SC_L1_REJECTED,SC_L2_REJECTED,SC_L3_REJECTED,CANCELLED,GSRI_COMPLETED));
         viewRole.addAll(Arrays.asList(CANCEL_L1_APPROVAL_DUE,CANCEL_L2_APPROVAL_DUE,CANCEL_L3_APPROVAL_DUE,SC_L1_APPROVAL_DUE,SC_L2_APPROVAL_DUE,SC_L3_APPROVAL_DUE,APPROVED,SHORTCLOSED));
         viewRole.addAll(scRejectStatus);
         viewRole.addAll(cancelRejectStatus);
