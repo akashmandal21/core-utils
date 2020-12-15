@@ -411,7 +411,7 @@ public abstract class TemplateProcessor {
                         {
                             uiBasicField.setErrorOccurred(true);
                             uiBasicField.setErrorMsg("Section is mandatory or value submitted is not recorded");
-                            updateErrorInfo(errorInfo);
+//                            updateErrorInfo(errorInfo);
                         }
                         if(dataSaved){
                             if(obj instanceof ApprovalProcessor)
