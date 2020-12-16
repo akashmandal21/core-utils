@@ -7,6 +7,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+
 @Getter
 @Setter
 @ToString
@@ -15,8 +17,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class UserStatusUpdateDto {
 
+	@NotBlank(message = "UserId cannot be blank")
 	public String userId;
 
+	@NotBlank(message = "Status cannot be blank")
 	public String status;
 
 }

@@ -8,6 +8,9 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 @Getter
 @Setter
 @ToString
@@ -15,11 +18,14 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 public class PropertyIdentifierDto {
-	
+
+	@NotBlank(message = "ResidenceId Cannot be blank")
 	private String residenceId;
 
+	@NotNull(message = "Vendor Selection is mandatory")
 	private InternetVendor vendor;
-	
+
+	@NotBlank(message = "PropertyIdentifier Cannot be blank")
 	private String propertyIdentifier;
 
 }
