@@ -89,5 +89,7 @@ public class AddUserRequestDto {
 	private Nationality nationality;
 
 	private BloodGroup bloodGroup;
+	
+	private boolean signupFlow;
 
 }
