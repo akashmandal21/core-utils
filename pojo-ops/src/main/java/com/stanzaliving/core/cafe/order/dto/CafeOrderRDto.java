@@ -36,6 +36,7 @@ public class CafeOrderRDto {
     private String dispatchUserId;
     private String dispatchCode;
     private String cafeId;
+    private String cafeName;
     private String residenceId;
     private String slotId;
     private List<CafeOrderRefundRDto> refundData;
