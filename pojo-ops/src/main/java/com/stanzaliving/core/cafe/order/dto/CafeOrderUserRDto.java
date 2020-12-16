@@ -21,5 +21,6 @@ public class CafeOrderUserRDto {
     private String roomNo;
     private String image;
     private String orderPhoneNo;
+    private String residentCode;
 
 }

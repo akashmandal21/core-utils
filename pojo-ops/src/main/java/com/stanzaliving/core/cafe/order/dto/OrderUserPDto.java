@@ -19,4 +19,14 @@ public class OrderUserPDto {
     @NotBlank(message = "Empty User Id")
     private String userId;
     private String phoneNo;
+    private String mobileNo;
+    private String email;
+    private String firstName;
+    private String middleName;
+    private String lastName;
+    private String profilePicture;
+    private String residenceId;
+    private String residenceName;
+    private String roomNo;
+    private String residentCode;
 }
