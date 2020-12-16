@@ -45,4 +45,6 @@ public class GenericVendorDetailDto {
     private Integer genCreditDays;
     private Integer advCreditDays;
     private Integer retCreditDays;
+
+    private boolean gstExempted;
 }
