@@ -26,9 +26,9 @@ public class CafeOrderRDto {
     private RefundStatus refundStatus;
     private CafeOrderPaymentDto payment;
     private List<OrderedItemRDto> items;
-    private Double amount;
-    private Double gst;
-    private Double totalAmount;
+    private double amount;
+    private double gst;
+    private double totalAmount;
     private List<CafeOrderEventRDto> events;
     private ServingMode servingMode;
     private OrderDeliveryPreferenceRDto deliveryPreference;
@@ -38,5 +38,9 @@ public class CafeOrderRDto {
     private String cafeId;
     private String residenceId;
     private String slotId;
+    private List<CafeOrderRefundRDto> refundData;
+    private double refundedAmount;
+    private double tobeRefundAmount;
+    private double totalPaymentAmount;
 
 }
