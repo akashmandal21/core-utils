@@ -4,8 +4,6 @@ import com.stanzaliving.core.cafe.order.constants.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
-
 @Getter
 @Setter
 @ToString(callSuper = true)
@@ -18,7 +16,7 @@ public class CafeOrderSearchPDto {
     private OrderSearchStatus searchStatus;
     private OrderType orderType;
     private String residenceId;
-    private List<String> slotIds;
+    private String slotIds;
     private OrderSearchFilter filter;
     private String searchText;
     private String dispatchUserId;
