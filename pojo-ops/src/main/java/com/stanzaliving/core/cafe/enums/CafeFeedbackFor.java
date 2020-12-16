@@ -1,9 +1,12 @@
 package com.stanzaliving.core.cafe.enums;
 
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,11 +28,15 @@ public enum CafeFeedbackFor {
 
 	private static Map<String, CafeFeedbackFor> feedbackForMap = new HashMap<>();
 
+	private static List<EnumListing<CafeFeedbackFor>> feedbackEnumListing = new ArrayList<>();
+
 	static {
 
 		for (CafeFeedbackFor cafeFeedbackFor : CafeFeedbackFor.values()) {
 
 			feedbackForMap.put(cafeFeedbackFor.getFeedbackFor(), cafeFeedbackFor);
+
+			feedbackEnumListing.add(EnumListing.of(cafeFeedbackFor, cafeFeedbackFor.getFeedbackFor()));
 
 		}
 	}
@@ -40,5 +47,9 @@ public enum CafeFeedbackFor {
 
 	public static CafeFeedbackFor getByName(String feedbackForName) {
 		return feedbackForMap.get(feedbackForName);
+	}
+
+	public static List<EnumListing<CafeFeedbackFor>> getListing() {
+		return feedbackEnumListing;
 	}
 }
