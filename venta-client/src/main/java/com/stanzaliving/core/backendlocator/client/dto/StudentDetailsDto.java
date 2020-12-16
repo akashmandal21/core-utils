@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -13,35 +15,35 @@ import lombok.NoArgsConstructor;
 public class StudentDetailsDto {
     private Integer sgst;
     private String lastName;
-    private Object totalPenalty;
+    private Double totalPenalty;
     private String roomNumber;
     private String qrLink;
-    private Object discountAmount;
+    private Double discountAmount;
     private String paymentFrequency;
-    private Object actualContractEndDate;
-    private Integer igst;
+    private Date actualContractEndDate;
+    private Double igst;
     private String parentPhone;
-    private Integer foodServiceSgst;
-    private Integer perMonthPricing;
+    private Double foodServiceSgst;
+    private Double perMonthPricing;
     private String vaNumber;
     private String studentId;
-    private Integer mandatoryServicePrice;
+    private Double mandatoryServicePrice;
     private String studentEmail;
-    private Integer optionalServicePrice;
-    private Integer foodServicePrice;
+    private Double optionalServicePrice;
+    private Double foodServicePrice;
     private String upiHandle;
     private String imageURL;
-    private Object penaltyDueDate;
+    private Date penaltyDueDate;
     private RentalBreakupDto rentalBreakup;
     private String residenceName;
-    private Integer foodServiceCgst;
-    private Integer roomPrice;
+    private Double foodServiceCgst;
+    private Double roomPrice;
     private String parentRelation;
-    private Integer contractStartDate;
-    private Integer foodServiceIgst;
-    private Integer contractEndDate;
-    private Integer cgst;
-    private Object perDayPenalty;
+    private Date contractStartDate;
+    private Double foodServiceIgst;
+    private Date contractEndDate;
+    private Double cgst;
+    private Double perDayPenalty;
     private String contractPeriod;
     private String firstName;
     private String parentName;
