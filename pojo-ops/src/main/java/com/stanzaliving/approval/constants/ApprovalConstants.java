@@ -51,19 +51,22 @@ public class ApprovalConstants {
             EnumListing.of(ApprovalStatus.PENDING_L2_APPROVAL, ApprovalStatus.PENDING_L2_APPROVAL.getStatus()),
             EnumListing.of(ApprovalStatus.L2_REJECTED, ApprovalStatus.L2_REJECTED.getStatus()),
             EnumListing.of(ApprovalStatus.PENDING_L3_APPROVAL, ApprovalStatus.PENDING_L3_APPROVAL.getStatus()),
-            EnumListing.of(ApprovalStatus.L3_REJECTED, ApprovalStatus.L3_REJECTED.getStatus())
+            EnumListing.of(ApprovalStatus.L3_REJECTED, ApprovalStatus.L3_REJECTED.getStatus()),
+            EnumListing.of(ApprovalStatus.APPROVED, ApprovalStatus.APPROVED.getStatus())
     );
 
     public static final List<EnumListing<ApprovalStatus>> l2ApprovalStatusDropDown = Arrays.asList(
             EnumListing.of(ApprovalStatus.PENDING_L2_APPROVAL, ApprovalStatus.PENDING_L2_APPROVAL.getStatus()),
             EnumListing.of(ApprovalStatus.L2_REJECTED, ApprovalStatus.L2_REJECTED.getStatus()),
             EnumListing.of(ApprovalStatus.PENDING_L3_APPROVAL, ApprovalStatus.PENDING_L3_APPROVAL.getStatus()),
-            EnumListing.of(ApprovalStatus.L3_REJECTED, ApprovalStatus.L3_REJECTED.getStatus())
+            EnumListing.of(ApprovalStatus.L3_REJECTED, ApprovalStatus.L3_REJECTED.getStatus()),
+            EnumListing.of(ApprovalStatus.APPROVED, ApprovalStatus.APPROVED.getStatus())
     );
 
     public static final List<EnumListing<ApprovalStatus>> l3ApprovalStatusDropDown = Arrays.asList(
             EnumListing.of(ApprovalStatus.PENDING_L3_APPROVAL, ApprovalStatus.PENDING_L3_APPROVAL.getStatus()),
-            EnumListing.of(ApprovalStatus.L3_REJECTED, ApprovalStatus.L3_REJECTED.getStatus())
+            EnumListing.of(ApprovalStatus.L3_REJECTED, ApprovalStatus.L3_REJECTED.getStatus()),
+            EnumListing.of(ApprovalStatus.APPROVED, ApprovalStatus.APPROVED.getStatus())
     );
 
 }
