@@ -9,7 +9,7 @@ public enum ImageTags {
 	LIVINGAREA("Living Area"),
 	DININGAREA("Dining Area"),
 	LOBBY("Lobby"),
-	COOMONAREA("Coomon Area"),
+	COMMONAREA("common Area"),
 	RECEPTION("Reception"),
 	LIFT("Left"),
 	ROOM("Room"),
