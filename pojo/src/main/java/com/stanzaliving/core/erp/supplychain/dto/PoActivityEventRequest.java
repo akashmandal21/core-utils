@@ -36,4 +36,7 @@ public class PoActivityEventRequest {
 
     private String referenceUrl;
 
+    private String actionReason;
+
+    private String actionUrl;
 }

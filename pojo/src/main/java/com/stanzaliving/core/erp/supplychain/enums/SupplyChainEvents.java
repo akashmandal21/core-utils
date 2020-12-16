@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@AllArgsConstructor
 @Getter
 public enum SupplyChainEvents {
     PO_SUBMITTED("PO Submitted",false),
@@ -16,12 +17,12 @@ public enum SupplyChainEvents {
     PO_REJECTED("PO Rejected",true),
     PO_APPROVED("PO Approved",true),
 
-    PO_SHORTCLOSE_SUBMIT("PO Shortclose Request Submitted",false),
+    PO_SHORTCLOSE_SUBMIT("PO Shortclose Request Submitted",false,true),
     PO_SHORTCLOSE_APPROVAL("PO Shortclose Approval",true),
     PO_SHORTCLOSE_REJECTED("PO Shortclose Request Rejected",true),
     PO_SHORTCLOSED("PO Shortclosed",true),
 
-    PO_CANCEL_SUBMIT("PO Cancel Request Submitted",false),
+    PO_CANCEL_SUBMIT("PO Cancel Request Submitted",false,true),
     PO_CANCEL_APPROVAL("PO Cancel Request Approval",true),
     PO_CANCEL_REJECTED("PO Cancel Request Rejected",true),
     PO_CANCELLED("PO Cancelled",true),
@@ -52,10 +53,12 @@ public enum SupplyChainEvents {
 
     private String eventText;
     private boolean slaEligible;
+    private boolean actionReasonReqd;
 
     SupplyChainEvents(String eventText,boolean slaEligible){
         this.eventText=eventText;
         this.slaEligible=slaEligible;
+        this.actionReasonReqd=false;
     }
 
     private static Map<SupplyChainEvents, List<SupplyChainEvents>> parentSCEvents = new HashMap<>();
