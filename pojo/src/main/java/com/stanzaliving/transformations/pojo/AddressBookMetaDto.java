@@ -53,5 +53,6 @@ public class AddressBookMetaDto implements Serializable {
 
 	private Double longitude;
 
+	private String vendorUuid;
 
 }
