@@ -18,6 +18,7 @@ public class NotificationConstants {
         public final String DELIVERY_TYPE = "<deliveryType>";
         public final String ORDER_ID = "<orderId>";
         public final String ORDER_CODE = "<orderCode>";
+        public final String DELIVERY_CODE = "<deliveryCode>";
         public final String ORDER_TIME = "<orderTime>";
         public final String EXPECTED_DELIVERY_TIME = "<expectedDeliveryTime>";
         public final String DELIVERY_TIME = "<deliveryTime>";
@@ -42,6 +43,7 @@ public class NotificationConstants {
     public class EmailConstant {
         public final String ORDER_ID = "orderId";
         public final String ORDER_CODE = "orderCode";
+        public final String DELIVERY_CODE = "deliveryCode";
         public final String ORDER_TIME = "orderTime";
         public final String EXPECTED_DELIVERY_TIME = "expectedDeliveryTime";
         public final String DELIVERY_TIME = "deliveryTime";
