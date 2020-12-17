@@ -35,9 +35,6 @@ public class UserRegistrationDetailsDto {
 	@NotBlank(message = "EmailId cannot be blank")
 	private String emailId;
 
-	@NotBlank(message = "City Name cannot be blank")
-	private String cityName;
-
 	@NotNull(message = "Check-In Date cannot be null")
 	private Date checkInDate;
 	

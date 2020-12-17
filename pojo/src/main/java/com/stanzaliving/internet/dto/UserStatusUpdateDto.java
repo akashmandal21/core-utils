@@ -23,4 +23,11 @@ public class UserStatusUpdateDto {
 	@NotBlank(message = "Status cannot be blank")
 	private String status;
 
+	@NotBlank(message = "Property Id cannot be blank")
+	private String propertyId;
+
+	@NotBlank(message = "Residence Id cannot be blank")
+	private String residenceId;
+	
+
 }
