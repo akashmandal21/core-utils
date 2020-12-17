@@ -18,4 +18,5 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class AclUserDto extends UserProfileDto {
     private List<UserDeptLevelRoleNameUrlExpandedDto> acl;
+    private List<UserDeptLevelRoleNameUrlExpandedDto> locationAcl;
 }
