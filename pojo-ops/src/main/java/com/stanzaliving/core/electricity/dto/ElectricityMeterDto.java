@@ -56,5 +56,7 @@ public class ElectricityMeterDto extends AbstractDto {
 	private List<ElectricityReadingDto> readings;
 
 	private MeterType meterType;
+	
+	private int sequence;
 
 }

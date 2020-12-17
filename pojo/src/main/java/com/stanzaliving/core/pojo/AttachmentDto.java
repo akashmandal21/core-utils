@@ -27,4 +27,5 @@ public class AttachmentDto {
 	private String fileName;
 	private String disposition;
 	private String type;
+	private String url;
 }

@@ -36,4 +36,5 @@ public class BookingStatusResponseDto {
     private String appleVersion;
     private String userCategory;
     private boolean wp;
+    private String displayMessage;
 }

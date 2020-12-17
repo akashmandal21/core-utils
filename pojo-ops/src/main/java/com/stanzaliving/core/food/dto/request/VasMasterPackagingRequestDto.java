@@ -1,7 +1,5 @@
 package com.stanzaliving.core.food.dto.request;
 
-import com.stanzaliving.core.food.enums.PackagingMaterial;
-import com.stanzaliving.core.food.enums.VasItemState;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -27,11 +25,8 @@ public class VasMasterPackagingRequestDto {
 	@NotBlank(message = "Package selected is not valid")
 	private String packagingId;
 
-	@NotNull(message = "Item State selection is mandatory")
-	private VasItemState itemState;
+	@NotNull(message = "Packaging Qty Selection is mandatory")
+	private int qty;
 
-	@NotNull(message = "Packaging material selection is mandatory")
-	private PackagingMaterial masterMaterial;
-
-	private List<CityPackagingMaterialDto> cityMaterial;
+	private List<CityPackagingRequestDto> cityWisePackaging;
 }

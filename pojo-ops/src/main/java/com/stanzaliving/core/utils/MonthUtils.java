@@ -13,18 +13,37 @@ public class MonthUtils {
 	public Date getFirstDateOfMonth(Integer year, Integer month) {
 
 		LocalDate now = LocalDate.now();
+
 		if (year == null) {
 			year = now.getYear();
 		}
 		if (month == null) {
 			month = now.getMonthValue();
 		}
+		
 		validateMonth(year, month);
 
 		return DateUtil.convertToDate(DateUtil.getMonthStartBeginningDate(month, year));
 	}
 
+	public Date getLastDateOfMonth(Integer year, Integer month) {
+
+		LocalDate now = LocalDate.now();
+
+		if (year == null) {
+			year = now.getYear();
+		}
+		if (month == null) {
+			month = now.getMonthValue();
+		}
+
+		validateMonth(year, month);
+
+		return DateUtil.convertToDate(DateUtil.getMonthEndBeginningDate(month, year));
+	}
+
 	private void validateMonth(int year, int month) {
+		
 		if (year <= 0) {
 			throw new ApiValidationException("Year value is invalid");
 		}
