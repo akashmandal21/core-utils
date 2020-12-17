@@ -31,7 +31,8 @@ public class ResidenceDetailsRequestDTO {
 	private Integer preBookingAmount;
 	private int priorityOrder;
 	private boolean virtualTour;
-	private String cardCTA;
+	private int cardCTAId;
+	private String cardCTAName;
 	private FomoTag fomoTag;
 	private String virtualTourURL;
 
