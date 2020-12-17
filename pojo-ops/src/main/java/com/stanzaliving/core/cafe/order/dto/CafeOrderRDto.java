@@ -43,5 +43,6 @@ public class CafeOrderRDto {
     private double refundedAmount;
     private double tobeRefundAmount;
     private double totalPaymentAmount;
+    private String qrUri;
 
 }
