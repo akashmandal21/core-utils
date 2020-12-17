@@ -9,6 +9,8 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -16,20 +18,27 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class UserDetailsDto {
+public class UserRegistrationDetailsDto {
 	
 	@NotBlank(message = "ResidenceId cannot be blank")
-	public String residenceId;
+	private String residenceId;
 	
 	@NotBlank(message = "Mobile No cannot be blank")
-	public String mobileNo;
+	private String mobileNo;
 
 	@NotBlank(message = "User Code cannot be blank")
-	public String userCode;
+	private String userCode;
 
-	@NotBlank(message = "UserName cannot be blank")
-	public String userName;
+	@NotBlank(message = "FirstName cannot be blank")
+	private String firstName;
 
 	@NotBlank(message = "EmailId cannot be blank")
-	public String emailId;
+	private String emailId;
+
+	@NotBlank(message = "City Name cannot be blank")
+	private String cityName;
+
+	@NotNull(message = "Check-In Date cannot be null")
+	private Date checkInDate;
+	
 }

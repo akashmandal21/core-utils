@@ -7,20 +7,19 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
-
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class UserStatusUpdateDto {
+public class InternetDetails {
 
-	@NotBlank(message = "UserId cannot be blank")
-	private String userId;
-
-	@NotBlank(message = "Status cannot be blank")
-	private String status;
+	private boolean status;
+	private String message;
+	private String id;
+	private String errorCode;
+	private InternetProviderDetails data;
+	private int httpStatusCode;
 
 }

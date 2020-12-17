@@ -1,5 +1,6 @@
 package com.stanzaliving.internet.dto;
 
+import com.stanzaliving.internet.enums.InternetVendor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,20 +8,17 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
-
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class UserStatusUpdateDto {
 
-	@NotBlank(message = "UserId cannot be blank")
-	private String userId;
-
-	@NotBlank(message = "Status cannot be blank")
-	private String status;
-
+public class InternetProviderDetails {
+	
+	private boolean active;
+	private String planId;
+	private InternetVendor vendor;
+	private int devices;
 }
