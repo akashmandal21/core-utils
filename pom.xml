@@ -75,6 +75,7 @@
         <module>recon-client</module>
         <module>notification-client</module>
         <module>shortUrl-client</module>
+		<module>inventory-client</module>
         
     </modules>
 

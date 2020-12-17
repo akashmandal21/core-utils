@@ -301,4 +301,29 @@ public class VendorClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, vddReturnType);
     }
+
+
+    public ResponseDto<List<String>> createHouseWareHouseVendor(List<String> properties) {
+
+        log.info("HTTP Client call to create house warehouse vendor for properties {}", properties);
+
+        Object postBody = properties;
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/createHHWVendor").toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, vddReturnType);
+    }
+
 }
