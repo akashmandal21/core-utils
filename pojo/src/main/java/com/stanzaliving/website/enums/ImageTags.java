@@ -6,14 +6,14 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ImageTags {
-	LIVINGAREA("Living Area"),
+	COMMONAREA("Common Area"),
 	DININGAREA("Dining Area"),
+	KITCHEN("Kitchen"),
+	LIFT("Lift"),
+	LIVINGAREA("Living Area"),
 	LOBBY("Lobby"),
-	COMMONAREA("common Area"),
 	RECEPTION("Reception"),
-	LIFT("Left"),
-	ROOM("Room"),
-	KITCHEN("Kitchen");
+	ROOM("Room");
 	
 	public String imageTagName;
 }

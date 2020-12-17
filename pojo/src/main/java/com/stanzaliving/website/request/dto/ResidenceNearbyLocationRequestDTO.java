@@ -20,5 +20,6 @@ public class ResidenceNearbyLocationRequestDTO {
 	@Builder.Default
 	private int locationOrder = 0;
 	private boolean enabled;
+	private int cityId;
 
 }
