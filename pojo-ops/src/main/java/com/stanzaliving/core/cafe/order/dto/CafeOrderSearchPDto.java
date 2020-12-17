@@ -24,4 +24,5 @@ public class CafeOrderSearchPDto {
     private String orderCode;
     private String deliveryCode;
     private ServingMode mode;
+    private Boolean inRoomDelivery;
 }
