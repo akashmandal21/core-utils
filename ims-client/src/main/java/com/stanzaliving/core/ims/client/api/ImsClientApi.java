@@ -91,7 +91,7 @@ public class ImsClientApi {
 
     private BrokerDetailsResponseDto sendPaytmVerificationOtpRequest(String path, String token, String paytmNumber, PayoutMode payoutMode, String brokerMobile) {
 
-        if (StringUtils.isBlank(paytmNumber) || StringUtils.isBlank(payoutMode.getName()) || StringUtils.isBlank(brokerMobile)){
+        if (StringUtils.isBlank(paytmNumber) || StringUtils.isBlank(payoutMode.getName()) || StringUtils.isBlank(brokerMobile)) {
             throw new IllegalArgumentException("Please check all the provided params!!");
         }
 
@@ -99,13 +99,13 @@ public class ImsClientApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -129,17 +129,17 @@ public class ImsClientApi {
             throw new IllegalArgumentException("Please check all the provided params!!");
         }
 
-        PaytmOtpValidationDto postBody = preparePaytmOtpVerificationDto(paytmNumber, payoutMode,validationKey);
+        PaytmOtpValidationDto postBody = preparePaytmOtpVerificationDto(paytmNumber, payoutMode, validationKey);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -167,13 +167,13 @@ public class ImsClientApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -202,17 +202,17 @@ public class ImsClientApi {
             throw new IllegalArgumentException("Please check all the provided params!!");
         }
 
-        BankAccountVerificationDto postBody = prepareBankAccountVerificationDto(accountName,accountNumber,ifscCode,Live);
+        BankAccountVerificationDto postBody = prepareBankAccountVerificationDto(accountName, accountNumber, ifscCode, Live);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -248,13 +248,13 @@ public class ImsClientApi {
 
         queryParams.add("amount", String.valueOf(amount));
 
-        queryParams.add("brokerMobile", brokerMobile );
+        queryParams.add("brokerMobile", brokerMobile);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -283,17 +283,17 @@ public class ImsClientApi {
             throw new IllegalArgumentException("Please check all the provided params!!");
         }
 
-        StoreBankDetailsDto postBody = prepareAddBankAccountDto(accountName,accountNumber,ifscCode);
+        StoreBankDetailsDto postBody = prepareAddBankAccountDto(accountName, accountNumber, ifscCode);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -306,7 +306,7 @@ public class ImsClientApi {
             throw new RecordExistsException(response.getMessage());
         }
         return response;
-        
+
     }
 
 
@@ -328,13 +328,13 @@ public class ImsClientApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -343,7 +343,6 @@ public class ImsClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
-
 
 
     //    <----------------------------------------getPayoutModes--------------------------------------->
@@ -366,9 +365,9 @@ public class ImsClientApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -395,7 +394,7 @@ public class ImsClientApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -410,10 +409,10 @@ public class ImsClientApi {
     public BrokerDetailsResponseDto createBroker(BrokerDto brokerDto, String token) {
         String path = UriComponentsBuilder.fromPath(CREATE_BROKER).toUriString();
 
-        return createBroker(path, brokerDto,token);
+        return createBroker(path, brokerDto, token);
     }
 
-    private BrokerDetailsResponseDto createBroker(String path,BrokerDto brokerDto, String token) {
+    private BrokerDetailsResponseDto createBroker(String path, BrokerDto brokerDto, String token) {
 
         if (Objects.isNull(brokerDto)) {
             throw new IllegalArgumentException("Request is null for adding user");
@@ -425,9 +424,9 @@ public class ImsClientApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -439,7 +438,7 @@ public class ImsClientApi {
 
     //    <----------------------------------------getBrokerDetails--------------------------------------->
 
-    public BrokerDetailsResponseDto getBrokerDetails(String token,String brokerMobile) {
+    public BrokerDetailsResponseDto getBrokerDetails(String token, String brokerMobile) {
         String path = UriComponentsBuilder.fromPath(BROKER_DETAILS).toUriString();
 
         return getBrokerDetails(path, token, brokerMobile);
@@ -455,13 +454,13 @@ public class ImsClientApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -476,7 +475,7 @@ public class ImsClientApi {
     public BrokerDetailsResponseDto uploadPanDetails(String token, String brokerMobile, String panHolderName, String panNumber, MultipartFile file) throws IOException {
         String path = UriComponentsBuilder.fromPath(PAN_DETAILS).toUriString();
 
-        return uploadPanDetails(path, token, brokerMobile,panHolderName,panNumber,file);
+        return uploadPanDetails(path, token, brokerMobile, panHolderName, panNumber, file);
     }
 
     private BrokerDetailsResponseDto uploadPanDetails(String path, String token, String brokerMobile, String panHolderName, String panNumber, MultipartFile file) throws IOException {
@@ -487,23 +486,23 @@ public class ImsClientApi {
 
         MultiValueMap<String, Object> postBody = new LinkedMultiValueMap<>();
 
-        postBody.add("file",  file);
+        postBody.add("file", file);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
-        queryParams.add("panHolderName",panHolderName);
+        queryParams.add("panHolderName", panHolderName);
 
-        queryParams.add("panNumber",panNumber);
+        queryParams.add("panNumber", panNumber);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
         headerParams.setContentType(MediaType.MULTIPART_FORM_DATA);
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -512,7 +511,7 @@ public class ImsClientApi {
 
         BrokerDetailsResponseDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
-        if (!response.isStatus()){
+        if (!response.isStatus()) {
             throw new RecordExistsException(response.getMessage());
         }
         return response;
@@ -523,7 +522,7 @@ public class ImsClientApi {
     public TdsInfoResponseDto getTdsInfo(String token) {
         String path = UriComponentsBuilder.fromPath(TDS_INFO).toUriString();
 
-        return getTdsInfo(path,token);
+        return getTdsInfo(path, token);
     }
 
     private TdsInfoResponseDto getTdsInfo(String path, String token) {
@@ -534,9 +533,9 @@ public class ImsClientApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -549,7 +548,7 @@ public class ImsClientApi {
 
     //    <----------------------------------------updateTdsPercentageToMax--------------------------------------->
 
-    public TdsResponseDto updateTdsPercentageToMax(String token,String brokerMobile) {
+    public TdsResponseDto updateTdsPercentageToMax(String token, String brokerMobile) {
         String path = UriComponentsBuilder.fromPath(UPDATE_TDS_MAX).toUriString();
 
         return updateTdsPercentageToMax(path, token, brokerMobile);
@@ -565,13 +564,13 @@ public class ImsClientApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -586,18 +585,18 @@ public class ImsClientApi {
     public BrokerTdsDetailResponse getTdsDetailsForBroker(String token, String brokerMobile, Double amount) {
         String path = UriComponentsBuilder.fromPath(BROKER_TDS_DETAILS).toUriString();
 
-        return getTdsDetailsForBroker(path,token,brokerMobile,amount,null);
+        return getTdsDetailsForBroker(path, token, brokerMobile, amount, null);
     }
 
-    public BrokerTdsDetailResponse getTdsDetailsForBrokerByTransaction(String token, String brokerMobile, Double amount, String transactionId) {
+    public BrokerTdsDetailResponse getTdsDetailsForBrokerByTransaction(String token, String brokerMobile, String transactionId) {
         String path = UriComponentsBuilder.fromPath(BROKER_TDS_DETAILS).toUriString();
 
-        return getTdsDetailsForBroker(path,token,brokerMobile,amount,transactionId);
+        return getTdsDetailsForBroker(path, token, brokerMobile, null, transactionId);
     }
 
     private BrokerTdsDetailResponse getTdsDetailsForBroker(String path, String token, String brokerMobile, Double amount, String transactionId) {
 
-        if (amount == null || StringUtils.isBlank(brokerMobile)) {
+        if (StringUtils.isBlank(brokerMobile)) {
             throw new IllegalArgumentException("Please check all the provided params!!");
         }
 
@@ -605,19 +604,21 @@ public class ImsClientApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("amount", String.valueOf(amount));
+        queryParams.add("brokerMobile", brokerMobile);
 
-        queryParams.add("brokerMobile", brokerMobile );
+        if (amount != null) {
+            queryParams.add("amount", String.valueOf(amount));
+        }
 
-        if (transactionId != null && !StringUtils.isBlank(transactionId)){
+        if (transactionId != null && !StringUtils.isBlank(transactionId)) {
             queryParams.add("transactionId", transactionId);
         }
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -648,9 +649,9 @@ public class ImsClientApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -678,16 +679,16 @@ public class ImsClientApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
         queryParams.add("paymentModeId", String.valueOf(paymentModeId));
 
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 

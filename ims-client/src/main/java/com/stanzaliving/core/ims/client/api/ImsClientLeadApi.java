@@ -36,13 +36,13 @@ public class ImsClientLeadApi {
 
     //    <----------------------------------------createLead--------------------------------------->
 
-    public BaseResponseDto createLead(LeadDto leadDto, String brokerMobile) {
+    public BaseResponseDto createLead(String token, LeadDto leadDto, String brokerMobile) {
         String path = UriComponentsBuilder.fromPath(CREATE_LEAD).toUriString();
 
-        return createLead(path, leadDto, brokerMobile);
+        return createLead(path, token, leadDto, brokerMobile);
     }
 
-    private BaseResponseDto createLead(String path, LeadDto leadDto, String brokerMobile) {
+    private BaseResponseDto createLead(String path, String token, LeadDto leadDto, String brokerMobile) {
 
         if (Objects.isNull(leadDto) || StringUtils.isEmpty(brokerMobile)) {
             throw new IllegalArgumentException("Request is null for adding user or Broker Mobile missing");
@@ -52,9 +52,11 @@ public class ImsClientLeadApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+        queryParams.add("brokerMobile",brokerMobile);
+
         final HttpHeaders headerParams = new HttpHeaders();
 
-//        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
 
         final String[] accepts = { "*/*" };
 
@@ -142,19 +144,21 @@ public class ImsClientLeadApi {
 
     //    <----------------------------------------getCityAndLocality--------------------------------------->
 
-    public List<CityResponseDto> getCityAndLocality() {
+    public List<CityResponseDto> getCityAndLocality(String token) {
         String path = UriComponentsBuilder.fromPath(CITY_AND_LOCALITY_DETAILS).toUriString();
 
-        return getCityAndLocality(path);
+        return getCityAndLocality(path,token);
     }
 
-    private List<CityResponseDto> getCityAndLocality(String path) {
+    private List<CityResponseDto> getCityAndLocality(String path, String token) {
 
         Object postBody = null;
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
 
         final String[] accepts = { "*/*" };
 

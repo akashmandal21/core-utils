@@ -18,7 +18,7 @@ public class LeadDto {
 
     private String lastName;
 
-    private String mobileNumber;
+    private String mobile;  
 
     private String email;
 

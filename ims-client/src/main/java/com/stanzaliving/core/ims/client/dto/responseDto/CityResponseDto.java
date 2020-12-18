@@ -23,7 +23,7 @@ public class CityResponseDto {
 
    private String code;
 
-   private Long stateId;
+   private int stateId;
 
    private String stateName;
 

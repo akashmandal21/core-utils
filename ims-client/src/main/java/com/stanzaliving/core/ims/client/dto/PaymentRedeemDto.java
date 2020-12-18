@@ -21,4 +21,6 @@ public class PaymentRedeemDto {
      private String name;
 
      private Double amountToRedeem;
+
+     private String transactionId;
 }
