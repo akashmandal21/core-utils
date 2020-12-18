@@ -22,4 +22,5 @@ public class OrderStatsRDto {
     private Map<LocalTime, Set<String>> slots;
     private List<ResidenceStatRDto> residenceStats;
     private LocalDate batchOrderDate;
+    private boolean pending;
 }
