@@ -11,8 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 public enum ServingMode {
     PICK_UP("Self Pick Up"),
-    DINE_IN("Dine In"),
-    DELIVERY("Delivery");
+    DINE_IN("Dine-In"),
+    DELIVERY("Room Delivery");
 
     private final String mode;
 
