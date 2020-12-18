@@ -29,6 +29,11 @@ public class CafeOrderRDto {
     private double amount;
     private double gst;
     private double totalAmount;
+
+    private double finalAmount;
+    private double finalGst;
+    private double finalTotalAmount;
+
     private List<CafeOrderEventRDto> events;
     private ServingMode servingMode;
     private OrderDeliveryPreferenceRDto deliveryPreference;
