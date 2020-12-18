@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -18,7 +19,7 @@ import java.util.Map;
 public class OrderStatsRDto {
     private OrderType orderType;
     private Integer count;
-    private Map<LocalTime, List<String>> slots;
+    private Map<LocalTime, Set<String>> slots;
     private List<ResidenceStatRDto> residenceStats;
     private LocalDate batchOrderDate;
 }
