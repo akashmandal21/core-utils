@@ -29,6 +29,9 @@ public class NotificationConstants {
         public final String AMOUNT = "<amount>";
         public final String GST = "<gst>";
         public final String TOTAL_AMOUNT = "<totalAmount>";
+        public final String FINAL_AMOUNT = "<finalAmount>";
+        public final String FINAL_GST = "<finalGst>";
+        public final String FINAL_TOTAL_AMOUNT = "<finalTotalAmount>";
         public final String ORDER_STATUS = "<orderStatus>";
         public final String SERVING_MODE = "<mode>";
         public final String HOT_BAGS = "<hot-bags>";
@@ -53,6 +56,9 @@ public class NotificationConstants {
         public final String AMOUNT = "amount";
         public final String GST = "gst";
         public final String TOTAL_AMOUNT = "totalAmount";
+        public final String FINAL_AMOUNT = "finalAmount";
+        public final String FINAL_GST = "finalGst";
+        public final String FINAL_TOTAL_AMOUNT = "finalTotalAmount";
         public final String ORDER_STATUS = "orderStatus";
         public final String SERVING_MODE = "mode";
         public final String ORDER_DETAILS = "items";
