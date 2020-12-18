@@ -9,6 +9,7 @@ import com.stanzaliving.core.po.generic.dtos.VendorWisePoDetails;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -390,7 +391,7 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
-    public ResponseDto<String> getSelectedVendorNames(Department department, List<String> vendorUuids) {
+    public ResponseDto<String> getSelectedVendorNames(Department department, String prefix, List<String> vendorUuids) {
 
         log.info("HTTP Client call to get vendor names for department {} and vendorUuids {} ", department, vendorUuids);
 
@@ -398,7 +399,8 @@ public class POClientApi {
         uriVariables.put("department", department);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
+        if(StringUtils.isNotEmpty(prefix))
+            queryParams.put("prefix",Arrays.asList(prefix));
         final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
