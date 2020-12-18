@@ -17,7 +17,7 @@ public class ResidenceStatRDto {
     private String residenceId;
     private Integer count;
     private String name;
-    private Map<LocalTime, List<String>> slots;
+    private Map<LocalTime, List<ResidenceSlotStatRDto>> slots;
     private LocalTime nextSlot;
-
+    private boolean pending;
 }
