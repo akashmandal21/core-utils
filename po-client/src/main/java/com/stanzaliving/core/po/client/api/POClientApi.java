@@ -391,7 +391,7 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
-    public ResponseDto<String> getSelectedVendorNames(Department department, String prefix, List<String> vendorUuids) {
+    public ResponseDto<Map<String,String>> getSelectedVendorNames(Department department, String prefix, List<String> vendorUuids) {
 
         log.info("HTTP Client call to get vendor names for department {} and vendorUuids {} ", department, vendorUuids);
 
@@ -407,7 +407,7 @@ public class POClientApi {
 
         Map<String, List<String>> map = new HashMap<>();
 
-        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        ParameterizedTypeReference<ResponseDto<Map<String,String>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Map<String,String>>>() {
         };
         String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getSelectedVendorNames/{department}").buildAndExpand(uriVariables).toUriString();
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, vendorUuids, headerParams, accept, vddReturnType);
