@@ -24,6 +24,8 @@ public class CafeOrderRDto {
     private boolean paymentDone;
     private CafeOrderPaymentDto payment;
     private List<OrderedItemRDto> items;
+    private List<OrderedItemRDto> charges;
+    private List<OrderedItemRDto> coupons;
     private double amount;
     private double gst;
     private double totalAmount;
