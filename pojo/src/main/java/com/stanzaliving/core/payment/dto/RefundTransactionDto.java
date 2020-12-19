@@ -28,7 +28,7 @@ public class RefundTransactionDto {
 
 	private String serviceTransactionId;
 
-	private String merchantTransactionId;
+	private String refundRequestId;
 
 	private StanzaPaymentService paymentService;
 

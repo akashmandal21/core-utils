@@ -22,8 +22,6 @@ public class CafeOrderRDto {
     private CafeOrderUserRDto user;
     private OrderStatus status;
     private boolean paymentDone;
-    private RefundType refundType;
-    private RefundStatus refundStatus;
     private CafeOrderPaymentDto payment;
     private List<OrderedItemRDto> items;
     private double amount;
