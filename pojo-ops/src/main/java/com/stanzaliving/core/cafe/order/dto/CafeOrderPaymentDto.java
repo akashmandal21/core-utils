@@ -25,7 +25,4 @@ public class CafeOrderPaymentDto {
     private String bankReferenceNo;
     private String merchantReferenceNo;
     private PaymentStatus status;
-    private RefundType refundType;
-    private RefundStatus refundStatus;
-
 }

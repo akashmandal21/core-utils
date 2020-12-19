@@ -22,4 +22,5 @@ public class CafeOrderRefundRDto {
     private RefundReason reasonReason;
     private RefundType refundType;
     private RefundMode refundMode;
+    private boolean isPaymentRefund;
 }
