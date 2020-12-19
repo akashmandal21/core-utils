@@ -31,7 +31,7 @@ public class TransactionInitiateDto {
 
 	private String callbackUrl;
 	
-	private Double amount;
+	private Integer amount;
 	
 	private String currency;
 }
