@@ -16,11 +16,13 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class FoodFeedbackCampaignRequestDto extends CampaignDto {
+public class FoodFeedbackCampaignRequestDto1 extends CampaignDto {
 
-  @NotEmpty(message = "itemList must not be empty")
-  private List<ItemRequestDto> items;
+    //String mealName;        //to be sent in campaignSubType
 
-  @NotEmpty
-  @NotEmpty(message = "userBlockerMap must not be empty") Map<String, Boolean> userBlockerMap;
+    @NotEmpty(message = "itemList must not be empty")
+    private List<ItemRequestDto> items;
+
+    @NotEmpty
+    @NotEmpty(message = "userBlockerMap must not be empty") Map<String, Boolean> userBlockerMap;
 }

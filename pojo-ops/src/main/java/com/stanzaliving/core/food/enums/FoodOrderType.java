@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 public enum FoodOrderType {
-	PACKAGED("Packaged Order"),
+		PACKAGED("Packaged Order"),
 	KITCHEN("Cafe Order");
 
 	private String orderTypeName;
