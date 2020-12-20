@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -18,4 +19,6 @@ public class BatchSlotSummaryRDto {
     private String dispatchSummaryId;
     private boolean dispatched;
     private LocalTime dispatchedTime;
+    private boolean received;
+    private Date receivingTime;
 }
