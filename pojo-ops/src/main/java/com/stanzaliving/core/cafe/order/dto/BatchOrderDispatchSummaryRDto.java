@@ -26,6 +26,7 @@ public class BatchOrderDispatchSummaryRDto {
     private int receivedPacketCount;
     private Date receivingTime;
     private Date notificationTime;
+    private Date dispatchedTime;
     private String slotName;
     private LocalTime deliveryTime;
     private String qrCodeURI;
