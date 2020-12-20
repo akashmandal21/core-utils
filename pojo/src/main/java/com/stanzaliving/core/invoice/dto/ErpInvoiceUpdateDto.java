@@ -3,6 +3,7 @@ package com.stanzaliving.core.invoice.dto;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.Map;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,4 +20,6 @@ public class ErpInvoiceUpdateDto {
     private BigDecimal otherFeeRaised;
     @Builder.Default
     private boolean itemsPending = true;
+
+    private Map<String,BigDecimal> invoicedItems;
 }

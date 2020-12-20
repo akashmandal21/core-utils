@@ -369,15 +369,18 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<String> getVendorName(String propertyUuid, String vendorUuid) {
+    public ResponseDto<String> getVendorName(String propertyUuid, String poUuid, String vendorUuid) {
 
         log.info("HTTP Client call to get vendor name for property {} and vendorUuid {} ", propertyUuid, vendorUuid);
 
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("propertyUuid", propertyUuid);
         uriVariables.put("vendorUuid", vendorUuid);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if(StringUtils.isNotEmpty(propertyUuid))
+            queryParams.put("propertyUuid", Arrays.asList(propertyUuid));
+        if(StringUtils.isNotEmpty(poUuid))
+            queryParams.put("poUuid", Arrays.asList(poUuid));
 
         final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
