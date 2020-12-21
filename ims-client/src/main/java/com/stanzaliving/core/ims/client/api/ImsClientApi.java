@@ -636,13 +636,13 @@ public class ImsClientApi {
 
     //    <----------------------------------------redeemPaymentBroker--------------------------------------->
 
-    public ResponseDto<Void> redeemPaymentBroker(PaymentRedeemDto paymentRedeemDto, String token) {
+    public BaseResponseDto redeemPaymentBroker(PaymentRedeemDto paymentRedeemDto, String token) {
         String path = UriComponentsBuilder.fromPath(PAYOUT_URL).toUriString();
 
         return redeemPaymentBroker(path, paymentRedeemDto, token);
     }
 
-    private ResponseDto<Void> redeemPaymentBroker(String path, PaymentRedeemDto paymentRedeemDto, String token) {
+    private BaseResponseDto redeemPaymentBroker(String path, PaymentRedeemDto paymentRedeemDto, String token) {
 
         if (Objects.isNull(paymentRedeemDto)) {
             throw new IllegalArgumentException("Request is null for Payment");
@@ -660,7 +660,7 @@ public class ImsClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        ParameterizedTypeReference<BaseResponseDto> returnType = new ParameterizedTypeReference<BaseResponseDto>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);

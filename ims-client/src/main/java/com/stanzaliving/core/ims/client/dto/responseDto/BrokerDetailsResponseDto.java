@@ -15,4 +15,9 @@ import lombok.experimental.SuperBuilder;
 public class BrokerDetailsResponseDto extends BaseResponseDto {
 
     private BrokerResponseDto broker;
+
+    private String refreshToken;
+
+    private String accessToken;
+
 }

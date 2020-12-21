@@ -3,6 +3,8 @@ package com.stanzaliving.core.ims.client.dto.responseDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Date;
+
 /**
  * @author harman
  */
@@ -26,11 +28,11 @@ public class Lead {
 
     private String city;
 
-    private int submittedOn;
+    private Date submittedOn;
 
     private String preBookedOn;
 
-    private int bookedOn;
+    private Date bookedOn;
 
 
 }
