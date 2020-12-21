@@ -22,7 +22,7 @@ public class CafeVasItemDto {
     private boolean containsEgg;
     private boolean nonVeg;
     private boolean specialVeg;
-    private Integer shelfLife;
+    private Double shelfLife;
     private String description;
     private String image;
     private Integer serves;
@@ -34,5 +34,6 @@ public class CafeVasItemDto {
     private Integer quantity;
     private FoodItemType foodType;
     private List<VasMasterPackagingResponseDto> packaging;
+    private String servingInfo;
 
 }

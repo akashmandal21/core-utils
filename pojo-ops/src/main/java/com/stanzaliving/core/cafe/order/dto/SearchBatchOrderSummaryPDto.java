@@ -4,7 +4,6 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -19,4 +18,5 @@ public class SearchBatchOrderSummaryPDto {
     private String residenceId;
     @NotBlank(message = "Empty Slot Id")
     private String slotId;
+    private boolean rcApp;
 }
