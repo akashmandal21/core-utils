@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.core.cafe.enums.CafeFeedbackFor;
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +28,8 @@ import java.util.List;
 public class VasOrderFeedbackOptions {
 
 	private String masterOrderId;
+
+	private List<EnumListing<CafeFeedbackFor>> feedbackFor;
 
 	private List<VasOrderItemFeedbackOptions> itemFeedbackOptions;
 
