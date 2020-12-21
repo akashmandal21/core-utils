@@ -3,6 +3,7 @@ package com.stanzaliving.core.ims.client.api;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.exception.RecordExistsException;
+import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.base.exception.StanzaSecurityException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.ims.client.dto.*;
@@ -12,12 +13,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -472,21 +471,33 @@ public class ImsClientApi {
 
     //    <----------------------------------------uploadPanDetails--------------------------------------->
 
-    public BrokerDetailsResponseDto uploadPanDetails(String token, String brokerMobile, String panHolderName, String panNumber, MultipartFile file) throws IOException {
-        String path = UriComponentsBuilder.fromPath(PAN_DETAILS).toUriString();
-
-        return uploadPanDetails(path, token, brokerMobile, panHolderName, panNumber, file);
-    }
-
-    private BrokerDetailsResponseDto uploadPanDetails(String path, String token, String brokerMobile, String panHolderName, String panNumber, MultipartFile file) throws IOException {
+    public BrokerResponseDto uploadPanDetails(String path, String token, String brokerMobile, String panHolderName, String panNumber, MultipartFile file) throws IOException {
 
         if (StringUtils.isBlank(brokerMobile) || StringUtils.isBlank(panHolderName) || StringUtils.isBlank(panNumber) || Objects.isNull(file)) {
             throw new IllegalArgumentException("Please check all the Params");
         }
 
-        MultiValueMap<String, Object> postBody = new LinkedMultiValueMap<>();
+        RestTemplate restTemplate = new RestTemplate();
 
-        postBody.add("file", file);
+        ByteArrayResource fileAsResource = new ByteArrayResource(file.getBytes()) {
+
+            @Override
+            public String getFilename() {
+                return file.getOriginalFilename();
+            }
+        };
+
+        LinkedMultiValueMap<String, Object> formData = new LinkedMultiValueMap<>();
+
+        formData.add("file", fileAsResource);
+
+        HttpHeaders headers = new HttpHeaders();
+
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+
+        headers.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
+
+        HttpEntity<LinkedMultiValueMap<String, Object>> entity = new HttpEntity<>(formData, headers);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -496,26 +507,18 @@ public class ImsClientApi {
 
         queryParams.add("panNumber", panNumber);
 
-        final HttpHeaders headerParams = new HttpHeaders();
+        String url = UriComponentsBuilder.fromHttpUrl(path+PAN_DETAILS).queryParams(queryParams).toUriString();
 
-        headerParams.setContentType(MediaType.MULTIPART_FORM_DATA);
+        ResponseEntity<BrokerResponseDto> response = restTemplate.exchange(url, HttpMethod.POST, entity, BrokerResponseDto.class);
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
-
-        final String[] accepts = {"*/*"};
-
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<BrokerDetailsResponseDto> returnType = new ParameterizedTypeReference<BrokerDetailsResponseDto>() {
-        };
-
-        BrokerDetailsResponseDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-
-        if (!response.isStatus()) {
-            throw new RecordExistsException(response.getMessage());
+        if(response.getStatusCode().equals(HttpStatus.CONFLICT)){
+            throw new RecordExistsException("PAN Details Invalid!");
         }
-        return response;
+
+        return response.getBody();
+
     }
+
 
     //    <----------------------------------------getTdsInfo--------------------------------------->
 
@@ -588,13 +591,15 @@ public class ImsClientApi {
         return getTdsDetailsForBroker(path, token, brokerMobile, amount, null);
     }
 
-    public BrokerTdsDetailResponse getTdsDetailsForBrokerByTransaction(String token, String brokerMobile, String transactionId) {
+    public BrokerTdsDetailResponse getTdsDetailsForBrokerByTransaction(String token, String brokerMobile, String
+            transactionId) {
         String path = UriComponentsBuilder.fromPath(BROKER_TDS_DETAILS).toUriString();
 
         return getTdsDetailsForBroker(path, token, brokerMobile, null, transactionId);
     }
 
-    private BrokerTdsDetailResponse getTdsDetailsForBroker(String path, String token, String brokerMobile, Double amount, String transactionId) {
+    private BrokerTdsDetailResponse getTdsDetailsForBroker(String path, String token, String brokerMobile, Double
+            amount, String transactionId) {
 
         if (StringUtils.isBlank(brokerMobile)) {
             throw new IllegalArgumentException("Please check all the provided params!!");
@@ -669,7 +674,8 @@ public class ImsClientApi {
         return changeBrokerPaymentMode(path, token, brokerMobile, paymentModeId);
     }
 
-    private BrokerKYCDetailReponseDto changeBrokerPaymentMode(String path, String token, String brokerMobile, int paymentModeId) {
+    private BrokerKYCDetailReponseDto changeBrokerPaymentMode(String path, String token, String brokerMobile,
+                                                              int paymentModeId) {
 
         if (StringUtils.isBlank(token) || StringUtils.isBlank(brokerMobile) || StringUtils.isBlank(String.valueOf(paymentModeId))) {
             throw new IllegalArgumentException("Please check the params provided !");
