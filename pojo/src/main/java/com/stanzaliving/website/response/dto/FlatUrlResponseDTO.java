@@ -1,8 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,5 +24,5 @@ public class FlatUrlResponseDTO {
 	private String seoDescription;
 	private List<FlatUrlPlaceResponseDTO> placeData;
 	private boolean isActive;
-	
+
 }
