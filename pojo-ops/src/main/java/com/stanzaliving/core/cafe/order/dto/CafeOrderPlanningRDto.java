@@ -15,4 +15,5 @@ public class CafeOrderPlanningRDto {
     private String itemId;
     private int quantity;
     private Double gmv;
+    private Double gmvTotal;
 }

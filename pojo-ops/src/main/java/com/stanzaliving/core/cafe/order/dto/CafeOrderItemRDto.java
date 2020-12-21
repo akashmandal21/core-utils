@@ -14,6 +14,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CafeOrderItemRDto {
     private ItemType type;
+    private String subType;
     private String itemId;
     private boolean featured;
     private boolean mandatory;
@@ -24,12 +25,14 @@ public class CafeOrderItemRDto {
     private DiscountType discountType;
     private Double discount;
     private Double netPrice;
+    private Double totalPrice;
     private Double cgstPercentage;
     private Double igstPercentage;
     private Double sgstPercentage;
     private Double cgst;
     private Double igst;
     private Double sgst;
+    private Double totalGST;
     private Double marginPercentage;
 
 }

@@ -13,7 +13,8 @@ public enum RefundStatus {
     TO_BE_REFUND("To Be Refund"),
     INITIATED("Initiated"),
     PENDING("Pending"),
-    COMPLETED("Completed");
+    COMPLETED("Completed"),
+    FAILED("Failed");
 
     private final String status;
 

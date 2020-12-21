@@ -49,6 +49,13 @@ public class CSVConverter {
 	}
 
 	@SuppressWarnings("rawtypes")
+	public final String getCSVString(Set set) {
+		List list = new ArrayList(set);
+
+		return getCSVString(list);
+	}
+
+	@SuppressWarnings("rawtypes")
 	public final String getCSVStringBeautified(List list) {
 		String csvString = "";
 

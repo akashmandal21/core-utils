@@ -10,9 +10,9 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum ServingMode {
-    PICK_UP("Pick Up"),
-    DINE_IN("Dine In"),
-    DELIVERY("Delivery");
+    PICK_UP("Self Pick Up"),
+    DINE_IN("Dine-In"),
+    DELIVERY("Room Delivery");
 
     private final String mode;
 

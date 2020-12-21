@@ -1,13 +1,9 @@
 package com.stanzaliving.core.cafe.dto;
 
-import java.util.List;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,10 +13,10 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class BaseKitchenResidenceDto {
 
-	private String baseKitchenId;
+    private String baseKitchenId;
 
-	private String baseKitchenName;
+    private String baseKitchenName;
 
-	private List<ResidenceMicromarketDto> residences;
+    private List<ResidenceMicromarketDto> residences;
 
 }
