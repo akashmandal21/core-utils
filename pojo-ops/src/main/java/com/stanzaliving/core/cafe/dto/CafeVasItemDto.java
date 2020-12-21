@@ -22,7 +22,7 @@ public class CafeVasItemDto {
     private boolean containsEgg;
     private boolean nonVeg;
     private boolean specialVeg;
-    private Integer shelfLife;
+    private Double shelfLife;
     private String description;
     private String image;
     private Integer serves;
