@@ -34,5 +34,6 @@ public class CafeVasItemDto {
     private Integer quantity;
     private FoodItemType foodType;
     private List<VasMasterPackagingResponseDto> packaging;
+    private String servingInfo;
 
 }
