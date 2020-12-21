@@ -46,7 +46,7 @@ public class VasMasterResponseDto {
 
 	private Integer serves;
 
-	private Integer shelfLife;
+	private Double shelfLife;
 
 	private Double proposedPrice;
 
