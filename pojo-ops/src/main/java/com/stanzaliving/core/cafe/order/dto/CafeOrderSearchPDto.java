@@ -26,4 +26,5 @@ public class CafeOrderSearchPDto {
     private ServingMode mode;
     private OrderStatus status;
     private Boolean inRoomDelivery;
+    private boolean rcApp;
 }
