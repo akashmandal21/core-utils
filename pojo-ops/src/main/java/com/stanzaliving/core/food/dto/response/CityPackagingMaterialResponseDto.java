@@ -24,6 +24,8 @@ public class CityPackagingMaterialResponseDto {
 
 	private ListingDto city;
 
-	private EnumListing<PackagingMaterial> material;
+	private ListingDto packaging;
+
+	private Integer qty;
 
 }

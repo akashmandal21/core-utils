@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 public class CafeOrderScheduleRefundDto {
     private String orderId;
     private String paymentId;
-    private Double amount;
+    private double amount;
     private RefundReason refundReason;
     private RefundMode refundMode;
     private RefundType refundType;

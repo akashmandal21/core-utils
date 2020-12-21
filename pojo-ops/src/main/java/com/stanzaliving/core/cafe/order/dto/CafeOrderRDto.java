@@ -1,9 +1,6 @@
 package com.stanzaliving.core.cafe.order.dto;
 
-import com.stanzaliving.core.cafe.order.constants.OrderStatus;
-import com.stanzaliving.core.cafe.order.constants.RefundStatus;
-import com.stanzaliving.core.cafe.order.constants.RefundType;
-import com.stanzaliving.core.cafe.order.constants.ServingMode;
+import com.stanzaliving.core.cafe.order.constants.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -25,15 +22,32 @@ public class CafeOrderRDto {
     private CafeOrderUserRDto user;
     private OrderStatus status;
     private boolean paymentDone;
-    private RefundType refundType;
-    private RefundStatus refundStatus;
     private CafeOrderPaymentDto payment;
     private List<OrderedItemRDto> items;
-    private Double amount;
-    private Double gst;
-    private Double totalAmount;
+    private List<OrderedItemRDto> charges;
+    private List<OrderedItemRDto> coupons;
+    private double amount;
+    private double gst;
+    private double totalAmount;
+
+    private double finalAmount;
+    private double finalGst;
+    private double finalTotalAmount;
+
     private List<CafeOrderEventRDto> events;
     private ServingMode servingMode;
     private OrderDeliveryPreferenceRDto deliveryPreference;
+    private DispatchMode dispatchMode;
+    private String dispatchUserId;
+    private String dispatchCode;
+    private String cafeId;
+    private String cafeName;
+    private String residenceId;
+    private String slotId;
+    private List<CafeOrderRefundRDto> refundData;
+    private double refundedAmount;
+    private double tobeRefundAmount;
+    private double totalPaymentAmount;
+    private String qrUri;
 
 }

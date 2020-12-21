@@ -1,19 +1,13 @@
 package com.stanzaliving.core.cafe.dto;
 
-import java.util.List;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 /**
  * @author ashutosh.chandra "ashutoshchandra.retainer@stanzaliving.com"
- *
  * @version 1.0
- *
  * @since 29-Oct-2020
  */
 
@@ -24,17 +18,17 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CafeItemPricingUpdateRequestDto {
-	
-	private String itemId;
 
-	private Double masterPriceInclGst;
+    private String itemId;
 
-	private List<CogsPriceDto> cogs;
-	
-	private boolean itemEnableStatus;
-	
-	private boolean residencePriceEnabled;
-	
-	private List<ResidenceItemPricingUpdateRequestDto> residenceItemPricingList;
+    private Double masterPriceInclGst;
+
+    private List<CogsPriceDto> cogs;
+
+    private boolean itemEnableStatus;
+
+    private boolean residencePriceEnabled;
+
+    private List<ResidenceItemPricingUpdateRequestDto> residenceItemPricingList;
 
 }	

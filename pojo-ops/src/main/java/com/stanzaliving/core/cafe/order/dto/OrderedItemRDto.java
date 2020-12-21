@@ -15,18 +15,37 @@ import lombok.experimental.SuperBuilder;
 public class OrderedItemRDto {
     private ItemType type;
     private String itemId;
-    private int quantity;
     private CafeVasItemDto itemDetails;
     private Double grossPrice;
     private DiscountType discountType;
     private Double discount;
     private Double netPrice;
     //netprice * quantity
-    private Double amount;
-    private Double cgst;
-    private Double igst;
-    private Double sgst;
-    private Double totalAmount;
+    private int orderedQuantity;
+    private Double orderedAmount;
+    private Double orderedCgst;
+    private Double orderedIgst;
+    private Double orderedSgst;
+    private Double orderedGST;
+    private Double orderedTotalAmount;
+
+    private int finalQuantity;
+
+    private Double finalAmount;
+    private Double finalCgst;
+    private Double finalIgst;
+    private Double finalSgst;
+    private Double finalGST;
+    private Double finalTotalAmount;
+
+    private boolean refunded;
+    private String refundReason;
+    private String refundRemarks;
+
+    private Double cgstPercentage;
+    private Double sgstPercentage;
+    private Double igstPercentage;
+    private Double totalGstPercentage;
 
 
 }

@@ -28,6 +28,8 @@ public class RefundTransactionDto {
 
 	private String serviceTransactionId;
 
+	private String refundRequestId;
+
 	private StanzaPaymentService paymentService;
 
 	private Double amount;

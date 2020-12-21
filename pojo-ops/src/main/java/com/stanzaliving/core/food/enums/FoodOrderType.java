@@ -1,10 +1,8 @@
 package com.stanzaliving.core.food.enums;
 
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 
 /**
@@ -19,8 +17,9 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 public enum FoodOrderType {
-		PACKAGED("Packaged Order"),
-	KITCHEN("Cafe Order");
+	PACKAGED("Packaged Order"),
+	KITCHEN("Cafe Order"),
+	CAFE("Cafe Order");
 
 	private String orderTypeName;
 }

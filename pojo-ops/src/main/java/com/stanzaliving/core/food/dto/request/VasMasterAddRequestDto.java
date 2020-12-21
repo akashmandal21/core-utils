@@ -40,7 +40,7 @@ public class VasMasterAddRequestDto {
 	private Integer serves;
 
 	@NotNull(message = "Self life selection is mandatory")
-	private Integer selfLife;
+	private Double selfLife;
 
 	@NotNull(message = "Proposed price is mandatory")
 	private Integer proposedPrice;
@@ -63,7 +63,7 @@ public class VasMasterAddRequestDto {
 	@NotNull(message = "Recipe selection is mandatory")
 	private VasMasterRecipeRequestDto recipe;
 
-	@NotEmpty(message = "Feedback options selection is mandatory")
+//	@NotEmpty(message = "Feedback options selection is mandatory")
 	private List<String> feedbackOptions;
 
 }
