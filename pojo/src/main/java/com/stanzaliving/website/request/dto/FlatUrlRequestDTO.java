@@ -1,5 +1,9 @@
 package com.stanzaliving.website.request.dto;
 
+import java.util.List;
+
+import com.stanzaliving.website.response.dto.FlatUrlPlaceResponseDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,9 +20,9 @@ import lombok.ToString;
 public class FlatUrlRequestDTO {
 	private int flatUrlId;
 	private String url;
-	private String name;
-	private int placeId;
+	private List<FlatUrlPlaceResponseDTO> placeData;
 	private String description;
+	private String name;
 	private String seoTitle;
 	private String seoDescription;
 }
