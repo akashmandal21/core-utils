@@ -27,4 +27,5 @@ public class BatchOrderDispatchSummaryPDto {
     @Min(value = 1, message = "Packet Count can not be empty")
     private int packetCount;
     private LocalDate orderDate;
+    private String dispatchSummaryId;
 }

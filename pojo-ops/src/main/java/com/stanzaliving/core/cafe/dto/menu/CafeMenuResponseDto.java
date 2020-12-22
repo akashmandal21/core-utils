@@ -17,5 +17,6 @@ public class CafeMenuResponseDto {
     private LocalDate menuDate;
     private boolean active;
     private String uuid;
+    private boolean disabled;
     private List<CafeMenuItemResponseDto> items;
 }

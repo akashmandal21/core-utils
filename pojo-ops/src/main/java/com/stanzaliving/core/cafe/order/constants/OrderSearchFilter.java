@@ -14,6 +14,7 @@ public enum OrderSearchFilter {
     IN_ROOM_DELIVERY("In Room Delivery"),
     EXPRESS_DELIVERY("Express Delivery"),
     DISPATCHED("In Transit"),
+    IN_TRANSIT("In Transit"),
     DELAYED("Delayed");
 
     private final String filter;
@@ -40,6 +41,7 @@ public enum OrderSearchFilter {
                 filters.add(EnumListing.of(IN_ROOM_DELIVERY, IN_ROOM_DELIVERY.getFilter()));
                 filters.add(EnumListing.of(EXPRESS_DELIVERY, EXPRESS_DELIVERY.getFilter()));
                 filters.add(EnumListing.of(DISPATCHED, DISPATCHED.getFilter()));
+                filters.add(EnumListing.of(IN_TRANSIT, IN_TRANSIT.getFilter()));
                 filters.add(EnumListing.of(DELAYED, DELAYED.getFilter()));
                 break;
             case COMPLETED:

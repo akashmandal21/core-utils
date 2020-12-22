@@ -3,8 +3,8 @@ package com.stanzaliving.core.cafe.order.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -12,14 +12,13 @@ import java.util.Date;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BatchSlotSummaryRDto {
+public class ResidenceSlotStatRDto {
     private String slotId;
-    private String slotName;
-    private LocalTime deliveryTime;
-    private Date deliveryDate;
+    private LocalDate orderDate;
     private String dispatchSummaryId;
     private boolean dispatched;
-    private LocalTime dispatchedTime;
     private boolean received;
-    private Date receivingTime;
+    private LocalTime startTime;
+    private LocalTime endTime;
+    private boolean windowClosed;
 }

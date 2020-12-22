@@ -2,10 +2,11 @@ package com.stanzaliving.core.cafe.dto.menu;
 
 import com.stanzaliving.core.base.utils.StanzaUtils;
 import com.stanzaliving.core.cafe.dto.CafeVasItemDto;
+import com.stanzaliving.core.cafe.enums.CafeMenuItemDurationType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.Map;
+import java.util.EnumMap;
 
 @Getter
 @Setter
@@ -28,8 +29,8 @@ public class CafeMenuItemResponseDto {
     //from vas master
     private CafeVasItemDto itemDetails;
 
-    private Map<String, Double> ratings;
-    private Map<String, Double> orders;
+    private EnumMap<CafeMenuItemDurationType, Double> ratings;
+    private EnumMap<CafeMenuItemDurationType, Integer> orders;
 
     //from cafe pricing
     private Double price;

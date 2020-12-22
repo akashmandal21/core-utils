@@ -26,4 +26,5 @@ public class SearchItemRequestDto {
     private boolean includeOrders = true;
     private boolean includeResidencePrice = true;
     private boolean activeOnly = true;
+    private boolean basicDetailsOnly = false;
 }

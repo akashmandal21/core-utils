@@ -20,6 +20,6 @@ public class CafeListingResponseDto {
 	
 	private List<EnumListing<ServingMode>> servingModes;
 	
-	private List<EnumListing<SlotType>> slotTypes;;
+	private List<EnumListing<SlotType>> slotTypes;
 	
 }
