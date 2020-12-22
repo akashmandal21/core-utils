@@ -1,5 +1,6 @@
 package com.stanzaliving.core.po.generic.dtos;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import com.stanzaliving.core.po.generic.enums.PoDownloadEnum;
@@ -18,6 +19,7 @@ public class PoHeaderDto {
     private String poToNumber;
     private boolean isPo;
     private GenericPOTOStatus potoStatus;
+    private Department poDepartment;
     private String potoStatusText;
     private String textColor;
     private String backgroundColor;
