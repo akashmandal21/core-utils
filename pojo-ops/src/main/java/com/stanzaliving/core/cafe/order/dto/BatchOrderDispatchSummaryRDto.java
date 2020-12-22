@@ -1,10 +1,12 @@
 package com.stanzaliving.core.cafe.order.dto;
 
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -30,4 +32,6 @@ public class BatchOrderDispatchSummaryRDto {
     private String slotName;
     private LocalTime deliveryTime;
     private String qrCodeURI;
+    private Date updatedAt;
+    private List<UserContactDetailsResponseDto> rcUsers;
 }

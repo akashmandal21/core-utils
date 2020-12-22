@@ -40,6 +40,8 @@ public class NotificationConstants {
         public final String RECEIVED_HOT_BAGS = "<received-hot-bags>";
         public final String RECEIVED_PACKETS = "<received-packet>";
         public final String RECEIVED_ORDER = "<received-order>";
+        public final String ORDER_ITEMS = "<orderItems>";
+        public final String REFUNDED_ITEMS = "<refundItems>";
     }
 
     @UtilityClass
