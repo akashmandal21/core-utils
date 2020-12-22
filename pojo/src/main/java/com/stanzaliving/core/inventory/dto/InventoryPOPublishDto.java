@@ -14,5 +14,5 @@ import java.util.Map;
 @Setter
 public class InventoryPOPublishDto {
     private String poUuid;
-    private Map<String,BigDecimal> availableQuantities;
+    private Map<String,BigDecimal> blockConsumedQuantities;
 }
