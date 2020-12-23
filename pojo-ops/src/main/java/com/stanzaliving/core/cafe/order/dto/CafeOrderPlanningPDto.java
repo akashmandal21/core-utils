@@ -22,6 +22,5 @@ public class CafeOrderPlanningPDto {
     private String slotIds;
     @NotNull(message = "Empty Search Status")
     private OrderSearchStatus searchStatus;
-    private LocalDate orderDate;
     private OrderType orderType;
 }
