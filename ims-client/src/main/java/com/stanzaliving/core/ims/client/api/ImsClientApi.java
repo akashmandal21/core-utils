@@ -111,7 +111,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<BrokerDetailsResponseDto> returnType = new ParameterizedTypeReference<BrokerDetailsResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
     //    <----------------------------------------validatePaytmOtp--------------------------------------->
@@ -145,7 +145,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<BaseResponseDto> returnType = new ParameterizedTypeReference<BaseResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
     //    <----------------------------------------addUPIDetails--------------------------------------->
@@ -179,7 +179,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<BrokerDetailsResponseDto> returnType = new ParameterizedTypeReference<BrokerDetailsResponseDto>() {
         };
 
-        BrokerDetailsResponseDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        BrokerDetailsResponseDto response = restClient.invokeAPIAndSetToken(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType,null);
 
         if (!response.isStatus()) {
             throw new RecordExistsException(response.getMessage());
@@ -218,7 +218,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<BankPennyTestResponseDto> returnType = new ParameterizedTypeReference<BankPennyTestResponseDto>() {
         };
 
-        BankPennyTestResponseDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        BankPennyTestResponseDto response = restClient.invokeAPIAndSetToken(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType,null);
 
         if (!response.isStatus()) {
             throw new RecordExistsException(response.getMessage());
@@ -260,7 +260,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<BankVerificationResponseDto> returnType = new ParameterizedTypeReference<BankVerificationResponseDto>() {
         };
 
-        BankVerificationResponseDto response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        BankVerificationResponseDto response = restClient.invokeAPIAndSetToken(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType,null);
 
         if (!response.isStatus()) {
             throw new RecordExistsException(response.getMessage());
@@ -299,7 +299,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<BaseResponseDto> returnType = new ParameterizedTypeReference<BaseResponseDto>() {
         };
 
-        BaseResponseDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        BaseResponseDto response = restClient.invokeAPIAndSetToken(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType,null);
 
         if (!response.isStatus()) {
             throw new RecordExistsException(response.getMessage());
@@ -340,7 +340,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<BrokerKYCDetailReponseDto> returnType = new ParameterizedTypeReference<BrokerKYCDetailReponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
 
@@ -373,7 +373,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<List<PayoutMode>> returnType = new ParameterizedTypeReference<List<PayoutMode>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
 
@@ -400,7 +400,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<List<CityResponseDto>> returnType = new ParameterizedTypeReference<List<CityResponseDto>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
     //    <----------------------------------------createBroker--------------------------------------->
@@ -432,7 +432,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<BrokerDetailsResponseDto> returnType = new ParameterizedTypeReference<BrokerDetailsResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
     //    <----------------------------------------getBrokerDetails--------------------------------------->
@@ -466,7 +466,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<BrokerDetailsResponseDto> returnType = new ParameterizedTypeReference<BrokerDetailsResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
     //    <----------------------------------------uploadPanDetails--------------------------------------->
@@ -545,7 +545,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<TdsInfoResponseDto> returnType = new ParameterizedTypeReference<TdsInfoResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
 
@@ -580,7 +580,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<TdsResponseDto> returnType = new ParameterizedTypeReference<TdsResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
     //    <----------------------------------------getTdsDetailsForBroker--------------------------------------->
@@ -630,7 +630,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<BrokerTdsDetailResponse> returnType = new ParameterizedTypeReference<BrokerTdsDetailResponse>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
 
@@ -663,7 +663,7 @@ public class ImsClientApi {
         ParameterizedTypeReference<BaseResponseDto> returnType = new ParameterizedTypeReference<BaseResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
     //    <----------------------------------------changeBrokerPaymentMode--------------------------------------->
@@ -701,6 +701,6 @@ public class ImsClientApi {
         ParameterizedTypeReference<BrokerKYCDetailReponseDto> returnType = new ParameterizedTypeReference<BrokerKYCDetailReponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType,null);
     }
 }

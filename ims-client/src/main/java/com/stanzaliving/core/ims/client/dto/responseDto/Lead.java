@@ -3,6 +3,7 @@ package com.stanzaliving.core.ims.client.dto.responseDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 
@@ -35,6 +36,8 @@ public class Lead {
 
     private Date bookedOn;
 
-    private BigInteger totalEarnings;
+    private BigDecimal totalEarnings;
+
+    private BigInteger transactionsCount;
 
 }

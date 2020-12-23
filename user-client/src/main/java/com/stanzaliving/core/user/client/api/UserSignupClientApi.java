@@ -15,6 +15,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,14 +63,14 @@ public class UserSignupClientApi {
 
         ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
-        ResponseDto<String> response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        ResponseDto<String> response = restClient.invokeAPIAndSetToken(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType,null);
         if (!response.isStatus()) {
             throw new StanzaSecurityException(response.getMessage());
         }
         return response;
     }
 
-    public ResponseDto<UserProfileDto> validateSignUpOtp(String uuid, String otp) {
+    public ResponseDto<UserProfileDto> validateSignUpOtp(String uuid, String otp, HttpServletResponse httpServletResponse) {
         String path = UriComponentsBuilder.fromPath("/signup/validateOtp").toUriString();
 
         if (StringUtils.isBlank(uuid) || StringUtils.isBlank(otp)) {
@@ -93,7 +94,7 @@ public class UserSignupClientApi {
         ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
         };
 
-        ResponseDto<UserProfileDto> response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        ResponseDto<UserProfileDto> response = restClient.invokeAPIAndSetToken(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType,httpServletResponse);
 
         if (!response.isStatus()) {
             throw new StanzaSecurityException(response.getMessage());

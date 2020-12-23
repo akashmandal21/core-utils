@@ -9,10 +9,8 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.base.exception.StanzaSecurityException;
-import com.stanzaliving.core.user.enums.OtpType;
 import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.user.request.dto.LoginRequestDto;
-import com.stanzaliving.core.user.request.dto.MobileOtpValidateRequestDto;
 import com.stanzaliving.core.user.request.dto.OtpValidateRequestDto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -29,6 +27,8 @@ import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.request.dto.UserAccessDto;
 import com.stanzaliving.core.user.dto.UserProfileDto;
+
+import javax.servlet.http.HttpServletResponse;
 
 public class AuthClientApi {
 
@@ -139,14 +139,14 @@ public class AuthClientApi {
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
 		};
 
-		ResponseDto<Void> response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		ResponseDto<Void> response = restClient.invokeAPIAndSetToken(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType,null);
 		if (!response.isStatus()) {
 			throw new StanzaSecurityException(response.getMessage());
 		}
 		return response;
 	}
 
-	public ResponseDto<Void> validateOtp(String mobile, UserType userType, String otp, String isoCode) {
+	public ResponseDto<Void> validateOtp(String mobile, UserType userType, String otp, String isoCode, HttpServletResponse httpServletResponse) {
 		String path = UriComponentsBuilder.fromPath("/auth/validateOtp").toUriString();
 
 		if (StringUtils.isBlank(mobile) || Objects.isNull(userType) || StringUtils.isBlank(otp) || StringUtils.isBlank(isoCode)) {
@@ -166,7 +166,7 @@ public class AuthClientApi {
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
 		};
 
-		ResponseDto<Void> response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		ResponseDto<Void> response = restClient.invokeAPIAndSetToken(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType,httpServletResponse);
 
 		if (!response.isStatus()) {
 			throw new StanzaSecurityException(response.getMessage());

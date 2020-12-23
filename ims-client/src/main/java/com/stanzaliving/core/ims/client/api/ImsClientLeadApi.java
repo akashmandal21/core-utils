@@ -63,7 +63,7 @@ public class ImsClientLeadApi {
         ParameterizedTypeReference<LeadResponseDto> returnType = new ParameterizedTypeReference<LeadResponseDto>() {
         };
 
-        LeadResponseDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        LeadResponseDto response = restClient.invokeAPIAndSetToken(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType,null);
         if (!response.isStatus()) {
             throw new StanzaException(response.getMessage());
         }
@@ -101,7 +101,7 @@ public class ImsClientLeadApi {
         ParameterizedTypeReference<BrokerLeadsStatusResponseDto> returnType = new ParameterizedTypeReference<BrokerLeadsStatusResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
     //    <----------------------------------------searchLead--------------------------------------->
@@ -140,7 +140,7 @@ public class ImsClientLeadApi {
         ParameterizedTypeReference<BrokerLeadsDetailsResonseDto> returnType = new ParameterizedTypeReference<BrokerLeadsDetailsResonseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
 
@@ -169,7 +169,7 @@ public class ImsClientLeadApi {
         ParameterizedTypeReference<List<CityResponseDto>> returnType = new ParameterizedTypeReference<List<CityResponseDto>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPIAndSetToken(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType,null);
     }
 
 }

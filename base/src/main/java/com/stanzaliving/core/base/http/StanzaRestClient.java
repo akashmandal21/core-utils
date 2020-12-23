@@ -3,15 +3,13 @@
  */
 package com.stanzaliving.core.base.http;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Objects;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.utils.MyErrorHandler;
+import com.stanzaliving.core.base.utils.SecureCookieUtil;
 import org.slf4j.MDC;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -38,6 +36,8 @@ import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.base.exception.StanzaSecurityException;
 
 import lombok.extern.log4j.Log4j2;
+
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author naveen
@@ -162,6 +162,92 @@ public class StanzaRestClient {
         return mediaType != null && (MediaType.APPLICATION_JSON.isCompatibleWith(mediaType) || mediaType.getSubtype().matches("^.*\\+json[;]?\\s*$"));
     }
 
+
+    public <T> T invokeAPIAndSetToken(
+            String path,
+            HttpMethod method,
+            MultiValueMap<String, String> queryParams,
+            Object body,
+            HttpHeaders headerParams,
+            List<MediaType> accept,
+            ParameterizedTypeReference<T> returnType,
+            HttpServletResponse httpServletResponse) {
+
+        return invokeAPIAndSetToken(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_JSON,httpServletResponse);
+    }
+
+    public <T> T invokeAPIAndSetToken(
+            String path,
+            HttpMethod method,
+            MultiValueMap<String, String> queryParams,
+            Object body,
+            HttpHeaders headerParams,
+            List<MediaType> accept,
+            ParameterizedTypeReference<T> returnType,
+            MediaType mediaType,
+            HttpServletResponse httpServletResponse) {
+
+        final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
+
+        if (queryParams != null) {
+            builder.queryParams(queryParams);
+        }
+
+        final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
+
+        if (accept != null) {
+            requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
+        }
+
+        requestBuilder.contentType(mediaType);
+
+        if (Objects.nonNull(headerParams)) {
+
+            addHeadersToRequest(headerParams, requestBuilder);
+        }
+
+        log.info("Accessing API: {}", builder.toUriString());
+
+        RequestEntity<Object> requestEntity = requestBuilder.body(body);
+
+        // Changes for MLM service
+        return getResponse(requestEntity, returnType, builder, false, httpServletResponse);
+    }
+
+    /**
+     * Made some changes for exception handling and token.
+     */
+    private <T> T getResponse(RequestEntity<Object> requestEntity, ParameterizedTypeReference<T> returnType, final UriComponentsBuilder builder, boolean handleError,HttpServletResponse httpServletResponse) {
+
+        restTemplate.setErrorHandler(new MyErrorHandler());
+        restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
+
+        ResponseEntity<T> responseEntity = restTemplate.exchange(requestEntity, returnType);
+        System.out.println("=======code=======" + responseEntity.getStatusCode());
+
+        List<String> headers = responseEntity.getHeaders().get("Set-Cookie");
+        if (headers != null && headers.size() > 0) {
+            String string = headers.get(0);
+            String token = string.substring("token=".length(), string.indexOf(";"));
+
+            if(httpServletResponse != null) {
+//                httpServletResponse.addHeader("token", token);
+                httpServletResponse.addCookie(SecureCookieUtil.create(SecurityConstants.TOKEN_HEADER_NAME, token, Optional.of(true), Optional.of(true)));
+            }
+            ResponseDto<T> body = (ResponseDto) responseEntity.getBody();
+            return (T) body;
+        }
+        HttpStatus statusCode = responseEntity.getStatusCode();
+
+        log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
+        if (responseEntity.getStatusCode().is2xxSuccessful()) {
+            if (returnType == null) {
+                return null;
+            }
+        }
+        return responseEntity.getBody();
+    }
+
     public <T> T invokeAPI(
             String path,
             HttpMethod method,
@@ -207,40 +293,7 @@ public class StanzaRestClient {
 
         RequestEntity<Object> requestEntity = requestBuilder.body(body);
 
-        // Changes for MLM service
-//        return getResponse(requestEntity, returnType, builder);
-        return getResponse(requestEntity, returnType, builder, false);
-    }
-
-    /**
-     * Made some changes for exception handling and token.
-     */
-    private <T> T getResponse(RequestEntity<Object> requestEntity, ParameterizedTypeReference<T> returnType, final UriComponentsBuilder builder, boolean handleError) {
-
-        restTemplate.setErrorHandler(new MyErrorHandler());
-        restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
-
-        ResponseEntity<T> responseEntity = restTemplate.exchange(requestEntity, returnType);
-        System.out.println("=======code=======" + responseEntity.getStatusCode());
-
-        List<String> headers = responseEntity.getHeaders().get("Set-Cookie");
-        if (headers != null && headers.size() > 0) {
-            String string = headers.get(0);
-            String token = string.substring("token=".length(), string.indexOf(";"));
-
-            ResponseDto<T> body = (ResponseDto) responseEntity.getBody();
-            body.setToken(token);
-            return (T) body;
-        }
-        HttpStatus statusCode = responseEntity.getStatusCode();
-
-        log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
-        if (responseEntity.getStatusCode().is2xxSuccessful()) {
-            if (returnType == null) {
-                return null;
-            }
-        }
-        return responseEntity.getBody();
+        return getResponse(requestEntity, returnType, builder);
     }
 
     private <T> T getResponse(RequestEntity<Object> requestEntity, ParameterizedTypeReference<T> returnType, final UriComponentsBuilder builder) {
@@ -271,9 +324,8 @@ public class StanzaRestClient {
                 return null;
             }
             return responseEntity.getBody();
-        } else if (responseEntity.getStatusCode() == HttpStatus.UNAUTHORIZED) {
-            throw new StanzaSecurityException("Phone number entered doesn’t exist in the system. Please either login with the correct number or sign up.");
-        } else {
+        }
+        else {
             // The error handler built into the RestTemplate should handle 400 and 500 series errors.
             throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
         }
