@@ -112,7 +112,7 @@ public class VentaClientApi {
 	}
 	
 	
-	public String getPdfUrlByType(String type, String typeId) {
+	public String getPdfUrlByType(String type, String typeId,String typeName) {
 
 		Object postBody = null;
 
@@ -122,6 +122,7 @@ public class VentaClientApi {
 
 		queryParams.add("type", type);
 		queryParams.add("typeId", typeId);
+		queryParams.add("typeName", typeName);
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = { "*/*" };
