@@ -45,4 +45,6 @@ public class FeedbackRequestDto {
 	@NotEmpty(message = "Item selection for feedback is mandatory")
 	private List<FeedbackItemRequestDto> itemFeedback;
 
+	private String nudgeId;
+
 }
