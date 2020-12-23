@@ -1,6 +1,5 @@
 package com.stanzaliving.internet.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,11 +9,8 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-<<<<<<< HEAD
 import java.time.LocalDate;
-=======
->>>>>>> e1b8edc4838f245092057d6ff400cf464affce61
-import java.util.Date;
+
 
 @Getter
 @Setter
