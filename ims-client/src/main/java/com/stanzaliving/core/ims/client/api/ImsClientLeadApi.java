@@ -1,12 +1,10 @@
 package com.stanzaliving.core.ims.client.api;
 
 import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.ims.client.dto.LeadDto;
-import com.stanzaliving.core.ims.client.dto.responseDto.BaseResponseDto;
-import com.stanzaliving.core.ims.client.dto.responseDto.BrokerLeadsDetailsResonseDto;
-import com.stanzaliving.core.ims.client.dto.responseDto.CityResponseDto;
-import com.stanzaliving.core.ims.client.dto.responseDto.BrokerLeadsStatusResponseDto;
+import com.stanzaliving.core.ims.client.dto.responseDto.*;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -36,13 +34,13 @@ public class ImsClientLeadApi {
 
     //    <----------------------------------------createLead--------------------------------------->
 
-    public BaseResponseDto createLead(String token, LeadDto leadDto, String brokerMobile) {
+    public LeadResponseDto createLead(String token, LeadDto leadDto, String brokerMobile) {
         String path = UriComponentsBuilder.fromPath(CREATE_LEAD).toUriString();
 
         return createLead(path, token, leadDto, brokerMobile);
     }
 
-    private BaseResponseDto createLead(String path, String token, LeadDto leadDto, String brokerMobile) {
+    private LeadResponseDto createLead(String path, String token, LeadDto leadDto, String brokerMobile) {
 
         if (Objects.isNull(leadDto) || StringUtils.isEmpty(brokerMobile)) {
             throw new IllegalArgumentException("Request is null for adding user or Broker Mobile missing");
@@ -52,20 +50,24 @@ public class ImsClientLeadApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<BaseResponseDto> returnType = new ParameterizedTypeReference<BaseResponseDto>() {
+        ParameterizedTypeReference<LeadResponseDto> returnType = new ParameterizedTypeReference<LeadResponseDto>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        LeadResponseDto response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        if (!response.isStatus()) {
+            throw new StanzaException(response.getMessage());
+        }
+        return response;
     }
 
     //    <----------------------------------------getLeadDetails--------------------------------------->
@@ -86,13 +88,13 @@ public class ImsClientLeadApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
+        queryParams.add("brokerMobile", brokerMobile);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -104,13 +106,13 @@ public class ImsClientLeadApi {
 
     //    <----------------------------------------searchLead--------------------------------------->
 
-    public BrokerLeadsDetailsResonseDto searchLead(String token, String brokerMobile, String searchTerm, String status, int start , int size) {
+    public BrokerLeadsDetailsResonseDto searchLead(String token, String brokerMobile, String searchTerm, String status, int start, int size) {
         String path = UriComponentsBuilder.fromPath(SEARCH_LEAD).toUriString();
 
-        return searchLead(path, token, brokerMobile,searchTerm,status,start,size);
+        return searchLead(path, token, brokerMobile, searchTerm, status, start, size);
     }
 
-    private BrokerLeadsDetailsResonseDto searchLead(String path, String token, String brokerMobile, String searchTerm, String status, int start , int size) {
+    private BrokerLeadsDetailsResonseDto searchLead(String path, String token, String brokerMobile, String searchTerm, String status, int start, int size) {
 
         if (org.apache.commons.lang3.StringUtils.isBlank(brokerMobile)) {
             throw new IllegalArgumentException("Please check all the Params");
@@ -120,18 +122,18 @@ public class ImsClientLeadApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("brokerMobile",brokerMobile);
-        queryParams.add("searchTerm",searchTerm);
-        queryParams.add("status",status);
+        queryParams.add("brokerMobile", brokerMobile);
+        queryParams.add("searchTerm", searchTerm);
+        queryParams.add("status", status);
         queryParams.add("start", String.valueOf(start));
         queryParams.add("size", String.valueOf(size));
 
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -147,7 +149,7 @@ public class ImsClientLeadApi {
     public List<CityResponseDto> getCityAndLocality(String token) {
         String path = UriComponentsBuilder.fromPath(CITY_AND_LOCALITY_DETAILS).toUriString();
 
-        return getCityAndLocality(path,token);
+        return getCityAndLocality(path, token);
     }
 
     private List<CityResponseDto> getCityAndLocality(String path, String token) {
@@ -158,9 +160,9 @@ public class ImsClientLeadApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token );
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, VENTA_TOKEN_PREFIX + " " + token);
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
