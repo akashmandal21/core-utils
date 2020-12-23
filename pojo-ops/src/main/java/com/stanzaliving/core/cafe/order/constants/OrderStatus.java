@@ -19,6 +19,7 @@ public enum OrderStatus {
     PACKED("Packed", "order.packed"),
     DISPATCHED("Dispatched", "order.dispatched"),
     DELIVERED("Delivered", "order.delivered"),
+    RECEIVED("Received", "order.received"),
     CANCELLED("Cancelled", "order.cancelled");
 
     private final String status;
@@ -57,6 +58,7 @@ public enum OrderStatus {
         statuses.add(PREPARED);
         statuses.add(PACKED);
         statuses.add(DISPATCHED);
+        statuses.add(RECEIVED);
         statuses.add(DELIVERED);
         return statuses;
     }
