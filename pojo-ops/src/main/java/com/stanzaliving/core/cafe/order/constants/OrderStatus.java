@@ -85,4 +85,11 @@ public enum OrderStatus {
     public static boolean isPending(OrderStatus status) {
         return pendingStatus().contains(status);
     }
+
+    public static List<OrderStatus> getDispatchOrderStatus() {
+        List<OrderStatus> orderStatuses = new ArrayList<>();
+        orderStatuses.add(OrderStatus.DISPATCHED);
+        orderStatuses.add(OrderStatus.RECEIVED);
+        return orderStatuses;
+    }
 }
