@@ -29,7 +29,7 @@ public class UpdateUserRequestDto {
 
 	@NotNull(message = "User Id is mandatory to updates user")
 	private String userId;
-	
+
 	private String email;
 
 	private String firstName;
@@ -43,18 +43,19 @@ public class UpdateUserRequestDto {
 	private LocalDate birthday;
 
 	private Address address;
-	
+
 	private BloodGroup bloodGroup;
-	
+
 	private Nationality nationality;
-	
+
 	private String foriegnCountryCode;
-	
+
 	private String foriegnMobileNumber;
-	
+
 	private LocalDate dateOfArrival;
-	
+
 	private String nextDestination;
-	
+
 	private String userMobile;
+
 }
