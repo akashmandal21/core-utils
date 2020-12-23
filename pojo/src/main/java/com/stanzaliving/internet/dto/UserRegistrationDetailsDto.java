@@ -1,6 +1,5 @@
 package com.stanzaliving.internet.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +9,8 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Getter
 @Setter
@@ -36,6 +36,6 @@ public class UserRegistrationDetailsDto {
 	private String emailId;
 
 	@NotNull(message = "Check-In Date cannot be null")
-	private Date checkInDate;
+	private LocalDate checkInDate;
 	
 }
