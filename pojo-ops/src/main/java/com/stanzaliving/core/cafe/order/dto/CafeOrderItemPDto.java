@@ -24,6 +24,4 @@ public class CafeOrderItemPDto {
     private int quantity;
 
 
-
-
 }

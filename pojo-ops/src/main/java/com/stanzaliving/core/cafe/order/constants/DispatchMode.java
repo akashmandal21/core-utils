@@ -10,9 +10,9 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum DispatchMode {
-    SELF_USER("Resident/User"),
+    SELF_USER("Resident/Guest"),
     OPERATIONS_TEAM("Operations Team"),
-    RC("RC"),
+    RC("F&B Team"),
     VENDOR("Vendor");
 
     private final String mode;
