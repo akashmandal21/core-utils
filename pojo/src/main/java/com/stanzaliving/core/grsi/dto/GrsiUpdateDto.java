@@ -18,5 +18,6 @@ public class GrsiUpdateDto {
     private String potoUuid;
     private BigDecimal grsiPct;
     private boolean grsiCompleted;
+    private boolean rcvCompleted;
     private Date updatedAt;
 }

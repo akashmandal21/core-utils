@@ -11,7 +11,7 @@ import java.util.Objects;
 @Getter
 public enum GSTSlabs {
 
-    NA("Not Applicable",null),
+    NA("NA",null),
     ZERO("0 %",0.0),
     FIVE("05 %",5.0),
     TWELEVE("12 %",12.0),

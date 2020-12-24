@@ -31,6 +31,7 @@ public class PoItemDetail {
     private String hsnSacCode;
     private String description;
     private BigDecimal quantity;
+    private BigDecimal rentPeriod;
     private BigDecimal unitRate;
     private BigDecimal gst;
 

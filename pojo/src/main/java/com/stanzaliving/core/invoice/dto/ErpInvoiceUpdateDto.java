@@ -19,7 +19,7 @@ public class ErpInvoiceUpdateDto {
     private BigDecimal totalInvoiced;
     private BigDecimal otherFeeRaised;
     @Builder.Default
-    private boolean itemsPending = true;
+    private boolean itemsPending = false;
 
     private Map<String,BigDecimal> invoicedItems;
 }
