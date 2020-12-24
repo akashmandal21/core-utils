@@ -4,6 +4,7 @@ import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
@@ -16,7 +17,9 @@ import java.util.List;
 @SuperBuilder
 public class BatchOrderDispatchSummaryRDto {
     private String dispatchSummaryId;
+    private LocalDate summaryDate;
     private String cafeId;
+    private String cafeName;
     private String residenceId;
     private String slotId;
     private int hotbagCount;
