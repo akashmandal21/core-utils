@@ -21,5 +21,7 @@ public class GSRIReceivedQuantity {
 
     private String itemUuid;
 
+    private BigDecimal poQuantity;
+
     private BigDecimal gsriRcvdQuantity;
 }
