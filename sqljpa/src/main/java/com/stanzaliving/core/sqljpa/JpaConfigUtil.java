@@ -10,7 +10,6 @@ import java.util.Map;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 import lombok.experimental.UtilityClass;
-import lombok.extern.log4j.Log4j2;
 
 /**
  * 
@@ -19,14 +18,11 @@ import lombok.extern.log4j.Log4j2;
  * @date 30-Sep-2019
  */
 @UtilityClass
-@Log4j2
 public class JpaConfigUtil {
 
 	public static void configureDbCrendentials(
 			ComboPooledDataSource dataSource, String driverClassName, String dbUrl, String dbName, String dbPassword) throws PropertyVetoException {
 
-		log.info("db credentials are {} {}",dbUrl,dbName);
-		
 		dataSource.setDriverClass(driverClassName);
 		dataSource.setJdbcUrl(dbUrl);
 		dataSource.setUser(dbName);
