@@ -21,6 +21,7 @@ public class BatchOrderDispatchSummaryRDto {
     private String cafeId;
     private String cafeName;
     private String residenceId;
+    private String residenceName;
     private String slotId;
     private int hotbagCount;
     private int orderCount;
