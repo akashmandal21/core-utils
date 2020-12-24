@@ -47,6 +47,8 @@ public class NotificationConstants {
     @UtilityClass
     public class EmailConstant {
         public final String ORDER_ID = "orderId";
+        public final String ROOM_DELIVERY = "roomDelivery";
+        public final String DELIVERY = "delivery";
         public final String ORDER_CODE = "orderCode";
         public final String DELIVERY_CODE = "deliveryCode";
         public final String ORDER_TIME = "orderTime";
