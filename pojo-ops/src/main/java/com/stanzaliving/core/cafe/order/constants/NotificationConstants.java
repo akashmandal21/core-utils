@@ -81,6 +81,7 @@ public class NotificationConstants {
         public final String ITEM_AMOUNT = "itemAmount";
         public final String CHARGES_AMOUNT = "chargesAmount";
         public final String COUPON_AMOUNT = "couponAmount";
+        public final String FULL_REFUND = "fullRefund";
 
     }
 }
