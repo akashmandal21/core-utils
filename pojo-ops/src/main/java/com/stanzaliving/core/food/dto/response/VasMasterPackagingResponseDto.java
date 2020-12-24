@@ -1,11 +1,13 @@
 package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.food.enums.PackagingMaterial;
-import com.stanzaliving.core.user.enums.EnumListing;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -22,6 +24,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VasMasterPackagingResponseDto {
+
 	private String packagingId;
 
 	private String packagingName;

@@ -100,6 +100,8 @@ public enum LeadSourceEnum {
 	WEBSITE_COMING_SOON("Website - Coming Soon"),
 	WEBSITE_VISIT("WebSite Visit"),
 	WEBSITE_RESIDENCE_CARD("Website - Residence Card"),
+	WEBSITE_RESIDENCE_CARD_SCHEDULE_VISIT("Website - Residence Card Schedule Visit"),
+	WEBSITE_RESIDENCE_CARD_RESERVE_NOW("Website - Residence Card Reserve Now"),
 	WEBSITE_GOOGLE_MAPS("Website, Google Maps"),
 	WHATSAPP("Whatsapp"),
 	WHATSAPP_WEBSITE("Whatsapp-Website"),

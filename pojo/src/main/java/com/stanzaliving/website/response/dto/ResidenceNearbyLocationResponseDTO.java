@@ -19,5 +19,6 @@ public class ResidenceNearbyLocationResponseDTO {
 	private double distance;
 	@Builder.Default
 	private int locationOrder = 0;
+	private int cityId;
 
 }

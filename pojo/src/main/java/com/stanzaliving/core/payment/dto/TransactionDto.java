@@ -48,4 +48,6 @@ public class TransactionDto extends AbstractDto {
 	private String serviceTransactionId;
 	
 	private String refundTransactionId;
+
+	private PaymentStatus refundStatus;
 }
