@@ -6,7 +6,6 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -22,6 +21,5 @@ public class CafeOrderPlanningPDto {
     private String slotIds;
     @NotNull(message = "Empty Search Status")
     private OrderSearchStatus searchStatus;
-    private LocalDate orderDate;
     private OrderType orderType;
 }

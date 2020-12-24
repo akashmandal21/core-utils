@@ -1,6 +1,8 @@
 package com.stanzaliving.core.cafe.order.dto;
 
-import com.stanzaliving.core.cafe.order.constants.*;
+import com.stanzaliving.core.cafe.order.constants.DispatchMode;
+import com.stanzaliving.core.cafe.order.constants.OrderStatus;
+import com.stanzaliving.core.cafe.order.constants.ServingMode;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 

@@ -1,10 +1,6 @@
 package com.stanzaliving.core.cafe.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -15,10 +11,10 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ChargesApplicableDto {
 
-	private ApplicableChargesDto chargesDto;
+    private ApplicableChargesDto chargesDto;
 
-	private boolean mandatory;
+    private boolean mandatory;
 
-	private Double chargeValue;
+    private Double chargeValue;
 
 }

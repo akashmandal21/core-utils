@@ -16,6 +16,7 @@ public class BatchSlotSummaryRDto {
     private String slotId;
     private String slotName;
     private LocalTime deliveryTime;
+    private Date deliveryDate;
     private String dispatchSummaryId;
     private boolean dispatched;
     private LocalTime dispatchedTime;
