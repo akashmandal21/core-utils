@@ -61,34 +61,4 @@ public class CampaignClientApi {
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
-
-	public void disableActiveNudgesByCampaignType(UserActiveNudgeCampaignDto userActiveNudgeCampaignDto) {
-
-		ResponseDto<Objects> responseDto = null;
-
-		UserActiveNudgeCampaignDto postBody = userActiveNudgeCampaignDto;
-
-		final Map<String, Object> uriVariables = new HashMap<>();
-
-		String path = UriComponentsBuilder.fromPath("/internal/disable/user/active/nudge").buildAndExpand(uriVariables).toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {
-						"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Objects>> returnType = new ParameterizedTypeReference<ResponseDto<Objects>>() {
-		};
-
-		try {
-			restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("exception while fetching campaign status from campaign service", e);
-		}
-	}
-
 }
