@@ -36,6 +36,7 @@ public class InvoiceItemDto {
 
     private BigDecimal poUnitRate;
     private BigDecimal rentPeriod;
+    private BigDecimal poRentPeriod;
 
     private UIKeyValue poGst;
 
