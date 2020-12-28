@@ -27,4 +27,5 @@ public class SearchItemRequestDto {
     private boolean includeResidencePrice = true;
     private boolean activeOnly = true;
     private boolean basicDetailsOnly = false;
+    private boolean fetchImage = true;
 }

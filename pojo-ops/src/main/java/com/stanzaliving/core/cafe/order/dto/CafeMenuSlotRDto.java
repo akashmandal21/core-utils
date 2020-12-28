@@ -4,6 +4,7 @@ import com.stanzaliving.core.cafe.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Getter
@@ -19,4 +20,6 @@ public class CafeMenuSlotRDto {
     private String slotName;
     private LocalTime startTime;
     private LocalTime endTime;
+    private boolean nextDayApplicable;
+    private LocalDate orderDate;
 }

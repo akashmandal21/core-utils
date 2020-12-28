@@ -29,6 +29,7 @@ public enum OrderSearchStatus {
                 status.add(OrderStatus.DISPATCHED);
                 break;
             case COMPLETED:
+                status.add(OrderStatus.RECEIVED);
                 status.add(OrderStatus.DELIVERED);
                 status.add(OrderStatus.CANCELLED);
                 break;
