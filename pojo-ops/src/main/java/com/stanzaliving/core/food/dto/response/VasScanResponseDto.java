@@ -28,5 +28,6 @@ public class VasScanResponseDto {
 
 	private Double totalPayment;
 	
-	private boolean isMealReplacement; 
+	private boolean isMealReplacement;
+	private String orderId;
 }

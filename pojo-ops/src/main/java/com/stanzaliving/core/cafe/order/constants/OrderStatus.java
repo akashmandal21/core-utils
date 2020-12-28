@@ -19,6 +19,7 @@ public enum OrderStatus {
     PACKED("Packed", "order.packed"),
     DISPATCHED("Dispatched", "order.dispatched"),
     DELIVERED("Delivered", "order.delivered"),
+    RECEIVED("Received", "order.received"),
     CANCELLED("Cancelled", "order.cancelled");
 
     private final String status;
@@ -57,6 +58,7 @@ public enum OrderStatus {
         statuses.add(PREPARED);
         statuses.add(PACKED);
         statuses.add(DISPATCHED);
+        statuses.add(RECEIVED);
         statuses.add(DELIVERED);
         return statuses;
     }
@@ -82,5 +84,12 @@ public enum OrderStatus {
 
     public static boolean isPending(OrderStatus status) {
         return pendingStatus().contains(status);
+    }
+
+    public static List<OrderStatus> getDispatchOrderStatus() {
+        List<OrderStatus> orderStatuses = new ArrayList<>();
+        orderStatuses.add(OrderStatus.DISPATCHED);
+        orderStatuses.add(OrderStatus.RECEIVED);
+        return orderStatuses;
     }
 }
