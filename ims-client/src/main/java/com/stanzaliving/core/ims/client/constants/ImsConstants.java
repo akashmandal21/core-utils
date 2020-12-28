@@ -5,11 +5,11 @@ package com.stanzaliving.core.ims.client.constants;
  */
 public class ImsConstants {
 
-    public static final String PAYOUT_DETAILS = "/broker/payoutdetails";
+    public static final String PAYOUT_DETAILS = "/nexusV2/paymentMode/select";
 
-    public static final String KYC_DETAILS = "/broker/payoutDetails";
+    public static final String KYC_DETAILS = "/nexusV2/broker/payoutDetails";
 
-    public static final String PAYTM_OTP_VALIDATE = "/broker/validatepaytm";
+    public static final String PAYTM_OTP_VALIDATE = "/nexusV2/validate/paytm";
 
     public static final String BANK_PENNY_TESTING = "/nexusV2/bankTransfer/fundAccount/validate";
 
@@ -19,13 +19,13 @@ public class ImsConstants {
 
     public static final String PAYOUT_URL = "/nexusV2/payment/redeem";
 
-    public static final String PAYOUT_MODES = "/broker/payoutMode";
+    public static final String PAYOUT_MODES = "/nexusV2/broker/payoutMode";
 
     public static final String CITY_DETAILS = "/city/brokerApp/";
 
     public static final String CREATE_BROKER = "/nexusV2/broker/create";
 
-    public static final String BROKER_DETAILS = "/broker";
+    public static final String BROKER_DETAILS = "/nexusV2/broker";
 
     public static final String PAN_DETAILS = "/nexusV2/broker/document/pan";
 
