@@ -3,7 +3,6 @@ package com.stanzaliving.core.user.client.api;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.exception.StanzaSecurityException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.user.dto.UserDto;
 import com.stanzaliving.core.user.dto.UserProfileDto;
 import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
 import org.apache.commons.lang3.StringUtils;
@@ -33,14 +32,6 @@ public class UserSignupClientApi {
     }
 
     public ResponseDto<String> signUpUser(AddUserRequestDto addUserRequestDto) {
-
-        System.out.println(addUserRequestDto.getEmail());
-        System.out.println(addUserRequestDto.getFirstName());
-        System.out.println(addUserRequestDto.getMiddleName());
-        System.out.println(addUserRequestDto.getLastName());
-        System.out.println(addUserRequestDto.getMobile());
-        System.out.println(addUserRequestDto.getUserType());
-        System.out.println(addUserRequestDto.getDepartment());
 
         if (Objects.isNull(addUserRequestDto)) {
             throw new IllegalArgumentException("Request is null for adding user");
