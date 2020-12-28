@@ -170,6 +170,7 @@ public class TransformationCache {
 	public Map<String,String> getCountryNames() {
 		return allCountryNameCache.getUnchecked("countryName");
 	}
+	public Map<String,String> getStateUuids() { return allStatesUuidCache.getUnchecked("stateName"); }
 
 	public String getLocationName(String locType, String uuid){
 		switch (locType){
@@ -288,5 +289,16 @@ public class TransformationCache {
 	public MicroMarketMetadataDto getMicromarketDataFromUuid(String micromarketUuid) {
 		return internalDataControllerApi.getMicromarketData(micromarketUuid).getData();
 	}
+
+	private LoadingCache<String, Map<String,String>> allStatesUuidCache = CacheBuilder.newBuilder()
+			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.build(
+					new CacheLoader<String, Map<String,String>>() {
+
+						@Override
+						public Map<String,String> load(String key) {
+							return internalDataControllerApi.getAllStates().getData().stream().collect(Collectors.toMap(f->f.getStateName(), f->f.getUuid()));
+						}
+					});
 
 }

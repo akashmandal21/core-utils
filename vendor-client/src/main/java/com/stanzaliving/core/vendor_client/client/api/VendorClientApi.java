@@ -323,7 +323,7 @@ public class VendorClientApi {
 
         String path = UriComponentsBuilder.fromPath("/generic/internal/createHHWVendor").toUriString();
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, vddReturnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, vddReturnType);
     }
 
 }
