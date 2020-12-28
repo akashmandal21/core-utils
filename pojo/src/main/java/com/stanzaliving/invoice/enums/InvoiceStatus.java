@@ -20,10 +20,10 @@ public enum InvoiceStatus {
     L1_APPROVAL_DUE("L1 Approval Due", "#FFEAB6","#FFB701", 0),
     L2_APPROVAL_DUE("L2 Approval Due", "#FFEAB6","#FFB701", 1),
     L3_APPROVAL_DUE("L3 Approval Due", "#FFEAB6","#FFB701", 2),
-    L1_REJECTED("L1 Rejected", "#FBECDB","#F55F71", GenericConstants.rejectionStart-1),
+    L1_REJECTED("L1 Rejected", "#FBECDB","#F55F71", GenericConstants.rejectionStart-1),//SENT_BACK_BY_FINANCE
     L2_REJECTED("L2 Rejected", "#FBECDB","#F55F71", GenericConstants.rejectionStart-2),
     L3_REJECTED("L3 Rejected", "#FBECDB","#F55F71", GenericConstants.rejectionStart-3),
-    PAYMENT_PENDING("Payment Pending", "#EDF4FF", "#5FC4F5",3),
+    PAYMENT_PENDING("Payment Pending", "#EDF4FF", "#5FC4F5",3),//INVOICE_SUBMITTED
     PARTIALLY_PAID("Partially Paid", "#F4EEFF","#7A7D7E", 4),
     FULLY_PAID("Fully Paid", "#EDFFF5","#60C3AD", 5);
 
