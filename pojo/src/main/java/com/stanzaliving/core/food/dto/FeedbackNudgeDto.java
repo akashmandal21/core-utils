@@ -1,4 +1,4 @@
-package com.stanzaliving.core.food.dto.request;
+package com.stanzaliving.core.food.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,18 +7,20 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.util.Set;
-
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class HostelVasEnabledUpdateDto {
+public class FeedbackNudgeDto {
+	private String userId;
 
-	private boolean vasEnabled;
+	private String webEngageAccountId;
 
-	private Set<Integer> hostelIds;
+	private String webEngageCampaignId;
 
+	private String orderType;
+
+	private String mobileNumber;
 }
