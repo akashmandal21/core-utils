@@ -223,7 +223,6 @@ public class StanzaRestClient {
         restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
 
         ResponseEntity<T> responseEntity = restTemplate.exchange(requestEntity, returnType);
-        System.out.println("=======code=======" + responseEntity.getStatusCode());
 
         List<String> headers = responseEntity.getHeaders().get("Set-Cookie");
         if (headers != null && headers.size() > 0) {
