@@ -5,6 +5,7 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,6 +27,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class DishRecipeDetailsDto {
 
+	private ListingDto dish;
+
 	private int cookQuantity;
 
 	private Double standardQuantity;
@@ -37,4 +40,6 @@ public class DishRecipeDetailsDto {
 	private List<KitchenCostDto> kitchenCostDtos;
 
 	private List<RecipeIngredientDto> ingredients;
+
+	private int ingredientCount;
 }
