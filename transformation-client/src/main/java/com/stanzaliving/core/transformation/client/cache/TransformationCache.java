@@ -36,6 +36,7 @@ public class TransformationCache {
 					});
 
 
+
 	private LoadingCache<String, List<ZoneMetadataDto>> allZoneCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
@@ -158,6 +159,18 @@ public class TransformationCache {
 						}
 					});
 
+
+	private LoadingCache<String, Map<String,String>> allStatesNameToIdCache = CacheBuilder.newBuilder()
+			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.build(
+					new CacheLoader<String, Map<String,String>>() {
+
+						@Override
+						public Map<String,String> load(String key) {
+							return internalDataControllerApi.getAllStates().getData().stream().collect(Collectors.toMap(f->f.getStateName().toLowerCase(), f->f.getUuid()));
+						}
+					});
+
 	public Map<String,String> getCityNames() {
 		return allCityNameCache.getUnchecked("cityName");
 	}
@@ -166,6 +179,9 @@ public class TransformationCache {
 	}
 	public Map<String,String> getStateNames() {
 		return allStatesNameCache.getUnchecked("stateName");
+	}
+	public Map<String,String> getStateNamesToIdCache() {
+		return allStatesNameCache.getUnchecked("stateNameToId");
 	}
 	public Map<String,String> getCountryNames() {
 		return allCountryNameCache.getUnchecked("countryName");
