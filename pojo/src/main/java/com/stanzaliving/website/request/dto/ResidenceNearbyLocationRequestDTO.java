@@ -1,4 +1,4 @@
-package com.stanzaliving.website.response.dto;
+package com.stanzaliving.website.request.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ResidenceNearbyLocationResponseDTO {
+public class ResidenceNearbyLocationRequestDTO {
 
 	private int residenceNearbyLocationId;
 	private int nearbyLocationId;
@@ -19,6 +19,7 @@ public class ResidenceNearbyLocationResponseDTO {
 	private double distance;
 	@Builder.Default
 	private int locationOrder = 0;
+	private boolean enabled;
 	private int cityId;
 
 }
