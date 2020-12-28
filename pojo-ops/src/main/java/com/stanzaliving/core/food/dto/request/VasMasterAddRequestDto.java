@@ -61,6 +61,6 @@ public class VasMasterAddRequestDto {
 
 	@Valid
 	@NotNull(message = "Recipe selection is mandatory")
-	private VasMasterRecipeRequestDto recipe;
+	private List<VasMasterRecipeRequestDto> recipe;
 
 }

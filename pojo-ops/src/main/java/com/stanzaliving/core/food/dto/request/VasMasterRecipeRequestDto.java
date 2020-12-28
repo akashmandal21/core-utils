@@ -21,6 +21,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VasMasterRecipeRequestDto {
+	private String dishId;
+
 	private Double cookQuantity;
 
 	private Double grammagePerPax;
