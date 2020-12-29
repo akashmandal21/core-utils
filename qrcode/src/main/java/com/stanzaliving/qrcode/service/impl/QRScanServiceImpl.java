@@ -56,7 +56,7 @@ public class QRScanServiceImpl implements QRScanService {
 			return qrData;
 		}
 
-		throw new ApiValidationException("Invalid QrCode");
+		throw new ApiValidationException("This is not a valid Stanza QR code.");
 	}
 
 	private void validateWithResidenceFoodMenuId(String residenceFoodMenuId, QRData qrData) {
@@ -66,7 +66,7 @@ public class QRScanServiceImpl implements QRScanService {
 				&& StringUtils.isNotEmpty(residenceFoodMenuId)
 				&& !residenceFoodMenuId.equals(qrData.getContextId())) {
 
-			throw new ApiValidationException("Invalid QrCode");
+			throw new ApiValidationException("This is not a valid Stanza QR code.");
 		}
 	}
 
