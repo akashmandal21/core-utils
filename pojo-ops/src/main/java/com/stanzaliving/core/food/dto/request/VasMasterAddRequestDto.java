@@ -60,7 +60,7 @@ public class VasMasterAddRequestDto {
 	private List<VasMasterPackagingRequestDto> packaging;
 
 	@Valid
-	@NotNull(message = "Recipe selection is mandatory")
+	@NotEmpty(message = "Recipe selection is mandatory")
 	private List<VasMasterRecipeRequestDto> recipe;
 
 }

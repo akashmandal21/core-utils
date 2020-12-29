@@ -25,8 +25,6 @@ public class VasMasterRecipeRequestDto {
 
 	private Double cookQuantity;
 
-	private Double grammagePerPax;
-
 	private Integer quantityPerPax;
 
 	@NotEmpty(message = "Ingredients selection are mandatory")
