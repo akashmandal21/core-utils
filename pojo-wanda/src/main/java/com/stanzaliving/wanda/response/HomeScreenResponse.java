@@ -1,6 +1,6 @@
 package com.stanzaliving.wanda.response;
 
-import com.stanzaliving.complaint.dto.ComplaintMetaDataDto;
+import com.stanzaliving.core.complaint.dto.ComplaintListingDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,6 +20,6 @@ public class HomeScreenResponse {
 	private FoodHomeScreenResponse foodHomeScreenResponse;
 
 	private CommercialsHomeScreenResponse commercialsHomeScreenResponse;
-	
-	private ComplaintMetaDataDto complaintMetaDataDto;
+
+	private ComplaintListingDto complaintListingDto;
 }
