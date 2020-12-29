@@ -26,25 +26,11 @@ public class ResidentFoodFeedbackRequestDto {
 	@NotBlank(message = "FoodOrderId cannot be blank")
 	private String foodOrderId;
 
-	@NotBlank(message = "ResidenceFoodMenuId cannot be blank")
-	private String residenceFoodMenuId;
-
-	@NotNull(message = "MenuDate cannot be null")
-	private LocalDate menuDate;
-
-	@NotNull(message = "MealTyoe cannot be null")
-	private MealType mealType;
-
-	@NotBlank(message = "UserId cannot be blank")
+	@NotBlank(message = "User is not valid")
 	private String userId;
 
-	@NotBlank(message = "VendorId cannot be blank")
-	private String vendorId;
-
-	@NotNull(message = "Rating cannot be null")
+	@NotNull(message = "Rating is mandatory")
 	private Float rating;
-
-	private String reason;
 
 	private String comment;
 

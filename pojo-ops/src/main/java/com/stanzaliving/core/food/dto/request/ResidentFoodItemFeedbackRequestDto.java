@@ -30,10 +30,6 @@ public class ResidentFoodItemFeedbackRequestDto {
 	@NotNull(message = "Rating cannot be null")
 	private Float rating;
 
-	private String reason;
-
-	private String comment;
-
 	private List<ExpectedItemFeedbackReasonDto> expectedItemFeedbackReasons;
 
 }
