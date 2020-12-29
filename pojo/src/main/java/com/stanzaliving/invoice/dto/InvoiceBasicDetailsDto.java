@@ -16,6 +16,8 @@ import java.util.Date;
 @Builder
 public class InvoiceBasicDetailsDto {
 
+    private String uuid;
+
     private String poUuid;
 
     private String invoiceCode;

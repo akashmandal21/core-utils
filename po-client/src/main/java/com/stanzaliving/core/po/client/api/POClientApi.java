@@ -8,6 +8,8 @@ import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.po.generic.dtos.VendorWisePoDetails;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
+import com.stanzaliving.invoice.dto.InvoiceMigrationDto;
+import com.stanzaliving.invoice.dto.PoInvoiceDetailsDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -450,6 +452,28 @@ public class POClientApi {
         ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
         String path = UriComponentsBuilder.fromPath("/internal/generic/downloads/getPoPdf/{poUuid}").buildAndExpand(uriVariables).toUriString();
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
+    }
+
+    public ResponseDto<Map<PoInvoiceDetailsDto, List<InvoiceMigrationDto>>> getAllInvoices() {
+
+        log.info("HTTP Client call to get All Invoices");
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<Map<PoInvoiceDetailsDto, List<InvoiceMigrationDto>>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Map<PoInvoiceDetailsDto, List<InvoiceMigrationDto>>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/all/invoices").toUriString();
+
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
