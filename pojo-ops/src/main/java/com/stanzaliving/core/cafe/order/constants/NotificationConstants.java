@@ -20,6 +20,7 @@ public class NotificationConstants {
         public final String ORDER_CODE = "<orderCode>";
         public final String DELIVERY_CODE = "<deliveryCode>";
         public final String ORDER_TIME = "<orderTime>";
+        public final String ORDER_DATE = "<orderDate>";
         public final String EXPECTED_DELIVERY_TIME = "<expectedDeliveryTime>";
         public final String DELIVERY_TIME = "<deliveryTime>";
         public final String DISPTACH_USER_ID = "<dispatchUserId>";
@@ -52,6 +53,7 @@ public class NotificationConstants {
         public final String ORDER_CODE = "orderCode";
         public final String DELIVERY_CODE = "deliveryCode";
         public final String ORDER_TIME = "orderTime";
+        public final String ORDER_DATE = "orderDate";
         public final String EXPECTED_DELIVERY_TIME = "expectedDeliveryTime";
         public final String DELIVERY_TIME = "deliveryTime";
         public final String DISPTACH_USER_ID = "dispatchUserId";
