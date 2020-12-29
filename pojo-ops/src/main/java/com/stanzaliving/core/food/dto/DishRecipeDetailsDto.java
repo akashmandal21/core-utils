@@ -27,7 +27,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class DishRecipeDetailsDto {
 
-	private ListingDto dish;
+	private String dishId;
 
 	private int cookQuantity;
 
