@@ -15,9 +15,9 @@ public class UserAccessLevelIdsByRoleNameDto {
     @NotNull(message = "department can not be null")
     private Department department;
 
-    @NotNull(message = "role name level can not be null")
+    @NotNull(message = "role name can not be null")
     private String roleName;
 
-    @NotEmpty(message = "acess level Uuids should not be empty array")
+    @NotEmpty(message = "acess level uuids should not be an empty array")
     List<String> accessLevelId;
 }
