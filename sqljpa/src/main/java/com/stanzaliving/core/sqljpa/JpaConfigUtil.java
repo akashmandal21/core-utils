@@ -74,6 +74,7 @@ public class JpaConfigUtil {
 		properties.put("hibernate.hbm2ddl.auto", hibernateHbm2ddlAuto);
 		properties.put("hibernate.order_inserts", hibernateOrderInserts);
 		properties.put("hibernate.order_updates", hibernateOrderUpdates);//PhysicalNamingStrategyStandardImpl
+		//properties.put("org.hibernate.envers.audit_table_suffix", "_aud");
 		properties.put("hibernate.implicit_naming_strategy", "org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy");
 		properties.put("hibernate.physical_naming_strategy", "org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy");
 

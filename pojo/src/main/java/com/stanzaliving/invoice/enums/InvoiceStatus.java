@@ -1,15 +1,10 @@
 package com.stanzaliving.invoice.enums;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import com.stanzaliving.core.generic.constants.GenericConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 @AllArgsConstructor
 @Getter
@@ -36,30 +31,35 @@ public enum InvoiceStatus {
     
     private Integer order;
       
-//    private static Map<Integer, InvoiceStatus> invoiceApprovalLevelMap = new HashMap<>();
-//
-//    public static Set<InvoiceStatus> approvalCycle = new HashSet<>(5);
-//
-//    public static Set<InvoiceStatus> approvalRejects = new HashSet<>(5);
-//
-//    public static Set<InvoiceStatus> paymentCycle = new HashSet<>(5);
-//
-//
-//
-//    static {
-//    	for(InvoiceStatus invoiceStatus : InvoiceStatus.values()) {
-//    		invoiceApprovalLevelMap.put(invoiceStatus.getOrder(), invoiceStatus);
-//    	}
-//
-//        approvalCycle.addAll(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE));
-//        approvalRejects.addAll(Arrays.asList(L1_REJECTED, L2_REJECTED, L3_REJECTED));
-//        paymentCycle.addAll(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID));
-//    }
-//
-//
-//    public static InvoiceStatus getInvoiceStatus(int approvalLevel) {
-//    	return invoiceApprovalLevelMap.get(approvalLevel);
-//    }
+    private static Map<Integer, InvoiceStatus> invoiceApprovalLevelMap ;
+
+    @Getter
+    private static Set<InvoiceStatus> approvalCycle ;
+
+    @Getter
+    private static Set<InvoiceStatus> approvalRejects ;
+
+    @Getter
+    private static Set<InvoiceStatus> paymentCycle ;
+
+
+
+    static {
+        Map<Integer,InvoiceStatus> temp = new HashMap<>();
+    	for(InvoiceStatus invoiceStatus : InvoiceStatus.values()) {
+    		temp.put(invoiceStatus.getOrder(), invoiceStatus);
+    	}
+
+    	invoiceApprovalLevelMap = Collections.unmodifiableMap(temp);
+        approvalCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE)));
+        approvalRejects = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_REJECTED, L2_REJECTED, L3_REJECTED)));
+        paymentCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID)));
+    }
+
+
+    public static InvoiceStatus getInvoiceStatus(int approvalLevel) {
+    	return invoiceApprovalLevelMap.get(approvalLevel);
+    }
     
 }
 

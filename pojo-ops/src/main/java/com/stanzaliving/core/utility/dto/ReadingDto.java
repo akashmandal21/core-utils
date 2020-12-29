@@ -21,4 +21,7 @@ public class ReadingDto extends AbstractDto {
 	private Date time;
 
 	private String image;
+
+	private boolean mandatoryDay;
+
 }

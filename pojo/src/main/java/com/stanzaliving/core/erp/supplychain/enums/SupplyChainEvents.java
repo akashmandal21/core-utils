@@ -36,6 +36,7 @@ public enum SupplyChainEvents {
 
 
     ADV_INV_SUBMITTED("Advance Invoice Submitted",false),
+    ADV_INV_APPROVAL("Advance Invoice Approval",false),
     ADV_INV_APPROVED("Advance Invoice Approved",true),
     ADV_INV_REJECTED("Advance Invoice Rejected",true),
 
@@ -43,6 +44,7 @@ public enum SupplyChainEvents {
     ADV_PAYMENT_COMPLETE("Advance Paid in Full",true),
 
     REG_INV_SUBMITTED("Regular Invoice Submitted",false),
+    REG_INV_APPROVAL("Regular Invoice Approval",true),
     REG_INV_APPROVED("Regular Invoice Approved",true),
     REG_INV_REJECTED("Regular Invoice Rejected",true),
 
@@ -78,9 +80,11 @@ public enum SupplyChainEvents {
         parentSCEvents.put(PO_CANCELLED, Arrays.asList(PO_CANCEL_SUBMIT));
 
         parentSCEvents.put(ADV_INV_APPROVED, Arrays.asList(ADV_INV_SUBMITTED));
+        parentSCEvents.put(ADV_INV_APPROVAL, Arrays.asList(ADV_INV_SUBMITTED,ADV_INV_APPROVAL));
         parentSCEvents.put(ADV_INV_REJECTED, Arrays.asList(ADV_INV_SUBMITTED));
 
         parentSCEvents.put(REG_INV_APPROVED, Arrays.asList(REG_INV_SUBMITTED));
+        parentSCEvents.put(REG_INV_APPROVAL, Arrays.asList(REG_INV_SUBMITTED,REG_INV_APPROVAL));
         parentSCEvents.put(REG_INV_REJECTED, Arrays.asList(REG_INV_SUBMITTED));
 
         parentSCEvents.put(REG_INV_PAYMENT_COMPLETE, Arrays.asList(REG_INV_SUBMITTED));

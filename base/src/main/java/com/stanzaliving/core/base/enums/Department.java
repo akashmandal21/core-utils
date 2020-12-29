@@ -7,6 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Department {
 
+
 	TECH("Tech","TP","TCH"),
 	FINANCE("Finance","FN","FIN"),
 	HR("HR","HR","HRS"),
@@ -26,7 +27,10 @@ public enum Department {
 	WAREHOUSE("Warehouse",null,null),
 	CX("Customer Experience","CX","CXP"),
 	ADMIN("Admin","AD","ADM"),
+	MARKETING("Marketing","MK","MKT"),
 	SCM("Supply Chain Mgmt","SM","TRN");
+
+
 	public String departmentName;
 	public String shortCode;
 	public String genericPoShortCode;

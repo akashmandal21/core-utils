@@ -24,7 +24,7 @@ public enum DateFormat {
 	MMM("MMM"),
 	DD_MMM_YY("dd MMM''YY"),
 	DD_MMM_YY_HH_MM("dd MMM''YY HH:mm"),
-	D_DD_MMM_YY("EEE, dd MMM''YY"),
+	D_DD_MMM_YY("EEE, dd MMM''yy"),
 	WEEK_OF_YEAR("w"),
 	YEAR_IN_WEEK_OF_YEAR("YYYY"),
 	DAY_OF_MONTH("d"),
@@ -38,7 +38,8 @@ public enum DateFormat {
 	MMM_YY("MMM, yy"),
 	DD_MMM_YYYY_H_MM_A("dd MMM yyyy h:mm a"),
 	H_MM_A("h:mm a"),
-	FRESHDESK_DATE_FORMAT("yyyy-MM-dd'T'HH:mm:ssXXX");
+	FRESHDESK_DATE_FORMAT("yyyy-MM-dd'T'HH:mm:ssXXX"),
+	YYYY_MM_DD_T_HH_MM_SSXXX("yyyy-MM-dd'T'HH:mm:ssXXX");
 
 	private String value;
 
