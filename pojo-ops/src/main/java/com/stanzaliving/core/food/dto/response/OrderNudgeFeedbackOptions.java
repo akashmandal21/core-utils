@@ -26,8 +26,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class OrderNudgeFeedbackOptions extends VasOrderFeedbackOptions {
 
-	private static final long serialVersionUID = 2323232L;
-
 	private String nudgeId;
 
 	private boolean optional;
