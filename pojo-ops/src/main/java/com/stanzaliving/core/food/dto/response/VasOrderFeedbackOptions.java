@@ -27,6 +27,8 @@ import java.util.List;
 @NoArgsConstructor
 public class VasOrderFeedbackOptions {
 
+	private String userId;
+
 	private String masterOrderId;
 
 	private List<EnumListing<CafeFeedbackFor>> feedbackFor;
