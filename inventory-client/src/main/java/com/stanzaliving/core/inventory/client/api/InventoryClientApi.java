@@ -8,6 +8,7 @@ import java.util.Objects;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.po.enums.EventType;
+import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.inventory.dto.InventoryActionRequestDto;
 import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
@@ -82,7 +83,7 @@ public class InventoryClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<InventoryTOResponse> releaseQuantities(InventoryActionRequestDto inventoryActionRequestDto) {
+    public ResponseDto<Boolean> releaseQuantities(InventoryActionRequestDto inventoryActionRequestDto) {
 
         Object postBody = inventoryActionRequestDto;
 
@@ -96,13 +97,13 @@ public class InventoryClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<InventoryTOResponse>> returnType = new ParameterizedTypeReference<ResponseDto<InventoryTOResponse>>() {
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<InventoryTOResponse> handleTOShortClose(InventoryActionRequestDto inventoryActionRequestDto) {
+    public ResponseDto<Boolean> handleTOShortClose(InventoryActionRequestDto inventoryActionRequestDto) {
 
         Object postBody = inventoryActionRequestDto;
 
@@ -116,7 +117,27 @@ public class InventoryClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<InventoryTOResponse>> returnType = new ParameterizedTypeReference<ResponseDto<InventoryTOResponse>>() {
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<Boolean> handleNegGrn(GrsiEventUpdateDto grsiEventUpdateDto) {
+
+        Object postBody = grsiEventUpdateDto;
+
+        String path = UriComponentsBuilder.fromPath("/reduce/neg/grn").toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);

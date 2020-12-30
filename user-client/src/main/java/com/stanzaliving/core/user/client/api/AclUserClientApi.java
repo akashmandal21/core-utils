@@ -24,6 +24,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
 import com.stanzaliving.core.user.acl.request.dto.AddUserDeptLevelRoleRequestDto;
 import com.stanzaliving.core.user.acl.request.dto.RevokeUserDeptLevelRoleRequestDto;
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 
 /**
  * @author naveen.kumar
@@ -132,6 +133,35 @@ public class AclUserClientApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+	}
+
+	
+	public ResponseDto<List<UserContactDetailsResponseDto>> getUserDetailsForRole(Department department, String roleName, String accessLevelId) {
+
+		if (Objects.isNull(department) || StringUtils.isBlank(roleName) || StringUtils.isEmpty(accessLevelId)) {
+			throw new IllegalArgumentException("Missing arguments");
+		}
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("department", department);
+		uriVariables.put("roleName", roleName);
+		uriVariables.put("accessLevelId", accessLevelId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/acl/usercontactdetails/{department}/{roleName}/{accessLevelId}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<UserContactDetailsResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserContactDetailsResponseDto>>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}

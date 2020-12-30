@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.base.utils;
 
@@ -26,63 +26,63 @@ import java.util.concurrent.ThreadLocalRandom;
 @UtilityClass
 public class StanzaUtils {
 
-	private static RoundingMode ROUNDING_MODE = RoundingMode.HALF_EVEN;
-	private static int SCALE = 3;
+    private static RoundingMode ROUNDING_MODE = RoundingMode.HALF_EVEN;
+    private static int SCALE = 3;
 
-	public static String hideSecret(String secretString) {
+    public static String hideSecret(String secretString) {
 
-		if (StringUtils.isNotBlank(secretString)) {
-			return "******";
-		}
+        if (StringUtils.isNotBlank(secretString)) {
+            return "******";
+        }
 
-		return StringUtils.EMPTY;
-	}
+        return StringUtils.EMPTY;
+    }
 
-	public double roundOffToNine(double number) {
-		double lastTwoDigits = number % 100;
+    public double roundOffToNine(double number) {
+        double lastTwoDigits = number % 100;
 
-		if (lastTwoDigits > 0 && lastTwoDigits < 49) {
-			number = number - lastTwoDigits + 49;
-		} else {
-			number = number - lastTwoDigits + 99;
-		}
-		return number;
-	}
+        if (lastTwoDigits > 0 && lastTwoDigits < 49) {
+            number = number - lastTwoDigits + 49;
+        } else {
+            number = number - lastTwoDigits + 99;
+        }
+        return number;
+    }
 
-	public static String convertIntegerNumberToString(int number) {
-		return " [" + number + "] ";
-	}
+    public static String convertIntegerNumberToString(int number) {
+        return " [" + number + "] ";
+    }
 
-	public static String convertDoublePriceToString(double price) {
-		return " [" + price + "] ";
-	}
+    public static String convertDoublePriceToString(double price) {
+        return " [" + price + "] ";
+    }
 
-	public static String getOccupancyString(int occupancy) {
+    public static String getOccupancyString(int occupancy) {
 
-		switch (occupancy) {
-		case 1:
-			return "[Single]";
-		case 2:
-			return "[Double]";
-		case 3:
-			return "[Triple]";
-		case 4:
-			return "[Four]";
-		case 5:
-			return "[Five]";
-		default:
-			return "[" + occupancy + "]";
-		}
+        switch (occupancy) {
+            case 1:
+                return "[Single]";
+            case 2:
+                return "[Double]";
+            case 3:
+                return "[Triple]";
+            case 4:
+                return "[Four]";
+            case 5:
+                return "[Five]";
+            default:
+                return "[" + occupancy + "]";
+        }
 
-	}
+    }
 
-	public static int generateOTP() {
-		return ThreadLocalRandom.current().nextInt(100000, 1000000);
-	}
+    public static int generateOTP() {
+        return ThreadLocalRandom.current().nextInt(100000, 1000000);
+    }
 
-	public static int generateOTPOfLength(int length) {
-		return (int) ThreadLocalRandom.current().nextDouble(Math.pow(10, length - 1), Math.pow(10, length));
-	}
+    public static int generateOTPOfLength(int length) {
+        return (int) ThreadLocalRandom.current().nextDouble(Math.pow(10, length - 1), Math.pow(10, length));
+    }
 
 	public static int generateDefaultOtpOfLength(int length) {
 
@@ -319,6 +319,16 @@ public class StanzaUtils {
 
 	public String getString(Object obj) {
 		return Objects.isNull(obj) ? null : obj.toString();
+	}
+
+	public double gstRoundOff(double amount, double gstPercentage) {
+		return gstRoundOff(amount * (gstPercentage / 100));
+	}
+
+	public double gstRoundOff(double gstAmount) {
+		BigDecimal amount = BigDecimal.valueOf(gstAmount);
+		amount = amount.setScale(0, RoundingMode.HALF_UP);
+		return amount.doubleValue();
 	}
 
 }
