@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -23,14 +24,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VasMasterRecipeRequestDto {
-	private String dishId;
 
-	private UnitOfMeasurement uom;
+	@NotBlank(message = "Dish selection is mandatory")
+	private String dishId;
 
 	private Double cookQuantity;
 
 	@Valid
-	@NotEmpty(message = "Ingredients selection are mandatory")
+	@NotEmpty(message = "Ingredients selection is mandatory")
 	private List<RecipeIngredientRequestDto> ingredients;
 
 }
