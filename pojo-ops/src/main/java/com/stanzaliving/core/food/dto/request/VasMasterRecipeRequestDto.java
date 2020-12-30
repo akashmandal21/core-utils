@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.request;
 
+import com.stanzaliving.core.enums.UnitOfMeasurement;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -23,6 +24,8 @@ import java.util.List;
 @AllArgsConstructor
 public class VasMasterRecipeRequestDto {
 	private String dishId;
+
+	private UnitOfMeasurement uom;
 
 	private Double cookQuantity;
 

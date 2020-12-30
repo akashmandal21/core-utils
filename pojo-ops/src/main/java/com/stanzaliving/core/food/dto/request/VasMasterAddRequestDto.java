@@ -45,6 +45,8 @@ public class VasMasterAddRequestDto {
 	@NotNull(message = "Proposed price is mandatory")
 	private Integer proposedPrice;
 
+	private UnitOfMeasurement unitOfMeasurement;
+
 	private String imageId;
 
 	private Boolean status;
