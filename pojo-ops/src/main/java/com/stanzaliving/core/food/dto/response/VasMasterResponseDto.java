@@ -40,8 +40,6 @@ public class VasMasterResponseDto {
 
 	private Boolean eggPresent;
 
-	private EnumListing<UnitOfMeasurement> uom;
-
 	private ListingDto category;
 
 	private Integer serves;
@@ -55,4 +53,6 @@ public class VasMasterResponseDto {
 	private List<DishDetailsResponseDto> dish;
 
 	private List<VasMasterPackagingResponseDto> packaging;
+
+	private List<ListingDto> feedback;
 }

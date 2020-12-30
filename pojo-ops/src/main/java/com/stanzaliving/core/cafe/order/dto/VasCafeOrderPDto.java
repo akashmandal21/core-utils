@@ -5,6 +5,7 @@ import com.stanzaliving.core.cafe.order.constants.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,8 @@ public class VasCafeOrderPDto {
     private String slotId;
     private double amount;
     private double gstAmount;
-    private Date orderDate;
+    private Date orderTime;
+    private LocalDate orderDate;
     private Date deliveryTime;
     private Date expectedDeliveryTime;
     private OrderStatus orderStatus;

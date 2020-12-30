@@ -6,6 +6,7 @@ import com.stanzaliving.core.cafe.order.constants.ServingMode;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class CafeOrderRDto {
     private String orderId;
     private String orderCode;
     private Date orderTime;
+    private LocalDate orderDate;
     private Date deliveryTime;
     private Date expectedDeliveryTime;
     private CafeOrderUserRDto user;
