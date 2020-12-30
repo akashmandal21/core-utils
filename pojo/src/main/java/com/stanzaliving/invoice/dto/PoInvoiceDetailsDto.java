@@ -41,7 +41,8 @@ public class PoInvoiceDetailsDto {
     @Builder.Default
     private BigDecimal totalAdvancedPaidAmt = BigDecimal.ZERO;
 
-    private BigDecimal totalAmtDue;
+    @Builder.Default
+    private BigDecimal totalAmtDue = BigDecimal.ZERO;
 
     private BigDecimal invoicedPercentage;
 
