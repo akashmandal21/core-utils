@@ -36,8 +36,8 @@ public class FeedbackRequestDto {
 	@NotNull(message = "Rating selection is mandatory")
 	private Integer rating;
 
-	@NotNull(message = "Please select feedback entity")
-	private CafeFeedbackFor feedbackFor;
+	@NotEmpty(message = "Please select feedback entity")
+	private List<CafeFeedbackFor> feedbackFor;
 
 	private String feedback;
 
