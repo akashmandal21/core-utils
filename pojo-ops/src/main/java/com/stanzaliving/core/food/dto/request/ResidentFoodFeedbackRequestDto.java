@@ -1,12 +1,9 @@
 package com.stanzaliving.core.food.dto.request;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
-import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
