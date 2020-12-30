@@ -32,6 +32,10 @@ public class PoItemDetailsDto {
     private BigDecimal itemRate;
 
     private BigDecimal itemQuantity;
+    private BigDecimal rentPeriod;
+    private BigDecimal rentPerMonth;
+    private String refundableType;
+    private String refundableValue;
 
     private BigDecimal itemAmount;
 
