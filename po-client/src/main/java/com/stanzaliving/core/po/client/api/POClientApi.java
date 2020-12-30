@@ -9,6 +9,7 @@ import com.stanzaliving.core.po.generic.dtos.VendorWisePoDetails;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.invoice.dto.InvoiceMigrationDto;
+import com.stanzaliving.invoice.dto.InvoiceMigrationResponseDto;
 import com.stanzaliving.invoice.dto.PoInvoiceDetailsDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -460,7 +461,7 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
-    public ResponseDto<Map<PoInvoiceDetailsDto, List<InvoiceMigrationDto>>> getAllInvoices() {
+    public ResponseDto<List<InvoiceMigrationResponseDto>> getAllInvoices() {
 
         log.info("HTTP Client call to get All Invoices");
 
@@ -474,7 +475,7 @@ public class POClientApi {
 
         Map<String, List<String>> map = new HashMap<>();
 
-        ParameterizedTypeReference<ResponseDto<Map<PoInvoiceDetailsDto, List<InvoiceMigrationDto>>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Map<PoInvoiceDetailsDto, List<InvoiceMigrationDto>>>>() {
+        ParameterizedTypeReference<ResponseDto<List<InvoiceMigrationResponseDto>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<InvoiceMigrationResponseDto>>>() {
         };
 
         String path = UriComponentsBuilder.fromPath("/internal/get/all/invoices").toUriString();
