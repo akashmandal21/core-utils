@@ -1,12 +1,12 @@
 package com.stanzaliving.core.po.generic.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class OtherFeeDto {
     private int sequence;
     private String feeName;
