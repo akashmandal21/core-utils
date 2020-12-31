@@ -1,12 +1,17 @@
 package com.stanzaliving.operations.client;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.internet.dto.InternetDetails;
+import com.stanzaliving.internet.dto.InternetProviderDetails;
 import com.stanzaliving.operations.ServiceMixSeasonResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -168,6 +173,42 @@ public class OperationsClientApi {
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
+
+	public InternetProviderDetails getInternetVendor(String residenceId, LocalDate localDate) {
+
+		Object postBody = null;
+
+		InternetDetails responseDto = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("key", "internet.internet");
+		uriVariables.put("residenceId", residenceId);
+		uriVariables.put("date", localDate.toString());
+
+		String path =
+				UriComponentsBuilder.fromPath("/internal/servicemix/current/getValueForKey/{residenceId}/{key}/{date}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<InternetDetails> returnType = new ParameterizedTypeReference<InternetDetails>() {
+		};
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching Vendor Name from residenceId: {}", residenceId, e);
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
 
 	}
 }

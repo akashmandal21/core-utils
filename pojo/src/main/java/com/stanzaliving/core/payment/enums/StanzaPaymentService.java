@@ -19,7 +19,8 @@ public enum StanzaPaymentService {
 	FOOD("Food"),
 	IMS("Venta"),
 	WEBSITE("Website"),
-	ALFRED("Alfred");
+	ALFRED("Alfred"),
+	CAFE("Cafe"),;
 
 	private String displayName;
 }
