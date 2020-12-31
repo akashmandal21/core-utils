@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.food.enums.FoodOrderType;
 import com.stanzaliving.core.food.enums.FrontendVisibleType;
+import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,6 +31,8 @@ public class OrderNudgeFeedbackOptions extends VasOrderFeedbackOptions {
 
 	private boolean optional;
 
+	private EnumListing<MealType> meal;
+	
 	private EnumListing<FoodOrderType> foodOrderType;
 
 	private String foodOrderId;
