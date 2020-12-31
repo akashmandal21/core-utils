@@ -9,8 +9,9 @@ import lombok.*;
 @Data
 public class UserNormalMealDto {
 
-  private String userId;
-  private String orderId;
-  private String foodItemType;
-  private String meal;
+	private String userId;
+	private String orderId;
+	private String foodItemType;
+	private String meal;
+	private boolean optional;
 }

@@ -14,6 +14,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FeedbackNudgeDto {
+
 	private String userId;
 
 	private String webEngageAccountId;
