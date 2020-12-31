@@ -17,10 +17,5 @@ import java.util.Map;
 @AllArgsConstructor
 @ToString(callSuper = true)
 public class FoodFeedbackCampaignRequestDto extends CampaignDto {
-
-    //String mealName;        //to be sent in campaignSubType
-
-    @NotEmpty(message = "userBlockerMap must not be empty") Map<String, Boolean> userBlockerMap;
-
-    @NotEmpty(message = "itemList must not be empty") List<String> items;
+  @NotEmpty(message = "userBlockerMap must not be empty") Map<String, Boolean> userBlockerMap;
 }

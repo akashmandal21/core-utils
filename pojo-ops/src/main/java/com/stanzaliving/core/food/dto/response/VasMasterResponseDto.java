@@ -57,4 +57,6 @@ public class VasMasterResponseDto {
 	private DishRecipeDetailsDto recipe;
 
 	private List<VasMasterPackagingResponseDto> packaging;
+
+	private List<ListingDto> feedback;
 }

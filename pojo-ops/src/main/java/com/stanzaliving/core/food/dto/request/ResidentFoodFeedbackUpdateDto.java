@@ -28,4 +28,6 @@ public class ResidentFoodFeedbackUpdateDto {
 
 	private List<ResidentFoodItemFeedbackUpdateDto> residentFoodItemFeedbackUpdateDtos;
 
+	private String nudgeId;
+
 }
