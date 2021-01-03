@@ -181,7 +181,7 @@ public class TransformationCache {
 		return allStatesNameCache.getUnchecked("stateName");
 	}
 	public Map<String,String> getStateNamesToIdCache() {
-		return allStatesNameCache.getUnchecked("stateNameToId");
+		return allStatesNameToIdCache.getUnchecked("stateNameToId");
 	}
 	public Map<String,String> getCountryNames() {
 		return allCountryNameCache.getUnchecked("countryName");
