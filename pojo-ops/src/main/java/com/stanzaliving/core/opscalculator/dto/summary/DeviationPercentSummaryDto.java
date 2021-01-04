@@ -12,29 +12,29 @@ import lombok.experimental.SuperBuilder;
 public class DeviationPercentSummaryDto extends MonthUnderwrittenSummaryDto {
     String foodCommentUuid;
     @Builder.Default
-    String foodCategoryName = null;
+    String foodCategoryName = "food";
     String utilitiesCommentUuid;
     @Builder.Default
-    String utilitiesCategoryName = null;
+    String utilitiesCategoryName = "utilities";
     String securityCommentUuid;
     @Builder.Default
-    String securityCategoryName = null;
+    String securityCategoryName = "security";
     String internetCommentUuid;
     @Builder.Default
-    String internetCategoryName = null;
+    String internetCategoryName = "internet";
     String houseKeepingCommentUuid;
     @Builder.Default
-    String houseKeepingCategoryName = null;
+    String houseKeepingCategoryName = "hk";
     String laundryCommentUuid;
     @Builder.Default
-    String laundryCategoryName = null;
+    String laundryCategoryName = "laundry";
     String repairAndMaintenanceCommentUuid;
     @Builder.Default
-    String repairAndMaintenanceCategoryName = null;
+    String repairAndMaintenanceCategoryName = "repairAndMaintenance";
     String equipmentRentalCommentUuid;
     @Builder.Default
-    String equipmentRentalCategoryName = null;
+    String equipmentRentalCategoryName = "equipmentRental";
     String suppliesCommentUuid;
     @Builder.Default
-    String suppliesCategoryName = null;
+    String suppliesCategoryName = "supplies";
 }

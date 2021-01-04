@@ -26,7 +26,6 @@ public class MonthlyUnderwrittenViewSummaryDto {
     String seasonUuid;
     String monthlyUnderWrittenUuid;
     String annualUnderWrittenUuid;
-    String underWrittenUuid;
     UnderWrittenStatus underWrittenStatus;
     private String pendingApprovalFrom;
     private String approvalStatus;
