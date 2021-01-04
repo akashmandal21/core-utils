@@ -48,6 +48,10 @@ public class VasMasterResponseDto {
 
 	private Double proposedPrice;
 
+	private EnumListing<UnitOfMeasurement> unitOfMeasurement;
+
+	private Double grammagePerPax;
+
 	private String imageUrl;
 
 	private List<DishDetailsResponseDto> dish;
