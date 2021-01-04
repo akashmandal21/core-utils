@@ -30,4 +30,6 @@ public class VasOrderItemFeedbackOptions {
 
 	private List<ListingDto> feedbackOptions;
 
+	private String imageUrl;
+
 }

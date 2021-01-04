@@ -1,6 +1,8 @@
 package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.cafe.enums.CafeFeedbackFor;
+import com.stanzaliving.core.food.enums.FoodOrderType;
+import com.stanzaliving.core.food.enums.FrontendVisibleType;
+import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,8 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -25,14 +25,17 @@ import java.util.List;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class VasOrderFeedbackOptions {
+public class OrderNudgeFeedbackOptions extends VasOrderFeedbackOptions {
 
-	private String userId;
+	private String nudgeId;
 
-	private String masterOrderId;
+	private boolean optional;
 
-	private List<EnumListing<CafeFeedbackFor>> feedbackFor;
+	private EnumListing<MealType> meal;
+	
+	private EnumListing<FoodOrderType> foodOrderType;
 
-	private List<VasOrderItemFeedbackOptions> itemFeedbackOptions;
+	private String foodOrderId;
 
+	private FrontendVisibleType frontendVisibleType;
 }
