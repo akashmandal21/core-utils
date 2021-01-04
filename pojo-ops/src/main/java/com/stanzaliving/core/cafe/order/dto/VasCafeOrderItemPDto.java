@@ -14,12 +14,12 @@ import lombok.experimental.SuperBuilder;
 public class VasCafeOrderItemPDto {
     private ItemType type;
     private String itemId;
-    private Integer quantity;
-    private Integer orderedQuantity;
-    private Double amount;
-    private Double cgst;
-    private Double sgst;
-    private Double igst;
-    private Double gstAmount;
-    private Double totalAmount;
+    private int quantity;
+    private int orderedQuantity;
+    private double amount;
+    private double cgst;
+    private double sgst;
+    private double igst;
+    private double gstAmount;
+    private double totalAmount;
 }

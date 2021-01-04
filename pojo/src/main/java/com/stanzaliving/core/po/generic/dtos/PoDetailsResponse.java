@@ -32,6 +32,10 @@ public class PoDetailsResponse {
     private BigDecimal otherFeeSubTotal;
     private BigDecimal otherFeeGst;
     private BigDecimal poAmount;
+    private BigDecimal poSubtotal;
+    @Builder.Default
+    private BigDecimal refundableAmount=BigDecimal.ZERO;
+    private BigDecimal poGst;
     private String vendorUuid;
     private VendorType vendorType;
 
