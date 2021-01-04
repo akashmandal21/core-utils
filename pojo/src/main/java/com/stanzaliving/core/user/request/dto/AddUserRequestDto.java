@@ -4,11 +4,14 @@
 package com.stanzaliving.core.user.request.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.user.dto.Address;
 import com.stanzaliving.core.user.enums.BloodGroup;
@@ -91,5 +94,9 @@ public class AddUserRequestDto {
 	private BloodGroup bloodGroup;
 	
 	private boolean signupFlow;
+	
+	private String roleUuid;
+
+	private String accessLevelUuid;
 
 }
