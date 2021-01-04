@@ -105,4 +105,7 @@ public class FoodItemDto extends AbstractDto {
 	private String dishRegionName;
 
 	private Integer shelfLife;
+
+	private boolean recipeExists;
+
 }
