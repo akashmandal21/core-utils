@@ -95,8 +95,4 @@ public class AddUserRequestDto {
 	
 	private boolean signupFlow;
 	
-	private String roleUuid;
-
-	private String accessLevelUuid;
-
 }
