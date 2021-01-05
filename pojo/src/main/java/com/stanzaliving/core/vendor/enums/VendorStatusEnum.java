@@ -17,14 +17,14 @@ public enum VendorStatusEnum {
      */
     IN_DRAFT("In Draft",-1,"#7A7D7E","#E6E9EA"),
     SUBMITTED("Pending Approval L1",0,"#FFB701","#FFEAB6"),
-    L1_APPROVED("Pending Approval L2",1,"#DEB76A","#FFEAB6"),
-    L2_APPROVED("L2 Approved",2,"#60C3AD","#EDFFF5"),
-    L1_REJECTED("Rejected L1", GenericConstants.rejectionStart-1,"#F55F71","#FFF1F1"),
-    L2_REJECTED("Rejected L2", GenericConstants.rejectionStart-2,"#FF5238","#FFF1F1"),
+    L1_APPROVED("Pending Approval L2",1,"#FAB432","#FBECDB"),
+    L2_APPROVED("L2 Approved",2,"#FAB432","#FBECDB"),
+    L1_REJECTED("Rejected L1", GenericConstants.rejectionStart-1,"#FF5238","#FFE5E1"),
+    L2_REJECTED("Rejected L2", GenericConstants.rejectionStart-2,"#F55F71","#FFF1F1"),
     AUTO_APPROVED("Auto Approved",GenericConstants.approvalRestrictMax,"#60C3AD","#EDFFF5"),
 
     APPROVED("Approved",10,"#60C3AD","#EDFFF5"),
-    INACTIVE("Inactive",11,"#F55F71","#FFF1F1");
+    INACTIVE("Inactive",11,"#5FC4F5","#EDF4FF");
 
     private static Map<Integer,VendorStatusEnum> vendorStatusEnumMap = new HashMap<>();
     private static int maxOrder;
