@@ -5,8 +5,10 @@ import java.util.List;
 import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.Status;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -14,6 +16,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MicromarketResponseDTO {
 
 	private int micromarketId;
