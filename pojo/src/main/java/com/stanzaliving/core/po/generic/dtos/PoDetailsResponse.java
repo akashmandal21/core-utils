@@ -31,8 +31,11 @@ public class PoDetailsResponse {
     private Department department;
     private BigDecimal otherFeeSubTotal;
     private BigDecimal otherFeeGst;
+    private BigDecimal otherFeeTotal;
     private BigDecimal poAmount;
     private BigDecimal poSubtotal;
+    private BigDecimal poItemSubtotal;
+
     @Builder.Default
     private BigDecimal refundableAmount=BigDecimal.ZERO;
     private BigDecimal poGst;
