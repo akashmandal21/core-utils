@@ -19,7 +19,7 @@ public class MediaRequestDTO {
 	private String url;
 	private boolean featured;
 	private String source;
-	private int position;
+	private Integer position;
 	private String date;
 	private boolean enabled;
 
