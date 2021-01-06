@@ -29,8 +29,8 @@ public class CafeVasItemDto {
     private Integer serves;
     private List<DishDetailsResponseDto> dishes;
     private List<String> accompaniments;
-//    private boolean quantifiable;
-//    private UnitOfMeasurement unitOfMeasurement;
+    private boolean quantifiable;
+    private UnitOfMeasurement unitOfMeasurement;
     private Double grammage;
     private Integer quantity;
     private FoodItemType foodType;
