@@ -19,5 +19,6 @@ public class GrsiUpdateDto {
     private BigDecimal grsiPct;
     private boolean grsiCompleted;
     private boolean rcvCompleted;
+    private boolean hasGrnStarted;
     private Date updatedAt;
 }
