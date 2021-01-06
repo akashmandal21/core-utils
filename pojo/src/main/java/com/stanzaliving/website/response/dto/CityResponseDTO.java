@@ -1,7 +1,5 @@
 package com.stanzaliving.website.response.dto;
 
-import java.util.List;
-
 import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.Status;
 
@@ -34,7 +32,7 @@ public class CityResponseDTO {
 	private String description;
 	private String imageAltTag;
 	private String cityImgUrl;
-	List<EnumListing<Status>> status;
+	EnumListing<Status> status;
 	
 
 }

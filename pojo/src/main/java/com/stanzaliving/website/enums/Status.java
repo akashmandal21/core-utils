@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum Status {
 	ENABLED("Enabled"), 
 	DISABLED("Disabled"), 
-	COMINGSOON("Coming Soon");
-
+	COMINGSOON("Coming Soon"),
+	ALL("All");
 	public String statusName;
 }
