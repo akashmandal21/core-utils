@@ -19,6 +19,7 @@ public class CafeVasItemDto {
     private String itemId;
     private String name;
     private String category;
+    private Integer categorySequence;
     private boolean containsEgg;
     private boolean nonVeg;
     private boolean specialVeg;
@@ -28,8 +29,8 @@ public class CafeVasItemDto {
     private Integer serves;
     private List<DishDetailsResponseDto> dishes;
     private List<String> accompaniments;
-//    private boolean quantifiable;
-//    private UnitOfMeasurement unitOfMeasurement;
+    private boolean quantifiable;
+    private UnitOfMeasurement unitOfMeasurement;
     private Double grammage;
     private Integer quantity;
     private FoodItemType foodType;
