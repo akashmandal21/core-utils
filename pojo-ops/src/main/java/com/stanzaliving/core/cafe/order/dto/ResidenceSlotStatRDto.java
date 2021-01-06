@@ -13,6 +13,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResidenceSlotStatRDto {
+    private Integer count;
     private String slotId;
     private LocalDate orderDate;
     private String dispatchSummaryId;

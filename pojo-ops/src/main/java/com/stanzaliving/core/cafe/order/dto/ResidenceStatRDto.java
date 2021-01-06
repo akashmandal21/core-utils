@@ -3,6 +3,7 @@ package com.stanzaliving.core.cafe.order.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,7 @@ public class ResidenceStatRDto {
     private String residenceId;
     private Integer count;
     private String name;
-    private Map<LocalTime, List<ResidenceSlotStatRDto>> slots;
+    private Map<LocalDate, Map<LocalTime, List<ResidenceSlotStatRDto>>> slots;
     private LocalTime nextSlot;
     private boolean pending;
 }
