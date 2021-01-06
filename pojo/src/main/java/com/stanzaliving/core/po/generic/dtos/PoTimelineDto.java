@@ -2,9 +2,11 @@ package com.stanzaliving.core.po.generic.dtos;
 
 import com.stanzaliving.core.erp.supplychain.enums.SupplyChainEvents;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Date;
 
@@ -12,6 +14,8 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
+@ToString
 public class PoTimelineDto {
 
     private  String uuid;
@@ -34,13 +38,12 @@ public class PoTimelineDto {
 
     private Date doneAt;
 
-    protected Date createdAt;
+    private Date createdAt;
 
-    protected String createdBy;
+    private String createdBy;
 
+    private Date updatedAt;
 
-    protected Date updatedAt;
-
-    protected String updatedBy;
+    private String updatedBy;
 
 }

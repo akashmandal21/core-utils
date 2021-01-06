@@ -28,7 +28,7 @@ public class GenericPoClient {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<List<InvoiceItemDto>> addPoTimeline(PoTimelineDto timelineDto) {
+    public ResponseDto<Boolean> addPoTimeline(PoTimelineDto timelineDto) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -42,7 +42,7 @@ public class GenericPoClient {
 
         String path = UriComponentsBuilder.fromPath("/migrate/timeline").buildAndExpand(uriVariables).toUriString();
 
-        ParameterizedTypeReference<ResponseDto<List<InvoiceItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<InvoiceItemDto>>>() {
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, timelineDto, headerParams, accept, returnType);
