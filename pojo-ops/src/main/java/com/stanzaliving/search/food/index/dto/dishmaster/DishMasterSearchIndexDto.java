@@ -80,9 +80,5 @@ public class DishMasterSearchIndexDto extends AbstractDto {
 
 	private int tagsCount;
 
-	private Boolean isGrammagePresent;
-
-	private Boolean menuTypeEligible;
-
 	private DishMasterRecipeSearchIndexDto recipe;
 }
