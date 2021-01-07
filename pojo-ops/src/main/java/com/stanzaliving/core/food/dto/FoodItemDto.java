@@ -4,7 +4,6 @@
 package com.stanzaliving.core.food.dto;
 
 import java.util.List;
-import java.util.Set;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
@@ -35,6 +34,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodItemDto extends AbstractDto {
+
+	private static final long serialVersionUID = -77949022653841785L;
 
 	private String name;
 
