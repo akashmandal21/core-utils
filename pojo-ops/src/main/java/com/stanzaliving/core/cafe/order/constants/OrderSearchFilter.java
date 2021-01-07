@@ -19,6 +19,7 @@ public enum OrderSearchFilter {
     PACKED("Packed"),
     PENDING("Pending"),
     DELIVERED("Delivered"),
+    DISPATCH_DELIVERED("Dispatch/Delivered"),
     DELAYED("Delayed");
 
     private final String filter;
