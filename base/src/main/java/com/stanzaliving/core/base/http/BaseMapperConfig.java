@@ -48,7 +48,7 @@ public class BaseMapperConfig {
 
 		mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 		mapper.registerModule(module);
-		mapper.registerModule(new JavaTimeModule());
+		//mapper.registerModule(new JavaTimeModule());
 		return mapper;
 	}
 }
