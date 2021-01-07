@@ -18,8 +18,9 @@ public enum FieldType {
     MAP("key value pairs"),
     TEMPLATE("Section"),
     OBJECT("Single Object"),
-    UIKEYVAL("Ui Key Value"),
-    APPROVABLE_UIKEYVAL("Approvable Ui Key Value");
+    PLACEHOLDER("Not For save"),
+    ADAPT("Set using method"),
+    ADAPT_RO("Readonly adapt");
     private String fieldTypeText;
 
 }

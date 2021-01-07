@@ -45,8 +45,6 @@ public class VasMasterAddRequestDto {
 	@NotNull(message = "Proposed price is mandatory")
 	private Integer proposedPrice;
 
-	private UnitOfMeasurement unitOfMeasurement;
-
 	private String imageId;
 
 	private Boolean status;
@@ -60,9 +58,10 @@ public class VasMasterAddRequestDto {
 	private List<VasMasterPackagingRequestDto> packaging;
 
 	@Valid
-	@NotNull(message = "Recipe selection is mandatory")
-	private VasMasterRecipeRequestDto recipe;
+	@NotEmpty(message = "Recipe selection is mandatory")
+	private List<VasMasterRecipeRequestDto> recipe;
 
+	@Valid
 	@NotEmpty(message = "Feedback options selection is mandatory")
 	private List<String> feedbackOptions;
 

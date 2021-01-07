@@ -54,4 +54,7 @@ public class CafeOrderRDto {
     private double totalPaymentAmount;
     private String qrUri;
 
+    private boolean packed;
+    private boolean delay;
+
 }
