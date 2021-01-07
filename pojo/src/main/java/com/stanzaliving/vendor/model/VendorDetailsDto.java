@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
 import java.util.List;
 
 @Setter
@@ -49,5 +50,8 @@ public class VendorDetailsDto {
     private Boolean isWarehouse;
 
     private String mouDocument;
+
+    private Date createdAt;
+    private Date updatedAt;
 
 }

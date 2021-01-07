@@ -1,6 +1,5 @@
 package com.stanzaliving.core.generic.validation.utility;
 
-import com.stanzaliving.core.generic.validation.dtos.ErrorInfo;
 import com.stanzaliving.core.generic.validation.dtos.UiField;
 import com.stanzaliving.core.generic.validation.enums.Validator;
 import lombok.experimental.UtilityClass;
@@ -20,6 +19,7 @@ public class FieldValidator {
             regexMatch = ((String)value).matches(regex);
         if(!regexMatch)
         {
+            log.info("Validation failed using Regex {} {} {} {}",regex,validator,value,uiField.getDefaultErrorMsgValidation());
             uiField.setErrorMsg(uiField.getDefaultErrorMsgValidation());
             return false;
         }
@@ -31,8 +31,8 @@ public class FieldValidator {
                 break;
 
             case MOBILE:
-                if(((String)value).length()!=10)
-                    err = "Mobile number length shall not exceed 10 digits.";
+                if(((String)value).length()<10)
+                    err = "Contact number length shall not exceed 10 digits.";
                 break;
 
             default:

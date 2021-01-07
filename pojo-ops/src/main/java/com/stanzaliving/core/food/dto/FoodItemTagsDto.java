@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
+
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
