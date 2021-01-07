@@ -37,4 +37,6 @@ public class MenuItemDetailsDto extends FoodItemDto {
 	private Integer orderedInLastSevenDays;
 
 	private Integer orderedInLastThirtyDays;
+
+	private boolean recipeExists;
 }
