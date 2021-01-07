@@ -485,7 +485,7 @@ public class POClientApi {
     }
 
 
-    public ResponseDto<List<UIKeyValue>> getPoNumbers(List<String> poUuids){
+    public ResponseDto<List<UIKeyValue>> getPoNumbers(Collection<String> poUuids){
 
         Object postBody = poUuids;
 
