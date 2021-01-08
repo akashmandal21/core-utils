@@ -15,6 +15,11 @@ public enum OrderSearchFilter {
     EXPRESS_DELIVERY("Express Delivery"),
     DISPATCHED("In Transit"),
     IN_TRANSIT("In Transit"),
+    PREPARING("Preparing"),
+    PACKED("Packed"),
+    PENDING("Pending"),
+    DELIVERED("Delivered"),
+    DISPATCH_DELIVERED("Dispatch/Delivered"),
     DELAYED("Delayed");
 
     private final String filter;

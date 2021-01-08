@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.core.boq_service.dtos.PoResponseDto;
+import com.stanzaliving.core.boq_service.dtos.PropertyBoqDetailDto;
 import com.stanzaliving.transformations.enums.BoqStatus;
 import com.stanzaliving.transformations.pojo.PropertyBoqStatusDto;
 import lombok.extern.log4j.Log4j2;
@@ -190,6 +191,51 @@ public class BoqClientApi {
         };
 
         String path = UriComponentsBuilder.fromPath("/internal/boq/get/boqItemsForPo/" + propertyId+"/"+boqUuid+"/"+allowedSubmitted).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, poReturnType);
+    }
+
+
+    public ResponseDto<PropertyBoqDetailDto> getBoqItemForBoq(String boqUuid) {
+
+        log.info("HTTP Client call to get Property Item Details by boqUuid {} " , boqUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<PropertyBoqDetailDto>> poReturnType = new ParameterizedTypeReference<ResponseDto<PropertyBoqDetailDto>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/boq/get/generic/boqDetailsForGenericPo/" +boqUuid).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, poReturnType);
+    }
+
+    public ResponseDto<List<PropertyBoqDetailDto>> getBoqItemForProperty(String propertyUuid) {
+
+        log.info("HTTP Client call to get Property Item Details by propertyUuid {} " , propertyUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<List<PropertyBoqDetailDto>>> poReturnType = new ParameterizedTypeReference<ResponseDto<List<PropertyBoqDetailDto>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/boq/get/generic/allBoqForProperty/" +propertyUuid).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, poReturnType);
     }

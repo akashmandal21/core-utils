@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.stanzaliving.core.base.localdate.Java8LocalDateStdDeserializer;
 import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
 import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
@@ -55,7 +56,8 @@ public class BaseMapperConfig {
 
 		mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 		mapper.registerModule(module);
-
+		
+		//mapper.registerModule(new JavaTimeModule());
 		return mapper;
 	}
 }
