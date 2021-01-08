@@ -483,4 +483,29 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
+	public ResponseDto<Void> updatePoStatus(String poToUuid) {
+		 
+			log.info("HTTP Client call to get update Po status");
+
+	        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+	        final HttpHeaders headerParams = new HttpHeaders();
+
+	        final String[] accepts = {"*/*"};
+	        
+	        final Map<String, Object> uriVariables = new HashMap<>();
+	        uriVariables.put("poUuid", poToUuid);
+
+	        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+	        Map<String, List<String>> map = new HashMap<>();
+
+	        ParameterizedTypeReference<ResponseDto<Void>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+	        };
+
+	        String path = UriComponentsBuilder.fromPath("/internal/generic/po/updatePoStatusOnNegGrn/{poUuid}").buildAndExpand(uriVariables).toUriString();
+
+	        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
+	}
+
 }
