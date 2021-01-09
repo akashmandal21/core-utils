@@ -325,6 +325,51 @@ public class StanzaRestClient {
 		return invokeAPI(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
 	}
 
+	public <T> T request(
+			String path,
+			HttpMethod method,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType) {
+
+		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
+
+		if (queryParams != null) {
+			builder.queryParams(queryParams);
+		}
+
+		final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
+
+		if (accept != null) {
+			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
+		}
+
+		requestBuilder.contentType(mediaType);
+
+		addHeadersToRequest(headerParams, requestBuilder);
+
+		log.info("Accessing API: {}", builder.toUriString());
+
+		RequestEntity<Object> requestEntity = requestBuilder.body(body);
+
+		ResponseEntity<String> responseEntity = getResponse(requestEntity);
+
+		if (returnType == null) {
+			return null;
+		}
+
+		try {
+			return objectMapper.readValue(responseEntity.getBody(), returnType);
+		} catch (Exception e) {
+			HttpStatus statusCode = responseEntity.getStatusCode();
+			log.error("Error reading response: ", e);
+			throw new StanzaHttpException("Error while reading response", statusCode.value(), e);
+		}
+	}
+
 	public <T> T invokeAPI(
 			String path,
 			HttpMethod method,
