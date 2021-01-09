@@ -42,25 +42,25 @@ public class DishMasterSearchIndexDto extends AbstractDto {
 
 	private String description;
 
-	private EnumListing<FoodItemType> itemType;
+	private FoodItemType itemType;
 
 	private boolean quantifiable;
 
-	private EnumListing<FoodItemTextColor> textColor;
+	private FoodItemTextColor textColor;
 
-	private EnumListing<FoodItemBackgroundColor> bgColor;
+	private FoodItemBackgroundColor bgColor;
 
-	private ListingDto category;
+	private String categoryId;
 
-	private ListingDto subCategory;
+	private String subCategoryId;
 
-	private EnumListing<DishRegion> dishRegion;
+	private DishRegion dishRegion;
 
-	private EnumListing<RecipeType> recipeType;
+	private RecipeType recipeType;
 
-	private EnumListing<CommercialTag> commercialTag;
+	private CommercialTag commercialTag;
 
-	private EnumListing<UnitOfMeasurement> unitOfMeasurement;
+	private UnitOfMeasurement unitOfMeasurement;
 
 	private boolean vasEnabled;
 
@@ -74,11 +74,9 @@ public class DishMasterSearchIndexDto extends AbstractDto {
 
 	private boolean dataComplete;
 
-	private List<EnumListing<MealType>> meals;
+	private List<MealType> meals;
 
-	private List<TagDto> tagDtos;
-
-	private int tagsCount;
+	private List<String> tagIds;
 
 	private DishMasterRecipeSearchIndexDto recipe;
 }

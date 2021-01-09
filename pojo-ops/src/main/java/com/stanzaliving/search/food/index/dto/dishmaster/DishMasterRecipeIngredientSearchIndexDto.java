@@ -23,8 +23,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishMasterRecipeIngredientSearchIndexDto extends IngredientSearchIndexDto {
+public class DishMasterRecipeIngredientSearchIndexDto {
 
-	private Double quantity;
+	private String ingredientId;
+
+	private Double grammageAmount;
 
 }
