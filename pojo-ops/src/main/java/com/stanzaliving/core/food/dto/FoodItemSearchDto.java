@@ -44,5 +44,9 @@ public class FoodItemSearchDto extends AbstractDto {
 
 	private Collection<RecipeType> recipeTypeList;
 
+	private String tagId;
+
+	private MealType mealType;
+
 	private Boolean dataComplete;
 }
