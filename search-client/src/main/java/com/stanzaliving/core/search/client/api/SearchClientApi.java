@@ -44,7 +44,6 @@ public class SearchClientApi {
 
 		String path = UriComponentsBuilder.fromPath("/search/dish/master").build().toUriString();
 
-//		final MultiValueMap<String, String> queryParams = convertToQueryParams(searchDto);
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
