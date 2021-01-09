@@ -42,9 +42,10 @@ public class SearchClientApi {
 
 	public PageResponse<DishMasterSearchIndexDto> searchDishMaster(FoodItemSearchDto searchDto) {
 
-		String path = UriComponentsBuilder.fromPath("search/dish/master").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/search/dish/master").build().toUriString();
 
-		final MultiValueMap<String, String> queryParams = convertToQueryParams(searchDto);
+//		final MultiValueMap<String, String> queryParams = convertToQueryParams(searchDto);
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
@@ -58,7 +59,7 @@ public class SearchClientApi {
 
 		try {
 
-			responseDto = restClient.request(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, searchDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 
@@ -77,14 +78,17 @@ public class SearchClientApi {
 
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
 
-		Field[] fields = searchDto.getClass().getFields();
+		Field[] fields = FoodItemSearchDto.class.getDeclaredFields();
 
 		if (fields != null) {
 
-			Arrays.stream(fields).forEach(field -> {
+			for (Field field : fields ) {
 
 				try {
+					boolean accessible = field.isAccessible();
+					field.setAccessible(true);
 					Object value = field.get(searchDto);
+					field.setAccessible(accessible);
 
 					if (Objects.nonNull(value)) {
 						map.add(field.getName(), value.toString());
@@ -93,7 +97,7 @@ public class SearchClientApi {
 				} catch (IllegalAccessException e) {
 					log.error(e);
 				}
-			});
+			}
 		}
 
 		return map;
