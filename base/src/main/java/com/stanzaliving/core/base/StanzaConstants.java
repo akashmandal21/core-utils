@@ -17,6 +17,7 @@ public class StanzaConstants {
 
 	public static final String DATE_SEPARATOR = "-";
 	public static final String IST_TIMEZONE = "Asia/Kolkata";
+	public static final String UTC_TIMEZONE = "UTC";
 	public static final ZoneId IST_TIMEZONEID = ZoneId.of(IST_TIMEZONE);
 	public static final String INDIA_COUNTRY_CODE = "91";
 	public static final String INDIA_ISO_CODE = "IN";
@@ -28,9 +29,16 @@ public class StanzaConstants {
 	public static final String ORGANIZATION_NAME = "Stanza Living";
 	public static final String ORGANIZATION_DOMAIN = "https://www.stanzaliving.com";
 
+	public static final String ORGANIZATION_EMAIL_DOMAIN = "@stanzaliving.com";
+
 	public static final String GUID = "guid";
 	public static final String LUID = "luid";
+	
+	public static final String REQUEST_PATH = "RequestPath";
+	public static final String QUERY_STRING = "QueryString";
+	
 
 	public static final String MESSAGE_ID = "messageId";
 
+	public static final String NO_KEY = "NO";
 }

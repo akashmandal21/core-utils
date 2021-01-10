@@ -4,14 +4,11 @@ import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.GenderAllowed;
 import com.stanzaliving.transformations.enums.SubBrandName;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Builder
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -40,5 +37,9 @@ public class PropertyNamingDto {
 	private boolean status;
 	
 	private Long cityId;
+
+	private String propertyUuid;
+
+	private String oldPropName;
 
 }

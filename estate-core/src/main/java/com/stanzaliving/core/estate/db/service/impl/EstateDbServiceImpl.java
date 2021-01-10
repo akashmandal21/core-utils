@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ import com.stanzaliving.core.sqljpa.specification.utils.CriteriaOperation;
 import com.stanzaliving.core.sqljpa.specification.utils.StanzaSpecificationBuilder;
 
 @Service
+@Log4j2
 public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Long, EstateRepository> implements EstateDbService {
 
 	@Autowired
@@ -87,8 +89,11 @@ public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Lo
 		}
 		
 		Map<EstateStatus, Long> statusCount = estateEntities.stream().collect(Collectors.groupingBy(EstateEntity::getEstateStatus, Collectors.counting()));
-		
+
+//		estateEntities.forEach(f->log.info("Status {} BDDash {}",f.getEstateStatus(),BDDashboardStatus.statusMap.get(f.getEstateStatus())));
+
 		Map<BDDashboardStatus, Long> bdDashboardStatusMap = estateEntities.stream().map(EstateEntity::getEstateStatus)
+				.filter(status -> status!=EstateStatus.DROPPED)
 																					.map(status -> BDDashboardStatus.statusMap.get(status))
 																					.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		

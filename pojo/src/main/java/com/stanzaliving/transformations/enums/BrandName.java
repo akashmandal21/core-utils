@@ -27,6 +27,14 @@ public enum BrandName {
 	}
 
 	private static Map<String, BrandName> brandNameMap = new HashMap<>();
+	
+	public static Map<BrandName,Integer > residenceType = new HashMap<>();
+	
+	static {
+		residenceType.put(BrandName.SUITS,2);
+		residenceType.put(BrandName.SCHOLAR,1);
+		
+	}
 
 	static {
 

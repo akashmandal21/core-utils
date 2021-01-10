@@ -1,6 +1,8 @@
 package com.stanzaliving.transformations.pojo;
 
 
+import com.stanzaliving.core.enums.ResidenceType;
+
 import lombok.*;
 
 @Getter
@@ -17,4 +19,8 @@ public class ResidenceMetadataDto {
 
     private String residenceName;
 
+    private String microMarketUuid;
+    
+    private ResidenceType residenceType;
+    
 }

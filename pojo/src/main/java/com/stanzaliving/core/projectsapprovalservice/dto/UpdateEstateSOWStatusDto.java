@@ -21,4 +21,8 @@ public class UpdateEstateSOWStatusDto {
 
 	@NotNull(message = "status is mandatory")
 	private SOWStatus sowStatus;
+	
+	private Double boiCapex;
+	
+	private Double gcCapex;
 }

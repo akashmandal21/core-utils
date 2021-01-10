@@ -18,7 +18,7 @@ public class UserDetailDto {
     private String status;
     private String mobileNo;
     private String hostel;
-    private int hostelID;
+    private Integer hostelID;
     private List<String> userProfiles;
     private String userCode;
     private String room;
@@ -26,4 +26,5 @@ public class UserDetailDto {
     private String email;
     private String managerContact;
     private String residenceAddressId;
+    private String collegeName;
 }

@@ -13,7 +13,7 @@ import lombok.Getter;
 public enum BedType {
 
 	PRIMA("Prima"),
-	MAGNA("Magna"),
+	MAGNA("Magma"),
 	SUMMA("Summa");
 	
 	private String bedTypeName;

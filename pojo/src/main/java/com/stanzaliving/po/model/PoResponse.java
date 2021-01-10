@@ -21,4 +21,10 @@ public class PoResponse {
 
     private Boolean isSubmitted = Boolean.FALSE;
 
+    private Boolean isShortCloseAllowed;
+
+    private Boolean isCancellationAllowed;
+
+    private Boolean isEditable;
+
 }

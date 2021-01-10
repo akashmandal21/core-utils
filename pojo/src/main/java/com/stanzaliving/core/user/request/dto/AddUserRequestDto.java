@@ -3,10 +3,21 @@
  */
 package com.stanzaliving.core.user.request.dto;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.user.dto.Address;
+import com.stanzaliving.core.user.enums.BloodGroup;
 import com.stanzaliving.core.user.enums.Gender;
 import com.stanzaliving.core.user.enums.MaritalStatus;
+import com.stanzaliving.core.user.enums.Nationality;
 import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.utilservice.annotations.Email;
 import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
@@ -17,11 +28,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.time.LocalDate;
 
 /**
  * @author naveen
@@ -82,4 +88,11 @@ public class AddUserRequestDto {
 	private LocalDate anniversaryDate;
 
 	private Address address;
+
+	private Nationality nationality;
+
+	private BloodGroup bloodGroup;
+	
+	private boolean signupFlow;
+	
 }

@@ -10,6 +10,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.log4j.Log4j2;
 
+import java.util.Objects;
+
 @Log4j2
 public abstract class BaseConsumer<T> {
 
@@ -25,7 +27,7 @@ public abstract class BaseConsumer<T> {
 
 		T data = null;
 
-		log.debug("BaseConsumer:: Received Payload= " + record);
+		log.info("BaseConsumer:: Received Payload {}", record);
 
 		try {
 
@@ -34,11 +36,11 @@ public abstract class BaseConsumer<T> {
 				@SuppressWarnings("unchecked")
 				Class<T> clazz = (Class<T>) Class.forName(record.key());
 
-				log.debug("BaseConsumer:: Retrived class: " + clazz);
+				log.info("BaseConsumer:: Retrived class: {}", clazz);
 
 				data = objectMapper.readValue(record.value(), clazz);
 
-				log.info("BaseConsumer:: Retrieved object: " + data);
+				log.info("BaseConsumer:: Retrieved object: {}", data);
 
 			} else {
 				log.warn("BaseConsumer:: Kafka Record Missing key");
@@ -53,4 +55,38 @@ public abstract class BaseConsumer<T> {
 		return data;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	protected T getDto(ConsumerRecord<String, String> record, Class clazz) {
+
+		record.headers().forEach(header -> {
+			if (StanzaConstants.MESSAGE_ID.equalsIgnoreCase(header.key()))
+				MDC.put(StanzaConstants.GUID, new String(header.value()));
+		});
+
+		T data = null;
+
+		log.info("BaseConsumer:: Received Payload {}", record);
+
+		try {
+
+			if (Objects.nonNull(clazz)) {
+
+				log.info("BaseConsumer:: Retrived class: {}", clazz);
+
+				data = (T) objectMapper.readValue(record.value(), clazz);
+
+				log.info("BaseConsumer:: Retrieved object: {}", data);
+
+			} else {
+				log.warn("BaseConsumer:: Kafka Record Missing key");
+			}
+
+		} catch (Exception e) {
+			log.error("BaseConsumer:: Error casting Kafka record to desrired dto: ", e);
+		} finally {
+			MDC.remove(StanzaConstants.GUID);
+		}
+
+		return data;
+	}
 }

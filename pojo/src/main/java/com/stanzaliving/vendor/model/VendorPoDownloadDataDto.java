@@ -30,4 +30,5 @@ public class VendorPoDownloadDataDto {
     private String pan;
 
     private String paymentTerm;
+
 }

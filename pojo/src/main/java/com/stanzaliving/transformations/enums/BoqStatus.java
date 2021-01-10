@@ -20,7 +20,7 @@ public enum BoqStatus {
 	APPROVED_BY_ZH("Sent For Approval to Design Head", "#FFC300",UserType.NATIONAL_HEAD,Department.DESIGN,3),
 	APPROVED_BY_NH("Sent For Approval to Projects Zonal Head", "#FFC300",UserType.MANAGER,Department.TRANSFORMATIONS,4),
 	APPROVED_BY_PZH("Sent For Approval to Nitin", "#FFC300",UserType.ZONAL_HEAD,Department.PROJECTS,5),
-	SENT_BACK("Sent Back", "#d41111",UserType.DESIGN_COORDINATOR,Department.DESIGN,6),
+	SENT_BACK("Sent Back", "#d41111",UserType.DESIGN_COORDINATOR,Department.DESIGN,1),
 	APPROVED_BY_NITIN("Sent For Approval to Leadership", "#77baa6",UserType.MANAGER,Department.TRANSFORMATIONS,7),
 	APPROVED_BY_LEADERSHIP("Approved", "#77baa6",UserType.LEADERSHIP,Department.LEADERSHIP,8);
 

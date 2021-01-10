@@ -41,7 +41,7 @@ public class SecureCookieUtil {
 
 		cookie.setPath("/");
 
-		log.debug("Adding Cookie [Name: " + cookie.getName() + ", Value: " + cookie.getValue() + ", Domain: " + cookie.getDomain() + "]");
+		log.trace("Adding Cookie [Name: " + cookie.getName() + ", Value: " + cookie.getValue() + ", Domain: " + cookie.getDomain() + "]");
 
 		return cookie;
 	}

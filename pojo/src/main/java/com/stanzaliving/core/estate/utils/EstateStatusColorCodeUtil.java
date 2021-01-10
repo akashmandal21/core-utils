@@ -73,13 +73,13 @@ public class EstateStatusColorCodeUtil {
 		colorCodeMap.put(EstateStatus.APPROVED_BY_LEADERSHIP, 
 				new ColorCodeDto("#2F9A34", "#C9E6CA", "Property Naming Done",""));
 		colorCodeMap.put(EstateStatus.DROPPED_REQUESTED, 
-				new ColorCodeDto("#2F9A34", "#C9E6CA", "Property Drop Request Raised",""));
+				new ColorCodeDto("#2F9A34", "#C9E6CA", "Property Drop Request Raised","Property Drop Request Raised"));
 		colorCodeMap.put(EstateStatus.DROPPED, 
-				new ColorCodeDto("#2F9A34", "#C9E6CA", "Property Dropped",""));
+				new ColorCodeDto("#2F9A34", "#C9E6CA", "Property Dropped","Property Dropped"));
 		colorCodeMap.put(EstateStatus.CALLBACK_TO_UNDER_DRAFT, 
-				new ColorCodeDto("#2F9A34", "#C9E6CA", "Call Back Requested For Under Draft",""));
+				new ColorCodeDto("#2F9A34", "#C9E6CA", "Call Back Requested For Under Draft","Call Back Requested For Under Draft"));
 		colorCodeMap.put(EstateStatus.CALLBACK_TO_L1_APPROVED, 
-				new ColorCodeDto("#2F9A34", "#C9E6CA", "Call Back Requested For L1 Approved",""));
+				new ColorCodeDto("#2F9A34", "#C9E6CA", "Call Back Requested For L1 Approved","Callback Request To L1"));
 		
 	    return colorCodeMap;
 

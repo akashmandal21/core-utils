@@ -7,8 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.core.commentsservice.dto.CommentsDto;
-import com.stanzaliving.core.estate.enums.EstateStatus;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -23,7 +21,7 @@ import lombok.ToString;
 public class PropertyTimelineResponseDto {
 
 	private String estateStatusDesc;
-	private EstateStatus estateStatus;
+	private String estateStatus;
 	private List<CommentsDto> comments;
 	private String updateBy;
 	private Date updateTime;

@@ -3,12 +3,7 @@ package com.stanzaliving.core.phoenixAggregation.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-
 import com.stanzaliving.core.phoenixAggregation.dto.PropertyDetailsDto;
-import com.stanzaliving.core.projectservice.dto.BedCountDto;
-
-import com.stanzaliving.core.projectservice.dto.PropertyInfoDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -20,7 +15,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.projectsapprovalservice.internal.PropertyUpdateTrackerListDto;
 
 public class PhoenixAggregationClientApi {
 

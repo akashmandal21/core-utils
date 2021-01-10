@@ -3,12 +3,16 @@
  */
 package com.stanzaliving.core.user.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @author naveen
  *
  * @date 09-Oct-2019
  */
-
+@Getter
+@AllArgsConstructor
 public enum UserType {
 
 	STUDENT("Student"),
@@ -28,11 +32,13 @@ public enum UserType {
 	NATIONAL_HEAD("National Head"),
 	DESIGN_COORDINATOR("Design Coordinator"),
 	CONSUMER("Consumer"),
-	SYSTEM("System");
+	SYSTEM("System"),
+	CITY_TEAM("City Team"),
+	CENTRAL_TEAM("Central Team"),
+	EXTERNAL("External"),
+	GUEST("Guest"),
+	FOOD_DELIVERY_AGENT("Food Delivery Agent");
 
 	public String typeName;
 
-	private UserType(String name){
-		this.typeName = name;
-	}
 }

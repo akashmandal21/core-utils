@@ -9,8 +9,8 @@ import lombok.Getter;
 public enum SubBrandName {
 
 	PRIMA("Prima"),
-	MAGMA("Magma"),
-	SAMA("Sama");
+	MAGMA("Magna"),
+	SAMA("Summa");
 
 	private String subBrand;
 

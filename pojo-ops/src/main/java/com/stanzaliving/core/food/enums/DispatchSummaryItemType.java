@@ -1,0 +1,19 @@
+package com.stanzaliving.core.food.enums;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
+public enum DispatchSummaryItemType {
+
+	VEG("Veg Meals", "Veg", 1),
+	NONVEG("Non Veg Meals", "Non-Veg", 2),
+	VAS_VEG("VAS Veg", "VAS Veg", 3),
+	VAS_NON_VEG("VAS Non-Veg", "VAS Non-Veg", 4),
+	STAFF("Non-SL Staff Meals", "Staff", 5);
+
+	private String mealName;
+	private String labelName;
+	private Integer order;
+}

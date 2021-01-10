@@ -23,4 +23,5 @@ public class PropertyDashboardActionDto {
 	private String estateUuid;
 	private PropertyAction requestAction;
 	private EstateStatus estateStatus;
+	private String reason;
 }

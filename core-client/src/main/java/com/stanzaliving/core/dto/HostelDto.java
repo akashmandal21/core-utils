@@ -1,56 +1,63 @@
+
 package com.stanzaliving.core.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
 
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class HostelDto {
+public class HostelDto implements Serializable {
 
-    private int id;
+	private static final long serialVersionUID = -2471705318252387055L;
 
-    private String hostelName;
+	private Integer id;
 
-    private String gender;
+	private String hostelName;
 
-    private String uuid;
+	private String gender;
 
-    private String managerContact;
+	private String uuid;
 
-    private String managerName;
+	private String managerContact;
 
-    private int microMarketId;
+	private String managerName;
 
-    private String microMarketName;
+	private Integer microMarketId;
 
-    private int cityId;
+	private String microMarketName;
 
-    private String cityName;
+	private Integer cityId;
 
-    private Date attendanceStartTime;
+	private String cityName;
 
-    private Date attendanceDayCloseTime;
+	private Date attendanceStartTime;
 
-    private Date attendanceBufferTime;
+	private Date attendanceDayCloseTime;
 
-    private Date parentNotificationLagTime;
+	private Date attendanceBufferTime;
 
-    private String address;
+	private Date parentNotificationLagTime;
 
-    private String longitude;
+	private String address;
 
-    private String latitude;
+	private String longitude;
 
-    private int pincode;
+	private String latitude;
 
-    private String hostelCode;
+	private Integer pincode;
 
+	private String hostelCode;
+
+	private Integer imsResidenceId;
 }
-

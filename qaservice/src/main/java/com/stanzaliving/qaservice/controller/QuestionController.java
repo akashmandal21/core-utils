@@ -6,7 +6,6 @@ import com.stanzaliving.qaservice.dto.QuestionRequestDto;
 import com.stanzaliving.qaservice.entity.QuestionEntity;
 import com.stanzaliving.qaservice.service.QuestionService;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

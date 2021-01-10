@@ -71,14 +71,14 @@ public class AsIsEntityCDC {
 
 
     @JsonProperty("sitevisit_status")
-    private SiteVisitStatus siteVisitStatus;
+    private String siteVisitStatus;//Change SiteVisitStatus to String
 
 
     @JsonProperty("po_number")
     private String poNumber;
 
     @JsonProperty("po_status")
-    private POStatus poStatus;
+    private String poStatus; //Change POStatus to String
 
     @JsonProperty("asis_starts_on")
     @JsonDeserialize(using = TimestampDeserializser.class)
@@ -86,5 +86,5 @@ public class AsIsEntityCDC {
 
 
     @JsonProperty("asis_status")
-    private AsIsStatus asIsStatus;
+    private String asIsStatus;//Change AsIsStatus to String
 }

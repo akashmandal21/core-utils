@@ -55,7 +55,7 @@ public class HotoDocHouseDetailsCDC {
     private String cityName;
 
     @JsonProperty("hoto_status")
-    private HOTODocumentStatus hotoDocumentStatus;
+    private String hotoDocumentStatus; //Change HOTODocumentStatus to String
 
     @JsonProperty("file_path")
     private String filePath;

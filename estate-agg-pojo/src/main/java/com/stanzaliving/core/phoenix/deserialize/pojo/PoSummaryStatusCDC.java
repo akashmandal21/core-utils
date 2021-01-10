@@ -35,14 +35,14 @@ public class PoSummaryStatusCDC {
     private boolean status = true;
 
     @JsonProperty("uuid")
-    String poSummaryUuid;
+    private String poSummaryUuid;
 
     @JsonProperty( "property_id")
     private String propertyUuid;
 
     @JsonProperty("po_type")
-    PoType poType;
+    private String poType;//Change PoType to String
 
     @JsonProperty("po_summary_status")
-    POSummaryStatus poSummaryStatus;
+    private String poSummaryStatus;//Change POSummaryStatus to String
 }

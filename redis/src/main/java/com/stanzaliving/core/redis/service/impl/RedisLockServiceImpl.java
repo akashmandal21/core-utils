@@ -9,27 +9,24 @@ import com.stanzaliving.core.redis.service.RedisLockService;
 
 import lombok.extern.log4j.Log4j2;
 
-@Service
 @Log4j2
+@Service
 public class RedisLockServiceImpl implements RedisLockService {
 
 	@Autowired
 	private RedissonClient redissonClient;
-	
+
 	@Override
 	public RLock acquire(String lockName) {
-		
-		log.info("Acquiring Lock for ["+lockName+"]");
+
+		log.info("Acquiring Lock for [" + lockName + "]");
 
 		return redissonClient.getLock(lockName);
-
 	}
 
 	@Override
 	public void release(RLock rLock) {
-		
 		rLock.unlock();
-		
 	}
 
 }

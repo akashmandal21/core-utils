@@ -8,40 +8,45 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.UUID;
 
 @Log4j2
 public class UIDInterceptor extends HandlerInterceptorAdapter {
 
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
 
-        String guid = UUID.randomUUID().toString().replace("-", "");     //globally unique identifier
-        String luid = UUID.randomUUID().toString().replace("-", "");     //locally unique identifier
+		String guid = UUID.randomUUID().toString().replace("-", ""); // globally unique identifier
+		String luid = UUID.randomUUID().toString().replace("-", ""); // locally unique identifier
 
-        guid = (null != request.getHeader(StanzaConstants.GUID)) ? request.getHeader(StanzaConstants.GUID) : guid;
+		guid = (null != request.getHeader(StanzaConstants.GUID)) ? request.getHeader(StanzaConstants.GUID) : guid;
 
         MDC.put(StanzaConstants.GUID, guid);
         MDC.put(StanzaConstants.LUID, luid);
+		MDC.put(StanzaConstants.GUID, guid);
+		MDC.put(StanzaConstants.LUID, luid);
+		MDC.put(StanzaConstants.REQUEST_PATH, request.getRequestURI());
+		MDC.put(StanzaConstants.QUERY_STRING, request.getQueryString());
+		
+		log.info("RequestReceived URI {} QueryString {} AppVersion {}", request.getRequestURI(), request.getQueryString(), request.getHeader("appversion"));
+		
+		request.setAttribute(StanzaConstants.GUID, guid);
+		request.setAttribute(StanzaConstants.LUID, luid);
 
-        log.info("RequestReceived URI " + ((HttpServletRequest) request).getRequestURI() +
-                " QueryString " + ((HttpServletRequest) request).getQueryString() +
-                " App Version " + ((HttpServletRequest) request).getHeader("appversion"));
+		return true;
+	}
 
-        request.setAttribute(StanzaConstants.GUID, guid);
-        request.setAttribute(StanzaConstants.LUID, luid);
+	public boolean postHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
 
-        return true;
-    }
+		log.info("ResponseSent Code " + response.getStatus());
 
-    public boolean postHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
+		MDC.remove(StanzaConstants.GUID);
+		MDC.remove(StanzaConstants.LUID);
+		MDC.remove(StanzaConstants.REQUEST_PATH);
+		MDC.remove(StanzaConstants.QUERY_STRING);
 
-        log.info("ResponseSent Code " + response.getStatus());
-
-        MDC.remove(StanzaConstants.GUID);
-        MDC.remove(StanzaConstants.LUID);
-
-        return true;
-    }
+		return true;
+	}
 
 }

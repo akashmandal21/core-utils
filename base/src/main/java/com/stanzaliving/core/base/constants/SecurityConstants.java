@@ -20,6 +20,9 @@ public class SecurityConstants {
 
 	public static final String BASIC_HEADER_NAME = "Authorization";
 
+	public static final String AUTHORIZATION_HEADER = "Authorization";
+	public static final String VENTA_TOKEN_PREFIX = "Bearer ";
+
 	public static final String APP_ENVIRONMENT = "appEnv";
 	public static final String APP_ENVIRONMENT_TRUE = "true";
 	

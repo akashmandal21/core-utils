@@ -1,5 +1,6 @@
 package com.stanzaliving.core.projectservice.dto;
 
+import com.stanzaliving.core.leadership.dto.PropertyNamingDto;
 import com.stanzaliving.core.pojo.AttachmentDto;
 import com.stanzaliving.core.projectservice.enums.PropertyUpdateEnum;
 import lombok.AllArgsConstructor;
@@ -21,5 +22,6 @@ public class ProjectsUpdateDto {
     PropertyUpdateEnum propertyUpdateEnum;
     String userId;
     Map<String,String> additionalData;
+    PropertyNamingDto propertyNamingDto;
     Map<String,List<AttachmentDto>> attachmentDtoList;
 }

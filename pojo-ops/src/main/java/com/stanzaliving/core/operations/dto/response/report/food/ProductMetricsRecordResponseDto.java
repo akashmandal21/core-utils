@@ -1,6 +1,5 @@
 package com.stanzaliving.core.operations.dto.response.report.food;
 
-import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.operations.constants.FoodReportConstants;
 import com.stanzaliving.core.operations.dto.report.RecordDto;
 import com.stanzaliving.core.operations.dto.report.food.ProductMetricsRecordDto;

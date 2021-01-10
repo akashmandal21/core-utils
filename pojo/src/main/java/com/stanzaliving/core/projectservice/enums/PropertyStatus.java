@@ -1,6 +1,5 @@
 package com.stanzaliving.core.projectservice.enums;
 
-import com.stanzaliving.core.projectservice.enums.ProgressColor;
 import lombok.Getter;
 
 

@@ -7,6 +7,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.math.BigDecimal;
+
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -27,14 +29,22 @@ public class PoInvoiceItemDetailsDto {
 
     private String itemUom;
 
-    private Double itemRate;
+    private BigDecimal itemRate;
 
-    private Float itemQuantity;
+    private BigDecimal itemQuantity;
 
-    private Double itemAmount;
+    private BigDecimal itemAmount;
 
-    private Double poItemRate;
+    private BigDecimal poItemRate;
 
-    private Float poItemQuantity;
+    private BigDecimal poItemQuantity;
+
+    private String cgst;
+
+    private String igst;
+
+    private String sgst;
+
+    private Double gstAmount;
 
 }

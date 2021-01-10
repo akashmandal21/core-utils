@@ -3,14 +3,13 @@ package com.stanzaliving.core.projectservice.dto;
 import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.GenderAllowed;
 import com.stanzaliving.transformations.enums.SubBrandName;
-import com.stanzaliving.transformations.pojo.PropertyBoqStatusDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Builder
 @Data
@@ -31,4 +30,13 @@ public class PropertyInfoDto {
     private Double leasedArea;
     private int bdBedCount;
     private int roomCount;
+
+    private String addressLine1;
+    private String addressLine2;
+    private String landmark;
+    private String postalCode;
+    private String bdUserId;
+    private String siteEngineerUserId;
+    private double latitude;
+    private double longitude;
 }

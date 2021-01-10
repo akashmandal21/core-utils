@@ -44,7 +44,7 @@ public class PoDetailsCDC {
     private String poNumber;
 
     @JsonProperty( "po_type")
-    private PoType poType;
+    private String poType; //Change PoType to String
 
     @JsonProperty( "scope_of_work")
     private String scopeOfWork;
@@ -62,7 +62,7 @@ public class PoDetailsCDC {
     private String billToAddress;
 
     @JsonProperty( "po_status")
-    private PoStatus poStatus;
+    private String poStatus; //Change PoStatus to String
 
     @JsonProperty( "approval_date")
     private Date approvalDate;

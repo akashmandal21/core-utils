@@ -19,19 +19,28 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ResidenceType {
 
-	STELLO("Student"),
-	SUITS("Working Professional");
+	STELLO("Student", 1),
+	SUITS("Working Professional", 0),
+	SCHOLAR("Student", 1);
 
 	private String targetUser;
+	private int ventaResidenceTypeOrdinal;
 
 	private static Map<String, ResidenceType> residenceTypeMap = new HashMap<>();
+
+	private static Map<Integer, ResidenceType> ventaResidenceTypeMap = new HashMap<>();
 
 	static {
 
 		for (ResidenceType residenceType : ResidenceType.values()) {
 			residenceTypeMap.put(residenceType.getTargetUser(), residenceType);
+			ventaResidenceTypeMap.put(residenceType.getVentaResidenceTypeOrdinal(), residenceType);
 		}
 
+	}
+
+	public static ResidenceType getVentaResidenceType(int id) {
+		return ventaResidenceTypeMap.get(id);
 	}
 
 	public static ResidenceType getResidentTypeForTargetUser(String targetUser) {
