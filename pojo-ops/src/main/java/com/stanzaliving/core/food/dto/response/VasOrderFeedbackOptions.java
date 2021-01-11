@@ -31,6 +31,8 @@ public class VasOrderFeedbackOptions {
 
 	private String masterOrderId;
 
+	private String foodOrderId;
+
 	private List<EnumListing<CafeFeedbackFor>> feedbackFor;
 
 	private List<VasOrderItemFeedbackOptions> itemFeedbackOptions;
