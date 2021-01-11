@@ -36,8 +36,8 @@ public class Lead {
 
     private Date bookedOn;
 
-    private BigDecimal totalEarnings;
+    private BigDecimal totalEarnings = BigDecimal.ZERO;
 
-    private BigInteger transactionsCount;
+    private BigInteger transactionsCount = BigInteger.ZERO;
 
 }
