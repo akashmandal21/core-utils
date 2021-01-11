@@ -93,6 +93,12 @@ public enum OrderStatus {
         return orderStatuses;
     }
 
+    public static List<OrderStatus> getDispatchWithDeliveredOrderStatus() {
+        List<OrderStatus> orderStatuses = getDispatchOrderStatus();
+        orderStatuses.add(DELIVERED);
+        return orderStatuses;
+    }
+
     public static boolean isPacked(OrderStatus orderStatus) {
         List<OrderStatus> packedStatus = new ArrayList<>();
         packedStatus.add(PREPARED);
