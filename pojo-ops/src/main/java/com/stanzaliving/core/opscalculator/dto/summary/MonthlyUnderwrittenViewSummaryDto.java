@@ -15,18 +15,18 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class MonthlyUnderwrittenViewSummaryDto {
-    List<MonthUnderwrittenSummaryDto> monthWiseUnderwrittenSummaryDtoList;
-    DeviationPercentSummaryDto deviationPercent;
-    DisplaySummaryDto overallAmount;
-    DisplaySummaryDto overallCostPerAvailableBedPerMonth;
-    Double percentDeviation;
+    private List<MonthUnderwrittenSummaryDto> monthWiseUnderwrittenSummaryDtoList;
+    private DeviationPercentSummaryDto deviationPercent;
+    private DisplaySummaryDto overallAmount;
+    private DisplaySummaryDto overallCostPerAvailableBedPerMonth;
+    private Double percentDeviation;
 
-    String commentUuid;
-    String residenceUuid;
-    String seasonUuid;
-    String monthlyUnderWrittenUuid;
-    String annualUnderWrittenUuid;
-    UnderWrittenStatus underWrittenStatus;
+    private String commentUuid;
+    private String residenceUuid;
+    private String seasonUuid;
+    private String monthlyUnderWrittenUuid;
+    private String annualUnderWrittenUuid;
+    private UnderWrittenStatus underWrittenStatus;
     private String pendingApprovalFrom;
     private String approvalStatus;
     private String bgColorCode;

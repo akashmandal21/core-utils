@@ -1,5 +1,6 @@
 package com.stanzaliving.core.opscalculator.dto.summary;
 
+import com.stanzaliving.core.opscalculator.constants.UnderwrittenCalculatorCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,29 +13,29 @@ import lombok.experimental.SuperBuilder;
 public class DeviationPercentSummaryDto extends MonthUnderwrittenSummaryDto {
     String foodCommentUuid;
     @Builder.Default
-    String foodCategoryName = "food";
+    String foodCategoryName = UnderwrittenCalculatorCategory.FOOD.toString();
     String utilitiesCommentUuid;
     @Builder.Default
-    String utilitiesCategoryName = "utilities";
+    String utilitiesCategoryName = UnderwrittenCalculatorCategory.UTILITIES.toString();
     String securityCommentUuid;
     @Builder.Default
-    String securityCategoryName = "security";
+    String securityCategoryName = UnderwrittenCalculatorCategory.SECURITY.toString();
     String internetCommentUuid;
     @Builder.Default
-    String internetCategoryName = "internet";
+    String internetCategoryName = UnderwrittenCalculatorCategory.INTERNET.toString();
     String houseKeepingCommentUuid;
     @Builder.Default
-    String houseKeepingCategoryName = "hk";
+    String houseKeepingCategoryName = UnderwrittenCalculatorCategory.HK.toString();
     String laundryCommentUuid;
     @Builder.Default
-    String laundryCategoryName = "laundry";
+    String laundryCategoryName = UnderwrittenCalculatorCategory.LAUNDRY.toString();
     String repairAndMaintenanceCommentUuid;
     @Builder.Default
-    String repairAndMaintenanceCategoryName = "repairAndMaintenance";
+    String repairAndMaintenanceCategoryName = UnderwrittenCalculatorCategory.REPAIR.toString();
     String equipmentRentalCommentUuid;
     @Builder.Default
-    String equipmentRentalCategoryName = "equipmentRental";
+    String equipmentRentalCategoryName = UnderwrittenCalculatorCategory.EQUIPMENT.toString();
     String suppliesCommentUuid;
     @Builder.Default
-    String suppliesCategoryName = "supplies";
+    String suppliesCategoryName = UnderwrittenCalculatorCategory.SUBSCRIPTION.toString();
 }

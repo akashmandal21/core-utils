@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -13,6 +15,8 @@ import lombok.experimental.SuperBuilder;
 public class MonthUnderwrittenSummaryDto extends CategorySummaryDto {
     String monthYear;
     DisplaySummaryDto occupancy;
+    LocalDate fromDate;
+    LocalDate toDate;
 
     FoodSummaryDto foodSummaryDto;
     UtilitiesSummaryDto utilitiesSummaryDto;

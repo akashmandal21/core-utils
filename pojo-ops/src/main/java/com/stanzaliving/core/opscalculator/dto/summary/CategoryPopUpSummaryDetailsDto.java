@@ -19,4 +19,6 @@ public class CategoryPopUpSummaryDetailsDto {
     String serviceMixDisplayName;
     String monthlyUnderWrittenServiceMixUuid;
     boolean changeInServiceMix;
+    LocalDate fromDate;
+    LocalDate toDate;
 }

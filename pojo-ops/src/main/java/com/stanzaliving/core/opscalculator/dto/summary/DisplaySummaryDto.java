@@ -20,29 +20,29 @@ public class DisplaySummaryDto {
 //    FeElementType feElementType = FeElementType.CURRENCY_INTEGER;
 
 
-    public DisplaySummaryDto(Double annualUnderwrittenValue, Double monthlySplitterValue) {
+    public DisplaySummaryDto(double annualUnderwrittenValue, double monthlySplitterValue) {
         this.annualUnderwrittenValue = annualUnderwrittenValue;
         this.monthlySplitterValue = monthlySplitterValue;
         if (NumberUtils.isEqualDouble(this.annualUnderwrittenValue, this.monthlySplitterValue)) {
             this.colorCode = ColorCode.BLUE.getColorCode();
-        } else if (monthlySplitterValue.compareTo(annualUnderwrittenValue) < 0) {
+        } else if (monthlySplitterValue < annualUnderwrittenValue) {
             this.colorCode = ColorCode.GREEN.getColorCode();
         } else {
             this.colorCode = ColorCode.RED.getColorCode();
         }
     }
 
-    public DisplaySummaryDto(Integer annualUnderwrittenValue, Integer monthlySplitterValue) {
-        this.annualUnderwrittenValue = annualUnderwrittenValue.doubleValue();
-        this.monthlySplitterValue = monthlySplitterValue.doubleValue();
-        if (NumberUtils.isEqualDouble(this.annualUnderwrittenValue, this.monthlySplitterValue)) {
-            this.colorCode = ColorCode.BLUE.getColorCode();
-        } else if (monthlySplitterValue.compareTo(annualUnderwrittenValue) < 0) {
-            this.colorCode = ColorCode.GREEN.getColorCode();
-        } else {
-            this.colorCode = ColorCode.RED.getColorCode();
-        }
-    }
+//    public DisplaySummaryDto(Integer annualUnderwrittenValue, Integer monthlySplitterValue) {
+//        this.annualUnderwrittenValue = annualUnderwrittenValue.doubleValue();
+//        this.monthlySplitterValue = monthlySplitterValue.doubleValue();
+//        if (NumberUtils.isEqualDouble(this.annualUnderwrittenValue, this.monthlySplitterValue)) {
+//            this.colorCode = ColorCode.BLUE.getColorCode();
+//        } else if (monthlySplitterValue.compareTo(annualUnderwrittenValue) < 0) {
+//            this.colorCode = ColorCode.GREEN.getColorCode();
+//        } else {
+//            this.colorCode = ColorCode.RED.getColorCode();
+//        }
+//    }
 
     //delete this constructor, used for dummy api's for now
     public DisplaySummaryDto() {
