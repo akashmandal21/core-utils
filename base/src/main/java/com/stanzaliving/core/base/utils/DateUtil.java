@@ -107,7 +107,11 @@ public class DateUtil {
 	}
 
 	public Date convertToDate(LocalDateTime localdateTime) {
-		return Date.from(localdateTime.atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant());
+		Date date = null;
+		if(Objects.nonNull(localdateTime)) {
+			date =  Date.from(localdateTime.atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant());
+		}
+		return date;
 	}
 
 	public LocalDateTime convertToLocalDateTime(Date date) {

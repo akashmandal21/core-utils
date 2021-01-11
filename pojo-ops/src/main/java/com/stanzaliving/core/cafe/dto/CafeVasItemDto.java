@@ -19,6 +19,7 @@ public class CafeVasItemDto {
     private String itemId;
     private String name;
     private String category;
+    private Integer categorySequence;
     private boolean containsEgg;
     private boolean nonVeg;
     private boolean specialVeg;

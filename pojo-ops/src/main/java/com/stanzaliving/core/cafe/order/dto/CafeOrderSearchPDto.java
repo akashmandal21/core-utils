@@ -27,4 +27,6 @@ public class CafeOrderSearchPDto {
     private OrderStatus status;
     private Boolean inRoomDelivery;
     private boolean rcApp;
+    private Boolean eligibleOrder;
+    private boolean dispatchDelivered;
 }
