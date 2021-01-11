@@ -19,8 +19,7 @@ import java.util.Set;
 public class OrderStatsRDto {
     private OrderType orderType;
     private Integer count;
-    private Map<LocalTime, Set<String>> slots;
+    private Map<LocalDate,Map<LocalTime, Set<String>>> slots;
     private List<ResidenceStatRDto> residenceStats;
-    private LocalDate batchOrderDate;
     private boolean pending;
 }

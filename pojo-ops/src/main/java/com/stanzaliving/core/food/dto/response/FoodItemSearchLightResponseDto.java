@@ -39,4 +39,6 @@ public class FoodItemSearchLightResponseDto {
 	private List<RecipeIngredientDto> ingredients;
 
 	private Integer gstPercentage;
+
+	private boolean recipeExists;
 }

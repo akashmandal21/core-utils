@@ -71,13 +71,15 @@
 		<module>food-service-client</module>
         <module>generic-validation-core</module>
         <module>payment-client</module>
+        <module>counter-service</module>
         <module>recon-client</module>
 		<module>ops-calculator-client</module>
         <module>notification-client</module>
         <module>shortUrl-client</module>
 		<module>ims-client</module>
-
-    </modules>
+		<module>inventory-client</module>
+		<module>generic-po-client</module>
+	</modules>
 
 	<build>
 		<plugins>
