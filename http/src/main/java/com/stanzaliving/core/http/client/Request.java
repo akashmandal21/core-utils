@@ -30,27 +30,39 @@ import java.net.UnknownHostException;
 
 
 @Log4j2
-@UtilityClass
 public class Request {
 
-	private static final RestTemplate appRestClient = new RestTemplate();
-	static {
-		Mapper.configureRestTemplate(appRestClient);
+	private final RestTemplate appRestClient;
+
+	private Request() {
+		this.appRestClient = new RestTemplate();
+		Mapper.configureRestTemplate(this.appRestClient);
 	}
 
-
 	private <T> ResponseEntity<T> makeRequest(HttpMethod method, String uriString, HttpEntity<Object> httpEntity, ParameterizedTypeReference<T> responseType){
+
 		ResponseEntity<T> responseEntity = null;
-		try{
+
+		try {
+
 			log.info("Accessing Api with method: "+ method + " and url: " + uriString);
+
 			responseEntity = appRestClient.exchange(uriString, method, httpEntity, responseType);
+
 			log.info("Successfully got the response with method: "+ method + " and url: " + uriString);
-		} catch (HttpClientErrorException e){
+
+		} catch (HttpClientErrorException e) {
+
 			log.error("Error while making request to url: " + uriString, e);
+
 			if(!e.getStatusCode().is2xxSuccessful()){
-				responseEntity = new ResponseEntity<T>(null , e.getResponseHeaders(), e.getStatusCode());
+
+				throw new StanzaHttpException("Error while making request: " + e.getMessage());
+//				responseEntity = new ResponseEntity<T>(null , e.getResponseHeaders(), e.getStatusCode());
+
 			}
 		}
+
 		return responseEntity;
 	}
 
@@ -66,20 +78,35 @@ public class Request {
 			int readTimeout,
 			String proxy
 	) {
+
 		ResponseEntity<T> responseEntity = null;
+
 		try {
+
 			params = (params == null) ? new LinkedMultiValueMap<>() : params;
+
 			final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url);
+
 			final String uriString = builder.queryParams(params).toUriString();
+
 			appRestClient.setRequestFactory(RequestFactoryUtil.getRequestFactory(connectTimeout, readTimeout, proxy));
+
 			HttpEntity<Object> httpEntity = new HttpEntity<>(requestBody, HeadersUtil.getHeadersForRequest(headers));
+
 			responseEntity = makeRequest(method, uriString, httpEntity, responseType);
+
 		} catch (UnknownHostException | ProxyConfigException | RestClientException e){
+
 			log.error("Error while requesting to url:" + url, e);
+
 			throw new StanzaHttpException(e.getMessage());
+
 		} catch (Exception e){
+
 			log.error("Error in getting response with url:" + url, e);
+
 		}
+
 		return responseEntity;
 	}
 

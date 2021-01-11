@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 /**
@@ -23,8 +24,10 @@ import org.springframework.util.MultiValueMap;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StanzaHttpRequestDto {
+	@Builder.Default
 	private int connectTimeout = 10000;
 
+	@Builder.Default
 	private int readTimeout = 30000;
 
 	private HttpMethod method;
@@ -33,7 +36,8 @@ public class StanzaHttpRequestDto {
 
 	private HttpHeaders headers;
 
-	private MultiValueMap<String, String> queryParams;
+	@Builder.Default
+	private MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 	private Object requestBody;
 
