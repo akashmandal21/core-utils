@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
@@ -31,6 +32,7 @@ import lombok.experimental.SuperBuilder;
 public class FoodMenuCategoryDto extends AbstractDto {
 
     private String categoryName;
+    private String mealWiseShortName;
 
     private String cityId;
 
@@ -69,4 +71,8 @@ public class FoodMenuCategoryDto extends AbstractDto {
     private String menuCopiedMsg;
 
     private FoodMenuStatus menuStatus;
+
+    private boolean operational;
+    private Date menuUpdatedAt;
+    private Double price;
 }
