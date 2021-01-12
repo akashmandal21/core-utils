@@ -41,6 +41,8 @@ public class UserMenuPreferenceResponseDto {
 	private Date windowCloseTime;
 
 	private boolean defaultChoice;
+	
+	private boolean mealSkipped;
 
 	private FoodPreferenceComboResponseDto selectedCombo;
 

@@ -28,4 +28,6 @@ public class UserMenuPreferenceAddDto {
 
 	@NotNull(message = "Food Preference Selection is mandatory")
 	private FoodItemType foodPreference;
+	
+	private Boolean skippedMealStatus;
 }
