@@ -37,7 +37,7 @@ public class ApprovalClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("entityUuid", entityUuid);
-		queryParams.add("approvalEntityType", approvalEntityType.getValue());
+		queryParams.add("approvalEntityType", approvalEntityType.toString());
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
