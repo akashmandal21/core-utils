@@ -16,11 +16,12 @@ public class DisplaySummaryDto {
     Double annualUnderwrittenValue;         //should be Object
     Double monthlySplitterValue;            //should be Object
     String colorCode;
+    Double deviationPercent;
 //    @Builder.Default
 //    FeElementType feElementType = FeElementType.CURRENCY_INTEGER;
 
 
-    public DisplaySummaryDto(double annualUnderwrittenValue, double monthlySplitterValue) {
+    public DisplaySummaryDto(double annualUnderwrittenValue, double monthlySplitterValue, boolean isDeviation) {
         this.annualUnderwrittenValue = annualUnderwrittenValue;
         this.monthlySplitterValue = monthlySplitterValue;
         if (NumberUtils.isEqualDouble(this.annualUnderwrittenValue, this.monthlySplitterValue)) {
@@ -29,6 +30,10 @@ public class DisplaySummaryDto {
             this.colorCode = ColorCode.GREEN.getColorCode();
         } else {
             this.colorCode = ColorCode.RED.getColorCode();
+        }
+        
+        if(isDeviation){
+            this.deviationPercent = (annualUnderwrittenValue-monthlySplitterValue)/annualUnderwrittenValue;
         }
     }
 
