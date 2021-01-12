@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum PaymentChargeType {
     FLAT("Flat Amount","Flat"),
     PCT("%","Month"),
-    PCT_GST("% with GST",null);
+    PCT_GST("100 % with Tax",null);
 
     private String chargeText;
     private String refundableSDText;
