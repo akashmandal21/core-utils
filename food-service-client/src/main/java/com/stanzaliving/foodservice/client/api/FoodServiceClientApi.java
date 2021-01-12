@@ -2,6 +2,7 @@ package com.stanzaliving.foodservice.client.api;
 
 import java.util.*;
 
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -186,5 +187,10 @@ public class FoodServiceClientApi {
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
+	}
+
+
+	public void initiateWeeklyMenuVendorApproval(String menuGroupId, List<UserContactDetailsResponseDto> mailCc) {
+		//todo
 	}
 }
