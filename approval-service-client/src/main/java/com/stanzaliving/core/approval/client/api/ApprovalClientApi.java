@@ -33,7 +33,7 @@ public class ApprovalClientApi {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/getApprovalListing").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("internal/getApprovalDto").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
