@@ -36,6 +36,8 @@ public class ApprovalClientApi {
 		String path = UriComponentsBuilder.fromPath("internal/getApprovalDto").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("entityUuid", entityUuid);
+		queryParams.add("approvalEntityType", approvalEntityType.getValue());
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
