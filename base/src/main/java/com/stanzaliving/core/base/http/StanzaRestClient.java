@@ -337,13 +337,13 @@ public class StanzaRestClient {
 
 		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
 
-		if (queryParams != null) {
+		if (Objects.nonNull(queryParams)) {
 			builder.queryParams(queryParams);
 		}
 
 		final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
 
-		if (accept != null) {
+		if (Objects.nonNull(accept)) {
 			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
 		}
 

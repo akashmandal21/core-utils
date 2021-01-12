@@ -8,6 +8,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CategoryItemOrderCountSearchDto {
 
-	private List<String> itemIds;
+	private Collection<String> itemIds;
 
 	private String menuCategoryId;
 
