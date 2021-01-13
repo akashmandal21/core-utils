@@ -1,8 +1,10 @@
 package com.stanzaliving.banner.dto.response;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+
+import com.stanzaliving.banner.enumeration.AppPage;
+import com.stanzaliving.banner.enumeration.PageSection;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,8 +20,8 @@ public class EndUserEligblePromotions {
 	
 	private String userId;
 	
-	private String appPage;
+	private AppPage appPage;
 	
 	@Default
-	private Map<String, List<PromotionResponseDto>> pageSectionMap = new HashMap<>();
+	private Map<PageSection, SectionTypeAndPromotions> pageSectionMap = new HashMap<>();
 }
