@@ -1,20 +1,23 @@
 package com.stanzaliving.core.opscalculator.dto;
 
+import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class MonthDto {
-    private int monthNumber;
-    private int year;
-    private Double cost;
+    private String monthYear;
+    private LocalDate fromDate;
+    private LocalDate toDate;
+    private Double costPerAvailableBed;
     private String colorCode;
-    private String status;
+    private UnderWrittenStatus underWrittenStatus;
     private String monthlyUnderWrittenUUid;
-    private boolean currentMonth;
 }
