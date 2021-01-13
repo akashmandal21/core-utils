@@ -36,7 +36,6 @@ public enum DateFormat {
 	MMMM_YYYY("MMMM, yyyy"),//June, 2020
 	MMM_YYYY("MMM, yyyy"),
 	MMM_YY("MMM, yy"),
-	MMM_YY2("MMMyy"),
 	DD_MMM_YYYY_H_MM_A("dd MMM yyyy h:mm a"),
 	H_MM_A("h:mm a"),
 	FRESHDESK_DATE_FORMAT("yyyy-MM-dd'T'HH:mm:ssXXX"),
