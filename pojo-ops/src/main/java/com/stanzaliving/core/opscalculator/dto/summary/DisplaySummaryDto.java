@@ -2,11 +2,8 @@ package com.stanzaliving.core.opscalculator.dto.summary;
 
 import com.stanzaliving.core.base.enums.ColorCode;
 import com.stanzaliving.core.base.utils.NumberUtils;
-import com.stanzaliving.core.operations.enums.FeElementType;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @AllArgsConstructor
@@ -20,8 +17,11 @@ public class DisplaySummaryDto {
 //    @Builder.Default
 //    FeElementType feElementType = FeElementType.CURRENCY_INTEGER;
 
+//    public DisplaySummaryDto(double annualUnderwrittenValue, double monthlySplitterValue) {
+//        this(annualUnderwrittenValue, monthlySplitterValue, false);
+//    }
 
-    public DisplaySummaryDto(double annualUnderwrittenValue, double monthlySplitterValue, boolean isDeviation) {
+    public DisplaySummaryDto(double annualUnderwrittenValue, double monthlySplitterValue) {
         this.annualUnderwrittenValue = annualUnderwrittenValue;
         this.monthlySplitterValue = monthlySplitterValue;
         if (NumberUtils.isEqualDouble(this.annualUnderwrittenValue, this.monthlySplitterValue)) {
@@ -31,10 +31,7 @@ public class DisplaySummaryDto {
         } else {
             this.colorCode = ColorCode.RED.getColorCode();
         }
-        
-        if(isDeviation){
-            this.deviationPercent = (annualUnderwrittenValue-monthlySplitterValue)/annualUnderwrittenValue;
-        }
+        this.deviationPercent = NumberUtils.isEqualDouble(0d, annualUnderwrittenValue) ? 0 : ((Math.abs(annualUnderwrittenValue - monthlySplitterValue) * 100) / annualUnderwrittenValue);
     }
 
 //    public DisplaySummaryDto(Integer annualUnderwrittenValue, Integer monthlySplitterValue) {
@@ -53,6 +50,7 @@ public class DisplaySummaryDto {
     public DisplaySummaryDto() {
         this.annualUnderwrittenValue = 100d * Math.random();
         this.monthlySplitterValue = 100d * Math.random();
+        this.deviationPercent = 100d * Math.random();
         if (NumberUtils.isEqualDouble(this.annualUnderwrittenValue, this.monthlySplitterValue)) {
             this.colorCode = ColorCode.BLUE.getColorCode();
         } else if (monthlySplitterValue.compareTo(annualUnderwrittenValue) < 0) {
