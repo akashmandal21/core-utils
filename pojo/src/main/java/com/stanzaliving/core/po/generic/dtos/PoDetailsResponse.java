@@ -47,6 +47,7 @@ public class PoDetailsResponse {
     private LocalDate endDate;
     private String scopeOfWork;
     private boolean isPo;
+    private boolean isAdvanceIncludingTax;
     private String sourceLocation;
     private LocationType sourceLocationType;
     private String sourceLocationUuid;
