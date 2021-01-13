@@ -9,6 +9,7 @@ import org.springframework.data.repository.NoRepositoryBean;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @NoRepositoryBean
@@ -31,4 +32,6 @@ public interface AbstractJpaRepository<T extends AbstractJpaEntity, I extends Se
 	Boolean existsByUuid(String uuid);
 
 	Boolean existsByUuidAndStatus(String uuid, boolean status);
+
+	List<T> findByUpdatedAtBetween(Date fromDate, Date toDate);
 }
