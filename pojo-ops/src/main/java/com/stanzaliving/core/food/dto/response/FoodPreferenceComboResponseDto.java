@@ -48,6 +48,6 @@ public class FoodPreferenceComboResponseDto {
 
 	private String mealImg;
 	
-	private RegionAndFoodItemBasePreference region_fooditembasepreference;
+	private RegionAndFoodItemBasePreference regionfooditembasepreference;
 
 }
