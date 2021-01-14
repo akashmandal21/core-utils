@@ -66,4 +66,7 @@ public class PoDetailsResponse {
     private String poTypeText;
     private Long startDateMilis;
     private Long endDateMilis;
+
+    private boolean isAdvanceInPct;
+    private BigDecimal advanceTypeValue;
 }
