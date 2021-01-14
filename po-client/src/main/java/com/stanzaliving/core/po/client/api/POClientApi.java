@@ -534,4 +534,27 @@ public class POClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
+
+    public ResponseDto<List<String>> getAllInactiveInvoices() {
+
+        log.info("HTTP Client call to get All Invoices");
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/all/inactive/invoices").toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
+    }
+
 }
