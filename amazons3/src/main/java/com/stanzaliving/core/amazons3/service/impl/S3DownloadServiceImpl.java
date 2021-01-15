@@ -11,18 +11,13 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.amazonaws.services.s3.model.*;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.GetObjectRequest;
-import com.amazonaws.services.s3.model.ListObjectsV2Request;
-import com.amazonaws.services.s3.model.ListObjectsV2Result;
-import com.amazonaws.services.s3.model.S3Object;
-import com.amazonaws.services.s3.model.S3ObjectInputStream;
-import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.stanzaliving.core.amazons3.service.S3DownloadService;
 import com.stanzaliving.core.amazons3.util.S3Util;
 
@@ -122,6 +117,21 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 			}
 		} catch (Exception e) {
 			log.error("Error while generating Pre-Signed URL for File: " + filePath, e);
+		}
+
+		return null;
+	}
+
+	@Override
+	public String getPreSignedUrlWithContentSpec(AmazonS3 s3Client, GeneratePresignedUrlRequest presignedUrlRequest) {
+		try {
+			URL url = S3Util.getAmazonS3Client(s3Client).generatePresignedUrl(presignedUrlRequest);
+
+			if (url != null) {
+				return url.toString();
+			}
+		} catch (Exception e) {
+			log.error("Error while generating Pre-Signed URL for File: " + presignedUrlRequest.getKey(), e);
 		}
 
 		return null;
