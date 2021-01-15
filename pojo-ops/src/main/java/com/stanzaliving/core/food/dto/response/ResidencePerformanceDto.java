@@ -18,24 +18,13 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidencePerformanceDto {
+public class ResidencePerformanceDto extends PerformanceDto {
+	private static final long serialVersionUID = -8975754L;
 
 	private ListingDto residence;
-
-	private Integer totalRating;
-
-	private Integer totalRatingCount;
-
-	private Float avgRating;
-
-	private Float delightedPercent;
-
-	private Float disgustedPercent;
-
-	private Float fpsPercent;
 
 }
