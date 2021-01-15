@@ -27,9 +27,9 @@ public class DishMasterRatingResponseDto extends DishMasterSearchResponseDto {
 
 	private static final long serialVersionUID = -77978649022785L;
 
-	private Integer totalRatingCount;
-
 	private Integer totalRating;
+
+	private Integer totalRatingCount;
 
 	private Float avgRating;
 

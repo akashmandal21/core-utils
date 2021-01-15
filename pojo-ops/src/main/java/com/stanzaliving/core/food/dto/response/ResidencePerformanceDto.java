@@ -26,9 +26,9 @@ public class ResidencePerformanceDto {
 
 	private ListingDto residence;
 
-	private Integer totalRatingCount;
-
 	private Integer totalRating;
+
+	private Integer totalRatingCount;
 
 	private Float avgRating;
 
