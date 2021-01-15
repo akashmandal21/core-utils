@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto.request;
 
+import com.stanzaliving.core.dto.SortDto;
+import com.stanzaliving.core.food.dto.OperatorValueDto;
 import com.stanzaliving.core.food.enums.DishRegion;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
@@ -9,7 +11,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -36,4 +38,8 @@ public class MenuItemSearchRequestDto {
 	private String subCategoryId;
 
 	private String dishName;
+
+	private OperatorValueDto<Float> rating;
+
+	private List<SortDto> sort;
 }

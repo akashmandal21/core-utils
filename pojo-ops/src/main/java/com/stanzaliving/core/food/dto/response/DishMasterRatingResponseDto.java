@@ -43,4 +43,6 @@ public class DishMasterRatingResponseDto extends DishMasterSearchResponseDto {
 
 	private List<ResidencePerformanceDto> residencePerformance;
 
+	private MicromarketPerformanceDto micromarketPerformance;
+
 }
