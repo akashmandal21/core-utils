@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public enum SectionType {
 
-	CAROUSEL("Carousel"), STORY_WIDGET("Story Widget");
+	CAROUSEL("Carousel"), STORY_WIDGET("Story Widget"), STORY_WIDGET_WITH_BANNER("Story Widget With Banner");
 	
 	private String displayName;
 }
