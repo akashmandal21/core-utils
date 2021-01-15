@@ -34,8 +34,8 @@ public class MealPickupHistoryListingDto {
 
 	private boolean foodReceived;
 
-	private int totalOrders;
+	private long totalOrders;
 
-	private int pickedOrders;
+	private long pickedOrders;
 
 }

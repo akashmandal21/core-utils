@@ -35,11 +35,11 @@ public class UserMealPickupHistoryDto {
 
 	private LocalDate menuDate;
 
-	private int received;
+	private long received;
 
-	private int picked;
+	private long picked;
 	
-	private int pending;
+	private long pending;
 	
 	private List<UserMealOrderDto> userMealOrderDtos;
 

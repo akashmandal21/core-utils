@@ -35,6 +35,8 @@ public class UserMealOrderDto {
 	private String roomNumber;
 
 	private String mobile;
+	
+	private String imageUrl;
 
 	private Date pickedAt;
 
