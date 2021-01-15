@@ -19,5 +19,5 @@ public class MonthDto {
     private Double costPerAvailableBed;
     private String colorCode;
     private UnderWrittenStatus underWrittenStatus;
-    private String monthlyUnderWrittenUUid;
+    private String monthlyUnderWrittenUuid;
 }
