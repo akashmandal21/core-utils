@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.dto.PageAndSortDto;
+import com.stanzaliving.core.food.enums.DishRegion;
 import com.stanzaliving.core.food.enums.FoodItemBackgroundColor;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.RecipeType;
@@ -61,4 +62,6 @@ public class FoodItemSearchDto extends AbstractDto {
 	private Boolean dataComplete;
 
 	private Boolean recipeExists;
+
+	private DishRegion dishRegion;
 }
