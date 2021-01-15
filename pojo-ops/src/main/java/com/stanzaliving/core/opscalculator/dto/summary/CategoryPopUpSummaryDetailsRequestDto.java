@@ -1,6 +1,9 @@
 package com.stanzaliving.core.opscalculator.dto.summary;
 
+import com.stanzaliving.core.opscalculator.constants.UnderwrittenCalculatorCategory;
 import com.stanzaliving.core.opscalculator.dto.CategoryDto;
+import com.stanzaliving.core.opscalculator.dto.UnderWrittenDto;
+import com.stanzaliving.core.opscalculator.dto.UnderwrittenCostCategoryDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,10 +17,8 @@ import java.util.List;
 @Data
 @SuperBuilder
 public class CategoryPopUpSummaryDetailsRequestDto {
-    CategoryDto categoryDto;
-    String serviceMixUuid;
+    UnderWrittenDto underWrittenDto;
+    UnderwrittenCalculatorCategory underwrittenCalculatorCategory;
     String monthlyUnderWrittenServiceMixUuid;
     List<Month> copyDetailsToMonths;
-    String annualUnderWrittenUuid;
-    String monthlyUnderWrittenUuid;
 }
