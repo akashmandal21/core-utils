@@ -47,7 +47,7 @@ public class DishMasterSearchResponseDto implements Serializable {
 
 	private Boolean quantifiable;
 
-	private KeyValuePairDto textColor;
+	private EnumListing<String> textColor;
 
 	private KeyValuePairDto bgColor;
 
