@@ -21,7 +21,7 @@ public interface EmailPlaceHolders {
     String PO_LINK = "poLink";
     String SUBMITTED_ON = "submittedOn";
     String L3_APPROVER_NAME = "L3ApproverName";
-    //    String APPROVER_NAME = "ApproverName";
+    String APPROVER_NAME = "approverName";
     String SHORT_CLOSE_REASON = "shortcloseReason";
     String CANCELLATION_REASON = "cancellationReason";
     String SEND_BACK_REASON = "sendBackReason";
@@ -56,7 +56,7 @@ public interface EmailPlaceHolders {
     String DEDUCTION_DONE = "deductionDone";
     String DEDUCTION = "deduction";
     //    String INVOICE_LINK = "invoiceLlink";
-    String APPROVER_NAME = "approverName";
+//    String APPROVER_NAME = "ApproverName";
     String INVOICE_REJECTED_REASON = "invoiceRejectReason";// invoiceRejectreason
     String INVOICE_DEDUCTION = "invoiceDeductions";
     String PAYMENT_DATE = "paymentDate";
@@ -73,5 +73,8 @@ public interface EmailPlaceHolders {
     String TO_DESTINATION_LOCATION = "toDestinationLocation";
     String TO_DURATION = "toDuration";
     String TO_REASON = "toReason";
+    String DEPARTMENT = "department";
+    String PO_CREATOR = "PO_CREATOR";
+    String PREVIOUS_APPROVER = "PREVIOUS_APPROVER";
 
 }
