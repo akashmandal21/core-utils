@@ -55,10 +55,6 @@ public class DishMasterSearchResponseDto implements Serializable {
 
 	private ListingDto subCategory;
 
-	private Boolean isGrammagePresent;
-
-	private Boolean menuTypeEligible;
-
 	private Boolean dataComplete;
 
 	private Boolean addOnEnabled;
