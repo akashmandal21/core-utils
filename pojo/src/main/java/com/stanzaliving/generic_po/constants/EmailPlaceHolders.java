@@ -76,5 +76,6 @@ public interface EmailPlaceHolders {
     String DEPARTMENT = "department";
     String PO_CREATOR = "PO_CREATOR";
     String PREVIOUS_APPROVER = "PREVIOUS_APPROVER";
+    String PO_CREATED_BY = "poCreatedBy";
 
 }
