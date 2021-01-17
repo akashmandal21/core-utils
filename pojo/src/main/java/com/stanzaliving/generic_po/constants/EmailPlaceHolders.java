@@ -14,26 +14,20 @@ public interface EmailPlaceHolders {
     String PO_AMOUNT = "poAmount";
     String SHORT_CLOSE_AMOUNT = "shortcloseAmount";
     String REASON = "reason";
-    String L1_APPROVAL_DATE = "L1ApprovalDate";// L1approvalDate
-    String L1_APPROVER_NAME = "L1ApproverName";// L1approverName
-    String L2_APPROVAL_DATE = "L2ApprovalDate";// L2approvalDate
-    String L2_APPROVER_NAME = "L2ApproverName";// L2approverName
+    String L1_APPROVAL_DATE = "L1ApprovalDate";
+    String L1_APPROVER_NAME = "L1ApproverName";
+    String L2_APPROVAL_DATE = "L2ApprovalDate";
+    String L2_APPROVER_NAME = "L2ApproverName";
     String PO_LINK = "poLink";
     String SUBMITTED_ON = "submittedOn";
     String L3_APPROVER_NAME = "L3ApproverName";
     String APPROVER_NAME = "approverName";
-    String SHORT_CLOSE_REASON = "shortcloseReason";
-    String CANCELLATION_REASON = "cancellationReason";
     String SEND_BACK_REASON = "sendBackReason";
     String COMMENTS = "comments";
-    String PO_SHORT_CLOSE_AMOUNT = "poShortcloseAmount";
-    String PO_SHORT_CLOSE_REASON = "poShortCloseReason";
-    String PO_CANCELLATION_REASON = "poCancellationReason";
     String VENDOR_NAME = "vendorName";
     String PO_CREATOR_NAME = "poCreatorName";
     String PO_CREATOR_EMAIL = "poCreatorEmail";
     String SCOPE_OF_WORK = "scopeOfWork";
-    //    String USER ="User";
     String ITEMS = "items";
     String GRN_USER = "grnUser";
     String ITEM_CODE = "itemCode";
@@ -47,7 +41,6 @@ public interface EmailPlaceHolders {
     String HOUSE_NAME = "houseName";
     String QTY_INSTALLED = "qtyInstalled";
     String QTY_REJECTED = "qtyRejected";
-    //    String PO_LINK = "poLlink";
     String INVOICE_NUMBER = "invoiceNumber";
     String SUBMITTER_NAME = "submitterName";
     String INVOICE_TYPE = "invoiceType";
@@ -56,7 +49,6 @@ public interface EmailPlaceHolders {
     String DEDUCTION_DONE = "deductionDone";
     String DEDUCTION = "deduction";
     //    String INVOICE_LINK = "invoiceLlink";
-//    String APPROVER_NAME = "ApproverName";
     String INVOICE_REJECTED_REASON = "invoiceRejectReason";// invoiceRejectreason
     String INVOICE_DEDUCTION = "invoiceDeductions";
     String PAYMENT_DATE = "paymentDate";
@@ -72,10 +64,12 @@ public interface EmailPlaceHolders {
     String TO_LINK = "toLink";
     String TO_DESTINATION_LOCATION = "toDestinationLocation";
     String TO_DURATION = "toDuration";
-    String TO_REASON = "toReason";
+    String TO_AMOUNT = "toAmount";
     String DEPARTMENT = "department";
     String PO_CREATOR = "PO_CREATOR";
     String PREVIOUS_APPROVER = "PREVIOUS_APPROVER";
     String ACTION_SUBMITTER = "actionSubmitter";
+
+    String PO_CREATED_BY = "poCreatedBy";
 
 }
