@@ -44,5 +44,5 @@ public class MenuItemSearchRequestDto {
 
 	private OperatorValueDto<Float> rating;
 
-	private List<SortDto> sort;
+	private SortDto sort;
 }
