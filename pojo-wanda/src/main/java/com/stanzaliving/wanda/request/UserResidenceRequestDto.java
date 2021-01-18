@@ -11,7 +11,7 @@ public class UserResidenceRequestDto {
 
 	
 	@NotBlank(message = "userId is Mandatory")
-	private String userId;
+	private String userUuid;
 	
 	@NotBlank(message = "userCode is Mandatory")
 	private String userCode;
