@@ -39,6 +39,44 @@ public class SearchClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
+	public List<String> autoSuggestDishName(String text) {
+
+		String path = UriComponentsBuilder.fromPath("/search/dish/master/autosuggest").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("name", text);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<List<String>>> returnType = new TypeReference<ResponseDto<List<String>>>() {};
+
+		ResponseDto<List<String>> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		return responseDto.getData();
+	}
+
 	public PageResponse<DishMasterSearchIndexDto> searchDishMaster(FoodItemSearchDto searchDto) {
 
 		String path = UriComponentsBuilder.fromPath("/search/dish/master").build().toUriString();
