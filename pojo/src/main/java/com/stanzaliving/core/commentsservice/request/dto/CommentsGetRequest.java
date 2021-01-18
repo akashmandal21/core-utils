@@ -27,7 +27,7 @@ public class CommentsGetRequest {
 
 	private String subContextId;
 
-	private Date afterDate;
+	private Long afterDate;
 	
 	private int pageNum;
 	
