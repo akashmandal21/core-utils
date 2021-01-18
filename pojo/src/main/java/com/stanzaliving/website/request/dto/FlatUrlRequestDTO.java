@@ -2,6 +2,7 @@ package com.stanzaliving.website.request.dto;
 
 import java.util.List;
 
+import com.stanzaliving.website.enums.Gender;
 import com.stanzaliving.website.response.dto.FlatUrlPlaceResponseDTO;
 
 import lombok.AllArgsConstructor;
@@ -25,4 +26,6 @@ public class FlatUrlRequestDTO {
 	private String name;
 	private String seoTitle;
 	private String seoDescription;
+	private Boolean locationCheck;
+	private Gender gender;
 }
