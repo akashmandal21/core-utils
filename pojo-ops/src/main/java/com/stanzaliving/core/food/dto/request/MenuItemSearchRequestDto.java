@@ -42,7 +42,9 @@ public class MenuItemSearchRequestDto {
 
 	private String dishName;
 
-	private OperatorValueDto<Float> rating;
+	private OperatorValueDto<Float> avgRating;
+
+	private OperatorValueDto<Float> cost;
 
 	private SortDto sort;
 }
