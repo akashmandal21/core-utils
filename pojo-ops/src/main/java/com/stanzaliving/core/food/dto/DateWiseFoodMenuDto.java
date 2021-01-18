@@ -28,6 +28,6 @@ import lombok.experimental.SuperBuilder;
 public class DateWiseFoodMenuDto {
 
 	private LocalDate menuDate;
-
+	private boolean disabled;
 	private List<MealWiseMenusDto> mealWiseFoodMenus;
 }

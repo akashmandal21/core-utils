@@ -39,6 +39,12 @@ public class ApprovalListingDto {
     String l3ActionedBy;
 
     LocalDate l3ActionTime;
+    
+    String l4ActionedBy;
+    LocalDate l4ActionTime;
+
+    String l5ActionedBy;
+    LocalDate l5ActionTime;
 
     ApprovalStatus approvalStatus;
     
@@ -73,5 +79,7 @@ public class ApprovalListingDto {
     boolean l2ApprovalRequired;
 
     boolean l3ApprovalRequired;
+    boolean l4ApprovalRequired;
+    boolean l5ApprovalRequired;
 
 }

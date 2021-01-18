@@ -1,5 +1,6 @@
 package com.stanzaliving.approval.dto;
 
+import com.stanzaliving.approval.constants.ApprovalEntityAction;
 import com.stanzaliving.approval.enums.ApprovalEntityType;
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ApprovalRequestDto {
-    
+
     Date requestTime;
 
     String requestedBy;
@@ -35,7 +36,11 @@ public class ApprovalRequestDto {
     boolean l2ApprovalRequired;
 
     boolean l3ApprovalRequired;
-    
+
+    boolean l4ApprovalRequired;
+
+    boolean l5ApprovalRequired;
+
     ApprovalStatus approvalStatus;
 
     String residenceUuid;
@@ -43,4 +48,6 @@ public class ApprovalRequestDto {
     String cityUuid;
 
     String micromarketUuid;
+
+    private ApprovalEntityAction action;
 }
