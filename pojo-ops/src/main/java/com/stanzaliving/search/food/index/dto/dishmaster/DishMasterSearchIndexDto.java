@@ -44,7 +44,7 @@ public class DishMasterSearchIndexDto extends AbstractDto {
 
 	private FoodItemType itemType;
 
-	private boolean quantifiable;
+	private Boolean quantifiable;
 
 	private FoodItemTextColor textColor;
 
@@ -62,11 +62,11 @@ public class DishMasterSearchIndexDto extends AbstractDto {
 
 	private UnitOfMeasurement unitOfMeasurement;
 
-	private boolean vasEnabled;
+	private Boolean vasEnabled;
 
-	private boolean addOnEnabled;
+	private Boolean addOnEnabled;
 
-	private boolean eggPresent;
+	private Boolean eggPresent;
 
 	private Integer shelfLife;
 
@@ -79,4 +79,7 @@ public class DishMasterSearchIndexDto extends AbstractDto {
 	private List<String> tagIds;
 
 	private DishMasterRecipeSearchIndexDto recipe;
+
+	private boolean recipeExists;
+
 }
