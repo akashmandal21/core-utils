@@ -12,6 +12,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -28,6 +29,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MenuItemSearchRequestDto {
+
+	private Set<String> itemIds;
 
 	private MealType mealType;
 
