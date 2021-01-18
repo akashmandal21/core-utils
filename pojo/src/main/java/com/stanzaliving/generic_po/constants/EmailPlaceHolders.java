@@ -70,6 +70,6 @@ public interface EmailPlaceHolders {
     String PREVIOUS_APPROVER = "PREVIOUS_APPROVER";
     String ACTION_SUBMITTER = "ACTION_SUBMITTER";
     String PO_CREATED_BY = "poCreatedBy";
-    String LAST_UPDATED_BY = "lastUpdatedBy";
+    String LAST_UPDATED_AT = "lastUpdatedAt";
 
 }
