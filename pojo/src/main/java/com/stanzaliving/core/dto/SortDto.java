@@ -1,7 +1,6 @@
 package com.stanzaliving.core.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,9 +10,9 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @version 1.0
+ * @version 2.0
  *
- * @since 18-Dec-2020
+ * @since 16-Jan-2021
  */
 
 @Getter
@@ -22,15 +21,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "key")
-public class KeyValuePairDto {
+public class SortDto {
+	private String sortBy;
 
-	private String key;
-
-	private String value;
-
-	public static KeyValuePairDto of(String key, String value) {
-		return new KeyValuePairDto(key, value);
-	}
-
+	private String sortOrder;
 }

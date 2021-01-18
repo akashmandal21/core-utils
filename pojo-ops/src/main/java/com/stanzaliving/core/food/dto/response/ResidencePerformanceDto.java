@@ -1,7 +1,7 @@
-package com.stanzaliving.core.dto;
+package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,24 +13,18 @@ import lombok.experimental.SuperBuilder;
  *
  * @version 1.0
  *
- * @since 18-Dec-2020
+ * @since 15-Jan-2021
  */
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "key")
-public class KeyValuePairDto {
+public class ResidencePerformanceDto extends PerformanceDto {
+	private static final long serialVersionUID = -8975754L;
 
-	private String key;
-
-	private String value;
-
-	public static KeyValuePairDto of(String key, String value) {
-		return new KeyValuePairDto(key, value);
-	}
+	private ListingDto residence;
 
 }
