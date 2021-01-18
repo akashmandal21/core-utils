@@ -43,6 +43,8 @@ public class FoodItemSearchDto extends AbstractDto {
 
 	private String category;
 
+	private String tagId;
+
 	private MealType mealType;
 
 	private PageAndSortDto pageDto;
