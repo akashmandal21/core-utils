@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -91,5 +93,9 @@ public class FoodOrderDetailDto {
 	private boolean extraFoodOrderWindowClosed;
 
 	private Date extraFoodOrderWindowCloseTime;
+	
+	private LocalDate cutoffDate;
+	
+	private LocalTime cutoffTime;
 
 }

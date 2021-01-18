@@ -39,6 +39,10 @@ public class UserMenuPreferenceResponseDto {
 	private LocalTime endTime;
 
 	private Date windowCloseTime;
+	
+	private LocalDate cutoffDate;
+	
+	private LocalTime cutoffTime;
 
 	private boolean defaultChoice;
 	

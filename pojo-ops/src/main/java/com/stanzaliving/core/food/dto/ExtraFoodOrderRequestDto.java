@@ -44,12 +44,12 @@ public class ExtraFoodOrderRequestDto {
 	private LocalDate menuDate;
 
 	@NotNull(message = "Veg Pax is mandatory")
-	@Min(value = 0, message = "Veg Pax Value cannot be less than 0")
+	@Min(value = -999, message = "Veg Pax Value cannot be less than -999")
 	@Max(value = 999, message = "Veg Pax Value cannot be more than 999")
 	private Integer vegPax;
 
 	@NotNull(message = "Non Veg Pax is mandatory")
-	@Min(value = 0, message = "Non Veg Pax Value cannot be less than 0")
+	@Min(value = -999, message = "Non Veg Pax Value cannot be less than -999")
 	@Max(value = 999, message = "Non Veg Pax Value cannot be more than 999")
 	private Integer nonVegPax;
 
