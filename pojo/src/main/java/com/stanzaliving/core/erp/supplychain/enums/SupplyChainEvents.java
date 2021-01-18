@@ -116,4 +116,11 @@ public enum SupplyChainEvents {
         return invoiceSupplyChainEvents;
     }
 
+    private static List<SupplyChainEvents> gsriSupplyChainEvents = Arrays.asList(SupplyChainEvents.GSRI_STARTED, SupplyChainEvents.GSRI_REC,
+            SupplyChainEvents.GSRI_INSTALL, SupplyChainEvents.GSRI_COMPLETED);
+
+    public static List<SupplyChainEvents> getGSRISupplyChainEvents() {
+        return gsriSupplyChainEvents;
+    }
+
 }

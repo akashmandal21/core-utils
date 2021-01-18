@@ -52,7 +52,7 @@ public interface EmailPlaceHolders {
     String INVOICE_REJECTED_REASON = "invoiceRejectReason";// invoiceRejectreason
     String INVOICE_DEDUCTION = "invoiceDeductions";
     String PAYMENT_DATE = "paymentDate";
-    String AMOUNT_PAID = "AmountPaid";
+    String AMOUNT_PAID = "amountPaid";
     String TDS_AMOUNT = "tdsAmount";
     String DEDUCTION_AMOUNT = "deductionAmount";
     String DEDUCTION_REASONS = "deductionReasons";
@@ -68,8 +68,8 @@ public interface EmailPlaceHolders {
     String DEPARTMENT = "department";
     String PO_CREATOR = "PO_CREATOR";
     String PREVIOUS_APPROVER = "PREVIOUS_APPROVER";
-    String ACTION_SUBMITTER = "actionSubmitter";
-
+    String ACTION_SUBMITTER = "ACTION_SUBMITTER";
     String PO_CREATED_BY = "poCreatedBy";
+    String LAST_UPDATED_BY = "lastUpdatedBy";
 
 }
