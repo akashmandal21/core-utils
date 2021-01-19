@@ -2,7 +2,6 @@ package com.stanzaliving.website.response.dto;
 
 import java.util.List;
 
-import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.Gender;
 
 import lombok.AllArgsConstructor;
@@ -28,7 +27,7 @@ public class FlatUrlResponseDTO {
 	private List<FlatUrlPlaceResponseDTO> placeData;
 	private boolean isActive;
 	private Boolean locationCheck;
-	private EnumListing<Gender> gender;
+	private Gender gender;
 	
 
 }
