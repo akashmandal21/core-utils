@@ -12,6 +12,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -29,6 +30,8 @@ import java.util.List;
 @AllArgsConstructor
 public class MenuItemSearchRequestDto {
 
+	private Set<String> itemIds;
+
 	private MealType mealType;
 
 	private DishRegion dishRegion;
@@ -39,7 +42,9 @@ public class MenuItemSearchRequestDto {
 
 	private String dishName;
 
-	private OperatorValueDto<Float> rating;
+	private OperatorValueDto<Float> avgRating;
 
-	private List<SortDto> sort;
+	private OperatorValueDto<Float> cost;
+
+	private SortDto sort;
 }
