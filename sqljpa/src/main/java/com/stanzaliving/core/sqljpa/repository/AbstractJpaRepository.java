@@ -34,4 +34,6 @@ public interface AbstractJpaRepository<T extends AbstractJpaEntity, I extends Se
 	Boolean existsByUuidAndStatus(String uuid, boolean status);
 
 	List<T> findByUpdatedAtBetween(Date fromDate, Date toDate);
+
+	List<T> findByIdBetween(I fromId, I toId);
 }
