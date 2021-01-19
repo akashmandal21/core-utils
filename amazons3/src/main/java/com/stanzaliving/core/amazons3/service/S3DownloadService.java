@@ -28,7 +28,7 @@ public interface S3DownloadService {
 
 	String getPreSignedUrl(String bucket, String filePath, int durationInSeconds, AmazonS3 s3Client);
 
-//	String getPreSignedUrlWithContentSpec(AmazonS3 s3Client, GeneratePresignedUrlRequest presignedUrlRequest);
+	String getPreSignedUrlWithContentSpec(AmazonS3 s3Client, GeneratePresignedUrlRequest presignedUrlRequest);
 
 	String getPreSignedUrl(String bucket, String prefix, String fileName, int durationInSeconds, AmazonS3 s3Client);
 

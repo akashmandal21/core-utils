@@ -122,20 +122,20 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 		return null;
 	}
 
-//	@Override
-//	public String getPreSignedUrlWithContentSpec(AmazonS3 s3Client, GeneratePresignedUrlRequest presignedUrlRequest) {
-//		try {
-//			URL url = S3Util.getAmazonS3Client(s3Client).generatePresignedUrl(presignedUrlRequest);
-//
-//			if (url != null) {
-//				return url.toString();
-//			}
-//		} catch (Exception e) {
-//			log.error("Error while generating Pre-Signed URL for File: " + presignedUrlRequest.getKey(), e);
-//		}
-//
-//		return null;
-//	}
+	@Override
+	public String getPreSignedUrlWithContentSpec(AmazonS3 s3Client, GeneratePresignedUrlRequest presignedUrlRequest) {
+		try {
+			URL url = S3Util.getAmazonS3Client(s3Client).generatePresignedUrl(presignedUrlRequest);
+
+			if (url != null) {
+				return url.toString();
+			}
+		} catch (Exception e) {
+			log.error("Error while generating Pre-Signed URL for File: " + presignedUrlRequest.getKey(), e);
+		}
+
+		return null;
+	}
 
 	@Override
 	public String getPreSignedUrl(String bucket, String prefix, String fileName, int durationInSeconds, AmazonS3 s3Client) {
