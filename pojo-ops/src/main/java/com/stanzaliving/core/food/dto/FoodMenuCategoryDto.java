@@ -73,6 +73,7 @@ public class FoodMenuCategoryDto extends AbstractDto {
     private FoodMenuStatus menuStatus;
 
     private boolean operational;
+    private long operationalResidenceCount;
     private Date menuUpdatedAt;
     private Double price;
 }
