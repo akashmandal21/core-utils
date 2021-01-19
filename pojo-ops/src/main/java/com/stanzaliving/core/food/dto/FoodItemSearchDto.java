@@ -39,15 +39,11 @@ public class FoodItemSearchDto extends AbstractDto {
 
 	private FoodItemType itemType;
 
-	private String defaultBrand;
-
-	private boolean quantifiable;
-
-	private String textColor;
-
 	private FoodItemBackgroundColor bgColor;
 
 	private String category;
+
+	private String tagId;
 
 	private MealType mealType;
 

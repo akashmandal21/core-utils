@@ -78,6 +78,7 @@
         <module>shortUrl-client</module>
 		<module>inventory-client</module>
 		<module>generic-po-client</module>
+		<module>search-client</module>
 	</modules>
 
 	<build>
