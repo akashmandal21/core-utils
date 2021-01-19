@@ -50,24 +50,21 @@ public class CounterServiceImpl implements CounterService{
 
 	@Override
 	@Transactional
-	public Long increaseCountByValue(String key, Long qrCodeCount) throws CounterServiceException {
+	public Long increaseCountByValue(String key, Long value) throws CounterServiceException {
 		CounterKeyEntity count = countRepository.findByKey(key);
 
-		if(Objects.isNull(count))
-		{
+		if(Objects.isNull(count)) {
 			try {
-				count = createCategoryRowWithString(key, qrCodeCount);
+				count = createCategoryRowWithKeyAndCount(key, value);
 				return 0L;
-			}catch (Exception ex){
+			} catch (Exception ex) {
 				log.error("Error creating the category, checking if it's created by some other transaction {}", key, ex);
 				count = countRepository.findByKey(key);
-				if(Objects.isNull(count))
-					throw new CounterServiceException("Unable to create new category row "+ key+"  "+ex.getMessage()+" "+ex.getCause());
-				return null;
+				if (Objects.isNull(count))
+					throw new CounterServiceException("Unable to create new category row " + key + "  " + ex.getMessage() + " " + ex.getCause());
 			}
-		} else {
-			return incrementCounterForKeyByValue(count, qrCodeCount);
 		}
+		return incrementCounterForKeyByValue(count, value);
 	}
 
 	@Retryable(value = javax.persistence.PersistenceException.class)
@@ -98,7 +95,7 @@ public class CounterServiceImpl implements CounterService{
 	}
 
 	@Transactional
-	private CounterKeyEntity createCategoryRowWithString(String key, Long count){
+	private CounterKeyEntity createCategoryRowWithKeyAndCount(String key, Long count){
 		log.info(CounterKeyEntity.builder().key(key).count(count).build());
 		return countRepository.save(CounterKeyEntity.builder().key(key).count(count).build());
 	}
