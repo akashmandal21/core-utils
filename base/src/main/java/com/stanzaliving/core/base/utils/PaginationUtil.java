@@ -17,26 +17,6 @@ import java.util.Objects;
 @UtilityClass
 public class PaginationUtil {
 
-	/**
-	 * Returns {@link Pageable} based on the supplied parameters.
-	 *
-	 * @param pageNo
-	 *            Page number
-	 * @param limit
-	 *            Page limit(No.of records per page)
-	 * @param sortBy
-	 *            SortBy attribute name
-	 * @param sortDirection
-	 *            Sorting direction(e.g. Direction.ASC)
-	 *
-	 *
-	 * @author debendra.dhinda
-	 *
-	 * @refactoredBy piyush srivastava
-	 *
-	 * @refactoredOn 12-May-2020
-	 */
-
 	public int correctLimit(int limit) {
 		limit = Math.max(1, limit);
 		limit = Math.min(1000, limit);
