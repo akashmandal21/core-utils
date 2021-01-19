@@ -31,6 +31,8 @@ public class PromotionResponseDto {
 	private String promotionName;
 
 	private String promotionIcon;
+	
+	private String promotionIconName;
 
 	private int priorityOrder;
 
