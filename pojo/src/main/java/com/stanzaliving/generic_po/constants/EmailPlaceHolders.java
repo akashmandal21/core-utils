@@ -72,5 +72,6 @@ public interface EmailPlaceHolders {
     String PO_CREATED_BY = "poCreatedBy";
     String LAST_UPDATED_AT = "lastUpdatedAt";
     String INVOICE_DOC = "INVOICE_DOC";
+    String INVOICE_UUID = "INVOICE_UUID";
 
 }
