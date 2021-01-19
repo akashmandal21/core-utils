@@ -71,6 +71,7 @@ public class FoodMenuCategoryDto extends AbstractDto {
     private String menuCopiedMsg;
 
     private FoodMenuStatus menuStatus;
+    private String menuStatusLabel;
 
     private boolean operational;
     private long operationalResidenceCount;
