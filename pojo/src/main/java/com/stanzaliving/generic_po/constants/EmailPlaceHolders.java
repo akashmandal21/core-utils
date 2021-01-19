@@ -71,5 +71,6 @@ public interface EmailPlaceHolders {
     String ACTION_SUBMITTER = "ACTION_SUBMITTER";
     String PO_CREATED_BY = "poCreatedBy";
     String LAST_UPDATED_AT = "lastUpdatedAt";
+    String INVOICE_DOC = "INVOICE_DOC";
 
 }
