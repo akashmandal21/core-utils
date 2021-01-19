@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import com.stanzaliving.core.cafe.order.constants.OrderStatus;
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,16 +14,31 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum FoodMenuStatus {
 
-    UNDER_DRAFT("Under Draft"),
-    SUBMITTED("Submitted for Review"),
+    UNDER_DRAFT("In Draft"),
+    SUBMITTED("Submitted"),
     APPROVED("Approved"),
     REJECTED("Rejected"),
+
     CENTRAL_F_AND_B_APPROVED("Central F&B Approved"),
     CENTRAL_F_AND_B_REJECTED("Central F&B Rejected"),
     VENDOR_APPROVED("Vendor Approved"),
     VENDOR_REJECTED("Vendor Rejected");
 
     private String statusName;
+
+    private static final List<EnumListing<FoodMenuStatus>> enumListing = new ArrayList<>();
+
+    static {
+        for (FoodMenuStatus curOption : FoodMenuStatus.values()) {
+            EnumListing<FoodMenuStatus> listing = EnumListing.of(curOption, curOption.getStatusName());
+            enumListing.add(listing);
+        }
+    }
+
+    public static List<EnumListing<FoodMenuStatus>> getEnumListing() {
+        return enumListing;
+    }
+
 
     private static List<FoodMenuStatus> editableStatus(boolean flexiMenuEnabled) {
         if (flexiMenuEnabled) {
