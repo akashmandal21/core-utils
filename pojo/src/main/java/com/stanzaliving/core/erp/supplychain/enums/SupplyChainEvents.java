@@ -113,7 +113,7 @@ public enum SupplyChainEvents {
             SupplyChainEvents.PO_CANCELLED, SupplyChainEvents.PO_DURATION_EXPIRED);
 
     public static List<SupplyChainEvents> getPOSupplyChainEvents() {
-        return invoiceSupplyChainEvents;
+        return poSupplyChainEvents;
     }
 
     private static List<SupplyChainEvents> gsriSupplyChainEvents = Arrays.asList(SupplyChainEvents.GSRI_STARTED, SupplyChainEvents.GSRI_REC,
