@@ -3,6 +3,8 @@ package com.stanzaliving.banner.dto.response;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.stanzaliving.banner.dto.request.SpecificUsersOf;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -53,5 +55,7 @@ public class PromotionResponseDto {
 	private int totalCreatives;
 	
 	private List<CreativeResponseDto> creatives;
+	
+	private SpecificUsersOf specificUsersOf;
 	
 }
