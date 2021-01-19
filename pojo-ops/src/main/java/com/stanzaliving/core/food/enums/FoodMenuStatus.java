@@ -1,14 +1,13 @@
 package com.stanzaliving.core.food.enums;
 
+import com.stanzaliving.core.user.enums.EnumListing;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import com.stanzaliving.core.cafe.order.constants.OrderStatus;
-import com.stanzaliving.core.user.enums.EnumListing;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
