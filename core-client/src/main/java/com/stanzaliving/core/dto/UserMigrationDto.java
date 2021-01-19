@@ -1,5 +1,7 @@
 package com.stanzaliving.core.dto;
 
+import java.util.Map;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,8 +23,10 @@ public class UserMigrationDto {
 	private String mobile;
 	private String email;
 	private int currentHostelId;
-	private String originalHostelId;
+	private int originalHostelId;
 	private String state;
 	private boolean isFeaturephoneUser;
 	private String userSource;
+	private String roomNumber;
+	private Map<String,String> userDetails;
 }
