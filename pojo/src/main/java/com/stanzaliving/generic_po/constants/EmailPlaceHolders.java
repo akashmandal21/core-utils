@@ -74,5 +74,6 @@ public interface EmailPlaceHolders {
     String LAST_UPDATED_AT = "lastUpdatedAt";
     String INVOICE_DOC = "INVOICE_DOC";
     String INVOICE_UUID = "INVOICE_UUID";
+    String ACTION_PROOF = "ACTION_PROOF";
 
 }
