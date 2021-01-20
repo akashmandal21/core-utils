@@ -1,6 +1,5 @@
 package com.stanzaliving.approval.dto;
 
-import com.stanzaliving.approval.constants.ApprovalEntityAction;
 import com.stanzaliving.approval.enums.ApprovalEntityType;
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import lombok.AllArgsConstructor;
