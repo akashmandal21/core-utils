@@ -41,7 +41,7 @@ public class SearchClientApi {
 
 	public List<String> autoSuggestDishName(String text) {
 
-		String path = UriComponentsBuilder.fromPath("/search/dish/master/autosuggest").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/search/dish/master/autosuggest").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("name", text);
@@ -79,7 +79,7 @@ public class SearchClientApi {
 
 	public PageResponse<DishMasterSearchIndexDto> searchDishMaster(FoodItemSearchDto searchDto) {
 
-		String path = UriComponentsBuilder.fromPath("/search/dish/master").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/search/dish/master").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -145,7 +145,7 @@ public class SearchClientApi {
 
 	public List<FoodMenuCategoryItemOrderCountIndexDto> searchCategoryItemOrderCount(CategoryItemOrderCountSearchDto searchDto) {
 
-		String path = UriComponentsBuilder.fromPath("/category/item/order/count").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/category/item/order/count").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
