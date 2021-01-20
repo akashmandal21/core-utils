@@ -204,9 +204,9 @@ public class FoodServiceClientApi {
         };
 
         try {
-            ResponseDto<Void> responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, mailCc, headerParams, accept, returnType);
+            restClient.invokeAPI(path, HttpMethod.POST, queryParams, mailCc, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Error while getMenuCategoryResidenceCountMap", e);
+            log.error("Error while initiating vendor approval for {}",menuGroupId, e);
         }
     }
 }

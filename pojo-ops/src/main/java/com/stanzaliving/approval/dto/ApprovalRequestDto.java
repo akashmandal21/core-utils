@@ -1,6 +1,5 @@
 package com.stanzaliving.approval.dto;
 
-import com.stanzaliving.approval.constants.ApprovalEntityAction;
 import com.stanzaliving.approval.enums.ApprovalEntityType;
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import lombok.AllArgsConstructor;
@@ -48,6 +47,4 @@ public class ApprovalRequestDto {
     String cityUuid;
 
     String micromarketUuid;
-
-    private ApprovalEntityAction action;
 }
