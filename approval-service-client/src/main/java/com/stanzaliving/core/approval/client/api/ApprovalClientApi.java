@@ -55,10 +55,12 @@ public class ApprovalClientApi {
 			log.error("Error while fetching approval listing for entityUuid: {}", entityUuid, e);
 		}
 
-		return (Objects.nonNull(responseDto))  ? responseDto : null;
-
-
+		return (Objects.nonNull(responseDto)) ? responseDto : null;
 	}
 
+	public ApprovalListingDto getApprovalData(String entityUuid, ApprovalEntityType approvalEntityType) {
+		ResponseDto<ApprovalListingDto> data = getApprovalListing(entityUuid, approvalEntityType);
+		return data == null || data.getData() == null ? null : data.getData();
+	}
 
 }
