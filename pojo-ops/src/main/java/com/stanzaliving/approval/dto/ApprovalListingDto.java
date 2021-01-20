@@ -81,5 +81,6 @@ public class ApprovalListingDto {
     boolean l5ApprovalRequired;
 
     private List<String> pendingApprovers;
+    private List<String> pendingApproversEmails;
 
 }
