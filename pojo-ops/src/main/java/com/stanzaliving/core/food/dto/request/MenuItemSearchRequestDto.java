@@ -3,6 +3,8 @@ package com.stanzaliving.core.food.dto.request;
 import com.stanzaliving.core.dto.SortDto;
 import com.stanzaliving.core.food.dto.OperatorValueDto;
 import com.stanzaliving.core.food.enums.DishRegion;
+import com.stanzaliving.core.food.enums.FoodItemBasePreference;
+import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -45,6 +47,13 @@ public class MenuItemSearchRequestDto {
 	private OperatorValueDto<Float> avgRating;
 
 	private OperatorValueDto<Float> cost;
+
+	/**
+	 * foodRegion & basePreference are added for grammage of items
+	 */
+	private FoodRegion foodRegion;
+
+	private FoodItemBasePreference basePreference;
 
 	private SortDto sort;
 }
