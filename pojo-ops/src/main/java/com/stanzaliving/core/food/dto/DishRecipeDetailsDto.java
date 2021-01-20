@@ -5,7 +5,6 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
-import com.stanzaliving.core.base.common.dto.ListingDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
