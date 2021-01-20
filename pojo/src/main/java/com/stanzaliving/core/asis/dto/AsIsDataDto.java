@@ -1,6 +1,7 @@
 package com.stanzaliving.core.asis.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.core.asis.enums.POStatus;
@@ -59,4 +60,10 @@ public class AsIsDataDto extends AbstractDto implements Serializable {
 	private List<CommentsDto> commentsDtos;
 	
 	private boolean canByPassAsis;
+
+	private boolean asisByPassDone;
+
+	private Date asisByPassDoneAt;
+
+	private String asisByPassDoneBy;
 }
