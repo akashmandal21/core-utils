@@ -76,5 +76,8 @@ public interface EmailPlaceHolders {
     String INVOICE_UUID = "INVOICE_UUID";
     String ACTION_PROOF = "ACTION_PROOF";
     String PROPERTY_ID = "PROPERTY_ID";
+    String SITE_ENGINEER = "SITE_ENGINEER";
+    String PROJECT_MANAGER = "PROJECT_MANAGER";
+    String PROJECT_ZONAL_HEAD = "PROJECT_ZONAL_HEAD";
 
 }
