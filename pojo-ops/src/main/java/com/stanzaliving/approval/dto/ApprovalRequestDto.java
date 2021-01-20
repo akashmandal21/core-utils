@@ -48,6 +48,4 @@ public class ApprovalRequestDto {
     String cityUuid;
 
     String micromarketUuid;
-
-    private ApprovalEntityAction action;
 }
