@@ -13,6 +13,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Set;
 
@@ -34,6 +35,7 @@ public class MenuItemSearchRequestDto {
 
 	private Set<String> itemIds;
 
+	@NotNull(message = "MealType is mandatory for grammage selection")
 	private MealType mealType;
 
 	private DishRegion dishRegion;
