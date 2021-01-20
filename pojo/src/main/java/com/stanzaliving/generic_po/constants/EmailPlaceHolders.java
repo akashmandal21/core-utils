@@ -27,6 +27,7 @@ public interface EmailPlaceHolders {
     String VENDOR_NAME = "vendorName";
     String PO_CREATOR_NAME = "poCreatorName";
     String PO_CREATOR_EMAIL = "poCreatorEmail";
+    String GRN_DONE_BY = "GRN_DONE_BY";
     String SCOPE_OF_WORK = "scopeOfWork";
     String ITEMS = "items";
     String GRN_USER = "grnUser";
