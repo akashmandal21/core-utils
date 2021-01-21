@@ -40,6 +40,10 @@ public class PromotionResponseDto {
 
 	private Boolean isForAllUsers;
 	
+	private Boolean isForUsersCsvfile;
+	
+	private Boolean isForSpecificLocations;
+	
 	private String userListFilePath;
 	
 	private Boolean isSchedule;
