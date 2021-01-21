@@ -3,8 +3,6 @@ package com.stanzaliving.core.food.dto.response;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.dto.KeyValuePairDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
-import com.stanzaliving.core.food.dto.DishRecipeDetailsDto;
-import com.stanzaliving.core.food.dto.TagDto;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.DishRegion;
 import com.stanzaliving.core.food.enums.FoodItemType;
@@ -70,6 +68,8 @@ public class DishMasterSearchResponseDto implements Serializable {
 	private EnumListing<DishRegion> dishRegion;
 
 	private List<EnumListing<MealType>> meals;
+
+	private List<TagsDto> tags;
 
 	private Integer shelfLife;
 
