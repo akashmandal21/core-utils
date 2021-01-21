@@ -69,6 +69,8 @@ public class DishMasterSearchResponseDto implements Serializable {
 
 	private EnumListing<DishRegion> dishRegion;
 
+	private List<EnumListing<MealType>> meals;
+
 	private Integer shelfLife;
 
 	private boolean recipeExists;
