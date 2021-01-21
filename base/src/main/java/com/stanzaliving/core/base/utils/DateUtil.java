@@ -856,4 +856,17 @@ public class DateUtil {
 		}
 		return firstDateMonthList;
 	}
+
+	public static int getWeekendDaysCount(LocalDate fromDate, LocalDate toDate) {
+		int count = 0;
+		if (!toDate.isAfter(fromDate)) {// TODO add additional validation
+			return count;
+		}
+		for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
+			if (DayOfWeek.SATURDAY.equals(date.getDayOfWeek()) || DayOfWeek.SUNDAY.equals(date.getDayOfWeek())) {
+				count +=1;
+			}
+		}
+		return count;
+	}
 }

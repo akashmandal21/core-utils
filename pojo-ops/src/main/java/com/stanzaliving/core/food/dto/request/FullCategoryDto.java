@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.request;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -25,7 +26,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FullCategoryDto {
+public class FullCategoryDto implements Serializable {
 
 	private boolean publishable;
 

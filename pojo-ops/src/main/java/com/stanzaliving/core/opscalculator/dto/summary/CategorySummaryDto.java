@@ -13,8 +13,6 @@ import java.util.Random;
 @Data
 @SuperBuilder
 public class CategorySummaryDto {
-    @Builder.Default
-    DisplaySummaryDto costPerAvailableBed = new DisplaySummaryDto();//to return dummy variable
-    @Builder.Default
-    boolean changeInServiceMix = new Random().nextBoolean();//to return dummy
+    DisplaySummaryDto costPerAvailableBed;
+    boolean changeInServiceMix;
 }

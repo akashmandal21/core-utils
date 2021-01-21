@@ -9,6 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
 /**
@@ -24,7 +25,7 @@ import java.time.LocalTime;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryMealDto {
+public class FoodMenuCategoryMealDto implements Serializable {
 
 	private String menuCategoryId;
 
