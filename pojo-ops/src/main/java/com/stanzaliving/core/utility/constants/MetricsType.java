@@ -11,7 +11,9 @@ public enum MetricsType {
 	TOTAL_CONSUMPTION("Total Consumption"),
 	PROCESS_ADHERENCE("Process Adherence"),
 	BUDGET_UTILIZATION("Budget Utilization"),
+	METER_COUNT("Meter Count"),
 	TOTAL_EXPENSE("Total Expense");
+
 
 	private String name;
 

@@ -50,4 +50,6 @@ public class TransactionDto extends AbstractDto {
 	private String refundTransactionId;
 
 	private PaymentStatus refundStatus;
+
+	private Double refundedAmount;
 }

@@ -31,7 +31,11 @@ public class OrderHistoryDto {
 	private boolean rated;
 	
 	private Integer rating;
+	
+	private String masterOrderId;
 
+	private String foodOrderId;
+	
 	private FoodOrderType foodOrderType;
 	
 	private String foodOrderTypeStr;
