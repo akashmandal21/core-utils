@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -78,5 +79,8 @@ public class ApprovalListingDto {
     boolean l3ApprovalRequired;
     boolean l4ApprovalRequired;
     boolean l5ApprovalRequired;
+
+    private List<String> pendingApprovers;
+    private List<String> pendingApproversEmails;
 
 }
