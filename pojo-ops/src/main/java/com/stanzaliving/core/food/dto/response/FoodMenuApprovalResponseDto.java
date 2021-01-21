@@ -81,6 +81,6 @@ public class FoodMenuApprovalResponseDto {
 
 	private ApprovalStatus approvalStatus;
 	
-	private List<FoodMenuApprovalResponseDto> children;
+	private List<String> residences;
 	
 }
