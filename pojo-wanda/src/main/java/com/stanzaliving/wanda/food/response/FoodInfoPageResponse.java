@@ -20,6 +20,8 @@ import lombok.Setter;
 public class FoodInfoPageResponse {
 
 	private Map<String, List<FoodCardDto>> foodMenu;
-	
+
+	private Map<String,Map<String,Boolean>> skippable;
+
 	private FoodHomeScreenResponse homeScreenResponse;
 }

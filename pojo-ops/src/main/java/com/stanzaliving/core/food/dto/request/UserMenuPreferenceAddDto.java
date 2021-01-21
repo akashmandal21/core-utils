@@ -26,6 +26,7 @@ public class UserMenuPreferenceAddDto {
 	@NotBlank(message = "Residence Food Menu Id Cannot be blank")
 	private String residenceFoodMenuId;
 
-	@NotNull(message = "Food Preference Selection is mandatory")
 	private FoodItemType foodPreference;
+	
+	private Boolean skippedMealStatus;
 }
