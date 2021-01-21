@@ -21,7 +21,7 @@ public enum ApprovalStatus {
     PENDING_L5_APPROVAL("Pending L5 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode(), "Successfully Submitted for L5 Approval"),
     L5_REJECTED("L5 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected"),
     
-    APPROVED("Approved", ColorCode.GREEN.getColorCode(), ColorCode.WHITE.getColorCode(), "Successfully Approved"),        //color code need to be updated with product
+    APPROVED("Approved", ColorCode.SOFT_GREEN.getColorCode(), ColorCode.GREEN_CYAN.getColorCode(), "Successfully Approved"),        //color code need to be updated with product
     REJECTED("Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected");
 
     private String status;
