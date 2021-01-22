@@ -42,6 +42,8 @@ public class DishMasterSearchIndexDto extends AbstractDto {
 
 	private String nameSuggest;
 
+	private String nameKeyword;
+
 	private String description;
 
 	private FoodItemType itemType;
