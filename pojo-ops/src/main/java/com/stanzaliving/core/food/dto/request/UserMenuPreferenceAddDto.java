@@ -28,5 +28,8 @@ public class UserMenuPreferenceAddDto {
 
 	private FoodItemType foodPreference;
 	
-	private Boolean skippedMealStatus;
+	@Builder.Default
+	private Boolean skippedMealStatus = false;
+	
+	
 }
