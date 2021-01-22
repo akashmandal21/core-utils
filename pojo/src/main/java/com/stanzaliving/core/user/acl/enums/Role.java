@@ -22,7 +22,8 @@ public enum Role {
     CITY_LEAD_MANAGER("CITY_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
     ZONAL_LEAD_MANAGER("ZONAL_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
     COUNTRY_LEAD_MANAGER("COUNTRY_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES),
-
+    Residence_WhatsApp_Chat_Agent("Residence_WhatsApp_Chat_Agent",AccessLevel.RESIDENCE, Department.SALES),
+    Micromarket_WhatsApp_Chat_Agent("Micromarket_WhatsApp_Chat_Agent",AccessLevel.MICROMARKET, Department.SALES),
 
 
     /************************************ OPS ************************************/
