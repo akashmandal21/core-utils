@@ -32,10 +32,6 @@ public class VasMasterSearchDto extends AbstractDto {
 
 	private String name;
 
-	private String nameSuggest;
-
-	private String nameKeyword;
-
 	private FoodItemType foodType;
 
 	private VasType vasType;
