@@ -4,6 +4,7 @@ import com.stanzaliving.approval.enums.ApprovalStatus;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -82,5 +83,12 @@ public class ApprovalListingDto {
 
     private List<String> pendingApprovers;
     private List<String> pendingApproversEmails;
+
+    private Date requestDateTime;
+    private Date l1ActionDateTime;
+    private Date l2ActionDateTime;
+    private Date l3ActionDateTime;
+    private Date l4ActionDateTime;
+    private Date l5ActionDateTime;
 
 }
