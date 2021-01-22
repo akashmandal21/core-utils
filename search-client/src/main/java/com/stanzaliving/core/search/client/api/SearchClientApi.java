@@ -148,7 +148,7 @@ public class SearchClientApi {
 
 	public DataCountPageResponse<VasMasterIndexDto> searchVasMaster(VasMasterSearchDto searchDto) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/category/item/order/count").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/search/vas/master").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
