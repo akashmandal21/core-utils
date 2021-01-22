@@ -64,6 +64,7 @@ public class FoodMenuApprovalResponseDto {
 	private boolean newnessAdherence;
 
 	private int mealsWithRatingLessThanFour;
+	private double averageRating;
 
 	private int currentWeekBudget;
 
