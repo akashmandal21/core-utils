@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 public enum UnderWrittenStatus {
     NEW("New", "", ColorCode.BLACK.getColorCode(), ColorCode.WHITE.getColorCode()),
     UNDER_DRAFT("Under Draft", "Underwritten saved successfully", ColorCode.BLACK.getColorCode(), ColorCode.WHITE.getColorCode()),
-    SENT_FOR_APPROVAL("Sent For Approval", "Underwritten submitted for approval", ColorCode.BLACK.getColorCode(), ColorCode.WHITE.getColorCode()),
-    APPROVED("Approved", "Underwritten approved successfully", ColorCode.BLACK.getColorCode(), ColorCode.WHITE.getColorCode()),
-    REJECTED("Rejected", "Underwritten rejected successfully", ColorCode.BLACK.getColorCode(), ColorCode.WHITE.getColorCode()),
-    DISCARDED("Discarded", "Underwritten discarded successfully", ColorCode.BLACK.getColorCode(), ColorCode.WHITE.getColorCode());
+    SENT_FOR_APPROVAL("Sent For Approval", "Underwritten submitted for approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.WHITE.getColorCode()),
+    APPROVED("Approved", "Underwritten approved successfully", ColorCode.MODERATE_CYAN.getColorCode(), ColorCode.WHITE.getColorCode()),
+    REJECTED("Rejected", "Underwritten rejected successfully", ColorCode.RED.getColorCode(), ColorCode.WHITE.getColorCode()),
+    DISCARDED("Discarded", "Underwritten discarded successfully", ColorCode.RED.getColorCode(), ColorCode.WHITE.getColorCode());
 
     String status;
     String responseMsg;

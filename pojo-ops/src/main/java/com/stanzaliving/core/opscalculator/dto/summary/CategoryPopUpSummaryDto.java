@@ -1,5 +1,6 @@
 package com.stanzaliving.core.opscalculator.dto.summary;
 
+import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,4 +20,10 @@ public class CategoryPopUpSummaryDto {
     boolean monthPartiallyCovered;
     double costPerAvailableBedPerMonth;
     List<CategoryPopUpSummaryDetailsDto> categoryPopUpSummaryDetailsDtoList;
+
+    private UnderWrittenStatus underWrittenStatus;
+    private String pendingApprovalFrom;
+    private String approvalStatus;
+    private String bgColorCode;
+    private String textColorCode;
 }
