@@ -55,7 +55,7 @@ public enum Role {
     CITY_CHEF_MANAGER("City Chef Manager", AccessLevel.CITY, Department.FOOD_OPS),
 
 
-    WEEKLY_MENU_L1_APPROVER("Ops Weekly Menu Approval", AccessLevel.CITY, Department.OPS),
+    WEEKLY_MENU_L1_APPROVER("City - Ops Weekly Menu Approval", AccessLevel.CITY, Department.OPS),
     WEEKLY_MENU_L2_APPROVER("Country - Menu Approval L1", AccessLevel.COUNTRY, Department.FOOD_OPS),
     WEEKLY_MENU_L3_APPROVER("Country - Menu Approval L2", AccessLevel.COUNTRY, Department.FOOD_OPS),
     WEEKLY_MENU_L4_APPROVER("Vendor Approval", AccessLevel.FOOD_VENDOR, Department.FOOD_OPS),
