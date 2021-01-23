@@ -10,9 +10,9 @@ public enum ColorCode {
 	//Please Refer this URL( https://www.colorhexa.com/ ) for finding Color Name from HexCode
 	BLACK("#000000"),
 	RED("#F1C0C6"),
-	LIGHT_RED("FF506E"),
+	LIGHT_RED("#FF506E"),
 	GREEN("#B8E986"),
-	MODERATE_CYAN("60C3AD"),
+	MODERATE_CYAN("#60C3AD"),
 	WHITE("#FFFFFF"),
 	PALE_ORANGE("#FFEAB6"),
 	VIVID_ORANGE("#FFB701"),
