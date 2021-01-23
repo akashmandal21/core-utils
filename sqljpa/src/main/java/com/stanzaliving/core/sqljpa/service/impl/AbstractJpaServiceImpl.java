@@ -86,6 +86,12 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	}
 
 	@Override
+	public List<T> findByIdBetween(I fromId, I toId) {
+		return getJpaRepository().findByIdBetween(fromId, toId);
+	}
+
+
+	@Override
 	public List<T> find(Collection<I> ids) {
 		return getJpaRepository().findAllById(ids);
 	}

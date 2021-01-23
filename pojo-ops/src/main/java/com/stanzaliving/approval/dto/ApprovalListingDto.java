@@ -1,13 +1,12 @@
 package com.stanzaliving.approval.dto;
 
-import com.stanzaliving.approval.enums.ApprovalEntityType;
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import lombok.*;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -39,6 +38,12 @@ public class ApprovalListingDto {
     String l3ActionedBy;
 
     LocalDate l3ActionTime;
+    
+    String l4ActionedBy;
+    LocalDate l4ActionTime;
+
+    String l5ActionedBy;
+    LocalDate l5ActionTime;
 
     ApprovalStatus approvalStatus;
     
@@ -73,5 +78,17 @@ public class ApprovalListingDto {
     boolean l2ApprovalRequired;
 
     boolean l3ApprovalRequired;
+    boolean l4ApprovalRequired;
+    boolean l5ApprovalRequired;
+
+    private List<String> pendingApprovers;
+    private List<String> pendingApproversEmails;
+
+    private Date requestDateTime;
+    private Date l1ActionDateTime;
+    private Date l2ActionDateTime;
+    private Date l3ActionDateTime;
+    private Date l4ActionDateTime;
+    private Date l5ActionDateTime;
 
 }
