@@ -9,14 +9,16 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum ApprovalEntityType {
-    SERVICE_MIX("Service Mix"),
-    SESSION_UNDERWRITTEN("Session UnderWritten"),
-    MONTHLY_UNDERWRITTEN("Monthly UnderWritten"),
-    FOOD_MENU_CATEGORY("Food Menu Category"),
-    WEEKLY_MENU("Weekly Menu"),
-    ;
+	SERVICE_MIX("Service Mix", "service-mix", "service-mix"),
+	SESSION_UNDERWRITTEN("Session UnderWritten", "underwritten", "underwritten"),
+	MONTHLY_UNDERWRITTEN("Monthly UnderWritten", "underwritten", "underwritten"),
+	FOOD_MENU_CATEGORY("Food Menu Category", "foodMenuCategory", "foodMenuCategory"),
+	WEEKLY_MENU("Weekly Menu", "FOOD_SERVICE", "WEEKLY_MENU"),
+	;
 
-    private final String value;
+	private final String value;
+	private final String commentServiceName;
+	private final String commentContextType;
 
-    public static final List<ApprovalEntityType> micormarketUuidBasedListing = Arrays.asList(FOOD_MENU_CATEGORY, WEEKLY_MENU);
+	public static final List<ApprovalEntityType> micormarketUuidBasedListing = Arrays.asList(FOOD_MENU_CATEGORY, WEEKLY_MENU);
 }
