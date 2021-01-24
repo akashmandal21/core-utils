@@ -1,4 +1,4 @@
-package com.stanzaliving.core.food.dto;
+package com.stanzaliving.core.food.dto.menufps;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
