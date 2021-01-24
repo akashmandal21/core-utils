@@ -64,7 +64,11 @@ public enum InvoiceStatus {
     public static InvoiceStatus getInvoiceStatus(int approvalLevel) {
     	return invoiceApprovalLevelMap.get(approvalLevel);
     }
-    
+
+    public static int getLevel(InvoiceStatus invoiceStatus) {
+        return invoiceStatus.getOrder() >= 0 ? (invoiceStatus.getOrder()) + 1 : Math.abs(invoiceStatus.getOrder() - GenericConstants.rejectionStart);
+    }
+
 }
 
 
