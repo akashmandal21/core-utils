@@ -12,6 +12,7 @@ import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.invoice.dto.InvoiceMigrationDto;
 import com.stanzaliving.invoice.dto.InvoiceMigrationResponseDto;
 import com.stanzaliving.invoice.dto.PoInvoiceDetailsDto;
+import com.stanzaliving.po.enums.POSummaryStatus;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -20,6 +21,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -557,4 +561,52 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
+    public ResponseDto<Map<String, String>> getPoSummaryStatus(String propertyUuid, Map<String, String> poSummaryStatusMap){
+
+        Object postBody = poSummaryStatusMap;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("propertyUuid",propertyUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/updatedPoSummaryStatus/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, String>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, String>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+
+    public ResponseDto<Map<String, List<PropertyPoStatusSummaryDto>>> getGenericPoStatuses(List<String> propertyUuids) {
+
+        log.info("HTTP Client call to get PO statuses for properties {}",propertyUuids);
+
+        Object postBody = propertyUuids;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/properties/getPoStatuses")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, List<PropertyPoStatusSummaryDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<PropertyPoStatusSummaryDto>>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
 }
