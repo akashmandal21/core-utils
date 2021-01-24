@@ -2,6 +2,8 @@ package com.stanzaliving.core.food.dto.menurating.response;
 
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.dto.menurating.RatingDto;
+import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +27,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class MealRatingResponseDto {
 
-	private ListingDto meal;
+	private EnumListing<MealType> meal;
 
 	private RatingDto rating;
 }
