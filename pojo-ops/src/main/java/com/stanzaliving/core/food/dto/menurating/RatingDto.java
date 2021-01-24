@@ -1,14 +1,11 @@
-package com.stanzaliving.core.food.menurating.dto.response;
+package com.stanzaliving.core.food.dto.menurating;
 
-import com.stanzaliving.core.food.menurating.dto.RatingDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -24,9 +21,12 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealRatingsResponseDto {
+public class RatingDto {
 
-	private RatingDto rating;
+	private Integer totalRating;
 
-	private List<MealRatingResponseDto> mealRatings;
+	private Integer totalRatingCount;
+
+	private Float avgRating;
+
 }

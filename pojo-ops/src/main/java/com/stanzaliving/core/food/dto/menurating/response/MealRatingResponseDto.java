@@ -1,5 +1,7 @@
-package com.stanzaliving.core.food.menurating.dto;
+package com.stanzaliving.core.food.dto.menurating.response;
 
+import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.food.dto.menurating.RatingDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,12 +23,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RatingDto {
+public class MealRatingResponseDto {
 
-	private Integer totalRating;
+	private ListingDto meal;
 
-	private Integer totalRatingCount;
-
-	private Float avgRating;
-
+	private RatingDto rating;
 }

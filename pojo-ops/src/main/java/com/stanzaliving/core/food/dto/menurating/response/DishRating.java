@@ -1,7 +1,7 @@
-package com.stanzaliving.core.food.menurating.dto.response;
+package com.stanzaliving.core.food.dto.menurating.response;
 
 import com.stanzaliving.core.base.common.dto.ListingDto;
-import com.stanzaliving.core.food.menurating.dto.RatingDto;
+import com.stanzaliving.core.food.dto.menurating.RatingDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

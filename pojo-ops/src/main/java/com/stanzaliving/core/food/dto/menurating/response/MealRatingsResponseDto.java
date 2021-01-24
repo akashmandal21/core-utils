@@ -1,12 +1,14 @@
-package com.stanzaliving.core.food.menurating.dto.response;
+package com.stanzaliving.core.food.dto.menurating.response;
 
-import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.food.dto.menurating.RatingDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -22,8 +24,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidenceRatingResponseDto extends MealRatingsResponseDto {
+public class MealRatingsResponseDto {
 
-	private ListingDto residence;
+	private RatingDto rating;
 
+	private List<MealRatingResponseDto> mealRatings;
 }
