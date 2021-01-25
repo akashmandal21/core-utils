@@ -13,6 +13,7 @@ public class UtilitiesSummaryDto extends CategorySummaryDto {
     DisplaySummaryDto waterFixed;
     DisplaySummaryDto waterVariable;
     DisplaySummaryDto waterLandlordReceivable;
+    boolean changeInServiceMixWater;
 
     DisplaySummaryDto electricity;
     DisplaySummaryDto electricityFixed;
@@ -20,8 +21,10 @@ public class UtilitiesSummaryDto extends CategorySummaryDto {
     DisplaySummaryDto electricityAcPassthrough;
     DisplaySummaryDto electricityRoomPassthrough;
     DisplaySummaryDto electricityLandlordReceivable;
+    boolean changeInServiceMixElectricity;
 
     DisplaySummaryDto roomMeterOpexCostPerMeter;
     DisplaySummaryDto dg;
+    boolean changeInServiceDg;
 
 }
