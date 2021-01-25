@@ -3,6 +3,7 @@ package com.stanzaliving.core.kafka.consumer;
 import com.stanzaliving.core.base.StanzaConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,6 +18,10 @@ public abstract class BaseConsumer<T> {
 
 	@Autowired
 	protected ObjectMapper objectMapper;
+
+	protected boolean isRecordNotEmpty(ConsumerRecords<String, String> records) {
+		return Objects.nonNull(records) && !records.isEmpty();
+	}
 
 	protected T getDto(ConsumerRecord<String, String> record) {
 
