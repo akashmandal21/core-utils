@@ -1,10 +1,13 @@
 package com.stanzaliving.core.far.enums;
 
 public enum AssetActiontype {
-    QR_CODE_ADDED,
+    ASSET_MAPPED_TO_QRCODE,
     QR_CODE_REPLACED,
 
     ASSET_TYPE_MODIFIED,
+
+    ASSET_VERIFIED,
+    ASSET_AUDITED,
 
     LOCATION_CHANGED,
 
@@ -16,8 +19,10 @@ public enum AssetActiontype {
     AMC_ADDED,
     AMC_UPDATED,
     AMC_REMOVED,
+    AMC_EXPIRED,
 
     INSURANCE_ADDED,
     INSURANCE_UPDATED,
-    INSURANCE_REMOVED
+    INSURANCE_REMOVED,
+    INSURANCE_EXPIRED
 }
