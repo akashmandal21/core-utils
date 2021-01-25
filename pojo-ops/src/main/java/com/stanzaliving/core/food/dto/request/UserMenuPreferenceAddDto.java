@@ -1,11 +1,16 @@
 package com.stanzaliving.core.food.dto.request;
 
-import com.stanzaliving.core.food.enums.FoodItemType;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import com.stanzaliving.core.food.enums.FoodItemType;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -26,10 +31,9 @@ public class UserMenuPreferenceAddDto {
 	@NotBlank(message = "Residence Food Menu Id Cannot be blank")
 	private String residenceFoodMenuId;
 
+	@NotNull(message = "Food Preference Selection is mandatory")
 	private FoodItemType foodPreference;
-	
-	@Builder.Default
-	private boolean skippedMealStatus = false;
-	
-	
+
+	private boolean skippedMealStatus;
+
 }
