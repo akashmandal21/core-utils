@@ -4,6 +4,7 @@ package com.stanzaliving.events.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -22,16 +23,14 @@ import javax.validation.constraints.NotNull;
 @ToString
 @SuperBuilder
 public class EventDto {
-    @NotEmpty(message = "event name must not be empty")
+    @NotBlank(message = "event name must not be empty")
     private String name;
 
-
-    @NotEmpty(message = "event type must not be empty")
+    @NotBlank(message = "event type must not be empty")
     private String type;
 
-    @NotEmpty(message = "event source must not be empty")
+    @NotBlank(message = "event source must not be empty")
     private String source;
-
 
     private String subType;
 

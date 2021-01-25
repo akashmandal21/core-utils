@@ -2,6 +2,8 @@ package com.stanzaliving.events.dto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -21,7 +23,7 @@ import javax.validation.constraints.NotNull;
 
 public class UserDto {
 
-    @NotEmpty(message = "userId must not be empty")
+    @NotBlank(message = "userId must not be empty")
     protected String userId;
 
     protected String userName;
