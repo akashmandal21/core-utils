@@ -4,7 +4,9 @@
 package com.stanzaliving.core.base.utils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -27,7 +29,7 @@ public class CSVConverter {
 	 * @return csv String
 	 */
 	@SuppressWarnings("rawtypes")
-	public static final String getCSVString(List list) {
+	public final String getCSVString(List list) {
 		String csvString = "";
 
 		if (CollectionUtils.isNotEmpty(list)) {
@@ -46,6 +48,36 @@ public class CSVConverter {
 		return csvString;
 	}
 
+	@SuppressWarnings("rawtypes")
+	public final String getCSVString(Set set) {
+		List list = new ArrayList(set);
+
+		return getCSVString(list);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public final String getCSVStringBeautified(List list) {
+		String csvString = "";
+
+		if (CollectionUtils.isNotEmpty(list)) {
+
+			StringBuilder csvSB = new StringBuilder();
+
+			for (int i = 0; i < list.size(); i++) {
+
+				if (!csvSB.toString().isEmpty()) {
+					csvSB.append(", ");
+				}
+
+				csvSB.append(list.get(i));
+			}
+
+			csvString = csvSB.toString();
+		}
+
+		return csvString;
+	}
+
 	/**
 	 * Converts Array of long to csv format
 	 * 
@@ -53,7 +85,7 @@ public class CSVConverter {
 	 *            Long List of Ids
 	 * @return csv String
 	 */
-	public static final String getCSVString(long[] ids) {
+	public final String getCSVString(long[] ids) {
 		String csvString = "";
 
 		if (ids != null && ids.length > 0) {
@@ -79,7 +111,7 @@ public class CSVConverter {
 	 *            array of ids
 	 * @return csv String
 	 */
-	public static final String getCSVString(int[] ids) {
+	public final String getCSVString(int[] ids) {
 		String csvString = "";
 
 		if (ids != null && ids.length > 0) {
@@ -105,12 +137,12 @@ public class CSVConverter {
 	 *            Long List of Ids
 	 * @return csv String
 	 */
-	public static final String getCSVString(String[] ids) {
+	public final String getCSVString(String[] ids) {
 		int length = (ids == null) ? 0 : ids.length;
 		return getCSVString(ids, 0, length);
 	}
 
-	public static final String getCSVString(String[] ids, int startIndex, int endIndex) {
+	public final String getCSVString(String[] ids, int startIndex, int endIndex) {
 		String csvString = "";
 
 		if (ids != null && ids.length > 0) {
@@ -130,7 +162,7 @@ public class CSVConverter {
 		return csvString;
 	}
 
-	public static List<String> getStringListFromCSV(String csvString) {
+	public List<String> getStringListFromCSV(String csvString) {
 
 		List<String> list = new ArrayList<>();
 
@@ -148,6 +180,26 @@ public class CSVConverter {
 		}
 
 		return list;
+	}
+
+	public Set<String> getStringSetFromCSV(String csvString) {
+
+		Set<String> set = new HashSet<>();
+
+		if (StringUtils.isNotBlank(csvString)) {
+
+			String[] stringArray = csvString.split(",");
+
+			for (String string : stringArray) {
+
+				if (StringUtils.isNotBlank(string)) {
+					set.add(string.trim());
+				}
+			}
+
+		}
+
+		return set;
 	}
 
 }

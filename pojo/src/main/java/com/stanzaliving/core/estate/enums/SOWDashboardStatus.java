@@ -16,7 +16,7 @@ public enum SOWDashboardStatus {
 	SOW_SENT_BACK("SOW Sent Back", SOWStatus.SOW_SENT_BACK, "#FF9902" , 2),
 	SOW_APPROVED("SOW Approved", SOWStatus.SOW_APPROVED, "#3366CC" , 3),
 	PENDING_SANDEEP_APPROVAL("Pending Sandeep Approval",SOWStatus.PENDING_SANDEEP_APPROVAL,"#8d6f6f",4),
-	SENT_BACK_BY_SANDEEP("Pending Sandeep Approval",SOWStatus.SENT_BACK_BY_SANDEEP,"#00b5cc",5);
+	SENT_BACK_BY_SANDEEP("Sent Back by Sandeep",SOWStatus.SENT_BACK_BY_SANDEEP,"#00b5cc",5);
 
 	private String status;
 

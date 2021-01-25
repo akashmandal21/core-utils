@@ -17,9 +17,13 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class CostResponseDto {
 
+	private FeElementDto costPerStudent;
+
 	private FeElementDto budgetedCostPerStudent;
 
-	private FeElementDto costPerStudent;
+	private FeElementDto costPerMirMonth;
+
+	private FeElementDto budgetPerMirMonth;
 
 	private FeElementDto costUtilization;
 

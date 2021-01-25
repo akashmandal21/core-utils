@@ -23,6 +23,13 @@
 			<artifactId>base</artifactId>
 			<version>${global.version}</version>
 		</dependency>
+		
+		<dependency>
+	        <groupId>com.amazonaws</groupId>
+	        <artifactId>aws-java-sdk-rekognition</artifactId>
+	        <version>${aws-java-sdk-rekognition.version}</version>
+        </dependency>
+		
 
 	</dependencies>
 

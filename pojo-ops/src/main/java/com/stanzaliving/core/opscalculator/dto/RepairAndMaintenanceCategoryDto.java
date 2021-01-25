@@ -1,0 +1,32 @@
+/**
+ * @author nipunaggarwal
+ *
+ */
+package com.stanzaliving.core.opscalculator.dto;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+
+/**
+ * @author nipunaggarwal
+ *
+ */
+@Getter
+@Setter
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(callSuper = true)
+public class RepairAndMaintenanceCategoryDto extends CategoryDto {
+
+	private BuildMaintenanceCategoryDto buildMaintenanceCategoryDto;
+	private RepairCategoryDto repairCategoryDto;
+
+}

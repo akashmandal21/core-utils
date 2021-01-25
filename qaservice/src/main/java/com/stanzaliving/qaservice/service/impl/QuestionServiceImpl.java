@@ -57,8 +57,13 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	@Override
-	public void save(QuestionEntity questionEntity) {
-		questionRepository.save(questionEntity);
+	public List<QuestionEntity> findByScreenGroupNumAndStatus(Integer screenGroupNum, Boolean status) {
+		return questionRepository.findByScreenGroupNumAndStatus(screenGroupNum, status);
+	}
+
+	@Override
+	public QuestionEntity save(QuestionEntity questionEntity) {
+		return questionRepository.save(questionEntity);
 	}
 	
 	@Override

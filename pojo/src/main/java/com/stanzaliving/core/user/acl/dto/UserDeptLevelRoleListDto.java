@@ -11,15 +11,15 @@ import java.util.List;
 
 @Data
 public class UserDeptLevelRoleListDto {
-    @NotBlank
+    @NotBlank(message = "userUuid Can not be blank")
     private String userUuid;
 
-    @NotNull
+    @NotNull(message = "department can not be null")
     private Department department;
 
-    @NotNull
+    @NotNull(message = "access level can not be null")
     private AccessLevel accessLevel;
 
-    @NotEmpty
+    @NotEmpty(message = "roles Uuid should not be empty array")
     List<String> rolesUuid;
 }

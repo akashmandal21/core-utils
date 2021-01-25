@@ -8,7 +8,6 @@ import javax.servlet.http.Cookie;
 import org.junit.Test;
 
 import com.stanzaliving.core.base.constants.SecurityConstants;
-import com.stanzaliving.core.base.utils.SecureCookieUtil;
 
 public class SecureCookieUtilTest {
 

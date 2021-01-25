@@ -51,7 +51,7 @@ public class VendorRecordResponseDto extends RecordDto {
 		this.rcQualityFeedback = new FeElementDto(vendorRecordDto.getRcQualityFeedback(), vendorRecordDto.getRcFeedbackCount(), false, FeElementType.DOUBLE);
 		this.studentFeedback = new FeElementDto(vendorRecordDto.getTotalRating(), vendorRecordDto.getStudentFeedbackCount(), false, FeElementType.DOUBLE);
 		this.menuAdherence = new FeElementDto(vendorRecordDto.getMenuAdherence(), vendorRecordDto.getFoodReceivedTimes());
-		this.shortageRecords = new FeElementDto(vendorRecordDto.getShortageRecords(), vendorRecordDto.getShortageFilled());
+		this.shortageRecords = new FeElementDto(vendorRecordDto.getShortageRecords());
 		this.foreignParticles = new FeElementDto(vendorRecordDto.getForeignParticles(), vendorRecordDto.getFoodReceivedTimes());
 		this.totalBillAmount = new FeElementDto(vendorRecordDto.getTotalBillAmount(), FeElementType.CURRENCY_INTEGER);
 		this.vendorUuid = vendorRecordDto.getVendorUuid();

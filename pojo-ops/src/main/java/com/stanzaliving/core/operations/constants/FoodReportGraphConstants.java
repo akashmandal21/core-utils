@@ -9,6 +9,7 @@ public class FoodReportGraphConstants {
     public static final String STUDENT_FEEDBACK_GRAPH_COMPONENT_DISSATISFIED = "Dissatisfied";
     public static final String STUDENT_FEEDBACK_GRAPH_COMPONENT_DISGUSTED = "Disgusted";
     public static final String STUDENT_FEEDBACK_GRAPH_COMPONENT_DELIGHTED = "Delighted";
+    public static final String STUDENT_FEEDBACK_GRAPH_COMPONENT_DELIGHTED_MINUS_DISGUSTED = "Delighted - Disgusted";
     public static final String STUDENT_FEEDBACK_GRAPH_X_TYPE = "{value}";
     public static final String STUDENT_FEEDBACK_GRAPH_Y_TYPE = "{value}%";
 

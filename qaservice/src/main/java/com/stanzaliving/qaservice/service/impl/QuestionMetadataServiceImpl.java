@@ -50,4 +50,9 @@ public class QuestionMetadataServiceImpl implements QuestionMetadataService {
 		questionMetadataRepository.save(metadataEntity);
 	}
 
+	@Override
+	public QuestionMetadataEntity save(QuestionMetadataEntity questionMetadataEntity) {
+		return questionMetadataRepository.save(questionMetadataEntity);
+	}
+
 }

@@ -31,4 +31,6 @@ public class StateMetadataDto {
 	private String stateName;
 
 	private long countryId;
+	
+	private String countryUuid;
 }

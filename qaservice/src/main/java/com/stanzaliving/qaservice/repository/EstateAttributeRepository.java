@@ -20,4 +20,6 @@ public interface EstateAttributeRepository extends AbstractJpaRepository<EstateA
 	EstateAttributeEntity findByEstateIdAndAttributeName(String estateId, String attributeName);
 	
 	List<EstateAttributeEntity> findByEstateId(String estateId);
+
+	List<EstateAttributeEntity> findByAttributeNameAndAttributeValue(String attributeName, String attributeValue);
 }

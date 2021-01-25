@@ -35,4 +35,8 @@ public class StanzaHttpException extends RuntimeException {
 		super(message, cause);
 	}
 
+	public StanzaHttpException(String message, int statusCode, Throwable cause) {
+		super(message, cause);
+		this.statusCode = statusCode;
+	}
 }

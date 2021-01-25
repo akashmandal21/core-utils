@@ -38,4 +38,11 @@ public class PdfDocumentDto implements Serializable{
 	private Integer pageCount;	
 	
 	private byte[] generatedPdfContentByte;
+	
+	private boolean isPageNumberRequired;
+
+	private String footerText;
+
+	private String fontFileName;
+
 }

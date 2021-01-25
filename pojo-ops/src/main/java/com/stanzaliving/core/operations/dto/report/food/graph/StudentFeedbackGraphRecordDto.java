@@ -1,7 +1,6 @@
 package com.stanzaliving.core.operations.dto.report.food.graph;
 
 import com.stanzaliving.core.operations.dto.report.GraphRecordDto;
-import com.stanzaliving.core.operations.dto.report.RecordDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 

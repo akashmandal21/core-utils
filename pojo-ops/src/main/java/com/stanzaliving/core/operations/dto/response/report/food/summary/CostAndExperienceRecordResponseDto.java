@@ -36,7 +36,7 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 
 	private FeElementDto delighted;
 
-	private FeElementDto dissatisfied;
+//	private FeElementDto dissatisfied;
 
 	private FeElementDto disgusted;
 
@@ -45,6 +45,8 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 	private FeElementDto socialMediaComplaint;
 
 	private FeElementDto disasterEvent;
+
+	private FeElementDto shortage;
 
 	private FeElementDto processAdherence;
 
@@ -75,12 +77,14 @@ public class CostAndExperienceRecordResponseDto extends RecordDto {
 		this.movedInResidence = new FeElementDto(mir, FeElementType.INTEGER);
 
 		this.delighted = new FeElementDto(ratingBuckets.getDelightedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
-		this.dissatisfied = new FeElementDto(ratingBuckets.getDissatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
+//		this.dissatisfied = new FeElementDto(ratingBuckets.getDissatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.disgusted = new FeElementDto(ratingBuckets.getDisgustedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.delightedMinusDisgusted = new FeElementDto(ratingBuckets.getDelightedResidents() - ratingBuckets.getDisgustedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 
 		this.socialMediaComplaint = new FeElementDto(costAndExperienceRecordDto.getSocialMediaComplaint());
 		this.disasterEvent = new FeElementDto(costAndExperienceRecordDto.getDisasterEvent());
+
+		this.shortage = new FeElementDto(costAndExperienceRecordDto.getShortage());
 
 		this.budgetUtilization = new FeElementDto(costAndExperienceRecordDto.getTotalMealCost(), costAndExperienceRecordDto.getBudgetedMealCost());
 		this.costUtilization = new FeElementDto(costAndExperienceRecordDto.getTotalMealCost(), summaryRecordDto.getCostEfficiency().getExpectedMealCost());

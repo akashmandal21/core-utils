@@ -16,25 +16,25 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class StanzaParseUtils {
 
-	public static int getIntValue(String stringValue) {
+	public int getIntValue(String stringValue) {
 		return isParsable(stringValue) ? Integer.parseInt(stringValue) : 0;
 	}
 
-	public static long getLongValue(String stringValue) {
+	public long getLongValue(String stringValue) {
 		return isParsable(stringValue) ? Long.parseLong(stringValue) : 0;
 	}
 
-	public static float getFloatValue(String stringValue) {
+	public float getFloatValue(String stringValue) {
 		return isParsable(stringValue) ? Float.parseFloat(stringValue) : 0;
 
 	}
 
-	public static double getDoubleValue(String stringValue) {
+	public double getDoubleValue(String stringValue) {
 		return isParsable(stringValue) ? Double.parseDouble(stringValue) : 0;
 
 	}
 
-	private static boolean isParsable(String stringValue) {
+	public boolean isParsable(String stringValue) {
 		return NumberUtils.isParsable(stringValue);
 	}
 
@@ -44,7 +44,7 @@ public class StanzaParseUtils {
 	 * @param string
 	 * @return normalized string
 	 */
-	public static String getNormalizedString(String string) {
+	public String getNormalizedString(String string) {
 
 		if (StringUtils.isNotBlank(string)) {
 			string = string.replaceAll("[^a-zA-Z0-9]", " ");

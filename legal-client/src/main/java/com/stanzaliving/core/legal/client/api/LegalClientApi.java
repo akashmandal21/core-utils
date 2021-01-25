@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.pojo.AttachmentDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -15,7 +16,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.pojo.AttachmentDto;
 
 public class LegalClientApi {
 
@@ -55,7 +55,7 @@ public class LegalClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
     }
-    
+
     public ResponseDto<Boolean> checkAllDealTermApproved(String estateUuid) {
 
         if (Objects.isNull(estateUuid)) {
@@ -221,8 +221,35 @@ public class LegalClientApi {
 
     }
     
-    
-    
-    
+    public ResponseDto<Boolean> checkLanguageDeviationExist(String estateUuid, String buildingType) {
+
+        if (Objects.isNull(estateUuid)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("estateUuid", estateUuid);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/legal/check/languagedeviation/{estateUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("buildingType",buildingType);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
     
 }

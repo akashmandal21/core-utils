@@ -10,4 +10,6 @@ public class AttributeValues {
     public static final String STAMP_DUTY_BORNE_BY_STANZA = "Stanza";
     public static final String STAMP_DUTY_BORNE_BY_LANDLORD = "Landlord";
 
+    public static final String BTS_BUILDING_TYPE_ANSWER = "Built to Stanza Spec";
+
 }

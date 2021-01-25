@@ -33,9 +33,9 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 
 	private FeElementDto delighted;
 
-	private FeElementDto satisfied;
+//	private FeElementDto satisfied;
 
-	private FeElementDto dissatisfied;
+//	private FeElementDto dissatisfied;
 
 	private FeElementDto disgusted;
 
@@ -82,12 +82,12 @@ public class CustomerExperienceRecordResponseDto extends RecordDto {
 		//FoodRatingBuckets completeRatingBuckets = FoodReportUtil.getFoodRatingBuckets(accessLevel, customerExperienceRecordDto, completeFoodRatingMap);
 
 		this.delighted = new FeElementDto(ratingBuckets.getDelightedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
-		this.satisfied = new FeElementDto(ratingBuckets.getSatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
-		this.dissatisfied = new FeElementDto(ratingBuckets.getDissatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
+//		this.satisfied = new FeElementDto(ratingBuckets.getSatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
+//		this.dissatisfied = new FeElementDto(ratingBuckets.getDissatisfiedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.disgusted = new FeElementDto(ratingBuckets.getDisgustedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 		this.delightedMinusDisgusted = new FeElementDto(ratingBuckets.getDelightedResidents() - ratingBuckets.getDisgustedResidents(), ratingBuckets.getTotalResidents(), FeElementType.PERCENT_DOUBLE);
 
-		this.shortage = new FeElementDto(customerExperienceRecordDto.getShortageCount(), customerExperienceRecordDto.getShortageFilled(), FeElementType.INTEGER);
+		this.shortage = new FeElementDto(customerExperienceRecordDto.getShortageCount());
 		this.foreignParticles = new FeElementDto(customerExperienceRecordDto.getForeignParticle(), FeElementType.INTEGER);
 		this.socialMediaComplaint = new FeElementDto(customerExperienceRecordDto.getSocialMediaComplaints(), FeElementType.INTEGER);
 

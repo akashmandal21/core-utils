@@ -3,22 +3,29 @@ package com.stanzaliving.transformations.enums;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public enum UnitType {
 
-	NUMBER("no.s"),
+	NUMBER("nos."),
 	METERS("mtrs"),
 	CUBIT_FEET("cu.ft."),
 	SQUARE_FEET("sq.ft."),
-	KILOGRAM("kg");
+	KILOGRAM("kg"),
+	RFT("Running Feet"),
+	LS("Lump sum"),
+	PER_BED("Per Bed"),
+	MANDAYS("Mandays"),
+	LTS("ltr"),
+	PULSE("Pulse"),
+	FLAT_RATE("Flat Rate"),
+	PERCENTAGE("Percentage"),
+	LITERS("Ltrs");
 
 	private String unitName;
-
-	private UnitType(String unitName) {
-		this.unitName = unitName;
-	}
 
 	private static Map<String, UnitType> unitByNameMap = new HashMap<>();
 
@@ -31,6 +38,10 @@ public enum UnitType {
 
 	public static UnitType getUnitTypeByName(String unitName) {
 		return unitByNameMap.get(unitName);
+	}
+	
+	public static Map<String, UnitType> getUnitByNameMap(){
+		return unitByNameMap;
 	}
 
 }

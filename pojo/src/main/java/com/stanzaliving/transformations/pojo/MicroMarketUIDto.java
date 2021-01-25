@@ -1,5 +1,6 @@
 package com.stanzaliving.transformations.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.validation.constraints.Min;
@@ -8,16 +9,24 @@ import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.base.location.GeoPointDto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
-public class MicroMarketUIDto {
+public class MicroMarketUIDto implements Serializable {
+
+	private static final long serialVersionUID = -8278477851223241472L;
 
 	private long id;
 

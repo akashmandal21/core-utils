@@ -23,4 +23,6 @@ public interface QuestionMetadataService {
 
 	void save(QuestionMetadataDto questionMetadataDto);
 
+	QuestionMetadataEntity save(QuestionMetadataEntity questionMetadataEntity);
+
 }

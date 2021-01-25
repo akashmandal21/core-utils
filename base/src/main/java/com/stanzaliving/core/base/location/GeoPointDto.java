@@ -1,5 +1,6 @@
 package com.stanzaliving.core.base.location;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -19,7 +20,9 @@ import lombok.extern.log4j.Log4j2;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class GeoPointDto {
+public class GeoPointDto implements Serializable {
+
+	private static final long serialVersionUID = 8875327824763009594L;
 
 	private Double lat;
 	private Double lon;

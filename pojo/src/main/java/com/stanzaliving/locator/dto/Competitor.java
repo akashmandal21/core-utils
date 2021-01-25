@@ -1,8 +1,10 @@
 package com.stanzaliving.locator.dto;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -10,6 +12,8 @@ import lombok.ToString;
 @Getter
 @ToString
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Competitor {
 	
     private String city;
