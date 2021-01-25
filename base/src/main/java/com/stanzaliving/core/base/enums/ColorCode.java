@@ -19,8 +19,9 @@ public enum ColorCode {
 	VERY_PALE_MOSTLY_WHITE_RED("#FFF1F1"),
 	SOFT_RED("#F55F71"),
 	BLUE("#0000ff"),
-	SOFT_BLUE("#5FC4F5");
-
+	SOFT_BLUE("#5FC4F5"),
+	SOFT_GREEN("#EDFFF5"),
+	GREEN_CYAN("#60C3AD");
 
 
 	private String colorCode;
