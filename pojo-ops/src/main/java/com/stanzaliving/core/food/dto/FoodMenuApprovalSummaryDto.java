@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
+import com.stanzaliving.approval.dto.ApprovalListingDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,4 +27,6 @@ public class FoodMenuApprovalSummaryDto {
 	private boolean chefAutoApproved;
 
 	private boolean vendorAutoApproved;
+	
+	private ApprovalListingDto approvalSummary;
 }

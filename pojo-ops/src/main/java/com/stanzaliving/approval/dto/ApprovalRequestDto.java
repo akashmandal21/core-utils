@@ -15,7 +15,7 @@ import java.util.HashMap;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ApprovalRequestDto {
-    
+
     Date requestTime;
 
     String requestedBy;
@@ -35,7 +35,11 @@ public class ApprovalRequestDto {
     boolean l2ApprovalRequired;
 
     boolean l3ApprovalRequired;
-    
+
+    boolean l4ApprovalRequired;
+
+    boolean l5ApprovalRequired;
+
     ApprovalStatus approvalStatus;
 
     String residenceUuid;

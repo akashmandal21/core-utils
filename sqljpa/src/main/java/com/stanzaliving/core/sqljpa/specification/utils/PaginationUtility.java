@@ -2,6 +2,7 @@ package com.stanzaliving.core.sqljpa.specification.utils;
 
 import java.util.Objects;
 
+import com.stanzaliving.core.base.utils.PaginationUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -43,14 +44,11 @@ public class PaginationUtility {
 	 */
 
 	public int correctLimit(int limit) {
-		limit = Math.max(1, limit);
-		limit = Math.min(1000, limit);
-		return limit;
+		return PaginationUtil.correctLimit(limit);
 	}
 
 	public int correctPageNo(int pageNo) {
-		pageNo = Math.max(1, pageNo);
-		return pageNo;
+		return PaginationUtil.correctPageNo(pageNo);
 	}
 
 	public Pageable getPageRequest(int pageNo, int limit, String sortBy, Direction sortDirection) {
