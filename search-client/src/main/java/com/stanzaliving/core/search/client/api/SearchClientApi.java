@@ -13,6 +13,9 @@ import com.stanzaliving.search.food.index.dto.menu.FoodMenuCategoryItemOrderCoun
 import com.stanzaliving.search.food.index.dto.vasmaster.VasMasterIndexDto;
 import com.stanzaliving.search.food.search.dto.CategoryItemOrderCountSearchDto;
 import com.stanzaliving.search.food.search.dto.VasMasterSearchDto;
+import com.stanzaliving.search.food.search.dto.request.MenuItemAggregateRequestDto;
+import com.stanzaliving.search.food.search.dto.response.menu.fps.FoodMenuItemFpsResponseDto;
+import com.stanzaliving.search.food.search.dto.response.menu.rating.FoodMenuItemRatingResponseDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -165,6 +168,80 @@ public class SearchClientApi {
 		try {
 
 			responseDto = restClient.request(path, HttpMethod.POST, queryParams, searchDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		return responseDto.getData();
+	}
+
+	public FoodMenuItemRatingResponseDto aggregateMenuItemRating(MenuItemAggregateRequestDto requestDto) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/menu/item/rating").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<FoodMenuItemRatingResponseDto>> returnType = new TypeReference<ResponseDto<FoodMenuItemRatingResponseDto>>() {};
+
+		ResponseDto<FoodMenuItemRatingResponseDto> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		return responseDto.getData();
+	}
+
+	public FoodMenuItemFpsResponseDto aggregateMenuItemFps(MenuItemAggregateRequestDto requestDto) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/menu/item/fps").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<FoodMenuItemFpsResponseDto>> returnType = new TypeReference<ResponseDto<FoodMenuItemFpsResponseDto>>() {};
+
+		ResponseDto<FoodMenuItemFpsResponseDto> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 
