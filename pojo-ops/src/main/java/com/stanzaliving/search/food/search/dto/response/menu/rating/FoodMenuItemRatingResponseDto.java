@@ -1,4 +1,4 @@
-package com.stanzaliving.search.food.search.dto.response.menu;
+package com.stanzaliving.search.food.search.dto.response.menu.rating;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -21,9 +23,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MicromarketItemRatingDto extends RatingDto {
+public class FoodMenuItemRatingResponseDto {
+	private MicromarketIdRatingDto micromarket;
 
-	private String micromarketId;
+	private List<ResidenceIdRatingDto> residences;
 
-	private String itemId;
+	private List<ResidenceMealRatingDto> residenceMeals;
+
+	private List<MicromarketItemRatingDto> items;
 }

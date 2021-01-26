@@ -1,5 +1,6 @@
-package com.stanzaliving.search.food.search.dto.response.menu;
+package com.stanzaliving.search.food.search.dto.response.menu.rating;
 
+import com.stanzaliving.search.food.search.dto.response.menu.rating.RatingDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,8 +22,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RatingDto {
-	private Double totalRating;
-
-	private Double totalRatingCount;
+public class ResidenceIdRatingDto extends RatingDto {
+	private String residenceId;
 }

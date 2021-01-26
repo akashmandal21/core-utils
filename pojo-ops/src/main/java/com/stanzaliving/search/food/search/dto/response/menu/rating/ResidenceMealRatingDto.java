@@ -1,5 +1,7 @@
-package com.stanzaliving.search.food.search.dto.response.menu;
+package com.stanzaliving.search.food.search.dto.response.menu.rating;
 
+import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.search.food.search.dto.response.menu.rating.RatingDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +23,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidenceIdRatingDto extends RatingDto {
+public class ResidenceMealRatingDto extends RatingDto {
+
 	private String residenceId;
+
+	private MealType mealType;
+
 }

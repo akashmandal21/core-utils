@@ -1,4 +1,4 @@
-package com.stanzaliving.search.food.search.dto.response.menu;
+package com.stanzaliving.search.food.search.dto.response.menu.rating;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +21,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MicromarketIdRatingDto extends RatingDto {
+public class MicromarketItemRatingDto extends RatingDto {
+
 	private String micromarketId;
+
+	private String itemId;
 }
