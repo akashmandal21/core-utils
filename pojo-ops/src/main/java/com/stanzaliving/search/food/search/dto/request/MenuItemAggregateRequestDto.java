@@ -9,6 +9,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -29,7 +30,7 @@ public class MenuItemAggregateRequestDto {
 
 	private String micromarketId;
 
-	private List<String> itemIds;
+	private Collection<String> itemIds;
 
 	@NotNull(message = "fromDate is mandatory")
 	private LocalDate fromDate;

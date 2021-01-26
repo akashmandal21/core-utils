@@ -27,5 +27,5 @@ public class DishRating {
 
 	private ListingDto dish;
 
-	private RatingDto rating;
+	private Float avgRating;
 }

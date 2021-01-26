@@ -29,5 +29,5 @@ public class MealRatingResponseDto {
 
 	private EnumListing<MealType> meal;
 
-	private RatingDto rating;
+	private Float avgRating;
 }

@@ -29,7 +29,7 @@ public class FoodMenuMicroMarketRatingResponseDto {
 
 	private ListingDto micromarket;
 
-	private RatingDto rating;
+	private Float avgRating;
 
 	private List<ResidenceRatingResponseDto> residenceRatings;
 

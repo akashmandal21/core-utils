@@ -26,7 +26,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MealRatingsResponseDto {
 
-	private RatingDto rating;
+	private Float avgRating;
 
 	private List<MealRatingResponseDto> mealRatings;
 }
