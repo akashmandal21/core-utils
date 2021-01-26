@@ -22,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RatingDto {
-	private Double totalRating;
+	private Integer totalRating;
 
-	private Double totalRatingCount;
+	private Integer totalRatingCount;
 }
