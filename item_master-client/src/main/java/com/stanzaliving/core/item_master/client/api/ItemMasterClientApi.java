@@ -400,10 +400,11 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, filterDto, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<Map<String, GSTSlabs>> getGstSlabs(Department department, Collection<String> items) {
+	public ResponseDto<Map<String, GSTSlabs>> getGstSlabs(Department department, Collection<String> items, boolean isUuid) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("department",department);
+		uriVariables.put("isUuid",isUuid);
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -413,7 +414,7 @@ public class ItemMasterClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		String path = UriComponentsBuilder.fromPath("/internal/generic/fetch/gst/{department}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/generic/fetch/gst/{department}/{isUuid}").buildAndExpand(uriVariables).toUriString();
 
 		ParameterizedTypeReference<ResponseDto<Map<String, GSTSlabs>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, GSTSlabs>>>() {
 		};
