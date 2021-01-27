@@ -91,6 +91,12 @@ public class FilterDto {
 
     private String itemUuid;
 
+    private List<UIKeyValue> itemRateStatus;
+    private List<UIKeyValue> updatedBy;
+
+    private List<UIKeyValue> itemRateStatusOptions;
+    private List<UIKeyValue> updatedByOptions;
+
 
     public void addAdditionalFilterFields(Set<String> deptFields){
         deptFields.add("department");
