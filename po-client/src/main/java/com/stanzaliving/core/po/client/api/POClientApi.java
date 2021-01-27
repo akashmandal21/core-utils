@@ -568,7 +568,7 @@ public class POClientApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("propertyUuid",propertyUuid);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/get/updatedPoSummaryStatus/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/updatedPoSummaryStatus/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
