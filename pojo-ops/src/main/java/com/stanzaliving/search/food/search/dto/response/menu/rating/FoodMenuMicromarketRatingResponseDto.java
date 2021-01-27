@@ -23,7 +23,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuItemRatingResponseDto {
+public class FoodMenuMicromarketRatingResponseDto {
 	private MicromarketIdRatingDto micromarket;
 
 	private List<ResidenceIdRatingDto> residences;

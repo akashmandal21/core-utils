@@ -16,7 +16,7 @@ import com.stanzaliving.search.food.search.dto.VasMasterSearchDto;
 import com.stanzaliving.search.food.search.dto.request.MenuItemAggregateRequestDto;
 import com.stanzaliving.search.food.search.dto.request.MenuMicromarketAggregateRequestDto;
 import com.stanzaliving.search.food.search.dto.response.menu.fps.FoodMenuItemFpsResponseDto;
-import com.stanzaliving.search.food.search.dto.response.menu.rating.FoodMenuItemRatingResponseDto;
+import com.stanzaliving.search.food.search.dto.response.menu.rating.FoodMenuMicromarketRatingResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.MicromarketItemRatingDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpHeaders;
@@ -188,7 +188,7 @@ public class SearchClientApi {
 		return responseDto.getData();
 	}
 
-	public FoodMenuItemRatingResponseDto aggregateMenuRating(MenuMicromarketAggregateRequestDto requestDto) {
+	public FoodMenuMicromarketRatingResponseDto aggregateMenuRating(MenuMicromarketAggregateRequestDto requestDto) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/aggregate/rating/menu/micromarket").build().toUriString();
 
@@ -200,9 +200,9 @@ public class SearchClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		TypeReference<ResponseDto<FoodMenuItemRatingResponseDto>> returnType = new TypeReference<ResponseDto<FoodMenuItemRatingResponseDto>>() {};
+		TypeReference<ResponseDto<FoodMenuMicromarketRatingResponseDto>> returnType = new TypeReference<ResponseDto<FoodMenuMicromarketRatingResponseDto>>() {};
 
-		ResponseDto<FoodMenuItemRatingResponseDto> responseDto = new ResponseDto<>();
+		ResponseDto<FoodMenuMicromarketRatingResponseDto> responseDto = new ResponseDto<>();
 
 		try {
 
