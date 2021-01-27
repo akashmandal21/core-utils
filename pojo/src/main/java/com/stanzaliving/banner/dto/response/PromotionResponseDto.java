@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PromotionResponseDto {
+public class PromotionResponseDto implements Comparable<PromotionResponseDto> {
 	
 	private Long id;
 	
@@ -36,7 +36,7 @@ public class PromotionResponseDto {
 	
 	private String promotionIconName;
 
-	private int priorityOrder;
+	private Integer priorityOrder;
 
 	private Boolean isForAllUsers;
 	
@@ -61,5 +61,15 @@ public class PromotionResponseDto {
 	private List<CreativeResponseDto> creatives;
 	
 	private SpecificUsersOf specificUsersOf;
-	
+
+	@Override
+	public int compareTo(PromotionResponseDto secondDto) {
+
+		int compareTo = this.getPriorityOrder().compareTo(secondDto.getPriorityOrder());
+		
+		if(compareTo == 0)
+			return this.getCreatedAt().compareTo(secondDto.getCreatedAt());
+		
+		return compareTo;
+	}
 }
