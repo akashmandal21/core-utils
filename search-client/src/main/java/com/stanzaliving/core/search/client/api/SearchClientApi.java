@@ -14,8 +14,10 @@ import com.stanzaliving.search.food.index.dto.vasmaster.VasMasterIndexDto;
 import com.stanzaliving.search.food.search.dto.CategoryItemOrderCountSearchDto;
 import com.stanzaliving.search.food.search.dto.VasMasterSearchDto;
 import com.stanzaliving.search.food.search.dto.request.MenuItemAggregateRequestDto;
+import com.stanzaliving.search.food.search.dto.request.MenuMicromarketAggregateRequestDto;
 import com.stanzaliving.search.food.search.dto.response.menu.fps.FoodMenuItemFpsResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.FoodMenuItemRatingResponseDto;
+import com.stanzaliving.search.food.search.dto.response.menu.rating.MicromarketItemRatingDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -186,9 +188,9 @@ public class SearchClientApi {
 		return responseDto.getData();
 	}
 
-	public FoodMenuItemRatingResponseDto aggregateMenuItemRating(MenuItemAggregateRequestDto requestDto) {
+	public FoodMenuItemRatingResponseDto aggregateMenuRating(MenuMicromarketAggregateRequestDto requestDto) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/aggregate/menu/item/rating").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/rating/menu/micromarket").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -201,6 +203,43 @@ public class SearchClientApi {
 		TypeReference<ResponseDto<FoodMenuItemRatingResponseDto>> returnType = new TypeReference<ResponseDto<FoodMenuItemRatingResponseDto>>() {};
 
 		ResponseDto<FoodMenuItemRatingResponseDto> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		return responseDto.getData();
+	}
+
+	public List<MicromarketItemRatingDto> aggregateMenuItemsRating(MenuItemAggregateRequestDto requestDto) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/rating/menu/micromarket/item").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<List<MicromarketItemRatingDto>>> returnType = new TypeReference<ResponseDto<List<MicromarketItemRatingDto>>>() {};
+
+		ResponseDto<List<MicromarketItemRatingDto>> responseDto = new ResponseDto<>();
 
 		try {
 

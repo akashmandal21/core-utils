@@ -29,6 +29,4 @@ public class FoodMenuItemRatingResponseDto {
 	private List<ResidenceIdRatingDto> residences;
 
 	private List<ResidenceMealRatingDto> residenceMeals;
-
-	private List<MicromarketItemRatingDto> items;
 }
