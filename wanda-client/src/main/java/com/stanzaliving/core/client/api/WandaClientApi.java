@@ -18,6 +18,7 @@ import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
 import com.stanzaliving.wanda.dtos.FullUserDto;
+import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
 import com.stanzaliving.wanda.dtos.UserDetailDto;
 import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
 
@@ -274,6 +275,33 @@ public class WandaClientApi {
 			log.error("Error while getting user Details from Core by mobile: {}", mobile, e);
 		}
 		return null;
+	}
+	
+public List<UserCodeIdMapDto> getUserDataBySearch(String searchTerm) {
+		
+		Object postBody = null;
+		
+		log.info("Received request to get UserCodeIdMapDto"+searchTerm);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/get/all/user").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("searchTerm", searchTerm);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<UserCodeIdMapDto>> returnType = new ParameterizedTypeReference<List<UserCodeIdMapDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
 	}
 
 }
