@@ -38,4 +38,16 @@ public class DeviationPercentSummaryDto extends MonthUnderwrittenSummaryDto {
     String suppliesCommentUuid;
     @Builder.Default
     String suppliesCategoryName = UnderwrittenCalculatorCategory.SUBSCRIPTION.toString();
+    String transportCommentUuid;
+    @Builder.Default
+    String transportCategoryName = UnderwrittenCalculatorCategory.TRANSPORT.toString();
+    String auditCommentUuid;
+    @Builder.Default
+    String auditCategoryName = UnderwrittenCalculatorCategory.AUDIT.toString();
+    String uniformCommentUuid;
+    @Builder.Default
+    String uniformCategoryName = UnderwrittenCalculatorCategory.UNIFORM_COSTS.toString();
+    String personnelCommentUuid;
+    @Builder.Default
+    String personnelCategoryName = UnderwrittenCalculatorCategory.PERSONNEL.toString();
 }

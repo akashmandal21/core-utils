@@ -1,7 +1,6 @@
 package com.stanzaliving.core.opscalculator.dto.summary;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -27,4 +26,8 @@ public class MonthUnderwrittenSummaryDto extends CategorySummaryDto {
     RepairAndMaintenanceSummaryDto repairAndMaintenanceSummaryDto;
     EquipmentRentalSummaryDto equipmentRentalSummaryDto;
     SuppliesSummaryDto suppliesSummaryDto;
+    TransportSummaryDto transportSummaryDto;
+    AuditSummaryDto auditSummaryDto;
+    UniformSummaryDto uniformSummaryDto;
+    PersonnelSummaryDto personnelSummaryDto;
 }
