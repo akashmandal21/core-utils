@@ -25,4 +25,8 @@ public class FpsDto {
 	private Integer disgustedCount;
 
 	private Integer delightedCount;
+
+	private Integer totalRatingCount;
+
+	private Float fpsPercent;
 }

@@ -26,7 +26,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MealsFpsResponseDto {
 
-	private FpsDto fps;
+	private Float fpsPercent;
 
 	private List<MealFpsResponseDto> mealfps;
 

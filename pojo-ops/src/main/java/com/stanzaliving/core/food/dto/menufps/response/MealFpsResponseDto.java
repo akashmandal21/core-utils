@@ -29,5 +29,5 @@ public class MealFpsResponseDto {
 
 	private EnumListing<MealType> meal;
 
-	private FpsDto fps;
+	private Float fpsPercent;
 }

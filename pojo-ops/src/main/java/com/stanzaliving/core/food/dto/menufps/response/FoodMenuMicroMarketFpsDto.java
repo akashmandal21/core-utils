@@ -32,9 +32,9 @@ public class FoodMenuMicroMarketFpsDto {
 
 	private ListingDto micromarket;
 
-	private FpsDto fps;
+	private Float fpsPercent;
 
-	private List<ResidenceFpsResponseDto> residenceRatings;
+	private List<ResidenceFpsResponseDto> residenceFps;
 
 	private MealsFpsResponseDto overall;
 }

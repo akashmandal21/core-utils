@@ -30,6 +30,4 @@ public class FoodMenuFpsResponseDto {
 	private String menuGroupId;
 
 	private FoodMenuMicroMarketFpsDto micromarketFps;
-
-	private List<DishFps> dishFps;
 }
