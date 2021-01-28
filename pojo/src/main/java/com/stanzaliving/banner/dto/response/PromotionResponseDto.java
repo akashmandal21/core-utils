@@ -31,6 +31,8 @@ public class PromotionResponseDto implements Comparable<PromotionResponseDto> {
 	private Long dashboardId;
 	
 	private String promotionName;
+	
+	private String description;
 
 	private String promotionIcon;
 	
