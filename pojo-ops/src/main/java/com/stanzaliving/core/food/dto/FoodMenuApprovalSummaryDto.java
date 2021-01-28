@@ -32,4 +32,12 @@ public class FoodMenuApprovalSummaryDto {
 	private Integer mir;
 	private Double price;
 	private String boxOption;
+
+	private String requestDateTimeLabel;
+	private String l1ActionDateTimeLabel;
+	private String l2ActionDateTimeLabel;
+	private String l3ActionDateTimeLabel;
+	private String l4ActionDateTimeLabel;
+	private String l5ActionDateTimeLabel;
+	private String approvalStatus;
 }
