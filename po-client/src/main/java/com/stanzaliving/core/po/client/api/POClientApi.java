@@ -520,7 +520,6 @@ public class POClientApi {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-
         String path = UriComponentsBuilder.fromPath("/internal/generic/po/getPoNumbers").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
