@@ -38,6 +38,8 @@ import java.util.List;
 @AllArgsConstructor
 public class DishMasterSearchIndexDto extends AbstractDto {
 
+	private static final long serialVersionUID = -978778782827L;
+
 	private String name;
 
 	private String nameSuggest;
