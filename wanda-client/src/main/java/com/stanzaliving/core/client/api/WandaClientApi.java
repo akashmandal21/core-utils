@@ -16,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
 import com.stanzaliving.wanda.dtos.FullUserDto;
 import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
@@ -303,7 +304,7 @@ public class WandaClientApi {
 
 	}
 
-	public ResidenceUIDto getUserDetails(String userUuid) {
+	public ResidenceUIDto getUserResidenceDetails(String userUuid) {
 
 		Object postBody = null;
 
