@@ -1,12 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
 import com.stanzaliving.approval.dto.ApprovalListingDto;
-import com.stanzaliving.core.food.enums.FoodMenuStatus;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -27,7 +22,7 @@ public class FoodMenuApprovalSummaryDto {
 	private boolean vendorAutoApproved;
 	private ApprovalListingDto approvalSummary;
 	private String residenceName;
-	private FoodMenuStatus menuStatus;
+	private String menuStatus;
 	private boolean menuApproved;
 	private Integer mir;
 	private Double price;
