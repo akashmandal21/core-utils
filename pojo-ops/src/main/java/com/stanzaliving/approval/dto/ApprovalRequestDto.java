@@ -16,35 +16,37 @@ import java.util.HashMap;
 @NoArgsConstructor
 public class ApprovalRequestDto {
 
-    Date requestTime;
+    private Date requestTime;
 
-    String requestedBy;
+    private String requestedBy;
 
-    String entityUuid;
+    private String entityUuid;
 
-    String entityName;
+    private String entityName;
 
-    Integer versionNumber;
+    private Integer versionNumber;
 
-    ApprovalEntityType approvalEntityType;
+    private ApprovalEntityType approvalEntityType;
 
-    HashMap<String, Object> metadata;
+    private HashMap<String, Object> metadata;
 
-    boolean l1ApprovalRequired;
+    private boolean l1ApprovalRequired;
 
-    boolean l2ApprovalRequired;
+    private boolean l2ApprovalRequired;
 
-    boolean l3ApprovalRequired;
+    private boolean l3ApprovalRequired;
 
-    boolean l4ApprovalRequired;
+    private boolean l4ApprovalRequired;
 
-    boolean l5ApprovalRequired;
+    private boolean l5ApprovalRequired;
 
-    ApprovalStatus approvalStatus;
+    private ApprovalStatus approvalStatus;
 
-    String residenceUuid;
+    private String residenceUuid;
 
-    String cityUuid;
+    private String cityUuid;
 
-    String micromarketUuid;
+    private String micromarketUuid;
+    
+    private boolean expressApprovalRequired;
 }
