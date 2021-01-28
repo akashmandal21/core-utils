@@ -27,6 +27,7 @@ public enum UnderwrittenCalculatorCategory {
 	PERSONNEL("personnel"),
 	RC("rc"),
 	REPAIR("repair"),
+	BUILDING("building"),
 	SECURITY("security"),
 	SUBSCRIPTION("subscription"),
 	TRANSPORT("transport"),
