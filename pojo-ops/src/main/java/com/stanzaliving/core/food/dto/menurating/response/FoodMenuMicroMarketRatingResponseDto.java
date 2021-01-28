@@ -25,13 +25,9 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuMicroMarketRatingResponseDto {
+public class FoodMenuMicroMarketRatingResponseDto extends MealRatingsResponseDto {
 
 	private ListingDto micromarket;
 
-	private Float avgRating;
-
 	private List<ResidenceRatingResponseDto> residenceRatings;
-
-	private MealRatingsResponseDto overall;
 }

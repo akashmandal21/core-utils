@@ -28,13 +28,10 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuMicroMarketFpsDto {
+public class FoodMenuMicroMarketFpsDto extends MealsFpsResponseDto {
 
 	private ListingDto micromarket;
 
-	private Float fpsPercent;
-
 	private List<ResidenceFpsResponseDto> residenceFps;
 
-	private MealsFpsResponseDto overall;
 }
