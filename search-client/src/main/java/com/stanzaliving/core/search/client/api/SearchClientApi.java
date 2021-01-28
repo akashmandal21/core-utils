@@ -6,12 +6,15 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.food.dto.FoodItemSearchDto;
 import com.stanzaliving.core.food.dto.response.DataCountPageResponse;
 import com.stanzaliving.search.food.index.dto.dishmaster.DishMasterSearchIndexDto;
+import com.stanzaliving.search.food.index.dto.ingredient.IngredientSearchIndexDto;
 import com.stanzaliving.search.food.index.dto.menu.FoodMenuCategoryItemOrderCountIndexDto;
 import com.stanzaliving.search.food.index.dto.vasmaster.VasMasterIndexDto;
 import com.stanzaliving.search.food.search.dto.CategoryItemOrderCountSearchDto;
+import com.stanzaliving.search.food.search.dto.IngredientSearchDto;
 import com.stanzaliving.search.food.search.dto.VasMasterSearchDto;
 import com.stanzaliving.search.food.search.dto.request.MenuItemAggregateRequestDto;
 import com.stanzaliving.search.food.search.dto.request.MenuMicromarketAggregateRequestDto;
@@ -19,6 +22,7 @@ import com.stanzaliving.search.food.search.dto.response.menu.fps.FoodMenuItemFps
 import com.stanzaliving.search.food.search.dto.response.menu.rating.FoodMenuMicromarketRatingResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.MicromarketItemRatingDto;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -27,6 +31,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -336,5 +341,51 @@ public class SearchClientApi {
 		return responseDto.getData();
 	}
 
+	public List<IngredientSearchIndexDto> getIngredientsList() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/search/ingredients").build().toUriString();
+
+		IngredientSearchDto searchDto = IngredientSearchDto.builder()
+				.pageDto(PageAndSortDto.builder().pageNo(1).limit(3000).build())
+				.build();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<PageResponse<IngredientSearchIndexDto>>> returnType = new TypeReference<ResponseDto<PageResponse<IngredientSearchIndexDto>>>() {};
+
+		ResponseDto<PageResponse<IngredientSearchIndexDto>> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, searchDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		List<IngredientSearchIndexDto> responseDtos = new ArrayList<>();
+
+		if (Objects.nonNull(responseDto.getData())) {
+			responseDtos = responseDto.getData().getData();
+		}
+
+		return responseDtos;
+	}
 }
 
