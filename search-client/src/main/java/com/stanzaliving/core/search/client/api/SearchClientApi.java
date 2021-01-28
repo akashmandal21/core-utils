@@ -262,9 +262,9 @@ public class SearchClientApi {
 		return responseDto.getData();
 	}
 
-	public FoodMenuItemFpsResponseDto aggregateMenuItemFps(MenuItemAggregateRequestDto requestDto) {
+	public FoodMenuItemFpsResponseDto aggregateMenuItemFps(MenuMicromarketAggregateRequestDto requestDto) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/aggregate/menu/item/fps").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/fps/micromarket").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
