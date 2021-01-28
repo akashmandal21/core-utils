@@ -9,21 +9,31 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreativeResponseDto {
+public class CreativeResponseDto implements Comparable<CreativeResponseDto> {
 
 	private Long id;
 
 	private String uuid;
-	
+
 	private Long promotionId;
 
 	private String sectionType;
 
-	private int displayOrder;
+	private Integer displayOrder;
 
 	private String redirectLink;
 
 	private String ctaText;
 
 	private String image;
+
+	@Override
+	public int compareTo(CreativeResponseDto secondDto) {
+
+		Integer firstDtoDisplayOrder = Math.abs(getDisplayOrder());
+
+		Integer secondDtoDisplayOrder = Math.abs(secondDto.getDisplayOrder());
+
+		return firstDtoDisplayOrder.compareTo(secondDtoDisplayOrder);
+	}
 }
