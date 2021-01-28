@@ -1,5 +1,6 @@
-package com.stanzaliving.search.food.search.dto.response.menu.fps;
+package com.stanzaliving.search.food.search.dto.response.menu.rating;
 
+import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import lombok.experimental.SuperBuilder;
  *
  * @version 1.0
  *
- * @since 26-Jan-2021
+ * @since 28-Jan-2021
  */
 
 @Getter
@@ -21,6 +22,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidenceIdFpsDto extends FpsDto {
-	private String residenceId;
+public class MealRatingDto extends RatingDto {
+	private MealType mealType;
 }

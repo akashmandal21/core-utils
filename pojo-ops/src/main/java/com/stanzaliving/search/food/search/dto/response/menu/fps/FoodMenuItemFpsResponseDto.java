@@ -27,9 +27,10 @@ public class FoodMenuItemFpsResponseDto {
 
 	private MicromarketIdFpsDto micromarket;
 
+	private List<MicromarketMealFpsDto> micromarketMeals;
+
 	private List<ResidenceIdFpsDto> residences;
 
 	private List<ResidenceIdMealFpsDto> residenceMeals;
 
-	private List<MicromarketItemFpsDto> items;
 }

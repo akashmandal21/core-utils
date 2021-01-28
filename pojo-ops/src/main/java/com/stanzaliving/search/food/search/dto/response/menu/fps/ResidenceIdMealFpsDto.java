@@ -18,12 +18,10 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidenceIdMealFpsDto extends FpsDto {
+public class ResidenceIdMealFpsDto extends MealFpsDto {
 	private String residenceId;
-
-	private MealType mealType;
 }
