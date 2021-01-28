@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
@@ -25,6 +26,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MenuMicromarketAggregateRequestDto {
+
+	@NotBlank(message = "Micromarket selection is mandatory")
 	private String micromarketId;
 
 	@NotNull(message = "fromDate is mandatory")
