@@ -45,6 +45,8 @@ public class FoodMenuRatingSummaryIndexDto extends AbstractDto {
 
 	private Integer totalScanned;
 
+	private Integer mir;
+
 	private Integer totalRating;
 
 	private Integer totalRatingCount;
