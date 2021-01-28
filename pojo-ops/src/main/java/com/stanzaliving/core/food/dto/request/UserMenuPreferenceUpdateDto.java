@@ -28,7 +28,7 @@ public class UserMenuPreferenceUpdateDto {
 
 	private String userResidenceFoodMenuId;
 	
-	private Boolean skippedMealStatus;
+	private boolean skippedMealStatus;
 
 	@NotNull(message = "Food Preference Selection is mandatory")
 	private FoodItemType foodPreference;
