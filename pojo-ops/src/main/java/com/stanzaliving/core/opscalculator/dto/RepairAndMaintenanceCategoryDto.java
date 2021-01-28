@@ -4,14 +4,7 @@
  */
 package com.stanzaliving.core.opscalculator.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -28,5 +21,12 @@ public class RepairAndMaintenanceCategoryDto extends CategoryDto {
 
 	private BuildMaintenanceCategoryDto buildMaintenanceCategoryDto;
 	private RepairCategoryDto repairCategoryDto;
+
+	public Object clone() {
+		RepairAndMaintenanceCategoryDto clone = (RepairAndMaintenanceCategoryDto) super.clone();
+		clone.buildMaintenanceCategoryDto = (BuildMaintenanceCategoryDto) buildMaintenanceCategoryDto.clone();
+		clone.repairCategoryDto = (RepairCategoryDto) repairCategoryDto.clone();
+		return clone;
+	}
 
 }

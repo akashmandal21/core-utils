@@ -40,15 +40,15 @@ import lombok.experimental.SuperBuilder;
 //		@JsonSubTypes.Type(value = TransportCategoryDto.class, name = "transport"),
 //		@JsonSubTypes.Type(value = UtilitiesCategoryDto.class, name = "utilities")
 //})
-public abstract class CategoryDto {
+public abstract class CategoryDto implements Cloneable {
 
-	private String categoryName;
-	private int costPerAvailableBed;
-	private int costPerOccupiedBed;
-	private double contribution;
+	protected String categoryName;
+	protected int costPerAvailableBed;
+	protected int costPerOccupiedBed;
+	protected double contribution;
 
 	@Builder.Default
-	private boolean enabled = true;		//default all services enabled
+	protected boolean enabled = true;		//default all services enabled
 
 	public void clearValues() {
 		this.costPerAvailableBed = 0;
@@ -56,4 +56,11 @@ public abstract class CategoryDto {
 		this.contribution = 0d;
 	}
 
+	public Object clone() {
+		try {
+			return super.clone();
+		} catch (CloneNotSupportedException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
