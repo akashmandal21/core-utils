@@ -17,6 +17,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodMenuApprovalSummaryDto {
 	private String cityName;
+	private String cityId;
 	private String micromarketName;
 	private String categoryName;
 	private String menuCategoryId;
