@@ -8,6 +8,7 @@ import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.food.dto.FoodItemSearchDto;
+import com.stanzaliving.core.food.dto.menuconsumption.FoodMenuConsumptionResponseDto;
 import com.stanzaliving.core.food.dto.response.DataCountPageResponse;
 import com.stanzaliving.search.food.index.dto.dishmaster.DishMasterSearchIndexDto;
 import com.stanzaliving.search.food.index.dto.ingredient.IngredientSearchIndexDto;
@@ -18,11 +19,11 @@ import com.stanzaliving.search.food.search.dto.IngredientSearchDto;
 import com.stanzaliving.search.food.search.dto.VasMasterSearchDto;
 import com.stanzaliving.search.food.search.dto.request.MenuItemAggregateRequestDto;
 import com.stanzaliving.search.food.search.dto.request.MenuMicromarketAggregateRequestDto;
+import com.stanzaliving.search.food.search.dto.response.menu.consumption.FoodMenuConsumptionSearchResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.fps.FoodMenuItemFpsResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.FoodMenuMicromarketRatingResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.MicromarketItemRatingDto;
 import lombok.extern.log4j.Log4j2;
-import org.apache.commons.collections.CollectionUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -386,6 +387,43 @@ public class SearchClientApi {
 		}
 
 		return responseDtos;
+	}
+
+	public FoodMenuConsumptionSearchResponseDto aggregateMenuWeeklyConsumption(MenuMicromarketAggregateRequestDto requestDto) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/consumption/weekly/menu/micromarket").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<FoodMenuConsumptionSearchResponseDto>> returnType = new TypeReference<ResponseDto<FoodMenuConsumptionSearchResponseDto>>() {};
+
+		ResponseDto<FoodMenuConsumptionSearchResponseDto> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		return responseDto.getData();
 	}
 }
 

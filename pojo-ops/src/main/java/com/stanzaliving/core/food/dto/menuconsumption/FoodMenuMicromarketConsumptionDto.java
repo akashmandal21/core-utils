@@ -1,10 +1,7 @@
-package com.stanzaliving.core.food.dto.menufps.response;
+package com.stanzaliving.core.food.dto.menuconsumption;
 
 import com.stanzaliving.core.base.common.dto.ListingDto;
-import com.stanzaliving.core.food.dto.menufps.FpsDto;
-import com.stanzaliving.core.food.dto.menurating.RatingDto;
-import com.stanzaliving.core.food.dto.menurating.response.MealRatingsResponseDto;
-import com.stanzaliving.core.food.dto.menurating.response.ResidenceRatingResponseDto;
+import com.stanzaliving.core.food.dto.menufps.response.ResidenceFpsResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +16,7 @@ import java.util.List;
  *
  * @version 2.0
  *
- * @since 24-Jan-2021
+ * @since 28-Jan-2021
  */
 
 @Getter
@@ -28,10 +25,10 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuMicroMarketFpsDto extends MealsFpsResponseDto {
+public class FoodMenuMicromarketConsumptionDto extends MealsConsumptionResponseDto {
 
 	private ListingDto micromarket;
 
-	private List<ResidenceFpsResponseDto> residenceFps;
+	private List<ResidenceConsumptionResponseDto> residenceComsumption;
 
 }
