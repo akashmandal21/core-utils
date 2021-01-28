@@ -24,7 +24,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodMenuMicromarketRatingResponseDto {
+
 	private MicromarketIdRatingDto micromarket;
+
+	private List<MicromarketMealRatingDto> micromarketMeals;
 
 	private List<ResidenceIdRatingDto> residences;
 
