@@ -22,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "value")
+@EqualsAndHashCode(of = "key")
 public class KeyValuePairDto {
 
 	private String key;
