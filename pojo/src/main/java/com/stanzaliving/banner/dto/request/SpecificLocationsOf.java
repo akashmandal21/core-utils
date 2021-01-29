@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SpecificUsersOf {
+public class SpecificLocationsOf {
 
 	private List<String> cities;
 	

@@ -3,7 +3,7 @@ package com.stanzaliving.banner.dto.response;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.stanzaliving.banner.dto.request.SpecificUsersOf;
+import com.stanzaliving.banner.dto.request.SpecificLocationsOf;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -62,7 +62,7 @@ public class PromotionResponseDto implements Comparable<PromotionResponseDto> {
 	
 	private List<CreativeResponseDto> creatives;
 	
-	private SpecificUsersOf specificUsersOf;
+	private SpecificLocationsOf specificLocationsOf;
 
 	@Override
 	public int compareTo(PromotionResponseDto secondDto) {
