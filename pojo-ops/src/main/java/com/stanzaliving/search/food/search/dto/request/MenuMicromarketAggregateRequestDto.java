@@ -25,14 +25,9 @@ import java.time.LocalDate;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuMicromarketAggregateRequestDto {
+public class MenuMicromarketAggregateRequestDto extends DateRangeRequestDto {
 
 	@NotBlank(message = "Micromarket selection is mandatory")
 	private String micromarketId;
 
-	@NotNull(message = "fromDate is mandatory")
-	private LocalDate fromDate;
-
-	@NotNull(message = "toDate is mandatory")
-	private LocalDate toDate;
 }

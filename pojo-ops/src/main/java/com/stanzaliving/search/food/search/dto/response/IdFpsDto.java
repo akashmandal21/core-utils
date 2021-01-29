@@ -1,5 +1,6 @@
-package com.stanzaliving.search.food.search.dto.response.menu.consumption;
+package com.stanzaliving.search.food.search.dto.response;
 
+import com.stanzaliving.search.food.search.dto.response.menu.fps.FpsDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -8,7 +9,7 @@ import lombok.experimental.SuperBuilder;
  *
  * @version 1.0
  *
- * @since 28-Jan-2021
+ * @since 26-Jan-2021
  */
 
 @Getter
@@ -17,6 +18,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuCategoryConsumptionDto extends ConsumptionPercentageDto {
-	private String menuCategoryId;
+public class IdFpsDto extends FpsDto {
+	private String id;
 }
