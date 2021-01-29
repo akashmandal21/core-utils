@@ -35,6 +35,15 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
 	private int totalCharges;
 	private double fixedCharges;
+
+	public void setFixedCharges(double fixedCharges) {
+		this.fixedCharges = fixedCharges;
+	}
+
+	public void setVariableCharges(int variableCharges) {
+		this.variableCharges = variableCharges;
+	}
+
 	private int calculatedFixCharges;
 	private int variableCharges;
 
@@ -42,6 +51,11 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	private int acRoomsWithAcPassThroughCharges;
 	private int nonAcRoomsWithRoomPassThroughCharges;
 	private double studentReceivablesUnitRate;
+
+	public void setLandlordReceivablesCharges(int landlordReceivablesCharges) {
+		this.landlordReceivablesCharges = landlordReceivablesCharges;
+	}
+
 	private int landlordReceivablesCharges;
 
 	private int totalChargesBeforePassThrough;
@@ -82,6 +96,14 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	private double otherChargesPercent;
 	private double variableCostPerNonACRoom;
 
+	public void setRoomPassThroughCharges(int roomPassThroughCharges) {
+		this.roomPassThroughCharges = roomPassThroughCharges;
+	}
+
+	public void setAcPassThroughCharges(int acPassThroughCharges) {
+		this.acPassThroughCharges = acPassThroughCharges;
+	}
+
 	private int roomPassThroughCharges;
 	private int acPassThroughCharges;
 
@@ -96,5 +118,13 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	private int elecricityRoomMeterCost;
 
 	private int netElectricityBillAfterPassthrough;
+
+	private double fixedChargesPerAvailableBed;
+	private double variableChargesPerAvailableBed;
+	private double acPassThroughChargesPerAvailableBed;
+	private double roomPassThroughChargesPerAvailableBed;
+	private double landlordReceivablesChargesPerAvailableBed;
+
+
 
 }

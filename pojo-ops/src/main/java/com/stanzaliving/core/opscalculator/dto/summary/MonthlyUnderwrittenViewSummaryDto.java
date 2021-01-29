@@ -18,7 +18,7 @@ public class MonthlyUnderwrittenViewSummaryDto {
     private List<MonthUnderwrittenSummaryDto> monthWiseUnderwrittenSummaryDtoList;
     private DeviationPercentSummaryDto deviationPercent;
     private DisplaySummaryDto overallAmount;
-    private DisplaySummaryDto overallCostPerAvailableBedPerMonth;
+    private Double overallCostPerAvailableBedPerMonth;
     private Double percentDeviation;
 
     private String commentUuid;
