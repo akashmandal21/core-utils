@@ -1,13 +1,24 @@
 package com.stanzaliving.approval.dto;
 
-import com.stanzaliving.approval.enums.ApprovalEntityType;
-import com.stanzaliving.approval.enums.ApprovalStatus;
-import lombok.Data;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@Data
+import com.stanzaliving.approval.enums.ApprovalEntityType;
+import com.stanzaliving.approval.enums.ApprovalStatus;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ApprovalResponseDto {
     @NotBlank(message = "entityUuid cannot be blank")
     String entityUuid;
