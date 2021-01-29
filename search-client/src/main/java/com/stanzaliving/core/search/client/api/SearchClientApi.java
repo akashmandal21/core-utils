@@ -57,7 +57,7 @@ public class SearchClientApi {
 
 	public List<String> autoSuggestDishName(String text) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/search/dish/master/autosuggest").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/search/food/dish/master/autosuggest").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("name", text);
@@ -95,7 +95,7 @@ public class SearchClientApi {
 
 	public PageResponse<DishMasterSearchIndexDto> searchDishMaster(FoodItemSearchDto searchDto) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/search/dish/master").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/search/food/dish/master").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -161,7 +161,7 @@ public class SearchClientApi {
 
 	public DataCountPageResponse<VasMasterIndexDto> searchVasMaster(VasMasterSearchDto searchDto) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/search/vas/master").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/search/food/vas/master").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -198,7 +198,7 @@ public class SearchClientApi {
 
 	public FoodMenuMicromarketRatingResponseDto aggregateMenuRating(MenuMicromarketAggregateRequestDto requestDto) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/aggregate/rating/menu/micromarket").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/rating/menu/micromarket").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -235,7 +235,7 @@ public class SearchClientApi {
 
 	public List<MicromarketItemRatingDto> aggregateMenuItemsRating(MenuItemAggregateRequestDto requestDto) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/aggregate/rating/menu/micromarket/item").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/rating/menu/micromarket/item").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -272,7 +272,7 @@ public class SearchClientApi {
 
 	public FoodMenuItemFpsResponseDto aggregateMicromarketFps(MenuMicromarketAggregateRequestDto requestDto) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/aggregate/fps/micromarket").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/fps/micromarket").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -309,7 +309,7 @@ public class SearchClientApi {
 
 	public MenuCategoryFpsResponseDto aggregateMenuCategoryFps(MenuCategoryAggregateRequestDto requestDto) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/aggregate/fps/menucategory").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/fps/menucategory").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -383,7 +383,7 @@ public class SearchClientApi {
 
 	public List<IngredientSearchIndexDto> getIngredientsList() {
 
-		String path = UriComponentsBuilder.fromPath("/internal/search/ingredients").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/search/food/ingredients").build().toUriString();
 
 		IngredientSearchDto searchDto = IngredientSearchDto.builder()
 				.pageDto(PageAndSortDto.builder().pageNo(1).limit(3000).build())
@@ -430,7 +430,7 @@ public class SearchClientApi {
 
 	public FoodMenuConsumptionSearchResponseDto aggregateMenuWeeklyConsumption(MenuMicromarketAggregateRequestDto requestDto) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/aggregate/consumption/weekly/menu/micromarket").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/consumption/weekly/menu/micromarket").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -467,7 +467,7 @@ public class SearchClientApi {
 
 	public FoodMenuCategoryConsumptionResponseDto aggregateMenuCategoryConsumption(MenuCategoryAggregateRequestDto requestDto) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/aggregate/consumption/menu/menuCategory").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/consumption/menu/menuCategory").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
