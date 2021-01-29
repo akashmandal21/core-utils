@@ -18,6 +18,7 @@ import lombok.experimental.SuperBuilder;
 public class CityLevelFoodSummaryDto {
 
 	private String cityName;
+	private String cityId;
 
 	private List<FoodMenuApprovalSummaryDto> approvalSummaryDtos;
 
