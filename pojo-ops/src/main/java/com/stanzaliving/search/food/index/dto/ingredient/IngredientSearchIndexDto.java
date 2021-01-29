@@ -1,19 +1,14 @@
 package com.stanzaliving.search.food.index.dto.ingredient;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.enums.IngredientType;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
-import com.stanzaliving.core.food.dto.request.IngredientRequestDto;
-import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -30,7 +25,7 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class IngredientSearchIndexDto extends AbstractDto {
+public class IngredientSearchIndexDto extends AbstractSearchIndexDto {
 	private static final long serialVersionUID = 9675334434L;
 
 	private String name;

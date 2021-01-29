@@ -1,6 +1,6 @@
 package com.stanzaliving.search.food.index.dto.vasmaster;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.VasType;
@@ -27,7 +27,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VasMasterIndexDto extends AbstractDto {
+public class VasMasterIndexDto extends AbstractSearchIndexDto {
 
 	private String name;
 

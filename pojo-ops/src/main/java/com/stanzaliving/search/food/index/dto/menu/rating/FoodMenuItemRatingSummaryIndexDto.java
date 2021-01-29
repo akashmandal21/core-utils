@@ -1,6 +1,6 @@
 package com.stanzaliving.search.food.index.dto.menu.rating;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +25,7 @@ import java.time.LocalDate;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuItemRatingSummaryIndexDto extends AbstractDto {
+public class FoodMenuItemRatingSummaryIndexDto extends AbstractSearchIndexDto {
 
 	private static final long serialVersionUID = -9787756546772827L;
 
