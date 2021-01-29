@@ -37,6 +37,8 @@ public interface AbstractJpaService<T extends AbstractJpaEntity, I extends Seria
 
 	T find(I id);
 
+	List<T> findByIdBetween(I fromId, I toId);
+
 	List<T> find(Collection<I> ids);
 
 	List<T> findAll();

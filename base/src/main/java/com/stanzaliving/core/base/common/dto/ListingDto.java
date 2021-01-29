@@ -34,4 +34,8 @@ public class ListingDto implements Serializable {
 	private String id;
 
 	private String name;
+
+	public static ListingDto of(String id, String name) {
+		return new ListingDto(id, name);
+	}
 }
