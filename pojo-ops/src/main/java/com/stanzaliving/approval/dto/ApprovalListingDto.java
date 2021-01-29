@@ -91,4 +91,11 @@ public class ApprovalListingDto {
     private Date l4ActionDateTime;
     private Date l5ActionDateTime;
 
+    private String requestDateTimeLabel;
+    private String l1ActionDateTimeLabel;
+    private String l2ActionDateTimeLabel;
+    private String l3ActionDateTimeLabel;
+    private String l4ActionDateTimeLabel;
+    private String l5ActionDateTimeLabel;
+
 }
