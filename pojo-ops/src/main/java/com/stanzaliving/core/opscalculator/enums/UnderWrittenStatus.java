@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public enum UnderWrittenStatus {
     NEW("New", "", ColorCode.BLACK.getColorCode(), ColorCode.WHITE.getColorCode()),
-    UNDER_DRAFT("Under Draft", "Underwritten saved successfully", ColorCode.BLACK.getColorCode(), ColorCode.WHITE.getColorCode()),
+    UNDER_DRAFT("Under Draft", "Underwritten saved successfully", ColorCode.LIGHT_GRAYISH_BLUE.getColorCode(), ColorCode.DARK_GRAYISH_BLUE.getColorCode()),
     SENT_FOR_APPROVAL("Sent For Approval", "Underwritten submitted for approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.WHITE.getColorCode()),
     APPROVED("Approved", "Underwritten approved successfully", ColorCode.MODERATE_CYAN.getColorCode(), ColorCode.WHITE.getColorCode()),
     REJECTED("Rejected", "Underwritten rejected successfully", ColorCode.RED.getColorCode(), ColorCode.WHITE.getColorCode()),
@@ -18,6 +18,6 @@ public enum UnderWrittenStatus {
 
     String status;
     String responseMsg;
-    String bgColorCode;     //currently incorrectly mapped
-    String textColorCode;   //currently incorrectly mapped
+    String bgColorCode;
+    String textColorCode;
 }

@@ -869,4 +869,15 @@ public class DateUtil {
 		}
 		return count;
 	}
+
+	public static double getMonthsBetweenDatesInDouble(LocalDate fromDate, LocalDate toDate) {
+		List<String> monthYearList = DateUtil.getListOfMonthYear(fromDate, toDate, DateFormat.MMM_YY2);
+		double monthCount = 0;
+		for (String monthYear : monthYearList) {
+			int daysToConsider = DateUtil.getDaysCountInMonthYear(fromDate, toDate, DateFormat.MMM_YY2, monthYear);
+			int daysInMonth = YearMonth.parse(monthYear, DateFormat.MMM_YY2.getDateTimeFormatter()).lengthOfMonth();
+			monthCount += (double) daysToConsider / (double) daysInMonth;
+		}
+		return monthCount;
+	}
 }

@@ -72,6 +72,10 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 
 	@Builder.Default
 	private boolean waterTanker = false;
+
+	private int fixedChargesPerAvailableBed;
+	private int variableChargesPerAvailableBed;
+	private int landlordReceivablesPerAvailableBed;
 	
 	
 	public UtilitiesWaterCategoryDto clone() {

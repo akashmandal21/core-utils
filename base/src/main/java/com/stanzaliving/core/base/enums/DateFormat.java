@@ -6,6 +6,8 @@ package com.stanzaliving.core.base.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.time.format.DateTimeFormatter;
+
 /**
  * @author naveen
  *
@@ -45,5 +47,9 @@ public enum DateFormat {
 	YYYY_MM_DD_HH_MM_SS("yyyy-MM-dd_HH-mm-ss");
 
 	private String value;
+
+	public DateTimeFormatter getDateTimeFormatter() {
+		return DateTimeFormatter.ofPattern(this.value);
+	}
 
 }
