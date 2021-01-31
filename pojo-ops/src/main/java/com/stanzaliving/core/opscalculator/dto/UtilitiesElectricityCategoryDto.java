@@ -119,11 +119,11 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
 	private int netElectricityBillAfterPassthrough;
 
-	private double fixedChargesPerAvailableBed;
-	private double variableChargesPerAvailableBed;
-	private double acPassThroughChargesPerAvailableBed;
-	private double roomPassThroughChargesPerAvailableBed;
-	private double landlordReceivablesChargesPerAvailableBed;
+	private int fixedChargesPerAvailableBed;
+	private int variableChargesPerAvailableBed;
+	private int acPassThroughChargesPerAvailableBed;
+	private int roomPassThroughChargesPerAvailableBed;
+	private int landlordReceivablesChargesPerAvailableBed;
 
 
 
