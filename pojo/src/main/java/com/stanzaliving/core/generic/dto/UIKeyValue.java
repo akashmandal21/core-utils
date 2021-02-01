@@ -12,8 +12,6 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Getter
-@Setter
 @SuperBuilder
 @EqualsAndHashCode(exclude = {"label"})
 public class UIKeyValue {
