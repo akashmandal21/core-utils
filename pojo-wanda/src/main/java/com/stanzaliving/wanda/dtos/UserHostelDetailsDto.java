@@ -30,8 +30,8 @@ public class UserHostelDetailsDto {
 	private String userName;
 	private String mobile;
 	private String email;
-	private Integer currentHostelId;
+	private String currentHostelId;
 	private String currentHostelName;
-	private Integer originalHostelId;
+	private String originalHostelId;
 	private String originalHostelName;
 }

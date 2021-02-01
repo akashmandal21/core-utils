@@ -158,11 +158,11 @@ public class WandaClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public List<UserHostelDetailsDto> getUserHostelDetails(Integer hostelId) {
+	public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId) {
 
 		Object postBody = null;
 
-		log.info("Received request to get UserHostelDetailsDto of hostelId" + hostelId);
+		log.info("Received request to get UserHostelDetailsDto of hostelId: {}", hostelId);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -171,7 +171,7 @@ public class WandaClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		queryParams.add("hostelId", hostelId.toString());
+		queryParams.add("hostelId", hostelId);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
@@ -212,7 +212,7 @@ public class WandaClientApi {
 
 	}
 
-	public boolean updateHostelOfUser(String userId, Integer hostelId) {
+	public boolean updateHostelOfUser(String userId, String hostelId) {
 
 		Object postBody = null;
 
@@ -252,7 +252,7 @@ public class WandaClientApi {
 
 		Object postBody = null;
 
-		log.info("Received request to get UserDetailDto from mobile" + mobile);
+		log.info("Received request to get UserDetailDto from mobile: {}", mobile);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("mobileNumber", mobile);
