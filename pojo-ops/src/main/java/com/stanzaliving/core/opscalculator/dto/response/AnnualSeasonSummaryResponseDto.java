@@ -9,13 +9,9 @@ import java.util.List;
 @Data
 @Builder
 public class AnnualSeasonSummaryResponseDto {
-//    ResidenceBrand residenceBrand;
-//    Integer availableBeds;
-//    Integer rooms;
     Integer totalAmount;
     String duration;
     Double percentageChange;
     List<AnnualUnderwrittenSummaryResponseDto> annualUnderwrittenSummaryList;
-//    Double deviation;
 
 }
