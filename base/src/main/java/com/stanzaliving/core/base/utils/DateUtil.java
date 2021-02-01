@@ -811,4 +811,13 @@ public class DateUtil {
 		return inBetween;
 	}
 
+	public LocalDate min(LocalDate dateOne, LocalDate dateTwo) {
+
+		if (dateOne.isBefore(dateTwo)) {
+			return dateOne;
+		}
+
+		return dateTwo;
+
+	}
 }
