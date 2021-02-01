@@ -13,9 +13,7 @@ import java.time.LocalTime;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
- *
  * @date 08-May-2020
- *
  */
 
 @Getter
@@ -26,40 +24,41 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class FoodMenuCategoryMealDto {
 
-	private String menuCategoryId;
+    private String menuCategoryId;
 
-	private MealType mealType;
+    private MealType mealType;
 
-	private boolean status;
+    private boolean status;
 
-	private boolean mondayActive;
+    private boolean mondayActive;
 
-	private boolean tuesdayActive;
+    private boolean tuesdayActive;
 
-	private boolean wednesdayActive;
+    private boolean wednesdayActive;
 
-	private boolean thursdayActive;
+    private boolean thursdayActive;
 
-	private boolean fridayActive;
+    private boolean fridayActive;
 
-	private boolean saturdayActive;
+    private boolean saturdayActive;
 
-	private boolean sundayActive;
+    private boolean sundayActive;
 
-	private Double expectedVegCost;
+    private Double expectedVegCost;
 
-	private Double expectedNonVegCost;
+    private Double expectedNonVegCost;
 
-	private Double nonStanzaStaffCost;
+    private Double nonStanzaStaffCost;
 
-	private LocalTime mealStartTime;
+    private LocalTime mealStartTime;
 
-	private LocalTime mealEndTime;
-	
-	private LocalTime pickupStartTime;
-	private LocalTime pickupEndTime;
-	
-	private LocalTime deliveryStartTime;
-	private LocalTime deliveryEndTime;
+    private LocalTime mealEndTime;
+
+    private LocalTime pickupStartTime;
+    private LocalTime pickupEndTime;
+
+    private LocalTime deliveryStartTime;
+    private LocalTime deliveryEndTime;
+    private int activeDays;
 
 }

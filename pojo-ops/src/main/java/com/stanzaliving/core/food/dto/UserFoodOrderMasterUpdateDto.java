@@ -1,18 +1,19 @@
 package com.stanzaliving.core.food.dto;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodOrderType;
 import com.stanzaliving.core.food.enums.PackageCollectionStatus;
 import com.stanzaliving.core.operations.enums.MealType;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"

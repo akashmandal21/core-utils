@@ -75,5 +75,7 @@ public class FoodEmailTemplateConstants {
 	public static final String WEEK_START_DATE = "weekStartDate";
 
 	public static final String SUBMITTED_BY = "submittedBy";
+	public static final String USER_DATA = "userData";
+	public static final String PREFERENCES = "prference";
 }
 
