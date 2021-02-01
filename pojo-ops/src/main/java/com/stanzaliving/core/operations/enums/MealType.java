@@ -5,9 +5,11 @@ package com.stanzaliving.core.operations.enums;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.stanzaliving.core.base.utils.StanzaParseUtils;
 import com.stanzaliving.core.user.enums.EnumListing;
@@ -48,6 +50,8 @@ public enum MealType {
 	private static Map<String, String> mealMapByTypeStr = new LinkedHashMap<>();
 
 	private static List<EnumListing<MealType>> enumListings = new ArrayList<>();
+	private static Set<MealType> firstHalfMealsSet = new HashSet<>();
+	private static Set<MealType> secondHalfMealsSet = new HashSet<>();
 
 	static {
 
@@ -70,7 +74,14 @@ public enum MealType {
 		mealMapByTypeStr.put(BRUNCH.toString(), BRUNCH.getMealName());
 		mealMapByTypeStr.put(EVENING_SNACKS.toString(), EVENING_SNACKS.getMealName());
 		mealMapByTypeStr.put(DINNER.toString(), DINNER.getMealName());
-
+		
+		firstHalfMealsSet.add(BREAKFAST);
+		firstHalfMealsSet.add(BRUNCH);
+		firstHalfMealsSet.add(LUNCH);
+		firstHalfMealsSet.add(LUNCH_TIFFIN);
+		
+		secondHalfMealsSet.add(EVENING_SNACKS);
+		secondHalfMealsSet.add(DINNER);
 	}
 
 	public static Integer getMealId(String mealName) {
@@ -114,5 +125,21 @@ public enum MealType {
 
 	public static List<EnumListing<MealType>> getMealListing() {
 		return enumListings;
+	}
+	
+	public static Set<MealType> getFirstHalfMeals() {
+		return firstHalfMealsSet;
+	}
+	
+	public static Set<MealType> getSecondHalfMeals() {
+		return secondHalfMealsSet;
+	}
+	
+	public static boolean isFirstHalfMeal(MealType mealType) {
+		return firstHalfMealsSet.contains(mealType);
+	}
+	
+	public static boolean isSecondHalfMeal(MealType mealType) {
+		return secondHalfMealsSet.contains(mealType);
 	}
 }

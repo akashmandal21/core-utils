@@ -8,6 +8,7 @@ import java.util.List;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 
+import com.stanzaliving.core.food.enums.RegionAndFoodItemBasePreference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,4 +45,6 @@ public class MealFoodMenuDto {
 	private String menuName;
 
 	private List<MenuItemDto> menuItems;
+
+	private RegionAndFoodItemBasePreference regionItemPreference;
 }
