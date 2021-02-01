@@ -99,7 +99,7 @@ public class WandaClientApi {
 
 		Object postBody = userCodes;
 
-		log.info("Received request to get Map of userCode" + userCodes);
+		log.info("Received request to get Map of userCode {}" , userCodes);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -287,7 +287,7 @@ public class WandaClientApi {
 
 		Object postBody = null;
 
-		log.info("Received request to get UserCodeIdMapDto" + searchTerm);
+		log.info("Received request to get UserCodeIdMapDto {}",  searchTerm);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -313,7 +313,7 @@ public class WandaClientApi {
 
 		Object postBody = null;
 
-		log.info("Received request to get ResidenceUIDto of userUuid" + userUuid);
+		log.info("Received request to get ResidenceUIDto of userUuid {}", userUuid);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
