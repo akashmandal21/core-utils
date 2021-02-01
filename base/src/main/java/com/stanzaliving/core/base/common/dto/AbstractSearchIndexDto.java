@@ -1,5 +1,6 @@
 package com.stanzaliving.core.base.common.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,8 +27,10 @@ public abstract class AbstractSearchIndexDto implements Serializable {
 
 	protected Boolean status;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	protected Date createdAt;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	protected Date updatedAt;
 
 	protected String createdBy;
