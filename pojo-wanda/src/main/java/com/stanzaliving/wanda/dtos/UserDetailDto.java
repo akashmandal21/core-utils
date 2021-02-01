@@ -28,5 +28,6 @@ public class UserDetailDto {
     private String managerContact;
     private String residenceAddressId;
     private String collegeName;
+    private String currentResidenceUuid;
    
 }

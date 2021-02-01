@@ -341,7 +341,7 @@ public class WandaClientApi {
 			String path = UriComponentsBuilder.fromPath("/coreApi/get/userUuid").buildAndExpand(uriVariables).toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			queryParams.add("UserCode", userCode);
+			queryParams.add("userCode", userCode);
 
 			final HttpHeaders headerParams = new HttpHeaders();
 
@@ -372,7 +372,7 @@ public class WandaClientApi {
 			String path = UriComponentsBuilder.fromPath("/coreApi/get/userCode").buildAndExpand(uriVariables).toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			queryParams.add("UserUuid", userUuid);
+			queryParams.add("userUuid", userUuid);
 
 			final HttpHeaders headerParams = new HttpHeaders();
 
