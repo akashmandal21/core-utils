@@ -124,7 +124,7 @@ public class WandaClientApi {
 					returnType);
 
 		} catch (Exception e) {
-			log.error("Exception while getting user code map from core", e);
+			log.error("Exception while getting user code map from wanda: ", e);
 		}
 
 		return response;
@@ -163,28 +163,35 @@ public class WandaClientApi {
 
 	public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId) {
 
-		Object postBody = null;
+		try {
+			Object postBody = null;
 
-		log.info("Received request to get UserHostelDetailsDto of hostelId: {}", hostelId);
+			log.info("Received request to get UserHostelDetailsDto of hostelId: {}", hostelId);
 
-		final Map<String, Object> uriVariables = new HashMap<>();
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/coreApi/user/hostel/details").buildAndExpand(uriVariables)
-				.toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/user/hostel/details").buildAndExpand(uriVariables)
+					.toUriString();
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		queryParams.add("hostelId", hostelId);
+			queryParams.add("hostelId", hostelId);
 
-		final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<List<UserHostelDetailsDto>> returnType = new ParameterizedTypeReference<List<UserHostelDetailsDto>>() {
-		};
+			ParameterizedTypeReference<List<UserHostelDetailsDto>> returnType = new ParameterizedTypeReference<List<UserHostelDetailsDto>>() {
+			};
 
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching users for hostel: {}", hostelId, e);
+		}
+
+		return null;
+
 	}
 
 	public List<UserHostelDto> getUserHostelList() {
