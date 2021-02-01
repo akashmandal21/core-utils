@@ -304,7 +304,7 @@ public class WandaClientApi {
 
 	}
 
-	public ResidenceUIDto getUserResidenceDetails(String userUuid) {
+	public ResidenceUIDto getUserResidenceDetails(String userUuid,String flag) {
 
 		Object postBody = null;
 
@@ -313,8 +313,9 @@ public class WandaClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		uriVariables.put("userUuid", userUuid);
+		uriVariables.put("flag", flag);
 
-		String path = UriComponentsBuilder.fromPath("/coreApi/get/user/residence/{userUuid}")
+		String path = UriComponentsBuilder.fromPath("/coreApi//get/user/residence/{flag}/{userCode}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
