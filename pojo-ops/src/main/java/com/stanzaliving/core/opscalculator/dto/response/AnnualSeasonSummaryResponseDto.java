@@ -16,6 +16,6 @@ public class AnnualSeasonSummaryResponseDto {
     String duration;
     Double percentageChange;
     List<AnnualUnderwrittenSummaryResponseDto> annualUnderwrittenSummaryList;
-    Double deviation;
+//    Double deviation;
 
 }
