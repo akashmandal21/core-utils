@@ -91,10 +91,10 @@ public class FilterDto {
 
     private String itemUuid;
 
-    private List<UIKeyValue> itemRateStatus;
+    private List<UIKeyValue> itemStatus;
     private List<UIKeyValue> updatedBy;
 
-    private List<UIKeyValue> itemRateStatusOptions;
+    private List<UIKeyValue> itemStatusOptions;
     private List<UIKeyValue> updatedByOptions;
 
 
