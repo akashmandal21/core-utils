@@ -17,6 +17,7 @@ import java.text.Format;
 import java.text.NumberFormat;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Supplier;
 
 /**
  * @author naveen
@@ -331,4 +332,11 @@ public class StanzaUtils {
 		return amount.doubleValue();
 	}
 
+	public static <T> T getDefaultIfNull(Supplier<T> getFunction, T defaultValue) {
+		try {
+			return getFunction.get() != null ? getFunction.get() : defaultValue;
+		} catch (NullPointerException ex) {
+			return defaultValue;
+		}
+	}
 }

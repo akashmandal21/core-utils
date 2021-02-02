@@ -414,11 +414,23 @@ public class DateUtil {
 		return new ArrayList<>(dateList);
 	}
 
+	//when start date equals toDate, this method returns -1, can't be changed now as already used elsewhere
+	//returns negative value if startDate is greater than endDate
+	//use getAbsoluteCountOfDates instead
+	@Deprecated
 	public Integer getCountOfDates(LocalDate startDate, LocalDate endDate) {
 		if (startDate.isBefore(endDate)) {
 			return getListOfDates(startDate, endDate).size();
 		} else {
 			return -1 * getListOfDates(endDate, startDate).size();
+		}
+	}
+
+	public Integer getAbsoluteCountOfDates(LocalDate startDate, LocalDate endDate) {
+		if (startDate.isBefore(endDate)) {
+			return getListOfDates(startDate, endDate).size();
+		} else {
+			return getListOfDates(endDate, startDate).size();
 		}
 	}
 
@@ -818,6 +830,63 @@ public class DateUtil {
 		}
 
 		return dateTwo;
+	}
 
+	public static List<String> getListOfMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat) {
+		LinkedHashSet<String> monthYear = new LinkedHashSet<>();
+		if (!toDate.isAfter(fromDate)) {// TODO add additional validation
+			return new ArrayList<>(monthYear);
+		}
+		for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
+			monthYear.add(customDateFormatter(date, dateFormat));
+		}
+		return new ArrayList<>(monthYear);
+	}
+
+	public static int getDaysCountInMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat, String monthYear) {
+		int count = 0;
+		if (!toDate.isAfter(fromDate)) {// TODO add additional validation
+			return count;
+		}
+		for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
+			if (monthYear.equals(customDateFormatter(date, dateFormat))) {
+				count +=1;
+			}
+		}
+		return count;
+	}
+
+	public static List<LocalDate> getFirstDateOfMonthListBetweenDates(LocalDate fromDate, LocalDate toDate) {
+		List<LocalDate> firstDateMonthList = new ArrayList<>();
+		for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
+			if (1 == date.getDayOfMonth()) {
+				firstDateMonthList.add(date);
+			}
+		}
+		return firstDateMonthList;
+	}
+
+	public static int getWeekendDaysCount(LocalDate fromDate, LocalDate toDate) {
+		int count = 0;
+		if (!toDate.isAfter(fromDate)) {// TODO add additional validation
+			return count;
+		}
+		for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
+			if (DayOfWeek.SATURDAY.equals(date.getDayOfWeek()) || DayOfWeek.SUNDAY.equals(date.getDayOfWeek())) {
+				count +=1;
+			}
+		}
+		return count;
+	}
+
+	public static double getMonthsBetweenDatesInDouble(LocalDate fromDate, LocalDate toDate) {
+		List<String> monthYearList = DateUtil.getListOfMonthYear(fromDate, toDate, DateFormat.MMM_YY2);
+		double monthCount = 0;
+		for (String monthYear : monthYearList) {
+			int daysToConsider = DateUtil.getDaysCountInMonthYear(fromDate, toDate, DateFormat.MMM_YY2, monthYear);
+			int daysInMonth = YearMonth.parse(monthYear, DateFormat.MMM_YY2.getDateTimeFormatter()).lengthOfMonth();
+			monthCount += (double) daysToConsider / (double) daysInMonth;
+		}
+		return monthCount;
 	}
 }

@@ -4,6 +4,7 @@ import com.stanzaliving.core.food.dto.DayWiseFoodMenuDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class WeekWiseMenu {
+public class WeekWiseMenu implements Serializable {
 
 	private Integer weekNumber;
 
