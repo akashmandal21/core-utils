@@ -26,6 +26,14 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class PropertyInfoDto {
 
+	public int getAnnualHolidayCount() {
+		return annualHolidayCount;
+	}
+
+	public void setAnnualHolidayCount(int annualHolidayCount) {
+		this.annualHolidayCount = annualHolidayCount;
+	}
+
 	private int annualHolidayCount;
 
 	@Builder.Default
