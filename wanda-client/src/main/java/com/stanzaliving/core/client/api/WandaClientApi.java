@@ -95,7 +95,7 @@ public class WandaClientApi {
 		return null;
 	}
 
-	public Map<String, Integer> getUserCodeIdMap(Set<String> userCodes) {
+	public Map<String, String> getUserCodeIdMap(Set<String> userCodes) {
 
 		Object postBody = userCodes;
 
@@ -113,7 +113,7 @@ public class WandaClientApi {
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<Map<String, Integer>> returnType = new ParameterizedTypeReference<Map<String, Integer>>() {
+		ParameterizedTypeReference<Map<String, String>> returnType = new ParameterizedTypeReference<Map<String, String>>() {
 		};
 
 		Map<String, Integer> response = new HashMap<>();
