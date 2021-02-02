@@ -7,6 +7,7 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.po.generic.dtos.VendorWisePoDetails;
+import com.stanzaliving.core.pojo.EmailDto;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.invoice.dto.InvoiceMigrationDto;
@@ -608,4 +609,28 @@ public class POClientApi {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
+
+    public ResponseDto<String> getPoPdfAndSendEmail(String poUuid, EmailDto emailDto) {
+
+        log.info("HTTP Client call to get PO Pdf{} ", poUuid);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("poUuid", poUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/downloads/getPoPdf/sendEmail/{poUuid}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, emailDto, headerParams, accept, vddReturnType);
+    }
+
 }
