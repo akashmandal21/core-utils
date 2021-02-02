@@ -81,6 +81,7 @@ public class FilterDto {
     private List<UIKeyValue> usageTypeArea;
     private List<UIKeyValue> storageType;
     private List<Double> itemsPerPack; //Mutli Select
+    private List<UIKeyValue> itemPerPack;
     private List<UIKeyValue> baseItem;//Mutli Select
 
 
