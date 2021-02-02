@@ -1,6 +1,7 @@
 package com.stanzaliving.search.food.search.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.FoodItemType;
@@ -26,7 +27,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VasMasterSearchDto extends AbstractDto {
+public class VasMasterSearchDto extends AbstractSearchIndexDto {
 
 	private static final long serialVersionUID = 9788282989L;
 

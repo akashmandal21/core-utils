@@ -1,6 +1,7 @@
 package com.stanzaliving.search.food.search.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.enums.IngredientType;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
@@ -26,7 +27,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class IngredientSearchDto extends AbstractDto {
+public class IngredientSearchDto extends AbstractSearchIndexDto {
 
 	private String name;
 
