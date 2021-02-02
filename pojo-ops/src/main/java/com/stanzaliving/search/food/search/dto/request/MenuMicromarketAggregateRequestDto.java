@@ -21,7 +21,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor

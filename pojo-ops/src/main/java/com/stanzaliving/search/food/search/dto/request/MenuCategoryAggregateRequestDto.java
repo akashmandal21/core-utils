@@ -1,6 +1,11 @@
 package com.stanzaliving.search.food.search.dto.request;
 
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
@@ -15,7 +20,7 @@ import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
