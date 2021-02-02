@@ -53,4 +53,6 @@ public class BookingChargesDto {
 	@Default
 	private Double totalRemaingAmount=0.0d;
 	
+	private Double totalAmountPaid;
+	
 }
