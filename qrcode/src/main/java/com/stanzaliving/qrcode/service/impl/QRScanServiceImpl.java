@@ -56,7 +56,7 @@ public class QRScanServiceImpl implements QRScanService {
 			return qrData;
 		}
 
-		throw new ApiValidationException("This is not a valid Stanza QR code.");
+		return null;
 	}
 
 	private void validateWithResidenceFoodMenuId(String residenceFoodMenuId, QRData qrData) {
