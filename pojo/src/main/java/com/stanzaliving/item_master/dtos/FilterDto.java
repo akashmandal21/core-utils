@@ -54,7 +54,7 @@ public class FilterDto {
     private List<UIKeyValue> baseItemOptions;
     private List<UIKeyValue> inactiveOptions;
     private List<Double> itemsPerPackOptions;
-
+    private List<UIKeyValue> itemPerPackOptions;
 
     //Main Filters
     private List<UIKeyValue> itemCategory;
