@@ -33,5 +33,7 @@ public class MealWiseMenusDto {
 
 	private String mealEndTime;
 
+	private Double estimatedCost;
+
 
 }
