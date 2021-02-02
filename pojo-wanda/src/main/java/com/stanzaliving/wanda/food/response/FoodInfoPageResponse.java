@@ -24,4 +24,6 @@ public class FoodInfoPageResponse {
 	private Map<String,Map<String,Boolean>> skippable;
 
 	private FoodHomeScreenResponse homeScreenResponse;
+	
+	private Map<String, FoodOrderPageDto> foodorder;
 }

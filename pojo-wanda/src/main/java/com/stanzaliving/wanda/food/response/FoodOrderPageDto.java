@@ -1,5 +1,7 @@
 package com.stanzaliving.wanda.food.response;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import com.stanzaliving.wanda.response.FoodCardDto;
@@ -20,6 +22,10 @@ import lombok.ToString;
 public class FoodOrderPageDto {
 
 	private List<FoodCardDto> foodCardDtos;
-	
+
 	private String userFoodResidenceMenuId;
+
+	private LocalDate cutoffDate;
+
+	private LocalTime cutoffTime;
 }
