@@ -1,6 +1,5 @@
 /**
  * @author nipunaggarwal
- *
  */
 package com.stanzaliving.core.opscalculator.dto;
 
@@ -19,14 +18,14 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class RepairAndMaintenanceCategoryDto extends CategoryDto {
 
-	private BuildMaintenanceCategoryDto buildMaintenanceCategoryDto;
-	private RepairCategoryDto repairCategoryDto;
+    private BuildMaintenanceCategoryDto buildMaintenanceCategoryDto;
+    private RepairCategoryDto repairCategoryDto;
 
-	public Object clone() {
-		RepairAndMaintenanceCategoryDto clone = (RepairAndMaintenanceCategoryDto) super.clone();
-		clone.buildMaintenanceCategoryDto = (BuildMaintenanceCategoryDto) buildMaintenanceCategoryDto.clone();
-		clone.repairCategoryDto = (RepairCategoryDto) repairCategoryDto.clone();
-		return clone;
-	}
+    public Object clone() {
+        RepairAndMaintenanceCategoryDto clone = (RepairAndMaintenanceCategoryDto) super.clone();
+        clone.buildMaintenanceCategoryDto = buildMaintenanceCategoryDto != null ? (BuildMaintenanceCategoryDto) buildMaintenanceCategoryDto.clone() : null;
+        clone.repairCategoryDto = repairCategoryDto != null ? (RepairCategoryDto) repairCategoryDto.clone() : null;
+        return clone;
+    }
 
 }
