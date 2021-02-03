@@ -25,5 +25,5 @@ public class FoodInfoPageResponse {
 
 	private FoodHomeScreenResponse homeScreenResponse;
 	
-	private Map<String, FoodOrderPageDto> foodorder;
+	private Map<String, FoodOrderTiming> foodOrderTiming;
 }
