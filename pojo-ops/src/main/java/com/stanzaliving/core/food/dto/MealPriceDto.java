@@ -9,13 +9,15 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealPriceDto {
+public class MealPriceDto implements Serializable {
 
 	private MealType mealType;
 	

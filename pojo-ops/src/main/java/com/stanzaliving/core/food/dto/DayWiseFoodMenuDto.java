@@ -3,6 +3,7 @@ package com.stanzaliving.core.food.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DayWiseFoodMenuDto {
+public class DayWiseFoodMenuDto implements Serializable {
 
 	private DayOfWeek dayOfWeek;
 
