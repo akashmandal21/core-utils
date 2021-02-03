@@ -2,6 +2,7 @@ package com.stanzaliving.wanda.food.response;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,4 +22,7 @@ public class FoodOrderTiming {
 	private LocalDate cutoffDate;
 
 	private LocalTime cutoffTime;
+	
+	private Date cutoffDateTime;		
+
 }
