@@ -55,4 +55,6 @@ public class BookingChargesDto {
 	
 	private Double totalAmountPaid;
 	
+	private String textFortotalAmountPaid;
+	
 }
