@@ -37,4 +37,5 @@ public class BookingStatusResponseDto {
     private String userCategory;
     private boolean wp;
     private String displayMessage;
+    private String roomNumber;
 }

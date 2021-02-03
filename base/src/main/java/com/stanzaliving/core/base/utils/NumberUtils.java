@@ -117,4 +117,15 @@ public class NumberUtils {
 		}
 		return (int) number +1;
 	}
+
+
+	public static boolean isEqualDouble(Double firstDouble, Double secondDouble) {
+		if (null == firstDouble && null == secondDouble) {
+			return true;
+		}
+		if (null == firstDouble || null == secondDouble) {
+			return false;
+		}
+		return Math.abs(firstDouble - secondDouble) < 0.001;
+	}
 }
