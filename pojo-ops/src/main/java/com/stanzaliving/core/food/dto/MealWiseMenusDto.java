@@ -3,17 +3,11 @@
  */
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalTime;
-import java.util.List;
-
 import com.stanzaliving.core.operations.enums.MealType;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 /**
  * @author naveen.kumar
@@ -38,5 +32,6 @@ public class MealWiseMenusDto {
 	private String mealStartTime;
 
 	private String mealEndTime;
+
 
 }

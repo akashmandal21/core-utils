@@ -26,4 +26,6 @@ public class FoodOrderPageResponse {
 	private boolean hasNonVeg;
 	
 	private Date closeTime;
+
+	private Map<String,Map<String,Boolean>> skippable;
 }
