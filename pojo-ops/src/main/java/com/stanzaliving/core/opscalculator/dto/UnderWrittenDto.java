@@ -28,9 +28,6 @@ public class UnderWrittenDto {
     protected RepairAndMaintenanceCategoryDto repairAndMaintenanceCategoryDto;
     protected TransportCategoryDto transportCategoryDto;
     protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
-    protected double underWrittenDurationAmount;
-    protected double underWrittenDurationInDays;
-    @Builder.Default
-    protected List<LocalDate> holidays = new ArrayList<>();
-    protected List<LocalDate> specialDays;
+    private double underWrittenDurationAmount;
+    private double underWrittenDurationInDays;
 }

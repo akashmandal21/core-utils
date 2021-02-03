@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Data
 @Builder
-public class ServiceMixListingResponseDto {
+public class ServiceMixListingResponseDto implements Cloneable {
     String versionName;
     Long versionNumber;
     LocalDate fromDate;
@@ -15,4 +15,9 @@ public class ServiceMixListingResponseDto {
     String seasonUuid;
     @Builder.Default
     Boolean selected = false;
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }

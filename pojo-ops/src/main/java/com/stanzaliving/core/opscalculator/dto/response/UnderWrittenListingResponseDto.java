@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @Builder
 public class UnderWrittenListingResponseDto {
         String versionName;
+        String sessionDisplayName;
         LocalDate fromDate;
         LocalDate toDate;
         String uuid;
