@@ -37,6 +37,7 @@ public class AuthServiceImpl implements AuthService {
 		ResponseDto<UserProfileDto> responseDto = null;
 
 		try {
+			log.info("sending token for validation {}", token);
 			responseDto = authClientApi.getUserByToken(token);
 		} catch (StanzaSecurityException
 				| StanzaHttpException e) {
