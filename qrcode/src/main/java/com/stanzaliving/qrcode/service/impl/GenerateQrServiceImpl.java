@@ -39,7 +39,9 @@ public class GenerateQrServiceImpl implements GenerateQrService {
 
 		BufferedImage image = QRGeneratorUtility.generateQRImageUsingLong(qrContent);
 
-		File outputFile = new File("/tmp/" + fileName + ".jpg");
+		fileName = fileName + ".jpg";
+
+		File outputFile = new File("/tmp/" + fileName);
 
 		ImageIO.write(image, "jpg", outputFile);
 
@@ -47,6 +49,7 @@ public class GenerateQrServiceImpl implements GenerateQrService {
 
 		return GenerateQrResponseDto.builder()
 				.qrContent(qrContent)
+				.fileName(fileName)
 				.outputFile(outputFilePath)
 				.build();
 	}

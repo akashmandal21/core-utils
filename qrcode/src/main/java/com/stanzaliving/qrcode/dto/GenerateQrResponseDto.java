@@ -22,7 +22,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GenerateQrResponseDto {
+
 	private String qrContent;
+
+	private String fileName;
 
 	private String outputFile;
 }
