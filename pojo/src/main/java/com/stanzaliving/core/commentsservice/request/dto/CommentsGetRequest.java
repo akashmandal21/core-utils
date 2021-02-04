@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
+
 @Builder
 @Getter
 @ToString
@@ -24,6 +26,8 @@ public class CommentsGetRequest {
 	private String serviceName;
 
 	private String subContextId;
+
+	private Long afterDate;
 	
 	private int pageNum;
 	

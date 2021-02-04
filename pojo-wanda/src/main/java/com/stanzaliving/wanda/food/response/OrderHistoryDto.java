@@ -34,6 +34,8 @@ public class OrderHistoryDto {
 	
 	private String masterOrderId;
 
+	private String foodOrderId;
+	
 	private FoodOrderType foodOrderType;
 	
 	private String foodOrderTypeStr;

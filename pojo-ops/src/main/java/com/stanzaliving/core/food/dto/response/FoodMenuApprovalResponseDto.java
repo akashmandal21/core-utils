@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.approval.enums.ApprovalStatus;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -13,6 +14,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 /**
  * @author naveen.kumar
@@ -61,6 +64,7 @@ public class FoodMenuApprovalResponseDto {
 	private boolean newnessAdherence;
 
 	private int mealsWithRatingLessThanFour;
+	private double averageRating;
 
 	private int currentWeekBudget;
 
@@ -75,4 +79,9 @@ public class FoodMenuApprovalResponseDto {
 	private boolean operational;
 	
 	private boolean menuApproved;
+
+	private ApprovalStatus approvalStatus;
+	
+	private List<String> residences;
+	
 }

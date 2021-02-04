@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -15,6 +17,12 @@ public class PropertyAttributeInfoDto {
     private Integer roomCount;
     private Integer daysInMonth;
     private Integer daysForCalculation;
+    private LocalDate calculationFromDate;
+    private LocalDate calculationToDate;
+    private LocalDate sessionFromDate;
+    private LocalDate sessionToDate;
+    private int sessionHolidays;
+
     @Builder.Default
     private boolean annualUnderWritten = true;
 

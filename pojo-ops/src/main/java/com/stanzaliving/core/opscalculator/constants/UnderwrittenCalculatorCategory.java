@@ -21,19 +21,20 @@ public enum UnderwrittenCalculatorCategory {
 	EQUIPMENT("equipment"),
 	FOOD("food"),
 	HK("hk"),
+	INTERNET("internet"),
 	LAUNDRY("laundry"),
 	OE("oe"),
+	PERSONNEL("personnel"),
 	RC("rc"),
 	REPAIR("repair"),
+	BUILDING("building"),
 	SECURITY("security"),
 	SUBSCRIPTION("subscription"),
-	UNIFORM_COSTS("uniform_costs"),
-	WATER("water"),
-	INTERNET("internet"),
-	UTILITIES("utilities"),
-	PERSONNEL("personnel"),
 	TRANSPORT("transport"),
-	UNDER_WRITTEN("underWritten");
+	UNIFORM_COSTS("uniform_costs"),
+	UTILITIES("utilities"),
+	UNDER_WRITTEN("underWritten"),
+	WATER("water");
 
 	private String underwrittenCalculatorCategory;
 }
