@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Builder
 @Getter
 @Setter
+@ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class InventoryItemQuantityPrice {
     @EqualsAndHashCode.Include
