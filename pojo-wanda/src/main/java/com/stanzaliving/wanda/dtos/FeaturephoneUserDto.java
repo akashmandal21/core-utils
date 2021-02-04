@@ -15,7 +15,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class FeaturephoneUserDto {
 
-	private Integer userId;
+	private String userId;
 
 	private String name;
 

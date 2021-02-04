@@ -116,12 +116,11 @@ public class WandaClientApi {
 		ParameterizedTypeReference<Map<String, String>> returnType = new ParameterizedTypeReference<Map<String, String>>() {
 		};
 
-		Map<String, Integer> response = new HashMap<>();
+		Map<String, String> response = new HashMap<>();
 
 		try {
 
-			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
-					returnType);
+			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception e) {
 			log.error("Exception while getting user code map from wanda: ", e);
