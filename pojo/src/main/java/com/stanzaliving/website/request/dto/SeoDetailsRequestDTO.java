@@ -21,6 +21,8 @@ public class SeoDetailsRequestDTO {
 	private String seoTitle;
 	private String seoDescription;
 	private String slug;
-	
+	private Long reviewCount;
+	private Double rating;
+	private Long minPriceValue;
 	
 }

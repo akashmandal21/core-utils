@@ -34,4 +34,7 @@ public class MicromarketResponseDTO {
 	private String description;
 	private String citySlug;
 	EnumListing<Status> status;
+	private Long reviewCount;
+	private Double rating;
+	private Long minPriceValue;
 }

@@ -28,6 +28,9 @@ public class FlatUrlResponseDTO {
 	private boolean isActive;
 	private Boolean locationCheck;
 	private Gender gender;
+	private Long reviewCount;
+	private Double rating;
+	private Long minPriceValue;
 	
 
 }

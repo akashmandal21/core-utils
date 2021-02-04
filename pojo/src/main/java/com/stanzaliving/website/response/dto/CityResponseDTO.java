@@ -33,6 +33,9 @@ public class CityResponseDTO {
 	private String imageAltTag;
 	private String cityImgUrl;
 	EnumListing<Status> status;
+	private Long reviewCount;
+	private Double rating;
+	private Long minPriceValue;
 	
 
 }
