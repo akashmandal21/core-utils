@@ -1,4 +1,4 @@
-package com.stanzaliving.core.dto;
+package com.stanzaliving.wanda.dtos;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -13,9 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 public class UserDetailDto {
     private int userId;
+    private String userUuid;
     private String userName;
     private String password;
-    private String status;
+    private Boolean status;
     private String mobileNo;
     private String hostel;
     private Integer hostelID;
@@ -27,4 +28,6 @@ public class UserDetailDto {
     private String managerContact;
     private String residenceAddressId;
     private String collegeName;
+    private String currentResidenceUuid;
+   
 }
