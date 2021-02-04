@@ -136,7 +136,7 @@ public class FieldDecoder {
             errorInfo.setErrorOccurred(true);
             errorInfo.setNumErrors(errorInfo.getNumErrors()+1);
         }else {
-                log.info(value);
+//                log.info(value);
                 try {
                     if(Objects.nonNull(value))
                     {
@@ -153,7 +153,7 @@ public class FieldDecoder {
                         field.set(source,null);
                     }
                 } catch (IllegalAccessException e) {
-                    log.error("Unable to set the field value {}",e.getMessage());
+                    log.error("Unable to set the field value {}",e.getMessage(),e);
                     success = false;
                     uiSubmitField.setErrorMsg("Intenal Error occurred");
                 }

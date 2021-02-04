@@ -42,6 +42,9 @@ public enum InvoiceStatus {
     @Getter
     private static Set<InvoiceStatus> paymentCycle ;
 
+    @Getter
+    private static Set<InvoiceStatus> paymentStatuses ;
+
 
 
     static {
@@ -54,13 +57,18 @@ public enum InvoiceStatus {
         approvalCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE)));
         approvalRejects = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_REJECTED, L2_REJECTED, L3_REJECTED)));
         paymentCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID)));
+        paymentStatuses = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID,FULLY_PAID)));
     }
 
 
     public static InvoiceStatus getInvoiceStatus(int approvalLevel) {
     	return invoiceApprovalLevelMap.get(approvalLevel);
     }
-    
+
+    public static int getLevel(InvoiceStatus invoiceStatus) {
+        return invoiceStatus.getOrder() >= 0 ? (invoiceStatus.getOrder()) + 1 : Math.abs(invoiceStatus.getOrder() - GenericConstants.rejectionStart);
+    }
+
 }
 
 
