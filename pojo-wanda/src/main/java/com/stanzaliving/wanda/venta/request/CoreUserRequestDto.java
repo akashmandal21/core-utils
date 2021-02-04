@@ -32,5 +32,6 @@ public class CoreUserRequestDto {
 	private boolean movedIn;
 	private boolean optedOut;
 	private boolean tifinActive;
+	private String userUuid;
 	
 }
