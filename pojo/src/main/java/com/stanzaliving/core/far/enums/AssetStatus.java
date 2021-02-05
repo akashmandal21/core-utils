@@ -1,6 +1,7 @@
 package com.stanzaliving.core.far.enums;
 
 public enum AssetStatus {
+    MAPPED_TO_QR,
     READYFOR_TRANSFER_OUT, TRANSERRED_OUT, READYFOR_TRANSFER_IN, TRANSERRED_IN,
     HOTO_INPROGRESS, HOTO_REJECTED, HOTO_DONE,
     DISCARDED,
