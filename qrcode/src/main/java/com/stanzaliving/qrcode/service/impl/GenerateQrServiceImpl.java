@@ -3,6 +3,7 @@ package com.stanzaliving.qrcode.service.impl;
 import com.amazonaws.services.s3.AmazonS3;
 import com.stanza.qr.generator.QRGeneratorUtility;
 import com.stanzaliving.core.amazons3.service.S3UploadService;
+import com.stanzaliving.core.base.utils.StanzaUtils;
 import com.stanzaliving.qrcode.dto.GenerateQrResponseDto;
 import com.stanzaliving.qrcode.service.GenerateQrService;
 import lombok.extern.log4j.Log4j2;
@@ -33,15 +34,13 @@ public class GenerateQrServiceImpl implements GenerateQrService {
 	@Override
 	public GenerateQrResponseDto generateQrCode(String s3Bucket, String filePath, String fileName, AmazonS3 s3Client) throws IOException {
 
-		String qrContent = ((Long) System.nanoTime()).toString();
+		String qrContent = String.valueOf(System.nanoTime() + StanzaUtils.getRandomNumberBetweenRange(100, 1000));
 
 		log.info("Generating qr code with content: {}", qrContent);
 
 		BufferedImage image = QRGeneratorUtility.generateQRImageUsingLong(qrContent);
 
-		fileName = fileName + ".jpg";
-
-		File outputFile = new File("/tmp/" + fileName);
+		File outputFile = File.createTempFile("/tmp/" + fileName, ".jpg");
 
 		ImageIO.write(image, "jpg", outputFile);
 
@@ -49,7 +48,7 @@ public class GenerateQrServiceImpl implements GenerateQrService {
 
 		return GenerateQrResponseDto.builder()
 				.qrContent(qrContent)
-				.fileName(fileName)
+				.fileName(outputFile.getName())
 				.outputFile(outputFilePath)
 				.build();
 	}
