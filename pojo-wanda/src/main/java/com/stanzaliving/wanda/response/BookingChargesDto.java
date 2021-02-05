@@ -57,4 +57,9 @@ public class BookingChargesDto {
 	
 	private String totalAmountPaidStr;
 	
+	@Default
+	private Double totalRemaingminimumAmount=0.0d;
+	
+	private String totalRemaingminimumAmountStr;
+	
 }
