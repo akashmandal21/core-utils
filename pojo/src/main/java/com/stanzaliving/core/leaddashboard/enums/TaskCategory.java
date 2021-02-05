@@ -16,7 +16,7 @@ public enum TaskCategory {
 
 	TASK("#58CCB6"),
 	MEETING("#007AFF"),
-	CHAT("#007AFF");
+	CHAT("#f55f71");
 	
 	private String taskCategoryColor;
 }
