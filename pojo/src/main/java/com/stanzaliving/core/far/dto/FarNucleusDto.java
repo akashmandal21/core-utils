@@ -1,11 +1,11 @@
 package com.stanzaliving.core.far.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import java.sql.Timestamp;
 
 @Data
