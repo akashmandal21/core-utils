@@ -34,7 +34,7 @@ public class GenerateQrServiceImpl implements GenerateQrService {
 	@Override
 	public GenerateQrResponseDto generateQrCode(String s3Bucket, String filePath, String fileName, AmazonS3 s3Client) throws IOException {
 
-		String qrContent = String.valueOf(System.nanoTime() + StanzaUtils.getRandomNumberBetweenRange(100, 1000));
+		String qrContent = StanzaUtils.generateUniqueId();
 
 		log.info("Generating qr code with content: {}", qrContent);
 
@@ -44,12 +44,12 @@ public class GenerateQrServiceImpl implements GenerateQrService {
 
 		ImageIO.write(image, "jpg", outputFile);
 
-		String outputFilePath = s3UploadService.upload(s3Bucket, filePath, fileName, outputFile, MediaType.IMAGE_JPEG_VALUE, s3Client, false);
+		String s3RelativeFilePath = s3UploadService.upload(s3Bucket, filePath, fileName, outputFile, MediaType.IMAGE_JPEG_VALUE, s3Client, false);
 
 		return GenerateQrResponseDto.builder()
 				.qrContent(qrContent)
 				.fileName(outputFile.getName())
-				.outputFile(outputFilePath)
+				.s3RelativeFilePath(s3RelativeFilePath)
 				.build();
 	}
 }

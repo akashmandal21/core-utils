@@ -27,5 +27,6 @@ public class GenerateQrResponseDto {
 
 	private String fileName;
 
-	private String outputFile;
+	//This include file name with extension as well
+	private String s3RelativeFilePath;
 }

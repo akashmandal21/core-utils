@@ -63,17 +63,17 @@ public class QRGetServiceImpl implements QRGetService {
 
 			GenerateQrResponseDto qrCode = generateQrService.generateQrCode(s3Bucket, filePath, fileName, s3Client);
 
-			if (Objects.nonNull(qrCode) && StringUtils.isNotBlank(qrCode.getOutputFile())) {
+			if (Objects.nonNull(qrCode) && StringUtils.isNotBlank(qrCode.getS3RelativeFilePath())) {
 
-				log.info("Generated QR on path: {}", qrCode.getOutputFile());
+				log.info("Generated QR on path: {}", qrCode.getS3RelativeFilePath());
 
 				QRData qrData = QRData.builder().contextId(contextId).data(qrCode.getQrContent()).qrContextType(qrContextType)
-						.subContextId(subContextId).bucket(s3Bucket).content(data).filePath(qrCode.getOutputFile()).fileName(fileName)
+						.subContextId(subContextId).bucket(s3Bucket).content(data).filePath(qrCode.getS3RelativeFilePath().replace(".jpg", "")).fileName(fileName)
 						.build();
 
 				qrData = qrDataRepository.save(qrData);
 
-				return s3DownloadService.getPreSignedUrl(s3Bucket, qrCode.getOutputFile(), 3600, s3Client);
+				return s3DownloadService.getPreSignedUrl(s3Bucket, qrCode.getS3RelativeFilePath(), 3600, s3Client);
 			}
 
 			log.warn("Failed to upload file: {} on path: {} on s3", fileName, filePath);

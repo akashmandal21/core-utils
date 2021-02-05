@@ -53,10 +53,9 @@ public class QRScanServiceImpl implements QRScanService {
 
 			qrDataRepository.save(qrData);
 
-			return qrData;
 		}
 
-		return null;
+		return qrData;
 	}
 
 	private void validateWithResidenceFoodMenuId(String residenceFoodMenuId, QRData qrData) {
