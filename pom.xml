@@ -60,7 +60,7 @@
 		<module>inventory_transformations</module>
 		<module>phoenix-aggregation-client</module>
 		<module>internet-integration-client</module>
-		<module>venta-client</module>
+   		<module>venta-client</module>
 		<module>phoenix-aggregation-entities</module>
 		<module>rule-engine</module>
 		<module>internet-client</module>
@@ -69,15 +69,16 @@
 		<module>attendance-client</module>
 		<module>campaign-client</module>
 		<module>food-service-client</module>
-		<module>generic-validation-core</module>
-		<module>payment-client</module>
-		<module>counter-service</module>
-		<module>recon-client</module>
+        <module>generic-validation-core</module>
+        <module>payment-client</module>
+        <module>counter-service</module>
+        <module>recon-client</module>
 		<module>ops-calculator-client</module>
-		<module>notification-client</module>
-		<module>shortUrl-client</module>
+        <module>notification-client</module>
+        <module>shortUrl-client</module>
 		<module>inventory-client</module>
 		<module>generic-po-client</module>
+        <module>wanda-client</module>
 		<module>search-client</module>
 		<module>approval-service-client</module>
 	</modules>
