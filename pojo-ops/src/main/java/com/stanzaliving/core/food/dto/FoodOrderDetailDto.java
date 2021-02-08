@@ -101,5 +101,8 @@ public class FoodOrderDetailDto {
 	private LocalDate cutoffDate;
 	
 	private LocalTime cutoffTime;
+	
+	@Builder.Default
+	private Integer skippedMealCount = 0;
 
 }
