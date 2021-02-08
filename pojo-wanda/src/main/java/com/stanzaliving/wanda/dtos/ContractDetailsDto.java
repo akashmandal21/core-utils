@@ -32,5 +32,6 @@ public class ContractDetailsDto {
 	private String contractEndDate;
 	private String contractPeriodText;
 	private String maintenanceModalTitle;
-
+	private String subContract2VasPerMonth;
+	private String subContract2ContractPeriod;
 }

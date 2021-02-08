@@ -1,6 +1,9 @@
 package com.stanzaliving.wanda.response;
 
+import java.util.List;
+
 import com.stanzaliving.wanda.dtos.MonthlyFee;
+import com.stanzaliving.wanda.venta.response.MonthlyFeeDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -64,4 +67,12 @@ public class CommercialDetailsResponseDto {
 	private Integer maintenanceFeeSelectionId;
 
 	private Boolean maintenanceFeeEditable;
+	
+	private String subContract2ContractPeriod;
+	
+	private String subContract2ContractEndDateText;
+	
+	private String subContract2StartDate;
+	
+	 private MonthlyFee subContract2MonthlyFee;
 }

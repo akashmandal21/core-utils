@@ -4,6 +4,8 @@
  */
 package com.stanzaliving.wanda.dtos;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,7 +25,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class StayCommercialsContractDto {
 
-	private MonthlyFee monthlyFee;
+	private List<MonthlyFee> monthlyFee;
 	private ContractDetailsDto contractDetails;
 
 }

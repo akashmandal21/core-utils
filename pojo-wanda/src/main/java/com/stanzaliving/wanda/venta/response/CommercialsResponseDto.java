@@ -34,4 +34,8 @@ public class CommercialsResponseDto {
     private Double maintenanceFeeAdjustedInSD;
     private DateRange stayLockInRange;
     
+    private MonthlyFeeDto subContract2MonthlyFee; //add
+   private String subContract2StartDate; //add 
+    private String subContract2EndDate; //add
+    
 }
