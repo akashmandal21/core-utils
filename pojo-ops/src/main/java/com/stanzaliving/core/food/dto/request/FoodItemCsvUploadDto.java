@@ -13,6 +13,9 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodItemCsvUploadDto {
 
+	@CsvBindByName(column = "UUID")
+	private String uuid;
+
 	@CsvBindByName(column = "Dish_Name")
 	private String name;
 

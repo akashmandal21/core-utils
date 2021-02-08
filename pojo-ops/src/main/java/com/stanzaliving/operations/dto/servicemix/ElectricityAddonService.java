@@ -12,6 +12,7 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 public class ElectricityAddonService extends AcquiredBooleanService {
+	private Double rate;
 	private PaymentMode payment;
 	private List<List<String>> timing;
 }

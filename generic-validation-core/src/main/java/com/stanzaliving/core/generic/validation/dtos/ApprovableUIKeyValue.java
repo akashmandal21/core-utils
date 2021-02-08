@@ -1,15 +1,19 @@
 package com.stanzaliving.core.generic.validation.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
+@EqualsAndHashCode(exclude = {"label","approvalLevel"})
 public class ApprovableUIKeyValue {
     private String label;
+    @NotBlank
     private String value;
-    private boolean approved;
-    private String approvedByRole;
+
+    private Integer approvalLevel;
 }

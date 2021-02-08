@@ -36,8 +36,6 @@ public class VasMasterSearchResponseDto {
 
 	private EnumListing vasType;
 
-	private Boolean quantifiable;
-
 	private Double proposedPrice;
 
 	private boolean status;

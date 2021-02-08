@@ -7,9 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Gender {
 
-	MALE,
-	FEMALE,
-	CO_ED,
-	UNISEX;
+	MALE("Male", "male"), FEMALE("Female", "female"), CO_ED("Co_Ed", "co_ed"), UNISEX("Unisex", "unisex");
+
+	public String genderName;
+	public String genderslug;
 
 }

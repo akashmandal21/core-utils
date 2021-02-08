@@ -1,0 +1,21 @@
+package com.stanzaliving.core.opscalculator.dto.summary;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+@AllArgsConstructor
+@Data
+@SuperBuilder
+public class EquipmentRentalSummaryDto extends CategorySummaryDto{
+    
+    private DisplaySummaryDto roomDth;
+    private DisplaySummaryDto vendingMachine;
+    private DisplaySummaryDto coffeeMachine;
+    private DisplaySummaryDto washingMachine;
+    private DisplaySummaryDto microwave;
+    private DisplaySummaryDto singleDoorFridge;
+    private DisplaySummaryDto doubleDoorFridge;
+    private DisplaySummaryDto waterDispenser;
+    private DisplaySummaryDto dryer;
+}

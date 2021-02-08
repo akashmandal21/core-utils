@@ -9,6 +9,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
@@ -27,6 +29,9 @@ public class RefundTransactionDto {
 	private String userId;
 
 	private String serviceTransactionId;
+
+	@NotBlank(message = "refundRequestId is mandatory for refund")
+	private String refundRequestId;
 
 	private StanzaPaymentService paymentService;
 

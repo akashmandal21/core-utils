@@ -1,5 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
+
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -16,7 +18,10 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ResidenceListResponseDTO {
+public class ResidenceListResponseDTO implements Serializable {
+
+	private static final long serialVersionUID = 1635296868115644218L;
+	
 	private int residenceId;
 	private String name;
 	private int micromarketId;
@@ -24,8 +29,11 @@ public class ResidenceListResponseDTO {
 	private int cityId;
 	private String cityName;
 	private Gender gender;
+	private String genderName;
 	private Integer preBookingAmount;
 	private FomoTag fomoTag;
+	private String fomoTagName;
+	private String fomoTagcolour;
 	private int priorityOrder;
 	private boolean enabled;
 	private String slug;
@@ -35,4 +43,8 @@ public class ResidenceListResponseDTO {
 	private String virtualTourImage;
 	private boolean virtualTour;
 	private String cardCTA;
+	private String genderSlug;
+	private String citySlug;
+	private String micromarketSlug;
+	
 }

@@ -34,4 +34,7 @@ public class FoodVendorSearchDto {
 	private String contactEmail;
 
 	private Collection<String> uuids;
+	
+	private Boolean stanzaKitchen;
+
 }

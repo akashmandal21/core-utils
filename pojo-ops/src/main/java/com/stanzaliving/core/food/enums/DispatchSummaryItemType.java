@@ -16,4 +16,16 @@ public enum DispatchSummaryItemType {
 	private String mealName;
 	private String labelName;
 	private Integer order;
+
+	public static boolean isStudentSummary(DispatchSummaryItemType itemType) {
+		return VEG == itemType || NONVEG == itemType;
+	}
+
+	public static boolean isStaffSummary(DispatchSummaryItemType itemType) {
+		return STAFF == itemType;
+	}
+
+	public static boolean isVasSummary(DispatchSummaryItemType itemType) {
+		return VAS_VEG == itemType || VAS_NON_VEG == itemType;
+	}
 }
