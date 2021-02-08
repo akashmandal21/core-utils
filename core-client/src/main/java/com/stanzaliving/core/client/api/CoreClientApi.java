@@ -6,13 +6,7 @@ import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.DocumentStatus;
 import com.stanzaliving.core.base.enums.DocumentType;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.dto.FeaturephoneUserDto;
-import com.stanzaliving.core.dto.FullUserDto;
-import com.stanzaliving.core.dto.HostelDto;
-import com.stanzaliving.core.dto.RCDetailDto;
-import com.stanzaliving.core.dto.UserDetailDto;
-import com.stanzaliving.core.dto.UserHostelDetailsDto;
-import com.stanzaliving.core.dto.UserRegistrationDto;
+import com.stanzaliving.core.dto.*;
 import com.stanzaliving.core.food.dto.request.HostelVasEnabledUpdateDto;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
@@ -285,7 +279,42 @@ public class CoreClientApi {
 
 		} catch (Exception e) {
 
-			log.error("exception while getting user code map from core", e);
+			log.error("Exception while getting user code map from core", e);
+
+		}
+		return response;
+	}
+	
+	public Map<Integer, String> getUserIdCodeMap(Set<Integer> userIds) {
+
+		Object postBody = userIds;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/user/userIdCode").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+		log.info("header {}", token);
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Map<Integer, String>> returnType = new ParameterizedTypeReference<Map<Integer, String>>() {
+		};
+
+		Map<Integer, String> response = new HashMap<>();
+
+		try {
+
+			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+
+			log.error("Exception while getting user id map from core", e);
 
 		}
 		return response;

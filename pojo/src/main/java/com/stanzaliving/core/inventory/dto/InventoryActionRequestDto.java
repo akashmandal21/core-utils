@@ -11,6 +11,7 @@ import java.util.List;
 @Setter
 @Builder
 @AllArgsConstructor
+@ToString
 public class InventoryActionRequestDto {
     private String toUuid;
     private SupplyChainEvents chainEvent;

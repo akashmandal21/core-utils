@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.boq_client.client.api;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -214,6 +215,28 @@ public class BoqClientApi {
         };
 
         String path = UriComponentsBuilder.fromPath("/internal/boq/get/generic/boqDetailsForGenericPo/" +boqUuid).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, poReturnType);
+    }
+
+    public ResponseDto<Map<String, BigDecimal>> getMasterRates(String propertyUuid) {
+
+        log.info("HTTP Client call to get Property Item Master Rates Details by property uuid {} " , propertyUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<Map<String,BigDecimal>>> poReturnType = new ParameterizedTypeReference<ResponseDto<Map<String,BigDecimal>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/boq/get/generic/masterRatesFromBoq/" +propertyUuid).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, poReturnType);
     }

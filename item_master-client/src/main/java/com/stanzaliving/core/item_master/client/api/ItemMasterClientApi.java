@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.item_master.client.api;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import java.util.Map;
 import com.stanzaliving.boq_service.BoqItemSearchRequestDto;
 import com.stanzaliving.core.base.common.dto.PageResponse;
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.generic.enums.GSTSlabs;
 import com.stanzaliving.core.generic.itemmaster.dto.ItemDto;
 import com.stanzaliving.item_master.dtos.*;
 import com.stanzaliving.transformations.pojo.MasterBoqResponseDto;
@@ -397,4 +399,27 @@ public class ItemMasterClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, filterDto, headerParams, accept, returnType);
 	}
+
+	public ResponseDto<Map<String, GSTSlabs>> getGstSlabs(Department department, Collection<String> items, boolean isUuid) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("department",department);
+		uriVariables.put("isUuid",isUuid);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		String path = UriComponentsBuilder.fromPath("/internal/generic/fetch/gst/{department}/{isUuid}").buildAndExpand(uriVariables).toUriString();
+
+		ParameterizedTypeReference<ResponseDto<Map<String, GSTSlabs>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, GSTSlabs>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, items, headerParams, accept, returnType);
+	}
 }
+
