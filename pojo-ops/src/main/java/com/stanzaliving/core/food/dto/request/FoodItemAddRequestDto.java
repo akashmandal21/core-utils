@@ -12,6 +12,7 @@ import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.Column;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -81,5 +82,7 @@ public class FoodItemAddRequestDto {
 	@Valid
 	@NotNull(message = "Recipe selection is mandatory")
 	private ItemRecipeRequestDto recipe;
+
+    private boolean staple;
 
 }
