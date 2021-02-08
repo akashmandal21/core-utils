@@ -26,7 +26,7 @@ public class CafeItemPricingUpdateRequestDto {
     @NotBlank(message = "Item selection is mandatory")
     private String itemId;
 
-    @DecimalMin( value = "0.0", inclusive = false, message = "price can not be less that ")
+    @DecimalMin( value = "0.0", inclusive = false, message = "price can not be less than 0")
     @NotNull(message = "Price selection is mandatory for every item")
     private Double masterPriceInclGst;
 
