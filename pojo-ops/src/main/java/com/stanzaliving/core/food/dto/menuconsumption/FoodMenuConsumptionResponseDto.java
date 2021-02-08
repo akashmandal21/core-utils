@@ -22,7 +22,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodMenuConsumptionResponseDto {
+
 	private String menuGroupId;
 
 	private FoodMenuMicromarketConsumptionDto micromarketConsumption;
+
+	private String dateRange;
 }
