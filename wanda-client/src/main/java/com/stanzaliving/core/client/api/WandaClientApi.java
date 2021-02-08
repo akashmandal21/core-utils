@@ -407,6 +407,7 @@ public class WandaClientApi {
 			log.info("Received request to get User City Micromarket Residence Uuids By UserCode: {}", usercode);
 
 			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("usercode", usercode);
 			
 			String path = UriComponentsBuilder.fromPath("/coreApi/get/user/residence/userCode/{usercode}").buildAndExpand(uriVariables).toUriString();
 
