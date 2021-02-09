@@ -95,7 +95,7 @@ public class JpaConfigUtil {
 			String hibernatePhysicalNamingStrategy) {
 
 		Map<String, String> properties = JpaConfigUtil.configureHibernateProperties(hibernateCacheProviderClass, hibernateDialect, hibernateShowSql, hibernateFormatSql, hibernateHbm2ddlAuto, hibernateOrderInserts, hibernateOrderUpdates);
-		properties.put("hibernate.physical_naming_strategy", hibernatePhysicalNamingStrategy);
+		//properties.put("hibernate.physical_naming_strategy", hibernatePhysicalNamingStrategy);
 		return properties;
 	}
 }
