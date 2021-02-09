@@ -279,6 +279,22 @@ public class StanzaUtils {
 		return decimalFormat.format(value);
 	}
 
+	public static String formatBigDecimalToIndianNumberFormatWithFractions(BigDecimal value, int numFractions) {
+		Locale locale = new Locale("en", "IN");
+		DecimalFormat decimalFormat = (DecimalFormat) DecimalFormat.getInstance(locale);
+		decimalFormat.setMaximumFractionDigits(numFractions);
+		decimalFormat.setMinimumFractionDigits(numFractions);
+		return decimalFormat.format(value);
+	}
+
+	public static String formatBigDecimalToIndianNumberFormatWithTwoDecimals(BigDecimal value) {
+		Locale locale = new Locale("en", "IN");
+		DecimalFormat decimalFormat = (DecimalFormat) DecimalFormat.getInstance(locale);
+		decimalFormat.setMaximumFractionDigits(2);
+		decimalFormat.setMinimumFractionDigits(2);
+		return decimalFormat.format(value);
+	}
+
 	public static String formatToIndianNumberFormat(Double value) {
 		Format format = com.ibm.icu.text.NumberFormat.getInstance(new Locale("en", "IN"));
 		return format.format(value);

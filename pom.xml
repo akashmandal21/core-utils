@@ -79,6 +79,7 @@
         <module>approval-service-client</module>
 		<module>inventory-client</module>
 		<module>generic-po-client</module>
+        <module>wanda-client</module>
 		<module>search-client</module>
 		<module>approval-service-client</module>
 	</modules>
