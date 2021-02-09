@@ -16,12 +16,16 @@ public class PropertyAttributeInfoDto {
     private Integer availableBedCount;
     private Integer roomCount;
     private Integer daysInMonth;
+
     private Integer daysForCalculation;
     private LocalDate calculationFromDate;
     private LocalDate calculationToDate;
     private LocalDate sessionFromDate;
     private LocalDate sessionToDate;
     private int sessionHolidays;
+    private int calculationHolidays;
+    private String serviceMixUuid;
+    private String residenceUuid;
 
     @Builder.Default
     private boolean annualUnderWritten = true;
