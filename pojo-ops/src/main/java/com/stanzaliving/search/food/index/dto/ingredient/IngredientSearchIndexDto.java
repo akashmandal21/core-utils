@@ -3,6 +3,7 @@ package com.stanzaliving.search.food.index.dto.ingredient;
 import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.enums.IngredientType;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
+import com.stanzaliving.core.generic.enums.GSTSlabs;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,4 +38,6 @@ public class IngredientSearchIndexDto extends AbstractSearchIndexDto {
 	private IngredientType ingredientType;
 
 	private UnitOfMeasurement unitOfMeasurement;
+	private GSTSlabs gstSlabs;
+	private String itemUuid;
 }

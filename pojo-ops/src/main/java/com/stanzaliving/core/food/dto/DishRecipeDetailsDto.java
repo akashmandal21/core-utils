@@ -36,7 +36,7 @@ public class DishRecipeDetailsDto {
 
 	private Double estimatedCost;
 
-	private Double totalEstimatedCost;
+	private Double cookQuantityCost;
 
 	private List<KitchenCostDto> kitchenCostDtos;
 
