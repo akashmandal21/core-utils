@@ -8,6 +8,7 @@ import com.stanzaliving.wanda.response.FoodHomeScreenResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,4 +27,8 @@ public class FoodInfoPageResponse {
 	private FoodHomeScreenResponse homeScreenResponse;
 	
 	private Map<String, FoodOrderTiming> foodOrderTiming;
+	
+	@Default
+	private Boolean isVegOnly=true;
+	
 }
