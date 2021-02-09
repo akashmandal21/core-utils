@@ -8,6 +8,8 @@ import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.po.generic.dtos.VendorWisePoDetails;
 import com.stanzaliving.core.pojo.EmailDto;
+import com.stanzaliving.grn.GSRIReportAccessLevel;
+import com.stanzaliving.grn.GSRITuple;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.invoice.dto.InvoiceMigrationDto;
@@ -631,6 +633,29 @@ public class POClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/generic/downloads/getPoPdf/sendEmail/{poUuid}").buildAndExpand(uriVariables).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, emailDto, headerParams, accept, vddReturnType);
+    }
+
+    public ResponseDto<List<GSRITuple>> getBOQQuantityForGSRIReport(GSRIReportAccessLevel gsriReportAccessLevel, List<GSRITuple> gsriTuples) {
+
+        log.info("HTTP Client call to get BOQ quantity for GSRI report for accessLevel:{}", gsriReportAccessLevel);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("accessLevel", gsriReportAccessLevel);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<GSRITuple>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<GSRITuple>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/boq/quantity/{accessLevel}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, gsriTuples, headerParams, accept, vddReturnType);
     }
 
 }
