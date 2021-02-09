@@ -654,7 +654,7 @@ public class POClientApi {
         ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/po/downloads/getPoPdf/sendEmail/{poUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/downloads/getPoPdf/sendEmail/{poUuid}").buildAndExpand(uriVariables).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, emailDto, headerParams, accept, vddReturnType);
     }
