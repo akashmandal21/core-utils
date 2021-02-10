@@ -10,6 +10,8 @@ import java.util.Map;
 
 import com.stanzaliving.core.boq_service.dtos.PoResponseDto;
 import com.stanzaliving.core.boq_service.dtos.PropertyBoqDetailDto;
+import com.stanzaliving.grn.GSRIReportAccessLevel;
+import com.stanzaliving.grn.GSRITuple;
 import com.stanzaliving.transformations.enums.BoqStatus;
 import com.stanzaliving.transformations.pojo.PropertyBoqStatusDto;
 import lombok.extern.log4j.Log4j2;
@@ -261,6 +263,30 @@ public class BoqClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/boq/get/generic/allBoqForProperty/" +propertyUuid).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, poReturnType);
+    }
+
+    public ResponseDto<List<GSRITuple>> getBOQQuantityForGSRIReport(String propertyUuid, GSRIReportAccessLevel gsriReportAccessLevel, List<GSRITuple> gsriTuples) {
+
+        log.info("HTTP Client call to get BOQ quantity for GSRI report for propertyUuid:{}, accessLevel:{}", propertyUuid, gsriReportAccessLevel);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("propertyUuid", propertyUuid);
+        uriVariables.put("accessLevel", gsriReportAccessLevel);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<GSRITuple>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<GSRITuple>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/boq/get/quantity/{propertyUuid}/{accessLevel}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, gsriTuples, headerParams, accept, vddReturnType);
     }
 
 }
