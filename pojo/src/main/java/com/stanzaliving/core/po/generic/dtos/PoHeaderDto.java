@@ -25,6 +25,7 @@ public class PoHeaderDto {
     private String backgroundColor;
     private GenericPOType poType;
     private String propertyUuid;
+    private long minPoEndDate;
 
     //Flags
 
