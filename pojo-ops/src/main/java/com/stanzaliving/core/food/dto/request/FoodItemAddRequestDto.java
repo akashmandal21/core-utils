@@ -15,6 +15,7 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.Column;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -84,5 +85,9 @@ public class FoodItemAddRequestDto {
 	private ItemRecipeRequestDto recipe;
 
     private boolean isStapleDish;
+
+    @Valid
+    @NotEmpty(message = "Feedback options selection is mandatory")
+    private List<String> feedbackOptions;
 
 }

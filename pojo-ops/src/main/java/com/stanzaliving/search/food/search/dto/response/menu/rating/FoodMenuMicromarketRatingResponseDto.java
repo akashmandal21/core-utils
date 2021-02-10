@@ -1,4 +1,4 @@
-package com.stanzaliving.search.food.index.dto.dishmaster;
+package com.stanzaliving.search.food.search.dto.response.menu.rating;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,13 +7,14 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
  * @version 1.0
  *
- * @since 06-Jan-2021
- *
+ * @since 26-Jan-2021
  */
 
 @Getter
@@ -22,10 +23,13 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishMasterRecipeIngredientSearchIndexDto {
+public class FoodMenuMicromarketRatingResponseDto {
 
-	private String ingredientId;
+	private MicromarketIdRatingDto micromarket;
 
-	private Double grammageAmount;
+	private List<MicromarketMealRatingDto> micromarketMeals;
 
+	private List<ResidenceIdRatingDto> residences;
+
+	private List<ResidenceMealRatingDto> residenceMeals;
 }

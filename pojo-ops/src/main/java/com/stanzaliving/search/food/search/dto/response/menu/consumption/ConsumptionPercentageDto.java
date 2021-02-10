@@ -1,4 +1,4 @@
-package com.stanzaliving.search.food.index.dto.dishmaster;
+package com.stanzaliving.search.food.search.dto.response.menu.consumption;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,20 +12,15 @@ import lombok.experimental.SuperBuilder;
  *
  * @version 1.0
  *
- * @since 06-Jan-2021
- *
+ * @since 28-Jan-2021
  */
 
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishMasterRecipeIngredientSearchIndexDto {
-
-	private String ingredientId;
-
-	private Double grammageAmount;
-
+public class ConsumptionPercentageDto {
+	private Double consumptionPercent;
 }

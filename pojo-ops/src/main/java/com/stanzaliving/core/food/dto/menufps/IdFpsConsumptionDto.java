@@ -1,5 +1,6 @@
-package com.stanzaliving.search.food.index.dto.dishmaster;
+package com.stanzaliving.core.food.dto.menufps;
 
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,10 +11,9 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @version 1.0
+ * @version 2.0
  *
- * @since 06-Jan-2021
- *
+ * @since 29-Jan-2021
  */
 
 @Getter
@@ -22,10 +22,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishMasterRecipeIngredientSearchIndexDto {
-
-	private String ingredientId;
-
-	private Double grammageAmount;
-
+public class IdFpsConsumptionDto extends FpsConsumptionDto {
+	private ListingDto entity;
 }

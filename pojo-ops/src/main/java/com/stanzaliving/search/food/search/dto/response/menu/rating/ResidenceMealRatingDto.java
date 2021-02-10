@@ -1,5 +1,7 @@
-package com.stanzaliving.search.food.index.dto.dishmaster;
+package com.stanzaliving.search.food.search.dto.response.menu.rating;
 
+import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.search.food.search.dto.response.menu.rating.RatingDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,8 +14,7 @@ import lombok.experimental.SuperBuilder;
  *
  * @version 1.0
  *
- * @since 06-Jan-2021
- *
+ * @since 26-Jan-2021
  */
 
 @Getter
@@ -22,10 +23,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishMasterRecipeIngredientSearchIndexDto {
+public class ResidenceMealRatingDto extends MealRatingDto {
 
-	private String ingredientId;
-
-	private Double grammageAmount;
+	private String residenceId;
 
 }

@@ -6,6 +6,7 @@ package com.stanzaliving.core.food.dto;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.DishRegion;
@@ -110,5 +111,6 @@ public class FoodItemDto extends AbstractDto {
 	private boolean recipeExists;
 
 	private boolean isStapleDish;
-
+	
+    private List<ListingDto> feedback;
 }
