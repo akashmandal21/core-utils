@@ -799,49 +799,61 @@ public class InternalDataControllerApi {
 
 	public ResponseDto<List<ListingDto>> getMicromarketsByCityUuid(String cityUuid) {
 
-		Object postBody = null;
+		try {
+			Object postBody = null;
 
-		// create path and map variables
-		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("cityUuid", cityUuid);
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("cityUuid", cityUuid);
 
-		String path = UriComponentsBuilder.fromPath("/micromarket/list/{cityUuid}").buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("/micromarket/list/{cityUuid}").buildAndExpand(uriVariables).toUriString();
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<List<ListingDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ListingDto>>>() {
-		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+			ParameterizedTypeReference<ResponseDto<List<ListingDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ListingDto>>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			
+			log.error("Exception Caught while Fetching Micromarkets by city Uuid: {}", cityUuid, e);
+		}
+		return null;
 	}
 	
 	public ResponseDto<List<ResidenceDto>> getResidencesByMicromarketUuid(String micromarketUuid) {
 
-		Object postBody = null;
+		try {
+			Object postBody = null;
 
-		// create path and map variables
-		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("micromarketUuid", micromarketUuid);
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("micromarketUuid", micromarketUuid);
 
-		String path = UriComponentsBuilder.fromPath("/residence/get/micromarket/{micromarketUuid}").buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("/residence/get/micromarket/{micromarketUuid}").buildAndExpand(uriVariables).toUriString();
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>>() {
-		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+			ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			
+			log.error("Exception Caught while Fetching Residences By Micromarket Uuid: {}", micromarketUuid, e);
+		}
+		return null;
 	}
 }
