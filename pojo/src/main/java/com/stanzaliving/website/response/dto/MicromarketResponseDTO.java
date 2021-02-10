@@ -37,4 +37,5 @@ public class MicromarketResponseDTO {
 	private Long reviewCount;
 	private Double rating;
 	private Long minPriceValue;
+	private Boolean whatsappChatFlag;
 }

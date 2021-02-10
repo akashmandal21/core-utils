@@ -36,6 +36,6 @@ public class CityResponseDTO {
 	private Long reviewCount;
 	private Double rating;
 	private Long minPriceValue;
-	
+	private Boolean whatsappChatFlag;
 
 }

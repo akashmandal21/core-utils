@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Builder.Default;
 
 @Builder
 @AllArgsConstructor
@@ -18,5 +19,8 @@ public class MicromarketRequestDTO {
 	private double latitude;
 	private double longitude;
 	private String phone;
+	
+	@Default
+	private Boolean whatsappChatFlag=false;
 
 }

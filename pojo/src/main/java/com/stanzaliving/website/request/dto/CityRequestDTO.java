@@ -2,6 +2,7 @@ package com.stanzaliving.website.request.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,4 +23,6 @@ public class CityRequestDTO {
 	private String phone;
 	private int websiteDisplayOrder;
 	private String cityImgUrl;
+	@Default
+	private Boolean whatsappChatFlag=false;
 }
