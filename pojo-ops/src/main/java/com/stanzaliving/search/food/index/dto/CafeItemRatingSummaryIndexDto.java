@@ -1,4 +1,4 @@
-package com.stanzaliving.search.food.index.dto.menu;
+package com.stanzaliving.search.food.index.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import lombok.AllArgsConstructor;
@@ -15,8 +15,7 @@ import java.time.LocalDate;
  *
  * @version 1.0
  *
- * @since 11-Jan-2021
- *
+ * @since 29-Jan-2021
  */
 
 @Getter
@@ -25,13 +24,18 @@ import java.time.LocalDate;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryItemOrderCountIndexDto extends AbstractSearchIndexDto {
+public class CafeItemRatingSummaryIndexDto extends AbstractSearchIndexDto {
 
-	private String menuCategoryId;
-
-	private String itemId;
+	private String cafeId;
 
 	private LocalDate orderDate;
 
-	private Integer orderedCount;
+	private String itemId;
+
+	private Integer totalRating;
+
+	private Integer totalRatingCount;
+
+	private Float avgRating;
+
 }

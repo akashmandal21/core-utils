@@ -1,4 +1,4 @@
-package com.stanzaliving.search.food.index.dto.dishmaster;
+package com.stanzaliving.search.food.search.dto.response.menu.rating;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,8 +12,7 @@ import lombok.experimental.SuperBuilder;
  *
  * @version 1.0
  *
- * @since 06-Jan-2021
- *
+ * @since 26-Jan-2021
  */
 
 @Getter
@@ -22,10 +21,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishMasterRecipeIngredientSearchIndexDto {
+public class MicromarketItemRatingDto extends RatingDto {
 
-	private String ingredientId;
+	private String micromarketId;
 
-	private Double grammageAmount;
-
+	private String itemId;
 }

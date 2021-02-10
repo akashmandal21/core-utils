@@ -823,6 +823,15 @@ public class DateUtil {
 		return inBetween;
 	}
 
+	public LocalDate min(LocalDate dateOne, LocalDate dateTwo) {
+
+		if (dateOne.isBefore(dateTwo)) {
+			return dateOne;
+		}
+
+		return dateTwo;
+	}
+
 	public static List<String> getListOfMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat) {
 		LinkedHashSet<String> monthYear = new LinkedHashSet<>();
 		if (!toDate.isAfter(fromDate)) {// TODO add additional validation
