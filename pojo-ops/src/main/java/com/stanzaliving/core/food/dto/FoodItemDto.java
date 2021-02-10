@@ -109,4 +109,6 @@ public class FoodItemDto extends AbstractDto {
 
 	private boolean recipeExists;
 
+	private boolean isStapleDish;
+
 }

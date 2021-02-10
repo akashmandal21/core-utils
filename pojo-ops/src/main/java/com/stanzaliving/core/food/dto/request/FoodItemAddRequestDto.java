@@ -83,6 +83,6 @@ public class FoodItemAddRequestDto {
 	@NotNull(message = "Recipe selection is mandatory")
 	private ItemRecipeRequestDto recipe;
 
-    private boolean staple;
+    private boolean isStapleDish;
 
 }
