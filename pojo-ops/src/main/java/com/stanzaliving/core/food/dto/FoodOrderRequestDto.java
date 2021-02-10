@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -44,6 +45,7 @@ public class FoodOrderRequestDto {
 
 	private Integer nonVeg;
 
+	@NotEmpty(message = "Meal Orders are mandatory")
 	private List<FoodOrderDetailDto> foodOrderDetailDtos;
 
 	@Builder.Default

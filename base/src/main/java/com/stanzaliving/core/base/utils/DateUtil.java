@@ -407,6 +407,9 @@ public class DateUtil {
 	}
 
 	public List<String> getListOfDates(LocalDate startDate, LocalDate endDate) {
+		if (startDate == null || endDate == null) {
+			return new ArrayList<>();
+		}
 		LinkedHashSet<String> dateList = new LinkedHashSet<>();
 		for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
 			dateList.add(customDateFormatter(date, DateFormat.YYYY_HIFEN_MM_HIFEN_DD));
@@ -419,6 +422,9 @@ public class DateUtil {
 	//use getAbsoluteCountOfDates instead
 	@Deprecated
 	public Integer getCountOfDates(LocalDate startDate, LocalDate endDate) {
+		if (startDate == null || endDate == null) {
+			return 0;
+		}
 		if (startDate.isBefore(endDate)) {
 			return getListOfDates(startDate, endDate).size();
 		} else {
@@ -427,6 +433,9 @@ public class DateUtil {
 	}
 
 	public Integer getAbsoluteCountOfDates(LocalDate startDate, LocalDate endDate) {
+		if (startDate == null || endDate == null) {
+			return 0;
+		}
 		if (startDate.isBefore(endDate)) {
 			return getListOfDates(startDate, endDate).size();
 		} else {
@@ -858,16 +867,20 @@ public class DateUtil {
 	}
 
 	public static int getWeekendDaysCount(LocalDate fromDate, LocalDate toDate) {
-		int count = 0;
-		if (!toDate.isAfter(fromDate)) {// TODO add additional validation
-			return count;
+		return getWeekendDays(fromDate, toDate).size();
+	}
+
+	public static List<LocalDate> getWeekendDays(LocalDate fromDate, LocalDate toDate) {
+		List<LocalDate> weekendDays = new ArrayList<>();
+		if (!toDate.isAfter(fromDate)) {
+			return weekendDays;
 		}
 		for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
 			if (DayOfWeek.SATURDAY.equals(date.getDayOfWeek()) || DayOfWeek.SUNDAY.equals(date.getDayOfWeek())) {
-				count +=1;
+				weekendDays.add(date);
 			}
 		}
-		return count;
+		return weekendDays;
 	}
 
 	public static double getMonthsBetweenDatesInDouble(LocalDate fromDate, LocalDate toDate) {
