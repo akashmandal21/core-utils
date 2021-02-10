@@ -27,7 +27,7 @@ public enum SupplyChainEvents {
     PO_CANCEL_REJECTED("PO Cancel Request Rejected",true),
     PO_CANCELLED("PO Cancelled",true),
     PO_DURATION_EXPIRED("PO Duration expired",false),
-    PO_DURATION_EXTENDED("PO Duration extended",false),
+    PO_DURATION_EXTENDED("PO Duration extended",false,true),
 
 
     GSRI_STARTED("GSRI Started",false),
