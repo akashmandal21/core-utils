@@ -56,5 +56,8 @@ public class PoHeaderDto {
     @Builder.Default
     private boolean cancelRequest = false;
 
+    @Builder.Default
+    private boolean canExtend = false;
+
     private Map<PoDownloadEnum,Boolean> downloadActions;
 }
