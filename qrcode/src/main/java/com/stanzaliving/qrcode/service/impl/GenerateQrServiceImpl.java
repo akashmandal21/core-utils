@@ -34,11 +34,11 @@ public class GenerateQrServiceImpl implements GenerateQrService {
 	@Override
 	public GenerateQrResponseDto generateQrCode(String s3Bucket, String filePath, String fileName, AmazonS3 s3Client) throws IOException {
 
-		String qrContent = StanzaUtils.generateUniqueId();
+		String qrContent = String.valueOf(System.nanoTime() + StanzaUtils.getRandomNumberBetweenRange(100, 1000));
 
 		log.info("Generating qr code with content: {}", qrContent);
 
-		BufferedImage image = QRGeneratorUtility.generateQRImage(qrContent);
+		BufferedImage image = QRGeneratorUtility.generateQRImageUsingLong(qrContent);
 
 		File outputFile = File.createTempFile("/tmp/" + fileName, ".jpg");
 
