@@ -94,6 +94,7 @@ public class FilterDto {
 
     private List<UIKeyValue> itemStatus;
     private List<UIKeyValue> updatedBy;
+    private DateRange lastUpdatedBetween;
 
     private List<UIKeyValue> itemStatusOptions;
     private List<UIKeyValue> updatedByOptions;
