@@ -52,10 +52,6 @@ public class AssetDto {
     private String verifiedBy;
     private String lastAuditedBy;
     private Long itemsInPackage;
-    private String employeeId;
-    private String employeeDepartment;
-    private String employeeName;
-    private String employeeEmail;
     private String imageWithoutQrCodePath;
     private String imageWithQrCodePath;
     private AssetType assetType;

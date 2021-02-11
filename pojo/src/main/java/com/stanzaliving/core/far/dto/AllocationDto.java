@@ -25,4 +25,8 @@ public class AllocationDto {
     private OtherArea otherAreaName;
     private Integer roomNumber;
     private Integer floorNumber;
+    private String employeeId;
+    private String employeeDepartment;
+    private String employeeName;
+    private String employeeEmail;
 }
