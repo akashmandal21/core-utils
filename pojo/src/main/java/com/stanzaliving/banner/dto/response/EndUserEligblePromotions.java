@@ -18,6 +18,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EndUserEligblePromotions {
 	
+	private String userId;
+	
 	private String userCode;
 	
 	private AppPage appPage;
