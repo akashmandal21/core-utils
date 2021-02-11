@@ -23,7 +23,9 @@ public class UserPreferenceCountDto {
 
 	@Builder.Default
 	private Integer totalNonveg = 0;
-
+	
+	private long skippedMeals;
+	
 	private List<ItemTypeUserPreferenceCountDto> preferenceCountDtos;
 
 }
