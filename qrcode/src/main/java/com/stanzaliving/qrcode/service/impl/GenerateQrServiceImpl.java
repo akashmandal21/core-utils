@@ -44,7 +44,7 @@ public class GenerateQrServiceImpl implements GenerateQrService {
 
 		ImageIO.write(image, "jpg", outputFile);
 
-		String s3RelativeFilePath = s3UploadService.upload(s3Bucket, filePath, fileName, outputFile, MediaType.IMAGE_JPEG_VALUE, s3Client, false);
+		String s3RelativeFilePath = s3UploadService.upload(s3Bucket, filePath, outputFile.getName(), outputFile, MediaType.IMAGE_JPEG_VALUE, s3Client, false);
 
 		return GenerateQrResponseDto.builder()
 				.qrContent(qrContent)
