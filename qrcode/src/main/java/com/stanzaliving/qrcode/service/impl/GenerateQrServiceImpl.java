@@ -38,7 +38,7 @@ public class GenerateQrServiceImpl implements GenerateQrService {
 
 		log.info("Generating qr code with content: {}", qrContent);
 
-		BufferedImage image = QRGeneratorUtility.generateQRImageUsingLong(qrContent);
+		BufferedImage image = QRGeneratorUtility.generateQRImage(qrContent);
 
 		File outputFile = File.createTempFile("/tmp/" + fileName, ".jpg");
 
