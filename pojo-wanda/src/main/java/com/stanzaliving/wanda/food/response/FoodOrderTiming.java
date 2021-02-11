@@ -1,8 +1,8 @@
 package com.stanzaliving.wanda.food.response;
 
-import java.util.List;
-
-import com.stanzaliving.wanda.response.FoodCardDto;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,10 +17,12 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class FoodOrderPageDto {
+public class FoodOrderTiming {
 
-	private List<FoodCardDto> foodCardDtos;
+	private LocalDate cutoffDate;
 
-	private String userFoodResidenceMenuId;
+	private LocalTime cutoffTime;
+	
+	private Date cutoffDateTime;		
 
 }

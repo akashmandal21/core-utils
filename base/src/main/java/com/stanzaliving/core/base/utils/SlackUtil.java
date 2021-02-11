@@ -94,7 +94,7 @@ public class SlackUtil {
 		return slackMessage;
 	}
 
-	private Pair<String, String> getIpAddress() {
+	public Pair<String, String> getIpAddress() {
 
 		Pair<String, String> pair = Pair.of("", "");
 
