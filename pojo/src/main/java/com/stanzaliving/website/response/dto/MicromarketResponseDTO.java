@@ -4,9 +4,11 @@ import java.util.List;
 
 import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.Status;
+import com.stanzaliving.website.request.dto.MicromarketAliasDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,6 +29,7 @@ public class MicromarketResponseDTO {
 	private double latitude;
 	private double longitude;
 	private String slug;
+	@Default
 	private boolean enabled = true;
 	private String seoTitle;
 	private String seoDescription;
@@ -38,4 +41,5 @@ public class MicromarketResponseDTO {
 	private Double rating;
 	private Long minPriceValue;
 	private Boolean whatsappChatFlag;
+	private List<MicromarketAliasDTO> micromarketAlias;
 }

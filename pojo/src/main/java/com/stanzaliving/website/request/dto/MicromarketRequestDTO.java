@@ -1,5 +1,7 @@
 package com.stanzaliving.website.request.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,12 +17,13 @@ import lombok.Builder.Default;
 public class MicromarketRequestDTO {
 
 	private int micromarketId;
+	private int cityId;
 	private String name;
 	private double latitude;
 	private double longitude;
 	private String phone;
-	
 	@Default
 	private Boolean whatsappChatFlag=false;
+	private List<MicromarketAliasDTO> micromarketAlias;
 
 }
