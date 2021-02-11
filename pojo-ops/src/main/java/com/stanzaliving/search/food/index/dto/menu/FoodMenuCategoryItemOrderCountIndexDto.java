@@ -1,6 +1,6 @@
 package com.stanzaliving.search.food.index.dto.menu;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,8 +8,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Convert;
 import java.time.LocalDate;
 
 /**
@@ -27,7 +25,7 @@ import java.time.LocalDate;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryItemOrderCountIndexDto extends AbstractDto {
+public class FoodMenuCategoryItemOrderCountIndexDto extends AbstractSearchIndexDto {
 
 	private String menuCategoryId;
 
