@@ -22,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class B2BDealListingDto {
+public class DealListingDto {
 	
 	private String uuid;
 	private String residenceUuid;
@@ -51,6 +51,6 @@ public class B2BDealListingDto {
 	@Builder.Default
 	private Long residentOnBoardCount = 0L;
 	
-	List<DealServiceMixListingDto> serviceMixDto;
+	List<DealServiceMixListingDto> serviceMixDtoList;
 	
 }
