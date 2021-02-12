@@ -1,9 +1,13 @@
 package com.stanzaliving.wanda.response;
 
+import java.util.List;
 import java.util.Map;
+
+import com.stanzaliving.wanda.dtos.TransactionDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -42,4 +46,20 @@ public class BookingChargesDto {
 	private Map<String, String> charges;
 	
 	private String textForRemainingAmount;
+	
+	private List<TransactionDto> transactions;
+	
+	private Boolean bookingProceed;
+	@Default
+	private Double totalRemaingAmount=0.0d;
+	
+	private Double totalAmountPaid;
+	
+	private String totalAmountPaidStr;
+	
+	@Default
+	private Double totalRemaingminimumAmount=0.0d;
+	
+	private String totalRemaingminimumAmountStr;
+	
 }
