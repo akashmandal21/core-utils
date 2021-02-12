@@ -6,8 +6,6 @@ package com.stanzaliving.core.user.request.dto;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-import com.stanzaliving.core.user.enums.UserType;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -31,8 +29,6 @@ public class EmailVerificationRequestDto {
 	@NotBlank(message = "Email is Mandatory for Email Verification By Otp")
 	@Email(message = "Email Format is not correct")
 	private String email;
-	
-	private UserType userType;
 	
 	@NotBlank(message = "User Uuid is Mandatory for email verification")
 	private String userUuid;
