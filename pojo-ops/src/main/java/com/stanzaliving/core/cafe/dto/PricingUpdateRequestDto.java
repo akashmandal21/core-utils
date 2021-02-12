@@ -3,6 +3,8 @@ package com.stanzaliving.core.cafe.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 /**
@@ -19,8 +21,10 @@ import java.util.List;
 @AllArgsConstructor
 public class PricingUpdateRequestDto {
 
+    @NotBlank(message = "Cafe selection is mandatory")
     private String cafeId;
 
+    @NotEmpty(message = "Items prices selection is mandatory")
     private List<CafeItemPricingUpdateRequestDto> cafeItemsPricingList;
 
 }
