@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -32,5 +33,8 @@ public class GenericPoUpdate {
 
     @Builder.Default
     private boolean asisAreaGsriCompleted=false;
+
+    private LocalDate poEndDate;
+    private LocalDate poStartDate;
 
 }
