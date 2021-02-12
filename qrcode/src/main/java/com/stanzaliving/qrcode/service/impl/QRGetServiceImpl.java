@@ -68,7 +68,7 @@ public class QRGetServiceImpl implements QRGetService {
 				log.info("Generated QR on path: {}", qrCode.getS3RelativeFilePath());
 
 				QRData qrData = QRData.builder().contextId(contextId).data(qrCode.getQrContent()).qrContextType(qrContextType)
-						.subContextId(subContextId).bucket(s3Bucket).content(data).filePath(qrCode.getS3RelativeFilePath().replace(".jpg", "")).fileName(fileName)
+						.subContextId(subContextId).bucket(s3Bucket).content(data).filePath(qrCode.getS3RelativeFilePath()).fileName(fileName)
 						.build();
 
 				qrData = qrDataRepository.save(qrData);
