@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
 import java.util.List;
+import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,5 +22,11 @@ public class CityLevelFoodSummaryDto {
 	private String cityId;
 
 	private List<FoodMenuApprovalSummaryDto> approvalSummaryDtos;
+
+	private String groupId;
+	private String groupName;
+	private Map<String,Integer> statusWiseCount;
+	//city->mm->category
+	private Map<String,CityLevelFoodSummaryDto> childData;
 
 }

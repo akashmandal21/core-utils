@@ -20,6 +20,7 @@ public class FoodMenuApprovalSummaryDto {
 	private boolean autoCreated;
 	private boolean chefAutoApproved;
 	private boolean vendorAutoApproved;
+
 	private ApprovalListingDto approvalSummary;
 	private String residenceName;
 	private String menuStatus;
