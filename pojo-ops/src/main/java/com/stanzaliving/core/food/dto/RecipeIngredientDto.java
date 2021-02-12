@@ -25,5 +25,7 @@ import lombok.experimental.SuperBuilder;
 public class RecipeIngredientDto extends IngredientDto {
 
 	private double quantity;
+	private Double price;
+	private Double cost;
 
 }
