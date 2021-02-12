@@ -21,7 +21,7 @@ public interface QRScanService {
 
 	void updateScanHistory(QRData qrData, String userId, boolean status);
 
-	QRScanHistory scanHistory(String contextId, String qrId, String userId, boolean status, FeaturePhoneQrValidation validation, String imagePath);
+	QRScanHistory scanHistory(String contextId, String qrId, String userId, QRContextType qrContextType, boolean status, FeaturePhoneQrValidation validation, String imagePath);
 
 	Map<String, QRScanHistory> getQRScannedData(List<String> qrUuids, String userId);
 

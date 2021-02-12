@@ -158,7 +158,7 @@ public class QRScanServiceImpl implements QRScanService {
 	}
 
 	@Override
-	public QRScanHistory scanHistory(String contextId, String qrId, String userId, boolean status, FeaturePhoneQrValidation validation, String imagePath) {
+	public QRScanHistory scanHistory(String contextId, String qrId, String userId, QRContextType qrContextType, boolean status, FeaturePhoneQrValidation validation, String imagePath) {
 
 		QRScanHistory qrScanHistory = qrScanHistoryRepository.findByContextIdAndUserId(contextId, userId);
 
@@ -172,6 +172,7 @@ public class QRScanServiceImpl implements QRScanService {
 
 		qrScanHistory.setQrUUid(qrId);
 		qrScanHistory.setStatus(status);
+		qrScanHistory.setQrContextType(qrContextType);
 		qrScanHistory.setQrValidationType(validation);
 		qrScanHistory.setValidatedImagePath(imagePath);
 
