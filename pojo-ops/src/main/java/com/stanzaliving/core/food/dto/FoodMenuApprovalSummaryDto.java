@@ -15,6 +15,7 @@ public class FoodMenuApprovalSummaryDto {
 	private String cityId;
 	private String micromarketName;
 	private String categoryName;
+	private String categoryMealWiseName;
 	private String menuCategoryId;
 	private String microMarketId;
 	private boolean autoCreated;
