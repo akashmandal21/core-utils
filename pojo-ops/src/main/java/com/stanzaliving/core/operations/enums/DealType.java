@@ -6,18 +6,19 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @author naveen
+ * @author manish.pareek
  *
  * @date 05-Feb-2021
  */
 @Getter
 @AllArgsConstructor
-public enum B2BDealType {
+public enum DealType {
 
 	FOOD("Food Only"),
 	OPS("OPS Only"),
-	FOODOPS("Food and OPS");
+	FOOD_OPS("Food and OPS");
 
-	public String dealName;
+	private String dealType;
 
 }
+
