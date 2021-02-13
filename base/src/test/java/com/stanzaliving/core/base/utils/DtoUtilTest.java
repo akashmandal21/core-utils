@@ -60,7 +60,7 @@ public class DtoUtilTest {
 
 	public static class TestDto1 {
 
-		private TestDto1() {
+		public TestDto1() {
 		}
 
 	}
