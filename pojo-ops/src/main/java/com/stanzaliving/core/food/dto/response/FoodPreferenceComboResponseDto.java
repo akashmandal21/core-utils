@@ -5,6 +5,7 @@ import java.util.List;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.food.enums.RegionAndFoodItemBasePreference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,5 +47,7 @@ public class FoodPreferenceComboResponseDto {
 	private String slogan;
 
 	private String mealImg;
+	
+	private RegionAndFoodItemBasePreference regionAndFoodItemBasePreference;
 
 }

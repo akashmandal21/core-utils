@@ -3,6 +3,10 @@ package com.stanzaliving.core.cafe.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -19,8 +23,11 @@ import java.util.List;
 @AllArgsConstructor
 public class CafeItemPricingUpdateRequestDto {
 
+    @NotBlank(message = "Item selection is mandatory")
     private String itemId;
 
+    @DecimalMin( value = "0.0", inclusive = false, message = "price can not be less than 0")
+    @NotNull(message = "Price selection is mandatory for every item")
     private Double masterPriceInclGst;
 
     private List<CogsPriceDto> cogs;
@@ -31,4 +38,4 @@ public class CafeItemPricingUpdateRequestDto {
 
     private List<ResidenceItemPricingUpdateRequestDto> residenceItemPricingList;
 
-}	
+}

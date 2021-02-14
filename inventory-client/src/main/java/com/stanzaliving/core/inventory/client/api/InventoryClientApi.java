@@ -127,7 +127,7 @@ public class InventoryClientApi {
 
         Object postBody = grsiEventUpdateDto;
 
-        String path = UriComponentsBuilder.fromPath("/reduce/neg/grn").toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/reduce/neg/grn").toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 

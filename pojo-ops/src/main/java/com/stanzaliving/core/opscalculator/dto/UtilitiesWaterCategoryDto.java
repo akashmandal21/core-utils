@@ -4,21 +4,15 @@
  */
 package com.stanzaliving.core.opscalculator.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.stanzaliving.core.opscalculator.constants.WaterSupplySource;
-
 import com.stanzaliving.core.opscalculator.enums.DrinkingWaterSupplySources;
 import com.stanzaliving.core.opscalculator.enums.LandlordReceivablesCalculationEnum;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author nipunaggarwal
@@ -78,4 +72,43 @@ public class UtilitiesWaterCategoryDto extends CategoryDto {
 
 	@Builder.Default
 	private boolean waterTanker = false;
+
+	private int fixedChargesPerAvailableBed;
+	private int variableChargesPerAvailableBed;
+	private int landlordReceivablesPerAvailableBed;
+	
+	
+	public UtilitiesWaterCategoryDto clone() {
+		return UtilitiesWaterCategoryDto.builder()
+				.overallCharges(this.overallCharges)
+				.fixedCharges(this.fixedCharges)
+				.variableCharges(this.variableCharges)
+				.landlordReceivables(this.landlordReceivables)
+				.tankerCost(this.tankerCost)
+				.waterSupplySource(this.waterSupplySource)
+				.drinkingWaterSource(this.drinkingWaterSource)
+				.avgStudentConsumptionPerDay(this.avgStudentConsumptionPerDay)
+				.govtSupplyDependencyWithoutTanker(this.govtSupplyDependencyWithoutTanker)
+				.govtSupplyDependencyWithTanker(this.govtSupplyDependencyWithTanker)
+				.govtSupplyFixedCharges(this.govtSupplyFixedCharges)
+				.govtSupplyUnitRate(this.govtSupplyUnitRate)
+				.govtSupplyBillCharges(this.govtSupplyBillCharges)
+				.allWaterSupplySources(this.allWaterSupplySources)
+				.allDrinkingWaterSupplySources(this.allDrinkingWaterSupplySources)
+				.waterTankerSlotDetails(this.waterTankerSlotDetails)
+				.waterJarCapacity(this.waterJarCapacity)
+				.waterJarCost(this.waterJarCost)
+				.waterJarCount(this.waterJarCount)
+				.landlordReceivablePercent(this.landlordReceivablePercent)
+				.landLordReceivablesOptions(this.landLordReceivablesOptions)
+				.landlordReceivableCalculatedOn(this.landlordReceivableCalculatedOn)
+				.dependability(this.dependability)
+				.waterTanker(this.waterTanker)
+				.categoryName(this.categoryName)
+				.costPerAvailableBed(this.costPerAvailableBed)
+				.costPerOccupiedBed(this.costPerOccupiedBed)
+				.contribution(this.contribution)
+				.enabled(this.enabled)
+				.build();
+	}
 }

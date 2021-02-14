@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.ListingDto;
@@ -27,7 +28,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuItemDto {
+public class MenuItemDto implements Serializable {
 
 	private String itemId;
 

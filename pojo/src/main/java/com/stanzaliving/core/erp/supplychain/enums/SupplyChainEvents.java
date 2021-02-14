@@ -27,6 +27,7 @@ public enum SupplyChainEvents {
     PO_CANCEL_REJECTED("PO Cancel Request Rejected",true),
     PO_CANCELLED("PO Cancelled",true),
     PO_DURATION_EXPIRED("PO Duration expired",false),
+    PO_DURATION_EXTENDED("PO Duration extended",false,true),
 
 
     GSRI_STARTED("GSRI Started",false),
@@ -95,4 +96,32 @@ public enum SupplyChainEvents {
     public static List<SupplyChainEvents> getPossibleEvents(SupplyChainEvents currentSupplyChainEvents) {
         return parentSCEvents.get(currentSupplyChainEvents);
     }
+
+    private static List<SupplyChainEvents> invoiceSupplyChainEvents = Arrays.asList(SupplyChainEvents.ADV_INV_SUBMITTED, SupplyChainEvents.ADV_INV_APPROVAL,
+            SupplyChainEvents.ADV_INV_APPROVED, SupplyChainEvents.ADV_INV_REJECTED, SupplyChainEvents.ADV_PAYMENT,
+            SupplyChainEvents.ADV_PAYMENT_COMPLETE, SupplyChainEvents.REG_INV_SUBMITTED, SupplyChainEvents.REG_INV_APPROVAL,
+            SupplyChainEvents.REG_INV_APPROVED, SupplyChainEvents.REG_INV_REJECTED, SupplyChainEvents.REG_INV_PAYMENT,
+            SupplyChainEvents.REG_INV_PAYMENT_COMPLETE);
+
+    public static List<SupplyChainEvents> getInvoiceSupplyChainEvents() {
+        return invoiceSupplyChainEvents;
+    }
+
+    private static List<SupplyChainEvents> poSupplyChainEvents = Arrays.asList(SupplyChainEvents.PO_SUBMITTED, SupplyChainEvents.PO_APPROVAL,
+            SupplyChainEvents.PO_REJECTED, SupplyChainEvents.PO_APPROVED, SupplyChainEvents.PO_SHORTCLOSE_SUBMIT,
+            SupplyChainEvents.PO_SHORTCLOSE_APPROVAL, SupplyChainEvents.PO_SHORTCLOSE_REJECTED, SupplyChainEvents.PO_SHORTCLOSED,
+            SupplyChainEvents.PO_CANCEL_SUBMIT, SupplyChainEvents.PO_CANCEL_APPROVAL, SupplyChainEvents.PO_CANCEL_REJECTED,
+            SupplyChainEvents.PO_CANCELLED, SupplyChainEvents.PO_DURATION_EXPIRED);
+
+    public static List<SupplyChainEvents> getPOSupplyChainEvents() {
+        return poSupplyChainEvents;
+    }
+
+    private static List<SupplyChainEvents> gsriSupplyChainEvents = Arrays.asList(SupplyChainEvents.GSRI_STARTED, SupplyChainEvents.GSRI_REC,
+            SupplyChainEvents.GSRI_INSTALL, SupplyChainEvents.GSRI_COMPLETED);
+
+    public static List<SupplyChainEvents> getGSRISupplyChainEvents() {
+        return gsriSupplyChainEvents;
+    }
+
 }
