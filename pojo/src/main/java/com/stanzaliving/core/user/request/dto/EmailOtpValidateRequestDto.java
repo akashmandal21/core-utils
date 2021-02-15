@@ -21,7 +21,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString(callSuper = true)
-public class EmailOtpValidateRequestDto extends EmailVerificationRequestDto {
+public class EmailOtpValidateRequestDto {
 
 	@NotBlank(message = "OTP cannot be blank")
 	@Size(min = 4, max = 6, message = "OTP must be of 4-6 charaters")
