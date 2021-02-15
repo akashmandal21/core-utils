@@ -30,7 +30,7 @@ public class DealListingDto {
 	private DealType dealType;
 	private DealStatus dealStatus;
 	
-	private boolean mgStatus;
+	private boolean mgDeal;
 	
 	@Builder.Default
 	private int bedCount = 0;

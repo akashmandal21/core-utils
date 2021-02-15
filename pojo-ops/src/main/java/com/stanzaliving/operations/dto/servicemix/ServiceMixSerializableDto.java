@@ -2,6 +2,8 @@ package com.stanzaliving.operations.dto.servicemix;
 
 import java.time.LocalDate;
 
+import com.stanzaliving.core.operations.enums.DealCategory;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,6 +34,11 @@ public class ServiceMixSerializableDto {
 	private LocalDate fromDate;
 	
 	private boolean scheduled;
+	
+	private String dealId;
+	private String dealName;
+	
+	private DealCategory dealCategory;
 	
     private Config config = new Config();
 }

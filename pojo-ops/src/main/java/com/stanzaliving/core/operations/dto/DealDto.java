@@ -28,7 +28,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class B2BDealDto {
+public class DealDto {
 	
 	private String uuid;
 
@@ -40,7 +40,7 @@ public class B2BDealDto {
 
     private DealStatus dealStatus;
 	
-	private boolean mgStatus;
+	private boolean mgDeal;
 	
 	@Builder.Default
 	private Integer mgCount = 0;
