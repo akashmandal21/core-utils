@@ -2,11 +2,13 @@ package com.stanzaliving.wanda.request;
 
 import com.stanzaliving.banner.enumeration.AppPage;
 import com.stanzaliving.wanda.enums.AppPageSection;
+
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
+@Builder
 @Getter
 @Setter
 @ToString
@@ -19,5 +21,7 @@ public class AppScreenConfigDto {
         private int position;
 
         private AppPageSection appPageSection;
+        
+        private boolean status;
 
 }
