@@ -27,5 +27,9 @@ public class AppScreenConfigDto {
         private AppPageSection appPageSection;
         
         private boolean status;
+        
+        private String sectionType;
+        
+        private String sectionName;
 
 }
