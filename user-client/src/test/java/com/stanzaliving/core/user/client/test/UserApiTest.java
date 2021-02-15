@@ -8,8 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -18,6 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.BaseMapperConfig;
 import com.stanzaliving.core.user.dto.UserProfileDto;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author naveen.kumar
@@ -29,7 +29,7 @@ public class UserApiTest {
 
 	private ObjectMapper mapper;
 
-	@Before
+	@BeforeEach
 	public void init() {
 		mapper = BaseMapperConfig.getDefaultMapper();
 	}

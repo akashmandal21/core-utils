@@ -5,7 +5,7 @@ package com.stanzaliving.core.base.utils;
 
 import java.text.ParseException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.google.gson.Gson;
 import com.stanzaliving.core.base.common.dto.DateTimeRangeDto;

@@ -5,10 +5,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import org.hamcrest.CoreMatchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -18,7 +15,7 @@ import com.stanzaliving.documentgenerator.dto.PdfRequestDto;
 
 import lombok.extern.log4j.Log4j2;
 
-@RunWith(MockitoJUnitRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
 @Log4j2
 public class DocumentGeneratorClientApiTest {
 
@@ -28,14 +25,14 @@ public class DocumentGeneratorClientApiTest {
 
 	PdfRequestDto pdfRequestDto = null;
 
-	@Before
+	@BeforeEach
 	public void setupData() {
 		stanzaRestClient = new StanzaRestClient("http://localhost:8086/documentgenerator");
 		clientApi = new DocumentGeneratorClientApi(stanzaRestClient);
 
 	}
 
-	@Test
+	
 	public void test_ProcessHTMLType_Template() {
 		log.info(". . . test_ProcessHTMLType_Template ...");
 		mockTemplateDto = DocumentGeneratorData.getHTMLTemplateDto();
@@ -48,7 +45,7 @@ public class DocumentGeneratorClientApiTest {
 
 	}
 
-	@Test
+	
 	public void test_ProcessFTLType_Template() {
 
 		log.info(". . . test_ProcessFTLType_Template_ ...");
@@ -64,7 +61,7 @@ public class DocumentGeneratorClientApiTest {
 
 	/////////// generate Pdf //////////
 
-	@Test
+	
 	public void test_GeneratePdf_FTL_TemplateType() {
 
 		log.info(". . . test_GeneratePdf_FTL_TemplateType ...");
@@ -86,7 +83,7 @@ public class DocumentGeneratorClientApiTest {
 				CoreMatchers.containsString("test_service1"));
 	}
 
-	@Test
+	
 	public void test_GeneratePdf_HTML_TemplateType() {
 
 		log.info(". . . test_GeneratePdf_HTML_TemplateType ...");
@@ -109,7 +106,7 @@ public class DocumentGeneratorClientApiTest {
 	}
 
 	// test ATL pdf
-	@Test
+	
 	public void test_ATL_Pdf_HTML_TemplateType() {
 
 		log.info("Generate ATL PDF from ATL HTML template.");

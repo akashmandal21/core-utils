@@ -5,9 +5,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Optional;
 
 import javax.servlet.http.Cookie;
-import org.junit.Test;
 
 import com.stanzaliving.core.base.constants.SecurityConstants;
+import org.junit.jupiter.api.Test;
 
 public class SecureCookieUtilTest {
 

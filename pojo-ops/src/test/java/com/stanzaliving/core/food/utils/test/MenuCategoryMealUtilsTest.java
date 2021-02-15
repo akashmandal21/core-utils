@@ -6,11 +6,10 @@ package com.stanzaliving.core.food.utils.test;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
 import com.stanzaliving.core.food.dto.request.FoodMenuCategoryMealDto;
 import com.stanzaliving.core.food.utils.MenuCategoryMealUtils;
 import com.stanzaliving.core.operations.enums.MealType;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author naveen.kumar

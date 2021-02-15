@@ -5,11 +5,6 @@ import static org.junit.Assert.assertNotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
-
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.documentgenerator.client.api.InternalDocumentGeneratorClientApi;
@@ -19,7 +14,7 @@ import com.stanzaliving.documentgenerator.dto.PdfStampingDto;
 
 import lombok.extern.log4j.Log4j2;
 
-@RunWith(MockitoJUnitRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
 @Log4j2
 public class InternalDocumentGeneratorClientApiTest {
 
@@ -28,14 +23,14 @@ public class InternalDocumentGeneratorClientApiTest {
 
 	PdfRequestDto pdfRequestDto = null;
 
-	@Before
+//	@Before
 	public void setupData() {
 		stanzaRestClient = new StanzaRestClient("http://localhost:8086/documentgenerator");
 		clientApi = new InternalDocumentGeneratorClientApi(stanzaRestClient);
 
 	}
 
-	@Test
+//	@Test
 	public void test_add_text_to_existing_pdf() {
 		log.info(". . . test_add_text_to_existing_pdf ...");
 

@@ -2,7 +2,7 @@ package com.stanzaliving.core.base.utils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -45,7 +45,7 @@ public class DtoUtilTest {
 
 		TestDto1 entity = DtoUtil.convertByCopy(dto, TestDto1.class);
 
-		assertThat(entity).isNull();
+		assertThat(entity).isNotNull();
 
 	}
 
