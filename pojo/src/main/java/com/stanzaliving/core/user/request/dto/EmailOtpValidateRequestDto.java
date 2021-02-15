@@ -25,7 +25,7 @@ public class EmailOtpValidateRequestDto extends EmailVerificationRequestDto {
 
 	@NotBlank(message = "OTP cannot be blank")
 	@Size(min = 4, max = 6, message = "OTP must be of 4-6 charaters")
-	@EnsureNumber(message = "OTP must contain only numbers", fieldName = "OTP")
+	@EnsureNumber(message = "OTP must contain only numbers", fieldName = "otp")
 	private String otp;
 	
 	@NotBlank(message = "user UUID is Mandatory for Email Verification By Otp And Updating the user details")
