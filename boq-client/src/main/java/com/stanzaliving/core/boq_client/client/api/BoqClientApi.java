@@ -11,6 +11,7 @@ import java.util.Map;
 import com.stanzaliving.core.boq_service.dtos.PoResponseDto;
 import com.stanzaliving.core.boq_service.dtos.PropertyBoqDetailDto;
 import com.stanzaliving.grn.GSRIReportAccessLevel;
+import com.stanzaliving.grn.GSRIReportRequest;
 import com.stanzaliving.grn.GSRITuple;
 import com.stanzaliving.transformations.enums.BoqStatus;
 import com.stanzaliving.transformations.pojo.PropertyBoqStatusDto;
@@ -265,7 +266,7 @@ public class BoqClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, poReturnType);
     }
 
-    public ResponseDto<List<GSRITuple>> getBOQQuantityForGSRIReport(String propertyUuid, GSRIReportAccessLevel gsriReportAccessLevel, List<GSRITuple> gsriTuples) {
+    public ResponseDto<List<GSRITuple>> getBOQQuantityForGSRIReport(String propertyUuid, GSRIReportAccessLevel gsriReportAccessLevel, GSRIReportRequest gsriReportRequest) {
 
         log.info("HTTP Client call to get BOQ quantity for GSRI report for propertyUuid:{}, accessLevel:{}", propertyUuid, gsriReportAccessLevel);
 
@@ -286,7 +287,7 @@ public class BoqClientApi {
 
         String path = UriComponentsBuilder.fromPath("/internal/boq/get/quantity/{propertyUuid}/{accessLevel}").buildAndExpand(uriVariables).toUriString();
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, gsriTuples, headerParams, accept, vddReturnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, gsriReportRequest, headerParams, accept, vddReturnType);
     }
 
 }

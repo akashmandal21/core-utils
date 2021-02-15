@@ -23,7 +23,7 @@ public class GSRITuple {
 
     private BigDecimal total;
 
-    private BigDecimal recieved;
+    private BigDecimal received;
 
     private BigDecimal returned;
 
