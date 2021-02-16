@@ -161,10 +161,7 @@ public class WandaClientApi {
 	}
 
 	public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId) {
-		return getUserHostelDetails(hostelId, false);
-	}
 
-	public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId, boolean currentHostel) {
 		try {
 			Object postBody = null;
 
@@ -178,7 +175,6 @@ public class WandaClientApi {
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 			queryParams.add("hostelId", hostelId);
-			queryParams.add("currentHostel", String.valueOf(currentHostel));
 
 			final HttpHeaders headerParams = new HttpHeaders();
 
@@ -194,6 +190,7 @@ public class WandaClientApi {
 		}
 
 		return null;
+
 	}
 
 	public List<UserHostelDto> getUserHostelList() {

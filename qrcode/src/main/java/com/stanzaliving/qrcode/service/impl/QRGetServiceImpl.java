@@ -1,20 +1,27 @@
 package com.stanzaliving.qrcode.service.impl;
 
-import com.amazonaws.services.s3.AmazonS3;
-import com.stanzaliving.core.amazons3.service.S3DownloadService;
-import com.stanzaliving.qrcode.dto.GenerateQrResponseDto;
-import com.stanzaliving.qrcode.entity.QRData;
-import com.stanzaliving.qrcode.enums.QRContextType;
-import com.stanzaliving.qrcode.repository.QRDataRepository;
-import com.stanzaliving.qrcode.service.GenerateQrService;
-import com.stanzaliving.qrcode.service.QRGetService;
-import lombok.extern.log4j.Log4j2;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.Objects;
+
+import javax.imageio.ImageIO;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
+import com.amazonaws.services.s3.AmazonS3;
+import com.stanza.qr.generator.QRGeneratorUtility;
+import com.stanzaliving.core.amazons3.service.S3DownloadService;
+import com.stanzaliving.core.amazons3.service.S3UploadService;
+import com.stanzaliving.qrcode.entity.QRData;
+import com.stanzaliving.qrcode.enums.QRContextType;
+import com.stanzaliving.qrcode.repository.QRDataRepository;
+import com.stanzaliving.qrcode.service.QRGetService;
+
+import lombok.extern.log4j.Log4j2;
 
 @Service
 @Log4j2
@@ -24,7 +31,7 @@ public class QRGetServiceImpl implements QRGetService {
 	private QRDataRepository qrDataRepository;
 
 	@Autowired
-	private GenerateQrService generateQrService;
+	private S3UploadService s3UploadService;
 
 	@Autowired
 	private AmazonS3 s3Client;
@@ -57,23 +64,29 @@ public class QRGetServiceImpl implements QRGetService {
 
 			log.info("Generating QR for contextType: {} with contextId: {} and subcontextId: {}", qrContextType, contextId, subContextId);
 
-			String filePath = qrContextType.name();
+			String qrContent = ((Long) System.nanoTime()).toString();
+			BufferedImage image = QRGeneratorUtility.generateQRImageUsingLong(qrContent);
 
 			String fileName = getFileName(contextId, subContextId, qrContextType);
+			String filePath = qrContextType.name();
 
-			GenerateQrResponseDto qrCode = generateQrService.generateQrCode(s3Bucket, filePath, fileName, s3Client);
+			File outputfile = new File("/tmp/" + fileName + ".jpg");
 
-			if (Objects.nonNull(qrCode) && StringUtils.isNotBlank(qrCode.getS3RelativeFilePath())) {
+			ImageIO.write(image, "jpg", outputfile);
 
-				log.info("Generated QR on path: {}", qrCode.getS3RelativeFilePath());
+			String outputFile = s3UploadService.upload(s3Bucket, filePath, fileName, outputfile, MediaType.IMAGE_JPEG_VALUE, s3Client, false);
 
-				QRData qrData = QRData.builder().contextId(contextId).data(qrCode.getQrContent()).qrContextType(qrContextType)
-						.subContextId(subContextId).bucket(s3Bucket).content(data).filePath(qrCode.getS3RelativeFilePath()).fileName(fileName)
+			if (StringUtils.isNotBlank(outputFile)) {
+
+				log.info("Generated QR on path: {}", outputFile);
+
+				QRData qrData = QRData.builder().contextId(contextId).data(qrContent).qrContextType(qrContextType)
+						.subContextId(subContextId).bucket(s3Bucket).content(data).filePath(outputFile).fileName(fileName)
 						.build();
 
 				qrData = qrDataRepository.save(qrData);
 
-				return s3DownloadService.getPreSignedUrl(s3Bucket, qrCode.getS3RelativeFilePath(), 3600, s3Client);
+				return s3DownloadService.getPreSignedUrl(s3Bucket, outputFile, 3600, s3Client);
 			}
 
 			log.warn("Failed to upload file: {} on path: {} on s3", fileName, filePath);

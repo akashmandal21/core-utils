@@ -75,6 +75,4 @@ public class ResidenceUIDto implements Serializable{
 	private CityUIDto cityUIDto;
 
 	private MicroMarketUIDto microMarketUIDto;
-
-	private String parentResidenceId;
 }
