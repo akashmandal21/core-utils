@@ -28,4 +28,6 @@ public class FoodOrderPageResponse {
 	private Date closeTime;
 
 	private Map<String,Map<String,Boolean>> skippable;
+	
+	private Map<String, FoodOrderTiming> foodOrderTiming;
 }

@@ -30,4 +30,8 @@ public class DateWiseFoodMenuDto {
 	private LocalDate menuDate;
 	private boolean disabled;
 	private List<MealWiseMenusDto> mealWiseFoodMenus;
+
+	private Double estimatedCost;
+	private Double budgetedCost;
+
 }
