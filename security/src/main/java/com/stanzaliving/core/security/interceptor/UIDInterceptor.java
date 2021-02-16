@@ -24,8 +24,6 @@ public class UIDInterceptor extends HandlerInterceptorAdapter {
 
         MDC.put(StanzaConstants.GUID, guid);
         MDC.put(StanzaConstants.LUID, luid);
-		MDC.put(StanzaConstants.GUID, guid);
-		MDC.put(StanzaConstants.LUID, luid);
 		MDC.put(StanzaConstants.REQUEST_PATH, request.getRequestURI());
 		MDC.put(StanzaConstants.QUERY_STRING, request.getQueryString());
 		
