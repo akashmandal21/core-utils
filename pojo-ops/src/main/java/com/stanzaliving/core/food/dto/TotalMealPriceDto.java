@@ -22,4 +22,6 @@ public class TotalMealPriceDto implements Serializable {
 
 	private List<MealPriceDto> mealPrices;
 
+	private String mealWiseName;
+
 }
