@@ -30,7 +30,7 @@ public class DealListingDto {
 	private DealType dealType;
 	private DealStatus dealStatus;
 	
-	private boolean mgStatus;
+	private boolean mgDeal;
 	
 	@Builder.Default
 	private int bedCount = 0;
@@ -46,10 +46,10 @@ public class DealListingDto {
 	private String statementOfWorkDocumentUrl;
 
 	@Builder.Default
-	private Long approvedServiceMixCount = 0L;
+	private Integer approvedServiceMixCount = 0;
 
 	@Builder.Default
-	private Long residentOnBoardCount = 0L;
+	private Integer residentOnBoardCount = 0;
 	
 	List<DealServiceMixListingDto> serviceMixDtoList;
 	

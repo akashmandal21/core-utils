@@ -7,6 +7,7 @@ import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,11 +27,13 @@ public class DealServiceMixListingDto {
 	private String versionName;
 	private Long version;
 	private LocalDate fromDate;
+	private LocalDate toDate;
 	private String createdBy;
 	private ServiceMixStatus serviceMixStatus;
 	private String dealUuid;
 	private DealCategory dealCategory;
 	private boolean isDefault;
+	private Long residentOnBoardCount;
 	
 	private List<String> serviceList;
 }
