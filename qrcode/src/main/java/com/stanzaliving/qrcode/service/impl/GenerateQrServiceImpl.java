@@ -42,6 +42,8 @@ public class GenerateQrServiceImpl implements GenerateQrService {
 
 		String qrContent = String.valueOf(System.nanoTime() + StanzaUtils.getRandomNumberBetweenRange(1000, 10000));
 
+		log.info("Generating qr code with content: {}", qrContent);
+
 		BufferedImage image = QRGeneratorUtility.generateQRImage(qrContent);
 
 		File outputFile = File.createTempFile("/tmp/" + fileName, ".jpg");
