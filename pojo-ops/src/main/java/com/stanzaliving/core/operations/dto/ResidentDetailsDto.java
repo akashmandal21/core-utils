@@ -8,6 +8,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @ToString
@@ -24,6 +26,6 @@ public class ResidentDetailsDto {
 	private String serviceMixUuid;
 	private String serviceMixName;
 	private String lastUpdatedBy;
-	private String lastUpdatedAt;
+	private Date lastUpdatedAt;
 
 }

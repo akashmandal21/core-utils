@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 public class ResidenceDetailsDto {
-	
+
 	private String residenceUuid;
 	private String residenceName;
 
