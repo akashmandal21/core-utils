@@ -1,5 +1,6 @@
 package com.stanzaliving.core.operations.dto;
 
+import com.stanzaliving.core.operations.enums.ResidentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class ResidentDetailsDto {
 	private String serviceMixUuid;
 	private String serviceMixName;
 	private String lastUpdatedBy;
+	private ResidentStatus residentStatus;
 	private Date lastUpdatedAt;
 
 }
