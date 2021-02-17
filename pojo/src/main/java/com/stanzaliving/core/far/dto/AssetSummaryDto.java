@@ -1,5 +1,6 @@
 package com.stanzaliving.core.far.dto;
 
+import java.math.BigDecimal;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,5 +14,5 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class AssetSummaryDto {
 	private Long totalAssets;
-	private Long totalAssetsValue;
+	private BigDecimal totalAssetsValue;
 }
