@@ -5,6 +5,7 @@ package com.stanzaliving.core.operations.dto;
 
 import java.time.LocalDate;
 
+import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.core.operations.enums.DealStatus;
 import com.stanzaliving.core.operations.enums.DealType;
 
@@ -39,6 +40,8 @@ public class DealDto {
 	private DealType dealType;
 
 	private DealStatus dealStatus;
+	
+	private DealCategory dealCategory;
 
 	private boolean mgDeal;
 
