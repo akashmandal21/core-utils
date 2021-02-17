@@ -208,7 +208,7 @@ public class CommentClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/internal//get/comment/count").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/get/comment/count").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -223,7 +223,6 @@ public class CommentClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, request, headerParams, accept, returnType);
-
 	}
 
 }
