@@ -1,6 +1,5 @@
 package com.stanzaliving.core.operations.dto;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
