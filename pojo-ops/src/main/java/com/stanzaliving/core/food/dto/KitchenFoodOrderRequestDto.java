@@ -3,6 +3,8 @@ package com.stanzaliving.core.food.dto;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -10,21 +12,12 @@ import java.time.LocalDate;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class KitchenFoodOrderDto {
+public class KitchenFoodOrderRequestDto {
 
 	private String vendorId;
 
-	private String mealType;
-
 	private LocalDate orderDate;
 
-	private KitchenOrderDto breakfast;
-
-	private KitchenOrderDto lunch;
-
-	private KitchenOrderDto snacks;
-
-	private KitchenOrderDto dinner;
-
+	private List<KitchenOrderMealRequestDto> meals;
 
 }
