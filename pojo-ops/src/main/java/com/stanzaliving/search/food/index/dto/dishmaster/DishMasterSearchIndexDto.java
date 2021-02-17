@@ -1,9 +1,7 @@
 package com.stanzaliving.search.food.index.dto.dishmaster;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
-import com.stanzaliving.core.food.dto.TagDto;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.DishRegion;
 import com.stanzaliving.core.food.enums.FoodItemBackgroundColor;
@@ -11,7 +9,6 @@ import com.stanzaliving.core.food.enums.FoodItemTextColor;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
-import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,7 +33,9 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishMasterSearchIndexDto extends AbstractDto {
+public class DishMasterSearchIndexDto extends AbstractSearchIndexDto {
+
+	private static final long serialVersionUID = -978778782827L;
 
 	private String name;
 

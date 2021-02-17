@@ -29,5 +29,5 @@ public class CafeItemPricingResponseDto {
     private long enabledItemCount;
 
     private List<CafeItemPricingUpdateResponseDto> cafeItemsPricingList = new ArrayList<>();
-    ;
+
 }

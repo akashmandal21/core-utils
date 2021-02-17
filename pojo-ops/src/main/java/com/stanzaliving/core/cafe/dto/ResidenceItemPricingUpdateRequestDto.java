@@ -3,6 +3,7 @@ package com.stanzaliving.core.cafe.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 
 /**
@@ -24,6 +25,8 @@ public class ResidenceItemPricingUpdateRequestDto {
 
     private String residenceName;
 
+    @DecimalMin(value = "0.0", inclusive = false, message = "Price should be greater than 0")
+    @NotBlank(message = "Residence wise price is mandatory")
     private Double residencePriceInclGst;
 
     private Double residencePriceExclGst;

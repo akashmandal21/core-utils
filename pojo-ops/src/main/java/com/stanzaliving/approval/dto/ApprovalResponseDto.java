@@ -5,14 +5,15 @@ import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.approval.enums.ApprovalEntityType;
 import com.stanzaliving.approval.enums.ApprovalStatus;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+@Data
 @Getter
 @Setter
 @ToString
