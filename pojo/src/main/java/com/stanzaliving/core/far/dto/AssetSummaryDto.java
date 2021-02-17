@@ -1,11 +1,12 @@
 package com.stanzaliving.core.far.dto;
 
-import java.math.BigDecimal;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.math.BigDecimal;
 
 @Setter
 @Getter

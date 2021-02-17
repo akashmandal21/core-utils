@@ -1,16 +1,15 @@
 package com.stanzaliving.core.far.dto;
 
-import com.stanzaliving.core.far.dto.AllocationDto;
-import com.stanzaliving.core.far.dto.AmcDto;
-import com.stanzaliving.core.far.dto.InsuranceDto;
 import com.stanzaliving.core.far.enums.AssetOwner;
 import com.stanzaliving.core.far.enums.AssetStatus;
 import com.stanzaliving.core.far.enums.AssetType;
+import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -23,21 +22,21 @@ public class AssetDto {
     private AmcDto amcDto;
     private AllocationDto allocationDto;
 
-    private String assetCode;
-    private Integer costPrice;
-    private Long poNumber;
-    private String poType;
+    private String assetId;
+    private BigDecimal costPrice;
+    private String poNumber;
+    private GenericPOType poType;
     private String poUrl;
-    private Long toNumber;
-    private Long grnNumber;
+    private String toNumber;
+    private String grnNumber;
     //private String vendorUuid;
     private String vendorName;
     private Date poDate;
-    private Integer unitRate;
-    private Integer gstPct;
-    private Integer otherFee;
-    private Integer otherFeeTax;
-    private Integer totalCost;
+    private BigDecimal unitRate;
+    private BigDecimal gstPct;
+    private BigDecimal otherFee;
+    private BigDecimal otherFeeTax;
+    private BigDecimal totalCost;
     private String invoiceNumber;
     private Date invoiceDate;
     private String invoiceVendorDocPath;
@@ -51,7 +50,7 @@ public class AssetDto {
     private Date lastAuditedOn;
     private String verifiedBy;
     private String lastAuditedBy;
-    private Long itemsInPackage;
+    private Integer itemsInPackage;
     private String imageWithoutQrCodePath;
     private String imageWithQrCodePath;
     private AssetType assetType;

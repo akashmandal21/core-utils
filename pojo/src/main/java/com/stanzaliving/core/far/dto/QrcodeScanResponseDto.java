@@ -15,7 +15,7 @@ import java.util.Date;
 public class QrcodeScanResponseDto {
 
     private QrCodeStatus qrCodeStatus;
-    private String assetCode;
+    private String assetId;
     private String assetName;
     private String locationName;
     private String qrCode;
