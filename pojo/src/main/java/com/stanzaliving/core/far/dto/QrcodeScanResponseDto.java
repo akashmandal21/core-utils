@@ -1,11 +1,5 @@
 package com.stanzaliving.core.far.dto;
 
-import com.stanzaliving.core.far.dto.AllocationDto;
-import com.stanzaliving.core.far.dto.AmcDto;
-import com.stanzaliving.core.far.dto.InsuranceDto;
-import com.stanzaliving.core.far.enums.AssetOwner;
-import com.stanzaliving.core.far.enums.AssetStatus;
-import com.stanzaliving.core.far.enums.AssetType;
 import com.stanzaliving.core.far.enums.QrCodeStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
