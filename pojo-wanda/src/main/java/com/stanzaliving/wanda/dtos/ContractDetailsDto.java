@@ -34,4 +34,8 @@ public class ContractDetailsDto {
 	private String maintenanceModalTitle;
 	private String subContract2VasPerMonth;
 	private String subContract2ContractPeriod;
+	private String subContract1VasPerMonth;
+	private String subContract1ContractPeriod;
+	
+	
 }
