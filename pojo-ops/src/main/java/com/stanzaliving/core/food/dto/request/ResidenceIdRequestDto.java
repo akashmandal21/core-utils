@@ -1,7 +1,4 @@
-package com.stanzaliving.core.food.dto;
-
-import java.io.Serializable;
-import java.util.List;
+package com.stanzaliving.core.food.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,18 +7,22 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Set;
+
+/**
+ * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
+ *
+ * @version 1.0
+ *
+ * @since 05-Feb-2021
+ */
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TotalMealPriceDto implements Serializable {
-
-	private double totalPrice;
-
-	private List<MealPriceDto> mealPrices;
-
-	private String mealWiseName;
-
+public class ResidenceIdRequestDto {
+	Set<String> residenceIds;
 }
