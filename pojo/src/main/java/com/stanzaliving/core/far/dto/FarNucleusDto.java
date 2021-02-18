@@ -37,5 +37,5 @@ public class FarNucleusDto {
 
     private String lastAuditedBy;
     private String assetStatus;
-    private String taskDueCount;
+    private Integer taskDueCount;
 }
