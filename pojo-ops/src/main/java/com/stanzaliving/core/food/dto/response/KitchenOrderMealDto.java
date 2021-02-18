@@ -4,6 +4,7 @@ import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Getter
@@ -18,6 +19,6 @@ public class KitchenOrderMealDto {
 	private Integer nonStanzaStaffCount;
 	private Double stanzaCost;
 	private Double nonStanzaCost;
-	private LocalTime cutOffTime;
+	private LocalDateTime cutOffTime;
 	private String mealType;
 }
