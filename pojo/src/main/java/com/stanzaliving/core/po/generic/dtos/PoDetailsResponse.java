@@ -69,4 +69,7 @@ public class PoDetailsResponse {
 
     private boolean isAdvanceInPct;
     private BigDecimal advanceTypeValue;
+
+    private String poDownloadUrl;
+    private String poCreatedBy;
 }

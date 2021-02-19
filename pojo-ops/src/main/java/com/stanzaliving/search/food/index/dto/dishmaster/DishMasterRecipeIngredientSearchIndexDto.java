@@ -1,6 +1,5 @@
 package com.stanzaliving.search.food.index.dto.dishmaster;
 
-import com.stanzaliving.search.food.index.dto.ingredient.IngredientSearchIndexDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
