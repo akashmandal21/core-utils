@@ -17,6 +17,8 @@ import java.math.BigDecimal;
 @Setter
 public class GSRIEmailData {
 
+    private boolean isPO;
+
     private String poNumber;
 
     private String poLocation;
