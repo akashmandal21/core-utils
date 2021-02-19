@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ItemDetailDto {
 	private String itemName;
-	private Integer itemQtry;
+	private Integer itemQty;
 	private String itemImg;
 
 }
