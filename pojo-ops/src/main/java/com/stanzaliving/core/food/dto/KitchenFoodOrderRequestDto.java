@@ -19,10 +19,8 @@ public class KitchenFoodOrderRequestDto {
 	@NotBlank(message = "Vendor Id Cannot be blank")
 	private String vendorId;
 
-	@NotBlank(message = "orderDate Id Cannot be blank")
 	private LocalDate orderDate;
 
-	@NotBlank(message = "meals Cannot be blank")
 	@Valid
 	private List<KitchenOrderMealRequestDto> meals;
 
