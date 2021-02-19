@@ -1,5 +1,7 @@
 package com.stanzaliving.wanda.venta.response;
 
+import com.stanzaliving.wanda.venta.enums.ContractType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,9 +19,10 @@ public class AgreementResponseDto {
     private Boolean status;
    
     private String studentName; 
-    private String contractType;
+    private ContractType contractType;
     private String subContract1StartDate;
     private String subContract1EndDate;
-    private String subContract2StartDate;
-    private String subContract2EndDate;
+    private String secondSubContractAgreementSendDate;
+    private String contractText;
+    private String contract2Text;
 }

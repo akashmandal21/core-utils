@@ -1,9 +1,6 @@
 package com.stanzaliving.wanda.response;
 
-import java.util.List;
-
 import com.stanzaliving.wanda.dtos.MonthlyFee;
-import com.stanzaliving.wanda.venta.response.MonthlyFeeDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
