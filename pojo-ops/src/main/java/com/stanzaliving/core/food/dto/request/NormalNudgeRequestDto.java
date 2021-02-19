@@ -28,4 +28,6 @@ public class NormalNudgeRequestDto {
 
   private Boolean type;
 
+  private Boolean mailSendFlag;
+
 }

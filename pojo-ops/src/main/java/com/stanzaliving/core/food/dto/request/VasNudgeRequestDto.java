@@ -25,4 +25,7 @@ public class VasNudgeRequestDto {
 
     private Set<String> orderIds;
 
+	private Boolean mailSendFlag;
+
+
 }
