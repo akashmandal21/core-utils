@@ -1,6 +1,8 @@
 package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.core.food.enums.DishRegion;
 import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -20,5 +22,5 @@ public class KitchenOrderMealDto {
 	private Double stanzaCost;
 	private Double nonStanzaCost;
 	private LocalDateTime cutOffTime;
-	private String mealType;
+	private EnumListing<MealType> mealType;
 }
