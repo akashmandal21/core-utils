@@ -153,7 +153,7 @@ public abstract class TemplateProcessor {
                                                                       Map<String,JsonNode> uiSubmittedDto,
                                                                       ErrorInfo errorInfo, Map<String,Object> additionalData,
                                                                       Object sourceClass, Map<String,Field> fieldMap, boolean allowSkipOnNewFields){
-        log.info("Request to Store Approvals Submitted with validations {} {}",sourceClass,fieldMap);
+        log.info("Request to Store Approvals Submitted with validations"); // {} {}",sourceClass,fieldMap);
 
         Map<String, Templates> templates = getTemplates(templateFilter,templateName);
         return processApproval(uiSubmittedDto,templateName,templates,errorInfo,
