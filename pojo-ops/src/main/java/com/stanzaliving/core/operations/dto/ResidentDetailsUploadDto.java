@@ -13,10 +13,10 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDetailsUploadDto {
+public class ResidentDetailsUploadDto {
 	
-	private String userId;
-	private String residenceId;
+	private String residentCode;
+	private String residenceUuid;
 	private String reason;
 
 }
