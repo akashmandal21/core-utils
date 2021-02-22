@@ -25,7 +25,6 @@ public enum DateFormat {
 	DD_MMM("dd MMM"),
 	MMM("MMM"),
 	DD_MMM_YY("dd MMM''YY"),
-	DD_MMM_YY1("dd MMM''YY"),
 	DD_MMM_YY2("dd MMM YY"),
 	DD_MMM_YY_HH_MM("dd MMM''YY HH:mm"),
 	D_DD_MMM_YY("EEE, dd MMM''yy"),
