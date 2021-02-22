@@ -10,12 +10,12 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @ToString
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
-public class ResidenceDetailsDto {
-
-	private String residenceUuid;
-	private String residenceName;
+public class DealDetailsDto {
+	
+	private String dealUuid;
+	private String dealName;
 
 }

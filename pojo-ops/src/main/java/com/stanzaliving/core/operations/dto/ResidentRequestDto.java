@@ -8,7 +8,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.util.Date;
+import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,16 +17,13 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class ResidentDetailsRequestDto {
+public class ResidentRequestDto {
 
+	@NotBlank(message = "Deal is Mandatory")
 	private String dealUuid;
 	private String residenceUuid;
 	private String serviceMixUuid;
-	private String residentCode;
+	private List<ResidentStatus> residentStatus;
+	private String residentUuid;
 	private String residentName;
-	private ResidentStatus residentStatus;
-	private String lastUpdatedBy;
-	private Date lastUpdatedAt;
-	
-
 }

@@ -7,15 +7,18 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class ResidenceDetailsDto {
+public class ServiceMixResidenceDto {
 
-	private String residenceUuid;
-	private String residenceName;
+	List<ResidenceDetailsDto> residenceDetailsDtoList;
+	List<ServiceMixDetailsDto> serviceMixDetailsDtoList;
+
 
 }
