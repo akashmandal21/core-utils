@@ -29,6 +29,7 @@ public enum GSTSlabs {
         sortedGstSlabs.add(ZERO);
         sortedGstSlabs.add(FIVE);
         sortedGstSlabs.add(TWELEVE);
+        sortedGstSlabs.add(FOURTEEN);
         sortedGstSlabs.add(EIGHTEEN);
         sortedGstSlabs.add(TWENTY_EIGHT);
     }
@@ -44,6 +45,7 @@ public enum GSTSlabs {
             case 0: return ZERO;
             case 5: return FIVE;
             case 12: return TWELEVE;
+            case 14: return FOURTEEN;
             case 18: return EIGHTEEN;
             case 28: return TWENTY_EIGHT;
             default:
