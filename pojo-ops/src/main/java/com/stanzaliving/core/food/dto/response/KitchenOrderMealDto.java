@@ -21,6 +21,6 @@ public class KitchenOrderMealDto {
 	private Integer nonStanzaStaffCount;
 	private Double stanzaCost;
 	private Double nonStanzaCost;
-	private LocalDateTime cutOffTime;
+	private String cutOffTime;
 	private EnumListing<MealType> mealType;
 }
