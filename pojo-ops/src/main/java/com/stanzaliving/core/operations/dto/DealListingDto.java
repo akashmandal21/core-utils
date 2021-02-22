@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.core.operations.enums.DealStatus;
 import com.stanzaliving.core.operations.enums.DealType;
 
@@ -29,6 +30,7 @@ public class DealListingDto {
 	private String dealName;
 	private DealType dealType;
 	private DealStatus dealStatus;
+	private DealCategory dealCategory;
 	
 	private boolean mgDeal;
 	
