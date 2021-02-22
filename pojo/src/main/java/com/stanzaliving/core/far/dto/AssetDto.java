@@ -1,6 +1,5 @@
 package com.stanzaliving.core.far.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.far.enums.AssetOwner;
 import com.stanzaliving.core.far.enums.AssetStatus;
@@ -13,6 +12,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -55,8 +55,8 @@ public class AssetDto {
     private String verifiedBy;
     private String lastAuditedBy;
     private Integer itemsInPackage;
-    private String imageWithoutQrCodePath;
-    private String imageWithQrCodePath;
+    private List<String> imageWithoutQrCodePath;
+    private List<String> imageWithQrCodePath;
     private AssetType assetType;
     private String qrCode; // is from QrCode Table
     private String itemUuid;
