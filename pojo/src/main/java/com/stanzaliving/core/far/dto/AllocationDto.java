@@ -1,5 +1,6 @@
 package com.stanzaliving.core.far.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.far.enums.AssetAllocatedTo;
 import com.stanzaliving.core.far.enums.AssetLocatedIn;
 import com.stanzaliving.core.far.enums.OtherArea;
@@ -13,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AllocationDto {
     private String addressUuid; // todo - Call transformation_master with addressUuid - It will return microMarketUuid & cityUuid
     private String microMarketUuid;

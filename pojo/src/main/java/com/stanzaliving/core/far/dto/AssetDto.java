@@ -1,5 +1,7 @@
 package com.stanzaliving.core.far.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.far.enums.AssetOwner;
 import com.stanzaliving.core.far.enums.AssetStatus;
 import com.stanzaliving.core.far.enums.AssetType;
@@ -16,11 +18,13 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AssetDto {
 
     private InsuranceDto insuranceDto;
     private AmcDto amcDto;
     private AllocationDto allocationDto;
+    private ItemDto itemDto;
 
     private String assetId;
     private BigDecimal costPrice;

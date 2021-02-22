@@ -1,5 +1,6 @@
 package com.stanzaliving.core.far.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.far.enums.InsuranceType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class InsuranceDto {
     private InsuranceType insuranceType;
     private String insuranceCompany;
