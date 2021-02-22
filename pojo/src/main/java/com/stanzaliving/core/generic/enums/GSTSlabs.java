@@ -15,6 +15,7 @@ public enum GSTSlabs {
     ZERO("0 %",0.0),
     FIVE("05 %",5.0),
     TWELEVE("12 %",12.0),
+    FOURTEEN("14 %", 14.0),
     EIGHTEEN("18 %",18.0),
     TWENTY_EIGHT("28 %",28.0);
     private String fieldTypeText;
