@@ -1,13 +1,12 @@
 package com.stanzaliving.core.opscalculator.dto.summary;
 
-import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @AllArgsConstructor
@@ -31,4 +30,5 @@ public class MonthlyUnderwrittenViewSummaryDto {
     private String approvalStatus;
     private String bgColorCode;
     private String textColorCode;
+    private LocalDate editFromDate;
 }
