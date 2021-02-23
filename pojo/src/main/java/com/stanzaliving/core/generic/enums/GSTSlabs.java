@@ -15,6 +15,7 @@ public enum GSTSlabs {
     ZERO("0 %",0.0),
     FIVE("05 %",5.0),
     TWELEVE("12 %",12.0),
+    FOURTEEN("14 %", 14.0),
     EIGHTEEN("18 %",18.0),
     TWENTY_EIGHT("28 %",28.0);
     private String fieldTypeText;
@@ -28,6 +29,7 @@ public enum GSTSlabs {
         sortedGstSlabs.add(ZERO);
         sortedGstSlabs.add(FIVE);
         sortedGstSlabs.add(TWELEVE);
+        sortedGstSlabs.add(FOURTEEN);
         sortedGstSlabs.add(EIGHTEEN);
         sortedGstSlabs.add(TWENTY_EIGHT);
     }
@@ -43,6 +45,7 @@ public enum GSTSlabs {
             case 0: return ZERO;
             case 5: return FIVE;
             case 12: return TWELEVE;
+            case 14: return FOURTEEN;
             case 18: return EIGHTEEN;
             case 28: return TWENTY_EIGHT;
             default:
