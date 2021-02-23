@@ -4,6 +4,7 @@
 package com.stanzaliving.core.operations.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.core.operations.enums.DealStatus;
@@ -32,12 +33,17 @@ import lombok.experimental.SuperBuilder;
 public class DealDto {
 
 	private String uuid;
+	
+	private String dealCode;
 
-	private String residenceUuid;
+	private List<String> residenceUuid;
 
 	private String dealName;
 
 	private DealType dealType;
+	
+	@Builder.Default
+	private DealCategory dealCategory = DealCategory.B2B;
 
 	private DealStatus dealStatus;
 	
