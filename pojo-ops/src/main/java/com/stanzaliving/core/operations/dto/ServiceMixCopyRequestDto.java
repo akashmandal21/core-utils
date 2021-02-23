@@ -2,6 +2,8 @@ package com.stanzaliving.core.operations.dto;
 
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.operations.enums.DealCategory;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,5 +27,7 @@ public class ServiceMixCopyRequestDto {
 	
 	@NotNull(message = "destinationResidenceUuid can't be null")
 	private String destinationResidenceUuid;
-	
+
+	@NotNull(message = "dealCategory can't be null")
+	private DealCategory dealCategory;
 }
