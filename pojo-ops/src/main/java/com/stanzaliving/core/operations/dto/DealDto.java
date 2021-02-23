@@ -46,6 +46,8 @@ public class DealDto {
 	private DealCategory dealCategory = DealCategory.B2B;
 
 	private DealStatus dealStatus;
+	
+	private DealCategory dealCategory;
 
 	private boolean mgDeal;
 
