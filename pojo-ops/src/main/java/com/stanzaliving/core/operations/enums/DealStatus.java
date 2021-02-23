@@ -4,6 +4,7 @@
 package com.stanzaliving.core.operations.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * @author manish.pareek
@@ -12,6 +13,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public enum DealStatus {
     UNDER_DRAFT("Under Draft"), 
     SUBMITTED("Submitted"), 

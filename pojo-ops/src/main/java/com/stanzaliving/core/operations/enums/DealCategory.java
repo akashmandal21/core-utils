@@ -8,12 +8,14 @@ package com.stanzaliving.core.operations.enums;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public enum DealCategory {
 
 	B2B("B2B Deal"),
