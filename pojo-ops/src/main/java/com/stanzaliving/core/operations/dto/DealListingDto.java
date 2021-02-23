@@ -28,9 +28,12 @@ public class DealListingDto {
 	private String uuid;
 	private String residenceUuid;
 	private String dealName;
+	private String dealDisplayName;
 	private DealType dealType;
 	private DealStatus dealStatus;
 	private DealCategory dealCategory;
+	private String residenceBrand;
+	private String residenceEstateGender;
 	
 	private boolean mgDeal;
 	
@@ -52,6 +55,10 @@ public class DealListingDto {
 
 	@Builder.Default
 	private Integer residentOnBoardCount = 0;
+
+	private boolean stabilizeUnderWrite;
+	private boolean annualOperatingPlan;
+	private boolean monthlyForecast;
 	
 	List<DealServiceMixListingDto> serviceMixDtoList;
 	

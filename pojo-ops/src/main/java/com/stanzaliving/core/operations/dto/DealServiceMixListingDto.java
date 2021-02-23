@@ -1,8 +1,10 @@
 package com.stanzaliving.core.operations.dto;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
+import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 
@@ -30,10 +32,14 @@ public class DealServiceMixListingDto {
 	private LocalDate toDate;
 	private String createdBy;
 	private ServiceMixStatus serviceMixStatus;
+	private ApprovalStatus approvalStatus;
 	private String dealUuid;
 	private DealCategory dealCategory;
 	private boolean isDefault;
 	private Long residentOnBoardCount;
+	
+	private Date serviceMixApprovedOn;
+	private String approvalPendingBy;
 	
 	private List<String> serviceList;
 }
