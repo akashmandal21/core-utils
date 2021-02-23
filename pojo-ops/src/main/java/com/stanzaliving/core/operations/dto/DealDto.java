@@ -41,9 +41,6 @@ public class DealDto {
 	private String dealName;
 
 	private DealType dealType;
-	
-	@Builder.Default
-	private DealCategory dealCategory = DealCategory.B2B;
 
 	private DealStatus dealStatus;
 	
