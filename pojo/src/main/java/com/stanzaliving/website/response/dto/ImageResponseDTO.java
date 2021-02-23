@@ -36,4 +36,6 @@ public class ImageResponseDTO {
 	private String altTag;
 	private List<EnumListing<ImageTags>> imageTag;
 	private boolean featuredImage;
+	private String imageUrlAltTag;
+	private List<String> imageUrlAltTagList;
 }
