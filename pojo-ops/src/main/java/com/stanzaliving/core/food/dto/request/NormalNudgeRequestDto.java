@@ -26,7 +26,7 @@ public class NormalNudgeRequestDto {
 
   private Set<String> residenceIds;
 
-  private Boolean type;
+  private Boolean optional;
 
   private Boolean mailSendFlag;
 
