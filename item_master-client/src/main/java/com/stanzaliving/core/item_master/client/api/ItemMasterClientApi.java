@@ -432,7 +432,7 @@ public class ItemMasterClientApi {
 		queryParams.add("itemUuid", itemUuid);
 		queryParams.add("cityUuid", cityUuid);
 
-		String path = UriComponentsBuilder.fromPath("/internal/details/get/item/and/rate}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/details/get/item/and/rate").buildAndExpand(uriVariables).toUriString();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
