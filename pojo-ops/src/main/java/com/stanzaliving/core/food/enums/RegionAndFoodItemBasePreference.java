@@ -74,7 +74,9 @@ public enum RegionAndFoodItemBasePreference {
 			value.append(foodItemBasePreference);
 
 			RegionAndFoodItemBasePreference regionAndFoodItemBasePreference =  regionAndPreferenceCodeMap.get(value.toString());
-			return regionAndFoodItemBasePreference.label;
+			if(Objects.nonNull(regionAndFoodItemBasePreference)) {
+				return regionAndFoodItemBasePreference.label;
+			}
 		}
 
 		return null;
