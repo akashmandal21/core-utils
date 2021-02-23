@@ -1,5 +1,6 @@
 package com.stanzaliving.core.pojo;
 
+import com.sendgrid.Attachments;
 import com.sendgrid.Personalization;
 import com.stanzaliving.core.base.utils.StanzaUtils;
 import lombok.*;
@@ -9,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -29,6 +31,7 @@ public class NewEmailDto {
     private List<EmailAttachmentDto> htmlAttachment;
     private Personalization personalization;
     private List<AttachmentDto> attachments;
+    private List<Attachments> sendGridAttachment;
 
     public String[] getTo() {
         return removeWhiteSpaces(to);

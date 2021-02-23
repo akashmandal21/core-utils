@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import com.sendgrid.Attachments;
 import com.sendgrid.Personalization;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -45,6 +46,7 @@ public class EmailDto {
 	private Map<String, String> attachment;
 	private Personalization personalization;
 	private List<AttachmentDto> attachments;
+	private List<Attachments> sendGridAttachment;
 	
 	public String[] getTo() {
 		return removeWhiteSpaces(to);
