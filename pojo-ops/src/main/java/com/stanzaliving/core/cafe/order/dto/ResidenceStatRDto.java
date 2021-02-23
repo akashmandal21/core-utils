@@ -1,5 +1,6 @@
 package com.stanzaliving.core.cafe.order.dto;
 
+import com.stanzaliving.core.cafe.order.constants.OrderStatus;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -21,4 +22,6 @@ public class ResidenceStatRDto {
     private Map<LocalDate, Map<LocalTime, List<ResidenceSlotStatRDto>>> slots;
     private LocalTime nextSlot;
     private boolean pending;
+    private Map<OrderStatus, Integer> statusWiseCount;
+
 }
