@@ -74,7 +74,13 @@ public enum EstateStatus {
 	CALLBACK_TO_UNDER_DRAFT("Call Back Request For Under Draft"),
 	CALLBACK_TO_L1_APPROVED("Callback Request To L1"),
 	CALLBACK_APPROVED("Call Back Request Approved"),
-	CALLBACK_DECLINE("Call Back Request Declined");
+	CALLBACK_DECLINE("Call Back Request Declined"),
+	
+	//Sales status
+	PENDING_SALES_REVIEW("Pending Sales Review"),
+	SENT_BACK_BY_SALES("Sent back by Sales"),
+	ONBOARDING_IN_PROGRESS("Onboarding in Progress");
+	
 	
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
