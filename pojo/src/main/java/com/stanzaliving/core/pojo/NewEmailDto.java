@@ -32,6 +32,7 @@ public class NewEmailDto {
     private Personalization personalization;
     private List<AttachmentDto> attachments;
     private List<Attachments> sendGridAttachment;
+    private String templateId;
 
     public String[] getTo() {
         return removeWhiteSpaces(to);
