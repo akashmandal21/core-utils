@@ -1,8 +1,10 @@
 package com.stanzaliving.core.operations.dto;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Map;
 
+import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 
@@ -21,31 +23,41 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 public class ServiceMixDto extends AbstractDto {
-	
+
 	private String residenceId;
-	
+
 	private String cityId;
 
 	private String micromarketId;
-	
+
 	private String versionName;
-	
+
 	private Long version;
-	
+
 	private LocalDate fromDate;
-	
-    private Map<String, Object> config;
 
-    private String seasonUuid;
+	private Map<String, Object> config;
 
-    private String seasonName;
+	private String seasonUuid;
 
-    private LocalDate seasonFromDate;
+	private String seasonName;
 
-    private LocalDate seasonToDate;
+	private LocalDate seasonFromDate;
 
-    private ServiceMixStatus serviceMixStatus;
-    
-    private String transformationChangeUuid;
-	
+	private LocalDate seasonToDate;
+
+	private ServiceMixStatus serviceMixStatus;
+
+	private String transformationChangeUuid;
+
+	private boolean isDefault;
+
+	private Long residentOnBoardCount;
+
+	private Date serviceMixApprovedOn;
+
+	private ApprovalStatus approvalStatus;
+
+	private String approvalPendingBy;
+
 }
