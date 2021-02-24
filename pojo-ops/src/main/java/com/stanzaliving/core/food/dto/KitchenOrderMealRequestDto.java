@@ -22,12 +22,12 @@ import lombok.ToString;
 public class KitchenOrderMealRequestDto {
 
 	@Min(value = 0, message = "Stanza staff count must be greater than equal to 0")
-	@Max(value = 999, message = "Stanza staff count must be less than equal to 999")
+	@Max(value = 100, message = "Stanza staff count must be less than equal to 100")
 	@NotNull(message = "Stanza staff count must be greater than equal to 0")
 	private Integer stanzaStaffCount;
 
 	@Min(value = 0, message = "Non stanza staff count must be greater than equal to 0")
-	@Max(value = 999, message = "Non stanza staff count must be less than equal to 999")
+	@Max(value = 100, message = "Non stanza staff count must be less than equal to 100")
 	@NotNull(message = "Non stanza staff count must be greater than equal to 0")
 	private Integer nonStanzaStaffCount;
 
