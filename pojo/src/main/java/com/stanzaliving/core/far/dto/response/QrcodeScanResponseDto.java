@@ -1,4 +1,4 @@
-package com.stanzaliving.core.far.dto;
+package com.stanzaliving.core.far.dto.response;
 
 import com.stanzaliving.core.far.enums.QrCodeStatus;
 import lombok.AllArgsConstructor;

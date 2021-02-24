@@ -1,7 +1,6 @@
-package com.stanzaliving.core.far.dto;
+package com.stanzaliving.core.far.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.stanzaliving.core.far.enums.AmcType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,8 +13,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AmcDto {
-    private AmcType amcType;
+public class AmcResponseDto {
+    private String amcType;
     private String vendorName;
     private Date amcStartDate;
     private Date amcEndDate;
