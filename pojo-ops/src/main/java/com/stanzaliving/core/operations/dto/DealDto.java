@@ -4,6 +4,7 @@
 package com.stanzaliving.core.operations.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.stanzaliving.core.operations.enums.DealCategory;
@@ -33,10 +34,6 @@ import lombok.experimental.SuperBuilder;
 public class DealDto {
 
 	private String uuid;
-	
-	private String dealCode;
-
-	private List<String> residenceUuid;
 
 	private String dealName;
 
@@ -51,6 +48,8 @@ public class DealDto {
 
 	@Builder.Default
 	private Integer mgCount = 0;
+	
+	private List<DealResidenceBedMappingDto> dealResidenceBedMappingDto;
 
 	private String pocName;
 
@@ -58,9 +57,9 @@ public class DealDto {
 
 	private String pocEmail;
 
-	private LocalDate dealFromDate;
+	private LocalDate dealStartDate;
 
-	private LocalDate dealToDate;
+	private LocalDate dealEndDate;
 
 	private LocalDate dealCreatedAtVenta;
 
