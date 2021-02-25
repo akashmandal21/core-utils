@@ -63,4 +63,20 @@ public enum RegionAndFoodItemBasePreference {
 
 		return null;
 	}
+
+	public static String getThaliName(FoodRegion foodRegion, FoodItemBasePreference foodItemBasePreference) {
+
+		if (Objects.nonNull(foodRegion) && Objects.nonNull(foodItemBasePreference)) {
+
+			StringBuilder value = new StringBuilder();
+			value.append(foodRegion);
+			value.append("_");
+			value.append(foodItemBasePreference);
+
+			RegionAndFoodItemBasePreference regionAndFoodItemBasePreference =  regionAndPreferenceCodeMap.get(value.toString());
+			return regionAndFoodItemBasePreference.label;
+		}
+
+		return null;
+	}
 }
