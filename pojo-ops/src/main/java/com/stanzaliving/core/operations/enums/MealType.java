@@ -27,12 +27,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MealType {
 
-	BREAKFAST(1, "Breakfast", 1, "https://res.cloudinary.com/stanza-living/image/upload/v1604332446/food/meals/Indian_Combo.png","B"),
-	LUNCH(2, "Lunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png","L"),
-	EVENING_SNACKS(3, "Evening Snacks", 5, "https://res.cloudinary.com/stanza-living/image/upload/v1604332760/food/meals/Evening_Snacks.png","S"),
-	DINNER(4, "Dinner", 6, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png","D"),
-	BRUNCH(5, "Brunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/v1604331332/food/meals/Breakfast_Veg.png","Br"),
-	LUNCH_TIFFIN(6, "Lunch Tiffin", 4, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png","T");
+	BREAKFAST(1, "Breakfast", 1, "https://res.cloudinary.com/stanza-living/image/upload/v1604332446/food/meals/Indian_Combo.png", "B"),
+	LUNCH(2, "Lunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "L"),
+	EVENING_SNACKS(3, "Evening Snacks", 5, "https://res.cloudinary.com/stanza-living/image/upload/v1604332760/food/meals/Evening_Snacks.png", "S"),
+	DINNER(4, "Dinner", 6, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "D"),
+	BRUNCH(5, "Brunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/v1604331332/food/meals/Breakfast_Veg.png", "Br"),
+	LUNCH_TIFFIN(6, "Lunch Tiffin", 4, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "T");
 
 	private Integer mealId;
 
@@ -74,12 +74,12 @@ public enum MealType {
 		mealMapByTypeStr.put(BRUNCH.toString(), BRUNCH.getMealName());
 		mealMapByTypeStr.put(EVENING_SNACKS.toString(), EVENING_SNACKS.getMealName());
 		mealMapByTypeStr.put(DINNER.toString(), DINNER.getMealName());
-		
+
 		firstHalfMealsSet.add(BREAKFAST);
 		firstHalfMealsSet.add(BRUNCH);
 		firstHalfMealsSet.add(LUNCH);
 		firstHalfMealsSet.add(LUNCH_TIFFIN);
-		
+
 		secondHalfMealsSet.add(EVENING_SNACKS);
 		secondHalfMealsSet.add(DINNER);
 	}
@@ -101,7 +101,7 @@ public enum MealType {
 	public static Map<String, String> getMealMapByTypeStr() {
 		return mealMapByTypeStr;
 	}
-	
+
 	public static String getMealName(String mealId) {
 
 		if (mealMapById.containsKey(StanzaParseUtils.getIntValue(mealId))) {
@@ -126,20 +126,24 @@ public enum MealType {
 	public static List<EnumListing<MealType>> getMealListing() {
 		return enumListings;
 	}
-	
+
 	public static Set<MealType> getFirstHalfMeals() {
 		return firstHalfMealsSet;
 	}
-	
+
 	public static Set<MealType> getSecondHalfMeals() {
 		return secondHalfMealsSet;
 	}
-	
+
 	public static boolean isFirstHalfMeal(MealType mealType) {
 		return firstHalfMealsSet.contains(mealType);
 	}
-	
+
 	public static boolean isSecondHalfMeal(MealType mealType) {
 		return secondHalfMealsSet.contains(mealType);
+	}
+
+	public static boolean isMealApplicableForKitchenOrder(MealType mealType) {
+		return BREAKFAST == mealType || LUNCH == mealType || EVENING_SNACKS == mealType || DINNER == mealType;
 	}
 }
