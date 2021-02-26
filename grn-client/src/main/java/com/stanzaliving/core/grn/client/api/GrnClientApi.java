@@ -1,5 +1,6 @@
 package com.stanzaliving.core.grn.client.api;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.po.enums.EventType;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
+import com.stanzaliving.core.po.generic.dtos.GenericPoUpdate;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import com.stanzaliving.grn.GSRIReceivedQuantity;
 import com.stanzaliving.grn.GrnQuantity;
@@ -146,4 +148,22 @@ public class GrnClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+    public ResponseDto<Void> updatePoEndDate(GenericPoUpdate poUpdate) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/updatePoEndDate").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, poUpdate, headerParams, accept, returnType);
+    }
 }

@@ -41,6 +41,7 @@ public enum DateFormat {
 	MMM_YY("MMM, yy"),
 	MMM_YY2("MMM''yy"),
 	DD_MMM_YYYY_H_MM_A("dd MMM yyyy h:mm a"),
+	DD_MMM_YY_H_MM_A1("dd MMM''YY, h:mm a"),
 	H_MM_A("h:mm a"),
 	FRESHDESK_DATE_FORMAT("yyyy-MM-dd'T'HH:mm:ssXXX"),
 	YYYY_MM_DD_T_HH_MM_SSXXX("yyyy-MM-dd'T'HH:mm:ssXXX"),
