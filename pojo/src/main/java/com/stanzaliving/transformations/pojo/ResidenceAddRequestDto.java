@@ -62,4 +62,6 @@ public class ResidenceAddRequestDto {
 	private String estateUuid;
 
 	private String phoenixPropertyUuid;
+
+	private String parentResidenceId;
 }
