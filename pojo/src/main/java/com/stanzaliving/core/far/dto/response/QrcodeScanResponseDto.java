@@ -19,6 +19,7 @@ public class QrcodeScanResponseDto {
     private String assetName;
     private String locationName;
     private String qrCode;
+    private String qrCodeId;
     private Date addedOn;
     private String addedBy;
     private Date discardedOn;
