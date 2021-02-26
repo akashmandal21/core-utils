@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 
 import lombok.AllArgsConstructor;
@@ -59,5 +60,11 @@ public class ServiceMixDto extends AbstractDto {
 	private ApprovalStatus approvalStatus;
 
 	private String approvalPendingBy;
+	
+	private String dealDisplayName;
+	
+	private String dealUuid;
+	
+	private DealCategory dealCategory;
 
 }
