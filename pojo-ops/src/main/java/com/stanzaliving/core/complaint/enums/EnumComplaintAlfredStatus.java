@@ -13,6 +13,7 @@ public enum EnumComplaintAlfredStatus {
 	IN_PROGRESS("In Progress"),
 	OPEN("Open"),
 	RESOLVED("Resolved"),
+	CLOSED("Closed"),
 	WAITING_FOR_DETAILS("Waiting for Details"),
 	HOLD("Hold"),
 	REOPEN("Reopen"),

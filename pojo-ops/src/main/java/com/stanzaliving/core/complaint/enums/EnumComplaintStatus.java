@@ -20,7 +20,7 @@ public enum EnumComplaintStatus {
 	OPEN(2, "Open", EnumComplaintAlfredStatus.OPEN),
 	PENDING(3, "Pending", EnumComplaintAlfredStatus.IN_PROGRESS),
 	RESOLVED(4, "Resolved", EnumComplaintAlfredStatus.RESOLVED),
-	CLOSED(5, "Closed", EnumComplaintAlfredStatus.RESOLVED),
+	CLOSED(5, "Closed", EnumComplaintAlfredStatus.CLOSED),
 	WAITING_ON_CUSTOMER(6, "Waiting on Customer", EnumComplaintAlfredStatus.WAITING_FOR_DETAILS),
 	PENDING_WITH_GROUND_OPS(7, "Pending with Ground Ops", EnumComplaintAlfredStatus.IN_PROGRESS),
 	HOLD(9, "Hold", EnumComplaintAlfredStatus.HOLD),
