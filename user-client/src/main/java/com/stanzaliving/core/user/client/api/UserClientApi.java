@@ -491,7 +491,7 @@ public class UserClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("userUuid", userUuid);
-		queryParams.addAll("roleName", roleName);
+		queryParams.add("roleName", roleName.toString());
 		
 		final HttpHeaders headerParams = new HttpHeaders();
 
