@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.ToString;
 import lombok.Setter;
@@ -24,8 +26,5 @@ public class ShortageEmailTemplateDto {
 	private String residenceMenuId;
 	private String menuDate;
 	
-	private MealAndContainterCountDto vegCount;
-	private MealAndContainterCountDto nonVegCount;
-	private MealAndContainterCountDto nonSlStaffCount;
-	private MealAndContainterCountDto slStaffCount;
+	private List<MealAndContainterCountDto> shortages;
 }
