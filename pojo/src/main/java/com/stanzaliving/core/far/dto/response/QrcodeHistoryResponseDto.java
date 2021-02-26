@@ -18,5 +18,5 @@ public class QrcodeHistoryResponseDto {
     private Long countOfQRGenerated;
     private Date generatedOn;
     private String docLink;
-    private boolean isPdfGenerated;
+    private String qrcodePdfGenerationStatus;
 }
