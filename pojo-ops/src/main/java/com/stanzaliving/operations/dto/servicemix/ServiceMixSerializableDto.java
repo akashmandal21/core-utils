@@ -35,8 +35,7 @@ public class ServiceMixSerializableDto {
 
 	private boolean scheduled;
 
-	private String dealId;
-	private String dealName;
+	private String dealUuid;
 
 	private DealCategory dealCategory;
 
