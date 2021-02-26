@@ -25,5 +25,5 @@ public class EndUserEligblePromotions {
 	private AppPage appPage;
 	
 	@Default
-	private Map<PageSection, SectionTypeAndPromotions> pageSectionMap = new HashMap<>();
+	private Map<PageSection, AppPageSectionInstanceMap> instanceMap = new HashMap<>();
 }
