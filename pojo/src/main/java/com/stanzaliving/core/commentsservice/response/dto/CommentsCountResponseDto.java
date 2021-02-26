@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
+
 @Builder
 @Getter
 @ToString
@@ -24,5 +26,7 @@ public class CommentsCountResponseDto {
 	private String subContextId;
 
 	private Integer count;
+
+	private Date lastCommentedOn;
 
 }
