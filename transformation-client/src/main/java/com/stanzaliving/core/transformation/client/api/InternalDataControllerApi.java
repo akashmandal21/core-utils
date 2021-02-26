@@ -806,7 +806,7 @@ public class InternalDataControllerApi {
 			final Map<String, Object> uriVariables = new HashMap<>();
 			uriVariables.put("cityUuid", cityUuid);
 
-			String path = UriComponentsBuilder.fromPath("/micromarket/list/{cityUuid}").buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("internal/micromarket/list/{cityUuid}").buildAndExpand(uriVariables).toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -836,7 +836,7 @@ public class InternalDataControllerApi {
 			final Map<String, Object> uriVariables = new HashMap<>();
 			uriVariables.put("micromarketUuid", micromarketUuid);
 
-			String path = UriComponentsBuilder.fromPath("/residence/get/micromarket/{micromarketUuid}").buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("internal/get/residences/by/micromarketuuid/{micromarketUuid}").buildAndExpand(uriVariables).toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
