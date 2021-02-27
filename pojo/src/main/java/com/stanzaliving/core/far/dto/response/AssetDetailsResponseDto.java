@@ -24,6 +24,7 @@ public class AssetDetailsResponseDto {
     private AllocationResponseDto allocationResponseDto;
     private ItemDto itemDto;
 
+    private String assetUuid;
     private String assetId;
     private BigDecimal costPrice;
     private String poNumber;
@@ -48,6 +49,8 @@ public class AssetDetailsResponseDto {
     private String itemCode;
     private String owner;
     private String landlordName;
+    private Date addedOn;
+    private String addedBy;
     private Date verifiedOn;
     private Date lastAuditedOn;
     private String verifiedBy;
@@ -66,4 +69,8 @@ public class AssetDetailsResponseDto {
     private String serialNumber;
     private String assetCondition;
     private Integer taskDueCount;
+    private String category;
+    private String subCategory;
+    private String textColor;
+    private String bgColor;
 }
