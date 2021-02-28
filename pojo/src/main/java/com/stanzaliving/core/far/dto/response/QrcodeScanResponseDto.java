@@ -13,7 +13,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class QrcodeScanResponseDto {
-
     private QrCodeStatus qrCodeStatus;
     private String assetId;
     private String assetName;
