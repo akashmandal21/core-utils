@@ -18,7 +18,6 @@ public class AllocationResponseDto {
     private String locationType;
     private String locationName;
     private String allocatedTo;
-    private String buildingName;
     private String allocatedIn;
     private String otherAreaName;
     private Integer roomNumber;

@@ -21,7 +21,6 @@ public class FarNucleusDto {
 
     //private String assetLocation;
     private String locationName;
-    private String buildingName;
     private String allocatedIn;
     private String otherAreaName;
     private Integer roomNumber;

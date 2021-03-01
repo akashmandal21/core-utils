@@ -16,7 +16,6 @@ public class FarAppDto {
     private String assetStatus;
 
     private String locationName;
-    private String buildingName;
     private String allocatedIn;
     private String otherAreaName;
     private Integer roomNumber;

@@ -23,7 +23,6 @@ public class AllocationDto {
     private LocationType locationType;
     private String locationName;
     private AssetAllocatedTo allocatedTo;
-    private String buildingName;
     private AssetLocatedIn allocatedIn;
     private OtherArea otherAreaName;
     private Integer roomNumber;
