@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 public enum ApprovalEntityType {
 	SERVICE_MIX("Service Mix", "service-mix", "service-mix"),
-	SESSION_UNDERWRITTEN("Session UnderWritten", "underwritten", "underwritten"),
+	SESSION_UNDERWRITTEN("Stabilised UnderWritten", "underwritten", "underwritten"),
 	MONTHLY_UNDERWRITTEN("Monthly UnderWritten", "underwritten", "underwritten"),
 	FOOD_MENU_CATEGORY("Food Menu Category", "foodMenuCategory", "foodMenuCategory"),
 	WEEKLY_MENU("Weekly Menu", "FOOD_SERVICE", "WEEKLY_MENU"),
