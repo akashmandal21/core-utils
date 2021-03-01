@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.stanzaliving.banner.dto.request.SpecificLocationsOf;
+import com.stanzaliving.wanda.enums.AppPageSectionInstance;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -63,6 +64,8 @@ public class PromotionResponseDto implements Comparable<PromotionResponseDto> {
 	private List<CreativeResponseDto> creatives;
 	
 	private SpecificLocationsOf specificLocationsOf;
+	
+	private AppPageSectionInstance instance;
 
 	@Override
 	public int compareTo(PromotionResponseDto secondDto) {
