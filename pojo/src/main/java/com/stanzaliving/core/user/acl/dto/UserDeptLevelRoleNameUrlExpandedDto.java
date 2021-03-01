@@ -28,6 +28,8 @@ public class UserDeptLevelRoleNameUrlExpandedDto {
 
     private List<String> rolesList;
 
+    private Map<String, String> roleNameUuidMap;
+
     private List<String> urlList;
 
 }
