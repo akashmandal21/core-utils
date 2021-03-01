@@ -13,4 +13,5 @@ public class QrcodeReplaceDto {
     private String oldQrcodeId;
     private String oldQrcode;
     private String newQrcode;
+    private String assetId;
 }
