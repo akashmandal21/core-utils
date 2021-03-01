@@ -32,4 +32,6 @@ public class FarNucleusDto {
     private String assetStatus;
     private String statusText;
     private Integer taskDueCount;
+    private String textColor;
+    private String bgColor;
 }

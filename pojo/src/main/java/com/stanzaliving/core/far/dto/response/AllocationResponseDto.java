@@ -1,6 +1,7 @@
 package com.stanzaliving.core.far.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.stanzaliving.core.far.enums.AssetAllocatedTo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +19,7 @@ public class AllocationResponseDto {
     private String locationType;
     private String locationName;
     private String allocatedTo;
+    private AssetAllocatedTo allocatedToEnum;
     private String allocatedIn;
     private String otherAreaName;
     private Integer roomNumber;
