@@ -4,8 +4,8 @@
 package com.stanzaliving.core.operations.dto;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.core.operations.enums.DealStatus;
@@ -50,12 +50,8 @@ public class DealDto {
 	private Integer mgCount = 0;
 	
 	private List<DealResidenceBedMappingDto> dealResidenceBedMappingDto;
-
-	private String pocName;
-
-	private String pocContact;
-
-	private String pocEmail;
+	
+	private Map<String, Object> pocConfig;
 
 	private LocalDate dealStartDate;
 
