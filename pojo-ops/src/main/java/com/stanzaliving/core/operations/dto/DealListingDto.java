@@ -3,6 +3,7 @@ package com.stanzaliving.core.operations.dto;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.core.operations.enums.DealStatus;
@@ -39,10 +40,9 @@ public class DealListingDto {
 	
 	@Builder.Default
 	private int bedCount = 0;
+	
+	private Map<String, Object> pocConfig;
 
-	private String pocName;
-	private String pocContact;
-	private String pocEmail;
 	private LocalDate fromDate;
 	private LocalDate toDate;
 	private Date dealCreatedOn;
