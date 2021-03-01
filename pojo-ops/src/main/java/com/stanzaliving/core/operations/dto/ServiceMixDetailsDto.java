@@ -1,5 +1,7 @@
 package com.stanzaliving.core.operations.dto;
 
+import com.stanzaliving.approval.enums.ApprovalStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +19,6 @@ public class ServiceMixDetailsDto {
 
 	private String serviceMixUuid;
 	private String serviceMixName;
-
+	private ApprovalStatus serviceMixApprovalStatus;
+	
 }
