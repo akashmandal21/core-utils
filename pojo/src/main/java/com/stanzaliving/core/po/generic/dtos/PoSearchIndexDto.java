@@ -16,14 +16,17 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PoSearchIndexDto {
-
     private String poToUuid;
     private boolean status;
     private Date createdAt;
+    private String createdBy;
     private Date updatedAt;
+    private String updatedBy;
     private Date endDate;
     private Date startDate;
     private Date approvedOn;
+    private String approvedBy;
+    private String poToNumber;
     private GenericPOTOStatus potoStatus;
     private GenericPOType poToType;
     private Department creatorDepartment;
