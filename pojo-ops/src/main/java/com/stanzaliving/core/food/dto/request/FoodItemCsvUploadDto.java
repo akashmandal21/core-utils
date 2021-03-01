@@ -86,4 +86,10 @@ public class FoodItemCsvUploadDto {
 	@CsvBindByName(column = "Shelf Life")
 	private Integer shelfLife;
 
+	@CsvBindByName(column = "Cuisine_tag")
+	private String cuisineTags;
+
+	@CsvBindByName(column = "Regional_tag")
+	private String regionalTags;
+
 }
