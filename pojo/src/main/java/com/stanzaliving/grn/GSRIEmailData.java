@@ -35,4 +35,6 @@ public class GSRIEmailData {
 
     private BigDecimal receivingPending;
 
+    private String poCreatedBy;
+
 }
