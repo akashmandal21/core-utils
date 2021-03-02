@@ -395,7 +395,6 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception e) {
-			log.error("Error fetching user code for userUuid: {}", userUuid, e);
 		}
 
 		return null;
