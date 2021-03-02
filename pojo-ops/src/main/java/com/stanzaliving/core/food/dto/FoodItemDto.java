@@ -113,6 +113,11 @@ public class FoodItemDto extends AbstractDto {
 
 	private List<TagDto> regionalTagDtos;
 
+	private int regionalTagsCount;
+
 	private List<TagDto> cuisineTagDtos;
+
+	private int cuisineTagsCount;
+
 
 }
