@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
+@ToString
 public class TemplateField {
     private String fieldName;
     private boolean mandatory;
