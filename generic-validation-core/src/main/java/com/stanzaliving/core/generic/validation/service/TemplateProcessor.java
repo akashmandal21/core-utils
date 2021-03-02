@@ -564,7 +564,10 @@ public abstract class TemplateProcessor {
                     UiParentField uiBasicField = getUiBasicField(templateField, templates.get(templateField.getFieldName()),additionalData);
 
                     if(Objects.nonNull(fieldVal) && fieldVal instanceof ApprovalProcessor)
+                    {
+                        log.info("{} {} ",additionalData,field);
                         ((ApprovalProcessor)fieldVal).fillApprovalInfo(uiBasicField,templateField,additionalData);
+                    }
 
                     if(templates.get(templateField.getFieldName()).getTemplateType() == TemplateType.MODAL)
                         uiBasicField.setSkeleton(objectMapper.valueToTree(getUiFields(templateField.getFieldName(), templates, null, null, additionalData,baseObject)));
