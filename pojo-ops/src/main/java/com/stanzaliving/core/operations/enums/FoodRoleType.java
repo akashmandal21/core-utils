@@ -43,6 +43,7 @@ public enum FoodRoleType {
 	EMAIL_CC_FOOD_MENU_WEEKLY_SUMMARY("Email CC - Food Menu Weekly Summary", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_VENDOR_PRICE_APPROVED("Email CC - Vendor Price Approved", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_MENU_CATEGORY_APPROVED("Email CC - Food Menu Category Approved", Department.FOOD_OPS, AccessLevel.COUNTRY),
+	EMAIL_CC_KITCHEN_FOOD_ORDER("Email CC - Kitchen Food Order", Department.FOOD_OPS, AccessLevel.COUNTRY),
 
 	HOSTEL_MENU_CHANGE_COST_APPROVER("Country - Hostel Menu Change Cost Approver", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	HOSTEL_MENU_CHANGE_NON_COST_APPROVER("Country - Hostel Menu Change Non Cost Approver", Department.FOOD_OPS, AccessLevel.COUNTRY),

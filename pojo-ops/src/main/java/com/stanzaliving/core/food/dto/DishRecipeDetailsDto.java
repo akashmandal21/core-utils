@@ -5,6 +5,7 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.enums.UnitOfMeasurement;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -43,4 +44,5 @@ public class DishRecipeDetailsDto {
 	private List<RecipeIngredientDto> ingredients;
 
 	private int ingredientCount;
+	private UnitOfMeasurement uom;
 }
