@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
+import com.opencsv.bean.CsvBindByName;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.DishRegion;
@@ -81,5 +82,10 @@ public class FoodItemAddRequestDto {
 	@Valid
 	@NotNull(message = "Recipe selection is mandatory")
 	private ItemRecipeRequestDto recipe;
+
+	private Set<String> cuisineTagIds;
+
+	private Set<String> regionalTagIds;
+
 
 }
