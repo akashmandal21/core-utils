@@ -565,7 +565,7 @@ public abstract class TemplateProcessor {
 
                     if(Objects.nonNull(fieldVal) && fieldVal instanceof ApprovalProcessor)
                     {
-                        log.info("{} {} ",additionalData,field);
+                        log.info("{} {} {}",additionalData,templateField);
                         ((ApprovalProcessor)fieldVal).fillApprovalInfo(uiBasicField,templateField,additionalData);
                     }
 
