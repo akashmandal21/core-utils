@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.stanzaliving.banner.enumeration.AppPage;
-import com.stanzaliving.banner.enumeration.PageSection;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,5 +24,5 @@ public class EndUserEligblePromotions {
 	private AppPage appPage;
 	
 	@Default
-	private Map<PageSection, SectionTypeAndPromotions> pageSectionMap = new HashMap<>();
+	private Map<String, SectionTypeAndPromotions> pageSectionMap = new HashMap<>();
 }
