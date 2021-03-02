@@ -7,8 +7,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.redisson.api.RMap;
+import org.redisson.api.RMapCache;
 import org.redisson.api.RSet;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -150,6 +152,41 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 	@Override
 	public void clearMap(String mapName) {
 		redissonClient.getMap(mapName).clear();
+	}
+
+	@Override
+	public Map<String, String> getStringMapCache(String mapName) {
+
+		log.debug("Fetching map: {} from redis", mapName);
+
+		RMap<String, String> rMap = getRedisStringMapCache(mapName);
+
+		Map<String, String> map = new HashMap<>();
+		map.putAll(rMap);
+
+		return map;
+	}
+
+	private RMapCache<String, String> getRedisStringMapCache(String mapName) {
+		return redissonClient.getMapCache(mapName);
+	}
+
+	@Override
+	public String getFromStringMapCache(String mapName, String key) {
+		return getRedisStringMapCache(mapName).get(key);
+	}
+
+	@Override
+	public boolean existsInStringMapCache(String mapName, String key) {
+		return getRedisStringMapCache(mapName).containsKey(key);
+	}
+	
+	@Override
+	public String addInStringMapCache(String mapName, String key, String value, long ttl, TimeUnit timeUnit) {
+
+		log.info("Adding key: {} with value: {} in map: {} on redis with TTL {} {}", key, value, mapName, ttl, timeUnit);
+
+		return getRedisStringMapCache(mapName).put(key, value, ttl, timeUnit);
 	}
 
 }

@@ -10,10 +10,7 @@ import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Log4j2
@@ -51,25 +48,26 @@ public class UserCache {
 		return allUserCache.getUnchecked("users");
 	}
 
-	private LoadingCache<String, UserProfileDto> userProfileCache = CacheBuilder.newBuilder()
+	private LoadingCache<String, Optional<UserProfileDto>> userProfileCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
-					new CacheLoader<String, UserProfileDto>() {
+					new CacheLoader<String, Optional<UserProfileDto>>() {
 
 						@Override
-						public UserProfileDto load(String key) {
+						public Optional<UserProfileDto> load(String key) {
 							ResponseDto<UserProfileDto> responseDto = userClientApi.getUserProfileByUuid(key);
 
 							if (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) {
-								return responseDto.getData();
+								return Optional.ofNullable(responseDto.getData());
 							}
-							return null;
+							return Optional.ofNullable(null);
 						}
 					});
 
 	public UserProfileDto getUserForUuid(String uuid) {
 		try {
-			return userProfileCache.getUnchecked(uuid);
+			Optional<UserProfileDto> optionalUserProfileDto = userProfileCache.getUnchecked(uuid);
+			return optionalUserProfileDto.isPresent() ? optionalUserProfileDto.get() : null;
 		} catch (Exception e) {
 			log.error("Unable to get UserProfile from uuid {}", uuid, e);
 			return null;
@@ -82,9 +80,9 @@ public class UserCache {
 		if (StringUtils.isBlank(uuid)) {
 			return userName;
 		}
-
-		UserProfileDto userProfileDto = userProfileCache.getUnchecked(uuid);
-		if (userProfileDto != null) {
+		Optional<UserProfileDto> optionalUserProfileDto = userProfileCache.getUnchecked(uuid);
+		if (optionalUserProfileDto.isPresent()) {
+			UserProfileDto userProfileDto = optionalUserProfileDto.get();
 			userName = userProfileDto.getFirstName() + " " + userProfileDto.getLastName();
 		}
 		return userName;

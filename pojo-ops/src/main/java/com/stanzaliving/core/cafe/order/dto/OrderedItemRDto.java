@@ -47,5 +47,7 @@ public class OrderedItemRDto {
     private Double igstPercentage;
     private Double totalGstPercentage;
 
+    private boolean nonVeg;
+
 
 }
