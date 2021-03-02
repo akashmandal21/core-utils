@@ -555,7 +555,6 @@ public abstract class TemplateProcessor {
                 case OBJECT:
                 case ADAPT:
                 case ADAPT_RO:
-                    log.info("Field Value {} {}",templateField.getFieldName(),fieldVal);
                     UiField uiField = getUiFieldTemplate(templateField, fieldVal, additionalData,sourceClass);
                     uiFieldMap.put(templateField.getFieldName(), uiField);
                     break;
@@ -641,7 +640,6 @@ public abstract class TemplateProcessor {
                             new UIKeyValue(YesNoEnum.NO.getOption(),YesNoEnum.NO.name())));
                 else if(templateField.getFieldType()== FieldType.ADAPT)
                 {
-                    log.info("Adapt Field {} {}",templateField.getFieldName(),fieldVal);
                     AdaptableProcessor adp = (AdaptableProcessor)source;
                     fieldVal = adp.convertToUIValue(templateField,uiField,fieldVal,additionalData);
                     uiField.setValue(objectMapper.valueToTree(fieldVal));
