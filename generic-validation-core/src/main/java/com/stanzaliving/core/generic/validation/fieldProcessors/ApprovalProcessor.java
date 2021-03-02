@@ -32,6 +32,7 @@ public interface ApprovalProcessor {
 
         Integer currentUserApprovedLevel =  (Integer) additionalData.get(GenericConstants.currentApprovedLevelOrderKey);
         ActorRole currentRole = (ActorRole) additionalData.get(GenericConstants.actorRoleKey);
+        log.info("{} {} {} {} {}",currentUserApprovedLevel,currentRole,additionalData,field,this.getApprovalLevel());
         boolean canApprove = (currentRole==ActorRole.APPROVE) && (currentUserApprovedLevel-this.getApprovalLevel()==1 || currentUserApprovedLevel-this.getApprovalLevel()==0) &&
                 (Objects.isNull(field.getApprovalDetails()) || CommonUtilities.canApprove((Department)additionalData.get(GenericConstants.queryDepartmentKey),currentUserApprovedLevel,field.getApprovalDetails()));
         if(!canApprove)
