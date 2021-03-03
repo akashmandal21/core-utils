@@ -24,6 +24,6 @@ public class ResidentRequestDto {
 	private String residenceUuid;
 	private String serviceMixUuid;
 	private List<ResidentStatus> residentStatus;
-	private String residentUuid;
+	private String residentCode;
 	private String residentName;
 }

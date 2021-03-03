@@ -38,4 +38,5 @@ public enum ResidenceBrand {
 	public static List<EnumListing<ResidenceBrand>> getResidenceBrandNameListing() {
 		return brandNameListing;
 	}
+
 }
