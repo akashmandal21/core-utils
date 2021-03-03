@@ -18,10 +18,12 @@ import java.util.List;
 @NoArgsConstructor
 public enum DealCategory {
 
-	B2B("B2B Deal"),
-	B2C("B2C Deal");
+	B2B("B2B Deal", 2),
+	B2C("B2C Deal", 1);
 	
 	private String dealCategoryName;
+	
+	private int sequence;
 
 	private static List<EnumListing<DealCategory>> dealCategories = new ArrayList<>();
 	static {
