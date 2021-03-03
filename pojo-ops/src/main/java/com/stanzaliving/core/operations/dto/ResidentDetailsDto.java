@@ -27,6 +27,7 @@ public class ResidentDetailsDto {
 	private String serviceMixName;
 	private String lastUpdatedBy;
 	private ResidentStatus residentStatus;
+	private String residentStatusDisplayName;
 	private Date lastUpdatedAt;
 
 }
