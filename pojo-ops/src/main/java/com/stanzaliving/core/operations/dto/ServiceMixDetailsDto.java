@@ -20,5 +20,6 @@ public class ServiceMixDetailsDto {
 	private String serviceMixUuid;
 	private String serviceMixName;
 	private ApprovalStatus serviceMixApprovalStatus;
+	private String approvalStatusDisplayName;
 	
 }
