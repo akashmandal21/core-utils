@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.request;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
+import com.stanzaliving.core.generic.enums.GSTSlabs;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -24,5 +25,6 @@ public class PackagingRequestDto extends AbstractDto {
 	private String desc;
 
 	private UnitOfMeasurement unitOfMeasurement;
+	private GSTSlabs gstSlab;
 
 }

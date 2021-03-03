@@ -610,6 +610,32 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
+	public ResponseDto<Map<String, String>> getPoDownloadUrls(List<String> poNos) {
+
+        log.info("HTTP Client call to get PO pdf copy for invoice csv listing download {}",poNos);
+
+        Object postBody = poNos;
+        
+        final Map<String, Object> uriVariables = new HashMap<>();
+        
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/download/urls")
+        		.buildAndExpand(uriVariables).toUriString();
+        
+        final MultiValueMap<String, String> queryParams= new LinkedMultiValueMap<>();
+        
+        final HttpHeaders headerParams = new HttpHeaders();
+        
+        final String[] accepts = {
+        		 "*/*"
+        };
+        
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        
+        ParameterizedTypeReference<ResponseDto<Map<String, String>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String,String>>>() {
+		};
+        
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
     public ResponseDto<String> getPoPdfAndSendEmail(String poUuid, EmailDto emailDto) {
 
         log.info("HTTP Client call to get PO Pdf{} ", poUuid);
@@ -632,5 +658,6 @@ public class POClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, emailDto, headerParams, accept, vddReturnType);
     }
+
 
 }
