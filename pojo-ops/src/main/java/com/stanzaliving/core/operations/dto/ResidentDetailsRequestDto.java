@@ -20,12 +20,13 @@ public class ResidentDetailsRequestDto {
 
 	private String dealUuid;
 	private String residenceUuid;
-	private String serviceMixUuid;
+	private String residentUuid;
 	private String residentCode;
 	private String residentName;
+	private String serviceMixUuid;
+	private String serviceMixName;
 	private ResidentStatus residentStatus;
-	private String lastUpdatedBy;
+	private String serviceMixAssignedBy;
 	private Date lastUpdatedAt;
 	
-
 }
