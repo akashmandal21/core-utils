@@ -4,10 +4,7 @@ package com.stanzaliving.core.po.generic.dtos;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
@@ -15,6 +12,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class PoSearchIndexDto {
     private String poToUuid;
     private boolean status;
