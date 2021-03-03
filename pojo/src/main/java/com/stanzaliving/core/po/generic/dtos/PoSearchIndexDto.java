@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @ToString
 public class PoSearchIndexDto {
-    private String poToUuid;
+    private String uuid;
     private boolean status;
     private Date createdAt;
     private String createdBy;
@@ -36,4 +36,8 @@ public class PoSearchIndexDto {
     private String deliveryLocationType;
     private String deliveryLocationName;
     private Double poAmount;
+    private String propertyUuid;
+    private String poDocUrl;
+    private String poToNumberSuggest;
+    private String poToNumberKeyword;
 }
