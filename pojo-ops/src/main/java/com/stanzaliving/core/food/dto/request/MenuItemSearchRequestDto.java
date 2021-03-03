@@ -14,6 +14,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -58,4 +59,12 @@ public class MenuItemSearchRequestDto {
 	private FoodItemBasePreference basePreference;
 
 	private SortDto sort;
+
+	private LocalDate fromDate;
+
+	private LocalDate toDate;
+
+	private String micromarketId;
+
+	private String menuCategoryId;
 }
