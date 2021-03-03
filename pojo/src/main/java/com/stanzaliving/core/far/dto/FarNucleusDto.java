@@ -23,8 +23,8 @@ public class FarNucleusDto {
     private String locationName;
     private String allocatedIn;
     private String otherAreaName;
-    private Integer roomNumber;
-    private Integer floorNumber;
+    private String roomNumber;
+    private String floorNumber;
     private String addedBy;
     private Timestamp addedOn;
     private Timestamp lastAuditedOn;

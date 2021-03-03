@@ -22,8 +22,8 @@ public class AllocationResponseDto {
     private AssetAllocatedTo allocatedToEnum;
     private String allocatedIn;
     private String otherAreaName;
-    private Integer roomNumber;
-    private Integer floorNumber;
+    private String roomNumber;
+    private String floorNumber;
     private String employeeId;
     private String employeeDepartment;
     private String employeeName;

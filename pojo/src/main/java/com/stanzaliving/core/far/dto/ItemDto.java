@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ItemDto {
-    private String assetId;
     private String glCode;
     private String costHead;
     private String itemName;

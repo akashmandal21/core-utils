@@ -25,8 +25,8 @@ public class AllocationDto {
     private AssetAllocatedTo allocatedTo;
     private AssetLocatedIn allocatedIn;
     private OtherArea otherAreaName;
-    private Integer roomNumber;
-    private Integer floorNumber;
+    private String roomNumber;
+    private String floorNumber;
     private String employeeId;
     private Department employeeDepartment;
     private String employeeName;

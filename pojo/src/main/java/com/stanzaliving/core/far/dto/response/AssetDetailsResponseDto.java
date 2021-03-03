@@ -69,8 +69,6 @@ public class AssetDetailsResponseDto {
     private String serialNumber;
     private String assetCondition;
     private Integer taskDueCount;
-    private String category;
-    private String subCategory;
     private String textColor;
     private String bgColor;
 }
