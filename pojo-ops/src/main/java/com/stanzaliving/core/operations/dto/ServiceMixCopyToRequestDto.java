@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.operations.enums.CopyToAction;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 
 import lombok.AllArgsConstructor;
@@ -32,5 +33,5 @@ public class ServiceMixCopyToRequestDto {
 	private List<String> destinationResidenceUuid;
 	
 	@NotNull(message = "action can't be null")
-	private ServiceMixStatus action;
+	private CopyToAction action;
 }
