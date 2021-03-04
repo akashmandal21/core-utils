@@ -7,8 +7,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -25,7 +23,6 @@ public class EmailOtpValidateRequestDto {
 
 	@NotBlank(message = "OTP cannot be blank")
 	@Size(min = 4, max = 6, message = "OTP must be of 4-6 charaters")
-	@EnsureNumber(message = "OTP must contain only numbers", fieldName = "otp")
 	private String otp;
 	
 	@NotBlank(message = "user UUID is Mandatory for Email Verification By Otp And Updating the user details")
