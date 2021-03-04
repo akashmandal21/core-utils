@@ -27,6 +27,7 @@ import java.util.Map;
 @SuperBuilder
 public class ServiceMixEntity {
 
+	//Exactly Same as serviceMixEntity of operation Service. To remove ServiceMixEntity from ops-calculator.
 	private Long id;
 	private String uuid;
 	private Date createdAt;
