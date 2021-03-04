@@ -47,4 +47,8 @@ public class PoActivityEventRequest {
 
     Map<String, Object> additionalData;
 
+    private String supplyChainEventText;
+
+    private String itemUuid;
+
 }
