@@ -14,9 +14,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResidentDetailsUploadDto {
-	
+	private int rowNum;
 	private String residentCode;
-	private String residenceUuid;
 	private String reason;
 
 }
