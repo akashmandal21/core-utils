@@ -19,4 +19,6 @@ public class QrcodeHistoryResponseDto {
     private Date generatedOn;
     private String docLink;
     private String qrcodePdfGenerationStatus;
+    private String textColor;
+    private String bgColor;
 }

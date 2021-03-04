@@ -29,6 +29,7 @@ public class AssetDto {
     private String assetId;
     private BigDecimal costPrice;
     private String poNumber;
+    private String poUuid;
     private GenericPOType poType;
     private String poUrl;
     private String toNumber;
@@ -43,6 +44,7 @@ public class AssetDto {
     private BigDecimal totalCost;
     private String invoiceNumber;
     private Date invoiceDate;
+
     private String invoiceVendorDocPath;
     private String assetName;
     private String itemName;
