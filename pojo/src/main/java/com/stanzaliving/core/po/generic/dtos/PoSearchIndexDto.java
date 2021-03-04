@@ -34,6 +34,7 @@ public class PoSearchIndexDto {
     private String sourceOrVendorType;
     private String poLocType;
     private String deliveryLocationType;
+    private String deliveyLocationUuid;
     private String deliveryLocationName;
     private Double poAmount;
     private String propertyUuid;
