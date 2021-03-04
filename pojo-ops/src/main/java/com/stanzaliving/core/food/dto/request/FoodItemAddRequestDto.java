@@ -84,10 +84,8 @@ public class FoodItemAddRequestDto {
 	@NotNull(message = "Recipe selection is mandatory")
 	private ItemRecipeRequestDto recipe;
 
-    private boolean isStapleDish;
-
-    @Valid
-    @NotEmpty(message = "Feedback options selection is mandatory")
-    private List<String> feedback;
+	@Valid
+	@NotEmpty(message = "Feedback options selection is mandatory")
+	private List<String> feedback;
 
 }

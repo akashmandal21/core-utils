@@ -87,6 +87,4 @@ public class DishMasterSearchIndexDto extends AbstractSearchIndexDto {
 
 	private List<String> feedbackOptions;
 
-	private boolean isStapleDish;
-
 }

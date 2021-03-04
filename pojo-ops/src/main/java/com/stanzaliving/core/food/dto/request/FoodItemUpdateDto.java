@@ -49,5 +49,4 @@ public class FoodItemUpdateDto {
 	
 	private boolean vasEnabled;
 
-    private boolean isStapleDish;
 }
