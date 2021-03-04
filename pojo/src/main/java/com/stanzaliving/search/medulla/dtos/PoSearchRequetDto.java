@@ -17,5 +17,4 @@ public class PoSearchRequetDto {
     private String deliveryLocationUuid;
     private String deliveryLocationType;
     private PageAndSortDto pageDto;
-    private Boolean dataComplete;
 }
