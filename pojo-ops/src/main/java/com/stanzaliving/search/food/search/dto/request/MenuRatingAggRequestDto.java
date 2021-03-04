@@ -1,6 +1,5 @@
-package com.stanzaliving.core.food.dto.menufps.response;
+package com.stanzaliving.search.food.search.dto.request;
 
-import com.stanzaliving.core.food.dto.menufps.IdFpsConsumptionDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,9 +12,9 @@ import java.util.List;
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @version 2.0
+ * @version 1.0
  *
- * @since 29-Jan-2021
+ * @since 02-Mar-2021
  */
 
 @Getter
@@ -24,8 +23,11 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuCategoryFpsConsumptionResponseDto {
-	private IdFpsConsumptionDto menuCategory;
+public class MenuRatingAggRequestDto extends MenuCategoryAggregateRequestDto {
 
-	private List<ResidenceFpsConsumptionResponseDto> residences;
+	private String menuGroupId;
+
+	private String micromarketId;
+
+	private List<DateWiseMealsRequestDto> dateMeals;
 }
