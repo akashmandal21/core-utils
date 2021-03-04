@@ -19,6 +19,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.addressbook.AddressBookNameDto;
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -28,6 +29,7 @@ import com.stanzaliving.core.projectservice.tiles.TileStatusDto;
 import com.stanzaliving.transformations.pojo.AddressBookMetaDto;
 import com.stanzaliving.transformations.pojo.CityMetadataDto;
 import com.stanzaliving.transformations.pojo.CityUIDto;
+import com.stanzaliving.transformations.pojo.CityUuidListDto;
 import com.stanzaliving.transformations.pojo.CountryLevelAccessMetadata;
 import com.stanzaliving.transformations.pojo.CountryUIDto;
 import com.stanzaliving.transformations.pojo.FilterAddressDto;
@@ -794,6 +796,28 @@ public class InternalDataControllerApi {
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
+	public ResponseDto<List<ListingDto>> getMicromarketList(CityUuidListDto cityUuids) {
+
+		Object postBody = cityUuids;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/micromarket/list").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ListingDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ListingDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
 
