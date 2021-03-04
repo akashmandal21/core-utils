@@ -1,7 +1,7 @@
 package com.stanzaliving.core.opscalculator.dto;
 
+import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.enums.ResidenceBrand;
-import com.stanzaliving.core.opscalculator.enums.ApprovalStatus;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
