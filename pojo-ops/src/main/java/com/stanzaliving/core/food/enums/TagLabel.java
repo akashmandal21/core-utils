@@ -1,11 +1,10 @@
 package com.stanzaliving.core.food.enums;
 
-import com.stanzaliving.operations.dto.servicemix.Tag;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
@@ -42,6 +41,4 @@ public enum TagLabel {
 		return tagLabelMap.get(itemType);
 	}
 
-
 }
-
