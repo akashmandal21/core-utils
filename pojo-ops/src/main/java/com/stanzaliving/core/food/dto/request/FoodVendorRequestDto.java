@@ -42,6 +42,6 @@ public class FoodVendorRequestDto {
 
 	private String gstCompanyAddress;
 
-	private String vendorUuid;
+	private String vendorMasterUuid;
 
 }
