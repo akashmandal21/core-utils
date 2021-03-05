@@ -27,6 +27,6 @@ public class ResidentDetailsRequestDto {
 	private String serviceMixName;
 	private ResidentStatus residentStatus;
 	private String serviceMixAssignedBy;
-	private Date lastUpdatedAt;
+	private Date serviceMixAssignedAt;
 	
 }

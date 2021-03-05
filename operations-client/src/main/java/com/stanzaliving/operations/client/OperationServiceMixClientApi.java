@@ -172,6 +172,39 @@ public class OperationServiceMixClientApi {
 		return Objects.nonNull(serviceMixEntity)? serviceMixEntity: null;
 	}
 
+	public List<ServiceMixEntity> getServiceMixListByResidenceId(String residenceId) {
+
+		Object postBody = null;
+
+		List<ServiceMixEntity> serviceMixEntityList = new ArrayList<>();
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/ops/servicemix/getServiceMixListForUuids").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("residenceId", residenceId);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<ServiceMixEntity>> returnType = new ParameterizedTypeReference<List<ServiceMixEntity>>() {
+
+		};
+
+		try {
+			serviceMixEntityList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching service mix list for residenceId {} ", residenceId, e);
+		}
+
+		return serviceMixEntityList;
+	}
 
 
 
