@@ -109,6 +109,8 @@ public class FoodItemDto extends AbstractDto {
 
 	private boolean recipeExists;
 
+	private boolean stapleDish;
+
 	private Double estimatedCost;
 
 	private List<TagDto> regionalTagDtos;
@@ -118,6 +120,5 @@ public class FoodItemDto extends AbstractDto {
 	private List<TagDto> cuisineTagDtos;
 
 	private int cuisineTagsCount;
-
 
 }

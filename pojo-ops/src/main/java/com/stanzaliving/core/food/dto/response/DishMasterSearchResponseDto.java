@@ -76,5 +76,7 @@ public class DishMasterSearchResponseDto implements Serializable {
 
 	private boolean recipeExists;
 
+	private boolean stapleDish;
+
 	private FoodItemPriceDto priceData;
 }
