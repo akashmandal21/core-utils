@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 public enum RefundReason {
     EXTRA_PAYMENTS("Extra Payment"),
+    HOSTEL_CHANGE("Hostel Change"),
     CANCELLED_ORDER("Cancelled Order");
     private final String reason;
 }

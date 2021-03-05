@@ -13,7 +13,11 @@ public enum SortSpecs {
     ITEMNAME("itemData.itemName"),
     UOM("itemData.unitOfMeasurement.label"),
     LASTUPDATEDAT("updatedAt"),
-    ITEMDESCRIPTION("itemData.itemDescription");
+    ITEMDESCRIPTION("itemData.itemDescription"),
+    GST("itemData.gst.label"),
+    ITEMRATE("itemData.globalRate"),
+    RENTALRATE("itemData.rentalRate"),
+    STATUS("itemData.itemStatus");
 
 
     private String dbKey;
