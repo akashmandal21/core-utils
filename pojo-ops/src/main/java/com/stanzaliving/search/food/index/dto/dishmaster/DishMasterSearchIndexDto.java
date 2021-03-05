@@ -83,6 +83,8 @@ public class DishMasterSearchIndexDto extends AbstractSearchIndexDto {
 
 	private DishMasterRecipeSearchIndexDto recipe;
 
+	private boolean stapleDish;
+
 	private boolean recipeExists;
 
 }
