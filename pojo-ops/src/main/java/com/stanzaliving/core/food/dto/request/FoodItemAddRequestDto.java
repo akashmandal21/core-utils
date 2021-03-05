@@ -76,6 +76,8 @@ public class FoodItemAddRequestDto {
 
 	private String imageId;
 
+	private boolean stapleDish;
+
 	private boolean status;
 
 	@Valid

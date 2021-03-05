@@ -16,7 +16,7 @@ public enum FieldOptionProvider {
     ItemCategoryProvider,CostHeadProvider,ItemSubCategoryProvider,ItemTypeProvider,UOMProvider,GstPCTProvider,
     ItemColorProvider,LBHUOMProvider,SLBrandProvider,SLSubBrandProvider, UsageTypeProvider,ConsumptionTypeProvider,
     StorageTypeProvider,ItemBrandProvider,BaseItemProvider,ItemModelProvider,PackOfOptionProvider,InactiveOptionProvider,
-    AcquisitionTypeProvider,
+    AcquisitionTypeProvider,RecipeTagProvider,
 
 
     poTypeProvider,poExpenseTypeProvider,deliveryLocationTypeProvider,deliveryLocationProvider,deliveryAddressProvider,
