@@ -37,5 +37,10 @@ public class CityResponseDTO {
 	private Double rating;
 	private Long minPriceValue;
 	private Boolean whatsappChatFlag;
+	
+	@Builder.Default
+	private boolean comingSoon = false;
 
+	@Builder.Default
+	private boolean isSelected = false;
 }
