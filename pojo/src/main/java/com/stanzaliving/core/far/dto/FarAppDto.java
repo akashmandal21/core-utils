@@ -17,7 +17,13 @@ public class FarAppDto {
 
     private String locationName;
     private String allocatedIn;
+    private String allocatedTo;
     private String otherAreaName;
     private String roomNumber;
     private String floorNumber;
+    private String employeeId;
+    private String employeeName;
+    private String employeeDepartment;
+    private String employeeEmail;
+
 }

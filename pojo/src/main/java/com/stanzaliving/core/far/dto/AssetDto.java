@@ -1,7 +1,6 @@
 package com.stanzaliving.core.far.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.stanzaliving.core.far.enums.AssetOwner;
 import com.stanzaliving.core.far.enums.AssetStatus;
 import com.stanzaliving.core.far.enums.AssetType;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
@@ -50,7 +49,7 @@ public class AssetDto {
     private String itemName;
     private String itemDescription;
     private String itemCode;
-    private AssetOwner owner;
+    private String owner;
     private String landlordName;
     private Date verifiedOn;
     private Date lastAuditedOn;
