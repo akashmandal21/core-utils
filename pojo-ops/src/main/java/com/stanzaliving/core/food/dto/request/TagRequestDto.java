@@ -36,5 +36,6 @@ public class TagRequestDto {
 	@NotNull(message = "Tag Type is mandatory")
 	private FoodItemType tagType;
 
+	@NotNull(message = "Tag Label is mandatory")
 	private TagLabel tagLabel;
 }
