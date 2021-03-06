@@ -1,9 +1,9 @@
 package com.stanzaliving.operations.client;
 
+import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.operations.enums.DealCategory;
-import com.stanzaliving.internet.dto.InternetDetails;
-import com.stanzaliving.operations.dto.servicemix.ServiceMixEntity;
+import com.stanzaliving.operations.dto.servicemix.ServiceMixEntityDto;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -16,7 +16,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,11 +30,11 @@ public class OperationServiceMixClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public ServiceMixEntity getServiceMixEntityByUuid(String uuid) {
+	public ServiceMixEntityDto getServiceMixEntityByUuid(String uuid) {
 
 		Object postBody = null;
 
-		ServiceMixEntity serviceMixEntity = null;
+		ServiceMixEntityDto serviceMixEntity = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -52,12 +51,12 @@ public class OperationServiceMixClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ServiceMixEntity> returnType = new ParameterizedTypeReference<ServiceMixEntity>() {
+		ParameterizedTypeReference<ResponseDto<ServiceMixEntityDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceMixEntityDto>>() {
 
 		};
 
 		try {
-			serviceMixEntity = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			serviceMixEntity = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix with uuid {}", uuid, e);
 		}
@@ -65,11 +64,11 @@ public class OperationServiceMixClientApi {
 		return Objects.nonNull(serviceMixEntity) ? serviceMixEntity : null;
 	}
 
-	public ServiceMixEntity getServiceMixByUuidAndResidenceId(String serviceMixUuid, String residenceUuid) {
+	public ServiceMixEntityDto getServiceMixByUuidAndResidenceId(String serviceMixUuid, String residenceUuid) {
 
 		Object postBody = null;
 
-		ServiceMixEntity serviceMixEntity = null;
+		ServiceMixEntityDto serviceMixEntity = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -87,12 +86,12 @@ public class OperationServiceMixClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ServiceMixEntity> returnType = new ParameterizedTypeReference<ServiceMixEntity>() {
+		ParameterizedTypeReference<ResponseDto<ServiceMixEntityDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceMixEntityDto>>() {
 
 		};
 
 		try {
-			serviceMixEntity = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			serviceMixEntity = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix with uuid {} and residenceId {}", serviceMixUuid, residenceUuid, e);
 		}
@@ -100,11 +99,11 @@ public class OperationServiceMixClientApi {
 		return Objects.nonNull(serviceMixEntity) ? serviceMixEntity : null;
 	}
 
-	public List<ServiceMixEntity> getServiceMixByUuidList(List<String> uuidList) {
+	public List<ServiceMixEntityDto> getServiceMixByUuidList(List<String> uuidList) {
 
 		Object postBody = null;
 
-		List<ServiceMixEntity> serviceMixEntityList = new ArrayList<>();
+		List<ServiceMixEntityDto> serviceMixEntityList = new ArrayList<>();
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -121,12 +120,12 @@ public class OperationServiceMixClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<List<ServiceMixEntity>> returnType = new ParameterizedTypeReference<List<ServiceMixEntity>>() {
+		ParameterizedTypeReference<ResponseDto<List<ServiceMixEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ServiceMixEntityDto>>>() {
 
 		};
 
 		try {
-			serviceMixEntityList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			serviceMixEntityList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix list from uuidList {} ", uuidList, e);
 		}
@@ -134,12 +133,12 @@ public class OperationServiceMixClientApi {
 		return serviceMixEntityList;
 	}
 
-	public ServiceMixEntity getFirstByFromDateAndResidenceIdAndServiceMixStatusAndDealCategory(LocalDate fromDate, String residenceId,
-			ServiceMixStatus serviceMixStatus, DealCategory dealCategory) {
+	public ServiceMixEntityDto getFirstByFromDateAndResidenceIdAndServiceMixStatusAndDealCategory(LocalDate fromDate, String residenceId,
+																								  ServiceMixStatus serviceMixStatus, DealCategory dealCategory) {
 
 		Object postBody = null;
 
-		ServiceMixEntity serviceMixEntity = null;
+		ServiceMixEntityDto serviceMixEntity = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -160,12 +159,12 @@ public class OperationServiceMixClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ServiceMixEntity> returnType = new ParameterizedTypeReference<ServiceMixEntity>() {
+		ParameterizedTypeReference<ResponseDto<ServiceMixEntityDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceMixEntityDto>>() {
 
 		};
 
 		try {
-			serviceMixEntity = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+			serviceMixEntity = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix from fromDate {} ", fromDate, e);
 		}
@@ -173,11 +172,11 @@ public class OperationServiceMixClientApi {
 		return Objects.nonNull(serviceMixEntity)? serviceMixEntity: null;
 	}
 
-	public List<ServiceMixEntity> getServiceMixListByResidenceId(String residenceId) {
+	public List<ServiceMixEntityDto> getServiceMixListByResidenceId(String residenceId) {
 
 		Object postBody = null;
 
-		List<ServiceMixEntity> serviceMixEntityList = new ArrayList<>();
+		List<ServiceMixEntityDto> serviceMixEntityList = new ArrayList<>();
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -194,12 +193,12 @@ public class OperationServiceMixClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<List<ServiceMixEntity>> returnType = new ParameterizedTypeReference<List<ServiceMixEntity>>() {
+		ParameterizedTypeReference<ResponseDto<List<ServiceMixEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ServiceMixEntityDto>>>() {
 
 		};
 
 		try {
-			serviceMixEntityList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			serviceMixEntityList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix list for residenceId {} ", residenceId, e);
 		}

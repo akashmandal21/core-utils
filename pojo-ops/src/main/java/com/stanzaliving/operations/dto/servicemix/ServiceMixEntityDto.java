@@ -21,9 +21,9 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class ServiceMixEntity implements Serializable {
+public class ServiceMixEntityDto implements Serializable {
 
-	//Exactly Same as serviceMixEntity of operation Service. To remove ServiceMixEntity from ops-calculator.
+	//Exactly Same as serviceMixEntity of operation Service. To remove ServiceMixEntityDto from ops-calculator.
 	private Long id;
 	private String uuid;
 	private Date createdAt;
@@ -42,7 +42,7 @@ public class ServiceMixEntity implements Serializable {
 	private ServiceMixStatus serviceMixStatus;
 	private String configDigest;
 	private ApprovalStatus approvalStatus;
-//	private ServiceMixSource serviceMixSource;
+	private String serviceMixSource;
 	private String consolidationRemarks;
 	private String dealUuid;
 	private DealCategory dealCategory;
