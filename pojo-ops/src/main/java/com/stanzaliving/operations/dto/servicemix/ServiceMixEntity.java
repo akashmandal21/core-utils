@@ -10,6 +10,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Map;
@@ -20,7 +21,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class ServiceMixEntity {
+public class ServiceMixEntity implements Serializable {
 
 	//Exactly Same as serviceMixEntity of operation Service. To remove ServiceMixEntity from ops-calculator.
 	private Long id;
