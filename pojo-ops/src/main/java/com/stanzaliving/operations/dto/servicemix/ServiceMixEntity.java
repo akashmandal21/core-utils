@@ -4,17 +4,12 @@ import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Map;
@@ -36,7 +31,7 @@ public class ServiceMixEntity {
 	private String updatedBy;
 	private boolean status;
 	private String cityId;
-	private String microMarketId; //Need to Change
+	private String micromarketId; //Need to Change
 	private String residenceId;
 	private String versionName;
 	private LocalDate fromDate;
@@ -52,4 +47,5 @@ public class ServiceMixEntity {
 	private DealCategory dealCategory;
 	private String transformationChangeUuid;
 	private boolean isDefault = false;
+
 }
