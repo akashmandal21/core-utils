@@ -4,17 +4,13 @@ import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Map;
@@ -25,9 +21,9 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class ServiceMixEntity {
+public class ServiceMixEntityDto implements Serializable {
 
-	//Exactly Same as serviceMixEntity of operation Service. To remove ServiceMixEntity from ops-calculator.
+	//Exactly Same as serviceMixEntity of operation Service. To remove ServiceMixEntityDto from ops-calculator.
 	private Long id;
 	private String uuid;
 	private Date createdAt;
@@ -36,7 +32,7 @@ public class ServiceMixEntity {
 	private String updatedBy;
 	private boolean status;
 	private String cityId;
-	private String microMarketId; //Need to Change
+	private String micromarketId; //Need to Change
 	private String residenceId;
 	private String versionName;
 	private LocalDate fromDate;
@@ -46,10 +42,11 @@ public class ServiceMixEntity {
 	private ServiceMixStatus serviceMixStatus;
 	private String configDigest;
 	private ApprovalStatus approvalStatus;
-//	private ServiceMixSource serviceMixSource;
+	private String serviceMixSource;
 	private String consolidationRemarks;
 	private String dealUuid;
 	private DealCategory dealCategory;
 	private String transformationChangeUuid;
 	private boolean isDefault = false;
+
 }

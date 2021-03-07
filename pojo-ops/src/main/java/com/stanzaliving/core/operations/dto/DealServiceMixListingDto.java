@@ -9,7 +9,6 @@ import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,6 +33,7 @@ public class DealServiceMixListingDto {
 	private ServiceMixStatus serviceMixStatus;
 	private ApprovalStatus approvalStatus;
 	private String dealUuid;
+	private String displayApprovalText;
 	private DealCategory dealCategory;
 	private boolean isDefault;
 	private Long residentOnBoardCount;
