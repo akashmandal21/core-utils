@@ -113,5 +113,12 @@ public class FoodItemDto extends AbstractDto {
 
 	private Double estimatedCost;
 
+	private List<TagDto> regionalTagDtos;
+
+	private int regionalTagsCount;
+
+	private List<TagDto> cuisineTagDtos;
+
+	private int cuisineTagsCount;
 
 }

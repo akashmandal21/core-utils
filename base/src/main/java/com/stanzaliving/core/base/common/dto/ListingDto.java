@@ -6,7 +6,6 @@ package com.stanzaliving.core.base.common.dto;
 import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
