@@ -1,8 +1,12 @@
 package com.stanzaliving.core.food.dto.request;
 
 import com.opencsv.bean.CsvBindByName;
-import com.stanzaliving.core.food.enums.FoodItemType;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
@@ -86,10 +90,10 @@ public class FoodItemCsvUploadDto {
 	@CsvBindByName(column = "Shelf Life")
 	private Integer shelfLife;
 
-	@CsvBindByName(column = "Cuisine_tag")
+	@CsvBindByName(column = "Cuisine_tags")
 	private String cuisineTags;
 
-	@CsvBindByName(column = "Regional_tag")
+	@CsvBindByName(column = "Regional_tags")
 	private String regionalTags;
 
 }
