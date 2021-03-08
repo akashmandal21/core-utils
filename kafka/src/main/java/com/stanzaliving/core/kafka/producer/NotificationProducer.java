@@ -66,8 +66,9 @@ public class NotificationProducer {
 			String messageId = StanzaUtils.generateUniqueId();
 			record.headers().add("messageId", messageId.getBytes());
 
-			log.info("Publishing records: {}", record);
-
+			if (log.isDebugEnabled()) {
+				log.debug("Publishing records: {}", record);
+			}
 			ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(record);
 
 			future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
