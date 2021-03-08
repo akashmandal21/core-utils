@@ -29,8 +29,10 @@ public class MicromarketResponseDTO {
 	private double latitude;
 	private double longitude;
 	private String slug;
+	
 	@Default
 	private boolean enabled = true;
+	
 	private String seoTitle;
 	private String seoDescription;
 	private String phone;
@@ -42,4 +44,7 @@ public class MicromarketResponseDTO {
 	private Long minPriceValue;
 	private Boolean whatsappChatFlag;
 	private List<MicromarketAliasDTO> micromarketAlias;
+	
+	@Builder.Default
+	private boolean isSelected = false;
 }
