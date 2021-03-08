@@ -31,6 +31,7 @@ public class CityResponseDTO {
 	private String phone;
 	private String description;
 	private String imageAltTag;
+	private String iconImageUrlAltTag;
 	private String cityImgUrl;
 	EnumListing<Status> status;
 	private Long reviewCount;
