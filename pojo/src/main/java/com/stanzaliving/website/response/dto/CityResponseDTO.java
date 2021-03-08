@@ -38,6 +38,7 @@ public class CityResponseDTO {
 	private Double rating;
 	private Long minPriceValue;
 	private Boolean whatsappChatFlag;
+	private String cityDescription;
 	
 	@Builder.Default
 	private boolean comingSoon = false;
