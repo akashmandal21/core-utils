@@ -1,6 +1,6 @@
 package com.stanzaliving.core.opscalculator.dto;
 
-import com.stanzaliving.core.opscalculator.enums.ApprovalStatus;
+import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
