@@ -31,7 +31,7 @@ public class ResidenceFoodMenuFeedbackDto {
 
 	private Float menuRating;
 	
-	private String menuDateStr;
+	private String date;
 
 	private ResidentFoodFeedbackDto residentfeedbackDto;
 }
