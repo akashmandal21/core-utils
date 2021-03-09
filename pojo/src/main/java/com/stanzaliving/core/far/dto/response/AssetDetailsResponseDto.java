@@ -60,6 +60,7 @@ public class AssetDetailsResponseDto {
     private List<String> imageWithQrCodePath;
     private String assetType;
     private String qrCode; // is from QrCode Table
+    private String qrCodeId;
     private String itemUuid;
     //private String allocationUuid;
     private AssetStatus assetStatus;
