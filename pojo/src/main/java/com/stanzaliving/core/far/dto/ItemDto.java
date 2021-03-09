@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ItemDto {
     private String glCode;
+    private String itemCode;
     private String costHead;
     private String itemName;
     private String itemDescription;
