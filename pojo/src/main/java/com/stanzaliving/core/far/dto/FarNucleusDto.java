@@ -17,7 +17,9 @@ public class FarNucleusDto {
     private String assetId;
     private String assetName;
     private String assetType;
+    private String assetOwner;
     private String subCategory;
+    private String subCategoryLabel;
 
     //private String assetLocation;
     private String locationName;

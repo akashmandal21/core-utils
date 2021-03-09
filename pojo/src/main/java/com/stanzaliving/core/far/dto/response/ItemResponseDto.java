@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 public class ItemResponseDto {
     private String itemUuid;
     private String itemName;
+    private String itemCode;
     private String itemDescription;
     private BigDecimal quantity;
 }
