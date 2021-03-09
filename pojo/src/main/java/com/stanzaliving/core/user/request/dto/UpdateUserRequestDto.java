@@ -7,11 +7,13 @@ import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.user.dto.Address;
 import com.stanzaliving.core.user.enums.BloodGroup;
 import com.stanzaliving.core.user.enums.Gender;
 import com.stanzaliving.core.user.enums.Nationality;
 
+import com.stanzaliving.core.user.enums.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -57,5 +59,12 @@ public class UpdateUserRequestDto {
 	private String nextDestination;
 
 	private String userMobile;
+
+	private Department department;
+
+	private UserType userType;
+
+	private String middleName;
+
 
 }
