@@ -12,13 +12,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PoSearchRequetDto {
+public class ItemSearchRequetDto {
     private String searchText;
     private Department department;
-    private Boolean po;
-    private String deliveryLocationUuid;
-    private String deliveryLocationType;
+    private String itemCategory;
+    private String itemSubCategory;
+    private String itemCostHead;
     private PageAndSortDto pageDto;
-    @Builder.Default
-    private boolean allData=false;
 }

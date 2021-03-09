@@ -40,5 +40,6 @@ public class PoSearchIndexDto {
     private String propertyUuid;
     private String poDocUrl;
     private String poToNumberSuggest;
-    private String poToNumberKeyword;
+    private String poToNumberSearch;
+    private String poDepartment;
 }
