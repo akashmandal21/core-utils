@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
+import com.opencsv.bean.CsvBindByName;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.DishRegion;
@@ -65,6 +66,10 @@ public class FoodItemAddRequestDto {
 
 	private Set<String> primaryTagIds;
 
+	private Set<String> cuisineTagIds;
+
+	private Set<String> regionalTagIds;
+
 	private CommercialTag commercialTag;
 
 	private Boolean eggPresent;
@@ -77,6 +82,8 @@ public class FoodItemAddRequestDto {
 	private UnitOfMeasurement unitOfMeasurement;
 
 	private String imageId;
+
+	private boolean stapleDish;
 
 	private boolean status;
 
