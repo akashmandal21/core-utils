@@ -42,4 +42,5 @@ public class PoSearchIndexDto {
     private String poToNumberSuggest;
     private String poToNumberSearch;
     private String poDepartment;
+    private Boolean visibleInGrn;
 }
