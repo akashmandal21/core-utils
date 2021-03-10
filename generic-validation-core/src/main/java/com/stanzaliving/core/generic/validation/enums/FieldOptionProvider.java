@@ -10,7 +10,7 @@ public enum FieldOptionProvider {
     //Vendor Master Providers
     VendorTypeProvider,VendorDepartmentProvider,CountryProvider,CityProvider,StateProvider,CompanyTypeProvider,
     AccountTypeProvider,FinancialYearProvider,YesNoProvider,CurrencyProvider,ProjectYearProvider,HouseNameProvider,
-    KitchenStoreProvider,SupplyCityProvider,
+    KitchenStoreProvider,SupplyCityProvider,SupportingDocTypeProvider,
 
     //Item master Providers
     ItemCategoryProvider,CostHeadProvider,ItemSubCategoryProvider,ItemTypeProvider,UOMProvider,GstPCTProvider,
