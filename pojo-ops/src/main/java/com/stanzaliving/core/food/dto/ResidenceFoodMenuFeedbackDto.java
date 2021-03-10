@@ -30,6 +30,8 @@ public class ResidenceFoodMenuFeedbackDto {
 	private Integer sequence;
 
 	private Float menuRating;
+	
+	private String date;
 
 	private ResidentFoodFeedbackDto residentfeedbackDto;
 }

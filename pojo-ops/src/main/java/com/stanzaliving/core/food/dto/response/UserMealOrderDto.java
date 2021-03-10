@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto.response;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.stanzaliving.core.food.enums.FoodItemType;
@@ -26,7 +27,9 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserMealOrderDto {
+public class UserMealOrderDto implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String userId;
 
@@ -35,7 +38,7 @@ public class UserMealOrderDto {
 	private String roomNumber;
 
 	private String mobile;
-	
+
 	private String imageUrl;
 
 	private Date pickedAt;
