@@ -22,5 +22,7 @@ public class ResidenceMetadataDto {
     private String microMarketUuid;
     
     private ResidenceType residenceType;
+
+    private String parentResidenceId;
     
 }

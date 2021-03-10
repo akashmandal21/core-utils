@@ -53,10 +53,9 @@ public class QRScanServiceImpl implements QRScanService {
 
 			qrDataRepository.save(qrData);
 
-			return qrData;
 		}
 
-		throw new ApiValidationException("This is not a valid Stanza QR code.");
+		return qrData;
 	}
 
 	private void validateWithResidenceFoodMenuId(String residenceFoodMenuId, QRData qrData) {
@@ -156,6 +155,28 @@ public class QRScanServiceImpl implements QRScanService {
 			}
 
 		}
+	}
+
+	@Override
+	public QRScanHistory scanHistory(String contextId, String qrId, String userId, QRContextType qrContextType, boolean status, FeaturePhoneQrValidation validation, String imagePath) {
+
+		QRScanHistory qrScanHistory = qrScanHistoryRepository.findByContextIdAndUserId(contextId, userId);
+
+		if (Objects.isNull(qrScanHistory)) {
+
+			qrScanHistory = QRScanHistory.builder()
+					.contextId(contextId)
+					.userId(userId)
+					.build();
+		}
+
+		qrScanHistory.setQrUUid(qrId);
+		qrScanHistory.setStatus(status);
+		qrScanHistory.setQrContextType(qrContextType);
+		qrScanHistory.setQrValidationType(validation);
+		qrScanHistory.setValidatedImagePath(imagePath);
+
+		return qrScanHistoryRepository.save(qrScanHistory);
 	}
 
 	@Override

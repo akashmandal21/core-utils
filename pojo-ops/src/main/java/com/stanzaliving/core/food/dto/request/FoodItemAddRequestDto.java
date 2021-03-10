@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
+import com.opencsv.bean.CsvBindByName;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.DishRegion;
@@ -65,6 +66,10 @@ public class FoodItemAddRequestDto {
 
 	private Set<String> primaryTagIds;
 
+	private Set<String> cuisineTagIds;
+
+	private Set<String> regionalTagIds;
+
 	private CommercialTag commercialTag;
 
 	private Boolean eggPresent;
@@ -78,16 +83,16 @@ public class FoodItemAddRequestDto {
 
 	private String imageId;
 
+	private boolean stapleDish;
+
 	private boolean status;
 
 	@Valid
 	@NotNull(message = "Recipe selection is mandatory")
 	private ItemRecipeRequestDto recipe;
 
-    private boolean isStapleDish;
-
-    @Valid
-    @NotEmpty(message = "Feedback options selection is mandatory")
-    private List<String> feedback;
+	@Valid
+	@NotEmpty(message = "Feedback options selection is mandatory")
+	private List<String> feedback;
 
 }

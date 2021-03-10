@@ -33,4 +33,5 @@ public class ItemUpdateDto extends AbstractDto {
     private GSTSlabs gstSlab;
     private List<UIKeyValue> usageTypeOrArea;
     private UnitType unitOfMeasurement;
+    private String recipeTag;
 }

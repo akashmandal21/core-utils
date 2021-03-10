@@ -37,5 +37,5 @@ public class IngredientRequestDto extends AbstractDto {
 	private UnitOfMeasurement unitOfMeasurement;
 
 	private GSTSlabs gstSlab;
-
+	private String classificationTag;
 }
