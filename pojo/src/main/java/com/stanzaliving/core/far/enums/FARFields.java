@@ -33,16 +33,15 @@ FARFields {
     ASSET_VERIFIEDBY(FARSections.ASSET),
     ASSET_LASTAUDITEDBY(FARSections.ASSET),
     ASSET_ITEMSINPACKAGE(FARSections.ASSET),
-    ASSET_imageWithoutQrCodePath(FARSections.ASSET),
-    ASSET_imageWithQrCodePath(FARSections.ASSET),
+    ASSET_IMAGES(FARSections.ASSET),
     ASSET_ASSETTYPE(FARSections.ASSET),
     ASSET_RENTALSTARTDATE(FARSections.ASSET),
     ASSET_RENTALENDDATE(FARSections.ASSET),
-    ASSET_QRCODE(FARSections.ASSET), // is from QrCode Table
+    ASSET_QRCODE(FARSections.ASSET),
     ASSET_AMCUUID(FARSections.ASSET),
-    ASSET_INSURANCEUUID(FARSections.ASSET), // these will be linked to the uuids of the insurance table
+    ASSET_INSURANCEUUID(FARSections.ASSET),
     ASSET_AUDITID(FARSections.ASSET),
-    ASSET_ITEMUUID(FARSections.ASSET), // joined to item.uuid
+    ASSET_ITEMUUID(FARSections.ASSET),
     ASSET_ALLOCATIONUUID(FARSections.ASSET),
     ASSET_ASSETSTATUS(FARSections.ASSET),
     ASSET_BRANDNAME(FARSections.ASSET),

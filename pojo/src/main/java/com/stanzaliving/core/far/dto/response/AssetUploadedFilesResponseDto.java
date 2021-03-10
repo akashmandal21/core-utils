@@ -16,6 +16,5 @@ import java.util.List;
 public class AssetUploadedFilesResponseDto {
     private String insuranceDocUrl;
     private String amcDocUrl;
-    private List<String> imageWithoutQrCodeUrl;
-    private List<String> imageWithQrCodeUrl;
+    private List<String> assetImagesUrl;
 }
