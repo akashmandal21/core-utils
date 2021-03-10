@@ -19,4 +19,5 @@ public class ItemSearchRequetDto {
     private String itemSubCategory;
     private String itemCostHead;
     private PageAndSortDto pageDto;
+    private String[] fieldsNeeded;
 }
