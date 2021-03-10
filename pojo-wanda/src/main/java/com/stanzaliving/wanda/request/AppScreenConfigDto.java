@@ -23,12 +23,11 @@ public class AppScreenConfigDto {
 
         private int position;
 
-        private String appPageSection;
+        private String sectionName;
         
         private boolean status;
         
         private String sectionType;
         
-        private String sectionName;
-
+        private String section;
 }
