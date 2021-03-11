@@ -28,7 +28,7 @@ public class KitchenCostDto {
 
 	private String kitchenName;
 
-	private double cost;
+	private Double cost;
 
 	private Double totalCost;
 
