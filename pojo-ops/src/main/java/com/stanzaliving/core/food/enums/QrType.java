@@ -15,9 +15,11 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum QrType {
 
-	NORMAL("Meal pick-up"),
+	NORMAL(1, "Meal pick-up"),
 
-	LUNCH_TIFFIN("Tiffin service");
+	LUNCH_TIFFIN(2, "Tiffin service");
+
+	private Integer seq;
 
 	private String label;
 }
