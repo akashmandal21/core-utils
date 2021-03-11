@@ -43,5 +43,5 @@ public class MicromarketResponseDTO {
 	private Boolean whatsappChatFlag;
 	private List<MicromarketAliasDTO> micromarketAlias;
 	@Default
-	private Boolean leadQualificationForm=false;
+	private boolean leadQualificationForm=false;
 }
