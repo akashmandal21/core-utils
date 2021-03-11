@@ -79,5 +79,11 @@ public interface EmailPlaceHolders {
     String SITE_ENGINEER = "SITE_ENGINEER";
     String PROJECT_MANAGER = "PROJECT_MANAGER";
     String PROJECT_ZONAL_HEAD = "PROJECT_ZONAL_HEAD";
+    String ITEM_COST_HEAD = "itemCostHead";
+    String ITEM_CATEGORY = "itemCategory";
+    String ITEM_SUB_CATEGORY = "itemSubcategory";
+    String ITEM_DESCRIPTION = "itemDescription";
+    String ITEM_GST = "itemGST";
+    String ITEM_LINK = "itemLink";
 
 }

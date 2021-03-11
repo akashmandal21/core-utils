@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -19,4 +21,9 @@ public class VendorUpdateInfoDto {
     private VendorType vendorType;
     private Department creatorDept;
     private VendorUpdateType vendorUpdateType;
+    private String companyName;
+    private List<VendorGstDto> vendorGstDtos;
+    private List<VendorPocDto> vendorPocDtos;
+    private String cityUuid;
+    private String fassai;
 }
