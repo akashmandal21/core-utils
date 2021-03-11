@@ -17,6 +17,7 @@ public class GrsiEventUpdateDto {
 
     private String grsiId;
     private String poToId;
+    private String poNumber;
     private LocationType targetLocationType;
     private String targetAddressUuid;
     private LocationType srcLocationType;
