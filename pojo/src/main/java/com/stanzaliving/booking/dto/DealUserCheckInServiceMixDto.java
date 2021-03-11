@@ -14,11 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DealUpdationServiceMixDto {
-    
+public class DealUserCheckInServiceMixDto {
+
     private String dealUuid;
     private String residenceUuid;
-    private String residentCode;
+    private String residentUuid;
     private String residentName;
     private String serviceMixName;
     private String serviceMixUuid;

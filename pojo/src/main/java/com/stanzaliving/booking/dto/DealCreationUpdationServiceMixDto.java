@@ -14,8 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DealCreationServiceMixDto {
-
+public class DealCreationUpdationServiceMixDto {
+    
     private String dealName;
     private String dealUuid;
     private String dealType;
@@ -27,4 +27,6 @@ public class DealCreationServiceMixDto {
     private List<DealResidenceBedMapping> residenceBedMapping;
     private List<DealPocDto> institutePoc;
     private List<DealStanzaPocDto> stanzaPoc;
+    private Timestamp dealApprovedOn;
+    private boolean isMgDeal;
 }
