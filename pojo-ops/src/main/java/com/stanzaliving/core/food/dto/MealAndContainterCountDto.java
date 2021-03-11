@@ -16,6 +16,8 @@ import lombok.ToString;
 @ToString
 public class MealAndContainterCountDto {
 
+	private String mealType;
+	
 	private int receivedContainerCount;
 	private int actualContainerCount;
 	

@@ -153,7 +153,7 @@ public abstract class TemplateProcessor {
                                                                       Map<String,JsonNode> uiSubmittedDto,
                                                                       ErrorInfo errorInfo, Map<String,Object> additionalData,
                                                                       Object sourceClass, Map<String,Field> fieldMap, boolean allowSkipOnNewFields){
-        log.info("Request to Store Approvals Submitted with validations {} {}",sourceClass,fieldMap);
+        log.info("Request to Store Approvals Submitted with validations"); // {} {}",sourceClass,fieldMap);
 
         Map<String, Templates> templates = getTemplates(templateFilter,templateName);
         return processApproval(uiSubmittedDto,templateName,templates,errorInfo,
@@ -564,7 +564,10 @@ public abstract class TemplateProcessor {
                     UiParentField uiBasicField = getUiBasicField(templateField, templates.get(templateField.getFieldName()),additionalData);
 
                     if(Objects.nonNull(fieldVal) && fieldVal instanceof ApprovalProcessor)
+                    {
+                        log.info("{} {} {}",additionalData,templateField,((ApprovalProcessor)fieldVal).getApprovalLevel());
                         ((ApprovalProcessor)fieldVal).fillApprovalInfo(uiBasicField,templateField,additionalData);
+                    }
 
                     if(templates.get(templateField.getFieldName()).getTemplateType() == TemplateType.MODAL)
                         uiBasicField.setSkeleton(objectMapper.valueToTree(getUiFields(templateField.getFieldName(), templates, null, null, additionalData,baseObject)));
