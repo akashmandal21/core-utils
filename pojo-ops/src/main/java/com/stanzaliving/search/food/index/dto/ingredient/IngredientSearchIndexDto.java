@@ -40,4 +40,6 @@ public class IngredientSearchIndexDto extends AbstractSearchIndexDto {
 	private UnitOfMeasurement unitOfMeasurement;
 	private GSTSlabs gstSlabs;
 	private String itemUuid;
+	private String classificationTag;
+
 }
