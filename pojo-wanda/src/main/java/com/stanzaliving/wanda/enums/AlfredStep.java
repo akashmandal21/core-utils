@@ -22,7 +22,7 @@ public enum AlfredStep {
 	KYC_REJECTED(7,Arrays.asList("KYC REJECTED")),
 	UPDATE_BY_SALES_POC(8, Arrays.asList("NEEDS ATTENTION")),
 	HOMESCREEN(9, Arrays.asList("REFUND INITIATED","ONBOARDING COMPLETED","VERIFICATION PENDING")),
-	SECOND_AGREEMENT(10,Arrays.asList("SECOND SUB CONTRACT AGREEMENT SENT"));
+	SECOND_AGREEMENT(10,Arrays.asList("SUBCONTRACT 2 AGREEMENT SENT"));
 	private Integer sequenceId;
 	private List<String> bookingStatuses;
 
