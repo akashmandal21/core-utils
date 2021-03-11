@@ -42,4 +42,6 @@ public class MicromarketResponseDTO {
 	private Long minPriceValue;
 	private Boolean whatsappChatFlag;
 	private List<MicromarketAliasDTO> micromarketAlias;
+	@Default
+	private Boolean leadQualificationForm=false;
 }
