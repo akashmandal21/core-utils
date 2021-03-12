@@ -35,4 +35,5 @@ public class DealCreationUpdationServiceMixDto {
     private List<DealStanzaPocDto> stanzaPoc;
     private Timestamp dealApprovedOn;
     private boolean isMgDeal;
+    private String dealCreatedBy;
 }
