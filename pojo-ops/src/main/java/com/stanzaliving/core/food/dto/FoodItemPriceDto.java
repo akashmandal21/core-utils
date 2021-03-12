@@ -17,4 +17,5 @@ public class FoodItemPriceDto {
 	private Double perPaxCost;
 	private Double perPaxQuantity;
 	private UnitOfMeasurement uom;
+	private Double bufferPricePercentage;
 }

@@ -13,6 +13,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 /**
  * @author naveen.kumar
  *
@@ -28,14 +30,13 @@ import lombok.experimental.SuperBuilder;
 public class IngredientDto {
 
 	private String ingredientId;
-
 	private String ingredientName;
-
 	private IngredientType ingredientType;
-
 	private String ingredientTypeName;
-
 	private UnitOfMeasurement unitOfMeasurement;
-
 	private String unitOfMeasurementName;
+	private Double countryWisePrice; 
+	private List<PriceListingDto> cityWisePrice; 
+	private List<PriceListingDto> kitchenWisePrice;
+	private boolean priceMissing;
 }

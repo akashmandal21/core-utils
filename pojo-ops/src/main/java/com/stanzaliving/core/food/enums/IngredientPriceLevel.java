@@ -8,8 +8,7 @@ import lombok.Getter;
 public enum IngredientPriceLevel {
 	COUNTRY("Country"),
 	CITY("City"),
-	VENDOR("Vendor"),
-	VENDOR_IN_CITY("Vendor In City");
+	VENDOR("Vendor");
 
 	private final String priceLevel;
 
