@@ -7,30 +7,31 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum SectionKey {
 	
-	OCCUPANCY("Occupancy", TemplateParentKey.PRICING),
-	ROOM_AMENITIES("Room Amenities", TemplateParentKey.OTHERS),
-	COMMON_AMENITIES("Common Amenities", TemplateParentKey.OTHERS),
-	LAUNDRY("LAUNDRY", TemplateParentKey.OTHERS),
-	HOUSEKEEPING("Housekeeping", TemplateParentKey.OTHERS),
-	INTERNET_WIFI("Internet/Wifi", TemplateParentKey.OTHERS),
-	SECURITY_DEPOSIT("Security Deposit", TemplateParentKey.OTHERS),
-	AC("AC", TemplateParentKey.OTHERS),
-	ELECTRICITY("Electricity", TemplateParentKey.OTHERS),
-	MEALS_AVAILABLE("Meals Available", TemplateParentKey.OTHERS),
-	LUNCH("Lunch Box Available", TemplateParentKey.OTHERS),
-	WEEKEND_MEAL("Weekend Meal Available", TemplateParentKey.OTHERS),
-	NON_VEG("Non-Veg Available", TemplateParentKey.OTHERS),
-	DESSERT("Dessert Available", TemplateParentKey.OTHERS),
-	EGGS("Eggs Available", TemplateParentKey.OTHERS),
-	MILK("Milk Available", TemplateParentKey.OTHERS),
-	NOTICE_PERIOD("Notice Period", TemplateParentKey.OTHERS),
-	SECURITY("Security", TemplateParentKey.OTHERS),
-	TRANSPORT("Transport", TemplateParentKey.OTHERS),
-	DESIGN_BEDS("Design & Beds", TemplateParentKey.OTHERS),
-	OPERATIONAL_PERIOD("Operational Period", TemplateParentKey.OTHERS);
+	OCCUPANCY("Occupancy", "occupancy", TemplateParentKey.PRICING),
+	ROOM_AMENITIES("Room Amenities", "roomAmenities", TemplateParentKey.OTHERS),
+	COMMON_AMENITIES("Common Amenities", "commonAmenities", TemplateParentKey.OTHERS),
+	LAUNDRY("LAUNDRY", "laundry", TemplateParentKey.OTHERS),
+	HOUSEKEEPING("Housekeeping", "houseKeeping", TemplateParentKey.OTHERS),
+	INTERNET_WIFI("Internet/Wifi", "internet", TemplateParentKey.OTHERS),
+	SECURITY_DEPOSIT("Security Deposit", "securityDeposit", TemplateParentKey.OTHERS),
+	AC("AC", "ac", TemplateParentKey.OTHERS),
+	ELECTRICITY("Electricity", "electricity", TemplateParentKey.OTHERS),
+	MEALS_AVAILABLE("Meals Available", "mealsAvailable", TemplateParentKey.OTHERS),
+	LUNCH("Lunch Box Available", "lunchBoxAvailable", TemplateParentKey.OTHERS),
+	WEEKEND_MEAL("Weekend Meal Available", "weekendMealAvailable", TemplateParentKey.OTHERS),
+	NON_VEG("Non-Veg Available", "nonVegAvailable", TemplateParentKey.OTHERS),
+	DESSERT("Dessert Available", "dessertAvailable", TemplateParentKey.OTHERS),
+	EGGS("Eggs Available", "eggsAvailable", TemplateParentKey.OTHERS),
+	MILK("Milk Available", "milkAvailable", TemplateParentKey.OTHERS),
+	NOTICE_PERIOD("Notice Period", "noticePeriod", TemplateParentKey.OTHERS),
+	SECURITY("Security", "security", TemplateParentKey.OTHERS),
+	TRANSPORT("Transport", "transportation", TemplateParentKey.OTHERS),
+	DESIGN_BEDS("Design & Beds", "designAndBeds", TemplateParentKey.OTHERS),
+	OPERATIONAL_PERIOD("Operational Period", "operationalPeriod", TemplateParentKey.OTHERS);
 
 	
 	private String sectionKeyName;
+	private String dbKey;
 	private TemplateParentKey parentKey;
 
 }
