@@ -5,6 +5,8 @@ import com.stanzaliving.core.enums.UnitOfMeasurement;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString

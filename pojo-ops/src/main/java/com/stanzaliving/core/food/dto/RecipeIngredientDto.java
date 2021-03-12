@@ -10,6 +10,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 /**
  * @author naveen.kumar
  *
@@ -27,5 +29,7 @@ public class RecipeIngredientDto extends IngredientDto {
 	private double quantity;
 	private Double price;
 	private Double cost;
+	private List<PriceListingDto> kitchenWiseCost;
+	private boolean missingPrice;
 
 }

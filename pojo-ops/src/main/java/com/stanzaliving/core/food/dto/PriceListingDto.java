@@ -12,5 +12,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class PriceListingDto extends ListingDto {
 	private Double price;
+	private Double cost;
+	private Double quantity;
 	private boolean missingPrice;
 }
