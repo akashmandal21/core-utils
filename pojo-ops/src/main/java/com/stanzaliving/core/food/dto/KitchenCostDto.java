@@ -23,10 +23,15 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class KitchenCostDto {
+
 	private String kitchenId;
+
 	private String kitchenName;
+
 	private Double cost;
+
 	private Double totalCost;
+
 	private Double totalQuantity;
 	private Double standardQuantity;
 }

@@ -18,7 +18,5 @@ public class IngredientPriceDto {
 	private double price;
 	private double gst;
 	private double totalPrice;
-
 	private boolean priceMissing;
-	
 }
