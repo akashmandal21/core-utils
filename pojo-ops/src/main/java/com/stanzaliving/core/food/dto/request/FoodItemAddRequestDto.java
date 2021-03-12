@@ -93,6 +93,6 @@ public class FoodItemAddRequestDto {
 
 	@Valid
 	@NotEmpty(message = "Feedback options selection is mandatory")
-	private List<String> feedback;
+	private Set<String> feedback;
 
 }
