@@ -35,9 +35,12 @@ public class ItemUpdateDto extends AbstractDto {
     private UnitType unitOfMeasurement;
     private String recipeTag;
 
+
     private String itemNameSearch;
     private String itemNameSuggest;
 
     private String itemCodeSearch;
     private String itemDescriptionSearch;
+    private Boolean taggable;
+
 }

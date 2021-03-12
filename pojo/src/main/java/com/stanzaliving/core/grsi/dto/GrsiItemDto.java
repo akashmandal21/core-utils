@@ -15,9 +15,11 @@ import java.time.LocalDate;
 public class GrsiItemDto {
 
     private String itemUuid;
+    private String itemCode;
     private Department itemDept;
     private String batchId;
     private LocalDate expiryDate;
     private BigDecimal effectivePrice;//Unit Rate
     private BigDecimal quantity;
+    private BigDecimal rentPeriod;
 }
