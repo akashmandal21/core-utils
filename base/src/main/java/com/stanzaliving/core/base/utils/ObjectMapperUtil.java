@@ -10,6 +10,8 @@ import com.stanzaliving.core.base.http.BaseMapperConfig;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
+import java.io.IOException;
+
 /**
  * @author naveen.kumar
  *
@@ -36,6 +38,17 @@ public class ObjectMapperUtil {
 		}
 
 		return json;
+	}
+
+	public <T> T getObjectFromString(String value, Class<T> clazz) {
+
+		try {
+			return mapper.readValue(value, clazz);
+		} catch (IOException e) {
+			log.error(e);
+		}
+
+		return null;
 	}
 
 }
