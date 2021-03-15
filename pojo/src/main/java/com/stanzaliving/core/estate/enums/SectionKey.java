@@ -1,5 +1,8 @@
 package com.stanzaliving.core.estate.enums;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -33,5 +36,22 @@ public enum SectionKey {
 	private String sectionKeyName;
 	private String dbKey;
 	private TemplateParentKey parentKey;
+	
+	private static Map<String, SectionKey> sectionDBKeyMap = new HashMap<>();
+	
+	
+	static {
+		
+		for(SectionKey key : SectionKey.values()) {
+			
+			sectionDBKeyMap.put(key.getDbKey(), key);
+		}
+		
+	}
+	
+	public static SectionKey getSectionFromDbKey(String key) {
+		
+		return sectionDBKeyMap.get(key);
+	}
 
 }
