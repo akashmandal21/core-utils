@@ -1,6 +1,7 @@
 package com.stanzaliving.core.cafe.order.dto.request;
 
 import com.stanzaliving.core.cafe.enums.CafeFeedbackFor;
+import com.stanzaliving.core.operations.enums.FeedbackSource;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,5 +46,7 @@ public class FeedbackRequestDto {
 	private List<FeedbackItemRequestDto> itemFeedback;
 
 	private String nudgeId;
+
+	private FeedbackSource source;
 
 }
