@@ -6,6 +6,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 import com.stanzaliving.core.estate.enums.EstateGender;
@@ -77,4 +78,8 @@ public class ResidenceUIDto implements Serializable{
 	private MicroMarketUIDto microMarketUIDto;
 
 	private String parentResidenceId;
+	
+	private PropertyEntityType propertyEntityType;
+		
+	private String estateUuid;
 }
