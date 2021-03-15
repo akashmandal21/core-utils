@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class DealResidenceBedMappingDto {
 	
-	private String residenceUuid;
+	private String residenceId;
 	private int bedCount;
 	
 }
