@@ -42,5 +42,7 @@ public class UserMealPickupHistoryDto {
 	private long pending;
 	
 	private List<UserMealOrderDto> userMealOrderDtos;
+	
+	private List<UserMealOrderDto> skippedMealOrderDtos;
 
 }

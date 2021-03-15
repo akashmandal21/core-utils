@@ -84,9 +84,12 @@ public class NotificationConstants {
         public final String RECEIVED_ORDER = "receivedOrder";
         public final String QR_CODE = "qrCode";
         public final String ITEM_AMOUNT = "itemAmount";
+        public final String ITEM_TOTAL_AMOUNT = "itemOrderAmount";
         public final String CHARGES_AMOUNT = "chargesAmount";
         public final String COUPON_AMOUNT = "couponAmount";
         public final String FULL_REFUND = "fullRefund";
+        public final String REFUNDED_AMOUNT = "refundedAmount";
+        public final String HOSTEL_CHANGE_REFUND = "isHostelChangeRefund";
 
     }
 }

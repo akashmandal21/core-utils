@@ -1,5 +1,7 @@
 package com.stanzaliving.core.grn.client.api;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +11,9 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.po.enums.EventType;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
+import com.stanzaliving.core.po.generic.dtos.GenericPoUpdate;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
+import com.stanzaliving.grn.GSRIEmailData;
 import com.stanzaliving.grn.GSRIReceivedQuantity;
 import com.stanzaliving.grn.GrnQuantity;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
@@ -141,6 +145,47 @@ public class GrnClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/generic/grnEventAllowed/{poToUuid}").buildAndExpand(uriVariables).toUriString();
 
         ParameterizedTypeReference<ResponseDto<Map<EventType,Boolean>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<EventType,Boolean>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<Void> updatePoEndDate(GenericPoUpdate poUpdate) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/updatePoEndDate").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, poUpdate, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<Map<String, List<GSRIEmailData>>> getDailyOrWeeklyEmailData(Date startDate, Date endDate) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.set("startDate", String.valueOf(startDate.getTime()));
+        queryParams.set("endDate", String.valueOf(endDate.getTime()));
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/daily/or/weekly/email/data").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<Map<String, List<GSRIEmailData>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<GSRIEmailData>>>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);

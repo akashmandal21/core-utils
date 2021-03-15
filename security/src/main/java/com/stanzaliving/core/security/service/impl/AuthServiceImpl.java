@@ -37,7 +37,7 @@ public class AuthServiceImpl implements AuthService {
 		ResponseDto<UserProfileDto> responseDto = null;
 
 		try {
-			responseDto = authClientApi.getUserByToken(token);
+			responseDto = authClientApi.getCurrentUserByToken(token);
 		} catch (StanzaSecurityException
 				| StanzaHttpException e) {
 			throw e;

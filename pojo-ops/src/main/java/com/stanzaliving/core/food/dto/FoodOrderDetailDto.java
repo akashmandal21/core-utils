@@ -96,6 +96,8 @@ public class FoodOrderDetailDto {
 	
 	private boolean foodOrderWindowClosed;
 
+	private LocalDate foodOrderWindowCloseDate;
+	
 	private LocalTime foodOrderWindowCloseTime;
 	
 	private LocalDate cutoffDate;

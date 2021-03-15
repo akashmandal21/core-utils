@@ -54,7 +54,7 @@ public class FilterDto {
     private List<UIKeyValue> baseItemOptions;
     private List<UIKeyValue> inactiveOptions;
     private List<Double> itemsPerPackOptions;
-
+    private List<UIKeyValue> itemPerPackOptions;
 
     //Main Filters
     private List<UIKeyValue> itemCategory;
@@ -81,6 +81,7 @@ public class FilterDto {
     private List<UIKeyValue> usageTypeArea;
     private List<UIKeyValue> storageType;
     private List<Double> itemsPerPack; //Mutli Select
+    private List<UIKeyValue> itemPerPack;
     private List<UIKeyValue> baseItem;//Mutli Select
 
 
@@ -90,6 +91,13 @@ public class FilterDto {
     private SortDirection sortDirection;
 
     private String itemUuid;
+
+    private List<UIKeyValue> itemStatus;
+    private List<UIKeyValue> updatedBy;
+    private DateRange lastUpdatedBetween;
+
+    private List<UIKeyValue> itemStatusOptions;
+    private List<UIKeyValue> updatedByOptions;
 
 
     public void addAdditionalFilterFields(Set<String> deptFields){
