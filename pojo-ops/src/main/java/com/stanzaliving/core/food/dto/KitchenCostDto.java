@@ -32,4 +32,6 @@ public class KitchenCostDto {
 
 	private Double totalCost;
 
+	private Double totalQuantity;
+	private Double standardQuantity;
 }
