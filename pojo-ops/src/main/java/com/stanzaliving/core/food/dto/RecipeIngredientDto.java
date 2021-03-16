@@ -31,5 +31,6 @@ public class RecipeIngredientDto extends IngredientDto {
 	private Double cost;
 	private List<PriceListingDto> kitchenWiseCost;
 	private boolean missingPrice;
+	private int index;
 
 }
