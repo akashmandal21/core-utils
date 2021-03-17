@@ -1,7 +1,3 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.website.response.dto;
 
 import java.util.HashSet;
@@ -17,10 +13,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -49,6 +41,7 @@ public class ResidenceResponseDTO {
 	private String slug;
 	private Integer fomoBedCount;
 	private Integer preBookingAmount;
+	private String preBookingMode;
 	private FomoTag fomoTag;
 	private int priorityOrder;
 	private String residenceType;
@@ -59,22 +52,26 @@ public class ResidenceResponseDTO {
 	private String virtualTourImage;
 	private String cardCTA;
 	
-	
 	@Builder.Default
 	private Set<FeatureResponseDTO> features = new HashSet<>(0);
+	
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
+	
 	@Builder.Default
 	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
+	
 	@Builder.Default
 	private Set<MealPlanResponseDTO> mealPlans = new HashSet<>(0);
+	
 	@Builder.Default
 	private Set<CommunityFeatureResponseDTO> communityFeatures = new HashSet<>(0);
+	
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>(0);
+	
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
 	
 	private AddressResponseDTO address;
-
 }
