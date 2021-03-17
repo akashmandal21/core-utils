@@ -9,6 +9,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.food.dto.FoodItemSearchDto;
 import com.stanzaliving.core.food.dto.response.DataCountPageResponse;
+import com.stanzaliving.core.search.client.food.FoodMenuAggregationClient;
 import com.stanzaliving.search.food.index.dto.dishmaster.DishMasterSearchIndexDto;
 import com.stanzaliving.search.food.index.dto.ingredient.IngredientSearchIndexDto;
 import com.stanzaliving.search.food.index.dto.menu.FoodMenuCategoryItemOrderCountIndexDto;
@@ -18,14 +19,17 @@ import com.stanzaliving.search.food.search.dto.IngredientSearchDto;
 import com.stanzaliving.search.food.search.dto.VasMasterSearchDto;
 import com.stanzaliving.search.food.search.dto.request.MenuCategoryAggregateRequestDto;
 import com.stanzaliving.search.food.search.dto.request.MenuItemAggregateRequestDto;
+import com.stanzaliving.search.food.search.dto.request.MenuMealItemRequestDto;
 import com.stanzaliving.search.food.search.dto.request.MenuMicromarketAggregateRequestDto;
 import com.stanzaliving.search.food.search.dto.response.menu.consumption.FoodMenuCategoryConsumptionResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.consumption.FoodMenuConsumptionSearchResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.fps.FoodMenuItemFpsResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.fps.MenuCategoryFpsResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.FoodMenuMicromarketRatingResponseDto;
+import com.stanzaliving.search.food.search.dto.response.menu.rating.MealItemRatingResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.MicromarketItemRatingDto;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -48,6 +52,9 @@ import java.util.Objects;
 
 @Log4j2
 public class SearchClientApi {
+
+	@Autowired
+	private FoodMenuAggregationClient foodMenuAggregationClient;
 
 	private final StanzaRestClient restClient;
 
@@ -500,6 +507,10 @@ public class SearchClientApi {
 		}
 
 		return responseDto.getData();
+	}
+
+	public List<MealItemRatingResponseDto> aggregateMenuItemsRating(MenuMealItemRequestDto requestDto) {
+		return foodMenuAggregationClient.aggregateMenuItemsRating(restClient, requestDto);
 	}
 }
 
