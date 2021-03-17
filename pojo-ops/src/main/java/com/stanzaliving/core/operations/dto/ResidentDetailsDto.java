@@ -1,6 +1,6 @@
 package com.stanzaliving.core.operations.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import com.stanzaliving.core.operations.enums.ResidentStatus;
 
@@ -29,6 +29,6 @@ public class ResidentDetailsDto {
 	private String lastUpdatedBy;
 	private ResidentStatus residentStatus;
 	private String residentStatusDisplayName;
-	private LocalDate lastUpdatedAt;
+	private LocalDateTime lastUpdatedAt;
 
 }
