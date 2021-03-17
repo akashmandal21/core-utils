@@ -9,6 +9,8 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.food.dto.FoodItemSearchDto;
 import com.stanzaliving.core.food.dto.response.DataCountPageResponse;
+import com.stanzaliving.core.search.client.api.food.FoodDishMasterService;
+import com.stanzaliving.core.search.client.api.food.VasMasterService;
 import com.stanzaliving.search.food.index.dto.dishmaster.DishMasterSearchIndexDto;
 import com.stanzaliving.search.food.index.dto.ingredient.IngredientSearchIndexDto;
 import com.stanzaliving.search.food.index.dto.menu.FoodMenuCategoryItemOrderCountIndexDto;
@@ -26,6 +28,7 @@ import com.stanzaliving.search.food.search.dto.response.menu.fps.MenuCategoryFps
 import com.stanzaliving.search.food.search.dto.response.menu.rating.FoodMenuMicromarketRatingResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.MicromarketItemRatingDto;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -49,6 +52,12 @@ import java.util.Objects;
 @Log4j2
 public class SearchClientApi {
 
+	@Autowired
+	private FoodDishMasterService foodDishMasterService;
+
+	@Autowired
+	private VasMasterService vasMasterService;
+
 	private final StanzaRestClient restClient;
 
 	public SearchClientApi(StanzaRestClient stanzaRestClient) {
@@ -56,78 +65,11 @@ public class SearchClientApi {
 	}
 
 	public List<String> autoSuggestDishName(String text) {
-
-		String path = UriComponentsBuilder.fromPath("/internal/search/food/dish/master/autosuggest").build().toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("name", text);
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {"*/*"};
-
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		TypeReference<ResponseDto<List<String>>> returnType = new TypeReference<ResponseDto<List<String>>>() {};
-
-		ResponseDto<List<String>> responseDto = new ResponseDto<>();
-
-		try {
-
-			responseDto = restClient.request(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
-
-		} catch (Exception e) {
-
-			log.error("Error while searching from search service.", e);
-
-			throw new ApiValidationException("Some error occurred. Please try again after some time.");
-
-		}
-
-		if (!responseDto.isStatus()) {
-
-			throw new PreconditionFailedException(responseDto.getMessage());
-
-		}
-
-		return responseDto.getData();
+		return foodDishMasterService.autoSuggestDishName(restClient, text);
 	}
 
 	public PageResponse<DishMasterSearchIndexDto> searchDishMaster(FoodItemSearchDto searchDto) {
-
-		String path = UriComponentsBuilder.fromPath("/internal/search/food/dish/master").build().toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {"*/*"};
-
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		TypeReference<ResponseDto<PageResponse<DishMasterSearchIndexDto>>> returnType = new TypeReference<ResponseDto<PageResponse<DishMasterSearchIndexDto>>>() {};
-
-		ResponseDto<PageResponse<DishMasterSearchIndexDto>> responseDto = new ResponseDto<>();
-
-		try {
-
-			responseDto = restClient.request(path, HttpMethod.POST, queryParams, searchDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
-
-		} catch (Exception e) {
-
-			log.error("Error while searching from search service.", e);
-
-			throw new ApiValidationException("Some error occurred. Please try again after some time.");
-
-		}
-
-		if (!responseDto.isStatus()) {
-
-			throw new PreconditionFailedException(responseDto.getMessage());
-
-		}
-
-		return responseDto.getData();
+		return foodDishMasterService.searchDishMaster(restClient, searchDto);
 	}
 
 	private MultiValueMap<String, String> convertToQueryParams(FoodItemSearchDto searchDto) {
@@ -160,40 +102,7 @@ public class SearchClientApi {
 	}
 
 	public DataCountPageResponse<VasMasterIndexDto> searchVasMaster(VasMasterSearchDto searchDto) {
-
-		String path = UriComponentsBuilder.fromPath("/internal/search/food/vas/master").build().toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {"*/*"};
-
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		TypeReference<ResponseDto<DataCountPageResponse<VasMasterIndexDto>>> returnType = new TypeReference<ResponseDto<DataCountPageResponse<VasMasterIndexDto>>>() {};
-
-		ResponseDto<DataCountPageResponse<VasMasterIndexDto>> responseDto = new ResponseDto<>();
-
-		try {
-
-			responseDto = restClient.request(path, HttpMethod.POST, queryParams, searchDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
-
-		} catch (Exception e) {
-
-			log.error("Error while searching from search service.", e);
-
-			throw new ApiValidationException("Some error occurred. Please try again after some time.");
-
-		}
-
-		if (!responseDto.isStatus()) {
-
-			throw new PreconditionFailedException(responseDto.getMessage());
-
-		}
-
-		return responseDto.getData();
+		return vasMasterService.searchVasMaster(restClient, searchDto);
 	}
 
 	public FoodMenuMicromarketRatingResponseDto aggregateMenuRating(MenuMicromarketAggregateRequestDto requestDto) {
