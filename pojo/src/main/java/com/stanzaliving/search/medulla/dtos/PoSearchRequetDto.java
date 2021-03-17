@@ -22,6 +22,7 @@ public class PoSearchRequetDto {
     private String userRole;
     private Department department;
     private Boolean po;
+    private String sourceLocationUuid;
     private String deliveryLocationUuid;
     private String deliveryLocationType;
     private List<UIKeyValue> poStatus;
