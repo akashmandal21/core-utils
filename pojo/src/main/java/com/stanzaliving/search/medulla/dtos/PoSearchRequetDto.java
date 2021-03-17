@@ -29,4 +29,7 @@ public class PoSearchRequetDto {
     private String listingType;
     private PageAndSortDto pageDto;
     private String[] fieldsNeeded;
+    private String sourceOrVendorUuid;
+    private Double maxGsriPct;
+    private Double minGsriPct;
 }
