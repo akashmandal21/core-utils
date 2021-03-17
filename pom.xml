@@ -81,6 +81,7 @@
 		<module>generic-po-client</module>
         <module>wanda-client</module>
 		<module>search-client</module>
+		<module>oracle-client</module>
 	</modules>
 
 	<build>
