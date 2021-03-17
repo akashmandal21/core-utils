@@ -1,14 +1,15 @@
 package com.stanzaliving.core.operations.dto;
 
+import java.time.LocalDate;
+
 import com.stanzaliving.core.operations.enums.ResidentStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.util.Date;
 
 @Getter
 @Setter
@@ -28,6 +29,6 @@ public class ResidentDetailsDto {
 	private String lastUpdatedBy;
 	private ResidentStatus residentStatus;
 	private String residentStatusDisplayName;
-	private Date lastUpdatedAt;
+	private LocalDate lastUpdatedAt;
 
 }
