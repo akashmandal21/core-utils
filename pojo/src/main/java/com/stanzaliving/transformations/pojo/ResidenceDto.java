@@ -4,6 +4,7 @@
 package com.stanzaliving.transformations.pojo;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 import com.stanzaliving.core.estate.enums.EstateGender;
@@ -59,4 +60,6 @@ public class ResidenceDto extends AbstractDto {
 	private String phoenixPropertyUuid;
 
 	private String parentResidenceId;
+	
+	private PropertyEntityType propertyEntityType;
 }
