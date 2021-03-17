@@ -52,4 +52,6 @@ public class CafeMasterRequestDto extends AbstractDto {
 
     private List<ResidenceMicromarketDto> residences;
 
+    private String vendorMasterUuid;
+
 }
