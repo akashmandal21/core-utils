@@ -92,4 +92,6 @@ public class DishMasterSearchIndexDto extends AbstractSearchIndexDto {
 
 	private boolean recipeExists;
 
+	private Set<String> feedbackOptions;
+
 }
