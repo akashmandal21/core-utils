@@ -1,6 +1,6 @@
 package com.stanzaliving.core.operations.dto;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import com.stanzaliving.core.operations.enums.ResidentStatus;
 
@@ -29,7 +29,7 @@ public class ResidentDetailsRequestDto {
 	private String residentUuid; 
 	private String serviceMixName;
 	private String serviceMixAssignedBy;
-	private LocalDateTime serviceMixAssignedAt;
+	private Date serviceMixAssignedAt;
 	
 
 }
