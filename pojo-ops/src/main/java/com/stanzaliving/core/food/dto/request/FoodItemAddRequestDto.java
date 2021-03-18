@@ -13,8 +13,10 @@ import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.Column;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -64,6 +66,10 @@ public class FoodItemAddRequestDto {
 
 	private Set<String> primaryTagIds;
 
+	private Set<String> cuisineTagIds;
+
+	private Set<String> regionalTagIds;
+
 	private CommercialTag commercialTag;
 
 	private Boolean eggPresent;
@@ -85,9 +91,8 @@ public class FoodItemAddRequestDto {
 	@NotNull(message = "Recipe selection is mandatory")
 	private ItemRecipeRequestDto recipe;
 
-	private Set<String> cuisineTagIds;
-
-	private Set<String> regionalTagIds;
-
+	@Valid
+	@NotEmpty(message = "Feedback options selection is mandatory")
+	private Set<String> feedback;
 
 }
