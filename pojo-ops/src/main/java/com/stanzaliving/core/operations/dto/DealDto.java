@@ -73,5 +73,8 @@ public class DealDto {
 	private Date dealApprovedDate;
 
 	private String statementOfWorkDocumentUrl;
+	
+	@NotNull(message = "Deal created by is mandatory")
+	private String dealCreatedBy;
 
 }
