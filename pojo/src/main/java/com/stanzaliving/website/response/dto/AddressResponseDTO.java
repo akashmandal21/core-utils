@@ -4,6 +4,8 @@
  */
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,8 +21,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class AddressResponseDTO {
+public class AddressResponseDTO implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int addressId;
 	private String line1;
 	private String line2;

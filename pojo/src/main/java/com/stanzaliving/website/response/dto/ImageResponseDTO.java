@@ -4,6 +4,7 @@
  */
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.core.user.enums.EnumListing;
@@ -26,8 +27,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ImageResponseDTO {
+public class ImageResponseDTO implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int imageId;
 	private String imageUrl;
 	private String imageType;

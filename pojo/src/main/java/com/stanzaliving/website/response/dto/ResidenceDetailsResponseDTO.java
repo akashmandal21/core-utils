@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +20,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ResidenceDetailsResponseDTO {
+public class ResidenceDetailsResponseDTO implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int residenceId;
 	private String name;
 	private Gender gender;
