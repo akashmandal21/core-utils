@@ -24,6 +24,7 @@
 		<module>pojo</module>
 		<module>pojo-ops</module>
 		<module>pojo-wanda</module>
+                <module>pojo-generic-approval</module>
 		<module>security</module>
 		<module>properties</module>
 		<module>utilservice</module>
