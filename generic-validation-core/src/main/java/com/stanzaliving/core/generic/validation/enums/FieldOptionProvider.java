@@ -10,7 +10,7 @@ public enum FieldOptionProvider {
     //Vendor Master Providers
     VendorTypeProvider,VendorDepartmentProvider,CountryProvider,CityProvider,StateProvider,CompanyTypeProvider,
     AccountTypeProvider,FinancialYearProvider,YesNoProvider,CurrencyProvider,ProjectYearProvider,HouseNameProvider,
-    KitchenStoreProvider,SupplyCityProvider,
+    KitchenStoreProvider,SupplyCityProvider,SupportingDocTypeProvider,
 
     //Item master Providers
     ItemCategoryProvider,CostHeadProvider,ItemSubCategoryProvider,ItemTypeProvider,UOMProvider,GstPCTProvider,
@@ -22,6 +22,6 @@ public enum FieldOptionProvider {
     poTypeProvider,poExpenseTypeProvider,deliveryLocationTypeProvider,deliveryLocationProvider,deliveryAddressProvider,
     vendorPoTriggerProvider,vendorProvider,vendorPocProvider,advanceTypeProvider,retentionTypeProvider,specialTnCProvider,otherFeeTypeProvider,
 
-    toTypeProvider;
+    toTypeProvider,foodCostTypeProvider;
 
 }

@@ -1,7 +1,6 @@
 package com.stanzaliving.wanda.request;
 
 import com.stanzaliving.banner.enumeration.AppPage;
-import com.stanzaliving.wanda.enums.AppPageSection;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,12 +23,11 @@ public class AppScreenConfigDto {
 
         private int position;
 
-        private AppPageSection appPageSection;
+        private String sectionName;
         
         private boolean status;
         
         private String sectionType;
         
-        private String sectionName;
-
+        private String section;
 }
