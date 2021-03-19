@@ -1,4 +1,4 @@
-package com.stanzaliving.core.vendor.dtos;
+package com.stanzaliving.core.filix;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.vendor.enums.VendorType;
