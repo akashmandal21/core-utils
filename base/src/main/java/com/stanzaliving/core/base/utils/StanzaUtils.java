@@ -361,7 +361,18 @@ public class StanzaUtils {
 		Float avgRating = null;
 
 		if (Objects.nonNull(totalRating) && Objects.nonNull(totalRatingCount) && totalRatingCount > 0) {
-			avgRating = ((float) totalRating) / totalRatingCount;
+			avgRating = getAvg((float) totalRating, totalRatingCount, roundToPlaces);
+		}
+
+		return avgRating;
+	}
+
+	public Float getAvg(Float totalRating, Integer totalRatingCount, int roundToPlaces) {
+
+		Float avgRating = null;
+
+		if (Objects.nonNull(totalRating) && Objects.nonNull(totalRatingCount) && totalRatingCount > 0) {
+			avgRating = (totalRating) / totalRatingCount;
 
 			avgRating = StanzaUtils.roundToPlaces(avgRating, roundToPlaces);
 		}
