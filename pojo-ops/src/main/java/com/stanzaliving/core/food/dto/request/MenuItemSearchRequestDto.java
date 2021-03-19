@@ -46,6 +46,10 @@ public class MenuItemSearchRequestDto {
 
 	private String dishName;
 
+	private String regionalTagId;
+
+	private String cuisineTagId;
+
 	private OperatorValueDto<Float> avgRating;
 
 	private OperatorValueDto<Float> cost;
