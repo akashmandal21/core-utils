@@ -55,10 +55,14 @@ public class UserCache {
 
 						@Override
 						public Optional<UserProfileDto> load(String key) {
-							ResponseDto<UserProfileDto> responseDto = userClientApi.getUserProfileByUuid(key);
+							try {
+								ResponseDto<UserProfileDto> responseDto = userClientApi.getUserProfileByUuid(key);
 
-							if (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) {
-								return Optional.ofNullable(responseDto.getData());
+								if (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) {
+									return Optional.ofNullable(responseDto.getData());
+								}
+							} catch (Exception e) {
+								log.error("Unable to get User Profile by userUuid" + key, e);
 							}
 							return Optional.ofNullable(null);
 						}
