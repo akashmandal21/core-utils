@@ -2,7 +2,9 @@ package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
@@ -62,12 +64,12 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private String phoneNo;
 	
 	@Builder.Default
-	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = new ArrayList(0);
+	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
 
 	@Builder.Default
-	private List<ImageResponseDTO> images = new ArrayList(0);
+	private Set<ImageResponseDTO> images = new HashSet<>(0);
 	@Builder.Default
-	private List<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new ArrayList(0);
+	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
 
 	private AddressResponseDTO address;
 }

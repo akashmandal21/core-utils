@@ -1,9 +1,8 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-
-import com.stanzaliving.website.enums.Gender;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,8 +18,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ResidenceDTO {
+public class ResidenceDTO implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer residenceId;
 	private String name;
 	private String slug;

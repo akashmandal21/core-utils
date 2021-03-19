@@ -51,27 +51,27 @@ public class ResidenceResponseDTO {
 	private String gmbLink;
 	private String virtualTourImage;
 	private String cardCTA;
-	
+
 	@Builder.Default
 	private Set<FeatureResponseDTO> features = new HashSet<>(0);
-	
+
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
-	
+
 	@Builder.Default
 	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
-	
+
 	@Builder.Default
 	private Set<MealPlanResponseDTO> mealPlans = new HashSet<>(0);
-	
+
 	@Builder.Default
 	private Set<CommunityFeatureResponseDTO> communityFeatures = new HashSet<>(0);
-	
+
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>(0);
-	
+
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
-	
+
 	private AddressResponseDTO address;
 }
