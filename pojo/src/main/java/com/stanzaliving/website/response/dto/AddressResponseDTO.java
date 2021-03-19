@@ -36,5 +36,7 @@ public class AddressResponseDTO implements Serializable{
 	private String cityName;
 	private double latitude;
 	private double longitude;
+	private String phone;
+	private String mobile;
 
 }
