@@ -17,6 +17,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -86,5 +87,7 @@ public class DishMasterSearchIndexDto extends AbstractSearchIndexDto {
 	private boolean stapleDish;
 
 	private boolean recipeExists;
+
+	private Set<String> feedbackOptions;
 
 }
