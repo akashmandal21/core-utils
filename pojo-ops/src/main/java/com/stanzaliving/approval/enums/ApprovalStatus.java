@@ -1,8 +1,13 @@
 package com.stanzaliving.approval.enums;
 
 import com.stanzaliving.core.base.enums.ColorCode;
+import com.stanzaliving.core.electricity.constants.EnergyProvider;
+import com.stanzaliving.core.electricity.constants.EnumIdealMeterType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @AllArgsConstructor
@@ -28,4 +33,16 @@ public enum ApprovalStatus {
     private String bgColorCode;
     private String textColorCode;
     private String responseMessage;
+
+    private static final Map<ApprovalStatus, String> statusMap = new HashMap<>();
+
+    static {
+        for (ApprovalStatus approvalStatus : ApprovalStatus.values()) {
+            statusMap.put(approvalStatus, approvalStatus.getStatus());
+        }
+    }
+
+    public static  Map<ApprovalStatus, String> getStatusMap() {
+        return statusMap;
+    }
 }
