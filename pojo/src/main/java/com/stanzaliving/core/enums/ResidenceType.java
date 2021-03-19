@@ -21,7 +21,8 @@ public enum ResidenceType {
 
 	STELLO("Student", 1),
 	SUITS("Working Professional", 0),
-	SCHOLAR("Student", 1);
+	SCHOLAR("Student", 1),
+	MANAGED_APARTMENT("Managed Apartment", 0);
 
 	private String targetUser;
 	private int ventaResidenceTypeOrdinal;
