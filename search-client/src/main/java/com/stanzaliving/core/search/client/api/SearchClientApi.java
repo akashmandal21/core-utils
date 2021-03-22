@@ -553,5 +553,10 @@ public class SearchClientApi {
 	public List<MealItemRatingResponseDto> aggregateMenuItemsRating(MenuMealItemRequestDto requestDto) {
 		return foodMenuAggregationClient.aggregateMenuItemsRating(restClient, requestDto);
 	}
+
+	public FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(MenuMealItemRequestDto requestDto) {
+		return foodMenuAggregationClient.aggregateWeeklyMenuItemsRating(restClient, requestDto);
+	}
+
 }
 
