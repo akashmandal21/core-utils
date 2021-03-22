@@ -27,5 +27,6 @@ public class MicromarketRequestDTO {
 	private List<MicromarketAliasDTO> micromarketAlias;
 	@Default
 	private Boolean leadQualificationForm=false;
+	private List<AttributeDto> attributeDto;
 
 }
