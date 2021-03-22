@@ -36,9 +36,6 @@ public class ResidentFoodFeedbackRequestDto {
 
 	private String nudgeId;
 	
-	private String source;
-	
-
 	private FeedbackSource source;
 
 }

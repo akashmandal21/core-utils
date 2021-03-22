@@ -47,8 +47,6 @@ public class FeedbackRequestDto {
 
 	private String nudgeId;
 	
-	private String source;
-
 	private FeedbackSource source;
 
 }
