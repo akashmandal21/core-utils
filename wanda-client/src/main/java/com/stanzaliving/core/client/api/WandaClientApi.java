@@ -257,7 +257,7 @@ public class WandaClientApi {
 		return false;
 	}
 
-	public boolean updateHostelOfUser(String userId, String hostelId, String roomNo) {
+	public boolean updateHostelOfUser(String userId, String hostelId, String roomNum) {
 
 		Object postBody = null;
 
@@ -267,9 +267,9 @@ public class WandaClientApi {
 
 		uriVariables.put("userId", userId);
 		uriVariables.put("hostelId", hostelId);
-		uriVariables.put("roomNo", roomNo);
+		uriVariables.put("roomNum", roomNum);
 
-		String path = UriComponentsBuilder.fromPath("/coreApi/user/update/hostel/{userId}/{hostelId}/{roomNo}")
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/update/hostel/{userId}/{hostelId}/{roomNum}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
