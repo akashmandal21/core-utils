@@ -16,11 +16,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class VendorClientApi {
+public class FilixVendorClientApi {
 
     private StanzaRestClient restClient;
 
-    public VendorClientApi(StanzaRestClient restClient) {
+    public FilixVendorClientApi(StanzaRestClient restClient) {
         this.restClient = restClient;
     }
 
