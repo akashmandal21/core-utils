@@ -13,4 +13,6 @@ public class ContextType {
 
     
     public static final String GC_DOC_GENERATION = "gcDocGeneration";
+
+    public static final String SERVICE_MIX = "serviceMix";
 }
