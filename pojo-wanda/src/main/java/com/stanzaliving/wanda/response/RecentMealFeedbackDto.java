@@ -38,4 +38,6 @@ public class RecentMealFeedbackDto {
 	
 	private String nudgeId;
 	
+	private String menuDateStr;
+	
 }
