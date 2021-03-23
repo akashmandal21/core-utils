@@ -2,6 +2,9 @@ package com.stanzaliving.foodservice.client.api;
 
 import java.util.*;
 
+import com.stanzaliving.core.opscalculator.dto.DeadBedCountDto;
+import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
+import com.stanzaliving.core.opscalculator.dto.OccupiedRoomDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -208,5 +211,38 @@ public class FoodServiceClientApi {
         } catch (Exception e) {
             log.error("Error while initiating vendor approval for {}",menuGroupId, e);
         }
+    }
+
+    public List<OccupiedBedDto> getDeadBedDetails(String residenceUuid, Date toDate, Date fromDate) {
+        Object postBody = null;
+
+        List<OccupiedBedDto> occupiedBedDtoList = new ArrayList<>();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/getOccupiedRoomDetails").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("residenceUuid", residenceUuid);
+        queryParams.add("toDate", toDate.toString());
+        queryParams.add("fromDate", fromDate.toString());
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<OccupiedBedDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<OccupiedBedDto>>>() {
+        };
+
+        try {
+            occupiedBedDtoList = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
+        } catch (Exception e) {
+            log.error("Exception while fetching dead bed details for residence {} ", residenceUuid, e);
+        }
+
+        return occupiedBedDtoList;
     }
 }
