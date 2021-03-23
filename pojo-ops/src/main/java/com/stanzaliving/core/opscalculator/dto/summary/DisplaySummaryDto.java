@@ -14,27 +14,37 @@ public class DisplaySummaryDto {
     Double monthlySplitterValue;            //should be Object
     String colorCode;
     Double deviationPercent;
+    Double annualUnderWrittenBaseValue;
+    Double monthlySplitterBaseValue;
 
-    public DisplaySummaryDto(Double annualUnderwrittenValue, Double monthlySplitterValue) {
-        this.annualUnderwrittenValue = annualUnderwrittenValue;
-        this.monthlySplitterValue = monthlySplitterValue;
+    public DisplaySummaryDto(double annualOccupancyMF, Double annualUnderwrittenValue, double monthlyOccupancyMF, Double monthlySplitterValue) {
+        this.annualUnderwrittenValue = annualOccupancyMF * annualUnderwrittenValue;
+        this.monthlySplitterValue = monthlyOccupancyMF * monthlySplitterValue;
+        annualUnderWrittenBaseValue = annualUnderwrittenValue;
+        monthlySplitterBaseValue = monthlySplitterValue;
         setDeviationAndColorCode();
     }
 
-    public DisplaySummaryDto(Integer annualUnderwrittenValue, Integer monthlySplitterValue) {
-        this.annualUnderwrittenValue = annualUnderwrittenValue == null ? null : annualUnderwrittenValue.doubleValue();
-        this.monthlySplitterValue = monthlySplitterValue == null ? null : monthlySplitterValue.doubleValue();
+    public DisplaySummaryDto(double annualOccupancyMF, Integer annualUnderwrittenValue, double monthlyOccupancyMF, Integer monthlySplitterValue) {
+        this.annualUnderwrittenValue = annualUnderwrittenValue == null ? null : annualUnderwrittenValue.doubleValue() * annualOccupancyMF;
+        this.monthlySplitterValue = monthlySplitterValue == null ? null : monthlySplitterValue.doubleValue() * monthlyOccupancyMF;
+        annualUnderWrittenBaseValue = annualUnderwrittenValue.doubleValue();
+        monthlySplitterBaseValue = monthlySplitterValue.doubleValue();
         setDeviationAndColorCode();
     }
-    public DisplaySummaryDto(Double annualUnderwrittenValue, Integer monthlySplitterValue) {
-        this.annualUnderwrittenValue = annualUnderwrittenValue;
-        this.monthlySplitterValue = monthlySplitterValue == null ? null : monthlySplitterValue.doubleValue();
+    public DisplaySummaryDto(double annualOccupancyMF, Double annualUnderwrittenValue, double monthlyOccupancyMF, Integer monthlySplitterValue) {
+        this.annualUnderwrittenValue = annualUnderwrittenValue * annualOccupancyMF;
+        this.monthlySplitterValue = monthlySplitterValue == null ? null : monthlySplitterValue.doubleValue() * monthlyOccupancyMF;
+        annualUnderWrittenBaseValue = annualUnderwrittenValue;
+        monthlySplitterBaseValue = monthlySplitterValue.doubleValue();
         setDeviationAndColorCode();
     }
 
-    public DisplaySummaryDto(Integer annualUnderwrittenValue, Double monthlySplitterValue) {
-        this.annualUnderwrittenValue = annualUnderwrittenValue == null ? null : annualUnderwrittenValue.doubleValue();
-        this.monthlySplitterValue = monthlySplitterValue;
+    public DisplaySummaryDto(double annualOccupancyMF, Integer annualUnderwrittenValue, double monthlyOccupancyMF,Double monthlySplitterValue) {
+        this.annualUnderwrittenValue = annualUnderwrittenValue == null ? null : annualUnderwrittenValue.doubleValue() * annualOccupancyMF;
+        this.monthlySplitterValue = monthlySplitterValue * monthlyOccupancyMF;
+        annualUnderWrittenBaseValue = annualUnderwrittenValue.doubleValue();
+        monthlySplitterBaseValue = monthlySplitterValue;
         setDeviationAndColorCode();
     }
 
