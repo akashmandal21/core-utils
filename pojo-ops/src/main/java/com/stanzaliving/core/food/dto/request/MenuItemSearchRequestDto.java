@@ -46,6 +46,8 @@ public class MenuItemSearchRequestDto {
 
 	private String dishName;
 
+	private MealType dishMealType;
+
 	private String regionalTagId;
 
 	private String cuisineTagId;
