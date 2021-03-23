@@ -7,6 +7,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -33,6 +34,8 @@ public class RecentMealDto {
 	EnumListing<MealType> mealType;
 
 	private String nudgeId;
+
+	private Set<String> items;
 
 
 }
