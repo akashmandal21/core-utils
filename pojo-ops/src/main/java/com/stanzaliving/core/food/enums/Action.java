@@ -1,4 +1,4 @@
-package java.com.stanzaliving.core.food.enums;
+package com.stanzaliving.core.food.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
