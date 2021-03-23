@@ -5,7 +5,7 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
-import com.stanzaliving.core.food.constants.Action;
+import com.stanzaliving.core.food.enums.Action;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 
