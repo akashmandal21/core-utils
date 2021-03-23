@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class UnderWrittenServiceMixCopyRequestDto {
     private String sourceMonthlyUnderWrittenUuid;   //uuid of MonthlyUnderWrittenEntity
     private String sourceMuwServiceMixUuid;         //uuid of MonthlyUnderWrittenServiceMixDetailsEntity
-    private String sourceServiceMixUuid;            //uuid of ServiceMixEntity
+    private String sourceServiceMixUuid;            //uuid of ServiceMixEntityDto
     private String destMonthlyUnderWrittenUuid;
     private String destMuwServiceMixUuid;
     private String destServiceMixUuid;
