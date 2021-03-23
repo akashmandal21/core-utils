@@ -1,5 +1,6 @@
 package com.stanzaliving.core.estate.enums;
 
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ public enum SectionKey {
 	OCCUPANCY("Occupancy", "occupancy", TemplateParentKey.PRICING),
 	ROOM_AMENITIES("Room Amenities", "roomAmenities", TemplateParentKey.OTHERS),
 	COMMON_AMENITIES("Common Amenities", "commonAmenities", TemplateParentKey.OTHERS),
-	LAUNDRY("LAUNDRY", "laundry", TemplateParentKey.OTHERS),
+	LAUNDRY("Laundry", "laundry", TemplateParentKey.OTHERS),
 	HOUSEKEEPING("Housekeeping", "houseKeeping", TemplateParentKey.OTHERS),
 	INTERNET_WIFI("Internet/Wifi", "internet", TemplateParentKey.OTHERS),
 	SECURITY_DEPOSIT("Security Deposit", "securityDeposit", TemplateParentKey.OTHERS),
@@ -38,6 +39,7 @@ public enum SectionKey {
 	private TemplateParentKey parentKey;
 	
 	private static Map<String, SectionKey> sectionDBKeyMap = new HashMap<>();
+	private static Map<SectionKey, String> mandatorySectionMap = new HashMap<>();
 	
 	
 	static {
@@ -45,6 +47,10 @@ public enum SectionKey {
 		for(SectionKey key : SectionKey.values()) {
 			
 			sectionDBKeyMap.put(key.getDbKey(), key);
+			if(EnumSet.of(ROOM_AMENITIES, COMMON_AMENITIES,DESIGN_BEDS,OPERATIONAL_PERIOD,
+					ELECTRICITY,SECURITY).contains(key)) {
+				mandatorySectionMap.put(key, key.getSectionKeyName());
+			}
 		}
 		
 	}
@@ -52,6 +58,11 @@ public enum SectionKey {
 	public static SectionKey getSectionFromDbKey(String key) {
 		
 		return sectionDBKeyMap.get(key);
+	}
+	
+	public static Boolean isMandatorySectionKey(SectionKey key) {
+		
+		return mandatorySectionMap.containsKey(key);
 	}
 
 }
