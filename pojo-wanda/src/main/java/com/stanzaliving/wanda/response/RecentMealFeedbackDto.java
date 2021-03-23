@@ -43,4 +43,6 @@ public class RecentMealFeedbackDto {
 	
 	private Set<String> items;
 	
+	private String feedbackMsg;
+	
 }
