@@ -28,4 +28,6 @@ public class FoodMenuRatingResponseDto {
 	private String menuGroupId;
 
 	private FoodMenuMicroMarketRatingResponseDto micromarketRating;
+
+	private String ratingInfo;
 }
