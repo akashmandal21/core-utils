@@ -37,5 +37,5 @@ public class RecentMealDto {
 
 	private Set<String> items;
 
-
+	private String feedbackMsg;
 }
