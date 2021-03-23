@@ -1,6 +1,7 @@
 package com.stanzaliving.wanda.response;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
@@ -39,5 +40,7 @@ public class RecentMealFeedbackDto {
 	private String nudgeId;
 	
 	private String menuDateStr;
+	
+	private Set<String> items;
 	
 }
