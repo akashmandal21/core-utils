@@ -213,19 +213,20 @@ public class FoodServiceClientApi {
         }
     }
 
-    public List<OccupiedBedDto> getDeadBedDetails(String residenceUuid, Date toDate, Date fromDate) {
+    public List<OccupiedBedDto> getDeadBedDetails(String residenceUuid, String fromDate, String toDate) {
         Object postBody = null;
 
         List<OccupiedBedDto> occupiedBedDtoList = new ArrayList<>();
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/getOccupiedRoomDetails").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("residence/food/attendance/getOccupiedRoomDetails").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("residenceUuid", residenceUuid);
-        queryParams.add("toDate", toDate.toString());
-        queryParams.add("fromDate", fromDate.toString());
+        queryParams.add("fromDate", fromDate);
+        queryParams.add("toDate", toDate);
+        
 
         final HttpHeaders headerParams = new HttpHeaders();
 

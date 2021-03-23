@@ -151,7 +151,7 @@ public class VentaClientApi {
 
 	}
 
-	public List<DeadBedCountDto> getDeadBedDetails(String residenceUuid, Date toDate, Date fromDate) {
+	public List<DeadBedCountDto> getDeadBedDetails(String residenceUuid, String fromDate, String toDate) {
 		Object postBody = null;
 
 		List<DeadBedCountDto> deadBedCountDtoList = new ArrayList<>();
@@ -162,8 +162,8 @@ public class VentaClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("residenceUuid", residenceUuid);
-		queryParams.add("toDate", toDate.toString());
-		queryParams.add("fromDate", fromDate.toString());
+		queryParams.add("fromDate", fromDate);
+		queryParams.add("toDate", toDate);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
