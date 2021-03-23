@@ -31,7 +31,7 @@ public class RecentMealDto {
 
 	private LocalDate menuDate;
 
-	EnumListing<MealType> mealType;
+	private EnumListing<MealType> mealType;
 
 	private String nudgeId;
 
