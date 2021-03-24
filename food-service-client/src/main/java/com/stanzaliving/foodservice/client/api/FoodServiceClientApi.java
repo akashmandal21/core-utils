@@ -6,6 +6,7 @@ import java.util.*;
 import com.stanzaliving.core.opscalculator.dto.DeadBedCountDto;
 import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
 import com.stanzaliving.core.opscalculator.dto.OccupiedRoomDto;
+import com.stanzaliving.core.food.dto.IngredientUsageDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -214,6 +215,21 @@ public class FoodServiceClientApi {
         }
     }
 
+    public boolean isIngredientUsed(String ingredientId) {
+        String path = UriComponentsBuilder.fromPath("/internal/ingredients/{ingredientId}/used").buildAndExpand(ingredientId).toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<IngredientUsageDto>> returnType = new ParameterizedTypeReference<ResponseDto<IngredientUsageDto>>() {
+        };
+
+        ResponseDto<IngredientUsageDto> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        return Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData()) && responseDto.getData().isUsed();
+    }
+
     public List<OccupiedBedDto> getOccupiedBedDetails(String residenceUuid, LocalDate fromDate, LocalDate toDate) {
         Object postBody = null;
 
@@ -227,7 +243,6 @@ public class FoodServiceClientApi {
         queryParams.add("residenceUuid", residenceUuid);
         queryParams.add("fromDate", fromDate.toString());
         queryParams.add("toDate", toDate.toString());
-        
 
         final HttpHeaders headerParams = new HttpHeaders();
 
