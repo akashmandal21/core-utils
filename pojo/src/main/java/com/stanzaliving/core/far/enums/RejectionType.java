@@ -1,11 +1,15 @@
 package com.stanzaliving.core.far.enums;
 
-public enum CartType {
-    TRANSFER_OUT("Transfer Out"), TRANSFER_IN("Transfer In"),HOTO("Hoto");
+/**
+ * @author dhruv.mathur
+ * @date 23/03/21
+ */
+public enum RejectionType {
+    DAMAGED("Damaged");
 
     private String label;
 
-    CartType(String label) {
+    RejectionType(String label) {
         this.label = label;
     }
 
