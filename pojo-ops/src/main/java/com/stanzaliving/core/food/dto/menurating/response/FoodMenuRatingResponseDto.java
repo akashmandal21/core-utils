@@ -30,4 +30,8 @@ public class FoodMenuRatingResponseDto {
 	private FoodMenuMicroMarketRatingResponseDto micromarketRating;
 
 	private String ratingInfo;
+
+	private Long ratingDays;
+
+	private Integer topServings;
 }
