@@ -2,6 +2,9 @@ package com.stanzaliving.foodservice.client.api;
 
 import java.util.*;
 
+import com.stanzaliving.core.opscalculator.dto.DeadBedCountDto;
+import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
+import com.stanzaliving.core.opscalculator.dto.OccupiedRoomDto;
 import com.stanzaliving.core.food.dto.IngredientUsageDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
@@ -224,5 +227,39 @@ public class FoodServiceClientApi {
 
         ResponseDto<IngredientUsageDto> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         return Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData()) && responseDto.getData().isUsed();
+    }
+
+    public List<OccupiedBedDto> getDeadBedDetails(String residenceUuid, String fromDate, String toDate) {
+        Object postBody = null;
+
+        List<OccupiedBedDto> occupiedBedDtoList = new ArrayList<>();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("residence/food/attendance/getOccupiedRoomDetails").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("residenceUuid", residenceUuid);
+        queryParams.add("fromDate", fromDate);
+        queryParams.add("toDate", toDate);
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<OccupiedBedDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<OccupiedBedDto>>>() {
+        };
+
+        try {
+            occupiedBedDtoList = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
+        } catch (Exception e) {
+            log.error("Exception while fetching dead bed details for residence {} ", residenceUuid, e);
+        }
+
+        return occupiedBedDtoList;
     }
 }

@@ -8,6 +8,8 @@ import com.stanzaliving.core.backendlocator.client.dto.ResidentDto;
 import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.opscalculator.dto.DeadBedCountDto;
+import com.stanzaliving.operations.dto.servicemix.ServiceMixEntityDto;
 import com.stanzaliving.venta.BedCountDetailsDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -18,6 +20,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -145,5 +149,38 @@ public class VentaClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
+	}
+
+	public List<DeadBedCountDto> getDeadBedDetails(String residenceUuid, String fromDate, String toDate) {
+		Object postBody = null;
+
+		List<DeadBedCountDto> deadBedCountDtoList = new ArrayList<>();
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/getDeadBedDetails").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("residenceUuid", residenceUuid);
+		queryParams.add("fromDate", fromDate);
+		queryParams.add("toDate", toDate);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<DeadBedCountDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DeadBedCountDto>>>() {
+		};
+
+		try {
+			deadBedCountDtoList = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
+		} catch (Exception e) {
+			log.error("Exception while fetching dead bed details for residence {} ", residenceUuid, e);
+		}
+
+		return deadBedCountDtoList;
 	}
 }

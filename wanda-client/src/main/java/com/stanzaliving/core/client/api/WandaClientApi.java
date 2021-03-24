@@ -1,5 +1,6 @@
 package com.stanzaliving.core.client.api;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.opscalculator.dto.OccupiedRoomDto;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
 import com.stanzaliving.wanda.dtos.FullUserDto;
@@ -257,6 +259,42 @@ public class WandaClientApi {
 		return false;
 	}
 
+	public boolean updateHostelOfUser(String userId, String hostelId, String roomNum) {
+
+		Object postBody = null;
+
+		log.info("Received request to update Hostel of user {} hostelId {} ", userId, hostelId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("userId", userId);
+		uriVariables.put("hostelId", hostelId);
+		uriVariables.put("roomNum", roomNum);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/update/hostel/{userId}/{hostelId}/{roomNum}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+		};
+
+		try {
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
+		}
+
+		return false;
+	}
+
 	public UserDetailDto getUserDetailsByMobile(String mobile) {
 
 		Object postBody = null;
@@ -428,6 +466,73 @@ public class WandaClientApi {
 			log.error("Error while fetching User City Micromarket Residence Uuids By UserCode: {}", usercode, e);
 		}
 
+		return null;
+	}
+	
+	public boolean updateHostelAndRoomOfUser(String userId, String hostelId,String roomNum) {
+
+		Object postBody = null;
+
+		log.info("Received request to update Hostel of user {} hostelId {} ", userId, hostelId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("userId", userId);
+		uriVariables.put("hostelId", hostelId);
+		uriVariables.put("roomNum", roomNum);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/update/hostel/{userId}/{hostelId}/{roomNum}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+		};
+
+		try {
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
+		}
+
+		return false;
+	}
+	
+	
+	public List<OccupiedRoomDto> getRoomCountByResidenceUuid(String residenceUuid,String fromDate,String toDate) {
+
+		Object postBody = null;
+
+		log.info("Received request to get UserDetailDto from mobile: {}", mobile);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/get/roomCount/{residenceUuid}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("fromDate", fromDate);
+		queryParams.add("toDate", toDate);
+		
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					UserDetailDto.class);
+		} catch (Exception e) {
+			log.error("Error while getting user Details from Core by mobile: {}", mobile, e);
+		}
 		return null;
 	}
 
