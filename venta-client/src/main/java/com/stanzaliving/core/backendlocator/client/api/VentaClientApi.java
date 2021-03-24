@@ -20,6 +20,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -151,7 +152,7 @@ public class VentaClientApi {
 
 	}
 
-	public List<DeadBedCountDto> getDeadBedDetails(String residenceUuid, String fromDate, String toDate) {
+	public List<DeadBedCountDto> getDeadBedDetails(String residenceUuid, LocalDate fromDate, LocalDate toDate) {
 		Object postBody = null;
 
 		List<DeadBedCountDto> deadBedCountDtoList = new ArrayList<>();
@@ -162,8 +163,8 @@ public class VentaClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("residenceUuid", residenceUuid);
-		queryParams.add("fromDate", fromDate);
-		queryParams.add("toDate", toDate);
+		queryParams.add("fromDate", fromDate.toString());
+		queryParams.add("toDate", toDate.toString());
 
 		final HttpHeaders headerParams = new HttpHeaders();
 

@@ -1,5 +1,6 @@
 package com.stanzaliving.foodservice.client.api;
 
+import java.time.LocalDate;
 import java.util.*;
 
 import com.stanzaliving.core.opscalculator.dto.DeadBedCountDto;
@@ -213,7 +214,7 @@ public class FoodServiceClientApi {
         }
     }
 
-    public List<OccupiedBedDto> getDeadBedDetails(String residenceUuid, String fromDate, String toDate) {
+    public List<OccupiedBedDto> getOccupiedBedDetails(String residenceUuid, LocalDate fromDate, LocalDate toDate) {
         Object postBody = null;
 
         List<OccupiedBedDto> occupiedBedDtoList = new ArrayList<>();
@@ -224,8 +225,8 @@ public class FoodServiceClientApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("residenceUuid", residenceUuid);
-        queryParams.add("fromDate", fromDate);
-        queryParams.add("toDate", toDate);
+        queryParams.add("fromDate", fromDate.toString());
+        queryParams.add("toDate", toDate.toString());
         
 
         final HttpHeaders headerParams = new HttpHeaders();
