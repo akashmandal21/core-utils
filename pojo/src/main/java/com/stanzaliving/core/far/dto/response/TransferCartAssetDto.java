@@ -5,15 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransferOutCartDto {
-    private String itemCode;
-    private String itemName;
-    private Integer countOfAssets;
-    private List<TransferOutCartAssetDto> assetDetails;
+public class TransferCartAssetDto {
+    private String qrUrl;
+    private String qrCodeId;
 }
