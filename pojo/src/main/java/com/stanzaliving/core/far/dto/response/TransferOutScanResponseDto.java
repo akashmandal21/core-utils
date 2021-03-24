@@ -14,5 +14,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransferOutScanResponseDto {
+    String name;
+    String description;
     TransferOutScanStatus transferOutScanStatus;
+    String cartAssetUuid;
 }

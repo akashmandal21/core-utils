@@ -86,6 +86,28 @@ public class GrnClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+    public ResponseDto<List<GSRIReceivedQuantity>> getGrnQuantitiesForFAR(String poToNumber, String itemCode) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/far/gsri/quantity").buildAndExpand(uriVariables).toUriString();
+        queryParams.set("poToNumber", poToNumber);
+        queryParams.set("itemCode", itemCode);
+
+        ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
     public ResponseDto<List<InvoiceItemDto>> getGrnQuantitiesForInvoice(Department department, String poUuid, InvoiceItemFilter invoiceItemFilter) {
 
         final Map<String, Object> uriVariables = new HashMap<>();

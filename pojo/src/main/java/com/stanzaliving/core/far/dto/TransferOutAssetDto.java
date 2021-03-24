@@ -16,4 +16,6 @@ import java.math.BigDecimal;
 public class TransferOutAssetDto {
     private String assetUuid;
     private String toNumber;
+    private String qrCode;
+    private String cartAssetUuid;
 }

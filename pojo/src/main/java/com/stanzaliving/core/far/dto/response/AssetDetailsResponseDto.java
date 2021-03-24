@@ -56,8 +56,7 @@ public class AssetDetailsResponseDto {
     private String verifiedBy;
     private String lastAuditedBy;
     private Integer itemsInPackage;
-    private List<String> imageWithoutQrCodePath;
-    private List<String> imageWithQrCodePath;
+    private List<String> assetImagesPath;
     private String assetType;
     private String qrCode; // is from QrCode Table
     private String qrCodeId;
