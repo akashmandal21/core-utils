@@ -28,6 +28,7 @@ import com.stanzaliving.core.user.dto.UserDto;
 import com.stanzaliving.core.user.dto.UserManagerProfileRequestDto;
 import com.stanzaliving.core.user.dto.UserProfileDto;
 import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
+import com.stanzaliving.core.user.request.dto.CreateUserAndRoleDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -476,5 +477,27 @@ public class UserClientApi {
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
+	
+	public ResponseDto<UserDto> addUserAndRole(CreateUserAndRoleDto createUserAndRoleDto) {
+		if (Objects.isNull(createUserAndRoleDto)) {
+			throw new IllegalArgumentException("Request is null for adding user");
+		}
+
+		Object postBody = createUserAndRoleDto;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/add/userandrole").buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UserDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserDto>>() {		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 }
