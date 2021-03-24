@@ -10,7 +10,7 @@ public enum Department {
 
 	TECH("Tech","TP","TCH"),
 	FINANCE("Finance","FN","FIN"),
-	HR("HR","HR","HRS"),
+	HR("Talent Management","HR","HRS"),
 	LEGAL("Legal","LG","LGL"),
 	SUPERADMIN("Superadmin",null,null),
 	LEADERSHIP("Leadership",null,null),
