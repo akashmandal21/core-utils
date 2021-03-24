@@ -2,22 +2,24 @@ package com.stanzaliving.website.dto.ui;
 
 import java.util.List;
 
-import com.stanzaliving.website.enums.EnumFilterType;
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@SuperBuilder
-@ToString(callSuper = true)
-public class FilterComponentUIDto extends FilterBaseUIDto{
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class FilterComponentUIDto {
 
-	private Integer cityId;
+	private String name;
 	
-	private EnumFilterType filterType;
+	private Integer cityId;
 	
 	private List<FilterBaseUIDto> value;
 }
