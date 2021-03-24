@@ -48,6 +48,36 @@ public class DisplaySummaryDto {
         setDeviationAndColorCode();
     }
 
+    public DisplaySummaryDto(Double annualUnderwrittenValue, Double monthlySplitterValue) {
+        this.annualUnderwrittenValue = annualUnderwrittenValue;
+        this.monthlySplitterValue = monthlySplitterValue;
+        annualUnderWrittenBaseValue = annualUnderwrittenValue;
+        monthlySplitterBaseValue = monthlySplitterValue;
+        setDeviationAndColorCode();
+    }
+
+    public DisplaySummaryDto(Integer annualUnderwrittenValue, Integer monthlySplitterValue) {
+        this.annualUnderwrittenValue = annualUnderwrittenValue == null ? null : annualUnderwrittenValue.doubleValue() ;
+        this.monthlySplitterValue = monthlySplitterValue == null ? null : monthlySplitterValue.doubleValue();
+        annualUnderWrittenBaseValue = annualUnderwrittenValue.doubleValue();
+        monthlySplitterBaseValue = monthlySplitterValue.doubleValue();
+        setDeviationAndColorCode();
+    }
+    public DisplaySummaryDto(Double annualUnderwrittenValue, Integer monthlySplitterValue) {
+        this.annualUnderwrittenValue = annualUnderwrittenValue ;
+        this.monthlySplitterValue = monthlySplitterValue == null ? null : monthlySplitterValue.doubleValue();
+        annualUnderWrittenBaseValue = annualUnderwrittenValue;
+        monthlySplitterBaseValue = monthlySplitterValue.doubleValue();
+        setDeviationAndColorCode();
+    }
+
+    public DisplaySummaryDto(Integer annualUnderwrittenValue, Double monthlySplitterValue) {
+        this.annualUnderwrittenValue = annualUnderwrittenValue == null ? null : annualUnderwrittenValue.doubleValue();
+        this.monthlySplitterValue = monthlySplitterValue;
+        annualUnderWrittenBaseValue = annualUnderwrittenValue.doubleValue();
+        monthlySplitterBaseValue = monthlySplitterValue;
+        setDeviationAndColorCode();
+    }
     private void setDeviationAndColorCode() {
         if (NumberUtils.isEqualDouble(this.annualUnderwrittenValue, this.monthlySplitterValue)) {
             this.colorCode = ColorCode.SOFT_BLUE.getColorCode();
