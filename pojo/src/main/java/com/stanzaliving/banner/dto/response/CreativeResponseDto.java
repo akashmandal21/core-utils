@@ -22,6 +22,9 @@ public class CreativeResponseDto implements Comparable<CreativeResponseDto> {
 	private Integer displayOrder;
 
 	private String redirectLink;
+	
+	@Builder.Default
+	private Boolean isDeeplink = false;
 
 	private String ctaText;
 
