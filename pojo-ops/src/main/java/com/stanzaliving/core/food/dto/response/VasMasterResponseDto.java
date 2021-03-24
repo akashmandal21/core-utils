@@ -40,21 +40,23 @@ public class VasMasterResponseDto {
 
 	private Boolean eggPresent;
 
-	private EnumListing<UnitOfMeasurement> uom;
-
 	private ListingDto category;
 
 	private Integer serves;
 
-	private Integer shelfLife;
+	private Double shelfLife;
 
 	private Double proposedPrice;
+
+	private EnumListing<UnitOfMeasurement> unitOfMeasurement;
+
+	private Double grammagePerPax;
 
 	private String imageUrl;
 
 	private List<DishDetailsResponseDto> dish;
 
-	private DishRecipeDetailsDto recipe;
-
 	private List<VasMasterPackagingResponseDto> packaging;
+
+	private List<ListingDto> feedback;
 }

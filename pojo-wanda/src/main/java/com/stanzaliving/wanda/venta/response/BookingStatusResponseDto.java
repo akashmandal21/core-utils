@@ -36,4 +36,9 @@ public class BookingStatusResponseDto {
     private String appleVersion;
     private String userCategory;
     private boolean wp;
+    private String displayMessage;
+    private String roomNumber;
+    private String cityName;
+    private String microMarketName;
+    
 }

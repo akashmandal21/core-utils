@@ -1,7 +1,3 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.website.response.dto;
 
 import lombok.AllArgsConstructor;
@@ -10,10 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,5 +19,6 @@ public class ResidenceNearbyLocationResponseDTO {
 	private double distance;
 	@Builder.Default
 	private int locationOrder = 0;
+	private int cityId;
 
 }

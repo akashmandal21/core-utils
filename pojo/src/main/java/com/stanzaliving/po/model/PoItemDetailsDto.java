@@ -32,6 +32,12 @@ public class PoItemDetailsDto {
     private BigDecimal itemRate;
 
     private BigDecimal itemQuantity;
+    private BigDecimal rentPeriod;
+    private BigDecimal rentPerMonth;
+    private String transferAvgRate;
+    private BigDecimal transferQuantity;
+    private String refundableType;
+    private String refundableValue;
 
     private BigDecimal itemAmount;
 
@@ -51,7 +57,7 @@ public class PoItemDetailsDto {
 
     private String hsnCode;
     
-    private double totalGst;
+    private String totalGst;
 
     private BigDecimal remainingItemQuantity;
 

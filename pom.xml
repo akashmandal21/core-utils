@@ -71,9 +71,17 @@
 		<module>food-service-client</module>
         <module>generic-validation-core</module>
         <module>payment-client</module>
+        <module>counter-service</module>
         <module>recon-client</module>
+		<module>ops-calculator-client</module>
         <module>notification-client</module>
-    </modules>
+        <module>shortUrl-client</module>
+        <module>approval-service-client</module>
+		<module>inventory-client</module>
+		<module>generic-po-client</module>
+        <module>wanda-client</module>
+		<module>search-client</module>
+	</modules>
 
 	<build>
 		<plugins>

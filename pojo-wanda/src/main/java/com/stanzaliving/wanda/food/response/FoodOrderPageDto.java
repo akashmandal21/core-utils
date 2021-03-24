@@ -20,6 +20,7 @@ import lombok.ToString;
 public class FoodOrderPageDto {
 
 	private List<FoodCardDto> foodCardDtos;
-	
+
 	private String userFoodResidenceMenuId;
+
 }

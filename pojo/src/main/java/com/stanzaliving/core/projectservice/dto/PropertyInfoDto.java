@@ -30,4 +30,15 @@ public class PropertyInfoDto {
     private Double leasedArea;
     private int bdBedCount;
     private int roomCount;
+
+    private String addressLine1;
+    private String addressLine2;
+    private String landmark;
+    private String postalCode;
+    private String bdUserId;
+    private String siteEngineerUserId;
+    private String projectManagerId;
+    private String projectZonalHeadId;
+    private double latitude;
+    private double longitude;
 }

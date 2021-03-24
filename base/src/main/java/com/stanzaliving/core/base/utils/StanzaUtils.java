@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.base.utils;
 
@@ -17,6 +17,7 @@ import java.text.Format;
 import java.text.NumberFormat;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Supplier;
 
 /**
  * @author naveen
@@ -26,68 +27,68 @@ import java.util.concurrent.ThreadLocalRandom;
 @UtilityClass
 public class StanzaUtils {
 
-	private static RoundingMode ROUNDING_MODE = RoundingMode.HALF_EVEN;
-	private static int SCALE = 3;
+    private static RoundingMode ROUNDING_MODE = RoundingMode.HALF_EVEN;
+    private static int SCALE = 3;
 
-	public static String hideSecret(String secretString) {
+    public static String hideSecret(String secretString) {
 
-		if (StringUtils.isNotBlank(secretString)) {
-			return "******";
-		}
+        if (StringUtils.isNotBlank(secretString)) {
+            return "******";
+        }
 
-		return StringUtils.EMPTY;
-	}
+        return StringUtils.EMPTY;
+    }
 
-	public double roundOffToNine(double number) {
-		double lastTwoDigits = number % 100;
+    public double roundOffToNine(double number) {
+        double lastTwoDigits = number % 100;
 
-		if (lastTwoDigits > 0 && lastTwoDigits < 49) {
-			number = number - lastTwoDigits + 49;
-		} else {
-			number = number - lastTwoDigits + 99;
-		}
-		return number;
-	}
+        if (lastTwoDigits > 0 && lastTwoDigits < 49) {
+            number = number - lastTwoDigits + 49;
+        } else {
+            number = number - lastTwoDigits + 99;
+        }
+        return number;
+    }
 
-	public static String convertIntegerNumberToString(int number) {
-		return " [" + number + "] ";
-	}
+    public static String convertIntegerNumberToString(int number) {
+        return " [" + number + "] ";
+    }
 
-	public static String convertDoublePriceToString(double price) {
-		return " [" + price + "] ";
-	}
+    public static String convertDoublePriceToString(double price) {
+        return " [" + price + "] ";
+    }
 
-	public static String getOccupancyString(int occupancy) {
+    public static String getOccupancyString(int occupancy) {
 
-		switch (occupancy) {
-		case 1:
-			return "[Single]";
-		case 2:
-			return "[Double]";
-		case 3:
-			return "[Triple]";
-		case 4:
-			return "[Four]";
-		case 5:
-			return "[Five]";
-		default:
-			return "[" + occupancy + "]";
-		}
+        switch (occupancy) {
+            case 1:
+                return "[Single]";
+            case 2:
+                return "[Double]";
+            case 3:
+                return "[Triple]";
+            case 4:
+                return "[Four]";
+            case 5:
+                return "[Five]";
+            default:
+                return "[" + occupancy + "]";
+        }
 
-	}
+    }
 
-	public static int generateOTP() {
-		return ThreadLocalRandom.current().nextInt(100000, 1000000);
-	}
+    public static int generateOTP() {
+        return ThreadLocalRandom.current().nextInt(100000, 1000000);
+    }
 
-	public static int generateOTPOfLength(int length) {
-		return (int) ThreadLocalRandom.current().nextDouble(Math.pow(10, length - 1), Math.pow(10, length));
-	}
+    public static int generateOTPOfLength(int length) {
+        return (int) ThreadLocalRandom.current().nextDouble(Math.pow(10, length - 1), Math.pow(10, length));
+    }
 
 	public static int generateDefaultOtpOfLength(int length) {
 
 		int otp = 0;
-		int count = 1;
+		int count = 4;
 
 		for (int i = 0; i < length; i++) {
 
@@ -160,6 +161,16 @@ public class StanzaUtils {
 		Double number = Double.valueOf(numberToDivide);
 		return Math.round(value * number) / number;
 	}
+
+	public static String getRoundedValueString(BigDecimal value, int places) {
+		value.setScale(places,RoundingMode.HALF_EVEN);
+		return value.toPlainString();
+	}
+
+	public static BigDecimal getRoundedValue(BigDecimal value, int places) {
+		return value.setScale(places,RoundingMode.HALF_EVEN);
+	}
+
 
 	public static double roundOff(Double price) {
 
@@ -268,6 +279,22 @@ public class StanzaUtils {
 		return decimalFormat.format(value);
 	}
 
+	public static String formatBigDecimalToIndianNumberFormatWithFractions(BigDecimal value, int numFractions) {
+		Locale locale = new Locale("en", "IN");
+		DecimalFormat decimalFormat = (DecimalFormat) DecimalFormat.getInstance(locale);
+		decimalFormat.setMaximumFractionDigits(numFractions);
+		decimalFormat.setMinimumFractionDigits(numFractions);
+		return decimalFormat.format(value);
+	}
+
+	public static String formatBigDecimalToIndianNumberFormatWithTwoDecimals(BigDecimal value) {
+		Locale locale = new Locale("en", "IN");
+		DecimalFormat decimalFormat = (DecimalFormat) DecimalFormat.getInstance(locale);
+		decimalFormat.setMaximumFractionDigits(2);
+		decimalFormat.setMinimumFractionDigits(2);
+		return decimalFormat.format(value);
+	}
+
 	public static String formatToIndianNumberFormat(Double value) {
 		Format format = com.ibm.icu.text.NumberFormat.getInstance(new Locale("en", "IN"));
 		return format.format(value);
@@ -290,13 +317,13 @@ public class StanzaUtils {
 
 		if (size < 1024L) {
 			sizeWithUnit = size + " Bytes";
-		} else if (size >= 1024 && size < (1024L * 1024)) {
+		} else if (size < (1024L * 1024)) {
 			sizeWithUnit = String.format("%.2f", kb) + " KB";
-		} else if (size >= (1024L * 1024) && size < (1024L * 1024 * 1024)) {
+		} else if (size < (1024L * 1024 * 1024)) {
 			sizeWithUnit = String.format("%.2f", mb) + " MB";
-		} else if (size >= (1024L * 1024 * 1024) && size < (1024L * 1024 * 1024 * 1024)) {
+		} else if (size < (1024L * 1024 * 1024 * 1024)) {
 			sizeWithUnit = String.format("%.2f", gb) + " GB";
-		} else if (size >= (1024L * 1024 * 1024 * 1024)) {
+		} else  {
 			sizeWithUnit = String.format("%.2f", tb) + " TB";
 		}
 
@@ -311,4 +338,21 @@ public class StanzaUtils {
 		return Objects.isNull(obj) ? null : obj.toString();
 	}
 
+	public double gstRoundOff(double amount, double gstPercentage) {
+		return gstRoundOff(amount * (gstPercentage / 100));
+	}
+
+	public double gstRoundOff(double gstAmount) {
+		BigDecimal amount = BigDecimal.valueOf(gstAmount);
+		amount = amount.setScale(0, RoundingMode.HALF_UP);
+		return amount.doubleValue();
+	}
+
+	public static <T> T getDefaultIfNull(Supplier<T> getFunction, T defaultValue) {
+		try {
+			return getFunction.get() != null ? getFunction.get() : defaultValue;
+		} catch (NullPointerException ex) {
+			return defaultValue;
+		}
+	}
 }

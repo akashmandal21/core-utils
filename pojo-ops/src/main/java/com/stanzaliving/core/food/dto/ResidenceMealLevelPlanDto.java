@@ -47,4 +47,12 @@ public class ResidenceMealLevelPlanDto {
 
 	private boolean status;
 
+	private boolean skipable;
+
+	private LocalTime cutoffTime;
+
+	private boolean sameDayCutoff;
+	
+	private LocalTime foodOrderCutoffTime;
+
 }

@@ -1,15 +1,14 @@
 package com.stanzaliving.core.opscalculator.dto;
 
+import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.enums.ResidenceBrand;
-import com.stanzaliving.core.opscalculator.enums.ApprovalStatus;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @SuperBuilder
@@ -49,5 +48,10 @@ public class UnderWrittenResponseDto extends UnderWrittenDto {
     private String approvedCommentUuid;
 
     private ApprovalStatus approvalStatus;
+
+    @Builder.Default
+    protected List<LocalDate> holidays = new ArrayList<>();
+
+    protected List<LocalDate> specialDays;
 
 }

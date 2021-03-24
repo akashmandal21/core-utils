@@ -42,4 +42,17 @@ public class PageResponse<T> {
 	public static <T> PageResponse<T> of(int page, int records, int totalPages, long totalRecords, List<T> data) {
 		return new PageResponse<>(page, records, totalPages, totalRecords, data);
 	}
+
+	public static <T> PageResponse<T> of(int page, int limit, List<T> data) {
+		int start = (page - 1) * limit;
+		int end = ((page - 1) * limit + limit);
+		int sizeOfList = data.size();
+		if (start > sizeOfList - 1) {
+			return PageResponse.of(page, 0, (int) Math.ceil((double) data.size() / (double) limit), data.size(), new ArrayList<>());
+		}
+		if (end > sizeOfList) {
+			end = sizeOfList;
+		}
+		return PageResponse.of(page, data.subList(start, end).size(), (int) Math.ceil((double) data.size() / (double) limit), data.size(), data.subList(start, end));
+	}
 }

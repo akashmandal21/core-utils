@@ -1,5 +1,6 @@
 package com.stanzaliving.core.leadership.dto;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.GenderAllowed;
 import com.stanzaliving.transformations.enums.SubBrandName;
@@ -39,4 +40,9 @@ public class PropertyNamingDto {
 	private Long cityId;
 
 	private String propertyUuid;
+
+	private String oldPropName;
+
+	private PropertyEntityType propertyType;
+
 }

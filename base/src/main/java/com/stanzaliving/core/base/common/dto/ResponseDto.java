@@ -35,7 +35,7 @@ public class ResponseDto<T> {
 		this.status = status;
 	}
 
-	private ResponseDto(boolean status, String message) {
+	protected ResponseDto(boolean status, String message) {
 		this(status);
 		this.message = message;
 	}

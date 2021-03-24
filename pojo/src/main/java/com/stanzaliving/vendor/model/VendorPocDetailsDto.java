@@ -1,11 +1,6 @@
 package com.stanzaliving.vendor.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Setter
 @Getter
@@ -13,14 +8,17 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Builder
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class VendorPocDetailsDto {
 
     private String uuid;
-
+    @EqualsAndHashCode.Include
     private String pocName;
 
+    @EqualsAndHashCode.Include
     private String pocEmail;
 
+    @EqualsAndHashCode.Include
     private String pocMobile;
 
     private String pocDesignation;

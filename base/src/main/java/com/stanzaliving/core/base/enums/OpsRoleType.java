@@ -39,6 +39,8 @@ public enum OpsRoleType {
 	EMAIL_CC_FOOD_ORDER_DETAILS("Email CC - Food Order Details", Department.OPS, AccessLevel.COUNTRY),
 	EMAIL_CC_FOOD_ORDER_REMINDER("Email CC - Food Order Reminder", Department.OPS, AccessLevel.COUNTRY),
 
+	EMAIL_CC_ELECTRICITY_METER_READING_REMINDER("Email CC - Electricity Meter Reading Reminder", Department.OPS, AccessLevel.COUNTRY),
+
 	COUNTRY_FOOD_ORDER("Country - Food Order", Department.OPS, AccessLevel.COUNTRY),
 	CITY_FOOD_ORDER("City - Food Order", Department.OPS, AccessLevel.CITY),
 	MICROMARKET_FOOD_ORDER("Micromarket - Food Order", Department.OPS, AccessLevel.MICROMARKET);
