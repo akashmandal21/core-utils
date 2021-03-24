@@ -509,9 +509,7 @@ public class WandaClientApi {
 	public List<OccupiedRoomDto> getRoomCountByResidenceUuid(String residenceUuid,String fromDate,String toDate) {
 
 		Object postBody = null;
-
-		log.info("Received request to get UserDetailDto from mobile: {}", mobile);
-
+		
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residenceUuid", residenceUuid);
 
@@ -527,11 +525,15 @@ public class WandaClientApi {
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
+		ParameterizedTypeReference<List<OccupiedRoomDto>> returnType = new ParameterizedTypeReference<List<OccupiedRoomDto>>() {
+		};
+
+		
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
-					UserDetailDto.class);
+					returnType);
 		} catch (Exception e) {
-			log.error("Error while getting user Details from Core by mobile: {}", mobile, e);
+			log.error("Error while getting room count for residence: {}", residenceUuid, e);
 		}
 		return null;
 	}
