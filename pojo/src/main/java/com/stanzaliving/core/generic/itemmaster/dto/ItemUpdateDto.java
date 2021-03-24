@@ -41,6 +41,6 @@ public class ItemUpdateDto extends AbstractDto {
 
     private String itemCodeSearch;
     private String itemDescriptionSearch;
-    private Boolean taggable;
 
+    private Boolean taggable;
 }

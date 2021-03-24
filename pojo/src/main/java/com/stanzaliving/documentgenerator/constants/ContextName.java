@@ -24,4 +24,6 @@ public class ContextName {
     public static final String LEGAL_LEASED_INVENTORY_DOC = "LeasedInventoryDoc";
     public static final String QRCODES_DOC = "qrDocument";
 
+    public static final String SERVICE_MIX = "serviceMix";
+
 }
