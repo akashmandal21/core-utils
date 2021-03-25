@@ -506,14 +506,14 @@ public class WandaClientApi {
 	}
 	
 	
-	public List<OccupiedRoomDto> getRoomCountByResidenceUuid(String residenceUuid,String fromDate,String toDate) {
+	public List<OccupiedRoomDto> getOccupiedRoomDetailsByResidenceUuid(String residenceUuid,String fromDate,String toDate) {
 
 		Object postBody = null;
 		
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residenceUuid", residenceUuid);
 
-		String path = UriComponentsBuilder.fromPath("/coreApi/get/roomCount/{residenceUuid}")
+		String path = UriComponentsBuilder.fromPath("/coreApi/getOccupiedRoomDetails/{residenceUuid}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
