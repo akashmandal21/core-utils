@@ -1,11 +1,18 @@
 package com.stanzaliving.core.client.api;
 
 import java.time.LocalDate;
+
+
+import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.opscalculator.dto.DeadBedCountDto;
+import com.stanzaliving.core.opscalculator.dto.OccupiedRoomDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -438,7 +445,7 @@ public class WandaClientApi {
 		return null;
 
 	}
-	
+
 	public ResidenceUIDto getUserCityMicromarketResidenceUuidsByUserCode(String usercode) {
 
 		try {
@@ -448,7 +455,7 @@ public class WandaClientApi {
 
 			final Map<String, Object> uriVariables = new HashMap<>();
 			uriVariables.put("usercode", usercode);
-			
+
 			String path = UriComponentsBuilder.fromPath("/coreApi/get/user/residence/userCode/{usercode}").buildAndExpand(uriVariables).toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -468,7 +475,7 @@ public class WandaClientApi {
 
 		return null;
 	}
-	
+
 	public boolean updateHostelAndRoomOfUser(String userId, String hostelId,String roomNum) {
 
 		Object postBody = null;
@@ -504,8 +511,8 @@ public class WandaClientApi {
 
 		return false;
 	}
-	
-	
+
+
 	public List<OccupiedRoomDto> getRoomCountByResidenceUuid(String residenceUuid,String fromDate,String toDate) {
 
 		Object postBody = null;
@@ -521,7 +528,7 @@ public class WandaClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("fromDate", fromDate);
 		queryParams.add("toDate", toDate);
-		
+
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = { "*/*" };
@@ -534,6 +541,40 @@ public class WandaClientApi {
 			log.error("Error while getting user Details from Core by mobile: {}", mobile, e);
 		}
 		return null;
+	}
+
+
+	public List<OccupiedRoomDto> getOccupiedRoomDetails(String residenceUuid, LocalDate fromDate, LocalDate toDate) {
+		Object postBody = null;
+
+		List<OccupiedRoomDto> occupiedRoomDtoList = new ArrayList<>();
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/getOccupiedRoomDetails").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("residenceUuid", residenceUuid);
+		queryParams.add("fromDate", fromDate.toString());
+		queryParams.add("toDate", toDate.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<OccupiedRoomDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<OccupiedRoomDto>>>() {
+		};
+
+		try {
+			occupiedRoomDtoList = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
+		} catch (Exception e) {
+			log.error("Exception while fetching dead bed details for residence {} ", residenceUuid, e);
+		}
+
+		return occupiedRoomDtoList;
 	}
 
 }
