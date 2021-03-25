@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class DeadBedCountDto {
 
-	private Date date;
+	private LocalDate date;
 	private int deadBedCount;
 	private int deadRoomCount;
 
