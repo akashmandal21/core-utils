@@ -22,9 +22,7 @@ public class ApprovalRequestDto {
 
     private String entityName;
 
-    private Integer versionNumber;
-
-    private RequestType requestType;
+    private String requestTypeUUID;
 
     private HashMap<String, Object> metadata;
 
@@ -45,8 +43,6 @@ public class ApprovalRequestDto {
     private String cityUuid;
 
     private String micromarketUuid;
-    
-    private boolean expressApprovalRequired;
 
     private String l1ActionedBy;
 

@@ -1,6 +1,5 @@
 package com.stanzaliving.approve.dto;
 
-import com.stanzaliving.approve.enums.RequestType;
 import com.stanzaliving.approve.enums.ApprovalStatus;
 import lombok.*;
 
@@ -15,13 +14,15 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApprovalResponseDto {
+    @NotNull(message = "entityUuid cannot be null")
     @NotBlank(message = "entityUuid cannot be blank")
     String entityUuid;
 
-    @NotNull(message = "requestType cannot be null")
-    RequestType requestType;
+    @NotBlank(message = "requestTypeUuid cannot be blank")
+    @NotNull(message = "requestTypeUuid cannot be null")
+    String requestTypeUuid;
 
-    @NotNull(message = "approvalEntityType cannot be null")
+    //todo: Add validation
     ApprovalStatus approvalStatus;
 
 }
