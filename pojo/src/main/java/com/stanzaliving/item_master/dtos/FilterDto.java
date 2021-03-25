@@ -29,6 +29,9 @@ public class FilterDto {
     private Integer pageNum;
     private Integer limit;
 
+    @Builder.Default
+    private boolean substituteNeeded=false;
+
     //Main Top Filters
     @Valid
     @NotNull
