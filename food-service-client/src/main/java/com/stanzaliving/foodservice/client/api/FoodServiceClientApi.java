@@ -237,7 +237,7 @@ public class FoodServiceClientApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("residence/food/attendance/getOccupiedRoomDetails").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("internal/residence/food/attendance/getOccupiedRoomDetails").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("residenceUuid", residenceUuid);
