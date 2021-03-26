@@ -241,8 +241,8 @@ public class FoodServiceClientApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("residenceId", residenceUuid);
-        queryParams.add("fromDate", fromDate.toString());
-        queryParams.add("toDate", toDate.toString());
+        queryParams.add("startDate", fromDate.toString());
+        queryParams.add("endDate", toDate.toString());
 
         final HttpHeaders headerParams = new HttpHeaders();
 
