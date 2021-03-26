@@ -22,8 +22,9 @@ public class MicromarketRequestDTO {
 	private double latitude;
 	private double longitude;
 	private String phone;
-	@Default
-	private Boolean whatsappChatFlag=false;
 	private List<MicromarketAliasDTO> micromarketAlias;
+	@Default
+	private Boolean leadQualificationForm=false;
+	private List<AttributeDto> attributeDto;
 
 }

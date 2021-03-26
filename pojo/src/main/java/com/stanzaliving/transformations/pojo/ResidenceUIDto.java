@@ -80,7 +80,7 @@ public class ResidenceUIDto implements Serializable{
 	private String parentResidenceId;
 	
 	private PropertyEntityType propertyEntityType;
-	
+		
 	private String estateUuid;
-	
+
 }
