@@ -19,4 +19,5 @@ public class AddUserDeptLevelRoleRequestDto extends AddUserDeptLevelRequestDto {
     @NotEmpty
     List<String> rolesUuid;
 
+    String roleName;
 }
