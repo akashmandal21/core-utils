@@ -191,12 +191,12 @@ public class GrnClientApi {
     }
 
     // Platform Should be any of these according to requirement NUCLEUS, PHOENIX, NEXUS
-    public ResponseDto<Void> receiveOrInstallManualGSRI(String platform, EventType eventType, String poToUuid, boolean isComplete, List<GrsiItemDto> gsriItems) {
+    public ResponseDto<Void> receiveOrInstallManualGSRI(String platform, EventType eventType, String toNumber, boolean isComplete, List<GrsiItemDto> gsriItems) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("platform", platform);
         uriVariables.put("eventType", eventType);
-        uriVariables.put("poToUuid", poToUuid);
+        uriVariables.put("toNumber", toNumber);
         uriVariables.put("isComplete", isComplete);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -207,7 +207,7 @@ public class GrnClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/manual/gsri/receive/or/install/{platform}/{eventType}/{toUuid}/{isComplete}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/manual/gsri/receive/or/install/{platform}/{eventType}/{toNumber}/{isComplete}").buildAndExpand(uriVariables).toUriString();
 
         ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
         };
