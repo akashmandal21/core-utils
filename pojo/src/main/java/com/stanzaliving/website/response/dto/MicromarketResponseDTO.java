@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.Status;
+import com.stanzaliving.website.request.dto.AttributeDto;
 import com.stanzaliving.website.request.dto.MicromarketAliasDTO;
 
 import lombok.AllArgsConstructor;
@@ -42,9 +43,12 @@ public class MicromarketResponseDTO {
 	private Long reviewCount;
 	private Double rating;
 	private Long minPriceValue;
-	private Boolean whatsappChatFlag;
 	private List<MicromarketAliasDTO> micromarketAlias;
-	
-	@Builder.Default
+@Builder.Default
 	private boolean isSelected = false;
+
+	private List<AttributeDto> attributeDto;
+	@Default
+	private boolean leadQualificationForm=false;
+
 }

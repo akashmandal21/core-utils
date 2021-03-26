@@ -1,7 +1,10 @@
 package com.stanzaliving.website.response.dto;
 
+import java.util.List;
+
 import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.Status;
+import com.stanzaliving.website.request.dto.AttributeDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,7 +45,7 @@ public class CityResponseDTO {
 	
 	@Builder.Default
 	private boolean comingSoon = false;
-
-	@Builder.Default
+	private List<AttributeDto> attributeDto;
+    @Builder.Default
 	private boolean isSelected = false;
 }
