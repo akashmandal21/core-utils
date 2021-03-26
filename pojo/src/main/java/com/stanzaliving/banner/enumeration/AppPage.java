@@ -9,7 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public enum AppPage {
 
-	HOME_PAGE("Home Page"), FOOD_PAGE("Food Page"), DEALS_PAGE("Deals Page");
+	HOME_PAGE("Home Page"), 
+	FOOD_PAGE("Food Page"), 
+	DEALS_PAGE("Deals Page"), 
+	MYSTAY_PAGE("My Stay Page"),
+	SUPPORT_HOME_PAGE("Support Home Page");
 
 	private String displayName;
 }

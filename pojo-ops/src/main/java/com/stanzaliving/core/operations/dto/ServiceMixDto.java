@@ -53,7 +53,7 @@ public class ServiceMixDto extends AbstractDto {
 
 	private boolean isDefault;
 
-	private Long residentOnBoardCount;
+	private long residentOnBoardCount;
 
 	private Date serviceMixApprovedOn;
 

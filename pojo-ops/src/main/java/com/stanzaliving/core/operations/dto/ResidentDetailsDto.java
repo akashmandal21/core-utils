@@ -1,14 +1,15 @@
 package com.stanzaliving.core.operations.dto;
 
+import java.util.Date;
+
 import com.stanzaliving.core.operations.enums.ResidentStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.util.Date;
 
 @Getter
 @Setter
