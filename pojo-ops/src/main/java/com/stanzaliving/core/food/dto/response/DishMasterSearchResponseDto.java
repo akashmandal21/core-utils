@@ -3,7 +3,6 @@ package com.stanzaliving.core.food.dto.response;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.dto.KeyValuePairDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
-import com.stanzaliving.core.food.dto.FoodItemRecipeCostDto;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.DishRegion;
 import com.stanzaliving.core.food.enums.FoodItemType;
@@ -81,6 +80,4 @@ public class DishMasterSearchResponseDto implements Serializable {
 	private boolean recipeExists;
 
 	private boolean stapleDish;
-
-	private FoodItemRecipeCostDto priceData;
 }
