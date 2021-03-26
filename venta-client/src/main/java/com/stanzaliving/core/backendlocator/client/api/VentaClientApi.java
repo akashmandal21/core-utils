@@ -170,11 +170,11 @@ public class VentaClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<List<DeadBedCountDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DeadBedCountDto>>>() {
+		ParameterizedTypeReference<List<DeadBedCountDto>> returnType = new ParameterizedTypeReference<List<DeadBedCountDto>>() {
 		};
 
 		try {
-			deadBedCountDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
+			deadBedCountDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Exception while fetching dead bed details for residence {} ", residenceUuid, e);
 		}
