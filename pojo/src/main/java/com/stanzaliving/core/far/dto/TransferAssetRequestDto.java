@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Data
@@ -13,9 +15,12 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TransferOutAssetDto {
+public class TransferAssetRequestDto {
     private String assetUuid;
     private String toNumber;
     private String qrCode;
     private String cartAssetUuid;
+
+    @NotNull
+    private boolean transferOut;
 }

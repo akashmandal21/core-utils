@@ -33,4 +33,6 @@ public class RecipeIngredientRequestDto {
 	@NotNull(message = "Ingredient quantity is required for all ingredients")
 	private Double quantity;
 
+	private int index;
+
 }
