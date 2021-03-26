@@ -14,7 +14,7 @@ import java.util.Map;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodItemPriceDto {
+public class FoodItemRecipeCostDto {
 	private Double totalQuantity;
 	private Double servingQuantity;
 	private Double bufferPricePercentage;
