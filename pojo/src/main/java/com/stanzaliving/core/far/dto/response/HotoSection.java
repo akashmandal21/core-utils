@@ -2,6 +2,7 @@ package com.stanzaliving.core.far.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  */
 @Setter
 @Getter
+@SuperBuilder
 public class HotoSection {
     private List <AssetHotoItems> stanzaAssets;
     private List <AssetHotoItems> landlordAssets;

@@ -4,6 +4,7 @@ import com.stanzaliving.core.far.enums.CartStatus;
 import com.stanzaliving.core.far.enums.CartType;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 
@@ -13,10 +14,11 @@ import java.math.BigDecimal;
  */
 @Getter
 @Setter
+@SuperBuilder
 public class AddAssetToCartDto {
     private String cartUuid;
     private CartType cartType;
     private BigDecimal numberOfItemCodes;
     private CartStatus cartStatus;
-    private String cartAssetUuid;
+    private String message;
 }

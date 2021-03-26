@@ -11,8 +11,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class HotoRejectDto {
-    private String rejectionType;
-    private RejectionType rejectionDetails;
+    private String rejectionDetails;
+    private RejectionType rejectionType;
     private String assetId;
     private String cartUuid;
+    private String addressUuid;
 }

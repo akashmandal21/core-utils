@@ -3,6 +3,7 @@ package com.stanzaliving.core.far.dto.response;
 import com.stanzaliving.core.far.enums.CartStatus;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author dhruv.mathur
@@ -10,6 +11,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@SuperBuilder
 public class HotoCart {
     HotoSection accepted;
     HotoSection rejected;

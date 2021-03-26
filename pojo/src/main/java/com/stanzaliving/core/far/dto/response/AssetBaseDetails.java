@@ -1,7 +1,9 @@
 package com.stanzaliving.core.far.dto.response;
 
+import com.stanzaliving.core.far.enums.RejectionType;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author dhruv.mathur
@@ -9,10 +11,12 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@SuperBuilder
 public class AssetBaseDetails {
     private String qrUrl;
     private String assetUuid;
     private String assetCode;
     private String rejectionReason;
+    private RejectionType rejectionType;
 
 }
