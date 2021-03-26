@@ -156,11 +156,11 @@ public class VentaClientApi {
 		List<DeadBedCountDto> deadBedCountDtoList = new ArrayList<>();
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
 
-		String path = UriComponentsBuilder.fromPath("/getDeadBedDetails").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/coreApi/getDeadBedDetails/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("residenceUuid", residenceUuid);
 		queryParams.add("fromDate", fromDate.toString());
 		queryParams.add("toDate", toDate.toString());
 
