@@ -15,6 +15,8 @@ import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 
+import java.io.IOException;
+
 /**
  * @author naveen.kumar
  *
@@ -43,8 +45,7 @@ public class ObjectMapperUtil {
 		return json;
 	}
 
-
-	public <T> T toObject(String json, Class<T> type) {
+	public <T> T getObjectFromString(String value, Class<T> clazz) {
 		T t = null;
 		if (!StringUtils.isEmpty(json)) {
 			try {
@@ -55,7 +56,5 @@ public class ObjectMapperUtil {
 		}
 		return t;
 	}
-
-
 
 }

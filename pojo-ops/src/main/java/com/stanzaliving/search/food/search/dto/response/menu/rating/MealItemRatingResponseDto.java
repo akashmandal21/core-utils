@@ -1,18 +1,17 @@
 package com.stanzaliving.search.food.search.dto.response.menu.rating;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import com.stanzaliving.core.operations.enums.MealType;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.Set;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
  * @version 1.0
  *
- * @since 26-Jan-2021
+ * @since 17-Mar-2021
  */
 
 @Getter
@@ -21,10 +20,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RatingDto {
-	private Integer totalRating;
+public class MealItemRatingResponseDto {
+	private MealType mealType;
 
-	private Integer totalRatingCount;
-
-	private Float avgRating;
+	private Set<ItemRatingDto> items;
 }
