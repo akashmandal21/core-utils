@@ -1,7 +1,6 @@
 package com.stanzaliving.core.food.dto.menufps.response;
 
 import com.stanzaliving.core.food.dto.menurating.response.DishRating;
-import com.stanzaliving.core.food.dto.menurating.response.FoodMenuMicroMarketRatingResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

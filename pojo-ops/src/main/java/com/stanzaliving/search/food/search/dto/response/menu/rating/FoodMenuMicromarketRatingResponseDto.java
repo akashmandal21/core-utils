@@ -32,4 +32,8 @@ public class FoodMenuMicromarketRatingResponseDto {
 	private List<ResidenceIdRatingDto> residences;
 
 	private List<ResidenceMealRatingDto> residenceMeals;
+
+	private Long ratingDays;
+
+	private Integer topServings;
 }
