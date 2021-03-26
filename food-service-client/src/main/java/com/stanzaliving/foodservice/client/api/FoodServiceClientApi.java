@@ -240,7 +240,7 @@ public class FoodServiceClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/food/attendance/getOccupiedRoomDetails").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("residenceUuid", residenceUuid);
+        queryParams.add("residenceId", residenceUuid);
         queryParams.add("fromDate", fromDate.toString());
         queryParams.add("toDate", toDate.toString());
 
