@@ -7,6 +7,9 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotEmpty;
+
+import com.stanzaliving.core.user.acl.enums.Role;
+
 import java.util.List;
 
 @Data
@@ -19,5 +22,5 @@ public class AddUserDeptLevelRoleRequestDto extends AddUserDeptLevelRequestDto {
     @NotEmpty
     List<String> rolesUuid;
 
-    String roleName;
+    private Role roleName;
 }
