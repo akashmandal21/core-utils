@@ -437,7 +437,7 @@ public class EstateClientApi {
         ParameterizedTypeReference<ResponseDto<Map<String,Boolean>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String,Boolean>>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
 }
