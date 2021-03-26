@@ -44,6 +44,7 @@ public class DishMasterRatingResponseDto extends DishMasterSearchResponseDto {
 	private Float fpsPercent;
 
 	private Double cost;
+	private Double countryCost;
 
 	private List<ResidencePerformanceDto> residencePerformance;
 
