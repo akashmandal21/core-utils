@@ -5,7 +5,7 @@ import com.stanzaliving.core.enums.UnitOfMeasurement;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
+import java.io.Serializable;
 import java.util.Map;
 
 @Getter
@@ -14,7 +14,7 @@ import java.util.Map;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodItemRecipeCostDto {
+public class FoodItemRecipeCostDto implements Serializable {
 	private Double totalQuantity;
 	private Double servingQuantity;
 	private Double bufferPricePercentage;
