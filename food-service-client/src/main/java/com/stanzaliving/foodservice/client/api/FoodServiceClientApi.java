@@ -211,7 +211,7 @@ public class FoodServiceClientApi {
         }
     }
 
-    public boolean isIngredientUsed(String ingredientId) {
+    public Boolean isIngredientUsed(String ingredientId) {
         String path = UriComponentsBuilder.fromPath("/internal/ingredients/{ingredientId}/used").buildAndExpand(ingredientId).toUriString();
         final HttpHeaders headerParams = new HttpHeaders();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -222,7 +222,12 @@ public class FoodServiceClientApi {
         ParameterizedTypeReference<ResponseDto<IngredientUsageDto>> returnType = new ParameterizedTypeReference<ResponseDto<IngredientUsageDto>>() {
         };
 
-        ResponseDto<IngredientUsageDto> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-        return Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData()) && responseDto.getData().isUsed();
+        try {
+            ResponseDto<IngredientUsageDto> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            return Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData()) && responseDto.getData().isUsed();
+        }catch (Exception e) {
+            log.error("Error while initiating request for ingredient used for ingredient {}",ingredientId, e);
+            return null;
+        }
     }
 }
