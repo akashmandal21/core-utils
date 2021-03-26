@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -14,10 +15,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodItemPriceDto {
-	private Double totalCost;
 	private Double totalQuantity;
-	private Double perPaxCost;
-	private Double perPaxQuantity;
-	private UnitOfMeasurement uom;
+	private Double servingQuantity;
 	private Double bufferPricePercentage;
+	private UnitOfMeasurement uom;
+	private PriceListingDto countryLevelPrice;
+	private Map<String, PriceListingDto> kitchenWisePrice;
+	private Map<String, PriceListingDto> cityLevelPrice;
 }

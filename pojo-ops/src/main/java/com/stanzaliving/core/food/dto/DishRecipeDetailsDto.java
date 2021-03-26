@@ -46,4 +46,6 @@ public class DishRecipeDetailsDto {
 	private int ingredientCount;
 	private UnitOfMeasurement uom;
 	private Double bufferPricePercentage;
+
+	private FoodItemPriceDto itemPriceDto;
 }
