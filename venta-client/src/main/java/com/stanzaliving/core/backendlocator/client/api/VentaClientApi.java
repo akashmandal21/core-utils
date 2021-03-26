@@ -157,7 +157,6 @@ public class VentaClientApi {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residenceUuid", residenceUuid);
-
 		String path = UriComponentsBuilder.fromPath("/coreApi/getDeadBedDetails/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -175,7 +174,7 @@ public class VentaClientApi {
 		};
 
 		try {
-			deadBedCountDtoList = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
+			deadBedCountDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
 		} catch (Exception e) {
 			log.error("Exception while fetching dead bed details for residence {} ", residenceUuid, e);
 		}

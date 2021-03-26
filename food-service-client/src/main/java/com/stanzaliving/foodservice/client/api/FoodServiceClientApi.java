@@ -255,7 +255,7 @@ public class FoodServiceClientApi {
         };
 
         try {
-            occupiedBedDtoList = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
+            occupiedBedDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
         } catch (Exception e) {
             log.error("Exception while fetching dead bed details for residence {} ", residenceUuid, e);
         }
