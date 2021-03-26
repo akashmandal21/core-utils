@@ -12,4 +12,6 @@ import lombok.NoArgsConstructor;
 public class QrPdfEntryDto {
     private String itemUrl;
     private String itemName;
+    private String date;
+    private String time;
 }

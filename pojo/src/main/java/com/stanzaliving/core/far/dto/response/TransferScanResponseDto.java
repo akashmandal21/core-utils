@@ -23,4 +23,5 @@ public class TransferScanResponseDto {
     Date discardedOn;
     String discardedBy;
     List<String> transferOrderList;
+    String receivingLocation;
 }
