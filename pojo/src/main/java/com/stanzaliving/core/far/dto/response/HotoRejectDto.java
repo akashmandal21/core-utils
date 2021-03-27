@@ -3,7 +3,6 @@ package com.stanzaliving.core.far.dto.response;
 import com.stanzaliving.core.far.enums.RejectionType;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 /**
  * @author dhruv.mathur
@@ -11,12 +10,10 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@SuperBuilder
-public class AssetBaseDetails {
-    private String qrUrl;
-    private String assetUuid;
-    private String assetCode;
-    private String rejectionReason;
+public class HotoRejectDto {
+    private String rejectionDetails;
     private RejectionType rejectionType;
-
+    private String assetId;
+    private String cartUuid;
+    private String addressUuid;
 }
