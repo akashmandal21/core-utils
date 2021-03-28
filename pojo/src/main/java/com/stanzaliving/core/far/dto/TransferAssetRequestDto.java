@@ -20,6 +20,7 @@ public class TransferAssetRequestDto {
     private String toNumber;
     private String qrCode;
     private String cartAssetUuid;
+    private String addressUuid;
 
     @NotNull
     private boolean transferOut;
