@@ -82,6 +82,10 @@ public class DishMasterSearchIndexDto extends AbstractSearchIndexDto {
 
 	private List<String> tagIds;
 
+	private Set<String> regionalTagIds;
+
+	private Set<String> cuisineTagIds;
+
 	private DishMasterRecipeSearchIndexDto recipe;
 
 	private boolean stapleDish;

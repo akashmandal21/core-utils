@@ -72,11 +72,13 @@ public class DishMasterSearchResponseDto implements Serializable {
 
 	private List<TagsDto> tags;
 
+	private List<TagsDto> regionalTags;
+
+	private List<TagsDto> cuisineTags;
+
 	private Integer shelfLife;
 
 	private boolean recipeExists;
 
 	private boolean stapleDish;
-
-	private FoodItemPriceDto priceData;
 }
