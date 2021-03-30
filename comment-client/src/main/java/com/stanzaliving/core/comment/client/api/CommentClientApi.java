@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.commentsservice.response.dto.CommentsCountResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -201,6 +202,27 @@ public class CommentClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, commentsGetRequest, headerParams, accept, returnType);
 
+	}
+
+	public ResponseDto<List<CommentsCountResponseDto>> getCommentCount(List<CommentsGetRequest> request) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/comment/count").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<CommentsCountResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CommentsCountResponseDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, request, headerParams, accept, returnType);
 	}
 
 }

@@ -1,8 +1,7 @@
 package com.stanzaliving.core.opscalculator.dto.response;
 
+import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.enums.ResidenceBrand;
-import com.stanzaliving.core.opscalculator.enums.ApprovalStatus;
-import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 import lombok.*;
 
 import java.time.LocalDate;

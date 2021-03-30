@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -49,4 +52,24 @@ public class ApprovalRequestDto {
     private String micromarketUuid;
     
     private boolean expressApprovalRequired;
+
+    private String l1ActionedBy;
+
+    private Date l1ActionTime;
+
+    private String l2ActionedBy;
+
+    private Date l2ActionTime;
+
+    private String l3ActionedBy;
+
+    private Date l3ActionTime;
+
+    private String l4ActionedBy;
+
+    private Date l4ActionTime;
+
+    private String l5ActionedBy;
+
+    private Date l5ActionTime;
 }
