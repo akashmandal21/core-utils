@@ -21,4 +21,6 @@ import java.util.List;
 @AllArgsConstructor
 public class MenuMealItemRequestDto extends MenuMicromarketAggregateRequestDto {
 	private List<MealItemRequestDto> mealItems;
+
+	private Double minAvgRating;
 }
