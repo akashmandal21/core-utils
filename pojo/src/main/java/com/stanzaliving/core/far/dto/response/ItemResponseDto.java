@@ -19,4 +19,5 @@ public class ItemResponseDto {
     private String itemCode;
     private String itemDescription;
     private BigDecimal quantity;
+    private String itemImage;
 }

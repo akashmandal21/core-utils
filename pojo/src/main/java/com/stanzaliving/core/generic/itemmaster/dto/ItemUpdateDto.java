@@ -47,4 +47,6 @@ public class ItemUpdateDto extends AbstractDto {
     //newTags
     private UIKeyValue recipeUom;
     private double conversionFactor;
+
+    private String itemImage;
 }
