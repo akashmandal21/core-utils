@@ -22,8 +22,6 @@ public class ApprovalRequestDto {
 
     private String entityName;
 
-    private String requestTypeUUID;
-
     private HashMap<String, Object> metadata;
 
     private boolean l1ApprovalRequired;

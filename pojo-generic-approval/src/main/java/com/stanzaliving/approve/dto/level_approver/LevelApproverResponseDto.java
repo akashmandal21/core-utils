@@ -1,8 +1,10 @@
 package com.stanzaliving.approve.dto.level_approver;
 
+import com.stanzaliving.approve.dto.mail_template.MailConfigurationDto;
 import com.stanzaliving.approve.dto.role.RoleResponseDto;
 import lombok.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Data
@@ -23,4 +25,6 @@ public class LevelApproverResponseDto {
     private String entityServiceName;
 
     private List<RoleResponseDto> roles;
+
+    private List<MailConfigurationDto> mailConfigurationDto;
 }

@@ -1,7 +1,10 @@
 package com.stanzaliving.approve.dto.level_approver;
 
+import com.stanzaliving.approve.dto.mail_template.MailConfigurationDto;
+import com.stanzaliving.approve.util.validation.MaxSizeConstraint;
 import lombok.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -30,4 +33,7 @@ public class LevelApproverRequestDto {
     @NotNull(message = "RoleUUID cannot be null")
     @NotEmpty(message = "RoleUUID cannot be empty")
     private List<String> roleUUID;
+
+    @MaxSizeConstraint(message = "Maximum array size of mail configuration is 2")
+    private List<@Valid MailConfigurationDto> mailConfigurationDto;
 }

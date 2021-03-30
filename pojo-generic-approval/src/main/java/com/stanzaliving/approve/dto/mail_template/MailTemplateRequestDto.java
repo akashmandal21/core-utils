@@ -18,6 +18,6 @@ public class MailTemplateRequestDto {
 
     private String templateId;
 
-    private List<Object> params;
+    private List<MailParamsDto> params;
 
 }

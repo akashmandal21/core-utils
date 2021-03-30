@@ -18,9 +18,9 @@ public class ApprovalResponseDto {
     @NotBlank(message = "entityUuid cannot be blank")
     String entityUuid;
 
-    @NotBlank(message = "requestTypeUuid cannot be blank")
-    @NotNull(message = "requestTypeUuid cannot be null")
-    String requestTypeUuid;
+    @NotBlank(message = "entity cannot be blank")
+    @NotNull(message = "entity cannot be null")
+    String entityName;
 
     //todo: Add validation
     ApprovalStatus approvalStatus;
