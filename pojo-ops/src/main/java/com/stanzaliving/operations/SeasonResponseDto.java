@@ -1,5 +1,6 @@
 package com.stanzaliving.operations;
 
+import com.stanzaliving.core.operations.enums.DealCategory;
 import lombok.*;
 
 import java.io.Serializable;
@@ -19,4 +20,5 @@ public class SeasonResponseDto implements Serializable {
     private boolean active;
     private String createdBy;
     private LocalDate createdAt;
+    private DealCategory dealCategory;
 }
