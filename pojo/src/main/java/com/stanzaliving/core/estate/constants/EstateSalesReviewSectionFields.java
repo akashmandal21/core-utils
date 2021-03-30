@@ -25,7 +25,7 @@ public class EstateSalesReviewSectionFields {
 	public static final String BREAKFAST_DAYS = "breakfastDays";
 	
 	public static final String LUNCH_DAYS = "lunchDays";
-	public static final String SNACK_DAYS = "snackDays";
+	public static final String SNACK_DAYS = "snacksDays";
 	public static final String DINNER_DAYS = "dinnerDays";
 	public static final String AMOUNT_TYPE = "amountType";
 	public static final String PER_UNIT = "perUnit";
