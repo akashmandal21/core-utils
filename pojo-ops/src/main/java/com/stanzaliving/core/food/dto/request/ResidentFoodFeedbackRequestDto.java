@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.operations.enums.FeedbackSource;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,7 +36,6 @@ public class ResidentFoodFeedbackRequestDto {
 
 	private String nudgeId;
 	
-	private String source;
-	
+	private FeedbackSource source;
 
 }

@@ -26,4 +26,6 @@ public class VendorUpdateInfoDto {
     private List<VendorPocDto> vendorPocDtos;
     private String cityUuid;
     private String fassai;
+    private AddressInformation registeredAddress;
+    private AddressInformation communicationAddress;
 }
