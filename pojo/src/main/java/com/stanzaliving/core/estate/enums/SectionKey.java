@@ -25,7 +25,7 @@ public enum SectionKey {
 	NOTICE_PERIOD("Notice Period", "noticePeriod", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(REMARKS,INPUT_VALUE,IS_AVAILABLE)),
 	ELECTRICITY("Electricity", "electricity", TemplateParentKey.OTHERS,Boolean.TRUE,Boolean.FALSE,Arrays.asList(PER_UNIT,SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE)),
 	MEALS_AVAILABLE("Meals Available", "mealsAvailable", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(BREAKFAST_DAYS,LUNCH_DAYS,SNACK_DAYS,DINNER_DAYS,IS_AVAILABLE)),
-	DESIGN_BEDS("Design & Beds", "designAndBeds", TemplateParentKey.OTHERS,Boolean.TRUE,Boolean.FALSE,Arrays.asList(PER_UNIT,SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE)),
+	DESIGN_BEDS("Design & Beds", "designAndBeds", TemplateParentKey.OTHERS,Boolean.TRUE,Boolean.FALSE,Arrays.asList(PER_UNIT,SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE,VAS,PRICE_PER_MONTH)),
 
 	LUNCH("Lunch Box Available", "lunchBoxAvailable", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE)),
 	WEEKEND_MEAL("Weekend Meal Available", "weekendMealAvailable", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE)),
@@ -33,7 +33,7 @@ public enum SectionKey {
 	DESSERT("Dessert Available", "dessertAvailable", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE)),
 	EGGS("Eggs Available", "eggsAvailable", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE)),
 	MILK("Milk Available", "milkAvailable", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE)),
-
+	WASHROOM("Washroom", "washroom", TemplateParentKey.OTHERS, Boolean.TRUE, Boolean.FALSE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE)),
 	OPERATIONAL_PERIOD("Operational Period", "operationalPeriod", TemplateParentKey.OTHERS,Boolean.TRUE,Boolean.FALSE,Arrays.asList(DURATION,REMARKS,INPUT_VALUE));
 
 	
