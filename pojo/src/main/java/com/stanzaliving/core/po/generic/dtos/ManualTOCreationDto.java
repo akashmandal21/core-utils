@@ -52,4 +52,6 @@ public class ManualTOCreationDto {
 
     public String destinationAddressUuid;
 
+    public String adjustCloseId;
+
 }
