@@ -26,7 +26,7 @@ public class CityLevelFoodSummaryDto {
 
 	private String groupId;
 	private String groupName;
-	private List<StatusCountDto> statusWiseCount;
+	private Map<String,StatusCountDto> statusWiseCount;
 	//city->mm->category
 	private Map<String,CityLevelFoodSummaryDto> childData;
 
