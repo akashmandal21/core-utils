@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
+
 /**
  * @author naveen.kumar
  *
@@ -39,4 +41,6 @@ public class MicroMarketMetadataDto {
 	private double latitude;
 	
 	private double longitude;
+
+	private Date createdAt;
 }
