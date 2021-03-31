@@ -2,6 +2,7 @@ package com.stanzaliving.core.transformation.client.cache;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -188,6 +189,13 @@ public class TransformationCache {
 	}
 	public Map<String,String> getStateUuids() { return allStatesUuidCache.getUnchecked("stateName"); }
 
+	public String getLocationNameOrElseEmptyString(String locType, String uuid) {
+		String locationName = getLocationName(locType, uuid);
+		if (Objects.isNull(locationName)) {
+			locationName = "";
+		}
+		return locationName;
+	}
 	public String getLocationName(String locType, String uuid){
 		switch (locType){
 			case "cityName":
