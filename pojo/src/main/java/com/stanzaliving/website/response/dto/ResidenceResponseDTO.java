@@ -44,7 +44,7 @@ public class ResidenceResponseDTO {
 	private String preBookingMode;
 	private FomoTag fomoTag;
 	private int priorityOrder;
-	private String residenceType;
+//	private String residenceType;
 	private String mobileNo;
 	private String phoneNo;
 	private boolean virtualTour;
