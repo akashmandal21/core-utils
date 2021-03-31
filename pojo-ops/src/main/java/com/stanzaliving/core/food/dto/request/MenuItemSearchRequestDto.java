@@ -14,7 +14,6 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -54,7 +53,7 @@ public class MenuItemSearchRequestDto {
 
 	private OperatorValueDto<Float> avgRating;
 
-	private OperatorValueDto<Float> cost;
+	private OperatorValueDto<Double> cost;
 
 	/**
 	 * foodRegion & basePreference are added for grammage of items
