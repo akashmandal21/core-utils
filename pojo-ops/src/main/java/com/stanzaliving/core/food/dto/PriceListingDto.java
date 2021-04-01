@@ -14,5 +14,8 @@ public class PriceListingDto extends ListingDto {
 	private Double price;
 	private Double cost;
 	private Double quantity;
+
+	private Double totalQuantity;
+	private Double totalCost;
 	private boolean missingPrice;
 }
