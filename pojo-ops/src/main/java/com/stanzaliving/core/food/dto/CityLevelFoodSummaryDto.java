@@ -26,7 +26,7 @@ public class CityLevelFoodSummaryDto {
 
 	private String groupId;
 	private String groupName;
-	private Map<String,StatusCountDto> statusWiseCount;
+	private List<StatusCountDto> statusWiseCount;
 	//city->mm->category
 	private Map<String,CityLevelFoodSummaryDto> childData;
 
@@ -47,5 +47,15 @@ public class CityLevelFoodSummaryDto {
 	private String categoryName;
 	private String categoryMealWiseName;
 	private String micromarketName;
+
+	private int notCreated;
+	private int inDraft;
+	private int submitted;
+	private int l1ApprovalPending;
+	private int l2ApprovalPending;
+	private int l3ApprovalPending;
+	private int l4ApprovalPending;
+	private int l5ApprovalPending;
+	private int approved;
 
 }
