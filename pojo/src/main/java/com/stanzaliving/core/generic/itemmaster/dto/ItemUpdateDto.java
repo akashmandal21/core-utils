@@ -49,4 +49,5 @@ public class ItemUpdateDto extends AbstractDto {
     private double conversionFactor;
 
     private String itemImage;
+    private String subItemId;
 }
