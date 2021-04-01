@@ -45,4 +45,6 @@ public class RecentMealFeedbackDto {
 	
 	private String feedbackMsg;
 	
+	private String mealName;
+	
 }
