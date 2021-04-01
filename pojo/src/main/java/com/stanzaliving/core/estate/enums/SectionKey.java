@@ -18,7 +18,7 @@ public enum SectionKey {
 	LAUNDRY("Laundry", "laundry", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,VAS,PRICE_PER_MONTH,IS_AVAILABLE)),
 	HOUSEKEEPING("Housekeeping", "houseKeeping", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,VAS,PRICE_PER_MONTH,IS_AVAILABLE)),
 	INTERNET_WIFI("Internet/Wifi", "internet", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(PER_UNIT,SELECTED_OPTIONS,REMARKS,VAS,PRICE_PER_MONTH,IS_AVAILABLE,INPUT_VALUE)),
-	SECURITY_DEPOSIT("Security Deposit", "securityDeposit", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(PER_UNIT,SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE)),
+	SECURITY_DEPOSIT("Security Deposit", "securityDeposit", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(PER_UNIT,SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE, AMOUNT_TYPE)),
 
 	AC("AC", "ac", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(VAS,REMARKS,PRICE_PER_MONTH,IS_AVAILABLE)),
 	TRANSPORT("Transport", "transportation", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(REMARKS,VAS,PRICE_PER_MONTH,IS_AVAILABLE)),
