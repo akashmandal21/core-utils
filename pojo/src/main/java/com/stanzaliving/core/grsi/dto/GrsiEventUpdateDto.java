@@ -2,6 +2,7 @@ package com.stanzaliving.core.grsi.dto;
 
 import java.util.Date;
 
+import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import com.stanzaliving.transformations.enums.LocationType;
 
 import lombok.AllArgsConstructor;
@@ -17,6 +18,8 @@ public class GrsiEventUpdateDto {
 
     private String grsiId;
     private String poToId;
+    private String poNumber;
+    private GenericPOType poType;
     private LocationType targetLocationType;
     private String targetAddressUuid;
     private LocationType srcLocationType;
