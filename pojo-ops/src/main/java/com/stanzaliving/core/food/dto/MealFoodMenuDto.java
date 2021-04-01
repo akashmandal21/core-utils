@@ -5,6 +5,7 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.food.enums.Action;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 
@@ -47,4 +48,5 @@ public class MealFoodMenuDto {
 	private List<MenuItemDto> menuItems;
 
 	private RegionAndFoodItemBasePreference regionItemPreference;
+	private Action action;
 }
