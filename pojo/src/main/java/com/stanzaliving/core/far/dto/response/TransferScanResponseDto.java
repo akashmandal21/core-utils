@@ -2,6 +2,7 @@ package com.stanzaliving.core.far.dto.response;
 
 import com.stanzaliving.core.far.enums.QrCodeStatus;
 import com.stanzaliving.core.far.enums.TransferScanStatus;
+import com.stanzaliving.core.grsi.dto.response.ToResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,6 +24,6 @@ public class TransferScanResponseDto {
     String cartAssetUuid;
     Date discardedOn;
     String discardedBy;
-    List<String> transferOrderList;
-    String receivingLocation;
+    List<ToResponseDto> transferOrderList;
+    String assetId;
 }
