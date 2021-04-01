@@ -16,4 +16,5 @@ public class SeoUrlRequestDto {
 	private String sourceUrl;
 	private String destinationUrl;
 	private boolean enabled;
+	private String userName;
 }
