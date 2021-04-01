@@ -17,8 +17,7 @@ public class UserResidenceResponseDto {
 
 	private String reisdenceName; 
 	private String userCode; 
-	private String userName; 
-	private String userUuid; 
+	private String userName;  
 	private String roomNumber; 
 	private String mobileNo; 
 }
