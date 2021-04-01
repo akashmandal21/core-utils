@@ -1,7 +1,6 @@
 package com.stanzaliving.core.food.dto.menurating.response;
 
 import com.stanzaliving.core.base.common.dto.ListingDto;
-import com.stanzaliving.core.food.dto.menurating.RatingDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +25,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodMenuMicroMarketRatingResponseDto extends MealRatingsResponseDto {
+
+	private static final long serialVersionUID = 2121372728438446L;
 
 	private ListingDto micromarket;
 
