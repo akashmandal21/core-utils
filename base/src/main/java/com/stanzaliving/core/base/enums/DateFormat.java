@@ -37,6 +37,7 @@ public enum DateFormat {
 	DDMMMYYYY("ddMMMyyyy"),
 	ELASTIC_SEARCH_WITH_MILI_SECONDS("yyyy-MM-dd HH:mm:ss.S"),
 	MMMM_YYYY("MMMM, yyyy"),//June, 2020
+	DD_MMMM_YYYY("dd MMMM, yyyy"),
 	MMM_YYYY("MMM, yyyy"),
 	MMM_YY("MMM, yy"),
 	MMM_YY2("MMM''yy"),
