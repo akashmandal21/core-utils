@@ -7,6 +7,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
@@ -21,7 +23,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuStaticStatsResponseDto {
+public class FoodMenuStaticStatsResponseDto implements Serializable {
+	private static final long serialVersionUID = 8228728L;
 
 	private Double newnessIndex;
 
