@@ -48,6 +48,7 @@ public class CityLevelFoodSummaryDto {
 	private String categoryMealWiseName;
 	private String micromarketName;
 
+	private int totalCategory;
 	private int notCreated;
 	private int inDraft;
 	private int submitted;
