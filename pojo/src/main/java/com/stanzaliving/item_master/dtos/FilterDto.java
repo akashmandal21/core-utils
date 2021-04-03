@@ -28,7 +28,6 @@ public class FilterDto {
     private boolean excludingCodes;
     private Integer pageNum;
     private Integer limit;
-
     //Main Top Filters
     @Valid
     @NotNull
@@ -98,7 +97,6 @@ public class FilterDto {
 
     private List<UIKeyValue> itemStatusOptions;
     private List<UIKeyValue> updatedByOptions;
-
 
     public void addAdditionalFilterFields(Set<String> deptFields){
         deptFields.add("department");
