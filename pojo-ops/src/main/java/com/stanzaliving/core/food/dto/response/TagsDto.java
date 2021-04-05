@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.food.enums.FoodItemType;
+import com.stanzaliving.core.food.enums.TagLabel;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +28,8 @@ public class TagsDto {
 	private String id;
 
 	private String name;
+
+	private TagLabel tagLabel;
 
 	private EnumListing<FoodItemType> type;
 
