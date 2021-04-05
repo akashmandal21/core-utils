@@ -26,4 +26,5 @@ public class TransferScanResponseDto {
     String discardedBy;
     List<ToResponseDto> transferOrderList;
     String assetId;
+    String assetUuid;
 }
