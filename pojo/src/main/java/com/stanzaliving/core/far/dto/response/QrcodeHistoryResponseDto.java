@@ -13,6 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class QrcodeHistoryResponseDto {
 
+    private String historyUuid;
     private String uName;
     private String department;
     private Long countOfQRGenerated;

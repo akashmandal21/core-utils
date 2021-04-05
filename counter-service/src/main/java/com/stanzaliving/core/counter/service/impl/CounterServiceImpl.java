@@ -50,18 +50,17 @@ public class CounterServiceImpl implements CounterService{
 
 	@Override
 	@Transactional
-	public Long increaseCountByValue(String key, Long value) throws CounterServiceException {
-		CounterKeyEntity count = countRepository.findByKey(key);
+	public Long increaseCountByValue(CategoryKey counterKey, Long value) throws CounterServiceException {
+		CounterKeyEntity count = countRepository.findByKey(counterKey.getKey());
 
 		if(Objects.isNull(count)) {
 			try {
-				count = createCategoryRowWithKeyAndCount(key, value);
-				return 0L;
+				count = createCategoryRowWithKeyAndCount(counterKey);
 			} catch (Exception ex) {
-				log.error("Error creating the category, checking if it's created by some other transaction {}", key, ex);
-				count = countRepository.findByKey(key);
+				log.error("Error creating the category, checking if it's created by some other transaction {}", counterKey, ex);
+				count = countRepository.findByKey(counterKey.getKey());
 				if (Objects.isNull(count))
-					throw new CounterServiceException("Unable to create new category row " + key + "  " + ex.getMessage() + " " + ex.getCause());
+					throw new CounterServiceException("Unable to create new category row " + counterKey.getKey() + "  " + ex.getMessage() + " " + ex.getCause());
 			}
 		}
 		return incrementCounterForKeyByValue(count, value);
@@ -95,8 +94,8 @@ public class CounterServiceImpl implements CounterService{
 	}
 
 	@Transactional
-	private CounterKeyEntity createCategoryRowWithKeyAndCount(String key, Long count){
-		log.info(CounterKeyEntity.builder().key(key).count(count).build());
-		return countRepository.save(CounterKeyEntity.builder().key(key).count(count).build());
+	private CounterKeyEntity createCategoryRowWithKeyAndCount(CategoryKey categoryKey){
+		log.info(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
+		return countRepository.save(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
 	}
 }
