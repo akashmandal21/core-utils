@@ -28,21 +28,13 @@ import lombok.ToString;
 public class DishRecipeDetailsDto {
 
 	private String dishId;
-
 	private int cookQuantity;
-
 	private Double standardQuantity;
-
 	private Integer quantityPerPax;
-
 	private Double estimatedCost;
-
 	private Double cookQuantityCost;
-
 	private List<KitchenCostDto> kitchenCostDtos;
-
 	private List<RecipeIngredientDto> ingredients;
-
 	private int ingredientCount;
 	private UnitOfMeasurement uom;
 	private Double bufferPricePercentage;
