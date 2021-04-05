@@ -508,7 +508,7 @@ public class WandaClientApi {
 		try {
 			occupiedRoomDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while getting room count for residence: {}", residenceUuid, e);
+			log.error("Error while getting room count for residence: {}", residenceUuid);
 		}
 		return occupiedRoomDtoList;
 	}

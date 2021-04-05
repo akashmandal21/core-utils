@@ -134,7 +134,7 @@ public class FoodServiceClientApi {
         try {
             responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Error while fetching menu category details for id: {}", id, e);
+            log.error("Error while fetching menu category details for id: {}", id);
         }
 
         return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
@@ -262,7 +262,7 @@ public class FoodServiceClientApi {
         try {
             occupiedBedDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
         } catch (Exception e) {
-            log.error("Exception while fetching dead bed details for residence {} ", residenceUuid, e);
+            log.error("Exception while fetching dead bed details for residence {} ", residenceUuid);
         }
 
         return occupiedBedDtoList;

@@ -176,7 +176,7 @@ public class VentaClientApi {
 		try {
 			deadBedCountDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception while fetching dead bed details for residence {} ", residenceUuid, e);
+			log.error("Exception while fetching dead bed details for residence {} ", residenceUuid);
 		}
 
 		return deadBedCountDtoList;
