@@ -35,4 +35,7 @@ public class ItemUpdateDto extends AbstractDto {
     private UnitType unitOfMeasurement;
     private String recipeTag;
     private Boolean taggable;
+    private String substituteItem;
+    private UnitType recipeUom;
+    private Double conversionFactor;
 }
