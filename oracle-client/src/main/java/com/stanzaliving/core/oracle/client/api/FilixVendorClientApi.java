@@ -25,7 +25,7 @@ public class FilixVendorClientApi {
         this.restClient = restClient;
     }
 
-    public ResponseDto<SOWStatus> sendItemDetails(ItemFilixIntegrationDto itemFilixIntegrationDto) {
+    public ResponseDto<SOWStatus> sendItemDetails(FilixIntegrationDto filixIntegrationDto) {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -44,7 +44,7 @@ public class FilixVendorClientApi {
 
         ParameterizedTypeReference<ResponseDto<SOWStatus>> returnType = new ParameterizedTypeReference<ResponseDto<SOWStatus>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, itemFilixIntegrationDto, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, filixIntegrationDto, headerParams, accept, returnType);
 
     }
 }
