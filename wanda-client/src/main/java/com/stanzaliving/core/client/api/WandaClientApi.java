@@ -21,6 +21,7 @@ import com.stanzaliving.wanda.dtos.FullUserDto;
 import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
 import com.stanzaliving.wanda.dtos.UserDetailDto;
 import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
+import com.stanzaliving.wanda.response.UserResidenceResponseDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -426,6 +427,37 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Error while fetching User City Micromarket Residence Uuids By UserCode: {}", usercode, e);
+		}
+
+		return null;
+	}
+	
+	public List<UserResidenceResponseDto> getUserResidenceDetails(String residenceId) {
+		
+		try {
+		Object postBody = null;
+
+		log.info("Received request to get UserResidenceResponseDto for residenceId : {}",  residenceId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/get/user").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("residenceId", residenceId);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<UserResidenceResponseDto>> returnType = new ParameterizedTypeReference<List<UserResidenceResponseDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching UserResidenceResponseDto By residenceId: {}", residenceId, e);
 		}
 
 		return null;
