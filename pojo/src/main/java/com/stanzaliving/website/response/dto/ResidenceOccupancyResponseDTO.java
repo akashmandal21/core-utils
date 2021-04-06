@@ -1,7 +1,3 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
@@ -13,10 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,9 +17,6 @@ import lombok.ToString;
 @ToString
 public class ResidenceOccupancyResponseDTO implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private int residenceOccupancyId;
 	private int occupancyId;
@@ -37,5 +26,4 @@ public class ResidenceOccupancyResponseDTO implements Serializable {
 	private boolean soldOut;
 	private String residenceOccupancyImgUrl;
 	private String pricingPlan;
-
 }

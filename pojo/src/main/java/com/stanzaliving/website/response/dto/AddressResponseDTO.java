@@ -1,7 +1,3 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
@@ -12,10 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,9 +15,6 @@ import lombok.Setter;
 @Setter
 public class AddressResponseDTO implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private int addressId;
 	private String line1;
@@ -38,5 +27,4 @@ public class AddressResponseDTO implements Serializable{
 	private double longitude;
 	private String phone;
 	private String mobile;
-
 }

@@ -43,14 +43,10 @@ public class ResidenceResponseDTO {
 	private Integer preBookingAmount;
 	private String preBookingMode;
 	private FomoTag fomoTag;
-	private int priorityOrder;
-//	private String residenceType;
-	private String mobileNo;
-	private String phoneNo;
-	private boolean virtualTour;
-	private String gmbLink;
+	private String residenceType;
+	private String googleMapLink;
 	private String virtualTourImage;
-	private String cardCTA;
+	private Double distanceFromPlace;
 
 	@Builder.Default
 	private Set<FeatureResponseDTO> features = new HashSet<>(0);
@@ -60,12 +56,6 @@ public class ResidenceResponseDTO {
 
 	@Builder.Default
 	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
-
-	@Builder.Default
-	private Set<MealPlanResponseDTO> mealPlans = new HashSet<>(0);
-
-	@Builder.Default
-	private Set<CommunityFeatureResponseDTO> communityFeatures = new HashSet<>(0);
 
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>(0);

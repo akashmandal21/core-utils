@@ -3,6 +3,9 @@ package com.stanzaliving.website.enums;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.Getter;
+
+@Getter
 public enum EnumResidenceType {
 
 	SCHOLAR("Scholar", 1),
@@ -28,22 +31,6 @@ public enum EnumResidenceType {
 				throw new IllegalArgumentException("duplicate id: " + e.getTypeName());
 			}
 		}
-	}
-
-	public Integer getResidenceTypeId() {
-		return residenceTypeId;
-	}
-
-	public void setResidenceTypeId(Integer residenceTypeId) {
-		this.residenceTypeId = residenceTypeId;
-	}
-
-	public String getTypeName() {
-		return typeName;
-	}
-
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
 	}
 
 	public static Map<String, EnumResidenceType> getByTypeName() {
