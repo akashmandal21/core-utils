@@ -19,7 +19,7 @@ import lombok.ToString;
 public class ResidenceFilteredResponseDTO {
 
 	@Builder.Default
-	private List<ResidenceResponseDTO> residenceResponseShortDTOs = new ArrayList<>();
+	private List<ResidenceResponseShortDTO> residenceResponseShortDTOs = new ArrayList<>();
 	
 	@Builder.Default
 	private Integer residenceCount = 0;
