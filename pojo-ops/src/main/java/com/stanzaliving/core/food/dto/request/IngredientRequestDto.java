@@ -3,6 +3,7 @@ package com.stanzaliving.core.food.dto.request;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.enums.IngredientType;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
+import com.stanzaliving.core.generic.enums.GSTSlabs;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -34,4 +35,7 @@ public class IngredientRequestDto extends AbstractDto {
 
 	@NotNull(message = "unit of measurement is mandatory")
 	private UnitOfMeasurement unitOfMeasurement;
+
+	private GSTSlabs gstSlab;
+	private String classificationTag;
 }

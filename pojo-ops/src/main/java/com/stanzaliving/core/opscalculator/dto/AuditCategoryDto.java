@@ -4,13 +4,7 @@
  */
 package com.stanzaliving.core.opscalculator.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -39,4 +33,22 @@ public class AuditCategoryDto extends CategoryDto {
 	private int physicalAuditCharges;
 	private int cctvAuditCharges;
 
+	public AuditCategoryDto clone() {
+		return AuditCategoryDto.builder()
+				.isPhysicalAudit(this.isPhysicalAudit)
+				.isCctvAudit(this.isCctvAudit)
+				.cctvAuditCostPerBed(this.cctvAuditCostPerBed)
+				.mgForCctvAudit(this.mgForCctvAudit)
+				.physicalAuditCostPerMonth(this.physicalAuditCostPerMonth)
+				.totalCctvAuditCostPerBed(this.totalCctvAuditCostPerBed)
+				.totalPhysicalAuditCostPerBed(this.totalPhysicalAuditCostPerBed)
+				.physicalAuditCharges(this.physicalAuditCharges)
+				.cctvAuditCharges(this.cctvAuditCharges)
+				.categoryName(this.categoryName)
+				.costPerAvailableBed(this.costPerAvailableBed)
+				.costPerOccupiedBed(this.costPerOccupiedBed)
+				.contribution(this.contribution)
+				.enabled(this.enabled)
+				.build();
+	}
 }

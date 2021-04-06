@@ -1,8 +1,11 @@
 package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.dto.GstDto;
 import com.stanzaliving.core.food.dto.RecipeIngredientDto;
+import com.stanzaliving.core.food.enums.FoodItemType;
+import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -28,13 +31,13 @@ public class FoodItemSearchLightResponseDto {
 
 	private String name;
 
-	private EnumListing itemType;
+	private EnumListing<FoodItemType> itemType;
 
-	private EnumListing unit;
+	private EnumListing<UnitOfMeasurement> unit;
 
 	private Boolean quantifiable;
 
-	private EnumListing recipeType;
+	private EnumListing<RecipeType> recipeType;
 
 	private List<RecipeIngredientDto> ingredients;
 

@@ -25,6 +25,7 @@ public class PoHeaderDto {
     private String backgroundColor;
     private GenericPOType poType;
     private String propertyUuid;
+    private long minPoEndDate;
 
     //Flags
 
@@ -55,6 +56,9 @@ public class PoHeaderDto {
     private boolean scRequest = false;
     @Builder.Default
     private boolean cancelRequest = false;
+
+    @Builder.Default
+    private boolean canExtend = false;
 
     private Map<PoDownloadEnum,Boolean> downloadActions;
 }

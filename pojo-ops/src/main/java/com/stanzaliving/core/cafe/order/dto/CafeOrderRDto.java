@@ -57,4 +57,7 @@ public class CafeOrderRDto {
     private boolean packed;
     private boolean delay;
 
+    private String colorCode;
+    private boolean kotPrinted;
+
 }

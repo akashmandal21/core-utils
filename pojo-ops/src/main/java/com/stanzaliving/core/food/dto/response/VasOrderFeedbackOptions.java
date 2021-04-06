@@ -1,15 +1,18 @@
 package com.stanzaliving.core.food.dto.response;
 
+import java.util.List;
+import java.util.Map;
+
 import com.stanzaliving.core.cafe.enums.CafeFeedbackFor;
+import com.stanzaliving.core.food.dto.ResidentMealFeedbackOptions;
 import com.stanzaliving.core.user.enums.EnumListing;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -36,5 +39,7 @@ public class VasOrderFeedbackOptions {
 	private List<EnumListing<CafeFeedbackFor>> feedbackFor;
 
 	private List<VasOrderItemFeedbackOptions> itemFeedbackOptions;
+
+	private Map<Integer, List<ResidentMealFeedbackOptions>> ratingWiseMealFeedbackOptions;
 
 }

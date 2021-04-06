@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -15,10 +16,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TotalMealPriceDto {
+public class TotalMealPriceDto implements Serializable {
 
 	private double totalPrice;
 
 	private List<MealPriceDto> mealPrices;
+
+	private String mealWiseName;
 
 }

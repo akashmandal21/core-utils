@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
+import com.opencsv.bean.CsvBindByName;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.DishRegion;
@@ -12,8 +13,10 @@ import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.Column;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -63,6 +66,10 @@ public class FoodItemAddRequestDto {
 
 	private Set<String> primaryTagIds;
 
+	private Set<String> cuisineTagIds;
+
+	private Set<String> regionalTagIds;
+
 	private CommercialTag commercialTag;
 
 	private Boolean eggPresent;
@@ -76,10 +83,16 @@ public class FoodItemAddRequestDto {
 
 	private String imageId;
 
+	private boolean stapleDish;
+
 	private boolean status;
 
 	@Valid
 	@NotNull(message = "Recipe selection is mandatory")
 	private ItemRecipeRequestDto recipe;
+
+	@Valid
+	@NotEmpty(message = "Feedback options selection is mandatory")
+	private Set<String> feedback;
 
 }

@@ -5,7 +5,7 @@ package com.stanzaliving.core.food.dto;
 
 import java.util.List;
 
-import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.enums.UnitOfMeasurement;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -28,18 +28,14 @@ import lombok.ToString;
 public class DishRecipeDetailsDto {
 
 	private String dishId;
-
 	private int cookQuantity;
-
 	private Double standardQuantity;
-
 	private Integer quantityPerPax;
-
-	private double estimatedCost;
-
+	private Double estimatedCost;
+	private Double cookQuantityCost;
 	private List<KitchenCostDto> kitchenCostDtos;
-
 	private List<RecipeIngredientDto> ingredients;
-
 	private int ingredientCount;
+	private UnitOfMeasurement uom;
+	private Double bufferPricePercentage;
 }

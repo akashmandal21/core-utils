@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -15,32 +18,58 @@ import java.util.HashMap;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ApprovalRequestDto {
+
+    private Date requestTime;
+
+    private String requestedBy;
+
+    private String entityUuid;
+
+    private String entityName;
+
+    private Integer versionNumber;
+
+    private ApprovalEntityType approvalEntityType;
+
+    private HashMap<String, Object> metadata;
+
+    private boolean l1ApprovalRequired;
+
+    private boolean l2ApprovalRequired;
+
+    private boolean l3ApprovalRequired;
+
+    private boolean l4ApprovalRequired;
+
+    private boolean l5ApprovalRequired;
+
+    private ApprovalStatus approvalStatus;
+
+    private String residenceUuid;
+
+    private String cityUuid;
+
+    private String micromarketUuid;
     
-    Date requestTime;
+    private boolean expressApprovalRequired;
 
-    String requestedBy;
+    private String l1ActionedBy;
 
-    String entityUuid;
+    private Date l1ActionTime;
 
-    String entityName;
+    private String l2ActionedBy;
 
-    Integer versionNumber;
+    private Date l2ActionTime;
 
-    ApprovalEntityType approvalEntityType;
+    private String l3ActionedBy;
 
-    HashMap<String, Object> metadata;
+    private Date l3ActionTime;
 
-    boolean l1ApprovalRequired;
+    private String l4ActionedBy;
 
-    boolean l2ApprovalRequired;
+    private Date l4ActionTime;
 
-    boolean l3ApprovalRequired;
-    
-    ApprovalStatus approvalStatus;
+    private String l5ActionedBy;
 
-    String residenceUuid;
-
-    String cityUuid;
-
-    String micromarketUuid;
+    private Date l5ActionTime;
 }

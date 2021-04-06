@@ -6,7 +6,6 @@ package com.stanzaliving.core.base.common.dto;
 import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,4 +33,8 @@ public class ListingDto implements Serializable {
 	private String id;
 
 	private String name;
+
+	public static ListingDto of(String id, String name) {
+		return new ListingDto(id, name);
+	}
 }

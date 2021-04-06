@@ -3,6 +3,7 @@ package com.stanzaliving.core.food.dto;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 
 import com.stanzaliving.core.operations.enums.MealType;
 
@@ -29,8 +30,10 @@ public class ResidentFoodFeedbackDto {
 
 	private LocalDate menuDate;
 
+	private String date;
+
 	private MealType mealType;
-	
+
 	private String mealName;
 
 	private String userId;
@@ -42,13 +45,14 @@ public class ResidentFoodFeedbackDto {
 	private String reason;
 
 	private String comment;
-	
+
 	private LocalTime startTime;
-	
+
 	private LocalTime endTime;
 
 	private String imageUrl;
-	
+
 	private List<ResidentFoodItemFeedbackDto> foodItemFeedbackDtos;
 
+	private Map<Integer, List<ResidentMealFeedbackOptions>> ratingWiseMealFeedbackOptions;
 }

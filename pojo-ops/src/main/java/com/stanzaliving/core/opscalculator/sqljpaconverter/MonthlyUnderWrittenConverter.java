@@ -5,7 +5,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.http.BaseMapperConfig;
 import com.stanzaliving.core.opscalculator.dto.UnderWrittenDto;
-import com.stanzaliving.core.opscalculator.dto.response.MonthlyUnderWrittenDto;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 
@@ -15,7 +14,7 @@ import java.io.IOException;
 
 @Converter
 @Log4j2
-public class MonthlyUnderWrittenConverter implements AttributeConverter<MonthlyUnderWrittenDto, String>  {
+public class MonthlyUnderWrittenConverter implements AttributeConverter<UnderWrittenDto, String>  {
 
     private static ObjectMapper objectMapper = null;
 
@@ -25,7 +24,7 @@ public class MonthlyUnderWrittenConverter implements AttributeConverter<MonthlyU
 
 
     @Override
-    public String convertToDatabaseColumn(MonthlyUnderWrittenDto underWrittenDto) {
+    public String convertToDatabaseColumn(UnderWrittenDto underWrittenDto) {
 
         if (null == underWrittenDto) {
             return null;
@@ -44,7 +43,7 @@ public class MonthlyUnderWrittenConverter implements AttributeConverter<MonthlyU
     }
 
     @Override
-    public MonthlyUnderWrittenDto convertToEntityAttribute(String monthlyUnderWrittenDtoJson) {
+    public UnderWrittenDto convertToEntityAttribute(String monthlyUnderWrittenDtoJson) {
 
         if (StringUtils.isBlank(monthlyUnderWrittenDtoJson)) {
             return null;
@@ -55,7 +54,7 @@ public class MonthlyUnderWrittenConverter implements AttributeConverter<MonthlyU
         }
 
         try {
-            return objectMapper.readValue(monthlyUnderWrittenDtoJson, new TypeReference<MonthlyUnderWrittenDto>() {
+            return objectMapper.readValue(monthlyUnderWrittenDtoJson, new TypeReference<UnderWrittenDto>() {
             });
         } catch (IOException e) {
             log.error("Unable to convert json to underWrittenDto , error {}, underWrittenDtoJson {}", e.getMessage(), monthlyUnderWrittenDtoJson, e);

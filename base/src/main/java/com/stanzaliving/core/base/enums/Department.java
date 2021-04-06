@@ -28,7 +28,8 @@ public enum Department {
 	CX("Customer Experience","CX","CXP"),
 	ADMIN("Admin","AD","ADM"),
 	MARKETING("Marketing","MK","MKT"),
-	SCM("Supply Chain Mgmt","SM","TRN");
+	SCM("Supply Chain Mgmt","SM","TRN"),
+	GROWTH_STRATEGY("Growth and Strategy","GS","GRS");
 
 
 	public String departmentName;

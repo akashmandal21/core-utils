@@ -22,7 +22,7 @@ public class FieldDecoder {
     public Object decodeAdaptableValue(UiField uiSubmitField, TemplateField templateField, ObjectMapper objectMapper, ErrorInfo errorInfo){
         JsonNode data = uiSubmitField.getValue();
         Object value = null;
-        log.info("Adaptable Value data {} ",data);
+//        log.info("Adaptable Value data {} ",data);
         try {
             if (Objects.nonNull(data) && (!data.isNull())) {
                 final Class valueClazz = ValueAdapters.loadClass(templateField.getValueClass(), null, templateField, null);
@@ -52,7 +52,7 @@ public class FieldDecoder {
         try {
             FieldType fieldType = templateField.getFieldType();
             JsonNode data = uiSubmitField.getValue();
-            log.info("Value data {} field type {} needed {}",data,fieldType,needed);
+            log.info("Value data  field type {} needed {}",fieldType,needed);
             if (Objects.nonNull(data) && (!data.isNull()))
             {
                 switch (fieldType) {
@@ -136,7 +136,7 @@ public class FieldDecoder {
             errorInfo.setErrorOccurred(true);
             errorInfo.setNumErrors(errorInfo.getNumErrors()+1);
         }else {
-                log.info(value);
+//                log.info(value);
                 try {
                     if(Objects.nonNull(value))
                     {
@@ -153,7 +153,7 @@ public class FieldDecoder {
                         field.set(source,null);
                     }
                 } catch (IllegalAccessException e) {
-                    log.error("Unable to set the field value {}",e.getMessage());
+                    log.error("Unable to set the field value {}",e.getMessage(),e);
                     success = false;
                     uiSubmitField.setErrorMsg("Intenal Error occurred");
                 }

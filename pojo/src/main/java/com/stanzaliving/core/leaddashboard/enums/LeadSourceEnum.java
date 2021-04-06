@@ -47,6 +47,7 @@ public enum LeadSourceEnum {
 	EMPTY("Empty"),
 	FACEBOOK("Facebook"),
 	FILTER_COPY("Filtercopy"),
+	FB_LEAD_GEN("Fb Lead Gen"),
 	FACEBOOK_AD("facebook ad"),
 	FLAT_AND_FLATMATES("Flat and flatmates"),
 	FLP("FLP"),

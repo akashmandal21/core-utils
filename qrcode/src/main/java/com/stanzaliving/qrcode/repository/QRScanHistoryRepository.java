@@ -17,18 +17,18 @@ import com.stanzaliving.qrcode.enums.QRContextType;
 public interface QRScanHistoryRepository extends AbstractJpaRepository<QRScanHistory, Long> {
 
 	QRScanHistory findByQrUUidAndUserId(String qrUuid, String userId);
-	
+
 	List<QRScanHistory> findByQrUUidInAndUserId(List<String> qrUuids, String userId);
-	
+
 	QRScanHistory findByQrUUid(String qrUuid);
-	
+
 	List<QRScanHistory> findByQrUUidIn(List<String> qrUuids);
-	
+
 	QRScanHistory findByContextIdAndQrContextTypeInAndUserId(String contextId, List<QRContextType> contextType, String userId);
 
 	QRScanHistory findByContextIdAndQrContextTypeAndUserId(String contextId, QRContextType contextType, String userId);
 
-	List<QRScanHistory> findByContextIdInAndQrContextTypeInAndStatus(List<String> contextId, List<QRContextType> contextType, boolean status);
+	List<QRScanHistory> findByContextIdInAndQrContextTypeInAndStatus(Collection<String> contextId, List<QRContextType> contextType, boolean status);
 
 	List<QRScanHistory> findByQrContextTypeInAndUserIdAndStatus(List<QRContextType> qrContextTypes, String userId, Pageable pagination,boolean status);
 
@@ -37,4 +37,7 @@ public interface QRScanHistoryRepository extends AbstractJpaRepository<QRScanHis
 	boolean existsByContextIdInAndQrContextTypeInAndUserIdAndStatus(Collection<String> contextIds, Collection<QRContextType> contextTypes, String userId, boolean status);
 
 	List<QRScanHistory> findByContextIdInAndQrContextTypeInAndUserIdAndStatus(Collection<String> contextIds, Collection<QRContextType> contextTypes, String userId, boolean status);
+
+	QRScanHistory findByContextIdAndUserId(String contextId, String userId);
+
 }

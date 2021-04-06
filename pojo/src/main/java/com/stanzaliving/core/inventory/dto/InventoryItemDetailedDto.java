@@ -39,5 +39,6 @@ public class InventoryItemDetailedDto {
     private BigDecimal openingQuantity;
     private BigDecimal blockedQuantity;
     private BigDecimal availableQuantity;
-
+    private BigDecimal maxQuantity;
+    private BigDecimal boqRate;
 }
