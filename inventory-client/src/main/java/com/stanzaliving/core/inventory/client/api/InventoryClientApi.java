@@ -22,6 +22,8 @@ import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.item_master.dtos.FilterDto;
 import com.stanzaliving.po.enums.PoType;
 import com.stanzaliving.transformations.pojo.PropertyBoqStatusDto;
+import com.stanzaliving.website.response.dto.LeadRequestDto;
+
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -138,6 +140,26 @@ public class InventoryClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+    
+    public ResponseDto<LeadRequestDto> leadCreation(LeadRequestDto leadRequestDto) {
+
+        Object postBody = leadRequestDto;
+
+        String path = UriComponentsBuilder.fromPath("/lead/").toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
