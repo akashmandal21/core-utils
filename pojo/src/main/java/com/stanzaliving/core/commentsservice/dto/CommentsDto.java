@@ -2,6 +2,7 @@ package com.stanzaliving.core.commentsservice.dto;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Convert;
 import javax.validation.constraints.NotNull;
