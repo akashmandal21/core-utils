@@ -10,6 +10,7 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.po.enums.EventType;
 import com.stanzaliving.core.grsi.dto.GrsiItemDto;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
+import com.stanzaliving.core.grsi.dto.ToFetchRequestDto;
 import com.stanzaliving.core.grsi.dto.response.ToResponseDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.core.po.generic.dtos.GenericPoUpdate;
@@ -238,19 +239,18 @@ public class GrnClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, gsriItems, headerParams, accept, returnType);
     }
 
-    public ResponseDto<List<ToResponseDto>> fetchToListForFar(String itemCode) {
+    public ResponseDto<List<ToResponseDto>> fetchToListForFar(ToFetchRequestDto toFetchRequestDto) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("itemCode", itemCode);
         final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/fetch-to-list/{itemCode}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/fetch-to-list").buildAndExpand(uriVariables).toUriString();
 
         ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, null, toFetchRequestDto, headerParams, accept, returnType);
     }
 }
