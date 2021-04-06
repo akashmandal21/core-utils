@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class MonthlyUnderwrittenForecastSummaryDto {
     private List<MonthUnderwrittenSummaryDto> monthWiseUnderwrittenSummaryDtoList;
-    private DeviationPercentSummaryDto deviationPercent;
+    private MonthUnderwrittenSummaryDto deviationPercent;
     private DisplaySummaryDto overallAmount;
     private Double overallCostPerAvailableBedPerMonth;
     private Double percentDeviation;

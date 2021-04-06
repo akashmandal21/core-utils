@@ -3,7 +3,6 @@ package com.stanzaliving.core.opscalculator.dto.summary;
 import com.stanzaliving.core.base.enums.ColorCode;
 import com.stanzaliving.core.base.utils.NumberUtils;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -37,7 +36,7 @@ public class DisplaySummaryDto {
         this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue;
         this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
         this.monthlySplitterValue = monthlySplitterBaseValue;
-        setDeviationAndColorCode();
+        setDeviationAndColorCodeForAOP();
     }
 
     public DisplaySummaryDto(Integer annualUnderwrittenValue, Integer monthlySplitterValue) {
@@ -45,14 +44,14 @@ public class DisplaySummaryDto {
         this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue.doubleValue();
         this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
         this.monthlySplitterValue = monthlySplitterBaseValue;
-        setDeviationAndColorCode();
+        setDeviationAndColorCodeForAOP();
     }
     public DisplaySummaryDto(Double annualUnderwrittenValue, Integer monthlySplitterValue) {
         this.annualUnderWrittenBaseValue = annualUnderwrittenValue == null ? 0d : annualUnderwrittenValue;
         this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue.doubleValue();
         this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
         this.monthlySplitterValue = monthlySplitterBaseValue;
-        setDeviationAndColorCode();
+        setDeviationAndColorCodeForAOP();
     }
 
     public DisplaySummaryDto(Integer annualUnderwrittenValue, Double monthlySplitterValue) {
@@ -60,10 +59,10 @@ public class DisplaySummaryDto {
         this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue;
         this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
         this.monthlySplitterValue = monthlySplitterBaseValue;
-        setDeviationAndColorCode();
+        setDeviationAndColorCodeForAOP();
     }
 
-    public void setDeviationAndColorCode() {
+    public void setDeviationAndColorCodeForAOP() {
         if (NumberUtils.isEqualDouble(this.annualUnderwrittenValue, this.monthlySplitterValue)) {
             this.colorCode = ColorCode.SOFT_BLUE.getColorCode();
         } else if (this.monthlySplitterValue == null || monthlySplitterValue < annualUnderwrittenValue) {
@@ -77,6 +76,22 @@ public class DisplaySummaryDto {
             this.deviationPercent = null;
         }
     }
+
+    public void setDeviationAndColorCodeForForecast(double deviationPercentForForecast) {
+        if (monthlyForecastValue == null || monthlySplitterValue == null) {
+            colorCode = ColorCode.BLACK.getColorCode();
+            deviationPercent = null;
+            return;
+        } else if (monthlyForecastValue < monthlySplitterValue || NumberUtils.isEqualDouble(monthlyForecastValue, monthlySplitterValue)) {
+            colorCode = ColorCode.MODERATE_CYAN.getColorCode();
+        } else if (monthlyForecastValue - monthlySplitterValue <= (deviationPercentForForecast * monthlySplitterValue / 100d)) {
+            colorCode = ColorCode.BRIGHT_ORANGE.getColorCode();
+        } else {
+            colorCode = ColorCode.SOFT_RED.getColorCode();
+        }
+        deviationPercent = Math.abs(monthlyForecastValue - monthlySplitterValue) * 100d / monthlySplitterValue;
+    }
+
 
     public void add(DisplaySummaryDto displaySummaryDto) {
         if (null == displaySummaryDto) {
@@ -93,5 +108,16 @@ public class DisplaySummaryDto {
     public void setForeCastValueSameAsSplitterValue() {
         this.monthlyForecastValue = this.monthlySplitterValue;
         this.monthlyForecastBaseValue = this.monthlySplitterBaseValue;
+    }
+
+    public void setReturnValuesAndDeviationAndColorCode(double annualOccupancyMF, double monthlyOccupancyMF, double forecastOccupancyMF, boolean isForecast, double deviationPercentForForecast) {
+        this.annualUnderwrittenValue = annualUnderWrittenBaseValue * annualOccupancyMF;
+        this.monthlySplitterValue = monthlySplitterBaseValue * monthlyOccupancyMF;
+        this.monthlyForecastValue = monthlyForecastBaseValue * forecastOccupancyMF;
+        if (isForecast) {
+            setDeviationAndColorCodeForForecast(deviationPercentForForecast);
+        } else {
+            setDeviationAndColorCodeForAOP();
+        }
     }
 }

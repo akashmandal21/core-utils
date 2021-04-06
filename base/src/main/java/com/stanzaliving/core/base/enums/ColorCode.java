@@ -16,6 +16,7 @@ public enum ColorCode {
 	WHITE("#FFFFFF"),
 	PALE_ORANGE("#FFEAB6"),
 	VIVID_ORANGE("#FFB701"),
+	BRIGHT_ORANGE("#FAB432"),
 	VERY_PALE_MOSTLY_WHITE_RED("#FFF1F1"),
 	SOFT_RED("#F55F71"),
 	BLUE("#0000ff"),
@@ -24,7 +25,6 @@ public enum ColorCode {
 	GREEN_CYAN("#60C3AD"),
 	LIGHT_GRAYISH_BLUE("#E6E9EA"),
 	DARK_GRAYISH_BLUE("#7A7D7E");
-
 
 	private String colorCode;
 
