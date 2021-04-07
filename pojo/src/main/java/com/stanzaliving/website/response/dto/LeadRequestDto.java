@@ -1,7 +1,5 @@
 package com.stanzaliving.website.response.dto;
 
-import com.stanzaliving.website.enums.Gender;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -18,7 +16,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class LeadRequestDto {
 
-	private int leadId;
+	private Integer leadId;
 	private String firstName;
 	private String lastName;
 	private String email;
