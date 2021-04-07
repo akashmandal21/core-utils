@@ -28,5 +28,6 @@ public class UserErrorCodes {
 		public static final String ERROR_SENDING_OTP = "ERROR_SENDING_OTP";
 		public static final String OTP_RESEND_NOT_PERMITTED = "OTP_RESEND_NOT_PERMITTED";
 		public static final String OTP_RESEND_LIMIT_EXHAUSTED = "OTP_RESEND_LIMIT_EXHAUSTED";
+		public static final String OTP_VALIDATE_LIMIT_EXHAUSTED = "OTP_VALIDATE_LIMIT_EXHAUSTED";
 	}
 }
