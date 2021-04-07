@@ -25,7 +25,7 @@ public class LeadRequestDto {
 	private String phone;
 	private boolean phoneVerified;
 
-	private Integer residenceId;
+	private int residenceId;
 	private String residenceName;
 	private String residenceNameUuid;
 
@@ -69,7 +69,7 @@ public class LeadRequestDto {
 	private String utmTarget;
 	private String utmAdformat;
 	private int commissionEarned;
-	private Gender gender;
+	private String gender;
 	private String visitDate;
 	private int leadModeId;
 	private String leadMode;
