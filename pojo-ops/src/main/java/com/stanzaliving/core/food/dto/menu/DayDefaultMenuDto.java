@@ -17,4 +17,5 @@ public class DayDefaultMenuDto {
     private DayOfWeek day;
     private FoodRegion foodRegion;
     private FoodItemBasePreference preference;
+    private boolean isAllowed;
 }

@@ -20,6 +20,7 @@ public class ResidenceDefaultMenuDto {
     private boolean dayLevelDetails;
     private FoodRegion foodRegion;
     private FoodItemBasePreference preference;
+    private boolean isAllowed;
 
     private List<DayDefaultMenuDto> dayDetails;
 }
