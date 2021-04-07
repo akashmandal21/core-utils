@@ -34,6 +34,13 @@ public class ItemUpdateDto extends AbstractDto {
     private List<UIKeyValue> usageTypeOrArea;
     private UnitType unitOfMeasurement;
     private String recipeTag;
+    private Boolean taggable;
+    private String substituteItem;
+    private UnitType recipeUom;
+    private Double conversionFactor;
+
+    private String itemImage;
+
 
 
     private String itemNameSearch;
@@ -41,6 +48,5 @@ public class ItemUpdateDto extends AbstractDto {
 
     private String itemCodeSearch;
     private String itemDescriptionSearch;
-    private Boolean taggable;
 
 }

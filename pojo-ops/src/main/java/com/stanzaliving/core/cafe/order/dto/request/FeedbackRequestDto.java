@@ -46,7 +46,7 @@ public class FeedbackRequestDto {
 	private List<FeedbackItemRequestDto> itemFeedback;
 
 	private String nudgeId;
-
+	
 	private FeedbackSource source;
 
 }

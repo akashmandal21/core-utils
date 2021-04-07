@@ -29,10 +29,8 @@ public class CafeMasterRequestDto extends AbstractDto {
     @NotNull(message = "Tags selection is mandatory")
     private List<CafeTags> tags;
 
-    @NotBlank(message = "AddressLine1 filling is mandatory")
     private String addressLine1;
 
-    @NotBlank(message = "AddressLine2 filling is mandatory")
     private String addressLine2;
 
     @NotBlank(message = "City selection is mandatory")
@@ -47,9 +45,10 @@ public class CafeMasterRequestDto extends AbstractDto {
     @NotEmpty(message = "There should be at least one Kitchen")
     private List<BaseKitchenDto> baseKitchens;
 
-    @NotNull(message = "Pincode is mandatory")
     private Integer pincode;
 
     private List<ResidenceMicromarketDto> residences;
+
+    private String vendorMasterUuid;
 
 }

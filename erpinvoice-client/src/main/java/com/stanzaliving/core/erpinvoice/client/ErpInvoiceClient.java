@@ -44,6 +44,27 @@ public class ErpInvoiceClient {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+    public ResponseDto<Map<String, String>> getInvoiceCopyByInvoiceNumbers(List<String> invoiceNumbers) {
+
+        log.info("HTTP Client call to get Invoice Copy by invoiceNumbers: {}", invoiceNumbers);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/invoice/copy").toUriString();
+
+        ParameterizedTypeReference<ResponseDto<Map<String, String>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, String>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, invoiceNumbers, headerParams, accept, returnType);
+    }
 
 }
 
