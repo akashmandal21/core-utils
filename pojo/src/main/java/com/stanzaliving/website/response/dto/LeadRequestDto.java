@@ -1,5 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
+import com.stanzaliving.website.enums.Gender;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -23,19 +25,17 @@ public class LeadRequestDto {
 	private String phone;
 	private boolean phoneVerified;
 
-	private int residenceId;
+	private Integer residenceId;
 	private String residenceName;
 	private String residenceNameUuid;
 
 	private String leadOwnerId;
-	private MicromarketResponseDTO micromarket;
-	private CityResponseDTO city;
 
-	private int cityId;
+	private Integer cityId;
 	private String cityName;
 	private String cityNameUuid;
 
-	private int micromarketId;
+	private Integer micromarketId;
 	private String micromarketName;
 	private String micromarketNameUuid;
 
@@ -69,7 +69,7 @@ public class LeadRequestDto {
 	private String utmTarget;
 	private String utmAdformat;
 	private int commissionEarned;
-	private String gender;
+	private Gender gender;
 	private String visitDate;
 	private int leadModeId;
 	private String leadMode;

@@ -77,7 +77,7 @@ public class LeadserviceClientApi {
 
 		Object postBody = leadRequestDto;
 
-		String path = UriComponentsBuilder.fromPath("/lead/").toUriString();
+		String path = UriComponentsBuilder.fromPath("/lead/qrcode/qualifcation/update").toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 

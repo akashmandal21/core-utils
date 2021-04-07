@@ -6,6 +6,7 @@ package com.stanzaliving.core.website.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -94,7 +95,11 @@ public class WebsiteClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("gender", gender);
+		
+		if(Objects.nonNull(cityId))
 		queryParams.add("cityId", cityId.toString());
+		
+		if(Objects.nonNull(micromarketId))
 		queryParams.add("micromarketId", micromarketId.toString());
 
 		final HttpHeaders headerParams = new HttpHeaders();
