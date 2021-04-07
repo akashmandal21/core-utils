@@ -46,8 +46,6 @@ public class ErpInvoiceClient {
 
     public ResponseDto<Map<String, String>> getInvoiceCopyByInvoiceNumbers(List<String> invoiceNumbers) {
 
-        log.info("HTTP Client call to get Invoice Copy by invoiceNumbers: {}", invoiceNumbers);
-
         final Map<String, Object> uriVariables = new HashMap<>();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
