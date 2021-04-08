@@ -35,18 +35,14 @@ public class ItemUpdateDto extends AbstractDto {
     private UnitType unitOfMeasurement;
     private String glCode;
     private String recipeTag;
+    private Boolean taggable;
+    private String substituteItem;
+    private UnitType recipeUom;
+    private Double conversionFactor;
+    private String itemImage;
 
     private String itemNameSearch;
     private String itemNameSuggest;
-
     private String itemCodeSearch;
     private String itemDescriptionSearch;
-
-    private Boolean taggable;
-
-    //newTags
-    private UIKeyValue recipeUom;
-    private double conversionFactor;
-
-    private String itemImage;
 }

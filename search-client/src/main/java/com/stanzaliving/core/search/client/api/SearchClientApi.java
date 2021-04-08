@@ -18,7 +18,6 @@ import com.stanzaliving.search.food.search.dto.CategoryItemOrderCountSearchDto;
 import com.stanzaliving.search.food.search.dto.IngredientSearchDto;
 import com.stanzaliving.search.food.search.dto.VasMasterSearchDto;
 import com.stanzaliving.search.food.search.dto.request.MenuCategoryAggregateRequestDto;
-import com.stanzaliving.search.food.search.dto.request.MenuItemAggregateRequestDto;
 import com.stanzaliving.search.food.search.dto.request.MenuMealItemRequestDto;
 import com.stanzaliving.search.food.search.dto.request.MenuMicromarketAggregateRequestDto;
 import com.stanzaliving.search.food.search.dto.response.menu.consumption.FoodMenuCategoryConsumptionResponseDto;
@@ -188,80 +187,6 @@ public class SearchClientApi {
 		try {
 
 			responseDto = restClient.request(path, HttpMethod.POST, queryParams, searchDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
-
-		} catch (Exception e) {
-
-			log.error("Error while searching from search service.", e);
-
-			throw new ApiValidationException("Some error occurred. Please try again after some time.");
-
-		}
-
-		if (!responseDto.isStatus()) {
-
-			throw new PreconditionFailedException(responseDto.getMessage());
-
-		}
-
-		return responseDto.getData();
-	}
-
-	public FoodMenuMicromarketRatingResponseDto aggregateMenuRating(MenuMicromarketAggregateRequestDto requestDto) {
-
-		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/rating/menu/micromarket").build().toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {"*/*"};
-
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		TypeReference<ResponseDto<FoodMenuMicromarketRatingResponseDto>> returnType = new TypeReference<ResponseDto<FoodMenuMicromarketRatingResponseDto>>() {};
-
-		ResponseDto<FoodMenuMicromarketRatingResponseDto> responseDto = new ResponseDto<>();
-
-		try {
-
-			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
-
-		} catch (Exception e) {
-
-			log.error("Error while searching from search service.", e);
-
-			throw new ApiValidationException("Some error occurred. Please try again after some time.");
-
-		}
-
-		if (!responseDto.isStatus()) {
-
-			throw new PreconditionFailedException(responseDto.getMessage());
-
-		}
-
-		return responseDto.getData();
-	}
-
-	public List<MicromarketItemRatingDto> aggregateMenuItemsRating(MenuItemAggregateRequestDto requestDto) {
-
-		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/rating/menu/micromarket/item").build().toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {"*/*"};
-
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		TypeReference<ResponseDto<List<MicromarketItemRatingDto>>> returnType = new TypeReference<ResponseDto<List<MicromarketItemRatingDto>>>() {};
-
-		ResponseDto<List<MicromarketItemRatingDto>> responseDto = new ResponseDto<>();
-
-		try {
-
-			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 
@@ -518,6 +443,47 @@ public class SearchClientApi {
 
 	public FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(MenuMealItemRequestDto requestDto) {
 		return foodMenuAggregationClient.aggregateWeeklyMenuItemsRating(restClient, requestDto);
+<<<<<<< HEAD
+=======
+	}
+
+
+	public PageResponse<Map<String,Object>> searchPOs(PoSearchRequetDto requestDto) {
+
+		String path = UriComponentsBuilder.fromPath("internal/search/po/master/search").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<PageResponse<Map<String,Object>>>> returnType = new TypeReference<ResponseDto<PageResponse<Map<String,Object>>>>() {};
+
+		ResponseDto<PageResponse<Map<String,Object>>> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		return responseDto.getData();
+>>>>>>> d2347bb0ad9c1746f27b5a9ffbac441550b09b07
 	}
 
 }
