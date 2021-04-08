@@ -1,3 +1,7 @@
 package com.stanzaliving.core.fileutil.service;
 
-public interface CSVFileUtilService {}
+import org.springframework.web.multipart.MultipartFile;
+
+public interface CSVFileUtilService {
+    String readCSVFile(MultipartFile file);
+}
