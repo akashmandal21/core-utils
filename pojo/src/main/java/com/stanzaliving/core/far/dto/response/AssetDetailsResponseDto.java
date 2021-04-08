@@ -71,4 +71,7 @@ public class AssetDetailsResponseDto {
     private Integer taskDueCount;
     private String textColor;
     private String bgColor;
+
+    private String poPdf;
+    private InvoiceFilesResponseDto invoices;
 }
