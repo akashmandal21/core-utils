@@ -14,5 +14,5 @@ import java.time.DayOfWeek;
 public class DayDefaultMenuDto {
     private DayOfWeek day;
     private String mealSelected;
-    private boolean isAllowed;
+    private boolean isValid;
 }
