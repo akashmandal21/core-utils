@@ -14,5 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 public class DefaultFoodMenuDto implements Serializable {
     private String menuGroupId;
+    private boolean isValid;
     private List<DefaultMealMenuDto> mealDetails;
 }
