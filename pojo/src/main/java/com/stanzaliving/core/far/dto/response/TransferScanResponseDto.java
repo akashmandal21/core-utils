@@ -27,4 +27,5 @@ public class TransferScanResponseDto {
     List<ToResponseDto> transferOrderList;
     String assetId;
     String assetUuid;
+    String qrCodeId;
 }
