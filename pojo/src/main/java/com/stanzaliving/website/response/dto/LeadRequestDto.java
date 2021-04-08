@@ -23,6 +23,8 @@ public class LeadRequestDto {
 	private String phone;
 	private boolean phoneVerified;
 
+	private String leadSource;
+	
 	private int residenceId;
 	private String residenceName;
 	private String residenceNameUuid;
@@ -87,9 +89,10 @@ public class LeadRequestDto {
 	@Default
 	private boolean isHotLead = false;
 	@Default
-	private Boolean whatsappnotification = false;
+	private boolean whatsappnotification = false;
 	@Default
-	private Boolean qrCodeFlag = false;
+	private boolean qrCodeFlag = false;
+	
 	private boolean leadQualificationForm;
 
 }
