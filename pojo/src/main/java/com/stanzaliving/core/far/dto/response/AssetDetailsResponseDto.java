@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Data
 @Builder
@@ -73,5 +74,5 @@ public class AssetDetailsResponseDto {
     private String bgColor;
 
     private String poPdf;
-    private InvoiceFilesResponseDto invoices;
+    private Map<String, String> invoices;
 }
