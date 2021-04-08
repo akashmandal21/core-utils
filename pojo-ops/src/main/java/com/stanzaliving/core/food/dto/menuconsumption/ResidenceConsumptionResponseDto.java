@@ -23,5 +23,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResidenceConsumptionResponseDto extends MealsConsumptionResponseDto {
+	private static final long serialVersionUID = 72627362732243L;
+
 	private ListingDto residence;
 }
