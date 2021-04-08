@@ -46,4 +46,15 @@ public class ItemUpdateDto extends AbstractDto {
     private String substituteItem;
     private UnitType recipeUom;
     private Double conversionFactor;
+
+    private String itemImage;
+
+
+
+    private String itemNameSearch;
+    private String itemNameSuggest;
+
+    private String itemCodeSearch;
+    private String itemDescriptionSearch;
+
 }
