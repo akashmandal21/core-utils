@@ -13,6 +13,6 @@ import java.time.DayOfWeek;
 @AllArgsConstructor
 public class DayDefaultMenuDto {
     private DayOfWeek day;
-    private String selection;
+    private String mealSelected;
     private boolean isAllowed;
 }

@@ -16,7 +16,7 @@ public class ResidenceDefaultMenuDto {
     private String name;
 
     private boolean dayLevelDetails;
-    private String selection;
+    private String mealSelected;
     private boolean isAllowed;
 
     private List<DayDefaultMenuDto> dayDetails;
