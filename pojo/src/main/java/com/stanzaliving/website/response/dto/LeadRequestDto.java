@@ -90,7 +90,6 @@ public class LeadRequestDto {
 	private Boolean whatsappnotification = false;
 	@Default
 	private Boolean qrCodeFlag = false;
-	@Default
-	private boolean leadQualificationForm = false;
+	private boolean leadQualificationForm;
 
 }
