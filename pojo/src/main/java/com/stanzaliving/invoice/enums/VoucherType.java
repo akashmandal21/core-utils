@@ -12,6 +12,8 @@ import lombok.Getter;
 public enum VoucherType {
     OPEX("OP");
 
-    private String value;
+    private String text;
+
+
 
 }

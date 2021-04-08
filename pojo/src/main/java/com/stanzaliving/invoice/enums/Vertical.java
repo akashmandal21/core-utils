@@ -13,5 +13,5 @@ public enum Vertical {
 
     OPEX("OP");
 
-    private String value;
+    private String text;
 }

@@ -12,6 +12,6 @@ import lombok.Getter;
 public enum TdsSection {
     OPEX("OP");
 
-    private String value;
+    private String text;
 }
 

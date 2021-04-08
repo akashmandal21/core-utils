@@ -13,5 +13,5 @@ public enum Category {
 
     OPEX("OP");
 
-    private String value;
+    private String text;
 }

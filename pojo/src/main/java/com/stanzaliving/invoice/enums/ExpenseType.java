@@ -12,5 +12,5 @@ import lombok.Getter;
 public enum ExpenseType {
     OPEX("OP");
 
-    private String value;
+    private String text;
 }
