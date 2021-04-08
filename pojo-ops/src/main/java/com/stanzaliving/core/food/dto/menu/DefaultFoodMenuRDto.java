@@ -19,6 +19,6 @@ import java.util.Map;
 public class DefaultFoodMenuRDto implements Serializable {
     private DefaultFoodMenuDto menuData;
     private Map<MealType, List<ListingDto>> mealWiseListing;
-    private Map<MealType, Map<String,List<ListingDto>>> mealResidenceWiseListing;
-    private Map<MealType, Map<String,Map<DayOfWeek,List<ListingDto>>>> mealResidenceDayWiseListing;
+    private Map<MealType, Map<DayOfWeek,List<ListingDto>>> mealDayWiseListing;
+    private List<ListingDto> residences;
 }
