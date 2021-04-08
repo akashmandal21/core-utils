@@ -1,7 +1,5 @@
 package com.stanzaliving.core.food.dto.menurating.response;
 
-import com.stanzaliving.core.base.common.dto.ListingDto;
-import com.stanzaliving.core.food.dto.menurating.RatingDto;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
@@ -10,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.io.Serializable;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -25,7 +25,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealRatingResponseDto {
+public class MealRatingResponseDto implements Serializable {
+
+	private static final long serialVersionUID = 4343372728438446L;
 
 	private EnumListing<MealType> meal;
 
