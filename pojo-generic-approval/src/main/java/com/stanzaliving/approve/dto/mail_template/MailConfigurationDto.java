@@ -32,4 +32,5 @@ public class MailConfigurationDto {
 
     private boolean attachment;
 
+    public MailConfigurationDto(MailConfigurationDto mailConfigurationDto) {}
 }

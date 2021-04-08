@@ -15,7 +15,7 @@ public class ObjectConverter implements AttributeConverter<Object, String> {
 
     @Override
     public String convertToDatabaseColumn(Object attribute) {
-        log.info("OBJECT-CONVERTER::Received attribute for conversion {}",attribute);
+//        log.info("OBJECT-CONVERTER::Received attribute for conversion {}",attribute);
         String attributeInfoJson = null;
 
         try {
@@ -29,7 +29,7 @@ public class ObjectConverter implements AttributeConverter<Object, String> {
 
     @Override
     public Object convertToEntityAttribute(String dbData) {
-        log.info("OBJECT-CONVERTER::Convert entity attribute of {}",dbData);
+//        log.info("OBJECT-CONVERTER::Convert entity attribute of {}",dbData);
         Object attributeInfo = null;
         try {
             if( dbData != null ) attributeInfo = objectMapper.readValue(dbData, Object.class);

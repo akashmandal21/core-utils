@@ -1,4 +1,4 @@
-package com.stanzaliving.approve.dto;
+package com.stanzaliving.approve.dto.approval_request;
 
 import com.stanzaliving.approve.enums.ApprovalStatus;
 import lombok.*;
@@ -22,7 +22,8 @@ public class ApprovalResponseDto {
     @NotNull(message = "entity cannot be null")
     String entityName;
 
-    //todo: Add validation
+    //todo: add enum validator
     ApprovalStatus approvalStatus;
 
+    String comment;
 }

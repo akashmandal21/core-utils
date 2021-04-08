@@ -1,4 +1,4 @@
-package com.stanzaliving.approve.dto;
+package com.stanzaliving.approve.dto.approval_request;
 
 import com.stanzaliving.approve.enums.*;
 import lombok.AllArgsConstructor;
