@@ -256,43 +256,7 @@ public class WandaClientApi {
 
 		return false;
 	}
-
-	public boolean updateHostelOfUser(String userId, String hostelId, String roomNum) {
-
-		Object postBody = null;
-
-		log.info("Received request to update Hostel of user {} hostelId {} ", userId, hostelId);
-
-		final Map<String, Object> uriVariables = new HashMap<>();
-
-		uriVariables.put("userId", userId);
-		uriVariables.put("hostelId", hostelId);
-		uriVariables.put("roomNum", roomNum);
-
-		String path = UriComponentsBuilder.fromPath("/coreApi/user/update/hostel/{userId}/{hostelId}/{roomNum}")
-				.buildAndExpand(uriVariables).toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
-		};
-
-		try {
-
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-
-		} catch (Exception e) {
-			log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
-		}
-
-		return false;
-	}
-
+	
 	public UserDetailDto getUserDetailsByMobile(String mobile) {
 
 		Object postBody = null;
