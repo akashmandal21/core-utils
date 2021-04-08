@@ -134,7 +134,7 @@ public class InventoryClientApi {
 	public LeadRequestDto leadCreation(LeadRequestDto leadRequestDto) {
 
 		try {
-
+			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
 			Object postBody = leadRequestDto;
 
 			String path = UriComponentsBuilder.fromPath("/lead/").toUriString();
@@ -153,7 +153,7 @@ public class InventoryClientApi {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception e) {
-			log.error("Error while creating the lead {}", leadRequestDto);
+			log.error("Error while creating the lead {}", e);
 		}
 
 		return null;
