@@ -38,4 +38,5 @@ public class IngredientRequestDto extends AbstractDto {
 
 	private GSTSlabs gstSlab;
 	private String classificationTag;
+	private Double conversionFactor;
 }
