@@ -30,6 +30,7 @@ public class SearchClientApi {
 
 	public PageResponse<Map<String,Object>> searchPOs(PoSearchRequetDto requestDto) {
 
+		log.info("Hitting Search Service to Fetch POs for requestBody {}", requestDto);
 		String path = UriComponentsBuilder.fromPath("/internal/search/po/master/search").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
