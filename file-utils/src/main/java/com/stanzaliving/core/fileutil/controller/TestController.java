@@ -1,5 +1,6 @@
 package com.stanzaliving.core.fileutil.controller;
 
+import com.stanzaliving.core.fileutil.dto.CSVResponse;
 import com.stanzaliving.core.fileutil.service.CSVFileUtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,8 +20,7 @@ public class TestController {
     @ResponseBody
     @PostMapping(value = "/file-upload", consumes = {"multipart/form-data"})
     @ResponseStatus(HttpStatus.OK)
-    public String getAllAgreement(@RequestParam("File") MultipartFile file) {
-        csvFileUtilService.readCSVFile(file);
-        return "done";
+    public CSVResponse getAllAgreement(@RequestParam("File") MultipartFile file) {
+        return csvFileUtilService.readCSVFile(file);
     }
 }

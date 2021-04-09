@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -43,20 +44,21 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
     @Override
     public CSVResponse readCSVFile(String contentType, InputStream inputStream, List<String> filterHeader) {
-
+        Integer totalRecords = 0;
+        List<String> csvHeader = new ArrayList<>();
         List<Map<String,String>> csvData = new ArrayList<>();
-
         if (CVSUtil.hasCSVFormat(contentType)) {
             try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
                  CSVParser csvParser = new CSVParser(fileReader,
                          CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
-                filterHeader = filterHeader.isEmpty() ? csvParser.getHeaderNames() : filterHeader;
+                csvHeader = csvParser.getHeaderNames();
                 Iterable<CSVRecord> csvRecords = csvParser.getRecords();
+                totalRecords = ((Collection<?>) csvRecords).size();
                 for (CSVRecord csvRecord : csvRecords) {
-                    List<String> finalFilterHeader = filterHeader;
+                    List<String> finalFilterHeader = filterHeader.isEmpty() ? csvHeader : filterHeader;
                     Map<String, String> data = csvRecord.toMap().entrySet()
                             .stream().filter(row -> finalFilterHeader.contains(row.getKey()))
-                            .collect(Collectors.toMap(map -> map.getKey(), map -> map.getValue()));
+                            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
                     csvData.add(data);
                 }
 
@@ -64,7 +66,11 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
                 throw new RuntimeException("fail to parse CSV file: " + e.getMessage()); //todo: throw specific exception
             }
         }
-        return CSVResponse.builder().header(filterHeader)
-                .totalRecord(csvData.size()).data(csvData).build();
+        return CSVResponse.builder()
+                .header(csvHeader)
+                .filterHeader(filterHeader)
+                .totalRecord(totalRecords)
+                .totalRecordMatched(csvData.size())
+                .data(csvData).build();
     }
 }

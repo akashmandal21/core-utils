@@ -13,5 +13,7 @@ import java.util.Map;
 public class CSVResponse {
     private List<Map<String, String>> data;
     private int totalRecord;
+    private int totalRecordMatched;
+    private List<String> filterHeader;
     private List<String> header;
 }
