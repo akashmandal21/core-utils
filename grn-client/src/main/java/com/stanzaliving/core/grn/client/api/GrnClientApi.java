@@ -242,15 +242,16 @@ public class GrnClientApi {
     public ResponseDto<List<ToResponseDto>> fetchToListForFar(ToFetchRequestDto toFetchRequestDto) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("itemCode",toFetchRequestDto.getItemCode());
         final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/fetch-to-list").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/fetch-to-list/{itemCode}").buildAndExpand(uriVariables).toUriString();
 
         ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, null, toFetchRequestDto, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, accept, returnType);
     }
 }
