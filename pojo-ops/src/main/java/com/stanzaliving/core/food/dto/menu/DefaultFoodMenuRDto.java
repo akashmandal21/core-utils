@@ -21,4 +21,5 @@ public class DefaultFoodMenuRDto implements Serializable {
     private Map<MealType, List<ListingDto>> mealWiseListing;
     private Map<MealType, Map<DayOfWeek,List<ListingDto>>> mealDayWiseListing;
     private List<ListingDto> residences;
+    private List<ListingDto> meals;
 }
