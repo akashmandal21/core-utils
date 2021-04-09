@@ -22,4 +22,6 @@ public class OtherFeeRowDto {
     private BigDecimal remainingAmt;
 
     private BigDecimal invoiceFeeAmt;
+
+    private  double gstPct;
 }
