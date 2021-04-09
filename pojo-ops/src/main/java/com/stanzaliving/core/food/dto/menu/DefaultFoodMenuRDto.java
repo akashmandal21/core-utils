@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.menu;
 
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -21,5 +22,5 @@ public class DefaultFoodMenuRDto implements Serializable {
     private Map<MealType, List<ListingDto>> mealWiseListing;
     private Map<MealType, Map<DayOfWeek,List<ListingDto>>> mealDayWiseListing;
     private List<ListingDto> residences;
-    private List<ListingDto> meals;
+    private List<EnumListing<MealType>> meals;
 }
