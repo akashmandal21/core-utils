@@ -24,7 +24,7 @@ public enum FieldOptionProvider {
 
     toTypeProvider,foodCostTypeProvider,
 
-    voucherTypeProvider,categoryProvider,verticalProvider,groupProvider,subGroupProvider,expenseTypeProvider,taxCodeProvider,tdsSectionProvider;
+    voucherTypeProvider,categoryProvider,verticalProvider,groupProvider,subGroupProvider,expenseTypeProvider,taxCodeProvider,tdsSectionProvider,tdsAmountTypeProvider,tdsRateProvider;
 
 
 }
