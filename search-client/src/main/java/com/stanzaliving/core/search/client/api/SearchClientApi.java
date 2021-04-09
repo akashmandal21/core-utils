@@ -443,8 +443,6 @@ public class SearchClientApi {
 
 	public FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(MenuMealItemRequestDto requestDto) {
 		return foodMenuAggregationClient.aggregateWeeklyMenuItemsRating(restClient, requestDto);
-<<<<<<< HEAD
-=======
 	}
 
 
@@ -483,7 +481,6 @@ public class SearchClientApi {
 		}
 
 		return responseDto.getData();
->>>>>>> d2347bb0ad9c1746f27b5a9ffbac441550b09b07
 	}
 
 }
