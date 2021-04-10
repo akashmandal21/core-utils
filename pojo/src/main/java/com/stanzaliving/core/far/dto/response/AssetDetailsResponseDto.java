@@ -72,7 +72,8 @@ public class AssetDetailsResponseDto {
     private Integer taskDueCount;
     private String textColor;
     private String bgColor;
-
+    private Date acquisitionDate;
+    private BigDecimal acquisitionPrice;
     private String poPdf;
     private Map<String, String> invoices;
 }
