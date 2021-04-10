@@ -3,7 +3,6 @@ package com.stanzaliving.core.generic.validation.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stanzaliving.core.base.exception.NoRecordException;
 import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.generic.constants.GenericConstants;
@@ -23,8 +22,6 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.util.Pair;
 
 
@@ -126,7 +123,7 @@ public abstract class TemplateProcessor {
     }
 
 
-    public abstract List<Object> getListOptions(FieldOptionProvider fieldOptionProvider, Map<String,Object> additionalData);
+    public abstract List<?> getListOptions(FieldOptionProvider fieldOptionProvider, Map<String,Object> additionalData);
 
 
     /*
