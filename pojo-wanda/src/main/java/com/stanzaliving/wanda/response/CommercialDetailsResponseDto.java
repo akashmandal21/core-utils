@@ -64,4 +64,20 @@ public class CommercialDetailsResponseDto {
 	private Integer maintenanceFeeSelectionId;
 
 	private Boolean maintenanceFeeEditable;
+	
+    private String subContract1StartDate; //add
+	 
+	 private String subContract1EndDateText; //add
+	 
+	private String subContract1ContractPeriod; //add
+	
+	private String subContract2ContractPeriod; //add
+	
+	private String subContract2EndDateText; //add
+	
+	private String subContract2StartDate; //add
+	
+	 private MonthlyFee subContract2MonthlyFee; //add
+	 
+	
 }

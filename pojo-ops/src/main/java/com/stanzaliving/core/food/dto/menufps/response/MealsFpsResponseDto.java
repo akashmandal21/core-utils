@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.menufps.response;
 
-import com.stanzaliving.core.food.dto.menufps.FpsDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -24,7 +24,9 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealsFpsResponseDto {
+public class MealsFpsResponseDto implements Serializable {
+
+	private static final long serialVersionUID = 726223232322376273L;
 
 	private Float fpsPercent;
 
