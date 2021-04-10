@@ -9,7 +9,9 @@ public enum InternetVendor implements EnumValue {
 
 	SPECTRA("SPECTRA"),
 	JIO("Jio"),
-	ION("Ion");
+	ION("Ion"),
+	AIRTEL("Airtel"),
+	OTHER("Other");
 
 	private String vendor;
 
