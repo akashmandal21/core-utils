@@ -250,6 +250,6 @@ public class GrnClientApi {
         ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, null, toFetchRequestDto, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, null, toFetchRequestDto, headerParams, accept, returnType);
     }
 }
