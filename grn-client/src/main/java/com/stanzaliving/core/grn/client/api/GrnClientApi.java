@@ -1,12 +1,8 @@
 package com.stanzaliving.core.grn.client.api;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
+import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.generic.po.enums.EventType;
 import com.stanzaliving.core.grsi.dto.GrsiItemDto;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
@@ -28,8 +24,11 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Log4j2
 public class GrnClientApi {
@@ -242,16 +241,15 @@ public class GrnClientApi {
     public ResponseDto<List<ToResponseDto>> fetchToListForFar(ToFetchRequestDto toFetchRequestDto) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("itemCode",toFetchRequestDto.getItemCode());
         final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/fetch-to-list/{itemCode}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/fetch-to-list").buildAndExpand(uriVariables).toUriString();
 
         ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, null, toFetchRequestDto, headerParams, accept, returnType);
     }
 }
