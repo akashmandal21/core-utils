@@ -48,6 +48,7 @@ public class EstateSalesReviewSectionFields {
 	public static final String KEY_POSITIVES = "keyPositives";
 	public static final String KEY_NEGATIVES = "keyNegatives";
 	public static final String SUBBRANDS = "availableSubBrands";
+	public static final String LOCATIONASPECTS = "locationAspects";
 
 	public static final String GLOBAL_UUID="GLOBAL";
 	
