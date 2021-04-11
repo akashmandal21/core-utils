@@ -1,5 +1,6 @@
 package com.stanzaliving.core.far.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.far.enums.QrCodeStatus;
 import com.stanzaliving.core.far.enums.TransferScanStatus;
 import com.stanzaliving.core.grsi.dto.response.ToResponseDto;
@@ -15,13 +16,14 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TransferScanResponseDto {
     QrCodeStatus qrCodeStatus;
     String name;
     String description;
     String itemImage;
     TransferScanStatus transferScanStatus;
-    String cartAssetUuid;
+    String cartUuid;
     Date discardedOn;
     String discardedBy;
     List<ToResponseDto> transferOrderList;
