@@ -8,10 +8,8 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import com.amazonaws.services.s3.AmazonS3;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -33,6 +31,11 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
     }
 
     @Override
+    public CSVResponse readCSVFile(String contentType, InputStream inputStream) {
+        return readCSVFile(contentType, inputStream, new ArrayList<>());
+    }
+
+    @Override
     public CSVResponse readCSVFile(MultipartFile file, List<String> header) {
         try {
             return readCSVFile(file.getContentType(), file.getInputStream(), header);
@@ -50,7 +53,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         if (CVSUtil.hasCSVFormat(contentType)) {
             try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
                  CSVParser csvParser = new CSVParser(fileReader,
-                         CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
+                         CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())) {
                 csvHeader = csvParser.getHeaderNames();
                 Iterable<CSVRecord> csvRecords = csvParser.getRecords();
                 totalRecords = ((Collection<?>) csvRecords).size();
@@ -72,5 +75,15 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
                 .totalRecord(totalRecords)
                 .totalRecordMatched(csvData.size())
                 .data(csvData).build();
+    }
+
+    @Override
+    public File downloadFile(String bucket, String filePath, AmazonS3 s3Client) {
+        return null;
+    }
+
+    @Override
+    public CSVResponse readCSVFile(String bucket, String filePath, AmazonS3 s3Client, List<String> header) {
+        return null;
     }
 }
