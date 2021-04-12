@@ -92,11 +92,12 @@ class CSVFileUtilServiceImplTest {
 
     @Test
     @DisplayName("Unit test case for downloading file to local from s3")
-    void downloadFileTest() throws Exception {
+    void downloadFileTest(){
         AmazonS3 client = GlobalTestData.getSampleAmazonS3();
         File mockedFile = GlobalTestData.getSampleFile();
         when(s3DownloadService.downloadFile(anyString(), anyString(), any(AmazonS3.class))).thenReturn(mockedFile);
-        csvFileUtilService.downloadFile("sample-bucket-name", "sample-path", client);
+        File output = csvFileUtilService.downloadFile("sample-bucket-name", "sample-path", client);
+        Assertions.assertNotNull(output);
     }
 
     @Test
@@ -129,7 +130,7 @@ class CSVFileUtilServiceImplTest {
 
     @Test
     @DisplayName("Unit test case for getting pre-signed url")
-    void getPreSignedURL() throws Exception {
+    void getPreSignedURLTest() {
         String url = "sample_url";
         AmazonS3 client = GlobalTestData.getSampleAmazonS3();
         when(s3DownloadService.getPreSignedUrl(anyString(), anyString(), anyInt(), any(AmazonS3.class))).thenReturn(url);
