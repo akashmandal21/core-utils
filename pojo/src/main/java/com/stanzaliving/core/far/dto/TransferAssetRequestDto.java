@@ -18,7 +18,8 @@ public class TransferAssetRequestDto {
     private String toNumber;
     private String qrCode;
     private String cartAssetUuid;
-    private String addressUuid; // will have sourceLocation during Tx Out & Destination Location during Tx In
+    private String sourceAddressUuid;
+    private String destinationAddressUuid;
 
     @NotNull
     private boolean transferOut;
