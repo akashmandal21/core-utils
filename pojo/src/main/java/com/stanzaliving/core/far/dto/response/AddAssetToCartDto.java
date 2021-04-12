@@ -2,6 +2,7 @@ package com.stanzaliving.core.far.dto.response;
 
 import com.stanzaliving.core.far.enums.CartStatus;
 import com.stanzaliving.core.far.enums.CartType;
+import com.stanzaliving.core.far.enums.TransferScanStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,5 +25,5 @@ public class AddAssetToCartDto {
     private CartType cartType;
     private BigDecimal numberOfItemCodes;
     private CartStatus cartStatus;
-    private String message;
+    private TransferScanStatus message;
 }
