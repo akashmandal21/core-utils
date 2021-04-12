@@ -2,6 +2,7 @@ package com.stanzaliving.core.opscalculator.dto.summary;
 
 import com.stanzaliving.core.base.enums.ColorCode;
 import com.stanzaliving.core.base.utils.NumberUtils;
+import com.stanzaliving.core.base.utils.StanzaUtils;
 import lombok.*;
 
 @AllArgsConstructor
@@ -111,9 +112,9 @@ public class DisplaySummaryDto {
     }
 
     public void setReturnValuesAndDeviationAndColorCode(double annualOccupancyMF, double monthlyOccupancyMF, double forecastOccupancyMF, boolean isForecast, double deviationPercentForForecast) {
-        this.annualUnderwrittenValue = annualUnderWrittenBaseValue * annualOccupancyMF;
-        this.monthlySplitterValue = monthlySplitterBaseValue * monthlyOccupancyMF;
-        this.monthlyForecastValue = monthlyForecastBaseValue * forecastOccupancyMF;
+        this.annualUnderwrittenValue = StanzaUtils.getDefaultIfNull(() -> annualUnderWrittenBaseValue, 0d) * annualOccupancyMF;
+        this.monthlySplitterValue = StanzaUtils.getDefaultIfNull(() -> monthlySplitterBaseValue, 0d) * monthlyOccupancyMF;
+        this.monthlyForecastValue = StanzaUtils.getDefaultIfNull(() -> monthlyForecastBaseValue, 0d) * forecastOccupancyMF;
         if (isForecast) {
             setDeviationAndColorCodeForForecast(deviationPercentForForecast);
         } else {
