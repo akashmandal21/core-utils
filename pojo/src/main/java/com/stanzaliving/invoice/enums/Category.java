@@ -11,7 +11,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Category {
 
-    OPEX("OP");
+    CORPORATE("Corporate"),HOSTELS("Hostels"),NODALOFFICES("Nodal Offices"),KITCHEN("Kitchen"),APARTMENTSSTUDIO21("Apartments Studio 21");
 
     private String text;
 }

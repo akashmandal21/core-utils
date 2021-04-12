@@ -10,7 +10,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum VoucherType {
-    OPEX("OP");
+    TAXINVOICE("Tax Invoice"),PERFORMAINVOICE("Performa Invoice"),CREDITNOTE("Credit Note");
 
     private String text;
 
