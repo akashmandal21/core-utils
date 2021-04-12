@@ -40,7 +40,6 @@ public class AssetDetailsResponseDto {
     private BigDecimal gstPct;
     private BigDecimal otherFee;
     private BigDecimal otherFeeTax;
-    private BigDecimal totalCost;
     private String invoiceNumber;
     private Date invoiceDate;
     private String invoiceVendorDocPath;
