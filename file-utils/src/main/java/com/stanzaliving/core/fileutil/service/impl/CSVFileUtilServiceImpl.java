@@ -2,12 +2,12 @@ package com.stanzaliving.core.fileutil.service.impl;
 
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
-import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.stanzaliving.core.amazons3.util.S3Util;
 import com.stanzaliving.core.fileutil.dto.CSVResponse;
 import com.stanzaliving.core.fileutil.dto.S3UploadResponse;
 import com.stanzaliving.core.fileutil.service.CSVFileUtilService;
 import com.stanzaliving.core.fileutil.util.CVSUtil;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -25,6 +25,7 @@ import com.stanzaliving.core.base.exception.StanzaException;
 import static com.stanzaliving.core.fileutil.util.Constants.CSV_CONTENT_TYPE;
 
 @Service
+@Log4j2
 public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
     private final S3DownloadService s3DownloadService;
@@ -38,32 +39,34 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
     @Override
     public CSVResponse readCSVFile(MultipartFile file) {
+        log.info("FILE-UTILS::Reading CSV file from uploaded multipart");
         try {
             return readCSVFile(file.getContentType(), file.getInputStream(), new ArrayList<>());
         } catch (IOException e) {
-            //TODO: Add exception
+            throw new StanzaException("FILE-UTILS::Error in reading multipart file");
         }
-        return null;
     }
 
     @Override
     public CSVResponse readCSVFile(String contentType, InputStream inputStream) {
+        log.info("FILE-UTILS::Reading CSV file for input stream");
         return readCSVFile(contentType, inputStream, new ArrayList<>());
     }
 
     @Override
     public CSVResponse readCSVFile(MultipartFile file, List<String> header) {
+        log.info("FILE-UTILS::Reading CSV file with filter header {}", header);
         try {
             return readCSVFile(file.getContentType(), file.getInputStream(), header);
         } catch (IOException e) {
-           //TODO: Add exception
+            throw new StanzaException("FILE-UTILS::Error in reading multipart file with filter header {}", (Throwable) header);
         }
-        return null;
     }
 
     @Override
     public CSVResponse readCSVFile(String contentType, InputStream inputStream, List<String> filterHeader) {
-        Integer totalRecords = 0;
+        log.info("FILE-UTILS::Reading CSV file anf filter according to headers {}", filterHeader);
+        int totalRecords = 0;
         List<String> csvHeader = new ArrayList<>();
         List<Map<String,String>> csvData = new ArrayList<>();
         if (CVSUtil.hasCSVFormat(contentType)) {
@@ -82,7 +85,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
                 }
 
             } catch (IOException e) {
-                throw new RuntimeException("fail to parse CSV file: " + e.getMessage()); //todo: throw specific exception
+                throw new StanzaException("fail to parse CSV file: " + e.getMessage());
             }
         }
         return CSVResponse.builder()
@@ -95,51 +98,61 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
     @Override
     public File downloadFile(String bucket, String filePath, AmazonS3 s3Client) {
+        log.info("FILE-UTILS::Downloading file from bucket {} , filepath {} to tmp folder", bucket, filePath);
         return s3DownloadService.downloadFile(bucket, filePath, s3Client);
     }
 
     @Override
     public InputStream retrieveFile(String bucket, String filePath, AmazonS3 s3Client) {
+        log.info("FILE-UTILS::Reading file from from path {} and bucket {}", filePath, bucket);
         try {
             GetObjectRequest getObjectRequest = new GetObjectRequest(bucket, filePath);
 
             S3Object s3Object = S3Util.getAmazonS3Client(s3Client).getObject(getObjectRequest);
 
             if (s3Object != null) {
-                S3ObjectInputStream inputStream = s3Object.getObjectContent();
-                return inputStream;
+                log.info("FILE-UTILS::Converting s3 object to input stream");
+                return s3Object.getObjectContent();
+            }
+            else {
+                log.info("FILE-UTILS::File not found in bucket {} with filePath {}",bucket, filePath);
             }
         } catch (Exception e) {
-
+            throw new StanzaException("FILE-UTILS::Error in reading multipart file");
         }
-
         return null;
     }
 
     @Override
     public CSVResponse readCSVFile(String bucket, String filePath, AmazonS3 s3Client) {
+        log.info("FILE-UTILS::Reading file from from path {} and bucket {}", filePath, bucket);
         return readCSVFile(bucket, filePath, s3Client,new ArrayList<>());
     }
 
     @Override
     public CSVResponse readCSVFile(String bucket, String filePath, AmazonS3 s3Client, List<String> header) {
+        log.info("FILE-UTILS::Reading file from from path {} and bucket {} and filtering with header {}", filePath, bucket, header);
         InputStream file= retrieveFile(bucket, filePath, s3Client);
-        return readCSVFile(CSV_CONTENT_TYPE, file, header);
+        return file != null ? readCSVFile(CSV_CONTENT_TYPE, file, header) : null;
     }
 
     @Override
     public S3UploadResponse upload(String bucket, String filePath, String fileName, InputStream inputStream, String contentType, AmazonS3 s3Client, boolean isPublic) {
+        log.info("FILE-UTILS::Uploading file {} in filepath {} in bucket {}", fileName, filePath, bucket);
         if(CVSUtil.hasCSVFormat(contentType)){
             return S3UploadResponse.builder()
                     .bucketName(bucket)
                     .filePath(s3UploadService.upload(bucket, filePath, inputStream, contentType, s3Client, isPublic))
                     .build();
         }
-        throw new StanzaException(String.format("Failed to store file %f due to mismatch in format", fileName));
+        log.error("FILE-UTILS::Error in uploading file {} with filepath {} in bucket {}", fileName, filePath, bucket);
+        throw new StanzaException("Failed to store file "+fileName+"due to mismatch in format");
     }
 
     @Override
     public String getPreSignedURL(String bucket, String filePath, int durationInSeconds, AmazonS3 s3Client) {
+        log.info("FILE-UTILS::Getting pre-signed url for filePath {} in bucket {} for duration {}",
+                filePath, bucket, durationInSeconds);
         return s3DownloadService.getPreSignedUrl(bucket, filePath, durationInSeconds, s3Client);
     }
 
