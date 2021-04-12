@@ -46,8 +46,7 @@ public class AssetDto {
 
     private String invoiceVendorDocPath;
     private String assetName;
-    private String itemName;
-    private String itemDescription;
+    private String assetDescription;
     private String itemCode;
     private String owner;
     private String landlordName;
