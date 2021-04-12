@@ -1,4 +1,4 @@
-package com.stanzaliving.approve.dto;
+package com.stanzaliving.approve.dto.approval_request;
 
 import com.stanzaliving.approve.enums.*;
 import lombok.AllArgsConstructor;
@@ -14,13 +14,25 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class ApprovalListingRequestDto {
+
     private int page;
+
     private int limit;
-    private RequestType requestType;
+
+    private String requestedDate;
+
+    @Builder.Default
+    private List<String> category = new ArrayList<>();
+
+    @Builder.Default
+    private List<String> cityUuids = new ArrayList<>();
+
     @Builder.Default
     private List<String> micromarketUuids = new ArrayList<>();
+
     @Builder.Default
     private List<String> residenceUuids = new ArrayList<>();
+
     @Builder.Default
     private List<ApprovalStatus> approvalStatusList = new ArrayList<>();
 }
