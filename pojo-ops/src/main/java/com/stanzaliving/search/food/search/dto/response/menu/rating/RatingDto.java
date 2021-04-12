@@ -25,4 +25,6 @@ public class RatingDto {
 	private Integer totalRating;
 
 	private Integer totalRatingCount;
+
+	private Float avgRating;
 }
