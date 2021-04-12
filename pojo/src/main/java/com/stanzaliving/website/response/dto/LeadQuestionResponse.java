@@ -15,6 +15,6 @@ import lombok.ToString;
 @AllArgsConstructor
 public class LeadQuestionResponse {
 
-	String message;
-	ResidenceResponseShortDTO residenceResponseShortDTO;
+	private String message;
+	private ResidenceResponseShortDTO residenceResponseShortDTO;
 }
