@@ -107,15 +107,10 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         log.info("FILE-UTILS::Reading file from from path {} and bucket {}", filePath, bucket);
         try {
             GetObjectRequest getObjectRequest = new GetObjectRequest(bucket, filePath);
-
             S3Object s3Object = S3Util.getAmazonS3Client(s3Client).getObject(getObjectRequest);
-
             if (s3Object != null) {
                 log.info("FILE-UTILS::Converting s3 object to input stream");
                 return s3Object.getObjectContent();
-            }
-            else {
-                log.info("FILE-UTILS::File not found in bucket {} with filePath {}",bucket, filePath);
             }
         } catch (Exception e) {
             throw new StanzaException("FILE-UTILS::Error in reading multipart file");
@@ -146,7 +141,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
                     .build();
         }
         log.error("FILE-UTILS::Error in uploading file {} with filepath {} in bucket {}", fileName, filePath, bucket);
-        throw new StanzaException("Failed to store file "+fileName+"due to mismatch in format");
+        throw new StanzaException("Failed to store file "+fileName+" due to mismatch in format");
     }
 
     @Override
