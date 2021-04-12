@@ -37,4 +37,6 @@ public class GenericPoUpdate {
     private LocalDate poEndDate;
     private LocalDate poStartDate;
 
+    private String adjustCloseId;
+
 }
