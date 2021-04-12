@@ -37,6 +37,11 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         this.s3UploadService = s3UploadService;
     }
 
+    /**
+     * Read CSV multipart file
+     * @param file
+     * @return return the content and meta data of CSV in CSVResponse dto
+     */
     @Override
     public CSVResponse readCSVFile(MultipartFile file) {
         log.info("FILE-UTILS::Reading CSV file from uploaded multipart");
@@ -47,12 +52,25 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         }
     }
 
+    /**
+     * Read CSV file based on content type and input stream
+     * @param contentType content type of the file
+     * @param inputStream content of the file in input stream
+     * @return return the content and meta data of CSV in CSVResponse dto
+     */
     @Override
     public CSVResponse readCSVFile(String contentType, InputStream inputStream) {
         log.info("FILE-UTILS::Reading CSV file for input stream");
         return readCSVFile(contentType, inputStream, new ArrayList<>());
     }
 
+    /**
+     * Read CSV file based on multipart file and filter the details of list of header
+     * If the filter list is empty then the response contents all content
+     * @param file
+     * @param header
+     * @return return the content and meta data of CSV in CSVResponse dto
+     */
     @Override
     public CSVResponse readCSVFile(MultipartFile file, List<String> header) {
         log.info("FILE-UTILS::Reading CSV file with filter header {}", header);
@@ -63,6 +81,13 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         }
     }
 
+    /**
+     * Read CSV file based on content type, input stream and filter the details of list of header
+     * @param contentType
+     * @param inputStream
+     * @param filterHeader
+     * @return return the content and meta data of CSV in CSVResponse dto
+     */
     @Override
     public CSVResponse readCSVFile(String contentType, InputStream inputStream, List<String> filterHeader) {
         log.info("FILE-UTILS::Reading CSV file anf filter according to headers {}", filterHeader);
@@ -96,12 +121,26 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
                 .data(csvData).build();
     }
 
+    /**
+     * Download a file from S3 based on bucket name, file path, Amazons3 client details
+     * @param bucket s3 bucket name
+     * @param filePath of the file
+     * @param s3Client AmazonS3 client configuration
+     * @return download the file inside tmp folder
+     */
     @Override
     public File downloadFile(String bucket, String filePath, AmazonS3 s3Client) {
         log.info("FILE-UTILS::Downloading file from bucket {} , filepath {} to tmp folder", bucket, filePath);
         return s3DownloadService.downloadFile(bucket, filePath, s3Client);
     }
 
+    /**
+     * Get the stream data of the file from S3 storage
+     * @param bucket s3 bucket name
+     * @param filePath of the file
+     * @param s3Client AmazonS3 client configuration
+     * @return Stream data of the file
+     */
     @Override
     public InputStream retrieveFile(String bucket, String filePath, AmazonS3 s3Client) {
         log.info("FILE-UTILS::Reading file from from path {} and bucket {}", filePath, bucket);
@@ -118,12 +157,27 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         return null;
     }
 
+    /**
+     * Read the CSV file from S3 bucket
+     * @param bucket s3 bucket name
+     * @param filePath  of the file
+     * @param s3Client AmazonS3 client configuration
+     * @return return the content and meta data of CSV in CSVResponse dto
+     */
     @Override
     public CSVResponse readCSVFile(String bucket, String filePath, AmazonS3 s3Client) {
         log.info("FILE-UTILS::Reading file from from path {} and bucket {}", filePath, bucket);
         return readCSVFile(bucket, filePath, s3Client,new ArrayList<>());
     }
 
+    /**
+     * Read the CSV file from S3 bucket for specific headers
+     * @param bucket s3 bucket name
+     * @param filePath of the file
+     * @param s3Client AmazonS3 client configuration
+     * @param header filter headers
+     * @return return the content and meta data of CSV in CSVResponse dto
+     */
     @Override
     public CSVResponse readCSVFile(String bucket, String filePath, AmazonS3 s3Client, List<String> header) {
         log.info("FILE-UTILS::Reading file from from path {} and bucket {} and filtering with header {}", filePath, bucket, header);
@@ -131,6 +185,17 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         return file != null ? readCSVFile(CSV_CONTENT_TYPE, file, header) : null;
     }
 
+    /**
+     * Upload CSV file to S3 bucket
+     * @param bucket s3 bucket name
+     * @param filePath file path in bucket
+     * @param fileName file name
+     * @param inputStream file content in stream
+     * @param contentType content type of the file
+     * @param s3Client AmazonS3 configuration details
+     * @param isPublic boolean to set the visibility of the file
+     * @return details of bucket and file path after saving
+     */
     @Override
     public S3UploadResponse upload(String bucket, String filePath, String fileName, InputStream inputStream, String contentType, AmazonS3 s3Client, boolean isPublic) {
         log.info("FILE-UTILS::Uploading file {} in filepath {} in bucket {}", fileName, filePath, bucket);
@@ -144,6 +209,14 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         throw new StanzaException("Failed to store file "+fileName+" due to mismatch in format");
     }
 
+    /**
+     * Create pre-signed url for a file
+     * @param bucket s3 bucket name
+     * @param filePath file path in bucket
+     * @param durationInSeconds validity time for link in seconds
+     * @param s3Client Amazons3 configuration details
+     * @return the created pre-signed url for the file
+     */
     @Override
     public String getPreSignedURL(String bucket, String filePath, int durationInSeconds, AmazonS3 s3Client) {
         log.info("FILE-UTILS::Getting pre-signed url for filePath {} in bucket {} for duration {}",
