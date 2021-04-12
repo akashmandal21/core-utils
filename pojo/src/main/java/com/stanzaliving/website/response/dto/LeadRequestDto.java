@@ -82,7 +82,8 @@ public class LeadRequestDto {
 	private String creative;
 	private String gClientId;
 	private String gSessionId;
-
+	private String profession;
+	private String moveInDateRange;
 	@Default
 	private boolean lastQuestion = false;
 
