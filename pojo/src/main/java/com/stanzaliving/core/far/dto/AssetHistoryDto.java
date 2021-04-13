@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -24,6 +23,7 @@ public class AssetHistoryDto {
     private Timestamp timestamp;
     private AssetActiontype assetActiontype;
     private String contextId;
+    private String createdBy;
 
 
 }

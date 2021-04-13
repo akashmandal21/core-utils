@@ -17,6 +17,6 @@ import java.util.List;
 public class AssetHotoItems {
     private String itemCode;
     private String itemName;
-    private int numberOfAssets ;
+    private int countOfAssets ;
     private List<AssetBaseDetails> listOfAssets;
 }

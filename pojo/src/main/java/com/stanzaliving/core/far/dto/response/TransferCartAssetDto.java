@@ -12,5 +12,6 @@ import lombok.NoArgsConstructor;
 public class TransferCartAssetDto {
     private String qrUrl;
     private String qrCodeId;
+    private String assetId;
     private String assetUuid;
 }
