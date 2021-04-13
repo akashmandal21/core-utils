@@ -20,10 +20,8 @@ import lombok.ToString;
 @ToString
 public class ResidenceDTO implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	
 	private Integer residenceId;
 	private String name;
 	private String slug;
@@ -34,6 +32,7 @@ public class ResidenceDTO implements Serializable {
 	private String pricingPlan;
 	private Integer startingPrice;
 	private Integer cityId;
+	
+	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>(0);
-
 }
