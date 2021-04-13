@@ -27,13 +27,13 @@ public class ApprovalSummaryDto {
     private Integer pendingL5Approval = 0;
 
     @Builder.Default
-    private Integer totalPending = 0;
-
-    @Builder.Default
     private Integer approval  = 0;
 
     @Builder.Default
     private Integer rejection  = 0;
+
+    @Builder.Default
+    private Integer totalPendingRequest = 0;
 
     @Builder.Default
     private Integer roomUpdates = 0;
