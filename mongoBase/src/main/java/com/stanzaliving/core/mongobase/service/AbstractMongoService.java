@@ -22,6 +22,8 @@ public interface AbstractMongoService <T extends AbstractMongoEntity, I extends 
 
     T find(I id);
 
+    List<T> findAll();
+
     List<T> findByUuidIn(Collection<String> uuids);
 
     boolean delete(T entity);
