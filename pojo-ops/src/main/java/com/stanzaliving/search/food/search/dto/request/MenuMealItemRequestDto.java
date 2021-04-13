@@ -1,5 +1,6 @@
 package com.stanzaliving.search.food.search.dto.request;
 
+import com.stanzaliving.core.food.dto.OperatorValueDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -21,4 +22,6 @@ import java.util.List;
 @AllArgsConstructor
 public class MenuMealItemRequestDto extends MenuMicromarketAggregateRequestDto {
 	private List<MealItemRequestDto> mealItems;
+
+	private OperatorValueDto<Float> minAvgRating;
 }

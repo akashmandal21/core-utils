@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.menuconsumption;
 
-import com.stanzaliving.core.food.dto.menufps.response.MealFpsResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -24,7 +24,9 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealsConsumptionResponseDto {
+public class MealsConsumptionResponseDto implements Serializable {
+
+	private static final long serialVersionUID = 57337262736273L;
 
 	private Double consumptionPercent;
 
