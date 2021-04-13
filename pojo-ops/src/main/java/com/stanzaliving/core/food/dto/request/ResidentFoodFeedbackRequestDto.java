@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto.request;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -38,4 +39,5 @@ public class ResidentFoodFeedbackRequestDto {
 
 	private FeedbackSource source;
 
+	private Set<String> mealFeedbackOptionUuids;
 }
