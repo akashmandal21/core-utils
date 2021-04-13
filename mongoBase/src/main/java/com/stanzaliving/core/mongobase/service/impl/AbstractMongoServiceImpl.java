@@ -15,8 +15,7 @@ import java.util.List;
 @Service
 @Log4j2
 public abstract class AbstractMongoServiceImpl<T extends AbstractMongoEntity, I extends Serializable, R extends AbstractMongoRepository<T,I>>
-    implements AbstractMongoService<T, I>
-{
+    implements AbstractMongoService<T, I> {
 
     protected abstract R getMongoRepository();
 
@@ -32,16 +31,19 @@ public abstract class AbstractMongoServiceImpl<T extends AbstractMongoEntity, I 
         return getMongoRepository().saveAll(entities);
     }
 
-
     @Override
     public T find(I id) {
         return getMongoRepository().findById(id).orElse(null);
     }
 
-
     @Override
     public T findByUuid(String uuid) {
         return getMongoRepository().findFirstByUuid(uuid);
+    }
+
+    @Override
+    public List<T> findByUuidIn(Collection<String> uuids) {
+        return getMongoRepository().findByUuidIn(uuids);
     }
 
     @Override
