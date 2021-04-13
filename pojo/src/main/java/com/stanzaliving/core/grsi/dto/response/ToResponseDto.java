@@ -5,9 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -16,4 +13,6 @@ public class ToResponseDto {
     private String toNumber;
     private String receivingLocationName;
     private String receivingLocationAddressUuid;
+    private String sourceLocationName;
+    private String sourceLocationAddressUuid;
 }
