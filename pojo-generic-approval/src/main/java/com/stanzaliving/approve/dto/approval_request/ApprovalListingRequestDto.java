@@ -19,7 +19,9 @@ public class ApprovalListingRequestDto {
 
     private int limit;
 
-    private String requestedDate;
+    private String requestedDateFrom;
+
+    private String requestedDateTo;
 
     @Builder.Default
     private List<String> category = new ArrayList<>();
