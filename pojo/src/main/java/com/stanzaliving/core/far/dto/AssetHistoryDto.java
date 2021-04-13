@@ -24,6 +24,7 @@ public class AssetHistoryDto {
     private Timestamp timestamp;
     private AssetActiontype assetActiontype;
     private String contextId;
+    private String createdBy;
 
 
 }
