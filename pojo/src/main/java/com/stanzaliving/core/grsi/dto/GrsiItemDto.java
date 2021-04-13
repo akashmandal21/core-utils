@@ -22,4 +22,6 @@ public class GrsiItemDto {
     private BigDecimal effectivePrice;//Unit Rate
     private BigDecimal quantity;
     private BigDecimal rentPeriod;
+    private String gsriEventItemDetailsUuid;
+    
 }
