@@ -16,4 +16,5 @@ public interface AbstractMongoRepository<T extends AbstractMongoEntity, I extend
 
     List<T> findByUuidIn(Collection<String> uuids);
 
+
 }

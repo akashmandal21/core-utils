@@ -22,6 +22,21 @@ public abstract class AbstractMongoServiceImpl<T extends AbstractMongoEntity, I 
     protected abstract MongoTemplate getMongoTemplate();
 
     @Override
+    public <S extends T> S save(S entity) {
+        return getMongoRepository().save(entity);
+    }
+
+    @Override
+    public <S extends T> List<S> save(Iterable<S> entities) {
+        return getMongoRepository().saveAll(entities);
+    }
+
+    @Override
+    public <S extends T> List<S> saveAll(Iterable<S> entities) {
+        return getMongoRepository().saveAll(entities);
+    }
+
+    @Override
     public T insert(T entity) {
         return getMongoRepository().insert(entity);
     }
