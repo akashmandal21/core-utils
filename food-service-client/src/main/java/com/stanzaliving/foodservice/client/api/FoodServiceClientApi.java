@@ -3,9 +3,7 @@ package com.stanzaliving.foodservice.client.api;
 import java.time.LocalDate;
 import java.util.*;
 
-import com.stanzaliving.core.opscalculator.dto.DeadBedCountDto;
 import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
-import com.stanzaliving.core.opscalculator.dto.OccupiedRoomDto;
 import com.stanzaliving.core.food.dto.IngredientUsageDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.springframework.core.ParameterizedTypeReference;

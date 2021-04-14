@@ -8,11 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.opscalculator.dto.DeadBedCountDto;
-import com.stanzaliving.core.opscalculator.dto.OccupiedRoomDto;
+import com.stanzaliving.venta.OccupiedRoomDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -23,7 +19,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.opscalculator.dto.OccupiedRoomDto;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
 import com.stanzaliving.wanda.dtos.FullUserDto;
