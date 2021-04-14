@@ -15,5 +15,5 @@ public class TransferCartDto {
     private String itemCode;
     private String itemName;
     private Integer countOfAssets;
-    private List<TransferCartAssetDto> assetDetails;
+    private List<TransferCartAssetDto> listOfAssets; // assetDetails
 }
