@@ -65,4 +65,6 @@ public class AssetDto {
     private String serialNumber;
     private String assetCondition;
     private Integer taskDueCount;
+    private Date rentalStartDate;
+    private Date rentalEndDate;
 }
