@@ -133,13 +133,13 @@ public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Lo
 	}
 
 	@Override
-	public List<Object> getLandlordNames(String searchText, int page, int limit) {
-		String query = "SELECT JSON_EXTRACT(attribute_value, '$[*].landlordName')  FROM estate_attributes where attribute_name='landlordDetails' and JSON_SEARCH( JSON_EXTRACT(attribute_value, '$[*].landlordName'),'one','%"+searchText+"%') is not null";
+	public List<String> getLandlordNames(String searchText, int page, int limit) {
+		String query = "SELECT attribute_value  FROM estate_attributes where attribute_name='landlordDetails' and JSON_SEARCH( JSON_EXTRACT(attribute_value, '$[*].landlordName'),'one','%"+searchText+"%') is not null";
 		log.info("landlord query {}",query);
 		Query sql = entityManager.createNativeQuery(query);
 		sql.setMaxResults(limit);
 		sql.setFirstResult(getOffset(limit,page));
-		List<Object> res = sql.getResultList();
+		List<String> res = sql.getResultList();
 		log.info(res);
 		if(CollectionUtils.isNotEmpty(res)){
 			return res;
