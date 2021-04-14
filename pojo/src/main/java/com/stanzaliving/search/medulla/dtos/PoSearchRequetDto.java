@@ -3,10 +3,14 @@ package com.stanzaliving.search.medulla.dtos;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.dto.PageAndSortDto;
+import com.stanzaliving.core.far.enums.AssetType;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
-import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
@@ -22,6 +26,7 @@ public class PoSearchRequetDto {
     private String userRole;
     private Department department;
     private Boolean po;
+    private String sourceLocationUuid;
     private String deliveryLocationUuid;
     private String deliveryLocationType;
     private List<UIKeyValue> poStatus;
@@ -29,4 +34,5 @@ public class PoSearchRequetDto {
     private String listingType;
     private PageAndSortDto pageDto;
     private String[] fieldsNeeded;
+    private AssetType assetType;
 }

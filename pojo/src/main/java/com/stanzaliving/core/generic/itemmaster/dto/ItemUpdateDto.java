@@ -25,7 +25,7 @@ public class ItemUpdateDto extends AbstractDto {
 
     private UIKeyValue itemCategory;
     private UIKeyValue itemSubCategory;
-    private UIKeyValue itemCostHead;
+    private UIKeyValue itemCostHead; // costHeadlabel would be label, costHead will be value
 
     private String itemName;
     private String itemDescription;
@@ -33,20 +33,16 @@ public class ItemUpdateDto extends AbstractDto {
     private GSTSlabs gstSlab;
     private List<UIKeyValue> usageTypeOrArea;
     private UnitType unitOfMeasurement;
+    private String glCode;
     private String recipeTag;
     private Boolean taggable;
     private String substituteItem;
     private UnitType recipeUom;
     private Double conversionFactor;
-
     private String itemImage;
-
-
 
     private String itemNameSearch;
     private String itemNameSuggest;
-
     private String itemCodeSearch;
     private String itemDescriptionSearch;
-
 }
