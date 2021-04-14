@@ -32,4 +32,6 @@ public interface EstateDbService extends AbstractJpaService<EstateEntity, Long> 
 
 	
 	List<EstateEntity> findByEstateName( String estateName );
+
+	List<Object> getLandlordNames(String searchText, int page, int limit);
 }
