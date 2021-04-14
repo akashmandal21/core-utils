@@ -123,7 +123,7 @@ public abstract class TemplateProcessor {
     }
 
 
-    public abstract List<?> getListOptions(FieldOptionProvider fieldOptionProvider, Map<String,Object> additionalData);
+    public abstract List<Object> getListOptions(FieldOptionProvider fieldOptionProvider, Map<String,Object> additionalData);
 
 
     /*
