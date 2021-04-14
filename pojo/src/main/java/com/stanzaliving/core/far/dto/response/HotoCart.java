@@ -20,4 +20,7 @@ public class HotoCart {
     HotoSection accepted;
     HotoSection rejected;
     CartStatus cartStatus;
+    Long totalAssets;
+    Long scannedAssets;
+
 }
