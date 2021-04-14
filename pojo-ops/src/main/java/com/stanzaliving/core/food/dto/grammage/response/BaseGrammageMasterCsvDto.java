@@ -25,6 +25,10 @@ public class BaseGrammageMasterCsvDto {
 
 	private String subCategoryId;
 
+	private String category;
+
+	private String subCategory;
+
 	private Integer breakfast;
 
 	private Integer lunch;
