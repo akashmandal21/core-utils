@@ -21,7 +21,7 @@ public class TransferScanResponseDto {
     QrCodeStatus qrCodeStatus;
     String name;
     String description;
-    String itemImage;
+    List<String> assetImagesPath;
     TransferScanStatus transferScanStatus;
     String cartUuid;
     Date discardedOn;
