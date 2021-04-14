@@ -140,6 +140,7 @@ public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Lo
 		sql.setMaxResults(limit);
 		sql.setFirstResult(getOffset(limit,page));
 		List<Object> res = sql.getResultList();
+		log.info(res);
 		if(CollectionUtils.isNotEmpty(res)){
 			return res;
 		}
