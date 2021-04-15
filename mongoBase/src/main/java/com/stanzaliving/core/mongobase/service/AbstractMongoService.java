@@ -8,25 +8,25 @@ import java.util.List;
 
 public interface AbstractMongoService <T extends AbstractMongoEntity, I extends Serializable> {
 
-    <S extends T> S save(S entity);
+	<S extends T> S save(S entity);
 
-    <S extends T> List<S> save(Iterable<S> entities);
+	<S extends T> List<S> save(Iterable<S> entities);
 
-    <S extends T> List<S> saveAll(Iterable<S> entities);
+	<S extends T> List<S> saveAll(Iterable<S> entities);
 
-    T insert(T entity);
+	T insert(T entity);
 
-    List<T> insert(Collection<T> entities);
+	List<T> insert(Collection<T> entities);
 
-    T findByUuid(String uuid);
+	T findByUuid(String uuid);
 
-    T find(I id);
+	T find(I id);
 
-    List<T> findAll();
+	List<T> findAll();
 
-    List<T> findByUuidIn(Collection<String> uuids);
+	List<T> findByUuidIn(Collection<String> uuids);
 
-    boolean delete(T entity);
+	boolean delete(T entity);
 
-    void delete(I id);
+	void delete(I id);
 }
