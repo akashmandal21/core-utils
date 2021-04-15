@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 @Log4j2
 public abstract class AbstractMongoServiceImpl<T extends AbstractMongoEntity, I extends Serializable, R extends AbstractMongoRepository<T,I>>
-	implements AbstractMongoService<T, I> {
+		implements AbstractMongoService<T, I> {
 
 	protected abstract R getMongoRepository();
 
