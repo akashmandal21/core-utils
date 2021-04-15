@@ -1,6 +1,8 @@
 package com.stanzaliving.core.far.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.stanzaliving.core.far.enums.AssetStatus;
 import com.stanzaliving.core.far.enums.AssetType;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
@@ -67,4 +69,9 @@ public class AssetDto {
     private Integer taskDueCount;
     private Date rentalStartDate;
     private Date rentalEndDate;
+
+    public String toString() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
+    }
 }

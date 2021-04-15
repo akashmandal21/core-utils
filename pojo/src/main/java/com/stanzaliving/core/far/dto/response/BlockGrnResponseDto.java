@@ -16,6 +16,6 @@ import java.util.List;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BlockGrnResponseDto {
-    private List<Triple<String, Boolean, BigDecimal>> details;
+    private List<Triple<String, Boolean, BigDecimal>> details; // todo - change this to class
     private Boolean shouldBlockGrn;
 }
