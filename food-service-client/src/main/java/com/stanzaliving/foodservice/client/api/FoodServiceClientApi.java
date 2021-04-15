@@ -3,9 +3,7 @@ package com.stanzaliving.foodservice.client.api;
 import java.time.LocalDate;
 import java.util.*;
 
-import com.stanzaliving.core.opscalculator.dto.DeadBedCountDto;
 import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
-import com.stanzaliving.core.opscalculator.dto.OccupiedRoomDto;
 import com.stanzaliving.core.food.dto.IngredientUsageDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
@@ -134,7 +132,7 @@ public class FoodServiceClientApi {
         try {
             responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Error while fetching menu category details for id: {}", id, e);
+            log.error("Error while fetching menu category details for id: {}", id);
         }
 
         return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
@@ -242,12 +240,12 @@ public class FoodServiceClientApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("residence/food/attendance/getOccupiedRoomDetails").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/food/attendance/getOccupiedRoomDetails").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("residenceUuid", residenceUuid);
-        queryParams.add("fromDate", fromDate.toString());
-        queryParams.add("toDate", toDate.toString());
+        queryParams.add("residenceId", residenceUuid);
+        queryParams.add("startDate", fromDate.toString());
+        queryParams.add("endDate", toDate.toString());
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -260,9 +258,9 @@ public class FoodServiceClientApi {
         };
 
         try {
-            occupiedBedDtoList = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
+            occupiedBedDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
         } catch (Exception e) {
-            log.error("Exception while fetching dead bed details for residence {} ", residenceUuid, e);
+            log.error("Exception while fetching dead bed details for residence {} ", residenceUuid);
         }
 
         return occupiedBedDtoList;

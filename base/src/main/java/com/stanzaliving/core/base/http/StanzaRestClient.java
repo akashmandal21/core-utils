@@ -221,7 +221,7 @@ public class StanzaRestClient {
 				responseEntity = new ResponseEntity<>(HttpStatus.FORBIDDEN);
 			} else {
 
-				log.error("Exception caught while making rest call: ", e);
+				log.error("Exception caught while making rest call: ");
 				throw new StanzaHttpException(e.getMessage(), e);
 			}
 		}
