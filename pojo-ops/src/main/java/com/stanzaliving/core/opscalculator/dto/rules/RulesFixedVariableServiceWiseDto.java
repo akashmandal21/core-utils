@@ -1,5 +1,7 @@
 package com.stanzaliving.core.opscalculator.dto.rules;
 
+import java.io.Serializable;
+
 import com.stanzaliving.core.opscalculator.enums.FixedVariableCalculatorCategory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +12,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class RulesFixedVariableServiceWiseDto {
+public class RulesFixedVariableServiceWiseDto implements Serializable {
 
     private String residenceUuid;
 

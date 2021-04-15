@@ -1,6 +1,8 @@
 package com.stanzaliving.core.base.utils;
 
-public class ImmutablePair<U, V> {
+import java.io.Serializable;
+
+public class ImmutablePair<U, V>  implements Serializable{
 
     final U key;		//you may remove final if non-immutable needed
     final V value;
