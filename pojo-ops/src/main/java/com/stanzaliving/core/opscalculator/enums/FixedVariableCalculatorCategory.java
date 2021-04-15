@@ -17,6 +17,8 @@ public enum FixedVariableCalculatorCategory {
 	LAUNDRY,
 	OE,
 	PERSONNEL,
+	PERSONNEL_RC,
+	PERSONNEL_OE,
 	RC,
 	REPAIR,
 	BUILDING,
