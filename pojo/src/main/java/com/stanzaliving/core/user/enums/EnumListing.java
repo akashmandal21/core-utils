@@ -7,13 +7,17 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EnumListing<T> {
+public class EnumListing<T> implements Serializable {
+
+	private static final long serialVersionUID = 2738383872873211760L;
 
 	private T key;
 	private String value;
