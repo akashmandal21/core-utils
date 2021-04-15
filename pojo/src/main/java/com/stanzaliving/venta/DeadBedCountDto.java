@@ -1,4 +1,4 @@
-package com.stanzaliving.core.opscalculator.dto;
+package com.stanzaliving.venta;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,9 +13,10 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OccupiedRoomDto {
+public class DeadBedCountDto {
 
 	private LocalDate date;
-	private int occupiedRoomCount;
+	private int deadBedCount;
+	private int deadRoomCount;
 
 }

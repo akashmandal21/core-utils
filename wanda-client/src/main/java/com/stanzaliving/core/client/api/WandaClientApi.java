@@ -1,11 +1,14 @@
 package com.stanzaliving.core.client.api;
 
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.stanzaliving.venta.OccupiedRoomDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -16,7 +19,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.opscalculator.dto.OccupiedRoomDto;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
 import com.stanzaliving.wanda.dtos.FullUserDto;
@@ -483,6 +485,9 @@ public class WandaClientApi {
 		String path = UriComponentsBuilder.fromPath("/coreApi/getOccupiedRoomDetails/{residenceUuid}")
 				.buildAndExpand(uriVariables).toUriString();
 
+		List<OccupiedRoomDto> occupiedRoomDtoList = new ArrayList<>();
+		// create path and map variables
+
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("fromDate", fromDate.toString());
 		queryParams.add("toDate", toDate.toString());
@@ -496,11 +501,11 @@ public class WandaClientApi {
 		};
 
 		try {
-			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+			occupiedRoomDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while getting room count for residence: {}", residenceUuid, e);
+			log.error("Error while getting room count for residence: {}", residenceUuid);
 		}
-		return null;
+		return occupiedRoomDtoList;
 	}
 
 }

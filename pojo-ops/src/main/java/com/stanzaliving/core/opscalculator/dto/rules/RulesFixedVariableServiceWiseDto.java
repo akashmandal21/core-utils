@@ -1,6 +1,6 @@
 package com.stanzaliving.core.opscalculator.dto.rules;
 
-import com.stanzaliving.core.opscalculator.constants.UnderwrittenCalculatorCategory;
+import com.stanzaliving.core.opscalculator.enums.FixedVariableCalculatorCategory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ public class RulesFixedVariableServiceWiseDto {
 
     private String residenceUuid;
 
-    private UnderwrittenCalculatorCategory calculatorCategory;
+    private FixedVariableCalculatorCategory calculatorCategory;
 
     private int fixedPercent;
 
