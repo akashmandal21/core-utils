@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.grammage.response;
 
+import com.stanzaliving.core.dto.KeyValuePairDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,9 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class GrammageMasterBaseResponseDto {
 
-	private String subCategoryId;
+	private KeyValuePairDto category;
+
+	private KeyValuePairDto subCategory;
 
 	private DraftResponseDto<Integer> breakfast;
 
