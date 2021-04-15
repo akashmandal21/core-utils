@@ -62,4 +62,10 @@ public class BaseGrammageMasterCsvDto {
 
 	@CsvBindByName(column = "Override" )
 	private Boolean override;
+
+	/**
+	 * This field is added to add upload remarks in response while bulk uploading.
+	 * This is not being used anywhere in for updating values
+	 */
+	private String remarks;
 }
