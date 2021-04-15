@@ -10,7 +10,7 @@ public enum Department {
 
 	TECH("Tech","TP","TCH"),
 	FINANCE("Finance","FN","FIN"),
-	HR("HR","HR","HRS"),
+	HR("Talent Management","HR","HRS"),
 	LEGAL("Legal","LG","LGL"),
 	SUPERADMIN("Superadmin",null,null),
 	LEADERSHIP("Leadership",null,null),
@@ -29,7 +29,8 @@ public enum Department {
 	ADMIN("Admin","AD","ADM"),
 	MARKETING("Marketing","MK","MKT"),
 	SCM("Supply Chain Mgmt","SM","TRN"),
-	GROWTH_STRATEGY("Growth and Strategy","GS","GRS");
+	GROWTH_STRATEGY("Growth and Strategy","GS","GRS"),
+	LND("Learning & Development","LD","LND");
 
 
 	public String departmentName;
