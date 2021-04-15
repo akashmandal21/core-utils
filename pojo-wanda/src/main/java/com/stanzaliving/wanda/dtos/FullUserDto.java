@@ -25,7 +25,8 @@ public class FullUserDto {
     private String gender;
     private String bloodGroup;
     private String foodPreference;
-    private String roomNumber;
+    private String currentRoomNo;
+    private String originalRoomNo;
     private String imgUrl;
     private HostelDto hostelDto;
     private Date preferredInTime;

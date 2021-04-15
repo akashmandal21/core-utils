@@ -22,7 +22,8 @@ public class UserDetailDto {
     private Integer hostelID;
     private List<String> userProfiles;
     private String userCode; 
-    private String room; 
+    private String currentRoomNo;
+    private String originalRoomNo; 
     private String image;
     private String email;
     private String managerContact;
