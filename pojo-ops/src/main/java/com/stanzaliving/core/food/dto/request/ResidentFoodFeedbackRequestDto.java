@@ -1,10 +1,12 @@
 package com.stanzaliving.core.food.dto.request;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.operations.enums.FeedbackSource;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,4 +37,7 @@ public class ResidentFoodFeedbackRequestDto {
 
 	private String nudgeId;
 
+	private FeedbackSource source;
+
+	private Set<String> mealFeedbackOptionUuids;
 }

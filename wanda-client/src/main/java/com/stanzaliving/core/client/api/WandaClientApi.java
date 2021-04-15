@@ -319,10 +319,10 @@ public class WandaClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		uriVariables.put("userUuid", userUuid);
+		uriVariables.put("userCode", userUuid);
 		uriVariables.put("flag", flag);
 
-		String path = UriComponentsBuilder.fromPath("/coreApi//get/user/residence/{flag}/{userCode}")
+		String path = UriComponentsBuilder.fromPath("/coreApi/get/user/residence/{flag}/{userCode}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -395,11 +395,40 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception e) {
-			log.error("Error fetching user code for userUuid: {}", userUuid, e);
 		}
 
 		return null;
 
+	}
+	
+	public ResidenceUIDto getUserCityMicromarketResidenceUuidsByUserCode(String usercode) {
+
+		try {
+			Object postBody = null;
+
+			log.info("Received request to get User City Micromarket Residence Uuids By UserCode: {}", usercode);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("usercode", usercode);
+			
+			String path = UriComponentsBuilder.fromPath("/coreApi/get/user/residence/userCode/{usercode}").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResidenceUIDto> returnType = new ParameterizedTypeReference<ResidenceUIDto>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching User City Micromarket Residence Uuids By UserCode: {}", usercode, e);
+		}
+
+		return null;
 	}
 
 }
