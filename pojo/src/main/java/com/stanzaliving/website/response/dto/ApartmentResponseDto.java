@@ -44,5 +44,8 @@ public class ApartmentResponseDto implements Serializable {
 	private String googleMapLink;
 	
 	@Builder.Default
+	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
+	
+	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>(0);
 }
