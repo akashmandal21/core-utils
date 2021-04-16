@@ -1,14 +1,16 @@
 package com.stanzaliving.genericdashboard.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+
+@Getter
+@AllArgsConstructor
 public enum ButtonType {
-    PRIMARY_TEAL("PRIMARY_TEAL"),
-    SECONDARY_TEAL("SECONDARY_TEAL");
+    PRIMARY_TEAL("Primary Teal"),
+    SECONDARY_TEAL("Secondary Teal");
 
-    public String buttonType;
-
-    ButtonType(String buttonType) {
-        this.buttonType = buttonType;
-    }
+    String templateButtonType;
 }
 
 

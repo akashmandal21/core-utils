@@ -17,14 +17,14 @@ import java.util.List;
 public class CampaignUserResponseDto {
     @NotNull
     @NotBlank
-    private String userUuid;
+    private String userId;
 
     @NotNull
     private List<UserSurveyResponseDto> surveyResponseDto;
 
     @NotNull
     @NotBlank
-    private String campaignUuid;
+    private String campaignId;
 
     private Date responseTimeStamp;
 }

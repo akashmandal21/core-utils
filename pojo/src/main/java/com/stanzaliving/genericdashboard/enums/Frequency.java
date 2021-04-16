@@ -1,12 +1,14 @@
 package com.stanzaliving.genericdashboard.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum Frequency {
-    MONTHLY("MONTHLY"),
-    DAILY("DAILY");
+    MONTHLY("Monthly"),
+    DAILY("Daily");
 
-    public String frequency;
+    String schedulingFrequency;
 
-    Frequency(String frequency) {
-        this.frequency = frequency;
-    }
 }

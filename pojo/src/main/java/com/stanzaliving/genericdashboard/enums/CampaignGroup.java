@@ -1,12 +1,14 @@
 package com.stanzaliving.genericdashboard.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum CampaignGroup {
-    MANDATORY("MANDATORY"),
-    SKIPPABLE("SKIPPABLE");
+    MANDATORY("Mandatory"),
+    SKIPPABLE("Skippable");
 
-    public String campaignGroup;
+    String group;
 
-    CampaignGroup(String campaignGroup) {
-        this.campaignGroup = campaignGroup;
-    }
 }

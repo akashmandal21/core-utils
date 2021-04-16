@@ -1,17 +1,19 @@
 package com.stanzaliving.genericdashboard.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum CampaignStatus {
-    DRAFT("DRAFT"),
-    PENDING("PENDING"),
-    REJECTED("REJECTED"),
-    APPROVED("APPROVED"),
-    LIVE("LIVE"),
-    COMPLETED("COMPLETED"),
-    TERMINATED("TERMINATED");
+    DRAFT("Draft"),
+    PENDING("Pending"),
+    REJECTED("Rejected"),
+    APPROVED("Approved"),
+    LIVE("Live"),
+    COMPLETED("Completed"),
+    TERMINATED("Terminated");
 
-    public String campaignStatus;
+    String status;
 
-    CampaignStatus(String campaignStatus) {
-        this.campaignStatus = campaignStatus;
-    }
 }

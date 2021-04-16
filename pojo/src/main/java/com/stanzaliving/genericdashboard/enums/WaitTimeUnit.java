@@ -1,13 +1,15 @@
 package com.stanzaliving.genericdashboard.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum WaitTimeUnit {
-    MINUTES("MINUTES"),
-    HOURS("HOURS"),
-    DAYS("DAYS");
+    MINUTES("Minutes"),
+    HOURS("Hours"),
+    DAYS("Days");
 
-    public String waitTimeLayout;
+    String waitTime;
 
-    WaitTimeUnit(String waitTimeLayout) {
-        this.waitTimeLayout = waitTimeLayout;
-    }
 }

@@ -1,12 +1,15 @@
 package com.stanzaliving.genericdashboard.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum SchedulingType {
-    CUSTOM("CUSTOM"),
-    TRIGGER("TRIGGER");
+    CUSTOM("Custom"),
+    TRIGGER("Trigger");
 
-    public String schedulingType;
+    String type;
 
-    SchedulingType(String schedulingType) {
-        this.schedulingType = schedulingType;
-    }
+
 }

@@ -1,13 +1,16 @@
 package com.stanzaliving.genericdashboard.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum CampaignAudienceType {
-    ALL("ALL"),
-    SPECIFIC("SPECIFIC"),
-    LIST("LIST");
+    ALL("All"),
+    SPECIFIC("Specific"),
+    LIST("List");
 
-    String campaignAudienceType;
+    String audienceType;
 
-    CampaignAudienceType(String campaignAudienceType) {
-        this.campaignAudienceType = campaignAudienceType;
-    }
+
 }

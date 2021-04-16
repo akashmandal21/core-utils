@@ -1,14 +1,16 @@
 package com.stanzaliving.genericdashboard.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum CampaignDashboardType {
-    NUDGE("NUDGE"),
-    NOTIFICATION("NOTIFICATION"),
-    SURVEY("SURVEY");
+    NUDGE("Nudge"),
+    NOTIFICATION("Notification"),
+    SURVEY("Survey");
 
-    public String campaignDashboardType;
+    String campaignType;
 
-    CampaignDashboardType(String campaignDashboardType) {
-        this.campaignDashboardType = campaignDashboardType;
-    }
 }
 
