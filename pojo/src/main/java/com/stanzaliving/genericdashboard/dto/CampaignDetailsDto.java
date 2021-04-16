@@ -1,4 +1,5 @@
 package com.stanzaliving.genericdashboard.dto;
+
 import com.stanzaliving.genericdashboard.enums.CampaignDashboardType;
 import com.stanzaliving.genericdashboard.enums.CampaignGroup;
 import com.stanzaliving.genericdashboard.validation.DraftValidation;

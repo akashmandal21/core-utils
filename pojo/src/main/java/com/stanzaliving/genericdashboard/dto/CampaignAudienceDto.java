@@ -1,9 +1,13 @@
 package com.stanzaliving.genericdashboard.dto;
 
 import com.stanzaliving.genericdashboard.enums.CampaignAudienceType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
+
 @Getter
 @Setter
 @NoArgsConstructor

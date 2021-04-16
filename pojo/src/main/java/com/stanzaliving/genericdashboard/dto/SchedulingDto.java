@@ -23,7 +23,7 @@ public class SchedulingDto {
 
     private Date startDate;
 
-    private  Date endDate;
+    private Date endDate;
 
     private Frequency frequency;
 

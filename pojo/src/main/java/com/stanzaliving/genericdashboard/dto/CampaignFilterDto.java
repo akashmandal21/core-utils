@@ -2,9 +2,13 @@ package com.stanzaliving.genericdashboard.dto;
 
 import com.stanzaliving.genericdashboard.enums.CampaignDashboardType;
 import com.stanzaliving.genericdashboard.enums.CampaignStatus;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor

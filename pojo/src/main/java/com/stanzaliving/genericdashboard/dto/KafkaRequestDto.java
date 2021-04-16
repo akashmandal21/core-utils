@@ -14,7 +14,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class KafkaRequestDto {
 
-    private  String userId;
+    private String userId;
 
     private String eventName;
 
@@ -22,7 +22,7 @@ public class KafkaRequestDto {
 
     private Date eventTime;
 
-    private Map<String , String> attributes;
+    private Map<String, String> attributes;
 
 
 }

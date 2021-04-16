@@ -1,6 +1,9 @@
 package com.stanzaliving.genericdashboard.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -10,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CampaignEventsRequestDto {
 
-    private  List<CampaignEventsDto> eventsDid;
+    private List<CampaignEventsDto> eventsDid;
 
     private List<CampaignEventsDto> eventsDidNot;
 
