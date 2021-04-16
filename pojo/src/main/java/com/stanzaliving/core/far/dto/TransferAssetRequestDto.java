@@ -1,6 +1,8 @@
 package com.stanzaliving.core.far.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,4 +25,9 @@ public class TransferAssetRequestDto {
 
     @NotNull
     private boolean transferOut;
+
+    public String toString() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
+    }
 }
