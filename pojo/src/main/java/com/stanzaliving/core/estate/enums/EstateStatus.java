@@ -77,10 +77,8 @@ public enum EstateStatus {
 	CALLBACK_DECLINE("Call Back Request Declined"),
 	
 	//Sales status
-	PENDING_SALES_REVIEW("Pending Sales Review"),
-	SENT_BACK_BY_SALES("Sent back by Sales"),
-	ONBOARDING_IN_PROGRESS("Onboarding in Progress");
-	
+	PENDING_SALES_APPROVAL("Pending Sales Approval"),
+	APPROVED_BY_SALES("Sales Review Done");	
 	
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
