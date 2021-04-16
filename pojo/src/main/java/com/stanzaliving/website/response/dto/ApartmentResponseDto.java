@@ -27,6 +27,8 @@ public class ApartmentResponseDto implements Serializable {
 	
 	private String apartmentName;
 	
+	private String apartmentSlug;
+	
 	private String gender;
 	
 	private String micromarketName;
