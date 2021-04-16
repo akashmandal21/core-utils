@@ -8,21 +8,21 @@ import java.util.List;
 
 public interface AbstractMongoService <T extends AbstractMongoEntity, I extends Serializable> {
 
-	<S extends T> S save(S entity);
+	T save(T entity);
 
-	<S extends T> List<S> save(Iterable<S> entities);
+	List<T> save(Iterable<T> entities);
 
-	<S extends T> List<S> saveAll(Iterable<S> entities);
+	List<T> saveAll(Iterable<T> entities);
 
 	T insert(T entity);
 
 	List<T> insert(Collection<T> entities);
 
-	T findByUuid(String uuid);
-
 	T find(I id);
 
 	List<T> findAll();
+
+	T findByUuid(String uuid);
 
 	List<T> findByUuidIn(Collection<String> uuids);
 
