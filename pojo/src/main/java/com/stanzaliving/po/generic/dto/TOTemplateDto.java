@@ -66,4 +66,6 @@ public class TOTemplateDto {
 
     private String adjustCloseId;
 
+    private String doneBy;
+
 }
