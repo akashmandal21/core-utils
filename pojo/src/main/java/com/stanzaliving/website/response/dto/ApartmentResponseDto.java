@@ -43,6 +43,10 @@ public class ApartmentResponseDto implements Serializable {
 	
 	private String googleMapLink;
 	
+	private String videoLink;
+	
+	private String virtualTourImage;
+	
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
 	
