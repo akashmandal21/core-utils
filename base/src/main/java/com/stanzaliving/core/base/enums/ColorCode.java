@@ -24,7 +24,9 @@ public enum ColorCode {
 	SOFT_GREEN("#EDFFF5"),
 	GREEN_CYAN("#60C3AD"),
 	LIGHT_GRAYISH_BLUE("#E6E9EA"),
-	DARK_GRAYISH_BLUE("#7A7D7E");
+	DARK_GRAYISH_BLUE("#7A7D7E"),
+	VERY_DARK_CYAN("#232728");
+	
 
 	private String colorCode;
 

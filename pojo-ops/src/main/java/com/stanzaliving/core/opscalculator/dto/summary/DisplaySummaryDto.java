@@ -65,7 +65,7 @@ public class DisplaySummaryDto {
 
     public void setDeviationAndColorCodeForAOP() {
         if (NumberUtils.isEqualDouble(this.annualUnderwrittenValue, this.monthlySplitterValue)) {
-            this.colorCode = ColorCode.SOFT_BLUE.getColorCode();
+            this.colorCode = ColorCode.VERY_DARK_CYAN.getColorCode();
         } else if (this.monthlySplitterValue == null || monthlySplitterValue < annualUnderwrittenValue) {
             this.colorCode = ColorCode.MODERATE_CYAN.getColorCode();
         } else {
@@ -80,7 +80,7 @@ public class DisplaySummaryDto {
 
     public void setDeviationAndColorCodeForForecast(double deviationPercentForForecast) {
         if (monthlyForecastValue == null || monthlySplitterValue == null) {
-            colorCode = ColorCode.BLACK.getColorCode();
+            colorCode = ColorCode.VERY_DARK_CYAN.getColorCode();
             deviationPercent = null;
             return;
         } else if (monthlyForecastValue < monthlySplitterValue || NumberUtils.isEqualDouble(monthlyForecastValue, monthlySplitterValue)) {
