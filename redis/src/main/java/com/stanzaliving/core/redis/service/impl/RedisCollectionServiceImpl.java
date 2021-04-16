@@ -3,12 +3,8 @@
  */
 package com.stanzaliving.core.redis.service.impl;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
+import com.stanzaliving.core.redis.service.RedisCollectionService;
+import lombok.extern.log4j.Log4j2;
 import org.redisson.api.RMap;
 import org.redisson.api.RMapCache;
 import org.redisson.api.RSet;
@@ -16,9 +12,11 @@ import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stanzaliving.core.redis.service.RedisCollectionService;
-
-import lombok.extern.log4j.Log4j2;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author naveen.kumar
@@ -180,7 +178,12 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 	public boolean existsInStringMapCache(String mapName, String key) {
 		return getRedisStringMapCache(mapName).containsKey(key);
 	}
-	
+
+	@Override
+	public void removeFromStringMap(String mapName, String key) {
+		redissonClient.getMap(mapName).remove(key);
+	}
+
 	@Override
 	public String addInStringMapCache(String mapName, String key, String value, long ttl, TimeUnit timeUnit) {
 
