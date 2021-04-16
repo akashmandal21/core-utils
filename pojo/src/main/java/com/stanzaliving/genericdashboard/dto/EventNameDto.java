@@ -11,9 +11,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class EventNameDto {
 
-    private Long id;
+    private String uuid;
 
-    private Long categoryId;
+    private String categoryUuid;
 
     private String name;
 }

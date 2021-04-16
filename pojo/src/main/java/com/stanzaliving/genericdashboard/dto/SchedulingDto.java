@@ -37,5 +37,5 @@ public class SchedulingDto {
 
     private WaitTimeUnit waitTimeUnit;
 
-    private String uuId;
+    private String uuid;
 }

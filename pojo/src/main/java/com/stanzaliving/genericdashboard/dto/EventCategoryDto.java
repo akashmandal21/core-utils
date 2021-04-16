@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class EventCategoryDto {
 
-    private Long id;
+    private String uuid;
 
     private String eventCategoryName;
 }
