@@ -39,4 +39,6 @@ public interface RedisCollectionService {
 	String addInStringMapCache(String mapName, String key, String value, long ttl, TimeUnit timeUnit);
 
 	boolean existsInStringMapCache(String mapName, String key);
+
+	void removeFromStringMap(String mapName, String key);
 }
