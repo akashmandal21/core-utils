@@ -5,17 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AudienceLocationDto {
+public class EventCategoryDto {
 
-    private List<String> city;
+    private String uuid;
 
-    private List<String> microMarket;
-
-    private List<String> residence;
+    private String eventCategoryName;
 }

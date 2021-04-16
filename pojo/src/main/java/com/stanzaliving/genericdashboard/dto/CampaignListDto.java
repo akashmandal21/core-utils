@@ -5,17 +5,19 @@ import com.stanzaliving.genericdashboard.enums.CampaignGroup;
 import com.stanzaliving.genericdashboard.enums.CampaignStatus;
 import com.stanzaliving.genericdashboard.enums.SchedulingType;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
-@Data
-@Builder
-@AllArgsConstructor
+
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class CampaignListDto {
-    private String id;
+
+    private String uuid;
 
     private String campaignName;
 

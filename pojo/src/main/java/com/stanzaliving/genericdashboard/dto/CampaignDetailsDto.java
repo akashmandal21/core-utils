@@ -4,19 +4,21 @@ import com.stanzaliving.genericdashboard.enums.CampaignDashboardType;
 import com.stanzaliving.genericdashboard.enums.CampaignGroup;
 import com.stanzaliving.genericdashboard.validation.DraftValidation;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
-@Data
-@Builder
-@AllArgsConstructor
+
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class CampaignDetailsDto {
+
     @NotBlank(message = "Campaign name cannot be empty")
     @Size(
             max = 36,
