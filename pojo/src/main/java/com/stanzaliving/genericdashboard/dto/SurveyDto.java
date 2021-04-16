@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SurveyDto {
-    private String id;
+    private String uuid;
 
     @NotBlank(message = "title of a survey cannot be empty")
     private String surveyTitle;

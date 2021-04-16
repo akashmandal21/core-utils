@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class QuestionsDto {
-    private String id;
+    private String uuid;
 
     @NotBlank(message = "question cannot be empty")
     private String text;

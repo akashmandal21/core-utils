@@ -1,24 +1,22 @@
 package com.stanzaliving.genericdashboard.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
-@Data
-@Builder
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class CampaignUserResponseDto {
-    @NotNull @NotBlank private String userId;
+    @NotNull @NotBlank private String userUuid;
 
     @NotNull private List<UserSurveyResponseDto> surveyResponseDto;
 
-    @NotNull @NotBlank private Long campaignId;
+    @NotNull @NotBlank private String campaignUuid;
 
     private Date responseTimeStamp;
 }
+

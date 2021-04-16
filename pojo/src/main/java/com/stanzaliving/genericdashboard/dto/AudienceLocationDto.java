@@ -1,16 +1,14 @@
 package com.stanzaliving.genericdashboard.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
-@Data
-@Builder
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class AudienceLocationDto {
+
     private List<String> city;
 
     private List<String> microMarket;

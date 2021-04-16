@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class QuestionPageDto {
+
     private Integer pageNumber;
 
     private List<QuestionsDto> questionsDtoList;

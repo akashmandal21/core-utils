@@ -1,22 +1,21 @@
 package com.stanzaliving.genericdashboard.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-@Data
-@Builder
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class CampaignRequestDto {
 
-    private String id;
+    private String uuid;
 
     @NotBlank(message = "Department Name cannot be empty")
-    private String departmentName;
+    private  String departmentName;
+
+    private  String comments;
 
     @Valid private CampaignDetailsDto campaignDetails;
 
@@ -28,4 +27,3 @@ public class CampaignRequestDto {
 
     private SurveyDto surveyDto;
 }
-

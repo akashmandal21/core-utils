@@ -1,17 +1,15 @@
 package com.stanzaliving.genericdashboard.dto;
 
 import com.stanzaliving.genericdashboard.enums.CampaignAudienceType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
-@Data
-@Builder
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class CampaignAudienceDto {
+
     @NotNull(message = "Campaign Audience cannot be empty")
     private CampaignAudienceType campaignAudienceType;
 
@@ -23,5 +21,5 @@ public class CampaignAudienceDto {
 
     private Long numberOfUsers;
 
-    private String id;
+    private String uuid;
 }
