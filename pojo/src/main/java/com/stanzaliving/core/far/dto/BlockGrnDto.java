@@ -18,4 +18,6 @@ public class BlockGrnDto {
     private BigDecimal currentRequestQty;   // (CRQT)
     private BigDecimal totalQtyInPo;    // (TPQ)
     private String itemCode; // todo list ?
+    private boolean isAllowed;
+    private BigDecimal maxAllowed;
 }
