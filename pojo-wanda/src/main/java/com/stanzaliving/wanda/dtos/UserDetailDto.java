@@ -30,5 +30,7 @@ public class UserDetailDto {
     private String residenceAddressId;
     private String collegeName;
     private String currentResidenceUuid;
+    @Deprecated
+    private String room; 
    
 }

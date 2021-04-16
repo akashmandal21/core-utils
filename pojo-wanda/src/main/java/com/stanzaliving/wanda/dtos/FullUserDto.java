@@ -34,4 +34,6 @@ public class FullUserDto {
     private Boolean isBlocked = false;
     private Boolean tifinActive = false;
     private String collegeName;
+    @Deprecated
+    private String roomNumber;
 }

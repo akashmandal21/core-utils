@@ -34,4 +34,6 @@ public class FeaturephoneUserDto {
 	private Boolean featurePhone;
 
 	private String foodPickedAt;
+	@Deprecated
+	private String room;
 }
