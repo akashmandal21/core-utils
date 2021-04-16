@@ -5,6 +5,7 @@ package com.stanzaliving.core.user.client.api;
 
 import java.util.*;
 
+import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.apache.commons.collections.CollectionUtils;
@@ -476,5 +477,31 @@ public class UserClientApi {
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<Map<String, Map<String, Set<UIKeyValue>>>> getUserDtoByRoleAndAccessLevel(List<String> userRoles) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/accesslevel/cachemaps").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, Map<String, Set<UIKeyValue>>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Map<String, Set<UIKeyValue>>>>>() {
+		};
+
+		postBody = userRoles;
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
 	}
 }
