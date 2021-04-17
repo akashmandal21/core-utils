@@ -15,6 +15,8 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodItemRecipeCostDto implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	private Double totalQuantity;
 	private Double servingQuantity;
 	private Double bufferPricePercentage;
