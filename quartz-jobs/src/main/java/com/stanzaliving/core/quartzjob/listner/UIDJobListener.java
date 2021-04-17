@@ -19,11 +19,12 @@ import java.util.UUID;
  */
 
 @Log4j2
-public class GlobalJobListener implements JobListener {
+public class UIDJobListener implements JobListener {
+	private static final String LISTENER_NAME = "UUID Listener";
 
 	@Override
 	public String getName() {
-		return "Logs Job Listener";
+		return LISTENER_NAME;
 	}
 
 	@Override

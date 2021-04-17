@@ -1,6 +1,6 @@
 package com.stanzaliving.core.service;
 
-import com.stanzaliving.core.quartzjob.listner.GlobalJobListener;
+import com.stanzaliving.core.quartzjob.listner.UIDJobListener;
 import com.stanzaliving.core.quartzjob.utils.JobUtil;
 import lombok.extern.log4j.Log4j2;
 import org.quartz.JobDataMap;
@@ -42,7 +42,7 @@ public class JobServiceImpl implements JobService {
 
 	private Scheduler getScheduler() throws SchedulerException {
 		Scheduler scheduler = schedulerFactoryBean.getScheduler();
-		scheduler.getListenerManager().addJobListener(new GlobalJobListener());
+		scheduler.getListenerManager().addJobListener(new UIDJobListener());
 		scheduler.start();
 		return scheduler;
 	}
