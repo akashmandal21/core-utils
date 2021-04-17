@@ -7,6 +7,7 @@ import java.util.*;
 
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
+import com.stanzaliving.core.user.dto.*;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -24,10 +25,6 @@ import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
-import com.stanzaliving.core.user.dto.AccessLevelRoleRequestDto;
-import com.stanzaliving.core.user.dto.UserDto;
-import com.stanzaliving.core.user.dto.UserManagerProfileRequestDto;
-import com.stanzaliving.core.user.dto.UserProfileDto;
 import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -479,7 +476,7 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<Map<String, Map<String, Set<UIKeyValue>>>> getUserDtoByRoleAndAccessLevel(List<String> userRoles) {
+	public ResponseDto<List<UserRoleCacheDto>> getCacheableRoles(List<String> userRoles) {
 		Object postBody = null;
 
 		// create path and map variables
@@ -496,7 +493,7 @@ public class UserClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<Map<String, Map<String, Set<UIKeyValue>>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Map<String, Set<UIKeyValue>>>>>() {
+		ParameterizedTypeReference<ResponseDto<List<UserRoleCacheDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserRoleCacheDto>>>() {
 		};
 
 		postBody = userRoles;
