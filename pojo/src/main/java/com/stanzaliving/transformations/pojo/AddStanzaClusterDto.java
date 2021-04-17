@@ -18,7 +18,8 @@ import java.util.List;
 public class AddStanzaClusterDto {
     private String stanzaClusterName;
     private boolean status;
-    private String zoneUuid;
-    private String stanzaCityUuid;
+    private UIKeyValue zone;
+    private UIKeyValue stanzaCity;
     private List<UIKeyValue> micromarkets;
+    private List<UIKeyValue> geographicalCities;
 }
