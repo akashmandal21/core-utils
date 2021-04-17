@@ -36,12 +36,6 @@ public class ItemUpdateDto extends AbstractDto {
     private String glCode;
     private String recipeTag;
 
-    private String itemNameSearch;
-    private String itemNameSuggest;
-
-    private String itemCodeSearch;
-    private String itemDescriptionSearch;
-
     private Boolean taggable;
     private String substituteItem;
     private UnitType recipeUom;
