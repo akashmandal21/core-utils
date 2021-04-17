@@ -2,6 +2,8 @@ package com.stanzaliving.core.notifications.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.genericdashboard.dto.AudienceLocationDto;
+import com.stanzaliving.notification.dto.NotificationRegistryDto;
 import com.stanzaliving.notification.dto.UserDetailsDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;

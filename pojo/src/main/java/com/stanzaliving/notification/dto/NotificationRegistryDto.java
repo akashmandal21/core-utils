@@ -1,5 +1,10 @@
 package com.stanzaliving.notification.dto;
 
+import com.stanzaliving.genericdashboard.dto.CampaignAudienceDto;
+import com.stanzaliving.genericdashboard.dto.SchedulingDto;
+import com.stanzaliving.genericdashboard.enums.CampaignDashboardType;
+import com.stanzaliving.genericdashboard.enums.Frequency;
+import com.stanzaliving.genericdashboard.enums.TemplateLayout;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,13 +20,13 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NotificationRegistryDto {
-   private Long uuid;
+    private String uuid;
 
     @NotBlank(message = "App Id cannot be empty or null")
      private String appName;
 
     @NotBlank(message = "Campaign Id cannot be empty or null")
-    private String campaignId;
+    private String campaignUuid;
 
     @NotNull(message = "Campaign Type cannot be empty or null")
     private CampaignDashboardType campaignDashboardType;
