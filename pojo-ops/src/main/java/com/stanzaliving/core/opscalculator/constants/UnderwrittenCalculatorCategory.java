@@ -28,6 +28,7 @@ public enum UnderwrittenCalculatorCategory {
 	RC("rc"),
 	REPAIR("repair"),
 	BUILDING("building"),
+	REPAIR_MAINTENANCE("repair_maintenance"),
 	SECURITY("security"),
 	SUBSCRIPTION("subscription"),
 	TRANSPORT("transport"),
