@@ -264,7 +264,7 @@ public abstract class TemplateProcessor {
                                                                         Map<String,Field> fields, Object sourceClass,
                                                                         boolean allowSkipNewFields, Object baseObject){
 
-        log.info("Processing Template {} ",templateName);
+        log.info("Processing Template {} {}",templateName,data);
 //        log.info("Source class {}",baseObject);
         final int currErrors = errorInfo.getNumErrors();
         Map<String, UiParentField> uiFieldMap = new LinkedHashMap<>();
