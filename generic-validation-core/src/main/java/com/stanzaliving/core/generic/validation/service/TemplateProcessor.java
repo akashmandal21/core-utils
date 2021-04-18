@@ -311,6 +311,7 @@ public abstract class TemplateProcessor {
                             updateErrorInfo(errorInfo);
                         }
                     } else {
+                        log.info("Data Value {}",data.get(templateField.getFieldName()));
                         uiField = ValueAdapters.getValue(data.get(templateField.getFieldName()), UiField.class,objectMapper);
                         uiField.setErrorMsg(null);
                         uiField.setErrorOccurred(false);
