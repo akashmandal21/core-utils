@@ -52,7 +52,7 @@ public class FieldDecoder {
         try {
             FieldType fieldType = templateField.getFieldType();
             JsonNode data = uiSubmitField.getValue();
-            log.info("Value data  field type {} needed {}",fieldType,needed,data);
+            log.info("Value data  field type {} needed {} {}",fieldType,needed,data);
             if (Objects.nonNull(data) && (!data.isNull()))
             {
                 switch (fieldType) {
