@@ -31,7 +31,7 @@ public class DeviationPercentSummaryDto extends MonthUnderwrittenSummaryDto {
     String laundryCategoryName = UnderwrittenCalculatorCategory.LAUNDRY.toString();
     String repairAndMaintenanceCommentUuid;
     @Builder.Default
-    String repairAndMaintenanceCategoryName = UnderwrittenCalculatorCategory.REPAIR.toString();
+    String repairAndMaintenanceCategoryName = UnderwrittenCalculatorCategory.REPAIR_MAINTENANCE.toString();
     String equipmentRentalCommentUuid;
     @Builder.Default
     String equipmentRentalCategoryName = UnderwrittenCalculatorCategory.EQUIPMENT.toString();
