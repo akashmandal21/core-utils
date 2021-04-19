@@ -23,4 +23,5 @@ public class TransformationsFilterDto {
     private SortDirection sortBy;
     private SortByKey sortKey;
     private String geographicalUuid;
+    private Boolean status;
 }

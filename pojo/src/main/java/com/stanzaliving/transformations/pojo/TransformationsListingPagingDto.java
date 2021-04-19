@@ -1,5 +1,6 @@
 package com.stanzaliving.transformations.pojo;
 
+import com.stanzaliving.core.base.common.dto.PageResponse;
 import lombok.*;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransformationsListingPagingDto {
-    private List<TransformationsListingDto> data;
+    private PageResponse<TransformationsListingDto> data;
     private Long totalPages;
     private Long currentPage;
     private Long totalRecords;
