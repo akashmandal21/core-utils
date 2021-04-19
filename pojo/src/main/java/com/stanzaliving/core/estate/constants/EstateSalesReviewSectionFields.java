@@ -6,7 +6,7 @@ public class EstateSalesReviewSectionFields {
 	
 	public static final String REMARKS = "remarks";
 	
-	public static final String IMAGE = "toShow";
+	public static final String IMAGE = "isShow";
 	
 	public static final String VAS="vas";
 		
