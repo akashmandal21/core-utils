@@ -15,6 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BlockGrnResponseDto {
-    private List<BlockGrnDto> details; // todo - change this to class
+    private List<BlockGrnDto> details;
     private Boolean shouldBlockGrn;
 }
