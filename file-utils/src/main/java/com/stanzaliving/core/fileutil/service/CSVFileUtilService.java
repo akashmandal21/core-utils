@@ -1,6 +1,7 @@
 package com.stanzaliving.core.fileutil.service;
 
 import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.stanzaliving.core.fileutil.dto.CSVResponse;
 import com.stanzaliving.core.fileutil.dto.S3UploadResponse;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,4 +22,5 @@ public interface CSVFileUtilService {
     S3UploadResponse upload(String bucket, String filePath, String fileName, InputStream inputStream, String contentType,
 AmazonS3 s3Client, boolean isPublic);
     String getPreSignedURL(String bucket, String filePath, int durationInSeconds, AmazonS3 s3Client);
+    S3ObjectInputStream downloadFileFromS3(String bucket, String filePath, AmazonS3 s3Client);
 }

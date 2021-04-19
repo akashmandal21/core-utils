@@ -2,6 +2,7 @@ package com.stanzaliving.core.fileutil.service.impl;
 
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.stanzaliving.core.amazons3.util.S3Util;
 import com.stanzaliving.core.fileutil.dto.CSVResponse;
 import com.stanzaliving.core.fileutil.dto.S3UploadResponse;
@@ -39,6 +40,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
     /**
      * Read CSV multipart file
+     *
      * @param file
      * @return return the content and meta data of CSV in CSVResponse dto
      */
@@ -54,6 +56,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
     /**
      * Read CSV file based on content type and input stream
+     *
      * @param contentType content type of the file
      * @param inputStream content of the file in input stream
      * @return return the content and meta data of CSV in CSVResponse dto
@@ -67,6 +70,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
     /**
      * Read CSV file based on multipart file and filter the details of list of header
      * If the filter list is empty then the response contents all content
+     *
      * @param file
      * @param header
      * @return return the content and meta data of CSV in CSVResponse dto
@@ -83,6 +87,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
     /**
      * Read CSV file based on content type, input stream and filter the details of list of header
+     *
      * @param contentType
      * @param inputStream
      * @param filterHeader
@@ -93,7 +98,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         log.info("FILE-UTILS::Reading CSV file anf filter according to headers {}", filterHeader);
         int totalRecords = 0;
         List<String> csvHeader = new ArrayList<>();
-        List<Map<String,String>> csvData = new ArrayList<>();
+        List<Map<String, String>> csvData = new ArrayList<>();
         if (CVSUtil.hasCSVFormat(contentType)) {
             try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
                  CSVParser csvParser = new CSVParser(fileReader,
@@ -123,7 +128,8 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
     /**
      * Download a file from S3 based on bucket name, file path, Amazons3 client details
-     * @param bucket s3 bucket name
+     *
+     * @param bucket   s3 bucket name
      * @param filePath of the file
      * @param s3Client AmazonS3 client configuration
      * @return download the file inside tmp folder
@@ -136,7 +142,8 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
     /**
      * Get the stream data of the file from S3 storage
-     * @param bucket s3 bucket name
+     *
+     * @param bucket   s3 bucket name
      * @param filePath of the file
      * @param s3Client AmazonS3 client configuration
      * @return Stream data of the file
@@ -159,62 +166,66 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
     /**
      * Read the CSV file from S3 bucket
-     * @param bucket s3 bucket name
-     * @param filePath  of the file
+     *
+     * @param bucket   s3 bucket name
+     * @param filePath of the file
      * @param s3Client AmazonS3 client configuration
      * @return return the content and meta data of CSV in CSVResponse dto
      */
     @Override
     public CSVResponse readCSVFile(String bucket, String filePath, AmazonS3 s3Client) {
         log.info("FILE-UTILS::Reading file from from path {} and bucket {}", filePath, bucket);
-        return readCSVFile(bucket, filePath, s3Client,new ArrayList<>());
+        return readCSVFile(bucket, filePath, s3Client, new ArrayList<>());
     }
 
     /**
      * Read the CSV file from S3 bucket for specific headers
-     * @param bucket s3 bucket name
+     *
+     * @param bucket   s3 bucket name
      * @param filePath of the file
      * @param s3Client AmazonS3 client configuration
-     * @param header filter headers
+     * @param header   filter headers
      * @return return the content and meta data of CSV in CSVResponse dto
      */
     @Override
     public CSVResponse readCSVFile(String bucket, String filePath, AmazonS3 s3Client, List<String> header) {
         log.info("FILE-UTILS::Reading file from from path {} and bucket {} and filtering with header {}", filePath, bucket, header);
-        InputStream file= retrieveFile(bucket, filePath, s3Client);
+        InputStream file = retrieveFile(bucket, filePath, s3Client);
         return file != null ? readCSVFile(CSV_CONTENT_TYPE, file, header) : null;
     }
 
     /**
      * Upload CSV file to S3 bucket
-     * @param bucket s3 bucket name
-     * @param filePath file path in bucket
-     * @param fileName file name
+     *
+     * @param bucket      s3 bucket name
+     * @param filePath    file path in bucket
+     * @param fileName    file name
      * @param inputStream file content in stream
      * @param contentType content type of the file
-     * @param s3Client AmazonS3 configuration details
-     * @param isPublic boolean to set the visibility of the file
+     * @param s3Client    AmazonS3 configuration details
+     * @param isPublic    boolean to set the visibility of the file
      * @return details of bucket and file path after saving
      */
     @Override
     public S3UploadResponse upload(String bucket, String filePath, String fileName, InputStream inputStream, String contentType, AmazonS3 s3Client, boolean isPublic) {
         log.info("FILE-UTILS::Uploading file {} in filepath {} in bucket {}", fileName, filePath, bucket);
-        if(CVSUtil.hasCSVFormat(contentType)){
+        if (CVSUtil.hasCSVFormat(contentType)) {
             return S3UploadResponse.builder()
                     .bucketName(bucket)
                     .filePath(s3UploadService.upload(bucket, filePath, inputStream, contentType, s3Client, isPublic))
                     .build();
         }
         log.error("FILE-UTILS::Error in uploading file {} with filepath {} in bucket {}", fileName, filePath, bucket);
-        throw new StanzaException("Failed to store file "+fileName+" due to mismatch in format");
+        throw new StanzaException("Failed to store file " + fileName + " due to mismatch in format");
     }
 
     /**
      * Create pre-signed url for a file
-     * @param bucket s3 bucket name
-     * @param filePath file path in bucket
+     *
+     * @param bucket            s3 bucket name
+     * @param filePath          file path in bucket
      * @param durationInSeconds validity time for link in seconds
-     * @param s3Client Amazons3 configuration details
+     * @param s3Client          Amazons3 configuration details
      * @return the created pre-signed url for the file
      */
     @Override
@@ -224,4 +235,17 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         return s3DownloadService.getPreSignedUrl(bucket, filePath, durationInSeconds, s3Client);
     }
 
+    /**
+     * Download file from s3 bucket
+     * @param bucket bucket name
+     * @param filePath file path
+     * @param s3Client s3 client configuration
+     * @return
+     */
+    @Override
+    public S3ObjectInputStream downloadFileFromS3(String bucket, String filePath, AmazonS3 s3Client) {
+        log.info("FILE-UTILS::Download file in filepath {} in bucket {}", filePath, bucket);
+        S3ObjectInputStream stream = (S3ObjectInputStream) retrieveFile(bucket, filePath, s3Client);
+        return stream;
+    }
 }
