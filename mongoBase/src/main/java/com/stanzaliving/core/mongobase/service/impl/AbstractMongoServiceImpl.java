@@ -15,45 +15,42 @@ import java.util.List;
 @Service
 @Log4j2
 public abstract class AbstractMongoServiceImpl<T extends AbstractMongoEntity, I extends Serializable, R extends AbstractMongoRepository<T,I>>
-    implements AbstractMongoService<T, I>
-{
+		implements AbstractMongoService<T, I> {
 
-    protected abstract R getMongoRepository();
+	protected abstract R getMongoRepository();
 
-    protected abstract MongoTemplate getMongoTemplate();
+	protected abstract MongoTemplate getMongoTemplate();
 
-    @Override
-    public T insert(T entity) {
-        return getMongoRepository().insert(entity);
-    }
+	@Override
+	public T insert(T entity) {
+		return getMongoRepository().insert(entity);
+	}
 
-    @Override
-    public List<T> insert(Collection<T> entities) {
-        return getMongoRepository().saveAll(entities);
-    }
+	@Override
+	public List<T> insert(Collection<T> entities) {
+		return getMongoRepository().saveAll(entities);
+	}
 
+	@Override
+	public T find(I id) {
+		return getMongoRepository().findById(id).orElse(null);
+	}
 
-    @Override
-    public T find(I id) {
-        return getMongoRepository().findById(id).orElse(null);
-    }
+	@Override
+	public T findByUuid(String uuid) {
+		return getMongoRepository().findFirstByUuid(uuid);
+	}
 
+	@Override
+	public boolean delete(T entity) {
+		DeleteResult result = getMongoTemplate().remove(entity);
+		if(result.getDeletedCount()==0) return false;
+		return true;
+	}
 
-    @Override
-    public T findByUuid(String uuid) {
-        return getMongoRepository().findFirstByUuid(uuid);
-    }
-
-    @Override
-    public boolean delete(T entity) {
-        DeleteResult result = getMongoTemplate().remove(entity);
-        if(result.getDeletedCount()==0) return false;
-        return true;
-    }
-
-    @Override
-    public void delete(I id) {
-        getMongoRepository().deleteById(id);
-    }
+	@Override
+	public void delete(I id) {
+		getMongoRepository().deleteById(id);
+	}
 
 }
