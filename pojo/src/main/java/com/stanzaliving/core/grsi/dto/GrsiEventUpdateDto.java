@@ -25,5 +25,6 @@ public class GrsiEventUpdateDto {
     private String doneBy;
     private Date doneAt;
     private GrsiItemDto gsriItem;
+    private Integer version;
     private String adjustCloseId;
 }

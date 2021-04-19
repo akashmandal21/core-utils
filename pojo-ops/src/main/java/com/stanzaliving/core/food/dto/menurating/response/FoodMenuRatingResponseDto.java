@@ -7,7 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -23,9 +23,15 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuRatingResponseDto {
+public class FoodMenuRatingResponseDto implements Serializable {
+
+	private static final long serialVersionUID = 95215212372728438L;
 
 	private String menuGroupId;
 
 	private FoodMenuMicroMarketRatingResponseDto micromarketRating;
+
+	private Long ratingDays;
+
+	private Integer topServings;
 }
