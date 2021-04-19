@@ -1,6 +1,7 @@
 package com.stanzaliving.transformations.pojo;
 
 import com.stanzaliving.item_master.enums.SortDirection;
+import com.stanzaliving.transformations.enums.SortByKey;
 import lombok.*;
 
 import java.util.List;
@@ -20,6 +21,6 @@ public class TransformationsFilterDto {
     private List<String> stanzaCluster;
     private List<String> city;
     private SortDirection sortBy;
-    private String sortKey;
+    private SortByKey sortKey;
     private String geographicalUuid;
 }
