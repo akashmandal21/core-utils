@@ -359,6 +359,7 @@ public abstract class TemplateProcessor {
                             if(!isDraft)
                                 uiBasicField.setErrorOccurred(nestedData.getFirst());
                             uiBasicField.setData(objectMapper.valueToTree(nestedData.getSecond()));
+                            log.info("Data {}",nestedData.getSecond());
                             if (!nestedData.getFirst() || saveDraftOnError)
                                 dataSaved = ValueAdapters.setFieldValDirectly(templateName,templateField,field,sourceClass,obj);
 
