@@ -8,11 +8,7 @@
 	<packaging>jar</packaging>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.stanzaliving.core</groupId>
-			<artifactId>pojo</artifactId>
-			<version>${global.version}</version>
-		</dependency>
+
 		<dependency>
 			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>

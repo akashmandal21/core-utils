@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.HashMap;
 
 @Data
 @Getter
@@ -16,14 +17,16 @@ import javax.validation.constraints.NotNull;
 public class ApprovalResponseDto {
     @NotNull(message = "entityUuid cannot be null")
     @NotBlank(message = "entityUuid cannot be blank")
-    String entityUuid;
+    private String entityUuid;
 
     @NotBlank(message = "entity cannot be blank")
     @NotNull(message = "entity cannot be null")
-    String entityName;
+    private String entityName;
 
     //todo: add enum validator
     ApprovalStatus approvalStatus;
 
-    String comment;
+    private String comment;
+
+    private HashMap<String, Object> metadata;
 }
