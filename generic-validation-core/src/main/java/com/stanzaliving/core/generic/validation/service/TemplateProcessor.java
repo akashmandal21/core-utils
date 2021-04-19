@@ -359,7 +359,6 @@ public abstract class TemplateProcessor {
                             if(!isDraft)
                                 uiBasicField.setErrorOccurred(nestedData.getFirst());
                             uiBasicField.setData(objectMapper.valueToTree(nestedData.getSecond()));
-                            log.info("Data {}",nestedData.getSecond());
                             if (!nestedData.getFirst() || saveDraftOnError)
                                 dataSaved = ValueAdapters.setFieldValDirectly(templateName,templateField,field,sourceClass,obj);
 
@@ -372,7 +371,7 @@ public abstract class TemplateProcessor {
                             List<Map<String, JsonNode>> nestedStruct = ValueAdapters.convertValue(uiBasicField.getData(), new TypeReference<List<Map<String, JsonNode>>>() {},objectMapper);
 
                             if (CollectionUtils.isNotEmpty(nestedStruct)) {
-                                log.info("List Data size {} {} ",nestedStruct.size(),nestedStruct);
+                                log.info("List Data size {} ",nestedStruct.size());
                                 for (Map<String, JsonNode> f : nestedStruct) {
                                     Object temp = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);
                                     Pair<Boolean, Map<String, UiParentField>> derivedData = verifyAndStoreData(f, templateField.getFieldName(), templates, isDraft,
