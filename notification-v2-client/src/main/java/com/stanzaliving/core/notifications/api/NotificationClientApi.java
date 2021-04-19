@@ -31,8 +31,9 @@ public class NotificationClientApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userId", userId);
         String path =
-                UriComponentsBuilder.fromPath("api/v1/fcm/user/" + userId + "/location")
+                UriComponentsBuilder.fromPath("api/v1/fcm/user/{userId}/location")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
@@ -148,8 +149,9 @@ public class NotificationClientApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("campaignId", campaignId);
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/notification/campaign/" + campaignId)
+                UriComponentsBuilder.fromPath("/api/v1/notification/campaign/{campaignId}")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
@@ -171,8 +173,9 @@ public class NotificationClientApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("campaignId", campaignId);
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/notification/end-date/campaign/" + campaignId)
+                UriComponentsBuilder.fromPath("/api/v1/notification/end-date/campaign/{campaignId}")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
@@ -188,4 +191,31 @@ public class NotificationClientApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         return response.getData();
     }
+
+    public String getNotificationClickedAt(String userId, String campaignId) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userId", userId);
+        uriVariables.put("campaignId", campaignId);
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/notification/campaign/{campaignId}/user/{userId}/notification")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {};
+        ResponseDto<String> response = restClient.invokeAPI(
+                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return response.getData();
+    }
+
 }
