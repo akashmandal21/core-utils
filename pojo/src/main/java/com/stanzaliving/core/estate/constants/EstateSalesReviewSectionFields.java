@@ -1,14 +1,12 @@
 package com.stanzaliving.core.estate.constants;
 
-import java.util.List;
-
-import com.stanzaliving.core.generic.dto.UIKeyValue;
-
 public class EstateSalesReviewSectionFields {
 
 	public static final String OCCUPANCY_TYPE = "occupancy";
 	
 	public static final String REMARKS = "remarks";
+	
+	public static final String IMAGE = "toShow";
 	
 	public static final String VAS="vas";
 		
