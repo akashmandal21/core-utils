@@ -29,4 +29,8 @@ public interface AbstractMongoService <T extends AbstractMongoEntity, I extends 
 	boolean delete(T entity);
 
 	void delete(I id);
+
+	void deleteAll(Iterable<T> entities);
+
+	void deleteAll();
 }

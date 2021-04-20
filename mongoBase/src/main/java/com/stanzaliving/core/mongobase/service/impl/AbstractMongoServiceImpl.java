@@ -78,4 +78,13 @@ public abstract class AbstractMongoServiceImpl<T extends AbstractMongoEntity, I 
 		getMongoRepository().deleteById(id);
 	}
 
+	@Override
+	public void deleteAll(Iterable<T> entities) {
+		getMongoRepository().deleteAll(entities);
+	}
+
+	@Override
+	public void deleteAll() {
+		getMongoRepository().deleteAll();
+	}
 }
