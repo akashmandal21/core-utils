@@ -28,6 +28,10 @@ public class StanzaCityPostDto {
 	private Boolean status;
 	@NotNull
 	private UIKeyValue zone;
+	@NotNull
+	private List<UIKeyValue> stanzaClusters;
+	
+	
 
 	
 }
