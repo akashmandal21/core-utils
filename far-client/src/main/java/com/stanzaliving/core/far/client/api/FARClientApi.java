@@ -62,12 +62,14 @@ public class FARClientApi {
 
     }
 
-    public ResponseDto<List<GrsiEventUpdateDto>> migrateGrnDataFromGrnServiceToFarService(List<GrsiEventUpdateDto> grsiEventUpdateDtos) {
+    public ResponseDto<List<GrsiEventUpdateDto>> migrateGrnDataFromGrnServiceToFarService(GrnMigrationDataUpdateDto grnMigrationDataUpdateDto) {
 
-        log.info("HTTP client call to migrate grn data from GRN service to FAR service: {}", grsiEventUpdateDtos);
+        log.info("HTTP client call to migrate grn data from GRN service to FAR service: {}", grnMigrationDataUpdateDto);
 
-        if (CollectionUtils.isEmpty(grsiEventUpdateDtos))
+        if (Objects.isNull(grnMigrationDataUpdateDto))
             return null;
+
+        Object postBody = null;
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -79,12 +81,14 @@ public class FARClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
+        postBody = grnMigrationDataUpdateDto;
+        		
         ParameterizedTypeReference<ResponseDto<List<GrsiEventUpdateDto>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<GrsiEventUpdateDto>>>() {
         };
 
         String path = UriComponentsBuilder.fromPath("/internal/far/grn/data/receive").buildAndExpand(uriVariables).toUriString();
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, grsiEventUpdateDtos, headerParams, accept, vddReturnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, vddReturnType);
 
     }
 }

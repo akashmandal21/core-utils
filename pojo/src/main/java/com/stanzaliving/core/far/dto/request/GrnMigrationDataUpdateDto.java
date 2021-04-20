@@ -6,10 +6,6 @@ package com.stanzaliving.core.far.dto.request;
 
 import java.util.List;
 
-import javax.validation.constraints.NotNull;
-
-import org.apache.commons.lang3.tuple.Pair;
-
 import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
 
 import lombok.AllArgsConstructor;
@@ -31,7 +27,5 @@ import lombok.ToString;
 @AllArgsConstructor
 public class GrnMigrationDataUpdateDto {
 
-	@NotNull
-	private Pair<String, List<GrsiEventUpdateDto>> poGrnItemsPair;
-
+	private List<GrsiEventUpdateDto> grsiEventUpdateDtos;
 }
