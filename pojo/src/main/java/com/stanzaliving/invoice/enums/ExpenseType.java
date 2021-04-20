@@ -10,7 +10,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ExpenseType {
-    BS("OP"),
+    BS("BS"),
     DIRECT("Direct"),
     INDIRECT("Indirect"),
     PRIMARY("Primary");
