@@ -3,7 +3,7 @@ package com.stanzaliving.website.constants;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
-public class WebsiteFilterConstants {
+public class WebsiteResidenceFilterConstants {
 
 	public final String FILTER_NAME = "Filters";
 

@@ -10,4 +10,8 @@ import lombok.Data;
 public class ApartmentListingDto {
 
 	private List<List<ApartmentResponseDto>> apartments;
+	
+	private Integer countAfterGrouping;
+	
+	private Integer totalCount;
 }

@@ -49,6 +49,10 @@ public class ApartmentResponseDto implements Serializable {
 	
 	private String virtualTourImage;
 	
+	private String area;
+	
+	private String floorNumber;
+	
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
 	
