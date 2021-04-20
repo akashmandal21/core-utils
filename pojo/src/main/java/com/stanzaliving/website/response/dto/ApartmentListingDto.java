@@ -9,9 +9,7 @@ import lombok.Data;
 @Builder
 public class ApartmentListingDto {
 
-	private List<List<ApartmentResponseDto>> apartments;
+	private List<ApartmentResponseDto> apartments;
 	
-	private Integer countAfterGrouping;
-	
-	private Integer totalCount;
+	private Integer count;
 }

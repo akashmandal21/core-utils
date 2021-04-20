@@ -1,8 +1,12 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
+
+import com.stanzaliving.website.enums.Gender;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ApartmentResponseDto implements Serializable {
+public class ApartmentResponseDto implements Serializable, Comparable<ApartmentResponseDto> {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -29,7 +33,7 @@ public class ApartmentResponseDto implements Serializable {
 	
 	private String apartmentSlug;
 	
-	private String gender;
+	private Gender gender;
 	
 	private String micromarketName;
 	
@@ -53,9 +57,22 @@ public class ApartmentResponseDto implements Serializable {
 	
 	private String floorNumber;
 	
+	private Date created;
+	
 	@Builder.Default
-	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
+	private Integer similarApartmentsCount = 0;
+	
+	@Builder.Default
+	private Set<FacilityResponseDTO> facilites = new HashSet<>(0);
 	
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>(0);
+
+	@Override
+	public int compareTo(ApartmentResponseDto dto2) {
+		
+		if (Objects.isNull(getSortOrder()) || Objects.isNull(dto2.getSortOrder()))
+			return getCreated().compareTo(dto2.getCreated());
+		return getSortOrder().compareTo(dto2.getSortOrder());
+	}
 }

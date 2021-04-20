@@ -38,7 +38,7 @@ public class ResidenceResponseShortDTO {
 	private Double distanceFromPlace;
 
 	@Builder.Default
-	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
+	private Set<FacilityResponseDTO> facilites = new HashSet<>(0);
 
 	@Builder.Default
 	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
