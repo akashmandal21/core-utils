@@ -218,4 +218,28 @@ public class NotificationClientApi {
         return response.getData();
     }
 
+    public void updateUserNotificationOnClick(String userUuid, String residenceUuid) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userUuid", userUuid);
+        uriVariables.put("residenceUuid", residenceUuid);
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/fcm/user/{userUuid}/residence/{residenceUuid}")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {};
+        restClient.invokeAPI(
+                path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+    }
 }
