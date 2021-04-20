@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum ComplaintEventCategory {
 
 	COMPLAINT_LOGGED("Complaint Logged"),
-	COMPLAINT_CLOSED(" Complaint Closed"),
+	COMPLAINT_CLOSED("Complaint Closed"),
 	COMPLAINT_RESOLVED("Complaint Resolved"),
 	COMPLAINT_FEEDBACK_GIVEN("Complaint Feedback given");
 

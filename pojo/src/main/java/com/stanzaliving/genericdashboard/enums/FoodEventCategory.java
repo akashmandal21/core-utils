@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum FoodEventCategory {
-	FEEDBACK_GIVEN_FOR_CAFE_VAS_ORDER("feedback given for Cafe (VAS) Order"),
+	FEEDBACK_GIVEN_FOR_CAFE_VAS_ORDER("Feedback given for Cafe (VAS) Order"),
 	CAFE_VAS_ORDER_PLACED("Cafe (VAS) Order Placed"),
 	RC_RECEIVED_BATCH_CAFE_ORDERS_IN_JARVIS_APP("RC received the Batch Cafe Orders in Jarvis app"),
 	REGULAR_MEAL_QR_SCANNED_SUCCESS("Regular Meal QR Scanned (Success)"),
