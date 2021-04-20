@@ -19,5 +19,8 @@ public class DeadBedCountDto implements Serializable{
 	private LocalDate date;
 	private int deadBedCount;
 	private int deadRoomCount;
+	private int blockedBedCount;
+	private int blockedRoomCount;
+	
 
 }
