@@ -25,6 +25,7 @@ import java.util.Objects;
 
 import javax.validation.Valid;
 import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
+import org.apache.commons.collections.CollectionUtils;
 
 @Log4j2
 public class FARClientApi {
@@ -61,11 +62,11 @@ public class FARClientApi {
 
     }
 
-    public ResponseDto<List<GrsiEventUpdateDto>> migrateGrnDataFromGrnServiceToFarService(GrnMigrationDataUpdateDto grnMigrationDataUpdateDto) {
+    public ResponseDto<List<GrsiEventUpdateDto>> migrateGrnDataFromGrnServiceToFarService(List<GrsiEventUpdateDto> grsiEventUpdateDtos) {
 
-        log.info("HTTP client call to migrate grn data from GRN service to FAR service: {}", grnMigrationDataUpdateDto);
+        log.info("HTTP client call to migrate grn data from GRN service to FAR service: {}", grsiEventUpdateDtos);
 
-        if (Objects.isNull(grnMigrationDataUpdateDto))
+        if (CollectionUtils.isEmpty(grsiEventUpdateDtos))
             return null;
 
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -83,7 +84,7 @@ public class FARClientApi {
 
         String path = UriComponentsBuilder.fromPath("/internal/far/grn/data/receive").buildAndExpand(uriVariables).toUriString();
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, grnMigrationDataUpdateDto, headerParams, accept, vddReturnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, grsiEventUpdateDtos, headerParams, accept, vddReturnType);
 
     }
 }
