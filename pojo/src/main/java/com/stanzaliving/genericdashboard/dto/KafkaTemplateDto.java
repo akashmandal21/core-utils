@@ -1,26 +1,21 @@
 package com.stanzaliving.genericdashboard.dto;
 
+import com.stanzaliving.genericdashboard.enums.EventDataType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-import java.util.Map;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class KafkaRequestDto {
+public class KafkaTemplateDto {
 
-    String userId;
+    EventDataType eventDataType;
 
-    String eventName;
+    Boolean isMetaDataApplicable;
 
-    String eventCategory;
+    Object value;
 
-    Date eventTime;
-
-    Map<String , KafkaTemplateDto> attributes;
 }
