@@ -6,6 +6,6 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum PropertyCategory {
-    SUITES("Suites"), STELLO("Stello");
+    SUITES("Suites"), STELLO("Stello"),MANAGED_APARTMENTS("Managed Apartments");
     String name;
 }
