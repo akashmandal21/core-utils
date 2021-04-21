@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
@@ -26,12 +27,15 @@ import java.util.List;
 @AllArgsConstructor
 public class ThaliGrammageRuleRequestDto {
 
+	@Valid
 	@NotEmpty(message = "Thali Grammages selection is mandatory")
 	private List<GrammageMasterThaliRequestDto> thaliGrammages;
 
+	@Valid
 	@NotEmpty(message = "Fixed rules selection is mandatory")
 	private List<GrammageMasterRuleFixedRequestDto> fixedRules;
 
+	@Valid
 	@NotEmpty(message = "Ratio rules selection is mandatory")
 	private List<GrammageMasterRuleRatioRequestDto> ratioRules;
 }
