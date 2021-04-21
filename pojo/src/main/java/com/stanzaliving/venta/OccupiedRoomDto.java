@@ -1,4 +1,4 @@
-package com.stanzaliving.core.opscalculator.dto;
+package com.stanzaliving.venta;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,13 +14,9 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class DeadBedCountDto implements Serializable{
+public class OccupiedRoomDto implements Serializable{
 
 	private LocalDate date;
-	private int deadBedCount;
-	private int deadRoomCount;
-	private int blockedBedCount;
-	private int blockedRoomCount;
-	
+	private int occupiedRoomCount;
 
 }
