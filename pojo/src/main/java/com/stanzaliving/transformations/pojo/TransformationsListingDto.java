@@ -33,6 +33,9 @@ public class TransformationsListingDto {
     private UpdatedByDto lastUpdated;
     private Boolean enabled;
 
+    private String textColor;
+    private String backgroundColor;
+
 
 
 
