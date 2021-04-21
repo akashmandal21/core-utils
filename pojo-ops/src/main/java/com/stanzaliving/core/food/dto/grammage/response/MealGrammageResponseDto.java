@@ -1,6 +1,6 @@
 package com.stanzaliving.core.food.dto.grammage.response;
 
-import com.stanzaliving.core.food.enums.ThaliOption;
+import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,12 +8,10 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
-
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @since 16-Apr-2021
+ * @since 21-Apr-2021
  *
  * @version 1.0
  */
@@ -23,9 +21,11 @@ import java.util.List;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class GrammageMasterThaliResponseDto {
+public class MealGrammageResponseDto {
 
-	private EnumListing<ThaliOption> thali;
+	private EnumListing<MealType> mealType;
 
-	private List<MealGrammageResponseDto> mealGrammages;
+	private boolean enabled;
+
+	private Integer grammage;
 }
