@@ -9,6 +9,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 /**
  * @author piyush.srivastava "piyush.sivastava@stanzaliving.com"
  *
@@ -23,7 +25,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishDetailsResponseDto {
+public class DishDetailsResponseDto implements Serializable {
 
 	private String dishId;
 
