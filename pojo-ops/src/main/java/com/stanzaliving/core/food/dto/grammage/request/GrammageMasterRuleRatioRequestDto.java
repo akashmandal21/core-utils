@@ -1,0 +1,48 @@
+package com.stanzaliving.core.food.dto.grammage.request;
+
+import com.stanzaliving.core.food.enums.ThaliOption;
+import com.stanzaliving.core.operations.enums.MealType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.Set;
+
+/**
+ * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
+ *
+ * @since 20-Apr-2021
+ *
+ * @version 1.0
+ */
+
+@Getter
+@Setter
+@ToString
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+public class GrammageMasterRuleRatioRequestDto {
+	@NotEmpty(message = "Controlling category can not be empty")
+	private Set<String> controllingSubCategoryId;
+
+	@NotEmpty(message = "Derived category can not be empty")
+	private Set<String> derivedSubCategoryId;
+
+	@NotNull(message = "Controlling ratio is mandatory")
+	private Double controllingRatio;
+
+	@NotNull(message = "Derived ratio is mandatory")
+	private Double derivedRatio;
+
+	@NotEmpty(message = "Applicable Meals are mandatory")
+	private Set<MealType> applicableMeals;
+
+	@NotEmpty(message = "Applicable Thalis are mandatory")
+	private Set<ThaliOption> applicableThalis;
+}
