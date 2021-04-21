@@ -48,4 +48,12 @@ public class CityResponseDTO {
 	private List<AttributeDto> attributeDto;
     @Builder.Default
 	private boolean isSelected = false;
+	
+	private String apartmentCitySlug;
+	private Double apartmentRating;
+	private Long apartmentReviewCount;
+	private Long apartmentMinPriceValue;
+	private String apartmentSeoTitle;
+	private String apartmentSeoDescription;
+	private String apartmentCityDescription;
 }

@@ -19,7 +19,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ImageResponseDTO implements Serializable{
+public class ImageGroupedByTagsResponseDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private int imageId;

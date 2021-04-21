@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.stanzaliving.website.enums.FomoTag;
+import com.stanzaliving.website.enums.Gender;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,13 +24,27 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String propertyCode;
 	
+	private Long societyId;
+	
 	private Integer roomCount;
 	
 	private String apartmentName;
 	
 	private String apartmentSlug;
 	
-	private String gender;
+	private Gender gender;
+
+	private int cityId;
+	
+	private String cityName;
+	
+	private String apartmentCitySlug;
+
+	private int micromarketId;
+	
+	private String micromarketName;
+	
+	private String apartmentMicromarketSlug;
 	
 	private String pricingPlan;
 	
@@ -43,12 +60,28 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String virtualTourImage;
 	
-	@Builder.Default
-	private Set<FacilityResponseDTO> facilites = new HashSet<>(0);
+	private String area;
+	
+	private String floorNumber;
+	
+	private FomoTag fomoTag;
+	
+	private String description;
+	
+	private AddressResponseDTO address;
 	
 	@Builder.Default
-	private Set<FeatureResponseDTO> features = new HashSet<>(0);
+	private Set<FacilityResponseDTO> facilites = new HashSet<>();
 	
 	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>(0);
+	private Set<FeatureResponseDTO> features = new HashSet<>();
+	
+	@Builder.Default
+	private Set<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = new HashSet<>();
+	
+	@Builder.Default
+	private Set<ImageGroupedByTagsResponseDTO> images = new HashSet<>();
+	
+	@Builder.Default
+	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
 }

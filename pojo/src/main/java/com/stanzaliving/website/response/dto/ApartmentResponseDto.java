@@ -69,7 +69,7 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private Set<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = new HashSet<>();
 	
 	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>(0);
+	private Set<ImageResponseDTO> images = new HashSet<>();
 
 	@Override
 	public int compareTo(ApartmentResponseDto dto2) {
