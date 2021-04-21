@@ -14,8 +14,8 @@ import java.time.LocalDate;
 public class MonthUnderwrittenSummaryDto extends CategorySummaryDto {
     String monthYear;
     DisplaySummaryDto occupancy;
-    LocalDate fromDate;
-    LocalDate toDate;
+    LocalDate fromDate;     //not filled for AOP when returned finally i.e. during merging
+    LocalDate toDate;       //not filled for AOP when returned finally i.e. during merging
 
     FoodSummaryDto foodSummaryDto;
     UtilitiesSummaryDto utilitiesSummaryDto;
@@ -30,4 +30,5 @@ public class MonthUnderwrittenSummaryDto extends CategorySummaryDto {
     AuditSummaryDto auditSummaryDto;
     UniformSummaryDto uniformSummaryDto;
     PersonnelSummaryDto personnelSummaryDto;
+
 }
