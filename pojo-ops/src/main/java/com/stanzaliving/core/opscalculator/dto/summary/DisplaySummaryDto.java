@@ -32,11 +32,47 @@ public class DisplaySummaryDto {
         monthlyForecastValue = monthlyForecastBaseValue;
     }
 
+    public DisplaySummaryDto(Double annualUnderwrittenValue, Double monthlySplitterValue, Double forcastAmount) {
+        this.annualUnderWrittenBaseValue = annualUnderwrittenValue == null ? 0d : annualUnderwrittenValue;
+        this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue;
+        this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
+        this.monthlySplitterValue = monthlySplitterBaseValue;
+        this.monthlyForecastBaseValue = forcastAmount;
+        setDeviationAndColorCodeForAOP();
+    }
+
+    public DisplaySummaryDto(Integer annualUnderwrittenValue, Integer monthlySplitterValue, Double forcastAmount) {
+        this.annualUnderWrittenBaseValue = annualUnderwrittenValue == null ? 0d : annualUnderwrittenValue.doubleValue();
+        this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue.doubleValue();
+        this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
+        this.monthlySplitterValue = monthlySplitterBaseValue;
+        this.monthlyForecastBaseValue = forcastAmount;
+        setDeviationAndColorCodeForAOP();
+    }
+    public DisplaySummaryDto(Double annualUnderwrittenValue, Integer monthlySplitterValue, Double forcastAmount) {
+        this.annualUnderWrittenBaseValue = annualUnderwrittenValue == null ? 0d : annualUnderwrittenValue;
+        this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue.doubleValue();
+        this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
+        this.monthlySplitterValue = monthlySplitterBaseValue;
+        this.monthlyForecastBaseValue = forcastAmount;
+        setDeviationAndColorCodeForAOP();
+    }
+
+    public DisplaySummaryDto(Integer annualUnderwrittenValue, Double monthlySplitterValue, Double forcastAmount) {
+        this.annualUnderWrittenBaseValue = annualUnderwrittenValue == null ? 0d : annualUnderwrittenValue.doubleValue();
+        this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue;
+        this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
+        this.monthlySplitterValue = monthlySplitterBaseValue;
+        this.monthlyForecastBaseValue = forcastAmount;
+        setDeviationAndColorCodeForAOP();
+    }
+    
     public DisplaySummaryDto(Double annualUnderwrittenValue, Double monthlySplitterValue) {
         this.annualUnderWrittenBaseValue = annualUnderwrittenValue == null ? 0d : annualUnderwrittenValue;
         this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue;
         this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
         this.monthlySplitterValue = monthlySplitterBaseValue;
+       
         setDeviationAndColorCodeForAOP();
     }
 
@@ -45,6 +81,7 @@ public class DisplaySummaryDto {
         this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue.doubleValue();
         this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
         this.monthlySplitterValue = monthlySplitterBaseValue;
+        
         setDeviationAndColorCodeForAOP();
     }
     public DisplaySummaryDto(Double annualUnderwrittenValue, Integer monthlySplitterValue) {
@@ -52,6 +89,7 @@ public class DisplaySummaryDto {
         this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue.doubleValue();
         this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
         this.monthlySplitterValue = monthlySplitterBaseValue;
+       
         setDeviationAndColorCodeForAOP();
     }
 
@@ -60,6 +98,7 @@ public class DisplaySummaryDto {
         this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue;
         this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
         this.monthlySplitterValue = monthlySplitterBaseValue;
+       
         setDeviationAndColorCodeForAOP();
     }
 
@@ -90,7 +129,7 @@ public class DisplaySummaryDto {
         } else {
             colorCode = ColorCode.SOFT_RED.getColorCode();
         }
-        deviationPercent = Math.abs(monthlyForecastValue - monthlySplitterValue) * 100d / monthlySplitterValue;
+        deviationPercent = Math.abs(monthlySplitterValue - monthlyForecastValue) * 100d / monthlySplitterValue;
     }
 
 
