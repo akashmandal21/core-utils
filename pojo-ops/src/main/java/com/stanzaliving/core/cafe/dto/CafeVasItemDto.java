@@ -7,6 +7,7 @@ import com.stanzaliving.core.food.enums.FoodItemType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -15,7 +16,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CafeVasItemDto {
+public class CafeVasItemDto implements Serializable {
     private String itemId;
     private String name;
     private String category;

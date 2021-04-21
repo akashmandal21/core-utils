@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.response;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -23,7 +24,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VasMasterPackagingResponseDto {
+public class VasMasterPackagingResponseDto implements Serializable {
 
 	private String packagingId;
 
