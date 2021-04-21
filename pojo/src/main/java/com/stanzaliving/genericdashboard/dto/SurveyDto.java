@@ -10,12 +10,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
 import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class SurveyDto {
-    private String id;
+    private String uuid;
 
     @NotBlank(message = "title of a survey cannot be empty")
     private String surveyTitle;

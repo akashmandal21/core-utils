@@ -14,13 +14,15 @@ import java.util.Map;
 @AllArgsConstructor
 public class KafkaRequestDto {
 
-    String userId;
+    private String userId;
 
-    String eventName;
+    private String eventName;
 
-    String eventCategory;
+    private String eventCategory;
 
-    Date eventTime;
+    private Date eventTime;
+
+    private Map<String, String> attributes;
 
     Map<String , KafkaTemplateDto> attributes;
 }
