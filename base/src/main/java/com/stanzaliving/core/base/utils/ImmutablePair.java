@@ -1,5 +1,7 @@
 package com.stanzaliving.core.base.utils;
 
+import java.io.Serializable;
+
 public class ImmutablePair<U, V> {
 
     final U key;		//you may remove final if non-immutable needed
@@ -10,11 +12,31 @@ public class ImmutablePair<U, V> {
         this.value = value;
     }
 
+    public static <U, V> ImmutablePair<U, V> of(final U key, final V value) {
+        return new ImmutablePair(key, value);
+    }
+
     public U getKey(){
         return key;
     }
 
     public V getValue(){
+        return value;
+    }
+
+    public U getLeft(){
+        return key;
+    }
+
+    public V getRight(){
+        return value;
+    }
+
+    public U getFirst(){
+        return key;
+    }
+
+    public V getSecond(){
         return value;
     }
 
