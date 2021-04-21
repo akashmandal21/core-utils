@@ -13,6 +13,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -27,7 +28,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class IngredientDto {
+public class IngredientDto implements Serializable {
 
 	private String ingredientId;
 	private String ingredientName;

@@ -2,45 +2,70 @@ package com.stanzaliving.core.opscalculator.dto.summary;
 
 import com.stanzaliving.core.base.enums.ColorCode;
 import com.stanzaliving.core.base.utils.NumberUtils;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.experimental.SuperBuilder;
+import com.stanzaliving.core.base.utils.StanzaUtils;
+import lombok.*;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-@SuperBuilder
+@Builder
 public class DisplaySummaryDto {
-    Double annualUnderwrittenValue;         //should be Object
-    Double monthlySplitterValue;            //should be Object
-    String colorCode;
-    Double deviationPercent;
+    @Builder.Default
+    private Double annualUnderwrittenValue = 0d;         //should be Object
+    @Builder.Default
+    private Double monthlySplitterValue = 0d;            //should be Object
+    @Builder.Default
+    private Double monthlyForecastValue = 0d;
+    @Builder.Default
+    private String colorCode = ColorCode.BLACK.getColorCode();
+    @Builder.Default
+    private Double deviationPercent = 0d;                //if AOP, then between annual and monthlySplitter, else if forecast, then between splitter and forecast
+    @Builder.Default
+    private Double annualUnderWrittenBaseValue = 0d;     //if AOP, then between annual and monthlySplitter, else if forecast, then between splitter and forecast
+    @Builder.Default
+    private Double monthlySplitterBaseValue = 0d;
+    @Builder.Default
+    private Double monthlyForecastBaseValue = 0d;
+
+    public void setMonthlyForecastBaseValue(Double monthlyForecastBaseValue) {
+        this.monthlyForecastBaseValue = monthlyForecastBaseValue == null ? 0d : monthlyForecastBaseValue;
+        monthlyForecastValue = monthlyForecastBaseValue;
+    }
 
     public DisplaySummaryDto(Double annualUnderwrittenValue, Double monthlySplitterValue) {
-        this.annualUnderwrittenValue = annualUnderwrittenValue;
-        this.monthlySplitterValue = monthlySplitterValue;
-        setDeviationAndColorCode();
+        this.annualUnderWrittenBaseValue = annualUnderwrittenValue == null ? 0d : annualUnderwrittenValue;
+        this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue;
+        this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
+        this.monthlySplitterValue = monthlySplitterBaseValue;
+        setDeviationAndColorCodeForAOP();
     }
 
     public DisplaySummaryDto(Integer annualUnderwrittenValue, Integer monthlySplitterValue) {
-        this.annualUnderwrittenValue = annualUnderwrittenValue == null ? null : annualUnderwrittenValue.doubleValue();
-        this.monthlySplitterValue = monthlySplitterValue == null ? null : monthlySplitterValue.doubleValue();
-        setDeviationAndColorCode();
+        this.annualUnderWrittenBaseValue = annualUnderwrittenValue == null ? 0d : annualUnderwrittenValue.doubleValue();
+        this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue.doubleValue();
+        this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
+        this.monthlySplitterValue = monthlySplitterBaseValue;
+        setDeviationAndColorCodeForAOP();
     }
     public DisplaySummaryDto(Double annualUnderwrittenValue, Integer monthlySplitterValue) {
-        this.annualUnderwrittenValue = annualUnderwrittenValue;
-        this.monthlySplitterValue = monthlySplitterValue == null ? null : monthlySplitterValue.doubleValue();
-        setDeviationAndColorCode();
+        this.annualUnderWrittenBaseValue = annualUnderwrittenValue == null ? 0d : annualUnderwrittenValue;
+        this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue.doubleValue();
+        this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
+        this.monthlySplitterValue = monthlySplitterBaseValue;
+        setDeviationAndColorCodeForAOP();
     }
 
     public DisplaySummaryDto(Integer annualUnderwrittenValue, Double monthlySplitterValue) {
-        this.annualUnderwrittenValue = annualUnderwrittenValue == null ? null : annualUnderwrittenValue.doubleValue();
-        this.monthlySplitterValue = monthlySplitterValue;
-        setDeviationAndColorCode();
+        this.annualUnderWrittenBaseValue = annualUnderwrittenValue == null ? 0d : annualUnderwrittenValue.doubleValue();
+        this.monthlySplitterBaseValue = monthlySplitterValue == null ? 0d : monthlySplitterValue;
+        this.annualUnderwrittenValue = annualUnderWrittenBaseValue;
+        this.monthlySplitterValue = monthlySplitterBaseValue;
+        setDeviationAndColorCodeForAOP();
     }
 
-    private void setDeviationAndColorCode() {
+    public void setDeviationAndColorCodeForAOP() {
         if (NumberUtils.isEqualDouble(this.annualUnderwrittenValue, this.monthlySplitterValue)) {
-            this.colorCode = ColorCode.SOFT_BLUE.getColorCode();
+            this.colorCode = ColorCode.VERY_DARK_CYAN.getColorCode();
         } else if (this.monthlySplitterValue == null || monthlySplitterValue < annualUnderwrittenValue) {
             this.colorCode = ColorCode.MODERATE_CYAN.getColorCode();
         } else {
@@ -53,4 +78,47 @@ public class DisplaySummaryDto {
         }
     }
 
+    public void setDeviationAndColorCodeForForecast(double deviationPercentForForecast) {
+        if (monthlyForecastValue == null || monthlySplitterValue == null) {
+            colorCode = ColorCode.VERY_DARK_CYAN.getColorCode();
+            deviationPercent = null;
+            return;
+        } else if (monthlyForecastValue < monthlySplitterValue || NumberUtils.isEqualDouble(monthlyForecastValue, monthlySplitterValue)) {
+            colorCode = ColorCode.MODERATE_CYAN.getColorCode();
+        } else if (monthlyForecastValue - monthlySplitterValue <= (deviationPercentForForecast * monthlySplitterValue / 100d)) {
+            colorCode = ColorCode.BRIGHT_ORANGE.getColorCode();
+        } else {
+            colorCode = ColorCode.SOFT_RED.getColorCode();
+        }
+        deviationPercent = Math.abs(monthlyForecastValue - monthlySplitterValue) * 100d / monthlySplitterValue;
+    }
+
+
+    public void add(DisplaySummaryDto displaySummaryDto) {
+        if (null == displaySummaryDto) {
+            return;
+        }
+        NumberUtils.sumDouble(this.annualUnderwrittenValue , displaySummaryDto.getAnnualUnderwrittenValue());
+        NumberUtils.sumDouble(this.monthlySplitterValue , displaySummaryDto.getMonthlySplitterValue());
+        NumberUtils.sumDouble(this.monthlyForecastValue , displaySummaryDto.getMonthlyForecastValue());
+        NumberUtils.sumDouble(this.annualUnderWrittenBaseValue , displaySummaryDto.getAnnualUnderWrittenBaseValue());
+        NumberUtils.sumDouble(this.monthlySplitterBaseValue , displaySummaryDto.getMonthlySplitterBaseValue());
+        NumberUtils.sumDouble(this.monthlyForecastBaseValue , displaySummaryDto.getMonthlyForecastBaseValue());
+    }
+
+    public void setForeCastValueSameAsSplitterValue() {
+        this.monthlyForecastValue = this.monthlySplitterValue;
+        this.monthlyForecastBaseValue = this.monthlySplitterBaseValue;
+    }
+
+    public void setReturnValuesAndDeviationAndColorCode(double annualOccupancyMF, double monthlyOccupancyMF, double forecastOccupancyMF, boolean isForecast, double deviationPercentForForecast) {
+        this.annualUnderwrittenValue = StanzaUtils.getDefaultIfNull(() -> annualUnderWrittenBaseValue, 0d) * annualOccupancyMF;
+        this.monthlySplitterValue = StanzaUtils.getDefaultIfNull(() -> monthlySplitterBaseValue, 0d) * monthlyOccupancyMF;
+        this.monthlyForecastValue = StanzaUtils.getDefaultIfNull(() -> monthlyForecastBaseValue, 0d) * forecastOccupancyMF;
+        if (isForecast) {
+            setDeviationAndColorCodeForForecast(deviationPercentForForecast);
+        } else {
+            setDeviationAndColorCodeForAOP();
+        }
+    }
 }
