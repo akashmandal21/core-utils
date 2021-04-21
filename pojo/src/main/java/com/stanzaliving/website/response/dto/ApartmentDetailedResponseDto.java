@@ -44,7 +44,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String micromarketName;
 	
-	private String apartmentMicromarketSlug;
+	private String apartmentMMSlug;
 	
 	private String pricingPlan;
 	
@@ -56,6 +56,10 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String googleMapLink;
 	
+	private double latitude;
+	
+	private double longitude;
+	
 	private String videoLink;
 	
 	private String virtualTourImage;
@@ -66,7 +70,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private FomoTag fomoTag;
 	
-	private String description;
+	private String apartmentDescription;
 	
 	private AddressResponseDTO address;
 	

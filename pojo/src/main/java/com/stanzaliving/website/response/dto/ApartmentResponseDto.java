@@ -49,6 +49,10 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private String googleMapLink;
 	
+	private double latitude;
+	
+	private double longitude;
+	
 	private String videoLink;
 	
 	private String virtualTourImage;
