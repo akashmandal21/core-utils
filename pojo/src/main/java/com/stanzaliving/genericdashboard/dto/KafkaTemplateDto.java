@@ -12,10 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class KafkaTemplateDto {
 
-    EventDataType eventDataType;
+    private EventDataType eventDataType;
 
-    Boolean isMetaDataApplicable;
+    private boolean metaDataApplicable = true;
 
-    Object value;
+    private Object value;
 
 }
