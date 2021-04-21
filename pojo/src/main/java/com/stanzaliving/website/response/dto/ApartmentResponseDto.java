@@ -63,7 +63,10 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private Integer similarApartmentsCount = 0;
 	
 	@Builder.Default
-	private Set<FacilityResponseDTO> facilites = new HashSet<>(0);
+	private Set<FacilityResponseDTO> facilites = new HashSet<>();
+	
+	@Builder.Default
+	private Set<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = new HashSet<>();
 	
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>(0);
