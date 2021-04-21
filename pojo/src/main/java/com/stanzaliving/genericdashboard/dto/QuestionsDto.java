@@ -8,12 +8,13 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class QuestionsDto {
-    private String id;
+    private String uuid;
 
     @NotBlank(message = "question cannot be empty")
     private String text;
@@ -27,5 +28,6 @@ public class QuestionsDto {
 
     private Integer pageNumber;
 
-    @NotNull private String options;
+    @NotNull
+    private String options;
 }

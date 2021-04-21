@@ -36,5 +36,5 @@ public class TemplateDetailsDto {
     @Valid
     private List<CustomButtonDto> customButtonDetails;
 
-    private String id;
+    private String uuid;
 }

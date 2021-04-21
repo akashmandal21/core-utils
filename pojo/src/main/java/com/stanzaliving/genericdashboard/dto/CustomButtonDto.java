@@ -3,17 +3,19 @@ package com.stanzaliving.genericdashboard.dto;
 import com.stanzaliving.genericdashboard.enums.ButtonType;
 import com.stanzaliving.genericdashboard.validation.DraftValidation;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
-@Data
-@Builder
-@AllArgsConstructor
+
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class CustomButtonDto {
+
     private Integer buttonNumber;
 
     private ButtonType buttonType;

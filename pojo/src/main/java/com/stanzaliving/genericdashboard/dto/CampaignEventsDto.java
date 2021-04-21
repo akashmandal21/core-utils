@@ -2,17 +2,19 @@ package com.stanzaliving.genericdashboard.dto;
 
 import com.stanzaliving.genericdashboard.enums.EventType;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
-@Data
-@Builder
-@AllArgsConstructor
+
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class CampaignEventsDto {
-    private String id;
+
+    private String uuid;
 
     private String eventName;
 
@@ -21,4 +23,6 @@ public class CampaignEventsDto {
     private EventType eventType;
 
     private List<CampaignEventAttributesDto> eventAttributesDtos;
+
+    private String relationshipOperator;
 }

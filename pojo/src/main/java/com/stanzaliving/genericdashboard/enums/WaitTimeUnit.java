@@ -5,12 +5,11 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum CampaignAudienceType {
-    ALL("All"),
-    SPECIFIC("Specific"),
-    LIST("List");
+public enum WaitTimeUnit {
+    MINUTES("Minutes"),
+    HOURS("Hours"),
+    DAYS("Days");
 
-    String audienceType;
-
+    String waitTime;
 
 }

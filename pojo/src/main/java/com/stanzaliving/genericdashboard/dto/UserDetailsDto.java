@@ -5,24 +5,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-import java.util.Map;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class KafkaRequestDto {
+public class UserDetailsDto {
 
     private String userId;
 
-    private String eventName;
+    private String residentName;
 
-    private String eventCategory;
+    private String phoneNumber;
 
-    private Date eventTime;
+    private String residentEmail;
 
-    private Map<String, String> attributes;
+    private String residenceName;
 
+    private String microMarket;
 
+    private String city;
 }
+
