@@ -90,7 +90,7 @@ public class DisplaySummaryDto {
         } else {
             colorCode = ColorCode.SOFT_RED.getColorCode();
         }
-        deviationPercent = Math.abs(monthlyForecastValue - monthlySplitterValue) * 100d / monthlySplitterValue;
+        deviationPercent = Math.abs(monthlySplitterValue - monthlyForecastValue) * 100d / monthlySplitterValue;
     }
 
 
