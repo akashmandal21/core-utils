@@ -191,4 +191,25 @@ public class GrnClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+    public ResponseDto<Integer> getTOVersion(String toUuid) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("toUuid", toUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/to/version/{toUuid}").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<Integer>> returnType = new ParameterizedTypeReference<ResponseDto<Integer>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
 }
