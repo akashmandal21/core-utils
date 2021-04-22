@@ -77,6 +77,7 @@ public class VentaClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, null, returnType);
 
 	}
+
 	public List<UserLuggageDto> getUsersWithLuggage() {
 
 		String path = UriComponentsBuilder.fromPath("/getAllLuggageUsers").buildAndExpand().toUriString();
@@ -109,9 +110,9 @@ public class VentaClientApi {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		//uriVariables.put("userUuid", userUuid);
+		// uriVariables.put("userUuid", userUuid);
 
-		String path = UriComponentsBuilder.fromPath("/broker").buildAndExpand().toUriString();
+		String path = UriComponentsBuilder.fromPath("/broker").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("brokerMobile", userUuid);
@@ -125,14 +126,13 @@ public class VentaClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
-	
-	public String getPdfUrlByType(String type, String typeId,String typeName) {
+
+	public String getPdfUrlByType(String type, String typeId, String typeName) {
 
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		String path = UriComponentsBuilder.fromPath("/get/pdf").buildAndExpand().toUriString();
+		String path = UriComponentsBuilder.fromPath("/get/pdf").buildAndExpand(uriVariables).toUriString();
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		queryParams.add("type", type);
@@ -181,4 +181,35 @@ public class VentaClientApi {
 
 		return deadBedCountDtoList;
 	}
+
+	public List<String> getRoomNumberList(String residenceUuid) {
+		Object postBody = null;
+
+		List<String> roomNumberList = new ArrayList<>();
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
+		String path = UriComponentsBuilder.fromPath("/residence/rooms/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<String>> returnType = new ParameterizedTypeReference<List<String>>() {
+		};
+
+		try {
+			roomNumberList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching room numbers list for residence {} ", residenceUuid);
+		}
+
+		return roomNumberList;
+	}
+
 }
