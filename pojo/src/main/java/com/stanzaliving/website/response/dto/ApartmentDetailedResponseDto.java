@@ -84,7 +84,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private Set<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = new HashSet<>();
 	
 	@Builder.Default
-	private Set<ImageGroupedByTagsResponseDTO> images = new HashSet<>();
+	private Set<ImageResponseDTO> images = new HashSet<>();
 	
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);

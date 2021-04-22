@@ -1,10 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
-import java.io.Serializable;
-import java.util.List;
-
-import com.stanzaliving.core.user.enums.EnumListing;
-import com.stanzaliving.website.enums.ImageTags;
+import java.util.Map;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,17 +16,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ImageGroupedByTagsResponseDTO implements Serializable{
-
-	private static final long serialVersionUID = 1L;
-	private int imageId;
-	private String imageUrl;
-	private String imageType;
-	private int imageOrder;
-	private boolean enabled;
-	private String altTag;
-	private List<EnumListing<ImageTags>> imageTag;
-	private boolean featuredImage;
-	private String imageUrlAltTag;
-	private List<String> imageUrlAltTagList;
+public class ImageGroupedByTagsResponseDTO {
+	
+	Map<String, Set<ImageResponseDTO>> imagesTagMap;
 }
