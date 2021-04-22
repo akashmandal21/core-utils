@@ -15,9 +15,9 @@ import java.util.List;
 @Builder
 public class ApprovalListingRequestDto {
 
-    private int page;
+    private int pageNo;
 
-    private int limit;
+    private int pageSize;
 
     private String requestedDateFrom;
 

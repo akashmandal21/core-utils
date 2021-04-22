@@ -13,6 +13,10 @@ public class Constants {
     public static final String NO_RECORD_FOUND_WITH_UUID = "No record found with uuid ";
 
     public static final String RESIDENCE = "residence";
+    public static final String RESIDENCE_KEY = "RESIDENCE_UPDATES";
+    public static final String RESIDENCE_DISPLAY_NAME = "Residence Updates";
+    public static final String ROOM_KEY = "ROOM_UPDATES";
+    public static final String ROOM_DISPLAY_NAME = "Room Updates";
     public static final List<ApprovalStatus> REJECTED_APPROVAL_STATUS = Arrays.asList(new ApprovalStatus[] {ApprovalStatus.L1_REJECTED,
             ApprovalStatus.L2_REJECTED, ApprovalStatus.L3_REJECTED, ApprovalStatus.L4_REJECTED, ApprovalStatus.L5_REJECTED, ApprovalStatus.REJECTED});
 

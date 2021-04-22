@@ -16,43 +16,43 @@ public class ApprovalListingDto {
 
     private HashMap<String, Object> metadata;
 
-    private String entityUuid;
+      private String entityUuid;
 
-    private LocalDate requestTime;
+      private String requestTime;
 
-    private String requestedBy;
+      private String requestedBy;
 
-    private String entityName;
-
-    private String l1ActionedBy;
-
-    private LocalDate l1ActionTime;
-
-    private boolean l1ApprovalRequired;
-
-    private String l2ActionedBy;
-
-    private LocalDate l2ActionTime;
-
-    private boolean l2ApprovalRequired;
-
-    private String l3ActionedBy;
-
-    private LocalDate l3ActionTime;
-
-    private boolean l3ApprovalRequired;
-
-    private String l4ActionedBy;
-
-    private LocalDate l4ActionTime;
-
-    private boolean l4ApprovalRequired;
-
-    private String l5ActionedBy;
-
-    private LocalDate l5ActionTime;
-
-    private boolean l5ApprovalRequired;
+      private String entityName;
+//
+//    private String l1ActionedBy;
+//
+//      private LocalDate l1ActionTime;
+//
+//    private boolean l1ApprovalRequired;
+//
+//    private String l2ActionedBy;
+//
+//     private LocalDate l2ActionTime;
+//
+//    private boolean l2ApprovalRequired;
+//
+//    private String l3ActionedBy;
+//
+//    private LocalDate l3ActionTime;
+//
+//    private boolean l3ApprovalRequired;
+//
+//    private String l4ActionedBy;
+//
+//    private LocalDate l4ActionTime;
+//
+//    private boolean l4ApprovalRequired;
+//
+//    private String l5ActionedBy;
+//
+//    private LocalDate l5ActionTime;
+//
+//    private boolean l5ApprovalRequired;
 
     private ApprovalStatus approvalStatus;
 
@@ -62,33 +62,35 @@ public class ApprovalListingDto {
 
     private String textColorCode;
 
-    private String residenceUuid;
+    private String cardLeftMarginColorCode;
 
-    private String residenceName;
+//    private String residenceUuid;
+//
+//    private String residenceName;
+//
+//    private String micromarketUuid;
+//
+//    private String micromarketName;
+//
+//    private String cityUuid;
+//
+//    private String cityName;
+//
+//    private LocalDate updatedAt;
+//
+//    private String updatedBy;
 
-    private String micromarketUuid;
-
-    private String micromarketName;
-
-    private String cityUuid;
-
-    private String cityName;
-
-    private LocalDate updatedAt;
-
-    private String updatedBy;
-
-    private Date requestDateTime;
-    private Date l1ActionDateTime;
-    private Date l2ActionDateTime;
-    private Date l3ActionDateTime;
-    private Date l4ActionDateTime;
-    private Date l5ActionDateTime;
-
-    private String requestDateTimeLabel;
-    private String l1ActionDateTimeLabel;
-    private String l2ActionDateTimeLabel;
-    private String l3ActionDateTimeLabel;
-    private String l4ActionDateTimeLabel;
-    private String l5ActionDateTimeLabel;
+//    private Date requestDateTime;
+//    private Date l1ActionDateTime;
+//    private Date l2ActionDateTime;
+//    private Date l3ActionDateTime;
+//    private Date l4ActionDateTime;
+//    private Date l5ActionDateTime;
+//
+//    private String requestDateTimeLabel;
+//    private String l1ActionDateTimeLabel;
+//    private String l2ActionDateTimeLabel;
+//    private String l3ActionDateTimeLabel;
+//    private String l4ActionDateTimeLabel;
+//    private String l5ActionDateTimeLabel;
 }
