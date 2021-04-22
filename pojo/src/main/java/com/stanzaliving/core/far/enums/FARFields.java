@@ -4,7 +4,6 @@ public enum
 FARFields {
 
     ASSET_ASSETID(FARSections.ASSET),
-    ASSET_COSTPRICE(FARSections.ASSET),
     //ASSET_PONUMBER(FARSections.ASSET), - Handled in Separate api
     ASSET_POTYPE(FARSections.ASSET),
     ASSET_POURL(FARSections.ASSET),

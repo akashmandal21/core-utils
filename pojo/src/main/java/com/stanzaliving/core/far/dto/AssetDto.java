@@ -28,7 +28,6 @@ public class AssetDto {
     private ItemDto itemDto;
 
     private String assetId;
-    private BigDecimal costPrice;
     private String poNumber;
     private String poUuid;
     private GenericPOType poType;

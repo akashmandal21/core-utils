@@ -27,7 +27,6 @@ public class AssetDetailsResponseDto {
 
     private String assetUuid;
     private String assetId;
-    private BigDecimal costPrice;
     private String poNumber;
     private String poType;
     private String poUrl;
