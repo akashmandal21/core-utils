@@ -21,5 +21,6 @@ public class ContractExtensionNudgeDto {
 	private boolean status;
 	private String nudgeType;
 	private String agreementLink;
+	private String link;
 
 }
