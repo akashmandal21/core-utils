@@ -239,7 +239,7 @@ public class InventoryClientApi {
 			
 			Object postBody = leadRequestDto;
 
-			String path = UriComponentsBuilder.fromPath("/lead/").toUriString();
+			String path = UriComponentsBuilder.fromPath("/internal/lead/create/temp/variant").toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
