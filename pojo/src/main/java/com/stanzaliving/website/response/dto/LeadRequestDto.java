@@ -20,11 +20,14 @@ public class LeadRequestDto {
 	private String firstName;
 	private String lastName;
 	private String email;
+	
 	private String phone;
 	private String otp;
+	
 	private boolean phoneVerified;
 
 	private String leadSource;
+	private String source;
 	
 	private int residenceId;
 	private String residenceName;
@@ -57,7 +60,7 @@ public class LeadRequestDto {
 	private String status;
 	private String zohoId;
 	private String zohoStatus;
-	private String source;
+	
 	private String referralId;
 	private String referralCategory;
 	private String utmSource;
@@ -70,8 +73,12 @@ public class LeadRequestDto {
 	private String utmTarget;
 	private String utmAdformat;
 	private int commissionEarned;
+	
 	private String gender;
-	private String visitDate;
+	private String profession;
+	private String dateOfVisit;
+	private String moveInDateRange;
+	
 	private int leadModeId;
 	private String leadMode;
 	private String leadSubMode;
@@ -83,8 +90,8 @@ public class LeadRequestDto {
 	private String creative;
 	private String gClientId;
 	private String gSessionId;
-	private String profession;
-	private String moveInDateRange;
+	
+	
 	@Default
 	private boolean lastQuestion = false;
 
