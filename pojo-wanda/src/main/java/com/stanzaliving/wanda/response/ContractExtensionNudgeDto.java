@@ -20,5 +20,6 @@ public class ContractExtensionNudgeDto {
 	private boolean blockerScreen;
 	private boolean status;
 	private String nudgeType;
+	private String agreementLink;
 
 }
