@@ -73,7 +73,7 @@ public class LeadserviceClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 	
-	public ResponseDto<String> leadUpdate(LeadRequestDto leadRequestDto) {
+	public ResponseDto<String> updateBrokerLead(LeadRequestDto leadRequestDto) {
 
 		Object postBody = leadRequestDto;
 
@@ -113,5 +113,25 @@ public class LeadserviceClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
+	public ResponseDto<String> leadUpdate(LeadRequestDto leadRequestDto) {
+
+		Object postBody = leadRequestDto;
+
+		String path = UriComponentsBuilder.fromPath("/lead/qrcode/qualifcation/update").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String> > returnType = new ParameterizedTypeReference<ResponseDto<String> >() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 }

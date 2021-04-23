@@ -29,7 +29,7 @@ import lombok.extern.log4j.Log4j2;
 public class InventoryClientApi {
 
     private StanzaRestClient restClient;
-
+    
     public InventoryClientApi(StanzaRestClient stanzaRestClient) {
         this.restClient = stanzaRestClient;
     }
@@ -154,7 +154,7 @@ public class InventoryClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
     
-	public LeadRequestDto leadCreation(LeadRequestDto leadRequestDto) {
+	public LeadRequestDto createBrokerLead(LeadRequestDto leadRequestDto) {
 
 		try {
 			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
@@ -190,14 +190,14 @@ public class InventoryClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/lead/otp/verify").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/lead/otp/verify").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("phone", phone);
 		queryParams.add("otp", otp);
 
 		final HttpHeaders headerParams = new HttpHeaders();
-
+		
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -215,14 +215,14 @@ public class InventoryClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/lead/otp/send").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/lead/otp/send").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("flow", flow);
 		queryParams.add("phone", phone);
 
 		final HttpHeaders headerParams = new HttpHeaders();
-
+		
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -230,6 +230,35 @@ public class InventoryClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
+	public LeadRequestDto leadCreation(LeadRequestDto leadRequestDto) {
+
+		try {
+			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			
+			Object postBody = leadRequestDto;
+
+			String path = UriComponentsBuilder.fromPath("/lead/").toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<LeadRequestDto> returnType = new ParameterizedTypeReference<LeadRequestDto>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Error while creating the lead {}", e);
+		}
+
+		return null;
 	}
 
 }

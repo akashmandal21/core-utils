@@ -21,6 +21,7 @@ public class LeadRequestDto {
 	private String lastName;
 	private String email;
 	private String phone;
+	private String otp;
 	private boolean phoneVerified;
 
 	private String leadSource;
@@ -95,5 +96,11 @@ public class LeadRequestDto {
 	private boolean qrCodeFlag = false;
 	
 	private boolean leadQualificationForm;
+	
+	@Default
+	private boolean sendOtpStatus = false;
+	
+	@Default
+	private boolean otpVerified = false;
 
 }
