@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 @SuperBuilder
 @Setter
 @Getter
+@ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class OtherFeeRowDto {
     @EqualsAndHashCode.Include
@@ -22,4 +23,6 @@ public class OtherFeeRowDto {
     private BigDecimal remainingAmt;
 
     private BigDecimal invoiceFeeAmt;
+
+    private  double gstPct;
 }
