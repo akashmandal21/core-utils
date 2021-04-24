@@ -24,7 +24,8 @@ public enum UnitType {
 	FLAT_RATE("Flat Rate"),
 	PERCENTAGE("Percentage"),
 	LITERS("Ltrs"),
-	CUBIC_METER ("cu.mtr.");
+	CUBIC_METER ("cu.mtr."),
+	PCS("pcs");
 
 	private String unitName;
 

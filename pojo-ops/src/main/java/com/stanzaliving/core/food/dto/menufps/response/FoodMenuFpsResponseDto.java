@@ -1,7 +1,5 @@
 package com.stanzaliving.core.food.dto.menufps.response;
 
-import com.stanzaliving.core.food.dto.menurating.response.DishRating;
-import com.stanzaliving.core.food.dto.menurating.response.FoodMenuMicroMarketRatingResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -25,7 +23,9 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuFpsResponseDto {
+public class FoodMenuFpsResponseDto implements Serializable {
+
+	private static final long serialVersionUID = 721262736273L;
 
 	private String menuGroupId;
 
