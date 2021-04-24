@@ -7,6 +7,8 @@ package com.stanzaliving.core.far.dto;
 import java.math.BigDecimal;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.far.enums.AssetStatus;
+import com.stanzaliving.core.far.enums.AssetType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,8 +39,8 @@ public class AssetUpdateDto extends AbstractDto {
 	private String assetDescription;
 	private String qrCode;
 
-	// private AssetType assetType;
-	// private AssetStatus assetStatus;
+	private AssetType assetType;
+	private AssetStatus assetStatus;
 	private String itemCode;
 	private String vendorUuid;
 	private BigDecimal itemsInPackage;
