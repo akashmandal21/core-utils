@@ -20,11 +20,14 @@ import java.util.List;
 public class TransformationsFilterDto {
     private List<UIKeyValue> stanzaCity;
     private List<UIKeyValue> stanzaCluster;
+    private List<UIKeyValue> zone;
     private List<UIKeyValue> city;
     private SortDirection sortBy;
     private SortByKey sortKey;
     private String geographicalUuid;
-    private String zoneUuid;
+    private UIKeyValue stanzaCityUuid;
+    private UIKeyValue zoneUuid;
     private Boolean status;
+    
 
 }
