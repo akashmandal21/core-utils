@@ -468,9 +468,9 @@ public class AttributeNames {
 		public static final String WATER_STORAGE_CLAUSE_B_TEXT_AREA = "waterStorageClauseBTextArea";
 		public static final String WATER_STORAGE_CLAUSE_C_TEXT_AREA = "waterStorageClauseCTextArea";
 
-		public static final String SITE_CLAUSE_A_TEXT_AREA = "waterStorageClauseATextArea";
-		public static final String SITE_CLAUSE_B_TEXT_AREA = "waterStorageClauseBTextArea";
-		public static final String SITE_CLAUSE_C_TEXT_AREA = "waterStorageClauseCTextArea";
+		public static final String SITE_CLAUSE_A_TEXT_AREA = "siteClauseATextArea";
+		public static final String SITE_CLAUSE_B_TEXT_AREA = "siteClauseBTextArea";
+		public static final String SITE_CLAUSE_C_TEXT_AREA = "siteClauseCTextArea";
 
 		public static final String FACADE_CLAUSE_A_TEXT_AREA = "facadeClauseATextArea";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA = "facadeClauseBTextArea";
