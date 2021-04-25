@@ -1,10 +1,6 @@
 package com.stanzaliving.core.estate.constants;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.stanzaliving.core.base.utils.ImmutablePair;
 
@@ -697,7 +693,9 @@ public class AttributeNames {
 		public static final List<String> amcKeys = new ArrayList<String>();
 		public static final List<String> landlordAgreedKeys = new ArrayList<String>();
 		public static final List<String> landlordKeysLOI = Arrays.asList("STRUCTURELOI","waterSupplyClauseABooleanLOI","waterSupplyClauseBBooleanLOI","waterSupplyClauseCBooleanLOI","waterSupplyClauseDBooleanLOI","waterStorageClauseABooleanLOI","facadeClauseABooleanLOI","facadeClauseBBooleanLOI","terraceLevelClauseABooleanLOI","terraceLevelClauseBBooleanLOI","terraceLevelClauseCBooleanLOI","terraceLevelClauseDBooleanLOI","terraceLevelClauseEBooleanLOI","terraceLevelClauseFBooleanLOI","occupiedLevelClauseABooleanLOI","occupiedLevelClauseBBooleanLOI","occupiedLevelClauseCBooleanLOI","occupiedLevelClauseDBooleanLOI","occupiedLevelClauseEBooleanLOI","occupiedLevelClauseFBooleanLOI","roomClauseABooleanLOI","roomClauseBBooleanLOI","roomClauseCBooleanLOI","roomClauseDBooleanLOI","roomClauseEBooleanLOI","roomClauseFBooleanLOI","sanitaryClauseABooleanLOI","sanitaryClauseBBooleanLOI","sanitaryClauseCBooleanLOI","sanitaryClauseDBooleanLOI","sanitaryClauseEBooleanLOI","whiteGoodsClauseABooleanLOI","whiteGoodsClauseBBooleanLOI","whiteGoodsClauseCBooleanLOI","whiteGoodsClauseDBooleanLOI","whiteGoodsClauseEBooleanLOI","electricalClauseABooleanLOI","electricalClauseBBooleanLOI","electricalClauseCBooleanLOI","electricalClauseDBooleanLOI","electricalClauseEBooleanLOI","powerBackupClauseABooleanLOI","powerBackupClauseBBooleanLOI","powerBackupClauseCBooleanLOI","powerBackupClauseDBooleanLOI","liftClauseABooleanLOI","liftClauseBBooleanLOI","liftClauseCBooleanLOI","liftClauseDBooleanLOI","liftClauseEBooleanLOI","docsAndAMCClauseABooleanLOI","commonAreasClauseABooleanLOI","waterSupplyClauseEBooleanLOI","facadeClauseCBooleanLOI","facadeClauseDBooleanLOI","occupiedLevelClauseGBooleanLOI","occupiedLevelClauseHBooleanLOI","occupiedLevelClauseIBooleanLOI","signangeLevelClauseABooleanLOI","ITLevelClauseABooleanLOI","ITLevelClauseBBooleanLOI","ITLevelClauseCBooleanLOI","SupervisorLevelClauseABooleanLOI","parkingLevelClauseABooleanLOI","landscapeLevelClauseABooleanLOI","landscapeLevelClauseBBooleanLOI","fireClauseABooleanLOI","fireClauseBBooleanLOI","seepageClauseABooleanLOI","seepageClauseBBooleanLOI","seepageClauseCBooleanLOI","boundaryWallClauseABooleanLOI","boundaryWallClauseBBooleanLOI");
-		
+
+		public static final Set<String> annexure2AKeys = new HashSet<String>();
+
 		static {
 			amcKeys.add(ASSET_LIST_WITH_EXACT_COUNT_RETAINED);
 			amcKeys.add(LIFT_LICENSE_AND_RENEWAL);
@@ -825,6 +823,19 @@ public class AttributeNames {
 
 		}
 
+		static{
+			annexure2AKeys.add("beds");
+			annexure2AKeys.add("mattressAvailable");
+			annexure2AKeys.add("wardrobesAvailable");
+			annexure2AKeys.add("studyTablesAvailable");
+			annexure2AKeys.add("chairsAvailable");
+			annexure2AKeys.add("washingMachineAvailable");
+			annexure2AKeys.add("fridgeAvailable");
+			annexure2AKeys.add("roAvailable");
+			annexure2AKeys.add("microwaveAvailable");
+			annexure2AKeys.add("acInRoomsAvailable");
+			annexure2AKeys.add("extinguishersAvailable");
+		}
 		
 		
 }
