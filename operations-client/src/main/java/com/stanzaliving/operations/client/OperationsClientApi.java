@@ -16,6 +16,8 @@ import com.stanzaliving.internet.dto.InternetProviderDetails;
 import com.stanzaliving.operations.ServiceMixSeasonResponseDto;
 import com.stanzaliving.operations.dto.servicemix.ServiceMixEntityDto;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
+import com.stanzaliving.transformations.pojo.ResidenceUIDto;
+
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -390,4 +392,28 @@ public class OperationsClientApi {
 
 		return serviceMixEntityList;
 	}
+	
+	public ResponseDto<List<ActiveResidenceDetailsDto>> getActiveResidenceList() {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/residence/list").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ActiveResidenceDetailsDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ActiveResidenceDetailsDto>>>() {
+
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		
+	}
+	
 }
