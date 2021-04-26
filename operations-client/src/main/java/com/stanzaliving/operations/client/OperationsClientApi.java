@@ -30,6 +30,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.operations.dto.ActiveResidenceDetailsDto;
 import com.stanzaliving.core.operations.dto.ResidentFoodPreferenceCountDto;
 
 import lombok.extern.log4j.Log4j2;
