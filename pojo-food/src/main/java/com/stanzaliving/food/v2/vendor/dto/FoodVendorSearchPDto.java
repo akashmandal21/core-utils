@@ -1,6 +1,6 @@
-package com.stanzaliving.food.version.v2.dto.vendor;
+package com.stanzaliving.food.v2.vendor.dto;
 
-import com.stanzaliving.food.version.v2.contants.sorting.VendorSortingField;
+import com.stanzaliving.food.v2.vendor.constant.sorting.VendorSortingField;
 import com.stanzaliving.core.vendor.enums.VendorType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;

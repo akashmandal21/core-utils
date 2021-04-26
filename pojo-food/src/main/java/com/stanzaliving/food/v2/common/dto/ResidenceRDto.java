@@ -1,4 +1,4 @@
-package com.stanzaliving.food.version.v2.dto.common;
+package com.stanzaliving.food.v2.common.dto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;

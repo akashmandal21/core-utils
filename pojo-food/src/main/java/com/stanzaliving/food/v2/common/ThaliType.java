@@ -1,4 +1,4 @@
-package com.stanzaliving.food.version.v2.contants;
+package com.stanzaliving.food.v2.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

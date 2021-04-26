@@ -1,4 +1,4 @@
-package com.stanzaliving.food.version.v2.contants.sorting;
+package com.stanzaliving.food.v2.vendor.constant.sorting;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
