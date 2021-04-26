@@ -827,8 +827,8 @@ public class AttributeNames {
 			annexure2AKeys.add("beds");
 			annexure2AKeys.add("mattressAvailable");
 			annexure2AKeys.add("wardrobesAvailable");
-			annexure2AKeys.add("studyTablesAvailable");
-			annexure2AKeys.add("chairsAvailable");
+			annexure2AKeys.add("diningTables");
+			annexure2AKeys.add("diningChairs");
 			annexure2AKeys.add("washingMachineAvailable");
 			annexure2AKeys.add("fridgeAvailable");
 			annexure2AKeys.add("roAvailable");
