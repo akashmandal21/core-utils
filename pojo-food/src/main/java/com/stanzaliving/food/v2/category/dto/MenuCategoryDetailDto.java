@@ -37,5 +37,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
     //derived information
     private Double mealPrice;
     private int totalMealInWeek;
+    private List<String> draftVersions;
+
 
 }
