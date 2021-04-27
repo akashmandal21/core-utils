@@ -14,7 +14,7 @@ import lombok.*;
 @AllArgsConstructor
 public class GetDetailsDto {
 
-    private String listingsFor;
-    private String column;
+    private CategoryFilter listingsFor;
+    private CategoryFilter column;
     private String uuid;
 }
