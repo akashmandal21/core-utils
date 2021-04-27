@@ -1,7 +1,7 @@
 package com.stanzaliving.food.v2.vendor.dto;
 
 
-import com.stanzaliving.core.leadership.dto.ListingDto;
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.food.v2.common.dto.ResidenceRDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
