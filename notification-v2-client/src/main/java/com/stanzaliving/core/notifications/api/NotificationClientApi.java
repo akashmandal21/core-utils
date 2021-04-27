@@ -3,6 +3,7 @@ package com.stanzaliving.core.notifications.api;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.genericdashboard.dto.AudienceLocationDto;
+import com.stanzaliving.genericdashboard.dto.CampaignAudienceDto;
 import com.stanzaliving.notification.dto.NotificationRegistryDto;
 import com.stanzaliving.notification.dto.UserDetailsDto;
 import com.stanzaliving.notification.dto.UserLatestSurveyDto;
@@ -293,5 +294,30 @@ public class NotificationClientApi {
         return restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
+    }
+
+    public List<String> getUserInformation(CampaignAudienceDto audienceDto) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/fcm/user")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {};
+        postBody = audienceDto;
+        ResponseDto<List<String>> response = restClient.invokeAPI(
+                path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        return response.getData();
     }
 }
