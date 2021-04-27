@@ -16,7 +16,5 @@ import lombok.experimental.SuperBuilder;
 public class ActiveResidenceDetailsDto {
 
 	private String residenceUuid;
-	private String residenceName;
-	private String residenceId;
 
 }
