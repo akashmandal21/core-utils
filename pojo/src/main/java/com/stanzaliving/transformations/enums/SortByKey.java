@@ -17,8 +17,8 @@ public enum SortByKey {
 	last_updated("updated_at"),
 	status("status"),
 	zone_name("z.zone_name"),
-	stanza_cluster_count("stanza_clusters");
-
+	stanza_cluster_count("stanza_clusters"),
+	micromarket_count("micromarkets");
 	private String label;
 
 	SortByKey(String s) {
