@@ -14,21 +14,21 @@ import java.util.Map;
 @NoArgsConstructor
 public class UserNotificationDto {
 
-    String uuid;
+   private String uuid;
 
-    String campaignId;
+   private String campaignId;
 
-    String title;
+   private String title;
 
-    String message;
+   private String message;
 
-    String callToActionUrl;
+   private String callToActionUrl;
 
-    String imageUrl;
+   private String imageUrl;
 
-    Date createdAt;
+   private Date createdAt;
 
-    Map<String,String> payloadData;
+   private  Map<String,String> payloadData;
 
-    boolean isSubmitted;
+   private boolean isSubmitted;
 }

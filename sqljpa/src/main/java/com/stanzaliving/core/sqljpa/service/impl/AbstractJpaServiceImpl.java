@@ -175,7 +175,7 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	}
 
 	@Override
-	public Optional<T> existByFirstUuidAndStatus(String uuid, boolean status){
+	public Optional<T> findFirstByUuidAndStatus(String uuid, boolean status){
 	return 	getJpaRepository().findByUuidAndStatus(uuid,status);
 	}
 
