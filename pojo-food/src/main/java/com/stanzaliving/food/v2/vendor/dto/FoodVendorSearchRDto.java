@@ -20,6 +20,7 @@ public class FoodVendorSearchRDto extends FoodVendorDTO {
     private boolean activeStatus;
     private Long noOfMenuCategories;
     private Long noOfResidenceServed;
+    private Long noOfMarketServed;
     private List<ListingDto> microMarketServed;
     private List<ResidenceRDto> residenceServed;
 }

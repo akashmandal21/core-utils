@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.vendor.dto;
 
+import com.stanzaliving.food.v2.common.constants.SortingType;
 import com.stanzaliving.food.v2.vendor.constant.sorting.VendorSortingField;
 import com.stanzaliving.core.vendor.enums.VendorType;
 import lombok.*;
@@ -18,4 +19,5 @@ public class FoodVendorSearchPDto implements Serializable {
     private VendorType vendorType;
     private Boolean activeStatus;
     private VendorSortingField sortingField;
+    private SortingType sortingType;
 }
