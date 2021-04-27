@@ -98,11 +98,11 @@ public class LeadserviceClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("lead/website/qualification/question").buildAndExpand(uriVariables)
+		String path = UriComponentsBuilder.fromPath("/lead/internal/website/lead/variant/qualification/question").buildAndExpand(uriVariables)
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("leadCreationInterface", formInterface);
+		queryParams.add("form", formInterface);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 

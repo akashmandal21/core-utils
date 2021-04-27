@@ -261,4 +261,32 @@ public class InventoryClientApi {
 		return null;
 	}
 
+	public LeadRequestDto leadMigration(LeadRequestDto leadRequestDto) {
+		
+		try {
+			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+	
+			Object postBody = leadRequestDto;
+
+			String path = UriComponentsBuilder.fromPath("/internal/lead/create/temp/variant").toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<LeadRequestDto> returnType = new ParameterizedTypeReference<LeadRequestDto>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Error while creating the lead {}", e);
+		}
+
+		return null;
+	}
 }
