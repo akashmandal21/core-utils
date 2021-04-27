@@ -105,9 +105,6 @@ public class LeadRequestDto {
 	private boolean leadQualificationForm;
 	
 	@Default
-	private boolean sendOtpStatus = false;
-	
-	@Default
 	private boolean otpVerified = false;
 
 }
