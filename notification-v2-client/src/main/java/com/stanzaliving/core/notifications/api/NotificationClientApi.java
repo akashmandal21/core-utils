@@ -5,6 +5,8 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.genericdashboard.dto.AudienceLocationDto;
 import com.stanzaliving.notification.dto.NotificationRegistryDto;
 import com.stanzaliving.notification.dto.UserDetailsDto;
+import com.stanzaliving.notification.dto.UserLatestSurveyDto;
+import com.stanzaliving.notification.dto.UserNotificationDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -241,5 +243,55 @@ public class NotificationClientApi {
         ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {};
         restClient.invokeAPI(
                 path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<UserNotificationDto> updateUserNotificationOnSubmit(String userId, String uuid) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userId", userId);
+        uriVariables.put("uuid", uuid);
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/user/{userId}/notification/{id}/submit")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<UserNotificationDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserNotificationDto>>() {};
+        return restClient.invokeAPI(
+                path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<UserLatestSurveyDto> getLatestSurveyOrNudgeForUser(String userId) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userId", userId);
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/user/{userId}/notification/latest")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<UserLatestSurveyDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserLatestSurveyDto>>() {};
+        return restClient.invokeAPI(
+                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
     }
 }
