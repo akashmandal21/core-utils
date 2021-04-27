@@ -25,7 +25,7 @@ public class TransformationsFilterDto {
     private SortDirection sortBy;
     private SortByKey sortKey;
     private String geographicalUuid;
-    private UIKeyValue stanzaCityUuid;
+    private String stanzaCityUuid;
     private UIKeyValue zoneUuid;
     private Boolean status;
     
