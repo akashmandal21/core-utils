@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.core.operations.dto.ServiceMixDto;
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.internet.dto.InternetDetails;
 import com.stanzaliving.internet.dto.InternetProviderDetails;
@@ -389,5 +390,40 @@ public class OperationsClientApi {
 		}
 
 		return serviceMixEntityList;
+	}
+
+	public ServiceMixDto getCurrentServiceMix(String residenceUuid, String userCode) {
+
+		Object postBody = null;
+
+		ServiceMixDto serviceMixDto = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/servicemix/current/servicemix").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("residenceUuid", residenceUuid);
+		queryParams.add("userCode", userCode);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<ServiceMixDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceMixDto>>() {
+
+		};
+
+		try {
+			serviceMixDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
+		} catch (Exception e) {
+			log.error("Exception while fetching service mix dto for user code {} ", userCode, e);
+		}
+
+		return Objects.nonNull(serviceMixDto) ? serviceMixDto : null;
 	}
 }

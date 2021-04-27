@@ -52,7 +52,7 @@ public class FieldDecoder {
         try {
             FieldType fieldType = templateField.getFieldType();
             JsonNode data = uiSubmitField.getValue();
-            log.info("Value data  field type {} needed {}",fieldType,needed);
+            log.info("Value data  field type {} needed {} {}",fieldType,needed,data);
             if (Objects.nonNull(data) && (!data.isNull()))
             {
                 switch (fieldType) {
@@ -123,7 +123,7 @@ public class FieldDecoder {
             if (StringUtils.isNotEmpty(uiSubmitField.getErrorMsg()))
                 success = false;
 
-            log.info("Ent {} {}",uiSubmitField.getErrorMsg());
+            log.info("Ent {} {}",uiSubmitField.getErrorMsg(),value);
         }catch (Exception ex){
             uiSubmitField.setErrorMsg("Field "+templateField.getFieldName()+" not in required format");
             log.error("Field Decoding failed {} {} ",templateField.getFieldName(),uiSubmitField,ex);
