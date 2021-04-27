@@ -16,4 +16,5 @@ public class MenuCategoryDTO extends AbstractDto {
     private String categoryId;
     private String vendorId;
     private String publishedVersion;
+    private boolean draftVersionFound;
 }
