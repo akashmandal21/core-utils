@@ -7,6 +7,7 @@ import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.food.v2.category.constant.CategoryStatus;
 import com.stanzaliving.food.v2.common.dto.ResidenceRDto;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
@@ -17,6 +18,7 @@ import java.util.List;
 @Setter
 @ToString
 @SuperBuilder
+@NoArgsConstructor
 public class MenuCategorySearchRDto extends AbstractDto {
     private String categoryId;
     private MenuType menuType;

@@ -11,6 +11,7 @@ import java.io.Serializable;
 @Setter
 @ToString
 @SuperBuilder
+@NoArgsConstructor
 public class FoodVendorSearchPDto implements Serializable {
     private String name;
     private String cityId;

@@ -3,6 +3,7 @@ package com.stanzaliving.food.v2.category.dto;
 
 import com.stanzaliving.food.v2.category.constant.CategoryStatus;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
@@ -15,6 +16,7 @@ import java.util.List;
 @Setter
 @ToString
 @SuperBuilder
+@NoArgsConstructor
 public class MenuCategorySearchPDto implements Serializable {
     private List<String> mmIds;
     private List<String> residenceIds;

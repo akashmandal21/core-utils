@@ -2,6 +2,7 @@ package com.stanzaliving.food.v2.category.dto;
 
 import com.stanzaliving.food.v2.common.dto.MealDto;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
@@ -12,6 +13,7 @@ import java.time.LocalTime;
 @Setter
 @ToString
 @SuperBuilder
+@NoArgsConstructor
 public class MenuCategoryMealDto extends MealDto {
     private boolean enabled;
     private boolean monday;

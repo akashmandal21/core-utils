@@ -4,6 +4,7 @@ package com.stanzaliving.food.v2.vendor.dto;
 import com.stanzaliving.core.leadership.dto.ListingDto;
 import com.stanzaliving.food.v2.common.dto.ResidenceRDto;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
@@ -14,6 +15,7 @@ import java.util.List;
 @Setter
 @ToString
 @SuperBuilder
+@NoArgsConstructor
 public class FoodVendorSearchRDto extends FoodVendorDTO {
     private boolean activeStatus;
     private Long noOfMenuCategories;

@@ -2,6 +2,7 @@ package com.stanzaliving.food.v2.vendor.dto;
 
 import com.stanzaliving.core.vendor.enums.VendorType;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 @Setter
 @ToString
 @SuperBuilder
+@NoArgsConstructor
 public class FoodVendorDTO implements Serializable {
     private String vendorId;
     private String vendorMasterId;
