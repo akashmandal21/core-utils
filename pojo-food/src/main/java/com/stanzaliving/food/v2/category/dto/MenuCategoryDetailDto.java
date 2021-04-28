@@ -13,7 +13,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Getter
@@ -23,17 +22,15 @@ import java.util.List;
 @NoArgsConstructor
 public class MenuCategoryDetailDto extends MenuCategoryDTO {
     private String versionId;
-    @NotNull(message = "Empty Menu Type")
+    private String grammageRuleId;
     private MenuType menuType;
     private Double marginPercentage;
     private Double utilityCost;
-    @NotNull(message = "Empty Meal Data")
     private List<MenuCategoryMealDto> mealData;
     private CategoryStatus categoryStatus;
     private FoodServeType foodServeType;
     private Integer maxWeeklyCombo;
-    private boolean grammageRuleDefined;
-    private boolean validSampleMenu;
+    private boolean sampleMenuDefined;
     private List<ListingDto> demographicTags;
 
     //derived information
@@ -50,6 +47,6 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
     private ApprovalStatus approvalStatus;
     private List<String> pendingApprovers;
 
-
-
+    private CompositionRuleV2Dto compositionRules;
+    private List<DayWiseSampleMenuDto> dayWiseMenu;
 }

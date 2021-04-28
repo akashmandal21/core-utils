@@ -29,6 +29,7 @@ public class MenuCategoryMealDto extends MealDto {
     private Double vegCogs;
     private Double nonVegCogs;
     private Double externalStaffCogs;
+    private Double optInPercentage;
 
     private Double mealCost;
     private Double trueCost;
