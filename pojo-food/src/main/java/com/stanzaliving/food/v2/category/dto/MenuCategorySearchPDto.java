@@ -1,14 +1,16 @@
 package com.stanzaliving.food.v2.category.dto;
 
 
+import com.stanzaliving.approval.enums.ApprovalStatus;
+import com.stanzaliving.food.v2.category.constant.CategorySearchSortingField;
 import com.stanzaliving.food.v2.category.constant.CategoryStatus;
+import com.stanzaliving.food.v2.common.constants.SortingType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.List;
 
@@ -18,11 +20,13 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class MenuCategorySearchPDto implements Serializable {
-    private List<String> mmIds;
     private List<String> residenceIds;
     private CategoryStatus categoryStatus;
+    private ApprovalStatus approvalStatus;
     private String name;
     private List<String> tagId;
-    @NotBlank(message = "Empty Vendor Id")
+    private String cityId;
     private String vendorId;
+    private SortingType sortingType;
+    private CategorySearchSortingField sortingField;
 }

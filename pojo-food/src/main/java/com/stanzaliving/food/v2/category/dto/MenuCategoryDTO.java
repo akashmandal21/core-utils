@@ -15,5 +15,6 @@ import lombok.experimental.SuperBuilder;
 public class MenuCategoryDTO extends AbstractDto {
     private String categoryId;
     private String vendorId;
+    private String vendorName;
     private String publishedVersion;
 }
