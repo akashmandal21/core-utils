@@ -1,6 +1,7 @@
 package com.stanzaliving.core.far.dto.response;
 
 import com.stanzaliving.core.far.enums.RejectionType;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,7 @@ import lombok.Setter;
  * @author dhruv.mathur
  * @date 23/03/21
  */
+@Data
 @Getter
 @Setter
 public class HotoRejectDto {
