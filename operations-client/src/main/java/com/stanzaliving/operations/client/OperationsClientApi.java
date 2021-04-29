@@ -465,7 +465,7 @@ public class OperationsClientApi {
 		
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/internal/get/residence/all").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/get/residence/list/all").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
