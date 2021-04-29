@@ -23,7 +23,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ThaliGrammageRuleResponseDto {
 
-	private List<GrammageMasterThaliResponseDto> thaliGrammage;
+	private List<GrammageMasterThaliResponseDto> thaliGrammages;
 
 	private List<GrammageMasterRuleFixedResponseDto> fixedRules;
 
