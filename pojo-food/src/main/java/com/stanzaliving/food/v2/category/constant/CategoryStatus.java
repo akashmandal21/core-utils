@@ -13,4 +13,11 @@ public enum CategoryStatus {
     REJECTED("Rejected");
     private final String status;
 
+    public static boolean isEditable(CategoryStatus categoryStatus) {
+        return categoryStatus == DRAFT || categoryStatus == APPROVED || categoryStatus == REJECTED;
+    }
+
+    public static boolean createNewVersion(CategoryStatus categoryStatus) {
+        return categoryStatus == APPROVED;
+    }
 }

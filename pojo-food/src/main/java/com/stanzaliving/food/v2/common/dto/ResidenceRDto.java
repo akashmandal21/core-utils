@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Setter
 @ToString
 @SuperBuilder
+@NoArgsConstructor
 public class ResidenceRDto implements Serializable {
     private String residenceId;
     private String name;
