@@ -1,6 +1,6 @@
 package com.stanzaliving.core.food.dto.grammage.response;
 
-import com.stanzaliving.core.food.enums.ThaliOption;
+import com.stanzaliving.core.dto.KeyValuePairDto;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.Getter;
@@ -35,5 +35,5 @@ public class GrammageMasterRuleRatioResponseDto {
 
 	private Set<EnumListing<MealType>> applicableMeals;
 
-	private Set<EnumListing<ThaliOption>> applicableThalis;
+	private Set<KeyValuePairDto> applicableThalis;
 }

@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.grammage.request;
 
-import com.stanzaliving.core.food.enums.ThaliOption;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,5 +43,5 @@ public class GrammageMasterRuleRatioRequestDto {
 	private Set<MealType> applicableMeals;
 
 	@NotEmpty(message = "Applicable Thalis are mandatory")
-	private Set<ThaliOption> applicableThalis;
+	private Set<String> applicableThalis;
 }
