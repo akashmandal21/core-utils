@@ -451,24 +451,27 @@ public class OperationsClientApi {
 		
 	}
 	
-	public ResponseDto<List<ActiveResidenceDetailsDto>> getActiveResidenceListByCityOrMicroMarketOrResidenceUuid(List<String> cityIdList, List<String>  micromarcketIdList, List<String>  residenceUuidList) {
-
+	public ResponseDto<List<ActiveResidenceDetailsDto>> getActiveResidenceListByCityOrMicroMarketOrResidenceUuid(List<String> cityIdList, List<String>  micromarketIdList, List<String>  residenceUuidList) {
+		
+		if(CollectionUtils.isEmpty(cityIdList)){
+			cityIdList = new ArrayList<>();
+		}
+		if(CollectionUtils.isEmpty(micromarketIdList)){
+			micromarketIdList = new ArrayList<>();
+		}
+		if(CollectionUtils.isEmpty(residenceUuidList)){
+			residenceUuidList = new ArrayList<>();
+		}
+		
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		String path = UriComponentsBuilder.fromPath("/internal/get/residence/all").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		if (CollectionUtils.isNotEmpty(cityIdList)) {
-			queryParams.addAll("cityIdList", cityIdList);
-		}
-		if (CollectionUtils.isNotEmpty(micromarcketIdList)) {
-			queryParams.addAll("micromarcketIdList", micromarcketIdList);
-		}
-		if (CollectionUtils.isNotEmpty(residenceUuidList)) {
-			queryParams.addAll("residenceUuidList", residenceUuidList);
-		}
-		
+		queryParams.addAll("cityIdList", cityIdList);
+		queryParams.addAll("micromarketIdList", micromarketIdList);
+		queryParams.addAll("residenceUuidList", residenceUuidList);
 		
 		final String[] accepts = {
 				"*/*"
