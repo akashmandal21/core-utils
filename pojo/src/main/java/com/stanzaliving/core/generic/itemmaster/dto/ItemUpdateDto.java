@@ -5,6 +5,7 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.generic.enums.GSTSlabs;
 import com.stanzaliving.core.generic.itemmaster.enums.ItemAction;
+import com.stanzaliving.item_master.enums.FarCategory;
 import com.stanzaliving.transformations.enums.UnitType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -37,6 +38,8 @@ public class ItemUpdateDto extends AbstractDto {
     private String recipeTag;
 
     private Boolean taggable;
+    private FarCategory farCategory;
+    
     private String substituteItem;
     private UnitType recipeUom;
     private Double conversionFactor;
