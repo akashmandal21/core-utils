@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.grammage.request;
 
-import com.stanzaliving.core.food.enums.ThaliOption;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,7 +30,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class GrammageMasterRuleFixedRequestDto {
 
-	@NotBlank(message = "Sub Category Selection is mandatory")
+	@NotBlank(message = "Sub-Category selection is mandatory")
 	private String subCategoryId;
 
 	private boolean quantifiable;
@@ -43,7 +42,7 @@ public class GrammageMasterRuleFixedRequestDto {
 	@NotEmpty(message = "Applicable meals selection is mandatory")
 	private Set<MealType> applicableMeals;
 
-	@NotEmpty(message = "Applicable Thalis Selection is mandatory")
-	private Set<ThaliOption> applicableThalis;
+	@NotEmpty(message = "Applicable thalis selection is mandatory")
+	private Set<String> applicableThalis;
 
 }
