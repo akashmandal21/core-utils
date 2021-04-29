@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.grammage.request;
 
-import com.stanzaliving.core.food.enums.ThaliOption;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,8 +8,8 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -29,8 +28,8 @@ import java.util.List;
 @AllArgsConstructor
 public class GrammageMasterThaliRequestDto {
 
-	@NotNull(message = "Thali Selection is mandatory")
-	private ThaliOption thaliName;
+	@NotBlank(message = "Thali selection is mandatory")
+	private String thaliMasterId;
 
 	@Valid
 	@NotEmpty(message = "Meal wise grammage selection is mandatory")

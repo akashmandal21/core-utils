@@ -1,7 +1,6 @@
 package com.stanzaliving.core.food.dto.grammage.response;
 
-import com.stanzaliving.core.food.enums.ThaliOption;
-import com.stanzaliving.core.user.enums.EnumListing;
+import com.stanzaliving.core.dto.KeyValuePairDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +24,7 @@ import java.util.List;
 @NoArgsConstructor
 public class GrammageMasterThaliResponseDto {
 
-	private EnumListing<ThaliOption> thali;
+	private KeyValuePairDto thali;
 
 	private List<MealGrammageResponseDto> mealGrammages;
 }
