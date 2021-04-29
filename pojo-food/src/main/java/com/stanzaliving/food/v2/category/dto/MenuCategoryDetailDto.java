@@ -22,7 +22,6 @@ import java.util.List;
 @NoArgsConstructor
 public class MenuCategoryDetailDto extends MenuCategoryDTO {
     private String versionId;
-    private String grammageRuleId;
     private MenuType menuType;
     private Double marginPercentage;
     private Double utilityCost;
@@ -31,6 +30,8 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
     private FoodServeType foodServeType;
     private Integer maxWeeklyCombo;
     private boolean sampleMenuDefined;
+    private boolean grammageDefined;
+    private String grammageRuleId;
     private List<ListingDto> demographicTags;
 
     //derived information

@@ -7,6 +7,9 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
+import java.time.DayOfWeek;
+import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -14,11 +17,14 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @NoArgsConstructor
 public class CompositionConditionV2Dto extends ConditionDto {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @NotNull(message = "Rule Condition is Empty")
-    private RuleDuration condition;
+	@NotNull(message = "Rule Condition is Empty")
+	private RuleDuration condition;
 
-    @Builder.Default
-    private Boolean passed = true;
+	@Builder.Default
+	private Boolean passed = true;
+
+	private Map<DayOfWeek, List<MealType>> failedMeals;
+
 }

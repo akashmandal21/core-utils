@@ -20,8 +20,7 @@ public class MealWiseSampleMenuDto implements Serializable {
     private MealType mealType;
     private Double weight;
     private Double cogs;
+    private Double vegCogs;
+    private Double nonVegcogs;
     private List<MenuItemDto> menuItems;
-
-
-
 }
