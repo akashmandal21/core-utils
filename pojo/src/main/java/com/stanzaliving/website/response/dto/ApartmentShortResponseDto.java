@@ -29,6 +29,8 @@ public class ApartmentShortResponseDto implements Serializable {
 	
 	private String apartmentSlug;
 	
+	private Integer micromarketId;
+	
 	private String pricingPlan;
 	
 	private Integer startingPrice;

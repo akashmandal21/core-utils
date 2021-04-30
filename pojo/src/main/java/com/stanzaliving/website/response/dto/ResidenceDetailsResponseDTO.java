@@ -1,9 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
@@ -26,9 +24,6 @@ import lombok.ToString;
 @ToString
 public class ResidenceDetailsResponseDTO implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private int residenceId;
 	private String name;
