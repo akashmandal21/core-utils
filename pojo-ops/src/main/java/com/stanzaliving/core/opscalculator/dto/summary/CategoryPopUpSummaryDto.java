@@ -19,6 +19,7 @@ public class CategoryPopUpSummaryDto {
     String residenceUuid;
     boolean monthPartiallyCovered;
     Integer costPerAvailableBedPerMonth;
+    Integer costPerOccupiedBedPerMonth;
     List<CategoryPopUpSummaryDetailsDto> categoryPopUpSummaryDetailsDtoList;
 
     private UnderWrittenStatus underWrittenStatus;

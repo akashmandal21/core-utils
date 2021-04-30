@@ -20,7 +20,7 @@
 			<version>${global.version}</version>
 		</dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<parent>
 		<groupId>com.stanzaliving.core</groupId>
