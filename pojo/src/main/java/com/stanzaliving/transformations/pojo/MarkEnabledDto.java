@@ -33,8 +33,11 @@ public class MarkEnabledDto {
 	private List<UIKeyValue> stanzaCity;
 	
 	private List<UIKeyValue> stanzaCluster;
-	
-	
-	
+
+	private List<UIKeyValue> zones;
+
+
+
+
 
 }

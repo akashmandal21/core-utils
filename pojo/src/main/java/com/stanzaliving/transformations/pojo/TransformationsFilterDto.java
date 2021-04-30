@@ -29,12 +29,13 @@ public class TransformationsFilterDto {
 	private List<UIKeyValue> stanzaCluster;
 	private List<UIKeyValue> zone;
 	private List<UIKeyValue> city;
+	private List<UIKeyValue> residences;
 	private SortDirection sortBy;
 	private SortByKey sortKey;
 	private String geographicalUuid;
 	private String stanzaClusterUuid;
 	private String stanzaCityUuid;
-	private UIKeyValue zoneUuid;
+	private String zoneUuid;
 	private Boolean status;
 
 }

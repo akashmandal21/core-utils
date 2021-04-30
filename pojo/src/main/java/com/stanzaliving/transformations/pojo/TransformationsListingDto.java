@@ -28,6 +28,9 @@ public class TransformationsListingDto {
     private String stanzaCityName;
     private DescriptiveDto stanzaCity;
 
+    private String microMarketName;
+    private DescriptiveDto microMarket;
+
     private DescriptiveDto residences;
 
     private UpdatedByDto lastUpdated;
