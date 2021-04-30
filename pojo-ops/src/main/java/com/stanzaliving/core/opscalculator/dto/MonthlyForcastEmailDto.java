@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class MonthlyForcastEmailDto {
 	
-	private String city;
-	private String microMarket;
+	private String cityName;
+	private String microMarketName;
 	private String residenceName;   
 }
