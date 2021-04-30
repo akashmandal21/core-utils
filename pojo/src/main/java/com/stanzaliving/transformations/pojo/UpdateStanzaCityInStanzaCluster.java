@@ -3,11 +3,9 @@ package com.stanzaliving.transformations.pojo;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import lombok.*;
 
-import java.util.List;
-
 /**
  * @author dhruv.mathur
- * @date 20/04/21
+ * @date 30/04/21
  */
 @Setter
 @Getter
@@ -15,11 +13,9 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EditStanzaClusterDto {
-    private UIKeyValue geographicalCluster;
-    private UIKeyValue stanzaCity;
+public class UpdateStanzaCityInStanzaCluster {
     private UIKeyValue stanzaCluster;
-    private List<UIKeyValue> stanzaCityOptions;
-    private List<UIKeyValue> stanzaClusterOptions;
+    private UIKeyValue currentZone;
+    private UIKeyValue currentStanzaCity;
 
 }
