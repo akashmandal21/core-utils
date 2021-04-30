@@ -1,5 +1,7 @@
 package com.stanzaliving.core.opscalculator.dto;
 
+import java.io.Serializable;
+
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvBindByPosition;
 
@@ -14,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class MonthlyForcastCsvDto {
+public class MonthlyForcastCsvDto implements Serializable{
 	@CsvBindByPosition(position = 0)
 	@CsvBindByName(column = "City")
 	private String city;
