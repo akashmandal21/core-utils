@@ -128,4 +128,17 @@ public class NumberUtils {
 		}
 		return Math.abs(firstDouble - secondDouble) < 0.001;
 	}
+
+	public static Double sumDouble(Double firstDouble, Double secondDouble) {
+		if (null == firstDouble && null == secondDouble) {
+			return null;
+		}
+		if (null == firstDouble) {
+			return secondDouble;
+		}
+		if (null == secondDouble) {
+			return firstDouble;
+		}
+		return firstDouble + secondDouble;
+	}
 }

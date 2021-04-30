@@ -37,8 +37,12 @@ public class UserResidenceDetailDto {
 	private String currentResidenceId;
 
 	private String currentResidenceName;
+	
+	private String currentRoomNumber;
 
 	private String originalResidenceId;
 
 	private String originalResidenceName;
+	
+	private String originalRoomNumber;
 }
