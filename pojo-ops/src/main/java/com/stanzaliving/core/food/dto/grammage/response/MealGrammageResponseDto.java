@@ -1,7 +1,6 @@
 package com.stanzaliving.core.food.dto.grammage.response;
 
-import com.stanzaliving.core.operations.enums.MealType;
-import com.stanzaliving.core.user.enums.EnumListing;
+import com.stanzaliving.core.dto.KeyValuePairDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class MealGrammageResponseDto {
 
-	private EnumListing<MealType> mealType;
+	private KeyValuePairDto mealType;
 
 	private boolean enabled;
 

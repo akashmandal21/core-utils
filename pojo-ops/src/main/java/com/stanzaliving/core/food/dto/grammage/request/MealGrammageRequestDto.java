@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.grammage.request;
 
-import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -26,7 +25,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class MealGrammageRequestDto extends GrammageStatusRequestDto {
 
-	@NotNull(message = "Meal Type can not be null")
-	private MealType mealType;
+	@NotBlank(message = "Meal selection is mandatory")
+	private String mealMasterId;
 
 }
