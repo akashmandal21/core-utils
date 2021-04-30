@@ -1,6 +1,5 @@
 package com.stanzaliving.core.food.dto.grammage.request;
 
-import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,7 +39,7 @@ public class GrammageMasterRuleFixedRequestDto {
 	private Integer value;
 
 	@NotEmpty(message = "Applicable meals selection is mandatory")
-	private Set<MealType> applicableMeals;
+	private Set<String> applicableMeals;
 
 	@NotEmpty(message = "Applicable thalis selection is mandatory")
 	private Set<String> applicableThalis;

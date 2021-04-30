@@ -1,8 +1,6 @@
 package com.stanzaliving.core.food.dto.grammage.response;
 
 import com.stanzaliving.core.dto.KeyValuePairDto;
-import com.stanzaliving.core.operations.enums.MealType;
-import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,7 +28,7 @@ public class GrammageMasterRuleFixedResponseDto extends CategorySubCategoryRespo
 
 	private Integer value;
 
-	private Set<EnumListing<MealType>> applicableMeals;
+	private Set<KeyValuePairDto> applicableMeals;
 
 	private Set<KeyValuePairDto> applicableThalis;
 
