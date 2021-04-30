@@ -40,5 +40,7 @@ public interface RedisCollectionService {
 
 	boolean existsInStringMapCache(String mapName, String key);
 
+	void removeFromStringMapCache(String mapName, String key);
+
 	void removeFromStringMap(String mapName, String key);
 }
