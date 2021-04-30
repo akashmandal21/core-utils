@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
-import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -49,22 +48,26 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private FomoTag fomoTag;
 	private String fomoTagName;
 	private String fomoTagcolour;
-	private int priorityOrder;
+	private int sortOrder;
 	private String residenceType;
 	private String mobileNo;
-	private String gmbLink;
-	private String virtualTourURL;
+	private String googleMapLink;
+	private String virtualTourImage;
+	private String videoLink;
 	private String cardCTAName;
 	private int cardCTAId;
 	private int residenceTypeId;
 	private String genderSlug;
 	private String phoneNo;
-	EnumListing<PropertyEntityType> propertType;
+	
+	private PropertyEntityType propertyEntityType;
+
 	@Builder.Default
 	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
 
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>(0);
+	
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
 

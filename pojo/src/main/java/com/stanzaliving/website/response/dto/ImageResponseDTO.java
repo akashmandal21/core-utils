@@ -3,7 +3,6 @@ package com.stanzaliving.website.response.dto;
 import java.io.Serializable;
 import java.util.List;
 
-import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.ImageTags;
 
 import lombok.AllArgsConstructor;
@@ -25,10 +24,10 @@ public class ImageResponseDTO implements Serializable{
 	private int imageId;
 	private String imageUrl;
 	private String imageType;
-	private int imageOrder;
+	private Integer imageOrder;
 	private boolean enabled;
 	private String altTag;
-	private List<EnumListing<ImageTags>> imageTag;
+	private ImageTags imageTag;
 	private boolean featuredImage;
 	private String imageUrlAltTag;
 	private List<String> imageUrlAltTagList;

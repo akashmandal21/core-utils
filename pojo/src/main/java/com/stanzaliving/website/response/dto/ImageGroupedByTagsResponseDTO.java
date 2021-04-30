@@ -1,7 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,5 +18,5 @@ import lombok.ToString;
 @ToString
 public class ImageGroupedByTagsResponseDTO {
 	
-	Map<String, Set<ImageResponseDTO>> imagesTagMap;
+	Map<String, List<ImageResponseDTO>> imagesTagMap;
 }
