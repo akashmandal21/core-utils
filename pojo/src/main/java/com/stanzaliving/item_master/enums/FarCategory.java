@@ -24,14 +24,14 @@ public enum FarCategory {
 	TAGGABLE("Taggable"),
 	NON_TAGGABLE("Not Taggable");
 
-	private String name;
+	private String text;
 
 	public static Collection<FarCategory> farCategories;
 	private static SortedMap<String, FarCategory> farCategoriesMap = new TreeMap<String, FarCategory>();
 
 	static {
 		for (FarCategory fc : FarCategory.values()) {
-			farCategoriesMap.put(fc.getName(), fc);
+			farCategoriesMap.put(fc.getText(), fc);
 		}
 	}
 
