@@ -22,14 +22,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StanzaCityPostDto {
-	@NotBlank
 	private String cityName;
-	@NotNull
 	private Boolean status;
-	@NotNull
-	private UIKeyValue zone;
-	@NotNull
+	private String zone;
 	private List<UIKeyValue> stanzaClusters;
+	private List<UIKeyValue> zones;
+
 	
 	
 

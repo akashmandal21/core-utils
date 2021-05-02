@@ -23,7 +23,7 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateStanzaCityZoneDto {
+public class UpdateZoneForStanzaCityDto {
 	
 	
 	private UIKeyValue zone;
