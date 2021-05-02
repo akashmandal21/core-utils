@@ -24,4 +24,5 @@ public class AmcResponseDto {
     private String amcIncludes; // Multiple select options based on the item selected
     private String amcExcludes; // Multiple select options based on the item selected
     private String amcDocumentPath; // where the uploaded doc. by user is stored
+    private String amcDocumentUrl;
 }

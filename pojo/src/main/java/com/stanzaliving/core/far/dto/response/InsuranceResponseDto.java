@@ -21,4 +21,5 @@ public class InsuranceResponseDto {
     private BigDecimal insuredValue;
     private BigDecimal insuranceAmount;
     private String insuranceDocumentPath; // where the uploaded doc. by user is stored
+    private String insuranceDocumentUrl;
 }
