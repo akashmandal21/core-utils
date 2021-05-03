@@ -26,7 +26,7 @@ public class MonthlyForcastCsvDto implements Serializable {
 	private String microMarket;
 
 	@CsvBindByPosition(position = 2)
-	@CsvBindByName(column = "residenceName")
+	@CsvBindByName(column = "ResidenceName")
 	private String residenceName;
 
 	@CsvBindByPosition(position = 3)
@@ -34,12 +34,12 @@ public class MonthlyForcastCsvDto implements Serializable {
 	private String month;
 
 	@CsvBindByPosition(position = 4)
-	@CsvBindByName(column = "BedOccupancy")
-	private Double bedOccupancy;
+	@CsvBindByName(column = "ActualOccupancy")
+	private Double actualOccupancy;
 
 	@CsvBindByPosition(position = 5)
-	@CsvBindByName(column = "RoomOccupancy")
-	private Double roomOccupancy;
+	@CsvBindByName(column = "AopOccupancy")
+	private Double aopOccupancy;
 
 	@CsvBindByPosition(position = 6)
 	@CsvBindByName(column = "Food")
