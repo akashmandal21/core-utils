@@ -27,8 +27,9 @@ public class LeadRequestDto {
 	private boolean phoneVerified;
 
 	private String leadSource;
+	private String leadCreationInterface;
 	private String source;
-	
+	private String leadSourceDesc;
 	private int residenceId;
 	private String residenceName;
 	private String residenceNameUuid;
