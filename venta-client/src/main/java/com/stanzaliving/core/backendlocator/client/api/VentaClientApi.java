@@ -3,14 +3,12 @@
  */
 package com.stanzaliving.core.backendlocator.client.api;
 
-import com.stanzaliving.core.backendlocator.client.dto.ResidenceGstDto;
-import com.stanzaliving.core.backendlocator.client.dto.ResidentDto;
-import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.venta.DeadBedCountDto;
-import com.stanzaliving.venta.BedCountDetailsDto;
-import lombok.extern.log4j.Log4j2;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -19,11 +17,15 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.stanzaliving.core.backendlocator.client.dto.ResidenceGstDto;
+import com.stanzaliving.core.backendlocator.client.dto.ResidentDto;
+import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.venta.BedCountDetailsDto;
+import com.stanzaliving.venta.DeadBedCountDto;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * @author raj.kumar
@@ -210,6 +212,37 @@ public class VentaClientApi {
 		}
 
 		return roomNumberList;
+	}
+	
+	public Map<String, Object> getBookingDetails(int bookingId) {
+
+		Object postBody = null;
+
+		Map<String, Object> response = new HashMap<>();
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("bookingId", bookingId);
+
+		String path = UriComponentsBuilder.fromPath("/wanda/booking/{bookingId}").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<HashMap<String, Object>> returnType = new ParameterizedTypeReference<HashMap<String, Object>>() {
+		};
+		try {
+			response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					returnType);
+
+		} catch (Exception e) {
+			log.error("Exception while fetching booking details for bookingId {} ", bookingId);
+		}
+		return response;
 	}
 
 }
