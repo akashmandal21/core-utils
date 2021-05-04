@@ -18,5 +18,6 @@ public class MealDto {
     private String name;
     private String code;
     private String mealGroup;
+    private String mealGroupId;
     private String imageUri;
 }
