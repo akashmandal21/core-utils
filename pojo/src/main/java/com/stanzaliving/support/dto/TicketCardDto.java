@@ -26,5 +26,6 @@ public class TicketCardDto {
     private String userCode;
     private String residenceName;
     private String roomNumber;
+    private String description;
 }
 
