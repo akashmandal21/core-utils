@@ -1,4 +1,4 @@
-package com.stanzaliving.core.food.dto.grammage.request;
+package com.stanzaliving.food.v2.grammage.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

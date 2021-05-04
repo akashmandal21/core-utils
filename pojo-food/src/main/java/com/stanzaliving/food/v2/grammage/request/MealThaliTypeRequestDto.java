@@ -1,5 +1,6 @@
-package com.stanzaliving.core.food.dto.grammage.request;
+package com.stanzaliving.food.v2.grammage.request;
 
+import com.stanzaliving.food.v2.common.constants.ThaliType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @since 20-Apr-2021
+ * @since 04-May-2021
  *
  * @version 1.0
  */
@@ -21,9 +22,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GrammageStatusRequestDto {
+public class MealThaliTypeRequestDto {
+	private String mealMasterId;
 
-	private boolean enabled;
-
-	private Integer grammage;
+	private ThaliType thaliType;
 }

@@ -1,18 +1,16 @@
-package com.stanzaliving.core.food.dto.grammage.response;
+package com.stanzaliving.food.v2.grammage.request;
 
-import com.stanzaliving.core.dto.KeyValuePairDto;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
-
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @since 16-Apr-2021
+ * @since 20-Apr-2021
  *
  * @version 1.0
  */
@@ -22,9 +20,10 @@ import java.util.List;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class GrammageMasterThaliResponseDto {
+@AllArgsConstructor
+public class GrammageStatusRequestDto {
 
-	private KeyValuePairDto thali;
+	private boolean enabled;
 
-	private List<MealGrammageResponseDto> mealGrammages;
+	private Integer grammage;
 }

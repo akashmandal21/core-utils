@@ -1,4 +1,4 @@
-package com.stanzaliving.core.food.dto.grammage.response;
+package com.stanzaliving.food.v2.grammage.response;
 
 import com.stanzaliving.core.dto.KeyValuePairDto;
 import lombok.Getter;
@@ -20,11 +20,8 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class MealGrammageResponseDto {
+public class CategorySubCategoryResponseDto {
+	private KeyValuePairDto category;
 
-	private KeyValuePairDto mealType;
-
-	private boolean enabled;
-
-	private Integer grammage;
+	private KeyValuePairDto subCategory;
 }

@@ -1,4 +1,4 @@
-package com.stanzaliving.core.food.dto.grammage.response;
+package com.stanzaliving.food.v2.grammage.response;
 
 import com.stanzaliving.core.dto.KeyValuePairDto;
 import lombok.Getter;
@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.util.Set;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -22,14 +20,11 @@ import java.util.Set;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class GrammageMasterRuleFixedResponseDto extends CategorySubCategoryResponseDto {
+public class MealGrammageResponseDto {
 
-	private boolean quantifiable;
+	private KeyValuePairDto mealType;
 
-	private Integer value;
+	private boolean enabled;
 
-	private Set<KeyValuePairDto> applicableMeals;
-
-	private Set<KeyValuePairDto> applicableThalis;
-
+	private Integer grammage;
 }

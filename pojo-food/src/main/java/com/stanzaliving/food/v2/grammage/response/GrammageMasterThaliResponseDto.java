@@ -1,4 +1,4 @@
-package com.stanzaliving.core.food.dto.grammage.response;
+package com.stanzaliving.food.v2.grammage.response;
 
 import com.stanzaliving.core.dto.KeyValuePairDto;
 import lombok.Getter;
@@ -7,10 +7,12 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @since 21-Apr-2021
+ * @since 16-Apr-2021
  *
  * @version 1.0
  */
@@ -20,8 +22,9 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class CategorySubCategoryResponseDto {
-	private KeyValuePairDto category;
+public class GrammageMasterThaliResponseDto {
 
-	private KeyValuePairDto subCategory;
+	private KeyValuePairDto thali;
+
+	private List<MealGrammageResponseDto> mealGrammages;
 }

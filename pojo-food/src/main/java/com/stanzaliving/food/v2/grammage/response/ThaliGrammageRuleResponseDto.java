@@ -1,4 +1,4 @@
-package com.stanzaliving.core.food.dto.grammage.response;
+package com.stanzaliving.food.v2.grammage.response;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

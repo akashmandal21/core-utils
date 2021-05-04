@@ -1,4 +1,4 @@
-package com.stanzaliving.core.food.dto.grammage.request;
+package com.stanzaliving.food.v2.grammage.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,25 +7,24 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
-
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @since 20-Apr-2021
+ * @since 13-Apr-2021
  *
  * @version 1.0
  */
 
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealGrammageRequestDto extends GrammageStatusRequestDto {
+public class DraftResponseDto<T> {
+	private T draft;
 
-	@NotBlank(message = "Meal selection is mandatory")
-	private String mealMasterId;
+	private T published;
 
+	private boolean changed;
 }
