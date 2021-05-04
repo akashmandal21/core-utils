@@ -30,4 +30,5 @@ public class MenuCategorySearchPDto implements Serializable {
     private SortingType sortingType;
     private CategorySearchSortingField sortingField;
     private Boolean published;
+    private boolean isDetailed;
 }

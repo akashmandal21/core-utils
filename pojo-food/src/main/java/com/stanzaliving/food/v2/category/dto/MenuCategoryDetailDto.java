@@ -31,7 +31,6 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
     private Integer maxWeeklyCombo;
     private boolean sampleMenuDefined;
     private boolean grammageDefined;
-    private String grammageRuleId;
     private List<ListingDto> demographicTags;
 
     //derived information
@@ -40,7 +39,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
     private List<String> draftVersions;
     private String mealWiseName;
     private String fullName;
-    private List<ResidenceRDto> residences;
+    private List<MenuCategoryResidenceRDto> residences;
     private int noOfResidenceServed;
 
 
