@@ -823,6 +823,7 @@ public class AttributeNames {
 			landlordAgreedKeys.add("whiteGoodsClauseCBoolean");
 			landlordAgreedKeys.add("whiteGoodsClauseDBoolean");
 			landlordAgreedKeys.add("whiteGoodsClauseEBoolean");
+			landlordAgreedKeys.add("roomClauseQBoolean");
 
 		}
 
