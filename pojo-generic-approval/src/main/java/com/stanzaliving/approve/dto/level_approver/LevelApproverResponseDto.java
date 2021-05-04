@@ -22,9 +22,11 @@ public class LevelApproverResponseDto {
 
     private String levelUUID;
 
-    private String entityServiceName;
+    private String entityName;
 
     private List<RoleResponseDto> roles;
 
     private List<MailConfigurationDto> mailConfigurationDto;
+
+    private String accessLevel;
 }

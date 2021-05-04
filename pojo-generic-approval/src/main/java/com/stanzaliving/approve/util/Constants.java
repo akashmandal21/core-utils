@@ -3,7 +3,9 @@ package com.stanzaliving.approve.util;
 import com.stanzaliving.approve.enums.ApprovalStatus;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Constants {
 
@@ -22,5 +24,16 @@ public class Constants {
 
     public static final List<String> RESIDENCE_ENTITY = Arrays.asList(new String[]{"RESIDENCE_UPDATION", "BULK_UPDATE_RESIDENCE"});
 
-    public static final List<String> ROOM_ENTITY = Arrays.asList(new String[]{"BULK_UPDATE_ROOMS", "BULK_UPDATE_ROOM_PRICING","ROOM_UPDATION"});
+    public static final List<String> ROOM_ENTITY = Arrays.asList(new String[]{"BULK_UPLOAD_ROOMS", "BULK_UPDATE_ROOM_PRICING","ROOM_UPDATION"});
+
+    public static final String SUBJECT_BULK_APPROVED = "IMS | Bulk Action - Your request has been Approved";
+
+    public static final String SUBJECT_BULK_REJECTED = "IMS | Bulk Action - Your request has been Rejected";
+
+    public static final Map<String, String> MAIL_ENTITY_NAME  = new HashMap<String, String>() {{
+        put("BULK_UPDATE_RESIDENCE", "Update residences in bulk");
+        put("BULK_UPLOAD_ROOMS", " Upload room in bulk");
+        put("BULK_UPDATE_ROOM_PRICING","Update rooms in bulk");
+    }};
+
 }

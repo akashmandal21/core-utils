@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.HashMap;
 
 @Data
@@ -23,8 +24,9 @@ public class ApprovalResponseDto {
     @NotNull(message = "entity cannot be null")
     private String entityName;
 
-    //todo: add enum validator
-    ApprovalStatus approvalStatus;
+    @Pattern(regexp = "APPROVED|REJECTED",
+            message = "Invalid approval status type")
+    String approvalStatus;
 
     private String comment;
 

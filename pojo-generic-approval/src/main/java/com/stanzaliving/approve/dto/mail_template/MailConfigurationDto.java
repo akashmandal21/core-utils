@@ -20,10 +20,6 @@ public class MailConfigurationDto {
     @Pattern(regexp = "APPROVED|REJECTED", message = "Action can be either APPROVED or REJECTED")
     private String action;
 
-    @NotNull(message = "Template Uuid cannot be null")
-    @NotBlank(message = "Template Uuid cannot be blank")
-    private String templateUUId;
-
     private List<String> ccMailLevels;
 
     //todo : validation for list of enums

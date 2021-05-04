@@ -4,6 +4,9 @@ import com.stanzaliving.core.base.enums.ColorCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Getter
 @AllArgsConstructor
 public enum ApprovalStatus {
@@ -24,10 +27,22 @@ public enum ApprovalStatus {
     APPROVED("Approved", 6, ColorCode.SOFT_GREEN.getColorCode(), ColorCode.GREEN_CYAN.getColorCode(), ColorCode.GREEN_CYAN.getColorCode(),"Successfully Approved"),        //color code need to be updated with product
     REJECTED("Rejected", 7, ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(),  ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected");
 
+
     private final String status;
     private final Integer level;
     private final String bgColorCode;
     private final String textColorCode;
     private final String cardLeftMargin;
     private final String responseMessage;
+    private static final Map<String, ApprovalStatus> map = new HashMap<>();
+
+    static {
+        for (ApprovalStatus approvalStatus : ApprovalStatus.values()) {
+            map.put(approvalStatus.getStatus(), approvalStatus);
+        }
+    }
+
+    public static ApprovalStatus enumOf(String approvalStatus) {
+        return map.get(approvalStatus);
+    }
 }

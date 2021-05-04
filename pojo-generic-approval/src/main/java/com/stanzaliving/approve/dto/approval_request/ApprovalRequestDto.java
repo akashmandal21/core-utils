@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.Date;
-import java.util.HashMap;
+
+import java.util.*;
 
 @Data
 @Builder
@@ -23,6 +23,8 @@ public class ApprovalRequestDto {
     private String entityName;
 
     private HashMap<String, Object> metadata;
+
+    private List<Map<String, String>> validation;
 
     private boolean l1ApprovalRequired;
 

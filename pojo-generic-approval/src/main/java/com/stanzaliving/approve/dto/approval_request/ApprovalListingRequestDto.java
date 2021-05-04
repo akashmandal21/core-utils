@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,8 @@ public class ApprovalListingRequestDto {
     private int pageNo;
 
     private int pageSize;
+
+    private String sort;
 
     private String requestedDateFrom;
 
