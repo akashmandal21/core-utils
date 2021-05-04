@@ -45,6 +45,8 @@ public class FoodOrderRequestDto {
 
 	private Integer nonVeg;
 
+	private List<FoodOrderMenuCategoryDto> foodOrderMenuCategoryDtoList;
+
 	@NotEmpty(message = "Meal Orders are mandatory")
 	private List<FoodOrderDetailDto> foodOrderDetailDtos;
 
