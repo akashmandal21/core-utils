@@ -31,6 +31,16 @@ public class KitchenOrderMealRequestDto {
 	@NotNull(message = "Non stanza staff count must be greater than equal to 0")
 	private Integer nonStanzaStaffCount;
 
+	@Min(value = 0, message = "SL Employee Special Meals count must be greater than equal to 0")
+	@Max(value = 500, message = "SL Employee Special Meals count must be less than equal to 500")
+	@NotNull(message = "SL Employee Special Meals count must be greater than equal to 0")
+	private Integer stanzaEmployeeSpecialCount;
+
+	@Min(value = 0, message = "Non-SL Agency count must be greater than equal to 0")
+	@Max(value = 500, message = "Non-SL Agency count must be less than equal to 500")
+	@NotNull(message = "Non-SL Agency count must be greater than equal to 0")
+	private Integer nonStanzaAgencyCount;
+
 	@NotNull(message = "Meal Type cannot be null")
 	private MealType mealType;
 
