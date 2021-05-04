@@ -131,6 +131,9 @@ public enum AtlDetailsEnum {
     ROOM_CLAUSE_N_TEXT_AREA("Bathroom", "(One Time)", AttributeNames.ROOM_CLAUSE_N_TEXT_AREA, AttributeNames.ROOM_CLAUSE_N_REMARKS, "Provide exhaust/ glass louvers in toilet window."),
     ROOM_CLAUSE_O_TEXT_AREA("Bathroom", "(One Time)", AttributeNames.ROOM_CLAUSE_O_TEXT_AREA, AttributeNames.ROOM_CLAUSE_O_REMARKS, "Provide clothes hook/ towel racks in toilet."),
     ROOM_CLAUSE_P_TEXT_AREA("Bathroom", "(One Time)", AttributeNames.ROOM_CLAUSE_P_TEXT_AREA, AttributeNames.ROOM_CLAUSE_P_REMARKS, "Provide deep cleaning in toilets to the satisfaction of Lessee."),
+    ROOM_CLAUSE_Q_TEXT_AREA("Rooms", "(One Time)", AttributeNames.ROOM_CLAUSE_Q_TEXT_AREA, AttributeNames.ROOM_CLAUSE_Q_REMARKS, "The entire interior space to be painted as per design manual or as specified by the Lessee.<br> \n" +
+            "Specification for room paint:<br>\n" +
+            "Wall Paint Berger - Yellow Slicker 3D 0759 (Room Accent wall) Asian Paint - Desert Glow 7910 (Room Accent wall) Berger - White Swan 2P 1847 (Remaining walls in room) Ceiling Paint Berger - White Swan 2P 1847 Room Doors - Berger Yellow Slicker 3D 0759 (In case of laminate - Yellow laminate: Sonear - Sunflower Yellow (Suede) -9076 OR Virgo Golden Yellow -1073SF, Door Frame - Berger White Swan 2P 1847."),
 
 
     ROOM_PAINT_TEXT_AREA("ROOM PAINT","(One Time)",AttributeNames.ROOM_PAINT_CLAUSE_TEXT_AREA,AttributeNames.ROOM_PAINT_REMARKS,

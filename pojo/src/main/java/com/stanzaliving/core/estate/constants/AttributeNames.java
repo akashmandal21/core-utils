@@ -277,6 +277,7 @@ public class AttributeNames {
 		public static final String ROOM_CLAUSE_N_REMARKS = "roomClauseNRemarks";
 		public static final String ROOM_CLAUSE_O_REMARKS = "roomClauseORemarks";
 		public static final String ROOM_CLAUSE_P_REMARKS = "roomClausePRemarks";
+		public static final String ROOM_CLAUSE_Q_REMARKS = "roomClauseQRemarks";
 
 
 
@@ -382,6 +383,7 @@ public class AttributeNames {
 		public static final String ROOM_CLAUSE_N_BOOLEAN = "roomClauseNBoolean";
 		public static final String ROOM_CLAUSE_O_BOOLEAN = "roomClauseOBoolean";
 		public static final String ROOM_CLAUSE_P_BOOLEAN = "roomClausePBoolean";
+		public static final String ROOM_CLAUSE_Q_BOOLEAN = "roomClauseQBoolean";
 		public static final String SANITARY_CLAUSE_A_BOOLEAN = "sanitaryClauseABoolean";
 		public static final String SANITARY_CLAUSE_B_BOOLEAN = "sanitaryClauseBBoolean";
 		public static final String SANITARY_CLAUSE_C_BOOLEAN = "sanitaryClauseCBoolean";
@@ -509,6 +511,7 @@ public class AttributeNames {
 		public static final String ROOM_CLAUSE_N_TEXT_AREA = "roomClauseNTextArea";
 		public static final String ROOM_CLAUSE_O_TEXT_AREA = "roomClauseOTextArea";
 		public static final String ROOM_CLAUSE_P_TEXT_AREA = "roomClausePTextArea";
+		public static final String ROOM_CLAUSE_Q_TEXT_AREA = "roomClauseQTextArea";
 
 
 
