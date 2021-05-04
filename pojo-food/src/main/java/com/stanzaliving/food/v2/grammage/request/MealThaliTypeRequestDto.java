@@ -23,7 +23,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MealThaliTypeRequestDto {
+
 	private String mealMasterId;
 
 	private ThaliType thaliType;
+
+	private Integer grammage;
 }

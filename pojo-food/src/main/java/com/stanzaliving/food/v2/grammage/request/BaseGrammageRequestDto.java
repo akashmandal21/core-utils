@@ -8,6 +8,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -28,21 +29,7 @@ public class BaseGrammageRequestDto {
 	@NotBlank(message = "SubCategory selection is mandatory")
 	private String subCategoryId;
 
-	private Integer breakfast;
-
-	private Integer lunch;
-
-	private Integer eveningSnacks;
-
-	private Integer dinner;
-
-	private Integer breakfastCombo;
-
-	private Integer lunchCombo;
-
-	private Integer eveningSnacksCombo;
-
-	private Integer dinnerCombo;
+	private List<MealThaliTypeRequestDto> mealGrammages;
 
 	private Boolean additive;
 
