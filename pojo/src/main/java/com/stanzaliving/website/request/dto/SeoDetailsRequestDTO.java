@@ -14,15 +14,15 @@ import lombok.ToString;
 @Setter
 @ToString
 public class SeoDetailsRequestDTO {
+
 	private int residenceId;
 	private int cityId;
 	private int micromarketId;
-	private String description;
+	private String slug;
+	private Double rating;
+	private Long reviewCount;
+	private Long minPriceValue;
 	private String seoTitle;
 	private String seoDescription;
-	private String slug;
-	private Long reviewCount;
-	private Double rating;
-	private Long minPriceValue;
-	
+	private String description;
 }
