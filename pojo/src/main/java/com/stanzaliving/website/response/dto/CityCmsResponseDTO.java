@@ -17,7 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CityResponseDTO {
+public class CityCmsResponseDTO {
 
 	private int cityId;
 	private String name;
@@ -30,7 +30,6 @@ public class CityResponseDTO {
 	private double longitude;
 	private boolean enabled;
 	private String slug;
-	private String cityResidenceTypeText;
 	private String phone;
 	private String description;
 	private String imageAltTag;
@@ -40,15 +39,9 @@ public class CityResponseDTO {
 	private Long reviewCount;
 	private Double rating;
 	private Long minPriceValue;
-	private Boolean whatsappChatFlag;
 	private String cityDescription;
 	
-	@Builder.Default
-	private boolean comingSoon = false;
-	
 	private List<AttributeDto> attributeDto;
-    @Builder.Default
-	private boolean isSelected = false;
 	
 	private String apartmentCitySlug;
 	private Double apartmentRating;
