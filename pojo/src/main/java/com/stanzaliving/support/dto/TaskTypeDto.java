@@ -13,4 +13,5 @@ public class TaskTypeDto {
     private String name;
     private String uuid;
     private String description;
+    private long sla;
 }
