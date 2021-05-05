@@ -5,7 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor
@@ -35,14 +38,21 @@ public enum ApprovalStatus {
     private final String cardLeftMargin;
     private final String responseMessage;
     private static final Map<String, ApprovalStatus> map = new HashMap<>();
-
+    private static final Map<Integer, ApprovalStatus> levelMap = new HashMap<>();
     static {
         for (ApprovalStatus approvalStatus : ApprovalStatus.values()) {
             map.put(approvalStatus.getStatus(), approvalStatus);
+            if(!levelMap.containsKey(approvalStatus.getLevel())){
+                levelMap.put(approvalStatus.getLevel(), approvalStatus);
+            }
         }
     }
 
     public static ApprovalStatus enumOf(String approvalStatus) {
         return map.get(approvalStatus);
+    }
+
+    public static ApprovalStatus enumOf(Integer level) {
+        return levelMap.get(level);
     }
 }

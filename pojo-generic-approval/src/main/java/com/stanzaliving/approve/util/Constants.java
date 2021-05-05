@@ -22,6 +22,9 @@ public class Constants {
     public static final List<ApprovalStatus> REJECTED_APPROVAL_STATUS = Arrays.asList(new ApprovalStatus[] {ApprovalStatus.L1_REJECTED,
             ApprovalStatus.L2_REJECTED, ApprovalStatus.L3_REJECTED, ApprovalStatus.L4_REJECTED, ApprovalStatus.L5_REJECTED, ApprovalStatus.REJECTED});
 
+    public static final List<ApprovalStatus> INITIAL_APPROVAL_STATUS = Arrays.asList(new ApprovalStatus[]{ApprovalStatus.L1_REJECTED,
+            ApprovalStatus.L2_REJECTED, ApprovalStatus.L3_REJECTED, ApprovalStatus.L4_REJECTED, ApprovalStatus.L5_REJECTED, ApprovalStatus.REJECTED,
+            ApprovalStatus.APPROVED});
     public static final List<String> RESIDENCE_ENTITY = Arrays.asList(new String[]{"RESIDENCE_UPDATION", "BULK_UPDATE_RESIDENCE"});
 
     public static final List<String> ROOM_ENTITY = Arrays.asList(new String[]{"BULK_UPLOAD_ROOMS", "BULK_UPDATE_ROOM_PRICING","ROOM_UPDATION"});
