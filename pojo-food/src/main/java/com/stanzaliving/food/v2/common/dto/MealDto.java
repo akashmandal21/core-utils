@@ -7,12 +7,16 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class MealDto {
+public class MealDto implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String mealId;
     private MealType mealType;
     private String name;
