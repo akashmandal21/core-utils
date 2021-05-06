@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 public class PlaceDto {
     private String placeType;
     private String city;
-    private Double latitude;
-    private Double longitude;
+    private String latitude;
+    private String longitude;
     private String name;
     private Double distance;
 }
