@@ -20,6 +20,7 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private Double newnessPercentage;
 	private Double ratings;
 	private boolean editingAllowed;
+	private boolean comboAllowed;
 	private List<DayWiseMenuDto> dayWiseMenu;
 
 }
