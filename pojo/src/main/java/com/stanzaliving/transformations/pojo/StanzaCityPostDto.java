@@ -24,7 +24,7 @@ import lombok.ToString;
 public class StanzaCityPostDto {
 	private String cityName;
 	private Boolean status;
-	private String zone;
+	private UIKeyValue zone;
 	private List<UIKeyValue> stanzaClusters;
 	private List<UIKeyValue> zones;
 
