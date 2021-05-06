@@ -25,7 +25,6 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int residenceId;
-//	private String name;
 	private String apartmentName;
 	private Gender gender;
 	private String genderName;
@@ -35,8 +34,7 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private int cityId;
 	private String cityName;
 	private String citySlug;
-//	private String description;
-	private String apartmentDescription;
+	private String description;
 	private String seoTitle;
 	private String seoDescription;
 	private String pricingPlan;
@@ -45,8 +43,7 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private double latitude;
 	private double longitude;
 	private boolean enabled;
-//	private String slug;
-	private String apartmentSlug;
+	private String slug;
 	private Integer preBookingAmount;
 	private FomoTag fomoTag;
 	private String fomoTagName;

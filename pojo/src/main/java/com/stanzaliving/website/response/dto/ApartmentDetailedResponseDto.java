@@ -20,7 +20,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer apartmentId;
+	private Integer residenceId;
 	
 	private String propertyCode;
 	
@@ -30,7 +30,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String apartmentName;
 	
-	private String apartmentSlug;
+	private String slug;
 	
 	private Gender gender;
 
@@ -70,7 +70,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private FomoTag fomoTag;
 	
-	private String apartmentDescription;
+	private String description;
 	
 	private AddressResponseDTO address;
 	

@@ -17,7 +17,7 @@ public class ApartmentShortResponseDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer apartmentId;
+	private Integer residenceId;
 	
 	private String propertyCode;
 	
@@ -27,7 +27,7 @@ public class ApartmentShortResponseDto implements Serializable {
 	
 	private String apartmentName;
 	
-	private String apartmentSlug;
+	private String slug;
 	
 	private Integer micromarketId;
 	
