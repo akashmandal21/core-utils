@@ -26,6 +26,7 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int residenceId;
 	private String name;
+	private String apartmentName;
 	private Gender gender;
 	private String genderName;
 	private int micromarketId;

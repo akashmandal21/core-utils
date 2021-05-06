@@ -26,7 +26,6 @@ public class ResidenceListResponseDTO implements Serializable {
 	private int residenceId;
 	private String name;
 	private String slug;
-	private String apartmentSlug;
 	private int micromarketId;
 	private String micromarketName;
 	private String micromarketSlug;
@@ -43,7 +42,6 @@ public class ResidenceListResponseDTO implements Serializable {
 	private int sortOrder;
 	private boolean enabled;
 	private String cardCTA;
-	private String transformationUuid;
 	
 	private PropertyEntityType propertyEntityType;
 }
