@@ -34,17 +34,17 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private Gender gender;
 
-	private int cityId;
-	
-	private String cityName;
-	
-	private String apartmentCitySlug;
-
 	private int micromarketId;
 	
 	private String micromarketName;
 	
-	private String apartmentMMSlug;
+	private String micromarketSlug;
+	
+	private int cityId;
+	
+	private String cityName;
+	
+	private String citySlug;
 	
 	private String pricingPlan;
 	
