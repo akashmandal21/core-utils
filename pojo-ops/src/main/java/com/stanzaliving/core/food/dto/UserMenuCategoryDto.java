@@ -1,6 +1,8 @@
 package com.stanzaliving.core.food.dto;
 
 import com.stanzaliving.core.operations.enums.DealCategory;
+import com.stanzaliving.core.operations.enums.ResidentStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,6 +36,9 @@ public class UserMenuCategoryDto {
 	@NotNull(message = "DealCategory cannot be null")
 	private DealCategory dealCategory;
 
+	@NotNull(message = "ResidentStatus cannot be null")
+	private ResidentStatus residentStatus;
+	
 	private LocalDate toDate;
 
 	private LocalDate fromDate;
