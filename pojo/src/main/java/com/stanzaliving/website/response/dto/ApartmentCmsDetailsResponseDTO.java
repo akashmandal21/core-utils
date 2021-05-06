@@ -25,7 +25,10 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int residenceId;
-	private String apartmentName;
+	private String name;
+	private String propertyCode;
+	private String Area;
+	private String Floor;
 	private Gender gender;
 	private String genderName;
 	private int micromarketId;
@@ -49,13 +52,13 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private String fomoTagName;
 	private String fomoTagcolour;
 	private int sortOrder;
-	private String mobileNo;
 	private String googleMapLink;
 	private String virtualTourImage;
 	private String videoLink;
 	private String cardCTAName;
 	private int cardCTAId;
 	private String genderSlug;
+	private String mobileNo;
 	private String phoneNo;
 	
 	private PropertyEntityType propertyEntityType;

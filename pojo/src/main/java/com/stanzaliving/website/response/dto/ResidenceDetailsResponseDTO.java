@@ -51,7 +51,6 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private String fomoTagcolour;
 	private int sortOrder;
 	private String residenceType;
-	private String mobileNo;
 	private String googleMapLink;
 	private String virtualTourImage;
 	private String videoLink;
@@ -59,6 +58,7 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private int cardCTAId;
 	private int residenceTypeId;
 	private String genderSlug;
+	private String mobileNo;
 	private String phoneNo;
 	
 	private PropertyEntityType propertyEntityType;
