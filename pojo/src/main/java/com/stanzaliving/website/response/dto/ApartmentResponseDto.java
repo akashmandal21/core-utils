@@ -35,7 +35,17 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private Gender gender;
 	
+	private int micromarketId;
+	
 	private String micromarketName;
+	
+	private String micromarketSlug;
+	
+	private int cityId;
+	
+	private String cityName;
+	
+	private String citySlug;
 	
 	private String pricingPlan;
 	
