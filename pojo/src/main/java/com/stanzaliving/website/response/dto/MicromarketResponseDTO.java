@@ -33,6 +33,7 @@ public class MicromarketResponseDTO {
 	private String seoTitle;
 	private String seoDescription;
 	private String phone;
+	private String description;
 	private String micromarketDescription;
 	private String citySlug;
 	EnumListing<Status> status;
