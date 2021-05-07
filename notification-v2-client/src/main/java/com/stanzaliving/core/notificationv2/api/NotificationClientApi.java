@@ -1,13 +1,12 @@
-package com.stanzaliving.core.notifications.api;
+package com.stanzaliving.core.notificationv2.api;
 
+import com.stanzaliving.campaign.client.dto.FcmTokenDto;
+import com.stanzaliving.campaign.client.dto.NotificationRegistryDto;
+import com.stanzaliving.campaign.dto.AudienceLocationDto;
+import com.stanzaliving.campaign.dto.CampaignAudienceDto;
+import com.stanzaliving.campaign.dto.UserDetailsDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.genericdashboard.dto.AudienceLocationDto;
-import com.stanzaliving.genericdashboard.dto.CampaignAudienceDto;
-import com.stanzaliving.notification.dto.NotificationRegistryDto;
-import com.stanzaliving.notification.dto.UserDetailsDto;
-import com.stanzaliving.notification.dto.UserLatestSurveyDto;
-import com.stanzaliving.notification.dto.UserNotificationDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -21,7 +20,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.stanzaliving.campaign.utils.Constants.*;
+
 public class NotificationClientApi {
+
     private StanzaRestClient restClient;
 
     public NotificationClientApi(StanzaRestClient stanzaRestClient) {
@@ -34,7 +36,7 @@ public class NotificationClientApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("userId", userId);
+        uriVariables.put(USER_ID, userId);
         String path =
                 UriComponentsBuilder.fromPath("api/v1/fcm/user/{userId}/location")
                         .buildAndExpand(uriVariables)
@@ -48,7 +50,8 @@ public class NotificationClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<UserDetailsDto>> returnType =
-                new ParameterizedTypeReference<ResponseDto<UserDetailsDto>>() {};
+                new ParameterizedTypeReference<ResponseDto<UserDetailsDto>>() {
+                };
         return restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
@@ -74,7 +77,8 @@ public class NotificationClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<NotificationRegistryDto>> returnType =
-                new ParameterizedTypeReference<ResponseDto<NotificationRegistryDto>>() {};
+                new ParameterizedTypeReference<ResponseDto<NotificationRegistryDto>>() {
+                };
         postBody = notificationRegistryDto;
         return restClient.invokeAPI(
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
@@ -99,7 +103,8 @@ public class NotificationClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<List<String>>> returnType =
-                new ParameterizedTypeReference<ResponseDto<List<String>>>() {};
+                new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+                };
         final ResponseDto<List<String>> responseDto =
                 restClient.invokeAPI(
                         path,
@@ -131,7 +136,8 @@ public class NotificationClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<List<String>>> returnType =
-                new ParameterizedTypeReference<ResponseDto<List<String>>>() {};
+                new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+                };
         postBody = audienceLocationDto;
 
         final ResponseDto<List<String>> responseDto =
@@ -152,9 +158,8 @@ public class NotificationClientApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("campaignId", campaignId);
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/notification/campaign/{campaignId}")
+                UriComponentsBuilder.fromPath("/api/v1/notification/campaign/" + campaignId)
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
@@ -165,7 +170,8 @@ public class NotificationClientApi {
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {};
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+        };
         restClient.invokeAPI(
                 path, HttpMethod.DELETE, queryParams, postBody, headerParams, accept, returnType);
     }
@@ -176,7 +182,7 @@ public class NotificationClientApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("campaignId", campaignId);
+        uriVariables.put(CAMPAIGN_ID, campaignId);
         String path =
                 UriComponentsBuilder.fromPath("/api/v1/notification/end-date/campaign/{campaignId}")
                         .buildAndExpand(uriVariables)
@@ -189,22 +195,22 @@ public class NotificationClientApi {
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Date>> returnType = new ParameterizedTypeReference<ResponseDto<Date>>() {};
+        ParameterizedTypeReference<ResponseDto<Date>> returnType = new ParameterizedTypeReference<ResponseDto<Date>>() {
+        };
         ResponseDto<Date> response = restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         return response.getData();
     }
 
-    public String getNotificationClickedAt(String userId, String campaignId) {
+    public FcmTokenDto getFcmTokenDto(String userId) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("userId", userId);
-        uriVariables.put("campaignId", campaignId);
+        uriVariables.put(USER_ID, userId);
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/notification/campaign/{campaignId}/user/{userId}/notification")
+                UriComponentsBuilder.fromPath("api/v1/fcm/user/{userId}")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
@@ -215,7 +221,35 @@ public class NotificationClientApi {
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {};
+        ParameterizedTypeReference<ResponseDto<FcmTokenDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<FcmTokenDto>>() {};
+        final ResponseDto<FcmTokenDto> response = restClient.invokeAPI(
+                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return response.getData();
+    }
+
+    public String getNotificationClickedAt(String userId, String campaignId) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put(USER_ID, userId);
+        uriVariables.put(CAMPAIGN_ID, campaignId);
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/user/{userId}/campaign/{campaignId}/notification/clickedAt/latest")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
         ResponseDto<String> response = restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         return response.getData();
@@ -227,8 +261,8 @@ public class NotificationClientApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("userUuid", userUuid);
-        uriVariables.put("residenceUuid", residenceUuid);
+        uriVariables.put(USER_UUID, userUuid);
+        uriVariables.put(RESIDENCE_UUID, residenceUuid);
         String path =
                 UriComponentsBuilder.fromPath("/api/v1/fcm/user/{userUuid}/residence/{residenceUuid}")
                         .buildAndExpand(uriVariables)
@@ -241,59 +275,10 @@ public class NotificationClientApi {
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {};
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
         restClient.invokeAPI(
                 path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
-    }
-
-    public ResponseDto<UserNotificationDto> updateUserNotificationOnSubmit(String userId, String uuid) {
-
-        Object postBody = null;
-
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("userId", userId);
-        uriVariables.put("uuid", uuid);
-        String path =
-                UriComponentsBuilder.fromPath("/api/v1/user/{userId}/notification/{id}/submit")
-                        .buildAndExpand(uriVariables)
-                        .toUriString();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        final HttpHeaders headerParams = new HttpHeaders();
-
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<UserNotificationDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserNotificationDto>>() {};
-        return restClient.invokeAPI(
-                path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
-    }
-
-    public ResponseDto<UserLatestSurveyDto> getLatestSurveyOrNudgeForUser(String userId) {
-
-        Object postBody = null;
-
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("userId", userId);
-        String path =
-                UriComponentsBuilder.fromPath("/api/v1/user/{userId}/notification/latest")
-                        .buildAndExpand(uriVariables)
-                        .toUriString();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        final HttpHeaders headerParams = new HttpHeaders();
-
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<UserLatestSurveyDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserLatestSurveyDto>>() {};
-        return restClient.invokeAPI(
-                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
     }
 
     public List<String> getUserInformation(CampaignAudienceDto audienceDto) {
@@ -314,10 +299,12 @@ public class NotificationClientApi {
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {};
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
         postBody = audienceDto;
         ResponseDto<List<String>> response = restClient.invokeAPI(
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         return response.getData();
     }
+
 }
