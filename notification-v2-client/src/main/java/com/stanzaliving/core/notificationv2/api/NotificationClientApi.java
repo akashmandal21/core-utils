@@ -1,12 +1,12 @@
 package com.stanzaliving.core.notificationv2.api;
 
-import com.stanzaliving.campaign.client.dto.FcmTokenDto;
-import com.stanzaliving.campaign.client.dto.NotificationRegistryDto;
-import com.stanzaliving.campaign.dto.AudienceLocationDto;
-import com.stanzaliving.campaign.dto.CampaignAudienceDto;
-import com.stanzaliving.campaign.dto.UserDetailsDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.genericdashboard.dto.AudienceLocationDto;
+import com.stanzaliving.genericdashboard.dto.CampaignAudienceDto;
+import com.stanzaliving.notification.dto.FcmTokenDto;
+import com.stanzaliving.notification.dto.NotificationRegistryDto;
+import com.stanzaliving.notification.dto.UserDataDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -20,9 +20,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.stanzaliving.campaign.utils.Constants.*;
-
 public class NotificationClientApi {
+
+    public static final String USER_ID = "userId";
+    public static final String CAMPAIGN_ID = "campaignId";
+    public static final String USER_UUID = "userUuid";
+    public static final String RESIDENCE_UUID = "residenceUuid";
 
     private StanzaRestClient restClient;
 
@@ -30,7 +33,7 @@ public class NotificationClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<UserDetailsDto> getUserInformation(String userId) {
+    public ResponseDto<UserDataDto> getUserInformation(String userId) {
 
         Object postBody = null;
 
@@ -49,8 +52,8 @@ public class NotificationClientApi {
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<UserDetailsDto>> returnType =
-                new ParameterizedTypeReference<ResponseDto<UserDetailsDto>>() {
+        ParameterizedTypeReference<ResponseDto<UserDataDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<UserDataDto>>() {
                 };
         return restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
@@ -306,5 +309,4 @@ public class NotificationClientApi {
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         return response.getData();
     }
-
 }
