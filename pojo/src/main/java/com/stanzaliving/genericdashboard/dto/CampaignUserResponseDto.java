@@ -28,4 +28,3 @@ public class CampaignUserResponseDto {
 
     private Date responseTimeStamp;
 }
-

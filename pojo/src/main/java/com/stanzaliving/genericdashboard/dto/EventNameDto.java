@@ -13,8 +13,7 @@ public class EventNameDto {
 
     private String uuid;
 
-    private String categoryUuid;
+    private String categoryId;
 
     private String name;
 }
-

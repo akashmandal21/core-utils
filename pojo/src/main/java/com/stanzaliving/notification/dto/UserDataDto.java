@@ -9,19 +9,17 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDetailsDto {
-
-    private String userId;
+public class UserDataDto {
 
     private String residentName;
 
-    private  String phoneNumber;
-
-    private  String residentEmail;
-
-    private String residenceName;
+    private String city;
 
     private String microMarket;
 
-    private String city;
+    private String residenceName;
+
+    private String residentEmail;
+
+    private String phoneNumber;
 }

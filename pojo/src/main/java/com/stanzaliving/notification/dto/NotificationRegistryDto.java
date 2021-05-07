@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Map;
 
@@ -20,36 +19,34 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NotificationRegistryDto {
-    private String uuid;
+    Long id;
 
     @NotBlank(message = "App Id cannot be empty or null")
-     private String appName;
+    String appName;
 
-    @NotBlank(message = "Campaign Id cannot be empty or null")
-    private String campaignUuid;
+    String campaignId;
 
-    @NotNull(message = "Campaign Type cannot be empty or null")
-    private CampaignDashboardType campaignDashboardType;
+    CampaignDashboardType campaignDashboardType;
 
-    private TemplateLayout templateLayout;
+    TemplateLayout templateLayout;
 
-    private Frequency frequency;
+    String title;
 
-    private String title;
+    String message;
 
-    private String message;
+    String callToActionUrl;
 
-    private String callToActionUrl;
+    String imageUrl;
 
-    private String imageUrl;
+    SchedulingDto scheduledAt;
 
-    private SchedulingDto scheduledAt;
+    CampaignAudienceDto campaignAudience;
 
-    private CampaignAudienceDto campaignAudience;
+    Long timeToLive;
 
-    private Long timeToLive;
+    List<UserParams> userParamsList;
 
-    private List<UserParams> userParamsList;
+    Map<String, String> data;
 
-    private Map<String, String> data;
+    Map<String, String> eventsData;
 }

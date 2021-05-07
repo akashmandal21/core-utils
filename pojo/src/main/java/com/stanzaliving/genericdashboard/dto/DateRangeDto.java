@@ -17,4 +17,3 @@ public class DateRangeDto {
 
     private Date endDate;
 }
-

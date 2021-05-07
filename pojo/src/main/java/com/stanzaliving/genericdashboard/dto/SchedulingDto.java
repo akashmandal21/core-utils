@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
-import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SchedulingDto {
+
     @NotNull(message = "Scheduling type cannot be empty")
     private SchedulingType schedulingType;
 
@@ -29,7 +30,7 @@ public class SchedulingDto {
 
     private List<String> dates;
 
-    private Time scheduledAt;
+    private LocalTime scheduledAt;
 
     private CampaignEventsRequestDto campaignEventsRequestDto;
 
