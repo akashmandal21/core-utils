@@ -88,4 +88,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
+	
+	private ApartmentShortListingDto moreApartmentsInSociety;
+	
+	private ApartmentShortListingDto similarApartmentsNearBy;
 }

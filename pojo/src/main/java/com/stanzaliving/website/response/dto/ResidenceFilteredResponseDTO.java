@@ -23,5 +23,4 @@ public class ResidenceFilteredResponseDTO {
 	
 	@Builder.Default
 	private Integer residenceCount = 0;
-
 }
