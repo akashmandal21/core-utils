@@ -22,9 +22,11 @@ public class MicromarketRequestDTO {
 	private double latitude;
 	private double longitude;
 	private String phone;
-	private List<MicromarketAliasDTO> micromarketAlias;
+	
 	@Default
 	private Boolean leadQualificationForm=false;
+	
+	private List<MicromarketAliasDTO> micromarketAlias;
+	
 	private List<AttributeDto> attributeDto;
-
 }

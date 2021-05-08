@@ -17,9 +17,17 @@ public class ApartmentSeoDetailsRequestDTO {
 
 	private int cityId;
 	
+	private String apartmentCitySlug;
+	
+	private String apartmentCityDescription;
+	
+	
 	private int micromarketId;
 	
-	private String apartmentCitySlug;
+	private String apartmentMMSlug;
+	
+	private String apartmentMicromarketDescription;
+	
 	
 	private Double apartmentRating;
 	
@@ -30,6 +38,4 @@ public class ApartmentSeoDetailsRequestDTO {
 	private String apartmentSeoTitle;
 
 	private String apartmentSeoDescription;
-	
-	private String apartmentCityDescription;
 }
