@@ -22,19 +22,45 @@ import lombok.ToString;
 public class ResidenceResponseShortDTO {
 
 	private int residenceId;
+	
 	private String name;
-	private Gender gender;
-	private String micromarketName;
-	private String micromarketSlug;
-	private String citySlug;
-	private int startingPrice;
-	private double latitude;
-	private double longitude;
+	
 	private String slug;
+	
+	private Gender gender;
+	
+	private int micromarketId;
+	
+	private String micromarketName;
+	
+	private String micromarketSlug;
+
+	private int cityId;
+	
+	private String cityName;
+	
+	private String citySlug;
+	
+	private int startingPrice;
+	
 	private Integer preBookingAmount;
+	
 	private String preBookingMode;
-	private FomoTag fomoTag;
+	
+	private String googleMapLink;
+	
+	private double latitude;
+	
+	private double longitude;
+	
 	private String virtualTourImage;
+
+	private String videoLink;
+	
+	private Integer sortOrder;
+	
+	private FomoTag fomoTag;
+	
 	private Double distanceFromPlace;
 
 	@Builder.Default
