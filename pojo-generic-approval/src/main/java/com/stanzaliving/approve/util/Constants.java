@@ -29,9 +29,18 @@ public class Constants {
 
     public static final List<String> ROOM_ENTITY = Arrays.asList(new String[]{"BULK_UPLOAD_ROOMS", "BULK_UPDATE_ROOM_PRICING","ROOM_UPDATION"});
 
+    public static final List<String> INDIVIDUAL_ACTION = Arrays.asList(new String[]{"RESIDENCE_UPDATION", "ROOM_UPDATION" });
+
+    public static final List<String> BULK_ACTION = Arrays.asList(new String[]{"BULK_UPLOAD_ROOMS", "BULK_UPDATE_ROOM_PRICING","BULK_UPDATE_RESIDENCE"});
+
+
     public static final String SUBJECT_BULK_APPROVED = "IMS | Bulk Action - Your request has been Approved";
 
     public static final String SUBJECT_BULK_REJECTED = "IMS | Bulk Action - Your request has been Rejected";
+
+    public static final String SUBJECT_SINGLE_UPDATE_APPROVED = "IMS | Room Updating Action - Your request has been Approved";
+
+    public static final String SUBJECT_SINGLE_UPDATE_REJECTED = "IMS | Room Updating Action - Your request has been Rejected";
 
     public static final Map<String, String> MAIL_ENTITY_NAME  = new HashMap<String, String>() {{
         put("BULK_UPDATE_RESIDENCE", "Update residences in bulk");
