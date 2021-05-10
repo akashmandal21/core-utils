@@ -7,8 +7,10 @@ package com.stanzaliving.core.far.dto;
 import java.math.BigDecimal;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.far.enums.AssetAllocatedTo;
 import com.stanzaliving.core.far.enums.AssetStatus;
 import com.stanzaliving.core.far.enums.AssetType;
+import com.stanzaliving.transformations.enums.LocationType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -47,6 +49,11 @@ public class AssetUpdateDto extends AbstractDto {
 	private BigDecimal acquisitionPrice;
 	private boolean isAmcCovered;
 	private boolean isInsuranceCovered;
+	
+	private String locationName;
+	private String allocationUuid;
+	private LocationType locationType;
+	private AssetAllocatedTo allocatedTo;
 
 	private String assetNameSearch;
 	private String assetNameSuggest;

@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @Builder
@@ -18,7 +19,10 @@ public class InsuranceResponseDto {
     private String insuranceCompany;
     private String contactNumber;
     private String duration;
+    private Date insuranceStartDate;
+    private Date insuranceEndDate;
     private BigDecimal insuredValue;
     private BigDecimal insuranceAmount;
     private String insuranceDocumentPath; // where the uploaded doc. by user is stored
+    private String insuranceDocumentUrl;
 }
