@@ -18,4 +18,6 @@ public class AddZoneDto {
     private String zoneName;
     private boolean status;
     private List<UIKeyValue> stanzaCity;
+    private List<Boolean> statusOptions;
+    private List<UIKeyValue> stanzaCityOptions;
 }
