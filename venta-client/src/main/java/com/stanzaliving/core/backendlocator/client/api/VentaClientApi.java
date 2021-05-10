@@ -23,6 +23,7 @@ import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.leaddashboard.dto.LeadDetailsDto;
+import com.stanzaliving.core.payment.dto.PreBookingRefoundDto;
 import com.stanzaliving.venta.BedCountDetailsDto;
 import com.stanzaliving.venta.DeadBedCountDto;
 
@@ -237,5 +238,31 @@ public class VentaClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 	}
+
+	public Void updateLeadTagStatus(PreBookingRefoundDto preBookingRefoundDto) {
+		
+		Object postBody = null;
+
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/lead/update/leadTag").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			postBody = preBookingRefoundDto;
+			
+			ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		}
 
 }
