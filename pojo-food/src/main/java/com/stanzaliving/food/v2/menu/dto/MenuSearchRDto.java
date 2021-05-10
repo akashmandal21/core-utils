@@ -24,6 +24,7 @@ public class MenuSearchRDto extends AbstractDto {
 	private String vendorName;
 	private LocalDate startDate;
 	private String categoryUuid;
+	private String versionId;
 	private String categoryId;
 	private MenuType menuType;
 	private String mealWiseName;
