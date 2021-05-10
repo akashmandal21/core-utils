@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class AddStanzaClusterDto {
     private String stanzaClusterName;
-    private boolean status;
+    private UIKeyValue status;
     private UIKeyValue zone;
     private UIKeyValue stanzaCity;
     private List<UIKeyValue> micromarkets;

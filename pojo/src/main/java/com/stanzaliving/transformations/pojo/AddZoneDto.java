@@ -16,7 +16,7 @@ public class AddZoneDto {
 
     private String zoneUuid;
     private String zoneName;
-    private boolean status;
+    private UIKeyValue status;
     private List<UIKeyValue> stanzaCity;
     private List<UIKeyValue> statusOptions;
     private List<UIKeyValue> stanzaCityOptions;
