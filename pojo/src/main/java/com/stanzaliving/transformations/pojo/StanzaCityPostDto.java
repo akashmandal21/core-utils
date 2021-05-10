@@ -27,6 +27,7 @@ public class StanzaCityPostDto {
 	private UIKeyValue zone;
 	private List<UIKeyValue> stanzaClusters;
 	private List<UIKeyValue> zones;
+	private List<Boolean> statusOptions;
 
 	
 	
