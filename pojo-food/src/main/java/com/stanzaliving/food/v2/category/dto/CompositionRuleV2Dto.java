@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CompositionRuleV2Dto implements Serializable {
     private static final long serialVersionUID = 1L;
+    private Integer maxAllowedCombo;
     @NotNull(message = "Mandatory Rules Are Empty")
     private List<CompositionConditionV2Dto> mandatoryRules;
     private List<CompositionConditionV2Dto> weeklyRules;

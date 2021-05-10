@@ -1,8 +1,8 @@
 package com.stanzaliving.food.v2.menu.dto;
 
-import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.dto.MenuItemDto;
 import com.stanzaliving.core.food.enums.Action;
+import com.stanzaliving.food.v2.common.dto.OrderedListingDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,14 +16,11 @@ import java.util.List;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class MealOptionDto extends ListingDto {
-	private String thaliId;
-	private String thaliVariant;
-	private String thaliName;
-	private String variantName;
+public class MealOptionDto extends OrderedListingDto {
 	private Double cogs;
 	private Double budgeted;
 	private Action action;
+	private Double ratings;
 	private List<MenuItemDto> menuItems;
 
 }
