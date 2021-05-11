@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
 import lombok.AllArgsConstructor;
@@ -56,6 +57,12 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private Integer preBookingAmount;
 	
 	private String preBookingMode;
+	
+	private FomoTag fomoTag;
+	
+	private String fomoTagName;
+	
+	private String fomoTagcolour;
 	
 	private String googleMapLink;
 	

@@ -2,6 +2,7 @@ package com.stanzaliving.website.request.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.Gender;
 import com.stanzaliving.website.response.dto.FlatUrlPlaceResponseDTO;
 
@@ -31,4 +32,6 @@ public class FlatUrlRequestDTO {
 	private Long reviewCount;
 	private Double rating;
 	private Long minPriceValue;
+	private Integer roomCount;
+	private PropertyEntityType flatUrlType;
 }

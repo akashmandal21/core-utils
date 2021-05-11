@@ -70,6 +70,10 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private FomoTag fomoTag;
 	
+	private String fomoTagName;
+	
+	private String fomoTagcolour;
+	
 	private String description;
 	
 	private AddressResponseDTO address;
