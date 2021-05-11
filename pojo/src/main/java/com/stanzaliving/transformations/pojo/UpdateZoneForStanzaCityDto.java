@@ -29,4 +29,6 @@ public class UpdateZoneForStanzaCityDto {
 	private UIKeyValue zone;
 	
 	private List<UIKeyValue> stanzaCities;
+	private List<StanzaCityAndZone> rows;
+	private List<UIKeyValue> zoneOptions;
 }
