@@ -1,4 +1,4 @@
-package com.stanzaliving.website.request.dto;
+package com.stanzaliving.website.response.dto;
 
 import java.util.Date;
 
@@ -18,12 +18,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ReviewRequestDto {
+public class ReviewCmsDetailedResponseDto {
 
 	private Long id;
-	
-	@Builder.Default
-	private boolean status = true;
+
+	private boolean status;
 	
 	private String residentName;
 
@@ -37,8 +36,7 @@ public class ReviewRequestDto {
 	
 	private Integer position;
 	
-	@Builder.Default
-	private Boolean isForSpecificLocations = false;
+	private Boolean isForSpecificLocations;
 	
 	private SpecificLocationsDto specificLocationsDto;
 }
