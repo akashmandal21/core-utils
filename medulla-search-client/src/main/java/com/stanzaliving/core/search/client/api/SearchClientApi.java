@@ -2,6 +2,7 @@ package com.stanzaliving.core.search.client.api;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -69,12 +70,15 @@ public class SearchClientApi {
 		return responseDto.getData();
 	}
 
-	public PageResponse<Map<String, Object>> searchAssets(AssetSearchRequestDto requestDto) {
+	public PageResponse<Object> searchAssets(AssetSearchRequestDto requestDto, Boolean searchUuids) {
 
 		log.info("Hitting Search Service to Fetch Assets for requestBody {}", requestDto);
 		String path = UriComponentsBuilder.fromPath("/internal/search/asset/master/search").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		if (Objects.nonNull(searchUuids)) {
+			queryParams.add("searchUuids", searchUuids.toString());
+		}
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
@@ -82,10 +86,10 @@ public class SearchClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		TypeReference<ResponseDto<PageResponse<Map<String, Object>>>> returnType = new TypeReference<ResponseDto<PageResponse<Map<String, Object>>>>() {
+		TypeReference<ResponseDto<PageResponse<Object>>> returnType = new TypeReference<ResponseDto<PageResponse<Object>>>() {
 		};
 
-		ResponseDto<PageResponse<Map<String, Object>>> responseDto = new ResponseDto<>();
+		ResponseDto<PageResponse<Object>> responseDto = new ResponseDto<>();
 
 		try {
 
