@@ -28,11 +28,13 @@ public class StanzaCityPostDto {
 	private List<UIKeyValue> stanzaClusters;
 	private List<UIKeyValue> zoneOptions;
 	private List<UIKeyValue> statusOptions;
+	private List<UIKeyValue> stanzaClusterOptions;
 
-	
-	
 
-	
+
+
+
+
 }
 
 

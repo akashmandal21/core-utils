@@ -30,11 +30,11 @@ public class MarkEnabledDto {
 	
 	private Section section;
 	
-	private List<UIKeyValue> stanzaCity;
+	private List<String> stanzaCity;
 	
-	private List<UIKeyValue> stanzaCluster;
+	private List<String> stanzaCluster;
 
-	private List<UIKeyValue> zones;
+	private List<String> zones;
 
 
 
