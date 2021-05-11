@@ -40,6 +40,7 @@ public class AssetUpdateDto extends AbstractDto {
 	private String assetName;
 	private String assetDescription;
 	private String qrCode;
+	private String qrCodeId;
 
 	private AssetType assetType;
 	private AssetStatus assetStatus;
