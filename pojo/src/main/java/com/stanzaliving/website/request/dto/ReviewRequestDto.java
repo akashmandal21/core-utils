@@ -27,7 +27,7 @@ public class ReviewRequestDto {
 	
 	private String residentName;
 
-	private String residenctImage;
+	private String residentImage;
 	
 	private String reviewText;
 	

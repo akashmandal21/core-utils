@@ -26,7 +26,7 @@ public class ReviewCmsDetailedResponseDto {
 	
 	private String residentName;
 
-	private String residenctImage;
+	private String residentImage;
 	
 	private String reviewText;
 	
