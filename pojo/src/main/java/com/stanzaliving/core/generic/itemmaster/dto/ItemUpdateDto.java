@@ -49,8 +49,4 @@ public class ItemUpdateDto extends AbstractDto {
     private Double conversionFactor;
     private String itemImage;
 
-    private String itemNameSearch;
-    private String itemNameSuggest;
-    private String itemCodeSearch;
-    private String itemDescriptionSearch;
 }
