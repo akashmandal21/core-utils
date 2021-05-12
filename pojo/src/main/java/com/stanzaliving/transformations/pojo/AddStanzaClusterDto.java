@@ -22,6 +22,12 @@ public class AddStanzaClusterDto {
     private UIKeyValue stanzaCity;
     private List<UIKeyValue> micromarkets;
     private List<UIKeyValue> geographicalCities;
+
     private List<UIKeyValue> statusOptions;
     private List<UIKeyValue> zoneOptions;
+    private List<UIKeyValue> geographicalCitysOptions;
+    private List<UIKeyValue> stanzaCityOptions;
+    private List<UIKeyValue> geographicalClusterOptions;
+
+
 }

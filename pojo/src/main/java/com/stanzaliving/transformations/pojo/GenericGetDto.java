@@ -21,4 +21,5 @@ public class GenericGetDto {
     List<UIKeyValue> stanzaCluster;
     List<UIKeyValue> geographicalCluster;
     List<UIKeyValue> residence;
+    List<UIKeyValue> geographicalCity;
 }
