@@ -17,7 +17,7 @@ import java.util.List;
 public class TicketDto {
 
     @NotBlank(message = "Sub-category Uuid cannot be blank/null")
-    private String subCategoryUuid;
+    private String subcategoryUuid;
 
     private Date sla;
 
@@ -37,4 +37,6 @@ public class TicketDto {
     private String uuid;
 
     private String assignedTo;
+    
+    private List<TagDto> tagDtos;
 }
