@@ -25,7 +25,7 @@ public class AddStanzaClusterDto {
 
     private List<UIKeyValue> statusOptions;
     private List<UIKeyValue> zoneOptions;
-    private List<UIKeyValue> geographicalCitysOptions;
+    private List<UIKeyValue> geographicalCityOptions;
     private List<UIKeyValue> stanzaCityOptions;
     private List<UIKeyValue> geographicalClusterOptions;
 
