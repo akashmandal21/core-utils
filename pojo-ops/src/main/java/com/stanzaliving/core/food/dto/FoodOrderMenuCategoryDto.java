@@ -22,6 +22,12 @@ public class FoodOrderMenuCategoryDto {
 
 	private String menuCategoryName;
 
+	private String groupId;
+
+	private String shortCode;
+
+	private Integer mirCount;
+
 			// group Id, shortCode() already existing method.
 
 	@NotEmpty(message = "Meal Orders are mandatory")

@@ -104,4 +104,6 @@ public class FoodOrderDetailDto {
 	
 	private LocalTime cutoffTime;
 
+	private UserPreferenceCountDto userPreferenceCountDto;
+
 }
