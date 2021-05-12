@@ -161,8 +161,9 @@ public class NotificationClientApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("id", campaignId);
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/notification/campaign/" + campaignId)
+                UriComponentsBuilder.fromPath("/api/v1/user-notification/campaign/{id}")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
