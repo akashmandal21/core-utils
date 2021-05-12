@@ -33,4 +33,5 @@ public class GrsiEventUpdateDto {
     private Date doneAt;
     private GrsiItemDto gsriItem;
     private String adjustCloseId;
+    private Integer version;
 }
