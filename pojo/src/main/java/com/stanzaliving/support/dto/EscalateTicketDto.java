@@ -15,5 +15,6 @@ public class EscalateTicketDto {
     private String email;
     private String team;
     private String userUuid;
+    private String message;
 
 }

@@ -1,10 +1,12 @@
 package com.stanzaliving.support.dto;
 
+import com.fasterxml.jackson.annotation.JsonSetter;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Builder
@@ -12,8 +14,12 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChecklistProgressDto {
+    @NotBlank(message = "Checklist uuid cannot be empty")
+    private String checklistUuid;
     @NotNull
-    private boolean closed;
+    @JsonSetter("isMarkedNa")
+    private boolean isMarkedNa;
     @NotNull
-    private boolean markNa;
+    @JsonSetter("isClosed")
+    private boolean isClosed;
 }
