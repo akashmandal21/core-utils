@@ -23,7 +23,7 @@ import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.leaddashboard.dto.LeadDetailsDto;
-import com.stanzaliving.core.payment.dto.PreBookingRefoundDto;
+import com.stanzaliving.core.payment.dto.PreBookingRefundDto;
 import com.stanzaliving.venta.BedCountDetailsDto;
 import com.stanzaliving.venta.DeadBedCountDto;
 
@@ -57,9 +57,7 @@ public class VentaClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
+		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		postBody = micromarketNameList;
@@ -97,7 +95,8 @@ public class VentaClientApi {
 	public ResidentDto getResidentDetails(String residentCode) {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residentCode", residentCode);
-		String path = UriComponentsBuilder.fromPath("/student/getStudentDetails/{residentCode}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/student/getStudentDetails/{residentCode}")
+				.buildAndExpand(uriVariables).toUriString();
 		final HttpHeaders headerParams = new HttpHeaders();
 		ParameterizedTypeReference<ResidentDto> returnType = new ParameterizedTypeReference<ResidentDto>() {
 		};
@@ -161,7 +160,8 @@ public class VentaClientApi {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residenceUuid", residenceUuid);
-		String path = UriComponentsBuilder.fromPath("/coreApi/getDeadBedDetails/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/coreApi/getDeadBedDetails/{residenceUuid}")
+				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("fromDate", fromDate.toString());
@@ -169,16 +169,15 @@ public class VentaClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
+		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<List<DeadBedCountDto>> returnType = new ParameterizedTypeReference<List<DeadBedCountDto>>() {
 		};
 
 		try {
-			deadBedCountDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+			deadBedCountDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams,
+					accept, returnType);
 		} catch (Exception e) {
 			log.error("Exception while fetching dead bed details for residence {} ", residenceUuid);
 		}
@@ -193,30 +192,29 @@ public class VentaClientApi {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residenceUuid", residenceUuid);
-		String path = UriComponentsBuilder.fromPath("/residence/rooms/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/residence/rooms/{residenceUuid}").buildAndExpand(uriVariables)
+				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
+		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<List<String>> returnType = new ParameterizedTypeReference<List<String>>() {
 		};
 
 		try {
-			roomNumberList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+			roomNumberList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					returnType);
 		} catch (Exception e) {
 			log.error("Exception while fetching room numbers list for residence {} ", residenceUuid);
 		}
 
 		return roomNumberList;
 	}
-	
-	
+
 	public LeadDetailsDto getLeadDetails(String phone) {
 		Object postBody = null;
 
@@ -239,30 +237,27 @@ public class VentaClientApi {
 
 	}
 
-	public Void updateLeadTagStatus(PreBookingRefoundDto preBookingRefoundDto) {
-		
+	public Void updateLeadTagStatus(PreBookingRefundDto preBookingRefundDto) {
+
 		Object postBody = null;
 
+		final Map<String, Object> uriVariables = new HashMap<>();
 
-			final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/lead/update/leadTag").buildAndExpand(uriVariables).toUriString();
 
-			String path = UriComponentsBuilder.fromPath("/lead/update/leadTag").buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-			final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-			final String[] accepts = {
-					"*/*"
-			};
-			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		postBody = preBookingRefundDto;
 
-			postBody = preBookingRefoundDto;
-			
-			ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
-			};
+		ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+		};
 
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-		}
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
 
 }

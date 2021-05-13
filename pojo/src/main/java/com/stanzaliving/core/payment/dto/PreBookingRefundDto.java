@@ -13,7 +13,7 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PreBookingRefoundDto {
+public class PreBookingRefundDto {
 
 	private String mobileNo;
 	private String paymentId;
