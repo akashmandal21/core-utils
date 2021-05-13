@@ -2,6 +2,7 @@ package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.stanzaliving.website.enums.FomoTag;
@@ -96,4 +97,6 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private ApartmentShortListingDto moreApartmentsInSociety;
 	
 	private ApartmentShortListingDto similarApartmentsNearBy;
+	
+	private List<ReviewWebsiteResponseDto> reviews;
 }
