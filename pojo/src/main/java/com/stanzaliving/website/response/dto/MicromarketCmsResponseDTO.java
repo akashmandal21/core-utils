@@ -28,6 +28,7 @@ public class MicromarketCmsResponseDTO {
 	private int cityId;
 	private String cityName;
 	private String citySlug;
+	private String apartmentCitySlug;
 	private double latitude;
 	private double longitude;
 	private String slug;
