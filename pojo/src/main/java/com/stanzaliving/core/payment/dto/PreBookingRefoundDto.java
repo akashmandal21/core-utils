@@ -18,4 +18,5 @@ public class PreBookingRefoundDto {
 	private String mobileNo;
 	private String paymentId;
 	private String refundRequestId;
+	private String refundInitiatedBy;
 }
