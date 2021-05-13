@@ -1,6 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.stanzaliving.website.enums.FomoTag;
@@ -64,4 +65,6 @@ public class ResidenceResponseDTO {
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
 
 	private AddressResponseDTO address;
+	
+	private List<ReviewWebsiteResponseDto> reviews;
 }
