@@ -23,9 +23,9 @@ public enum SectionKey {
 	AC("AC", "ac", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(VAS,REMARKS,PRICE_PER_MONTH,IS_AVAILABLE,IMAGE)),
 	TRANSPORT("Transport", "transportation", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(REMARKS,VAS,PRICE_PER_MONTH,IS_AVAILABLE,IMAGE)),
 	NOTICE_PERIOD("Notice Period", "noticePeriod", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(REMARKS,INPUT_VALUE,IS_AVAILABLE,IMAGE)),
-	ELECTRICITY("Electricity", "electricity", TemplateParentKey.OTHERS,Boolean.TRUE,Boolean.FALSE,Arrays.asList(PER_UNIT,SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE,IMAGE)),
+	ELECTRICITY("Electricity", "electricity", TemplateParentKey.OTHERS,Boolean.TRUE,Boolean.FALSE,Arrays.asList(PER_UNIT,SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
 	MEALS_AVAILABLE("Meals Available", "mealsAvailable", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(BREAKFAST_DAYS,LUNCH_DAYS,SNACK_DAYS,DINNER_DAYS,IS_AVAILABLE,IMAGE)),
-	DESIGN_BEDS("Design & Beds", "designAndBeds", TemplateParentKey.OTHERS,Boolean.TRUE,Boolean.FALSE,Arrays.asList(PER_UNIT,SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE,VAS,PRICE_PER_MONTH,IMAGE)),
+	DESIGN_BEDS("Design & Beds", "designAndBeds", TemplateParentKey.OTHERS,Boolean.TRUE,Boolean.FALSE,Arrays.asList(PER_UNIT,SELECTED_OPTIONS,REMARKS,INPUT_VALUE,VAS,PRICE_PER_MONTH,IMAGE)),
 
 	LUNCH("Lunch Box Available", "lunchBoxAvailable", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE,IMAGE)),
 	WEEKEND_MEAL("Weekend Meal Available", "weekendMealAvailable", TemplateParentKey.OTHERS,Boolean.FALSE,Boolean.FALSE,Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IS_AVAILABLE,IMAGE)),
