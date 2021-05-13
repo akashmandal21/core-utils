@@ -17,7 +17,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentDto {
-
+	private String uuid;
 	private String userId;
 	private String userType;
 	private PaymentStatus paymentStatus;
