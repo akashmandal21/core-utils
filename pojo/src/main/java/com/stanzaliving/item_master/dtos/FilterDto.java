@@ -102,6 +102,8 @@ public class FilterDto {
     private List<UIKeyValue> itemStatusOptions;
     private List<UIKeyValue> updatedByOptions;
 
+    private boolean includeRate;
+
     public void addAdditionalFilterFields(Set<String> deptFields){
         deptFields.add("department");
         deptFields.add("dateRangeCreatedAt");
