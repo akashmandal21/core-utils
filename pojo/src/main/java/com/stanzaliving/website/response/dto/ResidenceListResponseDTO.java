@@ -42,6 +42,9 @@ public class ResidenceListResponseDTO implements Serializable {
 	private int sortOrder;
 	private boolean enabled;
 	private String cardCTA;
+	private String propertyCode;
+	private String area;
+	private String floorNumber;
 	
 	private PropertyEntityType propertyEntityType;
 }
