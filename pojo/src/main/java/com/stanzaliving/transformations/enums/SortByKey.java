@@ -9,16 +9,16 @@ import lombok.Getter;
 @Getter
 public enum SortByKey {
 
-	city_name("c.city_name"),
-	zone_name("z.zone_name"),
-	stanza_city_name("sc.stanza_city_name"),
-	stanza_cluster_name("scl.stanza_cluster_name"),
-	micromarket_name("m.micromarket_name"),
-	stanza_cluster_count("stanza_clusters"),
-	stanza_city_count("stanza_cities"),
-	micromarket_count("micromarkets"),
-	residencies_count("residencies"),
-	last_updated("updated_at"),
+	geographicalCityName("c.city_name"),
+	zoneName("z.zone_name"),
+	stanzaCityName("sc.stanza_city_name"),
+	stanzaClusterName("scl.stanza_cluster_name"),
+	geographicalClusterName("m.micromarket_name"),
+	stanzaCluster("stanza_clusters"),
+	stanzaCity("stanza_cities"),
+	geographicalCluster("micromarkets"),
+	residences("residencies"),
+	lastUpdated("updated_at"),
 	status("status");
 
 
