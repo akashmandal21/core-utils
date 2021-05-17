@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,7 +29,18 @@ public class FoodOrderMenuCategoryDto {
 
 	private Integer mirCount;
 
-			// group Id, shortCode() already existing method.
+	@Builder.Default
+	private Boolean ordered = false;
+
+	private Double budgetPerMir;
+
+	private Double estimatedCostPerBed;
+
+	private Double mtdCostPerBed;
+
+	private Double mtdCostDiff;
+
+	private Double mtdCostUtil;
 
 	@NotEmpty(message = "Meal Orders are mandatory")
 	private List<FoodOrderDetailDto> foodOrderDetailDtoList;
