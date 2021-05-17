@@ -1,6 +1,5 @@
 package com.stanzaliving.website.response.dto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -20,8 +19,9 @@ public class WebsiteFlatUrlResidenceResponseDTO {
 
 	private WebsiteFlatUrlResponseDTO flatUrlResponseDTO;
 	
-	@Builder.Default
-	private List<ResidenceResponseShortDTO> residenceResponseShortDTOs = new ArrayList<>();
+	private List<ResidenceResponseShortDTO> residenceResponseShortDTOs;
+	
+	private List<ApartmentResponseDto> apartments;
 	
 	private int count;
 }

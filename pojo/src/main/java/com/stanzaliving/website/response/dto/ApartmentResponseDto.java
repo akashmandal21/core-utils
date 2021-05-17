@@ -74,6 +74,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private String virtualTourImage;
 	
+	private Double distanceFromPlace;
+	
 	@Builder.Default
 	private String area = "1062";
 	@Builder.Default
