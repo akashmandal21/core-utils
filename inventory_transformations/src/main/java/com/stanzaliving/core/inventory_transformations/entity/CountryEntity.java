@@ -27,6 +27,10 @@ public class CountryEntity implements Serializable {
     @Column(name = "CODE")
 	@JsonProperty("CODE")
     private String CODE;
+    
+    @Column(name="NATIONALITY")
+    @JsonProperty("NATIONALITY")
+	private String nationality;
 
     
 }

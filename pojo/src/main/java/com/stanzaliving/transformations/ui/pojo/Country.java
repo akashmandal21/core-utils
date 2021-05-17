@@ -22,5 +22,7 @@ public class Country {
 	private String uuid;
 
 	private List<State> states;
+	
+	private String nationality;
 
 }
