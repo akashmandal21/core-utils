@@ -53,8 +53,6 @@ public class StudentResponseDTO {
 
 	private AddressResponseDTO address;
 
-	private BloodGroup bloodGroup;
-
 	private String medicalConditions;
 
 	private String primaryGuardianRelationToStudent;
