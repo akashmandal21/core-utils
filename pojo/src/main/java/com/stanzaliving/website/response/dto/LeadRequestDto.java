@@ -109,6 +109,6 @@ public class LeadRequestDto {
 	private boolean otpVerified = false;
 	
 	@Default
-	private boolean isIgnoreScheduleVisit=false;
+	private boolean ignoreScheduleVisit=false;
 
 }
