@@ -28,7 +28,7 @@ public class TransformationsFilterDto {
 	private List<UIKeyValue> stanzaCity;
 	private List<UIKeyValue> stanzaCluster;
 	private List<UIKeyValue> zone;
-	private List<UIKeyValue> city;
+	private List<UIKeyValue> geographicalCity;
 	private List<UIKeyValue> residences;
 	private SortDirection sortBy;
 	private SortByKey sortKey;
@@ -36,6 +36,6 @@ public class TransformationsFilterDto {
 	private String stanzaClusterUuid;
 	private String stanzaCityUuid;
 	private String zoneUuid;
-	private Boolean status;
+	private Boolean showActiveListing;
 
 }
