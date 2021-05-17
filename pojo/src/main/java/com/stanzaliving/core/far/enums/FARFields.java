@@ -1,7 +1,6 @@
 package com.stanzaliving.core.far.enums;
 
-public enum
-FARFields {
+public enum FARFields {
 
     ASSET_ASSETID(FARSections.ASSET),
     //ASSET_PONUMBER(FARSections.ASSET), - Handled in Separate api
