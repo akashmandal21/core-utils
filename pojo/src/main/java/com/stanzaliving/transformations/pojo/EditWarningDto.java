@@ -16,6 +16,6 @@ import java.util.List;
 @AllArgsConstructor
 public class EditWarningDto {
     private String name;
-    private List<String> previous;
-    private List<String> neW;
+    private List<String> previousData;
+    private List<String> newData;
 }
