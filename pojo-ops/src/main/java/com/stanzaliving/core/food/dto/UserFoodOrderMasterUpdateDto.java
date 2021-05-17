@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import com.stanzaliving.core.food.enums.FoodItemType;
@@ -40,6 +41,8 @@ public class UserFoodOrderMasterUpdateDto {
 	private LocalDate menuDate;
 
 	private PackageCollectionStatus orderStatus;
+	
+	private LocalDateTime orderCollectedAt;
 
 	private String foodOrderId;
 
