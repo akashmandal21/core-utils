@@ -18,7 +18,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GroupDto {
-    private String uuid;
     @Size(max = 30,message = "Group Name should be less than 30 characters")
     @EmptyOrNull(message = "Group name cannot be empty or null")
     private String name;
@@ -26,7 +25,7 @@ public class GroupDto {
     private String helpText;
     @Min(value = 1, message = "The Display Order cannot be 0 or negative Values")
     @NotNull(message = "Display Order cannot be empty or null")
-    private int displayOrder;
+    private Integer displayOrder;
     @EmptyOrNull(message = "Status cannot be empty or null")
     private String status;
     @Size(min = 1,message = "Mandatory to choose atleast 1 Applicable Status")

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -16,13 +17,13 @@ import java.util.List;
 @NoArgsConstructor
 public class QuestionTemplateDto extends AbstractMongoDto {
 
-    @Size(max = 30,message = "Template name should be less than 30 characters",groups = PostGroup.class)
-    @EmptyOrNull(message = "Template name cannot be empty or null", groups = PostGroup.class)
+    @Size(max = 30,message = "Template name should be less than 30 characters")
+    @EmptyOrNull(message = "Template name cannot be empty or null")
     private String name;
-    @NotNull(message = "status cannot be null",groups = PostGroup.class)
+    @NotNull(message = "status cannot be null")
     private String status;
-    @NotNull(message = "Mapped Property Type cannot be null",groups = PostGroup.class)
-    private String mappedPropertyType;
-    @NotNull(message = "Applicable Status cannot be null",groups = PostGroup.class)
+    @NotNull(message = "Mapped Property Type cannot be null")
+    private @Valid MappedPropertyTypeDto mappedPropertyType;
+    @NotNull(message = "Applicable Status cannot be null")
     private List<ApplicableStatusesDto> applicableStatuses;
 }
