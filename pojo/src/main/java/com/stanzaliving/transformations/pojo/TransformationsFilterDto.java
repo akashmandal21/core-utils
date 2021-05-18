@@ -32,10 +32,7 @@ public class TransformationsFilterDto {
 	private List<UIKeyValue> residences;
 	private SortDirection sortBy;
 	private SortByKey sortKey;
-	private String geographicalUuid;
-	private String stanzaClusterUuid;
-	private String stanzaCityUuid;
-	private String zoneUuid;
+	private String searchUuid;
 	private Boolean showActiveListing;
 
 }
