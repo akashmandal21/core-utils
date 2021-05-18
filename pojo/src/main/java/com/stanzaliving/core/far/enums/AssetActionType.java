@@ -5,6 +5,7 @@ public enum AssetActionType {
     BASIC_DETAILS_CHANGED("Asset Basic Details Changed"),
     ADDITIONAL_DETAILS_CHANGED("Additional Details Changed"),
     ALLOCATION_DETAILS_CHANGED("Allocation Details Changed"),
+    PURCHASE_DETAILS_CHANGED("Purchase Details Changed"),
     PO_NUMBER_CHANGED("PO Number Changed"),
     QR_CODE_REPLACED("QR Code Replaced"),
     ASSET_VERIFIED("Asset Verified"),
