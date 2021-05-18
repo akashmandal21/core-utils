@@ -29,4 +29,7 @@ public class WebsiteFlatUrlResidenceResponseDTO {
 	private List<ApartmentResponseDto> apartments;
 	
 	private int count;
+	
+	@Builder.Default
+	private Boolean isApartmentPage = false;
 }
