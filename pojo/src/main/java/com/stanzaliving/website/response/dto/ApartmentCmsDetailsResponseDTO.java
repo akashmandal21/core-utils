@@ -27,8 +27,8 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private int residenceId;
 	private String name;
 	private String propertyCode;
-	private String Area;
-	private String Floor;
+	private String floorNumber;
+	private Double area;
 	private Gender gender;
 	private String genderName;
 	private int micromarketId;

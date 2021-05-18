@@ -76,10 +76,9 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private Double distanceFromPlace;
 	
-	@Builder.Default
-	private String area = "1062";
-	@Builder.Default
-	private String floorNumber = "5";
+	private String floorNumber;
+	
+	private Double area;
 	
 	private Date created;
 	

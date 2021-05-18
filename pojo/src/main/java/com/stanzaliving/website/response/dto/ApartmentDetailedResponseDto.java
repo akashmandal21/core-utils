@@ -65,9 +65,9 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String virtualTourImage;
 	
-	private String area;
-	
 	private String floorNumber;
+	
+	private Double area;
 	
 	private FomoTag fomoTag;
 	

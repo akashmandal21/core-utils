@@ -43,8 +43,8 @@ public class ResidenceListResponseDTO implements Serializable {
 	private boolean enabled;
 	private String cardCTA;
 	private String propertyCode;
-	private String area;
 	private String floorNumber;
+	private Double area;
 	
 	private PropertyEntityType propertyEntityType;
 }
