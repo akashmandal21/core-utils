@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,7 +24,7 @@ public class DocumentsDto {
     @NotNull(message = "propertyType cannot be null")
     private String propertyTypeId;
 
-    private List<DocumentVersionsDto> documentVersionList;
+    private DocumentVersionsDto documentVersion;
 
 
 }
