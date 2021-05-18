@@ -61,6 +61,10 @@ public class ResidenceResponseShortDTO {
 	
 	private FomoTag fomoTag;
 	
+	private String fomoTagName;
+	
+	private String fomoTagcolour;
+	
 	private Double distanceFromPlace;
 
 	@Builder.Default
