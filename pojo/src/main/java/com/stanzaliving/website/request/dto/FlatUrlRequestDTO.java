@@ -3,6 +3,7 @@ package com.stanzaliving.website.request.dto;
 import java.util.List;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.Gender;
 import com.stanzaliving.website.response.dto.FlatUrlPlaceResponseDTO;
 
@@ -33,5 +34,5 @@ public class FlatUrlRequestDTO {
 	private Double rating;
 	private Long minPriceValue;
 	private Integer roomCount;
-	private PropertyEntityType flatUrlType;
+	private EnumListing<PropertyEntityType> flatUrlType;
 }
