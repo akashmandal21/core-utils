@@ -12,10 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class DocumentRequestDto {
-
-    @NotNull(message = "name cannot be null")
-    private String name;
+public class DocumentsDto {
 
     @NotNull(message = "type cannot be null")
     private String type;
@@ -23,15 +20,12 @@ public class DocumentRequestDto {
     @NotNull(message = "folder cannot be null")
     private String folder;
 
-    @NotNull(message = "description cannot be null")
     private String description;
-
-    private Boolean isActive;
 
     @NotNull(message = "propertyType cannot be null")
     private String propertyTypeId;
 
-    private List<DocumentVersionRequestDto> documentVersionList;
+    private List<DocumentVersionsDto> documentVersionList;
 
 
 }

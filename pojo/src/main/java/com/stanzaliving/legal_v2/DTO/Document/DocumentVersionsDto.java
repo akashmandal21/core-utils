@@ -5,23 +5,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class DocumentVersionRequestDto {
+public class DocumentVersionsDto {
 
-    private String docUrl;
+    private String documentName;
 
-    private String docStatus;
+    private String docPath;
 
     private String emailUuid;
 
-    private Boolean status;
+    private int version;
 
-    private Integer version;
+    private boolean isFinal;
 
-    private Boolean isFinal;
+    private List<ChecklistDTO> checklistDTOList;
 
 
 }
