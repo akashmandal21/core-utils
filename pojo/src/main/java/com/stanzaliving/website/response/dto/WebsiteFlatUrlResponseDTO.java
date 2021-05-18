@@ -42,5 +42,6 @@ public class WebsiteFlatUrlResponseDTO {
 	@Builder.Default
 	private Set<String> placeCitySlugs = new HashSet<>();
 	
+	private Integer roomCount;
 	private PropertyEntityType flatUrlType;
 }
