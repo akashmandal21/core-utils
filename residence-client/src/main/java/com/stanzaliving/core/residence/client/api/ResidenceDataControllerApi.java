@@ -13,6 +13,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,7 @@ public class ResidenceDataControllerApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public ResponseDto<RoomDetailsResponseDto> getRoomDetails(String roomUUID) {
+	public RoomDetailsResponseDto getRoomDetails(String roomUUID, String token) {
 
 		log.info("Residence-Data-Controller::Processing to get room details based on roomUUID {}", roomUUID);
 
@@ -41,20 +42,22 @@ public class ResidenceDataControllerApi {
 
 		HttpHeaders headerParams = new HttpHeaders();
 
+		headerParams.add("Cookie", "token="+token);
+
 		String[] accepts = new String[]{"*/*"};
 
 		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<RoomDetailsResponseDto>> returnType =
-				new ParameterizedTypeReference<ResponseDto<RoomDetailsResponseDto>>() {};
+		ParameterizedTypeReference<RoomDetailsResponseDto> returnType =
+				new ParameterizedTypeReference<RoomDetailsResponseDto>() {};
 
 		try {
-            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
 		} catch (Exception var13) {
 			log.error(var13);
             log.error("Exception while fetching Room Details from roomUuid: {}", roomUUID);
 		}
-//        return Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData()) ? responseDto.getData() : null;
-		return null;
+    	return null;
 	}
 }
