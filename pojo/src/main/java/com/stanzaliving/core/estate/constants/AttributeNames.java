@@ -193,7 +193,7 @@ public class AttributeNames {
 		public static final String FIRE_CLAUSE_E_REMARKS = "fireClauseERemarks";
 		public static final String FIRE_CLAUSE_D_REMARKS = "fireClauseDRemarks";
 		public static final String SEEPAGE_CLAUSE_D_REMARKS = "seepageClauseDRemarks";
-		public static final String DRAINAGE_CLAUSE_A_REMARKS = "drainageClauseDRemarks";
+		public static final String DRAINAGE_CLAUSE_A_REMARKS = "drainageClauseARemarks";
 		public static final String FIRE_DEVICES_SUPPLY_INSTALLATION_TESTING_REMARKS = "fireDevicesSupplyInstallationTestingRemarks";
 		public static final String CORRECTION_OF_SEEPAGE_REMARKS = "correctionOfSeepageRemarks";
 		public static final String FIX_ISSUES_RELATED_TO_DRAINAGE_REMARKS = "fixIssuesRelatedToDrainageRemarks";
