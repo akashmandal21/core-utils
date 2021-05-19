@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EditWarningDto {
-    private String name;
+    private List<String> name;
     private List<String> previousData;
     private List<String> newData;
 }
