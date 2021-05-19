@@ -11,9 +11,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ExpenseType {
     BS("BS"),
-    DIRECT("Direct"),
+    DIRECT("Direct Expense"),
     INDIRECT("Indirect"),
-    PRIMARY("Primary");
+    PRIMARY("Direct Incomes");
 
     private String text;
 }
