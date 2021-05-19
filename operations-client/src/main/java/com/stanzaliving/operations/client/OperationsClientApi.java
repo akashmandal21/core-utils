@@ -1,26 +1,17 @@
 package com.stanzaliving.operations.client;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.apache.commons.collections.CollectionUtils;
 
-import com.stanzaliving.core.base.utils.DateUtil;
-import com.stanzaliving.core.operations.enums.DealCategory;
-import com.stanzaliving.internet.dto.InternetDetails;
-import com.stanzaliving.internet.dto.InternetProviderDetails;
-import com.stanzaliving.operations.ServiceMixSeasonResponseDto;
-import com.stanzaliving.operations.dto.servicemix.ServiceMixEntityDto;
-import com.stanzaliving.operations.enums.ServiceMixStatus;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.util.CollectionUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -28,7 +19,15 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.operations.dto.ActiveResidenceDetailsDto;
 import com.stanzaliving.core.operations.dto.ResidentFoodPreferenceCountDto;
+import com.stanzaliving.core.operations.dto.ServiceMixDto;
+import com.stanzaliving.core.operations.enums.DealCategory;
+import com.stanzaliving.internet.dto.InternetDetails;
+import com.stanzaliving.internet.dto.InternetProviderDetails;
+import com.stanzaliving.operations.ServiceMixSeasonResponseDto;
+import com.stanzaliving.operations.dto.servicemix.ServiceMixEntityDto;
+import com.stanzaliving.operations.enums.ServiceMixStatus;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -390,4 +389,106 @@ public class OperationsClientApi {
 
 		return serviceMixEntityList;
 	}
+
+	public ServiceMixDto getCurrentServiceMix(String residenceUuid, String userCode) {
+
+		Object postBody = null;
+
+		ServiceMixDto serviceMixDto = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/servicemix/current/servicemix").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("residenceUuid", residenceUuid);
+		queryParams.add("userCode", userCode);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+		ParameterizedTypeReference<ResponseDto<ServiceMixDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceMixDto>>() {
+
+		};
+
+		try {
+			serviceMixDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
+		} catch (Exception e) {
+			log.error("Exception while fetching service mix dto for user code {} ", userCode, e);
+		}
+
+		return Objects.nonNull(serviceMixDto) ? serviceMixDto : null;
+	}
+	
+	public ResponseDto<List<ActiveResidenceDetailsDto>> getActiveResidenceList() {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/residence/list").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		final String[] accepts = {
+				"*/*"
+		};
+		
+		final HttpHeaders headerParams = new HttpHeaders();
+		
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		
+		ParameterizedTypeReference<ResponseDto<List<ActiveResidenceDetailsDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ActiveResidenceDetailsDto>>>() {
+
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		
+	}
+	
+	public ResponseDto<List<ActiveResidenceDetailsDto>> getActiveResidenceListByCityOrMicroMarketOrResidenceUuid(List<String> cityIdList, List<String>  micromarketIdList, List<String>  residenceUuidList) {
+		
+		if(CollectionUtils.isEmpty(cityIdList)){
+			cityIdList = new ArrayList<>();
+		}
+		if(CollectionUtils.isEmpty(micromarketIdList)){
+			micromarketIdList = new ArrayList<>();
+		}
+		if(CollectionUtils.isEmpty(residenceUuidList)){
+			residenceUuidList = new ArrayList<>();
+		}
+		
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/residence/list/all").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.addAll("cityIdList", cityIdList);
+		queryParams.addAll("micromarketIdList", micromarketIdList);
+		queryParams.addAll("residenceUuidList", residenceUuidList);
+		
+		final String[] accepts = {
+				"*/*"
+		};
+		
+		final HttpHeaders headerParams = new HttpHeaders();
+		
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		
+		ParameterizedTypeReference<ResponseDto<List<ActiveResidenceDetailsDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ActiveResidenceDetailsDto>>>() {
+
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		
+	}
+
+
 }

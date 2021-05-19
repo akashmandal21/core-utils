@@ -17,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TemplateDetailsDto {
+
     private TemplateLayout templateLayout;
 
     private String imageUrl;

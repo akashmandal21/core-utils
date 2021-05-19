@@ -1,5 +1,6 @@
 package com.stanzaliving.genericdashboard.dto;
 
+import com.stanzaliving.genericdashboard.enums.CampaignGroup;
 import com.stanzaliving.genericdashboard.validation.DraftValidation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SurveyDto {
+
     private String uuid;
 
     @NotBlank(message = "title of a survey cannot be empty")
@@ -39,4 +41,6 @@ public class SurveyDto {
     private String thankYouTitle;
 
     private String thankYouImageUrl;
+
+    private CampaignGroup campaignGroup;
 }

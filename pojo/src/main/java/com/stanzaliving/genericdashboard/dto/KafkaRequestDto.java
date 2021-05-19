@@ -24,5 +24,5 @@ public class KafkaRequestDto {
 
     private Date eventTime;
 
-    private Map<String , KafkaTemplateDto> attributes;
+    private Map<String, KafkaTemplateDto> attributes;
 }

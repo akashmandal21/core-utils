@@ -180,7 +180,14 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 	}
 
 	@Override
+	public void removeFromStringMapCache(String mapName, String key) {
+		log.info("Removing key: {} from map: {} from redis",key,mapName);
+		redissonClient.getMapCache(mapName).remove(key);
+	}
+
+	@Override
 	public void removeFromStringMap(String mapName, String key) {
+		log.info("Removing key: {} from map: {} from redis",key,mapName);
 		redissonClient.getMap(mapName).remove(key);
 	}
 

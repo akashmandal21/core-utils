@@ -12,5 +12,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FileUploadDto implements Serializable {
+
     private String url;
 }

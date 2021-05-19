@@ -19,5 +19,4 @@ public class KafkaTemplateDto {
     private boolean metaDataApplicable = true;
 
     private Object value;
-
 }

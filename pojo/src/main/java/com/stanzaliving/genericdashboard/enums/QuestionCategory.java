@@ -15,8 +15,8 @@ public enum QuestionCategory {
     RATING_EMOJIS("Rating Emojis"),
     INPUT_STRING("Input String"),
     DATE("Date"),
-    TIME("Time");
+    TIME("Time"),
+    RATING_SCALE("Rating Scale");
 
     String question;
-
 }

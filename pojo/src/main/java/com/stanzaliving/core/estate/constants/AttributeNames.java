@@ -1,10 +1,6 @@
 package com.stanzaliving.core.estate.constants;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.stanzaliving.core.base.utils.ImmutablePair;
 
@@ -193,6 +189,11 @@ public class AttributeNames {
 	//ATL Details  
 		public static final String STRUCTURE_REMARKS = "structureRemarks";
 		public static final String FIRE_COMPLIANCE_REMARKS = "fireComplianceRemarks";
+		public static final String FIRE_CLAUSE_C_REMARKS = "fireClauseCRemarks";
+		public static final String FIRE_CLAUSE_E_REMARKS = "fireClauseERemarks";
+		public static final String FIRE_CLAUSE_D_REMARKS = "fireClauseDRemarks";
+		public static final String SEEPAGE_CLAUSE_D_REMARKS = "seepageClauseDRemarks";
+		public static final String DRAINAGE_CLAUSE_A_REMARKS = "drainageClauseDRemarks";
 		public static final String FIRE_DEVICES_SUPPLY_INSTALLATION_TESTING_REMARKS = "fireDevicesSupplyInstallationTestingRemarks";
 		public static final String CORRECTION_OF_SEEPAGE_REMARKS = "correctionOfSeepageRemarks";
 		public static final String FIX_ISSUES_RELATED_TO_DRAINAGE_REMARKS = "fixIssuesRelatedToDrainageRemarks";
@@ -205,12 +206,45 @@ public class AttributeNames {
 		public static final String WATER_SUPPLY_WATER_COST_REMARKS = "waterSupplyWaterCostRemarks";
 		public static final String WATER_TANK_CAPACITY_TO_BE_CALCULATED_REMARKS = "waterTankCapacityToBeCalculatedRemarks";
 		public static final String WATER_STORAGE_CLAUSE_B_REMARKS = "waterStorageClauseBRemarks";
+		public static final String WATER_STORAGE_CLAUSE_C_REMARKS = "waterStorageClauseCRemarks";
+
+		public static final String SITE_CLAUSE_A_REMARKS = "siteClauseARemarks";
+		public static final String SITE_CLAUSE_B_REMARKS = "siteClauseBRemarks";
+		public static final String SITE_CLAUSE_C_REMARKS = "siteClauseCRemarks";
 
 		public static final String ANY_MASONRY_PLASTER_CRACKS_REMARKS = "anyMasonryPlasterCracksRemarks";
 		public static final String EXTERNAL_DOOR_WINDOWS_REMARKS = "externalDoorWindowsRemarks";
 		
 		public static final String EXTERIOR_FACADE_CLOSER_REMARKS = "exteriorFacadeCloserRemarks";
 		public static final String FACADE_REPAINTING_REMARKS = "facadeRepaintingRemarks";
+
+		public static final String COMMON_FLTY_CLAUSE_A_REMARKS = "commonFacilitiesARemarks";
+		public static final String COMMON_FLTY_CLAUSE_B_REMARKS = "commonFacilitiesBRemarks";
+		public static final String COMMON_FLTY_CLAUSE_C_REMARKS = "commonFacilitiesCRemarks";
+		public static final String COMMON_FLTY_CLAUSE_D_REMARKS = "commonFacilitiesDRemarks";
+
+		public static final String DINING_CLAUSE_A_REMARKS = "diningClauseARemarks";
+		public static final String DINING_CLAUSE_B_REMARKS = "diningClauseBRemarks";
+		public static final String DINING_CLAUSE_C_REMARKS = "diningClauseCRemarks";
+		public static final String DINING_CLAUSE_D_REMARKS = "diningClauseDRemarks";
+		public static final String DINING_CLAUSE_E_REMARKS = "diningClauseERemarks";
+		public static final String DINING_CLAUSE_F_REMARKS = "diningClauseFRemarks";
+		public static final String DINING_CLAUSE_G_REMARKS = "diningClauseGRemarks";
+		public static final String DINING_CLAUSE_H_REMARKS = "diningClauseHRemarks";
+		public static final String DINING_CLAUSE_I_REMARKS = "diningClauseIRemarks";
+		public static final String DINING_CLAUSE_J_REMARKS = "diningClauseJRemarks";
+
+		public static final String KITCHEN_CLAUSE_A_REMARKS = "kitchenClauseARemarks";
+		public static final String KITCHEN_CLAUSE_B_REMARKS = "kitchenClauseBRemarks";
+		public static final String KITCHEN_CLAUSE_C_REMARKS = "kitchenClauseCRemarks";
+		public static final String KITCHEN_CLAUSE_D_REMARKS = "kitchenClauseDRemarks";
+
+		public static final String CIRCULATION_CLAUSE_A_REMARKS = "circulationClauseARemarks";
+		public static final String CIRCULATION_CLAUSE_B_REMARKS = "circulationClauseBRemarks";
+		public static final String CIRCULATION_CLAUSE_C_REMARKS = "circulationClauseCRemarks";
+		public static final String CIRCULATION_CLAUSE_D_REMARKS = "circulationClauseDRemarks";
+		public static final String CIRCULATION_CLAUSE_E_REMARKS = "circulationClauseERemarks";
+
 
 		public static final String WEATHER_PROOF_ROOF_REMARKS = "weatherProofRoofRemarks";
 		public static final String USABLE_TERRACE_REMARKS = "usableTerraceRemarks";
@@ -233,6 +267,20 @@ public class AttributeNames {
 		public static final String ROOM_INTERIORS_REMARKS = "roomInteriorsRemarks";
 		public static final String BATHROOM_ACCESSORIES_REMARKS = "bathroomAccessoriesRemarks";
 		public static final String CURTAIN_RODS_REMARKS = "curtainRodsRemarks";
+		public static final String ROOM_CLAUSE_G_REMARKS = "roomClauseGRemarks";
+		public static final String ROOM_CLAUSE_H_REMARKS = "roomClauseHRemarks";
+		public static final String ROOM_CLAUSE_I_REMARKS = "roomClauseIRemarks";
+		public static final String ROOM_CLAUSE_J_REMARKS = "roomClauseJRemarks";
+		public static final String ROOM_CLAUSE_K_REMARKS = "roomClauseKRemarks";
+		public static final String ROOM_CLAUSE_L_REMARKS = "roomClauseLRemarks";
+		public static final String ROOM_CLAUSE_M_REMARKS = "roomClauseMRemarks";
+		public static final String ROOM_CLAUSE_N_REMARKS = "roomClauseNRemarks";
+		public static final String ROOM_CLAUSE_O_REMARKS = "roomClauseORemarks";
+		public static final String ROOM_CLAUSE_P_REMARKS = "roomClausePRemarks";
+		public static final String ROOM_CLAUSE_Q_REMARKS = "roomClauseQRemarks";
+
+
+
 		public static final String ROOM_PAINT_REMARKS = "roomPaintRemarks";
 
 		public static final String PLUMBING_PIPES_ASSOCIATED_COSTS_REMARKS = "plumbingPipesAssociatedCostsRemarks";
@@ -260,6 +308,12 @@ public class AttributeNames {
 		public static final String WORKING_LIFT_A_M_C_REMARKS = "workingLiftAMCRemarks";
 		public static final String REPLACEMENT_OF_LIFT_REMARKS = "replacementOfLiftRemarks";
 		public static final String LIFT_LICENSE_RENEWAL_REMARKS = "liftLicenseRenewalRemarks";
+		public static final String EQUIPMENT_CLAUSE_A_REMARKS = "equipmentClauseARemarks";
+		public static final String EQUIPMENT_CLAUSE_B_REMARKS = "equipmentClauseBRemarks";
+		public static final String EQUIPMENT_CLAUSE_C_REMARKS = "equipmentClauseCRemarks";
+		public static final String EQUIPMENT_CLAUSE_D_REMARKS = "equipmentClauseDRemarks";
+		public static final String EQUIPMENT_CLAUSE_E_REMARKS = "equipmentClauseERemarks";
+		public static final String ASSET_CLAUSE_A_REMARKS = "assetClauseARemarks";
 		public static final String ALL_TEST_CERTIFICATE_AND_DOCUMENTS = "allTestCertificateAndDocuments";
 		public static final String LIGHTING_AND_POWER_TO_BE_INSTALLED_REMARKS = "lightingAndPowerToBeInstalledRemarks";
 		public static final String INTERIOR_PAINT_COMMON_AREA_REMARKS = "interiorPaintCommonAreaRemarks";
@@ -275,9 +329,14 @@ public class AttributeNames {
 		public static final String STRUCTURE_CLAUSE_A_BOOLEAN = "structureClauseABoolean";
 		public static final String FIRE_CLAUSE_A_BOOLEAN = "fireClauseABoolean";
 		public static final String FIRE_CLAUSE_B_BOOLEAN = "fireClauseBBoolean";
+		public static final String FIRE_CLAUSE_C_BOOLEAN = "fireClauseCBoolean";
+		public static final String FIRE_CLAUSE_D_BOOLEAN = "fireClauseDBoolean";
+		public static final String FIRE_CLAUSE_E_BOOLEAN = "fireClauseEBoolean";
 		public static final String SEEPAGE_CLAUSE_A_BOOLEAN = "seepageClauseABoolean";
 		public static final String SEEPAGE_CLAUSE_B_BOOLEAN = "seepageClauseBBoolean";
 		public static final String SEEPAGE_CLAUSE_C_BOOLEAN = "seepageClauseCBoolean";
+		public static final String SEEPAGE_CLAUSE_D_BOOLEAN = "seepageClauseDBoolean";
+		public static final String DRAINAGE_CLAUSE_A_BOOLEAN = "drainageClauseABoolean";
 		public static final String WATER_SUPPLY_CLAUSE_A_BOOLEAN = "waterSupplyClauseABoolean";
 		public static final String WATER_SUPPLY_CLAUSE_B_BOOLEAN = "waterSupplyClauseBBoolean";
 		public static final String WATER_SUPPLY_CLAUSE_C_BOOLEAN = "waterSupplyClauseCBoolean";
@@ -285,8 +344,17 @@ public class AttributeNames {
 		public static final String WATER_SUPPLY_CLAUSE_E_BOOLEAN = "waterSupplyClauseEBoolean";
 		public static final String WATER_SUPPLY_CLAUSE_F_BOOLEAN = "waterSupplyClauseFBoolean";
 		public static final String WATER_STORAGE_CLAUSE_A_BOOLEAN = "waterStorageClauseABoolean";
+		public static final String WATER_STORAGE_CLAUSE_B_BOOLEAN = "waterStorageClauseBBoolean";
+		public static final String WATER_STORAGE_CLAUSE_C_BOOLEAN = "waterStorageClauseCBoolean";
+
+		public static final String SITE_CLAUSE_A_BOOLEAN = "siteClauseABoolean";
+		public static final String SITE_CLAUSE_B_BOOLEAN = "siteClauseBBoolean";
+		public static final String SITE_CLAUSE_C_BOOLEAN = "siteClauseCBoolean";
+
 		public static final String FACADE_CLAUSE_A_BOOLEAN = "facadeClauseABoolean";
 		public static final String FACADE_CLAUSE_B_BOOLEAN = "facadeClauseBBoolean";
+		public static final String FACADE_CLAUSE_C_BOOLEAN = "facadeClauseCBoolean";
+		public static final String FACADE_CLAUSE_D_BOOLEAN = "facadeClauseDBoolean";
 		public static final String TERRACE_LEVEL_CLAUSE_A_BOOLEAN = "terraceLevelClauseABoolean";
 		public static final String TERRACE_LEVEL_CLAUSE_B_BOOLEAN = "terraceLevelClauseBBoolean";
 		public static final String TERRACE_LEVEL_CLAUSE_C_BOOLEAN = "terraceLevelClauseCBoolean";
@@ -305,11 +373,31 @@ public class AttributeNames {
 		public static final String ROOM_CLAUSE_D_BOOLEAN = "roomClauseDBoolean";
 		public static final String ROOM_CLAUSE_E_BOOLEAN = "roomClauseEBoolean";
 		public static final String ROOM_CLAUSE_F_BOOLEAN = "roomClauseFBoolean";
+		public static final String ROOM_CLAUSE_G_BOOLEAN = "roomClauseGBoolean";
+		public static final String ROOM_CLAUSE_H_BOOLEAN = "roomClauseHBoolean";
+		public static final String ROOM_CLAUSE_I_BOOLEAN = "roomClauseIBoolean";
+		public static final String ROOM_CLAUSE_J_BOOLEAN = "roomClauseJBoolean";
+		public static final String ROOM_CLAUSE_K_BOOLEAN = "roomClauseKBoolean";
+		public static final String ROOM_CLAUSE_L_BOOLEAN = "roomClauseLBoolean";
+		public static final String ROOM_CLAUSE_M_BOOLEAN = "roomClauseMBoolean";
+		public static final String ROOM_CLAUSE_N_BOOLEAN = "roomClauseNBoolean";
+		public static final String ROOM_CLAUSE_O_BOOLEAN = "roomClauseOBoolean";
+		public static final String ROOM_CLAUSE_P_BOOLEAN = "roomClausePBoolean";
+		public static final String ROOM_CLAUSE_Q_BOOLEAN = "roomClauseQBoolean";
 		public static final String SANITARY_CLAUSE_A_BOOLEAN = "sanitaryClauseABoolean";
 		public static final String SANITARY_CLAUSE_B_BOOLEAN = "sanitaryClauseBBoolean";
 		public static final String SANITARY_CLAUSE_C_BOOLEAN = "sanitaryClauseCBoolean";
 		public static final String SANITARY_CLAUSE_D_BOOLEAN = "sanitaryClauseDBoolean";
 		public static final String SANITARY_CLAUSE_E_BOOLEAN = "sanitaryClauseEBoolean";
+		public static final String EQPT_CLAUSE_A_BOOLEAN = "equipmentClauseABoolean";
+		public static final String EQPT_CLAUSE_B_BOOLEAN = "equipmentClauseBBoolean";
+		public static final String EQPT_CLAUSE_C_BOOLEAN = "equipmentClauseCBoolean";
+		public static final String EQPT_CLAUSE_D_BOOLEAN = "equipmentClauseDBoolean";
+		public static final String EQPT_CLAUSE_E_BOOLEAN = "equipmentClauseEBoolean";
+		public static final String ASSET_CLAUSE_A_BOOLEAN = "assetClauseABoolean";
+
+
+
 		public static final String WHITE_GOODS_CLAUSE_A_BOOLEAN = "whiteGoodsClauseABoolean";
 		public static final String WHITE_GOODS_CLAUSE_B_BOOLEAN = "whiteGoodsClauseBBoolean";
 		public static final String WHITE_GOODS_CLAUSE_C_BOOLEAN = "whiteGoodsClauseCBoolean";
@@ -332,12 +420,45 @@ public class AttributeNames {
 		public static final String DOCS_AND_A_M_C_CLAUSE_A_BOOLEAN = "docsAndAMCClauseABoolean";
 		public static final String COMMON_AREAS_CLAUSE_A_BOOLEAN = "commonAreasClauseABoolean";
 
+		public static final String COMMON_FCLT_A_BOOLEAN = "commonFacilitiesABoolean";
+		public static final String COMMON_FCLT_B_BOOLEAN = "commonFacilitiesBBoolean";
+		public static final String COMMON_FCLT_C_BOOLEAN = "commonFacilitiesCBoolean";
+		public static final String COMMON_FCLT_D_BOOLEAN = "commonFacilitiesDBoolean";
+
+		public static final String DINING_CLAUSE_A_BOOLEAN = "diningClauseABoolean";
+		public static final String DINING_CLAUSE_B_BOOLEAN = "diningClauseBBoolean";
+		public static final String DINING_CLAUSE_C_BOOLEAN = "diningClauseCBoolean";
+		public static final String DINING_CLAUSE_D_BOOLEAN = "diningClauseDBoolean";
+		public static final String DINING_CLAUSE_E_BOOLEAN = "diningClauseEBoolean";
+		public static final String DINING_CLAUSE_F_BOOLEAN = "diningClauseFBoolean";
+		public static final String DINING_CLAUSE_G_BOOLEAN = "diningClauseGBoolean";
+		public static final String DINING_CLAUSE_H_BOOLEAN = "diningClauseHBoolean";
+		public static final String DINING_CLAUSE_I_BOOLEAN = "diningClauseIBoolean";
+		public static final String DINING_CLAUSE_J_BOOLEAN = "diningClauseJBoolean";
+
+		public static final String KITCHEN_CLAUSE_A_BOOLEAN = "kitchenClauseABoolean";
+		public static final String KITCHEN_CLAUSE_B_BOOLEAN = "kitchenClauseBBoolean";
+		public static final String KITCHEN_CLAUSE_C_BOOLEAN = "kitchenClauseCBoolean";
+		public static final String KITCHEN_CLAUSE_D_BOOLEAN = "kitchenClauseDBoolean";
+
+		public static final String CIRC_SPACES_CLAUSE_A_BOOLEAN = "circulationClauseABoolean";
+		public static final String CIRC_SPACES_CLAUSE_B_BOOLEAN = "circulationClauseBBoolean";
+		public static final String CIRC_SPACES_CLAUSE_C_BOOLEAN = "circulationClauseCBoolean";
+		public static final String CIRC_SPACES_CLAUSE_D_BOOLEAN = "circulationClauseDBoolean";
+		public static final String CIRC_SPACES_CLAUSE_E_BOOLEAN = "circulationClauseEBoolean";
+
+
 		public static final String STRUCTURE_CLAUSE_A_TEXT_AREA = "structureClauseATextArea";
 		public static final String FIRE_CLAUSE_A_TEXT_AREA = "fireClauseATextArea";
+		public static final String FIRE_CLAUSE_D_TEXT_AREA = "fireClauseDTextArea";
+		public static final String FIRE_CLAUSE_E_TEXT_AREA = "fireClauseETextArea";
+		public static final String FIRE_CLAUSE_C_TEXT_AREA = "fireClauseCTextArea";
 		public static final String FIRE_CLAUSE_B_TEXT_AREA = "fireClauseBTextArea";
+		public static final String SEEPAGE_CLAUSE_D_TEXT_AREA = "seepageClauseDTextArea";
 		public static final String SEEPAGE_CLAUSE_A_TEXT_AREA = "seepageClauseATextArea";
 		public static final String SEEPAGE_CLAUSE_B_TEXT_AREA = "seepageClauseBTextArea";
 		public static final String SEEPAGE_CLAUSE_C_TEXT_AREA = "seepageClauseCTextArea";
+		public static final String DRAINAGE_CLAUSE_A_TEXT_AREA = "drainageClauseATextArea";
 		public static final String WATER_SUPPLY_CLAUSE_A_TEXT_AREA = "waterSupplyClauseATextArea";
 		public static final String WATER_SUPPLY_CLAUSE_B_TEXT_AREA = "waterSupplyClauseBTextArea";
 		public static final String WATER_SUPPLY_CLAUSE_C_TEXT_AREA = "waterSupplyClauseCTextArea";
@@ -347,6 +468,12 @@ public class AttributeNames {
 
 		public static final String WATER_STORAGE_CLAUSE_A_TEXT_AREA = "waterStorageClauseATextArea";
 		public static final String WATER_STORAGE_CLAUSE_B_TEXT_AREA = "waterStorageClauseBTextArea";
+		public static final String WATER_STORAGE_CLAUSE_C_TEXT_AREA = "waterStorageClauseCTextArea";
+
+		public static final String SITE_CLAUSE_A_TEXT_AREA = "siteClauseATextArea";
+		public static final String SITE_CLAUSE_B_TEXT_AREA = "siteClauseBTextArea";
+		public static final String SITE_CLAUSE_C_TEXT_AREA = "siteClauseCTextArea";
+
 		public static final String FACADE_CLAUSE_A_TEXT_AREA = "facadeClauseATextArea";
 		public static final String FACADE_CLAUSE_B_TEXT_AREA = "facadeClauseBTextArea";
 		public static final String FACADE_CLAUSE_C_TEXT_AREA = "facadeClauseCTextArea";
@@ -374,6 +501,21 @@ public class AttributeNames {
 		public static final String ROOM_CLAUSE_D_TEXT_AREA = "roomClauseDTextArea";
 		public static final String ROOM_CLAUSE_E_TEXT_AREA = "roomClauseETextArea";
 		public static final String ROOM_CLAUSE_F_TEXT_AREA = "roomClauseFTextArea";
+		public static final String ROOM_CLAUSE_G_TEXT_AREA = "roomClauseGTextArea";
+		public static final String ROOM_CLAUSE_H_TEXT_AREA = "roomClauseHTextArea";
+		public static final String ROOM_CLAUSE_I_TEXT_AREA = "roomClauseITextArea";
+		public static final String ROOM_CLAUSE_J_TEXT_AREA = "roomClauseJTextArea";
+		public static final String ROOM_CLAUSE_K_TEXT_AREA = "roomClauseKTextArea";
+		public static final String ROOM_CLAUSE_L_TEXT_AREA = "roomClauseLTextArea";
+		public static final String ROOM_CLAUSE_M_TEXT_AREA = "roomClauseMTextArea";
+		public static final String ROOM_CLAUSE_N_TEXT_AREA = "roomClauseNTextArea";
+		public static final String ROOM_CLAUSE_O_TEXT_AREA = "roomClauseOTextArea";
+		public static final String ROOM_CLAUSE_P_TEXT_AREA = "roomClausePTextArea";
+		public static final String ROOM_CLAUSE_Q_TEXT_AREA = "roomClauseQTextArea";
+
+
+
+
 		public static final String ROOM_PAINT_CLAUSE_TEXT_AREA = "roomPaintClauseTextArea";
 		public static final String SANITARY_CLAUSE_A_TEXT_AREA = "sanitaryClauseATextArea";
 		public static final String SANITARY_CLAUSE_B_TEXT_AREA = "sanitaryClauseBTextArea";
@@ -394,6 +536,12 @@ public class AttributeNames {
 		public static final String ELECTRICAL_CLAUSE_D_TEXT_AREA_2 = "electricalClauseDTextArea2";
 
 		public static final String ELECTRICAL_CLAUSE_E_TEXT_AREA = "electricalClauseETextArea";
+		public static final String EQUIPMENT_CLAUSE_A_TEXT_AREA = "equipmentClauseATextArea";
+		public static final String EQUIPMENT_CLAUSE_B_TEXT_AREA = "equipmentClauseBTextArea";
+		public static final String EQUIPMENT_CLAUSE_C_TEXT_AREA = "equipmentClauseCTextArea";
+		public static final String EQUIPMENT_CLAUSE_D_TEXT_AREA = "equipmentClauseDTextArea";
+		public static final String EQUIPMENT_CLAUSE_E_TEXT_AREA = "equipmentClauseETextArea";
+		public static final String ASSET_CLAUSE_A_TEXT_AREA = "assetClauseATextArea";
 		public static final String POWER_BACKUP_CLAUSE_A_TEXT_AREA = "powerBackupClauseATextArea";
 		public static final String POWER_BACKUP_CLAUSE_B_TEXT_AREA = "powerBackupClauseBTextArea";
 		public static final String POWER_BACKUP_CLAUSE_C_TEXT_AREA = "powerBackupClauseCTextArea";
@@ -409,6 +557,35 @@ public class AttributeNames {
 		public static final String COMMON_AREAS_CLAUSE_C_TEXT_AREA = "commonAreasClauseCTextArea";
 		public static final String COMMON_AREAS_CLAUSE_D_TEXT_AREA = "commonAreasClauseDTextArea";
 		public static final String COMMON_AREAS_CLAUSE_E_TEXT_AREA = "commonAreasClauseETextArea";
+
+
+		public static final String COMMON_FLTY_CLAUSE_A_TEXT_AREA = "commonFacilitiesATextArea";
+		public static final String COMMON_FLTY_CLAUSE_B_TEXT_AREA = "commonFacilitiesBTextArea";
+		public static final String COMMON_FLTY_CLAUSE_C_TEXT_AREA = "commonFacilitiesCTextArea";
+		public static final String COMMON_FLTY_CLAUSE_D_TEXT_AREA = "commonFacilitiesDTextArea";
+
+
+		public static final String DINING_CLAUSE_A_TEXT_AREA = "diningClauseATextArea";
+		public static final String DINING_CLAUSE_B_TEXT_AREA = "diningClauseBTextArea";
+		public static final String DINING_CLAUSE_C_TEXT_AREA = "diningClauseCTextArea";
+		public static final String DINING_CLAUSE_D_TEXT_AREA = "diningClauseDTextArea";
+		public static final String DINING_CLAUSE_E_TEXT_AREA = "diningClauseETextArea";
+		public static final String DINING_CLAUSE_F_TEXT_AREA = "diningClauseFTextArea";
+		public static final String DINING_CLAUSE_G_TEXT_AREA = "diningClauseGTextArea";
+		public static final String DINING_CLAUSE_H_TEXT_AREA = "diningClauseHTextArea";
+		public static final String DINING_CLAUSE_I_TEXT_AREA = "diningClauseITextArea";
+		public static final String DINING_CLAUSE_J_TEXT_AREA = "diningClauseJTextArea";
+
+		public static final String KITCHEN_CLAUSE_A_TEXT_AREA = "kitchenClauseATextArea";
+		public static final String KITCHEN_CLAUSE_B_TEXT_AREA = "kitchenClauseBTextArea";
+		public static final String KITCHEN_CLAUSE_C_TEXT_AREA = "kitchenClauseCTextArea";
+		public static final String KITCHEN_CLAUSE_D_TEXT_AREA = "kitchenClauseDTextArea";
+
+		public static final String CIRCULATION_CLAUSE_A_TEXT_AREA = "circulationClauseATextArea";
+		public static final String CIRCULATION_CLAUSE_B_TEXT_AREA = "circulationClauseBTextArea";
+		public static final String CIRCULATION_CLAUSE_C_TEXT_AREA = "circulationClauseCTextArea";
+		public static final String CIRCULATION_CLAUSE_D_TEXT_AREA = "circulationClauseDTextArea";
+		public static final String CIRCULATION_CLAUSE_E_TEXT_AREA = "circulationClauseETextArea";
 
 		public static final String SIGNAGE_CLAUSE_A_TEXT_AREA = "signangeLevelClauseATextArea";
 		public static final String SIGNAGE_CLAUSE_A_REMARK = "signangeRemarks";
@@ -519,7 +696,9 @@ public class AttributeNames {
 		public static final List<String> amcKeys = new ArrayList<String>();
 		public static final List<String> landlordAgreedKeys = new ArrayList<String>();
 		public static final List<String> landlordKeysLOI = Arrays.asList("STRUCTURELOI","waterSupplyClauseABooleanLOI","waterSupplyClauseBBooleanLOI","waterSupplyClauseCBooleanLOI","waterSupplyClauseDBooleanLOI","waterStorageClauseABooleanLOI","facadeClauseABooleanLOI","facadeClauseBBooleanLOI","terraceLevelClauseABooleanLOI","terraceLevelClauseBBooleanLOI","terraceLevelClauseCBooleanLOI","terraceLevelClauseDBooleanLOI","terraceLevelClauseEBooleanLOI","terraceLevelClauseFBooleanLOI","occupiedLevelClauseABooleanLOI","occupiedLevelClauseBBooleanLOI","occupiedLevelClauseCBooleanLOI","occupiedLevelClauseDBooleanLOI","occupiedLevelClauseEBooleanLOI","occupiedLevelClauseFBooleanLOI","roomClauseABooleanLOI","roomClauseBBooleanLOI","roomClauseCBooleanLOI","roomClauseDBooleanLOI","roomClauseEBooleanLOI","roomClauseFBooleanLOI","sanitaryClauseABooleanLOI","sanitaryClauseBBooleanLOI","sanitaryClauseCBooleanLOI","sanitaryClauseDBooleanLOI","sanitaryClauseEBooleanLOI","whiteGoodsClauseABooleanLOI","whiteGoodsClauseBBooleanLOI","whiteGoodsClauseCBooleanLOI","whiteGoodsClauseDBooleanLOI","whiteGoodsClauseEBooleanLOI","electricalClauseABooleanLOI","electricalClauseBBooleanLOI","electricalClauseCBooleanLOI","electricalClauseDBooleanLOI","electricalClauseEBooleanLOI","powerBackupClauseABooleanLOI","powerBackupClauseBBooleanLOI","powerBackupClauseCBooleanLOI","powerBackupClauseDBooleanLOI","liftClauseABooleanLOI","liftClauseBBooleanLOI","liftClauseCBooleanLOI","liftClauseDBooleanLOI","liftClauseEBooleanLOI","docsAndAMCClauseABooleanLOI","commonAreasClauseABooleanLOI","waterSupplyClauseEBooleanLOI","facadeClauseCBooleanLOI","facadeClauseDBooleanLOI","occupiedLevelClauseGBooleanLOI","occupiedLevelClauseHBooleanLOI","occupiedLevelClauseIBooleanLOI","signangeLevelClauseABooleanLOI","ITLevelClauseABooleanLOI","ITLevelClauseBBooleanLOI","ITLevelClauseCBooleanLOI","SupervisorLevelClauseABooleanLOI","parkingLevelClauseABooleanLOI","landscapeLevelClauseABooleanLOI","landscapeLevelClauseBBooleanLOI","fireClauseABooleanLOI","fireClauseBBooleanLOI","seepageClauseABooleanLOI","seepageClauseBBooleanLOI","seepageClauseCBooleanLOI","boundaryWallClauseABooleanLOI","boundaryWallClauseBBooleanLOI");
-		
+
+		public static final Set<String> annexure2AKeys = new HashSet<String>();
+
 		static {
 			amcKeys.add(ASSET_LIST_WITH_EXACT_COUNT_RETAINED);
 			amcKeys.add(LIFT_LICENSE_AND_RENEWAL);
@@ -543,8 +722,36 @@ public class AttributeNames {
 			landlordAgreedKeys.add("electricalClauseEBoolean");
 			landlordAgreedKeys.add("facadeClauseABoolean");
 			landlordAgreedKeys.add("facadeClauseBBoolean");
+			landlordAgreedKeys.add("facadeClauseCBoolean");
+			landlordAgreedKeys.add("facadeClauseDBoolean");
+			landlordAgreedKeys.add("commonFacilitiesABoolean");
+			landlordAgreedKeys.add("commonFacilitiesBBoolean");
+			landlordAgreedKeys.add("commonFacilitiesCBoolean");
+			landlordAgreedKeys.add("commonFacilitiesDBoolean");
+			landlordAgreedKeys.add("diningClauseABoolean");
+			landlordAgreedKeys.add("diningClauseBBoolean");
+			landlordAgreedKeys.add("diningClauseCBoolean");
+			landlordAgreedKeys.add("diningClauseDBoolean");
+			landlordAgreedKeys.add("diningClauseEBoolean");
+			landlordAgreedKeys.add("diningClauseFBoolean");
+			landlordAgreedKeys.add("diningClauseGBoolean");
+			landlordAgreedKeys.add("diningClauseHBoolean");
+			landlordAgreedKeys.add("diningClauseIBoolean");
+			landlordAgreedKeys.add("diningClauseJBoolean");
+			landlordAgreedKeys.add("kitchenClauseABoolean");
+			landlordAgreedKeys.add("kitchenClauseBBoolean");
+			landlordAgreedKeys.add("kitchenClauseCBoolean");
+			landlordAgreedKeys.add("kitchenClauseDBoolean");
+			landlordAgreedKeys.add("circulationClauseABoolean");
+			landlordAgreedKeys.add("circulationClauseBBoolean");
+			landlordAgreedKeys.add("circulationClauseCBoolean");
+			landlordAgreedKeys.add("circulationClauseDBoolean");
+			landlordAgreedKeys.add("circulationClauseEBoolean");
 			landlordAgreedKeys.add("fireClauseABoolean");
 			landlordAgreedKeys.add("fireClauseBBoolean");
+			landlordAgreedKeys.add("fireClauseCBoolean");
+			landlordAgreedKeys.add("fireClauseDBoolean");
+			landlordAgreedKeys.add("fireClauseEBoolean");
 			landlordAgreedKeys.add("liftClauseABoolean");
 			landlordAgreedKeys.add("liftClauseBBoolean");
 			landlordAgreedKeys.add("liftClauseCBoolean");
@@ -567,6 +774,22 @@ public class AttributeNames {
 			landlordAgreedKeys.add("roomClauseDBoolean");
 			landlordAgreedKeys.add("roomClauseEBoolean");
 			landlordAgreedKeys.add("roomClauseFBoolean");
+			landlordAgreedKeys.add("roomClauseGBoolean");
+			landlordAgreedKeys.add("roomClauseHBoolean");
+			landlordAgreedKeys.add("roomClauseIBoolean");
+			landlordAgreedKeys.add("roomClauseJBoolean");
+			landlordAgreedKeys.add("roomClauseKBoolean");
+			landlordAgreedKeys.add("roomClauseLBoolean");
+			landlordAgreedKeys.add("roomClauseMBoolean");
+			landlordAgreedKeys.add("roomClauseNBoolean");
+			landlordAgreedKeys.add("roomClauseOBoolean");
+			landlordAgreedKeys.add("roomClausePBoolean");
+			landlordAgreedKeys.add("equipmentClauseABoolean");
+			landlordAgreedKeys.add("equipmentClauseBBoolean");
+			landlordAgreedKeys.add("equipmentClauseCBoolean");
+			landlordAgreedKeys.add("equipmentClauseDBoolean");
+			landlordAgreedKeys.add("equipmentClauseEBoolean");
+			landlordAgreedKeys.add("assetClauseABoolean");
 			landlordAgreedKeys.add("sanitaryClauseABoolean");
 			landlordAgreedKeys.add("sanitaryClauseBBoolean");
 			landlordAgreedKeys.add("sanitaryClauseCBoolean");
@@ -575,6 +798,8 @@ public class AttributeNames {
 			landlordAgreedKeys.add("seepageClauseABoolean");
 			landlordAgreedKeys.add("seepageClauseBBoolean");
 			landlordAgreedKeys.add("seepageClauseCBoolean");
+			landlordAgreedKeys.add("seepageClauseDBoolean");
+			landlordAgreedKeys.add("drainageClauseABoolean");
 			landlordAgreedKeys.add("terraceLevelClauseABoolean");
 			landlordAgreedKeys.add("terraceLevelClauseBBoolean");
 			landlordAgreedKeys.add("terraceLevelClauseCBoolean");
@@ -584,6 +809,11 @@ public class AttributeNames {
 			landlordAgreedKeys.add("terraceLevelClauseGBoolean");
 			landlordAgreedKeys.add("terraceLevelClauseHBoolean");
 			landlordAgreedKeys.add("waterStorageClauseABoolean");
+			landlordAgreedKeys.add("waterStorageClauseBBoolean");
+			landlordAgreedKeys.add("waterStorageClauseCBoolean");
+			landlordAgreedKeys.add("siteClauseABoolean");
+			landlordAgreedKeys.add("siteClauseBBoolean");
+			landlordAgreedKeys.add("siteClauseCBoolean");
 			landlordAgreedKeys.add("waterSupplyClauseABoolean");
 			landlordAgreedKeys.add("waterSupplyClauseBBoolean");
 			landlordAgreedKeys.add("waterSupplyClauseCBoolean");
@@ -593,9 +823,23 @@ public class AttributeNames {
 			landlordAgreedKeys.add("whiteGoodsClauseCBoolean");
 			landlordAgreedKeys.add("whiteGoodsClauseDBoolean");
 			landlordAgreedKeys.add("whiteGoodsClauseEBoolean");
+			landlordAgreedKeys.add("roomClauseQBoolean");
 
 		}
 
+		static{
+			annexure2AKeys.add("beds");
+			annexure2AKeys.add("mattressAvailable");
+			annexure2AKeys.add("wardrobesAvailable");
+			annexure2AKeys.add("diningTables");
+			annexure2AKeys.add("diningChairs");
+			annexure2AKeys.add("washingMachineAvailable");
+			annexure2AKeys.add("fridgeAvailable");
+			annexure2AKeys.add("roAvailable");
+			annexure2AKeys.add("microwaveAvailable");
+			annexure2AKeys.add("acInRoomsAvailable");
+			annexure2AKeys.add("extinguishersAvailable");
+		}
 		
 		
 }
