@@ -3,6 +3,7 @@ package com.stanzaliving.core.sqljpa.service;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -82,5 +83,7 @@ public interface AbstractJpaService<T extends AbstractJpaEntity, I extends Seria
 	Boolean existsByUuid(String uuid);
 
 	Boolean existsByUuidAndStatus(String uuid, boolean status);
+
+	Optional<T> findFirstByUuidAndStatus(String uuid, boolean status);
 
 }
