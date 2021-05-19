@@ -28,7 +28,7 @@ public class GroupDto {
     private Integer displayOrder;
     @EmptyOrNull(message = "Status cannot be empty or null")
     private String status;
-    @Size(min = 1,message = "Mandatory to choose atleast 1 Applicable Status")
+    @Size(min = 1,message = "Mandatory to choose at-least 1 Applicable Status")
     @NotNull(message = "Applicable Status cannot be null")
     private List<ApplicableStatusesDto> applicableStatuses;
     private VisibilityConditionDto visibilityCondition;
