@@ -203,7 +203,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleNoRecordException(NoRecordException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got NoRecordException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		log.error("Got NoRecordException for exceptionId: {} with Message: {}", exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
