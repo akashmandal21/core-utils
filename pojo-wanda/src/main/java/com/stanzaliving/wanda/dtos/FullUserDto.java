@@ -36,4 +36,5 @@ public class FullUserDto {
     private String collegeName;
     @Deprecated
     private String roomNumber;
+    private String countryCode;
 }

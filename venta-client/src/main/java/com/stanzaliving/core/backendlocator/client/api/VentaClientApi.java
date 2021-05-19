@@ -22,8 +22,10 @@ import com.stanzaliving.core.backendlocator.client.dto.ResidentDto;
 import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+
 import com.stanzaliving.core.leaddashboard.dto.LeadDetailsDto;
 import com.stanzaliving.core.payment.dto.PreBookingRefundDto;
+
 import com.stanzaliving.venta.BedCountDetailsDto;
 import com.stanzaliving.venta.DeadBedCountDto;
 
@@ -213,6 +215,37 @@ public class VentaClientApi {
 		}
 
 		return roomNumberList;
+	}
+	
+	public Map<String, Object> getBookingDetails(int bookingId) {
+
+		Object postBody = null;
+
+		Map<String, Object> response = new HashMap<>();
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("bookingId", bookingId);
+
+		String path = UriComponentsBuilder.fromPath("/wanda/booking/{bookingId}").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<HashMap<String, Object>> returnType = new ParameterizedTypeReference<HashMap<String, Object>>() {
+		};
+		try {
+			response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					returnType);
+
+		} catch (Exception e) {
+			log.error("Exception while fetching booking details for bookingId {} ", bookingId);
+		}
+		return response;
 	}
 
 	public LeadDetailsDto getLeadDetails(String phone) {
