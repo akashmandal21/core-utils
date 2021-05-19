@@ -17,7 +17,7 @@ import java.util.List;
 public class TicketDto {
 
     @NotBlank(message = "Sub-category Uuid cannot be blank/null")
-    private String subcategoryUuid;
+    private String subCategoryUuid;
 
     private Date sla;
 

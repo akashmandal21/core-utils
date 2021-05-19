@@ -13,9 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 public class TicketDetailsDto {
 
+    String assignedTo;
+
     List<String> attachmentDto;
 
     List<SubTicketDto> subTicketDto;
 
     List<TicketChecklistDetailDto> ticketChecklist;
+
+    List<TagDto> tagDtos;
 }
