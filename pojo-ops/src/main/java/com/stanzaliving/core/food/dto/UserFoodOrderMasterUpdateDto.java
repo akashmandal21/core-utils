@@ -41,8 +41,6 @@ public class UserFoodOrderMasterUpdateDto {
 	private LocalDate menuDate;
 
 	private PackageCollectionStatus orderStatus;
-	
-	private LocalDateTime orderCollectedAt;
 
 	private String foodOrderId;
 
