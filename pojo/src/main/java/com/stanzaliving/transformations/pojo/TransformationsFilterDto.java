@@ -33,6 +33,6 @@ public class TransformationsFilterDto {
 	private SortDirection sortBy;
 	private SortByKey sortKey;
 	private String searchUuid;
-	private UIKeyValue status;
+	private List<UIKeyValue> status;
 
 }
