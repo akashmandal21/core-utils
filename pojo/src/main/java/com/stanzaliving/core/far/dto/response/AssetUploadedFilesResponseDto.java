@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AssetUploadedFilesResponseDto {
-    private String insuranceDocUrl;
-    private String amcDocUrl;
+    private List<String> insuranceDocUrl;
+    private List<String> amcDocUrl;
     private List<String> assetImagesUrl;
 }

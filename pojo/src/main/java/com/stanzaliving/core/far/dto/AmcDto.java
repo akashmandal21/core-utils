@@ -25,5 +25,5 @@ public class AmcDto {
     private String pocEmail;
     private List<String> includes; // Multiple select options based on the item selected
     private List<String> excludes; // Multiple select options based on the item selected
-    private String amcDocumentPath; // where the uploaded doc. by user is stored
+    private List<String> amcDocumentPath; // where the uploaded doc. by user is stored
 }
