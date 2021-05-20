@@ -22,4 +22,6 @@ public class TicketDetailsDto {
     List<TicketChecklistDetailDto> ticketChecklist;
 
     List<TagDto> tagDtos;
+
+    TeamDto teamDto;
 }
