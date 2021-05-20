@@ -1,13 +1,13 @@
 package com.stanzaliving.core.opscalculator.enums;
 
-import com.stanzaliving.core.opscalculator.dto.BuildMaintenanceCategoryDto;
-import com.stanzaliving.core.opscalculator.dto.DropDownDto;
-import com.stanzaliving.core.opscalculator.dto.RepairCategoryDto;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.stanzaliving.core.opscalculator.dto.BuildMaintenanceCategoryDto;
+import com.stanzaliving.core.opscalculator.dto.DropDownDto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
@@ -66,6 +66,18 @@ public enum ServiceType {
             dropDownDtoList.add(new DropDownDto(serviceType.toString(), serviceType.getName()));
         }
     }
+    
+    public static void setDefaultSelectedApplicableOption(BuildMaintenanceCategoryDto buildMaintenanceCategoryDto) {
+
+		buildMaintenanceCategoryDto.setPestControlApplicable(false);
+		buildMaintenanceCategoryDto.setFloorCleaningApplicable(false);
+		buildMaintenanceCategoryDto.setOverheadTankCleaningInfoApplicable(false);
+		buildMaintenanceCategoryDto.setUnderGroundTankCleaningInfoApplicable(false);
+		buildMaintenanceCategoryDto.setFacadeCleaningApplicable(false);
+		buildMaintenanceCategoryDto.setUpholsteryCleaningApplicable(false);
+		buildMaintenanceCategoryDto.setFumigationPerBedBugsApplicable(false);
+		buildMaintenanceCategoryDto.setGarbageCostApplicable(false);
+	}
 
     public abstract void  setSelectedApplicableOption(BuildMaintenanceCategoryDto buildMaintenanceCategoryDto);
 }
