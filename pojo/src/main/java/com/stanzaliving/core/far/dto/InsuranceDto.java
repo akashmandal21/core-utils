@@ -24,5 +24,5 @@ public class InsuranceDto {
     private Date insuranceEndDate;
     private BigDecimal insuredValue;
     private BigDecimal insuranceAmount;
-    private List<String> insuranceDocumentPath; // where the uploaded doc. by user is stored
+    private List<String> insuranceDocumentPathList; // where the uploaded doc. by user is stored
 }
