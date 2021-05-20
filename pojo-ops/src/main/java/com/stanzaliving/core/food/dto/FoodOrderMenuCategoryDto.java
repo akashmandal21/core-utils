@@ -19,6 +19,8 @@ import java.util.List;
 @AllArgsConstructor
 public class FoodOrderMenuCategoryDto {
 
+	private String dealUuid;
+
 	private String menuCategoryId;
 
 	private String menuCategoryName;

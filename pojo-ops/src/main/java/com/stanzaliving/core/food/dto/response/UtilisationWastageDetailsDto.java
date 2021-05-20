@@ -8,6 +8,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -23,5 +25,6 @@ public class UtilisationWastageDetailsDto {
 	private double wastagePercentage;
 	private double expectedUtilizationPercentage;
 	private boolean isShortage;
+	private List<FoodShortageDetailsDto> foodShortageDetailsDtoList;
 
 }
