@@ -77,6 +77,10 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String description;
 	
+	private String seoTitle;
+	
+	private String seoDescription;
+	
 	private AddressResponseDTO address;
 	
 	@Builder.Default

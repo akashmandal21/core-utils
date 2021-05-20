@@ -44,8 +44,11 @@ public class ResidenceResponseDTO {
 	private Integer preBookingAmount;
 	private String preBookingMode;
 	private FomoTag fomoTag;
+	private String fomoTagName;
+	private String fomoTagcolour;
 	private String residenceType;
 	private String googleMapLink;
+	private String videoLink;
 	private String virtualTourImage;
 	private Double distanceFromPlace;
 
