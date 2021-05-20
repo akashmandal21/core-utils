@@ -2,11 +2,16 @@ package com.stanzaliving.core.bookingservice.dto;
 
 import com.stanzaliving.core.utilservice.annotations.Email;
 import com.stanzaliving.core.utilservice.annotations.IsStringOnlyAlphabet;
-import com.stanzaliving.core.utilservice.annotations.validator.PhoneNumberValidator;
-import lombok.Data;
+import lombok.*;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class UserDetailRequestDto {
 
     @IsStringOnlyAlphabet (message = "Invalid First Name")
@@ -15,8 +20,10 @@ public class UserDetailRequestDto {
     @IsStringOnlyAlphabet (message = "Invalid Last Name")
     private String lastName;
 
-    private PhoneNumberValidator.PhoneNumber mobile;
+    @Valid
+    private PhoneNumberDto mobile;
 
+    @NotBlank(message = "Email is mandatory to add new user")
     @Email
     private String email;
 
