@@ -98,4 +98,6 @@ public class WebsiteResidenceDetailedResponseDTO {
 	private AddressResponseDTO address;
 	
 	private List<ReviewWebsiteResponseDto> reviews;
+	
+	private ResidenceFilteredResponseDTO similarResidencesNearBy;
 }
