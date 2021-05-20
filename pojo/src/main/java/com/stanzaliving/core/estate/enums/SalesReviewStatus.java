@@ -13,7 +13,8 @@ public enum SalesReviewStatus {
 	SUBMITTED("Sales Review Submitted", "#FFEAB6", "#FFB701"),
 	APPROVED("Sales Review Approved", "#B8E0FF", "#5FC4F5"),
 	SENT_BACK("Sent Back", "#FFF1F1", "#F55F71"),
-	PROPERTY_DROPPED("Property Dropped", "#F0F2F2", "#7A7D7E");
+	NAMING_DONE("Property Naming Done","#EDFFF5","#60C3AD"),
+	PROPERTY_DROPPED("Property Dropped", "#FFEAB6", "#FFB701");
 	
 	private String statusText;
 	
