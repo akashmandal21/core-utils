@@ -20,4 +20,5 @@ public class GrsiItemDto {
     private LocalDate expiryDate;
     private BigDecimal effectivePrice;//Unit Rate
     private BigDecimal quantity;
+    private String itemCode;
 }

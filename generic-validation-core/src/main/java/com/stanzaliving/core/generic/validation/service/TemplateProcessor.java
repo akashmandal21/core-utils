@@ -3,7 +3,6 @@ package com.stanzaliving.core.generic.validation.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stanzaliving.core.base.exception.NoRecordException;
 import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.generic.constants.GenericConstants;
@@ -23,8 +22,6 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.util.Pair;
 
 
@@ -267,7 +264,7 @@ public abstract class TemplateProcessor {
                                                                         Map<String,Field> fields, Object sourceClass,
                                                                         boolean allowSkipNewFields, Object baseObject){
 
-        log.info("Processing Template {} ",templateName);
+        log.info("Processing Template {}",templateName);
 //        log.info("Source class {}",baseObject);
         final int currErrors = errorInfo.getNumErrors();
         Map<String, UiParentField> uiFieldMap = new LinkedHashMap<>();
@@ -314,6 +311,7 @@ public abstract class TemplateProcessor {
                             updateErrorInfo(errorInfo);
                         }
                     } else {
+//                        log.info("Data Value {}",data.get(templateField.getFieldName()));
                         uiField = ValueAdapters.getValue(data.get(templateField.getFieldName()), UiField.class,objectMapper);
                         uiField.setErrorMsg(null);
                         uiField.setErrorOccurred(false);
@@ -324,6 +322,7 @@ public abstract class TemplateProcessor {
                         fillOptions(templateField,additionalData,uiField);
                     }
                     uiFieldMap.put(templateField.getFieldName(), uiField);
+                    log.info("Error Occurred log{}",errorInfo.isErrorOccurred());
                     break;
 
                 case TEMPLATE:
@@ -373,7 +372,7 @@ public abstract class TemplateProcessor {
                             List<Map<String, JsonNode>> nestedStruct = ValueAdapters.convertValue(uiBasicField.getData(), new TypeReference<List<Map<String, JsonNode>>>() {},objectMapper);
 
                             if (CollectionUtils.isNotEmpty(nestedStruct)) {
-                                log.info("List Data size {} {} ",nestedStruct.size(),nestedStruct);
+                                log.info("List Data size {} ",nestedStruct.size());
                                 for (Map<String, JsonNode> f : nestedStruct) {
                                     Object temp = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);
                                     Pair<Boolean, Map<String, UiParentField>> derivedData = verifyAndStoreData(f, templateField.getFieldName(), templates, isDraft,
@@ -420,6 +419,7 @@ public abstract class TemplateProcessor {
                     }
                     log.info("UiBaseField {}",uiBasicField);
                     uiFieldMap.put(templateField.getFieldName(), uiBasicField);
+                    log.info("Error Occurred log{}",errorInfo.isErrorOccurred());
                     break;
 
                 default:
