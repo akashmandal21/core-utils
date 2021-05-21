@@ -86,6 +86,4 @@ public class ResidenceUIDto implements Serializable{
 	private Double premiseArea;
 
 	private String apartmentFloorNumber;
-	
-	private String propertyCode;
 }
