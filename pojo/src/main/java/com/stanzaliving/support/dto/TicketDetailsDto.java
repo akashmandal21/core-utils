@@ -23,5 +23,9 @@ public class TicketDetailsDto {
 
     List<TagDto> tagDtos;
 
+    List<TicketMessageDto> ticketMessageDto;
+
+    TicketCardDto ticketCardDto;
+
     TeamDto teamDto;
 }
