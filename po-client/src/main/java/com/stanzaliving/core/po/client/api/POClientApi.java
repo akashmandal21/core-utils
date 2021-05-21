@@ -14,6 +14,7 @@ import com.stanzaliving.invoice.dto.InvoiceMigrationDto;
 import com.stanzaliving.invoice.dto.InvoiceMigrationResponseDto;
 import com.stanzaliving.invoice.dto.PoInvoiceDetailsDto;
 import com.stanzaliving.po.enums.POSummaryStatus;
+import com.stanzaliving.po.generic.dto.TOTemplateDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -659,5 +660,26 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, emailDto, headerParams, accept, vddReturnType);
     }
 
+    public ResponseDto<Void> createManualTO(TOTemplateDto toTemplateDto) {
+
+        log.info("HTTP Client call to create manual TO:{}", toTemplateDto);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/create/manual/to").toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, toTemplateDto, headerParams, accept, vddReturnType);
+    }
 
 }

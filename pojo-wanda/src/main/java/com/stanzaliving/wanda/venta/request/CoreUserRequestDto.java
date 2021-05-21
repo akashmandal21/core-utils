@@ -33,5 +33,5 @@ public class CoreUserRequestDto {
 	private boolean optedOut;
 	private boolean tifinActive;
 	private String userUuid;
-	
+	private String countryCode;
 }
