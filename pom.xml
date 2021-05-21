@@ -81,7 +81,8 @@
 		<module>generic-po-client</module>
         <module>wanda-client</module>
 		<module>search-client</module>
-	</modules>
+        <module>pojo-food</module>
+    </modules>
 
 	<build>
 		<plugins>
