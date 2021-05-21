@@ -910,4 +910,17 @@ public class DateUtil {
 		}
 		return monthCount;
 	}
+	
+	public long getHoursBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+		if (Objects.isNull(startDateTime) || Objects.isNull(endDateTime)) {
+			return 0;
+		}
+
+		return getDurationBetween(startDateTime, endDateTime).toHours();
+	}
+	
+	public Duration getDurationBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+		return Duration.between(startDateTime, endDateTime);
+	}
+	
 }
