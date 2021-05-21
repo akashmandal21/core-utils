@@ -28,7 +28,7 @@ public class MarkEnabledDto {
 	
 	private Boolean enabled;
 	
-	private Section section;
+	private CategoryFilter section;
 	
 	private List<String> stanzaCity;
 	
