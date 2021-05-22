@@ -27,6 +27,7 @@ public class LanguageApprovalRequestDto extends AbstractMongoDto {
 
     private int version;
 
+    @NotNull
     private PropertyListStatus status;
 
 
