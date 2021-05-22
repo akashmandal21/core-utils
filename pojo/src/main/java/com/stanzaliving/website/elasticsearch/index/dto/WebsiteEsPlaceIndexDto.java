@@ -22,7 +22,7 @@ public class WebsiteEsPlaceIndexDto extends AbstractSearchIndexDto {
 	
 	private String place;
 	
-	private String placeId;
+	private Integer placeId;
 	
 	private String placeSlug;
 	
@@ -39,6 +39,10 @@ public class WebsiteEsPlaceIndexDto extends AbstractSearchIndexDto {
 	private String city;
 	
 	private String citySlug;
+	
+	private Integer micromarketId;
+	
+	private String micromarket;
 
 	private String micromarketSlug;
 	
