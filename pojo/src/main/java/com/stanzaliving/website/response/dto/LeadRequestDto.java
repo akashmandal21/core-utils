@@ -27,8 +27,9 @@ public class LeadRequestDto {
 	private boolean phoneVerified;
 
 	private String leadSource;
+	private String leadCreationInterface;
 	private String source;
-	
+	private String leadSourceDesc;
 	private int residenceId;
 	private String residenceName;
 	private String residenceNameUuid;
@@ -106,5 +107,8 @@ public class LeadRequestDto {
 	
 	@Default
 	private boolean otpVerified = false;
+	
+	@Default
+	private boolean ignoreScheduleVisit=false;
 
 }

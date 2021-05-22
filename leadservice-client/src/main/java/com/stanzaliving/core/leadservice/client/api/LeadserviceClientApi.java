@@ -20,6 +20,9 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class LeadserviceClientApi {
 
 	private StanzaRestClient restClient;
@@ -72,7 +75,7 @@ public class LeadserviceClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public ResponseDto<String> updateBrokerLead(LeadRequestDto leadRequestDto) {
 
 		Object postBody = leadRequestDto;
@@ -87,7 +90,7 @@ public class LeadserviceClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<String> > returnType = new ParameterizedTypeReference<ResponseDto<String> >() {
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
@@ -98,8 +101,8 @@ public class LeadserviceClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/lead/internal/website/lead/variant/qualification/question").buildAndExpand(uriVariables)
-				.toUriString();
+		String path = UriComponentsBuilder.fromPath("/lead/internal/website/lead/variant/qualification/question")
+				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("form", formInterface);
@@ -114,12 +117,12 @@ public class LeadserviceClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public ResponseDto<String> leadUpdate(LeadRequestDto leadRequestDto) {
 
 		Object postBody = leadRequestDto;
 
-		String path = UriComponentsBuilder.fromPath("/lead/qrcode/qualifcation/update").toUriString();
+		String path = UriComponentsBuilder.fromPath("/lead/internal/website/lead/variant/update").toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -129,9 +132,67 @@ public class LeadserviceClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<String> > returnType = new ParameterizedTypeReference<ResponseDto<String> >() {
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<LeadRequestDto> leadCreation(LeadRequestDto leadRequestDto) {
+
+		try {
+			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+
+			Object postBody = leadRequestDto;
+
+			String path = UriComponentsBuilder.fromPath("/lead/internal/create/temp/variant").toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Error while creating the lead {}", e);
+		}
+
+		return null;
+	}
+
+	public ResponseDto<LeadRequestDto> leadMigration(LeadRequestDto leadRequestDto) {
+
+		try {
+			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+
+			Object postBody = leadRequestDto;
+
+			String path = UriComponentsBuilder.fromPath("/lead/internal/create/variant").toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Error while creating the lead {}", e);
+		}
+
+		return null;
 	}
 }
