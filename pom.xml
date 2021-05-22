@@ -82,7 +82,7 @@
         <module>wanda-client</module>
 		<module>search-client</module>
 		<module>leadservice-client</module>
-		
+		<module>notification-v2-client</module>
 	</modules>
 
 	<build>

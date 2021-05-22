@@ -322,6 +322,7 @@ public abstract class TemplateProcessor {
                         fillOptions(templateField,additionalData,uiField);
                     }
                     uiFieldMap.put(templateField.getFieldName(), uiField);
+                    log.info("Error Occurred log{}",errorInfo.isErrorOccurred());
                     break;
 
                 case TEMPLATE:
@@ -418,6 +419,7 @@ public abstract class TemplateProcessor {
                     }
                     log.info("UiBaseField {}",uiBasicField);
                     uiFieldMap.put(templateField.getFieldName(), uiBasicField);
+                    log.info("Error Occurred log{}",errorInfo.isErrorOccurred());
                     break;
 
                 default:

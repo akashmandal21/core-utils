@@ -15,11 +15,7 @@ import com.stanzaliving.core.estate.enums.EstateStatus;
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import com.stanzaliving.core.sqljpa.entity.AddressEntity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -65,6 +61,11 @@ public class EstateEntity extends AbstractJpaEntity {
 	@Column(name = "estate_code", columnDefinition = "varchar(15)", nullable = false)
 	private String estateCode;
 
-	 @Column(name = "property_name", columnDefinition = "varchar(255)")
-	 private String propertyName;
+	@Column(name = "property_name", columnDefinition = "varchar(255)")
+	private String propertyName;
+
+	@Builder.Default
+	@Column(name = "bypass_sales_review", columnDefinition = "bit(1) default 0")
+	private boolean salesReviewByPassed = false;
+
 }
