@@ -1,9 +1,6 @@
 package com.stanzaliving.legal_v2.DTO.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 
@@ -11,6 +8,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class DocumentsDto {
 
     @NotNull(message = "type cannot be null")

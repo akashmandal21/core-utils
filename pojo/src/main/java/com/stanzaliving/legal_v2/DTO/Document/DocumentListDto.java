@@ -1,8 +1,5 @@
-package com.stanzaliving.legal_v2.DTO;
+package com.stanzaliving.legal_v2.DTO.Document;
 
-import com.stanzaliving.core.dto.AbstractMongoDto;
-import com.stanzaliving.legal_v2.DTO.CityDocumentsCofig.FoldersAndDocumentsDTO;
-import com.stanzaliving.legal_v2.DTO.Document.Folders;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +17,5 @@ public class DocumentListDto {
     private String propertyName;
     private String city;
     private String microMarket;
-    private Integer noOfBeds;
-    private Integer noOfRooms;
     private List<Folders> folders;
 }
