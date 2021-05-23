@@ -2,10 +2,7 @@ package com.stanzaliving.legal_v2.DTO.Property;
 
 import com.stanzaliving.core.dto.AbstractMongoDto;
 import com.stanzaliving.legal_v2.enums.PropertyListStatus;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,6 +12,8 @@ import javax.validation.constraints.NotNull;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class PropertyListDto extends AbstractMongoDto {
 
     @NotNull(message = "Property Name cannot be null")
