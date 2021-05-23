@@ -9,9 +9,9 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class Folders {
-    private String folder;
+public class DocumentDataDTO {
 
-    private List<DocumentMap> documents;
-    
+    private String description;
+
+    private List<Object> versions;
 }

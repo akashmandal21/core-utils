@@ -2,16 +2,14 @@ package com.stanzaliving.legal_v2.DTO.Document;
 
 import lombok.*;
 
-import java.util.List;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-public class Folders {
-    private String folder;
+public class DocumentMap {
 
-    private List<DocumentMap> documents;
-    
+    String documentType;
+
+    DocumentDataDTO versionList;
 }
