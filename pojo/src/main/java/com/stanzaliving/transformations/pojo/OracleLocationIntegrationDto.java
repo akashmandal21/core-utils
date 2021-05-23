@@ -24,67 +24,96 @@ public class OracleLocationIntegrationDto extends AbstractOracleDto {
     private String addressUuid;
 
     @NotNull
+    @JsonProperty("name")
     private String name;
 
+    @JsonProperty("sublocationOf")
     private String sublocationOf;
 
+    @JsonProperty("locationType")
     private LocationType locationType;
 
+    @JsonProperty("latitude")
     private Double latitude;
 
+    @JsonProperty("longitude")
     private Double longitude;
 
+    @JsonProperty("documentNumberPrefix")
     private String documentNumberPrefix;
 
     @NotNull
+    @JsonProperty("locationIsInactive")
     private Boolean locationIsInactive;
 
+    @JsonProperty("mainAddress_Addressee")
     private String mainAddress_Addressee;
 
-    private String mainAddress_Phone;
+    @JsonProperty("mainAddress_Phone")
+    private String mainAddressPhone;
 
+    @JsonProperty("mainAddress1")
     private  String mainAddress1;
 
+    @JsonProperty("mainAddress2")
     private String mainAddress2;
 
     @NotNull
-    private String mainAddress_city;
+    @JsonProperty("mainAddress_city")
+    private String mainAddressCity;
 
     @NotNull
-    private  String mainAddress_state;
+    @JsonProperty("mainAddress_state")
+    private  String mainAddressState;
 
     @NotNull
-    private  String mainAddress_country;
+    @JsonProperty("mainAddress_country")
+    private  String mainAddressCountry;
 
     @NotNull
-    private String mainAddress_zip;
+    @JsonProperty("mainAddress_zip")
+    private String mainAddressZip;
 
-    private String returnAddress_Addressee;
+    @JsonProperty("returnAddress_Addressee")
+    private String returnAddressAddressee;
 
-    private String returnAddress_Phone;
+    @JsonProperty("returnAddress_Phone")
+    private String returnAddressPhone;
 
+    @JsonProperty("returnAddress1")
     private String returnAddress1;
 
+    @JsonProperty("returnAddress2")
     private String returnAddress2;
 
-    private  String returnAddress_city;
+    @JsonProperty("returnAddress_city")
+    private  String returnAddressCity;
 
-    private String returnAddress_state;
+    @JsonProperty("returnAddress_state")
+    private String returnAddressState;
 
-    private String returnAddress_country;
+    @JsonProperty("returnAddressCountry")
+    private String returnAddressCountry;
 
-    private  String returnAddress_zip;
+    @JsonProperty("returnAddress_zip")
+    private  String returnAddressZip;
 
+    @JsonProperty("locationCreatedAt")
     private Date locationCreatedAt;
 
+    @JsonProperty("locationUpdatedAt")
     private Date locationUpdatedAt;
 
+    @JsonProperty("locationCreatedBy")
     private String locationCreatedBy;
 
+    @JsonProperty("locationUpdatedBy")
     private String locationUpdatedBy;
 
+    @JsonProperty("locationVendorId")
     private String locationVendorId;
 
+    @JsonProperty("locationMicromarketId")
     private String locationMicromarketId;
 
 

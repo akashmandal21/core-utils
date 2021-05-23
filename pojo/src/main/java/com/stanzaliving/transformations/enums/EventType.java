@@ -5,5 +5,5 @@ import lombok.Getter;
 @Getter
 public enum EventType {
 
-    CREATE, UPDATE;
+    CREATE, UPDATE, DELETE;
 }

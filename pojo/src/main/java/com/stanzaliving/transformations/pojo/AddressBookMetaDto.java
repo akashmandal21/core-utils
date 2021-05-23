@@ -10,7 +10,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @Setter
 @Getter
@@ -55,23 +54,5 @@ public class AddressBookMetaDto implements Serializable {
 	private Double longitude;
 
 	private String vendorUuid;
-
-	private Boolean status;
-
-	private Date updated_at;
-
-	private  Date created_at;
-
-	private  String location_uuid;
-
-	private  String microMarket_uuid;
-
-	private  String address_line_1;
-
-	private  String address_line_2;
-
-	private  String created_by;
-
-	private String updated_by;
 
 }
