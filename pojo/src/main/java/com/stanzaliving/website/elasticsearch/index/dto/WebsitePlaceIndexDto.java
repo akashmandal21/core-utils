@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class WebsiteEsPlaceIndexDto extends AbstractSearchIndexDto {
+public class WebsitePlaceIndexDto extends AbstractSearchIndexDto {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -50,7 +50,9 @@ public class WebsiteEsPlaceIndexDto extends AbstractSearchIndexDto {
 	
 	private String transformationUuid;
 	
-	private Double[] location;
+	private double latitude;
+
+	private double longitude;
 	
 	@Builder.Default
 	private String type = "place";
