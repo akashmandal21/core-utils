@@ -297,7 +297,7 @@ public class NotificationClientApi {
         uriVariables.put(APPLICATION_NAME,applicationName);
 
         String path =
-                UriComponentsBuilder.fromPath("/fcm/user/application/{applicationName}")
+                UriComponentsBuilder.fromPath("/api/v1/fcm/user/application/{applicationName}")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
