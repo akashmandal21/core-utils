@@ -9,6 +9,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotEmpty;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -28,6 +29,10 @@ public class FoodOrderMenuCategoryDto {
 	private String groupId;
 
 	private String shortCode;
+
+	private String lastUpdatedBy;
+
+	private LocalDate lastUpdatedAt;
 
 	private Integer mirCount;
 
