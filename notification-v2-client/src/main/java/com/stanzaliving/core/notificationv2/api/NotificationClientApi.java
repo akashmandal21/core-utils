@@ -96,7 +96,7 @@ public class NotificationClientApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put(APPLICATION_NAME,applicationName);
         String path =
-                UriComponentsBuilder.fromPath("/fcm/application/{applicationName}/users")
+                UriComponentsBuilder.fromPath("/api/v1/fcm/application/{applicationName}/users")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
