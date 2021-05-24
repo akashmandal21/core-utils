@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class EmptyOrNullValidator implements ConstraintValidator<EmptyOrNull,String> {
+public class EmptyOrNullValidator implements ConstraintValidator<EmptyOrNull, String> {
 
     @Override
     public boolean isValid(String field, ConstraintValidatorContext constraintValidatorContext) {
