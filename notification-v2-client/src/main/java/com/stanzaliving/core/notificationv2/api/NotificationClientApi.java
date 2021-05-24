@@ -26,6 +26,7 @@ public class NotificationClientApi {
     public static final String CAMPAIGN_ID = "campaignId";
     public static final String USER_UUID = "userUuid";
     public static final String RESIDENCE_UUID = "residenceUuid";
+    public static final String APPLICATION_NAME = "applicationName";
 
     private StanzaRestClient restClient;
 
@@ -87,14 +88,15 @@ public class NotificationClientApi {
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public List<String> getAllUsers() {
+    public List<String> getAllUsers(String applicationName) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put(APPLICATION_NAME,applicationName);
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/fcm/users")
+                UriComponentsBuilder.fromPath("/fcm/application/{applicationName}/users")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
@@ -120,14 +122,15 @@ public class NotificationClientApi {
         return responseDto.getData();
     }
 
-    public List<String> getUserLocation(AudienceLocationDto audienceLocationDto) {
+    public List<String> getUserLocation(String applicationName,AudienceLocationDto audienceLocationDto) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put(APPLICATION_NAME,applicationName);
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/fcm/user/list")
+                UriComponentsBuilder.fromPath("/api/v1/fcm/application/{applicationName}/user/list")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
@@ -285,14 +288,16 @@ public class NotificationClientApi {
                 path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public List<String> getUserInformation(CampaignAudienceDto audienceDto) {
+    public List<String> getUserInformation(String applicationName,CampaignAudienceDto audienceDto) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put(APPLICATION_NAME,applicationName);
+
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/fcm/user")
+                UriComponentsBuilder.fromPath("/fcm/user/application/{applicationName}")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
