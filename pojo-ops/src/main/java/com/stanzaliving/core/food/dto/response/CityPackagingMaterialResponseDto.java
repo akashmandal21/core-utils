@@ -6,6 +6,8 @@ import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
@@ -20,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CityPackagingMaterialResponseDto {
+public class CityPackagingMaterialResponseDto implements Serializable {
 
 	private ListingDto city;
 

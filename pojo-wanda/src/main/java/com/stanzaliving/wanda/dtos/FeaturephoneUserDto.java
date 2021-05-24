@@ -27,9 +27,15 @@ public class FeaturephoneUserDto {
 
 	private String profilePictureUrl;
 
-	private String room;
+	private String currentRoomNo;
+	
+	private String originalRoomNo;
 
 	private Boolean featurePhone;
 
 	private String foodPickedAt;
+	@Deprecated
+	private String room;
+	
+	private String countryCode;
 }

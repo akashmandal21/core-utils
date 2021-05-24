@@ -40,5 +40,7 @@ public class BookingStatusResponseDto {
     private String roomNumber;
     private String cityName;
     private String microMarketName;
+    private String mobileNumber;
     private String jsVersion;
+    private String residenceUuid;
 }

@@ -9,6 +9,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
@@ -23,7 +25,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealConsumptionResponseDto {
+public class MealConsumptionResponseDto implements Serializable {
+
+	private static final long serialVersionUID = 829827262736273L;
 
 	private EnumListing<MealType> meal;
 

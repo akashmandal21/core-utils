@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+@Builder
 @Setter
 @Getter
 @ToString
