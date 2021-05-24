@@ -11,5 +11,7 @@ public class WebsiteElasticSearchConstants {
 	
 	public final String CITY = "City";
 	
+	public final String MICROMARKET = "Micromarket";
+	
 	public final String PLACE = "place";
 }
