@@ -2,19 +2,22 @@ package com.stanzaliving.transformations.pojo;
 
 
 import com.stanzaliving.transformations.enums.EventType;
+import com.stanzaliving.transformations.enums.OracleServiceOwner;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Map;
 
 @Setter
 @Getter
 @ToString
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class AbstractOracleDto {
 
-    private String serviceOwner;
+    private OracleServiceOwner serviceOwner;
     private EventType eventType;
     private Map<String,Object> contextArgs;
 }

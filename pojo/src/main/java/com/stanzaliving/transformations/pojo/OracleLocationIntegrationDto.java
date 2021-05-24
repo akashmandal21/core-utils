@@ -13,7 +13,7 @@ import java.util.Date;
 @Setter
 @Getter
 @ToString
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class OracleLocationIntegrationDto extends AbstractOracleDto {
@@ -47,35 +47,35 @@ public class OracleLocationIntegrationDto extends AbstractOracleDto {
     private Boolean locationIsInactive;
 
     @JsonProperty("mainAddress_Addressee")
-    private String mainAddress_Addressee;
+    private String locationName;
 
     @JsonProperty("mainAddress_Phone")
-    private String mainAddressPhone;
+    private String Phone;
 
     @JsonProperty("mainAddress1")
-    private  String mainAddress1;
+    private  String Address1;
 
     @JsonProperty("mainAddress2")
-    private String mainAddress2;
+    private String Address2;
 
     @NotNull
     @JsonProperty("mainAddress_city")
-    private String mainAddressCity;
+    private String AddressCity;
 
     @NotNull
     @JsonProperty("mainAddress_state")
-    private  String mainAddressState;
+    private  String AddressState;
 
     @NotNull
     @JsonProperty("mainAddress_country")
-    private  String mainAddressCountry;
+    private  String AddressCountry;
 
     @NotNull
     @JsonProperty("mainAddress_zip")
-    private String mainAddressZip;
+    private String pincode;
 
     @JsonProperty("returnAddress_Addressee")
-    private String returnAddressAddressee;
+    private String returnAddressLocation;
 
     @JsonProperty("returnAddress_Phone")
     private String returnAddressPhone;
@@ -96,7 +96,7 @@ public class OracleLocationIntegrationDto extends AbstractOracleDto {
     private String returnAddressCountry;
 
     @JsonProperty("returnAddress_zip")
-    private  String returnAddressZip;
+    private  String returnAddressPincode;
 
     @JsonProperty("locationCreatedAt")
     private Date locationCreatedAt;
