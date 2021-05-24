@@ -53,22 +53,22 @@ public class OracleLocationIntegrationDto extends AbstractOracleDto {
     private String Phone;
 
     @JsonProperty("mainAddress1")
-    private  String Address1;
+    private  String addressLine1;
 
     @JsonProperty("mainAddress2")
-    private String Address2;
+    private String addressLine2;
 
     @NotNull
     @JsonProperty("mainAddress_city")
-    private String AddressCity;
+    private String addressCity;
 
     @NotNull
     @JsonProperty("mainAddress_state")
-    private  String AddressState;
+    private  String addressState;
 
     @NotNull
     @JsonProperty("mainAddress_country")
-    private  String AddressCountry;
+    private  String addressCountry;
 
     @NotNull
     @JsonProperty("mainAddress_zip")
