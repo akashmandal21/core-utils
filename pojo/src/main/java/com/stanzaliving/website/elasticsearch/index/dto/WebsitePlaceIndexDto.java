@@ -30,8 +30,6 @@ public class WebsitePlaceIndexDto extends AbstractSearchIndexDto {
 	
 	private Integer placeTypeId;
 
-	private Boolean enabled;
-
 	private Integer sequenceId;
 	
 	private Integer cityId;
@@ -58,6 +56,4 @@ public class WebsitePlaceIndexDto extends AbstractSearchIndexDto {
 	private String type = "place";
 	
 	private Integer cityWiseSequenceId;
-	
-	private String score;
 }
