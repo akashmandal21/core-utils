@@ -39,4 +39,6 @@ public class GenericPoUpdate {
 
     private String adjustCloseId;
 
+    private String doneBy;
+
 }

@@ -1,4 +1,5 @@
-package com.stanzaliving.core.po.generic.dtos;
+package com.stanzaliving.po.generic.dto;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,8 +10,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class TOItemUIDto {
-
-    Set<BasicTOItem> poItems;
-
+public class POItemUiDto {
+    Set<BasicPoItem> poItems;
 }
