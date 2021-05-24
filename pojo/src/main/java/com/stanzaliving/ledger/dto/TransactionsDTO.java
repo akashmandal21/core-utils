@@ -1,6 +1,6 @@
 package com.stanzaliving.ledger.dto;
 
-import com.stanzaliving.ledger.annotation.constraint.NotZero;
+import com.stanzaliving.ledger.annotation.constraint.NotZeroOrNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,8 +28,7 @@ public class TransactionsDTO {
     @NotNull(message = "unit can not be empty")
     private Double unit;
 
-    @NotNull(message = "amount can not be empty")
-    @NotZero
+    @NotZeroOrNull(message = "Amount cannot be zero or null")
     private Double amount;
 
     @NotBlank(message = "type can not be empty")
