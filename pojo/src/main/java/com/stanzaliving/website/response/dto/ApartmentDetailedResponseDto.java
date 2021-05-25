@@ -23,13 +23,15 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private Integer residenceId;
 	
+	private String name;
+	
+	private String apartmentDetailsName;
+	
 	private String propertyCode;
 	
 	private Long societyId;
 	
 	private Integer roomCount;
-	
-	private String apartmentName;
 	
 	private String slug;
 	
@@ -41,11 +43,17 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String micromarketSlug;
 	
+	private String apartmentMMSlug;
+	
 	private int cityId;
 	
 	private String cityName;
 	
 	private String citySlug;
+	
+	private String apartmentCitySlug;
+	
+	private boolean enabled;
 	
 	private String pricingPlan;
 	
@@ -84,7 +92,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private AddressResponseDTO address;
 	
 	@Builder.Default
-	private Set<FacilityResponseDTO> facilites = new HashSet<>();
+	private Set<FacilityResponseDTO> facilities = new HashSet<>();
 	
 	@Builder.Default
 	private Set<FeatureResponseDTO> features = new HashSet<>();

@@ -24,13 +24,15 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private Integer residenceId;
 	
+	private String name;
+	
+	private String apartmentListingName;
+	
 	private String propertyCode;
 	
 	private Long societyId;
 	
 	private Integer roomCount;
-	
-	private String apartmentName;
 	
 	private String slug;
 	
@@ -42,11 +44,17 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private String micromarketSlug;
 	
+	private String apartmentMMSlug;
+	
 	private int cityId;
 	
 	private String cityName;
 	
 	private String citySlug;
+	
+	private String apartmentCitySlug;
+	
+	private boolean enabled;
 	
 	private String pricingPlan;
 	
@@ -86,7 +94,7 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private Integer similarApartmentsCount = 0;
 	
 	@Builder.Default
-	private Set<FacilityResponseDTO> facilites = new HashSet<>();
+	private Set<FacilityResponseDTO> facilities = new HashSet<>();
 	
 	@Builder.Default
 	private Set<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = new HashSet<>();

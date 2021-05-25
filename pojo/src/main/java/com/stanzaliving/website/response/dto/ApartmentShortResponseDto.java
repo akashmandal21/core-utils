@@ -19,13 +19,15 @@ public class ApartmentShortResponseDto implements Serializable {
 	
 	private Integer residenceId;
 	
+	private String name;
+	
+	private String apartmentListingName;
+	
 	private String propertyCode;
 	
 	private Long societyId;
 	
 	private Integer roomCount;
-	
-	private String apartmentName;
 	
 	private String slug;
 	
