@@ -1,13 +1,12 @@
-package com.stanzaliving.transformations.pojo;
+package com.stanzaliving.core.oracle.integration;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.oracle.integration.AbstractOracleDto;
 import com.stanzaliving.transformations.enums.LocationType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.Date;
 
 @Setter

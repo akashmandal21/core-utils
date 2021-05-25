@@ -1,4 +1,4 @@
-package com.stanzaliving.transformations.pojo;
+package com.stanzaliving.core.oracle.integration;
 
 
 import com.stanzaliving.transformations.enums.EventType;
