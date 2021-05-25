@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -16,7 +17,8 @@ public class TicketMessageDto {
     private String uuid;
     private String ticketUuid;
     private String message;
-    private List<String> attachmentIds;
+    private List<String> attachmentUuids;
     private String messagedBy;
     private boolean isPrivate;
+    private Date createdAt;
 }
