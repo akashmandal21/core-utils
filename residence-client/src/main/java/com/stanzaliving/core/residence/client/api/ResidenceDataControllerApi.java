@@ -117,7 +117,7 @@ public class ResidenceDataControllerApi {
 
 		uriVariables.put("residenceUuid", residenceUuid);
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/internal/room/room-status-count/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/room/room-status-count/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
@@ -134,7 +134,7 @@ public class ResidenceDataControllerApi {
 			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
 		} catch (Exception ex) {
-			log.error("Exception while fetching Room Details from roomUuid: {}", residenceUuid
+			log.error("Exception while fetching room status count based on residenceUUID {}", residenceUuid
 			);
 		}
 		return null;
@@ -150,7 +150,7 @@ public class ResidenceDataControllerApi {
 
 		uriVariables.put("residenceUuid", residenceUuid);
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/internal/room/blended-price/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/room/blended-price/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
@@ -168,7 +168,7 @@ public class ResidenceDataControllerApi {
 			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
 		} catch (Exception ex) {
-			log.error("Exception while fetching Room Details from roomUuid: {}", residenceUuid);
+			log.error("Exception while fetching room status count based on residenceUUID {}", residenceUuid);
 		}
 		return null;
 	}
