@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @SuperBuilder
 public class MonthUnderwrittenSummaryDto extends CategorySummaryDto {
     String monthYear;
+    DisplaySummaryDto occupancyRoom;
     DisplaySummaryDto occupancy;
     LocalDate fromDate;     //not filled for AOP when returned finally i.e. during merging
     LocalDate toDate;       //not filled for AOP when returned finally i.e. during merging

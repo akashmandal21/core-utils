@@ -36,4 +36,6 @@ public class FeaturephoneUserDto {
 	private String foodPickedAt;
 	@Deprecated
 	private String room;
+	
+	private String countryCode;
 }

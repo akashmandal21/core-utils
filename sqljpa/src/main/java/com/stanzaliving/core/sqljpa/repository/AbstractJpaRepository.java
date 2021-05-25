@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @NoRepositoryBean
 public interface AbstractJpaRepository<T extends AbstractJpaEntity, I extends Serializable> extends JpaRepository<T, I>, JpaSpecificationExecutor<T> {
@@ -36,4 +37,7 @@ public interface AbstractJpaRepository<T extends AbstractJpaEntity, I extends Se
 	List<T> findByUpdatedAtBetween(Date fromDate, Date toDate);
 
 	List<T> findByIdBetween(I fromId, I toId);
+
+	Optional<T> findByUuidAndStatus(String uuid , boolean status);
+
 }
