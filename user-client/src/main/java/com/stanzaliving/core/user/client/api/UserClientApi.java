@@ -330,7 +330,7 @@ public class UserClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("roleName", userRoleSearchDto.getRoleName());
 		uriVariables.put("department", userRoleSearchDto.getDepartment());
-		uriVariables.put("accessLevelId", userRoleSearchDto.getAccessLevelId());
+		uriVariables.put("accessLevelId", userRoleSearchDto.getAccessLevelId().replaceAll("\'",""));
 
 		String path = UriComponentsBuilder.fromPath("/internal/acl/usercontactdetails/{department}/{roleName}/{accessLevelId}")
 				.buildAndExpand(uriVariables)
@@ -347,7 +347,7 @@ public class UserClientApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryMap, null, headerParams, accept, userContactResponse);
 		} catch (Exception e) {
-			log.error("exception while fetching contact detials from user service", e);
+			log.error("exception while fetching contact details from user service", e);
 			return null;
 		}
 	}

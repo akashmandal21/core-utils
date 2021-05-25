@@ -1,21 +1,16 @@
 package com.stanzaliving.operations.client;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
-import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.core.backend.dto.UserHostelDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.operations.dto.ResidentFoodPreferenceCountDto;
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.internet.dto.InternetDetails;
 import com.stanzaliving.internet.dto.InternetProviderDetails;
 import com.stanzaliving.operations.ServiceMixSeasonResponseDto;
 import com.stanzaliving.operations.dto.servicemix.ServiceMixEntityDto;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -25,12 +20,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.backend.dto.UserHostelDto;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.operations.dto.ResidentFoodPreferenceCountDto;
-
-import lombok.extern.log4j.Log4j2;
+import java.time.LocalDate;
+import java.util.*;
 
 @Log4j2
 public class OperationsClientApi {
@@ -390,4 +381,6 @@ public class OperationsClientApi {
 
 		return serviceMixEntityList;
 	}
+
+
 }
