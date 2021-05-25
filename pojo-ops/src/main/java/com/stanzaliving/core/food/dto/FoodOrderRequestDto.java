@@ -44,10 +44,12 @@ public class FoodOrderRequestDto {
 	private Integer veg;
 
 	private Integer nonVeg;
-	
-	private Integer totalOrder;
-	
-	private Integer orderedCount;
+
+	@Builder.Default
+	private Integer totalOrder = 0;
+
+	@Builder.Default
+	private Integer orderedCount = 0;
 
 	private List<FoodOrderMenuCategoryDto> foodOrderMenuCategoryDtoList;
 
