@@ -232,7 +232,7 @@ public class NotificationClientApi {
         return response.getData();
     }
 
-    public String getNotificationClickedAt(String userId, String campaignId) {
+    public Date getNotificationClickedAt(String userId, String campaignId) {
 
         Object postBody = null;
 
@@ -252,9 +252,9 @@ public class NotificationClientApi {
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        ParameterizedTypeReference<ResponseDto<Date>> returnType = new ParameterizedTypeReference<ResponseDto<Date>>() {
         };
-        ResponseDto<String> response = restClient.invokeAPI(
+        ResponseDto<Date> response = restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         return response.getData();
     }
