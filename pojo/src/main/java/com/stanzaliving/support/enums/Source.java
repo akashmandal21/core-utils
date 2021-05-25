@@ -10,8 +10,8 @@ import java.util.Map;
 @AllArgsConstructor
 public enum Source {
 
-    INTERNAL("Internal"),
-    EXTERNAL("External");
+    INTERNAL("INTERNAL"),
+    EXTERNAL("EXTERNAL");
 
     private static final Map<String, Source> map = new HashMap<>();
 
@@ -25,5 +25,10 @@ public enum Source {
 
     public static Source enumOf(String source) {
         return map.get(source);
+    }
+
+    @Override
+    public String toString() {
+        return value;
     }
 }

@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TicketDto {
+public class TicketRequestDto {
 
     @NotBlank(message = "Sub-category Uuid cannot be blank/null")
     private String subCategoryUuid;

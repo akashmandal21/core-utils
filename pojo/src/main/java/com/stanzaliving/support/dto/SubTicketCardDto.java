@@ -16,7 +16,7 @@ public class SubTicketCardDto {
     private Long subTicketId;
     private Long ticketId;
     private String subTicketUuid;
-    private String taskTypeUuid;
+    private String taskType;
     private String comments;
     private Date sla;
     private Date createdAt;

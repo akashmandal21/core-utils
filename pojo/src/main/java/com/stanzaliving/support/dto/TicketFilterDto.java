@@ -30,7 +30,7 @@ public class TicketFilterDto {
 
     private List<String> category;
 
-    private List<String> subCategory;
+    private List<String> subcategory;
 
     private List<String> priority;
 
@@ -38,7 +38,7 @@ public class TicketFilterDto {
 
     private List<String> team;
 
-    private List<String> user;
+    private UserTypeDto user;
 
     private Date createdAtStartDate;
 
@@ -56,7 +56,7 @@ public class TicketFilterDto {
 
     private Date reopenedAtEndDate;
 
-    private List<String> ticketType;
+    private TicketTypeDto ticketType;
 
 
 

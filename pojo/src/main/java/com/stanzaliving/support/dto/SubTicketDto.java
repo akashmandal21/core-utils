@@ -1,6 +1,5 @@
 package com.stanzaliving.support.dto;
 
-import com.stanzaliving.support.enums.StatusType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +23,7 @@ public class SubTicketDto {
     private String comments;
     private Date completionDate;
     private int version;
-    private StatusType statusType;
+    private String statusType;
     private String reason;
     private Date tentativeDate;
 

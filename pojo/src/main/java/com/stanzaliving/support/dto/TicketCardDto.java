@@ -14,12 +14,12 @@ import java.util.List;
 @AllArgsConstructor
 public class TicketCardDto {
 
-    List<SubTicketCardDto> subTickets;
     private Long ticketId;
     private String ticketUuid;
     private String ticketStatus;
     private Date createdAt;
     private Date sla;
+    private String description;
     private String categoryName;
     private String subCategoryName;
     private String userName;
