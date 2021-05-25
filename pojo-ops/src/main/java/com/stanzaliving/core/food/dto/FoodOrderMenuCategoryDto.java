@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
+import com.stanzaliving.core.operations.enums.DealCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,6 +22,10 @@ import java.util.List;
 public class FoodOrderMenuCategoryDto {
 
 	private String dealUuid;
+	
+	private DealCategory dealCategory;
+	
+	private String dealName;
 
 	private String menuCategoryId;
 

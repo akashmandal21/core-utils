@@ -44,6 +44,10 @@ public class FoodOrderRequestDto {
 	private Integer veg;
 
 	private Integer nonVeg;
+	
+	private Integer totalOrder;
+	
+	private Integer orderedCount;
 
 	private List<FoodOrderMenuCategoryDto> foodOrderMenuCategoryDtoList;
 
