@@ -29,7 +29,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String propertyCode;
 	
-	private Long societyId;
+	private Integer societyId;
 	
 	private Integer roomCount;
 	
