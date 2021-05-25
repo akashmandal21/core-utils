@@ -30,4 +30,5 @@ public class TransferScanResponseDto {
     String assetId;
     String assetUuid;
     String qrCodeId;
+    String locationName;
 }

@@ -13,6 +13,7 @@ public enum AssetActionType {
     LOCATION_CHANGED("Asset Location Changed"),
     TRANSFERRED_OUT("Asset Transferred Out"),
     TRANSFERRED_IN("Asset Transferred In"),
+    ASSET_DISCARDED("Asset Discarded"),
     HOTO_DONE("Asset HOTO Done"),
     AMC_ADDED("AMC Details Added"),
     AMC_UPDATED("Current AMC Details Changed"),
