@@ -3,8 +3,6 @@ package com.stanzaliving.core.residence.client.api;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.*;
 
-import com.stanzaliving.core.residenceservice.dto.MoveInDateDto;
-
 import com.stanzaliving.core.residenceservice.dto.*;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
@@ -23,6 +21,8 @@ import java.util.Map;
 
 @Log4j2
 public class ResidenceDataControllerApi {
+
+
 
 	private StanzaRestClient restClient;
 
@@ -108,16 +108,17 @@ public class ResidenceDataControllerApi {
 	}
 
 
-	public RoomCountWithStatusDto getRoomStatusCount(String residenceUuid) {
+	public ResidenceInfoDto getResidenceInformation(String residenceUuid) {
 
-		log.info("Residence-Data-Controller::Processing to get room status count based on residenceUUID {}", residenceUuid);
+		log.info("Residence-Data-Controller::Processing to get residence information on residenceUUID {}", residenceUuid);
 
 
 		Map<String, Object> uriVariables = new HashMap();
 
 		uriVariables.put("residenceUuid", residenceUuid);
 
-		String path = UriComponentsBuilder.fromPath("/internal/room/room-status-count/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/residence/information/{residenceUuid}")
+				.buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
@@ -127,51 +128,22 @@ public class ResidenceDataControllerApi {
 
 		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<RoomCountWithStatusDto> returnType =
-				new ParameterizedTypeReference<RoomCountWithStatusDto>() {};
+		ParameterizedTypeReference<ResidenceInfoDto> returnType =
+				new ParameterizedTypeReference<ResidenceInfoDto>() {};
 
 		try {
 			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
 		} catch (Exception ex) {
-			log.error("Exception while fetching room status count based on residenceUUID {}", residenceUuid
+			log.error("Exception while fetching residence information based on residenceUUID {}", residenceUuid
 			);
 		}
 		return null;
 	}
 
-	public BlendedPriceWithOccupancyDataDto getBlendedPriceData(String residenceUuid) {
-
-		log.info("Residence-Data-Controller::Processing to get blended price data based on residence UUID {}", residenceUuid);
 
 
 
-		Map<String, Object> uriVariables = new HashMap();
-
-		uriVariables.put("residenceUuid", residenceUuid);
-
-		String path = UriComponentsBuilder.fromPath("/internal/room/blended-price/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
-
-		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
-
-		HttpHeaders headerParams = new HttpHeaders();
-
-
-		String[] accepts = new String[]{"*/*"};
-
-		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<BlendedPriceWithOccupancyDataDto> returnType =
-				new ParameterizedTypeReference<BlendedPriceWithOccupancyDataDto>() {};
-
-		try {
-			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-
-		} catch (Exception ex) {
-			log.error("Exception while fetching room status count based on residenceUUID {}", residenceUuid);
-		}
-		return null;
-	}
 
 
 
