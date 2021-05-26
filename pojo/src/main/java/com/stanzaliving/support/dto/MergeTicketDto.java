@@ -19,5 +19,4 @@ public class MergeTicketDto {
     private String messagedBy;
     @JsonSetter("isPrivate")
     private boolean isPrivate;
-    private String hello;
 }

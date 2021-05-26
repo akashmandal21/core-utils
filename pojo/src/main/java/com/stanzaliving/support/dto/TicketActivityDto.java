@@ -20,5 +20,4 @@ public class TicketActivityDto {
     private String actionedTo;
     private Date actionedTime;
     private boolean isMarkedPrivate;
-    private String referenceId;
 }
