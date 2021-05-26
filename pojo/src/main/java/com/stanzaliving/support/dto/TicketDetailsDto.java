@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 
 @Builder
 @Data
@@ -22,6 +23,12 @@ public class TicketDetailsDto {
     List<TicketChecklistDetailDto> ticketChecklist;
 
     List<TagDto> tagDtos;
+
+    List<TicketMessageDto> ticketMessageDto;
+
+    List<Map<String, Object>> attachmentList;
+
+    TicketCardDto ticketCardDto;
 
     TeamDto teamDto;
 }
