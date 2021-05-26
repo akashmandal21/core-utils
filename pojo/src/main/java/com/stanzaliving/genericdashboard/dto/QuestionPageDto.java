@@ -15,5 +15,7 @@ public class QuestionPageDto {
 
     private Integer pageNumber;
 
+    private boolean hasLogical = false;
+
     private List<QuestionsDto> questionsDtoList;
 }
