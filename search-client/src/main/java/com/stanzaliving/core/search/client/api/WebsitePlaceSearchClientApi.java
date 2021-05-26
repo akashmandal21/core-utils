@@ -64,5 +64,36 @@ public class WebsitePlaceSearchClientApi {
 
 		return responseDto.getData();
 	}
+	
+	public void saveOrUpdateIndexDocuments(List<WebsitePlaceIndexDto> places) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/website/update/place").build().toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<Void>> returnType = new TypeReference<ResponseDto<Void>>() {};
+
+		ResponseDto<Void> responseDto = new ResponseDto<>();
+
+		try {
+			responseDto = restClient.request(path, HttpMethod.POST, null, places, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while updating website places on elastic search", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+	}
 }
 
