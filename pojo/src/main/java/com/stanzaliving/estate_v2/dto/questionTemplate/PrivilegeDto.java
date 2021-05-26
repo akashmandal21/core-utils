@@ -1,5 +1,6 @@
 package com.stanzaliving.estate_v2.dto.questionTemplate;
 
+import com.stanzaliving.estate_v2.dto.KeyValueDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class PrivilegeDto {
-    private List<String> fill;
-    private List<String> approve;
-    private List<String> view;
+    private List<KeyValueDto> fill;
+    private List<KeyValueDto> approve;
+    private List<KeyValueDto> view;
 }

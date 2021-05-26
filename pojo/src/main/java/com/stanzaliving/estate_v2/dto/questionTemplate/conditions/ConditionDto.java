@@ -5,12 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
 public class ConditionDto  {
     private String operator;
-    private OperandsDto operands;
+    private List<OperandsDto> operands;
     private Integer order;
 }
