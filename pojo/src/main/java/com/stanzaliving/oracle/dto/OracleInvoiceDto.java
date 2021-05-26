@@ -4,8 +4,7 @@
  */
 package com.stanzaliving.oracle.dto;
 
-import java.util.Date;
-import java.util.List;
+import java.math.BigDecimal;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,12 +19,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OraclePaymentDto {
+public class OracleInvoiceDto {
 
-	private String paymentRef;
-	private String paymentProofDocUrl;
-	private String paymentMode;
-	private Date paymentDate;
-	private List<OracleInvoiceDto> invoicePayments;
-
+	private String invoiceUuid;
+	private BigDecimal amtPaid;
+	private BigDecimal tdsAmt;
+	private BigDecimal discount;
+	
 }
