@@ -5,6 +5,7 @@ import com.stanzaliving.core.base.http.*;
 
 import com.stanzaliving.core.residenceservice.dto.MoveInDateDto;
 import com.stanzaliving.core.residenceservice.dto.RoomDetailsResponseDto;
+import com.stanzaliving.core.residenceservice.dto.ServiceMixDto;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -102,6 +103,80 @@ public class ResidenceDataControllerApi {
 		} catch (Exception ex) {
 			log.error("Exception while fetching lock-in date based on residenceUuid {} and moveInDate {}",
 					residenceUuid, moveInDateDto);
+		}
+		return null;
+	}
+
+	public ResponseDto<List<ServiceMixDto>> fetchPackagedServiceForResidenceUuid(String token, String residenceUuid) {
+
+		log.info("Residence-Data-Controller::Processing to fetch packaged service names based on residenceUuid {}", residenceUuid);
+
+		if (StringUtils.isBlank(token)) {
+			throw new IllegalArgumentException("Token missing for retrieving packaged service names based on residenceUuid");
+		}
+
+		Map<String, Object> uriVariables = new HashMap();
+
+		uriVariables.put("residenceUuid", residenceUuid);
+
+		String path = UriComponentsBuilder.fromPath("/api/v1/packaged-service/get/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.add("Cookie", "token="+token);
+
+		String[] accepts = new String[]{"*/*"};
+
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ServiceMixDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<ServiceMixDto>>>() {};
+
+		try {
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+		} catch (Exception ex) {
+			log.error("Exception while fetching packaged service for residenceUuid : {}", residenceUuid);
+		}
+		return null;
+	}
+
+	public ResponseDto<Map<Object,Object>> fetchPackagedServiceData(String token, String residenceUuid, String serviceMix) {
+
+		log.info("Residence-Data-Controller::Processing to fetch Package service properties for residenceUuid {}, service-mix {}", residenceUuid, serviceMix);
+
+		if (StringUtils.isBlank(token)) {
+			throw new IllegalArgumentException("Token missing for fetching package service based on residenceUuid");
+		}
+
+		Map<String, Object> uriVariables = new HashMap();
+
+		uriVariables.put("residenceUuid", residenceUuid);
+
+		uriVariables.put("servicemix", serviceMix);
+
+		String path = UriComponentsBuilder.fromPath("/api/v1/packaged-service/get/{residenceUuid}/{servicemix}").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.add("Cookie", "token="+token);
+
+		String[] accepts = new String[]{"*/*"};
+
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<Object,Object>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<Map<Object,Object>> >() {};
+
+		try {
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+		} catch (Exception ex) {
+			log.error("Exception while fetching packaged service properties for residenceUuid, serviceMix : {} , {}", residenceUuid, serviceMix);
 		}
 		return null;
 	}
