@@ -33,7 +33,6 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private List<ListingDto> demographicTags;
 
 	//derived information
-	private Double mealPrice;
 	private int totalMealInWeek;
 	private List<String> draftVersions;
 	private String mealWiseName;
@@ -48,5 +47,5 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 
 	private CompositionRuleV2Dto compositionRules;
 	private List<DayWiseSampleMenuDto> dayWiseMenu;
-	private List<MealWisePriceDto> mealWisePrice;
+	private MealCategoryPriceDto mealPriceData;
 }
