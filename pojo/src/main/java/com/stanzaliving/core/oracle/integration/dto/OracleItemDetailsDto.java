@@ -1,4 +1,4 @@
-package com.stanzaliving.core.oracle.integration;
+package com.stanzaliving.core.oracle.integration.dto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
