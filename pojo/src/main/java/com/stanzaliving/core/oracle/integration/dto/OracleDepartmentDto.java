@@ -9,7 +9,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @ToString
 @SuperBuilder
-public class OracleDepartmentDto {
+public class OracleDepartmentDto extends AbstractOracleDto{
 
         String entityId;
         String name;
