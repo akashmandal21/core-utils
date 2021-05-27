@@ -27,6 +27,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String apartmentDetailsName;
 	
+	private String apartmentListingName;
+	
 	private String propertyCode;
 	
 	private Integer societyId;

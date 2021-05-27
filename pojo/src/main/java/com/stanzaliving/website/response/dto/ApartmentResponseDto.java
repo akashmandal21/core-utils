@@ -28,6 +28,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private String apartmentListingName;
 	
+	private String apartmentDetailsName;
+	
 	private String propertyCode;
 	
 	private Integer societyId;
