@@ -2,7 +2,7 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.oracle.dto;
+package com.stanzaliving.core.oracle.integration;
 
 import java.math.BigDecimal;
 
