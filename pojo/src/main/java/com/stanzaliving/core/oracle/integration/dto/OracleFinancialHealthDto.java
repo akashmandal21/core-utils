@@ -1,4 +1,4 @@
-package com.stanzaliving.core.oracle.integration;
+package com.stanzaliving.core.oracle.integration.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

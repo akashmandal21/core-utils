@@ -1,4 +1,4 @@
-package com.stanzaliving.core.oracle.integration;
+package com.stanzaliving.core.oracle.integration.dto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -12,9 +12,9 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OracleVendorAddressBookDto {
+public class OracleVendorTaxRegistrationDto {
 
     @JsonProperty("items")
-    private List<OracleVendorAddressDto> items; //set
+    List<OracleVendorGstDto> items;  //set
 
 }
