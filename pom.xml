@@ -83,6 +83,7 @@
 		<module>search-client</module>
 		<module>far-client</module>
 		<module>notification-v2-client</module>
+		<module>slack-client</module>
 	</modules>
 
 	<build>
