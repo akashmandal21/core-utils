@@ -20,7 +20,7 @@ public class PropertyTypeDto extends AbstractMongoDto {
     private String name;
 
     private String description;
-    private String parentName;
+    private ParentUuidNameDto parent;
 
     @EmptyOrNull(message = "Status cannot be empty or null", groups =PostGroup.class)
     private String status;
