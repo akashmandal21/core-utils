@@ -1,4 +1,4 @@
-package com.stanzaliving.transformations.enums;
+package com.stanzaliving.core.oracle.integration.enums;
 
 public enum OracleServiceOwner {
 

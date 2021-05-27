@@ -1,7 +1,6 @@
-package com.stanzaliving.core.oracle.integration;
+package com.stanzaliving.core.oracle.integration.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.stanzaliving.core.oracle.integration.AbstractOracleDto;
 import com.stanzaliving.transformations.enums.LocationType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;

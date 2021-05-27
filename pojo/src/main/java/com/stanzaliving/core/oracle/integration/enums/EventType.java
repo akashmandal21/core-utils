@@ -1,4 +1,4 @@
-package com.stanzaliving.core.generic.enums;
+package com.stanzaliving.core.oracle.integration.enums;
 
 import lombok.Getter;
 
