@@ -1,7 +1,5 @@
 package com.stanzaliving.core.residence.client.api;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.*;
 
 import com.stanzaliving.core.residenceservice.dto.*;
 import lombok.extern.log4j.Log4j2;
@@ -119,6 +117,26 @@ public class ResidenceDataControllerApi {
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResidenceInfoDto> returnType = new ParameterizedTypeReference<ResidenceInfoDto>() {};
+        try {
+            log.info("Executing Api for getting residence Info with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching residence information based on residenceUUID {}, Exception is ", residenceUuid, e);
+        }
+        return null;
+    }
+
+    public Double getResidenceBlendedPriceFromRoomUuid(String roomUuid) {
+        log.info("Residence-Data-Controller::Processing to get residence blended price on basis of roomUuid {}", roomUuid);
+        Map<String, Object> uriVariables = new HashMap();
+        uriVariables.put("roomUuid", roomUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/residence/blended-price-info/{roomUuid}")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<Double> returnType = new ParameterizedTypeReference<Double>() {};
         try {
             log.info("Executing Api for getting residence Info with Url {}", path);
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
