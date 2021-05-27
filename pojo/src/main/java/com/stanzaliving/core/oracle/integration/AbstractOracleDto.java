@@ -1,7 +1,7 @@
 package com.stanzaliving.core.oracle.integration;
 
 
-import com.stanzaliving.transformations.enums.EventType;
+import com.stanzaliving.core.generic.enums.EventType;
 import com.stanzaliving.transformations.enums.OracleServiceOwner;
 import lombok.*;
 import lombok.experimental.SuperBuilder;

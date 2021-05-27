@@ -1,4 +1,4 @@
-package com.stanzaliving.transformations.enums;
+package com.stanzaliving.core.generic.enums;
 
 import lombok.Getter;
 
