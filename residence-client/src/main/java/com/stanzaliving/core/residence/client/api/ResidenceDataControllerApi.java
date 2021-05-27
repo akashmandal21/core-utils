@@ -1,6 +1,8 @@
 package com.stanzaliving.core.residence.client.api;
 
 
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.residenceservice.dto.*;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
@@ -141,7 +143,7 @@ public class ResidenceDataControllerApi {
             log.info("Executing Api for getting residence Info with Url {}", path);
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching residence information based on residenceUUID {}, Exception is ", residenceUuid, e);
+            log.error("Exception while fetching residence information based on residenceUUID {}, Exception is ", roomUuid, e);
         }
         return null;
     }
