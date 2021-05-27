@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.*;
 
 import com.stanzaliving.core.residenceservice.dto.MoveInDateDto;
+import com.stanzaliving.core.residenceservice.dto.PricingDetailsResponseDto;
 import com.stanzaliving.core.residenceservice.dto.RoomDetailsResponseDto;
 import com.stanzaliving.core.residenceservice.dto.ServiceMixDto;
 import lombok.extern.log4j.Log4j2;
@@ -177,6 +178,46 @@ public class ResidenceDataControllerApi {
 
 		} catch (Exception ex) {
 			log.error("Exception while fetching packaged service properties for residenceUuid, serviceMix : {} , {}", residenceUuid, serviceMix);
+		}
+		return null;
+	}
+
+	public ResponseDto<PricingDetailsResponseDto> getPricingDetails(String token, String roomUuid, String serviceMixUuid, String moveInDate) {
+
+		log.info("Residence-Data-Controller::Processing to get pricing detail based on move-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
+
+		if (StringUtils.isBlank(token)) {
+			throw new IllegalArgumentException("Token missing for fetching pricing detail based on move-in date");
+		}
+
+		Map<String, Object> uriVariables = new HashMap();
+
+		uriVariables.put("roomUUID", roomUuid);
+
+		uriVariables.put("serviceMixUUID", serviceMixUuid);
+
+		uriVariables.put("moveInDate", moveInDate);
+
+		String path = UriComponentsBuilder.fromPath("/api/v1/room-pricing/{roomUUID}/{serviceMixUUID}/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.add("Cookie", "token="+token);
+
+		String[] accepts = new String[]{"*/*"};
+
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<PricingDetailsResponseDto>> returnType =
+				new ParameterizedTypeReference<ResponseDto<PricingDetailsResponseDto>>() {};
+
+		try {
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+		} catch (Exception ex) {
+			log.error("Exception while get pricing detail based on move-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
 		}
 		return null;
 	}

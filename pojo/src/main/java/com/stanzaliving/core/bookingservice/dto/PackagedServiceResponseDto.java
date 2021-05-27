@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.mutable.MutableInt;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -15,5 +15,9 @@ import java.util.Set;
 @Builder
 public class PackagedServiceResponseDto {
     private Set<String> serviceSet;
-    private MutableInt feePerMonth;
+    private Double feePerMonth;
+    private String serviceMixUuid;
+    private String serviceMixName;
+    private List<String> serviceDescription;
+    private String icon;
 }
