@@ -1,0 +1,23 @@
+package com.stanzaliving.core.oracle.integration;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
+import javax.validation.constraints.NotNull;
+
+@Setter
+@Getter
+@ToString
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+public class OracleGSTCertificatesDto {
+
+    @NotNull
+    @JsonProperty("GSTIN")
+    private String gstIn;
+
+    @JsonProperty("gstCertificate")
+    private String gstCertificate;
+}
