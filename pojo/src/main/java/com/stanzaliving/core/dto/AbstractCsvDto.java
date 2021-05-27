@@ -3,6 +3,7 @@ package com.stanzaliving.core.dto;
 import lombok.Data;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
@@ -42,7 +43,9 @@ public abstract class AbstractCsvDto {
     private void fillDynamicColumns(String[] data) {
         for(int i = 0 ; i < data.length ; i++) {
             if(dynamicColumns.contains(columns.get(i))) {
-                dynamicData.put(columns.get(i), data[i]);
+                if(!StringUtils.isBlank(data[i])) {
+                    dynamicData.put(columns.get(i), data[i]);
+                }
             }
         }
     }
