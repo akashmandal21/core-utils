@@ -1,0 +1,78 @@
+package com.stanzaliving.core.dto;
+
+import com.stanzaliving.core.enums.ApprovalStatus;
+import com.stanzaliving.core.enums.Nationality;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.util.Set;
+
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class BookingDTO {
+
+    private Long id;
+
+    private String uuid;
+
+    private String residentUuid;
+
+    private String residentFirstName;
+
+    private String residentLastName;
+
+    private String residentName;
+
+    private String residentId;
+
+    private String residentMobileNumber;
+
+    private Nationality residentNationality;
+
+    private AddressDTO residentCurrentAddress;
+
+    private AddressDTO residentPermanentAddress;
+
+    private LocalDate residentDOB;
+
+    private String bookingNumber;
+
+    private LocalDate contractStartDate;
+
+    private LocalDate contractEndDate;
+
+    private String cityUuid;
+
+    private String cityName;
+
+    private String microMarketUuid;
+
+    private String microMarketName;
+
+    private String residenceUuid;
+
+    private String residenceName;
+
+    private Set<DocumentDTO> documents;
+
+    private long uploadedDocuments;
+
+    private long pendingDocuments;
+
+    private long totalRequiredDocuments;
+
+    private boolean hasPendingDocuments;
+
+    private boolean hasAutoApprovedDocuments;
+
+    private boolean hasManuallyApprovedDocuments;
+
+    private boolean hasRejectedDocuments;
+
+    private ApprovalStatus approvalStatus;
+}
