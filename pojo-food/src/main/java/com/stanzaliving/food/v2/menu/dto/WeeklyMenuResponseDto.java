@@ -24,7 +24,7 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private Double ratings;
 	private boolean editingAllowed;
 	private boolean comboAllowed;
-	private List<DayWiseMenuDto> dayWiseMenu;
+	private List<MealWiseMenuDto> mealWiseMenus;
 	private CompositionRuleV2Dto rules;
 	private FoodMenuBudgetDto budgetRules;
 

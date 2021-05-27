@@ -22,7 +22,12 @@ public class DayWiseMenuDto implements Serializable {
 	private LocalDate menuDate;
 	private DayOfWeek dayOfWeek;
 	private boolean disabled;
-	private List<MealWiseMenuDto> mealWiseMenus;
-	private Double estimatedCost;
-	private Double budgetedCost;
+	private boolean enabled;
+
+	private List<MealOptionDto> mealOptions;
+
+	private boolean subMealEnabled;
+	private boolean regularMealEnabled;
+	private Double cogs;
+	private Double budgeted;
 }

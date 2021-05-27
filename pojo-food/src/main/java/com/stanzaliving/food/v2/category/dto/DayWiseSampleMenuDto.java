@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.category.dto;
 
+import com.stanzaliving.core.food.dto.MenuItemDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,5 +18,10 @@ import java.util.List;
 @NoArgsConstructor
 public class DayWiseSampleMenuDto implements Serializable {
     private DayOfWeek dayOfWeek;
-    private List<MealWiseSampleMenuDto> mealWiseMenu;
+    private List<MenuItemDto> menuItems;
+    private Double cogs;
+    private Double vegCogs;
+    private Double nonVegcogs;
+    private Double weight;
+    private boolean isEnabled;
 }

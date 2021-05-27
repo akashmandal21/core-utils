@@ -46,6 +46,6 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private List<String> pendingApprovers;
 
 	private CompositionRuleV2Dto compositionRules;
-	private List<DayWiseSampleMenuDto> dayWiseMenu;
+	private List<MealWiseSampleMenuDto> mealWiseMenu;
 	private MealCategoryPriceDto mealPriceData;
 }

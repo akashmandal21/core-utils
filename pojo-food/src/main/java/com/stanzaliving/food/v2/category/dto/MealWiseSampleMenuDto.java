@@ -1,6 +1,5 @@
 package com.stanzaliving.food.v2.category.dto;
 
-import com.stanzaliving.core.food.dto.MenuItemDto;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,9 +17,8 @@ import java.util.List;
 @NoArgsConstructor
 public class MealWiseSampleMenuDto implements Serializable {
     private MealType mealType;
-    private Double weight;
     private Double cogs;
     private Double vegCogs;
     private Double nonVegcogs;
-    private List<MenuItemDto> menuItems;
+    private List<DayWiseSampleMenuDto> dayWiseMenu;
 }
