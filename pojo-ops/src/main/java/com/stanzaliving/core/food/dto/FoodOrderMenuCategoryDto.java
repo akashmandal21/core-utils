@@ -57,4 +57,7 @@ public class FoodOrderMenuCategoryDto {
 	@NotEmpty(message = "Meal Orders are mandatory")
 	private List<FoodOrderDetailDto> foodOrderDetailDtoList;
 
+	@Builder.Default
+	private Boolean dealFoodOrderCutOffTimeExpired = true;
+
 }

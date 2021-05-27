@@ -62,4 +62,7 @@ public class FoodOrderRequestDto {
 	@Builder.Default
 	private Double actualUtilization = 0d;
 
+	@Builder.Default
+	private Boolean residenceFoodOrderTimeOut = true;
+
 }
