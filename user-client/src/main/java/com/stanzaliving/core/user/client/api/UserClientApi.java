@@ -357,7 +357,7 @@ public class UserClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("userUuid", userUuid);
 
-		String path = UriComponentsBuilder.fromPath("/internal/details/{userUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("feature").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
