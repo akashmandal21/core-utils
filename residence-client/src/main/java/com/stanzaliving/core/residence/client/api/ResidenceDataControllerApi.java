@@ -128,7 +128,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public Double getResidenceBlendedPriceFromRoomUuid(String roomUuid) {
+    public ResidenceBlendedPriceDto getResidenceBlendedPriceFromRoomUuid(String roomUuid) {
         log.info("Residence-Data-Controller::Processing to get residence blended price on basis of roomUuid {}", roomUuid);
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("roomUuid", roomUuid);
@@ -138,7 +138,7 @@ public class ResidenceDataControllerApi {
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<Double> returnType = new ParameterizedTypeReference<Double>() {};
+        ParameterizedTypeReference<ResidenceBlendedPriceDto> returnType = new ParameterizedTypeReference<ResidenceBlendedPriceDto>() {};
         try {
             log.info("Executing Api for getting residence Info with Url {}", path);
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
