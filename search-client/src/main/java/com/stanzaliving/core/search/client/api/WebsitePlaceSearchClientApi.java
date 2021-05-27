@@ -67,7 +67,7 @@ public class WebsitePlaceSearchClientApi {
 	
 	public void saveOrUpdateIndexDocuments(List<WebsitePlaceIndexDto> places) {
 
-		String path = UriComponentsBuilder.fromPath("internal/index/website/update/place").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/index/website/update/place").build().toUriString();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 

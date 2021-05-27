@@ -56,4 +56,6 @@ public class WebsitePlaceIndexDto extends AbstractSearchIndexDto {
 	private String type = "place";
 	
 	private Integer cityWiseSequenceId;
+	
+	private float score;
 }
