@@ -1,5 +1,9 @@
 package com.stanzaliving.core.base.enums;
 
+import java.util.Collection;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -36,4 +40,17 @@ public enum Department {
 	public String departmentName;
 	public String shortCode;
 	public String genericPoShortCode;
+	
+	public static Collection<Department> departments;
+	private static SortedMap<String, Department> departmentsMap = new TreeMap<String, Department>();
+
+	static {
+		for (Department d : Department.values()) {
+			departmentsMap.put(d.getDepartmentName(), d);
+		}
+	}
+
+	public static Collection<Department> getDepartments() {
+		return departmentsMap.values();
+	}
 }
