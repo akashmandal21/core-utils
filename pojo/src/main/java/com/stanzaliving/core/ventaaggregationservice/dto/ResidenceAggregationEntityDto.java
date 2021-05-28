@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import java.util.HashMap;
+import java.util.List;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -59,7 +61,7 @@ public class ResidenceAggregationEntityDto {
         private HashMap<String, String> totalRoomInfo;
 
         @Transient
-        private HashMap<String, String> totalBedInfo;
+        List<ResidenceBedCountDto> totalBedInfo;
 
         @Transient
         private HashMap<String, String> blendedPriceInfo;
