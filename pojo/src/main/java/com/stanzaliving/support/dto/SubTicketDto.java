@@ -24,7 +24,7 @@ public class SubTicketDto {
     private String comments;
     private Date completionDate;
     private int version;
-    private StatusType statusType;
+    private String status;
     private String reason;
     private Date tentativeDate;
 
