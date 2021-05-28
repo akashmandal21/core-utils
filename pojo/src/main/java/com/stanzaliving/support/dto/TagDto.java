@@ -9,9 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskTypeDto {
-    private String name;
+public class TagDto {
+    private String tag;
     private String uuid;
-    private String description;
-    private long sla;
+    private String ticketUuid;
 }

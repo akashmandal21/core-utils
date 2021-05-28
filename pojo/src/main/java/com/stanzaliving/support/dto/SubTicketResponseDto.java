@@ -12,12 +12,14 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SubTicketResponseDto {
-    private String primaryTicketUuid;
-    private String subTicketUuid;
-    private Date dueDate;
-    private String taskType;
+    private Long ticketId;
     private String taskTypeUuid;
-    private String description;
-    private String houseName;
-    private String roomNumber;
+    private String subTicketUuid;
+    private Long subTicketId;
+    private String team;
+    private String assignedTo;
+    private Date slaTime;
+    private String comments;
+    private String reason;
+    private String taskType;
 }

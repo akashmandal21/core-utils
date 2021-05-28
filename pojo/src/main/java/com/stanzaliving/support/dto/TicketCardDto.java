@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.List;
 
 @Builder
 @Data
@@ -19,12 +18,14 @@ public class TicketCardDto {
     private String ticketStatus;
     private Date createdAt;
     private Date sla;
-    private String description;
+    private String categoryUuid;
     private String categoryName;
+    private String subCategoryUuid;
     private String subCategoryName;
     private String userName;
     private String userCode;
     private String residenceName;
     private String roomNumber;
+    private String description;
 }
 

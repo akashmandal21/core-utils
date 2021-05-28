@@ -1,17 +1,16 @@
 package com.stanzaliving.support.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskTypeDto {
-    private String name;
+public class TicketActivityTemplateDto {
     private String uuid;
-    private String description;
-    private long sla;
+    private String template;
 }

@@ -5,13 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Builder
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-public class TaskTypeDto {
-    private String name;
-    private String uuid;
-    private String description;
-    private long sla;
+@AllArgsConstructor
+public class UserDetailsDto {
+    private String userUuid;
+    private String userName;
 }

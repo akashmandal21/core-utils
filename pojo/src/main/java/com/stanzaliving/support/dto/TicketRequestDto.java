@@ -32,9 +32,13 @@ public class TicketRequestDto {
     @NotBlank(message = "User uuid cannot be blank/null")
     private String createdBy;
 
+    private String raisedFor;
+
     private Long id;
 
     private String uuid;
 
     private String assignedTo;
+    
+    private List<TagDto> tagDtos;
 }
