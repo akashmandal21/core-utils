@@ -1,15 +1,13 @@
 package com.stanzaliving.legal_v2.DTO.Document;
 
 import com.stanzaliving.legal_v2.enums.CheckListStatus;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class ChecklistDTO {
 
     private String checkPointName;
