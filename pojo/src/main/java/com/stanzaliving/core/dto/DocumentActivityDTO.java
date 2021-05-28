@@ -1,6 +1,5 @@
 package com.stanzaliving.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.enums.ActivityType;
 import java.util.Date;
 import lombok.AllArgsConstructor;
@@ -17,7 +16,6 @@ public class DocumentActivityDTO {
 
     private String uuid;
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date createdAt;
 
     private String createdBy;
