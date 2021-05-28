@@ -11,10 +11,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DocumentApprovalDTO {
-    @NotNull Long documentId;
-
     @NotNull ApprovalStatus approvalStatus;
-
     // Note: needs conditional validation
     String reason;
 }

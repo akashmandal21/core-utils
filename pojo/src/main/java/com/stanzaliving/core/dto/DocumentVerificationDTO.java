@@ -10,7 +10,6 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DocumentVerificationDTO {
-    @NotNull Long documentId;
 
     @NotNull Boolean verified;
 }
