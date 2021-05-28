@@ -16,8 +16,15 @@ public class ResidenceInfoDto implements Serializable {
     private Double occupancy;
     private Double bedCount;
     private Double averageOccupancyPrice;
+
     private Integer totalRoom;
-    private Long availableRoom;
-    private Long blockedRoom;
-    private Long deadRoom;
+    private Integer availableRoom;
+    private Integer blockedRoom;
+    private Integer deadRoom;
+
+
+    private Long liveBeds;
+    private Long deadBeds;
+    private Long blockedBeds;
+
 }
