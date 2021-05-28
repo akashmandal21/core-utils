@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -16,5 +17,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class MenuItemSearchPdto extends MenuItemSearchRequestDto {
 	private String menuCategoryId;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate ratingDate;
 }
