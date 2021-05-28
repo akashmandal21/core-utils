@@ -83,7 +83,8 @@
 		<module>search-client</module>
 		<module>notification-v2-client</module>
 		<module>slack-client</module>
-	</modules>
+        <module>commercial-card</module>
+    </modules>
 
 	<build>
 		<plugins>
