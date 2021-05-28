@@ -11,7 +11,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +25,11 @@ public class VentaAggregationServiceApi {
         this.restClient = stanzaRestClient;
     }
 
+    /**
+     * This method is used to fetch ResidenceAggregation Data from Venta-Aggregation-Service
+     * @param residenceUuid->Unique ID corresponding to residence
+     * @return Aggregated Residence data on aggregation service
+     */
     public ResidenceAggregationEntityDto getAggregatedResidenceInformation(String residenceUuid) {
         log.info("Aggregation Residence Controller::Processing to get residence information on basis of residenceUuid {}", residenceUuid);
         Map<String, Object> uriVariables = new HashMap();

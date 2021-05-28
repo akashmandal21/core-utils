@@ -29,6 +29,12 @@ public class ResidenceDataControllerApi {
         this.restClient = stanzaRestClient;
     }
 
+    /**
+     * This method is used to fetch room details
+     * @param roomUUID->Unique Room ID corresponding to room
+     * @param token->Security token
+     * @return RoomDetails
+     */
     public RoomDetailsResponseDto getRoomDetails(String roomUUID, String token) {
 
         log.info("Residence-Data-Controller::Processing to get room details based on roomUUID {}", roomUUID);
@@ -66,7 +72,13 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-
+    /**
+     * This method is used to fetch move-out data on the basis of move-in and residence type
+     * @param token->Security token
+     * @param residenceUuid->Unique ID corresponding to residence
+     * @param moveInDateDto->User input move-in data
+     * @return List of available move-out dates
+     */
     public ResponseDto<List<String>> fetchLockInDateForResidence(String token, String residenceUuid, MoveInDateDto moveInDateDto) {
 
         log.info("Residence-Data-Controller::Processing to get lock-in date based on residenceUuid {} and moveInDate {}", residenceUuid, moveInDateDto);
@@ -108,9 +120,17 @@ public class ResidenceDataControllerApi {
     }
 
 
+    /**
+     * This method is used for fetching residence information including room, bed and blended price's status and count
+     *
+     * @param residenceUuid->Unique ID corresponding to residence
+     * @return Residence Bed, Room and Blended Price info(Status and Count)
+     */
     public ResidenceInfoDto getResidenceInformation(String residenceUuid) {
-        log.info("Residence-Data-Controller::Processing to get residence information on residenceUUID {}", residenceUuid);
+        log.info("Residence-Data-Controller::Processing to get residence information on residenceUUID {}",
+                residenceUuid);
         Map<String, Object> uriVariables = new HashMap();
+
         uriVariables.put("residenceUuid", residenceUuid);
         String path = UriComponentsBuilder.fromPath("/internal/residence/information/{residenceUuid}")
                 .buildAndExpand(uriVariables).toUriString();
@@ -118,7 +138,8 @@ public class ResidenceDataControllerApi {
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResidenceInfoDto> returnType = new ParameterizedTypeReference<ResidenceInfoDto>() {};
+        ParameterizedTypeReference<ResidenceInfoDto> returnType = new ParameterizedTypeReference<ResidenceInfoDto>() {
+        };
         try {
             log.info("Executing Api for getting residence Info with Url {}", path);
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
@@ -128,6 +149,12 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
+    /**
+     * This method is used for fetching blended price of residence for given roomUUID
+     *
+     * @param roomUuid->Unique Id of room
+     * @return Blended Price for residence, corresponding to room
+     */
     public ResidenceBlendedPriceDto getResidenceBlendedPriceFromRoomUuid(String roomUuid) {
         log.info("Residence-Data-Controller::Processing to get residence blended price on basis of roomUuid {}", roomUuid);
         Map<String, Object> uriVariables = new HashMap();
@@ -138,7 +165,8 @@ public class ResidenceDataControllerApi {
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResidenceBlendedPriceDto> returnType = new ParameterizedTypeReference<ResidenceBlendedPriceDto>() {};
+        ParameterizedTypeReference<ResidenceBlendedPriceDto> returnType = new ParameterizedTypeReference<ResidenceBlendedPriceDto>() {
+        };
         try {
             log.info("Executing Api for getting residence Info with Url {}", path);
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
