@@ -1,6 +1,7 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceAggregationEntityDto;
 import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceEntityDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -26,7 +27,7 @@ public class VentaAggregationServiceApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResidenceEntityDto getAggregatedResidenceInformation(String residenceUuid) {
+    public ResidenceAggregationEntityDto getAggregatedResidenceInformation(String residenceUuid) {
         log.info("Aggregation Residence Controller::Processing to get residence information on basis of residenceUuid {}", residenceUuid);
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("residenceUuid", residenceUuid);
@@ -36,7 +37,7 @@ public class VentaAggregationServiceApi {
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResidenceEntityDto> returnType = new ParameterizedTypeReference<ResidenceEntityDto>() {};
+        ParameterizedTypeReference<ResidenceAggregationEntityDto> returnType = new ParameterizedTypeReference<ResidenceAggregationEntityDto>() {};
         try {
             log.info("Executing Api for getting residence Info with Url {}", path);
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);

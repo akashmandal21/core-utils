@@ -12,7 +12,7 @@ import java.util.HashMap;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ResidenceEntityDto {
+public class ResidenceAggregationEntityDto {
 
 
         private String residenceUuid;
