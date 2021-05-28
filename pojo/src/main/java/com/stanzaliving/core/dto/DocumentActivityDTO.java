@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DocumentActivityDTO {
     private Long id;
-
     private String uuid;
 
     private Date createdAt;
