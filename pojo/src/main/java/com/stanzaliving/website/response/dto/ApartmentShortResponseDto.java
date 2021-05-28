@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.stanzaliving.website.enums.Gender;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +23,11 @@ public class ApartmentShortResponseDto implements Serializable {
 	
 	private String name;
 	
+	private String apartmentDetailsName;
+	
 	private String apartmentListingName;
+	
+	private Gender gender;
 	
 	private String propertyCode;
 	
