@@ -27,13 +27,14 @@ public class WebsitePlaceSearchClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public List<WebsitePlaceIndexDto> searchWebsitePlace(String place) {
+	public List<WebsitePlaceIndexDto> searchWebsitePlace(String place, Integer cityId) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/website/place/search").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
 		queryParams.add("place", place);
+		queryParams.add("cityId", cityId.toString());
 
 		final HttpHeaders headerParams = new HttpHeaders();
 

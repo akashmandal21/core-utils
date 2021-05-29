@@ -55,7 +55,8 @@ public class WebsitePlaceIndexDto extends AbstractSearchIndexDto {
 	@Builder.Default
 	private String type = "place";
 	
-	private Integer cityWiseSequenceId;
+	@Builder.Default
+	private Boolean isResultInSameCity = false;
 	
 	private float score;
 }
