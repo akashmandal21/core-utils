@@ -2,9 +2,9 @@ package com.stanzaliving.core.counter.service.impl;
 
 import com.stanzaliving.core.counter.entity.CounterKeyEntity;
 import com.stanzaliving.core.counter.exceptions.CounterServiceException;
-import com.stanzaliving.core.counter.repository.CounterRepository;
 import com.stanzaliving.core.counter.service.CategoryKey;
 import com.stanzaliving.core.counter.service.CounterService;
+import com.stanzaliving.core.counter.service.repository.CounterRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.retry.annotation.Retryable;
@@ -21,7 +21,8 @@ import java.util.Objects;
 @Log4j2
 public class CounterServiceImpl implements CounterService{
 
-	@Autowired CounterRepository countRepository;
+	@Autowired
+	CounterRepository countRepository;
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -55,7 +56,7 @@ public class CounterServiceImpl implements CounterService{
 
 		if(Objects.isNull(count)) {
 			try {
-				count = createCategoryRowWithKeyAndCount(counterKey);
+				count = createCategoryRow(counterKey);
 			} catch (Exception ex) {
 				log.error("Error creating the category, checking if it's created by some other transaction {}", counterKey, ex);
 				count = countRepository.findByKey(counterKey.getKey());
@@ -89,12 +90,6 @@ public class CounterServiceImpl implements CounterService{
 
 	@Transactional
 	private CounterKeyEntity createCategoryRow(CategoryKey categoryKey){
-		log.info(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
-		return countRepository.save(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
-	}
-
-	@Transactional
-	private CounterKeyEntity createCategoryRowWithKeyAndCount(CategoryKey categoryKey){
 		log.info(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
 		return countRepository.save(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
 	}

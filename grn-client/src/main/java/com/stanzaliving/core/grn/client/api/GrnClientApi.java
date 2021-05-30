@@ -1,19 +1,5 @@
 package com.stanzaliving.core.grn.client.api;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -29,8 +15,20 @@ import com.stanzaliving.grn.GSRIReceivedQuantity;
 import com.stanzaliving.grn.GrnQuantity;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.po.enums.PoType;
-
 import lombok.extern.log4j.Log4j2;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Log4j2
 public class GrnClientApi {
@@ -275,20 +273,4 @@ public class GrnClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, null, toFetchRequestDto, headerParams, accept, returnType);
     }
-
-	public ResponseDto<List<ToResponseDto>> fetchToListForFar(String itemCode) {
-
-		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("itemCode", itemCode);
-		final HttpHeaders headerParams = new HttpHeaders();
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		String path = UriComponentsBuilder.fromPath("/internal/generic/fetch-to-list/{itemCode}").buildAndExpand(uriVariables).toUriString();
-
-		ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>>() {
-		};
-
-		return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, accept, returnType);
-	}
 }

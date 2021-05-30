@@ -29,7 +29,6 @@ public class GrsiEventUpdateDto {
     private String srcAddressUuid;
     private boolean po;
     private String doneBy;
-    @Temporal(TemporalType.TIMESTAMP)
     private Date doneAt;
     private GrsiItemDto gsriItem;
     private String adjustCloseId;

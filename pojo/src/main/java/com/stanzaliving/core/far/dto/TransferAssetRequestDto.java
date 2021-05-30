@@ -24,7 +24,7 @@ public class TransferAssetRequestDto {
     private String destinationAddressUuid;
 
     @NotNull
-    private boolean transferOut;
+    private Boolean transferOut;
 
     public String toString() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

@@ -1,4 +1,4 @@
-package com.stanzaliving.core.counter.repository;
+package com.stanzaliving.core.counter.service.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
