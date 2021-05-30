@@ -58,5 +58,8 @@ public class WebsitePlaceIndexDto extends AbstractSearchIndexDto {
 	@Builder.Default
 	private Boolean isResultInSameCity = false;
 	
+	@Builder.Default
+	private Boolean isExactMatched = false;
+	
 	private float score;
 }
