@@ -28,6 +28,22 @@ public class ApartmentShortResponseDto implements Serializable {
 	private String apartmentListingName;
 	
 	private Gender gender;
+
+	private Integer micromarketId;
+	
+	private String micromarketName;
+	
+	private String micromarketSlug;
+	
+	private String apartmentMMSlug;
+	
+	private int cityId;
+	
+	private String cityName;
+	
+	private String citySlug;
+	
+	private String apartmentCitySlug;
 	
 	private String propertyCode;
 	
@@ -36,8 +52,6 @@ public class ApartmentShortResponseDto implements Serializable {
 	private Integer roomCount;
 	
 	private String slug;
-	
-	private Integer micromarketId;
 	
 	private String pricingPlan;
 	
