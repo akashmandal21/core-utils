@@ -4,6 +4,7 @@ public enum OracleServiceOwner {
 
     LOCATION,
     DEPARTMENT,
+    ITEM,
     VENDOR,
     GRN,
     INVOICE;
