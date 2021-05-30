@@ -39,7 +39,6 @@ public enum Department {
 	public String departmentName;
 	public String shortCode;
 	public String genericPoShortCode;
-	public static Collection<Department> departments;
 	private static SortedMap<String, Department> departmentMap = new TreeMap<String, Department>();
 
 	static {
