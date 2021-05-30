@@ -1,6 +1,7 @@
 package com.stanzaliving.core.search.client.api;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -34,7 +35,9 @@ public class WebsitePlaceSearchClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
 		queryParams.add("place", place);
-		queryParams.add("cityId", cityId.toString());
+		
+		if (Objects.nonNull(cityId))
+			queryParams.add("cityId", cityId.toString());
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
