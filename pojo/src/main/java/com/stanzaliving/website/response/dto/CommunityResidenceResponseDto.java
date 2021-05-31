@@ -21,5 +21,7 @@ public class CommunityResidenceResponseDto {
 	private int zipCode;
 	private String cityName;
 	private int cityId;
+	private String StateName;
+	private String StateId;
 
 }
