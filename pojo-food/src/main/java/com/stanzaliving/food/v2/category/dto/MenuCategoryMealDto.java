@@ -23,8 +23,7 @@ public class MenuCategoryMealDto extends MealDto {
     private boolean friday;
     private boolean saturday;
     private boolean sunday;
-    private LocalTime startTime;
-    private LocalTime endTime;
+
     private Double packagingCost;
     private Double vegCogs;
     private Double nonVegCogs;

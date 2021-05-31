@@ -8,6 +8,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -24,4 +25,6 @@ public class MealDto implements Serializable {
     private String mealGroup;
     private String mealGroupId;
     private String imageUri;
+    private LocalTime startTime;
+    private LocalTime endTime;
 }
