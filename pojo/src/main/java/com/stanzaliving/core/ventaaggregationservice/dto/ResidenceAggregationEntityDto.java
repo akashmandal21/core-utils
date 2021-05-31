@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ResidenceAggregationEntityDto {
+public class    ResidenceAggregationEntityDto {
 
 
         private String residenceUuid;
@@ -54,6 +54,8 @@ public class ResidenceAggregationEntityDto {
         private String residenceStatus;
 
         private String stanzaClusterUuid;
+
+        private String company;
 
         private String stanzaCityUuid;
 
