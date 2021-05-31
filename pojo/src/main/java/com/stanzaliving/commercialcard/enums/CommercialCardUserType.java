@@ -1,7 +1,8 @@
-package com.stanzaliving.commercial.enums;
+package com.stanzaliving.commercialcard.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
 
 @Getter
 @AllArgsConstructor
