@@ -12,7 +12,7 @@ public class Constants {
 	
 	public static final String USER_IP_HEADER = "x-forwarded-for";
 	
-	public static final String IMS_DEFAULT_BEARER_TOKEN = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtdWRpdEBjcnVzaGNhbXBhaWducy5jb20iLCJzY29wZXMiOlsiTkFUSU9OQUwgQURNSU4iXSwiaXNzIjoiIiwiaWF0IjoxNTg5NzkwNjc2LCJleHAiOjE2MjEzMzA2NzZ9.m1c3t7l8TJJ9tyeNVuTrT-xX6sei2U99DC8ItjgfbDgiQe_K2kFHgF7ORmSIUTm_kS4JB9UV9oFEfJqBEt5W4w";
+	public static final String IMS_DEFAULT_BEARER_TOKEN = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtdWRpdEBjcnVzaGNhbXBhaWducy5jb20iLCJzY29wZXMiOlsiUkVGUkVTSF9UT0tFTiJdLCJpc3MiOiIiLCJqdGkiOiI0ZThmMWMwZS0zOWIxLTQ4OTktOWNiMy1hODMzNzEwZDlhMzAiLCJpYXQiOjE2MjEzNDM0ODEsImV4cCI6MTk4MTM0MzQ4MX0.-n4BXQXbNAMIs0vT7nJh1_fsfL-cawqpcOgKHqmDs3TyX0Yh9kF8SgRq_uglDxsNLaHFhZdNGWpu_DwaA1QCjA";
 	
 	public static final int DEFAULT_PRE_BOOKING_AMOUNT = 1000;
 	
