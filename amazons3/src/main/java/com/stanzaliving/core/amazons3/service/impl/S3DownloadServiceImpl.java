@@ -83,7 +83,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 
 				File tmp = File.createTempFile(s3Object.getKey(), "");
 				Files.copy(inputStream, tmp.toPath(), StandardCopyOption.REPLACE_EXISTING);
-
+				log.error("********"+tmp.getAbsolutePath());
 				return tmp;
 			}
 
