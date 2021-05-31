@@ -11,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -37,7 +38,7 @@ public class FoodOrderMenuCategoryDto {
 
 	private String lastUpdatedBy;
 
-	private LocalDate lastUpdatedAt;
+	private Date lastUpdatedAt;
 
 	private Integer mirCount;
 
