@@ -922,5 +922,13 @@ public class DateUtil {
 	public Duration getDurationBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
 		return Duration.between(startDateTime, endDateTime);
 	}
-	
+
+	public static Date getMaximumTimeOfDate(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.set(Calendar.HOUR_OF_DAY, 23);
+		cal.set(Calendar.MINUTE, 59);
+		cal.set(Calendar.SECOND, 59);
+		return cal.getTime();
+	}
 }
