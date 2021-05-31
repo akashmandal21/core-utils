@@ -16,6 +16,9 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 @Getter
 @Setter
 @ToString
@@ -34,11 +37,11 @@ public class FoodOrderDetailDto {
 
 	private String vendorName;
 
-	@Builder.Default
-	private Integer vegPax = 0;
+	@NotNull
+	private Integer vegPax;
 
-	@Builder.Default
-	private Integer nonVegPax = 0;
+	@NotNull
+	private Integer nonVegPax;
 
 	@Builder.Default
 	private Double vegCost = 0d;
@@ -46,8 +49,8 @@ public class FoodOrderDetailDto {
 	@Builder.Default
 	private Double nonVegCost = 0d;
 
-	@Builder.Default
-	private Integer stanzaStaffVegPax = 0;
+	@NotNull
+	private Integer stanzaStaffVegPax;
 
 	@Builder.Default
 	private Integer stanzaStaffNonVegPax = 0;
@@ -58,6 +61,7 @@ public class FoodOrderDetailDto {
 	@Builder.Default
 	private Double stanzaStaffNonVegCost = 0d;
 
+	@NotNull
 	private Integer nonStanzaStaffVegPax;
 
 	private Integer nonStanzaStaffNonVegPax;
