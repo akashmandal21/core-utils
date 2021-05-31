@@ -37,10 +37,10 @@ public class FoodOrderDetailDto {
 
 	private String vendorName;
 
-	@NotNull
+	@NotNull(message = "Food Item cannot be null")
 	private Integer vegPax;
 
-	@NotNull
+	@NotNull(message = "Food Item cannot be null")
 	private Integer nonVegPax;
 
 	@Builder.Default
@@ -49,7 +49,7 @@ public class FoodOrderDetailDto {
 	@Builder.Default
 	private Double nonVegCost = 0d;
 
-	@NotNull
+	@NotNull(message = "Food Item cannot be null")
 	private Integer stanzaStaffVegPax;
 
 	@Builder.Default
