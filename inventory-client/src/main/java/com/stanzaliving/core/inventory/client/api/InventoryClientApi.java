@@ -24,6 +24,7 @@ import com.stanzaliving.item_master.dtos.FilterDto;
 import com.stanzaliving.po.enums.PoType;
 import com.stanzaliving.transformations.pojo.PropertyBoqStatusDto;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -163,5 +164,30 @@ public class InventoryClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
+    public ResponseDto<Map<String, Object>> getBookingInformation(String bookingUuid) {
 
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path =
+                UriComponentsBuilder.fromPath("https://dev-pluto.stanzaliving.com/inventory/booking/" + bookingUuid)
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, Object>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Map<String, Object>>>() {};
+
+        return restClient.invokeAPI(
+                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 }
