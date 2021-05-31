@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 
@@ -18,6 +19,6 @@ public class PackagedServiceResponseDto {
     private Double feePerMonth;
     private String serviceMixUuid;
     private String serviceMixName;
-    private List<String> serviceDescription;
+    private List <Map<String, Set<String>>> serviceDescription;
     private String icon;
 }
