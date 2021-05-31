@@ -94,7 +94,8 @@ public class FoodOrderDetailDto {
 
 	private String comments;
 
-	private boolean extraFoodOrderWindowClosed;
+	@Builder.Default
+	private boolean extraFoodOrderWindowClosed = true;
 
 	private Date extraFoodOrderWindowCloseTime;
 	
