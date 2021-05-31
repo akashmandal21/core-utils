@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 public class ApprovalSummaryDto {
     private String key;
     private String displayName;
-    private Integer value;
+    private Long value;
 }
