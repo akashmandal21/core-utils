@@ -35,4 +35,5 @@ public class ConditionDto implements Serializable {
 	private String operatorValue;
 
 	private String rightOperand;
+	private String rightOperandUuid;
 }
