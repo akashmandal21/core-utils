@@ -26,8 +26,14 @@ public class OracleIntegrationInvoiceDto extends AbstractOracleDto {
     private String vendor;
     private String location;
     private String currency;
+    private String billingState;
+    private String billingCountry;
+    private String invoiceNumber;
+    private BigDecimal invoiceAmount;
+    private BigDecimal advanceAdjusted;
+    private String documentUrl;
     private double exchangeRate;
-    private String poNumber;
+    private String poUuid;
     private InvoiceType invoiceType;
     private String documentName;
     private String invoiceCopy;

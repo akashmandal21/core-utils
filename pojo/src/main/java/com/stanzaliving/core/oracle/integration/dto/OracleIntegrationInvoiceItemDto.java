@@ -3,6 +3,8 @@ package com.stanzaliving.core.oracle.integration.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -12,7 +14,12 @@ import lombok.experimental.SuperBuilder;
 public class OracleIntegrationInvoiceItemDto {
 
     private String item;
-    private int quantity;
-    private double rate;
+    private BigDecimal quantity;
+    private BigDecimal rate;
+    private BigDecimal amount;
     private String stanzaLineId;
+    private String hsnCode;
+    private String indiaTaxNature;
+    private String taxLocationType;
+    private double taxRate;
 }
