@@ -1,5 +1,6 @@
 package com.stanzaliving.core.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,11 +11,10 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingInventoryDTO {
 
     private int bookingId;
-
-    private String temporaryStudentId;
 
     private String studentId;
 
@@ -28,65 +28,13 @@ public class BookingInventoryDTO {
 
     private String phone;
 
-    private LocalDate contractStartDate;
+    private Date contractStartDate;
 
-    private LocalDate contractEndDate;
-
-    private Date actualContractEndDate;
-
-    private String contractLastNMonthStartDate;
-
-    private Date confirmationDate;
-
-    private Date moveInDate;
-
-    private String specialRequestDescription;
-
-    private String upgradeDescription;
-
-    private int contractId;
-
-    private String contractName;
-
-    private double contractMonths;
-
-    private double extendedContractMonths;
-
-    private int paymentTermId;
-
-    private String paymentTermName;
-
-    private int paymentTermInstallments;
-
-    private String chequeNumber;
-
-    private String chequePhoto;
+    private Date contractEndDate;
 
     private String bookingStatus;
 
-    private String roomNumber;
-
     private String residenceName;
-    
-    private int emiMonths;
-
-    private double pendingRent;
-
-    private String rentStatus;
-
-    private Date autoCancelTime;
-
-    private double penalty;
-
-    private String lockIn;
-
-    private boolean isRoomConverted;
-
-    private double pendingDues;
-
-    private Date attentionDeadline;
-
-    private Boolean collectPayment;
 
     private boolean isAlfredEnabled = Boolean.FALSE;
 }

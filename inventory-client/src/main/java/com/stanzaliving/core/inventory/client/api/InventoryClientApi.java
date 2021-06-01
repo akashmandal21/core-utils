@@ -164,15 +164,16 @@ public class InventoryClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
-    public ResponseDto<Map<String, Object>> getBookingInformation(String bookingUuid) {
+
+    public Map<String, Object> getBookingInformation(String bookingUuid) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-
+        uriVariables.put("bookingUuid", bookingUuid);
         String path =
-                UriComponentsBuilder.fromPath("https://dev-pluto.stanzaliving.com/inventory/booking/" + bookingUuid)
+                UriComponentsBuilder.fromPath("/booking/{bookingUuid}")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
@@ -184,8 +185,8 @@ public class InventoryClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Map<String, Object>>> returnType =
-                new ParameterizedTypeReference<ResponseDto<Map<String, Object>>>() {};
+        ParameterizedTypeReference<Map<String, Object>> returnType =
+                new ParameterizedTypeReference<Map<String, Object>>() {};
 
         return restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
