@@ -27,7 +27,7 @@ public class PropertyTypeDto extends AbstractMongoDto {
 
     @Size(min = 1,message = "Roles cannot be less than 1", groups = PostGroup.class)
     @NotNull(message = "Roles cannot be null", groups = PostGroup.class)
-    private List<@Valid RoleDto> roles;
+    private List<@Valid PropertyTypeRoleDto> roles;
 
     @Size(min = 1,message = "Modules cannot be less than 1", groups = PostGroup.class)
     @NotNull(message = "Modules cannot be null", groups = PostGroup.class)

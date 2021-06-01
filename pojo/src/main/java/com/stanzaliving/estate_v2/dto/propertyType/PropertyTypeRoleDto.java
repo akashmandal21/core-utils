@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class RoleDto {
+public class PropertyTypeRoleDto {
     private String uuid;
     @EmptyOrNull(message = "Role name cannot be empty or null", groups = PostGroup.class)
     private String name;
