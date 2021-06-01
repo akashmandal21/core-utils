@@ -29,5 +29,5 @@ public class PagesDto {
     private VisibilityConditionDto visibilityCondition;
     private MandatoryConditionDto mandatoryCondition;
     private PrivilegesDto privileges;
-    private List<DisplayableOrderDto> pageComponent;
+    private Object pageComponent;
 }
