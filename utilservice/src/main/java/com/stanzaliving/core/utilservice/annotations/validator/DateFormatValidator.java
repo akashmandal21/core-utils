@@ -25,8 +25,4 @@ public class DateFormatValidator implements
             return false;
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> dc63aaafd2f226997627288797e63006b52fb912
