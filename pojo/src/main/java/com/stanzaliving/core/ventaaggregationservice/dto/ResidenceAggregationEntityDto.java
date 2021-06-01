@@ -14,68 +14,61 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class    ResidenceAggregationEntityDto {
+public class ResidenceAggregationEntityDto {
 
+    private String residenceUuid;
 
-        private String residenceUuid;
+    private String code;
 
-        private String code;
+    private String city;
 
-        private String city;
+    private String stanzaCity;
 
-        private String stanzaCity;
+    private String society;
 
-        private String society;
+    private String stanzaCluster;
 
-        private String stanzaCluster;
+    private String microMarket;
 
-        private String microMarket;
+    private String microMarketId;
 
-        private String microMarketId;
+    private Integer cityId;
 
-        private Integer cityId;
+    private String entity;
 
-        private String entity;
+    private String type;
 
-        private String type;
+    private String gender;
 
-        private String gender;
+    private Boolean serviceMix;
 
-        private Boolean serviceMix;
+    private Boolean productMix;
 
-        private Boolean productMix;
+    private Double blendedPrice;
 
-        private Double blendedPrice;
+    private Integer totalRoom;
 
-        private Integer totalRoom;
+    private Integer totalBed;
 
-        private Integer totalBed;
+    private String residenceStatus;
 
-        private String residenceStatus;
+    private String stanzaClusterUuid;
 
-        private String stanzaClusterUuid;
+    private String company;
 
-        private String company;
+    private String stanzaCityUuid;
 
-        private String stanzaCityUuid;
+    private HashMap<String, String> totalRoomInfo;
 
-        @Transient
-        private HashMap<String, String> totalRoomInfo;
+    private List<ResidenceBedCountDto> totalBedInfo;
 
-        @Transient
-        List<ResidenceBedCountDto> totalBedInfo;
+    private List<BlendedPriceOccupancyCountDto> blendedPriceInfo;
 
-        @Transient
-        private HashMap<String, String> blendedPriceInfo;
+    private String leftBorderColor;
 
-        @Transient
-        private String leftBorderColor;
+    private String statusTextColor;
 
-        @Transient
-        private String statusTextColor;
-
-        @Transient
-        private String statusBackgroundColor;
-    }
+    private String statusBackgroundColor;
+}
 
 
