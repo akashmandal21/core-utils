@@ -83,6 +83,11 @@ public class ResidenceUIDto implements Serializable{
 	
 	private String estateUuid;
 
+	private Double premiseArea;
+
+	private String apartmentFloorNumber;
+
+
 	private String code;
 
 	private String category;

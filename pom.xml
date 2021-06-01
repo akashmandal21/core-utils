@@ -24,7 +24,7 @@
 		<module>pojo</module>
 		<module>pojo-ops</module>
 		<module>pojo-wanda</module>
-                <module>pojo-generic-approval</module>
+        <module>pojo-generic-approval</module>
 		<module>security</module>
 		<module>properties</module>
 		<module>utilservice</module>
@@ -85,7 +85,9 @@
                 <module>residence-client</module>
 		<module>file-utils</module>
         <module>venta-aggregation-service-client</module>
-    </modules>
+		<module>notification-v2-client</module>
+		<module>slack-client</module>
+	</modules>
 
 	<build>
 		<plugins>

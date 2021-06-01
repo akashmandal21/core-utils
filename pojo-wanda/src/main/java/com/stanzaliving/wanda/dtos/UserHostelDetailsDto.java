@@ -34,4 +34,7 @@ public class UserHostelDetailsDto {
 	private String currentHostelName;
 	private String originalHostelId;
 	private String originalHostelName;
+    private String currentRoomNo;
+	private String originalRoomNo;
+	private String countryCode;
 }
