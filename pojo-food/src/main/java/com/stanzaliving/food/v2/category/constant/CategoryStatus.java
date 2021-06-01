@@ -25,7 +25,7 @@ public enum CategoryStatus {
 		return categoryStatus == APPROVED;
 	}
 
-	private final static List<EnumListing<CategoryStatus>> enumListings = new ArrayList<>();
+	private static final List<EnumListing<CategoryStatus>> enumListings = new ArrayList<>();
 
 	static {
 		for (CategoryStatus curStatus : CategoryStatus.values()) {
