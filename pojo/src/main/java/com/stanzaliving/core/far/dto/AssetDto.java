@@ -59,6 +59,7 @@ public class AssetDto {
     private List<String> assetImagesPath;
     private AssetType assetType;
     private String qrCode; // is from QrCode Table
+    private String qrCodeId;
     private String itemUuid;
     //private String allocationUuid;
     private AssetStatus assetStatus;
@@ -72,6 +73,7 @@ public class AssetDto {
 
     private Date acquisitionDate;
     private BigDecimal acquisitionPrice;
+    private Date bulkUploadAddedDate;
 
     public String toString() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
