@@ -13,9 +13,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserBannerRequestDto {
 
-	private String userCode;
 	private AppPage appPage;
+	
+	private String userCode;
+	
+	private String userId;
+	
 	private String cityUuid;
+	
 	private String micromarketUuid;
+	
 	private String residenceUuid;
 }
