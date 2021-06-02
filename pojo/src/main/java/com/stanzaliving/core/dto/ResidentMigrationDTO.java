@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class ResidentMigrationDTO {
 
     @JsonSetter(value = "DATE_OF_BIRTH")
-    private LocalDate residentDOB;
+    private Date residentDOB;
 
     @JsonSetter(value = "COUNTRY_ID")
     private Integer countryId;

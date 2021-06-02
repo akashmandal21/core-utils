@@ -17,6 +17,10 @@ public class DocumentAssetDTO {
 
     private String documentUuid;
 
+    private String fileName;
+
+    private String filePath;
+
     private String url;
 
     private DocumentSide documentSide;
