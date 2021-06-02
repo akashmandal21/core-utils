@@ -16,6 +16,8 @@ public class OracleIntegrationInvoiceItemDto {
     private String item;
     private BigDecimal quantity;
     private BigDecimal rate;
+    private BigDecimal actualRate;
+    private BigDecimal rentPeriod;
     private BigDecimal amount;
     private String stanzaLineId;
     private String hsnCode;

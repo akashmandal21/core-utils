@@ -72,4 +72,6 @@ public class PoDetailsResponse {
 
     private String poDownloadUrl;
     private String poCreatedBy;
+
+    private String taxLocationType;
 }
