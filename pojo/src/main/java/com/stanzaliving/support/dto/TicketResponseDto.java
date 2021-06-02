@@ -26,7 +26,7 @@ public class TicketResponseDto {
 
     private String complaintGroup;
 
-    private Date sla;
+    private Date slaTime;
 
     private String description;
 

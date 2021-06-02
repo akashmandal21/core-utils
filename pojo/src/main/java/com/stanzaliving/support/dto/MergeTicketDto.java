@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Data
@@ -13,10 +14,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MergeTicketDto {
+    @NotBlank(message = "Primary Ticket cannot be null")
     private String primaryTicketUuid;
+    @NotBlank(message = "Secondary ticket ID's cannot be null")
     private List<String> secondaryTicketUuids;
+    @NotBlank(message = "Message cannot be null")
     private String message;
     @JsonSetter("isPrivate")
     private boolean isPrivate;
-    private String updatedBy;
+    private String mergedBy;
 }

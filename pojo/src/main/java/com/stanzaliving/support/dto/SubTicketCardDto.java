@@ -18,7 +18,7 @@ public class SubTicketCardDto {
     private String subTicketUuid;
     private String taskType;
     private String comments;
-    private Date sla;
+    private Date slaTime;
     private Date createdAt;
     private String status;
     private String residenceName;
