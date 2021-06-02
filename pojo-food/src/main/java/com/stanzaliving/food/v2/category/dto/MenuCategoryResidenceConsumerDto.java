@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.category.dto;
 
+import com.stanzaliving.core.operations.enums.DealCategory;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +19,7 @@ public class MenuCategoryResidenceConsumerDto implements Serializable {
     private String categoryId;
     private String residenceId;
     private String dealId;
+    private DealCategory dealCategory;
     private LocalDate startDate;
     private String updateBy;
 }
