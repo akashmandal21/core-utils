@@ -22,7 +22,6 @@ public class SubTicketDto {
     private boolean markForDelay;
     private String comments;
     private Date completionDate;
-    private int version;
     private String status;
     private String reason;
     private Date tentativeDate;

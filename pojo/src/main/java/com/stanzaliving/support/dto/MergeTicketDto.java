@@ -16,7 +16,7 @@ public class MergeTicketDto {
     private String primaryTicketUuid;
     private List<String> secondaryTicketUuids;
     private String message;
-    private String messagedBy;
     @JsonSetter("isPrivate")
     private boolean isPrivate;
+    private String updatedBy;
 }

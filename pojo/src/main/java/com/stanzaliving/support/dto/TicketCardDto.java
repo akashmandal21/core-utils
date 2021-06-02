@@ -17,7 +17,7 @@ public class TicketCardDto {
     private String ticketUuid;
     private String ticketStatus;
     private Date createdAt;
-    private Date sla;
+    private Date slaTime;
     private String categoryUuid;
     private String categoryName;
     private String subCategoryUuid;

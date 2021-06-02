@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
@@ -19,26 +20,16 @@ public class TicketRequestDto {
     @NotBlank(message = "Sub-category Uuid cannot be blank/null")
     private String subCategoryUuid;
 
-    private Date sla;
-
-    @Valid
-    private UserResidenceDto userResidenceDto;
-
     @NotBlank(message = "Description cannot be blank/null")
     private String description;
 
+    @NotNull(message = "AttachmentUuids key is missing")
     private List<String> attachmentUuids;
 
-    @NotBlank(message = "User uuid cannot be blank/null")
-    private String createdBy;
-
+    @NotBlank(message = "Raised for user uuid cannot be blank/null")
     private String raisedFor;
 
-    private Long id;
-
-    private String uuid;
-
     private String assignedTo;
-    
+
     private List<TagDto> tagDtos;
 }

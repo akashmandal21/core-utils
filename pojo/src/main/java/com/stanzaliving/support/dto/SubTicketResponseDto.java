@@ -17,9 +17,16 @@ public class SubTicketResponseDto {
     private String subTicketUuid;
     private Long subTicketId;
     private String team;
+    private String teamUuid;
     private String assignedTo;
+    private String assignedToUuid;
     private Date slaTime;
     private String comments;
     private String reason;
     private String taskType;
+    private String status;
+    private String statusUuid;
+    private String createdBy;
+    private String createdByUuid;
+    private String updatedByUuid;
 }

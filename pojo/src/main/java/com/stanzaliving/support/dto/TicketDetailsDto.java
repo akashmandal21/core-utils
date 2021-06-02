@@ -14,9 +14,9 @@ import java.util.Map;
 @AllArgsConstructor
 public class TicketDetailsDto {
 
-    String assignedTo;
+    String assignedToUuid;
 
-    List<String> attachmentDto;
+    String assignedTo;
 
     List<SubTicketDto> subTicketDto;
 
