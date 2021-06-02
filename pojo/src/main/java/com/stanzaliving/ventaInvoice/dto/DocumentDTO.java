@@ -1,7 +1,7 @@
 package com.stanzaliving.ventaInvoice.dto;
 
 import com.stanzaliving.ventaInvoice.enums.InvoiceType;
-import lombok.Builder;
+import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,23 +11,29 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
-public class InvoiceDTO {
+public class DocumentDTO {
 
-    private String invoiceId;
+    private String documentId;
     private InvoiceType type;
     private LocalDate fromDate;
     private LocalDate toDate;
     private LocalDate issueDate;
     private Double amount;
-    private String referenceType;
+    private String categoryId;
+    private ReferenceType referenceType;
     private String billFrom;
     private String billToId;
     private String serviceType;
     private String remarks;
-    private String residentId;
-    private String dealId;
+    private String referenceId;
     private String contractId;
     private String fileLocation;
+    private String filePath;
+    private String fileName;
     private LocalDate ledgerTimeStamp;
+    private String cityId;
+    private String microMarketId;
+    private String residentId;
+    private String parentId;
 
 }
