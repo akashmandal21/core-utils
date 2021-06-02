@@ -42,6 +42,10 @@ public class AssetBulkUploadDto {
     private String tax;
     private String acquisitionPrice;
 
+    // These 2 will only be part of Response
+    private String responseStatus;
+    private String responseMessage;
+
     public String toString() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(this);
