@@ -1,7 +1,5 @@
 package com.stanzaliving.website.response.dto;
 
-import javax.validation.constraints.NotNull;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -22,10 +20,10 @@ public class LeadRequestDto {
 	private String firstName;
 	private String lastName;
 	private String email;
-	
+
 	private String phone;
 	private String otp;
-	
+
 	private boolean phoneVerified;
 
 	private String leadSource;
@@ -63,7 +61,7 @@ public class LeadRequestDto {
 	private String status;
 	private String zohoId;
 	private String zohoStatus;
-	
+
 	private String referralId;
 	private String referralCategory;
 	private String utmSource;
@@ -76,12 +74,12 @@ public class LeadRequestDto {
 	private String utmTarget;
 	private String utmAdformat;
 	private int commissionEarned;
-	
+
 	private String gender;
 	private String profession;
 	private String dateOfVisit;
 	private String moveInDateRange;
-	
+
 	private int leadModeId;
 	private String leadMode;
 	private String leadSubMode;
@@ -93,14 +91,13 @@ public class LeadRequestDto {
 	private String creative;
 	private String gClientId;
 	private String gSessionId;
-	
-	@NotNull
-    String razorpayPaymentId;
-    @NotNull
-    String razorpayOrderId;
-    @NotNull
-    String razorpaySignature;
-    
+
+	String razorpayPaymentId;
+
+	String razorpayOrderId;
+
+	String razorpaySignature;
+
 	@Default
 	private boolean lastQuestion = false;
 
@@ -110,17 +107,17 @@ public class LeadRequestDto {
 	private boolean whatsappnotification = false;
 	@Default
 	private boolean qrCodeFlag = false;
-	
+
 	private boolean leadQualificationForm;
-	
+
 	@Default
 	private boolean otpVerified = false;
-	
+
 	@Default
-	private boolean ignoreScheduleVisit=false;
-	
+	private boolean ignoreScheduleVisit = false;
+
 	private String accommodationType;
-	
+
 	private boolean createHotLead;
 
 }
