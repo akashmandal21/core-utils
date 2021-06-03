@@ -5,9 +5,10 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum ReferenceType {
-    DEAL("Deal"),
-    RESIDENT("Resident");
-
-    private final String values;
+public enum Split {
+    DEAL("Equal"),
+    RESIDENT("Unequal");
+    private final String split;
 }
+
+
