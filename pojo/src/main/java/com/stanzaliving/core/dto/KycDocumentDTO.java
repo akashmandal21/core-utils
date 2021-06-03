@@ -19,10 +19,6 @@ public class KycDocumentDTO {
 
     private DocumentSide documentSide;
 
-    private String filePath;
-
-    private String fileName;
-
     private String fileUrl;
 
     private String metadata;

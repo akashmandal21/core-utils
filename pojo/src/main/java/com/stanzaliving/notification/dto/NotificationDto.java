@@ -14,25 +14,25 @@ import java.util.Map;
 @AllArgsConstructor
 public class NotificationDto {
 
-    Long id;
+    private Long id;
 
     @NotBlank(message = "App Id cannot be empty or null")
-    String appName;
+    private String appName;
 
-    String title;
+    private String title;
 
-    String message;
+    private String message;
 
-    String callToActionUrl;
+    private String callToActionUrl;
 
-    String imageUrl;
+    private String imageUrl;
 
-    Date date;
+    private Date date;
 
-    Long timeToLive;
+    private Long timeToLive;
 
-    List<UserParams> userParamsList;
+    private List<UserParams> userParamsList;
 
-    Map<String, String> data;
+    private Map<String, String> data;
 
 }
