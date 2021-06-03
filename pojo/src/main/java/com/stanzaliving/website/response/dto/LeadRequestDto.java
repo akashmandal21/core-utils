@@ -51,6 +51,9 @@ public class LeadRequestDto {
 	private String referralCode;
 
 	private String durationOfStay;
+	
+	private String razorpayOrderId;
+	
 
 	private String durationTime;
 	private String college;
