@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.bookingservice.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -10,11 +11,12 @@ import lombok.Data;
  *
  */
 @Data
+@Builder
 public class UserDetailResponseDto {
 
 	private String name;
 	private String userCode;
 	private String phone;
 	private String email;
-	
+	private String profilePicture;
 }
