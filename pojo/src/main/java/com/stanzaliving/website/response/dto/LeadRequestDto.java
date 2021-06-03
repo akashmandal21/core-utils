@@ -1,5 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -51,9 +53,6 @@ public class LeadRequestDto {
 	private String referralCode;
 
 	private String durationOfStay;
-	
-	private String razorpayOrderId;
-	
 
 	private String durationTime;
 	private String college;
@@ -95,7 +94,13 @@ public class LeadRequestDto {
 	private String gClientId;
 	private String gSessionId;
 	
-	
+	@NotNull
+    String razorpayPaymentId;
+    @NotNull
+    String razorpayOrderId;
+    @NotNull
+    String razorpaySignature;
+    
 	@Default
 	private boolean lastQuestion = false;
 
