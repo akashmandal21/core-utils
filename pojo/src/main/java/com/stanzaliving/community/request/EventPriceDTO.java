@@ -9,11 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddEventPriceForAddEventDTO {
+public class EventPriceDTO {
+
     private Long price;
     private boolean showStrikeThrough;
     private Long strikeThroughPrice;
     private Long gstPercentage;
-    private Boolean pricingApplicable;
-
 }

@@ -1,17 +1,16 @@
-package com.stanzaliving.community.request;
+package com.stanzaliving.community.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddEventTypeDTO {
-    @NotBlank
-    private String name;
+public class EventFaqResponseDTO {
+    private List<AddEventFaqResponseDTO> faqItems;
 }

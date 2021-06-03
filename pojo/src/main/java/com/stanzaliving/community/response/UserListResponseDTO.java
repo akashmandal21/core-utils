@@ -1,21 +1,20 @@
-package com.stanzaliving.community.request;
+package com.stanzaliving.community.response;
 
 import com.stanzaliving.community.enums.UserList;
-import com.stanzaliving.community.validations.ApprovalValidation;
-import com.stanzaliving.community.validations.DraftValidations;
+import com.stanzaliving.community.request.EventLocationDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
-
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserListDTO {
-    @NotNull(groups = {DraftValidations.class, ApprovalValidation.class})
+public class UserListResponseDTO {
+    private Long id;
+    private String uuid;
+
     private UserList userListType;
 
     private EventLocationDTO specificLocation;

@@ -10,5 +10,35 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventAdditionalInfoResponseDTO {
-private String uuid;
+    private Long id;
+
+    private String uuid;
+
+    private String onlineStreamingLink;
+
+    private String onlineStreamID;
+
+    private String passcode;
+
+    private String outDoorEventLocation;
+
+    private String residenceUUID;
+
+    private String venueName;
+
+    private String addressLine1;
+
+    private String addressLine2;
+
+    private Long fomoCount;
+
+    private String city;
+
+    private String state;
+
+    private String pincode;
+
+    private String eventDescription;
+
+    private String mapLink;
 }

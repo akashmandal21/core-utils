@@ -5,12 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
+import javax.validation.constraints.NotBlank;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FileUploadDTO implements Serializable {
-    private String  url;
+public class EventTypeRequestDTO {
+    @NotBlank
+    private String name;
 }

@@ -1,26 +1,45 @@
 package com.stanzaliving.community.request;
 
+import com.stanzaliving.community.validations.ApprovalValidation;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
+
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventAdditionalInfoDTO {
-    private Long fomoCount;
-    private String description;
+public class EventAdditionalInfoRequestDTO {
+
     private String onlineStreamingLink;
+
     private String onlineStreamID;
+
     private String passcode;
+
+    private String outdoorEventLocation;
+
     private String residenceUUID;
+
     private String venueName;
+
     private String addressLine1;
+
     private String addressLine2;
-    private String cityUUID;
-    private String stateUUID;
+
+    private Long fomoCount;
+
+    private String city;
+
+    private String state;
+
     private String pincode;
+
+    @NotEmpty(groups = ApprovalValidation.class)
+    private String eventDescription;
+
     private String mapLink;
 }

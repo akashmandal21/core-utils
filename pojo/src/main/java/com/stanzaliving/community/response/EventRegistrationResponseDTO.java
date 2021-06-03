@@ -12,14 +12,14 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventRegistrationResponseDTO {
-    public String uuid;
-    public String id;
+    private String uuid;
+    private Long id;
     private String eventOrganizerUUID;
-    private String ctaPrimaryText;
+    private Date registrationStartDate;
+    private Date registrationEndDate;
+    private String ctaText;
     private String ctaSecondaryText;
     private String ctaRedirectionLink;
-    private boolean isSoldOut;
-    private boolean isSeatLimited;
-    private Date startDate;
-    private Date endDate;
+    private Boolean isSoldOut;
+    private Boolean isSeatsAvailable;
 }

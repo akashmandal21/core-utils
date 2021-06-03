@@ -1,6 +1,5 @@
 package com.stanzaliving.community.response;
 
-import com.stanzaliving.community.response.Options;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,9 +14,7 @@ import java.util.List;
 public class EventAttributeDTO {
     private String fieldName;
     private String alias;
-    private String type;
-    private boolean isMandatory;
-    private List<Options> options;
+    private String fieldType;
+    private Boolean mandatory;
     private Long width;
-
 }

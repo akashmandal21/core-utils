@@ -1,4 +1,4 @@
-package com.stanzaliving.community.request;
+package com.stanzaliving.community.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,12 +9,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddEventImagesForAddEventDTO {
+public class EventImagesResponseDTO {
+    private Long id;
+    private String uuid;
 
     private String imageUrl;
 
     private Long imageOrder;
 
-    private boolean isFeatured;
+    private Boolean isFeatured;
 
 }
