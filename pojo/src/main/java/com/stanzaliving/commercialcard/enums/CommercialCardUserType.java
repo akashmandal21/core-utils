@@ -8,5 +8,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum CommercialCardUserType {
     SCHOLAR,
-    SUITES
+    SUITES,
+    MANAGED_APARTMENTS,
+    ALL
 }
