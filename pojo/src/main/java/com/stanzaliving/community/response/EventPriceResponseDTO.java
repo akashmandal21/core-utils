@@ -15,5 +15,6 @@ public class EventPriceResponseDTO {
     private Long price;
     private boolean showStrikeThrough;
     private Long strikeThroughPrice;
+    private Boolean pricingApplicable;
     private Long gstPercentage;
 }
