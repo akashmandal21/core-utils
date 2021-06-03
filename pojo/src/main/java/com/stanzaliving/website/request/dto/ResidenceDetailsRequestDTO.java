@@ -34,5 +34,6 @@ public class ResidenceDetailsRequestDTO {
 	private int cardCTAId;
 	private String cardCTAName;
 	private FomoTag fomoTag;
-	private String virtualTourURL;
+	private String virtualTourImage;
+	private String videoLink;
 }
