@@ -5,6 +5,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.genericdashboard.dto.AudienceLocationDto;
 import com.stanzaliving.genericdashboard.dto.CampaignAudienceDto;
 import com.stanzaliving.notification.dto.FcmTokenDto;
+import com.stanzaliving.notification.dto.NotificationDto;
 import com.stanzaliving.notification.dto.NotificationRegistryDto;
 import com.stanzaliving.notification.dto.UserDataDto;
 import org.springframework.core.ParameterizedTypeReference;
@@ -84,6 +85,32 @@ public class NotificationClientApi {
                 new ParameterizedTypeReference<ResponseDto<NotificationRegistryDto>>() {
                 };
         postBody = notificationRegistryDto;
+        return restClient.invokeAPI(
+                path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<NotificationDto> saveGenericNotification(NotificationDto notificationDto) {
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/generic-notification")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final String[] accepts = {"*/*"};
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<NotificationDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<NotificationDto>>() {
+                };
+        postBody = notificationDto;
         return restClient.invokeAPI(
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
