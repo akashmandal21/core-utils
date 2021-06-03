@@ -1,4 +1,4 @@
-package com.stanzaliving.food.v2.grammage.request;
+package com.stanzaliving.food.v2.grammage.response;
 
 import com.stanzaliving.food.v2.common.constant.ThaliType;
 import lombok.AllArgsConstructor;
@@ -7,13 +7,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.Map;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @since 04-May-2021
- *
  * @version 1.0
+ *
+ * @since 03-Jun-2021
  */
 
 @Getter
@@ -22,11 +25,13 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealThaliTypeRequestDto {
+public class SubCategoryGrammageDto {
 
-	private String mealMasterId;
+	private String subCategoryId;
 
-	private ThaliType thaliType;
+	private Boolean additive;
 
-	private Integer grammage;
+	private Boolean overridable;
+
+	private Map<Pair<String, ThaliType>, Integer> mealGrammageMap;
 }

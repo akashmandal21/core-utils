@@ -57,6 +57,11 @@ public abstract class AbstractMongoServiceImpl<T extends AbstractMongoEntity, I 
 	}
 
 	@Override
+	public List<T> findAllByStatus(Boolean status) {
+		return getMongoRepository().findAllByStatus(status);
+	}
+
+	@Override
 	public T findByUuid(String uuid) {
 		return getMongoRepository().findFirstByUuid(uuid);
 	}

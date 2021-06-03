@@ -4,7 +4,7 @@ package com.stanzaliving.food.v2.category.dto;
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.food.v2.category.constant.CategorySearchSortingField;
 import com.stanzaliving.food.v2.category.constant.CategoryStatus;
-import com.stanzaliving.food.v2.common.constants.SortingType;
+import com.stanzaliving.food.v2.common.constant.SortingType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
