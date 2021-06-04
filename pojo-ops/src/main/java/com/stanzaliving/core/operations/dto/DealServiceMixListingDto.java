@@ -3,11 +3,13 @@ package com.stanzaliving.core.operations.dto;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 
+import com.stanzaliving.operations.enums.ServiceMixTagType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,4 +44,5 @@ public class DealServiceMixListingDto {
 	private String approvalPendingBy;
 	
 	private List<String> serviceList;
+	private Map<String, ServiceMixTagType> tags;
 }

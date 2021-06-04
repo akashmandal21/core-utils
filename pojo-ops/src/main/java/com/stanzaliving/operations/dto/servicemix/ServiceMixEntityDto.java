@@ -3,6 +3,7 @@ package com.stanzaliving.operations.dto.servicemix;
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
+import com.stanzaliving.operations.enums.ServiceMixTagType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import lombok.experimental.SuperBuilder;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -48,5 +50,6 @@ public class ServiceMixEntityDto implements Serializable {
 	private DealCategory dealCategory;
 	private String transformationChangeUuid;
 	private boolean isDefault = false;
+	private Map<String, ServiceMixTagType> tags;
 
 }

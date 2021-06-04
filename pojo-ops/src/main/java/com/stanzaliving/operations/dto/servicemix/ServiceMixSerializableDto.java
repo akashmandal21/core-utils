@@ -1,9 +1,11 @@
 package com.stanzaliving.operations.dto.servicemix;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 import com.stanzaliving.core.operations.enums.DealCategory;
 
+import com.stanzaliving.operations.enums.ServiceMixTagType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,4 +42,6 @@ public class ServiceMixSerializableDto {
 	private DealCategory dealCategory;
 
 	private Config config = new Config();
+
+	private Map<String, ServiceMixTagType> tags;
 }
