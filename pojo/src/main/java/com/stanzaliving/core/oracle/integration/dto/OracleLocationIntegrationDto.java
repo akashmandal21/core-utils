@@ -114,9 +114,4 @@ public class OracleLocationIntegrationDto extends AbstractOracleDto {
     @JsonProperty("locationMicromarketId")
     private String locationMicromarketId;
 
-
-
-
-
-
 }
