@@ -36,5 +36,5 @@ public class PageDto {
     private MandatoryConditionDto mandatoryCondition;
     private PrivilegeDto privileges;
     @NotNull(message = "PageComponent cannot be null")
-    private List<DisplayableOrderDto> pageComponent;
+    private Object pageComponent;
 }
