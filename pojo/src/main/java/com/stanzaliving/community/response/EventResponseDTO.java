@@ -1,6 +1,5 @@
 package com.stanzaliving.community.response;
 
-import com.stanzaliving.community.request.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
