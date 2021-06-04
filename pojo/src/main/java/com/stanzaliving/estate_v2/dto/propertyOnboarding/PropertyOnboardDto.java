@@ -37,4 +37,8 @@ public class PropertyOnboardDto extends AbstractMongoDto {
     private Double latitude;
     @DoubleZeroOrNull(message = "Longitude cannot be zero or null")
     private Double longitude;
+    private String phoneNumber;
+    private String mapLink;
+    private String mappedProperty;
+    private String color;
 }
