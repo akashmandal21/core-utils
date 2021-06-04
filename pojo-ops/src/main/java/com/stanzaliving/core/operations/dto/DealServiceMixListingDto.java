@@ -44,5 +44,5 @@ public class DealServiceMixListingDto {
 	private String approvalPendingBy;
 	
 	private List<String> serviceList;
-	private Map<String, ServiceMixTagType> tags;
+	private Map<String, Object> tags;
 }
