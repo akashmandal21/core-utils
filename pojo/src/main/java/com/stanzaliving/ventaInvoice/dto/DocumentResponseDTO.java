@@ -1,14 +1,10 @@
 package com.stanzaliving.ventaInvoice.dto;
 
 import com.stanzaliving.invoice.enums.Category;
-import com.stanzaliving.ventaInvoice.enums.InvoiceType;
+import com.stanzaliving.ventaInvoice.enums.DocumentType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 import com.stanzaliving.ventaInvoice.enums.Split;
 import lombok.*;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -26,7 +22,7 @@ public class DocumentResponseDTO {
 
     private ReferenceType referenceType;
 
-    private InvoiceType invoiceType;
+    private DocumentType documentType;
 
     private String invoiceSelector;
 
