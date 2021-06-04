@@ -39,6 +39,7 @@ public class FoodPreferenceComboResponseDto {
 	private String thaliVariant;
 	private String thaliName;
 	private String mealGroupId;
+	private String mealId;
 	private String mealName;
 
 }
