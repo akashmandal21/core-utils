@@ -92,15 +92,16 @@ public class LeadRequestDto {
 	private String gClientId;
 	private String gSessionId;
 
-	String razorpayPaymentId;
+	private String razorpayPaymentId;
 
-	String razorpayOrderId;
+	private String razorPayOrderId;
 
-	String razorpaySignature;
+	private String razorpaySignature;
 
 	@Default
 	private boolean lastQuestion = false;
-
+	private String errorMessage;
+	private int bookingId;
 	@Default
 	private boolean isHotLead = false;
 	@Default
