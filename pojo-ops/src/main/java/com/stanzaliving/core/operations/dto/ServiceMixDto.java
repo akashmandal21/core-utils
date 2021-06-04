@@ -9,7 +9,6 @@ import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 
-import com.stanzaliving.operations.enums.ServiceMixTagType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -68,6 +67,6 @@ public class ServiceMixDto extends AbstractDto {
 	
 	private DealCategory dealCategory;
 
-	private Map<String, ServiceMixTagType> tags;
+	private Map<String, String> tags;
 
 }
