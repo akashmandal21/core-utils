@@ -1,6 +1,7 @@
 package com.stanzaliving.core.dto;
 
 
+import com.stanzaliving.core.enums.DocumentVerificationSource;
 import com.stanzaliving.core.enums.VerificationStatus;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ public class DocumentVerificationDTO {
 
     private String documentUuid;
 
-    private String verificationSource;
+    private DocumentVerificationSource verificationSource;
 
     private String requestId;
 
