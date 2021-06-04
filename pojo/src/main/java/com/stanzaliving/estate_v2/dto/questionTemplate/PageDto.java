@@ -18,10 +18,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PageDto {
-    @Size(max = 30,message = "Page Name should be less than 30 characters")
+    @Size(max = 30, message = "Page Name should be less than 30 characters")
     @EmptyOrNull(message = "Page name cannot be empty or null")
     private String name;
-    @Size(max = 120,message = "Help Text should be less than 120 characters")
+    @Size(max = 120, message = "Help Text should be less than 120 characters")
     private String helpText;
     @Min(value = 1, message = "The Display Order cannot be 0 or negative Values")
     @NotNull(message = "Display Order cannot be empty or null")
@@ -29,7 +29,7 @@ public class PageDto {
     @EmptyOrNull(message = "Status cannot be empty or null")
     private String status;
     private String pageIcon;
-    @Size(min = 1,message = "Mandatory to choose atleast 1 Applicable Status")
+    @Size(min = 1, message = "Mandatory to choose atleast 1 Applicable Status")
     @NotNull(message = "Applicable Status cannot be null")
     private List<ApplicableStatusesDto> applicableStatuses;
     private VisibilityConditionDto visibilityCondition;
