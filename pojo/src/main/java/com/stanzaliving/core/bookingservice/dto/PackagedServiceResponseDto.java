@@ -18,5 +18,4 @@ public class PackagedServiceResponseDto {
     private Double feePerMonth;
     private String serviceMixUuid;
     private String serviceMixName;
-    private List<Object> serviceDescription;
 }
