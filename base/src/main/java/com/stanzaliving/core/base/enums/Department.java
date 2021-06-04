@@ -34,7 +34,8 @@ public enum Department {
 	SCM("Supply Chain Mgmt","SM","TRN"),
 	GROWTH_STRATEGY("Growth and Strategy","GS","GRS"),
 	E_COMMERCE("E-Commerce", "EC", "ECE"),
-	LND("Learning & Development","LD","LND");
+	LND("Learning & Development","LD","LND"),
+	PUBLIC_POLICY("Public Policy","PP","PPO");
 
 	public String departmentName;
 	public String shortCode;
