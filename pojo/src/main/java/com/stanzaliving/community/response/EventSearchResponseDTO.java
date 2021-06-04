@@ -14,7 +14,5 @@ public class EventSearchResponseDTO {
     private String id;
     private String uuid;
     private String eventID;
-    private String name;
-    private String eventType;
-    private String eventCategory;
+    private String eventName;
 }

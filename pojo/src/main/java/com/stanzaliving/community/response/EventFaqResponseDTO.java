@@ -12,5 +12,5 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventFaqResponseDTO {
-    private List<AddEventFaqResponseDTO> faqItems;
+    private List<FaqItemsResponseDTO> faqItems;
 }
