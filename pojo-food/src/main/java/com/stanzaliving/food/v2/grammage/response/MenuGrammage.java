@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -31,5 +32,7 @@ public class MenuGrammage {
 	private LocalDate weekStartDate;
 
 	private LocalDate weekEndDate;
+
+	private List<MealMenuGrammageDto> mealMenus;
 
 }
