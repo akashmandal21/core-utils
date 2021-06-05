@@ -1,11 +1,13 @@
 package com.stanzaliving.food.v2.grammage.response;
 
-import com.stanzaliving.core.dto.KeyValuePairDto;
+import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
@@ -20,11 +22,12 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class MealMenuGrammageDto {
 
-	private KeyValuePairDto meal;
+	private EnumListing<MealType> meal;
 
 	private List<DayMenuGrammage> dayMenus;
 

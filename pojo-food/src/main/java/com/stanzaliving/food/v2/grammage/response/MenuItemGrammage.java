@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -18,13 +19,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class MenuItemGrammage {
 
 	private KeyValuePairDto item;
-
-	private boolean additive;
 
 	private Integer grammage;
 
