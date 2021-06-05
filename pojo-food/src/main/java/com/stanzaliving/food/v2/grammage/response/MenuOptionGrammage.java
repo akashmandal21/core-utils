@@ -1,20 +1,22 @@
 package com.stanzaliving.food.v2.grammage.response;
 
 import com.stanzaliving.core.dto.KeyValuePairDto;
+import com.stanzaliving.core.user.enums.EnumListing;
+import com.stanzaliving.food.v2.common.constant.ThaliType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
  * @version 1.0
  *
- * @since 26-May-2021
+ * @since 05-Jun-2021
  */
 
 @Getter
@@ -22,14 +24,13 @@ import java.time.LocalDate;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuGrammage {
+public class MenuOptionGrammage {
 
-	public static final long serialVersionUID = 2323232L;
+	private KeyValuePairDto thali;
 
-	private KeyValuePairDto residence;
+	private EnumListing<ThaliType> thaliType;
 
-	private LocalDate weekStartDate;
+	private Integer thaliGrammage;
 
-	private LocalDate weekEndDate;
-
+	private List<MenuItemGrammage> menuItemsGrammage;
 }

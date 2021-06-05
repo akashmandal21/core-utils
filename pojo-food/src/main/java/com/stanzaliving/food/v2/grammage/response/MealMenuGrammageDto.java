@@ -7,14 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
  * @version 1.0
  *
- * @since 26-May-2021
+ * @since 05-Jun-2021
  */
 
 @Getter
@@ -22,14 +22,10 @@ import java.time.LocalDate;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuGrammage {
+public class MealMenuGrammageDto {
 
-	public static final long serialVersionUID = 2323232L;
+	private KeyValuePairDto meal;
 
-	private KeyValuePairDto residence;
-
-	private LocalDate weekStartDate;
-
-	private LocalDate weekEndDate;
+	private List<DayMenuGrammage> dayMenus;
 
 }

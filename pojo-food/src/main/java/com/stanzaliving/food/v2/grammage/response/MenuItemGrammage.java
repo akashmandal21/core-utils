@@ -7,14 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
-
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
  * @version 1.0
  *
- * @since 26-May-2021
+ * @since 05-Jun-2021
  */
 
 @Getter
@@ -22,14 +20,12 @@ import java.time.LocalDate;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuGrammage {
+public class MenuItemGrammage {
 
-	public static final long serialVersionUID = 2323232L;
+	private KeyValuePairDto item;
 
-	private KeyValuePairDto residence;
+	private boolean additive;
 
-	private LocalDate weekStartDate;
-
-	private LocalDate weekEndDate;
+	private Integer grammage;
 
 }
