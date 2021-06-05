@@ -26,9 +26,7 @@ public class PropertyOnboardDto extends AbstractMongoDto {
     private String cityName;
     @EmptyOrNull(message = "Micro market Name cannot be empty or null")
     private String microMarketName;
-    @EmptyOrNull(message = "Property Status cannot be empty or null")
     private String propertyStatus;
-    @EmptyOrNull(message = "Status cannot be empty or null")
     private String status;
     @EmptyOrNull(message = "Address cannot be empty or null")
     @Size(max = 200, message = "Address should be less than 200 characters")

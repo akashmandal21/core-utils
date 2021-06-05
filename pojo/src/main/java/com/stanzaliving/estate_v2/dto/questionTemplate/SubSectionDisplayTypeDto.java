@@ -10,7 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class SubSectionDisplayTypeDto {
     @EmptyOrNull(message = "Display-Type cannot be null")
-    private String displayType;
+    private String type;
     private Object data;
 
 }
