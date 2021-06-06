@@ -27,7 +27,8 @@ public class ResidenceMetadataDto {
     private String parentResidenceId;
     
     private PropertyEntityType propertyEntityType;
-    
-    
-    
+
+    private String phoenixPropertyUuid;
+
+
 }
