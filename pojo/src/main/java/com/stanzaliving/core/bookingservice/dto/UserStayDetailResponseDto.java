@@ -18,8 +18,8 @@ public class UserStayDetailResponseDto {
 	private String roomNumber;
 	private String occupancy;
 	private String paymentTerm;
-	private String contractStartDate;
-	private String contractEndDate;
+	private Date contractStartDate;
+	private Date contractEndDate;
 	private String contractMonths;
 	private double dues;
 	
