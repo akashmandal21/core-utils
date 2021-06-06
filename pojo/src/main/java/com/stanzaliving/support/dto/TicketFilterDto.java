@@ -57,8 +57,5 @@ public class TicketFilterDto {
     private Date reopenedAtEndDate;
 
     private TicketTypeDto ticketType;
-
-
-
-
 }
+

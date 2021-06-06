@@ -29,7 +29,7 @@ public class TicketRequestDto {
     @NotBlank(message = "Raised for user uuid cannot be blank/null")
     private String raisedFor;
 
-    private String assignedTo;
+    private String assignedToUuid;
 
     private List<TagDto> tagDtos;
 }

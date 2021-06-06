@@ -24,7 +24,7 @@ public class SubTicketResponseDto {
     private String comments;
     private String reason;
     private String taskType;
-    private String status;
+    private String statusDetail;
     private String statusUuid;
     private String createdBy;
     private String createdByUuid;

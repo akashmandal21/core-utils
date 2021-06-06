@@ -3,6 +3,9 @@ package com.stanzaliving.support.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Getter
 @AllArgsConstructor
 public enum Status {
@@ -18,5 +21,16 @@ public enum Status {
     MERGED("MERGED");
 
     private final String value;
+
+    private static final Map<String, Status> map = new HashMap<>();
+
+    public static Status enumOf(String source) {
+        return map.get(source);
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
 
 }

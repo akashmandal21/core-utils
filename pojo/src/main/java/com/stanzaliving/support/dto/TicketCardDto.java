@@ -15,13 +15,13 @@ public class TicketCardDto {
 
     private Long ticketId;
     private String ticketUuid;
-    private String ticketStatus;
+    private String statusDetail;
     private Date createdAt;
     private Date slaTime;
     private String categoryUuid;
-    private String categoryName;
+    private String categoryDetail;
     private String subCategoryUuid;
-    private String subCategoryName;
+    private String subCategoryDetail;
     private String userName;
     private String userCode;
     private String residenceName;

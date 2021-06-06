@@ -17,6 +17,8 @@ public class SubTicketDto {
     private Long id;
     private String taskTypeUuid;
     private String teamUuid;
+    private String taskTypeDetail;
+    private String teamDetail;
     private String assignedTo;
     private Date slaTime;
     private boolean markForDelay;
@@ -24,6 +26,6 @@ public class SubTicketDto {
     private Date completionDate;
     private String reason;
     private Date tentativeDate;
-    private String status;
+    private String statusDetail;
     private Date createdAt;
 }
