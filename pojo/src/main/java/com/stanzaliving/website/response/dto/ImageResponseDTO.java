@@ -28,6 +28,7 @@ public class ImageResponseDTO implements Serializable{
 	private boolean enabled;
 	private String altTag;
 	private ImageTags imageTag;
+	public String imageTagName;
 	private boolean featuredImage;
 	private String imageUrlAltTag;
 	private List<String> imageUrlAltTagList;
