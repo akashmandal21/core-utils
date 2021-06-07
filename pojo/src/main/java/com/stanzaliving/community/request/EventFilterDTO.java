@@ -9,8 +9,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EventFilterDTO {
-    private List eventType;
-    private List eventCategory;
-    private List status;
+    private List<String> eventType;
+    private List<String> eventCategory;
+    private List<String> status;
 }
 
