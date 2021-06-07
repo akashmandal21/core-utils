@@ -26,6 +26,7 @@ public class NotificationClientApi {
     public static final String CAMPAIGN_ID = "campaignId";
     public static final String USER_UUID = "userUuid";
     public static final String RESIDENCE_UUID = "residenceUuid";
+    public static final String APPLICATION_NAME = "applicationName";
 
     private StanzaRestClient restClient;
 
@@ -87,14 +88,15 @@ public class NotificationClientApi {
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public List<String> getAllUsers() {
+    public List<String> getAllUsers(String applicationName) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put(APPLICATION_NAME,applicationName);
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/fcm/users")
+                UriComponentsBuilder.fromPath("/api/v1/fcm/application/{applicationName}/users")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
@@ -120,14 +122,15 @@ public class NotificationClientApi {
         return responseDto.getData();
     }
 
-    public List<String> getUserLocation(AudienceLocationDto audienceLocationDto) {
+    public List<String> getUserLocation(String applicationName,AudienceLocationDto audienceLocationDto) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put(APPLICATION_NAME,applicationName);
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/fcm/user/list")
+                UriComponentsBuilder.fromPath("/api/v1/fcm/application/{applicationName}/user/list")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
@@ -232,7 +235,7 @@ public class NotificationClientApi {
         return response.getData();
     }
 
-    public String getNotificationClickedAt(String userId, String campaignId) {
+    public Date getNotificationClickedAt(String userId, String campaignId) {
 
         Object postBody = null;
 
@@ -252,9 +255,9 @@ public class NotificationClientApi {
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        ParameterizedTypeReference<ResponseDto<Date>> returnType = new ParameterizedTypeReference<ResponseDto<Date>>() {
         };
-        ResponseDto<String> response = restClient.invokeAPI(
+        ResponseDto<Date> response = restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         return response.getData();
     }
@@ -285,14 +288,16 @@ public class NotificationClientApi {
                 path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public List<String> getUserInformation(CampaignAudienceDto audienceDto) {
+    public List<String> getUserInformation(String applicationName,CampaignAudienceDto audienceDto) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put(APPLICATION_NAME,applicationName);
+
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/fcm/user")
+                UriComponentsBuilder.fromPath("/api/v1/fcm/user/application/{applicationName}")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
