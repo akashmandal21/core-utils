@@ -12,7 +12,9 @@ import lombok.NoArgsConstructor;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.security.PrivateKey;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -37,4 +39,6 @@ public class FilterItemRecipeTagDto {
     private SortDirection sortDirection;
 
     private String searchKey;
+
+    private List<String> availableFields= Arrays.asList("recipeTagStatusOptions","recipeUomOptions");
 }
