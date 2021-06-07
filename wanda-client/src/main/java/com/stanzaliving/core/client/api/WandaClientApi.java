@@ -18,9 +18,11 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
 import com.stanzaliving.wanda.dtos.FullUserDto;
+import com.stanzaliving.wanda.dtos.ResidentProfessionalDetailsDto;
 import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
 import com.stanzaliving.wanda.dtos.UserDetailDto;
 import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
+import com.stanzaliving.wanda.response.WandaFileResponseDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -426,6 +428,64 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Error while fetching User City Micromarket Residence Uuids By UserCode: {}", usercode, e);
+		}
+
+		return null;
+	}
+	
+	
+	public List<WandaFileResponseDto> getUserProfile(List<String> userUuids) {
+
+
+		Object postBody = userUuids;
+
+		log.info("Received request to get profile of user {}" , userUuids);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/user/profile").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<WandaFileResponseDto>> returnType = new ParameterizedTypeReference<List<WandaFileResponseDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+	
+	
+	public ResidentProfessionalDetailsDto getProfessionalDetails(String userUuid) {
+
+		try {
+			Object postBody = null;
+
+			log.info("Received request to get ProfessionalDetails for User :{}", userUuid);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("userUuid", userUuid);
+			
+			String path = UriComponentsBuilder.fromPath("/internal/user/professionalDetails/{userUuid}").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResidentProfessionalDetailsDto> returnType = new ParameterizedTypeReference<ResidentProfessionalDetailsDto>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching get ProfessionalDetails By userUuid: {}", userUuid, e);
 		}
 
 		return null;

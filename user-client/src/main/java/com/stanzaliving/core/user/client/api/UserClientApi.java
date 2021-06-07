@@ -482,4 +482,36 @@ public class UserClientApi {
 			return null;
 		}
 	}
+	
+	public ResponseDto<Map<String, UserProfileDto>> getUserProfileForUsers(List<String> userIds) {
+		
+		Object postBody = null;
+
+		
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/userprofiles").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>>() {
+		};
+
+		UserManagerProfileRequestDto userManagerProfileRequestDto = new UserManagerProfileRequestDto();
+		userManagerProfileRequestDto.setUserUuids(userIds);
+
+		postBody = userManagerProfileRequestDto;
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+	
+	
 }
