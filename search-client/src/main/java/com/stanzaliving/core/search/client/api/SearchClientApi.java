@@ -26,6 +26,8 @@ import com.stanzaliving.search.food.search.dto.response.menu.fps.FoodMenuItemFps
 import com.stanzaliving.search.food.search.dto.response.menu.fps.MenuCategoryFpsResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.FoodMenuMicromarketRatingResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.MealItemRatingResponseDto;
+import com.stanzaliving.search.food.search.dto.response.menu.rating.MicromarketItemRatingDto;
+import com.stanzaliving.search.medulla.dtos.PoSearchRequetDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -33,11 +35,13 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -439,6 +443,44 @@ public class SearchClientApi {
 
 	public FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(MenuMealItemRequestDto requestDto) {
 		return foodMenuAggregationClient.aggregateWeeklyMenuItemsRating(restClient, requestDto);
+	}
+
+
+	public PageResponse<Map<String,Object>> searchPOs(PoSearchRequetDto requestDto) {
+
+		String path = UriComponentsBuilder.fromPath("internal/search/po/master/search").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<PageResponse<Map<String,Object>>>> returnType = new TypeReference<ResponseDto<PageResponse<Map<String,Object>>>>() {};
+
+		ResponseDto<PageResponse<Map<String,Object>>> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		return responseDto.getData();
 	}
 
 }

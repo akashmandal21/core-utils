@@ -285,7 +285,7 @@ public class VendorClientApi {
         uriVariables.put("propertyUuid",propertyUuid);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
+        
         final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {"*/*"};
@@ -310,7 +310,7 @@ public class VendorClientApi {
         uriVariables.put("vendorUuid",vendorUuid);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
+        	
         final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {"*/*"};
@@ -326,7 +326,32 @@ public class VendorClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, vddReturnType);
     }
+    
+    public ResponseDto<String> getHouseUuidForAllLocationTypes(String vendorUuid) {
 
+        log.info("HTTP Client call to get House  uuid {}" , vendorUuid);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("vendorUuid",vendorUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("allLocationTypes", Boolean.TRUE.toString());
+        
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/getPropertyUuid/{vendorUuid}").buildAndExpand(uriVariables).toUriString();
+
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, vddReturnType);
+    }
 
     public ResponseDto<List<String>> createHouseWareHouseVendor(List<String> properties) {
 
