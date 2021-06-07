@@ -25,6 +25,6 @@ public class CompositionConditionV2Dto extends ConditionDto {
 	@Builder.Default
 	private Boolean passed = true;
 
-	private Map<DayOfWeek, List<MealType>> failedMeals;
+	private Map<MealType, List<DayOfWeek>> failedMeals;
 
 }
