@@ -25,8 +25,6 @@ public enum FarCategory {
 	NON_TAGGABLE("Not Taggable");
 
 	private String text;
-
-	public static Collection<FarCategory> farCategories;
 	private static SortedMap<String, FarCategory> farCategoriesMap = new TreeMap<String, FarCategory>();
 
 	static {
