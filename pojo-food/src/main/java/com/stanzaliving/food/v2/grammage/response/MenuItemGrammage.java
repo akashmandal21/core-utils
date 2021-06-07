@@ -30,8 +30,6 @@ public class MenuItemGrammage {
 
 	private EnumListing<FoodItemType> itemType;
 
-	private boolean quantifiable;
-
 	private Integer grammage;
 
 	private Integer quantity;
