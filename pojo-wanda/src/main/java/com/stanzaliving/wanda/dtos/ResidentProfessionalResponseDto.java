@@ -1,7 +1,5 @@
 package com.stanzaliving.wanda.dtos;
 
-import javax.validation.constraints.NotBlank;
-
 import com.stanzaliving.wanda.enums.ResidentType;
 
 import lombok.AllArgsConstructor;
@@ -17,26 +15,15 @@ import lombok.ToString;
 @NoArgsConstructor
 @Setter
 @ToString
-public class ResidentProfessionalDetailsDto {
+public class ResidentProfessionalResponseDto {
 
-	@NotBlank(message = "User Id is Required")
 	private String userId;
-	
-	@NotBlank(message = "Resident Type is Required")
 	private ResidentType residentType;
-
 	private String educationalInstitute;
-	
 	private String course;
-	
 	private String degree;
-	
 	private Integer yearOfStudy;
-	
 	private String companyName;
-	
 	private String designation;
-	
 	private String profilePic;
-	
 }
