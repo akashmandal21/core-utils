@@ -1,6 +1,8 @@
 package com.stanzaliving.food.v2.grammage.response;
 
 import com.stanzaliving.core.dto.KeyValuePairDto;
+import com.stanzaliving.core.food.enums.FoodItemType;
+import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +28,12 @@ public class MenuItemGrammage {
 
 	private KeyValuePairDto item;
 
+	private EnumListing<FoodItemType> itemType;
+
+	private boolean quantifiable;
+
 	private Integer grammage;
+
+	private Integer quantity;
 
 }
