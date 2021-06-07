@@ -25,13 +25,20 @@ import java.util.Map;
 @Log4j2
 public class ResidenceDataControllerApi {
 
-	private StanzaRestClient restClient;
 
-	public ResidenceDataControllerApi(StanzaRestClient stanzaRestClient) {
-		this.restClient = stanzaRestClient;
-	}
+    private StanzaRestClient restClient;
 
-	public RoomDetailsResponseDto getRoomDetails(String roomUUID, String token) {
+    public ResidenceDataControllerApi(StanzaRestClient stanzaRestClient) {
+        this.restClient = stanzaRestClient;
+    }
+
+    /**
+     * This method is used to fetch room details
+     * @param roomUUID->Unique Room ID corresponding to room
+     * @param token->Security token
+     * @return RoomDetails
+     */
+    public RoomDetailsResponseDto getRoomDetails(String roomUUID, String token) {
 
 		log.info("Residence-Data-Controller::Processing to get room details based on roomUUID {}", roomUUID);
 
