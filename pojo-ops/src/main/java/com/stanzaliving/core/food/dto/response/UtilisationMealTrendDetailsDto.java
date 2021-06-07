@@ -18,6 +18,6 @@ import java.util.List;
 public class UtilisationMealTrendDetailsDto {
 
 	private String dealUuid;
-	List<UtilisationMealDetailsDto> utilisationMealDetailsDtoList;
+	private List<UtilisationMealDetailsDto> utilisationMealDetailsDtoList;
 
 }

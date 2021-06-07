@@ -18,9 +18,9 @@ import java.time.LocalDate;
 public class UtilisationMealDetailsDto {
 
 	private LocalDate date;
-	int consumptionPercentage;
-	int wastagePercentage;
-	boolean isHoliday;
-	boolean isSpecialMeal;
+	private int consumptionPercentage;
+	private int wastagePercentage;
+	private boolean isHoliday;
+	private boolean isSpecialMeal;
 
 }

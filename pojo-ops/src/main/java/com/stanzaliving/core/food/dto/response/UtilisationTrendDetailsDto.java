@@ -24,6 +24,6 @@ public class UtilisationTrendDetailsDto {
 	private String menuCategoryId;
 	private String menuName;
 	private int mirCount;
-	List<UtilisationWastageDetailsDto> utilisationWastageDetailsDtoList;
+	private List<UtilisationWastageDetailsDto> utilisationWastageDetailsDtoList;
 
 }
