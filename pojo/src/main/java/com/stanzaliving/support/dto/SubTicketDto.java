@@ -13,8 +13,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class SubTicketDto {
     private String ticketUuid;
-    private String uuid;
-    private Long id;
+    private String subTicketUuid;
+    private Long subTicketId;
     private String taskTypeUuid;
     private String teamUuid;
     private String taskTypeDetail;

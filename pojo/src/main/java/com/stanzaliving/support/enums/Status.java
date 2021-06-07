@@ -24,8 +24,13 @@ public enum Status {
 
     private static final Map<String, Status> map = new HashMap<>();
 
-    public static Status enumOf(String source) {
-        return map.get(source);
+    static {
+        for (Status status : Status.values()) {
+            map.put(status.value, status);
+        }
+    }
+    public static Status enumOf(String status) {
+        return map.get(status);
     }
 
     @Override
