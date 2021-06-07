@@ -1,11 +1,11 @@
 package com.stanzaliving.core.far.dto;
 
-import com.stanzaliving.core.far.enums.AssetActiontype;
+import com.stanzaliving.core.far.enums.AssetActionType;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -15,15 +15,15 @@ import java.util.HashMap;
 
 @Getter
 @Setter
+@Data
 public class AssetHistoryDto {
-
     private String assetUuid;
     private String contextDescription;
     private HashMap<String,String> before;
     private HashMap<String,String> after;
     private Timestamp timestamp;
-    private AssetActiontype assetActiontype;
+    private AssetActionType assetActionType;
     private String contextId;
-
-
+    private String createdBy;
+    private String user;
 }

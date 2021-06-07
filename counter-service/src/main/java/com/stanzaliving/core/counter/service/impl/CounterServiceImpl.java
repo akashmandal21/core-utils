@@ -2,9 +2,9 @@ package com.stanzaliving.core.counter.service.impl;
 
 import com.stanzaliving.core.counter.entity.CounterKeyEntity;
 import com.stanzaliving.core.counter.exceptions.CounterServiceException;
-import com.stanzaliving.core.counter.repository.CounterRepository;
 import com.stanzaliving.core.counter.service.CategoryKey;
 import com.stanzaliving.core.counter.service.CounterService;
+import com.stanzaliving.core.counter.service.repository.CounterRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.retry.annotation.Retryable;
@@ -21,7 +21,8 @@ import java.util.Objects;
 @Log4j2
 public class CounterServiceImpl implements CounterService{
 
-	@Autowired CounterRepository countRepository;
+	@Autowired
+	CounterRepository countRepository;
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -50,18 +51,17 @@ public class CounterServiceImpl implements CounterService{
 
 	@Override
 	@Transactional
-	public Long increaseCountByValue(String key, Long value) throws CounterServiceException {
-		CounterKeyEntity count = countRepository.findByKey(key);
+	public Long increaseCountByValue(CategoryKey counterKey, Long value) throws CounterServiceException {
+		CounterKeyEntity count = countRepository.findByKey(counterKey.getKey());
 
 		if(Objects.isNull(count)) {
 			try {
-				count = createCategoryRowWithKeyAndCount(key, value);
-				return 0L;
+				count = createCategoryRow(counterKey);
 			} catch (Exception ex) {
-				log.error("Error creating the category, checking if it's created by some other transaction {}", key, ex);
-				count = countRepository.findByKey(key);
+				log.error("Error creating the category, checking if it's created by some other transaction {}", counterKey, ex);
+				count = countRepository.findByKey(counterKey.getKey());
 				if (Objects.isNull(count))
-					throw new CounterServiceException("Unable to create new category row " + key + "  " + ex.getMessage() + " " + ex.getCause());
+					throw new CounterServiceException("Unable to create new category row " + counterKey.getKey() + "  " + ex.getMessage() + " " + ex.getCause());
 			}
 		}
 		return incrementCounterForKeyByValue(count, value);
@@ -92,11 +92,5 @@ public class CounterServiceImpl implements CounterService{
 	private CounterKeyEntity createCategoryRow(CategoryKey categoryKey){
 		log.info(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
 		return countRepository.save(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
-	}
-
-	@Transactional
-	private CounterKeyEntity createCategoryRowWithKeyAndCount(String key, Long count){
-		log.info(CounterKeyEntity.builder().key(key).count(count).build());
-		return countRepository.save(CounterKeyEntity.builder().key(key).count(count).build());
 	}
 }

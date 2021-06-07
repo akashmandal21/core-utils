@@ -5,7 +5,7 @@ package com.stanzaliving.core.far.enums;
  * @date 23/03/21
  */
 public enum RejectionType {
-    DAMAGED("Damaged");
+    DAMAGED("Damaged"), OTHER("Other");
 
     private String label;
 

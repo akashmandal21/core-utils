@@ -2,6 +2,9 @@ package com.stanzaliving.core.grsi.dto;
 
 import java.util.Date;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import com.stanzaliving.transformations.enums.LocationType;
 
@@ -28,6 +31,7 @@ public class GrsiEventUpdateDto {
     private String doneBy;
     private Date doneAt;
     private GrsiItemDto gsriItem;
-    private Integer version;
     private String adjustCloseId;
+    private Integer version;
+
 }

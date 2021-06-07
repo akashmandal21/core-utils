@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -23,5 +24,6 @@ public class AmcResponseDto {
     private String pocEmail;
     private String amcIncludes; // Multiple select options based on the item selected
     private String amcExcludes; // Multiple select options based on the item selected
-    private String amcDocumentPath; // where the uploaded doc. by user is stored
+    private List<String> amcDocumentPathList; // where the uploaded doc. by user is stored
+    private List<String> amcDocumentUrlList;
 }

@@ -43,4 +43,5 @@ public class PoSearchIndexDto {
     private String poToNumberSearch;
     private String poDepartment;
     private Boolean visibleInGrn;
+    private Double gsriPct;
 }

@@ -1,14 +1,14 @@
 package com.stanzaliving.core.far.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 
 @Data
 @Builder
@@ -20,8 +20,14 @@ public class TransferAssetRequestDto {
     private String toNumber;
     private String qrCode;
     private String cartAssetUuid;
-    private String addressUuid;
+    private String sourceAddressUuid;
+    private String destinationAddressUuid;
 
     @NotNull
-    private boolean transferOut;
+    private Boolean transferOut;
+
+    public String toString() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
+    }
 }

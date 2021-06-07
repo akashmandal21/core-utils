@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Data
 @Builder
@@ -26,7 +27,6 @@ public class AssetDetailsResponseDto {
 
     private String assetUuid;
     private String assetId;
-    private BigDecimal costPrice;
     private String poNumber;
     private String poType;
     private String poUrl;
@@ -39,13 +39,11 @@ public class AssetDetailsResponseDto {
     private BigDecimal gstPct;
     private BigDecimal otherFee;
     private BigDecimal otherFeeTax;
-    private BigDecimal totalCost;
     private String invoiceNumber;
     private Date invoiceDate;
     private String invoiceVendorDocPath;
     private String assetName;
-    private String itemName;
-    private String itemDescription;
+    private String assetDescription;
     private String itemCode;
     private String owner;
     private String landlordName;
@@ -71,4 +69,8 @@ public class AssetDetailsResponseDto {
     private Integer taskDueCount;
     private String textColor;
     private String bgColor;
+    private Date acquisitionDate;
+    private BigDecimal acquisitionPrice;
+    private String poPdf;
+    private Map<String, String> invoices;
 }

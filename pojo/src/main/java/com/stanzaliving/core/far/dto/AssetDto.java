@@ -1,6 +1,8 @@
 package com.stanzaliving.core.far.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.stanzaliving.core.far.enums.AssetStatus;
 import com.stanzaliving.core.far.enums.AssetType;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
@@ -20,13 +22,13 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AssetDto {
 
+    private String rowNumber;
     private InsuranceDto insuranceDto;
     private AmcDto amcDto;
     private AllocationDto allocationDto;
     private ItemDto itemDto;
 
     private String assetId;
-    private BigDecimal costPrice;
     private String poNumber;
     private String poUuid;
     private GenericPOType poType;
@@ -40,14 +42,12 @@ public class AssetDto {
     private BigDecimal gstPct;
     private BigDecimal otherFee;
     private BigDecimal otherFeeTax;
-    private BigDecimal totalCost;
     private String invoiceNumber;
     private Date invoiceDate;
 
     private String invoiceVendorDocPath;
     private String assetName;
-    private String itemName;
-    private String itemDescription;
+    private String assetDescription;
     private String itemCode;
     private String owner;
     private String landlordName;
@@ -67,4 +67,11 @@ public class AssetDto {
     private String serialNumber;
     private String assetCondition;
     private Integer taskDueCount;
+    private Date rentalStartDate;
+    private Date rentalEndDate;
+
+    public String toString() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
+    }
 }
