@@ -29,6 +29,9 @@ public class FilterDto {
     private Integer pageNum;
     private Integer limit;
 
+    @Builder.Default
+    private boolean substituteNeeded=false;
+
     //Main Top Filters
     @Valid
     @NotNull
@@ -98,7 +101,6 @@ public class FilterDto {
 
     private List<UIKeyValue> itemStatusOptions;
     private List<UIKeyValue> updatedByOptions;
-
 
     public void addAdditionalFilterFields(Set<String> deptFields){
         deptFields.add("department");

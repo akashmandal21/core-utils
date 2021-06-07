@@ -81,6 +81,8 @@
 		<module>approval-service-client</module>
         <module>wanda-client</module>
 		<module>search-client</module>
+		<module>notification-v2-client</module>
+		<module>slack-client</module>
 	</modules>
 
 	<build>

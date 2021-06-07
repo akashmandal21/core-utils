@@ -48,6 +48,7 @@ public class FoodMenuGroupDto extends AbstractDto {
 	private List<MealWiseRatingDto> weeklyRating;
 
 	private boolean compositionRulesSatisfied;
+	private boolean defaultMenuRuleSatisfied;
 
 	private boolean budgetUtilizationInLimit;
 

@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.core.enums.UnitOfMeasurement;
@@ -25,24 +26,16 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishRecipeDetailsDto {
+public class DishRecipeDetailsDto implements Serializable {
 
 	private String dishId;
-
 	private int cookQuantity;
-
 	private Double standardQuantity;
-
 	private Integer quantityPerPax;
-
 	private Double estimatedCost;
-
 	private Double cookQuantityCost;
-
 	private List<KitchenCostDto> kitchenCostDtos;
-
 	private List<RecipeIngredientDto> ingredients;
-
 	private int ingredientCount;
 	private UnitOfMeasurement uom;
 	private Double bufferPricePercentage;

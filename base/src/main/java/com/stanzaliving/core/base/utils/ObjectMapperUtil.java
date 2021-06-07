@@ -3,12 +3,17 @@
  */
 package com.stanzaliving.core.base.utils;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.http.BaseMapperConfig;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.IOException;
 
 import java.io.IOException;
 
@@ -41,14 +46,15 @@ public class ObjectMapperUtil {
 	}
 
 	public <T> T getObjectFromString(String value, Class<T> clazz) {
-
-		try {
-			return mapper.readValue(value, clazz);
-		} catch (IOException e) {
-			log.error(e);
+		T t = null;
+		if (StringUtils.isNotBlank(value)) {
+			try {
+				t = mapper.readValue(value, clazz);
+			} catch (IOException e) {
+				log.error("Error while parsing json to object: {}", e.getMessage());
+			}
 		}
-
-		return null;
+		return t;
 	}
 
 }

@@ -213,13 +213,34 @@ public class GrnClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+    public ResponseDto<Integer> getTOVersion(String toUuid) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("toUuid", toUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/to/version/{toUuid}").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<Integer>> returnType = new ParameterizedTypeReference<ResponseDto<Integer>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
     // Platform Should be any of these according to requirement NUCLEUS, PHOENIX, NEXUS
-    public ResponseDto<Void> receiveOrInstallManualGSRI(String platform, EventType eventType, String poToUuid, boolean isComplete, List<GrsiItemDto> gsriItems) {
+    public ResponseDto<Void> receiveOrInstallManualGSRI(String platform, EventType eventType, String toNumber, boolean isComplete, List<GrsiItemDto> gsriItems) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("platform", platform);
         uriVariables.put("eventType", eventType);
-        uriVariables.put("poToUuid", poToUuid);
+        uriVariables.put("toNumber", toNumber);
         uriVariables.put("isComplete", isComplete);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -230,7 +251,7 @@ public class GrnClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/manual/gsri/receive/or/install/{platform}/{eventType}/{toUuid}/{isComplete}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/manual/gsri/receive/or/install/{platform}/{eventType}/{toNumber}/{isComplete}").buildAndExpand(uriVariables).toUriString();
 
         ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
         };

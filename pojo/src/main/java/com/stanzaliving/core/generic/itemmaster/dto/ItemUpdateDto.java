@@ -44,9 +44,9 @@ public class ItemUpdateDto extends AbstractDto {
 
     private Boolean taggable;
 
-    //newTags
-    private UIKeyValue recipeUom;
-    private double conversionFactor;
-
     private String itemImage;
+
+    private String substituteItem;
+    private UnitType recipeUom;
+    private Double conversionFactor;
 }
