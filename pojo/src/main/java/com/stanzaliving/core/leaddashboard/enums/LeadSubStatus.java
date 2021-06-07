@@ -191,7 +191,7 @@ public enum LeadSubStatus {
 
 	}
 	
-	public static boolean qualVisitSch(LeadSubStatus leadSubStatus) {
+	public static boolean qualifiedVisitScheduled(LeadSubStatus leadSubStatus) {
 		Set<LeadSubStatus> qualifiedVisitScheduledStatus= new HashSet<>();
 		
 		qualifiedVisitScheduledStatus.add(PRE_VISIT_FOLLOW_UP);
@@ -203,7 +203,7 @@ public enum LeadSubStatus {
 		
 		return qualifiedVisitScheduledStatus.contains(leadSubStatus);
 	}
-	public static boolean qualVisitComp(LeadSubStatus leadSubStatus) {
+	public static boolean qualifiedVisitCompleted(LeadSubStatus leadSubStatus) {
 		Set<LeadSubStatus> qualifiedVisitCompletedStatus= new HashSet<>();
 		
 		qualifiedVisitCompletedStatus.add(POST_VISIT_1_FOLLOW_UP);
