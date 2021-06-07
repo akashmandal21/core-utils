@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
 import lombok.AllArgsConstructor;
@@ -52,6 +53,12 @@ public class ApartmentShortResponseDto implements Serializable {
 	private Integer roomCount;
 	
 	private String slug;
+	
+	private FomoTag fomoTag;
+	
+	private String fomoTagName;
+	
+	private String fomoTagcolour;
 	
 	private String pricingPlan;
 	
