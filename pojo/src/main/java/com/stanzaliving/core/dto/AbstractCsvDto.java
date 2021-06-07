@@ -63,10 +63,10 @@ public abstract class AbstractCsvDto {
         List<String[]> data = new ArrayList<>();
         if(CollectionUtils.isNotEmpty(csvDtos)&&csvDtos.stream().findAny().isPresent()) {
             List<String> columns = csvDtos.stream().findAny().get().columns;
-            data.add(ArrayUtils.addAll(columns.toArray(new String[0]), "status"));
+            data.add(ArrayUtils.addAll(new String[]{"status"},columns.toArray(new String[0]) ));
             csvDtos.sort(Comparator.comparing(AbstractCsvDto::getRowId));
             for (AbstractCsvDto dto : csvDtos) {
-                data.add(ArrayUtils.addAll(dto.getData(), dto.getStatus()));
+                data.add(ArrayUtils.addAll(new String[]{dto.getStatus()},dto.getData()));
             }
         }
         return data;
