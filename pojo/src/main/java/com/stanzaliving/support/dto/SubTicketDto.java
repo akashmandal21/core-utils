@@ -22,10 +22,11 @@ public class SubTicketDto {
     private String assignedTo;
     private Date slaTime;
     private boolean markForDelay;
-    private String comments;
+    private String description;
     private Date completionDate;
     private String reason;
     private Date tentativeDate;
     private String statusDetail;
     private Date createdAt;
+    private String createdBy;
 }

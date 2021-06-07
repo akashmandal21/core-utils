@@ -62,4 +62,5 @@ public class AdditionalPropertiesDto {
     private String userCode;
     private String roomNumber;
     private String mobile;
+    private Date createdAt;
 }

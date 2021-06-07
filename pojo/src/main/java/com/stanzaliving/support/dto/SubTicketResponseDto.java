@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Data
@@ -21,7 +22,7 @@ public class SubTicketResponseDto {
     private String assignedTo;
     private String assignedToUuid;
     private Date slaTime;
-    private String comments;
+    private String description;
     private String reason;
     private String taskType;
     private String statusDetail;
@@ -29,4 +30,7 @@ public class SubTicketResponseDto {
     private String createdBy;
     private String createdByUuid;
     private String updatedByUuid;
+    private String currentRoomNo;
+    private String currentHostelId;
+    private String currentHostelName;
 }
