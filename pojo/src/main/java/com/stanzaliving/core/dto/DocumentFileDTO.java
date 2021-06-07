@@ -14,4 +14,5 @@ public class DocumentFileDTO {
     private DocumentSide documentSide;
 
     private String url;
+
 }
