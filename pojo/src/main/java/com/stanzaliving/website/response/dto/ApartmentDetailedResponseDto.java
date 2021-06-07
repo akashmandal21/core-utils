@@ -33,6 +33,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private Integer societyId;
 	
+	private String societyName;
+	
 	private Integer roomCount;
 	
 	private String slug;
