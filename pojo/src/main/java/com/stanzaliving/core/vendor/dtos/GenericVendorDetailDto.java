@@ -34,6 +34,8 @@ public class GenericVendorDetailDto {
 
     private String gstin;
 
+    private String gstState;
+
     private String pan;
 
     private List<VendorPocDetailsDto> vendorPOCs;

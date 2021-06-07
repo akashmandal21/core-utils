@@ -65,5 +65,7 @@ public class FoodOrderMasterResponseDto {
 	private boolean changePreferenceAllowed;
 
 	private List<ItemCostResponseDto> items;
+	
+	private boolean feedbackAllowed;
 
 }

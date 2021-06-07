@@ -5,7 +5,9 @@ package com.stanzaliving.core.user.client.api;
 
 import java.util.*;
 
+import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
+import com.stanzaliving.core.user.dto.*;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -23,10 +25,6 @@ import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
-import com.stanzaliving.core.user.dto.AccessLevelRoleRequestDto;
-import com.stanzaliving.core.user.dto.UserDto;
-import com.stanzaliving.core.user.dto.UserManagerProfileRequestDto;
-import com.stanzaliving.core.user.dto.UserProfileDto;
 import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -481,5 +479,31 @@ public class UserClientApi {
 		catch (Exception ex) {
 			return null;
 		}
+	}
+
+	public ResponseDto<List<UserRoleCacheDto>> getCacheableRoles(List<String> userRoles) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/accesslevel/cachemaps").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<UserRoleCacheDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserRoleCacheDto>>>() {
+		};
+
+		postBody = userRoles;
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
 	}
 }
