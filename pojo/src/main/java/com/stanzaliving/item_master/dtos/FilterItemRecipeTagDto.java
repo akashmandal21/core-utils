@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.security.PrivateKey;
 import java.util.List;
 
 @AllArgsConstructor
@@ -19,9 +20,13 @@ import java.util.List;
 @Builder
 public class FilterItemRecipeTagDto {
 
-    private List<UIKeyValue> recipeTagStatus;
+    //To send for front end
+    private List<UIKeyValue> recipeTagStatusOptions;
     private List<UIKeyValue> recipeUomOptions;
 
+    //To get form front end
+    private List<UIKeyValue> recipeTagStatus;
+    private List<UIKeyValue> recipeUom;
 
     @Valid
     @NotNull
