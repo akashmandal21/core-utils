@@ -922,5 +922,22 @@ public class DateUtil {
 	public Duration getDurationBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
 		return Duration.between(startDateTime, endDateTime);
 	}
-	
+
+	public String getNextDate(String date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		Calendar c = Calendar.getInstance();
+
+		try {
+			c.setTime(sdf.parse(date));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		c.add(Calendar.DATE, 1);  // number of days to add
+
+		date = sdf.format(c.getTime());
+
+		return date;
+	}
 }
