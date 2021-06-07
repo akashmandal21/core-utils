@@ -1,4 +1,4 @@
-package com.stanzaliving.core.venta_aggregation;
+package com.stanzaliving.core.ventaaggregationservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

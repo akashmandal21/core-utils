@@ -1,5 +1,6 @@
-package com.stanzaliving.core.bookingservice.dto;
+package com.stanzaliving.core.bookingservice.dto.request;
 
+import com.stanzaliving.core.bookingservice.dto.PhoneNumberDto;
 import com.stanzaliving.core.utilservice.annotations.Email;
 import com.stanzaliving.core.utilservice.annotations.IsStringOnlyAlphabet;
 import lombok.*;

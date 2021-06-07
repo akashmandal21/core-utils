@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.stanzaliving.core.bookingservice.dto;
+package com.stanzaliving.core.bookingservice.dto.response;
 
 import lombok.Builder;
 import lombok.Data;

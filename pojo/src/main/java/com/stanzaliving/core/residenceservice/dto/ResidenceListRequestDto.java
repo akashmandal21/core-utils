@@ -18,4 +18,5 @@ public class ResidenceListRequestDto {
     private Integer pageNumber;
 
     private Set<String> microMarketList;
+
 }
