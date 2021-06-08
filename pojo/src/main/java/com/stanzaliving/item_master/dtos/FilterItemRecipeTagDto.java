@@ -48,5 +48,5 @@ public class FilterItemRecipeTagDto {
     //SearchKey should be a string or UIKeyValue?
     private String searchKey;
 
-    private List<String> availableFields= Arrays.asList("recipeTagStatusOptions","recipeUomOptions");
+    private List<String> availableFields;
 }
