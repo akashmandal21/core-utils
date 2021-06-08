@@ -25,8 +25,11 @@ public class BookingMigrationDTO {
     private String onboardingStatus;
 
     @JsonSetter(value = "STUDENT_ID")
-    private String residentId;
+    private String residentCode;
 
     @JsonSetter(value = "INVENTORY_ID")
     private Integer inventoryId;
+
+    @JsonSetter(value = "BOOKING_TYPE")
+    private Integer bookingType;
 }

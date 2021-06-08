@@ -18,5 +18,5 @@ public class ResidentDTO {
 
     private String mobileNumber;
 
-    private String residentId;
+    private String residentCode;
 }
