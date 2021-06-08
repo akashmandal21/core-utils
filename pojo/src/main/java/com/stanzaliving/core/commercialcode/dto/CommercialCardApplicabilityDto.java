@@ -1,15 +1,13 @@
 package com.stanzaliving.core.commercialcode.dto;
 import com.stanzaliving.commercialcard.enums.CommercialCodeType;
 import com.stanzaliving.commercialcard.enums.CriteriaCondition;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class CommercialCardApplicabilityDto {
     private String uuid;
 

@@ -24,4 +24,6 @@ public class CommercialCardListDto {
     private Double annualMaintenanceFee;
 
     private String maintenanceFeeCollection;
+
+    private String advanceRentalMonths;
 }
