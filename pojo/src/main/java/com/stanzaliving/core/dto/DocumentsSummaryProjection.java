@@ -5,12 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class DocumentsSummaryProjection {
+public interface DocumentsSummaryProjection {
 
-    private ApprovalStatus approvalStatus;
+    ApprovalStatus getApprovalStatus();
 
-    private Long documentCount;
+    Long getDocumentCount();
 }
