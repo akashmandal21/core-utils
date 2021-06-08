@@ -20,7 +20,7 @@ public class EventSearchFilterResponseDTO {
     private Date eventStartDate;
     private String createdBy;
     private Date updatedAt;
-    private UserList userList;
+    private UserListResponseDTO userList;
     private Long priorityOrder;
     private String eventStatus;
     private String uuid;
