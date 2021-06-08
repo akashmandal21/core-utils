@@ -17,7 +17,12 @@ public enum SortSpecs {
     GST("itemData.gst.label"),
     ITEMRATE("itemData.globalRate"),
     RENTALRATE("itemData.rentalRate"),
-    STATUS("itemData.itemStatus");
+    STATUS("itemData.itemStatus"),
+
+    //RecipeTag Collection
+    RECIPETAGNAME("itemData.recipeTagName"),
+    COUNTOFMAPPING("itemData.countOfMapping"),
+    RECIPETAGUOM("itemData.recipeTagUom");
 
 
     private String dbKey;

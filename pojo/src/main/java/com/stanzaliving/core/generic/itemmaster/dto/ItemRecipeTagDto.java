@@ -13,7 +13,7 @@ public class ItemRecipeTagDto {
 
     private String uuid;
     private String recipeTagName;
-    private String itemsMapped;
+    private long itemsMapped;
     private TimeAndDoneByDto lastUpdated;
     private TimeAndDoneByDto createdBy;
     private Boolean enabled;

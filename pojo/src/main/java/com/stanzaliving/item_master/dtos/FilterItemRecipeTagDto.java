@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.security.PrivateKey;
 import java.util.List;
 
 @AllArgsConstructor
@@ -36,5 +35,6 @@ public class FilterItemRecipeTagDto {
     private SortSpecs sortSpecs;
     private SortDirection sortDirection;
 
+    //SearchKey should be a string or UIKeyValue?
     private String searchKey;
 }
