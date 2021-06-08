@@ -228,4 +228,5 @@ public class ResidenceDataControllerApi {
 		}
 		return null;
 	}
+
 }

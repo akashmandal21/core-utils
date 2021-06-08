@@ -19,4 +19,5 @@ public class ResidenceListRequestDto {
 
     private Set<String> microMarketList;
 
+    private String searchEntity;
 }

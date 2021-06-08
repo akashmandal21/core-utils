@@ -963,4 +963,11 @@ public class DateUtil {
 		Date currentDate = calendarInstance.getTime();
 		return currentDate;
 	}
+
+	public static String ConvertMilliSecondsToFormattedDate(String milliSeconds){
+		String dateFormat = "dd-MM-yyyy hh:mm";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
+		Date result = new Date(milliSeconds);
+		return simpleDateFormat.format(result);
+	}
 }
