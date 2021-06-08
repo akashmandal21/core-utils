@@ -190,4 +190,32 @@ public enum LeadSubStatus {
 		return postVisitDropStatus.contains(leadSubStatus);
 
 	}
+	
+	public static boolean qualifiedVisitScheduled(LeadSubStatus leadSubStatus) {
+		Set<LeadSubStatus> qualifiedVisitScheduledStatus= new HashSet<>();
+		
+		qualifiedVisitScheduledStatus.add(PRE_VISIT_FOLLOW_UP);
+		qualifiedVisitScheduledStatus.add(VISIT_1_SCHEDULED);
+		qualifiedVisitScheduledStatus.add(VISIT_2_SCHEDULED);
+		qualifiedVisitScheduledStatus.add(VISIT_3_SCHEDULED);
+		qualifiedVisitScheduledStatus.add(VISIT_4_SCHEDULED);
+		qualifiedVisitScheduledStatus.add(VISIT_5_SCHEDULED);
+		
+		return qualifiedVisitScheduledStatus.contains(leadSubStatus);
+	}
+	public static boolean qualifiedVisitCompleted(LeadSubStatus leadSubStatus) {
+		Set<LeadSubStatus> qualifiedVisitCompletedStatus= new HashSet<>();
+		
+		qualifiedVisitCompletedStatus.add(POST_VISIT_1_FOLLOW_UP);
+		qualifiedVisitCompletedStatus.add(POST_VISIT_2_FOLLOW_UP);
+		qualifiedVisitCompletedStatus.add(POST_VISIT_3_FOLLOW_UP);
+		qualifiedVisitCompletedStatus.add(POST_VISIT_4_FOLLOW_UP);
+		qualifiedVisitCompletedStatus.add(POST_VISIT_5_FOLLOW_UP);
+		qualifiedVisitCompletedStatus.add(VISIT_2_STARTED);
+		qualifiedVisitCompletedStatus.add(VISIT_3_STARTED);
+		qualifiedVisitCompletedStatus.add(VISIT_4_STARTED);
+		qualifiedVisitCompletedStatus.add(VISIT_5_STARTED);
+		
+		return qualifiedVisitCompletedStatus.contains(leadSubStatus);
+	}
 }
