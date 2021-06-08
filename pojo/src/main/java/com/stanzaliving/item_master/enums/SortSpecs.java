@@ -22,7 +22,10 @@ public enum SortSpecs {
     //RecipeTag Collection
     RECIPETAGNAME("recipeTagName"),
     COUNTOFMAPPING("countOfMapping"),
-    RECIPETAGUOM("recipeTagUom");
+    RECIPETAGUOM("recipeTagUom"),
+    RECIPETAGCREATEDBY("createdBy"),
+    RECIPETAGLASTUPDATEDBY("updatedBy"),
+    RECIPETAGSTATUS("status");
 
 
     private String dbKey;

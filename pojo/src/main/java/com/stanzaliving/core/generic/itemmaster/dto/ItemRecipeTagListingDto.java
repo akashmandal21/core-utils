@@ -15,7 +15,7 @@ public class ItemRecipeTagListingDto {
 
     private String uuid;
     private String recipeTagName;
-    private String recipeTagUom;
+    private UIKeyValue recipeTagUom;
     private long itemsMapped;
     private TimeAndDoneByDto lastUpdated;
     private TimeAndDoneByDto createdBy;
