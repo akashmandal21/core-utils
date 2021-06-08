@@ -6,7 +6,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum DocumentType {
-    INVOICE("Invoice"),
-    CREDIT_NOTE("credit_note");
+    INVOICE("INVOICE"),
+    CREDIT_NOTE("CREDIT_NOTE");
     private final String values;
 }

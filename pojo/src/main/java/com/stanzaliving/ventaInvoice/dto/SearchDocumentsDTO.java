@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SearchDTO {
+public class SearchDocumentsDTO {
     private String stanzaDocumentId;
-    private String residentId;
+    private String residenceId;
 }
