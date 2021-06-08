@@ -1,20 +1,33 @@
 package com.stanzaliving.core.po.generic.dtos;
 
 
+import java.util.Date;
+
+import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
-import lombok.*;
 
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
-@Data
-@Builder
-@AllArgsConstructor
+@Getter
+@Setter
+@SuperBuilder
 @NoArgsConstructor
-@ToString
-public class PoSearchIndexDto {
-    private String uuid;
+@AllArgsConstructor
+@ToString(callSuper = true)
+public class PoSearchIndexDto extends AbstractSearchIndexDto{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private String uuid;
     private boolean status;
     private Date createdAt;
     private String createdBy;
