@@ -55,4 +55,6 @@ public class ItemUpdateDto extends AbstractDto {
     private Double conversionFactor;
     private String itemImage;
 
+    private Boolean taggable;
+
 }
