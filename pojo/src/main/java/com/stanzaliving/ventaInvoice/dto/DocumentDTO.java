@@ -35,5 +35,6 @@ public class DocumentDTO {
     private String microMarketId;
     private String residentId;
     private String parentId;
+    private String stanzaDocumentId;
 
 }
