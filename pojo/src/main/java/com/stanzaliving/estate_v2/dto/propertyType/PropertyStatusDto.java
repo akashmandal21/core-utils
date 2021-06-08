@@ -2,8 +2,6 @@ package com.stanzaliving.estate_v2.dto.propertyType;
 
 
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
-import com.stanzaliving.estate_v2.annotation.operation.PostGroup;
-import com.stanzaliving.estate_v2.annotation.operation.PutGroup;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,18 +17,18 @@ import java.util.List;
 public class PropertyStatusDto {
     private String uuid;
 
-    @EmptyOrNull(message = "Property-Status name cannot be empty or null",groups = PostGroup.class)
+    @EmptyOrNull(message = "Property-Status name cannot be empty or null")
     private String name;
 
     private Boolean enabled;
 
-    @Pattern(regexp = "^#([A-Fa-f0-9]{6})$",message = "Invalid Hex Code for Background Color",groups = PostGroup.class)
-    @EmptyOrNull(message = "Background-Color cannot be empty or null", groups =PostGroup.class)
+    @Pattern(regexp = "^#([A-Fa-f0-9]{6})$",message = "Invalid Hex Code for Background Color")
+    @EmptyOrNull(message = "Background-Color cannot be empty or null")
     private String backgroundColor;
-    @Pattern(regexp = "^#([A-Fa-f0-9]{6})",message="Invalid Hex Code for Text Color",groups = PostGroup.class)
-    @EmptyOrNull(message = "Text-Color cannot be empty or null",groups =PostGroup.class)
+    @Pattern(regexp = "^#([A-Fa-f0-9]{6})",message="Invalid Hex Code for Text Color")
+    @EmptyOrNull(message = "Text-Color cannot be empty or null")
     private String textColor;
-    @Size(min = 1,message = "Modules-Visible cannot be less than 1", groups = PostGroup.class)
-    @NotNull(message = "Modules-Visible cannot be null", groups = PostGroup.class)
+    @Size(min = 1,message = "Modules-Visible cannot be less than 1")
+    @NotNull(message = "Modules-Visible cannot be null")
     private List<String> moduleVisible;
 }

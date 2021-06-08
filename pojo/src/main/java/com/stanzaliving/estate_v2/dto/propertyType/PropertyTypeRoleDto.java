@@ -12,11 +12,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class PropertyTypeRoleDto {
     private String uuid;
-    @EmptyOrNull(message = "Role name cannot be empty or null", groups = PostGroup.class)
+    @EmptyOrNull(message = "Role name cannot be empty or null")
     private String name;
-    @EmptyOrNull(message = "Role type cannot be empty or null", groups =PostGroup.class)
+    @EmptyOrNull(message = "Role type cannot be empty or null")
     private String type;
-    @EmptyOrNull(message = "Role status cannot be empty or null", groups =PostGroup.class)
+    @EmptyOrNull(message = "Role status cannot be empty or null")
     private String status;
 }
 
