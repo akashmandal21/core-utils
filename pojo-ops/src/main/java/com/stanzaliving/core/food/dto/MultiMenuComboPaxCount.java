@@ -43,4 +43,6 @@ public class MultiMenuComboPaxCount {
 	private FoodRegion foodRegion;
 
 	private boolean defaultMenu;
+	
+	private String comment;
 }
