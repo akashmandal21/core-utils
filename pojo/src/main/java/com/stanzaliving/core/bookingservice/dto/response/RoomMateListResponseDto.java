@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class RoomMateListResponseDto {
 
-	private String name;
+	private String firstName;
+	private String middleName;
+	private String lastName;
 	private String profilePic;
 }
