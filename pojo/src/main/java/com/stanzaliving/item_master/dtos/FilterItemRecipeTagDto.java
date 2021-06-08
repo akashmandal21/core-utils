@@ -23,11 +23,11 @@ public class FilterItemRecipeTagDto {
 
     //To send for front end
     private List<UIKeyValue> recipeTagStatusOptions;
-    private List<UIKeyValue> recipeUomOptions;
+    private List<UIKeyValue> recipeTagUomOptions;
 
     //To get from front end filters
     private List<UIKeyValue> recipeTagStatus;
-    private List<UIKeyValue> recipeUom;
+    private List<UIKeyValue> recipeTagUom;
 
     //more filters
     private List<UIKeyValue> updatedBy;

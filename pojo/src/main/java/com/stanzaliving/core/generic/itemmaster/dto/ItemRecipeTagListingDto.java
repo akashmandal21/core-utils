@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class ItemRecipeTagDto {
+public class ItemRecipeTagListingDto {
 
     private String uuid;
     private String recipeTagName;
-    private UnitType recipeTagUom;
+    private String recipeTagUom;
     private long itemsMapped;
     private TimeAndDoneByDto lastUpdated;
     private TimeAndDoneByDto createdBy;
