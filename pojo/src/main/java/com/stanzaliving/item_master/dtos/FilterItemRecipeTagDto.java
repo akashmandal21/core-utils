@@ -2,6 +2,7 @@ package com.stanzaliving.item_master.dtos;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.core.leadership.dto.DateRange;
 import com.stanzaliving.item_master.enums.SortDirection;
 import com.stanzaliving.item_master.enums.SortSpecs;
 import lombok.AllArgsConstructor;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Arrays;
 import java.util.List;
 
 @AllArgsConstructor
@@ -23,9 +25,17 @@ public class FilterItemRecipeTagDto {
     private List<UIKeyValue> recipeTagStatusOptions;
     private List<UIKeyValue> recipeUomOptions;
 
-    //To get form front end
+    //To get from front end filters
     private List<UIKeyValue> recipeTagStatus;
     private List<UIKeyValue> recipeUom;
+
+    //more filters
+    private List<UIKeyValue> updatedBy;
+    private List<UIKeyValue> createBy;
+    private DateRange dateRangeCreatedAt;
+    private DateRange lastUpdatedBetween;
+
+
 
     @Valid
     @NotNull
@@ -37,4 +47,6 @@ public class FilterItemRecipeTagDto {
 
     //SearchKey should be a string or UIKeyValue?
     private String searchKey;
+
+    private List<String> availableFields= Arrays.asList("recipeTagStatusOptions","recipeUomOptions");
 }

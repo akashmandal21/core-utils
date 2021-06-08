@@ -20,9 +20,9 @@ public enum SortSpecs {
     STATUS("itemData.itemStatus"),
 
     //RecipeTag Collection
-    RECIPETAGNAME("itemData.recipeTagName"),
-    COUNTOFMAPPING("itemData.countOfMapping"),
-    RECIPETAGUOM("itemData.recipeTagUom");
+    RECIPETAGNAME("recipeTagName"),
+    COUNTOFMAPPING("countOfMapping"),
+    RECIPETAGUOM("recipeTagUom");
 
 
     private String dbKey;
