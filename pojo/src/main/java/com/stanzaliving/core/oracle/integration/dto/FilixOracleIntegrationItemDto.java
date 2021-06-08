@@ -133,4 +133,7 @@ public class FilixOracleIntegrationItemDto extends AbstractOracleDto {
     @JsonProperty("createrevenueplanson")
     private String createrevenueplanson;
 
+    @JsonProperty("glcodes")
+    private String glCodes;
+
 }

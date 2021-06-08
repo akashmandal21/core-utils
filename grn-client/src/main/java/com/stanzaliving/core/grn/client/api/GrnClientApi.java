@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.po.enums.EventType;
@@ -234,6 +235,26 @@ public class GrnClientApi {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, gsriItems, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<Set<String>> getPendingGsriPoUuids() {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/pending/gsri/poUuids").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<Set<String>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<String>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
 }

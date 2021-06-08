@@ -34,6 +34,7 @@ public class GenericItemDto {
     private Double sgst;
     private Double igst;
     private Boolean inactive;
+    private Boolean taggable;
 
     //Rates
     private BigDecimal globalRate;
