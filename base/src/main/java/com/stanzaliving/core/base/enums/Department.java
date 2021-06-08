@@ -11,7 +11,6 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Department {
 
-
 	TECH("Tech","TP","TCH"),
 	FINANCE("Finance","FN","FIN"),
 	HR("Talent Management","HR","HRS"),
@@ -35,22 +34,22 @@ public enum Department {
 	SCM("Supply Chain Mgmt","SM","TRN"),
 	GROWTH_STRATEGY("Growth and Strategy","GS","GRS"),
 	E_COMMERCE("E-Commerce", "EC", "ECE"),
-	LND("Learning & Development","LD","LND");
+	LND("Learning & Development","LD","LND"),
+	PUBLIC_POLICY("Public Policy","PP","PPO");
 
 	public String departmentName;
 	public String shortCode;
 	public String genericPoShortCode;
-	
-	public static Collection<Department> departments;
-	private static SortedMap<String, Department> departmentsMap = new TreeMap<String, Department>();
+	private static SortedMap<String, Department> departmentMap = new TreeMap<String, Department>();
 
 	static {
 		for (Department d : Department.values()) {
-			departmentsMap.put(d.getDepartmentName(), d);
+			departmentMap.put(d.getDepartmentName(), d);
 		}
 	}
 
 	public static Collection<Department> getDepartments() {
-		return departmentsMap.values();
+		return departmentMap.values();
 	}
+
 }

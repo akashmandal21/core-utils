@@ -6,7 +6,9 @@ public enum OracleServiceOwner {
     DEPARTMENT,
     ITEM,
     VENDOR,
+    PO,
     GRN,
+    TO,
     INVOICE,
 	CUSTOMER_CREATION,
     CUSTOMER_INVOICE,
@@ -17,4 +19,5 @@ public enum OracleServiceOwner {
     CUSTOMER_SD_ADJUSTMENT,
 	CUSTOMER_PAYMENT_REMAP,
 	CUSTOMER_CARRY_FORWARD;
+
 }
