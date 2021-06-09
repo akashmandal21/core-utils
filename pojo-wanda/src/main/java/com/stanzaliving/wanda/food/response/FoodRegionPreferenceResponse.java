@@ -1,0 +1,33 @@
+package com.stanzaliving.wanda.food.response;
+
+import java.time.LocalTime;
+import java.util.Date;
+import java.util.Map;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Builder
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+public class FoodRegionPreferenceResponse {
+
+	private Map<String, FoodOrderPageDto> foodMenu;
+	
+	private LocalTime orderCloseTime;
+	
+	private boolean isOldOrder;
+	
+	private boolean hasNonVeg;
+	
+	private Date closeTime;
+
+	private Map<String,Map<String,Boolean>> skippable;
+	
+	private Map<String, FoodOrderTiming> foodOrderTiming;
+}
