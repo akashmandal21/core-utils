@@ -11,11 +11,9 @@ public class ApartmentListingDto {
 
 	private List<ApartmentResponseDto> apartments;
 	
-	private Integer count;
+	@Builder.Default
+	private Integer apartmentCount = 0;
 	
 	@Builder.Default
 	private Integer residenceCount = 0;
-	
-	@Builder.Default
-	private Integer apartmentCount = 0;
 }
