@@ -31,7 +31,7 @@ public class FilterItemRecipeTagDto {
 
     //more filters
     private List<UIKeyValue> updatedBy;
-    private List<UIKeyValue> createBy;
+    private List<UIKeyValue> createdBy;
     private DateRange dateRangeCreatedAt;
     private DateRange lastUpdatedBetween;
 
