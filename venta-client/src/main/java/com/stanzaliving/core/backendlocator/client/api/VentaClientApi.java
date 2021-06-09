@@ -5,6 +5,7 @@ package com.stanzaliving.core.backendlocator.client.api;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -290,6 +291,30 @@ public class VentaClientApi {
 		ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
 		};
 
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
+	public Void leadScheduledVisitReminder(String phone, String house, String scheduleDate) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/lead/scheduleVisit/reminder").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("phone", phone);
+		queryParams.add("house", house);
+		queryParams.add("scheduleDate", scheduleDate);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
