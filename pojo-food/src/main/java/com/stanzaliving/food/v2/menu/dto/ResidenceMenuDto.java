@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class ResidenceMenuDto extends AbstractDto {
 	private String menuCategoryId;
 	private String residenceId;
 	private String dealId;
+	private DealCategory dealCategory;
 	private LocalDate menuDate;
 	private MealType mealType;
 	private String mealId;
