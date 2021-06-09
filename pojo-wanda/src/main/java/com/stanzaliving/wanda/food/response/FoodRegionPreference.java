@@ -1,8 +1,5 @@
 package com.stanzaliving.wanda.food.response;
 
-import java.util.List;
-import java.util.Map;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,7 +11,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class FoodRegionPreferenceResponse {
+public class FoodRegionPreference {
 	
-	Map<String, List<FoodRegionPreference>> foodRegionPreferenceMap;
+	String preference;
+	
+	Long count;
+
 }
