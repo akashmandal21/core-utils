@@ -1,4 +1,4 @@
-package com.stanzaliving.wanda.dtos;
+package com.stanzaliving.wanda.response;
 
 import javax.validation.constraints.NotBlank;
 
@@ -17,7 +17,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Setter
 @ToString
-public class ResidentProfessionalDetailsDto {
+public class ResidentProfessionalDetailsResponseDto {
 
 	@NotBlank(message = "User Id is Required")
 	private String userId;
@@ -36,5 +36,7 @@ public class ResidentProfessionalDetailsDto {
 	private String companyName;
 	
 	private String designation;
+	
+	private String profilePic;
 	
 }
