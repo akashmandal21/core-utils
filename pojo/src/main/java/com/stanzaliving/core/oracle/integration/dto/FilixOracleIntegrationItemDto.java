@@ -1,12 +1,12 @@
 package com.stanzaliving.core.oracle.integration.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 @Setter
 @Getter
@@ -135,5 +135,8 @@ public class FilixOracleIntegrationItemDto extends AbstractOracleDto {
 
     @JsonProperty("glcodes")
     private String glCodes;
+
+    @JsonProperty("directrevenueposting")
+    private String directRevenuePosting;
 
 }

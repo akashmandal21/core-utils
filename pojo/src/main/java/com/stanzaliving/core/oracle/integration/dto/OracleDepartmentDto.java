@@ -1,5 +1,6 @@
 package com.stanzaliving.core.oracle.integration.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -9,8 +10,11 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @ToString
 @SuperBuilder
-public class OracleDepartmentDto extends AbstractOracleDto{
+public class OracleDepartmentDto extends AbstractOracleDto {
 
-        String entityId;
-        String name;
+    @JsonProperty("entityid")
+    String entityid;
+
+    String name;
+
 }
