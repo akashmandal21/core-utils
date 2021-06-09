@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @AllArgsConstructor
@@ -16,25 +17,30 @@ public enum CategoryStatus {
 	APPROVED("Approved"),
 	REJECTED("Rejected");
 	private final String status;
-
+	
 	public static boolean isEditable(CategoryStatus categoryStatus) {
 		return categoryStatus == DRAFT || categoryStatus == APPROVED || categoryStatus == REJECTED;
 	}
-
+	
 	public static boolean createNewVersion(CategoryStatus categoryStatus) {
 		return categoryStatus == APPROVED;
 	}
-
+	
+	public static List<CategoryStatus> draftStatus() {
+		return Arrays.asList(DRAFT, SUBMITTED, REJECTED);
+	}
+	
+	
 	private static final List<EnumListing<CategoryStatus>> enumListings = new ArrayList<>();
-
+	
 	static {
 		for (CategoryStatus curStatus : CategoryStatus.values()) {
 			enumListings.add(EnumListing.of(curStatus, curStatus.getStatus()));
 		}
 	}
-
+	
 	public static List<EnumListing<CategoryStatus>> getEnumListings() {
 		return enumListings;
 	}
-
+	
 }
