@@ -37,6 +37,7 @@ public class FilterItemRecipeTagDto {
     private DateRange dateRangeCreatedAt;
     private DateRange lastUpdatedBetween;
 
+    private String recipeTagUuid;
 
 
     @Valid
