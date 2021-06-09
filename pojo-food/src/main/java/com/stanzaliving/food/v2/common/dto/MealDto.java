@@ -20,4 +20,5 @@ public class MealDto {
     private String mealGroupId;
     private String mealGroup;
     private String imageUri;
+    private Integer sequence;
 }

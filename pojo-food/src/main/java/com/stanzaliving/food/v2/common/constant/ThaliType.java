@@ -10,12 +10,14 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum ThaliType {
-	NORMAL("Normal"),
-	COMBO("Combo");
+	NORMAL("Normal", 0),
+	COMBO("Combo", 1);
 
 	private static List<EnumListing<ThaliType>> thaliTypeListing = new ArrayList<>();
 
 	private final String type;
+
+	private final Integer sequence;
 
 	static {
 
