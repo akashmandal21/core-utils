@@ -2,6 +2,7 @@ package com.stanzaliving.core.oracle.integration.dto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 @Getter
 @Setter
@@ -9,8 +10,11 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @ToString
 @SuperBuilder
-public class OracleDepartmentDto extends AbstractOracleDto{
+public class OracleDepartmentDto extends AbstractOracleDto {
 
-        String entityId;
-        String name;
+    @JsonProperty("entityid")
+    String entityId;
+
+    String name;
+
 }
