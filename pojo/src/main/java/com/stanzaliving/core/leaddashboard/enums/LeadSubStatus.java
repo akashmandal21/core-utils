@@ -211,6 +211,7 @@ public enum LeadSubStatus {
 		qualifiedVisitCompletedStatus.add(POST_VISIT_3_FOLLOW_UP);
 		qualifiedVisitCompletedStatus.add(POST_VISIT_4_FOLLOW_UP);
 		qualifiedVisitCompletedStatus.add(POST_VISIT_5_FOLLOW_UP);
+		qualifiedVisitCompletedStatus.add(VISIT_1_STARTED);
 		qualifiedVisitCompletedStatus.add(VISIT_2_STARTED);
 		qualifiedVisitCompletedStatus.add(VISIT_3_STARTED);
 		qualifiedVisitCompletedStatus.add(VISIT_4_STARTED);
