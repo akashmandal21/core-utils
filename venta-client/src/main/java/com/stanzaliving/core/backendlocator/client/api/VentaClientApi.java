@@ -314,10 +314,8 @@ public class VentaClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 	
-	public String leadScheduleVisit(String house, Date scheduledDate, String phone) {
+	public String leadScheduleVisit(String house, String scheduledDate, String phone) {
 		
-		log.info("phone ##"+phone);
-
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -325,6 +323,7 @@ public class VentaClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		queryParams.add("house", house);
+		queryParams.add("scheduledDate", scheduledDate);
 		queryParams.add("phone", phone);
 		final HttpHeaders headerParams = new HttpHeaders();
 
@@ -334,7 +333,6 @@ public class VentaClientApi {
 		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
 		};
 
-		log.info("path ## "+path);
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
