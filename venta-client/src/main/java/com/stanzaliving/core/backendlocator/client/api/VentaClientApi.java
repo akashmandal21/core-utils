@@ -294,7 +294,7 @@ public class VentaClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 	
-	public Void leadScheduledVisitReminder(String phone, String house, String scheduleDate) {
+	public Void leadScheduledVisitReminder(String phone, String house, Date scheduleDate) {
 
 		Object postBody = null;
 
@@ -306,7 +306,7 @@ public class VentaClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("phone", phone);
 		queryParams.add("house", house);
-		queryParams.add("scheduleDate", scheduleDate);
+		queryParams.add("scheduleDate", scheduleDate.toString());
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
