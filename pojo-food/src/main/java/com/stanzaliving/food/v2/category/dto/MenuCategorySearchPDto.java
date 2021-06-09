@@ -32,5 +32,5 @@ public class MenuCategorySearchPDto implements Serializable {
     private Boolean published;
     private boolean isDetailed;
     private boolean approvalDataRequired=true;
-    private boolean isApprovalDashBoard;
+    private Boolean approvalDashBoard;
 }
