@@ -13,7 +13,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 public class OracleDepartmentDto extends AbstractOracleDto {
 
     @JsonProperty("entityid")
-    String entityId;
+    String entityid;
 
     String name;
 
