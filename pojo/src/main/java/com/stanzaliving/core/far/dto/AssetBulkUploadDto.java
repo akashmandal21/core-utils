@@ -127,13 +127,85 @@ public class AssetBulkUploadDto {
     @CsvBindByPosition(position = 27)
     private String acquisitionPrice;
 
+    @CsvBindByName(column = "Amc Document Number")
+    @CsvBindByPosition(position = 28)
+    private String amcDocumentNumber;
+
+    @CsvBindByName(column = "Amc Type")
+    @CsvBindByPosition(position = 29)
+    private String amcType;
+
+    @CsvBindByName(column = "Amc Vendor Name")
+    @CsvBindByPosition(position = 30)
+    private String amcVendorName;
+
+    @CsvBindByName(column = "Amc Start Date")
+    @CsvBindByPosition(position = 31)
+    private String amcStartDate;
+
+    @CsvBindByName(column = "Amc End Date")
+    @CsvBindByPosition(position = 32)
+    private String amcEndDate;
+
+    @CsvBindByName(column = "Amc Poc Name")
+    @CsvBindByPosition(position = 33)
+    private String amcPocName;
+
+    @CsvBindByName(column = "Amc Poc Contact Number")
+    @CsvBindByPosition(position = 34)
+    private String amcPocContactNumber;
+
+    @CsvBindByName(column = "Amc Poc Email")
+    @CsvBindByPosition(position = 35)
+    private String amcPocEmail;
+
+    @CsvBindByName(column = "Amc Document")
+    @CsvBindByPosition(position = 36)
+    private String amcDocument;
+
+    @CsvBindByName(column = "Insurance Document Number")
+    @CsvBindByPosition(position = 37)
+    private String insuranceDocumentNumber;
+
+    @CsvBindByName(column = "Insurance Type")
+    @CsvBindByPosition(position = 38)
+    private String insuranceType;
+
+    @CsvBindByName(column = "Insurance Company")
+    @CsvBindByPosition(position = 39)
+    private String insuranceCompany;
+
+    @CsvBindByName(column = "Insurance Contact Number")
+    @CsvBindByPosition(position = 40)
+    private String insuranceContactNumber;
+
+    @CsvBindByName(column = "Insurance Start Date")
+    @CsvBindByPosition(position = 41)
+    private String insuranceStartDate;
+
+    @CsvBindByName(column = "Insurance End Date")
+    @CsvBindByPosition(position = 42)
+    private String insuranceEndDate;
+
+    @CsvBindByName(column = "Insured Value")
+    @CsvBindByPosition(position = 43)
+    private String insuredValue;
+
+    @CsvBindByName(column = "Insurance Amount")
+    @CsvBindByPosition(position = 44)
+    private String insuranceAmount;
+
+    @CsvBindByName(column = "Insurance Document")
+    @CsvBindByPosition(position = 45)
+    private String insuranceDocument;
+
     // These 2 will only be part of Response
     @CsvBindByName(column = "Response Status")
-    @CsvBindByPosition(position = 28)
+    @CsvBindByPosition(position = 46)
     private String responseStatus;
 
     @CsvBindByName(column = "Response Message")
-    @CsvBindByPosition(position = 29)
+    @CsvBindByPosition(position = 47)
     private String responseMessage;
 
     public String toString() {
