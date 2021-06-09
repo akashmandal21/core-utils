@@ -323,7 +323,6 @@ public class VentaClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		queryParams.add("house", house);
-		queryParams.add("scheduledDate", scheduledDate);
 		queryParams.add("phone", phone);
 		final HttpHeaders headerParams = new HttpHeaders();
 
