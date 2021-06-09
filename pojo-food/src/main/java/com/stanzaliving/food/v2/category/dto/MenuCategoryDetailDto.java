@@ -5,6 +5,7 @@ import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.category.constant.CategoryStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,6 +45,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	//approvalData
 	private ApprovalStatus approvalStatus;
 	private List<String> pendingApprovers;
+	private List<UserContactDetailsResponseDto> pendingUsers;
 
 	private CompositionRuleV2Dto compositionRules;
 	private List<MealWiseSampleMenuDto> mealWiseMenu;
