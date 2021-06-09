@@ -29,6 +29,8 @@ public class BookingResidenceAggregationEntityDto {
     private Integer cityId;
 
     private String entity;
+
+    private Integer totalBed;
 }
 
 
