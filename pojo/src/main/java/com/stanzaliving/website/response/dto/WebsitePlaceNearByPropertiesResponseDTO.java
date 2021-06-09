@@ -11,8 +11,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -23,10 +24,16 @@ public class WebsitePlaceNearByPropertiesResponseDTO {
 	@JsonInclude(value = Include.NON_NULL)
 	private List<ResidenceResponseShortDTO> residenceResponseShortDTOs;
 	
+	@Builder.Default
+	private Integer residenceCount = 0;
+
+	
 	@JsonInclude(value = Include.NON_NULL)
 	private List<ApartmentResponseDto> apartments;
 	
-	private int count;
+	@Builder.Default
+	private Integer apartmentCount = 0;
+	
 	
 	@Builder.Default
 	private Boolean isApartmentPage = false;
