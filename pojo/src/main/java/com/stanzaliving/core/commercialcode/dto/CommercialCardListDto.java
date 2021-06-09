@@ -5,25 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommercialCardListDto {
 
-    private String uuid;
+    List<CodeListDto> availabilityCodes;
 
-    private String commercialCodeName;
-
-    private Double refundableDeposit;
-
-    private Integer advanceRentalFirstMonths;
-
-    private Integer advanceRentalLastMonths;
-
-    private Double annualMaintenanceFee;
-
-    private String maintenanceFeeCollection;
-
-    private String advanceRentalMonths;
+    List<CodeListDto> unavailableCodes;
 }

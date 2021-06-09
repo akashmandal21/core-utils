@@ -26,7 +26,7 @@ public class CommercialDataControllerApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<List<CommercialCardListDto>> getAllCommercialCards(CommercialCardDto commercialCardDto) {
+    public ResponseDto<CommercialCardListDto> getAllCommercialCards(CommercialCardDto commercialCardDto) {
 
         log.info("Commercial-code-Data-Controller::Processing to get residence list for filter {}", commercialCardDto);
 
@@ -44,8 +44,8 @@ public class CommercialDataControllerApi {
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<List<CommercialCardListDto>>> returnType =
-                new ParameterizedTypeReference<ResponseDto<List<CommercialCardListDto>>>() {};
+        ParameterizedTypeReference<ResponseDto<CommercialCardListDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<CommercialCardListDto>>() {};
 
         return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }

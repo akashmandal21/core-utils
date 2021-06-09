@@ -13,9 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommercialCardDto {
+
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
 
     private CommercialCardUserType commercialCardUserType;
-
 
 }
