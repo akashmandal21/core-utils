@@ -43,6 +43,8 @@ public class ResidenceResponseShortDTO {
 	
 	private int startingPrice;
 	
+	private String pricingPlan;
+	
 	private Integer preBookingAmount;
 	
 	private String preBookingMode;
