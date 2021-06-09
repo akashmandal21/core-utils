@@ -301,6 +301,8 @@ public class VentaClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
+		
+		headerParams.add("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtdWRpdEBjcnVzaGNhbXBhaWducy5jb20iLCJzY29wZXMiOlsiUkVGUkVTSF9UT0tFTiJdLCJpc3MiOiIiLCJqdGkiOiI0ZThmMWMwZS0zOWIxLTQ4OTktOWNiMy1hODMzNzEwZDlhMzAiLCJpYXQiOjE2MjEzNDM0ODEsImV4cCI6MTk4MTM0MzQ4MX0.-n4BXQXbNAMIs0vT7nJh1_fsfL-cawqpcOgKHqmDs3TyX0Yh9kF8SgRq_uglDxsNLaHFhZdNGWpu_DwaA1QCjA");
 
 		final String[] accepts = { "*/*" };
 		
