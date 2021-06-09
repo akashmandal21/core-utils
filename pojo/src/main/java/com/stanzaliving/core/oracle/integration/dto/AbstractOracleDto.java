@@ -1,12 +1,14 @@
 package com.stanzaliving.core.oracle.integration.dto;
 
-
 import com.stanzaliving.core.oracle.integration.enums.EventType;
 import com.stanzaliving.core.oracle.integration.enums.OracleServiceOwner;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serializable;
 import java.util.Map;
 
 @Setter
@@ -16,7 +18,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class AbstractOracleDto implements Serializable {
+public class AbstractOracleDto {
 
     private static final long serialVersionUID = -3153893080214645255L;
 

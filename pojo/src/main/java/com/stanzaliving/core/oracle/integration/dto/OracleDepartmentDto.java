@@ -1,8 +1,8 @@
 package com.stanzaliving.core.oracle.integration.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 @Getter
 @Setter
