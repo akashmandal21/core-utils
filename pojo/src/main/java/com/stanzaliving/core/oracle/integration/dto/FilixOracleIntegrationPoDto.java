@@ -8,6 +8,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import org.codehaus.jackson.annotate.JsonProperty;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Setter
@@ -16,7 +17,9 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilixOracleIntegrationPoDto extends AbstractOracleDto {
+public class FilixOracleIntegrationPoDto extends AbstractOracleDto implements Serializable {
+
+    private static final long serialVersionUID = -3325716969476032645L;
 
     @JsonProperty("date")
     private String date;
