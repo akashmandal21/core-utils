@@ -1,8 +1,10 @@
 package com.stanzaliving.core.leaddashboard.enums;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -189,5 +191,19 @@ public enum LeadSubStatus {
 		
 		return postVisitDropStatus.contains(leadSubStatus);
 
+	}
+	
+
+	public static List<LeadSubStatus> visitScheduleRemiderList() {
+
+		List<LeadSubStatus> visitScheduleRemiderList = new ArrayList();
+
+		visitScheduleRemiderList.add(VISIT_1_SCHEDULED);
+		visitScheduleRemiderList.add(VISIT_2_SCHEDULED);
+		visitScheduleRemiderList.add(VISIT_3_SCHEDULED);
+		visitScheduleRemiderList.add(VISIT_4_SCHEDULED);
+		visitScheduleRemiderList.add(VISIT_5_SCHEDULED);
+
+		return visitScheduleRemiderList;
 	}
 }
