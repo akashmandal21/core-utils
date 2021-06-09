@@ -229,4 +229,60 @@ public class ResidenceDataControllerApi {
 		return null;
 	}
 
+    /**
+     * This method is used for fetching residence information including room, bed and blended price's status and count
+     *
+     * @param residenceUuid->Unique ID corresponding to residence
+     * @return Residence Bed, Room and Blended Price info(Status and Count)
+     */
+    public ResidenceInfoDto getResidenceInformation(String residenceUuid) {
+        log.info("Residence-Data-Controller::Processing to get residence information on residenceUUID {}",
+                residenceUuid);
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/residence/information/{residenceUuid}")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResidenceInfoDto> returnType = new ParameterizedTypeReference<ResidenceInfoDto>() {
+        };
+        try {
+            log.info("Executing Api for getting residence Info with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching residence information based on residenceUUID {}, Exception is ", residenceUuid, e);
+        }
+        return null;
+    }
+
+    /**
+     * This method is used for fetching blended price of residence for given roomUUID
+     *
+     * @param roomUuid->Unique Id of room
+     * @return Blended Price for residence, corresponding to room
+     */
+    public ResidenceBlendedPriceDto getResidenceBlendedPriceFromRoomUuid(String roomUuid) {
+        log.info("Residence-Data-Controller::Processing to get residence blended price on basis of roomUuid {}", roomUuid);
+        Map<String, Object> uriVariables = new HashMap();
+        uriVariables.put("roomUuid", roomUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/residence/blended-price-info/{roomUuid}")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResidenceBlendedPriceDto> returnType = new ParameterizedTypeReference<ResidenceBlendedPriceDto>() {
+        };
+        try {
+            log.info("Executing Api for getting residence Info with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching residence information based on residenceUUID {}, Exception is ", roomUuid, e);
+        }
+        return null;
+    }
+
 }
