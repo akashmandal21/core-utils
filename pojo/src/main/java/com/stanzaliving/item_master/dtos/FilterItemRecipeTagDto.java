@@ -25,7 +25,7 @@ public class FilterItemRecipeTagDto {
     private List<UIKeyValue> recipeTagStatusOptions;
     private List<UIKeyValue> recipeTagUomOptions;
     private List<UIKeyValue> updatedByOptions;
-    private List<UIKeyValue> createByOptions;
+    private List<UIKeyValue> createdByOptions;
 
     //To get from front end filters
     private List<UIKeyValue> recipeTagStatus;
