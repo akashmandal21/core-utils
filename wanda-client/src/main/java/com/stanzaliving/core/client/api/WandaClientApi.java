@@ -518,7 +518,7 @@ public class WandaClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/foodregion/consumer/region/preference").buildAndExpand(uriVariables)
+		String path = UriComponentsBuilder.fromPath("coreApi/foodregion/consumer/region/preference").buildAndExpand(uriVariables)
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
