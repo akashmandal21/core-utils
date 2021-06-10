@@ -43,4 +43,7 @@ public enum CategoryStatus {
 		return enumListings;
 	}
 	
+	public static List<CategoryStatus> allowedCopyStatus() {
+		return Arrays.asList(APPROVED, SUBMITTED);
+	}
 }
