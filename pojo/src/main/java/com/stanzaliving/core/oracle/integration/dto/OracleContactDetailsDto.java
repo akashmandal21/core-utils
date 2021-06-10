@@ -1,9 +1,12 @@
 package com.stanzaliving.core.oracle.integration.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
 
 @Setter
 @Getter
@@ -12,6 +15,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OracleContactDetailsDto {
+
+    @JsonProperty("custentity_xxflx_stanza_contact")
+    private String pocDetailsId; // need to set uniquely if you change phone number
 
     @JsonProperty("contactid")
     private String contactid;  //set

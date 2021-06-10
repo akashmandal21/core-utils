@@ -1,8 +1,12 @@
 package com.stanzaliving.core.oracle.integration.dto;
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.util.List;
 
