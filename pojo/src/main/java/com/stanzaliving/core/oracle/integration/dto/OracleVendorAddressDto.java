@@ -1,8 +1,12 @@
 package com.stanzaliving.core.oracle.integration.dto;
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 import javax.validation.constraints.NotNull;
 
@@ -21,7 +25,6 @@ public class OracleVendorAddressDto {
     @NotNull
     @JsonProperty("defaultshipping")
     private String defaultshipping;  //set
-
 
     @JsonProperty("addressbookaddress")
     VendorAddressDto addressbookaddress; //set
