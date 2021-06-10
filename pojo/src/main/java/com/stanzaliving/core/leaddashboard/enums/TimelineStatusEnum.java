@@ -151,4 +151,17 @@ public enum TimelineStatusEnum {
 		
 		return visitHistoryStatusCount.get(status);
 	}
+	
+	public static List<TimelineStatusEnum> getVisitScheduleList() {
+
+		List<TimelineStatusEnum> visitScheduledList = new ArrayList();
+
+		visitScheduledList.add(VISIT_1_SCHEDULED);
+		visitScheduledList.add(VISIT_2_SCHEDULED);
+		visitScheduledList.add(VISIT_3_SCHEDULED);
+		visitScheduledList.add(VISIT_4_SCHEDULED);
+		visitScheduledList.add(VISIT_5_SCHEDULED);
+
+		return visitScheduledList;
+	}
 }
