@@ -1,12 +1,15 @@
 package com.stanzaliving.core.base.enums;
 
+import java.util.Collection;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
 public enum Department {
-
 
 	TECH("Tech","TP","TCH"),
 	FINANCE("Finance","FN","FIN"),
@@ -31,9 +34,22 @@ public enum Department {
 	SCM("Supply Chain Mgmt","SM","TRN"),
 	GROWTH_STRATEGY("Growth and Strategy","GS","GRS"),
 	E_COMMERCE("E-Commerce", "EC", "ECE"),
-	LND("Learning & Development","LD","LND");
+	LND("Learning & Development","LD","LND"),
+	PUBLIC_POLICY("Public Policy","PP","PPO");
 
 	public String departmentName;
 	public String shortCode;
 	public String genericPoShortCode;
+	private static SortedMap<String, Department> departmentMap = new TreeMap<String, Department>();
+
+	static {
+		for (Department d : Department.values()) {
+			departmentMap.put(d.getDepartmentName(), d);
+		}
+	}
+
+	public static Collection<Department> getDepartments() {
+		return departmentMap.values();
+	}
+
 }
