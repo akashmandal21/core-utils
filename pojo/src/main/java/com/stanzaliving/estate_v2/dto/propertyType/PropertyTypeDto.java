@@ -2,8 +2,6 @@ package com.stanzaliving.estate_v2.dto.propertyType;
 
 import com.stanzaliving.core.dto.AbstractMongoDto;
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
-import com.stanzaliving.estate_v2.annotation.operation.PostGroup;
-import com.stanzaliving.estate_v2.annotation.operation.PutGroup;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -6,10 +6,10 @@ import lombok.Getter;
 public enum VisibilityConditionEnum {
 
     CITY("city"),
-    MICROMARKETS("micromarkets"),
+    MICROMARKET("micromarket"),
     ROLES("roles"),
     STATUS("status"),
-    QUESTIONVARIABLES("questionVariables");
+    QUESTION_VARIABLE("questionVariables");
 
     private final String name;
 
