@@ -510,7 +510,7 @@ public class WandaClientApi {
 	}
 
 	
-	public ResponseDto<FoodRegionPreferenceResponse>  getDemoGraphicsData(List<String> hostelIdList) {
+	public FoodRegionPreferenceResponse  getDemoGraphicsData(List<String> hostelIdList) {
 
 		Object postBody = hostelIdList;
 
@@ -531,12 +531,12 @@ public class WandaClientApi {
 		ParameterizedTypeReference<ResponseDto<FoodRegionPreferenceResponse>> returnType = new ParameterizedTypeReference<ResponseDto<FoodRegionPreferenceResponse>>() {
 		};
 
-		ResponseDto<FoodRegionPreferenceResponse> response = new ResponseDto<>();
+		FoodRegionPreferenceResponse response = null;
 
 		try {
 
 			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
-					returnType);
+					returnType).getData();
 
 		} catch (Exception e) {
 			log.error("Exception while getting user code map from wanda: ", e);
