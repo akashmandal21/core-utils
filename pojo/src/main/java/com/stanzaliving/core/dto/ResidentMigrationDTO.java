@@ -35,4 +35,7 @@ public class ResidentMigrationDTO {
 
     @JsonSetter(value = "STUDENT_ADDRESS_ID")
     private Integer permanentAddressId;
+
+    @JsonSetter(value = "AGREEMENT_URL")
+    private String agreement;
 }

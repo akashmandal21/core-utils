@@ -25,5 +25,8 @@ public class UserDocumentMigrationDTO {
     private Date rejectionDate;
 
     @JsonSetter(value = "document_id")
-    private String documentId;
+    private String documentUuid;
+
+    @JsonSetter(value = "user_code")
+    private String residentCode;
 }
