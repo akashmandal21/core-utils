@@ -523,7 +523,7 @@ public class WandaClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
-		queryParams.put("residenceUuidList", hostelIdList);
+		queryParams.addAll("residenceUuidList", hostelIdList);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
