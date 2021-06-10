@@ -15,6 +15,10 @@ public class BookingInventoryDTO {
 
     private int bookingId;
 
+    private Integer bookingType;
+
+    private String agreement;
+
     private String studentId;
 
     private String firstName;

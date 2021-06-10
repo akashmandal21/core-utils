@@ -28,7 +28,7 @@ public class ResidentMigrationDTO {
     private String firstName;
 
     @JsonSetter(value = "STUDENT_ID")
-    private String residentId;
+    private String residentCode;
 
     @JsonSetter(value = "UUID")
     private String residentUuId;
