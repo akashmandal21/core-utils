@@ -83,4 +83,28 @@ public class  EquipmentRentalCategoryDto extends CategoryDto {
 	private int dryerRent;
 	private int dryerCharges;
 
+	@Builder.Default
+	private boolean roomGeyserEnabled = false;
+	private int roomGeyserCount;
+	private int roomGeyserRent;
+	private int roomGeyserCharges;
+
+	@Builder.Default
+	private boolean commonGeyserEnabled = false;
+	private int commonGeyserCount;
+	private int commonGeyserRent;
+	private int commonGeyserCharges;
+
+	@Builder.Default
+	private boolean acEnabled = false;
+	private int acCount;
+	private int acRent;
+	private int acCharges;
+
+	@Builder.Default
+	private boolean powerBackupEnabled = false;
+	private int powerBackupCount;
+	private int powerBackupRent;
+	private int powerBackupCharges;
+
 }
