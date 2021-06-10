@@ -29,6 +29,8 @@ public class StateMetadataDto {
 	private String uuid;
 
 	private String stateName;
+	
+	private String defaultFoodRegion;
 
 	private long countryId;
 	
