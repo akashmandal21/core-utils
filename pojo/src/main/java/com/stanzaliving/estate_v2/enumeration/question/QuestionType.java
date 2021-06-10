@@ -9,5 +9,6 @@ public enum QuestionType {
     FILE_UPLOAD,
     DATE_PICKER,
     E_COMMERCE,
-    BINARY
+    BINARY,
+    CALCULATIVE_FIELD
 }

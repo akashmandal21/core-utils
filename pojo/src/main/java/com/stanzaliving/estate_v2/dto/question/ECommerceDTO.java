@@ -1,7 +1,5 @@
 package com.stanzaliving.estate_v2.dto.question;
 
-import com.stanzaliving.estate_v2.enumeration.question.ECommerceDisplayType;
-import com.stanzaliving.estate_v2.enumeration.question.eCommerce.CTAType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 public class ECommerceDTO implements QuestionDetails {
     private String displayType;
+    private String itemName;
+    private String questionName;
+    private String eCommerceItemType;
     private String shortDescription;
     private String longDescription;
     private List<Object> tag;

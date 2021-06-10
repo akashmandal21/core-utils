@@ -17,6 +17,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SectionDto {
+
     @EmptyOrNull(message = "Section name cannot be null or empty")
     @Size(max = 30)
     private String name;

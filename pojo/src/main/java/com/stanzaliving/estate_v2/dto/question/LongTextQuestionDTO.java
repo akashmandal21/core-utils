@@ -1,5 +1,7 @@
 package com.stanzaliving.estate_v2.dto.question;
 
+import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
+import com.stanzaliving.estate_v2.annotation.operation.PutGroup;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class LongTextQuestionDTO implements QuestionDetails {
-
+    private String questionName;
     private String displayType;
     private String placeHolderText;
     private String richTextEditor;

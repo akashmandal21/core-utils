@@ -15,6 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class DatePickerDto implements QuestionDetails {
     private String displayType;
+    private String questionName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date startDate;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")

@@ -11,13 +11,14 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class FileUploadQuestionDto implements QuestionDetails{
-
+public class FileUploadQuestionDto implements QuestionDetails {
+    private String questionName;
     private String displayType;
     private List<String> fileType;
     private String aspectRatio;
     private String imageDimension;
     private Integer maxFiles;
-    private Integer maxFileSize;
+    private Double maxFileSize;
     private String placeHolderText;
+    private boolean specificFileType;
 }

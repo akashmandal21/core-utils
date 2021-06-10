@@ -16,9 +16,8 @@ import javax.validation.constraints.Size;
 @Builder
 public class QuestionDto {
     private String questionId;
-    @EmptyOrNull(message = "Question name cannot be null or empty")
-    @Size(max = 30)
-    private String questionName;
+    @EmptyOrNull(message = "Type cannot be null or empty")
+    private String type;
     @EmptyOrNull(message = "Variable name cannot be null or empty")
     @Size(max = 30)
     private String variableName;
@@ -27,13 +26,15 @@ public class QuestionDto {
     @NotNull(message = "Display order cannot be null")
     @Positive
     private Integer displayOrder;
-    @EmptyOrNull(message = "Status cannot be null")
+    @EmptyOrNull(message = "Status cannot be empty or null")
     private String status;
-    @EmptyOrNull(message = "ErrorText cannot be null")
+    @Size(max = 120)
     private String errorText;
     private HelperImageDto helperImage;
     private String questionType;
+    @NotNull(message = "Mandatory Condition cannot be empty or null")
     private VisibilityConditionDto visibilityCondition;
+    @NotNull(message = "Mandatory Condition cannot be empty or null")
     private MandatoryConditionDto mandatoryCondition;
     private Object questionDetails;
 }

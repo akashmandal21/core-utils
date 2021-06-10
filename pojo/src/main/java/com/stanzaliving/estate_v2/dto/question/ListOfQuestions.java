@@ -1,10 +1,13 @@
 package com.stanzaliving.estate_v2.dto.question;
 
+import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
+import com.stanzaliving.estate_v2.annotation.operation.PostGroup;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @AllArgsConstructor
@@ -12,6 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class ListOfQuestions {
+    @EmptyOrNull(message = "Template Id cannot be empty or null")
     private String templateId;
-    private List<ListOfQuestion> questions;
+    private List<@Valid ListOfQuestion> questions;
 }

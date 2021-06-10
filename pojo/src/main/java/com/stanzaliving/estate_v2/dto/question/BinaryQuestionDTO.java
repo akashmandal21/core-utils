@@ -13,9 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 public class BinaryQuestionDTO implements QuestionDetails {
     private String displayType;
+    private String questionName;
     private List<Object> tag;
-    private String imageAndRemark;
+    private String remarks;
+    private String shortDescription;
+    private String longDescription;
     private Integer maxFiles;
     private Integer maxSize;
-
 }
