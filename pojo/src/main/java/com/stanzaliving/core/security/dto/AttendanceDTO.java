@@ -25,14 +25,14 @@ public class AttendanceDTO {
     @NotBlank(message = "Attendance activity type UUID cannot be empty")
     private String attendanceActivityTypeUuid;
 
-    @NotNull(message = "Date cannot be empty")
+    @NotNull(message = "Date cannot be null")
     private LocalDate date;
 
     private String verifiedBy;
 
     private String verificationMode;
 
-    @NotNull(message = "Location cannot be empty")
+    @NotNull(message = "Location cannot be null")
     private LatLongDTO location;
 
     private String markedBy;

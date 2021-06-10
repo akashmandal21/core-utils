@@ -12,9 +12,10 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LatLongDTO {
-    @NotNull(message = "Latitude cannot be empty")
+
+    @NotNull(message = "Latitude cannot be null")
     private Double latitude;
 
-    @NotNull(message = "Longitude cannot be empty")
+    @NotNull(message = "Longitude cannot be null")
     private Double longitude;
 }

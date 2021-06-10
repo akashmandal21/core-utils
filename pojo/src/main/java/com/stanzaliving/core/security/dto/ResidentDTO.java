@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -25,13 +25,13 @@ public class ResidentDTO {
 
     private String lastName;
 
-    private String residentId;
+    private String residentCode;
 
-    private List<String> mobileNumbers;
+    private Set<String> mobileNumbers;
 
-    private List<String> guardiansMobileNumbers;
+    private Set<String> guardiansMobileNumbers;
 
-    private List<String> parentsMobileNumbers;
+    private Set<String> parentsMobileNumbers;
 
     private Nationality nationality;
 
@@ -51,7 +51,7 @@ public class ResidentDTO {
 
     private String residenceName;
 
-    private Integer roomNumber;
+    private String roomNumber;
 
     private Boolean blanketApproval;
 

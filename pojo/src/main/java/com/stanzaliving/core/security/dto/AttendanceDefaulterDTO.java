@@ -20,15 +20,18 @@ import java.util.List;
 @NoArgsConstructor
 public class AttendanceDefaulterDTO {
 
-    private Long id;
-
     private String uuid;
 
-    @NotNull @NotEmpty private String residentUuid;
+    @NotNull
+    @NotEmpty(message = "Resident UUID cannot be empty")
+    private String residentUuid;
 
-    @NotNull @NotEmpty private String residenceUuid;
+    @NotNull
+    @NotEmpty(message = "Residence UUID cannot be empty")
+    private String residenceUuid;
 
-    @NotNull private LocalDate date;
+    @NotNull(message = "date cannot be null")
+    private LocalDate date;
 
     private String markedBy;
 

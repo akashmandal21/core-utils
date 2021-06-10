@@ -14,10 +14,10 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AttendanceMonthDTO {
-    // TODO:
-    private List<LocalDate> present;
 
-    private List<LocalDate> absent;
+    private Set<LocalDate> present;
+
+    private Set<LocalDate> absent;
 
     private Set<LocalDate> leaves;
 }

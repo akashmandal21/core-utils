@@ -1,12 +1,17 @@
 package com.stanzaliving.core.security.enums;
 
-// TODO: May be needs to read from a table
 public enum RequestReason {
-    GOING_HOME,
-    GOING_TO_RELATIVES,
-    GOING_ON_A_TRIP,
-    OTHER,
-    FRIENDS_PLACE,
-    NIGHT_OUT,
-    PARTY
+    GOING_HOME("Going Home"),
+    GOING_TO_RELATIVES("Going to Relatives"),
+    GOING_ON_A_TRIP("Going on a Trip"),
+    OTHER("Other"),
+    FRIENDS_PLACE("Friend's-Place"),
+    NIGHT_OUT("Night-out"),
+    PARTY("Party");
+
+    public final String label;
+
+    private RequestReason(String label){
+        this.label = label;
+    }
 }

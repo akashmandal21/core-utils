@@ -1,7 +1,6 @@
 package com.stanzaliving.core.security.dto;
 
 import com.stanzaliving.core.security.enums.GatePassStatus;
-import com.stanzaliving.core.security.enums.MealType;
 import com.stanzaliving.core.security.enums.RequestStatus;
 import com.stanzaliving.core.security.enums.RequestType;
 import lombok.AllArgsConstructor;
@@ -20,7 +19,6 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AttendanceRequestDTO {
-    // TODO : add validation annotations i.e not null etc
 
     @NotNull
     @NotEmpty(message = "Resident UUID cannot be empty")
@@ -36,7 +34,8 @@ public class AttendanceRequestDTO {
 
     private LocalTime endTime;
 
-    private MealType nextMealType;
+    //TODO: replace with MealType enum
+    private String nextMealType;
 
     private String reason;
 

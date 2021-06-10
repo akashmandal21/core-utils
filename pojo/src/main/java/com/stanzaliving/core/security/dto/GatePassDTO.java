@@ -14,13 +14,18 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class GatePassDTO {
 
-    @NotNull @NotEmpty private String residentUuid;
+    @NotNull
+    @NotEmpty(message = "Resident UUID cannot be empty")
+    private String residentUuid;
 
-    @NotNull @NotEmpty private String residenceUuid;
+    @NotNull
+    @NotEmpty(message = "Residence UUID cannot be empty")
+    private String residenceUuid;
 
     private Long requestId;
 
-    @NotNull private String requestUuid;
+    @NotNull(message = "Request UUID cannot be null")
+    private String requestUuid;
 
     // TODO: Needs to be mapped to a type
     private String qrCodeData;

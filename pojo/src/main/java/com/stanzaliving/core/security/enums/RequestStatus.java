@@ -1,10 +1,15 @@
 package com.stanzaliving.core.security.enums;
 
-// TODO: Add Auto-approved status
 public enum RequestStatus {
-    AUTO_APPROVED,
-    APPROVED,
-    PENDING,
-    REJECTED,
-    CANCELLED
+    AUTO_APPROVED("Auto-approved"),
+    APPROVED("Approved"),
+    PENDING("Pending"),
+    REJECTED("Rejected"),
+    CANCELLED("Cancelled");
+
+    public final String label;
+
+    private RequestStatus(String label) {
+        this.label = label;
+    }
 }
