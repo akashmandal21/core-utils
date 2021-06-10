@@ -15,8 +15,10 @@ public class CommercialCardApplicabilityDto {
 
     private String criteriaValue;
 
-    private CriteriaCondition criteriaCondition;
+    @Builder.Default
+    private CriteriaCondition criteriaCondition = CriteriaCondition.EQUAL_TO;
 
+    @Builder.Default
     private boolean isApplicable = true;
 
 

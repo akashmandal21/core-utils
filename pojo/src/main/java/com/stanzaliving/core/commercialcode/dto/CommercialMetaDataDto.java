@@ -8,5 +8,6 @@ import lombok.Data;
 public class CommercialMetaDataDto {
     private String label;
     private String value;
-    private String note;
+    @Builder.Default
+    private String note = "";
 }
