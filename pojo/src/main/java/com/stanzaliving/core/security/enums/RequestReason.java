@@ -1,5 +1,8 @@
 package com.stanzaliving.core.security.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum RequestReason {
     GOING_HOME("Going Home"),
     GOING_TO_RELATIVES("Going to Relatives"),
@@ -9,7 +12,7 @@ public enum RequestReason {
     NIGHT_OUT("Night-out"),
     PARTY("Party");
 
-    public final String label;
+    private final String label;
 
     private RequestReason(String label){
         this.label = label;

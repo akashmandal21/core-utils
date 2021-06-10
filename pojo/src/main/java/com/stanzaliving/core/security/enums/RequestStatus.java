@@ -1,5 +1,8 @@
 package com.stanzaliving.core.security.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum RequestStatus {
     AUTO_APPROVED("Auto-approved"),
     APPROVED("Approved"),
@@ -7,7 +10,7 @@ public enum RequestStatus {
     REJECTED("Rejected"),
     CANCELLED("Cancelled");
 
-    public final String label;
+    private final String label;
 
     private RequestStatus(String label) {
         this.label = label;
