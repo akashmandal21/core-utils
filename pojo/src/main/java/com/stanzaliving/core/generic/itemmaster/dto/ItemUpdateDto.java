@@ -57,5 +57,6 @@ public class ItemUpdateDto extends AbstractDto {
     private UnitType standardUom;
     private Double standardQuantity;
     private String itemImage;
+    private String genericItemName;
 
 }
