@@ -23,8 +23,8 @@ public enum SortSpecs {
     RECIPETAGNAME("recipeTagName"),
     COUNTOFMAPPING("countOfMapping"),
     RECIPETAGUOM("recipeTagUom"),
-    RECIPETAGCREATEDBY("createdBy"),
-    RECIPETAGLASTUPDATEDBY("updatedBy"),
+    RECIPETAGCREATEDBY("createdAt"), //for front end sorting by createdBy should be done on createdAt
+    RECIPETAGLASTUPDATEDBY("updatedAt"), //for front end sorting by updatedBy should be done on updatedAt
     RECIPETAGSTATUS("status");
 
 
