@@ -9,12 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DocumentNudgeDTO {
+public class BookingNudgeDTO {
     private String bookingUuid;
 
     private String residentUuid;
 
-    private String documentUuid;
-
-    private DocumentNudgeMetadataDTO metadata;
+    private BookingNudgeMetadataDTO metadata;
 }

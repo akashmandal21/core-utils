@@ -2,6 +2,7 @@ package com.stanzaliving.core.dto;
 
 
 import com.stanzaliving.core.enums.ApprovalStatus;
+import com.stanzaliving.core.enums.DocumentTypeEnum;
 import com.stanzaliving.core.enums.Nationality;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +26,5 @@ public class FiltersDTO {
 
     private List<Nationality> nationalities;
 
-    private List<String> documentTypes;
+    private List<DocumentTypeEnum> documentTypes;
 }
