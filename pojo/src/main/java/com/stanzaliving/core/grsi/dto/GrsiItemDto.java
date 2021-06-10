@@ -12,13 +12,16 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class GrsiItemDto {
 
     private String itemUuid;
+    private String itemCode;
     private Department itemDept;
     private String batchId;
     private LocalDate expiryDate;
     private BigDecimal effectivePrice;//Unit Rate
     private BigDecimal quantity;
-    private String itemCode;
+    private BigDecimal rentPeriod;
+    private String gsriEventItemDetailsUuid;
 }

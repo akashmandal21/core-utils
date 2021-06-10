@@ -36,7 +36,7 @@ public class GenericItemDto {
     private Double igst;
     private Boolean inactive;
     private FarCategory farCategory;
-
+    private Boolean taggable;
     //Rates
     private BigDecimal globalRate;
     private BigDecimal cityRate;
