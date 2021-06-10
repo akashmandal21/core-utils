@@ -26,6 +26,8 @@ public class TransferScanResponseDto {
     String cartUuid;
     Date discardedOn;
     String discardedBy;
+    String returnedBy; // asset Returned by
+    Date returnedOn; // asset Returned On
     List<ToResponseDto> transferOrderList;
     String assetId;
     String assetUuid;
