@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CommercialCodeResponseDto {
     private String title;
-    private Object commercialDataDto;
+    private Object data;
 }
