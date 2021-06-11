@@ -502,7 +502,7 @@ public class UserClientApi {
 
 	}
 	
-	public ResponseDto<List<UserProfileDto>> getAllUsersByUuidIn(List<String> userIds) {
+	public ResponseDto<List<UserProfileDto>> getAllUsersByUuidIn(Set<String> userIds) {
 
 		Object postBody = null;
 
