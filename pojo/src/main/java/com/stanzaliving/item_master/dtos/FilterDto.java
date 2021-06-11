@@ -102,7 +102,8 @@ public class FilterDto {
     private List<UIKeyValue> itemStatusOptions;
     private List<UIKeyValue> updatedByOptions;
 
-    private boolean includeRate;
+    @Builder.Default
+    private boolean includeRate=false;
 
     public void addAdditionalFilterFields(Set<String> deptFields){
         deptFields.add("department");
