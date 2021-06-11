@@ -2,13 +2,13 @@ package com.stanzaliving.core.residenceservice.dto;
 
 import lombok.*;
 
-@Data
-@ToString
-@NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
-public class LabelValueDto {
-
+@NoArgsConstructor
+@Builder
+@ToString
+public class OptionsDto {
     private String label;
     private String value;
 }
-

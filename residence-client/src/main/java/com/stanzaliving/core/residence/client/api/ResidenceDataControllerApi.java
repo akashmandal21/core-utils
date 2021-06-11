@@ -192,13 +192,9 @@ public class ResidenceDataControllerApi {
 		return null;
 	}
 
-	public ResponseDto<PricingDetailsResponseDto> getPricingDetails(String token, String roomUuid, String serviceMixUuid, String moveInDate) {
+	public ResponseDto<PricingDetailsResponseDto> getPricingDetails(String roomUuid, String serviceMixUuid, String moveInDate) {
 
 		log.info("Residence-Data-Controller::Processing to get pricing detail based on move-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
-
-		if (StringUtils.isBlank(token)) {
-			throw new IllegalArgumentException("Token missing for fetching pricing detail based on move-in date");
-		}
 
 		Map<String, Object> uriVariables = new HashMap();
 
@@ -208,13 +204,11 @@ public class ResidenceDataControllerApi {
 
 		uriVariables.put("moveInDate", moveInDate);
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/room-pricing/{roomUUID}/{serviceMixUUID}/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/room-pricing/{roomUUID}/{serviceMixUUID}/{moveInDate}").buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
 		HttpHeaders headerParams = new HttpHeaders();
-
-		headerParams.add("Cookie", "token=" + token);
 
 		String[] accepts = new String[]{"*/*"};
 
@@ -233,25 +227,18 @@ public class ResidenceDataControllerApi {
 		return null;
 	}
 
-	public ResponseDto<List<AttributesResponseDto>> getResidenceAttributes(String token, String residenceUUID) {
+	public ResponseDto<List<AttributesResponseDto>> getResidenceAttributes(String residenceUUID) {
 
 		log.info("Residence-Data-Controller::Processing to get list of attributes for residenceUuid {}", residenceUUID);
 
-		if (StringUtils.isBlank(token)) {
-			throw new IllegalArgumentException("Token missing for fetching pricing detail based on move-in date");
-		}
-
 		Map<String, Object> uriVariables = new HashMap();
 
-		uriVariables.put("residenceUUID", residenceUUID);
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/residence-room-attribute/{residenceUUID}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/residence-room-attribute/{residenceUUID}").buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
 		HttpHeaders headerParams = new HttpHeaders();
-
-		headerParams.add("Cookie", "token=" + token);
 
 		String[] accepts = new String[]{"*/*"};
 
@@ -270,25 +257,19 @@ public class ResidenceDataControllerApi {
 		return null;
 	}
 
-	public ResponseDto<RoomNumberListingAndCountDto> getAllRoomsInResidenceAndMoveIn(String token, AdvanceRoomSearchDto advanceRoomSearchDto) {
+	public ResponseDto<RoomNumberListingAndCountDto> getAllRoomsInResidenceAndMoveIn(AdvanceRoomSearchDto advanceRoomSearchDto) {
 
 		log.info("Residence-Data-Controller::Processing to get all rooms in residenceUuid {} and move-in {} date");
 
 		Object postBody = advanceRoomSearchDto;
 
-		if (StringUtils.isBlank(token)) {
-			throw new IllegalArgumentException("Token missing for fetching pricing detail based on move-in date");
-		}
-
 		Map<String, Object> uriVariables = new HashMap();
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/room-list/advanced").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/room-list/advanced").buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
 		HttpHeaders headerParams = new HttpHeaders();
-
-		headerParams.add("Cookie", "token=" + token);
 
 		String[] accepts = new String[]{"*/*"};
 
@@ -307,13 +288,9 @@ public class ResidenceDataControllerApi {
 		return null;
 	}
 
-	public ResponseDto<OccupanciesFloorsStatusCountSearchDto> getOccupanciesFloorsAndRoomStatusAndMoveInDateForSearch(String token, String residenceUUID, String moveInDate) {
+	public ResponseDto<OccupanciesFloorsStatusCountSearchDto> getOccupanciesFloorsAndRoomStatusAndMoveInDateForSearch(String residenceUUID, String moveInDate) {
 
 		log.info("Residence-Data-Controller::Processing to filter search values for residence {} based on move-in date {}", residenceUUID, moveInDate);
-
-		if (StringUtils.isBlank(token)) {
-			throw new IllegalArgumentException("Token missing for fetching pricing detail based on move-in date");
-		}
 
 		Map<String, Object> uriVariables = new HashMap();
 
@@ -321,13 +298,11 @@ public class ResidenceDataControllerApi {
 
 		uriVariables.put("moveInDate", moveInDate);
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/room-list/search/{residenceUuid}/move-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/room-list/search/{residenceUuid}/move-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
 		HttpHeaders headerParams = new HttpHeaders();
-
-		headerParams.add("Cookie", "token=" + token);
 
 		String[] accepts = new String[]{"*/*"};
 

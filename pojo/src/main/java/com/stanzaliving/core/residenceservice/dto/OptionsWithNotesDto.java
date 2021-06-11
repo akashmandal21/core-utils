@@ -4,13 +4,13 @@ import lombok.*;
 
 @Getter
 @Setter
-@ToString
-@NoArgsConstructor
 @AllArgsConstructor
-public class LabelValueCountDto {
+@NoArgsConstructor
+@Builder
+@ToString
+public class OptionsWithNotesDto {
 
     private String label;
     private String value;
     private Integer count;
 }
-
