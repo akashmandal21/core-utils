@@ -510,7 +510,7 @@ public class WandaClientApi {
 	}
 
 	
-	public FoodRegionPreferenceResponse  getDemoGraphicsData(List<String> hostelIdList) {
+	public List<FoodRegionPreferenceResponse>  getDemoGraphicsData(List<String> hostelIdList) {
 
 		Object postBody = null;;
 
@@ -530,10 +530,10 @@ public class WandaClientApi {
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<FoodRegionPreferenceResponse>> returnType = new ParameterizedTypeReference<ResponseDto<FoodRegionPreferenceResponse>>() {
+		ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>> returnType = new ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>>() {
 		};
 
-		FoodRegionPreferenceResponse response = null;
+		List<FoodRegionPreferenceResponse> response = null;
 
 		try {
 
