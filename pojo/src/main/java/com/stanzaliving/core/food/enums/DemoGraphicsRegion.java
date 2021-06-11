@@ -14,30 +14,27 @@ import java.util.Map;
 @Getter
 @AllArgsConstructor
 public enum DemoGraphicsRegion {
-	ANDHRA(1, "Andhra", 1),
-	EAST_INDIAN(2, "East Indian", 2),
-	GUJRATI(3, "Gujrati", 3),
-	HYDERABADI(4, "Hyderabadi", 4),
-	KARNATAKA(5, "Karnataka", 5),
-	KERALA(6, "Kerala", 6),
-	MAHARASHTIA(7, "Maharashtian", 7),
-	MIX(8, "Mix", 8),
-	NORTH_INDIAN(9, "North Indian", 9),
-	ORIENTAL(10, "Oriental", 10),
-	PUNJABI(11, "Punjabi", 11),
-	RAJASTHANI(12, "Rajasthani", 12),
-	SOUTH_INDIAN(13, "South Indian", 13),
-	TAMIL_NADU(14, "Tamil Nadu", 14),
-	WEST_INDIAN(15, "West Indian", 15);
+	ANDHRA("Andhra", 1),
+	EAST_INDIAN("East Indian", 2),
+	GUJRATI("Gujrati", 3),
+	HYDERABADI("Hyderabadi", 4),
+	KARNATAKA("Karnataka", 5),
+	KERALA("Kerala", 6),
+	MAHARASHTIA("Maharashtian", 7),
+	MIX("Mix", 8),
+	NORTH_INDIAN("North Indian", 9),
+	ORIENTAL("Oriental", 10),
+	PUNJABI("Punjabi", 11),
+	RAJASTHANI("Rajasthani", 12),
+	SOUTH_INDIAN("South Indian", 13),
+	TAMIL_NADU("Tamil Nadu", 14),
+	WEST_INDIAN("West Indian", 15);
 
-	private Integer foodRegionId;
 	private String foodRegionName;
 	private Integer sequence;
 
 
-	private static Map<Integer, DemoGraphicsRegion> foodRegionMapById = new HashMap<>();
 	private static Map<String, DemoGraphicsRegion> foodRegionMapByName = new HashMap<>();
-	private static List<String> foodRegionIds = new ArrayList<>();
 
 	private static Map<DemoGraphicsRegion, String> foodRegionMapByType = new LinkedHashMap<>();
 	private static Map<String, String> foodRegionMapByTypeStr = new LinkedHashMap<>();
@@ -47,9 +44,7 @@ public enum DemoGraphicsRegion {
 	static {
 
 		for (DemoGraphicsRegion demoGraphicsRegion : DemoGraphicsRegion.values()) {
-			foodRegionMapById.put(demoGraphicsRegion.getFoodRegionId(), demoGraphicsRegion);
 			foodRegionMapByName.put(demoGraphicsRegion.getFoodRegionName(), demoGraphicsRegion);
-			foodRegionIds.add(demoGraphicsRegion.getFoodRegionId().toString());
 			enumListings.add(EnumListing.of(demoGraphicsRegion, demoGraphicsRegion.getFoodRegionName()));
 		}
 		foodRegionMapByType.put(ANDHRA, ANDHRA.getFoodRegionName());
@@ -87,39 +82,12 @@ public enum DemoGraphicsRegion {
 
 	}
 
-	public static Integer getFoodRegionId(String foodRegionName) {
-
-		if (foodRegionMapByName.containsKey(foodRegionName)) {
-			return foodRegionMapByName.get(foodRegionName).getFoodRegionId();
-		}
-
-		return -1;
-
-	}
-
 	public static Map<DemoGraphicsRegion, String> getFoodRegionMapByType() {
 		return foodRegionMapByType;
 	}
 
 	public static Map<String, String> getFoodRegionMapByTypeStr() {
 		return foodRegionMapByTypeStr;
-	}
-
-	public static String getFoodRegionName(String foodRegionId) {
-
-		if (foodRegionMapById.containsKey(StanzaParseUtils.getIntValue(foodRegionId))) {
-			return foodRegionMapById.get(StanzaParseUtils.getIntValue(foodRegionId)).getFoodRegionName();
-		}
-
-		return null;
-	}
-
-	public static DemoGraphicsRegion getFoodRegion(Integer foodRegionId) {
-		return foodRegionMapById.get(foodRegionId);
-	}
-
-	public static List<String> getFoodRegionIds() {
-		return foodRegionIds;
 	}
 
 	public static DemoGraphicsRegion getFoodRegionByName(String foodRegionName) {
