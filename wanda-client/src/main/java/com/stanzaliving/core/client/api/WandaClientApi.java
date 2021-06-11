@@ -536,10 +536,8 @@ public class WandaClientApi {
 		List<FoodRegionPreferenceResponse> response = null;
 
 		try {
-
-			response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
-					returnType).getData();
-
+			response = restClient
+					.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
 		} catch (Exception e) {
 			log.error("Exception while getting user code map from wanda: ", e);
 		}
