@@ -1,8 +1,10 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -99,7 +101,7 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private Set<FacilityResponseDTO> facilities = new HashSet<>();
 	
 	@Builder.Default
-	private Set<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = new HashSet<>();
+	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = Collections.emptyList();
 	
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>();
