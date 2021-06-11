@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserListDTO {
-    @NotNull(groups = {DraftValidations.class, ApprovalValidation.class})
+    @NotNull(message = "Please select User List Type",groups = {DraftValidations.class, ApprovalValidation.class})
     private UserList userListType;
 
     private EventLocationDTO specificLocation;

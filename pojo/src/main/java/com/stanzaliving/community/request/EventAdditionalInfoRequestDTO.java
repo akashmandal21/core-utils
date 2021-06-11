@@ -38,7 +38,7 @@ public class EventAdditionalInfoRequestDTO {
 
     private String pincode;
 
-    @NotEmpty(groups = ApprovalValidation.class)
+    @NotEmpty(groups = ApprovalValidation.class,message = "Event Description should not be Empty")
     private String eventDescription;
 
     private String mapLink;
