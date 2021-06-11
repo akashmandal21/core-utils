@@ -12,9 +12,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 public class FoodRegionPreference {
-	
-	String preference;
-	
-	Long count;
+
+	private String residenceUuid;
+	private String preference;
+	private Long count;
+
 
 }
