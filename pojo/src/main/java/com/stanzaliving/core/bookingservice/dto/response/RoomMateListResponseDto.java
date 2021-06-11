@@ -15,4 +15,5 @@ public class RoomMateListResponseDto {
 	private String middleName;
 	private String lastName;
 	private String profilePic;
+	private String userUuid;
 }
