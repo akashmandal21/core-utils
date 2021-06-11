@@ -21,7 +21,7 @@ public class OracleGrnRequestDto extends AbstractOracleDto {
     private String installationLocation;
     private String receivingLocationType;
     private String receivingLocation;
-    private Date date;
+    private String date;
     Collection<OracleItemDetailsDto> itemList;
 
 }
