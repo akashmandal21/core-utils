@@ -19,10 +19,10 @@ public class ResidenceOccupancyResponseDTO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	private int residenceOccupancyId;
-	private int occupancyId;
+	private Integer occupancyId;
 	private String occupancyName;
 	private int occupancyOccupancy;
-	private int startingPrice;
+	private Integer startingPrice;
 	private boolean soldOut;
 	private String residenceOccupancyImgUrl;
 	private String pricingPlan;

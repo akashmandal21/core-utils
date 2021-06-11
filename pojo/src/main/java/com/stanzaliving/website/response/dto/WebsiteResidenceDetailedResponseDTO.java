@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -87,7 +88,7 @@ public class WebsiteResidenceDetailedResponseDTO {
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
 
 	@Builder.Default
-	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
+	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = Collections.emptyList();
 
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>(0);
