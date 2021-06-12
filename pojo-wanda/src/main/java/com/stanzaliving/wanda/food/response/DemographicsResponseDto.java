@@ -18,5 +18,7 @@ public class DemographicsResponseDto {
 	private String residenceName;
 	private String microMarketName;
 	private Integer mirCount;
+	private Double latitude;
+	private Double longitude;
 	private List<DemographicsPreferenceDto> demographicsPreferenceDtoList;
 }
