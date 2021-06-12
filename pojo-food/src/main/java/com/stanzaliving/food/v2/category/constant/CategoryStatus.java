@@ -46,4 +46,8 @@ public enum CategoryStatus {
 	public static List<CategoryStatus> allowedCopyStatus() {
 		return Arrays.asList(APPROVED, SUBMITTED);
 	}
+	
+	public static List<CategoryStatus> clonableStatus() {
+		return Arrays.asList(APPROVED, SUBMITTED);
+	}
 }
