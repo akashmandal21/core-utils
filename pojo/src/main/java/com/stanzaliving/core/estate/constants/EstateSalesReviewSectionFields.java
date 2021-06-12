@@ -52,5 +52,11 @@ public class EstateSalesReviewSectionFields {
 	public static final String GLOBAL_UUID="GLOBAL";
 
 	public static final String IS_AVAILABLE_TRUE="1";
+
+	public static final int SALES_REVIEW_BY_PASSED=0;
+
+	public static final int SALES_REVIEW_OPEN=1;
+
+	public static final int SALES_REVIEW_REOPEN=2;
 	
 }
