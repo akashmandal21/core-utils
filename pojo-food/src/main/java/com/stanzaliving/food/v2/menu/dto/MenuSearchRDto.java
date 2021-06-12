@@ -38,4 +38,6 @@ public class MenuSearchRDto extends AbstractDto {
 	private Double menuRating;
 	private Double mmRating;
 	private boolean rulesViolated;
+	private int fpsScore;
+	private boolean fpsScorePassed;
 }

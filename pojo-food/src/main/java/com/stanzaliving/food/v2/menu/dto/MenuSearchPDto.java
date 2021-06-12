@@ -29,5 +29,6 @@ public class MenuSearchPDto {
 	private MenuStatus menuStatus;
 	private ApprovalStatus approvalStatus;
 	private Boolean rulesViolated;
+	private Boolean approvalDashboard;
 
 }

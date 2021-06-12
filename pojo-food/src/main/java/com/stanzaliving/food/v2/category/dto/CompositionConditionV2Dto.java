@@ -18,13 +18,14 @@ import java.util.Map;
 @NoArgsConstructor
 public class CompositionConditionV2Dto extends ConditionDto {
 	private static final long serialVersionUID = 1L;
-
+	
 	@NotNull(message = "Rule Condition is Empty")
 	private RuleDuration condition;
-
+	
 	@Builder.Default
 	private Boolean passed = true;
-
+	
 	private Map<MealType, List<DayOfWeek>> failedMeals;
-
+	private Map<MealType, Map<DayOfWeek, List<String>>> missingTagMeals;
+	
 }
