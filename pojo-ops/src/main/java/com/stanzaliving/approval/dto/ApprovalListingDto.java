@@ -1,6 +1,7 @@
 package com.stanzaliving.approval.dto;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -83,6 +84,7 @@ public class ApprovalListingDto {
 
     private List<String> pendingApprovers;
     private List<String> pendingApproversEmails;
+    private List<UserContactDetailsResponseDto> pendingUsers;
 
     private Date requestDateTime;
     private Date l1ActionDateTime;
