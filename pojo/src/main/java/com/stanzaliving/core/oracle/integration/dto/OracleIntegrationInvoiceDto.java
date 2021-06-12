@@ -4,11 +4,14 @@ import com.stanzaliving.invoice.enums.Category;
 import com.stanzaliving.invoice.enums.ExpenseType;
 import com.stanzaliving.invoice.enums.InvoiceType;
 import com.stanzaliving.invoice.enums.VoucherType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -21,8 +24,8 @@ public class OracleIntegrationInvoiceDto extends AbstractOracleDto {
 
     private String stanzaId;
     private String documentNumber;
-    private Date date;
-    private Date dueDate;
+    private String date;
+    private String dueDate;
     private String vendor;
     private String location;
     private String currency;
@@ -33,7 +36,7 @@ public class OracleIntegrationInvoiceDto extends AbstractOracleDto {
     private BigDecimal advanceAdjusted;
     private String documentUrl;
     private double exchangeRate;
-    private String poUuid;
+    private String purchaseOrderNumber;
     private InvoiceType invoiceType;
     private String documentName;
     private String invoiceCopy;
@@ -53,7 +56,7 @@ public class OracleIntegrationInvoiceDto extends AbstractOracleDto {
     private BigDecimal provision;
     private BigDecimal difference;
     private BigDecimal retentionAmount;
-    private Date retentionDueDate;
+    private String retentionDueDate;
     private List<OracleIntegrationInvoiceItemDto> itemList;
 
 }
