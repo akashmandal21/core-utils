@@ -95,4 +95,7 @@ public class ResidenceUIDto implements Serializable{
 	private String company;
 
 	private String addressUuid;
+
+	private String phoenixPropertyUuid;
+
 }
