@@ -1,4 +1,4 @@
-package com.stanzaliving.food.v2.common.constants;
+package com.stanzaliving.food.v2.common.constant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

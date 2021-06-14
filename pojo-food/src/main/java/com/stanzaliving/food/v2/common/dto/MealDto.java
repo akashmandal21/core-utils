@@ -22,9 +22,10 @@ public class MealDto implements Serializable {
     private MealType mealType;
     private String name;
     private String code;
-    private String mealGroup;
     private String mealGroupId;
+    private String mealGroup;
     private String imageUri;
     private LocalTime startTime;
     private LocalTime endTime;
+    private Integer sequence;
 }
