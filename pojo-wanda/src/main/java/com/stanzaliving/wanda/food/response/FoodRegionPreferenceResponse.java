@@ -16,5 +16,5 @@ import lombok.Setter;
 public class FoodRegionPreferenceResponse {
 	
 	private String residenceUuid;
-	List<FoodRegionPreference> foodRegionPreference;
+	private List<FoodRegionPreference> foodRegionPreference;
 }
