@@ -25,6 +25,8 @@ public class KycDocumentDTO {
 
     private String residentUuid;
 
+    private String residentCode;
+
     private String bookingUuid;
 
     private boolean isVerified;
