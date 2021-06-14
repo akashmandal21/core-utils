@@ -1,11 +1,14 @@
 package com.stanzaliving.core.oracle.integration.dto;
 
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.vendor.enums.VendorType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -17,7 +20,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OracleIntegrationVendorDto extends  AbstractOracleDto {
+public class OracleIntegrationVendorDto extends AbstractOracleDto {
 
     @NotNull
     @JsonProperty("entityid")
