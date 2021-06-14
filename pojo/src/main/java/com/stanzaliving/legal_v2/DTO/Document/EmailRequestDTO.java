@@ -1,24 +1,33 @@
 package com.stanzaliving.legal_v2.DTO.Document;
 
+import com.stanzaliving.core.base.utils.StanzaUtils;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 
+import java.util.Arrays;
 import java.util.Map;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
+@Builder
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class EmailRequestDTO {
 
-    String To;
+    private String to;
 
-    String templateId;
+    private String templateId;
 
-    String subject;
+    private String subject;
 
-    Map<String,Object> emailMapData;
+    private Map<String,Object> emailMapData;
+    
 
 }
