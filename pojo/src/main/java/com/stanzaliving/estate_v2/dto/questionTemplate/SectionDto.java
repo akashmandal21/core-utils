@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
 public class SectionDto {
 
     @EmptyOrNull(message = "Section name cannot be null or empty")
-    @Size(max = 30)
+    @Size(max = 50)
     private String name;
     @Size(max = 30)
     private String helpText;

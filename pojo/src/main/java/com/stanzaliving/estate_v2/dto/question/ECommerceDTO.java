@@ -15,11 +15,10 @@ public class ECommerceDTO implements QuestionDetails {
     private String displayType;
     private String itemName;
     private String questionName;
-    private String eCommerceItemType;
+    private String itemType;
     private String shortDescription;
     private String longDescription;
     private List<Object> tag;
-    private Double sellingPrice;
     private Double mrp;
     private String itemMasterCode;
     private String ctaType;
