@@ -30,7 +30,7 @@ public class DocumentRequestEmailDTO {
     
     private String templateId;
 
-    public String[] getTo() {
+    public String[] getPropertyCreatedBDEmail() {
         return removeWhiteSpaces(propertyCreatedBDEmail);
     }
 
