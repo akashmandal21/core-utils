@@ -3,6 +3,7 @@ package com.stanzaliving.food.v2.menu.dto;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.menu.constants.MenuStatus;
@@ -28,6 +29,7 @@ public class MenuSearchRDto extends AbstractDto {
 	private String versionId;
 	private String categoryId;
 	private MenuType menuType;
+	private FoodServeType foodServeType;
 	private String mealWiseName;
 	private String fullName;
 	private Double mealPrice;
