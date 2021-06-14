@@ -22,5 +22,5 @@ public class PaginatedResidenceListingDto {
     @Builder.Default
     private int totalPages = 0;
     private int numberOfElements = 0;
-
+    private int currentPage;
 }
