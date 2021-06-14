@@ -19,7 +19,9 @@ public class AlternateRecipeTagDto {
     private UIKeyValue currentRecipeTagUom;
     private List<UIKeyValue> alternateRecipeTagOptions;
     private UIKeyValue alternateRecipeTag;
-    private Boolean errorOccurred;
+    @Builder.Default
+    private Boolean errorOccurred=false;
+
     private String errorMessage;
     private List<ItemsMapped> items;
 }
