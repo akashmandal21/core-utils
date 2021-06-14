@@ -14,9 +14,9 @@ import java.util.List;
 @AllArgsConstructor
 public class AlternateRecipeTagDto {
 
-    private String recipeTagUuid;
-    private UIKeyValue currentRecipeTag;
-    private UIKeyValue currentRecipeUom;
+    private String currentRecipeTagUuid;
+    private String currentRecipeTagName;
+    private UIKeyValue currentRecipeTagUom;
     private List<UIKeyValue> alternateRecipeTagOptions;
     private UIKeyValue alternateRecipeTag;
     private Boolean errorOccurred;
