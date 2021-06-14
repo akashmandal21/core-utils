@@ -25,3 +25,4 @@ public class OtpValidationRequest {
 	@Default
 	private boolean whatsAppOptIn=false;
 }
+
