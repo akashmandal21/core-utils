@@ -1,6 +1,6 @@
 package com.stanzaliving.ventaInvoice.dto;
 
-import com.stanzaliving.ventaInvoice.enums.DocumentType;
+import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class DocumentDTO {
 
     private String documentId;
-    private DocumentType type;
+    private InvoiceType type;
     private LocalDate fromDate;
     private LocalDate toDate;
     private LocalDate issueDate;

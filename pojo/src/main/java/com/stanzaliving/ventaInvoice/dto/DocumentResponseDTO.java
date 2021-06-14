@@ -1,7 +1,7 @@
 package com.stanzaliving.ventaInvoice.dto;
 
 import com.stanzaliving.invoice.enums.Category;
-import com.stanzaliving.ventaInvoice.enums.DocumentType;
+import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 import com.stanzaliving.ventaInvoice.enums.Split;
 import lombok.*;
@@ -22,7 +22,7 @@ public class DocumentResponseDTO {
 
     private ReferenceType referenceType;
 
-    private DocumentType documentType;
+    private InvoiceType invoiceType;
 
     private String invoiceSelector;
 

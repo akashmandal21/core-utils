@@ -6,8 +6,8 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum Split {
-    DEAL("Equal"),
-    RESIDENT("Unequal");
+    EQUAL("Equal"),
+    UNEQUAL("Unequal");
     private final String split;
 }
 
