@@ -16,6 +16,7 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
@@ -970,4 +971,29 @@ public class DateUtil {
 		Date result = new Date(milliSeconds);
 		return simpleDateFormat.format(result);
 	}
+
+	public static String findDifference(Date start_date,
+				   Date end_date)
+	{
+
+		Period diff
+				= Period
+				.between(start_date.toInstant()
+								.atZone(ZoneId.systemDefault())
+								.toLocalDate(),
+						end_date.toInstant().atZone(ZoneId.systemDefault())
+								.toLocalDate());
+
+		return dateDifferenceInString(diff.getMonths(), diff.getDays());
+	}
+
+
+	public static String dateDifferenceInString(Integer month, Integer days){
+		String diff = "";
+        if(month!=0) diff += month == 1 ? month+" month ": month+" months ";
+        if(days!=0) diff += days == 1 ? days+" day": days+" days";
+        return diff;
+	}
+
+
 }
