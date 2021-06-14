@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.stanzaliving.core.bookingservice.dto;
+package com.stanzaliving.core.bookingservice.dto.response;
 
 import java.util.Date;
 
@@ -18,8 +18,8 @@ public class UserStayDetailResponseDto {
 	private String roomNumber;
 	private String occupancy;
 	private String paymentTerm;
-	private Date contractStartDate;
-	private Date contractEndDate;
+	private String contractStartDate;
+	private String contractEndDate;
 	private String contractMonths;
 	private double dues;
 	

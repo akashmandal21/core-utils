@@ -1,13 +1,10 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
-import lombok.*;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-import java.util.HashMap;
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @Getter
@@ -30,7 +27,7 @@ public class BookingResidenceAggregationEntityDto {
 
     private String entity;
 
-    private Integer totalBed;
+    private Long totalBeds;
 }
 
 

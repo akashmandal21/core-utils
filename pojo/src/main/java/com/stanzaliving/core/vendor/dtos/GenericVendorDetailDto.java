@@ -49,4 +49,6 @@ public class GenericVendorDetailDto {
     private Integer retCreditDays;
 
     private boolean gstExempted;
+
+    private String propertyUuid;
 }

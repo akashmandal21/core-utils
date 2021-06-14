@@ -940,4 +940,34 @@ public class DateUtil {
 
 		return date;
 	}
+
+	public static Date getMaximumTimeOfDate(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.set(Calendar.HOUR_OF_DAY, 23);
+		cal.set(Calendar.MINUTE, 59);
+		cal.set(Calendar.SECOND, 59);
+		return cal.getTime();
+	}
+
+	public static Date getCurrentDate() {
+		return getCurrentDate(new Date());
+	}
+
+	public static Date getCurrentDate(Date date) {
+		Calendar calendarInstance = Calendar.getInstance();
+		calendarInstance.setTime(date);
+		calendarInstance.set(Calendar.MINUTE, 00);
+		calendarInstance.set(Calendar.HOUR_OF_DAY,00);
+		calendarInstance.set(Calendar.SECOND,00);
+		Date currentDate = calendarInstance.getTime();
+		return currentDate;
+	}
+
+	public static String ConvertMilliSecondsToFormattedDate(String milliSeconds){
+		String dateFormat = "dd-MM-yyyy hh:mm";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
+		Date result = new Date(milliSeconds);
+		return simpleDateFormat.format(result);
+	}
 }
