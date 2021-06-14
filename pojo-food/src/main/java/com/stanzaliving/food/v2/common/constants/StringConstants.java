@@ -1,4 +1,4 @@
-package com.stanzaliving.food.v2.common.constant;
+package com.stanzaliving.food.v2.common.constants;
 
 import lombok.experimental.UtilityClass;
 
