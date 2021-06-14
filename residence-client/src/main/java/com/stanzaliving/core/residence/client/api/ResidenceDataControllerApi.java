@@ -233,6 +233,7 @@ public class ResidenceDataControllerApi {
 
 		Map<String, Object> uriVariables = new HashMap();
 
+		uriVariables.put("residenceUUID", residenceUUID);
 
 		String path = UriComponentsBuilder.fromPath("/internal/residence-room-attribute/{residenceUUID}").buildAndExpand(uriVariables).toUriString();
 
@@ -265,7 +266,7 @@ public class ResidenceDataControllerApi {
 
 		Map<String, Object> uriVariables = new HashMap();
 
-		String path = UriComponentsBuilder.fromPath("/room-list/advanced").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/room-list/advanced").buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
@@ -283,6 +284,7 @@ public class ResidenceDataControllerApi {
 			return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception ex) {
+			log.error(ex);
 			log.error("Exception while Processing to get all rooms in residenceUuid and move-in date");
 		}
 		return null;
@@ -294,7 +296,7 @@ public class ResidenceDataControllerApi {
 
 		Map<String, Object> uriVariables = new HashMap();
 
-		uriVariables.put("residenceUUID", residenceUUID);
+		uriVariables.put("residenceUuid", residenceUUID);
 
 		uriVariables.put("moveInDate", moveInDate);
 

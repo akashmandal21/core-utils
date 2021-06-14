@@ -1,15 +1,14 @@
 package com.stanzaliving.core.residenceservice.dto;
 
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @ToString
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RoomNumberListingResponseDto {
 
     private String roomNumberUuid;

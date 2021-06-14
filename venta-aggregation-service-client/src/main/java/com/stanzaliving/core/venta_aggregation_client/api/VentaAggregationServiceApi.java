@@ -37,10 +37,11 @@ public class VentaAggregationServiceApi {
     public ResponseDto<ResidenceAggregationEntityDto> getAggregatedResidenceInformation(String residenceUuid) {
         log.info("Aggregation Residence Controller::Processing to get residence information on basis of residenceUuid {}", residenceUuid);
         Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("residenceUuid", residenceUuid);
+        uriVariables.put("residenceUUID", residenceUuid);
         
-        String path = UriComponentsBuilder.fromPath("/internal/residence/{residenceUuid}")
+        String path = UriComponentsBuilder.fromPath("/internal/residence-room-attribute/{residenceUUID}")
                 .buildAndExpand(uriVariables).toUriString();
+
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
