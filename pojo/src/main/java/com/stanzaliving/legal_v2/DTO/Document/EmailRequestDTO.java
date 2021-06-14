@@ -21,7 +21,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class EmailRequestDTO {
 
-    private String to;
+    private String[] to;
 
     private String templateId;
 
