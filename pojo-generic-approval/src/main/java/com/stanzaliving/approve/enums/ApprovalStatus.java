@@ -51,8 +51,8 @@ public enum ApprovalStatus {
         return map.get(approvalStatus);
     }
 
-    public static List<ApprovalStatus> enumOf(Integer level) {
-        List<ApprovalStatus> approvalStatusList = new ArrayList<>();
+    public static Set<ApprovalStatus> enumOf(Integer level) {
+        Set<ApprovalStatus> approvalStatusList = new HashSet<>();
         while (level <= 6){
             approvalStatusList.addAll(levelMap.get(level));
             level ++;
