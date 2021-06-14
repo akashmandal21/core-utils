@@ -27,7 +27,6 @@ public class EmailRequestDTO {
 
     private String subject;
 
-    private Map<String,Object> emailMapData;
-    
+    private Map<String,Object> emailData;
 
 }
