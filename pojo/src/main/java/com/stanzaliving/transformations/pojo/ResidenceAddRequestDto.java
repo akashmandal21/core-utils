@@ -67,4 +67,8 @@ public class ResidenceAddRequestDto {
 	private String parentResidenceId;
 	
 	private PropertyEntityType propertyEntityType;
+	
+	private Double latitude;
+
+	private Double longitude;
 }
