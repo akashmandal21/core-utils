@@ -21,4 +21,7 @@ public class DocumentDetailMigrationDTO {
 
     @JsonSetter(value = "uuid")
     private String documentUuid;
+
+    @JsonSetter(value = "status")
+    private boolean status;
 }

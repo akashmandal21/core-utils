@@ -29,4 +29,7 @@ public class UserDocumentMigrationDTO {
 
     @JsonSetter(value = "user_code")
     private String residentCode;
+
+    @JsonSetter(value = "status")
+    private boolean status;
 }
