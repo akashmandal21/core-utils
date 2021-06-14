@@ -510,20 +510,18 @@ public class WandaClientApi {
 	}
 
 	
-	public List<FoodRegionPreferenceResponse>  getDemoGraphicsData(List<String> hostelIdList) {
+	public List<FoodRegionPreferenceResponse> getDemoGraphicsData(List<String> hostelIdList) {
 
-		Object postBody = null;;
+		Object postBody = hostelIdList;
 
 		log.info("Received request to get Demographics detail{}", hostelIdList);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/coreApi/foodregion/consumer/region/preference").buildAndExpand(uriVariables)
+		String path = UriComponentsBuilder.fromPath("/coreApi/foodregion/consumer/region/preference/get").buildAndExpand(uriVariables)
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		
-		queryParams.addAll("residenceUuidList", hostelIdList);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
@@ -537,7 +535,7 @@ public class WandaClientApi {
 
 		try {
 			response = restClient
-					.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
+					.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
 		} catch (Exception e) {
 			log.error("Exception while getting user code map from wanda: ", e);
 		}
