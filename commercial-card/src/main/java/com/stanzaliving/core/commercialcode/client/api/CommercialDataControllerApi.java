@@ -28,7 +28,7 @@ public class CommercialDataControllerApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<CommercialCardListDto> getAllCommercialCards(CommercialCardDto commercialCardDto) {
+    public ResponseDto<CommercialCardListDto> getAllCommercialCards(String token, CommercialCardDto commercialCardDto) {
 
         log.info("Commercial-code-Data-Controller::Processing to get residence list for filter {}", commercialCardDto);
 
@@ -42,6 +42,8 @@ public class CommercialDataControllerApi {
 
         HttpHeaders headerParams = new HttpHeaders();
 
+        headerParams.add("Cookie", "token=" + token);
+
         String[] accepts = new String[]{"*/*"};
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
@@ -52,7 +54,7 @@ public class CommercialDataControllerApi {
         return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<CommercialCardUsageDto> updateCommercialCardUsage(CommercialCardBookingDto commercialCardBookingDto) {
+    public ResponseDto<CommercialCardUsageDto> updateCommercialCardUsage(String token, CommercialCardBookingDto commercialCardBookingDto) {
 
         log.info("Commercial-code-Data-Controller::Processing to update commercial card usage", commercialCardBookingDto);
 
@@ -66,6 +68,8 @@ public class CommercialDataControllerApi {
 
         HttpHeaders headerParams = new HttpHeaders();
 
+        headerParams.add("Cookie", "token=" + token);
+
         String[] accepts = new String[]{"*/*"};
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
@@ -77,7 +81,7 @@ public class CommercialDataControllerApi {
     }
 
 
-    public ResponseDto<CommercialCardUsageDto> restoreCommercialCardUsage(CommercialCardBookingDto commercialCardBookingDto) {
+    public ResponseDto<CommercialCardUsageDto> restoreCommercialCardUsage(String token, CommercialCardBookingDto commercialCardBookingDto) {
 
         log.info("Commercial-code-Data-Controller::Processing to restore commercial card usage", commercialCardBookingDto);
 
@@ -90,6 +94,8 @@ public class CommercialDataControllerApi {
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
         HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + token);
 
         String[] accepts = new String[]{"*/*"};
 
