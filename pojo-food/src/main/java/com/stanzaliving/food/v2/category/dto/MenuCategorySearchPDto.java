@@ -21,8 +21,8 @@ import java.util.List;
 @NoArgsConstructor
 public class MenuCategorySearchPDto implements Serializable {
     private List<String> residenceIds;
-    private CategoryStatus categoryStatus;
-    private ApprovalStatus approvalStatus;
+    private List<CategoryStatus> categoryStatus;
+    private List<ApprovalStatus> approvalStatus;
     private String name;
     private List<String> tagId;
     private String cityId;
