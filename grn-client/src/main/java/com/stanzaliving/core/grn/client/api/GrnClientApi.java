@@ -1,15 +1,13 @@
 package com.stanzaliving.core.grn.client.api;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
+import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.generic.po.enums.EventType;
 import com.stanzaliving.core.grsi.dto.GrsiItemDto;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
+import com.stanzaliving.core.grsi.dto.ToFetchRequestDto;
+import com.stanzaliving.core.grsi.dto.response.ToResponseDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.core.po.generic.dtos.GenericPoUpdate;
 import com.stanzaliving.grn.GSRIEmailData;
@@ -26,8 +24,11 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Log4j2
 public class GrnClientApi {
@@ -78,6 +79,28 @@ public class GrnClientApi {
 
         String path = UriComponentsBuilder.fromPath("/internal/generic/get/gsri/quantity").buildAndExpand(uriVariables).toUriString();
         queryParams.set("poToUuid", poUuid);
+
+        ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<GSRIReceivedQuantity>> getGrnQuantitiesForFAR(String poToNumber, String itemCode) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/far/gsri/quantity").buildAndExpand(uriVariables).toUriString();
+        queryParams.set("poToNumber", poToNumber);
+        queryParams.set("itemCode", itemCode);
 
         ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GSRIReceivedQuantity>>>() {
         };
@@ -220,20 +243,34 @@ public class GrnClientApi {
         uriVariables.put("toNumber", toNumber);
         uriVariables.put("isComplete", isComplete);
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
+		final String[] accepts = { "*/*" };
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         String path = UriComponentsBuilder.fromPath("/internal/generic/manual/gsri/receive/or/install/{platform}/{eventType}/{toNumber}/{isComplete}").buildAndExpand(uriVariables).toUriString();
 
-        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, gsriItems, headerParams, accept, returnType);
+	}
+
+    public ResponseDto<List<ToResponseDto>> fetchToListForFar(ToFetchRequestDto toFetchRequestDto) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/fetch-to-list").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ToResponseDto>>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, gsriItems, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, null, toFetchRequestDto, headerParams, accept, returnType);
     }
-
 }
