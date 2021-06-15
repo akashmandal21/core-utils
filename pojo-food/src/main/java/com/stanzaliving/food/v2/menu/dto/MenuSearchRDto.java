@@ -14,6 +14,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -36,6 +37,8 @@ public class MenuSearchRDto extends AbstractDto {
 	private ApprovalStatus approvalStatus;
 	private List<String> pendingApprovers;
 	private List<UserContactDetailsResponseDto> pendingUsers;
+	private Date approvalRequestedOn;
+	private String approvalRequestedBy;
 	private MenuStatus menuStatus;
 	private Double menuRating;
 	private Double mmRating;
