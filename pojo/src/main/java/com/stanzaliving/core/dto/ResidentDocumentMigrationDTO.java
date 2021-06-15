@@ -47,4 +47,7 @@ public class ResidentDocumentMigrationDTO {
 
     @JsonSetter(value = "bucket_name")
     private String bucketName;
+
+    @JsonSetter(value = "status")
+    private boolean status;
 }

@@ -32,4 +32,7 @@ public class BookingMigrationDTO {
 
     @JsonSetter(value = "BOOKING_TYPE")
     private Integer bookingType;
+
+    @JsonSetter(value = "CREATED")
+    private Date createdAt;
 }
