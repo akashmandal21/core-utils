@@ -5,19 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Set;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AttendanceMonthDTO {
+public class ResidentAttendanceSummaryDTO {
 
-    private Set<LocalDate> present;
+    private Integer presentCount;
 
-    private Set<LocalDate> absent;
+    private Integer absentCount;
 
-    private Set<LocalDate> leaves;
+    private Integer exemptedCount;
 }
