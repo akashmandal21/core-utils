@@ -22,6 +22,6 @@ public class AlternateRecipeTagDto {
     @Builder.Default
     private Boolean errorOccurred=false;
 
-    private String errorMessage;
+    private String errorMsg;
     private List<ItemsMapped> items;
 }

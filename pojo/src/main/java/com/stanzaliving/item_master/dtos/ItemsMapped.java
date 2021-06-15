@@ -16,6 +16,6 @@ public class ItemsMapped {
     private String itemCode;
     private String itemName;
     private String itemUom;
-    private UIKeyValue brandName;
+    private String brandName;
 
 }
