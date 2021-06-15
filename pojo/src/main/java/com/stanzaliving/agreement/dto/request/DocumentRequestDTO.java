@@ -20,6 +20,10 @@ public class DocumentRequestDTO {
 
     private String referenceId;
 
+    private String referenceId2;
+
+    private String referenceType;
+
     private List<HashMap<String, String>> fields;
 
     private List<Invitee> invitees;
