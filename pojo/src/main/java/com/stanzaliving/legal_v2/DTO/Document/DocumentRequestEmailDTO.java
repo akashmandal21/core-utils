@@ -21,6 +21,8 @@ import java.util.Arrays;
 public class DocumentRequestEmailDTO {
 
     private String[] propertyCreatedBDEmail;
+    
+    private String from;
 
     private String documentType;
 
@@ -28,7 +30,11 @@ public class DocumentRequestEmailDTO {
 
     private String description;
     
-    private String templateId;
+    private String propertyName;
+
+    private String microMarket;
+
+    private String city;
 
     public String[] getPropertyCreatedBDEmail() {
         return removeWhiteSpaces(propertyCreatedBDEmail);
