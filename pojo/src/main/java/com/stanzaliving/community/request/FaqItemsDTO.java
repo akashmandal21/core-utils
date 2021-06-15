@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FaqItemsDTO {
 
+    private String uuid;
     private String sortOrder;
     private String question;
     private String answer;

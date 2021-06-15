@@ -14,6 +14,8 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 public class EventAdditionalInfoRequestDTO {
 
+    private String uuid;
+
     private String onlineStreamingLink;
 
     private String onlineStreamID;

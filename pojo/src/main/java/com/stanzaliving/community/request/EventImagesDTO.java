@@ -14,6 +14,8 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventImagesDTO {
+    private String uuid;
+
     @NotEmpty(groups = ApprovalValidation.class)
     private String imageUrl;
 

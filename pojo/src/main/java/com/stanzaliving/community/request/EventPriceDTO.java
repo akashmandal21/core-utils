@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EventPriceDTO {
 
+    private String uuid;
     private Long price;
     private boolean showStrikeThrough;
     private Long strikeThroughPrice;
