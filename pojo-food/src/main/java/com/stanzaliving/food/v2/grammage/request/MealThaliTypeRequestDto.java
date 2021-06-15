@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.grammage.request;
 
+import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.food.v2.common.constant.ThaliType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,6 +26,10 @@ import lombok.experimental.SuperBuilder;
 public class MealThaliTypeRequestDto {
 
 	private String mealMasterId;
+
+	private MealType mealType;
+
+	private String mealGroupId;
 
 	private ThaliType thaliType;
 
