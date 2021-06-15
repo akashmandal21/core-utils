@@ -27,7 +27,7 @@ public class MenuSearchPDto {
 
 	private List<String> residenceIds;
 	private MenuStatus menuStatus;
-	private ApprovalStatus approvalStatus;
+	private List<ApprovalStatus> approvalStatus;
 	private Boolean rulesViolated;
 	private Boolean approvalDashboard;
 
