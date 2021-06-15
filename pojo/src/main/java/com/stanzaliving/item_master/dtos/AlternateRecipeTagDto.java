@@ -16,7 +16,7 @@ public class AlternateRecipeTagDto {
 
     private String currentRecipeTagUuid;
     private String currentRecipeTagName;
-    private UIKeyValue currentRecipeTagUom;
+    private String currentRecipeTagUom;
     private List<UIKeyValue> alternateRecipeTagOptions;
     private UIKeyValue alternateRecipeTag;
     @Builder.Default
