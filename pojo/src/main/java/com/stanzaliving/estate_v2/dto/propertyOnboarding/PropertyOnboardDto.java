@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,8 +21,7 @@ public class PropertyOnboardDto extends AbstractMongoDto {
     private String name;
     @EmptyOrNull(message = " Property type Uuid cannot be empty or null")
     private String propertyTypeUuid;
-    @EmptyOrNull(message = "Property type name cannot be empty or null")
-    private String propertyTypeName;
+    private String parentUuid;
     @EmptyOrNull(message = "City Name cannot be empty or null")
     private String cityName;
     @EmptyOrNull(message = "Micro market Name cannot be empty or null")
@@ -39,4 +39,6 @@ public class PropertyOnboardDto extends AbstractMongoDto {
     private String mapLink;
     private String mappedProperty;
     private String color;
+    private List<PropertyTypeValueDto> propertyTypeValue;
+
 }
