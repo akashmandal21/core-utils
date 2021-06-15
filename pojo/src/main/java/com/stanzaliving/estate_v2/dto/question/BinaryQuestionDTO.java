@@ -18,6 +18,5 @@ public class BinaryQuestionDTO implements QuestionDetails {
     private String remarks;
     private String shortDescription;
     private String longDescription;
-    private Integer maxFiles;
-    private Integer maxSize;
+
 }
