@@ -16,4 +16,5 @@ public class VentaSyncDataResponseDTO {
 	private String consumableName;
 	private String preBookingAmount;
 	private Integer residenceTypeId;
+	private String propertyCode;
 }
