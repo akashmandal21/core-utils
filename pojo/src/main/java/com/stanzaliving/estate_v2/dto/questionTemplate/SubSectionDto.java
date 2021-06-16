@@ -34,4 +34,6 @@ public class SubSectionDto {
     private String attribute;
     private VisibilityConditionDto visibilityCondition;
     private MandatoryConditionDto mandatoryCondition;
+    private Boolean visible;
+    private Boolean childOf;
 }
