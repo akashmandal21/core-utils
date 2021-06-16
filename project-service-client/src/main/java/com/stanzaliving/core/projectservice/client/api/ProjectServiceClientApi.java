@@ -116,9 +116,9 @@ public class ProjectServiceClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-    public ResponseDto<List<UIKeyValue>> getPropertyName() {
+    public ResponseDto<List<UIKeyValue>> getPropertyName(List<String> propertyUuidList) {
 
-        Object postBody = null;
+        Object postBody = propertyUuidList;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -138,7 +138,7 @@ public class ProjectServiceClientApi {
 
         ParameterizedTypeReference<ResponseDto<List<UIKeyValue>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UIKeyValue>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
 

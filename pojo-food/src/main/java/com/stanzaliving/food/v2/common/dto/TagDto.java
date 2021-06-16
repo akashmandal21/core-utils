@@ -1,6 +1,6 @@
 package com.stanzaliving.food.v2.common.dto;
 
-import com.stanzaliving.food.v2.common.constants.TagType;
+import com.stanzaliving.food.v2.common.constant.TagType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -13,6 +13,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -32,6 +33,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private boolean sampleMenuDefined;
 	private boolean grammageDefined;
 	private List<ListingDto> demographicTags;
+	private boolean costUpdated;
 
 	//derived information
 	private int totalMealInWeek;
@@ -46,6 +48,8 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private ApprovalStatus approvalStatus;
 	private List<String> pendingApprovers;
 	private List<UserContactDetailsResponseDto> pendingUsers;
+	private Date approvalRequestedOn;
+	private String approvalRequestedBy;
 
 	private CompositionRuleV2Dto compositionRules;
 	private List<MealWiseSampleMenuDto> mealWiseMenu;
