@@ -28,6 +28,10 @@ public class MenuItemGrammage {
 
 	private KeyValuePairDto item;
 
+	private KeyValuePairDto category;
+
+	private KeyValuePairDto subCategory;
+
 	private EnumListing<FoodItemType> itemType;
 
 	private Integer grammage;
