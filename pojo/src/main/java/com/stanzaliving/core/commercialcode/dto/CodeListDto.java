@@ -25,4 +25,6 @@ public class CodeListDto {
     private Double monthlyMaintenanceFee;
 
     private String maintenanceFeeCollection;
+
+    private Boolean autoApplicable;
 }
