@@ -59,7 +59,7 @@ public class GenericPoClient {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/get/poUuid/gsri/after/date/{isPo}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/get/poUuid/gsri/after/date/{isPo}").buildAndExpand(uriVariables).toUriString();
 
         ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
         };
