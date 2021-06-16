@@ -51,4 +51,6 @@ public class DocumentDTO {
     private Integer reUploadCount;
 
     private Set<DocumentAssetDTO> assets;
+
+    private String metadata;
 }
