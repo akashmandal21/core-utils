@@ -48,4 +48,11 @@ public class MenuSearchRDto extends AbstractDto {
 	private boolean newnessAdherence;
 	private Double currentWeekBudget;
 	private Double currentWeekCogs;
+	private int currentWeekBudgetDeviation;
+	private Double mtdBudget;
+	private Double mtdCogs;
+	private int mtdBudgetDeviation;
+	private Long mealsWithRatingLessThanFour;
+	private Double averageRating;
+	
 }
