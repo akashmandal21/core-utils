@@ -17,6 +17,8 @@ public class DocumentVersionsDto {
 
     private String emailUuid;
 
+    private String url;
+
     private int version;
 
     private boolean isFinal;
