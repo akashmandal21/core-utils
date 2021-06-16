@@ -12,7 +12,7 @@ public class CityTransformationMigrationDTO {
     @JsonSetter(value = "city_name")
     private String cityName;
 
-    @JsonSetter(value = "id")
+    @JsonSetter(value = "uuid")
     private Integer cityId;
 }
 
