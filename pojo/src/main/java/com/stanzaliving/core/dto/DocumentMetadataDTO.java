@@ -1,6 +1,5 @@
 package com.stanzaliving.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonSetter;
 import com.stanzaliving.core.enums.DocumentTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DocumentMetadataDTO {
     private DocumentTypeEnum documentType;
-    @JsonSetter(value = "idNumber")
+
     private String idNumber;
 }
