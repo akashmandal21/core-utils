@@ -33,4 +33,7 @@ public class SectionDto {
     private VisibilityConditionDto visibilityCondition;
     private MandatoryConditionDto mandatoryCondition;
     private Object subSections;
+    private Boolean visible;
+    private Boolean childOf;
+    private Boolean addSectionComponent;
 }
