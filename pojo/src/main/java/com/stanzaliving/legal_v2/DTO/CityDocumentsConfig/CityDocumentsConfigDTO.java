@@ -1,4 +1,4 @@
-package com.stanzaliving.legal_v2.DTO.CityDocumentsCofig;
+package com.stanzaliving.legal_v2.DTO.CityDocumentsConfig;
 
 import com.stanzaliving.core.dto.AbstractMongoDto;
 import lombok.*;

@@ -1,8 +1,9 @@
-package com.stanzaliving.legal_v2.DTO.CityDocumentsCofig;
+package com.stanzaliving.legal_v2.DTO.CityDocumentsConfig;
 
 import lombok.*;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,4 +22,6 @@ public class FoldersAndDocumentsDTO {
     private String folder;
 
     private String description;
+
+    private List<Checklist> checklistPoints;
 }
