@@ -195,4 +195,30 @@ public class LeadserviceClientApi {
 
 		return null;
 	}
+	
+	
+	public ResponseDto<LeadRequestDto> createCommonLeadFromWebsite(LeadRequestDto leadRequestDto) {
+
+		Object postBody = leadRequestDto;
+
+		String path = UriComponentsBuilder.fromPath("/lead/internal/website/create/lead").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while creating the lead {}", e);
+			return null;
+		}	
+	}
 }
