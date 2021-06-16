@@ -12,12 +12,11 @@ import java.util.List;
 public enum MenuStatus {
 	DRAFT("In Draft"),
 	SUBMITTED("Submitted"),
-	APPROVED("Approved"),
-	REJECTED("Rejected");
+	APPROVED("Approved");
 	private final String status;
 	
 	public static boolean isEditable(MenuStatus menuStatus) {
-		return menuStatus == DRAFT || menuStatus == APPROVED || menuStatus == REJECTED;
+		return menuStatus == DRAFT || menuStatus == APPROVED ;
 	}
 	
 	private static final List<EnumListing<MenuStatus>> enumListing = new ArrayList<>();
