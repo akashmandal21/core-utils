@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 public class FilterPropertyDto {
-    private List<String> propertyTypeName;
+    private List<String> propertyTypeUuid;
     private List<String> cityName;
     private List<String> microMarketName;
     private List<String> propertyStatus;
