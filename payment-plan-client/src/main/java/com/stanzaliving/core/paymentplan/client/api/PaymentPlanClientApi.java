@@ -50,7 +50,15 @@ public class PaymentPlanClientApi {
 		ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>>() {
 		};
 		postBody = paymentPlanRequestDto;
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("error while fetching the payment plan {}",e);
+			return null;
+		}
+		
+		
 	}
 
 }
