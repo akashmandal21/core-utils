@@ -1,6 +1,6 @@
 package com.stanzaliving.wanda.food.request;
 
-import java.util.List;
+import java.util.Collection;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +15,6 @@ import lombok.Setter;
 @Getter
 public class DemographicsRequestDto {
 
-	private List<String> hostelIdList;
+	private Collection<String> hostelIdList;
 
 }
