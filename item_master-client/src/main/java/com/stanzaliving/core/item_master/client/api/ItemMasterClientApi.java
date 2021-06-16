@@ -3,10 +3,7 @@
  */
 package com.stanzaliving.core.item_master.client.api;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.stanzaliving.boq_service.BoqItemSearchRequestDto;
 import com.stanzaliving.core.base.common.dto.PageResponse;
@@ -444,6 +441,27 @@ public class ItemMasterClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<Collection<GenericItemDto>> getItemsByDepartmentAndItemCode(Department department, Set<String> itemCode) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("department",department);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/generic/item/department/{department}").buildAndExpand(uriVariables).toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Collection<GenericItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Collection<GenericItemDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, itemCode, headerParams, accept, returnType);
 	}
 
 }
