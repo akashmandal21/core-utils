@@ -11,7 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 public class ResidentDateDTO {
 
-    LocalDate date;
+    private LocalDate date;
 
-    AttendanceStatus status;
+    private AttendanceStatus status;
 }
