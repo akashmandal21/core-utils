@@ -7,12 +7,14 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class ApprovalDataDto {
+public class ApprovalDataDto implements Serializable {
 	private ApprovalStatus approvalStatus;
 	private String status;
 	private String textColor;
