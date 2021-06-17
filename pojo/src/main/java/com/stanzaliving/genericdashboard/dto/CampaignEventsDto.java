@@ -1,10 +1,7 @@
 package com.stanzaliving.genericdashboard.dto;
 
 import com.stanzaliving.genericdashboard.enums.EventType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,6 +9,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 public class CampaignEventsDto {
 
     private String uuid;
