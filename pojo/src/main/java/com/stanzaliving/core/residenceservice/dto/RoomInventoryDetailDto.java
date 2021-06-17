@@ -21,7 +21,7 @@ public class RoomInventoryDetailDto {
 
     private String roomNumber;
 
-    private int floor;
+    private String floor;
 
     private boolean isRoomConvertible;
 
