@@ -94,6 +94,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private Date created;
 	
+	private ApartmentListingDto similarApartments;
+	
 	@Builder.Default
 	private Integer similarApartmentsCount = 0;
 	
@@ -111,6 +113,7 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 		
 		if (Objects.isNull(getSortOrder()) || Objects.isNull(dto2.getSortOrder()))
 			return getCreated().compareTo(dto2.getCreated());
+		
 		return getSortOrder().compareTo(dto2.getSortOrder());
 	}
 }
