@@ -31,13 +31,13 @@ public class FoodCategoryDto extends CategoryDto {
 
 	private double menuPricePerDay;	//totalPrice from foodMenu in service-mix (after checking for enabled)  			//menu categoryId from Service Mix -> 	FoodServiceClientApi->getFullCategoryById  --> MenuCategoryMealUtils->getFnBPaxPrice
 
-	private int weekDays;
+	private double weekDays;
 	private int weekdayUtilization;
-	private int weekendDays;
+	private double weekendDays;
 	private int weekendUtilization;
-	private int holidays;
+	private double holidays;
 	private int holidayUtilization;
-	private int specialMealDays; //menu categoryId from Service Mix -> 	FoodServiceClientApi->getFullCategoryById -> FullCategoryDto -> WeekWiseMenu -> weekNumber1 -> DayWiseFoodMenuDto -> MealWiseFoodMenuDto -> MenuItemDto -> itemType is either NON-Veg or special
+	private double specialMealDays; //menu categoryId from Service Mix -> 	FoodServiceClientApi->getFullCategoryById -> FullCategoryDto -> WeekWiseMenu -> weekNumber1 -> DayWiseFoodMenuDto -> MealWiseFoodMenuDto -> MenuItemDto -> itemType is either NON-Veg or special
 	private int specialDayUtilization;
 	private int opsSLStaffPerDay;
 	private double nonSlStaffMenuPricePerDayForMorning;		//FullCategoryDto -> FoodMenuCategoryMealDto (if status) -> nonStanzaStaffCost based on mealType

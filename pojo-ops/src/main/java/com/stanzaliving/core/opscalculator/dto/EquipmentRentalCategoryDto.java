@@ -14,6 +14,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 /**
  * @author nipunaggarwal
  *
@@ -30,81 +32,82 @@ public class  EquipmentRentalCategoryDto extends CategoryDto {
 
 	@Builder.Default
 	private boolean roomDthEnabled = false;
-	private int roomDthCount;
-	private int roomDthRent;
-	private int roomDthCharges;
+	private double roomDthCount;
+	private double roomDthRent;
+	private double roomDthCharges;
 
 	@Builder.Default
 	private boolean vendingMachineEnabled = false;
-	private int vendingMachineCount;
-	private int vendingMachineRent;
-	private int vendingMachineCharges;
+	private double vendingMachineCount;
+	private double vendingMachineRent;
+	private double vendingMachineCharges;
 
 	@Builder.Default
 	private boolean coffeeMachineEnabled = false;
-	private int coffeeMachineCount;
-	private int coffeeMachineRent;
-	private int coffeeMachineCharges;
+	private double coffeeMachineCount;
+	private double coffeeMachineRent;
+	private double coffeeMachineCharges;
 
 	@Builder.Default
 	private boolean washingMachineEnabled = false;
-	private int washingMachineCount;
-	private int washingMachineRent;
-	private int washingMachineCharges;
+	private double washingMachineCount;
+	private double washingMachineRent;
+	private double washingMachineCharges;
 
 	@Builder.Default
 	private boolean microwaveEnabled = false;
-	private int microwaveCount;
-	private int microwaveRent;
-	private int microwaveCharges;
+	private double microwaveCount;
+	private double microwaveRent;
+	private double microwaveCharges;
 
 
 	@Builder.Default
 	private boolean singleDoorFridgeEnabled = false;
-	private int singleDoorFridgeCount;
-	private int singleDoorFridgeRent;
-	private int singleDoorFridgeCharges;
+	private double singleDoorFridgeCount;
+	private double singleDoorFridgeRent;
+	private double singleDoorFridgeCharges;
 
 	@Builder.Default
 	private boolean doubleDoorFridgeEnabled = false;
-	private int doubleDoorFridgeCount;
-	private int doubleDoorFridgeRent;
-	private int doubleDoorFridgeCharges;
+	private double doubleDoorFridgeCount;
+	private double doubleDoorFridgeRent;
+	private double doubleDoorFridgeCharges;
 
 	@Builder.Default
 	private boolean waterDispenserEnabled = false;
-	private int waterDispenserCount;
-	private int waterDispenserRent;
-	private int waterDispenserCharges;
+	private double waterDispenserCount;
+	private double waterDispenserRent;
+	private double waterDispenserCharges;
 
 	@Builder.Default
 	private boolean dryerEnabled = false;
-	private int dryerCount;
-	private int dryerRent;
-	private int dryerCharges;
+	private double dryerCount;
+	private double dryerRent;
+	private double dryerCharges;
 
 	@Builder.Default
 	private boolean roomGeyserEnabled = false;
-	private int roomGeyserCount;
-	private int roomGeyserRent;
-	private int roomGeyserCharges;
+	private double roomGeyserCount;
+	private double roomGeyserRent;
+	private double roomGeyserCharges;
 
 	@Builder.Default
 	private boolean commonGeyserEnabled = false;
-	private int commonGeyserCount;
-	private int commonGeyserRent;
-	private int commonGeyserCharges;
+	private double commonGeyserCount;
+	private double commonGeyserRent;
+	private double commonGeyserCharges;
 
 	@Builder.Default
 	private boolean acEnabled = false;
-	private int acCount;
-	private int acRent;
-	private int acCharges;
+	private double acCount;
+	private double acRent;
+	private double acCharges;
 
 	@Builder.Default
 	private boolean powerBackupEnabled = false;
-	private int powerBackupCount;
-	private int powerBackupRent;
-	private int powerBackupCharges;
+	private double powerBackupCount;
+	private double powerBackupRent;
+	private double powerBackupCharges;
 
+	List<SMLevelEquipmentRentalCategoryDto> smLevelEquipmentRentalCategoryDtoList;
 }
