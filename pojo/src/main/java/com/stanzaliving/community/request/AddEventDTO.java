@@ -7,10 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Date;
 import java.util.List;
 
@@ -46,6 +43,7 @@ public class AddEventDTO {
     @NotNull(groups = ApprovalValidation.class,message = "Event End Date should not be empty")
     private Date eventEndDate;
 
+    @Pattern(groups = ApprovalValidation.class,message = "Priorit Cant be 0 or negative",regexp = "^[1-9]\\d*$")
     @NotNull(groups = ApprovalValidation.class,message = "Event Priority should not be empty")
     private Long priorityOrder;
 
