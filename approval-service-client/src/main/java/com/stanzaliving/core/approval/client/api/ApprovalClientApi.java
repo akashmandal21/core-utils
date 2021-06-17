@@ -62,7 +62,7 @@ public class ApprovalClientApi {
 
     public Map<String, ApprovalListingDto> getApprovalData(ApprovalEntityType entityType, Collection<String> uuids) {
         final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("internal/̌get/approval-data").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("internal/get/approval-data").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("entityType", entityType.toString());
         final HttpHeaders headerParams = new HttpHeaders();
