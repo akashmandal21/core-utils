@@ -25,7 +25,7 @@ public class EventRegistrationDetailsDTO {
     private Date registrationEndDate;
 
     @Size(message = "String size should not Exceed 16 characters", max = 16)
-    @Pattern(groups = {ApprovalValidation.class},regexp = "^[^0-9]+$")
+    @Pattern(groups = {ApprovalValidation.class},regexp = "^[^0-9]+$",message = "CTA text cannot be numbers")
     @NotEmpty(groups = ApprovalValidation.class,message = "Event CTA should not be empty")
     private String ctaText;
 
