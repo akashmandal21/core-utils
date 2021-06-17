@@ -17,5 +17,6 @@ import lombok.NoArgsConstructor;
 public class PaymentPlanResponseDto {
 
 	private BookingPaymentPlan bookingPaymentPlan;
-	private List<InstallmentPaymentPlan> installments;
+
+    private List<InstallmentPaymentPlan> installments;
 }

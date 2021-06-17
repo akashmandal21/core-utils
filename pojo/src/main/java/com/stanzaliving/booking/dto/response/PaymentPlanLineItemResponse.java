@@ -13,9 +13,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PaymentPlanLineItemResponse {
 
-	private PaymentPlanType type;
+    private PaymentPlanType type;
 
-	private double amount;
+    private double amount;
 
-	private String period;
+    private String period;
 }

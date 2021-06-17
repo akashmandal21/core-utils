@@ -31,7 +31,7 @@ public class PaymentPlanClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(PaymentPlanRequestDto paymentPlanRequestDto) {
+	public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(PaymentPlanRequestDto paymentPlanRequestDto,String token) {
 
 		Object postBody = null;
 		log.info("PaymentPlanRequestDto is {} ", paymentPlanRequestDto);
@@ -42,9 +42,13 @@ public class PaymentPlanClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+		HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + token);
+        
 		final String[] accepts = { "*/*" };
 
-		final HttpHeaders headerParams = new HttpHeaders();
+		
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>>() {

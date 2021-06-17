@@ -16,9 +16,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BookingPaymentPlan {
 
-	private PaymentPlanResponseType type = PaymentPlanResponseType.BOOKING;
+    private PaymentPlanResponseType type = PaymentPlanResponseType.BOOKING;
 
-	private double bookingAmount;
+    private double bookingAmount;
 
-	private List<PaymentPlanLineItemResponse> lineItems;
+    private List<PaymentPlanLineItemResponse> lineItems;
 }
