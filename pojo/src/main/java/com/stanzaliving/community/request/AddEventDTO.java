@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class AddEventDTO {
     @NotEmpty(groups = ApprovalValidation.class,message = "Event Category UUID should not be empty")
     private String eventCategoryUUID;
 
-    @Max(value = 48L,message = "Size of Event Name Should not Exceed 48  characters")
+    @Size(max = 48,message = "Size of Event Name Should not Exceed 48  characters",groups = {ApprovalValidation.class})
     @NotEmpty(groups = ApprovalValidation.class,message = "Event Name should not be empty")
     private String eventName;
 

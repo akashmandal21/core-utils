@@ -6,9 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.util.Date;
 @Builder
 @Data
@@ -26,7 +24,7 @@ public class EventRegistrationDetailsDTO {
     @NotNull(groups = ApprovalValidation.class,message = "Event Registration End Date should not be empty")
     private Date registrationEndDate;
 
-    @Max(message = "String size should not Exceed 16 characters", value = 16L)
+    @Size(message = "String size should not Exceed 16 characters", max = 16)
     @NotEmpty(groups = ApprovalValidation.class,message = "Event CTA should not be empty")
     private String ctaText;
 
