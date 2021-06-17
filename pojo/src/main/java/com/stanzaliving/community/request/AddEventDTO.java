@@ -44,7 +44,7 @@ public class AddEventDTO {
     @NotNull(groups = ApprovalValidation.class,message = "Event End Date should not be empty")
     private Date eventEndDate;
 
-    @Pattern(groups = {ApprovalValidation.class},regexp = "^\\+?(0|[1-9]\\d*)$",message = "Priority Cant be 0 or negative")
+    @Min(value = 0)
     @NotNull(groups = ApprovalValidation.class,message = "Event Priority should not be empty")
     private Long priorityOrder;
 
