@@ -23,5 +23,5 @@ public class FoldersAndDocumentsDTO {
 
     private String description;
 
-    private List<Checklist> checklistPoints;
+    private List<ChecklistConfig> checklistConfigPoints;
 }

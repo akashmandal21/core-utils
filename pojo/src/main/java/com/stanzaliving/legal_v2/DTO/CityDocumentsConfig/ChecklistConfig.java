@@ -13,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Checklist {
+public class ChecklistConfig {
 
     private String checkPoint;
 
