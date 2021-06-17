@@ -1,6 +1,7 @@
 package com.stanzaliving.community.request;
 
-import com.stanzaliving.community.validations.*;
+import com.stanzaliving.community.validations.ApprovalValidation;
+import com.stanzaliving.community.validations.DraftValidations;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -43,7 +44,7 @@ public class AddEventDTO {
     @NotNull(groups = ApprovalValidation.class,message = "Event End Date should not be empty")
     private Date eventEndDate;
 
-    @Pattern(groups = ApprovalValidation.class,message = "Priority Cant be 0 or negative",regexp = "^[1-9]\\d*$")
+    @Pattern(groups = {ApprovalValidation.class},regexp = "^\\+?(0|[1-9]\\d*)$",message = "Priority Cant be 0 or negative")
     @NotNull(groups = ApprovalValidation.class,message = "Event Priority should not be empty")
     private Long priorityOrder;
 
