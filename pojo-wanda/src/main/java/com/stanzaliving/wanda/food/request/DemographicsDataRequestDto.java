@@ -1,5 +1,7 @@
 package com.stanzaliving.wanda.food.request;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +18,8 @@ import java.time.LocalDate;
 public class DemographicsDataRequestDto extends DemographicsRequestDto {
 
 	private String vendorId;
+
+	@JsonSerialize(using = Java8LocalDateStdSerializer.class)
 	private LocalDate date;
 
 }
