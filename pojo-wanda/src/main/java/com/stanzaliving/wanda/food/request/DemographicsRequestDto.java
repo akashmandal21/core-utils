@@ -7,12 +7,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
-@Builder
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@SuperBuilder
 public class DemographicsRequestDto {
 
 	private Collection<String> hostelIdList;
