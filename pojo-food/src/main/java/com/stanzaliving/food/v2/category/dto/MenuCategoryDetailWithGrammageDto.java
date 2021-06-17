@@ -33,6 +33,7 @@ public class MenuCategoryDetailWithGrammageDto extends MenuCategoryDTO {
 	private boolean grammageDefined;
 	private List<ListingDto> demographicTags;
 	private boolean costUpdated;
+	private int override;
 	
 	// derived information
 	private int totalMealInWeek;
@@ -43,9 +44,7 @@ public class MenuCategoryDetailWithGrammageDto extends MenuCategoryDTO {
 
 	private MealCategoryPriceDto mealPriceData;
 
-	List<CategoryGrammageBaseResponseDto> publishedGrammage;
-
-	List<CategoryGrammageBaseResponseDto> draftGrammage;
+	List<CategoryGrammageBaseResponseDto> grammageDto;
 	
 
 }
