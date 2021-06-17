@@ -885,7 +885,7 @@ public class InternalDataControllerApi {
         uriVariables.put("residenceUuid", residenceUuid);
         uriVariables.put("status", status);
 
-        String path = UriComponentsBuilder.fromPath("/internal/residence/update-booking-status/{residence}/{status}").
+        String path = UriComponentsBuilder.fromPath("/internal/residence/update-booking-status/{residenceUuid}/{status}").
                 buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
