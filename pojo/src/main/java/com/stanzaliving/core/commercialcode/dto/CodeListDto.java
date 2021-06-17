@@ -1,14 +1,14 @@
 package com.stanzaliving.core.commercialcode.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class CodeListDto {
     private String uuid;
 
@@ -26,5 +26,7 @@ public class CodeListDto {
 
     private String maintenanceFeeCollection;
 
-    private Boolean autoApplicable;
+    private boolean isAutoApplicable;
+
+    private List<CommercialCardApplicabilityDto> applicabilityDtoList;
 }
