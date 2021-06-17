@@ -1,5 +1,6 @@
 package com.stanzaliving.core.dto;
 
+import com.stanzaliving.core.base.utils.NumberUtils;
 import lombok.Data;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
@@ -56,6 +57,14 @@ public abstract class AbstractCsvDto {
 
     protected String getStringValue(String[] data, String columnName) {
         return data[this.getColumns().indexOf(columnName)];
+    }
+
+    protected Double getDoubleValue(String[] data, String columnName) {
+        String val = data[this.getColumns().indexOf(columnName)];
+        if(NumberUtils.parseableToDouble(val))
+            return Double.parseDouble(val);
+
+        return null;
     }
 
     public static <T extends AbstractCsvDto> List<String[]> prepareResponseCsv(List<T> csvDtos) {
