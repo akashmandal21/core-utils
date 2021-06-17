@@ -10,5 +10,6 @@ public enum CommercialCardUserType {
     SCHOLAR,
     SUITES,
     MANAGED_APARTMENTS,
-    ALL
+    ALL,
+    PROFESSIONAL
 }

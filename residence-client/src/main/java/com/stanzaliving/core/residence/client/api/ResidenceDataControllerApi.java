@@ -12,8 +12,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.HashMap;
@@ -323,4 +321,37 @@ public class ResidenceDataControllerApi {
 		return null;
 	}
 
+
+	public ResponseDto<RoomInventoryDetailDto> getRoomWithInventory(String roomUUID, String moveInDate) {
+
+		log.info("Residence-Data-Controller::Processing to get room inventories for roomUUID {} based on move-in date {}", roomUUID, moveInDate);
+
+		Map<String, Object> uriVariables = new HashMap();
+
+		uriVariables.put("roomUUID", roomUUID);
+
+		uriVariables.put("moveInDate", moveInDate);
+
+		String path = UriComponentsBuilder.fromPath("/internal/room-inventory/{roomUUID}/move-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		String[] accepts = new String[]{"*/*"};
+
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<RoomInventoryDetailDto>> returnType =
+				new ParameterizedTypeReference<ResponseDto<RoomInventoryDetailDto>>() {
+				};
+
+		try {
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+		} catch (Exception ex) {
+			log.error("Exception while getting room inventories for roomUUID {} based on move-in date {}", roomUUID, moveInDate);
+		}
+		return null;
+	}
 }

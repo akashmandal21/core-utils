@@ -767,7 +767,7 @@ public class DateUtil {
 
 		return date.with(TemporalAdjusters.next(day));
 	}
-	
+
 	 public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
 	        Calendar calStart = Calendar.getInstance();
 	        calStart.setTime(fromDate);
@@ -975,7 +975,6 @@ public class DateUtil {
 	public static String findDifference(Date start_date,
 				   Date end_date)
 	{
-
 		Period diff
 				= Period
 				.between(start_date.toInstant()
@@ -984,11 +983,12 @@ public class DateUtil {
 						end_date.toInstant().atZone(ZoneId.systemDefault())
 								.toLocalDate());
 
-		return dateDifferenceInString(diff.getMonths(), diff.getDays());
+		return dateDifferenceInString(diff.getYears(), diff.getMonths(), diff.getDays());
 	}
 
 
-	public static String dateDifferenceInString(Integer month, Integer days){
+	public static String dateDifferenceInString(Integer year, Integer month, Integer days){
+		if(year!=0) month = year*12 + month;
 		String diff = "";
         if(month!=0) diff += month == 1 ? month+" month ": month+" months ";
         if(days!=0) diff += days == 1 ? days+" day": days+" days";
