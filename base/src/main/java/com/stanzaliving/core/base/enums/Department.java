@@ -29,7 +29,10 @@ public enum Department {
 	ADMIN("Admin","AD","ADM"),
 	MARKETING("Marketing","MK","MKT"),
 	SCM("Supply Chain Mgmt","SM","TRN"),
-	GROWTH_STRATEGY("Growth and Strategy","GS","GRS");
+	GROWTH_STRATEGY("Growth and Strategy","GS","GRS"),
+	E_COMMERCE("E-Commerce", "EC", "ECE"),
+	LND("Learning & Development","LD","LND"),
+	PUBLIC_POLICY("Public Policy","PP","PPO");
 
 
 	public String departmentName;
