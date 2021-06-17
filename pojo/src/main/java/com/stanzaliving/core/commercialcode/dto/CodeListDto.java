@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,5 +28,7 @@ public class CodeListDto {
 
     private String maintenanceFeeCollection;
 
-    private Boolean autoApplicable;
+    private boolean isAutoApplicable;
+
+    private List<CommercialCardApplicabilityDto> applicabilityDtoList;
 }

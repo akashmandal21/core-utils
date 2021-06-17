@@ -11,4 +11,5 @@ public class CommercialDataDto {
    private List<CommercialMetaDataDto> commercialData;
    private boolean disabled;
    private boolean autoApplicable;
+   private List<String> applicabilityCriteria;
 }
