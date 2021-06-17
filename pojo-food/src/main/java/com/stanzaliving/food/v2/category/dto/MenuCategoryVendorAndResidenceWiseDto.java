@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class MenuCategorySearchVendorAndResidenceWiseDto {
+public class MenuCategoryVendorAndResidenceWiseDto {
     private List<String> residenceIds;
     private List<String> vendorIds;
 }

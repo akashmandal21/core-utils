@@ -9,6 +9,8 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 
+import com.stanzaliving.food.v2.category.constant.MenuCategoryGrammageUpdateAction;
+
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
@@ -26,4 +28,7 @@ import javax.validation.constraints.NotBlank;
 public class MenuCategoryVersionDto {
 	@NotBlank(message = "Menu category version id is required")
 	private String menuCategoryVersionId;
+	
+	private MenuCategoryGrammageUpdateAction action;
+	
 }
