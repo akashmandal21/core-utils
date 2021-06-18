@@ -2,6 +2,7 @@ package com.stanzaliving.core.generic.itemmaster.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
@@ -24,7 +25,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemUpdateDto extends AbstractSearchIndexDto {
+public class ItemUpdateDto extends AbstractDto {
 
     /**
 	 * 
