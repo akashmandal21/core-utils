@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class AdditionalMetadataDto {
+public class AdditionalMetaDataDto {
     private String url;
     private String metaData;
 }

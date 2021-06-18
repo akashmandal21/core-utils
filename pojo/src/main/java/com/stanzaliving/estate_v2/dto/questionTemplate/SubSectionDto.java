@@ -28,7 +28,8 @@ public class SubSectionDto {
     @EmptyOrNull(message = "Status cannot be null")
     private String status;
     @NotNull(message = "Display-Type cannot be null")
-    private SubSectionDisplayTypeDto displayType;
+    private String displayType;
+    private Object displayTypeDetails;
     @EmptyOrNull(message = "SubSection-Repeat cannot be null")
     private String subSectionRepeat;
     private String attribute;

@@ -40,5 +40,5 @@ public class PropertyTypeDto extends AbstractMongoDto {
     @NotNull(message = "Property-Type-Details cannot be null")
     private List<@Valid PropertyTypeDetailsDto> propertyTypeDetails;
 
-    private AdditionalMetadataDto additionalMetadata;
+    private AdditionalMetaDataDto additionalMetaData;
 }
