@@ -1,6 +1,7 @@
 package com.stanzaliving.food.v2.grammage.response;
 
 import com.stanzaliving.core.dto.KeyValuePairDto;
+import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.food.v2.common.constant.ThaliType;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,10 @@ import lombok.experimental.SuperBuilder;
 public class MealThaliTypeResponseDto<T> extends DraftResponseDto<T> {
 
 	private KeyValuePairDto meal;
+
+	private EnumListing<MealType> mealType;
+
+	private String mealGroupId;
 
 	private EnumListing<ThaliType> thaliType;
 
