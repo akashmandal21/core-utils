@@ -19,7 +19,8 @@ public class DocumentDTO {
     private LocalDate toDate;
     private LocalDate issueDate;
     private Double amount;
-    private String categoryId;
+    private String categoryName;
+    private String subCategoryName;
     private ReferenceType referenceType;
     private String billFrom;
     private String billToId;
@@ -36,5 +37,9 @@ public class DocumentDTO {
     private String residentId;
     private String parentId;
     private String stanzaDocumentId;
+    private float cgstAmount;
+    private float sgstAmount;
+    private float igstAmount;
+    private Double lineAmount;
 
 }
