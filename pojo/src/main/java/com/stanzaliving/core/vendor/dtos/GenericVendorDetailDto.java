@@ -51,4 +51,6 @@ public class GenericVendorDetailDto {
     private boolean gstExempted;
 
     private String propertyUuid;
+
+    private String gstAddress;
 }
