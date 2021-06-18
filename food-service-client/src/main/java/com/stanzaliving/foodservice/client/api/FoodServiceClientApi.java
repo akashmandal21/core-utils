@@ -3,6 +3,7 @@ package com.stanzaliving.foodservice.client.api;
 import java.time.LocalDate;
 import java.util.*;
 
+import com.stanzaliving.core.food.dto.response.RecentMealDto;
 import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
 import com.stanzaliving.core.food.dto.IngredientUsageDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
@@ -264,5 +265,35 @@ public class FoodServiceClientApi {
         }
 
         return occupiedBedDtoList;
+    }
+
+    public RecentMealDto getRecentMealWithNoFeedback(String userId) {
+
+        ResponseDto<RecentMealDto> responseDto = null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/resident/food/feedback/getRecentMealWithNoFeedback")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("userId",userId);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<RecentMealDto>> returnType = new ParameterizedTypeReference<ResponseDto<RecentMealDto>>() {
+        };
+
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while fetching recent meal for user with id: {}", userId, e);
+        }
+
+        return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
     }
 }
