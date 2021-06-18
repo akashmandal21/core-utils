@@ -201,6 +201,31 @@ public class VendorClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public ResponseDto<GenericVendorDetailDto> getGenericVendorDetailPo(String vendorUuid, String stateUuid) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("vendorUuid", vendorUuid);
+        uriVariables.put("stateUuid", stateUuid);
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/getVendorDetailsByIdPo/{vendorUuid}/{stateUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<GenericVendorDetailDto>> returnType = new ParameterizedTypeReference<ResponseDto<GenericVendorDetailDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
     public ResponseDto<String> getPaymentTerms(String vendorUuid) {
 
         Object postBody = null;
