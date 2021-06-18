@@ -19,9 +19,6 @@ public class AddressMigrationDTO {
     @JsonSetter(value = "LINE_2")
     private String addressLine2;
 
-    @JsonSetter(value = "LANDMARK")
-    private String landmark;
-
     @JsonSetter(value = "CITY_ID")
     private Integer cityId;
 
