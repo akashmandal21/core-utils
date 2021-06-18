@@ -36,6 +36,9 @@ public class FilixOracleIntegrationPoDto extends AbstractOracleDto {
     @JsonProperty("vendor")
     private String vendor;
 
+    @JsonProperty("poNumber")
+    private String poNumber;
+
     @JsonProperty("postatus")
     private String poStatus;
 
@@ -84,6 +87,12 @@ public class FilixOracleIntegrationPoDto extends AbstractOracleDto {
     @JsonProperty("currency")
     private String currency;
 
+    @JsonProperty("porefundabledeposit")
+    private String poRefundableDeposit;
+
+    @JsonProperty("poitemsubtotal")
+    private String poItemSubTotal;
+
     @JsonProperty("receivebydate")
     private String receiveByDate;
 
@@ -93,13 +102,7 @@ public class FilixOracleIntegrationPoDto extends AbstractOracleDto {
     @JsonProperty("locationType")
     private String locationType;
 
-    @JsonProperty("porefundabledeposit")
-    private String poRefundableDeposit;
-
-    @JsonProperty("poitemsubtotal")
-    private String poItemSubTotal;
-
-    /*@JsonProperty("termsandconditions")
+    @JsonProperty("termsandconditions")
     private String termsAndConditions;
 
     @JsonProperty("advancetype")
@@ -118,7 +121,7 @@ public class FilixOracleIntegrationPoDto extends AbstractOracleDto {
     private String retentionValue;
 
     @JsonProperty("retentionamount")
-    private String retentionAmount;*/
+    private String retentionAmount;
 
     @JsonProperty("itemList")
     private List<POItemDto> itemList;
