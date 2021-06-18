@@ -24,7 +24,6 @@ public class TicketConversationDto {
     private Date createdAt;
     private String uuid;
     private String message;
-    private List<String> attachmentUuids;
     private String attachmentLocation;
     private String status;
     private String team;
