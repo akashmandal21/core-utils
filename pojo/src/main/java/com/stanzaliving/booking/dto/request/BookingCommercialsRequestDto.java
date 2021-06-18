@@ -25,5 +25,7 @@ public class BookingCommercialsRequestDto {
 	private ServicePriceRequestDto packagedServicePriceDto;
 	
 	private ServicePriceRequestDto foodServicePriceDto;
+	
+	private ServicePriceRequestDto vasPriceDto;
 
 }
