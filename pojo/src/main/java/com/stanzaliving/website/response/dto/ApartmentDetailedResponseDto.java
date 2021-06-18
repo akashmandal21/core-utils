@@ -100,7 +100,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private List<FacilityResponseDTO> facilities = Collections.emptyList();
 	
 	@Builder.Default
-	private Set<FeatureResponseDTO> features = new HashSet<>();
+	private List<FeatureResponseDTO> features = Collections.emptyList();
 	
 	@Builder.Default
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = Collections.emptyList();
