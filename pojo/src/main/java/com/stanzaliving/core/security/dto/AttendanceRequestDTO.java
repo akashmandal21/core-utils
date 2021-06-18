@@ -58,4 +58,15 @@ public class AttendanceRequestDTO {
     private String rejectedBy;
 
     private GatePassStatus gatePassStatus;
+
+    // adding resident details
+    private String residentName;
+
+    private String roomNumber;
+
+    private String residentCode;
+
+    private String mobileNumber;
+
+    private double dues;
 }

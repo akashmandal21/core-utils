@@ -1,23 +1,20 @@
 package com.stanzaliving.core.security.dto;
 
+import com.stanzaliving.core.security.enums.AttendanceStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AttendanceMonthDTO {
+public class ResidentAttendanceDTO {
+    private Map<AttendanceStatus, Integer> statusWiseCount;
 
-    private Set<LocalDate> present;
-
-    private Set<LocalDate> absent;
-
-    private Set<LocalDate> leaves;
+    private List<ResidentDateDTO> dates;
 }
