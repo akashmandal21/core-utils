@@ -1,0 +1,24 @@
+package com.stanzaliving.estate_v2.dto.reviewTemplate;
+
+import com.stanzaliving.estate_v2.dto.questionTemplate.ApplicableStatusesDto;
+import com.stanzaliving.estate_v2.enumeration.Status;
+import lombok.*;
+
+import java.util.List;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class ReviewTemplateResponseDto {
+    private String name;
+    private String id;
+    private String propertyTypeUuid;
+    private Status templateStatus;
+    private List<ApplicableStatusesDto> propertyStatuses;
+    private BasicInformationResponse basicInformation;
+    private List<OtherInformationResponse> otherInformation;
+    private List<LayoutResponse> layouts;
+
+}

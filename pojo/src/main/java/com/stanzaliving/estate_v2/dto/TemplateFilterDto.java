@@ -1,4 +1,4 @@
-package com.stanzaliving.estate_v2.dto.questionTemplate;
+package com.stanzaliving.estate_v2.dto;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import com.stanzaliving.core.dto.SortDto;
@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class QuestionTemplateFilterDto extends PaginationRequest {
+public class TemplateFilterDto extends PaginationRequest {
     private List<SortDto> sort;
-    private FilterQuestionTemplateDto filter;
+    private FilterTemplateDto filter;
 }
