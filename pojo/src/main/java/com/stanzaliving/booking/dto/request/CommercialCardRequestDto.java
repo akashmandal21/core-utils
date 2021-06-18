@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class CommercialCardRequestDto {
 
 	@NotNull(message = "commercialCardId cannot be null")
-	private Integer commercialCardId;
+	private String commercialCardUuid;
 	
 	@Builder.Default
 	private Integer startingAdvanceRentalMonths = 1;
