@@ -11,6 +11,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.stanzaliving.core.estate.constants.EstateSalesReviewSectionFields;
 import com.stanzaliving.core.estate.enums.EstateStatus;
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import com.stanzaliving.core.sqljpa.entity.AddressEntity;
@@ -65,7 +66,6 @@ public class EstateEntity extends AbstractJpaEntity {
 	private String propertyName;
 
 	@Builder.Default
-	@Column(name = "bypass_sales_review", columnDefinition = "bit(1) default 0")
-	private boolean salesReviewByPassed = false;
-
+	@Column(name = "sales_review_enable")
+	private int salesReviewEnabled = EstateSalesReviewSectionFields.SALES_REVIEW_OPEN;
 }
