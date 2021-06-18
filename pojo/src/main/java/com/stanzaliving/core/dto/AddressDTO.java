@@ -20,8 +20,8 @@ import lombok.NoArgsConstructor;
         @JsonSetter("LINE_2")
         private String line2;
 
-        @JsonSetter("LANDMARK")
-        private String landmark;
+//        @JsonSetter("LANDMARK")
+//        private String landmark;
 
         @JsonSetter("CITY_ID")
         private Integer cityId;
