@@ -2,6 +2,7 @@ package com.stanzaliving.core.booking.client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.booking.client.dto.BookingInventoryDto;
 import com.stanzaliving.core.booking.client.dto.InventoryResponseOccupancyDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -26,25 +27,22 @@ public class BookingDataControllerApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>> getBookedInventoryDetail(String token, List<String> roomUUID, List<String> inventoryUUID, String moveInDate) {
+    public ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>> getBookedInventoryDetail(BookingInventoryDto bookingInventoryDto) {
 
-        log.info("Booking-Data-Controller::Processing to get booked inventories detail of rooms {}, moveInDate {} ", roomUUID, moveInDate);
+        log.info("Booking-Data-Controller::Processing to get booked inventories detail of rooms {}, moveInDate {}, inventory {} ",
+                bookingInventoryDto.getRoomUUID(),
+                bookingInventoryDto.getMoveInDate(),
+                bookingInventoryDto.getInventoryUUID());
 
-        Object postBody = null;
+        Object postBody = bookingInventoryDto;
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/bookingDetail/v1/inventory-occupancy/save").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/v1/inventory-occupancy/fetch").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.put("roomUUID", roomUUID);
-        queryParams.put("moveInDate", Collections.singletonList(moveInDate));
-        queryParams.put("inventoryUUID", inventoryUUID);
-
         HttpHeaders headerParams = new HttpHeaders();
-
-        headerParams.add("Cookie", "token=" + token);
 
         final String[] accepts = {
                 "*/*"
@@ -53,7 +51,7 @@ public class BookingDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
 }
