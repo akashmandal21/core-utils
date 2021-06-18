@@ -903,4 +903,28 @@ public class InternalDataControllerApi {
     }
 
 
+    /**
+     * This method is used to fetch address of property using phoenix uuid.
+     */
+    public ResponseDto<AddressBookMetaDto> getPropertyAddressByPhoenixUuid(String phoenixUuid) {
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("phoenixUuid", phoenixUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/residence/get/addressByPropertyUuid/{phoenixUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<AddressBookMetaDto>> returnType = new ParameterizedTypeReference<ResponseDto<AddressBookMetaDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 }
