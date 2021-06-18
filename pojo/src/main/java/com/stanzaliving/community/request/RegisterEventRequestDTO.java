@@ -14,9 +14,9 @@ import java.util.Date;
 @AllArgsConstructor
 public class RegisterEventRequestDTO {
     private String eventUUID;
-    private Date booked_on;
     private String cta;
     private String description;
     private String title;
-
+    private String bookingId;
+    private String transactionStatus;
 }

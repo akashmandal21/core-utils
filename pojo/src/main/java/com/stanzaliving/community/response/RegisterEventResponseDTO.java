@@ -20,4 +20,6 @@ public class RegisterEventResponseDTO {
     private String description;
     private String title;
     private String transactionStatus;
+    private String eventUUID;
+    private String userUUID;
 }
