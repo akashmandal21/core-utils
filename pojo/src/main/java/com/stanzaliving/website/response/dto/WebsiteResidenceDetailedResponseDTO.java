@@ -82,19 +82,19 @@ public class WebsiteResidenceDetailedResponseDTO {
 	private Double distanceFromPlace;
 
 	@Builder.Default
-	private Set<FeatureResponseDTO> features = new HashSet<>(0);
+	private Set<FeatureResponseDTO> features = new HashSet<>();
 
 	@Builder.Default
-	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
+	private List<FacilityResponseDTO> facilities = Collections.emptyList();
 
 	@Builder.Default
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = Collections.emptyList();
 
 	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>(0);
+	private Set<ImageResponseDTO> images = new HashSet<>();
 
 	@Builder.Default
-	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
+	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>();
 
 	private AddressResponseDTO address;
 	

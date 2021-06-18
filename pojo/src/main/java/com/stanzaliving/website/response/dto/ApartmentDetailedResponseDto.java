@@ -97,7 +97,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private AddressResponseDTO address;
 	
 	@Builder.Default
-	private Set<FacilityResponseDTO> facilities = new HashSet<>();
+	private List<FacilityResponseDTO> facilities = Collections.emptyList();
 	
 	@Builder.Default
 	private Set<FeatureResponseDTO> features = new HashSet<>();
