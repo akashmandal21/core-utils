@@ -1,15 +1,14 @@
 package com.stanzaliving.community.request;
 
-import com.stanzaliving.community.validations.*;
+import com.stanzaliving.community.validations.ApprovalValidation;
+import com.stanzaliving.community.validations.DraftValidations;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +34,7 @@ public class AddEventDTO {
     @NotEmpty(groups = ApprovalValidation.class,message = "Event Category UUID should not be empty")
     private String eventCategoryUUID;
 
-    @Max(value = 48L,message = "Size of Event Name Should not Exceed 48  characters")
+    @Size(max = 48,message = "Size of Event Name Should not Exceed 48  characters",groups = {ApprovalValidation.class})
     @NotEmpty(groups = ApprovalValidation.class,message = "Event Name should not be empty")
     private String eventName;
 
@@ -45,6 +44,7 @@ public class AddEventDTO {
     @NotNull(groups = ApprovalValidation.class,message = "Event End Date should not be empty")
     private Date eventEndDate;
 
+    @Min(value = 0,groups = ApprovalValidation.class,message = "Event Priority should not be less than 0")
     @NotNull(groups = ApprovalValidation.class,message = "Event Priority should not be empty")
     private Long priorityOrder;
 
