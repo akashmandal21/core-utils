@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.stanzaliving.core.base.common.dto;
 
 import java.io.Serializable;
@@ -26,9 +23,6 @@ import lombok.ToString;
 @AllArgsConstructor
 public class PageResponse<T>  implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private int page;
