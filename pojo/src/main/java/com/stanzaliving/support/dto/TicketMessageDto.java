@@ -1,5 +1,6 @@
 package com.stanzaliving.support.dto;
 
+import com.stanzaliving.support.enums.TicketActivityTemplatesEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,4 +22,5 @@ public class TicketMessageDto {
     private String messagedBy;
     private boolean isPrivate;
     private Date createdAt;
+    private TicketActivityTemplatesEnum type=TicketActivityTemplatesEnum.MESSAGE;
 }

@@ -22,5 +22,9 @@ public enum TicketActivityTemplatesEnum {
     SET_DESCRIPTION_AS,
     CREATE_SUB_TICKET,
     UPDATED_SUB_TICKET_TO,
-    ESCALATED_TICKET_TO;
+    ESCALATED_TICKET_TO,
+    OTHER,
+    MESSAGE,
+    ATTACHMENT,
+    ONLY_DATA;
 }
