@@ -8,6 +8,7 @@ import lombok.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,9 +19,7 @@ public class QuestionDto {
     private String questionId;
     @EmptyOrNull(message = "Type cannot be null or empty")
     private String type;
-    @EmptyOrNull(message = "Variable name cannot be null or empty")
-    @Size(max = 30)
-    private String variableName;
+    private List<String> variableName;
     @Size(max = 120)
     private String helpText;
     @NotNull(message = "Display order cannot be null")

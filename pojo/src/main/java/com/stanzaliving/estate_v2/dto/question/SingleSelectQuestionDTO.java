@@ -16,7 +16,7 @@ public class SingleSelectQuestionDTO implements QuestionDetails {
     private String displayType;
     private String questionName;
     private boolean random;
-    private List<Object> questionComponents;
+    private List<String> questionComponents;
     private String cardType;
     private String imageLink;
     private CardPosition position;

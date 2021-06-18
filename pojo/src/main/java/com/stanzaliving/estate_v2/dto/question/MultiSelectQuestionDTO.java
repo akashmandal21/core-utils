@@ -16,7 +16,7 @@ public class MultiSelectQuestionDTO implements QuestionDetails {
     private String questionName;
     private String displayType;
     private boolean random;
-    private List<Object> questionComponents;
+    private List<String> questionComponents;
     private String cardType;
     private String imageLink;
     private CardPosition position;

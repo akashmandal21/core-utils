@@ -1,7 +1,6 @@
 package com.stanzaliving.estate_v2.dto.question;
 
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
-import com.stanzaliving.estate_v2.annotation.operation.PostGroup;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

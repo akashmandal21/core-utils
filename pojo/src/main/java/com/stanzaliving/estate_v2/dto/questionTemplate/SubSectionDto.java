@@ -15,6 +15,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @Builder
 public class SubSectionDto {
+
     @EmptyOrNull(message = "Type cannot be null")
     private String type;
     @EmptyOrNull(message = "Section name cannot be null or empty")
@@ -28,7 +29,8 @@ public class SubSectionDto {
     @EmptyOrNull(message = "Status cannot be null")
     private String status;
     @NotNull(message = "Display-Type cannot be null")
-    private SubSectionDisplayTypeDto displayType;
+    private String displayType;
+    private Object displayTypeDetails;
     @EmptyOrNull(message = "SubSection-Repeat cannot be null")
     private String subSectionRepeat;
     private String attribute;
