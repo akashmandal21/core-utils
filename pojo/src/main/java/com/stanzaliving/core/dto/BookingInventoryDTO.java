@@ -40,4 +40,6 @@ public class BookingInventoryDTO {
     private String residenceName;
 
     private boolean isAlfredEnabled = Boolean.FALSE;
+
+    private Date bookingDate;
 }
