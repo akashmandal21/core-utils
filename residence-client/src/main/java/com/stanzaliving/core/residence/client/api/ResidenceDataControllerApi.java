@@ -350,6 +350,7 @@ public class ResidenceDataControllerApi {
 			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
 		} catch (Exception ex) {
+			log.error(ex);
 			log.error("Exception while getting room inventories for roomUUID {} based on move-in date {}", roomUUID, moveInDate);
 		}
 		return null;

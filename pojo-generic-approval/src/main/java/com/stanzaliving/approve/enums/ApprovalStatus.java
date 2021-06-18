@@ -34,11 +34,11 @@ public enum ApprovalStatus {
     private final String cardLeftMargin;
     private final String responseMessage;
     private static final Map<String, ApprovalStatus> map = new HashMap<>();
-    private static final Map<Integer, List<ApprovalStatus>> levelMap = new HashMap<>();
+    private static final Map<Integer, Set<ApprovalStatus>> levelMap = new HashMap<>();
     static {
         for (ApprovalStatus approvalStatus : ApprovalStatus.values()) {
             map.put(approvalStatus.getStatus(), approvalStatus);
-            List<ApprovalStatus> list = new ArrayList<>();
+            Set<ApprovalStatus> list = new HashSet<>();
             if (levelMap.containsKey(approvalStatus.getLevel())) {
                 list = levelMap.get(approvalStatus.getLevel());
             }
@@ -51,8 +51,8 @@ public enum ApprovalStatus {
         return map.get(approvalStatus);
     }
 
-    public static List<ApprovalStatus> enumOf(Integer level) {
-        List<ApprovalStatus> approvalStatusList = new ArrayList<>();
+    public static Set<ApprovalStatus> enumOf(Integer level) {
+        Set<ApprovalStatus> approvalStatusList = new HashSet<>();
         while (level <= 6){
             approvalStatusList.addAll(levelMap.get(level));
             level ++;
