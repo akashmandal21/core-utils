@@ -37,9 +37,9 @@ public class VentaAggregationServiceApi {
     public ResponseDto<ResidenceAggregationEntityDto> getAggregatedResidenceInformation(String residenceUuid) {
         log.info("Aggregation Residence Controller::Processing to get residence information on basis of residenceUuid {}", residenceUuid);
         Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("residenceUUID", residenceUuid);
+        uriVariables.put("residenceUuid", residenceUuid);
         
-        String path = UriComponentsBuilder.fromPath("/internal/residence-room-attribute/{residenceUUID}")
+        String path = UriComponentsBuilder.fromPath("/internal/residence/{residenceUuid}")
                 .buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
