@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -41,5 +42,7 @@ public class DocumentDTO {
     private float sgstAmount;
     private float igstAmount;
     private Double lineAmount;
+    private Double invoiceAmount;
+    private List<CreditAttributionDto> creditAttribution;
 
 }
