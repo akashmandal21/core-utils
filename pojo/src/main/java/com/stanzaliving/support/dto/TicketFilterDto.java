@@ -18,8 +18,6 @@ public class TicketFilterDto {
 
     private QuickCardFilterStatusDto quickCardFilterStatus;
 
-    private List<String> zone;
-
     private List<String> city;
 
     private List<String> micromarket;
