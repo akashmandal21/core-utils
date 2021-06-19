@@ -9,20 +9,24 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 import java.util.List;
 
-@Builder
 @Data
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
-public class TicketActivityDto {
+@AllArgsConstructor
+public class TicketConversationDto {
     private List<String> description;
     private String title;
     private String ticketUuid;
     private String actionedBy;
     private String actionedTo;
-    private Date actionedTime;
-    private boolean isMarkedPrivate;
-    //    private MessageReference type = MessageReference.OTHER;
+    private boolean isPrivate;
     private TicketActivityTemplatesEnum type = TicketActivityTemplatesEnum.OTHER;
     private Date createdAt;
-    private String referenceId;
+    private String uuid;
+    private String message;
+    private String attachmentLocation;
+    private String status;
+    private String team;
+    private String id;
+    private String taskType;
 }
