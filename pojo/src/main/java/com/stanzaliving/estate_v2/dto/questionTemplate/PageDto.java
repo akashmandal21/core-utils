@@ -1,6 +1,5 @@
 package com.stanzaliving.estate_v2.dto.questionTemplate;
 
-import com.stanzaliving.core.dto.AbstractMongoDto;
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
 import com.stanzaliving.estate_v2.dto.questionTemplate.conditions.MandatoryConditionDto;
 import com.stanzaliving.estate_v2.dto.questionTemplate.conditions.VisibilityConditionDto;
@@ -18,7 +17,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PageDto extends AbstractMongoDto {
+public class PageDto {
     @Size(max = 30, message = "Page Name should be less than 30 characters")
     @EmptyOrNull(message = "Page name cannot be empty or null")
     private String name;
@@ -37,5 +36,5 @@ public class PageDto extends AbstractMongoDto {
     private MandatoryConditionDto mandatoryCondition;
     private PrivilegeDto privileges;
     @NotNull(message = "PageComponent cannot be null")
-    private List<Object> pageComponent;
+    private Object pageComponent;
 }

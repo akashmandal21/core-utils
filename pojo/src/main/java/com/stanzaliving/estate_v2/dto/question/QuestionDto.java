@@ -1,6 +1,5 @@
 package com.stanzaliving.estate_v2.dto.question;
 
-import com.stanzaliving.core.dto.AbstractMongoDto;
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
 import com.stanzaliving.estate_v2.dto.questionTemplate.conditions.MandatoryConditionDto;
 import com.stanzaliving.estate_v2.dto.questionTemplate.conditions.VisibilityConditionDto;
@@ -16,7 +15,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class QuestionDto extends AbstractMongoDto {
+public class QuestionDto {
+    private String questionId;
     @EmptyOrNull(message = "Type cannot be null or empty")
     private String type;
     private List<String> variableName;

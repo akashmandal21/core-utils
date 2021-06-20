@@ -2,6 +2,7 @@ package com.stanzaliving.estate_v2.dto.questionTemplate;
 
 import com.stanzaliving.core.dto.AbstractMongoDto;
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
+import com.stanzaliving.estate_v2.dto.question.ListOfQuestions;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,4 +29,5 @@ public class QuestionTemplateDto extends AbstractMongoDto {
     private Integer version;
     private Boolean oldVersion;
     private List<GroupDto> groups;
+    private @Valid ListOfQuestions listOfQuestions;
 }
