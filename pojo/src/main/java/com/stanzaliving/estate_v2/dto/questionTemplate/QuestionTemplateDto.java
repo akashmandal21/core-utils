@@ -26,8 +26,7 @@ public class QuestionTemplateDto extends AbstractMongoDto {
     private @Valid MappedPropertyTypeDto mappedPropertyType;
     @NotNull(message = "Applicable Status cannot be null")
     private List<ApplicableStatusesDto> applicableStatuses;
-    private Integer version;
-    private Boolean oldVersion;
+    private @Valid ListOfQuestions listOfQuestions;
     private List<GroupDto> groups;
     private @Valid ListOfQuestions listOfQuestions;
 }
