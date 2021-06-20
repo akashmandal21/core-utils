@@ -1,6 +1,8 @@
 package com.stanzaliving.estate_v2.dto.questionTemplate;
 
+import com.stanzaliving.core.dto.AbstractMongoDto;
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
+import com.stanzaliving.estate_v2.dto.question.QuestionDto;
 import com.stanzaliving.estate_v2.dto.questionTemplate.conditions.MandatoryConditionDto;
 import com.stanzaliving.estate_v2.dto.questionTemplate.conditions.VisibilityConditionDto;
 import lombok.*;
@@ -8,13 +10,14 @@ import lombok.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SubSectionDto {
+public class SubSectionDto extends AbstractMongoDto {
 
     @EmptyOrNull(message = "Type cannot be null")
     private String type;
@@ -34,6 +37,7 @@ public class SubSectionDto {
     @EmptyOrNull(message = "SubSection-Repeat cannot be null")
     private String subSectionRepeat;
     private String attribute;
+    List<QuestionDto> questions;
     private VisibilityConditionDto visibilityCondition;
     private MandatoryConditionDto mandatoryCondition;
     private Boolean visible;

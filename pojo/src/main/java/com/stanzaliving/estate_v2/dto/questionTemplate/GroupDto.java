@@ -1,5 +1,6 @@
 package com.stanzaliving.estate_v2.dto.questionTemplate;
 
+import com.stanzaliving.core.dto.AbstractMongoDto;
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
 import com.stanzaliving.estate_v2.dto.questionTemplate.conditions.MandatoryConditionDto;
 import com.stanzaliving.estate_v2.dto.questionTemplate.conditions.VisibilityConditionDto;
@@ -17,7 +18,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GroupDto {
+public class GroupDto extends AbstractMongoDto {
     @Size(max = 30,message = "Group Name should be less than 30 characters")
     @EmptyOrNull(message = "Group name cannot be empty or null")
     private String name;
@@ -35,5 +36,5 @@ public class GroupDto {
     private MandatoryConditionDto mandatoryCondition;
     private PrivilegeDto privileges;
     @NotNull(message = "Page cannot be null")
-    private List<PagesDto> pages;
+    private List<PageDto> pages;
 }

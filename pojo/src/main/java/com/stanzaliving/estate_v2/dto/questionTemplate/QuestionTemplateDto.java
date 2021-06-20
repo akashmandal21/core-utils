@@ -27,4 +27,5 @@ public class QuestionTemplateDto extends AbstractMongoDto {
     @NotNull(message = "Applicable Status cannot be null")
     private List<ApplicableStatusesDto> applicableStatuses;
     private @Valid ListOfQuestions listOfQuestions;
+    private List<GroupDto> groups;
 }

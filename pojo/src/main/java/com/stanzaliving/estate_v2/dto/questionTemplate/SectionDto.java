@@ -1,5 +1,6 @@
 package com.stanzaliving.estate_v2.dto.questionTemplate;
 
+import com.stanzaliving.core.dto.AbstractMongoDto;
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
 import com.stanzaliving.estate_v2.dto.questionTemplate.conditions.MandatoryConditionDto;
 import com.stanzaliving.estate_v2.dto.questionTemplate.conditions.VisibilityConditionDto;
@@ -11,12 +12,13 @@ import lombok.Setter;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SectionDto {
+public class SectionDto extends AbstractMongoDto{
 
     @EmptyOrNull(message = "Section name cannot be null or empty")
     @Size(max = 50)
@@ -32,8 +34,9 @@ public class SectionDto {
     private String type;
     private VisibilityConditionDto visibilityCondition;
     private MandatoryConditionDto mandatoryCondition;
-    private Object subSections;
+    private List<Object> sectionComponent;
     private Boolean visible;
     private Boolean childOf;
     private Boolean addSectionComponent;
+
 }
