@@ -28,5 +28,4 @@ public class QuestionTemplateDto extends AbstractMongoDto {
     private List<ApplicableStatusesDto> applicableStatuses;
     private @Valid ListOfQuestions listOfQuestions;
     private List<GroupDto> groups;
-    private @Valid ListOfQuestions listOfQuestions;
 }
