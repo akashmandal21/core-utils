@@ -3,6 +3,7 @@ package com.stanzaliving.website.response.dto;
 import java.util.Date;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.core.user.enums.EnumListing;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,7 +30,7 @@ public class ReviewCmsListingResponseDto {
 	
 	private String reviewText;
 	
-	private PropertyEntityType reviewType;
+	private EnumListing<PropertyEntityType> reviewType;
 	
 	private Date reviewDate;
 	
