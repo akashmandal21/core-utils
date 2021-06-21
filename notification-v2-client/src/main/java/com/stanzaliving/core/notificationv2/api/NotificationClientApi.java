@@ -63,7 +63,7 @@ public class NotificationClientApi {
     }
 
     public ResponseDto<NotificationDTO> saveGenericNotification(
-            NotificationRegistryDto notificationRegistryDto) {
+            NotificationDTO notificationRegistryDto) {
 
         Object postBody = null;
 
