@@ -5,6 +5,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.genericdashboard.dto.AudienceLocationDto;
 import com.stanzaliving.genericdashboard.dto.CampaignAudienceDto;
 import com.stanzaliving.notification.dto.FcmTokenDto;
+import com.stanzaliving.notification.dto.NotificationDTO;
 import com.stanzaliving.notification.dto.NotificationRegistryDto;
 import com.stanzaliving.notification.dto.UserDataDto;
 import org.springframework.core.ParameterizedTypeReference;
@@ -61,7 +62,7 @@ public class NotificationClientApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<NotificationRegistryDto> saveGenericNotification(
+    public ResponseDto<NotificationDTO> saveGenericNotification(
             NotificationRegistryDto notificationRegistryDto) {
 
         Object postBody = null;
@@ -81,8 +82,8 @@ public class NotificationClientApi {
         final HttpHeaders headerParams = new HttpHeaders();
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<NotificationRegistryDto>> returnType =
-                new ParameterizedTypeReference<ResponseDto<NotificationRegistryDto>>() {
+        ParameterizedTypeReference<ResponseDto<NotificationDTO>> returnType =
+                new ParameterizedTypeReference<ResponseDto<NotificationDTO>>() {
                 };
         postBody = notificationRegistryDto;
         return restClient.invokeAPI(
