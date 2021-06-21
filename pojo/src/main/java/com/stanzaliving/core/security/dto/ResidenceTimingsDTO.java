@@ -28,4 +28,6 @@ public class ResidenceTimingsDTO {
     private LocalTime cutOffTimeRc;
 
     private LocalTime cutOffTimeNodal;
+
+    private LocalTime cutOffTimeQrt;
 }
