@@ -19,6 +19,12 @@ public class MenuSearchStatsRDto implements Serializable {
 	private long rulesViolated;
 	private long inDraft;
 	private long pendingApproval;
+
+	private long pendingApprovalL1;
+	private long pendingApprovalL2;
+	private long pendingApprovalL3;
+	private long pendingApprovalL4;
+	private long pendingApprovalL5;
 	private long approved;
 
 }
