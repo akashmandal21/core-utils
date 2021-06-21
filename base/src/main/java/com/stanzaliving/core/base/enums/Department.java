@@ -38,7 +38,8 @@ public enum Department {
 	PUBLIC_POLICY("Public Policy","PP","PPO"),
 	CORPORATE_COMM("Corporate Communication","CC","COC"),
 	PERFORMANCE_MARK("Performance Marketing","PM","PMR"),
-	SALES_SBR("Sales- SBR","SB","SLB");
+	SALES_SBR("Sales- SBR","SB","SLB"),
+	BRAND_MKTNG("Brand Marketing","BM","BRM");
 
 	public String departmentName;
 	public String shortCode;
