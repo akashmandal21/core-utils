@@ -15,7 +15,7 @@ public enum CriteriaCondition {
     LESS_THAN_OR_EQUAL_TO("LESS THAN OR EQUAL TO"),
     EQUAL_TO("EQUAL TO");
 
-    String name;
+    private String name;
 
     public static Set<String> getAllConditions() {
         Set<String> conditions = new HashSet<>();

@@ -20,7 +20,7 @@ public enum CriteriaCategoryValues {
     ELEVEN("11"),
     TWELVE("12");
 
-    String value;
+    private String value;
     public static Set<String> getAllValues() {
         Set<String> criteria = new HashSet<>();
 

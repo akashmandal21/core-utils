@@ -17,7 +17,7 @@ public enum CommercialCodeType {
     LOCKIN("LOCK IN");
 
 
-    String name;
+    private String name;
     public static Set<String> getAllCriteria() {
         Set<String> criteria = new HashSet<>();
 

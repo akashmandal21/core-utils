@@ -9,5 +9,5 @@ public enum FeeCollectionStrategy {
     ONE_TIME_UPFRONT("ONE TIME UPFRONT"),
     MONTHLY_PAYMENTS("MONTHLY PAYMENT");
 
-    String strategy;
+   private String strategy;
 }
