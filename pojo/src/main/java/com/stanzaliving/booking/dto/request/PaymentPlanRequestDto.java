@@ -24,5 +24,6 @@ public class PaymentPlanRequestDto {
 	@Builder.Default
 	private boolean savePaymentPlan = false;
 
+	@Builder.Default
 	private boolean isModifyContract = false;
 }
