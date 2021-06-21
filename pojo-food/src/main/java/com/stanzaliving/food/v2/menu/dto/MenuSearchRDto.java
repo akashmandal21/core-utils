@@ -45,4 +45,14 @@ public class MenuSearchRDto extends AbstractDto {
 	private boolean rulesViolated;
 	private int fpsScore;
 	private boolean fpsScorePassed;
+	private boolean newnessAdherence;
+	private Double currentWeekBudget;
+	private Double currentWeekCogs;
+	private int currentWeekBudgetDeviation;
+	private Double mtdBudget;
+	private Double mtdCogs;
+	private int mtdBudgetDeviation;
+	private Long mealsWithRatingLessThanFour;
+	private Double averageRating;
+	
 }

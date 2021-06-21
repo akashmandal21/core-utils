@@ -47,36 +47,40 @@ public class BaseGrammageMasterCsvDto {
 	@CsvBindByPosition(position = 4)
 	private Integer lunch;
 
-	@CsvBindByName(column = "Evening Snacks" )
+	@CsvBindByName(column = "Lunch Tiffin" )
 	@CsvBindByPosition(position = 5)
+	private Integer lunchTiffin;
+
+	@CsvBindByName(column = "Evening Snacks" )
+	@CsvBindByPosition(position = 6)
 	private Integer eveningSnacks;
 
 	@CsvBindByName(column = "Dinner" )
-	@CsvBindByPosition(position = 6)
+	@CsvBindByPosition(position = 7)
 	private Integer dinner;
 
 	@CsvBindByName(column = "Breakfast Combo" )
-	@CsvBindByPosition(position = 7)
+	@CsvBindByPosition(position = 8)
 	private Integer breakfastCombo;
 
 	@CsvBindByName(column = "Lunch Combo" )
-	@CsvBindByPosition(position = 8)
+	@CsvBindByPosition(position = 9)
 	private Integer lunchCombo;
 
 	@CsvBindByName(column = "Evening Snacks Combo" )
-	@CsvBindByPosition(position = 9)
+	@CsvBindByPosition(position = 10)
 	private Integer eveningSnacksCombo;
 
 	@CsvBindByName(column = "Dinner Combo" )
-	@CsvBindByPosition(position = 10)
+	@CsvBindByPosition(position = 11)
 	private Integer dinnerCombo;
 
 	@CsvBindByName(column = "Additive" )
-	@CsvBindByPosition(position = 11)
+	@CsvBindByPosition(position = 12)
 	private Boolean additive;
 
 	@CsvBindByName(column = "Override" )
-	@CsvBindByPosition(position = 12)
+	@CsvBindByPosition(position = 13)
 	private Boolean override;
 
 	/**
@@ -84,6 +88,6 @@ public class BaseGrammageMasterCsvDto {
 	 * This is not being used anywhere in for updating values
 	 */
 	@CsvBindByName(column = "Remarks" )
-	@CsvBindByPosition(position = 13)
+	@CsvBindByPosition(position = 14)
 	private String remarks;
 }

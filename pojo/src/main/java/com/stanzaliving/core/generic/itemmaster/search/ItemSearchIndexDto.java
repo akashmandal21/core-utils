@@ -1,6 +1,4 @@
-package com.stanzaliving.core.generic.itemmaster.dto;
-
-import java.util.List;
+package com.stanzaliving.core.generic.itemmaster.search;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
@@ -10,13 +8,10 @@ import com.stanzaliving.core.generic.enums.GSTSlabs;
 import com.stanzaliving.core.generic.itemmaster.enums.ItemAction;
 import com.stanzaliving.item_master.enums.FarCategory;
 import com.stanzaliving.transformations.enums.UnitType;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 
 @Getter
@@ -25,14 +20,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemUpdateDto extends AbstractDto {
+public class ItemSearchIndexDto extends AbstractSearchIndexDto {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	private Department department;
+    private Department department;
     private ItemAction itemAction;
 
     private UIKeyValue itemCategory;
@@ -59,6 +49,10 @@ public class ItemUpdateDto extends AbstractDto {
     private String substituteItem;
     private UnitType recipeUom;
     private Double conversionFactor;
+
+    private UnitType standardUom;
+    private Double standardQuantity;
     private String itemImage;
+    private String genericItemName;
 
 }

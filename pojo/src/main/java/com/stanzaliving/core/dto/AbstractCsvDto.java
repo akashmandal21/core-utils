@@ -1,0 +1,76 @@
+package com.stanzaliving.core.dto;
+
+import lombok.Data;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.*;
+
+@Data
+public abstract class AbstractCsvDto {
+
+    Map<String,String> dynamicData;
+    Set<String> dynamicColumns;
+    List<String> columns;
+    String[] data;
+    Integer rowId;
+    String status;
+
+    protected AbstractCsvDto(String[] headerRecord, String[] data, int rowId) {
+        this(headerRecord,data);
+        this.rowId = rowId;
+    }
+
+    protected AbstractCsvDto(String[] headerRecord,String[] data) {
+        this.columns = new ArrayList<>(Arrays.asList(headerRecord));
+        this.data = data;
+        this.dynamicData = new HashMap<>();
+        this.dynamicColumns = new HashSet<>(columns);
+        addFixedColumns();
+        fillFixedColumns(data);
+        fillDynamicColumns(data);
+    }
+
+    protected abstract void addFixedColumns();
+
+    protected abstract void fillFixedColumns(String[] data);
+
+    protected void addToFixedColumns(String columnName) {
+        this.dynamicColumns.remove(columnName);
+    }
+
+    private void fillDynamicColumns(String[] data) {
+        for(int i = 0 ; i < data.length ; i++) {
+            if(dynamicColumns.contains(columns.get(i))) {
+                if(!StringUtils.isBlank(data[i])) {
+                    dynamicData.put(columns.get(i), data[i]);
+                }
+            }
+        }
+    }
+
+    protected boolean checkColumnExist(String columnName) {
+        return this.getColumns().contains(columnName);
+    }
+
+    protected String getStringValue(String[] data, String columnName) {
+        return data[this.getColumns().indexOf(columnName)];
+    }
+
+    public static <T extends AbstractCsvDto> List<String[]> prepareResponseCsv(List<T> csvDtos) {
+
+        List<String[]> data = new ArrayList<>();
+        if(CollectionUtils.isNotEmpty(csvDtos)&&csvDtos.stream().findAny().isPresent()) {
+            List<String> columns = csvDtos.stream().findAny().get().columns;
+            data.add(ArrayUtils.addAll(new String[]{"Status"},columns.toArray(new String[0]) ));
+            csvDtos.sort(Comparator.comparing(AbstractCsvDto::getRowId));
+            for (AbstractCsvDto dto : csvDtos) {
+                data.add(ArrayUtils.addAll(new String[]{dto.getStatus()},dto.getData()));
+            }
+        }
+        return data;
+
+    }
+
+}
