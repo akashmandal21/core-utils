@@ -19,7 +19,9 @@ public class EventResponseDTO {
     private String eventName;
     private String eventStatus;
     private String eventTypeUUID;
+    private String eventType;
     private String eventCategoryUUID;
+    private String eventCategory;
     private Date eventStartDate;
     private Date eventEndDate;
     private Date createdAt;

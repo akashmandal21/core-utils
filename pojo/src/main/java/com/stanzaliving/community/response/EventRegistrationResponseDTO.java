@@ -15,6 +15,7 @@ public class EventRegistrationResponseDTO {
     private String uuid;
     private Long id;
     private String eventOrganizerUUID;
+    private String eventOrganizer;
     private Date registrationStartDate;
     private Date registrationEndDate;
     private String ctaText;
