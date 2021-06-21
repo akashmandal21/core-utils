@@ -31,6 +31,8 @@ public class ReviewCmsListingResponseDto {
 	
 	private PropertyEntityType reviewType;
 	
+	private String reviewTypeName;
+	
 	private Date reviewDate;
 	
 	private Integer position;
