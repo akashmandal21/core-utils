@@ -25,6 +25,7 @@ import com.stanzaliving.wanda.dtos.FullUserDto;
 import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
 import com.stanzaliving.wanda.dtos.UserDetailDto;
 import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
+import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
 
 import lombok.extern.log4j.Log4j2;
@@ -510,11 +511,11 @@ public class WandaClientApi {
 	}
 
 	
-	public List<FoodRegionPreferenceResponse> getDemoGraphicsData(List<String> hostelIdList) {
+	public List<FoodRegionPreferenceResponse> getDemoGraphicsData(DemographicsRequestDto demographicsRequestDto) {
 
-		Object postBody = hostelIdList;
+		Object postBody = demographicsRequestDto;
 
-		log.info("Received request to get Demographics detail{}", hostelIdList);
+		log.info("Received request to get Demographics detail{}", demographicsRequestDto.getHostelIdList().size());
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
