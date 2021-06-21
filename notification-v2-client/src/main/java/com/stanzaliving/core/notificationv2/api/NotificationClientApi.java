@@ -34,6 +34,7 @@ public class NotificationClientApi {
         this.restClient = stanzaRestClient;
     }
 
+
     public ResponseDto<UserDataDto> getUserInformation(String userId) {
 
         Object postBody = null;
