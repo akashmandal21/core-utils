@@ -25,8 +25,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class MealThaliTypeRequestDto {
 
-	private String mealMasterId;
-
 	private MealType mealType;
 
 	private String mealGroupId;
