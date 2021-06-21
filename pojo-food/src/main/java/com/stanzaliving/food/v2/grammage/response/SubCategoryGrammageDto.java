@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.grammage.response;
 
+import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.food.v2.common.constant.ThaliType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-import org.apache.commons.lang3.tuple.Pair;
+import org.apache.commons.lang3.tuple.Triple;
 
 import java.util.Map;
 
@@ -33,5 +34,5 @@ public class SubCategoryGrammageDto {
 
 	private Boolean overridable;
 
-	private Map<Pair<String, ThaliType>, Integer> mealGrammageMap;
+	private Map<Triple<MealType, String, ThaliType>, Integer> mealGrammageMap;
 }
