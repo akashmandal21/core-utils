@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
@@ -26,11 +27,11 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GrammageMasterRuleRatioRequestDto {
-	@NotEmpty(message = "Controlling category can not be empty")
-	private Set<String> controllingSubCategoryId;
+	@NotBlank(message = "Controlling category can not be empty")
+	private String controllingSubCategoryId;
 
-	@NotEmpty(message = "Derived category can not be empty")
-	private Set<String> derivedSubCategoryId;
+	@NotBlank(message = "Derived category can not be empty")
+	private String derivedSubCategoryId;
 
 	@NotNull(message = "Controlling ratio is mandatory")
 	private Double controllingRatio;
