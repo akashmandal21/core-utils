@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.commercialcode.dto.*;
+import lombok.extern.log4j.Log4j2;
+
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -145,5 +150,32 @@ public class CommercialDataControllerApi {
 		return response.getData();
 
 	}
+
+    public ResponseDto<CommercialCardResponseDto> getCardByUuid(String token, String commercialCardUuid) {
+
+        log.info("Commercial-code-Data-Controller::Processing to retrieve commercial card information {}", commercialCardUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("uuid", commercialCardUuid);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/commercial-card/{uuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + token);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<CommercialCardResponseDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<CommercialCardResponseDto>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.GET
+                , queryParams, null, headerParams, accept, returnType);
+    }
 
 }

@@ -9,6 +9,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class PricingDetailsResponseDto {
     private Date fromDate;
     private Date toDate;
