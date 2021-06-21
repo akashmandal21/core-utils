@@ -422,7 +422,7 @@ public class WandaClientApi {
 
 			postBody=locationDetailsListDto;
 
-			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Error while fetching User ID's By City Micromarket Residence Uuids: {}", locationDetailsListDto, e);
 		}

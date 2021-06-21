@@ -61,6 +61,34 @@ public class NotificationClientApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public ResponseDto<NotificationRegistryDto> saveGenericNotification(
+            NotificationRegistryDto notificationRegistryDto) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/generic-notification/")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final String[] accepts = {"*/*"};
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<NotificationRegistryDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<NotificationRegistryDto>>() {
+                };
+        postBody = notificationRegistryDto;
+        return restClient.invokeAPI(
+                path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
     public ResponseDto<NotificationRegistryDto> saveNotification(
             NotificationRegistryDto notificationRegistryDto) {
 

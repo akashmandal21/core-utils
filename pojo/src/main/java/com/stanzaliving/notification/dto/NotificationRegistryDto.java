@@ -3,7 +3,6 @@ package com.stanzaliving.notification.dto;
 import com.stanzaliving.genericdashboard.dto.CampaignAudienceDto;
 import com.stanzaliving.genericdashboard.dto.SchedulingDto;
 import com.stanzaliving.genericdashboard.enums.CampaignDashboardType;
-import com.stanzaliving.genericdashboard.enums.Frequency;
 import com.stanzaliving.genericdashboard.enums.TemplateLayout;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
