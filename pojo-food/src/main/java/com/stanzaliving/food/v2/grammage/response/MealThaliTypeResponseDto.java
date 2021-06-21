@@ -26,7 +26,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class MealThaliTypeResponseDto<T> extends DraftResponseDto<T> {
 
-
 	private EnumListing<MealType> mealType;
 
 	private String mealGroupId;
