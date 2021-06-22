@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SubTicketTaskDto {
-    private Long index;
+    private int position;
     private String uuid;
     private String name;
 }
