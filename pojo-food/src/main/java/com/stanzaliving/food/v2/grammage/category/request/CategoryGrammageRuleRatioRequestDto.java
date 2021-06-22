@@ -7,7 +7,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
@@ -27,11 +26,11 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryGrammageRuleRatioRequestDto {
-	@NotBlank(message = "Controlling category is mandatory")
-	private String controllingSubCategoryId;
+	@NotEmpty(message = "Controlling category is mandatory")
+	private Set<String> controllingSubCategoryId;
 
-	@NotBlank(message = "Derived category is mandatory")
-	private String derivedSubCategoryId;
+	@NotEmpty(message = "Derived category is mandatory")
+	private Set<String> derivedSubCategoryId;
 
 	@NotNull(message = "Controlling ratio is mandatory")
 	private Double controllingRatio;
