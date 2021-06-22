@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Date;
 
 @Builder
 @Data
@@ -69,4 +70,7 @@ public class AttendanceRequestDTO {
     private String mobileNumber;
 
     private double dues;
+
+    // adding applied on date and time
+    private Date createdAt;
 }
