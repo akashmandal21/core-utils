@@ -33,6 +33,6 @@ public class MenuCategoryVersionListDto {
 	private List<MenuCategoryVersionDto> menuCategoryVersionDtoList;
 	
 	@NotBlank(message = "Common Action is required")
-	private MenuCategoryGrammageUpdateAction commaonAction;
+	private MenuCategoryGrammageUpdateAction commonAction;
 	
 }
