@@ -13,8 +13,6 @@ import java.util.List;
 @Builder
 public class FoldersAndDocumentsDTO {
 
-    private String uuid;
-
     @NotNull(message = "Document Type Must Not be NULL or EMPTY")
     private String documentType;
 
@@ -23,5 +21,5 @@ public class FoldersAndDocumentsDTO {
 
     private String description;
 
-    private List<ChecklistConfig> checklistConfigPoints;
+    private List<ChecklistConfigDTO> checklistConfigPoints;
 }

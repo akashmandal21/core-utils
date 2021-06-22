@@ -13,7 +13,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ChecklistConfig {
+public class ChecklistConfigDTO {
+
+    private String uuid;
 
     private String checkPoint;
 
