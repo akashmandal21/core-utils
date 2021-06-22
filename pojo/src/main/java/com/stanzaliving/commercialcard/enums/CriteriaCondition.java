@@ -15,7 +15,7 @@ public enum CriteriaCondition {
     LESS_THAN_OR_EQUAL_TO("LESS THAN OR EQUAL TO", " is less than or equal to "),
     EQUAL_TO("EQUAL TO"," equal to ");
 
-    String name;
+    private String name;
 
     String description;
 

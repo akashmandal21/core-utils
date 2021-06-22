@@ -14,6 +14,6 @@ public enum CommercialCardStatus {
     DISABLED ("Disabled"),
     APPROVED("Approved");
 
-    String status;
+   private String status;
 
 }
