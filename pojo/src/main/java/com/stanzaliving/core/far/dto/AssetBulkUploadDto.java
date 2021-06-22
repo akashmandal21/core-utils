@@ -113,7 +113,7 @@ public class AssetBulkUploadDto {
 
     @CsvBindByName(column = "GST")
     @CsvBindByPosition(position = 24)
-    private String GST;
+    private String gst;
 
     @CsvBindByName(column = "Other Fee")
     @CsvBindByPosition(position = 25)
