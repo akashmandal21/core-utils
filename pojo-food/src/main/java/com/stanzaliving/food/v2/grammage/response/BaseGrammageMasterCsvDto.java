@@ -2,6 +2,7 @@ package com.stanzaliving.food.v2.grammage.response;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvBindByPosition;
+import com.stanzaliving.food.v2.grammage.constant.GrammageCsvConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,59 +28,59 @@ public class BaseGrammageMasterCsvDto {
 
 	private final static long serialVersionUID = 223232L;
 
-	@CsvBindByName(column = "SubCategoryId")
+	@CsvBindByName(column = GrammageCsvConstants.SUB_CAT_ID)
 	@CsvBindByPosition(position = 0)
 	private String subCategoryId;
 
-	@CsvBindByName(column = "Category" )
+	@CsvBindByName(column = GrammageCsvConstants.CAT_NAME )
 	@CsvBindByPosition(position = 1)
 	private String category;
 
-	@CsvBindByName(column = "SubCategory" )
+	@CsvBindByName(column = GrammageCsvConstants.SUB_CAT_NAME )
 	@CsvBindByPosition(position = 2)
 	private String subCategory;
 
-	@CsvBindByName(column = "Breakfast" )
+	@CsvBindByName(column = GrammageCsvConstants.BREAKFAST )
 	@CsvBindByPosition(position = 3)
 	private Integer breakfast;
 
-	@CsvBindByName(column = "Lunch" )
+	@CsvBindByName(column = GrammageCsvConstants.LUNCH )
 	@CsvBindByPosition(position = 4)
 	private Integer lunch;
 
-	@CsvBindByName(column = "Lunch Tiffin" )
+	@CsvBindByName(column = GrammageCsvConstants.LUNCH_TIFFIN )
 	@CsvBindByPosition(position = 5)
 	private Integer lunchTiffin;
 
-	@CsvBindByName(column = "Evening Snacks" )
+	@CsvBindByName(column = GrammageCsvConstants.EVENING_SNACKS )
 	@CsvBindByPosition(position = 6)
 	private Integer eveningSnacks;
 
-	@CsvBindByName(column = "Dinner" )
+	@CsvBindByName(column = GrammageCsvConstants.DINNER )
 	@CsvBindByPosition(position = 7)
 	private Integer dinner;
 
-	@CsvBindByName(column = "Breakfast Combo" )
+	@CsvBindByName(column = GrammageCsvConstants.BREAKFAST_COMBO )
 	@CsvBindByPosition(position = 8)
 	private Integer breakfastCombo;
 
-	@CsvBindByName(column = "Lunch Combo" )
+	@CsvBindByName(column = GrammageCsvConstants.LUNCH_COMBO )
 	@CsvBindByPosition(position = 9)
 	private Integer lunchCombo;
 
-	@CsvBindByName(column = "Evening Snacks Combo" )
+	@CsvBindByName(column = GrammageCsvConstants.EVENING_SNACKS_COMBO )
 	@CsvBindByPosition(position = 10)
 	private Integer eveningSnacksCombo;
 
-	@CsvBindByName(column = "Dinner Combo" )
+	@CsvBindByName(column = GrammageCsvConstants.DINNER_COMBO )
 	@CsvBindByPosition(position = 11)
 	private Integer dinnerCombo;
 
-	@CsvBindByName(column = "Additive" )
+	@CsvBindByName(column = GrammageCsvConstants.ADDITIVE )
 	@CsvBindByPosition(position = 12)
 	private Boolean additive;
 
-	@CsvBindByName(column = "Override" )
+	@CsvBindByName(column = GrammageCsvConstants.OVERRIDE )
 	@CsvBindByPosition(position = 13)
 	private Boolean override;
 
@@ -87,7 +88,7 @@ public class BaseGrammageMasterCsvDto {
 	 * This field is added to add upload remarks in response while bulk uploading.
 	 * This is not being used anywhere in for updating values
 	 */
-	@CsvBindByName(column = "Remarks" )
+	@CsvBindByName(column = GrammageCsvConstants.REMARKS )
 	@CsvBindByPosition(position = 14)
 	private String remarks;
 }
