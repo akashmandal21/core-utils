@@ -67,12 +67,8 @@ public class NotificationClientApi {
 
         Object postBody = null;
 
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-
         String path =
                 UriComponentsBuilder.fromPath("/api/v1/generic-notification/")
-                        .buildAndExpand(uriVariables)
                         .toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -186,6 +182,31 @@ public class NotificationClientApi {
                         accept,
                         returnType);
         return responseDto.getData();
+    }
+
+    public void terminateNotification(Long notificationId) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("id", notificationId);
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/notification/{id}")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+        };
+        restClient.invokeAPI(
+                path, HttpMethod.DELETE, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public void terminateCampaign(String campaignId) {
