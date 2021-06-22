@@ -13,7 +13,6 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class UserResidenceDto {
 
-    private Long userId;
     private String userUuid;
     @NotBlank(message = "User code cannot be blank/null")
     private String userCode;
