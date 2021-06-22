@@ -53,6 +53,9 @@ public class MenuSearchRDto extends AbstractDto {
 	private Double mtdCogs;
 	private int mtdBudgetDeviation;
 	private Long mealsWithRatingLessThanFour;
+	private Long dayWithRatingLessThanFour;
 	private Double averageRating;
+	private String multiOptionMeals;
+	private String menuWeek;
 	
 }
