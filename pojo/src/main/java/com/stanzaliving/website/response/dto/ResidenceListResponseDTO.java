@@ -2,8 +2,11 @@ package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
+import com.stanzaliving.website.enums.Status;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -46,5 +49,7 @@ public class ResidenceListResponseDTO implements Serializable {
 	private String genderSlug;
 	private String citySlug;
 	private String micromarketSlug;
+	EnumListing<PropertyEntityType> propertType;
+	
 	
 }

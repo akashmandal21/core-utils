@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.Status;
+import com.stanzaliving.website.request.dto.AttributeDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,7 +35,10 @@ public class CityResponseDTO {
 	private String description;
 	private String imageAltTag;
 	private String cityImgUrl;
-	List<EnumListing<Status>> status;
-	
+	EnumListing<Status> status;
+	private Long reviewCount;
+	private Double rating;
+	private Long minPriceValue;
+	private List<AttributeDto> attributeDto;
 
 }

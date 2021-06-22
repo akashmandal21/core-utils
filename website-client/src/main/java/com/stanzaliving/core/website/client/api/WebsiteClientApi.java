@@ -6,6 +6,7 @@ package com.stanzaliving.core.website.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -18,6 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.website.response.dto.ElasticsearchRequestDTO;
 import com.stanzaliving.website.response.dto.LeadVisitResponseDTO;
+import com.stanzaliving.website.response.dto.ResidenceResponseShortDTO;
 
 /**
  * s
@@ -80,6 +82,35 @@ public class WebsiteClientApi {
 		};
 
 		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+	
+	public ResidenceResponseShortDTO getResidenceListForLead(String gender, Integer cityId, Integer micromarketId) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/lead/residence").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("gender", gender);
+		
+		if(Objects.nonNull(cityId))
+		queryParams.add("cityId", cityId.toString());
+		
+		if(Objects.nonNull(micromarketId))
+		queryParams.add("micromarketId", micromarketId.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResidenceResponseShortDTO> returnType = new ParameterizedTypeReference<ResidenceResponseShortDTO>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 	}
 
