@@ -28,10 +28,12 @@ public enum ResidenceSortBy {
         List<Map<String, Object>> list = new ArrayList<>();
 
         for(ResidenceSortBy residenceSortBy : ResidenceSortBy.values()){
-            Map<String, Object> residenceSortByMap = new HashMap<>();
-            residenceSortByMap.put("label",residenceSortBy.label);
-            residenceSortByMap.put("value", residenceSortBy);
-            list.add(residenceSortByMap);
+            if(!ResidenceSortBy.DEFAULT.equals(residenceSortBy)){
+                Map<String, Object> residenceSortByMap = new HashMap<>();
+                residenceSortByMap.put("label",residenceSortBy.label);
+                residenceSortByMap.put("value", residenceSortBy);
+                list.add(residenceSortByMap);
+            }
         }
 
         return list;
