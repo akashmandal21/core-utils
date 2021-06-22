@@ -25,6 +25,10 @@ import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
+import com.stanzaliving.core.user.dto.AccessLevelRoleRequestDto;
+import com.stanzaliving.core.user.dto.UserDto;
+import com.stanzaliving.core.user.dto.UserManagerProfileRequestDto;
+import com.stanzaliving.core.user.dto.UserProfileDto;
 import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -328,7 +332,7 @@ public class UserClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("roleName", userRoleSearchDto.getRoleName());
 		uriVariables.put("department", userRoleSearchDto.getDepartment());
-		uriVariables.put("accessLevelId", userRoleSearchDto.getAccessLevelId());
+		uriVariables.put("accessLevelId", userRoleSearchDto.getAccessLevelId().replaceAll("\'",""));
 
 		String path = UriComponentsBuilder.fromPath("/internal/acl/usercontactdetails/{department}/{roleName}/{accessLevelId}")
 				.buildAndExpand(uriVariables)
@@ -345,7 +349,7 @@ public class UserClientApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryMap, null, headerParams, accept, userContactResponse);
 		} catch (Exception e) {
-			log.error("exception while fetching contact detials from user service", e);
+			log.error("exception while fetching contact details from user service", e);
 			return null;
 		}
 	}
@@ -473,7 +477,12 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		}
+		catch (Exception ex) {
+			return null;
+		}
 	}
 
 	public ResponseDto<List<UserRoleCacheDto>> getCacheableRoles(List<String> userRoles) {
@@ -501,4 +510,36 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
 	}
+
+	public ResponseDto<Map<String, UserProfileDto>> getUserProfileForUsers(List<String> userIds) {
+
+		Object postBody = null;
+
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/userprofiles").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>>() {
+		};
+
+		UserManagerProfileRequestDto userManagerProfileRequestDto = new UserManagerProfileRequestDto();
+		userManagerProfileRequestDto.setUserUuids(userIds);
+
+		postBody = userManagerProfileRequestDto;
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+
 }
