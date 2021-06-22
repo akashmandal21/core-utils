@@ -32,7 +32,6 @@ public class PropertyListDto extends AbstractMongoDto {
     @Enumerated(EnumType.STRING)
     private PropertyListStatus status;
 
-    @NotNull(message = "Template cannot be null")
     private String legalTemplateId;
 
 }
