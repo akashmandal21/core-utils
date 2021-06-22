@@ -35,7 +35,11 @@ public enum Department {
 	GROWTH_STRATEGY("Growth and Strategy","GS","GRS"),
 	E_COMMERCE("E-Commerce", "EC", "ECE"),
 	LND("Learning & Development","LD","LND"),
-	PUBLIC_POLICY("Public Policy","PP","PPO");
+	PUBLIC_POLICY("Public Policy","PP","PPO"),
+	CORPORATE_COMM("Corporate Communication","CC","COC"),
+	PERFORMANCE_MARK("Performance Marketing","PM","PMR"),
+	SALES_SBR("Sales- SBR","SB","SLB"),
+	BRAND_MKTNG("Brand Marketing","BM","BRM");
 
 	public String departmentName;
 	public String shortCode;
