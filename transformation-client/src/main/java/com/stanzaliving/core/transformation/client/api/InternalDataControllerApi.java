@@ -932,7 +932,7 @@ public class InternalDataControllerApi {
     public CompletableFuture<ResidenceUIDto> getResidenceUIDto(String residenceUuid) {
         Object postBody = null;
 
-        ResponseDto<ResidenceDto> response=new ResponseDto<ResidenceDto>();
+        ResponseDto<ResidenceUIDto> response=new ResponseDto<ResidenceUIDto>();
        
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -948,11 +948,11 @@ public class InternalDataControllerApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<ResidenceDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceDto>>() {
+        ParameterizedTypeReference<ResponseDto<ResidenceUIDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceUIDto>>() {
         };
         try {
         	response=restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-        	CompletableFuture.completedFuture(response.getData());
+        return	CompletableFuture.completedFuture(response.getData());
         } catch (Exception e) {
 			 log.error("Exception Caught while Fetching Residences By residenceUuid: {}", residenceUuid, e);
 		}

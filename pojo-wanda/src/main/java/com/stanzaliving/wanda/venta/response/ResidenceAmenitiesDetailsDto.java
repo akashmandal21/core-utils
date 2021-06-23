@@ -35,6 +35,7 @@ public class ResidenceAmenitiesDetailsDto {
 	
 	private String roomNumber;
 	
+	@Deprecated
 	private Integer roomId;
 
 	private String bookingUuid;
@@ -44,4 +45,6 @@ public class ResidenceAmenitiesDetailsDto {
 	private Integer bedLeftNumber;
 	
 	private String userId;
+	
+	private String roomUuid;
 }
