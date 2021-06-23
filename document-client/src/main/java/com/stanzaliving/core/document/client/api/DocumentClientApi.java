@@ -48,6 +48,6 @@ public class DocumentClientApi {
 		ParameterizedTypeReference<ResponseDto<UserDocumentDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserDocumentDto>>() {
 		};
 		
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 }

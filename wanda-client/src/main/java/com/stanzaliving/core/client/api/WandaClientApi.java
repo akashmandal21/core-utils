@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Set;
 
 import com.stanzaliving.venta.OccupiedRoomDto;
+import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDto;
+import com.stanzaliving.wanda.venta.response.ResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -506,6 +508,32 @@ public class WandaClientApi {
 			log.error("Error while getting room count for residence: {}", residenceUuid);
 		}
 		return occupiedRoomDtoList;
+	}
+
+	public ResidentKYCDocumentResponseDto getResidentKYCDocuments(String residentUuid) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residentUuid", residentUuid);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/get/resident/kyc/{residentUuid}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResidentKYCDocumentResponseDto> returnType =
+				new ParameterizedTypeReference<ResidentKYCDocumentResponseDto>() {
+		};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
 }
