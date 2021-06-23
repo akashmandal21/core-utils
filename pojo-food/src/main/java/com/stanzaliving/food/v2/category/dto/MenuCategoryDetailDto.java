@@ -59,5 +59,5 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	
 	//GrammageData
 	private int override;
-	private List<CategoryGrammageBaseResponseDto> grammageDto;
+	private List<CategoryGrammageBaseResponseDto> grammageVariationDtos;
 }
