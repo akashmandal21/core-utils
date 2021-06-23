@@ -13,7 +13,8 @@ public enum CompanyType {
     PARTNERSHIP("Partnership Firm"),
     LTD_LIABILITY_PARTNERSHIP("Limited Liability Partnership"),
     PVT_LTD("Private Limited Company"),
-    PUB_LTD("Public Limited Company");
+    PUB_LTD("Public Limited Company"),
+    INDUSTRY_BODY("Industry Body");
 
     private String companyTypeText;
 
