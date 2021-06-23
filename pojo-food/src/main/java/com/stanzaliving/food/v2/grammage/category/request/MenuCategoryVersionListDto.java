@@ -2,7 +2,8 @@ package com.stanzaliving.food.v2.grammage.category.request;
 
 import java.util.List;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.food.v2.category.constant.MenuCategoryGrammageUpdateAction;
 
@@ -29,10 +30,10 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class MenuCategoryVersionListDto {
 	
-	@NotBlank(message = "Menu category version id is required")
+	@NotEmpty(message = "Menu category version id is required")
 	private List<MenuCategoryVersionDto> menuCategoryVersionDtoList;
 	
-	@NotBlank(message = "Common Action is required")
+	@NotNull(message = "Common Action is required")
 	private MenuCategoryGrammageUpdateAction commonAction;
 	
 }
