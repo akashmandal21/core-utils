@@ -17,16 +17,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.commercialcode.dto.CommercialCardBookingDto;
-import com.stanzaliving.core.commercialcode.dto.CommercialCardDto;
-import com.stanzaliving.core.commercialcode.dto.CommercialCardListDto;
-import com.stanzaliving.core.commercialcode.dto.CommercialCardUsageDto;
-import com.stanzaliving.core.commercialcode.dto.response.CommercialCardResponseDto;
-
-import lombok.extern.log4j.Log4j2;
-
 @Log4j2
 public class CommercialDataControllerApi {
 
