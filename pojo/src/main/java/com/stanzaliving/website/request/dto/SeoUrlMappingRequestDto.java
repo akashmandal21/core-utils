@@ -1,4 +1,4 @@
-package com.stanzaliving.website.response.dto;
+package com.stanzaliving.website.request.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,11 +11,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class SeoUrlResponseDto {
-
-	private int seoUrlId;
+public class SeoUrlMappingRequestDto {
+	
+	private Long id;
 	private String sourceUrl;
 	private String destinationUrl;
-	private boolean enabled;
-
+	
+	@Builder.Default
+	private boolean status = true;
 }
