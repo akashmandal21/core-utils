@@ -3,6 +3,7 @@ package com.stanzaliving.core.operations.dto;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.operations.enums.DealCategory;
@@ -42,4 +43,5 @@ public class DealServiceMixListingDto {
 	private String approvalPendingBy;
 	
 	private List<String> serviceList;
+	private Map<String, String> tags;
 }

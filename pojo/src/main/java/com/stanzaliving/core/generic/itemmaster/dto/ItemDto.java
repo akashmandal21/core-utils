@@ -1,5 +1,6 @@
 package com.stanzaliving.core.generic.itemmaster.dto;
 
+import com.stanzaliving.item_master.enums.FarCategory;
 import com.stanzaliving.transformations.enums.UnitType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,4 +26,5 @@ public class ItemDto {
     private Date lastUpdateAt;
     private String lastUpdateBy;
     private Boolean itemInactive;
+    private FarCategory farCategory;
 }
