@@ -23,9 +23,9 @@ import java.util.Set;
 @SuperBuilder
 @NoArgsConstructor
 public class GrammageMasterRuleRatioResponseDto {
-	private CategorySubCategoryResponseDto controllingSubCategory;
+	private Set<CategorySubCategoryResponseDto> controllingSubCategory;
 
-	private CategorySubCategoryResponseDto derivedSubCategory;
+	private Set<CategorySubCategoryResponseDto> derivedSubCategory;
 
 	private double controllingRatio;
 
