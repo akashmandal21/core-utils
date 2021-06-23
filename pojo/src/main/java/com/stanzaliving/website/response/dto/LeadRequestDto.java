@@ -20,7 +20,7 @@ public class LeadRequestDto {
 	private String firstName;
 	private String lastName;
 	private String email;
-
+	private String leadEmail;
 	private String phone;
 	private String otp;
 
