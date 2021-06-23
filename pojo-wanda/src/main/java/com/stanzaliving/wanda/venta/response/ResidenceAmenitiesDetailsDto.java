@@ -5,9 +5,12 @@ import java.util.List;
 import com.stanzaliving.wanda.dtos.AmenitiesDto;
 
 import com.stanzaliving.wanda.enums.PropertyCategory;
+
+import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
+@Builder
 @Getter
 @ToString
 public class ResidenceAmenitiesDetailsDto {

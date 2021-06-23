@@ -43,6 +43,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * @author naveen.kumar
@@ -926,5 +927,36 @@ public class InternalDataControllerApi {
         ParameterizedTypeReference<ResponseDto<AddressBookMetaDto>> returnType = new ParameterizedTypeReference<ResponseDto<AddressBookMetaDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+    
+    public CompletableFuture<ResidenceUIDto> getResidenceUIDto(String residenceUuid) {
+        Object postBody = null;
+
+        ResponseDto<ResidenceDto> response=new ResponseDto<ResidenceDto>();
+       
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/get/details").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("residenceUuid", residenceUuid);
+		
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ResidenceDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceDto>>() {
+        };
+        try {
+        	response=restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        	CompletableFuture.completedFuture(response.getData());
+        } catch (Exception e) {
+			 log.error("Exception Caught while Fetching Residences By residenceUuid: {}", residenceUuid, e);
+		}
+        
+        return null ;
     }
 }
