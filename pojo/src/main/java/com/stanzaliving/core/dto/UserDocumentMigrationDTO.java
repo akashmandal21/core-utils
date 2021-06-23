@@ -41,4 +41,7 @@ public class UserDocumentMigrationDTO {
 
     @JsonSetter(value = "comment")
     private String rejectionReason;
+
+    @JsonSetter(value = "uuid")
+    private String uuid;
 }
