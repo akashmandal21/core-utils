@@ -1,6 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,9 +25,9 @@ public class SeoUrlMappingResponseDto {
 
 	private String createdBy;
 
-	private LocalDateTime createdAt;
+	private Date createdAt;
 
-	private LocalDateTime updatedAt;
+	private Date updatedAt;
 
 	private String updatedBy;
 }
