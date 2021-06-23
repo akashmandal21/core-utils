@@ -17,6 +17,6 @@ public class CategoryDto {
     private String uuid;
     private String name;
     private String description;
-    private boolean isActiveOnAlfred;
+    private boolean active;
     private List<SubCategoryDto> subCategories = new ArrayList<>();
 }

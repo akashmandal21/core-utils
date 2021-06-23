@@ -18,6 +18,6 @@ public class ComplaintGroupDto {
     private String name;
     private String description;
     private String imageUrl;
-    private boolean isActiveOnAlfred;
+    private boolean active;
     private List<CategoryDto> categories = new ArrayList<>();
 }

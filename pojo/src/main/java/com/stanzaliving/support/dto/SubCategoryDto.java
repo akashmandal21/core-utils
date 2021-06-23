@@ -19,7 +19,7 @@ public class SubCategoryDto {
     private String name;
     private String defaultPriorityUuid;
     private Long sla;
-    private boolean isActiveOnAlfred;
+    private boolean active;
     private int checkListDetailsCount;
     private Priority priority;
     private List<SubTicketTaskDto> subTicketTasks = new ArrayList<>();
