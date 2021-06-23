@@ -23,7 +23,7 @@ public class MenuCategorySearchPDto implements Serializable {
     private String name;
     private List<String> tagId;
     private String cityId;
-    private String vendorId;
+    private List<String> vendorId;
     private SortingType sortingType;
     private CategorySearchSortingField sortingField;
     private Boolean published;
