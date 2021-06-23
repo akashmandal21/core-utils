@@ -1,6 +1,7 @@
 package com.stanzaliving.food.v2.menu.dto;
 
 
+import com.stanzaliving.approval.dto.ApprovalListingDto;
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
@@ -24,6 +25,8 @@ import java.util.List;
 @NoArgsConstructor
 public class MenuSearchRDto extends AbstractDto {
 	private String vendorId;
+	private String cityId;
+	private String cityName;
 	private String vendorName;
 	private LocalDate startDate;
 	private String categoryUuid;
@@ -37,6 +40,7 @@ public class MenuSearchRDto extends AbstractDto {
 	private ApprovalStatus approvalStatus;
 	private List<String> pendingApprovers;
 	private List<UserContactDetailsResponseDto> pendingUsers;
+	private ApprovalListingDto approvalData;
 	private Date approvalRequestedOn;
 	private String approvalRequestedBy;
 	private MenuStatus menuStatus;
