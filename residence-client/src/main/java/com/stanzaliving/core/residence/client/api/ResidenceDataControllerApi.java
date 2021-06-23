@@ -1,5 +1,6 @@
 package com.stanzaliving.core.residence.client.api;
 
+import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.*;
 
@@ -14,6 +15,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -408,6 +410,45 @@ public class ResidenceDataControllerApi {
 			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Exception while fetching residence information based on residenceUUID {}, Exception is ", roomUuid, e);
+		}
+		return null;
+	}
+
+	public InventoryPricingResponseDto getInventoryPricingData(String residenceUuid, String inventoryUuid,LocalDate fromDate, LocalDate toDate,String token) {
+
+		log.info("get pricing details for residenceUuid {}, inventoryUuid {},fromDate{}, toDate {},", residenceUuid, inventoryUuid,fromDate,toDate);
+
+		if (StringUtils.isBlank(token)) {
+			throw new IllegalArgumentException("Token missing for fetching Pricing details");
+		}
+
+		Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("residenceUuid", residenceUuid);
+		uriVariables.put("inventoryUuid", inventoryUuid);
+
+		String path = UriComponentsBuilder.fromPath("/api/v1/get/pricing/{residenceUuid}/{inventoryUuid}").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("fromDate", fromDate.toString());
+		queryParams.add("toDate", toDate.toString());
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.add("Cookie", "token=" + token);
+
+		String[] accepts = new String[]{"*/*"};
+
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<InventoryPricingResponseDto> returnType =new ParameterizedTypeReference<InventoryPricingResponseDto>() {
+				};
+
+		try {
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+		} catch (Exception ex) {
+			log.error("Exception while fetching pricing details by residenceUuid, serviceMix : {} , {}", residenceUuid, inventoryUuid);
 		}
 		return null;
 	}

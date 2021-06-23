@@ -16,18 +16,18 @@ import lombok.NoArgsConstructor;
 public class CommercialCardRequestDto {
 
 	@NotNull(message = "commercialCardId cannot be null")
-	private Integer commercialCardId;
-	
+	private String commercialCardUuid;
+
 	@Builder.Default
 	private Integer startingAdvanceRentalMonths = 1;
-	
+
 	@Builder.Default
 	private Integer lastAdvanceRentalMonths = 0;
-	
+
 	private Double securityDeposit;
-	
+
 	private Double maintenanceFee;
-	
+
 	@Builder.Default
 	private MaintenanceFeeCollectionType maintenanceFeeCollectionType = MaintenanceFeeCollectionType.MONTHLY;
 
