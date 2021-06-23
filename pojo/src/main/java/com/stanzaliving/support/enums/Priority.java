@@ -9,16 +9,17 @@ import java.util.Map;
 @Getter
 @AllArgsConstructor
 public enum Priority {
-    HIGH("HIGH",2),
-    MEDIUM("MEDIUM",1),
-    LOW("LOW",0);
+    URGENT("URGENT", 3),
+    HIGH("HIGH", 2),
+    MEDIUM("MEDIUM", 1),
+    LOW("LOW", 0);
 
 
     private static final Map<String, Priority> map = new HashMap<>();
 
     static {
         for (Priority priority : Priority.values()) {
-            map.put(priority.value,priority);
+            map.put(priority.value, priority);
         }
     }
 
@@ -31,7 +32,7 @@ public enum Priority {
         return map.get(priority);
     }
 
-    public static Map<String,Priority> getMap(){
+    public static Map<String, Priority> getMap() {
         return map;
     }
 
