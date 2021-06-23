@@ -20,6 +20,8 @@ import java.util.List;
 @NoArgsConstructor
 public class MenuSearchPDto {
 	private String vendorId;
+	private String cityId;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate startDate;
 
@@ -30,5 +32,6 @@ public class MenuSearchPDto {
 	private List<ApprovalStatus> approvalStatus;
 	private Boolean rulesViolated;
 	private Boolean approvalDashboard;
+	private Boolean approvalDataRequired;
 
 }

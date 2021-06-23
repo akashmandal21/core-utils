@@ -27,6 +27,6 @@ import javax.validation.constraints.NotNull;
 public class MealGrammageRequestDto extends GrammageStatusRequestDto {
 
 	@NotNull(message = "Meal selection is mandatory")
-	private MealType mealMasterId;
+	private MealType mealType;
 
 }
