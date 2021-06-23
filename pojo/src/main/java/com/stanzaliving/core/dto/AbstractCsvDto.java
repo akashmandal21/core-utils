@@ -82,4 +82,19 @@ public abstract class AbstractCsvDto {
 
     }
 
+    public static <T extends AbstractCsvDto> List<String[]> prepareRequestCsv(List<T> csvDtos) {
+
+        List<String[]> data = new ArrayList<>();
+        if(CollectionUtils.isNotEmpty(csvDtos)&&csvDtos.stream().findAny().isPresent()) {
+            List<String> columns = csvDtos.stream().findAny().get().columns;
+            data.add(ArrayUtils.addAll(columns.toArray(new String[0])));
+            csvDtos.sort(Comparator.comparing(AbstractCsvDto::getRowId));
+            for (AbstractCsvDto dto : csvDtos) {
+                data.add(ArrayUtils.addAll(dto.getData()));
+            }
+        }
+        return data;
+
+    }
+
 }
