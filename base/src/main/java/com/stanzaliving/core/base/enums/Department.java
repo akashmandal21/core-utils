@@ -36,9 +36,9 @@ public enum Department {
 	E_COMMERCE("E-Commerce", "EC", "ECE"),
 	LND("Learning & Development","LD","LND"),
 	PUBLIC_POLICY("Public Policy","PP","PPO"),
-	CORPORATE_COMM("Corporate Communication","CC","CPC"),
-	PERFORMANCE_MARK("","",""),
-	SALES_SBR("","","");
+	CORPORATE_COMM("Corporate Communication","CC","COC"),
+	PERFORMANCE_MARK("Performance Marketing","PM","PMR"),
+	SALES_SBR("Sales- SBR","SB","SLB");
 
 
 	public String departmentName;
