@@ -1,5 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
+import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,11 +13,21 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class SeoUrlResponseDto {
+public class SeoUrlMappingResponseDto {
 
-	private int seoUrlId;
+	private Long id;
+	
 	private String sourceUrl;
+	
 	private String destinationUrl;
-	private boolean enabled;
+	
+	private boolean status;
 
+	private String createdBy;
+
+	private LocalDateTime createdAt;
+
+	private LocalDateTime updatedAt;
+
+	private String updatedBy;
 }

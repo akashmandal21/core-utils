@@ -11,10 +11,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class SeoUrlRequestDto {
-	private int seoUrlId;
+public class SeoUrlMappingRequestDto {
+	
+	private Long id;
 	private String sourceUrl;
 	private String destinationUrl;
-	private boolean enabled;
-	private String userName;
+	
+	@Builder.Default
+	private boolean status = true;
 }
