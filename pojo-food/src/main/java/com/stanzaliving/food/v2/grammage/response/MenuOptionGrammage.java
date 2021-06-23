@@ -34,5 +34,7 @@ public class MenuOptionGrammage {
 
 	private Integer thaliGrammage;
 
+	private Integer expectedThaliGrammage;
+
 	private List<MenuItemGrammage> menuItemsGrammage;
 }

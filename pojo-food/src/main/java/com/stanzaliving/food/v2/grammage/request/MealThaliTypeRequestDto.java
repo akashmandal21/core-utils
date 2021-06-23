@@ -9,6 +9,9 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
@@ -25,10 +28,13 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class MealThaliTypeRequestDto {
 
+	@NotNull(message = "MealType is mandatory")
 	private MealType mealType;
 
+	@NotBlank(message = "Meal group is mandatory")
 	private String mealGroupId;
 
+	@NotNull(message = "Thali type is mandatory")
 	private ThaliType thaliType;
 
 	private Integer grammage;
