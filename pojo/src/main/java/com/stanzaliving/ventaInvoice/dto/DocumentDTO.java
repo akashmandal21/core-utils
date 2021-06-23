@@ -27,7 +27,6 @@ public class DocumentDTO {
     private String billToId;
     private String serviceType;
     private String remarks;
-    private String referenceId;
     private String contractId;
     private String fileLocation;
     private String filePath;
@@ -44,5 +43,9 @@ public class DocumentDTO {
     private Double lineAmount;
     private Double invoiceAmount;
     private List<CreditAttributionDto> creditAttribution;
+    private String billToName;
+    private String referenceId;
+    private String residenceAddress;
+    private String stayDetails;
 
 }
