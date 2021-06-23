@@ -89,4 +89,8 @@ public class ResidenceUIDto implements Serializable{
 
 	private String phoenixPropertyUuid;
 	
+	private Double latitude;
+	
+	private Double longitude;
+	
 }
