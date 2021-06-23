@@ -6,7 +6,7 @@ package com.stanzaliving.core.far.dto;
 
 import java.math.BigDecimal;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.far.enums.AssetAllocatedTo;
 import com.stanzaliving.core.far.enums.AssetStatus;
 import com.stanzaliving.core.far.enums.AssetType;
@@ -29,7 +29,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class AssetUpdateDto extends AbstractDto {
+public class AssetUpdateDto extends AbstractSearchIndexDto {
 
 	/**
 	 * 
