@@ -32,5 +32,6 @@ public class MenuSearchPDto {
 	private List<ApprovalStatus> approvalStatus;
 	private Boolean rulesViolated;
 	private Boolean approvalDashboard;
+	private Boolean approvalDataRequired;
 
 }
