@@ -18,7 +18,7 @@ public class SeoUrlMappingResponseDto {
 	private Long id;
 	
 	private String sourceUrl;
-	
+
 	private String destinationUrl;
 	
 	private boolean status;
