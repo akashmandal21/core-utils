@@ -14,8 +14,6 @@ public class TemplateDetailDto {
     private String templateName;
     private String templateCode;
     private String templateDescription;
-    private String subCategoryUuid;
-    private String subCategoryName;
-
+    private String uuid;
 
 }
