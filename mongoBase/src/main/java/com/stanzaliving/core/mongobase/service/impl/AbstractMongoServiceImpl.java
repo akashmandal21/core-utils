@@ -22,6 +22,21 @@ public abstract class AbstractMongoServiceImpl<T extends AbstractMongoEntity, I 
 	protected abstract MongoTemplate getMongoTemplate();
 
 	@Override
+	public T save(T entity) {
+		return getMongoRepository().save(entity);
+	}
+
+	@Override
+	public List<T> save(Iterable<T> entities) {
+		return getMongoRepository().saveAll(entities);
+	}
+
+	@Override
+	public List<T> saveAll(Iterable<T> entities) {
+		return getMongoRepository().saveAll(entities);
+	}
+
+	@Override
 	public T insert(T entity) {
 		return getMongoRepository().insert(entity);
 	}
@@ -37,8 +52,23 @@ public abstract class AbstractMongoServiceImpl<T extends AbstractMongoEntity, I 
 	}
 
 	@Override
+	public List<T> findAll() {
+		return getMongoRepository().findAll();
+	}
+
+	@Override
+	public List<T> findAllByStatus(Boolean status) {
+		return getMongoRepository().findAllByStatus(status);
+	}
+
+	@Override
 	public T findByUuid(String uuid) {
 		return getMongoRepository().findFirstByUuid(uuid);
+	}
+
+	@Override
+	public List<T> findByUuidIn(Collection<String> uuids) {
+		return getMongoRepository().findByUuidIn(uuids);
 	}
 
 	@Override
@@ -53,4 +83,13 @@ public abstract class AbstractMongoServiceImpl<T extends AbstractMongoEntity, I 
 		getMongoRepository().deleteById(id);
 	}
 
+	@Override
+	public void deleteAll(Iterable<T> entities) {
+		getMongoRepository().deleteAll(entities);
+	}
+
+	@Override
+	public void deleteAll() {
+		getMongoRepository().deleteAll();
+	}
 }
