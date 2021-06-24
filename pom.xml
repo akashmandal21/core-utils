@@ -84,6 +84,7 @@
 		<module>far-client</module>
 		<module>notification-v2-client</module>
 		<module>slack-client</module>
+		<module>pojo-food</module>
 		<module>document-client</module>
 	</modules>
 
