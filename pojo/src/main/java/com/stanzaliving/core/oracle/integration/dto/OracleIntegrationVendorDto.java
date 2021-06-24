@@ -187,7 +187,7 @@ public class OracleIntegrationVendorDto extends AbstractOracleDto {
     private String receiptquantitydiff;
 
     @JsonProperty("taxregistrations")
-    private OracleVendorTaxRegistrationDto taxregistrations;  //set
+    private OracleVendorTaxRegistrationDto taxregistration;  //set
 
     @JsonProperty("financialHealth")
     private List<OracleFinancialHealthDto> financialHealth;  //set
@@ -201,7 +201,7 @@ public class OracleIntegrationVendorDto extends AbstractOracleDto {
     @JsonProperty("GSTCertificates")
     private List<OracleGSTCertificatesDto> GSTCertificates;
 
-    @JsonProperty("taxregistration")
-    private String taxregistration;
+    /*@JsonProperty("taxregistration")
+    private String taxregistration;*/
 
 }
