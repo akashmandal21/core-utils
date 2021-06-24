@@ -34,6 +34,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private boolean grammageDefined;
 	private List<ListingDto> demographicTags;
 	private boolean costUpdated;
+	private boolean publishable;
 
 	//derived information
 	private int totalMealInWeek;
