@@ -36,6 +36,10 @@ public class EventAdditionalInfoResponseDTO {
 
     private String state;
 
+    private String cityName;
+
+    private String stateName;
+
     private String pincode;
 
     private String eventDescription;
