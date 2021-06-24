@@ -2,17 +2,15 @@ package com.stanzaliving.legal_v2.DTO.LegalTemplate;
 
 import lombok.*;
 
-import java.util.List;
-
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OperandDTO {
+public class KeyValueDTO {
 
-    private String key;
+    private String label;
+    private String value;
 
-    private List<KeyValueDTO> value;
 }

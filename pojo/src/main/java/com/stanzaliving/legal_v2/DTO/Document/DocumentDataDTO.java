@@ -11,6 +11,8 @@ import java.util.List;
 @Builder
 public class DocumentDataDTO {
 
+    private String documentUUID;
+
     private String description;
 
     private List<Object> versions;
