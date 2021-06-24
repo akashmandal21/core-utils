@@ -19,6 +19,8 @@ public class LanguageApprovalGetRequestDto{
     private String propertyName;
 
     private String mappedPropertyType;
+    
+    private String microMarket;
 
     private PropertyListStatus status;
 
