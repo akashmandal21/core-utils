@@ -25,4 +25,6 @@ public class InventoryPricingResponseDto {
 	private double vasServiceCSGT;
 	private double vasServiceISGT;
 	private double vasServiceSSGT;
+	
+	private Double licenseFee;
 }
