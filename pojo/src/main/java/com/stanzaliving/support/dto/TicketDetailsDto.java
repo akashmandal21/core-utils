@@ -24,10 +24,6 @@ public class TicketDetailsDto {
 
     List<TagDto> tagDtos;
 
-    List<TicketMessageDto> ticketMessageDto;
-
-    List<Map<String, Object>> attachmentList;
-
     TicketCardDto ticketCardDto;
 
     TeamDto teamDto;
