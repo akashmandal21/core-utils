@@ -61,5 +61,6 @@ public class MenuSearchRDto extends AbstractDto {
 	private Double averageRating;
 	private String multiOptionMeals;
 	private String menuWeek;
+	private Integer averageMIR;
 	
 }
