@@ -21,7 +21,7 @@ public class SeoUrlMappingResponseDto {
 
 	private String destinationUrl;
 	
-	private boolean status;
+	private Boolean status;
 
 	private String createdBy;
 
