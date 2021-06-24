@@ -29,4 +29,6 @@ public class TicketConversationDto {
     private String team;
     private String id;
     private String taskType;
+    private List<String> attachmentPaths;
+    private String attachmentType;
 }
