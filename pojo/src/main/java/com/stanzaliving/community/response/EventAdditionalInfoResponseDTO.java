@@ -45,4 +45,6 @@ public class EventAdditionalInfoResponseDTO {
     private String eventDescription;
 
     private String mapLink;
+
+    private String venueType;
 }

@@ -16,6 +16,8 @@ public class EventAdditionalInfoRequestDTO {
 
     private String uuid;
 
+    private String venueType;
+
     private String onlineStreamingLink;
 
     private String onlineStreamID;
