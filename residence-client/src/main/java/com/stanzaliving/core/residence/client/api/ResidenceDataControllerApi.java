@@ -392,7 +392,7 @@ public class ResidenceDataControllerApi {
 			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
 		} catch (Exception ex) {
-			log.error("Exception while fetching pricing details by residenceUuid, serviceMix : {} , {}", residenceUuid, inventoryUuid);
+			log.error("Exception while fetching pricing details by residenceUuid, inventoryUuid : {} , {}", residenceUuid, inventoryUuid);
 		}
 		return null;
 	}
