@@ -3,6 +3,7 @@ package com.stanzaliving.core.generic.itemmaster.dto;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.generic.enums.GSTSlabs;
@@ -26,7 +27,12 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class ItemUpdateDto extends AbstractDto {
 
-    private Department department;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private Department department;
     private ItemAction itemAction;
 
     private UIKeyValue itemCategory;
