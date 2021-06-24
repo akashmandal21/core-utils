@@ -22,7 +22,7 @@ import java.util.Objects;
 public class CounterServiceImpl implements CounterService{
 
 	@Autowired
-	CounterRepository countRepository;
+	private CounterRepository countRepository;
 
 	@PersistenceContext
 	private EntityManager entityManager;
