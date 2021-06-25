@@ -10,7 +10,7 @@ public enum UserActionType {
     NODAL_ACTION("Nodal-action"),
     OTHER("Other");
 
-    public final String label;
+    private final String label;
 
     UserActionType(String label) {
         this.label = label;

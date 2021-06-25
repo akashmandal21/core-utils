@@ -11,7 +11,7 @@ public enum DefaulterActionType {
     APPLIED_LATE_ENTRY("Applied late-entry"),
     OTHER("other");
 
-    public final String label;
+    private final String label;
 
     DefaulterActionType(String label) {
         this.label = label;
