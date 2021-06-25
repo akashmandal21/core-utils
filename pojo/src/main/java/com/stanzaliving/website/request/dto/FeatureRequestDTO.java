@@ -16,11 +16,14 @@ import lombok.ToString;
 @ToString
 public class FeatureRequestDTO {
 
-	private int featureId;
+	private Integer featureId;
+	
 	private String name;
+	
 	private String iconImageUrl;
+	
 	@Default
 	private boolean enabled = true;
+	
 	private String iconImageUrlAltTag;
-
 }
