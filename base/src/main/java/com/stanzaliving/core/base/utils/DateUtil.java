@@ -995,5 +995,16 @@ public class DateUtil {
         return diff;
 	}
 
-
+	public String calculateDifferenceInMonthAndDate(Date startDate, Date endDate) {
+		Period age = Period.between(DateUtil.convertToLocalDate(startDate),
+				DateUtil.convertToLocalDate(endDate));
+		int months = age.getMonths();
+		int days = age.getDays();
+		String datePeriod = "";
+		if (months != 0)
+			datePeriod += months == 1 ? months + " month " : months + " months ";
+		if (days != 0)
+			datePeriod += days == 1 ? days + " day" : days + " days";
+		return datePeriod;
+	}
 }
