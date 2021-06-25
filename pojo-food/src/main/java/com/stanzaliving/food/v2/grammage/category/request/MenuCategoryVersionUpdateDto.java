@@ -25,8 +25,10 @@ import com.stanzaliving.food.v2.category.constant.MenuCategoryGrammageUpdateActi
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuCategoryVersionDto {
+public class MenuCategoryVersionUpdateDto {
 	@NotBlank(message = "Menu category version id is required")
 	private String menuCategoryVersionId;
+	
+	private MenuCategoryGrammageUpdateAction action;
 	
 }
