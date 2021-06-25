@@ -18,6 +18,7 @@ public class FoodVendorSearchPDto implements Serializable {
     private String cityId;
     private VendorType vendorType;
     private Boolean activeStatus;
+    private Boolean hasCategory;
     private VendorSortingField sortingField;
     private SortingType sortingType;
 }
