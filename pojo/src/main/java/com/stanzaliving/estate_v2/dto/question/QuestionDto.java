@@ -36,4 +36,5 @@ public class QuestionDto {
     @NotNull(message = "Mandatory Condition cannot be empty or null")
     private MandatoryConditionDto mandatoryCondition;
     private Object questionDetails;
+    private boolean duplicate;
 }
