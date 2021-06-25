@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class QuestionDto {
-    private String questionId;
+    private String uuid;
     @EmptyOrNull(message = "Type cannot be null or empty")
     private String type;
     private List<String> variableName;
