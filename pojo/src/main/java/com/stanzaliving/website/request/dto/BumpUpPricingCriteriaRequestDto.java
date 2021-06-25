@@ -19,7 +19,7 @@ import lombok.ToString;
 @ToString
 public class BumpUpPricingCriteriaRequestDto {
 
-	private int bumpUpPricingCriteriaId;
+	private Integer bumpUpPricingCriteriaId;
 
 	private Integer minStartingPrice;
 
