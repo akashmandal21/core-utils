@@ -11,7 +11,7 @@ public enum VendorSortingField {
     MENU_CATEGORY("Menu Categories"),
     CITY("City"),
     MM("Micromarket"),
-    STATUS("Active Status"),
-    ;
+    STATUS("Active Status");
+
     private final String field;
 }
