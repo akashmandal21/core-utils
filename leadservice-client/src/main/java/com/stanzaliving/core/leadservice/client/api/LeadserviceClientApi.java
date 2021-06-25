@@ -250,4 +250,30 @@ public class LeadserviceClientApi {
 
 		return null;
 	}
+	
+	public ResponseDto<String> updateMobileVerifiedStatus(String phone) {
+
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("/lead/internal/update/phone/verified").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("phone", phone);
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while creating the lead {}", e);
+			return null;
+		}	
+	}
 }
