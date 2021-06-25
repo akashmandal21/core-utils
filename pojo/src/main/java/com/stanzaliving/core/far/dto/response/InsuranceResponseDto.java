@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class InsuranceResponseDto {
+    private String insuranceDocumentNumber;
     private String insuranceType;
     private String insuranceCompany;
     private String contactNumber;
