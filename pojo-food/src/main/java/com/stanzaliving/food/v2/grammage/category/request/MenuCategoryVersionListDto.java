@@ -31,9 +31,6 @@ import lombok.experimental.SuperBuilder;
 public class MenuCategoryVersionListDto {
 	
 	@NotEmpty(message = "Menu category version id is required")
-	private List<MenuCategoryVersionDto> menuCategoryVersionDtoList;
-	
-	@NotNull(message = "Common Action is required")
-	private MenuCategoryGrammageUpdateAction commonAction;
+	private List<MenuCategoryVersionUpdateDto> menuCategoryVersionDtoList;
 	
 }
