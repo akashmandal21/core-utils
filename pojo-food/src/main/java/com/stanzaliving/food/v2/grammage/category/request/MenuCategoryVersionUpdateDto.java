@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 import com.stanzaliving.food.v2.category.constant.MenuCategoryGrammageUpdateAction;
 
 /**
- * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
+ * @author Manish.PAreek
  *
  * @since 14-Jun-2021
  *
@@ -25,8 +25,10 @@ import com.stanzaliving.food.v2.category.constant.MenuCategoryGrammageUpdateActi
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuCategoryVersionDto {
+public class MenuCategoryVersionUpdateDto {
 	@NotBlank(message = "Menu category version id is required")
 	private String menuCategoryVersionId;
+	
+	private MenuCategoryGrammageUpdateAction action;
 	
 }

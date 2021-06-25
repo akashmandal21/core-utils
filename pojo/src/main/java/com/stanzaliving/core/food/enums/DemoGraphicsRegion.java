@@ -1,15 +1,15 @@
 package com.stanzaliving.core.food.enums;
 
-import com.stanzaliving.core.base.utils.StanzaParseUtils;
-import com.stanzaliving.core.user.enums.EnumListing;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.stanzaliving.core.user.enums.EnumListing;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
@@ -46,41 +46,10 @@ public enum DemoGraphicsRegion {
 		for (DemoGraphicsRegion demoGraphicsRegion : DemoGraphicsRegion.values()) {
 			foodRegionMapByName.put(demoGraphicsRegion.getFoodRegionName(), demoGraphicsRegion);
 			enumListings.add(EnumListing.of(demoGraphicsRegion, demoGraphicsRegion.getFoodRegionName()));
+			foodRegionMapByType.put(demoGraphicsRegion, demoGraphicsRegion.getFoodRegionName());
+			foodRegionMapByTypeStr.put(demoGraphicsRegion.toString(), demoGraphicsRegion.getFoodRegionName());	
 		}
-		foodRegionMapByType.put(ANDHRA, ANDHRA.getFoodRegionName());
-		foodRegionMapByType.put(EAST_INDIAN, EAST_INDIAN.getFoodRegionName());
-		foodRegionMapByType.put(GUJRATI, GUJRATI.getFoodRegionName());
-		foodRegionMapByType.put(HYDERABADI, HYDERABADI.getFoodRegionName());
-		foodRegionMapByType.put(KARNATAKA, KARNATAKA.getFoodRegionName());
-		foodRegionMapByType.put(KERALA, KERALA.getFoodRegionName());
-		foodRegionMapByType.put(MAHARASHTIA, MAHARASHTIA.getFoodRegionName());
-		foodRegionMapByType.put(MIX, MIX.getFoodRegionName());
-		foodRegionMapByType.put(NORTH_INDIAN, NORTH_INDIAN.getFoodRegionName());
-		foodRegionMapByType.put(ORIENTAL, ORIENTAL.getFoodRegionName());
-		foodRegionMapByType.put(PUNJABI, PUNJABI.getFoodRegionName());
-		foodRegionMapByType.put(RAJASTHANI, RAJASTHANI.getFoodRegionName());
-		foodRegionMapByType.put(SOUTH_INDIAN, SOUTH_INDIAN.getFoodRegionName());
-		foodRegionMapByType.put(TAMIL_NADU, TAMIL_NADU.getFoodRegionName());
-		foodRegionMapByType.put(WEST_INDIAN, WEST_INDIAN.getFoodRegionName());
-
-
-		foodRegionMapByTypeStr.put(ANDHRA.toString(), ANDHRA.getFoodRegionName());
-		foodRegionMapByTypeStr.put(EAST_INDIAN.toString(), EAST_INDIAN.getFoodRegionName());
-		foodRegionMapByTypeStr.put(GUJRATI.toString(), GUJRATI.getFoodRegionName());
-		foodRegionMapByTypeStr.put(HYDERABADI.toString(), HYDERABADI.getFoodRegionName());
-		foodRegionMapByTypeStr.put(KARNATAKA.toString(), KARNATAKA.getFoodRegionName());
-		foodRegionMapByTypeStr.put(KERALA.toString(), KERALA.getFoodRegionName());
-		foodRegionMapByTypeStr.put(MAHARASHTIA.toString(), MAHARASHTIA.getFoodRegionName());
-		foodRegionMapByTypeStr.put(MIX.toString(), MIX.getFoodRegionName());
-		foodRegionMapByTypeStr.put(NORTH_INDIAN.toString(), NORTH_INDIAN.getFoodRegionName());
-		foodRegionMapByTypeStr.put(ORIENTAL.toString(), ORIENTAL.getFoodRegionName());
-		foodRegionMapByTypeStr.put(PUNJABI.toString(), PUNJABI.getFoodRegionName());
-		foodRegionMapByTypeStr.put(RAJASTHANI.toString(), RAJASTHANI.getFoodRegionName());
-		foodRegionMapByTypeStr.put(SOUTH_INDIAN.toString(), SOUTH_INDIAN.getFoodRegionName());
-		foodRegionMapByTypeStr.put(TAMIL_NADU.toString(), TAMIL_NADU.getFoodRegionName());
-		foodRegionMapByTypeStr.put(WEST_INDIAN.toString(), WEST_INDIAN.getFoodRegionName());
-
-	}
+	}	
 
 	public static Map<DemoGraphicsRegion, String> getFoodRegionMapByType() {
 		return foodRegionMapByType;
