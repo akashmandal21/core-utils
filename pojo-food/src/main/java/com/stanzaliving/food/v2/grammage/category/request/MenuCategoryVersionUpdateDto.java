@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 import com.stanzaliving.food.v2.category.constant.MenuCategoryGrammageUpdateAction;
 
 /**
- * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
+ * @author Manish.PAreek
  *
  * @since 14-Jun-2021
  *
