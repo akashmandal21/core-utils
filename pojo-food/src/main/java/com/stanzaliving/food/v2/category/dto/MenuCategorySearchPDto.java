@@ -26,7 +26,7 @@ public class MenuCategorySearchPDto implements Serializable {
     private List<CategoryStatus> categoryStatus;
     private List<ApprovalStatus> approvalStatus;
     private String name;
-    private List<String> tagId;
+    private List<String> tagIds;
     private String cityId;
     private List<String> vendorId;
     private SortingType sortingType;

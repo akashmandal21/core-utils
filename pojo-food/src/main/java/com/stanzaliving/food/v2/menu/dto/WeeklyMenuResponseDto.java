@@ -20,6 +20,7 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private boolean comboRulesSatisfied;
 	private boolean budgetUtilizationInLimit;
 	private boolean mealOfDayDefined;
+	private boolean menuDefined;
 	private Double newnessPercentage;
 	private Double ratings;
 	private boolean editingAllowed;
