@@ -4,14 +4,16 @@ import lombok.Getter;
 
 @Getter
 public enum DefaulterActionType {
-    CALLED_RESIDENT("Called Resident but did not respond"),
-    CALL_OUTCOME("Call Outcome"),
-    VISITED_ROOM("Visited room but could not find"),
-    OTHER("Other");
+    CALLED_RESIDENT("Called-resident"),
+    CALL_OUTCOME("Call-outcome"),
+    VISITED_ROOM("Visited-room"),
+    APPLIED_LEAVE("Applied leave"),
+    APPLIED_LATE_ENTRY("Applied late-entry"),
+    OTHER("other");
 
-    private final String label;
+    public final String label;
 
-    private DefaulterActionType(String label){
+    DefaulterActionType(String label) {
         this.label = label;
     }
 }
