@@ -46,12 +46,7 @@ public enum DemoGraphicsRegion {
 		for (DemoGraphicsRegion demoGraphicsRegion : DemoGraphicsRegion.values()) {
 			foodRegionMapByName.put(demoGraphicsRegion.getFoodRegionName(), demoGraphicsRegion);
 			enumListings.add(EnumListing.of(demoGraphicsRegion, demoGraphicsRegion.getFoodRegionName()));
-		}
-		for (DemoGraphicsRegion demoGraphicsRegion : DemoGraphicsRegion.values()) {
-			foodRegionMapByType.put(demoGraphicsRegion, demoGraphicsRegion.getFoodRegionName());	
-		}
-		
-		for (DemoGraphicsRegion demoGraphicsRegion : DemoGraphicsRegion.values()) {
+			foodRegionMapByType.put(demoGraphicsRegion, demoGraphicsRegion.getFoodRegionName());
 			foodRegionMapByTypeStr.put(demoGraphicsRegion.toString(), demoGraphicsRegion.getFoodRegionName());	
 		}
 	}	
