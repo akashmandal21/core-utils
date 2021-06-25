@@ -8,9 +8,6 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-
-import com.stanzaliving.food.v2.category.constant.MenuCategoryGrammageUpdateAction;
-
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
