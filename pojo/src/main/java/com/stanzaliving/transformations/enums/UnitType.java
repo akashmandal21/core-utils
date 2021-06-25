@@ -25,7 +25,8 @@ public enum UnitType {
 	PERCENTAGE("Percentage"),
 	LITERS("Ltrs"),
 	CUBIC_METER ("cu.mtr."),
-	PCS("pcs");
+	PCS("pcs"),
+	NOTAPPLICABLE("Not Applicable");
 
 	private String unitName;
 
