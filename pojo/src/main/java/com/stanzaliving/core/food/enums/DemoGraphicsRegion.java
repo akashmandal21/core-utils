@@ -1,15 +1,14 @@
 package com.stanzaliving.core.food.enums;
 
+import com.stanzaliving.core.user.enums.EnumListing;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.stanzaliving.core.user.enums.EnumListing;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
@@ -44,7 +43,7 @@ public enum DemoGraphicsRegion {
 	static {
 
 		for (DemoGraphicsRegion demoGraphicsRegion : DemoGraphicsRegion.values()) {
-			foodRegionMapByName.put(demoGraphicsRegion.getFoodRegionName(), demoGraphicsRegion);
+			foodRegionMapByName.put(demoGraphicsRegion.name(), demoGraphicsRegion);
 			enumListings.add(EnumListing.of(demoGraphicsRegion, demoGraphicsRegion.getFoodRegionName()));
 			foodRegionMapByType.put(demoGraphicsRegion, demoGraphicsRegion.getFoodRegionName());
 			foodRegionMapByTypeStr.put(demoGraphicsRegion.toString(), demoGraphicsRegion.getFoodRegionName());	
