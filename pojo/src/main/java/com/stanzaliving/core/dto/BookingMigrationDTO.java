@@ -35,4 +35,7 @@ public class BookingMigrationDTO {
 
     @JsonSetter(value = "CREATED")
     private Date createdAt;
+
+    @JsonSetter(value = "ACTUAL_CONTRACT_END_DATE")
+    private Date actualContractEndDate;
 }
