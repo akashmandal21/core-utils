@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Getter
@@ -22,5 +23,6 @@ public class PropertyAnswerDto extends AbstractMongoDto {
     private String variableName;
     private List<String> answers;
     private List<String> imageUrls;
+    @NotNull(message = "Remarks cannot be null")
     private String remarks;
 }
