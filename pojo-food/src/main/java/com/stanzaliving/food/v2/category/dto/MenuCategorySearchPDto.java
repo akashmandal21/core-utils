@@ -33,8 +33,7 @@ public class MenuCategorySearchPDto implements Serializable {
     private CategorySearchSortingField sortingField;
     private Boolean published;
     private Boolean detailsRequired;
-    @Builder.Default
-    private boolean grammageVariationRequired = false;
+    private Boolean grammageVariationRequired;
     private Boolean approvalDataRequired;
     private Boolean approvalDashBoard;
     private Boolean clonable;
