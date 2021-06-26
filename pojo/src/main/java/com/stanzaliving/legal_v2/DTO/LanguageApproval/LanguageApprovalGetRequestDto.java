@@ -1,7 +1,7 @@
 package com.stanzaliving.legal_v2.DTO.LanguageApproval;
 
+import com.stanzaliving.legal_v2.DTO.BdRemarks.AllRemarksResponseDto;
 import com.stanzaliving.legal_v2.DTO.LegalTemplate.DeviationDTO;
-import com.stanzaliving.legal_v2.DTO.BdRemarks.BdRemarksDto;
 import com.stanzaliving.legal_v2.enums.PropertyListStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +26,7 @@ public class LanguageApprovalGetRequestDto{
 
     private String city;
 
-    private List<BdRemarksDto> bdRemarks;
+    private List<AllRemarksResponseDto> bdRemarks;
 
     private String templateDocument;
 

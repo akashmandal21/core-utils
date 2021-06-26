@@ -7,8 +7,8 @@ import java.util.List;
 
 @Getter
 @Setter
-public class BdRemarksFilterDto {
+public class RequestRemarksDto {
 
-    List<String> status;
-
+    private String propertyId;
+    private List<String> variableNames;
 }
