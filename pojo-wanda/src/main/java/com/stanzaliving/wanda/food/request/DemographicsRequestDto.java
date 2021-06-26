@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotEmpty;
+
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,6 +18,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class DemographicsRequestDto {
 
+	@NotEmpty(message = "Residence ids are mandatory")
 	private Collection<String> hostelIdList;
 
 }

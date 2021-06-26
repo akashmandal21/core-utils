@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 public class FoodRegionPreferenceResponse {
-	
 	private String residenceUuid;
+
 	private List<FoodRegionPreference> foodRegionPreference;
 }
