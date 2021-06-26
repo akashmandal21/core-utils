@@ -9,6 +9,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Getter
@@ -20,11 +21,13 @@ import java.util.List;
 
 public class CopyMenuCategoryDto {
 
-	@NotBlank(message = "From menuCategory is empty")
+	@NotBlank(message = "Select menuCategory to copy from")
 	private String fromMenuCategoryId;
-	@NotBlank(message = "To menuCategory is empty")
+
+	@NotBlank(message = "Select menuCategory to copy to")
 	private String toMenuCategoryId;
 
-	private List<GrammageCopyType> grammageCopyTypeList;
+	@NotEmpty(message = "Grammage type selection is mandatory for copying")
+	private List<GrammageCopyType> copyTypeList;
 
 }
