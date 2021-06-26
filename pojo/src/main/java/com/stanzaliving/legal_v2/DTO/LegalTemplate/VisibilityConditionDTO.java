@@ -15,5 +15,5 @@ public class VisibilityConditionDTO {
 
     private VisibilityConditionEnum type;
 
-    private List<ConditionsDTO> conditions;
+    private List<ConditionsDTO> condition;
 }

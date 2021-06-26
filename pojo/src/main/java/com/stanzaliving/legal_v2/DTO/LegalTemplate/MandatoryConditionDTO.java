@@ -15,5 +15,5 @@ public class MandatoryConditionDTO {
 
     private MandatoryConditionEnum type;
 
-    private List<ConditionsDTO> conditions;
+    private List<ConditionsDTO> condition;
 }

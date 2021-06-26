@@ -15,7 +15,7 @@ public class ConditionsDTO {
 
     private String operator;
 
-    private List<OperandDTO> operand;
+    private List<OperandDTO> operands;
 
     private int order;
 }
