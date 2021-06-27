@@ -19,7 +19,7 @@ public class MultiSelectQuestionDTO implements QuestionDetails {
     private List<String> questionComponents;
     private String cardType;
     private String imageLink;
-    private CardPosition position;
+    private String position;
     private String onSelectionCardColor;
     private String onSelectionIconColor;
     private String imageAndRemark;
