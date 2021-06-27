@@ -278,7 +278,7 @@ public class LeadserviceClientApi {
 		}	
 	}
 	
-	public ResponseEntity<String> updateLeadWebsite(LeadRequestDto leadRequestDto) {
+	public String updateLeadWebsite(LeadRequestDto leadRequestDto) {
 
 		Object postBody = leadRequestDto;
 
@@ -292,7 +292,7 @@ public class LeadserviceClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseEntity<String>> returnType = new ParameterizedTypeReference<ResponseEntity<String>>() {
+		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
