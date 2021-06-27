@@ -11,6 +11,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -275,5 +276,25 @@ public class LeadserviceClientApi {
 			log.error("Error while creating the lead {}", e);
 			return null;
 		}	
+	}
+	
+	public ResponseEntity<String> updateLeadWebsite(LeadRequestDto leadRequestDto) {
+
+		Object postBody = leadRequestDto;
+
+		String path = UriComponentsBuilder.fromPath("/lead/website/update").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseEntity<String>> returnType = new ParameterizedTypeReference<ResponseEntity<String>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 }
