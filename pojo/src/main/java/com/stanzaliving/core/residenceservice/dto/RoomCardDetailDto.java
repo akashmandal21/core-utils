@@ -1,4 +1,4 @@
-package com.stanzaliving.residence.dto;
+package com.stanzaliving.core.residenceservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
