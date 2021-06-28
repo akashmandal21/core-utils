@@ -452,4 +452,31 @@ public class ResidenceDataControllerApi {
 		}
 		return null;
 	}
+
+	/**
+	 * This method is used for fetching residence InventoryInformation including room, bed and blended price's status and count
+	 *
+	 * @param residenceUuid->Unique ID corresponding to residence
+	 * @return Residence Bed, Room and Blended Price info(Status and Count)
+	 */
+	public RoomCardDetailDto getResidenceInventoryInformation(String residenceUuid) {
+		Map<String, Object> uriVariables = new HashMap();
+		uriVariables.put("residenceUuid", residenceUuid);
+		//https://dev-mercury-nucleus-3.stanzaliving.com/residenceservice/api/v1/card-details/9
+		String path = UriComponentsBuilder.fromPath("/internal/residence/api/v1/card-details/{residenceUuid}")
+				.buildAndExpand(uriVariables).toUriString();
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[]{"*/*"};
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<RoomCardDetailDto> returnType = new ParameterizedTypeReference<RoomCardDetailDto>() {
+		};
+		try {
+			log.info("Executing Api for getting residence Info with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching residence information based on residenceUUID {}, Exception is ", residenceUuid, e);
+		}
+		return null;
+	}
 }
