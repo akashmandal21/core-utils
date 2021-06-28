@@ -86,6 +86,8 @@
 		<module>slack-client</module>
         <module>commercial-card</module>
     </modules>
+		<module>pojo-food</module>
+	</modules>
 
 	<build>
 		<plugins>
