@@ -3,7 +3,9 @@ package com.stanzaliving.commercialcard.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 @Getter
@@ -16,6 +18,18 @@ public enum CriteriaCondition {
     EQUAL_TO("EQUAL TO");
 
     private String name;
+
+    public static Set<Object> ENUM_MAP = new HashSet<>();
+    static {
+        Map<Object,Object > map = new HashMap<>();
+        for (CriteriaCondition a: CriteriaCondition.values()) {
+            map.put("label" , a.name);
+            map.put("value",a);
+            ENUM_MAP.add(map);
+        }
+    }
+
+
 
     public static Set<String> getAllConditions() {
         Set<String> conditions = new HashSet<>();

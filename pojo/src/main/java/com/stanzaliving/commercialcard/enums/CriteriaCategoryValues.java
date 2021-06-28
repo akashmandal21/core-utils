@@ -3,7 +3,9 @@ package com.stanzaliving.commercialcard.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -20,7 +22,18 @@ public enum CriteriaCategoryValues {
     ELEVEN("11"),
     TWELVE("12");
 
-    private String value;
+    private  String value;
+
+    public static Set<Object> ENUM_NAME_MAP = new HashSet<>();
+    static {
+        Map<Object,Object > map = new HashMap<>();
+        for (CriteriaCategoryValues a: CriteriaCategoryValues.values()) {
+            map.put("label" , a.value);
+            map.put("value",a);
+            ENUM_NAME_MAP.add(map);
+        }
+    }
+
     public static Set<String> getAllValues() {
         Set<String> criteria = new HashSet<>();
 
