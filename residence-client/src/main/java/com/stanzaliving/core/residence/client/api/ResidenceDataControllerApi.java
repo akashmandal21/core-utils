@@ -13,6 +13,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDate;
@@ -449,6 +450,42 @@ public class ResidenceDataControllerApi {
 
 		} catch (Exception ex) {
 			log.error("Exception while fetching pricing details by residenceUuid, inventoryUuid : {} , {}", residenceUuid, inventoryUuid);
+		}
+		return null;
+	}
+
+	public ResponseDto<ConvertRoomPricesDto> getConvertRoomPrices(String token, ConvertRoomRequestDto convertRoomRequestDto){
+
+		log.info("Residence-Data-Controller::Processing to get convert room prices {}", convertRoomRequestDto);
+
+		if (StringUtils.isBlank(token)) {
+			throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
+		}
+
+		Object postBody = convertRoomRequestDto;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/api/v1/convert-room/prices").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.add("Cookie", "token=" + token);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<ConvertRoomPricesDto>> returnType = new ParameterizedTypeReference<ResponseDto<ConvertRoomPricesDto>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception ex) {
+			log.error("Exception while getting convert room prices {}", convertRoomRequestDto);
 		}
 		return null;
 	}
