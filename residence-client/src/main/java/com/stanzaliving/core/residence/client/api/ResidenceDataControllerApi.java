@@ -3,18 +3,8 @@ package com.stanzaliving.core.residence.client.api;
 import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.residenceservice.dto.AdvanceRoomSearchDto;
-import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
-import com.stanzaliving.core.residenceservice.dto.MoveInDateDto;
-import com.stanzaliving.core.residenceservice.dto.OccupanciesFloorsStatusCountSearchDto;
-import com.stanzaliving.core.residenceservice.dto.PricingDetailsResponseDto;
-import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
-import com.stanzaliving.core.residenceservice.dto.ResidenceInfoDto;
-import com.stanzaliving.core.residenceservice.dto.RoomCardDetailDto;
-import com.stanzaliving.core.residenceservice.dto.RoomDetailsResponseDto;
-import com.stanzaliving.core.residenceservice.dto.RoomInventoryDetailDto;
-import com.stanzaliving.core.residenceservice.dto.RoomNumberListingAndCountDto;
-import com.stanzaliving.core.residenceservice.dto.ServiceMixDto;
+import com.stanzaliving.core.residenceservice.dto.*;
+
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -81,7 +71,7 @@ public class ResidenceDataControllerApi {
                 return null;
             }
         }
-    }
+
 
 	public ResponseDto<List<String>> fetchLockInDateForResidence(String token, String residenceUuid, MoveInDateDto moveInDateDto) {
 
@@ -121,7 +111,7 @@ public class ResidenceDataControllerApi {
                 return null;
             }
         }
-    }
+
 
 	public ResponseDto<List<ServiceMixDto>> fetchPackagedServiceForResidenceUuid(String token, String residenceUuid) {
 
@@ -158,7 +148,7 @@ public class ResidenceDataControllerApi {
                 return null;
             }
         }
-    }
+
 
 	public ResponseDto<Map<Object, Object>> fetchPackagedServiceData(String token, String residenceUuid, String serviceMix) {
 
@@ -197,7 +187,7 @@ public class ResidenceDataControllerApi {
                 return null;
             }
         }
-    }
+
 
 	public ResponseDto<PricingDetailsResponseDto> getPricingDetails(String roomUuid, String serviceMixUuid, String moveInDate) {
 
@@ -340,7 +330,7 @@ public class ResidenceDataControllerApi {
         };
 
 		try {
-			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			return (ResponseDto<RoomInventoryDetailDto>) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
 		} catch (Exception ex) {
 			log.error(ex);
@@ -452,14 +442,8 @@ public class ResidenceDataControllerApi {
             return null;
         }
     }
-		try {
-			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
-		} catch (Exception ex) {
-			log.error("Exception while fetching pricing details by residenceUuid, inventoryUuid : {} , {}", residenceUuid, inventoryUuid);
-		}
-		return null;
-	}
+
 
 	public ResponseDto<ConvertRoomPricesDto> getConvertRoomPrices(String token, ConvertRoomRequestDto convertRoomRequestDto){
 
