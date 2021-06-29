@@ -103,16 +103,15 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<MonthlyBreakupResponseDTO> getMonthlyBreakup(String bookingId, Date contractStartDate, Date fromDate, String token) {
+    public ResponseDto<MonthlyBreakupResponseDTO> getMonthlyBreakup(String bookingId, Date contractStartDate, Date fromDate) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingId", bookingId);
-        String path = UriComponentsBuilder.fromPath("/monthly-breakup/get/{bookingId}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/monthly-breakup/get/{bookingId}").buildAndExpand(uriVariables).toUriString();
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("contractStartDate", date.format(contractStartDate));
         queryParams.add("fromDate", date.format(fromDate));
         HttpHeaders headerParams = new HttpHeaders();
-        headerParams.add("Cookie", "token=" + token);
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<MonthlyBreakupResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<MonthlyBreakupResponseDTO>>() {
