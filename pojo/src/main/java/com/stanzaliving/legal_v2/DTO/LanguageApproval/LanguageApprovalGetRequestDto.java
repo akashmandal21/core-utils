@@ -22,7 +22,7 @@ public class LanguageApprovalGetRequestDto{
     
     private String microMarket;
 
-    private PropertyListStatus status;
+    private String status;
 
     private String city;
 

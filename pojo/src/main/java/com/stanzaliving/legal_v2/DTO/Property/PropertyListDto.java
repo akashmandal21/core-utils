@@ -16,22 +16,11 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class PropertyListDto extends AbstractMongoDto {
 
-    @NotNull(message = "Property Name cannot be null")
     private String propertyName;
-
-    @NotNull(message = "Property type cannot be null")
     private String propertyType;
-
-    @NotNull(message = "city cannot be null")
     private String city;
-
-    @NotNull(message = "Micro market cannot be null")
     private String microMarket;
-
-    @NotNull(message = "Status cannot be null")
-    @Enumerated(EnumType.STRING)
-    private PropertyListStatus status;
-
-    private String legalTemplateId;
+    private String status;
+    private String propertyTypeUUid;
 
 }
