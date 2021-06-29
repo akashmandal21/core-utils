@@ -10,22 +10,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddressMigrationDTO {
 
-    @JsonSetter(value = "ADDRESS_ID")
+    //@JsonSetter(value = "ADDRESS_ID")
     private Integer addressId;
 
-    @JsonSetter(value = "LINE_1")
+    //@JsonSetter(value = "LINE_1")
     private String addressLine1;
 
-    @JsonSetter(value = "LINE_2")
+    //@JsonSetter(value = "LINE_2")
     private String addressLine2;
 
-    @JsonSetter(value = "CITY_ID")
-    private Integer cityId;
+    //@JsonSetter(value = "CITY_ID")
+    private String cityId;
 
-    @JsonSetter(value = "STATE_ID")
-    private Integer stateId;
+    //@JsonSetter(value = "STATE_ID")
+    private String stateId;
 
-    @JsonSetter(value = "ZIPCODE")
+    //@JsonSetter(value = "ZIPCODE")
     private Integer zipcode;
 
     private String cityName;
