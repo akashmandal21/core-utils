@@ -20,7 +20,7 @@ public class DocumentsDto {
     private String description;
 
     @NotNull(message = "propertyType cannot be null")
-    private String propertyTypeId;
+    private String propertyId;
 
     private DocumentVersionsDto documentVersion;
 
