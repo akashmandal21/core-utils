@@ -15,7 +15,6 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Builder
 public class PropertyListDto extends AbstractMongoDto {
-
     private String propertyName;
     private String propertyType;
     private String city;
