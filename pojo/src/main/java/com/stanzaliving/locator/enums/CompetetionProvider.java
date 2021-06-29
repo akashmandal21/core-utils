@@ -7,7 +7,8 @@ import lombok.Getter;
 @Getter
 public enum CompetetionProvider {
 
-	OYO_LIFE("Oyo Life"),OXFORD_CAPS("Oxford Caps"),ZOLO("Zolo"),COLIVE("Colive"),NESTAWAY("Nest Away");
+	OYO_LIFE("Oyo Life","oyo_life"),OXFORD_CAPS("Oxford Caps","oxford_caps"),ZOLO("Zolo","zolo"),COLIVE("Colive","colive"),NESTAWAY("Nest Away","nestaway");
 	
 	private String name;
+	private String dbTableName;
 }

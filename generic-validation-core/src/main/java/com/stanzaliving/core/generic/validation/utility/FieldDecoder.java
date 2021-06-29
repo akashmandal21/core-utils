@@ -129,9 +129,10 @@ public class FieldDecoder {
             log.error("Field Decoding failed {} {} ",templateField.getFieldName(),uiSubmitField,ex);
             success=false;
         }
-
+        log.error("Error Occurred {} {}",success,uiSubmitField.getErrorMsg());
         if(!success)
         {
+
             uiSubmitField.setErrorOccurred(true);
             errorInfo.setErrorOccurred(true);
             errorInfo.setNumErrors(errorInfo.getNumErrors()+1);

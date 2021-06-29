@@ -1,12 +1,13 @@
 package com.stanzaliving.core.opscalculator.enums;
 
-import com.stanzaliving.core.opscalculator.dto.DropDownDto;
-import com.stanzaliving.core.opscalculator.dto.RepairCategoryDto;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.stanzaliving.core.opscalculator.dto.DropDownDto;
+import com.stanzaliving.core.opscalculator.dto.RepairCategoryDto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
@@ -64,6 +65,18 @@ public enum EquipmentType {
         }
         return dropDownDtoList;
     }
+    
+    public static void setDefaultSelectedApplicableOption(RepairCategoryDto repairCategoryDto) {
+		repairCategoryDto.setAcAmcCostApplicable(false);
+		repairCategoryDto.setDgAmcCostApplicable(false);
+		repairCategoryDto.setLiftAmcCostApplicable(false);
+		repairCategoryDto.setCentralHeatersAmcCostApplicable(false);
+		repairCategoryDto.setRoAmcCostApplicable(false);
+		repairCategoryDto.setManPowerAmcCostApplicable(false);
+		repairCategoryDto.setWashingMachineAmcCostApplicable(false);
+		repairCategoryDto.setFireExtinguisherAmcCostApplicable(false);
+		repairCategoryDto.setFirePanelAmcCostApplicable(false);
+	}
 
     public abstract void  setSelectedApplicableOption(RepairCategoryDto repairCategoryDto);
 }
