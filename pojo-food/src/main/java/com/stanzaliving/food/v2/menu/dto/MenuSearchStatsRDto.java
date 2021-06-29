@@ -26,5 +26,6 @@ public class MenuSearchStatsRDto implements Serializable {
 	private long pendingApprovalL4;
 	private long pendingApprovalL5;
 	private long approved;
+	private long operationalHouses;
 
 }
