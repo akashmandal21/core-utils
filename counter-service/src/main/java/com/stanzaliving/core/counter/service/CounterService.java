@@ -7,5 +7,6 @@ import org.springframework.stereotype.Service;
 public interface CounterService {
 
 	Long increaseCount(CategoryKey counterKey) throws CounterServiceException;
+	Long increaseCountByValue(CategoryKey counterKey, Long count) throws CounterServiceException;
 
 }
