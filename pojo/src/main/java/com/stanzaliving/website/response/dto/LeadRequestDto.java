@@ -120,5 +120,7 @@ public class LeadRequestDto {
 	private String accommodationType="PG";
 
 	private boolean createHotLead;
+	
+	private String extendDurationMessage;
 
 }
