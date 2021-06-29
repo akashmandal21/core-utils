@@ -514,7 +514,8 @@ public class UserClientApi {
 	public ResponseDto<Map<String, UserProfileDto>> getUserProfileForUsers(List<String> userIds) {
 
 		Object postBody = null;
-
+		
+		log.info("userIds for geting UserProfileDto is {}", userIds);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
