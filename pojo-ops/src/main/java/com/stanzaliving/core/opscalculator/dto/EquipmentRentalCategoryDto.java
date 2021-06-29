@@ -86,6 +86,18 @@ public class  EquipmentRentalCategoryDto extends CategoryDto {
 	private double dryerCharges;
 
 	@Builder.Default
+	private boolean roEnabled = false;
+	private double roCount;
+	private double roRent;
+	private double roCharges;
+
+	@Builder.Default
+	private boolean tvEnabled = false;
+	private double tvCount;
+	private double tvRent;
+	private double tvCharges;
+
+	@Builder.Default
 	private boolean roomGeyserEnabled = false;
 	private double roomGeyserCount;
 	private double roomGeyserRent;
@@ -108,6 +120,30 @@ public class  EquipmentRentalCategoryDto extends CategoryDto {
 	private double powerBackupCount;
 	private double powerBackupRent;
 	private double powerBackupCharges;
+
+	@Builder.Default
+	private boolean smartLockEnabled = false;
+	private double smartLockCount;
+	private double smartLockRent;
+	private double smartLockCharges;
+
+	@Builder.Default
+	private boolean facialRecognitionEnabled = false;
+	private double facialRecognitionCount;
+	private double facialRecognitionRent;
+	private double facialRecognitionCharges;
+
+	@Builder.Default
+	private boolean treadmillEnabled = false;
+	private double treadmillCount;
+	private double treadmillRent;
+	private double treadmillCharges;
+
+	@Builder.Default
+	private boolean multiGymEnabled = false;
+	private double multiGymCount;
+	private double multiGymRent;
+	private double multiGymCharges;
 
 	List<SMLevelEquipmentRentalCategoryDto> smLevelEquipmentRentalCategoryDtoList;
 }

@@ -61,6 +61,16 @@ public class SMLevelEquipmentRentalCategoryDto {
 	private int dryerRent;
 
 	@Builder.Default
+	private boolean roEnabled = false;
+	private double roCount;
+	private double roRent;
+
+	@Builder.Default
+	private boolean tvEnabled = false;
+	private double tvCount;
+	private double tvRent;
+
+	@Builder.Default
 	private boolean roomGeyserEnabled = false;
 	private int roomGeyserCount;
 	private int roomGeyserRent;
@@ -79,5 +89,25 @@ public class SMLevelEquipmentRentalCategoryDto {
 	private boolean powerBackupEnabled = false;
 	private int powerBackupCount;
 	private int powerBackupRent;
+
+	@Builder.Default
+	private boolean smartLockEnabled = false;
+	private double smartLockCount;
+	private double smartLockRent;
+
+	@Builder.Default
+	private boolean facialRecognitionEnabled = false;
+	private double facialRecognitionCount;
+	private double facialRecognitionRent;
+
+	@Builder.Default
+	private boolean treadmillEnabled = false;
+	private double treadmillCount;
+	private double treadmillRent;
+
+	@Builder.Default
+	private boolean multiGymEnabled = false;
+	private double multiGymCount;
+	private double multiGymRent;
 
 }
