@@ -23,7 +23,8 @@ public enum CommercialCodeType {
     public  static Map< CommercialCodeType,String> CATEGORY_VALUES_MAP = new HashMap<>();
     static {
         for (CommercialCodeType a: CommercialCodeType.values()) {
-            CATEGORY_VALUES_MAP.put(a,a.name);
+            Map<Object,Object > map = new HashMap<>();
+            map.put(a,a.name);
         }
     }
 

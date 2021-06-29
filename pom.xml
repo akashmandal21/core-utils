@@ -85,7 +85,6 @@
 		<module>notification-v2-client</module>
 		<module>slack-client</module>
         <module>commercial-card</module>
-    </modules>
 		<module>pojo-food</module>
 	</modules>
 

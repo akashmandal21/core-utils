@@ -26,8 +26,8 @@ public enum CriteriaCategoryValues {
 
     public static Set<Object> ENUM_NAME_MAP = new HashSet<>();
     static {
-        Map<Object,Object > map = new HashMap<>();
         for (CriteriaCategoryValues a: CriteriaCategoryValues.values()) {
+            Map<Object,Object > map = new HashMap<>();
             map.put("label" , a.value);
             map.put("value",a);
             ENUM_NAME_MAP.add(map);
