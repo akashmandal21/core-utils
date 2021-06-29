@@ -23,4 +23,6 @@ public class QrcodeScanResponseDto {
     private String addedBy;
     private Date discardedOn;
     private String discardedBy;
+    private Date returnedOn;
+    private String returnedBy;
 }
