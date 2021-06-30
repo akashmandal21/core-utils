@@ -972,22 +972,24 @@ public class DateUtil {
 		return simpleDateFormat.format(result);
 	}
 
-	public static String findDifference(Date start_date,
+	public static Period findDifference(Date start_date,
 				   Date end_date)
 	{
-		Period diff
+		Period dateDifference
 				= Period
 				.between(start_date.toInstant()
 								.atZone(ZoneId.systemDefault())
 								.toLocalDate(),
 						end_date.toInstant().atZone(ZoneId.systemDefault())
 								.toLocalDate());
-
-		return dateDifferenceInString(diff.getYears(), diff.getMonths(), diff.getDays());
+		return dateDifference;
 	}
 
 
-	public static String dateDifferenceInString(Integer year, Integer month, Integer days){
+	public static String dateDifferenceInString(Period date){
+		Integer year = date.getYears();
+		Integer month = date.getMonths();
+		Integer days = date.getDays();
 		if(year!=0) month = year*12 + month;
 		String diff = "";
         if(month!=0) diff += month == 1 ? month+" month ": month+" months ";
@@ -1006,5 +1008,14 @@ public class DateUtil {
 		if (days != 0)
 			datePeriod += days == 1 ? days + " day" : days + " days";
 		return datePeriod;
+	}
+
+	public static Integer calculatePeriod(Period date) {
+		Integer month = date.getMonths();
+		Integer days = date.getDays();
+		if(days > 15){
+			month += 1;
+		}
+		return month;
 	}
 }
