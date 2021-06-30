@@ -22,4 +22,5 @@ public class FoodVendorDTO implements Serializable {
     private String cityId;
     private String cityName;
     private String vendorCode;
+    private boolean active;
 }
