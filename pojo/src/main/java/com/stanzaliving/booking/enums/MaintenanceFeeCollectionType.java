@@ -1,5 +1,9 @@
 package com.stanzaliving.booking.enums;
 
+
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public enum MaintenanceFeeCollectionType {
 	MONTHLY("MONTHLY"),
 	ONE_TIME_UPFRONT("ONE TIME UPFRONT");

@@ -1,5 +1,8 @@
 package com.stanzaliving.booking.enums;
 
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public enum PaymentPlanType {
 
 	RENTAL("RENTAL"),
