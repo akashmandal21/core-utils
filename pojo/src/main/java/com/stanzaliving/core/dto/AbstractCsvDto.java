@@ -30,7 +30,7 @@ public abstract class AbstractCsvDto {
         this.dynamicColumns = new HashSet<>(columns);
         addFixedColumns();
         fillFixedColumns(data);
-//        fillDynamicColumns(data);
+        fillDynamicColumns(data);
     }
 
     protected abstract void addFixedColumns();
