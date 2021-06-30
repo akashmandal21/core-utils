@@ -15,6 +15,7 @@ public class ReviewTemplateDto {
     private String id;
     private String name;
     private String propertyTypeUuid;
+    private String propertyTypeName;
     private String templateStatus;
     private List<ApplicableStatusesDto> propertyStatuses;
     private List<OtherInformationDto> otherInformation;

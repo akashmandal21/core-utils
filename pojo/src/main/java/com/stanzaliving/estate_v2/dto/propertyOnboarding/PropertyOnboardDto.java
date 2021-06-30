@@ -21,6 +21,7 @@ public class PropertyOnboardDto extends AbstractMongoDto {
     private String name;
     @EmptyOrNull(message = " Property type Uuid cannot be empty or null")
     private String propertyTypeUuid;
+    private String propertyTypeName;
     private String parentUuid;
     @EmptyOrNull(message = "City Name cannot be empty or null")
     private String cityName;
