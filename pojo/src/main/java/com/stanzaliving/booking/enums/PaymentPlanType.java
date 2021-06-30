@@ -16,9 +16,9 @@ public enum PaymentPlanType {
 
 	private String name;
 
-	PaymentPlanType(String name) {
+	/*PaymentPlanType(String name) {
 		this.name = name;
-	}
+	}*/
 
 	public String getName() {
 		return name;

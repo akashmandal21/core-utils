@@ -7,9 +7,9 @@ public enum PaymentPlanResponseType {
 
     private String name;
 
-    PaymentPlanResponseType(String name) {
+    /*PaymentPlanResponseType(String name) {
         this.name = name;
-    }
+    }*/
 
     public String getName() {
         return name;

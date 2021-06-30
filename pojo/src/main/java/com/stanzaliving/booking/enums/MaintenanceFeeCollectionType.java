@@ -6,9 +6,9 @@ public enum MaintenanceFeeCollectionType {
 
 	private String name;
 
-	MaintenanceFeeCollectionType(String name) {
+	/*MaintenanceFeeCollectionType(String name) {
 		this.name = name;
-	}
+	}*/
 
 	public String getName() {
 		return name;

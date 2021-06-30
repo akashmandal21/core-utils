@@ -10,9 +10,9 @@ public enum PaymentTerm {
 
 	private String name;
 
-	PaymentTerm(String name) {
+	/*PaymentTerm(String name) {
 		this.name = name;
-	}
+	}*/
 
 	public String getName() {
 		return name;
