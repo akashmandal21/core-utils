@@ -43,4 +43,5 @@ public class BookingStatusResponseDto {
     private String mobileNumber;
     private String jsVersion;
     private String residenceUuid;
+    private Long bookingId;
 }

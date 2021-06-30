@@ -355,4 +355,40 @@ public class ResidenceDataControllerApi {
 		}
 		return null;
 	}
+	
+	public List<RoomDetailsResponseDto> getRoomDetails(List<String> roomUUID, String token) {
+
+		log.info("Residence-Data-Controller::Processing to get room details based on roomUUID {}", roomUUID);
+
+		if (StringUtils.isBlank(token)) {
+			throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
+		}
+
+		Map<String, Object> uriVariables = new HashMap();
+
+		String path = UriComponentsBuilder.fromPath("/api/v1/room/").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+		queryParams.add("roomUuid", queryParams.toString());
+		
+		HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.add("Cookie", "token=" + token);
+
+		String[] accepts = new String[]{"*/*"};
+
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<RoomDetailsResponseDto>> returnType =
+				new ParameterizedTypeReference<List<RoomDetailsResponseDto>>() {
+				};
+
+		try {
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+		} catch (Exception ex) {
+			log.error("Exception while fetching Room Details from roomUuid: {}", roomUUID);
+		}
+		return null;
+	}
 }
