@@ -16,7 +16,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class InstallmentPaymentPlan {
 
-	private String type;
+	private PaymentPlanResponseType type;
+
+	private String label;
 
 	private double amount;
 

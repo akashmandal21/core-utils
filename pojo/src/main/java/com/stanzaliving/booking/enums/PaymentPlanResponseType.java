@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public enum PaymentPlanResponseType {
 
-    BOOKING("Booking"),
+    BOOKING("Booking Amount"),
     INSTALLMENT("Installment");
 
     private String name;
