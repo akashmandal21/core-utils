@@ -14,7 +14,6 @@ import java.util.List;
 @ToString
 public class DocumentDTO {
 
-    private String documentId;
     private InvoiceType type;
     private LocalDate fromDate;
     private LocalDate toDate;
@@ -23,18 +22,10 @@ public class DocumentDTO {
     private String categoryName;
     private String subCategoryName;
     private ReferenceType referenceType;
-    private String billFrom;
-    private String billToId;
     private String serviceType;
     private String remarks;
-    private String contractId;
-    private String fileLocation;
     private String filePath;
     private String fileName;
-    private LocalDate ledgerTimeStamp;
-    private String cityId;
-    private String microMarketId;
-    private String residentId;
     private String parentId;
     private String stanzaDocumentId;
     private float cgstAmount;
@@ -44,8 +35,6 @@ public class DocumentDTO {
     private Double invoiceAmount;
     private List<CreditAttributionDto> creditAttribution;
     private String billToName;
-    private String referenceId;
     private String residenceAddress;
     private String stayDetails;
-
 }
