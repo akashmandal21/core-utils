@@ -39,6 +39,9 @@ public class UserDocumentMigrationDTO {
     @JsonSetter(value = "created_by")
     private String uploadedBy;
 
+    @JsonSetter(value = "updated_by")
+    private String updatedBy;
+
     @JsonSetter(value = "comment")
     private String rejectionReason;
 
