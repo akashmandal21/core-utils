@@ -23,5 +23,6 @@ public class DayWiseSampleMenuDto implements Serializable {
     private Double vegCogs;
     private Double nonVegcogs;
     private Double weight;
+    private Double expectedWeight;
     private boolean isEnabled;
 }

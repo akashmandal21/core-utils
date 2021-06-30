@@ -18,7 +18,7 @@ public enum CategoryStatus {
 	private final String status;
 	
 	public static boolean isEditable(CategoryStatus categoryStatus) {
-		return categoryStatus == DRAFT || categoryStatus == APPROVED ;
+		return categoryStatus == DRAFT || categoryStatus == APPROVED;
 	}
 	
 	public static boolean createNewVersion(CategoryStatus categoryStatus) {
@@ -48,5 +48,9 @@ public enum CategoryStatus {
 	
 	public static List<CategoryStatus> clonableStatus() {
 		return Arrays.asList(APPROVED, SUBMITTED);
+	}
+	
+	public static boolean submissionAllowed(CategoryStatus categoryStatus) {
+		return categoryStatus == null || categoryStatus == DRAFT;
 	}
 }
