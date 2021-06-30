@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @Builder
 public class MobilePropertyTypesListDto {
-    private String id;
-    private String name;
+    private String label;
+    private String value;
     private String description;
 }
