@@ -31,6 +31,7 @@ public class OracleLocationIntegrationDto extends AbstractOracleDto {
     @JsonProperty("createdat")
     private Date locationCreatedAt;
 
+    @NotNull
     @JsonProperty("locationType")
     private LocationType locationType;
 
