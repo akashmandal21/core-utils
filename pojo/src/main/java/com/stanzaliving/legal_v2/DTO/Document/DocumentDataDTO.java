@@ -15,5 +15,5 @@ public class DocumentDataDTO {
 
     private String description;
 
-    private List<Object> versions;
+    private List<DocumentVersionsDto> versions;
 }

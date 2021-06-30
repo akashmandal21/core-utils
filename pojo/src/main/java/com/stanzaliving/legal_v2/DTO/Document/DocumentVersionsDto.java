@@ -1,5 +1,6 @@
 package com.stanzaliving.legal_v2.DTO.Document;
 
+import com.stanzaliving.core.dto.AbstractMongoDto;
 import lombok.*;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class DocumentVersionsDto {
+public class DocumentVersionsDto extends AbstractMongoDto {
 
     private String documentName;
 
