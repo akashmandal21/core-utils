@@ -29,7 +29,7 @@ public enum CriteriaCategoryValues {
         for (CriteriaCategoryValues a: CriteriaCategoryValues.values()) {
             Map<Object,Object > map = new HashMap<>();
             map.put("label" , a.value);
-            map.put("value",a);
+            map.put("value",a.value);
             ENUM_NAME_MAP.add(map);
         }
     }
