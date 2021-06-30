@@ -2,9 +2,12 @@ package com.stanzaliving.core.food.dto.response;
 
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.GrammageHeavynessLevel;
 import com.stanzaliving.core.food.enums.MenuCategoryType;
 import com.stanzaliving.core.food.enums.MenuType;
@@ -37,6 +40,8 @@ public class FoodMenuCategoryBasicDetailsDto {
 	private ResidenceBrand residenceBrand;
 
 	private FoodRegion foodRegion;
+	
+	private FoodServeType foodServeType;
 
 	private MenuType menuType;
 
