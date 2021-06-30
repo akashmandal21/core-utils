@@ -197,7 +197,7 @@ public class InventoryClientApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseEntity<CityResponseDTO> getCity(int cityId) {
+    public CityResponseDTO getCity(int cityId) {
 
         Object postBody = null;
 
@@ -218,8 +218,8 @@ public class InventoryClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseEntity<CityResponseDTO>> returnType =
-                new ParameterizedTypeReference<ResponseEntity<CityResponseDTO>>() {};
+        ParameterizedTypeReference<CityResponseDTO> returnType =
+                new ParameterizedTypeReference<CityResponseDTO>() {};
 
         return restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);

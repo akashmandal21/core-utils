@@ -917,7 +917,8 @@ public class InternalDataControllerApi {
 			final Map<String, Object> uriVariables = new HashMap<>();
 			uriVariables.put("name", stateName);
 
-			String path = UriComponentsBuilder.fromPath("internal/state/{name}").buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("/internal/get/{name}")
+					.buildAndExpand(uriVariables).toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -928,7 +929,8 @@ public class InternalDataControllerApi {
 			};
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-			ParameterizedTypeReference<ResponseDto<StateUIDto>> returnType = new ParameterizedTypeReference<ResponseDto<StateUIDto>>() {
+			ParameterizedTypeReference<ResponseDto<StateUIDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<StateUIDto>>() {
 			};
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
