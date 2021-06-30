@@ -1011,8 +1011,10 @@ public class DateUtil {
 	}
 
 	public static Integer calculatePeriod(Period date) {
+		Integer year = date.getYears();
 		Integer month = date.getMonths();
 		Integer days = date.getDays();
+		if(year!=0) month = year*12 + month;
 		if(days > 15){
 			month += 1;
 		}
