@@ -35,4 +35,8 @@ public class ConvertRoomRequestDto {
     @Min(value = 1, message = "new occupancy must be greater than zero")
     @NotNull(message = "new occupancy cannot be empty")
     private Integer newOccupancy;
+
+//    @NotBlank(message = "room number uuid field cannot be empty")
+//    @NotNull(message = "room number uuid field cannot be null") //todo: check it
+    private String bookingInventoryUUID;
 }
