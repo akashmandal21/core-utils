@@ -23,6 +23,7 @@ public class MealOptionDto extends OrderedListingDto {
 	private Double ratings;
 	private List<MenuItemDto> menuItems;
 	private Double grammage;
+	private Double expectedGrammage;
 	
 	
 }
