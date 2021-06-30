@@ -39,4 +39,6 @@ public class MenuItemGrammage {
 
 	private Integer quantity;
 
+	private boolean controllingGrammageExist;
+
 }
