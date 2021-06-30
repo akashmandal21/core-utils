@@ -18,5 +18,4 @@ public class CommercialCardBookingDto {
 
     private CommercialCardStatus cardStatus;
 
-
 }

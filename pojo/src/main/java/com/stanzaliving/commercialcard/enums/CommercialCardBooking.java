@@ -9,5 +9,5 @@ public enum CommercialCardBooking {
     DISABLE("DISABLE"),
     ACTIVE("ACTIVE");
 
-    String name;
+    private String name;
 }

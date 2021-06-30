@@ -1,7 +1,5 @@
 package com.stanzaliving.booking.dto.request;
 
-import java.util.Date;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -26,10 +24,10 @@ public class BookingDetailsRequestDto {
 	private ReferenceType referenceType = ReferenceType.BOOKING;
 	
 	@NotNull(message = "contractStartDate cannot be null")
-	private Date contractStartDate;
+	private String contractStartDate;
 	
 	@NotNull(message = "contractEndDate cannot be null")
-	private Date contractEndDate;
+	private String contractEndDate;
 	
 	@Builder.Default
 	private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
