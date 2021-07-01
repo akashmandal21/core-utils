@@ -24,6 +24,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class MenuSearchRDto extends AbstractDto {
+	private static final long serialVersionUID = 726075754816567584L;
 	private String vendorId;
 	private String cityId;
 	private String cityName;
