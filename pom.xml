@@ -82,17 +82,18 @@
 		<module>approval-service-client</module>
         <module>wanda-client</module>
 		<module>search-client</module>
+		<module>leadservice-client</module>
 		<module>far-client</module>
         <module>residence-client</module>
 		<module>file-utils</module>
         <module>venta-aggregation-service-client</module>
 		<module>notification-v2-client</module>
 		<module>slack-client</module>
+         <module>pojo-food</module>
         <module>commercial-card</module>
         <module>payment-plan-client</module>
 		<module>booking-service-client</module>
     </modules>
-
 
 	<build>
 		<plugins>
