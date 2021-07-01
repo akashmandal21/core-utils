@@ -8,5 +8,6 @@ public enum ActivityType {
     RE_SUBMITTED,
     AUTO_APPROVED,
     VERIFIED,
-    DELETED
+    DELETED,
+    UNVERIFIED,
 }
