@@ -9,17 +9,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public enum PaymentPlanType {
 
-	RENTAL("RENTAL"),
-	SERVICE("SERVICE"),
-	FOOD_SERVICE("FOOD SERVICE"),
-	SECURITY_DEPOSIT("SECURITY DEPOSIT"),
-	MAINTENANCE_FEE("MAINTENANCE FEE"),
-	ANNUAL_MAINTENANCE_FEE("ANNUAL MAINTENANCE FEE"),
+	RENTAL("Rental"),
+	SERVICE("Service"),
+	FOOD_SERVICE("Food Service"),
+	SECURITY_DEPOSIT("Security Deposit"),
+	MAINTENANCE_FEE("Maintenance Fee"),
+	ANNUAL_MAINTENANCE_FEE("Annual Maintenance Fee"),
 	VAS("VAS"),
-	BOOKING("BOOKING"),
-	ADVANCE_RENTAL("ADVANCE RENTAL"),
-	INSTALLMENT("INSTALLMENT"),
-	DISCOUNT("DISCOUNT");
+	BOOKING("Booking"),
+	ADVANCE_RENTAL("Advance Rental"),
+	INSTALLMENT("Instalment"),
+	DISCOUNT("Discount Adjusted");
 
 	private String name;
 
