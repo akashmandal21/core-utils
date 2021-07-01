@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.dto.CityResponseDTO;
+import com.stanzaliving.core.dto.StateResponseDTO;
 import com.stanzaliving.core.generic.po.enums.EventType;
 import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
@@ -29,12 +31,15 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+
+
 
 @Log4j2
 public class InventoryClientApi {
@@ -187,6 +192,61 @@ public class InventoryClientApi {
 
         ParameterizedTypeReference<Map<String, Object>> returnType =
                 new ParameterizedTypeReference<Map<String, Object>>() {};
+
+        return restClient.invokeAPI(
+                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public CityResponseDTO getCity(int cityId) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("id", cityId);
+        String path =
+                UriComponentsBuilder.fromPath("/city/{id}")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<CityResponseDTO> returnType =
+                new ParameterizedTypeReference<CityResponseDTO>() {};
+
+        return restClient.invokeAPI(
+                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseEntity<StateResponseDTO> getState(int stateId) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("id", stateId);
+        String path =
+                UriComponentsBuilder.fromPath("/state/{id}")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseEntity<StateResponseDTO>> returnType =
+                new ParameterizedTypeReference<ResponseEntity<StateResponseDTO>>() {};
 
         return restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);

@@ -907,4 +907,36 @@ public class InternalDataControllerApi {
 		return restClient.invokeAPI(
 				path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+	public ResponseDto<StateUIDto> getStateDetailsByName(String stateName) {
+
+		try {
+			Object postBody = null;
+
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("name", stateName);
+
+			String path = UriComponentsBuilder.fromPath("/internal/get/{name}")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<StateUIDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<StateUIDto>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+
+			log.error("Exception Caught while Fetching State details By State name: {}", stateName, e);
+		}
+		return null;
+	}
 }
