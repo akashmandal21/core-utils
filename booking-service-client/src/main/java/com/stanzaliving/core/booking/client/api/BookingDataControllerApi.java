@@ -31,8 +31,7 @@ public class BookingDataControllerApi {
 
         log.info("Booking-Data-Controller::Processing to get booked inventories detail of rooms {}, moveInDate {}, inventory {} ",
                 bookingInventoryDto.getRoomUUID(),
-                bookingInventoryDto.getMoveInDate(),
-                bookingInventoryDto.getInventoryUUID());
+                bookingInventoryDto.getMoveInDate());
 
         Object postBody = bookingInventoryDto;
 
