@@ -17,15 +17,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class AttendanceDefaulterActionDTO {
 
+    @NotNull(message = "Uuid cannot be null")
     private String uuid;
 
     private UserActionType userActionType;
 
-    @NotNull(message = "Action-type cannot be null")
     private DefaulterActionType actionType;
 
-    @NotNull
-    @NotEmpty(message = "Description cannot be empty")
     private String description;
 
     private String comment;
