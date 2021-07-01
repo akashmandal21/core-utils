@@ -64,7 +64,9 @@ public enum LeadSubStatus {
 	POST_VISIT_5_FOLLOW_UP("Post Visit 5 Follow Up","#0091FF","#FFB701"),
 	POST_VISIT_5_FOLLOW_UP_COMPLETED("Post Visit 5 Follow Up Completed","#50514F","#FFB701"),
 	
-	VISIT_INTENT("Visit Intent Shown","#5FD1D9","#5FD1D9");
+	VISIT_INTENT("Visit Intent Shown","#5FD1D9","#5FD1D9"),
+	
+	QUALIFICATION_ATTEMPTED("qualification attempted","#5FD1D9","#5FD1D9");
 	
 	private String statusDescription;
 	private String colorCode;
