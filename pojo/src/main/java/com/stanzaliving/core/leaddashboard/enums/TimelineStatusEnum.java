@@ -80,8 +80,11 @@ public enum TimelineStatusEnum {
 	POST_VISIT_5_DROP("Post Visit 5 Drop"),
 	POST_VISIT_5_FOLLOW_UP("Post Visit 5 Follow-Up"),
 	POST_VISIT_5_FOLLOW_UP_COMPLETED("Post Visit 5 Follow-Up Completed"),
-	ALL("ALL");// new status only used for whatsapp template
+	ALL("ALL"),// new status only used for whatsapp template
 
+	
+	VISIT_INTENT("Visit Intent Shown");
+	
 	private String statusName;
 	
 

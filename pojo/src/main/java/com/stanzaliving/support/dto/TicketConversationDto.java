@@ -18,6 +18,7 @@ public class TicketConversationDto {
     private String title;
     private String ticketUuid;
     private String actionedBy;
+    private String actionedByUuid;
     private String actionedTo;
     private boolean isPrivate;
     private TicketActivityTemplatesEnum type = TicketActivityTemplatesEnum.OTHER;
@@ -31,4 +32,5 @@ public class TicketConversationDto {
     private String taskType;
     private List<String> attachmentPaths;
     private String attachmentType;
+    private String slaStatus;
 }

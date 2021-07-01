@@ -11,15 +11,12 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.stanzaliving.core.estate.constants.EstateSalesReviewSectionFields;
 import com.stanzaliving.core.estate.enums.EstateStatus;
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import com.stanzaliving.core.sqljpa.entity.AddressEntity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -65,6 +62,10 @@ public class EstateEntity extends AbstractJpaEntity {
 	@Column(name = "estate_code", columnDefinition = "varchar(15)", nullable = false)
 	private String estateCode;
 
-	 @Column(name = "property_name", columnDefinition = "varchar(255)")
-	 private String propertyName;
+	@Column(name = "property_name", columnDefinition = "varchar(255)")
+	private String propertyName;
+
+	@Builder.Default
+	@Column(name = "sales_review_enable")
+	private int salesReviewEnabled = EstateSalesReviewSectionFields.SALES_REVIEW_OPEN;
 }

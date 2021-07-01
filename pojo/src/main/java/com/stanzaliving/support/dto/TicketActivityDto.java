@@ -19,9 +19,7 @@ public class TicketActivityDto {
     private String ticketUuid;
     private String actionedBy;
     private String actionedTo;
-    private Date actionedTime;
     private boolean isMarkedPrivate;
-    //    private MessageReference type = MessageReference.OTHER;
     private TicketActivityTemplatesEnum type = TicketActivityTemplatesEnum.OTHER;
     private Date createdAt;
     private String referenceId;

@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UserTypeDto {
 
-    private List<String> createdBy;
+    private List<String> assignedTo;
 
     private List<String> updatedBy;
 

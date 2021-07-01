@@ -11,6 +11,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FilterListDto {
     private String title;
-    private String key;
     private boolean applicable;
 }

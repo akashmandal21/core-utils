@@ -18,4 +18,6 @@ public class QuickCardFilterStatusDto {
     private boolean withinSla;
 
     private boolean outsideSla;
+
+    private boolean pendingTasks;
 }

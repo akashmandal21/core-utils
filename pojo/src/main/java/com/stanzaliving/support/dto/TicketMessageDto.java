@@ -20,6 +20,7 @@ public class TicketMessageDto {
     private String message;
     private List<String> attachmentUuids;
     private String messagedBy;
+    private String messagedByUuid;
     private boolean isPrivate;
     private Date createdAt;
     private TicketActivityTemplatesEnum type=TicketActivityTemplatesEnum.MESSAGE;
