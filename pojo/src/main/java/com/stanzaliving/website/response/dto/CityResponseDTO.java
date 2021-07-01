@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.Status;
+import com.stanzaliving.website.request.dto.AttributeDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,8 +34,27 @@ public class CityResponseDTO {
 	private String phone;
 	private String description;
 	private String imageAltTag;
+	private String iconImageUrlAltTag;
 	private String cityImgUrl;
-	List<EnumListing<Status>> status;
+	EnumListing<Status> status;
+	private Long reviewCount;
+	private Double rating;
+	private Long minPriceValue;
+	private Boolean whatsappChatFlag;
+	private String cityDescription;
 	
-
+	@Builder.Default
+	private boolean comingSoon = false;
+	
+	private List<AttributeDto> attributeDto;
+    @Builder.Default
+	private boolean isSelected = false;
+	
+	private String apartmentCitySlug;
+	private Double apartmentRating;
+	private Long apartmentReviewCount;
+	private Long apartmentMinPriceValue;
+	private String apartmentSeoTitle;
+	private String apartmentSeoDescription;
+	private String apartmentCityDescription;
 }
