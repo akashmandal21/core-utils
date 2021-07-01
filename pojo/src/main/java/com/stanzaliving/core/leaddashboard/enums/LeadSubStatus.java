@@ -66,8 +66,6 @@ public enum LeadSubStatus {
 	
 	VISIT_INTENT("Visit Intent Shown","#5FD1D9","#5FD1D9");
 	
-	QUALIFICATION_ATTEMPTED("Visit Intent Shown","#5FD1D9","#5FD1D9");
-	
 	private String statusDescription;
 	private String colorCode;
 	private String newColorCode;
