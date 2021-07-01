@@ -10,6 +10,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.payment.dto.PaymentPlan;
 import dto.MonthlyBreakupResponseDTO;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -36,6 +37,7 @@ public class PaymentPlanClientApi {
     public ResponseDto<PaymentPlanResponseDto> createPaymentPlan(PaymentPlanRequestDto paymentPlanRequestDto, String token) {
 
         Object postBody = null;
+
         log.info("PaymentPlanRequestDto is {} ", paymentPlanRequestDto);
 
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -47,6 +49,7 @@ public class PaymentPlanClientApi {
         HttpHeaders headerParams = new HttpHeaders();
 
         headerParams.add("Cookie", "token=" + token);
+
 
         final String[] accepts = {"*/*"};
 
@@ -67,6 +70,28 @@ public class PaymentPlanClientApi {
 
     }
 
+
+    public ResponseDto<MonthlyBreakupResponseDTO> getMonthlyBreakup(String bookingId, Date contractStartDate, Date fromDate) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingId", bookingId);
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/monthly-breakup/get/{bookingId}").buildAndExpand(uriVariables).toUriString();
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("contractStartDate", date.format(contractStartDate));
+        queryParams.add("fromDate", date.format(fromDate));
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<MonthlyBreakupResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<MonthlyBreakupResponseDTO>>() {
+        };
+        try {
+            ResponseDto<MonthlyBreakupResponseDTO> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            return responseDto;
+        } catch (Exception e) {
+            log.error("error while fetching the monthly break up {}", e.getMessage());
+            return null;
+        }
+    }
 
     public ResponseDto<List<PaymentPlan>> getPaymentPlan(String bookingUuid, String token) {
 
@@ -101,28 +126,6 @@ public class PaymentPlanClientApi {
 
         return null;
 
-    }
-
-    public ResponseDto<MonthlyBreakupResponseDTO> getMonthlyBreakup(String bookingId, Date contractStartDate, Date fromDate) {
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("bookingId", bookingId);
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/monthly-breakup/get/{bookingId}").buildAndExpand(uriVariables).toUriString();
-        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("contractStartDate", date.format(contractStartDate));
-        queryParams.add("fromDate", date.format(fromDate));
-        HttpHeaders headerParams = new HttpHeaders();
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<MonthlyBreakupResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<MonthlyBreakupResponseDTO>>() {
-        };
-        try {
-            ResponseDto<MonthlyBreakupResponseDTO> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-            return responseDto;
-        } catch (Exception e) {
-            log.error("error while fetching the monthly break up {}", e.getMessage());
-            return null;
-        }
     }
 
 }

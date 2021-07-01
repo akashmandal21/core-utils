@@ -20,5 +20,5 @@ public enum PaymentPlanResponseType {
 
     public String getName() {
         return name;
-    }
+    }PaymentPlanClientApi.java
 }
