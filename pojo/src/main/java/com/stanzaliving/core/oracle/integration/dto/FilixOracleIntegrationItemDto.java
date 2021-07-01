@@ -8,6 +8,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotNull;
+
 @Setter
 @Getter
 @ToString
@@ -16,9 +18,11 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FilixOracleIntegrationItemDto extends AbstractOracleDto {
 
+    @NotNull
     @JsonProperty("stanzaId")
     private String itemUuid;
 
+    @NotNull
     @JsonProperty("itemName")
     private String itemName;
 
@@ -88,6 +92,7 @@ public class FilixOracleIntegrationItemDto extends AbstractOracleDto {
     @JsonProperty("expenseAccount")
     private String expenseAccount;
 
+    @NotNull
     @JsonProperty("incomeAccount")
     private String incomeAccount;
 
