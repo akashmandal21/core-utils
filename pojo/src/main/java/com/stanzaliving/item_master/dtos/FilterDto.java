@@ -58,6 +58,8 @@ public class FilterDto {
     private List<UIKeyValue> inactiveOptions;
     private List<Double> itemsPerPackOptions;
     private List<UIKeyValue> itemPerPackOptions;
+    private List<UIKeyValue> recipeTagOptions;
+    private List<UIKeyValue> recipeTagUomOptions;
 
     //Main Filters
     private List<UIKeyValue> itemCategory;
@@ -87,7 +89,8 @@ public class FilterDto {
     private List<UIKeyValue> itemPerPack;
     private List<UIKeyValue> baseItem;//Mutli Select
 
-
+    private List<UIKeyValue> recipeTag;
+    private List<UIKeyValue> recipeTagUom;
 
     //Sort
     private SortSpecs sortSpecs;
