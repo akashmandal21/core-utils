@@ -13,21 +13,23 @@ import java.util.Map;
 @Getter
 @AllArgsConstructor
 public enum DemoGraphicsRegion {
-	ANDHRA("Andhra", 1),
-	EAST_INDIAN("East Indian", 2),
-	GUJRATI("Gujrati", 3),
-	HYDERABADI("Hyderabadi", 4),
-	KARNATAKA("Karnataka", 5),
-	KERALA("Kerala", 6),
-	MAHARASHTIA("Maharashtian", 7),
-	MIX("Mix", 8),
+
+	
+	BENGALI("Bengali", 1),
+	BIHARI("Bihari", 2),
+	EAST_INDIAN("East Indian", 3),
+	GOAN("Goan", 4),
+	GUJRATI("Gujrati", 5),
+	KANNADA("Kannada", 6),
+	MAHARASHTIAN("Maharashtian", 7),
+	MALYALI("Malyali", 8),
 	NORTH_INDIAN("North Indian", 9),
-	ORIENTAL("Oriental", 10),
-	PUNJABI("Punjabi", 11),
-	RAJASTHANI("Rajasthani", 12),
-	SOUTH_INDIAN("South Indian", 13),
-	TAMIL_NADU("Tamil Nadu", 14),
-	WEST_INDIAN("West Indian", 15);
+	PUNJABI("Punjabi", 10),
+	RAJASTHANI("Rajasthani", 11),	
+	TAMIL("Tamil", 12),
+	TELEGU("Telegu", 13),
+	WAZWAN("Wazwan", 14),
+	WESTERN("Western", 15);
 
 	private String foodRegionName;
 	private Integer sequence;
