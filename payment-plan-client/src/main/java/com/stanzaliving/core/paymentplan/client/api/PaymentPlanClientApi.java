@@ -39,7 +39,7 @@ public class PaymentPlanClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/create").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/api/v1/create").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -78,7 +78,7 @@ public class PaymentPlanClientApi {
 
 			uriVariables.put("bookingUuid", bookingUuid);
 
-			String path = UriComponentsBuilder.fromPath("/get/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("/api/v1/get/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
