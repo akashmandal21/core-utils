@@ -26,6 +26,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class MenuItemGrammage {
 
+	private String itemId;
 	private KeyValuePairDto item;
 
 	private KeyValuePairDto category;
@@ -37,5 +38,7 @@ public class MenuItemGrammage {
 	private Integer grammage;
 
 	private Integer quantity;
+
+	private boolean controllingGrammageExist;
 
 }

@@ -16,6 +16,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class MealWiseMenuDto implements Serializable {
+	private static final long serialVersionUID = 8221908042191780009L;
 	private MealType mealType;
 	private Double cogs;
 	private Double budgeted;
