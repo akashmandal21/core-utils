@@ -22,12 +22,12 @@ import com.stanzaliving.core.backendlocator.client.dto.ResidentDto;
 import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-
 import com.stanzaliving.core.leaddashboard.dto.LeadDetailsDto;
 import com.stanzaliving.core.payment.dto.PreBookingRefundDto;
-
 import com.stanzaliving.venta.BedCountDetailsDto;
 import com.stanzaliving.venta.DeadBedCountDto;
+import com.stanzaliving.website.constants.WebsiteConstants;
+import com.stanzaliving.website.response.dto.VentaSyncDataResponseDTO;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -292,5 +292,26 @@ public class VentaClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
+	
+	public List<VentaSyncDataResponseDTO> getSyncDataForWebsite() {
+		
+		final Map<String, Object> uriVariables = new HashMap<>();
 
+		String path = UriComponentsBuilder.fromPath("/syncData/website").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		
+		headerParams.add("Authorization", WebsiteConstants.IMS_DEFAULT_BEARER_TOKEN);
+
+		final String[] accepts = { "*/*" };
+		
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<VentaSyncDataResponseDTO>> returnType = new ParameterizedTypeReference<List<VentaSyncDataResponseDTO>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+	}
 }
