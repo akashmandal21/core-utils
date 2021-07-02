@@ -17,6 +17,12 @@ import java.util.List;
 public class LanguageApprovalGetRequestDto{
 
     private String propertyName;
+    
+    private String rooms;
+    
+    private String beds;
+    
+    private String rent;
 
     private String mappedPropertyType;
     
