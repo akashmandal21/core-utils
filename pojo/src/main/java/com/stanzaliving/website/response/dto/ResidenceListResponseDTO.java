@@ -2,6 +2,7 @@ package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -24,27 +25,27 @@ public class ResidenceListResponseDTO implements Serializable {
 	
 	private int residenceId;
 	private String name;
+	private String slug;
 	private int micromarketId;
 	private String micromarketName;
+	private String micromarketSlug;
 	private int cityId;
 	private String cityName;
+	private String citySlug;
 	private Gender gender;
 	private String genderName;
+	private String genderSlug;
 	private Integer preBookingAmount;
+	private int startingPrice;
 	private FomoTag fomoTag;
 	private String fomoTagName;
 	private String fomoTagcolour;
-	private int priorityOrder;
+	private int sortOrder;
 	private boolean enabled;
-	private String slug;
-	private String residenceType;
-	private String mobileNo;
-	private String phoneNo;
-	private String virtualTourImage;
-	private boolean virtualTour;
 	private String cardCTA;
-	private String genderSlug;
-	private String citySlug;
-	private String micromarketSlug;
+	private String propertyCode;
+	private String floorNumber;
+	private Double area;
 	
+	private PropertyEntityType propertyEntityType;
 }

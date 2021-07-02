@@ -32,6 +32,14 @@ public class PropertyNamingDto {
 	private SubBrandName subBrandName;
 	
 	private GenderAllowed gender;
+
+	private Double totalPremiseArea;
+
+	private Integer numBeds;
+
+	private Integer numRooms;
+
+	private String apartmentFloorNumber;
 	
 	private Long micromarketId;
 	

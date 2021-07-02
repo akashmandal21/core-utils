@@ -18,8 +18,8 @@ import java.util.List;
 @NoArgsConstructor
 public enum DealCategory {
 
-	B2B("B2B Deal", 2),
-	B2C("B2C Deal", 1);
+	B2B("B2B", 2),
+	B2C("B2C", 1);
 	
 	private String dealCategoryName;
 	
