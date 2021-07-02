@@ -16,8 +16,9 @@ public class ConvertRoomPricesDto {
     Double foodService;
     Double gst;
     Double underWritten;
-    double cityBuffer;
-    double total;
+    Double cityBuffer;
+    Double total;
     int roomConversionCharges;
     String serviceMixUUID;
+    Double beforeConversionPrice;
 }

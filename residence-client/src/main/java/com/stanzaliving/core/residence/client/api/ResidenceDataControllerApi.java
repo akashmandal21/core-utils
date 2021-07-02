@@ -2,6 +2,7 @@ package com.stanzaliving.core.residence.client.api;
 
 import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.residenceservice.dto.*;
 
@@ -479,6 +480,7 @@ public class ResidenceDataControllerApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception ex) {
+
 			log.error("Exception while getting convert room prices {}", convertRoomRequestDto);
 		}
 		return null;
