@@ -29,6 +29,6 @@ public class CommercialCardRequestDto {
 	private Double maintenanceFee;
 
 	@Builder.Default
-	private MaintenanceFeeCollectionType maintenanceFeeCollectionType = MaintenanceFeeCollectionType.MONTHLY;
+	private MaintenanceFeeCollectionType maintenanceFeeCollectionType = MaintenanceFeeCollectionType.MONTHLY_PAYMENTS;
 
 }
