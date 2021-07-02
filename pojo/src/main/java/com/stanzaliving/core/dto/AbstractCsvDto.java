@@ -46,8 +46,6 @@ public abstract class AbstractCsvDto {
 
     private void fillDynamicColumns(String[] data) {
 
-        log.info("String[] data {}", data);
-
         for(int i = 0 ; i < data.length ; i++) {
             if(dynamicColumns.contains(columns.get(i))) {
                 if(!StringUtils.isBlank(data[i])) {

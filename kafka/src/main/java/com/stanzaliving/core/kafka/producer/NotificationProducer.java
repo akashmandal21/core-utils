@@ -45,8 +45,6 @@ public class NotificationProducer {
 		}
 
 		publishRecord(record);
-
-		log.info("published Brand-Store-Sku record on Email : {}",record);
 	}
 
 	public void publish(String topic, int partition, String className, Object value) {
