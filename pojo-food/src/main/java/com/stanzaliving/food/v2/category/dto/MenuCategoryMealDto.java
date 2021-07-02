@@ -7,8 +7,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalTime;
-
 @Getter
 @Setter
 @ToString
@@ -32,5 +30,9 @@ public class MenuCategoryMealDto extends MealDto {
 
     private Double mealCost;
     private Double trueCost;
+    
+    private Double fnbMealCost;
+    private Double fnbTrueCost;
+    
     private int activeDays;
 }

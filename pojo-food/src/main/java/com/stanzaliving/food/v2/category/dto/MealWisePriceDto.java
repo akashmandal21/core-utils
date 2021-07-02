@@ -20,6 +20,9 @@ public class MealWisePriceDto implements Serializable {
 	private MealType mealType;
 	private String mealName;
 	private Map<DayOfWeek, Double> dayWiseCost;
+	private Map<DayOfWeek, Double> fnbDayWiseCost;
 	private Double trueCost;
+	private Double fnbTrueCost;
 	private Double pricePerDay;
+	private Double fnbPricePerDay;
 }
