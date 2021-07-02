@@ -464,5 +464,26 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, itemCode, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<List<String>> getItemCodeByLocation(String locationUuid) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("locationUuid",locationUuid);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/generic/get/item-code/by/location/{locationUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams,null,headerParams, accept, returnType);
+	}
+
 }
 
