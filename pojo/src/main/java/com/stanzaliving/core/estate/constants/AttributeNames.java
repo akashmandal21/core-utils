@@ -207,6 +207,8 @@ public class AttributeNames {
 		public static final String WATER_TANK_CAPACITY_TO_BE_CALCULATED_REMARKS = "waterTankCapacityToBeCalculatedRemarks";
 		public static final String WATER_STORAGE_CLAUSE_B_REMARKS = "waterStorageClauseBRemarks";
 		public static final String WATER_STORAGE_CLAUSE_C_REMARKS = "waterStorageClauseCRemarks";
+		public static final String WATER_SUPPLY_CLAUSE_G_REMARKS = "waterSupplyClauseGRemarks";
+		public static final String WATER_SUPPLY_CLAUSE_H_REMARKS = "waterSupplyClauseHRemarks";
 
 		public static final String SITE_CLAUSE_A_REMARKS = "siteClauseARemarks";
 		public static final String SITE_CLAUSE_B_REMARKS = "siteClauseBRemarks";
@@ -346,6 +348,8 @@ public class AttributeNames {
 		public static final String WATER_STORAGE_CLAUSE_A_BOOLEAN = "waterStorageClauseABoolean";
 		public static final String WATER_STORAGE_CLAUSE_B_BOOLEAN = "waterStorageClauseBBoolean";
 		public static final String WATER_STORAGE_CLAUSE_C_BOOLEAN = "waterStorageClauseCBoolean";
+		public static final String WATER_SUPPLY_CLAUSE_G_BOOLEAN = "waterSupplyClauseGBoolean";
+		public static final String WATER_SUPPLY_CLAUSE_H_BOOLEAN = "waterSupplyClauseHBoolean";
 
 		public static final String SITE_CLAUSE_A_BOOLEAN = "siteClauseABoolean";
 		public static final String SITE_CLAUSE_B_BOOLEAN = "siteClauseBBoolean";
@@ -465,6 +469,8 @@ public class AttributeNames {
 		public static final String WATER_SUPPLY_CLAUSE_D_TEXT_AREA = "waterSupplyClauseDTextArea";
 		public static final String WATER_SUPPLY_CLAUSE_E_TEXT_AREA = "waterSupplyClauseETextArea";
 		public static final String WATER_SUPPLY_CLAUSE_F_TEXT_AREA = "waterSupplyClauseFTextArea";
+		public static final String WATER_SUPPLY_CLAUSE_G_TEXT_AREA = "waterSupplyClauseGTextArea";
+		public static final String WATER_SUPPLY_CLAUSE_H_TEXT_AREA = "waterSupplyClauseHTextArea";
 
 		public static final String WATER_STORAGE_CLAUSE_A_TEXT_AREA = "waterStorageClauseATextArea";
 		public static final String WATER_STORAGE_CLAUSE_B_TEXT_AREA = "waterStorageClauseBTextArea";
@@ -824,6 +830,8 @@ public class AttributeNames {
 			landlordAgreedKeys.add("whiteGoodsClauseDBoolean");
 			landlordAgreedKeys.add("whiteGoodsClauseEBoolean");
 			landlordAgreedKeys.add("roomClauseQBoolean");
+			landlordAgreedKeys.add(WATER_SUPPLY_CLAUSE_G_BOOLEAN);
+			landlordAgreedKeys.add(WATER_SUPPLY_CLAUSE_H_BOOLEAN);
 
 		}
 
