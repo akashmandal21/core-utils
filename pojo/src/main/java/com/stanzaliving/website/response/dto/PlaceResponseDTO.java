@@ -24,5 +24,5 @@ public class PlaceResponseDTO {
 	private boolean enabled;
 	private String placeTypeName;
 	private Integer placeTypeId;
-
+	private Boolean isEditable;
 }

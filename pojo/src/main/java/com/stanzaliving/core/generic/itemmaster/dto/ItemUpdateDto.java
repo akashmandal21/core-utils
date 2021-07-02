@@ -47,6 +47,7 @@ public class ItemUpdateDto extends AbstractDto {
     private UnitType unitOfMeasurement;
     private String glCode;
     private String recipeTag;
+    private String recipeTagName;
 	
     private FarCategory farCategory;
     
@@ -59,6 +60,12 @@ public class ItemUpdateDto extends AbstractDto {
     private String substituteItem;
     private UnitType recipeUom;
     private Double conversionFactor;
+
+    private UnitType standardUom;
+    private Double standardQuantity;
     private String itemImage;
+    private String genericItemName;
+
+    private Boolean taggable;
 
 }
