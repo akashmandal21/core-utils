@@ -847,6 +847,7 @@ public class AttributeNames {
 			annexure2AKeys.add("microwaveAvailable");
 			annexure2AKeys.add("acInRoomsAvailable");
 			annexure2AKeys.add("extinguishersAvailable");
+			annexure2AKeys.add("numberOfBorewells");
 		}
 		
 		
