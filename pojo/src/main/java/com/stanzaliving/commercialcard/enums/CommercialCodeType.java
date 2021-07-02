@@ -12,13 +12,14 @@ import java.util.Set;
 @Getter
 public enum CommercialCodeType {
 
-    CITY( "City"),
-    RESIDENCE("Residence"),
-    MICROMARKET( "Micromarket"),
-    CONTRACTTENURE("CONTRACT TENURE"),
-    LOCKIN( "LOCK IN ");
+    CITY( "City","CITY"),
+    RESIDENCE("Residence","RESIDENCE"),
+    MICROMARKET( "Micromarket","MICROMARKET"),
+    CONTRACTTENURE("CONTRACT TENURE","CONTRACTTENURE"),
+    LOCKIN( "LOCK IN","LOCKIN");
 
     private String name;
+    private String value;
 
     public  static Map< CommercialCodeType,String> CATEGORY_VALUES_MAP = new HashMap<>();
     static {

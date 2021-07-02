@@ -8,13 +8,14 @@ import java.util.*;
 @Getter
 @AllArgsConstructor
 public enum CriteriaCondition {
-    GREATER_THAN("GREATER THAN"),
-    GREATER_THAN_OR_EQUAL_TO("GREATER THAN OR EQUAL TO"),
-    LESS_THAN("LESS THAN"),
-    LESS_THAN_OR_EQUAL_TO("LESS THAN OR EQUAL TO"),
-    EQUAL_TO("EQUAL TO");
+    GREATER_THAN("GREATER THAN","GREATER_THAN"),
+    GREATER_THAN_OR_EQUAL_TO("GREATER THAN OR EQUAL TO","GREATER_THAN_OR_EQUAL_TO"),
+    LESS_THAN("LESS THAN","LESS_THAN"),
+    LESS_THAN_OR_EQUAL_TO("LESS THAN OR EQUAL TO","LESS_THAN_OR_EQUAL_TO"),
+    EQUAL_TO("EQUAL TO","EQUAL_TO");
 
     private String value;
+    private String key;
 
 
     public static Set<Object> ENUM_MAP = new HashSet<>();
