@@ -1,12 +1,7 @@
-package com.stanzaliving.legal_v2.DTO.Property;
+package com.stanzaliving.legal_v2.DTO.Property; 
 
 import com.stanzaliving.core.dto.AbstractMongoDto;
-import com.stanzaliving.legal_v2.enums.PropertyListStatus;
 import lombok.*;
-
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -21,5 +16,8 @@ public class PropertyListDto extends AbstractMongoDto {
     private String microMarket;
     private String status;
     private String propertyTypeUUid;
+    private String rooms;
+    private String availableBeds;
+    private String rent;
 
 }
