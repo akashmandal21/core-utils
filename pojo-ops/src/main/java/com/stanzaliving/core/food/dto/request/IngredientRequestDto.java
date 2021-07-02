@@ -3,6 +3,7 @@ package com.stanzaliving.core.food.dto.request;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.enums.IngredientType;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
+import com.stanzaliving.core.food.dto.IngredientTagDto;
 import com.stanzaliving.core.generic.enums.GSTSlabs;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -12,11 +13,8 @@ import javax.validation.constraints.NotNull;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
- *
  * @version 1.0
- *
  * @since 20-Aug-2020
- *
  */
 
 @Getter
@@ -37,6 +35,8 @@ public class IngredientRequestDto extends AbstractDto {
 	private UnitOfMeasurement unitOfMeasurement;
 
 	private GSTSlabs gstSlab;
-	private String classificationTag;
 	private Double conversionFactor;
+	private Double standardQuantity;
+
+	private IngredientTagDto tagDetails;
 }
