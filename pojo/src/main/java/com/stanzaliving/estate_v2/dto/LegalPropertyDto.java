@@ -25,5 +25,8 @@ public class LegalPropertyDto extends AbstractMongoDto{
     private String microMarket;
     private String status;
     private String propertyTypeUUid;
+    private String rooms;
+    private String availableBeds;
+    private String rent;
 
 }
