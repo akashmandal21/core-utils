@@ -16,6 +16,8 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
+
+	private static final long serialVersionUID = 6651823692057928684L;
 	private boolean compositionRulesSatisfied;
 	private boolean comboRulesSatisfied;
 	private boolean budgetUtilizationInLimit;
@@ -26,6 +28,7 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private boolean editingAllowed;
 	private boolean comboAllowed;
 	private List<MealWiseMenuDto> mealWiseMenus;
+	private List<DayWiseCogsDto> dayWiseCogs;
 	private CompositionRuleV2Dto rules;
 	private FoodMenuBudgetDto budgetRules;
 

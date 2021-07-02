@@ -11,6 +11,7 @@ import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.category.constant.CategoryStatus;
 import com.stanzaliving.food.v2.grammage.category.response.CategoryGrammageBaseResponseDto;
+import com.stanzaliving.food.v2.menu.dto.DayWiseCogsDto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private Double marginPercentage;
 	private Double utilityCost;
 	private List<MenuCategoryMealDto> mealData;
+	private List<DayWiseCogsDto> dayWiseCogs;
 	private CategoryStatus categoryStatus;
 	private FoodServeType foodServeType;
 	private Integer maxWeeklyCombo;

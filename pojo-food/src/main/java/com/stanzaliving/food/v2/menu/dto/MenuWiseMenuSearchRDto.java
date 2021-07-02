@@ -15,5 +15,6 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class MenuWiseMenuSearchRDto extends MenuSearchRDto {
-    private List<MenuCategoryResidenceRDto> residences;
+    private static final long serialVersionUID = 5863876437028980646L;
+	private List<MenuCategoryResidenceRDto> residences;
 }
