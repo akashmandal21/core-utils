@@ -21,7 +21,7 @@ public class QuestionTemplateDto extends AbstractMongoDto {
     @EmptyOrNull(message = "Template name cannot be empty or null")
     private String name;
     @NotNull(message = "status cannot be null")
-    private String status;
+    private String questionTemplateStatus;
     @NotNull(message = "Mapped Property Type cannot be null")
     private @Valid MappedPropertyTypeDto mappedPropertyType;
     @NotNull(message = "Applicable Status cannot be null")

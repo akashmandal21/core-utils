@@ -22,7 +22,7 @@ public class PropertyTypeDto extends AbstractMongoDto {
     private ParentUuidNameDto parent;
 
     @EmptyOrNull(message = "Status cannot be empty or null")
-    private String status;
+    private String propertyTypeStatus;
 
     @Size(min = 1,message = "Roles cannot be less than 1")
     @NotNull(message = "Roles cannot be null")
