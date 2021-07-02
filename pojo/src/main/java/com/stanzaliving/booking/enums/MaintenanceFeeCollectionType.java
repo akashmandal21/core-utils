@@ -9,14 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public enum MaintenanceFeeCollectionType {
-	MONTHLY("MONTHLY"),
-	ONE_TIME_UPFRONT("ONE TIME UPFRONT");
+	ONE_TIME_UPFRONT("One Time Upfront"),
+	MONTHLY_PAYMENTS("Monthly Payment");
 
 	private String name;
-
-	/*MaintenanceFeeCollectionType(String name) {
-		this.name = name;
-	}*/
 
 	public String getName() {
 		return name;
