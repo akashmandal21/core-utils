@@ -1,5 +1,6 @@
 package com.stanzaliving.core.commercialcode.dto;
 
+import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import lombok.AllArgsConstructor;
@@ -55,4 +56,6 @@ public class CommercialCardResponseDto {
     @Min(value = 1, message = "Minimum Closure Applicable value must be 1")
     @Max(value = 1000000, message = "Maximum Closure Applicable value is 1000000")
     private Integer availableCount;
+    
+    private MaintenanceFeeCollectionType collectionStrategy;
 }
