@@ -1,7 +1,6 @@
 package com.stanzaliving.core.mongobase.repository;
 
 import com.stanzaliving.core.mongobase.entity.AbstractMongoEntity;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
@@ -16,4 +15,5 @@ public interface AbstractMongoRepository<T extends AbstractMongoEntity, I extend
 
 	List<T> findByUuidIn(Collection<String> uuids);
 
+	List<T> findAllByStatus(Boolean status);
 }

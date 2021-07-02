@@ -2,7 +2,9 @@ package com.stanzaliving.core.commentsservice.dto;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
+import javax.persistence.Convert;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -50,6 +52,8 @@ public class CommentsDto {
 	private String subContextId;
 
 	private String parentCommentUuid;
+	
+	private Object metaData;
 
 	private List<CommentsDto> childComments;
 }

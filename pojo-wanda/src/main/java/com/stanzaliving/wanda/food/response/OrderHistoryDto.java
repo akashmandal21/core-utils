@@ -54,4 +54,6 @@ public class OrderHistoryDto {
 	
 	private boolean editable;
 	
+	private boolean feedbackAllowed;
+	
 }

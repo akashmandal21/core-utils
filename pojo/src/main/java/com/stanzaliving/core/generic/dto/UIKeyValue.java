@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Data
 @SuperBuilder
 @EqualsAndHashCode(exclude = {"label"})
-public class UIKeyValue {
+public class UIKeyValue implements Serializable{
     @NotBlank
     private String label;
     @NotBlank
