@@ -4,20 +4,13 @@ import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.enums.IngredientType;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.generic.enums.GSTSlabs;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
- *
  * @version 1.0
- *
  * @since 06-Jan-2021
- *
  */
 
 @Getter
@@ -40,6 +33,5 @@ public class IngredientSearchIndexDto extends AbstractSearchIndexDto {
 	private UnitOfMeasurement unitOfMeasurement;
 	private GSTSlabs gstSlabs;
 	private String itemUuid;
-	private String classificationTag;
 
 }
