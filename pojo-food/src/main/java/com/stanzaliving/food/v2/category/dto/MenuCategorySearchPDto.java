@@ -1,20 +1,19 @@
 package com.stanzaliving.food.v2.category.dto;
 
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.food.v2.category.constant.CategorySearchSortingField;
 import com.stanzaliving.food.v2.category.constant.CategoryStatus;
 import com.stanzaliving.food.v2.common.constant.SortingType;
-
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -37,4 +36,6 @@ public class MenuCategorySearchPDto implements Serializable {
     private Boolean approvalDataRequired;
     private Boolean approvalDashBoard;
     private Boolean clonable;
+    private Boolean menuSubmitted;
+    private LocalDate startDate;
 }
