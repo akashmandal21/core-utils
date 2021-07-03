@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -37,5 +38,6 @@ public class MenuCategorySearchPDto implements Serializable {
     private Boolean approvalDashBoard;
     private Boolean clonable;
     private Boolean menuSubmitted;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 }
