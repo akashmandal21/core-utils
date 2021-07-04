@@ -2,9 +2,9 @@ package com.stanzaliving.core.far.enums;
 
 public enum AssetStatus {
     MAPPED_TO_QR("Mapped To QR", "#60C3AD", "#EDFFF5"),
-    READYFOR_TRANSFER_OUT("Ready For Transfer Out", "#60C3AD", "#EDFFF5"),
+    READYFOR_TRANSFER_OUT("Ready For Transfer-Out", "#60C3AD", "#EDFFF5"),
     TRANSFERRED_OUT("Transferred Out", "#60C3AD", "#EDFFF5"),
-    READYFOR_TRANSFER_IN("Ready For Transfer In", "#60C3AD", "#EDFFF5"),
+    READYFOR_TRANSFER_IN("Ready For Transfer-In", "#60C3AD", "#EDFFF5"),
     TRANSFERRED_IN("Transferred In", "#60C3AD", "#EDFFF5"),
     HOTO_INPROGRESS("HOTO In Progress", "#60C3AD", "#EDFFF5"),
     HOTO_REJECTED("HOTO Rejected", "#60C3AD", "#EDFFF5"),
