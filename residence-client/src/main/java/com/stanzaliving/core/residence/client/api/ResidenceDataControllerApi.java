@@ -527,28 +527,28 @@ public class ResidenceDataControllerApi {
 
 	public ResponseDto<String> revertRoom(String token, ConvertRoomRequestDto convertRoomRequestDto){
 
-		log.info("Residence-Data-Controller::Processing to get revert room {}", convertRoomRequestDto);
+			log.info("Residence-Data-Controller::Processing to get revert room {}", convertRoomRequestDto);
 
-		if (StringUtils.isBlank(token)) {
-			throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
-		}
+			if (StringUtils.isBlank(token)) {
+				throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
+			}
 
-		Object postBody = convertRoomRequestDto;
+			Object postBody = convertRoomRequestDto;
 
-		final Map<String, Object> uriVariables = new HashMap<>();
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/room/revert").buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("/api/v1/room/revert").buildAndExpand(uriVariables).toUriString();
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-		headerParams.add("Cookie", "token=" + token);
+			headerParams.add("Cookie", "token=" + token);
 
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
 		};

@@ -10,6 +10,7 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString
 public class BookingFilterRequestDto {
+    private Set<String> userUuids;
     private Set<String> bookingIds;
     private Set<String> cityList;
     private Set<String> residenceList;
