@@ -27,4 +27,6 @@ public class InventoryPricingResponseDto {
 	private double vasServiceSSGT;
 	
 	private Double licenseFee;
+	private Double cityBufferPrice;
+
 }
