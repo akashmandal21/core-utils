@@ -35,4 +35,5 @@ public class TransferScanResponseDto {
     private String qrCode;
     private String locationName;
     private String vendorName;
+    private TransferScanStatus message;
 }
