@@ -27,7 +27,7 @@ public class LanguageApprovalRequestDto extends AbstractMongoDto {
     private List<AllRemarksResponseDto> bdRemarks;
 
     @NotNull
-    private String status;
+    private String propertyStatus;
 
     @Valid
     private List<DeviationDTO> deviationList;

@@ -26,7 +26,7 @@ public class LegalTemplateDTO extends AbstractMongoDto {
     private String document;
 
     @NotNull
-    private TemplateStatus status;
+    private TemplateStatus templateStatus;
 
     private String mappedPropertyTypeUUID;
 
