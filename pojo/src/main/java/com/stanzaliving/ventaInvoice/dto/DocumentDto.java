@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class DocumentDTO {
+public class DocumentDto {
 
     private InvoiceType type;
     private LocalDate fromDate;
