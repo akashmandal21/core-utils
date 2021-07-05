@@ -92,5 +92,4 @@ public class ResidenceUIDto implements Serializable {
 	private Double latitude;
 
 	private Double longitude;
-
 }

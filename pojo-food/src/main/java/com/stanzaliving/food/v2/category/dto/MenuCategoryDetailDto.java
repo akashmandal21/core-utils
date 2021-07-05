@@ -10,6 +10,7 @@ import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.category.constant.CategoryStatus;
+import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.grammage.category.response.CategoryGrammageBaseResponseDto;
 import com.stanzaliving.food.v2.menu.dto.DayWiseCogsDto;
 
@@ -47,6 +48,8 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private String fullName;
 	private List<MenuCategoryResidenceRDto> residences;
 	private int noOfResidenceServed;
+	private List<MicromarketRDto> mmServed;
+	private int noOfMmServed;
 
 
 	//approvalData
