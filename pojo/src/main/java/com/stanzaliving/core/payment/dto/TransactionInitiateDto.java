@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.Builder.Default;
 
 /**
  * @author naveen.kumar
@@ -34,4 +35,7 @@ public class TransactionInitiateDto {
 	private Integer amount;
 	
 	private String currency;
+	
+	@Default
+	private Boolean isEndUserPayingFee = false;
 }
