@@ -5,8 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Builder
@@ -17,9 +15,6 @@ public class RegisterEventResponseDTO {
 
     private String bookingID;
     private Date createdAt;
-    private String cta;
-    private String description;
-    private String title;
     private TransactionStatus transactionStatus;
     private String eventUUID;
     private String userUUID;

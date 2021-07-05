@@ -1,5 +1,6 @@
 package com.stanzaliving.community.request;
 
+import com.stanzaliving.community.enums.TransactionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,9 +15,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class RegisterEventRequestDTO {
     private String eventUUID;
-    private String cta;
-    private String description;
-    private String title;
     private String bookingId;
-    private String transactionStatus;
+    private TransactionStatus transactionStatus;
 }
