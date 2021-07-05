@@ -2,8 +2,7 @@ package com.stanzaliving.booking.dto.response;
 
 import java.util.List;
 
-import com.stanzaliving.booking.dto.BookingPaymentPlan;
-import com.stanzaliving.booking.dto.InstallmentPaymentPlan;
+import com.stanzaliving.booking.dto.InstalmentPaymentPlan;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PaymentPlanResponseDto {
 
-	private BookingPaymentPlan bookingPaymentPlan;
+    private Double totalAmount;
 
-    private List<InstallmentPaymentPlan> installments;
+    private List<InstalmentPaymentPlan> instalments;
 }

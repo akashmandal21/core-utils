@@ -28,7 +28,7 @@ public class TOItemDto {
     @JsonProperty("amount")
     private String amount;
 
-    @JsonProperty("hsnCod")
+    @JsonProperty("hsnCode")
     private String hsnCode;
 
     @JsonProperty("indiataxnature")

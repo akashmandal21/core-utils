@@ -61,11 +61,11 @@ public class POItemDto {
     @JsonProperty("rentperiodinmonths")
     private String rentPeriodInMonths;
 
-    /*@JsonProperty("porefundabledeposit")
+    @JsonProperty("porefundabledeposit")
     private String poRefundableDeposit;
 
     @JsonProperty("poitemsubtotal")
-    private String poItemSubTotal;*/
+    private String poItemSubTotal;
 
     @JsonProperty("feetype")
     private String feeType;

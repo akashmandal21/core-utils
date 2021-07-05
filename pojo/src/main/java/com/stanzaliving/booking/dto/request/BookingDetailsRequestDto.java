@@ -1,28 +1,26 @@
 package com.stanzaliving.booking.dto.request;
 
-import java.util.Date;
-
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
 import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.booking.enums.ReferenceType;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Date;
+
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookingDetailsRequestDto {
+public class BookingDetailsRequestDto implements Serializable {
 
-	@NotEmpty(message = "referenceId cannot be null or blank")
+	@NotNull(message = "referenceId cannot be null or blank")
 	private String referenceId;
 	
-	@Builder.Default
+	@NotNull(message = "reference type cannot be null or blank")
 	private ReferenceType referenceType = ReferenceType.BOOKING;
 	
 	@NotNull(message = "contractStartDate cannot be null")
@@ -30,8 +28,11 @@ public class BookingDetailsRequestDto {
 	
 	@NotNull(message = "contractEndDate cannot be null")
 	private Date contractEndDate;
+
+	private Date subContract1EndDate;
 	
 	@Builder.Default
+	@NotNull(message = "payment term cannot be null")
 	private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
 
 }

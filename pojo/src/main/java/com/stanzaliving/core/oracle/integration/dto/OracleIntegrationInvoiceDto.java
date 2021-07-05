@@ -58,5 +58,6 @@ public class OracleIntegrationInvoiceDto extends AbstractOracleDto {
     private BigDecimal retentionAmount;
     private String retentionDueDate;
     private List<OracleIntegrationInvoiceItemDto> itemList;
+    private String poNumber;
 
 }

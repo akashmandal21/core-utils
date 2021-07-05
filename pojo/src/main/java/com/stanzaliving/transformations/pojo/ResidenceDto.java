@@ -72,4 +72,6 @@ public class ResidenceDto extends AbstractDto {
 	private String company;
 
 	private String addressUuid;
+
+	private Boolean bookingStatus;
 }

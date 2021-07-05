@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class InstallmentPaymentPlan {
+public class InstalmentPaymentPlan {
 
-	private PaymentPlanResponseType type = PaymentPlanResponseType.INSTALLMENT;
+	private PaymentPlanResponseType type;
 
-	private Integer installmentNumber;
+	private String label;
 
 	private double amount;
 

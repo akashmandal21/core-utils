@@ -29,7 +29,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 
 @Log4j2
 public class GrnClientApi {
@@ -274,9 +273,11 @@ public class GrnClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, null, toFetchRequestDto, headerParams, accept, returnType);
     }
-    public ResponseDto<Set<String>> getPendingGsriPoUuids() {
+
+    public ResponseDto<List<String>> getPendingGsriPoUuids(Boolean isPo) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("isPo", isPo);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -286,9 +287,9 @@ public class GrnClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/get/pending/gsri/poUuids").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/pending/gsri/poUuids/{isPo}").buildAndExpand(uriVariables).toUriString();
 
-        ParameterizedTypeReference<ResponseDto<Set<String>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<String>>>() {
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);

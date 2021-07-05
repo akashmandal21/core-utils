@@ -141,5 +141,8 @@ public class FilixOracleIntegrationItemDto extends AbstractOracleDto {
 
     @JsonProperty("incomeAccount1")
     private String incomeAccount1;
+    
+    @JsonProperty("itemType")
+    private String itemType;
 
 }

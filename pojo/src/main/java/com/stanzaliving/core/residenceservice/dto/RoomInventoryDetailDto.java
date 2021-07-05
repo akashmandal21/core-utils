@@ -26,4 +26,8 @@ public class RoomInventoryDetailDto {
     private boolean isRoomConvertible;
 
     private String residenceUUID;
+
+    private int totalOccupancy;
+
+    private int convertedOccupancy;
 }
