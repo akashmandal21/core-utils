@@ -6,8 +6,9 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum FeeCollectionStrategy {
-    ONE_TIME_UPFRONT("One Time Upfront"),
-    MONTHLY_PAYMENTS("Monthly Payment");
+	
+	MONTHLY("Monthly"),
+	ONE_TIME_UPFRONT("One time upfront");
 
    private String strategy;
 }
