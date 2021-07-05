@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class InstallmentPaymentPlan {
+public class InstalmentPaymentPlan {
 
 	private PaymentPlanResponseType type;
 

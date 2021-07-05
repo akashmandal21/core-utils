@@ -10,15 +10,7 @@ import lombok.NoArgsConstructor;
 public enum PaymentPlanResponseType {
 
     BOOKING("Booking Amount"),
-    INSTALLMENT("Installment");
+    INSTALMENT("Instalment");
 
     private String name;
-
-    /*PaymentPlanResponseType(String name) {
-        this.name = name;
-    }*/
-
-    public String getName() {
-        return name;
-    }
 }
