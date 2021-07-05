@@ -4,6 +4,7 @@ import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import com.stanzaliving.core.residenceservice.dto.*;
 
 import java.io.IOException;
@@ -496,11 +497,13 @@ public class ResidenceDataControllerApi {
 		}
 
 		Map<String, Object> uriVariables = new HashMap();
-
+		
 		String path = UriComponentsBuilder.fromPath("/api/v1/room/").buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
-		queryParams.add("roomUuid", queryParams.toString());
+		roomUUID.forEach(room->{
+	    queryParams.add("roomUuid", room);
+		});
 		
 		HttpHeaders headerParams = new HttpHeaders();
 
