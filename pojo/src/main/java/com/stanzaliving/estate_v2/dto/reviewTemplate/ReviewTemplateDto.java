@@ -1,5 +1,6 @@
 package com.stanzaliving.estate_v2.dto.reviewTemplate;
 
+import com.stanzaliving.estate_v2.dto.KeyValueDto;
 import com.stanzaliving.estate_v2.dto.questionTemplate.ApplicableStatusesDto;
 import lombok.*;
 
@@ -17,6 +18,7 @@ public class ReviewTemplateDto {
     private String propertyTypeUuid;
     private String propertyTypeName;
     private String templateStatus;
+    private List<KeyValueDto> roles;
     private List<ApplicableStatusesDto> propertyStatuses;
     private List<OtherInformationDto> otherInformation;
     private List<LayoutDto> layouts;

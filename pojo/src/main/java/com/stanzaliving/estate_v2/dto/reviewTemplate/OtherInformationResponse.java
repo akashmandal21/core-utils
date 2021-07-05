@@ -12,5 +12,6 @@ import java.util.List;
 public class OtherInformationResponse {
     private String label;
     private List<String> answers;
+    private String answerId;
     private String icon;
 }
