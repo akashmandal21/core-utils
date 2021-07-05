@@ -53,7 +53,8 @@ public class SendEmailDto {
     private String[] removeWhiteSpaces(String[] arr) {
 
         if (ArrayUtils.isNotEmpty(arr)) {
-            return Arrays.stream(arr).filter(StringUtils::isNotBlank).map(String::trim).filter(StanzaUtils::isValidEmail).toArray(String[]::new);
+            return Arrays.stream(arr).filter(StringUtils::isNotBlank).map(String::trim)
+                    .filter(StanzaUtils::isValidEmail).toArray(String[]::new);
         }
 
         return new String[] {};
