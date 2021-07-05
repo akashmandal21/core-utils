@@ -24,6 +24,4 @@ public class PaymentModeDto {
 	private String paymentModeText;
 	
 	private boolean enabled;
-	
-	private Boolean isEndUserPayingFee;
 }
