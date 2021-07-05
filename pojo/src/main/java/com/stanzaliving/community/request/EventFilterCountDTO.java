@@ -18,6 +18,6 @@ public class EventFilterCountDTO {
     private List<String> categoryUuid;
     private Date startDate;
     private Date endDate;
-    private Long startPrice;
-    private Long endPrice;
+    private Long minPrice;
+    private Long maxPrice;
 }

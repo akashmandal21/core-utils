@@ -1,5 +1,6 @@
 package com.stanzaliving.community.response;
 
+import com.stanzaliving.community.enums.TransactionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +20,8 @@ public class RegisterEventResponseDTO {
     private String cta;
     private String description;
     private String title;
-    private String transactionStatus;
+    private TransactionStatus transactionStatus;
     private String eventUUID;
     private String userUUID;
+    private EventResponseAppDTO eventDetails;
 }
