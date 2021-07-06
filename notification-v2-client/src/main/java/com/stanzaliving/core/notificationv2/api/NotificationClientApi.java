@@ -184,7 +184,7 @@ public class NotificationClientApi {
         return responseDto.getData();
     }
 
-    public void terminateNotification(Long notificationId) {
+    public void terminateNotification(String notificationId) {
 
         Object postBody = null;
 

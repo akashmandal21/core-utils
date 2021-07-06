@@ -18,34 +18,34 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NotificationRegistryDto {
-    Long id;
+    private String uuid;
 
     @NotBlank(message = "App Id cannot be empty or null")
-    String appName;
+    private String appName;
 
-    String campaignId;
+    private String campaignId;
 
-    CampaignDashboardType campaignDashboardType;
+    private CampaignDashboardType campaignDashboardType;
 
-    TemplateLayout templateLayout;
+    private TemplateLayout templateLayout;
 
-    String title;
+    private String title;
 
-    String message;
+    private String message;
 
-    String callToActionUrl;
+    private String callToActionUrl;
 
-    String imageUrl;
+    private String imageUrl;
 
-    SchedulingDto scheduledAt;
+    private SchedulingDto scheduledAt;
 
-    CampaignAudienceDto campaignAudience;
+    private CampaignAudienceDto campaignAudience;
 
-    Long timeToLive;
+    private Long timeToLive;
 
-    List<UserParams> userParamsList;
+    private List<UserParams> userParamsList;
 
-    Map<String, String> data;
+    private Map<String, String> data;
 
-    Map<String, String> eventsData;
+    private Map<String, String> eventsData;
 }
