@@ -184,13 +184,13 @@ public class NotificationClientApi {
         return responseDto.getData();
     }
 
-    public void terminateNotification(Long notificationId) {
+    public void terminateNotification(String uuid) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("id", notificationId);
+        uriVariables.put("id", uuid);
         String path =
                 UriComponentsBuilder.fromPath("/api/v1/notification/{id}")
                         .buildAndExpand(uriVariables)
