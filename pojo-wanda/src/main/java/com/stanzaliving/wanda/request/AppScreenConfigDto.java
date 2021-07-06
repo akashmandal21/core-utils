@@ -1,5 +1,8 @@
 package com.stanzaliving.wanda.request;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import com.stanzaliving.banner.enumeration.AppPage;
 
 import lombok.AllArgsConstructor;
@@ -21,8 +24,10 @@ public class AppScreenConfigDto {
 
         private AppPage appPage;
 
-        private int position;
+        @NotNull
+        private Integer position;
 
+        @NotBlank
         private String sectionName;
         
         private boolean status;
