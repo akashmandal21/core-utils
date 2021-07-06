@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 
+@Data
 @Builder
 @Getter
 @Setter
@@ -15,4 +16,5 @@ public class CreditAttributionDto {
     private LocalDate toDate;
     private Double amount;
     private Split split;
+
 }

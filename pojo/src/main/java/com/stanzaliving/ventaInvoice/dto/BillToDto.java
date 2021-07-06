@@ -11,14 +11,16 @@ import lombok.Setter;
 @AllArgsConstructor
 public class BillToDto {
 
-    private long billToId;
+    private String residentId;
     private String firstName;
     private String lastName;
-    private AddressDto address; //doubt with this
+    private String addressLine1;
+    private String addressLine2;
     private String email;
     private String phoneNumber;
-    private String cityId;
+    private String cityName;
     private String residenceId;
+    private String cityId;
     private String microMarketId;
 
 }

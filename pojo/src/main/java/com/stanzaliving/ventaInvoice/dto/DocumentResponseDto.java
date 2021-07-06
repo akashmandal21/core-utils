@@ -12,15 +12,17 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class DocumentDto {
+public class DocumentResponseDto {
 
+    private String stateCode;
+    private String rentLedgerNarration;
     private InvoiceType type;
     private LocalDate fromDate;
     private LocalDate toDate;
     private LocalDate issueDate;
-    private Double amount;
-    private String categoryName;
-    private String subCategoryName;
+    private Double totalAmount;
+    private CategoryDto category;
+    private SubCategoryDto subCategory;
     private ReferenceType referenceType;
     private String serviceType;
     private String remarks;
@@ -28,13 +30,10 @@ public class DocumentDto {
     private String fileName;
     private String parentId;
     private String stanzaDocumentId;
-    private float cgstAmount;
-    private float sgstAmount;
-    private float igstAmount;
-    private Double lineAmount;
+    private DocumentLineItemDto documentLineItemDto;
     private Double invoiceAmount;
     private List<CreditAttributionDto> creditAttribution;
-    private String billToName;
-    private String residenceAddress;
-    private String stayDetails;
+    private BillToDto billTo;
+    private ResidenceDto residence;
+
 }
