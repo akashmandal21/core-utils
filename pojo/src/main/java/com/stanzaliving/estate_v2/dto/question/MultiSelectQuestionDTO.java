@@ -16,13 +16,10 @@ public class MultiSelectQuestionDTO implements QuestionDetails {
     private String questionName;
     private String displayType;
     private boolean random;
-    private List<String> questionComponents;
+    private List<QuestionComponentDto> questionComponents;
     private String cardType;
-    private String imageLink;
     private String position;
     private String onSelectionCardColor;
     private String onSelectionIconColor;
     private String imageAndRemark;
-    private Integer maxFiles;
-    private Integer maxSize;
 }

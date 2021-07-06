@@ -16,14 +16,10 @@ public class SingleSelectQuestionDTO implements QuestionDetails {
     private String displayType;
     private String questionName;
     private boolean random;
-    private List<String> questionComponents;
+    private List<QuestionComponentDto> questionComponents;
     private String cardType;
-    private String imageLink;
     private String position;
     private String onSelectionCardColor;
     private String onSelectionIconColor;
     private String imageAndRemark;
-    private Integer maxFiles;
-    private Integer maxSize;
-
 }
