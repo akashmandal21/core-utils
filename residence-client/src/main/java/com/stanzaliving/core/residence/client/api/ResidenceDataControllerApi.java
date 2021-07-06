@@ -574,7 +574,7 @@ public class ResidenceDataControllerApi {
 
 	}
 	
-	public List<ResidenceLockInDto> getResidenceLockInData(String residenceUuid,
+	public ResidenceLockInDto getResidenceLockInData(String residenceUuid,
 			String contractStartDate) {
 
 		log.info("get list of ResidenceLockInDto form residenceUuid {} and contractStartDate {}", residenceUuid,
@@ -596,7 +596,7 @@ public class ResidenceDataControllerApi {
 
 		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<List<ResidenceLockInDto>> returnType = new ParameterizedTypeReference<List<ResidenceLockInDto>>() {
+		ParameterizedTypeReference<ResidenceLockInDto> returnType = new ParameterizedTypeReference<ResidenceLockInDto>() {
 		};
 
 		try {
