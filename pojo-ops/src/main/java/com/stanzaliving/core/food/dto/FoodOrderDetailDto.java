@@ -1,23 +1,15 @@
 package com.stanzaliving.core.food.dto;
 
+import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
+import com.stanzaliving.core.operations.enums.MealType;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
-
-import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
-import com.stanzaliving.core.operations.enums.MealType;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -30,6 +22,8 @@ public class FoodOrderDetailDto {
 	private String residenceFoodMenuId;
 
 	private MealType mealType;
+	private String mealId;
+	private String mealGroup;
 
 	private String mealName;
 

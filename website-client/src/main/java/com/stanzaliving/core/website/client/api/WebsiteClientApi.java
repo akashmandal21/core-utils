@@ -6,6 +6,7 @@ package com.stanzaliving.core.website.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -18,6 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.website.response.dto.ElasticsearchRequestDTO;
 import com.stanzaliving.website.response.dto.LeadVisitResponseDTO;
+import com.stanzaliving.website.response.dto.ResidenceResponseShortDTO;
 
 /**
  * s

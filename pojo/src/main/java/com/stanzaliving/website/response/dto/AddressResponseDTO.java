@@ -1,28 +1,21 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.website.response.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class AddressResponseDTO {
+public class AddressResponseDTO implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private int addressId;
 	private String line1;
 	private String line2;
@@ -32,5 +25,6 @@ public class AddressResponseDTO {
 	private String cityName;
 	private double latitude;
 	private double longitude;
-
+	private String phone;
+	private String mobile;
 }
