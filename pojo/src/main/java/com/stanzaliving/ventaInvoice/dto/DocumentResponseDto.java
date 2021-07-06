@@ -13,6 +13,8 @@ import java.util.List;
 @Setter
 @ToString
 public class DocumentResponseDto {
+    private String uuid;
+    private Long id;
     private String stateCode;
     private String rentLedgerNarration;
     private InvoiceType invoiceType;
