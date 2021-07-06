@@ -21,4 +21,6 @@ public class ResponseDocumentDto {
     private String referenceId;
     private String residenceName;
     private String invoiceUuid;
+    private String type;
+
 }
