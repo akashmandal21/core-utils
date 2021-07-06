@@ -14,6 +14,8 @@ import java.util.List;
 @ToString
 public class DocumentDto {
 
+    private String stateCode;
+    private String rentLedgerNarration;
     private InvoiceType type;
     private LocalDate fromDate;
     private LocalDate toDate;
