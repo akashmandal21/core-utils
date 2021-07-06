@@ -1,19 +1,14 @@
 package com.stanzaliving.core.residence.client.api;
 
-import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.exception.StanzaException;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.residenceservice.dto.*;
-
-import java.io.IOException;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
 import com.stanzaliving.residenceservice.BookingAttributesDto;
+=======
+>>>>>>> 5e9865d0e15b9c7ab9801818c6d093f51ebd9836
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,9 +18,26 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.residenceservice.dto.AdvanceRoomSearchDto;
+import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
+import com.stanzaliving.core.residenceservice.dto.ConvertRoomPricesDto;
+import com.stanzaliving.core.residenceservice.dto.ConvertRoomRequestDto;
+import com.stanzaliving.core.residenceservice.dto.MoveInDateDto;
+import com.stanzaliving.core.residenceservice.dto.OccupanciesFloorsStatusCountSearchDto;
+import com.stanzaliving.core.residenceservice.dto.PricingDetailsResponseDto;
+import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
+import com.stanzaliving.core.residenceservice.dto.ResidenceInfoDto;
+import com.stanzaliving.core.residenceservice.dto.ResidenceLockInDto;
+import com.stanzaliving.core.residenceservice.dto.RoomCardDetailDto;
+import com.stanzaliving.core.residenceservice.dto.RoomDetailsResponseDto;
+import com.stanzaliving.core.residenceservice.dto.RoomInventoryDetailDto;
+import com.stanzaliving.core.residenceservice.dto.RoomNumberListingAndCountDto;
+import com.stanzaliving.core.residenceservice.dto.ServiceMixDto;
 
 public class ResidenceDataControllerApi {
     private static final Logger log = LogManager.getLogger(ResidenceDataControllerApi.class);
@@ -565,6 +577,7 @@ public class ResidenceDataControllerApi {
 		return null;
 
 	}
+<<<<<<< HEAD
 
 	public ResponseDto<List<BookingAttributesDto>> getResidenceBookingAttributes(String residenceUuid) {
 		log.info("Residence-Attributes-Controller::Processing to fetch residence booking attributes on residence id {}", residenceUuid);
@@ -594,4 +607,40 @@ public class ResidenceDataControllerApi {
 			return null;
 		}
 	}
+=======
+	
+	public ResidenceLockInDto getResidenceLockInData(String residenceUuid,
+			String contractStartDate) {
+
+		log.info("get list of ResidenceLockInDto form residenceUuid {} and contractStartDate {}", residenceUuid,
+				contractStartDate);
+
+		Map<String, Object> uriVariables = new HashMap<String, Object>();
+
+		uriVariables.put("residenceUuid", residenceUuid);
+		uriVariables.put("contractStartDate", contractStartDate);
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/lockIn/tenure/{residenceUuid}/{contractStartDate}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		String[] accepts = new String[] { "*/*" };
+
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResidenceLockInDto> returnType = new ParameterizedTypeReference<ResidenceLockInDto>() {
+		};
+
+		try {
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception var10) {
+			log.error("Exception while fetching list of ResidenceLockInDto form residenceUuid {}", residenceUuid);
+			return null;
+		}
+	}
+
+>>>>>>> 5e9865d0e15b9c7ab9801818c6d093f51ebd9836
 }

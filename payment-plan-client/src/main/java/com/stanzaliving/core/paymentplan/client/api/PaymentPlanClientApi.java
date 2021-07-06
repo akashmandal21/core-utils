@@ -23,7 +23,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.paymentPlan.dto.PaymentPlan;
 
-import dto.MonthlyBreakupResponseDTO;
+import dto.CommercialsDetailsResponseDTO;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -69,11 +69,11 @@ public class PaymentPlanClientApi {
 
 	}
 
-	public ResponseDto<MonthlyBreakupResponseDTO> getMonthlyBreakup(String bookingId, Date contractStartDate,
-			Date fromDate) {
+	public ResponseDto<CommercialsDetailsResponseDTO> getCommercialDetails(String bookingId, Date contractStartDate,
+																		Date fromDate) {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("bookingId", bookingId);
-		String path = UriComponentsBuilder.fromPath("/internal/api/v1/monthly-breakup/get/{bookingId}")
+		String path = UriComponentsBuilder.fromPath("/internal/api/v1/commercials/get/{bookingId}")
 				.buildAndExpand(uriVariables).toUriString();
 		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -82,12 +82,11 @@ public class PaymentPlanClientApi {
 		HttpHeaders headerParams = new HttpHeaders();
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-		ParameterizedTypeReference<ResponseDto<MonthlyBreakupResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<MonthlyBreakupResponseDTO>>() {
+		ParameterizedTypeReference<ResponseDto<CommercialsDetailsResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<CommercialsDetailsResponseDTO>>() {
 		};
 		try {
-			ResponseDto<MonthlyBreakupResponseDTO> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams,
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams,
 					null, headerParams, accept, returnType);
-			return responseDto;
 		} catch (Exception e) {
 			log.error("error while fetching the monthly break up {}", e.getMessage());
 			return null;
