@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum FeeCollectionStrategy {
 	
 	MONTHLY("Monthly"),
-	ONE_TIME_UPFRONT("One time upfront");
+	ONE_TIME_UPFRONT("One Time Upfront");
 
    private String strategy;
 }
