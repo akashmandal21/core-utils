@@ -12,6 +12,8 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.stanzaliving.residenceservice.BookingAttributesDto;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -562,5 +564,34 @@ public class ResidenceDataControllerApi {
  //todo: check log
 		return null;
 
+	}
+
+	public ResponseDto<List<BookingAttributesDto>> getResidenceBookingAttributes(String residenceUuid) {
+		log.info("Residence-Attributes-Controller::Processing to fetch residence booking attributes on residence id {}", residenceUuid);
+
+		Map<String, Object> uriVariables = new HashMap();
+
+		uriVariables.put("residenceUuid", residenceUuid);
+
+		String path = UriComponentsBuilder.fromPath("/internal/booking-attributes/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		String[] accepts = new String[]{"*/*"};
+
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<BookingAttributesDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<BookingAttributesDto>>>() {
+				};
+
+		try {
+			return (ResponseDto)this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object)null, headerParams, accept, returnType);
+		} catch (Exception var10) {
+			log.error("Exception while fetching list of booking attributes for residenceUuid {}", residenceUuid);
+			return null;
+		}
 	}
 }
