@@ -4,11 +4,11 @@
 package com.stanzaliving.core.paymentplan.client.api;
 
 import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
+import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.paymentPlan.dto.PaymentPlan;
-import dto.CommercialsDetailsResponseDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -67,16 +67,14 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<CommercialsDetailsResponseDTO> getCommercialDetails(String bookingId, Date contractStartDate,
-                                                                           Date fromDate) {
+    public ResponseDto<CommercialsDetailsResponseDTO> getCommercialDetails(String bookingId, Date fromDate) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingId", bookingId);
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/commercials/get/{bookingId}")
                 .buildAndExpand(uriVariables).toUriString();
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        if (contractStartDate != null && fromDate != null) {
-            queryParams.add("contractStartDate", date.format(contractStartDate));
+        if (fromDate != null) {
             queryParams.add("fromDate", date.format(fromDate));
         }
         HttpHeaders headerParams = new HttpHeaders();
