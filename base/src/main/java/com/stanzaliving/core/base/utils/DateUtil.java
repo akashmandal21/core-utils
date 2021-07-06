@@ -767,7 +767,7 @@ public class DateUtil {
 
 		return date.with(TemporalAdjusters.next(day));
 	}
-
+	
 	 public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
 	        Calendar calStart = Calendar.getInstance();
 	        calStart.setTime(fromDate);
@@ -1020,4 +1020,9 @@ public class DateUtil {
 		}
 		return month;
 	}
+
+	public boolean isBetween(LocalDate checkDate, LocalDate startDate, LocalDate endDate) {
+		return !checkDate.isBefore(startDate) && !checkDate.isAfter(endDate);
+	}
+
 }

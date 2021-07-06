@@ -94,6 +94,10 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String seoDescription;
 	
+	private String transformationUuid;
+	
+	private String transformationId;
+	
 	private AddressResponseDTO address;
 	
 	@Builder.Default
