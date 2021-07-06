@@ -7,6 +7,7 @@ import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.estate.enums.EstateGender;
 import com.stanzaliving.core.food.enums.FoodPreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.operations.enums.DealCategory;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -41,6 +42,10 @@ public class ResidenceConfigDto {
 	private String menuCategoryId;
 	
 	private String menuCategoryName;
+
+	private String dealUuid;
+
+	private DealCategory dealCategory;
 
 	private ResidenceBrand residenceBrand;
 

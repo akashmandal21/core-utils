@@ -5,7 +5,9 @@ package com.stanzaliving.core.user.client.api;
 
 import java.util.*;
 
+import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
+import com.stanzaliving.core.user.dto.*;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -330,7 +332,7 @@ public class UserClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("roleName", userRoleSearchDto.getRoleName());
 		uriVariables.put("department", userRoleSearchDto.getDepartment());
-		uriVariables.put("accessLevelId", userRoleSearchDto.getAccessLevelId());
+		uriVariables.put("accessLevelId", userRoleSearchDto.getAccessLevelId().replaceAll("\'",""));
 
 		String path = UriComponentsBuilder.fromPath("/internal/acl/usercontactdetails/{department}/{roleName}/{accessLevelId}")
 				.buildAndExpand(uriVariables)
@@ -347,7 +349,7 @@ public class UserClientApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryMap, null, headerParams, accept, userContactResponse);
 		} catch (Exception e) {
-			log.error("exception while fetching contact detials from user service", e);
+			log.error("exception while fetching contact details from user service", e);
 			return null;
 		}
 	}
@@ -475,6 +477,70 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		}
+		catch (Exception ex) {
+			return null;
+		}
 	}
+
+	public ResponseDto<List<UserRoleCacheDto>> getCacheableRoles(List<String> userRoles) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/accesslevel/cachemaps").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<UserRoleCacheDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserRoleCacheDto>>>() {
+		};
+
+		postBody = userRoles;
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public ResponseDto<Map<String, UserProfileDto>> getUserProfileForUsers(List<String> userIds) {
+
+		Object postBody = null;
+		
+		log.info("userIds for geting UserProfileDto is {}", userIds);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/userprofiles").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>>() {
+		};
+
+		UserManagerProfileRequestDto userManagerProfileRequestDto = new UserManagerProfileRequestDto();
+		userManagerProfileRequestDto.setUserUuids(userIds);
+
+		postBody = userManagerProfileRequestDto;
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+
 }

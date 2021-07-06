@@ -20,3 +20,7 @@ public class LocationDto extends AbstractDto {
     private AccessLevel accessLevel;
 
 }
+
+
+
+

@@ -36,241 +36,261 @@ public class MonthlyForcastCsvDto implements Serializable {
 	@CsvBindByPosition(position = 4)
 	@CsvBindByName(column = "ActualOccupancy")
 	private Double actualOccupancy;
-
+	
 	@CsvBindByPosition(position = 5)
+	@CsvBindByName(column = "RoomOccupancy")
+	private Double roomOccupancy;
+
+	@CsvBindByPosition(position = 6)
 	@CsvBindByName(column = "AopOccupancy")
 	private Double aopOccupancy;
 
-	@CsvBindByPosition(position = 6)
+	@CsvBindByPosition(position = 7)
 	@CsvBindByName(column = "Food")
 	private Double food;
 
-	@CsvBindByPosition(position = 7)
+	@CsvBindByPosition(position = 8)
 	@CsvBindByName(column = "FoodHolidays")
 	private Double foodHolidays;
 
-	@CsvBindByPosition(position = 8)
+	@CsvBindByPosition(position = 9)
 	@CsvBindByName(column = "FoodUtil")
 	private Double foodUtil;
 
-	@CsvBindByPosition(position = 9)
+	@CsvBindByPosition(position = 10)
 	@CsvBindByName(column = "FoodMenuPricePerDay")
 	private Double foodMenuPricePerDay;
 
-	@CsvBindByPosition(position = 10)
+	@CsvBindByPosition(position = 11)
 	@CsvBindByName(column = "Electricity")
 	private Double electricity;
 
-	@CsvBindByPosition(position = 11)
+	@CsvBindByPosition(position = 12)
 	@CsvBindByName(column = "ElectricityFixedCharges")
 	private Double electricityFixedCharges;
 
-	@CsvBindByPosition(position = 12)
+	@CsvBindByPosition(position = 13)
 	@CsvBindByName(column = "ElectricityVariableCharges")
 	private Double electricityVariableCharges;
 
-	@CsvBindByPosition(position = 13)
+	@CsvBindByPosition(position = 14)
 	@CsvBindByName(column = "Water")
 	private Double water;
 
-	@CsvBindByPosition(position = 14)
+	@CsvBindByPosition(position = 15)
 	@CsvBindByName(column = "WaterFixedCharges")
 	private Double waterFixedCharges;
 
-	@CsvBindByPosition(position = 15)
+	@CsvBindByPosition(position = 16)
 	@CsvBindByName(column = "WaterVariableCharges")
 	private Double waterVariableCharges;
 
-	@CsvBindByPosition(position = 16)
+	@CsvBindByPosition(position = 17)
 	@CsvBindByName(column = "DG")
 	private Double dg;
 
-	@CsvBindByPosition(position = 17)
+	@CsvBindByPosition(position = 18)
 	@CsvBindByName(column = "Housekeeping")
 	private Double housekeeping;
 
-	@CsvBindByPosition(position = 18)
+	@CsvBindByPosition(position = 19)
 	@CsvBindByName(column = "HousekeepingHK8hrs")
 	private Double housekeepingHK8hrs;
 
-	@CsvBindByPosition(position = 19)
+	@CsvBindByPosition(position = 20)
 	@CsvBindByName(column = "HousekeepingHK12hrs")
 	private Double housekeepingHK12hrs;
 
-	@CsvBindByPosition(position = 20)
+	@CsvBindByPosition(position = 21)
 	@CsvBindByName(column = "HousekeepingHKCT")
 	private Double housekeepingHKCT;
 
-	@CsvBindByPosition(position = 21)
+	@CsvBindByPosition(position = 22)
 	@CsvBindByName(column = "Security")
 	private Double security;
 
-	@CsvBindByPosition(position = 22)
+	@CsvBindByPosition(position = 23)
 	@CsvBindByName(column = "SecurityInHouseSecurity")
 	private Double securityInHouseSecurity;
 
-	@CsvBindByPosition(position = 23)
+	@CsvBindByPosition(position = 24)
 	@CsvBindByName(column = "SecurityInSecurity")
 	private Double securityInSecurity;
 
-	@CsvBindByPosition(position = 24)
+	@CsvBindByPosition(position = 25)
 	@CsvBindByName(column = "Personnel")
 	private Double personnel;
 
-	@CsvBindByPosition(position = 25)
+	@CsvBindByPosition(position = 26)
 	@CsvBindByName(column = "PersonnelRC")
 	private Double personnelRC;
 
-	@CsvBindByPosition(position = 26)
+	@CsvBindByPosition(position = 27)
 	@CsvBindByName(column = "PersonnelOE")
 	private Double personnelOE;
 
-	@CsvBindByPosition(position = 27)
+	@CsvBindByPosition(position = 28)
 	@CsvBindByName(column = "Internet")
 	private Double internet;
 
-	@CsvBindByPosition(position = 28)
+	@CsvBindByPosition(position = 29)
 	@CsvBindByName(column = "Laundry")
 	private Double laundry;
 
-	@CsvBindByPosition(position = 29)
+	@CsvBindByPosition(position = 30)
 	@CsvBindByName(column = "Supplies")
 	private Double supplies;
 
-	@CsvBindByPosition(position = 30)
+	@CsvBindByPosition(position = 31)
 	@CsvBindByName(column = "SuppliesDTH")
 	private Double suppliesDTH;
 
-	@CsvBindByPosition(position = 31)
+	@CsvBindByPosition(position = 32)
 	@CsvBindByName(column = "SuppliesGeneralSupplies")
 	private Double suppliesGeneralSupplies;
 
-	@CsvBindByPosition(position = 32)
+	@CsvBindByPosition(position = 33)
 	@CsvBindByName(column = "SuppliesCleaningChemicals")
 	private Double suppliesCleaningChemicals;
 
-	@CsvBindByPosition(position = 33)
+	@CsvBindByPosition(position = 34)
 	@CsvBindByName(column = "SuppliesCleaningEquipments")
 	private Double suppliesCleaningEquipments;
 
-	@CsvBindByPosition(position = 34)
+	@CsvBindByPosition(position = 35)
 	@CsvBindByName(column = "RepairAndMaintenance")
 	private Double repairAndMaintenance;
 
-	@CsvBindByPosition(position = 35)
+	@CsvBindByPosition(position = 36)
 	@CsvBindByName(column = "RepairAndMaintenance_AMCCost")
 	private Double repairAndMaintenance_AMCCost;
 
-	@CsvBindByPosition(position = 36)
+	@CsvBindByPosition(position = 37)
 	@CsvBindByName(column = "RepairAndMaintenanceManpower")
 	private Double repairAndMaintenanceManpower;
 
-	@CsvBindByPosition(position = 37)
+	@CsvBindByPosition(position = 38)
 	@CsvBindByName(column = "RepairAndMaintenanceMaterialCost")
 	private Double repairAndMaintenanceMaterialCost;
 
-	@CsvBindByPosition(position = 38)
+	@CsvBindByPosition(position = 39)
 	@CsvBindByName(column = "BuildingMaintenance")
 	private Double buildingMaintenance;
 
-	@CsvBindByPosition(position = 39)
+	@CsvBindByPosition(position = 40)
 	@CsvBindByName(column = "BuildingMaintenancePestControl")
 	private Double buildingMaintenancePestControl;
 
-	@CsvBindByPosition(position = 40)
+	@CsvBindByPosition(position = 41)
 	@CsvBindByName(column = "BuildingMaintenanceFloorCleaning")
 	private Double buildingMaintenanceFloorCleaning;
 
-	@CsvBindByPosition(position = 41)
+	@CsvBindByPosition(position = 42)
 	@CsvBindByName(column = "BuildingMaintenanceOverheadTankCleaning")
 	private Double buildingMaintenanceOverheadTankCleaning;
 
-	@CsvBindByPosition(position = 42)
+	@CsvBindByPosition(position = 43)
 	@CsvBindByName(column = "BuildingMaintenanceUndergroundTankCleaning")
 	private Double buildingMaintenanceUndergroundTankCleaning;
 
-	@CsvBindByPosition(position = 43)
+	@CsvBindByPosition(position = 44)
 	@CsvBindByName(column = "BuildingMaintenanceFascadeCleaning")
 	private Double buildingMaintenanceFascadeCleaning;
 
-	@CsvBindByPosition(position = 44)
+	@CsvBindByPosition(position = 45)
 	@CsvBindByName(column = "BuildingMaintenanceUpholestryCleaning")
 	private Double buildingMaintenanceUpholestryCleaning;
 
-	@CsvBindByPosition(position = 45)
+	@CsvBindByPosition(position = 46)
 	@CsvBindByName(column = "BuildingMaintenanceFumigationBedbugs")
 	private Double buildingMaintenanceFumigationBedbugs;
 
-	@CsvBindByPosition(position = 46)
+	@CsvBindByPosition(position = 47)
 	@CsvBindByName(column = "BuildingMaintenanceGarbageCollection")
 	private Double buildingMaintenanceGarbageCollection;
 
-	@CsvBindByPosition(position = 47)
+	@CsvBindByPosition(position = 48)
 	@CsvBindByName(column = "Audit")
 	private Double audit;
 
-	@CsvBindByPosition(position = 48)
+	@CsvBindByPosition(position = 49)
 	@CsvBindByName(column = "AuditCCTV")
 	private Double auditCCTV;
 
-	@CsvBindByPosition(position = 49)
+	@CsvBindByPosition(position = 50)
 	@CsvBindByName(column = "AuditPhysical")
 	private Double auditPhysical;
 
-	@CsvBindByPosition(position = 50)
+	@CsvBindByPosition(position = 51)
 	@CsvBindByName(column = "UniformCosts")
 	private Double uniformCosts;
 
-	@CsvBindByPosition(position = 51)
+	@CsvBindByPosition(position = 52)
 	@CsvBindByName(column = "UniformCostsHousekeeping")
 	private Double uniformCostsHousekeeping;
 
-	@CsvBindByPosition(position = 52)
+	@CsvBindByPosition(position = 53)
 	@CsvBindByName(column = "uniformCostsRC_OE")
 	private Double uniformCostsRC_OE;
 
-	@CsvBindByPosition(position = 53)
+	@CsvBindByPosition(position = 54)
 	@CsvBindByName(column = "Transport")
 	private Double transport;
 
-	@CsvBindByPosition(position = 54)
+	@CsvBindByPosition(position = 55)
 	@CsvBindByName(column = "EquipmentRental")
 	private Double equipmentRental;
 
-	@CsvBindByPosition(position = 55)
+	@CsvBindByPosition(position = 56)
 	@CsvBindByName(column = "EquipmentRentalRoomDTH")
 	private Double equipmentRentalRoomDTH;
 
-	@CsvBindByPosition(position = 56)
+	@CsvBindByPosition(position = 57)
 	@CsvBindByName(column = "EquipmentRentalVendingMachine")
 	private Double equipmentRentalVendingMachine;
 
-	@CsvBindByPosition(position = 57)
+	@CsvBindByPosition(position = 58)
 	@CsvBindByName(column = "EquipmentRentalCoffeeMachine")
 	private Double equipmentRentalCoffeeMachine;
 
-	@CsvBindByPosition(position = 58)
+	@CsvBindByPosition(position = 59)
 	@CsvBindByName(column = "EquipmentRentalWashingMachine")
 	private Double equipmentRentalWashingMachine;
 
-	@CsvBindByPosition(position = 59)
+	@CsvBindByPosition(position = 60)
 	@CsvBindByName(column = "EquipmentRentalMicrowave")
 	private Double equipmentRentalMicrowave;
 
-	@CsvBindByPosition(position = 60)
+	@CsvBindByPosition(position = 61)
 	@CsvBindByName(column = "EquipmentRentalSingleDoorFridge")
 	private Double equipmentRentalSingleDoorFridge;
 
-	@CsvBindByPosition(position = 61)
+	@CsvBindByPosition(position = 62)
 	@CsvBindByName(column = "EquipmentRentalDoubleDoorFridge")
 	private Double equipmentRentalDoubleDoorFridge;
 
-	@CsvBindByPosition(position = 62)
+	@CsvBindByPosition(position = 63)
 	@CsvBindByName(column = "EquipmentRentalWaterDispenser")
 	private Double equipmentRentalWaterDispenser;
 
-	@CsvBindByPosition(position = 63)
+	@CsvBindByPosition(position = 64)
 	@CsvBindByName(column = "EquipmentRentalDryer")
 	private Double equipmentRentalDryer;
+
+	@CsvBindByPosition(position = 65)
+	@CsvBindByName(column = "EquipmentRentalAc")
+	private Double equipmentRentalAc;
+
+	@CsvBindByPosition(position = 66)
+	@CsvBindByName(column = "EquipmentRentalCommonGeyser")
+	private Double equipmentRentalCommonGeyser;
+
+	@CsvBindByPosition(position = 67)
+	@CsvBindByName(column = "EquipmentRentalRoomGeyser")
+	private Double equipmentRentalRoomGeyser;
+
+	@CsvBindByPosition(position = 68)
+	@CsvBindByName(column = "EquipmentRentalPowerBackup")
+	private Double equipmentRentalPowerBackup;
 
 }

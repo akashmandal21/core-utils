@@ -46,7 +46,9 @@ public enum DateFormat {
 	H_MM_A("h:mm a"),
 	FRESHDESK_DATE_FORMAT("yyyy-MM-dd'T'HH:mm:ssXXX"),
 	YYYY_MM_DD_T_HH_MM_SSXXX("yyyy-MM-dd'T'HH:mm:ssXXX"),
-	YYYY_MM_DD_HH_MM_SS("yyyy-MM-dd_HH-mm-ss");
+	YYYY_MM_DD_HH_MM_SS("yyyy-MM-dd_HH-mm-ss"),
+	E_MMM_DD_HH_MM_SS_Z_YYYY("E MMM dd HH:mm:ss Z yyyy"),
+	FILIX_ORACLE_FORMAT("dd/MM/YYYY");
 
 	private String value;
 

@@ -8,8 +8,16 @@
 	<url>http://www.stanzaliving.com</url>
 
 	<inceptionYear>2019</inceptionYear>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
-	<parent>
+    <parent>
 		<groupId>com.stanzaliving.core</groupId>
 		<artifactId>stanza-parent</artifactId>
 		<version>1.0.0</version>
@@ -24,6 +32,7 @@
 		<module>pojo</module>
 		<module>pojo-ops</module>
 		<module>pojo-wanda</module>
+        <module>pojo-generic-approval</module>
 		<module>security</module>
 		<module>properties</module>
 		<module>utilservice</module>
@@ -76,12 +85,21 @@
 		<module>ops-calculator-client</module>
         <module>notification-client</module>
         <module>shortUrl-client</module>
-        <module>approval-service-client</module>
 		<module>inventory-client</module>
 		<module>generic-po-client</module>
+		<module>approval-service-client</module>
         <module>wanda-client</module>
 		<module>search-client</module>
+		<module>leadservice-client</module>
+		<module>far-client</module>
+        <module>residence-client</module>
+		<module>file-utils</module>
+        <module>venta-aggregation-service-client</module>
+		<module>notification-v2-client</module>
+		<module>slack-client</module>
+		<module>pojo-food</module>
 	</modules>
+
 
 	<build>
 		<plugins>

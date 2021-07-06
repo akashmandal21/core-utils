@@ -16,6 +16,7 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
@@ -766,7 +767,7 @@ public class DateUtil {
 
 		return date.with(TemporalAdjusters.next(day));
 	}
-	
+
 	 public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
 	        Calendar calStart = Calendar.getInstance();
 	        calStart.setTime(fromDate);
@@ -909,5 +910,114 @@ public class DateUtil {
 			monthCount += (double) daysToConsider / (double) daysInMonth;
 		}
 		return monthCount;
+	}
+	
+	public long getHoursBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+		if (Objects.isNull(startDateTime) || Objects.isNull(endDateTime)) {
+			return 0;
+		}
+
+		return getDurationBetween(startDateTime, endDateTime).toHours();
+	}
+	
+	public Duration getDurationBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+		return Duration.between(startDateTime, endDateTime);
+	}
+
+	public String getNextDate(String date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		Calendar c = Calendar.getInstance();
+
+		try {
+			c.setTime(sdf.parse(date));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		c.add(Calendar.DATE, 1);  // number of days to add
+
+		date = sdf.format(c.getTime());
+
+		return date;
+	}
+
+	public static Date getMaximumTimeOfDate(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.set(Calendar.HOUR_OF_DAY, 23);
+		cal.set(Calendar.MINUTE, 59);
+		cal.set(Calendar.SECOND, 59);
+		return cal.getTime();
+	}
+
+	public static Date getCurrentDate() {
+		return getCurrentDate(new Date());
+	}
+
+	public static Date getCurrentDate(Date date) {
+		Calendar calendarInstance = Calendar.getInstance();
+		calendarInstance.setTime(date);
+		calendarInstance.set(Calendar.MINUTE, 00);
+		calendarInstance.set(Calendar.HOUR_OF_DAY,00);
+		calendarInstance.set(Calendar.SECOND,00);
+		Date currentDate = calendarInstance.getTime();
+		return currentDate;
+	}
+
+	public static String ConvertMilliSecondsToFormattedDate(String milliSeconds){
+		String dateFormat = "dd-MM-yyyy hh:mm";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
+		Date result = new Date(milliSeconds);
+		return simpleDateFormat.format(result);
+	}
+
+	public static Period findDifference(Date start_date,
+				   Date end_date)
+	{
+		Period dateDifference
+				= Period
+				.between(start_date.toInstant()
+								.atZone(ZoneId.systemDefault())
+								.toLocalDate(),
+						end_date.toInstant().atZone(ZoneId.systemDefault())
+								.toLocalDate());
+		return dateDifference;
+	}
+
+
+	public static String dateDifferenceInString(Period date){
+		Integer year = date.getYears();
+		Integer month = date.getMonths();
+		Integer days = date.getDays();
+		if(year!=0) month = year*12 + month;
+		String diff = "";
+        if(month!=0) diff += month == 1 ? month+" month ": month+" months ";
+        if(days!=0) diff += days == 1 ? days+" day": days+" days";
+        return diff;
+	}
+
+	public String calculateDifferenceInMonthAndDate(Date startDate, Date endDate) {
+		Period age = Period.between(DateUtil.convertToLocalDate(startDate),
+				DateUtil.convertToLocalDate(endDate));
+		int months = age.getMonths();
+		int days = age.getDays();
+		String datePeriod = "";
+		if (months != 0)
+			datePeriod += months == 1 ? months + " month " : months + " months ";
+		if (days != 0)
+			datePeriod += days == 1 ? days + " day" : days + " days";
+		return datePeriod;
+	}
+
+	public static Integer calculatePeriod(Period date) {
+		Integer year = date.getYears();
+		Integer month = date.getMonths();
+		Integer days = date.getDays();
+		if(year!=0) month = year*12 + month;
+		if(days > 15){
+			month += 1;
+		}
+		return month;
 	}
 }

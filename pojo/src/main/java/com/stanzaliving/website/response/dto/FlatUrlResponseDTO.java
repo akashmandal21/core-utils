@@ -2,6 +2,10 @@ package com.stanzaliving.website.response.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.core.user.enums.EnumListing;
+import com.stanzaliving.website.enums.Gender;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,5 +28,11 @@ public class FlatUrlResponseDTO {
 	private String seoDescription;
 	private List<FlatUrlPlaceResponseDTO> placeData;
 	private boolean isActive;
-
+	private Boolean locationCheck;
+	private Gender gender;
+	private Long reviewCount;
+	private Double rating;
+	private Long minPriceValue;
+	private Integer roomCount;
+	private EnumListing<PropertyEntityType> flatUrlType;
 }
