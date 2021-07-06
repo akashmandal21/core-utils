@@ -4,6 +4,11 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.AddressResponseDTO;
 import com.stanzaliving.core.dto.CityResponseDTO;
+import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
 import com.stanzaliving.core.inventory.dto.InventoryActionRequestDto;
 import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
@@ -19,12 +24,6 @@ import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Log4j2
 public class InventoryClientApi {
