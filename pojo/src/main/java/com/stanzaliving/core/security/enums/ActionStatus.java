@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum ActionStatus {
     ACTION_TAKEN("Action-taken"),
-    PENDING("Pending");
+    ACTION_PENDING("Action-pending");
 
     private final String label;
 
