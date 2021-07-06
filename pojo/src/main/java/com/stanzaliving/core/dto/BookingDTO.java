@@ -3,7 +3,7 @@ package com.stanzaliving.core.dto;
 import com.stanzaliving.core.enums.ApprovalStatus;
 import com.stanzaliving.core.enums.BookingTypeEnum;
 import com.stanzaliving.core.enums.Nationality;
-import com.stanzaliving.core.dto.AddressResponseDTO;
+import com.stanzaliving.core.dto.AddressTransformationDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,9 +36,9 @@ public class BookingDTO {
 
     private Nationality residentNationality;
 
-    private AddressResponseDTO residentCurrentAddress;
+    private AddressTransformationDTO residentCurrentAddress;
 
-    private AddressResponseDTO residentPermanentAddress;
+    private AddressTransformationDTO residentPermanentAddress;
 
     private LocalDate residentDOB;
 
