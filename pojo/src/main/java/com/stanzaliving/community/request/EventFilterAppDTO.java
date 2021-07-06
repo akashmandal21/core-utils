@@ -19,6 +19,6 @@ public class EventFilterAppDTO {
     private Date endDate;
     private Integer minPrice;
     private Integer maxPrice;
-    private Boolean pricingApplicable;
+    private Boolean isFreeEvents;
     private String filterBy;
 }
