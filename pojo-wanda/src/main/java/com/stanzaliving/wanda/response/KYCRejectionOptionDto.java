@@ -1,5 +1,4 @@
-package src.main.java.com.stanzaliving.wanda.response;
-
+package com.stanzaliving.wanda.response;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
