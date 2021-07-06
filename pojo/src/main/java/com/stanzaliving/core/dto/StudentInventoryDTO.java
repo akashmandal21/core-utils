@@ -1,8 +1,7 @@
 package com.stanzaliving.core.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.stanzaliving.website.response.dto.AddressResponseDTO;
-
+import com.stanzaliving.core.dto.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
