@@ -5,10 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-<<<<<<< HEAD
+
 import com.stanzaliving.residenceservice.BookingAttributesDto;
-=======
->>>>>>> 5e9865d0e15b9c7ab9801818c6d093f51ebd9836
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -577,7 +575,7 @@ public class ResidenceDataControllerApi {
 		return null;
 
 	}
-<<<<<<< HEAD
+
 
 	public ResponseDto<List<BookingAttributesDto>> getResidenceBookingAttributes(String residenceUuid) {
 		log.info("Residence-Attributes-Controller::Processing to fetch residence booking attributes on residence id {}", residenceUuid);
@@ -607,7 +605,7 @@ public class ResidenceDataControllerApi {
 			return null;
 		}
 	}
-=======
+
 	
 	public ResidenceLockInDto getResidenceLockInData(String residenceUuid,
 			String contractStartDate) {
@@ -642,5 +640,4 @@ public class ResidenceDataControllerApi {
 		}
 	}
 
->>>>>>> 5e9865d0e15b9c7ab9801818c6d093f51ebd9836
 }
