@@ -17,8 +17,8 @@ public class EventFilterAppDTO {
     private List<String> eventType;
     private Date startDate;
     private Date endDate;
-    private Integer startPrice;
-    private Integer endPrice;
+    private Integer minPrice;
+    private Integer maxPrice;
     private Boolean pricingApplicable;
     private String filterBy;
 }
