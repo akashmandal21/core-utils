@@ -1,9 +1,5 @@
 package com.stanzaliving.ventaInvoice.dto;
 
-import com.stanzaliving.ventaInvoice.dto.BillToDto;
-import com.stanzaliving.ventaInvoice.dto.CategoryDto;
-import com.stanzaliving.ventaInvoice.dto.CreditAttributionDto;
-import com.stanzaliving.ventaInvoice.dto.DocumentLineItemDto;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
