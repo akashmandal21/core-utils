@@ -13,10 +13,9 @@ import java.util.List;
 @Setter
 @ToString
 public class DocumentResponseDto {
-
     private String stateCode;
     private String rentLedgerNarration;
-    private InvoiceType type;
+    private InvoiceType invoiceType;
     private LocalDate fromDate;
     private LocalDate toDate;
     private LocalDate issueDate;
@@ -33,7 +32,8 @@ public class DocumentResponseDto {
     private DocumentLineItemDto documentLineItemDto;
     private Double invoiceAmount;
     private List<CreditAttributionDto> creditAttribution;
-    private BillToDto billTo;
     private ResidenceDto residence;
-
+    private String contractId;
+    private BillToDto billTo;
+    private BillFromDto billFrom;
 }

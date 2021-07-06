@@ -1,15 +1,24 @@
 package com.stanzaliving.ventaInvoice.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class CategoryDto {
-    private String categoryId;
     private String categoryName;
+    private String invoiceSeries;
+    private String rentLedgerName;
+    private int vendorSelection;
+    private int impactTypes;
+    private String categoryUniqueId;
+    private String description;
+    private String label;
+    private double cgst;
+    private double igst;
+    private double sgst;
+    private int hsnCode;
 }
+

@@ -13,7 +13,6 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class AddressDto {
     @NotBlank(message = "Address is mandatory")
-    private String add1;
-    private String add2;
-
+    private String addressLine1;
+    private String addressLine2;
 }

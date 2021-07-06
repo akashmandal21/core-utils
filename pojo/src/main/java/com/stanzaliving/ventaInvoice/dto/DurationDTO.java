@@ -3,11 +3,15 @@ package com.stanzaliving.ventaInvoice.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDate;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreditNoteAmountDto {
-    private  double amount;
-    private int uniqueUserCount;
+public class DurationDTO {
+    private LocalDate fromDate;
+    private LocalDate toDate;
 }

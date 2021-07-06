@@ -1,15 +1,15 @@
 package com.stanzaliving.ventaInvoice.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.stanzaliving.transformations.pojo.AddressBookMetaDto;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ResidenceDto {
-    private String residenceId;
+    private String residenceUuid;
     private String residenceName;
+    private AddressBookMetaDto addressBookMetaDto;
 }
