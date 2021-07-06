@@ -7,6 +7,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,9 +16,10 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class FoodVendorSearchPDto implements Serializable {
     private String name;
-    private String cityId;
+    private List<String> cityIds;
     private VendorType vendorType;
     private Boolean activeStatus;
+    private Boolean hasCategory;
     private VendorSortingField sortingField;
     private SortingType sortingType;
 }

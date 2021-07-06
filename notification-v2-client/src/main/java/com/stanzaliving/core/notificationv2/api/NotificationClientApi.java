@@ -4,10 +4,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.genericdashboard.dto.AudienceLocationDto;
 import com.stanzaliving.genericdashboard.dto.CampaignAudienceDto;
-import com.stanzaliving.notification.dto.FcmTokenDto;
-import com.stanzaliving.notification.dto.NotificationDto;
-import com.stanzaliving.notification.dto.NotificationRegistryDto;
-import com.stanzaliving.notification.dto.UserDataDto;
+import com.stanzaliving.notification.dto.*;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -35,6 +32,7 @@ public class NotificationClientApi {
         this.restClient = stanzaRestClient;
     }
 
+
     public ResponseDto<UserDataDto> getUserInformation(String userId) {
 
         Object postBody = null;
@@ -59,6 +57,30 @@ public class NotificationClientApi {
                 };
         return restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<NotificationDTO> saveGenericNotification(
+            NotificationDTO notificationRegistryDto) {
+
+        Object postBody = null;
+
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/generic-notification")
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final String[] accepts = {"*/*"};
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<NotificationDTO>> returnType =
+                new ParameterizedTypeReference<ResponseDto<NotificationDTO>>() {
+                };
+        postBody = notificationRegistryDto;
+        return restClient.invokeAPI(
+                path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public ResponseDto<NotificationRegistryDto> saveNotification(
@@ -183,6 +205,31 @@ public class NotificationClientApi {
                         accept,
                         returnType);
         return responseDto.getData();
+    }
+
+    public void terminateNotification(String notificationId) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("id", notificationId);
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/notification/{id}")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+        };
+        restClient.invokeAPI(
+                path, HttpMethod.DELETE, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public void terminateCampaign(String campaignId) {
