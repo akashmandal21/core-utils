@@ -557,7 +557,7 @@ public class WandaClientApi {
 		return restClient.invokeAPI(
 				path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public List<FoodRegionPreferenceResponse> getDemoGraphicsData(DemographicsRequestDto demographicsRequestDto) {
 
 		Object postBody = demographicsRequestDto;
@@ -568,7 +568,7 @@ public class WandaClientApi {
 
 		String path = UriComponentsBuilder.fromPath("/internal/demographics/consumer/preference/get").buildAndExpand(uriVariables)
 				.toUriString();
-		
+
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
