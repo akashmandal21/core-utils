@@ -1,7 +1,6 @@
-package com.stanzaliving.core.inventory.dto.response;
+package com.stanzaliving.core.dto;
 
 public class AddressResponseDTO {
-
     private int addressId;
 
     private String line1;
@@ -111,5 +110,4 @@ public class AddressResponseDTO {
     public void setCityName(String cityName) {
         this.cityName = cityName;
     }
-
 }
