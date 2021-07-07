@@ -20,4 +20,5 @@ public class EventFilterCountDTO {
     private Date endDate;
     private Long minPrice;
     private Long maxPrice;
+    private Boolean isFreeEvents;
 }
