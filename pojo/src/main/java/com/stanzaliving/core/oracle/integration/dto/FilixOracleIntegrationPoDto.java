@@ -129,7 +129,7 @@ public class FilixOracleIntegrationPoDto extends AbstractOracleDto {
     @JsonProperty("poTotal")
     private String poTotal;
 
-    @JsonProperty("retentionamount")
+    @JsonProperty("pogstTotal")
     private String pogstTotal;
 
 }
