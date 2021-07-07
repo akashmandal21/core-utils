@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
+
 @Getter
 @Setter
 @Builder
@@ -36,5 +38,10 @@ public class WandaFileResponseDto {
 	private String bookingUuid;
 	
 	private boolean isVerified;
-	
+
+	private String approvalStatus;
+
+	private String rejectedReason;
+
+	private String kycDocumentUuid;
 }
