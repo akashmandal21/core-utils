@@ -1,14 +1,12 @@
-package src.main.java.com.stanzaliving.wanda.response;
+package com.stanzaliving.wanda.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 public class KYCRejectionOptionDto {
 
     private String uuid;
