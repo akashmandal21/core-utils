@@ -13,6 +13,10 @@ public enum CategorySearchSortingField {
     RESIDENCE_SERVED("Residence Served"),
     CATEGORY_STATUS("Category Status"),
     APPROVAL_STATUS("Approval Status"),
-    LAST_UPDATED_AT("Last Updated At");
+    LAST_UPDATED_AT("Last Updated At"),
+    APPROVAL_REQUESTED_ON("Approval Requested On"),
+    COST_UPDATED("Cost Updated"),
+    VENDOR_NAME("Vendor Name")
+    ;
     private final String field;
 }

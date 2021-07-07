@@ -49,6 +49,7 @@ public enum Role {
     FOOD_MENU_CATEGORY_L1_APPROVER("Country - food menu category L1 Approver", AccessLevel.COUNTRY, Department.FOOD_OPS),
     FOOD_MENU_CATEGORY_L2_APPROVER("Country - food menu category L2 Approver", AccessLevel.COUNTRY, Department.FOOD_OPS),
     FOOD_MENU_CATEGORY_L3_APPROVER("Country - food cost approver", AccessLevel.COUNTRY, Department.FOOD_OPS),
+    FOOD_MENU_CATEGORY_L4_APPROVER("Country - Menu Category Approval L4", AccessLevel.COUNTRY, Department.FOOD_OPS),
 
 
     /************************************ FOOD - OPS ************************************/

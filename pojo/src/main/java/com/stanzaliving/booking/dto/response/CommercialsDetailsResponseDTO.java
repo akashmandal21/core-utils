@@ -1,5 +1,6 @@
-package dto;
+package com.stanzaliving.booking.dto.response;
 
+import com.stanzaliving.booking.dto.request.ServicePriceDto;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,6 +40,7 @@ public class CommercialsDetailsResponseDTO {
     private Double startingAdvanceRentalMonthsAmount;
 
     private Double lastAdvanceRentalMonthsAmount;
+
 
 
 }

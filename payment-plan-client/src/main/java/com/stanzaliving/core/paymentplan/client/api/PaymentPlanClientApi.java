@@ -4,11 +4,11 @@
 package com.stanzaliving.core.paymentplan.client.api;
 
 import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
+import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.paymentPlan.dto.PaymentPlan;
-import dto.CommercialsDetailsResponseDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
