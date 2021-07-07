@@ -471,7 +471,7 @@ public class ItemMasterClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/generic/get/item-code/by/location/{locationUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/generic/get/item-code/by/location/{locationUuid}").buildAndExpand(uriVariables).toUriString();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
