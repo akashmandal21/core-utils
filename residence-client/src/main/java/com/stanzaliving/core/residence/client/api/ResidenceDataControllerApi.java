@@ -3,18 +3,8 @@ package com.stanzaliving.core.residence.client.api;
 import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
-import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.residenceservice.dto.*;
-
-import java.io.IOException;
-import java.text.ParseException;
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceAggregationEntityDto;
 import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -25,9 +15,12 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ResidenceDataControllerApi {
     private static final Logger log = LogManager.getLogger(ResidenceDataControllerApi.class);
@@ -438,7 +431,9 @@ public class ResidenceDataControllerApi {
         }
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("residenceUuid", residenceUuid);
-        String path = UriComponentsBuilder.fromPath("/api/v1/residence-property-card/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/api/v1/residence-property-card/{residenceUuid}")
+                .buildAndExpand(uriVariables)
+                .toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
         String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
         final HttpHeaders headerParams = new HttpHeaders();
@@ -446,11 +441,11 @@ public class ResidenceDataControllerApi {
 
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference returnType = new ParameterizedTypeReference<ResidencePropertyCardDto>() {
-        };
+        ParameterizedTypeReference<ResponseDto<ResidencePropertyCardDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidencePropertyCardDto>>() {};
         try {
             log.info("Executing the API for getting residence Info with Url {}", path);
-            return (ResidencePropertyCardDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+            ResponseDto<ResidencePropertyCardDto> response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+            return response.getData();
         } catch (Exception exception) {
             log.error("Exception while fetching residence details from the residence Uuid- {}, Exception is ", residenceUuid, exception);
             return null;
