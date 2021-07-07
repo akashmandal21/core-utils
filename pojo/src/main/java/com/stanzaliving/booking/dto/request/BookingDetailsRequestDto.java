@@ -4,6 +4,7 @@ import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.booking.enums.ReferenceType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,6 +22,7 @@ public class BookingDetailsRequestDto implements Serializable {
 	private String referenceId;
 	
 	@NotNull(message = "reference type cannot be null or blank")
+	@Builder.Default
 	private ReferenceType referenceType = ReferenceType.BOOKING;
 	
 	@NotNull(message = "contractStartDate cannot be null")

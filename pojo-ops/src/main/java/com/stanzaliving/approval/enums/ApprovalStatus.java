@@ -1,8 +1,6 @@
 package com.stanzaliving.approval.enums;
 
 import com.stanzaliving.core.base.enums.ColorCode;
-import com.stanzaliving.core.electricity.constants.EnergyProvider;
-import com.stanzaliving.core.electricity.constants.EnumIdealMeterType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,37 +10,39 @@ import java.util.Map;
 @Getter
 @AllArgsConstructor
 public enum ApprovalStatus {
-    //L1 approval is non skippable role, L2 and L3 are skippable roles
-    PENDING_L1_APPROVAL("Pending L1 Approval",ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode(), "Successfully Submitted for L1 Approval"),
-    L1_REJECTED("L1 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected"),
-    PENDING_L2_APPROVAL("Pending L2 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode(), "Successfully Submitted for L2 Approval"),
-    L2_REJECTED("L2 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected"),
-    PENDING_L3_APPROVAL("Pending L3 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode(), "Successfully Submitted for L3 Approval"),
-    L3_REJECTED("L3 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected"),
-    
-    PENDING_L4_APPROVAL("Pending L4 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode(), "Successfully Submitted for L4 Approval"),
-    L4_REJECTED("L4 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected"),
-    
-    PENDING_L5_APPROVAL("Pending L5 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode(), "Successfully Submitted for L5 Approval"),
-    L5_REJECTED("L5 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected"),
-    
-    APPROVED("Approved", ColorCode.SOFT_GREEN.getColorCode(), ColorCode.GREEN_CYAN.getColorCode(), "Successfully Approved"),        //color code need to be updated with product
-    REJECTED("Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected");
+	//L1 approval is non skippable role, L2 and L3 are skippable roles
+	PENDING_L1_APPROVAL("Pending L1 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode(), "Successfully Submitted for L1 Approval"),
+	L1_REJECTED("L1 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected"),
+	PENDING_L2_APPROVAL("Pending L2 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode(), "Successfully Submitted for L2 Approval"),
+	L2_REJECTED("L2 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected"),
+	PENDING_L3_APPROVAL("Pending L3 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode(), "Successfully Submitted for L3 Approval"),
+	L3_REJECTED("L3 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected"),
 
-    private String status;
-    private String bgColorCode;
-    private String textColorCode;
-    private String responseMessage;
+	PENDING_L4_APPROVAL("Pending L4 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode(), "Successfully Submitted for L4 Approval"),
+	L4_REJECTED("L4 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected"),
 
-    private static final Map<ApprovalStatus, String> statusMap = new HashMap<>();
+	PENDING_L5_APPROVAL("Pending L5 Approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.VIVID_ORANGE.getColorCode(), "Successfully Submitted for L5 Approval"),
+	L5_REJECTED("L5 Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected"),
 
-    static {
-        for (ApprovalStatus approvalStatus : ApprovalStatus.values()) {
-            statusMap.put(approvalStatus, approvalStatus.getStatus());
-        }
-    }
+	APPROVED("Approved", ColorCode.SOFT_GREEN.getColorCode(), ColorCode.GREEN_CYAN.getColorCode(), "Successfully Approved"),        //color code need to be updated with product
+	REJECTED("Rejected", ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode(), ColorCode.SOFT_RED.getColorCode(), "Successfully Rejected");
 
-    public static  Map<ApprovalStatus, String> getStatusMap() {
-        return statusMap;
-    }
+	private String status;
+	private String bgColorCode;
+	private String textColorCode;
+	private String responseMessage;
+
+	private static final Map<ApprovalStatus, String> statusMap = new HashMap<>();
+
+	static {
+		for (ApprovalStatus approvalStatus : ApprovalStatus.values()) {
+			statusMap.put(approvalStatus, approvalStatus.getStatus());
+		}
+	}
+
+
+
+	public static Map<ApprovalStatus, String> getStatusMap() {
+		return statusMap;
+	}
 }

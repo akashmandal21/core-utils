@@ -26,10 +26,18 @@ public class PaymentPlanRequestDto implements Serializable {
 	@NotNull(message = "bookingCommercialsRequestDto cannot be null")
 	@Valid
 	private BookingCommercialsRequestDto bookingCommercialsRequestDto;
+
+	private DiscountRequestDto discount;
+
+	@Builder.Default
+	private boolean isWpBooking = false;
 	
 	@Builder.Default
 	private boolean savePaymentPlan = false;
 
+	@Builder.Default
 	private boolean isModifyContract = false;
+
+
 
 }

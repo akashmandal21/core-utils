@@ -70,6 +70,10 @@ public class ResidenceResponseShortDTO {
 	private String fomoTagcolour;
 	
 	private Double distanceFromPlace;
+	
+	private String transformationUuid;
+	
+	private String transformationId;
 
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
