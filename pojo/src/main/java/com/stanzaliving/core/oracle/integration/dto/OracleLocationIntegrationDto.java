@@ -2,11 +2,15 @@ package com.stanzaliving.core.oracle.integration.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.transformations.enums.LocationType;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 @Setter
 @Getter
@@ -29,7 +33,7 @@ public class OracleLocationIntegrationDto extends AbstractOracleDto {
     private String sublocationOf;
 
     @JsonProperty("createdat")
-    private Date locationCreatedAt;
+    private String locationCreatedAt;
 
     @NotNull
     @JsonProperty("locationType")
@@ -46,7 +50,7 @@ public class OracleLocationIntegrationDto extends AbstractOracleDto {
     private String locationMicromarketId;
 
     @JsonProperty("updatedat")
-    private Date locationUpdatedAt;
+    private String locationUpdatedAt;
 
     @JsonProperty("updatedby")
     private String locationUpdatedBy;
