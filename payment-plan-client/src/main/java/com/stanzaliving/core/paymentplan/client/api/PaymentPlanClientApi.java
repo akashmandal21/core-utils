@@ -67,16 +67,14 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<CommercialsDetailsResponseDTO> getCommercialDetails(String bookingId, Date contractStartDate,
-                                                                           Date fromDate) {
+    public ResponseDto<CommercialsDetailsResponseDTO> getCommercialDetails(String bookingId, Date fromDate) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingId", bookingId);
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/commercials/get/{bookingId}")
                 .buildAndExpand(uriVariables).toUriString();
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        if (contractStartDate != null && fromDate != null) {
-            queryParams.add("contractStartDate", date.format(contractStartDate));
+        if (fromDate != null) {
             queryParams.add("fromDate", date.format(fromDate));
         }
         HttpHeaders headerParams = new HttpHeaders();
