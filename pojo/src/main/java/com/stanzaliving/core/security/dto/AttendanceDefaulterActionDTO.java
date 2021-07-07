@@ -29,4 +29,6 @@ public class AttendanceDefaulterActionDTO {
     private String comment;
 
     private LocalDateTime creationTime;
+
+    private boolean isLoopClosure;
 }
