@@ -14,17 +14,17 @@ import java.util.Map;
 @AllArgsConstructor
 public class TicketDetailsDto {
 
-    String assignedToUuid;
+    private String assignedToUuid;
 
-    String assignedTo;
+    private String assignedTo;
 
-    List<SubTicketDto> subTicketDto;
+    private List<SubTicketDto> subTicketDtoList;
 
-    List<TicketChecklistDetailDto> ticketChecklist;
+    private List<TicketChecklistDetailDto> ticketChecklistDetailDtoList;
 
-    List<TagDto> tagDtos;
+    private List<TagDto> tagDtoList;
 
-    TicketCardDto ticketCardDto;
+    private TicketCardDto ticketCardDtoList;
 
-    TeamDto teamDto;
+    private TeamDto teamDto;
 }

@@ -13,9 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 public class FilterDto {
 
-    private List<String> city;
+    private List<String> cities;
 
-    private List<String> micromarket;
+    private List<String> micromarkets;
 
-    private List<String> residence;
+    private List<String> residences;
 }

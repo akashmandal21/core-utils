@@ -13,9 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 public class SubTicketDetailsDto {
 
-    TicketCardDto ticketCardDto;
+    private TicketCardDto ticketCardDto;
 
-    List<TicketMessageDto> ticketMessageDto;
+    private List<TicketMessageDto> ticketMessageDto;
 
-    SubTicketDto subTicketDto;
+    private SubTicketDto subTicketDto;
 }
