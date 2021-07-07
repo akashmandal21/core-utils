@@ -12,5 +12,5 @@ import java.util.List;
 public class ItemResponse {
     private String label;
     private List<String> answers;
-    private String answerId;
+    private AnswerDetailsDto answerDetails;
 }

@@ -11,5 +11,5 @@ import java.util.List;
 @Builder
 public class TableAnswers {
     private List<String> answers;
-    private String answerId;
+    private AnswerDetailsDto answerDetails;
 }
