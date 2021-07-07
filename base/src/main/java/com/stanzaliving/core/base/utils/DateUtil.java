@@ -902,16 +902,22 @@ public class DateUtil {
 	}
 
 	public static double getMonthsBetweenDatesInDouble(LocalDate fromDate, LocalDate toDate) {
+
 		List<String> monthYearList = DateUtil.getListOfMonthYear(fromDate, toDate, DateFormat.MMM_YY2);
 		double monthCount = 0;
+		if(fromDate.getDayOfMonth() != 1 && toDate.isAfter(fromDate) && (fromDate.getDayOfMonth() - 1) == toDate.getDayOfMonth()){
+			monthCount = 1;
+			monthYearList.remove(0);
+			monthYearList.remove(monthYearList.size()-1);
+		}
 		for (String monthYear : monthYearList) {
 			int daysToConsider = DateUtil.getDaysCountInMonthYear(fromDate, toDate, DateFormat.MMM_YY2, monthYear);
 			int daysInMonth = YearMonth.parse(monthYear, DateFormat.MMM_YY2.getDateTimeFormatter()).lengthOfMonth();
 			monthCount += (double) daysToConsider / (double) daysInMonth;
 		}
-		return monthCount;
+		return Math.round(monthCount*100.0)/100.0;
 	}
-	
+
 	public long getHoursBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
 		if (Objects.isNull(startDateTime) || Objects.isNull(endDateTime)) {
 			return 0;
