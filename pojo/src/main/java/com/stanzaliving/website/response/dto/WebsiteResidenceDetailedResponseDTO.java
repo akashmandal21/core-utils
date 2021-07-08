@@ -80,6 +80,10 @@ public class WebsiteResidenceDetailedResponseDTO {
 	private String virtualTourImage;
 	
 	private Double distanceFromPlace;
+	
+	private String transformationUuid;
+	
+	private String transformationId;
 
 	@Builder.Default
 	private List<FeatureResponseDTO> features = Collections.emptyList();
