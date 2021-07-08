@@ -23,5 +23,6 @@ public class TicketMessageDto {
     private String messagedByUuid;
     private boolean isPrivate;
     private Date createdAt;
+    private boolean isDeleted;
     private TicketActivityTemplatesEnum type=TicketActivityTemplatesEnum.MESSAGE;
 }

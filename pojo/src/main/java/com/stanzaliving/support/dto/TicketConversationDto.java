@@ -34,4 +34,5 @@ public class TicketConversationDto {
     private String attachmentType;
     private String slaStatus;
     private long fileSize;
+    private boolean isDeleted;
 }

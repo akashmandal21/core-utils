@@ -15,7 +15,5 @@ public class SubTicketDetailsDto {
 
     TicketCardDto ticketCardDto;
 
-    List<TicketMessageDto> ticketMessageDto;
-
     SubTicketDto subTicketDto;
 }
