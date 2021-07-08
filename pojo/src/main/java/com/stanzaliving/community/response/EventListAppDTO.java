@@ -21,8 +21,8 @@ public class EventListAppDTO {
     private Boolean pricingApplicable;
     private String imageUrl;
     private Integer price;
-    private Boolean likedByUser;
-    private Boolean registeredByUser;
+    private Boolean isLiked;
+    private Boolean isRegistered;
     private String eventLink;
     private Integer fomoCount;
     private Date updatedAt;
