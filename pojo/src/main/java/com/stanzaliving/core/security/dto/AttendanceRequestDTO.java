@@ -38,8 +38,6 @@ public class AttendanceRequestDTO {
     //TODO: replace with MealType enum
     private String nextMealType;
 
-    private String reason;
-
     private String description;
 
     private RequestStatus requestStatus;
@@ -73,4 +71,6 @@ public class AttendanceRequestDTO {
 
     // adding applied on date and time
     private Date createdAt;
+
+    private String attendanceRequestReasonTypeUuid;
 }
