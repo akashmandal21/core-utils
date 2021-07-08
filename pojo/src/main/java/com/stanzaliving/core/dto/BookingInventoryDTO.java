@@ -35,9 +35,17 @@ public class BookingInventoryDTO {
 
     private Date contractEndDate;
 
+    private Date actualContractEndDate;
+
+    private double pendingDues;
+
     private String bookingStatus;
 
     private String residenceName;
 
     private boolean isAlfredEnabled = Boolean.FALSE;
+
+    private Date bookingDate;
+
+    private String roomNumber;
 }

@@ -8,6 +8,7 @@ import com.stanzaliving.venta.OccupiedRoomDto;
 import com.stanzaliving.wanda.dtos.*;
 import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
+import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -531,7 +532,32 @@ public class WandaClientApi {
 		return occupiedRoomDtoList;
 	}
 
-	
+	public ResidentKYCDocumentResponseDto getResidentKYCDocuments(String residentUuid) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residentUuid", residentUuid);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/get/resident/kyc/{residentUuid}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResidentKYCDocumentResponseDto> returnType =
+				new ParameterizedTypeReference<ResidentKYCDocumentResponseDto>() {
+		};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 	public List<FoodRegionPreferenceResponse> getDemoGraphicsData(DemographicsRequestDto demographicsRequestDto) {
 
 		Object postBody = demographicsRequestDto;
@@ -548,6 +574,7 @@ public class WandaClientApi {
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = { "*/*" };
+
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>> returnType = new ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>>() {

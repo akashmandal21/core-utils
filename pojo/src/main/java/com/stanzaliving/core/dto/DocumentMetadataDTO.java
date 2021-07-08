@@ -14,5 +14,4 @@ public class DocumentMetadataDTO {
     private DocumentTypeEnum documentType;
 
     private String idNumber;
-
 }

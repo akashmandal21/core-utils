@@ -1,20 +1,18 @@
 package com.stanzaliving.core.dto;
 
+import com.fasterxml.jackson.annotation.JsonSetter;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Builder
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class BookingNudgeDTO {
-    private String bookingUuid;
+@NoArgsConstructor
+public class ConsumerResidenceMappingMigrationDTO {
 
+    @JsonSetter(value = "user_uuid")
     private String residentUuid;
 
+    @JsonSetter(value = "user_code")
     private String residentCode;
-
-    private BookingNudgeMetadataDTO metadata;
 }

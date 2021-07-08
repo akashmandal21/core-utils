@@ -6,35 +6,32 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
  @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public class AddressDTO {
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class AddressDTO {
 
-        @JsonSetter("ADDRESS_ID")
-        private Integer addressId;
+    @JsonSetter("ADDRESS_ID")
+    private Integer addressId;
 
-        @JsonSetter("LINE_1")
-        private String line1;
+    @JsonSetter("LINE_1")
+    private String line1;
 
-        @JsonSetter("LINE_2")
-        private String line2;
+    @JsonSetter("LINE_2")
+    private String line2;
 
-        @JsonSetter("LANDMARK")
-        private String landmark;
+    @JsonSetter("CITY_ID")
+    private Integer cityId;
 
-        @JsonSetter("CITY_ID")
-        private Integer cityId;
+    @JsonSetter("cityName")
+    private String cityName;
 
-        @JsonSetter("cityName")
-        private String cityName;
+    @JsonSetter("STATE_ID")
+    private Integer stateId;
 
-        @JsonSetter("STATE_ID")
-        private Integer stateId;
+    @JsonSetter("stateName")
+    private String stateName;
 
-        @JsonSetter("stateName")
-        private String stateName;
-
-        @JsonSetter("ZIPCODE")
-        private Integer zipCode;
+    @JsonSetter("ZIPCODE")
+    private Integer zipCode;
 }

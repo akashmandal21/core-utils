@@ -32,4 +32,19 @@ public class UserDocumentMigrationDTO {
 
     @JsonSetter(value = "status")
     private boolean status;
+
+    @JsonSetter(value = "created_at")
+    private Date uploadedDate;
+
+    @JsonSetter(value = "created_by")
+    private String uploadedBy;
+
+    @JsonSetter(value = "updated_by")
+    private String updatedBy;
+
+    @JsonSetter(value = "comment")
+    private String rejectionReason;
+
+    @JsonSetter(value = "uuid")
+    private String uuid;
 }

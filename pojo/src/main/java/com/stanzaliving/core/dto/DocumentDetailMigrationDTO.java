@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,4 +26,10 @@ public class DocumentDetailMigrationDTO {
 
     @JsonSetter(value = "status")
     private boolean status;
+
+    @JsonSetter(value = "created_at")
+    private Date createdAt;
+
+    @JsonSetter(value = "updated_at")
+    private Date updatedAt;
 }
