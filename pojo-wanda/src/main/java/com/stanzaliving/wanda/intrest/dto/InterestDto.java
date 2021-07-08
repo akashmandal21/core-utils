@@ -1,5 +1,7 @@
 package com.stanzaliving.wanda.intrest.dto;
 
+import java.util.List;
+
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
@@ -27,4 +29,6 @@ public class InterestDto extends AbstractDto{
 	
 	@Builder.Default
 	private Boolean isDraft = false;
+	
+	private List<InterestCategoryDto> categoryDtos;
 }

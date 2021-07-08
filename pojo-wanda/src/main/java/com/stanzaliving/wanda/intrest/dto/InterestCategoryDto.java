@@ -1,5 +1,7 @@
 package com.stanzaliving.wanda.intrest.dto;
 
+import java.util.List;
+
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
@@ -20,11 +22,13 @@ public class InterestCategoryDto extends AbstractDto {
 	private static final long serialVersionUID = 1L;
 
 	private String name;
-	
+
 	private String image;
-	
+
 	private Integer displayOrder;
-	
+
 	@Builder.Default
 	private Boolean isDraft = false;
+
+	private List<InterestDto> interestDtos;
 }
