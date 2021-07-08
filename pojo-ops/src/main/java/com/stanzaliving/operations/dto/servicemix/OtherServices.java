@@ -33,7 +33,11 @@ public class OtherServices extends BooleanService {
 	private AcquiredBooleanService doubleDoorFridge = new AcquiredBooleanService();
 	
 	private AcquiredBooleanService waterDispenser = new AcquiredBooleanService();
-	
+
 	private AcquiredBooleanService dryer = new AcquiredBooleanService();
-	
+
+	private AcquiredBooleanService ro = new AcquiredBooleanService();
+
+	private AcquiredBooleanService tv = new AcquiredBooleanService();
+
 }
