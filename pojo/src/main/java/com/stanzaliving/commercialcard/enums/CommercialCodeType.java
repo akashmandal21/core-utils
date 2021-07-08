@@ -16,7 +16,8 @@ public enum CommercialCodeType {
     RESIDENCE("Residence","RESIDENCE"),
     MICROMARKET( "Micromarket","MICROMARKET"),
     CONTRACTTENURE("CONTRACT TENURE","CONTRACTTENURE"),
-    LOCKIN( "LOCK IN","LOCKIN");
+    LOCKIN( "LOCK IN","LOCKIN"),
+    PAYMENT( "PAYMENT","PAYMENT");;
 
     private String name;
     private String value;
