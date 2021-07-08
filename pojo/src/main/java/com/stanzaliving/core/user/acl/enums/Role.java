@@ -51,6 +51,8 @@ public enum Role {
     FOOD_MENU_CATEGORY_L3_APPROVER("Country - food cost approver", AccessLevel.COUNTRY, Department.FOOD_OPS),
 
     EMAIL_SERVICEMIX_AUTO_CHANGE_IN_COST("Email_CC_Servicemix_Auto_change_in_cost", AccessLevel.COUNTRY, Department.OPS),
+    EMAIL_SERVICEMIX_AUTO_CHANGE_IN_COST_MM("Email_CC_Servicemix_Auto_change_in_cost", AccessLevel.CITY, Department.OPS),
+    EMAIL_SERVICEMIX_AUTO_CHANGE_IN_COST_RESIDENCE("Email_CC_Servicemix_Auto_change_in_cost", AccessLevel.RESIDENCE, Department.OPS),
 
     /************************************ FOOD - OPS ************************************/
     CITY_CHEF_MANAGER("City Chef Manager", AccessLevel.CITY, Department.FOOD_OPS),
