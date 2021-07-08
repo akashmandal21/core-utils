@@ -1,5 +1,6 @@
 package com.stanzaliving.support.dto;
 
+import com.stanzaliving.support.enums.ActionFlag;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,4 +16,5 @@ public class ChecklistDetailDto {
     private boolean mandatory;
     private boolean active;
     private int position;
+    private ActionFlag actionFlag;
 }
