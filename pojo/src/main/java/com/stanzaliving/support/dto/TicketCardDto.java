@@ -1,0 +1,31 @@
+package com.stanzaliving.support.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class TicketCardDto {
+
+    private Long ticketId;
+    private String ticketUuid;
+    private String statusDetail;
+    private Date createdAt;
+    private Date slaTime;
+    private String categoryUuid;
+    private String categoryDetail;
+    private String subCategoryUuid;
+    private String subCategoryDetail;
+    private String userName;
+    private String userCode;
+    private String residenceName;
+    private String roomNumber;
+    private String description;
+}
+
