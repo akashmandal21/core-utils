@@ -1,5 +1,6 @@
 package com.stanzaliving.core.oracle.integration.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.invoice.enums.Category;
 import com.stanzaliving.invoice.enums.ExpenseType;
 import com.stanzaliving.invoice.enums.InvoiceType;
@@ -47,6 +48,7 @@ public class OracleIntegrationInvoiceDto extends AbstractOracleDto {
     private String group;
     private String subGroup;
     private ExpenseType expenseType;
+    @JsonProperty("GL_Code")
     private String glCode;
     private String narration;
     private String taxCode;
