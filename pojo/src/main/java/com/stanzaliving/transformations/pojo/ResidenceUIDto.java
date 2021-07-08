@@ -24,7 +24,7 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidenceUIDto implements Serializable{
+public class ResidenceUIDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -68,9 +68,9 @@ public class ResidenceUIDto implements Serializable{
 	@NotNull(message = "Residence Number of Rooms is Mandatory")
 	@Min(value = 1, message = "Number of Rooms cannot be less than 1")
 	private Integer numberOfRooms;
-	
+
 	private Integer coreResidenceId;
-	
+
 	private String coreResidenceName;
 
 	private CityUIDto cityUIDto;
@@ -78,7 +78,7 @@ public class ResidenceUIDto implements Serializable{
 	private MicroMarketUIDto microMarketUIDto;
 
 	private String parentResidenceId;
-	
+
 	private PropertyEntityType propertyEntityType;
 
 	private String estateUuid;
@@ -89,13 +89,7 @@ public class ResidenceUIDto implements Serializable{
 
 	private String apartmentFloorNumber;
 
+	private Double latitude;
 
-	private String code;
-
-	private String category;
-
-	private String company;
-
-	private String addressUuid;
-
+	private Double longitude;
 }

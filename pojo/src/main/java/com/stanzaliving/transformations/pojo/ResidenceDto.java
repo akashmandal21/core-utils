@@ -16,8 +16,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-
 /**
  * @author naveen.kumar
  *
@@ -64,14 +62,8 @@ public class ResidenceDto extends AbstractDto {
 	private String parentResidenceId;
 	
 	private PropertyEntityType propertyEntityType;
-
-	private String code;
-
-	private String category;
-
-	private String company;
-
-	private String addressUuid;
-
-	private Boolean bookingStatus;
+	
+	private Double latitude;
+	
+	private Double longitude;
 }

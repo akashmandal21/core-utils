@@ -3,7 +3,6 @@
  */
 package com.stanzaliving.transformations.pojo;
 
-import javax.persistence.Column;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -68,13 +67,5 @@ public class ResidenceAddRequestDto {
 	private String parentResidenceId;
 	
 	private PropertyEntityType propertyEntityType;
-
-	private String code;
-
-	private String category;
-
-	private String company;
-
-	private String addressUuid;
 
 }
