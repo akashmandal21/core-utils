@@ -33,4 +33,5 @@ public class TicketConversationDto {
     private List<String> attachmentPaths;
     private String attachmentType;
     private String slaStatus;
+    private long fileSize;
 }
