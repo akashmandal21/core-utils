@@ -34,5 +34,4 @@ public class ResidenceOccupancyRequestDTO {
 
 	@Builder.Default
 	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
-
 }

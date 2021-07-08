@@ -10,8 +10,8 @@ import java.util.Comparator;
 public enum SortingType {
     ASC("Ascending"), DSC("Descending");
     private final String type;
-
+    
     public <T extends Comparable<? super T>> Comparator<T> comparator() {
-        return this == ASC ? Comparator.naturalOrder() : Comparator.reverseOrder();
+        return this == ASC ? Comparator.nullsLast(Comparator.naturalOrder()) : Comparator.nullsLast(Comparator.reverseOrder());
     }
 }
