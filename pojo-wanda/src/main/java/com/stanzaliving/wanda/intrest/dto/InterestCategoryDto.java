@@ -29,6 +29,10 @@ public class InterestCategoryDto extends AbstractDto {
 
 	@Builder.Default
 	private Boolean isDraft = false;
-
+	
+	private Integer likes;
+	
+	private Integer totalInterests;
+	
 	private List<InterestDto> interestDtos;
 }
