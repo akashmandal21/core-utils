@@ -9,4 +9,6 @@ public enum Group {
     COMPLAINT_GROUP,
     CATEGORY,
     SUB_CATEGORY,
+    SUB_TICKET_TASKS,
+    FEEDBACK_REASONS
 }
