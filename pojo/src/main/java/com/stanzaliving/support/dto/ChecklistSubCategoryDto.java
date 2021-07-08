@@ -5,14 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+import java.util.List;
+
 @Builder
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-public class ChecklistDetailDto {
+@AllArgsConstructor
+public class ChecklistSubCategoryDto {
     private String checklist;
-    private String uuid;
-    private boolean mandatory;
-    private boolean active;
+    private List<String> subCategories;
     private int position;
 }

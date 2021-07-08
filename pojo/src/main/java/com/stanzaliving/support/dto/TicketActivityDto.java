@@ -23,4 +23,5 @@ public class TicketActivityDto {
     private TicketActivityTemplatesEnum type = TicketActivityTemplatesEnum.OTHER;
     private Date createdAt;
     private String referenceId;
+    private Date actionedTime;
 }

@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Builder
 @Data
@@ -63,4 +64,5 @@ public class AdditionalPropertiesDto {
     private String roomNumber;
     private String mobile;
     private Date createdAt;
+    private List<AdditionalPropertiesDto> subTickets;
 }
