@@ -294,27 +294,27 @@ public class MonthlyForcastCsvDto implements Serializable {
 	private Double equipmentRentalPowerBackup;
 
 	@CsvBindByPosition(position = 69)
-	@CsvBindByName(column = "EquipmentRentalPowerBackup")
+	@CsvBindByName(column = "EquipmentRentalTv")
 	private Double equipmentRentalTv;
 
 	@CsvBindByPosition(position = 70)
-	@CsvBindByName(column = "EquipmentRentalPowerBackup")
+	@CsvBindByName(column = "EquipmentRentalRo")
 	private Double equipmentRentalRo;
 
 	@CsvBindByPosition(position = 71)
-	@CsvBindByName(column = "EquipmentRentalPowerBackup")
+	@CsvBindByName(column = "EquipmentRentalSmartLock")
 	private Double equipmentRentalSmartLock;
 
 	@CsvBindByPosition(position = 72)
-	@CsvBindByName(column = "EquipmentRentalPowerBackup")
+	@CsvBindByName(column = "EquipmentRentalFacialRecognition")
 	private Double equipmentRentalFacialRecognition;
 
 	@CsvBindByPosition(position = 73)
-	@CsvBindByName(column = "EquipmentRentalPowerBackup")
+	@CsvBindByName(column = "EquipmentRentalTreadmill")
 	private Double equipmentRentalTreadmill;
 
 	@CsvBindByPosition(position = 74)
-	@CsvBindByName(column = "EquipmentRentalPowerBackup")
+	@CsvBindByName(column = "EquipmentRentalMultiGym")
 	private Double equipmentRentalMultiGym;
 
 }
