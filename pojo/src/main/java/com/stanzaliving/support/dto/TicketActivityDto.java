@@ -24,4 +24,5 @@ public class TicketActivityDto {
     private Date createdAt;
     private String referenceId;
     private Date actionedTime;
+    private String ticketActivityUuid;
 }

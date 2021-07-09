@@ -26,5 +26,7 @@ public enum TicketActivityTemplatesEnum {
     OTHER,
     MESSAGE,
     ATTACHMENT,
+    NAME_UPDATED_TICKET,
+    SET_TICKET_STATUS_AS,
     ONLY_DATA;
 }
