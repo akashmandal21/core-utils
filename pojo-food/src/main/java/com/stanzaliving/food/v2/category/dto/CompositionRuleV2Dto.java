@@ -1,14 +1,14 @@
 package com.stanzaliving.food.v2.category.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import com.stanzaliving.core.operations.enums.MealType;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.DayOfWeek;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -17,10 +17,16 @@ import java.util.List;
 @NoArgsConstructor
 public class CompositionRuleV2Dto implements Serializable {
     private static final long serialVersionUID = 1L;
+    private Long maxAllowedCombo;
+    private Long actualComboCount;
+    private Map<MealType, List<DayOfWeek>> failedComboMeals;
+    
     @NotNull(message = "Mandatory Rules Are Empty")
     private List<CompositionConditionV2Dto> mandatoryRules;
     private List<CompositionConditionV2Dto> weeklyRules;
     private List<CompositionConditionV2Dto> dailyRule;
-    private List<CompositionConditionV2Dto> mealRules;
+    private List<MealCompositionConditionDto> mealRules;
+    @Builder.Default
+    private Boolean passed = true;
 
 }

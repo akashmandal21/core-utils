@@ -62,4 +62,8 @@ public class ResidenceDto extends AbstractDto {
 	private String parentResidenceId;
 	
 	private PropertyEntityType propertyEntityType;
+	
+	private Double latitude;
+	
+	private Double longitude;
 }
