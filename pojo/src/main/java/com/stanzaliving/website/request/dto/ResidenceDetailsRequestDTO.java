@@ -29,11 +29,11 @@ public class ResidenceDetailsRequestDTO {
 	private String mobileNo;
 	private String phoneNo;
 	private Integer preBookingAmount;
-	private int priorityOrder;
+	private int sortOrder;
 	private boolean virtualTour;
 	private int cardCTAId;
 	private String cardCTAName;
 	private FomoTag fomoTag;
-	private String virtualTourURL;
-
+	private String virtualTourImage;
+	private String videoLink;
 }
