@@ -15,6 +15,8 @@ import com.stanzaliving.wanda.dtos.ResidentProfessionalDetailsDto;
 import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
 import com.stanzaliving.wanda.dtos.UserDetailDto;
 import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
+import com.stanzaliving.wanda.response.WandaFileResponseDto;
+
 import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
 import com.stanzaliving.wanda.response.WandaFileResponseDto;

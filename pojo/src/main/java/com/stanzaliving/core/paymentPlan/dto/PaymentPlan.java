@@ -1,4 +1,4 @@
-package com.stanzaliving.core.payment.dto;
+package com.stanzaliving.core.paymentPlan.dto;
 
 import java.time.LocalDate;
 

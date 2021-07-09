@@ -89,6 +89,11 @@ public class ResidenceUIDto implements Serializable {
 
 	private String apartmentFloorNumber;
 
+	private Double latitude;
+
+	private Double longitude;
+
+
 	private String code;
 
 	private String category;
@@ -97,8 +102,4 @@ public class ResidenceUIDto implements Serializable {
 
 	private String addressUuid;
 
-
-	private Double latitude;
-
-	private Double longitude;
 }
