@@ -123,4 +123,6 @@ public class FoodItemDto extends AbstractDto {
 	private int cuisineTagsCount;
 
     private List<ListingDto> feedback;
+	private String linkedIngredientId;
+	
 }

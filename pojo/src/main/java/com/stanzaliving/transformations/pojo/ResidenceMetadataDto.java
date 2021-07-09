@@ -28,6 +28,6 @@ public class ResidenceMetadataDto {
     
     private PropertyEntityType propertyEntityType;
     
-    
+    private String phoenixPropertyUuid;
     
 }
