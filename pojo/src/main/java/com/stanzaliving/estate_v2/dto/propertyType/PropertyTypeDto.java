@@ -36,7 +36,6 @@ public class PropertyTypeDto extends AbstractMongoDto {
     @NotNull(message = "Property-Status cannot be null")
     private List<@Valid PropertyStatusDto> propertyStatuses;
 
-    @Size(min = 1,message = "Property-Type-Details cannot be less than 1")
     @NotNull(message = "Property-Type-Details cannot be null")
     private List<@Valid PropertyTypeDetailsDto> propertyTypeDetails;
 
