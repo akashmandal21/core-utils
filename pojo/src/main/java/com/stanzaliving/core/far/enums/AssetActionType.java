@@ -15,6 +15,7 @@ public enum AssetActionType {
     TRANSFERRED_IN("Asset Transferred In"),
     ASSET_DISCARDED("Asset Discarded"),
     ASSET_RETURNED("Asset Returned"),
+    HOTO_INPROGRESS("Asset HOTO in progress"),
     HOTO_DONE("Asset HOTO Done"),
     AMC_ADDED("AMC Details Added"),
     AMC_UPDATED("Current AMC Details Changed"),
