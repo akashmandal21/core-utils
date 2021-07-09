@@ -1020,4 +1020,8 @@ public class DateUtil {
 		}
 		return month;
 	}
+	public boolean isBetween(LocalDate checkDate, LocalDate startDate, LocalDate endDate) {
+		return !checkDate.isBefore(startDate) && !checkDate.isAfter(endDate);
+	}
+
 }
