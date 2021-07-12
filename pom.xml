@@ -8,16 +8,8 @@
 	<url>http://www.stanzaliving.com</url>
 
 	<inceptionYear>2019</inceptionYear>
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
 
-    <parent>
+	<parent>
 		<groupId>com.stanzaliving.core</groupId>
 		<artifactId>stanza-parent</artifactId>
 		<version>1.0.0</version>
@@ -97,7 +89,9 @@
         <module>venta-aggregation-service-client</module>
 		<module>notification-v2-client</module>
 		<module>slack-client</module>
-        <module>pojo-food</module>
+        <module>commercial-card</module>
+		<module>pojo-food</module>
+
 	</modules>
 
 

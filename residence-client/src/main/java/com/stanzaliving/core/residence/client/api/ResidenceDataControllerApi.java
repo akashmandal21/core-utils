@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 
+import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -239,6 +240,8 @@ public class ResidenceDataControllerApi {
         }
     }
 
+
+
 	public ResponseDto<List<AttributesResponseDto>> getResidenceAttributes(String residenceUUID) {
 
 		log.info("Residence-Data-Controller::Processing to get list of attributes for residenceUuid {}", residenceUUID);
@@ -268,6 +271,25 @@ public class ResidenceDataControllerApi {
             return null;
         }
     }
+
+
+	public List<BookingAttributesDto> getResidenceData(String residenceUuid) {
+		Object postBody = null;
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid",residenceUuid);
+		String path = UriComponentsBuilder.fromPath("/internal/booking-attributes/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new HttpHeaders();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<List<BookingAttributesDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAttributesDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
+	}
+
 
 	public ResponseDto<RoomNumberListingAndCountDto> getAllRoomsInResidenceAndMoveIn(AdvanceRoomSearchDto advanceRoomSearchDto) {
 
@@ -461,7 +483,7 @@ public class ResidenceDataControllerApi {
 
 
 
-	public ResponseDto<ConvertRoomPricesDto> getConvertRoomPrices(String token, ConvertRoomRequestDto convertRoomRequestDto){
+	public ResponseDto<List<ConvertRoomPricesDto>> getConvertRoomPrices(String token, ConvertRoomRequestDto convertRoomRequestDto){
 
 		log.info("Residence-Data-Controller::Processing to get convert room prices {}", convertRoomRequestDto);
 
@@ -473,7 +495,7 @@ public class ResidenceDataControllerApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/convert-room/prices").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/api/v1/convert-room/price-listing").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -486,13 +508,12 @@ public class ResidenceDataControllerApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<ConvertRoomPricesDto>> returnType = new ParameterizedTypeReference<ResponseDto<ConvertRoomPricesDto>>() {
+		ParameterizedTypeReference<ResponseDto<List<ConvertRoomPricesDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ConvertRoomPricesDto>>>() {
 		};
 
 		try {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception ex) {
-
 			log.error("Exception while getting convert room prices {}", convertRoomRequestDto);
 		}
 		return null;
