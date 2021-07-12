@@ -240,6 +240,8 @@ public class ResidenceDataControllerApi {
         }
     }
 
+
+
 	public ResponseDto<List<AttributesResponseDto>> getResidenceAttributes(String residenceUUID) {
 
 		log.info("Residence-Data-Controller::Processing to get list of attributes for residenceUuid {}", residenceUUID);
@@ -269,6 +271,25 @@ public class ResidenceDataControllerApi {
             return null;
         }
     }
+
+
+	public List<BookingAttributesDto> getResidenceData(String residenceUuid) {
+		Object postBody = null;
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid",residenceUuid);
+		String path = UriComponentsBuilder.fromPath("/internal/booking-attributes/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new HttpHeaders();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<List<BookingAttributesDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAttributesDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
+	}
+
 
 	public ResponseDto<RoomNumberListingAndCountDto> getAllRoomsInResidenceAndMoveIn(AdvanceRoomSearchDto advanceRoomSearchDto) {
 
