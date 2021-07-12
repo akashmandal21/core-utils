@@ -78,9 +78,9 @@ public class ResidenceUIDto implements Serializable {
 	private MicroMarketUIDto microMarketUIDto;
 
 	private String parentResidenceId;
-	
+
 	private PropertyEntityType propertyEntityType;
-		
+
 	private String estateUuid;
 
 	private String phoenixPropertyUuid;
