@@ -8,6 +8,7 @@ import java.util.*;
 import com.stanzaliving.boq_service.BoqItemSearchRequestDto;
 import com.stanzaliving.core.base.common.dto.PageResponse;
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.dto.BrandSkuItemDetailDto;
 import com.stanzaliving.core.generic.enums.GSTSlabs;
 import com.stanzaliving.core.generic.itemmaster.dto.ItemDto;
 import com.stanzaliving.item_master.dtos.*;
@@ -484,6 +485,31 @@ public class ItemMasterClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams,null,headerParams, accept, returnType);
 	}
+
+
+
+
+	public ResponseDto<Collection<BrandSkuItemDetailDto>> getItemDetailsByLocation(String locationUuid) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("locationUuid",locationUuid);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/generic/get/item-details/by/location/{locationUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Collection<BrandSkuItemDetailDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Collection<BrandSkuItemDetailDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams,null,headerParams, accept, returnType);
+	}
+
 
 }
 
