@@ -386,11 +386,12 @@ public class NotificationClientApi {
         final HttpHeaders headerParams = new HttpHeaders();
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<Map<String,UserDataDto>> returnType =
-                new ParameterizedTypeReference<Map<String,UserDataDto>>() {
+        ParameterizedTypeReference<ResponseDto<Map<String,UserDataDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Map<String,UserDataDto>>>() {
                 };
         postBody = userIds;
-        return restClient.invokeAPI(
+        ResponseDto<Map<String, UserDataDto>> userDataMapResponse = restClient.invokeAPI(
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        return userDataMapResponse.getData();
     }
 }
