@@ -12,12 +12,11 @@ public class BrandSkuItemDetailDto {
     private String itemUuid;
     private String itemName;
     private String itemCode;
-    private UIKeyValue category;
-    private UIKeyValue subCategory;
+//    private UIKeyValue category;
+//    private UIKeyValue subCategory;
+    private String category;
+    private String subCategory;
     private String brand;
-    private UIKeyValue uom;
-    private int approvalLevel;
-    private boolean approved;
-    private boolean canApprove;
+    private String uom;
 
 }
