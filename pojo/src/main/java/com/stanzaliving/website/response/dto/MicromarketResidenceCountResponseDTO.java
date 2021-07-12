@@ -4,8 +4,6 @@
  */
 package com.stanzaliving.website.response.dto;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,11 +21,14 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ResidenceServicesResponseDTO {
+public class MicromarketResidenceCountResponseDTO {
 
-	private ResidenceResponseDTO residenceResponseDTO;
-	private List<VasDetailResidenceResponseDTO> vasList;
-	private List<AmenitiesResidenceResponseDTO> amenitiesList;
-	private List<PackagedServiceDetailResidenceResponseDTO> packagedServicesList;
+	private Integer residenceCount;
+	private Integer micromarketId;
+	private String micromarketName;
+	private String micromarketSlug;
+	private Integer cityId;
+	private String cityName;
+	private String citySlug;
 
 }

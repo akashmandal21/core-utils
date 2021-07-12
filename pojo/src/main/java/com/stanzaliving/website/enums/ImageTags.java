@@ -13,7 +13,8 @@ public enum ImageTags {
 	LIVINGAREA("Living Area"),
 	LOBBY("Lobby"),
 	RECEPTION("Reception"),
-	ROOM("Room");
+	ROOM("Room"),
+	OTHERS("Others");
 	
 	public String imageTagName;
 }
