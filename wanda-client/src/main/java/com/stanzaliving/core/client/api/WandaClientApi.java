@@ -1,6 +1,10 @@
 package com.stanzaliving.core.client.api;
 
 import com.stanzaliving.core.backend.dto.UserHostelDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.transformations.pojo.ResidenceUIDto;
+import com.stanzaliving.venta.OccupiedRoomDto;
+import com.stanzaliving.wanda.dtos.*;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
@@ -15,6 +19,8 @@ import com.stanzaliving.wanda.response.WandaFileResponseDto;
 
 import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
+import com.stanzaliving.wanda.response.WandaFileResponseDto;
+
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -23,6 +29,9 @@ import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import java.time.LocalDate;
+import java.util.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -412,6 +421,37 @@ public class WandaClientApi {
 
 	}
 
+	public ResponseDto<List<String>> getListOfUserUuidsForCityMicromarketResidenceUuids(LocationDetailsListDto locationDetailsListDto) {
+
+		try {
+			Object postBody = null;
+
+			log.info("Received request to get List of User UUID's by City Micro-market Residence Uuids: {}", locationDetailsListDto);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/student/list")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+			};
+
+			postBody=locationDetailsListDto;
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching User ID's By City Micromarket Residence Uuids: {}", locationDetailsListDto, e);
+		}
+
+		return null;
+	}
 	public ResidenceUIDto getUserCityMicromarketResidenceUuidsByUserCode(String usercode) {
 
 		try {
