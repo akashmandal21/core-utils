@@ -39,4 +39,6 @@ public class ConvertRoomRequestDto {
 //    @NotBlank(message = "room number uuid field cannot be empty")
 //    @NotNull(message = "room number uuid field cannot be null") //todo: check it
     private String bookingInventoryUUID;
+
+    private Boolean isAlreadyConverted;
 }

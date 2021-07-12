@@ -20,6 +20,8 @@ import lombok.Data;
 @ToString
 public class ConsumablesPricesDto {
 
+    private String name;
+	
     @NotBlank(message = "globalUUID field cannot be empty")
     private String globalUUID;
 

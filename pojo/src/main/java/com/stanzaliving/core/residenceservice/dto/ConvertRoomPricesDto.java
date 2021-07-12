@@ -21,4 +21,5 @@ public class ConvertRoomPricesDto {
     int roomConversionCharges;
     String serviceMixUUID;
     Double beforeConversionPrice;
+    int currentOccupancy;
 }

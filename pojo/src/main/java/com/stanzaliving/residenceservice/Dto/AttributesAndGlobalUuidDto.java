@@ -1,13 +1,9 @@
 package com.stanzaliving.residenceservice.Dto;
 
-
-import java.util.List;
-
-import javax.validation.constraints.NotBlank;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,12 +16,11 @@ import lombok.ToString;
 @Builder
 @AllArgsConstructor
 @ToString
-public class RoomConsumablesDto {
+@EqualsAndHashCode
+public class AttributesAndGlobalUuidDto {
 
-    @NotBlank(message = "roomUUID field cannot be empty")
-    private String roomUUID;
-
-    private List<ConsumablesPricesDto> consumablesPrices;
+  private String attributeName;
+  private String globalUuid;
 
 }
 
