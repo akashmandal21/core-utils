@@ -391,6 +391,6 @@ public class NotificationClientApi {
                 };
         postBody = userIds;
         return restClient.invokeAPI(
-                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+                path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 }
