@@ -15,7 +15,7 @@ import java.util.Date;
 public class EventRegistrationDetailsDTO {
     private String uuid;
 
-    @NotEmpty(groups = ApprovalValidation.class,message = "Event Organization UUID should not be empty")
+    @NotEmpty(groups = ApprovalValidation.class,message = "Event Organizer should not be empty")
     private String eventOrganizerUUID;
 
     @NotNull(groups = ApprovalValidation.class,message = "Event Registration Start Date should not be empty")
