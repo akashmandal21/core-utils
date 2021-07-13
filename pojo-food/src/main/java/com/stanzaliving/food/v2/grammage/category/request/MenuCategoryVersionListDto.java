@@ -1,18 +1,15 @@
 package com.stanzaliving.food.v2.grammage.category.request;
 
-import java.util.List;
-
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
-import com.stanzaliving.food.v2.category.constant.MenuCategoryGrammageUpdateAction;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 /**
  * @author manish.pareek"
@@ -29,8 +26,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MenuCategoryVersionListDto {
-	
-	@NotEmpty(message = "Menu category version id is required")
+
+	@Valid
+	@NotEmpty(message = "Menu category selection is required")
 	private List<MenuCategoryVersionUpdateDto> menuCategoryVersionDtoList;
 	
 }
