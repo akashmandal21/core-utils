@@ -93,6 +93,7 @@
 		<module>pojo-food</module>
 		<module>payment-plan-client</module>
 		<module>ledger-service-client</module>
+		<module>booking-service-client</module>
 	</modules>
 
 
