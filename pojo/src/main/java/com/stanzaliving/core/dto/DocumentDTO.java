@@ -53,4 +53,6 @@ public class DocumentDTO {
     private Set<DocumentAssetDTO> assets;
 
     private String metadata;
+
+    private boolean maxUploadRetriesReached;
 }
