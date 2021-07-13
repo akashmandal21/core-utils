@@ -22,4 +22,10 @@ public class EquipmentRentalSummaryDto extends CategorySummaryDto{
     private DisplaySummaryDto powerBackup;
     private DisplaySummaryDto roomGeyser;
     private DisplaySummaryDto commonGeyser;
+    private DisplaySummaryDto ro;
+    private DisplaySummaryDto tv;
+    private DisplaySummaryDto treadmill;
+    private DisplaySummaryDto multiGym;
+    private DisplaySummaryDto facialRecognition;
+    private DisplaySummaryDto smartLock;
 }
