@@ -1,6 +1,8 @@
 package com.stanzaliving.core.far.dto.response;
 
-import com.stanzaliving.core.far.enums.QrCodeStatus;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,17 +14,15 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class QrcodeScanResponseDto {
-    private QrCodeStatus qrCodeStatus;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class AssetReturnResponseDto {
     private String assetId;
-    private String assetName;
-    private String locationName;
-    private String qrCode;
     private String qrCodeId;
-    private Date addedOn;
-    private String addedBy;
-    private Date discardedOn;
-    private String discardedBy;
     private Date returnedOn;
     private String returnedBy;
+
+    public String toString() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
+    }
 }
