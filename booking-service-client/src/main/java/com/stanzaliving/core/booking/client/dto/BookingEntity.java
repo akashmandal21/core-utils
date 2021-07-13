@@ -5,6 +5,7 @@ import com.stanzaliving.core.booking.client.enums.BookingResidenceType;
 import com.stanzaliving.core.booking.client.enums.BookingSource;
 import com.stanzaliving.core.booking.client.enums.BookingStatus;
 import com.stanzaliving.core.booking.client.enums.BookingSubStatus;
+import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookingEntity {
+public class BookingEntity extends AbstractJpaEntity {
 
     private BookingStatus bookingStatus;
     private BookingSubStatus bookingSubStatus;
