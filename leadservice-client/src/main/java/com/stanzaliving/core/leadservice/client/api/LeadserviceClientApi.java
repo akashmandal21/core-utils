@@ -299,6 +299,9 @@ public class LeadserviceClientApi {
 	}
 	
 	public ResponseDto<Boolean> checkLeadByPhone(String phone) {
+		
+		log.info("Request received for checkLeadByPhone " + phone);
+		
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
