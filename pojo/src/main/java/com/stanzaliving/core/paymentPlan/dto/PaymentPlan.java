@@ -20,6 +20,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class PaymentPlan {
 	protected String uuid;
+	private Long id;
 	private LocalDate fromDate;
 	private LocalDate toDate;
 	private Double amount;
