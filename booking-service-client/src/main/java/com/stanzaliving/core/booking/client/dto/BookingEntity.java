@@ -1,10 +1,6 @@
 package com.stanzaliving.core.booking.client.dto;
 
-import com.stanzaliving.collector.enums.BookingType;
-import com.stanzaliving.core.booking.client.enums.BookingResidenceType;
-import com.stanzaliving.core.booking.client.enums.BookingSource;
-import com.stanzaliving.core.booking.client.enums.BookingStatus;
-import com.stanzaliving.core.booking.client.enums.BookingSubStatus;
+import com.stanzaliving.core.booking.client.enums.*;
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
