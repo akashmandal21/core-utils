@@ -12,4 +12,7 @@ public class Security extends BooleanService {
 	private BooleanService cardAccess = new BooleanService();
 	private NightCurfew nightCurfew = new NightCurfew();
 	private Blanket blanket = new Blanket();
+	private AcquiredBooleanService smartLock = new AcquiredBooleanService();
+	private AcquiredBooleanService facialRecognition = new AcquiredBooleanService();
+
 }

@@ -491,4 +491,43 @@ public class OperationsClientApi {
 	}
 
 
+	public ServiceMixEntityDto getFirstByFromDateAndResidenceIdAndServiceMixStatusAndDealCategoryAndUuidNot(LocalDate fromDate, String residenceId, ServiceMixStatus serviceMixStatus, DealCategory dealCategory, String uuid) {
+
+		Object postBody = null;
+
+		ServiceMixEntityDto serviceMixEntity = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/ops/servicemix/getServiceMixFromDateAndUuidNot").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("fromDate", fromDate.toString());
+		queryParams.add("residenceId", residenceId);
+		queryParams.add("serviceMixStatus", serviceMixStatus.toString());
+		queryParams.add("dealCategory", dealCategory.toString());
+		queryParams.add("uuid", uuid);
+
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<ServiceMixEntityDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceMixEntityDto>>() {
+
+		};
+
+		try {
+			serviceMixEntity = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
+		} catch (Exception e) {
+			log.error("Exception while fetching service mix from fromDate {} ", fromDate, e);
+		}
+
+		return Objects.nonNull(serviceMixEntity) ? serviceMixEntity : null;
+	}
+
 }
