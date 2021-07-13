@@ -302,8 +302,7 @@ public class LeadserviceClientApi {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-
-		String path = UriComponentsBuilder.fromPath("/lead/check/phone")
+		String path = UriComponentsBuilder.fromPath("/lead/internal/check/phone")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
