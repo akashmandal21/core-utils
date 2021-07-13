@@ -101,6 +101,7 @@ public class FilterDto {
 
     private List<UIKeyValue> itemStatusOptions;
     private List<UIKeyValue> updatedByOptions;
+    private String deliveryAddressUuid;
 
     @Builder.Default
     private boolean includeRate=false;
