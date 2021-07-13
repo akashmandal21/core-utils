@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class ConvertRoomRequestDto {
 
     @NotBlank(message = "service mix uuid field cannot be empty")
