@@ -1,5 +1,6 @@
 package com.stanzaliving.support.dto;
 
+import com.stanzaliving.core.user.enums.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,5 +21,6 @@ public class UserDto implements Serializable {
     private String hostelUuid;
     private String email;
     private String userName;
+    private UserType userType;
 
 }
