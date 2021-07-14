@@ -36,7 +36,7 @@ public class InvoiceSearchIndexDto extends AbstractSearchIndexDto {
 
     private String billToName;
 
-    private String referenceId;
+    private String studentId;
 
     private String residenceName;
 
@@ -55,4 +55,7 @@ public class InvoiceSearchIndexDto extends AbstractSearchIndexDto {
     private String fileName;
     private String filePath;
 
+    private String residenceMicromarketUuid;
+    private String residenceCityUuid;
+    private String residenceUuid;
 }
