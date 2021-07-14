@@ -26,7 +26,7 @@ public enum ResidenceAttributes {
 
     RETENTION_MIN_TOKEN_AMOUNT("Retention Min Token Amount", "String"),
     ROOM_CONVERSION_CHARGES("Room Conversion Charges", "String"),
-    RETENTION_DAYS("Retention Days", "Integer");
+   RETENTION_CREATION_BUFFER_DAYS("Retention Creation Buffer Days", "Integer");
 
 
     private String label;

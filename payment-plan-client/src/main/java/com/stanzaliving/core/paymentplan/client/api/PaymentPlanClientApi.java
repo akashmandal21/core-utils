@@ -91,7 +91,7 @@ public class PaymentPlanClientApi {
         }
     }
 
-    public ResponseDto<List<PaymentPlan>> getPaymentPlan(String bookingUuid, String token) {
+    public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(String bookingUuid, String token) {
 
         try {
             Object postBody = null;
@@ -115,7 +115,7 @@ public class PaymentPlanClientApi {
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>>() {
+            ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);

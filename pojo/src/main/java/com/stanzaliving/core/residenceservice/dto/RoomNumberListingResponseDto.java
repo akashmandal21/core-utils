@@ -20,10 +20,11 @@ public class RoomNumberListingResponseDto {
     private boolean isConverted;
     private String convertedOccupancy;
 
-    private float availableBeds;
-    private float occupiedBeds;
-    private float deadBeds;
-    private float totalBeds;
+    private float availableBeds = 0.0F;
+    private float occupiedBeds = 0.0F;
+    private float deadBeds = 0.0F;
+    private float totalBeds = 0.0F;
+    private float blockedBeds = 0.0F;
     private RoomStatus roomStatus;
 
 }
