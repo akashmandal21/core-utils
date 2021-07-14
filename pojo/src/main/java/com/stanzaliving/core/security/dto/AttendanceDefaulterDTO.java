@@ -1,8 +1,6 @@
 package com.stanzaliving.core.security.dto;
 
 import com.stanzaliving.core.security.enums.ActionStatus;
-import com.stanzaliving.core.security.enums.DefaulterActionType;
-import com.stanzaliving.core.security.enums.UserActionType;
 import lombok.*;
 
 import javax.validation.Valid;
@@ -10,6 +8,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -41,11 +41,19 @@ public class AttendanceDefaulterDTO {
 
     private boolean isResolved;
 
+    private boolean isNodalActionTaken;
+
     private ResidentDTO resident;
 
-    private DefaulterActionType actionType;
-
-    private UserActionType userActionType;
-
     private List<@Valid AttendanceDefaulterActionDTO> actions;
+
+    private StatusCardDTO statusCard;
+
+    private Date createdAt;
+
+    private LocalTime cutOffTimeRc;
+
+    private LocalTime cutOffTimeNodal;
+
+    private LocalTime cutOffTimeQrt;
 }

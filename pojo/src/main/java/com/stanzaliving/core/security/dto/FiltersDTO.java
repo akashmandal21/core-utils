@@ -17,7 +17,11 @@ public class FiltersDTO {
     @NotNull(message = "Date cannot be null")
     private LocalDate date;
 
+    private String searchTerm;
+
     private List<String> resident;
+
+    private List<String> residentCode;
 
     private List<String> city;
 
@@ -29,11 +33,15 @@ public class FiltersDTO {
 
     private List<ActionStatus> actionStatus;
 
-    private Boolean blanketApproval;
+    private List<Boolean> hasBlanketApproval;
 
-    private List<AttendanceFilter> attendance;
+    private List<StatusCard> attendance;
 
     private List<Floor> floor;
 
     private List<Dues> dues;
+
+    private List<Boolean> isResolved;
+
+    private List<PhoneType> phoneType;
 }

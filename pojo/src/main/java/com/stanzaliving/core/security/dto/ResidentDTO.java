@@ -1,9 +1,6 @@
 package com.stanzaliving.core.security.dto;
 
-import com.stanzaliving.core.security.enums.AttendanceFilter;
-import com.stanzaliving.core.security.enums.Dues;
-import com.stanzaliving.core.security.enums.Floor;
-import com.stanzaliving.core.security.enums.Nationality;
+import com.stanzaliving.core.security.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -58,6 +55,10 @@ public class ResidentDTO {
     private Boolean attendanceOptOut;
 
     private Floor floor;
+
+    private String residentType;
+
+    private PhoneType phoneType;
 
     // TODO: Does not belong here
     private AttendanceFilter attendanceFilter;
