@@ -394,4 +394,39 @@ public class NotificationClientApi {
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         return userDataMapResponse.getData();
     }
+
+    public List<String> getNotificationClickedUserForCampaign(String campaignId) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put(CAMPAIGN_ID,campaignId);
+        String path =
+                UriComponentsBuilder.fromPath("/api/v1/user/notification/campaign/{campaignId}")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+                };
+
+        final ResponseDto<List<String>> responseDto =
+                restClient.invokeAPI(
+                        path,
+                        HttpMethod.POST,
+                        queryParams,
+                        postBody,
+                        headerParams,
+                        accept,
+                        returnType);
+        return responseDto.getData();
+    }
 }
