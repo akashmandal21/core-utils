@@ -15,8 +15,8 @@ import lombok.experimental.SuperBuilder;
 public class AssetBaseDetails {
     private String qrUrl;
     private String assetUuid;
+    private String qrCodeId;
     private String assetCode;
     private String rejectionReason;
     private RejectionType rejectionType;
-
 }

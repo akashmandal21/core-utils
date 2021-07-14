@@ -17,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AssetHistoryResponseDto {
+    private String assetUuid;
     private String assetHistoryUuid;
     private String contextDescription;
     private List<UpdatedFieldsDto> updatedFields;
