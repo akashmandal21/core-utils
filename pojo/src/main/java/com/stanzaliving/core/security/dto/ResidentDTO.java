@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -22,7 +24,7 @@ public class ResidentDTO {
 
     private String lastName;
 
-    private String residentCode;
+    private String residentId;
 
     private Set<String> mobileNumbers;
 
@@ -50,7 +52,7 @@ public class ResidentDTO {
 
     private String roomNumber;
 
-    private Boolean blanketApproval;
+    private Boolean hasBlanketApproval;
 
     private Boolean attendanceOptOut;
 
@@ -58,14 +60,21 @@ public class ResidentDTO {
 
     private String residentType;
 
+    private LocalDateTime markedAt;
+
+    private StatusCardDTO statusCard;
+
+    private List<ResidentActivityType> residentActivities;
+
+    private String markedBy;
+
+    private String imageUrl;
+
     private PhoneType phoneType;
 
-    // TODO: Does not belong here
-    private AttendanceFilter attendanceFilter;
+    private LocalDate endOfContractDate;
 
-    // TODO: Does not belong here
-    private LocalDate markedTime;
+    private String residentCode;
 
-    // TODO: Does not belong here
-    private String colourCode;
+    private String colorCode;
 }
