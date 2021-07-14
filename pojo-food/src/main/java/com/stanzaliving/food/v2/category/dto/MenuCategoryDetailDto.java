@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.food.dto.FoodMenuBudgetDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
@@ -65,4 +66,8 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	//GrammageData
 	private int override;
 	private List<CategoryGrammageBaseResponseDto> grammageVariationDtos;
+	
+	private FoodMenuBudgetDto budgetRules;
+	private boolean budgetUtilizationInLimit;
+	
 }
