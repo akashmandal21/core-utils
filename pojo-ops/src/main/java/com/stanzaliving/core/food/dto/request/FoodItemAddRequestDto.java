@@ -92,5 +92,7 @@ public class FoodItemAddRequestDto {
 	private ItemRecipeRequestDto recipe;
 
 	private Set<String> feedback;
+	
+	private String linkedIngredientId;
 
 }

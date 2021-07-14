@@ -1,5 +1,6 @@
-package dto;
+package com.stanzaliving.booking.dto;
 
+import com.stanzaliving.booking.dto.request.ServicePriceDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,8 +10,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MonthlyBreakupResponseDTO {
 	
+public class MonthlyBreakupDto {
+
+    private Double subContract1MonthlyRent;
+
+    private Double subContract2MonthlyRent;
+    
 	private Double monthlyFee;
 
     private Double licenseFee;
