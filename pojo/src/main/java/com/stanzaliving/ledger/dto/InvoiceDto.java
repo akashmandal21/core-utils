@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class InvoiceDto {
 
-    private String referenceId;
+    private String referenceUuid;
     private String referenceType;
     private String subCategoryName;
     private Double totalAmount;
