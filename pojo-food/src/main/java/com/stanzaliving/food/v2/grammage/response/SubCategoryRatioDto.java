@@ -7,14 +7,12 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.util.Set;
-
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
  * @version 1.0
  *
- * @since 07-Jun-2021
+ * @since 12-Jul-2021
  */
 
 @Getter
@@ -23,9 +21,8 @@ import java.util.Set;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GrammageMasterRuleRatioDto {
+public class SubCategoryRatioDto {
+	private String subCategoryId;
 
-	private Set<SubCategoryRatioDto> controllingCategories;
-
-	private double derivedRatio;
+	private double ratio;
 }
