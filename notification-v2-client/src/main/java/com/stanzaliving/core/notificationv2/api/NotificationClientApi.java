@@ -421,7 +421,7 @@ public class NotificationClientApi {
         final ResponseDto<List<String>> responseDto =
                 restClient.invokeAPI(
                         path,
-                        HttpMethod.POST,
+                        HttpMethod.GET,
                         queryParams,
                         postBody,
                         headerParams,
