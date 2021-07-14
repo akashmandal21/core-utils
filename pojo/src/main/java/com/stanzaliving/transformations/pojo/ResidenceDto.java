@@ -74,4 +74,8 @@ public class ResidenceDto extends AbstractDto {
 	private String addressUuid;
 
 	private Boolean bookingStatus;
+
+	private Double latitude;
+
+	private Double longitude;
 }

@@ -43,6 +43,5 @@ public class FoodVendorRequestDto {
 	private String gstCompanyAddress;
 
 	private String vendorMasterUuid;
-	private String vendorCode;
 
 }

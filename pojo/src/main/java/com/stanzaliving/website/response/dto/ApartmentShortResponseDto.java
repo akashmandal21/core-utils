@@ -64,6 +64,10 @@ public class ApartmentShortResponseDto implements Serializable {
 	
 	private Integer startingPrice;
 	
+	private String transformationUuid;
+	
+	private String transformationId;
+	
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>();
 }

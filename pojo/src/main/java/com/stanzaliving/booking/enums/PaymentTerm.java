@@ -10,19 +10,11 @@ import lombok.NoArgsConstructor;
 public enum PaymentTerm {
 
 	MONTHLY("MONTHLY"),
-	ONE_INSTALLMENT("ONE INSTALLMENT"),
-	TWO_INSTALLMENT("TWO INSTALLMENT"),
-	THREE_INSTALLMENT("THREE INSTALLMENT"),
-	FOUR_INSTALLMENT("FOUR INSTALLMENT");
+	ONE_INSTALMENT("ONE INSTALMENT"),
+	TWO_INSTALMENT("TWO INSTALMENT"),
+	THREE_INSTALMENT("THREE INSTALMENT"),
+	FOUR_INSTALMENT("FOUR INSTALMENT");
 
 	private String name;
-
-	/*PaymentTerm(String name) {
-		this.name = name;
-	}*/
-
-	public String getName() {
-		return name;
-	}
 
 }

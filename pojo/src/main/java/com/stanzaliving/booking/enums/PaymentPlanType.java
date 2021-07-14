@@ -22,12 +22,4 @@ public enum PaymentPlanType {
 	DISCOUNT("Discount Adjusted");
 
 	private String name;
-
-	/*PaymentPlanType(String name) {
-		this.name = name;
-	}*/
-
-	public String getName() {
-		return name;
-	}
 }

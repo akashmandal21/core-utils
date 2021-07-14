@@ -80,7 +80,7 @@ public class ResidenceUIDto implements Serializable {
 	private String parentResidenceId;
 
 	private PropertyEntityType propertyEntityType;
-
+		
 	private String estateUuid;
 
 	private String phoenixPropertyUuid;
@@ -88,6 +88,10 @@ public class ResidenceUIDto implements Serializable {
 	private Double premiseArea;
 
 	private String apartmentFloorNumber;
+
+	private Double latitude;
+
+	private Double longitude;
 
 	private String code;
 
