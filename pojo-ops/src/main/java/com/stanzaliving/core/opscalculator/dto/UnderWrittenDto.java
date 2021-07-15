@@ -30,4 +30,6 @@ public class UnderWrittenDto {
     protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
     private double underWrittenDurationAmount;
     private double underWrittenDurationInDays;
+    List<SMLevelDto> smLevelDtoList;
+
 }

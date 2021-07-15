@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.grammage.category.request;
 
+import com.stanzaliving.food.v2.category.constant.MenuCategoryGrammageUpdateAction;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,8 +9,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-
-import com.stanzaliving.food.v2.category.constant.MenuCategoryGrammageUpdateAction;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Manish.PAreek
@@ -28,7 +28,8 @@ import com.stanzaliving.food.v2.category.constant.MenuCategoryGrammageUpdateActi
 public class MenuCategoryVersionUpdateDto {
 	@NotBlank(message = "Menu category version id is required")
 	private String menuCategoryVersionId;
-	
+
+	@NotNull(message = "Action is required")
 	private MenuCategoryGrammageUpdateAction action;
 	
 }

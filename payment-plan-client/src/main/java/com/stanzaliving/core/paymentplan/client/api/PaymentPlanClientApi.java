@@ -6,6 +6,7 @@ package com.stanzaliving.core.paymentplan.client.api;
 import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
 import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
+import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.paymentPlan.dto.PaymentPlan;
@@ -90,8 +91,8 @@ public class PaymentPlanClientApi {
             return null;
         }
     }
-
-    public ResponseDto<List<PaymentPlan>> getPaymentPlan(String bookingUuid, String token) {
+    
+    public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(String bookingUuid, String token) {
 
         try {
             Object postBody = null;
@@ -106,7 +107,7 @@ public class PaymentPlanClientApi {
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
+            
             HttpHeaders headerParams = new HttpHeaders();
 
             headerParams.add("Cookie", "token=" + token);
@@ -115,7 +116,44 @@ public class PaymentPlanClientApi {
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>>() {
+            ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the paymentPlan {}", e);
+        }
+
+        return null;
+
+    }
+
+    public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(String bookingUuid, String token,String paymentTerm) {
+
+        try {
+            Object postBody = null;
+
+            log.info("get paymentPlan by bookingUuid is {} ", bookingUuid);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("bookingUuid", bookingUuid);
+
+            String path = UriComponentsBuilder.fromPath("/api/v1/get/{bookingUuid}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            queryParams.add("paymentTerm", paymentTerm);
+           
+            HttpHeaders headerParams = new HttpHeaders();
+
+            headerParams.add("Cookie", "token=" + token);
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);

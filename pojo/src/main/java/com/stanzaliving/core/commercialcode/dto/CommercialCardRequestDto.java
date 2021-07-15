@@ -2,11 +2,13 @@ package com.stanzaliving.core.commercialcode.dto;
 
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data
+@ToString
 public class CommercialCardRequestDto {
 
     @NotNull(message = "City uuid cannot be null")

@@ -5,6 +5,7 @@ package com.stanzaliving.core.user.client.api;
 
 import java.util.*;
 
+import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -30,8 +31,22 @@ import com.stanzaliving.core.user.dto.UserRoleCacheDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.core.user.request.dto.ActiveUserRequestDto;
 import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
-
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author naveen.kumar
@@ -207,6 +222,30 @@ public class UserClientApi {
 		final HttpHeaders headerParams = new HttpHeaders();
 		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UserDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+
+
+	public ResponseDto<UserDto> updateUserDetails( UpdateUserRequestDto updateUserRequestDto) {
+
+
+		Object postBody = updateUserRequestDto;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/update/mobile").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
 		final String[] accepts = {
 				"*/*"
 		};

@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class BookingStatusResponseDto {
-	private Long bookingId;
 	private String houseName;
     private String bookingUuid;
     private String bookingStatus;
@@ -44,4 +43,5 @@ public class BookingStatusResponseDto {
     private String mobileNumber;
     private String jsVersion;
     private String residenceUuid;
+    private Long bookingId;
 }
