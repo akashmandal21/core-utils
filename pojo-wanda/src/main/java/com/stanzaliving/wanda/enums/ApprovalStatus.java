@@ -9,11 +9,13 @@ import java.util.*;
 @AllArgsConstructor
 public enum ApprovalStatus {
 
-    APPROVED("Approved" ,"Successfully Approved"), //todo: update color code
-    REJECTED("Rejected", "Successfully Rejected");
+    PENDING_VERIFICATION("Pending Verification","Verification Pending", "#FFB701"),
+    APPROVED("Approved" ,"Successfully Approved", "#F55F71"), //todo: update color code
+    REJECTED("Rejected", "Successfully Rejected", "#60C3AD");
 
     private final String status;
     private final String responseMessage;
+    private final String statusCode;
 
     private static final Map<String, ApprovalStatus> map = new HashMap<>();
 
