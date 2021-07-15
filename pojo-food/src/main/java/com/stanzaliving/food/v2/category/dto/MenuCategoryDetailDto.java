@@ -1,9 +1,6 @@
 package com.stanzaliving.food.v2.category.dto;
 
 
-import java.util.Date;
-import java.util.List;
-
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
@@ -13,12 +10,14 @@ import com.stanzaliving.food.v2.category.constant.CategoryStatus;
 import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.grammage.category.response.CategoryGrammageBaseResponseDto;
 import com.stanzaliving.food.v2.menu.dto.DayWiseCogsDto;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -30,11 +29,15 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private MenuType menuType;
 	private Double marginPercentage;
 	private Double utilityCost;
+	private Double packagingCost;
+	private Double transportCost;
+	private Double incentiveCost;
+	private Double serviceStaffCost;
 	private List<MenuCategoryMealDto> mealData;
 	private List<DayWiseCogsDto> dayWiseCogs;
 	private CategoryStatus categoryStatus;
 	private FoodServeType foodServeType;
-	private Integer maxWeeklyCombo;
+	private Integer minWeeklyCombo;
 	private boolean sampleMenuDefined;
 	private boolean grammageDefined;
 	private List<ListingDto> demographicTags;
