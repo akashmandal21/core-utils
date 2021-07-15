@@ -54,4 +54,7 @@ public class BookingAggregationDto {
     private String microMarket;
     private String bookingCreatedBy;
     private String bookingUpdatedBy;
+    private Date lockinStartDate;
+    private Date lockinEndDate;
+    private String lockinDuration;
 }
