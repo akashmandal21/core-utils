@@ -39,4 +39,6 @@ public class GenericItemDto {
     //Rates
     private BigDecimal globalRate;
     private BigDecimal cityRate;
+    private String recipeTag;
+
 }
