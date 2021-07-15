@@ -29,6 +29,10 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private MenuType menuType;
 	private Double marginPercentage;
 	private Double utilityCost;
+	private Double packagingCost;
+	private Double transportCost;
+	private Double incentiveCost;
+	private Double serviceStaffCost;
 	private List<MenuCategoryMealDto> mealData;
 	private List<DayWiseCogsDto> dayWiseCogs;
 	private CategoryStatus categoryStatus;
