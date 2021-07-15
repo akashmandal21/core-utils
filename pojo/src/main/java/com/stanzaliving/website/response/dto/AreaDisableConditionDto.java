@@ -19,5 +19,7 @@ public class AreaDisableConditionDto {
 
 	List<FlatUrlResponseDTO> flatUrlResponseDtos;
 
+	Integer flatUrlCount;
+	
 	boolean canBeDisabled;
 }
