@@ -1,10 +1,6 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.website.request.dto;
 
-import java.util.List;
+import com.stanzaliving.website.enums.ImageTags;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,10 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * @author nipunaggarwal
- *
- */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,7 +24,7 @@ public class ImageRequestDTO {
 	private int imageOrder;
 	private boolean enabled;
 	private String altTag;
-	private List<String> imageTag;
+	private ImageTags imageTag;
 	private String imageTagstatus;
 	private boolean featuredImage;
 }

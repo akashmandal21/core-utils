@@ -63,6 +63,7 @@ public enum PricingStepStatus{
 		statusMap.put(EstateStatus.REJECTED, UNDER_DRAFT);
 		statusMap.put(EstateStatus.SENT_BACK_L1_BY_NATIONAL_HEAD,UNDER_DRAFT);
 		statusMap.put(EstateStatus.SENT_BACK_FROM_INITIAL_BED_COUNT, UNDER_DRAFT);
+		statusMap.put(EstateStatus.PENDING_SALES_APPROVAL, UNDER_DRAFT);
 		//Pending Andy Approval
 		statusMap.put(EstateStatus.SIGNED_ATL_UPLOADED, PENDING_ANDY_APPROVAL);
 		
