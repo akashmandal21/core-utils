@@ -38,4 +38,6 @@ public class TransactionInitiateDto {
 	
 	@Default
 	private Boolean isEndUserPayingFee = false;
+	
+	private String paymentModeKey;
 }
