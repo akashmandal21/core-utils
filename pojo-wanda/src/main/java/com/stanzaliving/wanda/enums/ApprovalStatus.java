@@ -9,13 +9,13 @@ import java.util.*;
 @AllArgsConstructor
 public enum ApprovalStatus {
 
-    PENDING_VERIFICATION("Pending Verification","Verification Pending", "#FFB701"),
-    APPROVED("Approved" ,"Successfully Approved", "#F55F71"), //todo: update color code
-    REJECTED("Rejected", "Successfully Rejected", "#60C3AD");
+    PENDING_VERIFICATION("Pending Verification","", "#FFB701"),
+    APPROVED("Verified" ,"Document Verified successfully", "#F55F71"),
+    REJECTED("Rejected", "Document Rejected successfully", "#60C3AD");
 
     private final String status;
     private final String responseMessage;
-    private final String statusCode;
+    private final String colorCode;
 
     private static final Map<String, ApprovalStatus> map = new HashMap<>();
 
@@ -29,3 +29,8 @@ public enum ApprovalStatus {
         return map.get(approvalStatus);
     }
 }
+//    On approval we’ll show Verified.
+//
+//        On rejection we’ll show Rejected.
+//
+//        On no action we’ll show Pending Verification.
