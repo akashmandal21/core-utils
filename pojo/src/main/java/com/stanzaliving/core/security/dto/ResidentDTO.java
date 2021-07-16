@@ -1,15 +1,14 @@
 package com.stanzaliving.core.security.dto;
 
-import com.stanzaliving.core.security.enums.AttendanceFilter;
-import com.stanzaliving.core.security.enums.Dues;
-import com.stanzaliving.core.security.enums.Floor;
-import com.stanzaliving.core.security.enums.Nationality;
+import com.stanzaliving.core.security.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -25,7 +24,7 @@ public class ResidentDTO {
 
     private String lastName;
 
-    private String residentCode;
+    private String residentId;
 
     private Set<String> mobileNumbers;
 
@@ -53,18 +52,29 @@ public class ResidentDTO {
 
     private String roomNumber;
 
-    private Boolean blanketApproval;
+    private Boolean hasBlanketApproval;
 
     private Boolean attendanceOptOut;
 
     private Floor floor;
 
-    // TODO: Does not belong here
-    private AttendanceFilter attendanceFilter;
+    private String residentType;
 
-    // TODO: Does not belong here
-    private LocalDate markedTime;
+    private LocalDateTime markedAt;
 
-    // TODO: Does not belong here
-    private String colourCode;
+    private StatusCardDTO statusCard;
+
+    private List<ResidentActivityType> residentActivities;
+
+    private String markedBy;
+
+    private String imageUrl;
+
+    private PhoneType phoneType;
+
+    private LocalDate endOfContractDate;
+
+    private String residentCode;
+
+    private String colorCode;
 }
