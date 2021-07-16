@@ -1,9 +1,7 @@
 package com.stanzaliving.wanda.enums;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public enum DocumentUploadType {
 
@@ -15,7 +13,6 @@ public enum DocumentUploadType {
 	
 	private static List<DocumentUploadType> dualSideDocuments = new ArrayList<DocumentUploadType>(4);
 
-	private static Map<DocumentUploadType, String> documentName = new HashMap<>();
 
 	static {
 		indianDocumentTypes.add(DRIVING_LICENSE);
@@ -32,19 +29,6 @@ public enum DocumentUploadType {
 		dualSideDocuments.add(DRIVING_LICENSE);
 	}
 
-	static {
-		documentName.put(DRIVING_LICENSE, "Driving License");
-		documentName.put(OTHERS, "Others");
-		documentName.put(ADHAAR_CARD, "Aadhaar Card");
-		documentName.put(PAN, "PAN");
-		documentName.put(REFERRAL_PAN , "Referral Pan");
-
-		documentName.put(PASSPORT, "Password");
-		documentName.put(VISA, "VISA");
-
-		documentName.put(PASSPORT, "Passport");
-	}
-
 	public static List<DocumentUploadType> getIndianDocuments(){
 		return indianDocumentTypes;
 	}
@@ -57,10 +41,4 @@ public enum DocumentUploadType {
 		return dualSideDocuments;
 	}
 
-	public static String getDocumentName(DocumentUploadType documentUploadType){
-		if(documentName.containsKey(documentUploadType)){
-			return documentName.get(documentUploadType);
-		}
-		return null;
-	}
 }
