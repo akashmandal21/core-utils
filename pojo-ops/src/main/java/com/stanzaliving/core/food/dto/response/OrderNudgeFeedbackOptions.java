@@ -36,4 +36,6 @@ public class OrderNudgeFeedbackOptions extends VasOrderFeedbackOptions {
 	private EnumListing<FoodOrderType> foodOrderType;
 
 	private FrontendVisibleType frontendVisibleType;
+	
+	private String mealName;
 }

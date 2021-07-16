@@ -1,7 +1,6 @@
 package com.stanzaliving.core.food.dto.menuconsumption;
 
 import com.stanzaliving.core.base.common.dto.ListingDto;
-import com.stanzaliving.core.food.dto.menufps.response.ResidenceFpsResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +25,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodMenuMicromarketConsumptionDto extends MealsConsumptionResponseDto {
+	private static final long serialVersionUID = 22242262736273L;
 
 	private ListingDto micromarket;
 

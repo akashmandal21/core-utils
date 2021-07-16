@@ -19,6 +19,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.addressbook.AddressBookNameDto;
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -28,6 +29,7 @@ import com.stanzaliving.core.projectservice.tiles.TileStatusDto;
 import com.stanzaliving.transformations.pojo.AddressBookMetaDto;
 import com.stanzaliving.transformations.pojo.CityMetadataDto;
 import com.stanzaliving.transformations.pojo.CityUIDto;
+import com.stanzaliving.transformations.pojo.CityUuidListDto;
 import com.stanzaliving.transformations.pojo.CountryLevelAccessMetadata;
 import com.stanzaliving.transformations.pojo.CountryUIDto;
 import com.stanzaliving.transformations.pojo.FilterAddressDto;
@@ -795,6 +797,146 @@ public class InternalDataControllerApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+	
+	public ResponseDto<List<ListingDto>> getMicromarketList(CityUuidListDto cityUuids) {
 
+		Object postBody = cityUuids;
 
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/micromarket/list").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ListingDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ListingDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<ListingDto>> getMicromarketsByCityUuid(String cityUuid) {
+
+		try {
+			Object postBody = null;
+
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("cityUuid", cityUuid);
+
+			String path = UriComponentsBuilder.fromPath("internal/micromarket/list/{cityUuid}").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<List<ListingDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ListingDto>>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			
+			log.error("Exception Caught while Fetching Micromarkets by city Uuid: {}", cityUuid, e);
+		}
+		return null;
+	}
+	
+	public ResponseDto<List<ResidenceDto>> getResidencesByMicromarketUuid(String micromarketUuid) {
+
+		try {
+			Object postBody = null;
+
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("micromarketUuid", micromarketUuid);
+
+			String path = UriComponentsBuilder.fromPath("internal/get/residences/by/micromarketuuid/{micromarketUuid}").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			
+			log.error("Exception Caught while Fetching Residences By Micromarket Uuid: {}", micromarketUuid, e);
+		}
+		return null;
+	}
+
+	public ResponseDto<ResidenceDto> getResidenceDetailsByResidenceName(String residenceName) {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceName", residenceName);
+		String path =
+				UriComponentsBuilder.fromPath("/residence/get")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.put("residenceName", Arrays.asList(residenceName));
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<ResidenceDto>> returnType =
+				new ParameterizedTypeReference<ResponseDto<ResidenceDto>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<StateUIDto> getStateDetailsByName(String stateName) {
+
+		try {
+			Object postBody = null;
+
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("name", stateName);
+
+			String path = UriComponentsBuilder.fromPath("/internal/get/{name}")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<StateUIDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<StateUIDto>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+
+			log.error("Exception Caught while Fetching State details By State name: {}", stateName, e);
+		}
+		return null;
+	}
 }

@@ -1,7 +1,11 @@
 package com.stanzaliving.foodservice.client.api;
 
+import java.time.LocalDate;
 import java.util.*;
 
+import com.stanzaliving.core.food.dto.response.RecentMealDto;
+import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
+import com.stanzaliving.core.food.dto.IngredientUsageDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -129,7 +133,7 @@ public class FoodServiceClientApi {
         try {
             responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Error while fetching menu category details for id: {}", id, e);
+            log.error("Error while fetching menu category details for id: {}", id);
         }
 
         return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
@@ -208,5 +212,88 @@ public class FoodServiceClientApi {
         } catch (Exception e) {
             log.error("Error while initiating vendor approval for {}",menuGroupId, e);
         }
+    }
+
+    public Boolean isIngredientUsed(String ingredientId) {
+        String path = UriComponentsBuilder.fromPath("/internal/ingredients/{ingredientId}/used").buildAndExpand(ingredientId).toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<IngredientUsageDto>> returnType = new ParameterizedTypeReference<ResponseDto<IngredientUsageDto>>() {
+        };
+
+        try {
+            ResponseDto<IngredientUsageDto> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            return Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData()) && responseDto.getData().isUsed();
+        }catch (Exception e) {
+            log.error("Error while initiating request for ingredient used for ingredient {}",ingredientId, e);
+            return null;
+        }
+    }
+
+    public List<OccupiedBedDto> getOccupiedBedDetails(String residenceUuid, LocalDate fromDate, LocalDate toDate) {
+        Object postBody = null;
+
+        List<OccupiedBedDto> occupiedBedDtoList = new ArrayList<>();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/food/attendance/getOccupiedRoomDetails").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("residenceId", residenceUuid);
+        queryParams.add("startDate", fromDate.toString());
+        queryParams.add("endDate", toDate.toString());
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<OccupiedBedDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<OccupiedBedDto>>>() {
+        };
+
+        try {
+            occupiedBedDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
+        } catch (Exception e) {
+            log.error("Exception while fetching dead bed details for residence {} ", residenceUuid);
+        }
+
+        return occupiedBedDtoList;
+    }
+
+    public RecentMealDto getRecentMealWithNoFeedback(String userId) {
+
+        ResponseDto<RecentMealDto> responseDto = null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/resident/food/feedback/getRecentMealWithNoFeedback")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("userId",userId);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<RecentMealDto>> returnType = new ParameterizedTypeReference<ResponseDto<RecentMealDto>>() {
+        };
+
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while fetching recent meal for user with id: {}", userId, e);
+        }
+
+        return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
     }
 }

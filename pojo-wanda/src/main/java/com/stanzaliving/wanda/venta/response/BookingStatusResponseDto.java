@@ -38,4 +38,9 @@ public class BookingStatusResponseDto {
     private boolean wp;
     private String displayMessage;
     private String roomNumber;
+    private String cityName;
+    private String microMarketName;
+    private String mobileNumber;
+    private String jsVersion;
+    private String residenceUuid;
 }

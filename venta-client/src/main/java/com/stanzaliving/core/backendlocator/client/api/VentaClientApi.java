@@ -3,13 +3,12 @@
  */
 package com.stanzaliving.core.backendlocator.client.api;
 
-import com.stanzaliving.core.backendlocator.client.dto.ResidenceGstDto;
-import com.stanzaliving.core.backendlocator.client.dto.ResidentDto;
-import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.venta.BedCountDetailsDto;
-import lombok.extern.log4j.Log4j2;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -18,9 +17,19 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.stanzaliving.core.backendlocator.client.dto.ResidenceGstDto;
+import com.stanzaliving.core.backendlocator.client.dto.ResidentDto;
+import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.leaddashboard.dto.LeadDetailsDto;
+import com.stanzaliving.core.payment.dto.PreBookingRefundDto;
+import com.stanzaliving.venta.BedCountDetailsDto;
+import com.stanzaliving.venta.DeadBedCountDto;
+import com.stanzaliving.website.constants.WebsiteConstants;
+import com.stanzaliving.website.response.dto.VentaSyncDataResponseDTO;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * @author raj.kumar
@@ -50,9 +59,7 @@ public class VentaClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
+		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		postBody = micromarketNameList;
@@ -74,6 +81,7 @@ public class VentaClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, null, returnType);
 
 	}
+
 	public List<UserLuggageDto> getUsersWithLuggage() {
 
 		String path = UriComponentsBuilder.fromPath("/getAllLuggageUsers").buildAndExpand().toUriString();
@@ -89,7 +97,8 @@ public class VentaClientApi {
 	public ResidentDto getResidentDetails(String residentCode) {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residentCode", residentCode);
-		String path = UriComponentsBuilder.fromPath("/student/getStudentDetails/{residentCode}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/student/getStudentDetails/{residentCode}")
+				.buildAndExpand(uriVariables).toUriString();
 		final HttpHeaders headerParams = new HttpHeaders();
 		ParameterizedTypeReference<ResidentDto> returnType = new ParameterizedTypeReference<ResidentDto>() {
 		};
@@ -106,9 +115,9 @@ public class VentaClientApi {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		//uriVariables.put("userUuid", userUuid);
+		// uriVariables.put("userUuid", userUuid);
 
-		String path = UriComponentsBuilder.fromPath("/broker").buildAndExpand().toUriString();
+		String path = UriComponentsBuilder.fromPath("/broker").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("brokerMobile", userUuid);
@@ -122,14 +131,13 @@ public class VentaClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
-	
-	public String getPdfUrlByType(String type, String typeId,String typeName) {
+
+	public String getPdfUrlByType(String type, String typeId, String typeName) {
 
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		String path = UriComponentsBuilder.fromPath("/get/pdf").buildAndExpand().toUriString();
+		String path = UriComponentsBuilder.fromPath("/get/pdf").buildAndExpand(uriVariables).toUriString();
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		queryParams.add("type", type);
@@ -145,5 +153,165 @@ public class VentaClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
+	}
+
+	public List<DeadBedCountDto> getDeadBedDetails(String residenceUuid, LocalDate fromDate, LocalDate toDate) {
+		Object postBody = null;
+
+		List<DeadBedCountDto> deadBedCountDtoList = new ArrayList<>();
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
+		String path = UriComponentsBuilder.fromPath("/coreApi/getDeadBedDetails/{residenceUuid}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("fromDate", fromDate.toString());
+		queryParams.add("toDate", toDate.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<DeadBedCountDto>> returnType = new ParameterizedTypeReference<List<DeadBedCountDto>>() {
+		};
+
+		try {
+			deadBedCountDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams,
+					accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching dead bed details for residence {} ", residenceUuid);
+		}
+
+		return deadBedCountDtoList;
+	}
+
+	public List<String> getRoomNumberList(String residenceUuid) {
+		Object postBody = null;
+
+		List<String> roomNumberList = new ArrayList<>();
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
+		String path = UriComponentsBuilder.fromPath("/residence/rooms/{residenceUuid}").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<String>> returnType = new ParameterizedTypeReference<List<String>>() {
+		};
+
+		try {
+			roomNumberList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching room numbers list for residence {} ", residenceUuid);
+		}
+
+		return roomNumberList;
+	}
+	
+	public Map<String, Object> getBookingDetails(int bookingId) {
+
+		Object postBody = null;
+
+		Map<String, Object> response = new HashMap<>();
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("bookingId", bookingId);
+
+		String path = UriComponentsBuilder.fromPath("/wanda/booking/{bookingId}").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<HashMap<String, Object>> returnType = new ParameterizedTypeReference<HashMap<String, Object>>() {
+		};
+		try {
+			response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					returnType);
+
+		} catch (Exception e) {
+			log.error("Exception while fetching booking details for bookingId {} ", bookingId);
+		}
+		return response;
+	}
+
+	public LeadDetailsDto getLeadDetails(String phone) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("phone", phone);
+		String path = UriComponentsBuilder.fromPath("/lead/student/details/{phone}").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<LeadDetailsDto> returnType = new ParameterizedTypeReference<LeadDetailsDto>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public Void updateLeadTagStatus(PreBookingRefundDto preBookingRefundDto) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/lead/update/leadTag").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		postBody = preBookingRefundDto;
+
+		ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
+	public List<VentaSyncDataResponseDTO> getSyncDataForWebsite() {
+		
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/syncData/website").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		
+		headerParams.add("Authorization", WebsiteConstants.IMS_DEFAULT_BEARER_TOKEN);
+
+		final String[] accepts = { "*/*" };
+		
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<VentaSyncDataResponseDTO>> returnType = new ParameterizedTypeReference<List<VentaSyncDataResponseDTO>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
 }

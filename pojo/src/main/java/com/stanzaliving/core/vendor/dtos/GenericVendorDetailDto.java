@@ -34,6 +34,8 @@ public class GenericVendorDetailDto {
 
     private String gstin;
 
+    private String gstState;
+
     private String pan;
 
     private List<VendorPocDetailsDto> vendorPOCs;
@@ -47,4 +49,8 @@ public class GenericVendorDetailDto {
     private Integer retCreditDays;
 
     private boolean gstExempted;
+
+    private String propertyUuid;
+
+    private String gstAddress;
 }

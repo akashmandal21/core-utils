@@ -22,7 +22,7 @@ public class FieldDecoder {
     public Object decodeAdaptableValue(UiField uiSubmitField, TemplateField templateField, ObjectMapper objectMapper, ErrorInfo errorInfo){
         JsonNode data = uiSubmitField.getValue();
         Object value = null;
-        log.info("Adaptable Value data {} ",data);
+//        log.info("Adaptable Value data {} ",data);
         try {
             if (Objects.nonNull(data) && (!data.isNull())) {
                 final Class valueClazz = ValueAdapters.loadClass(templateField.getValueClass(), null, templateField, null);
@@ -52,7 +52,7 @@ public class FieldDecoder {
         try {
             FieldType fieldType = templateField.getFieldType();
             JsonNode data = uiSubmitField.getValue();
-            log.info("Value data {} field type {} needed {}",data,fieldType,needed);
+            log.info("Value data  field type {} needed {} {}",fieldType,needed,data);
             if (Objects.nonNull(data) && (!data.isNull()))
             {
                 switch (fieldType) {
@@ -123,15 +123,16 @@ public class FieldDecoder {
             if (StringUtils.isNotEmpty(uiSubmitField.getErrorMsg()))
                 success = false;
 
-            log.info("Ent {} {}",uiSubmitField.getErrorMsg());
+            log.info("Ent {} {}",uiSubmitField.getErrorMsg(),value);
         }catch (Exception ex){
             uiSubmitField.setErrorMsg("Field "+templateField.getFieldName()+" not in required format");
             log.error("Field Decoding failed {} {} ",templateField.getFieldName(),uiSubmitField,ex);
             success=false;
         }
-
+        log.error("Error Occurred {} {}",success,uiSubmitField.getErrorMsg());
         if(!success)
         {
+
             uiSubmitField.setErrorOccurred(true);
             errorInfo.setErrorOccurred(true);
             errorInfo.setNumErrors(errorInfo.getNumErrors()+1);

@@ -23,7 +23,9 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.SESSION_UNDERWRITTEN, Role.UNDER_WRITTEN_L1_APPROVER);
 		put(ApprovalEntityType.MONTHLY_UNDERWRITTEN, Role.MONTHLY_UNDER_WRITTEN_L1_APPROVER);
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY, Role.FOOD_MENU_CATEGORY_L1_APPROVER);
+		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L1_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L1_APPROVER);
+		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L1_APPROVER);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l2ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
@@ -31,22 +33,29 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.SESSION_UNDERWRITTEN, Role.UNDER_WRITTEN_L2_APPROVER);
 		put(ApprovalEntityType.MONTHLY_UNDERWRITTEN, Role.MONTHLY_UNDER_WRITTEN_L2_APPROVER);
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY, Role.FOOD_MENU_CATEGORY_L2_APPROVER);
+		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L2_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L2_APPROVER);
+		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L2_APPROVER);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l3ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
 		put(ApprovalEntityType.SERVICE_MIX, Role.COUNTRY_SERVICE_MIX_L3_APPROVER);
 		put(ApprovalEntityType.MONTHLY_UNDERWRITTEN, Role.MONTHLY_UNDER_WRITTEN_L3_APPROVER);
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY, Role.FOOD_MENU_CATEGORY_L3_APPROVER);
+		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L3_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L3_APPROVER);
+		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L3_APPROVER);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l4ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L4_APPROVER);
+		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L4_APPROVER);
+		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L4_APPROVER);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l5ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L5_APPROVER);
+		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L5_APPROVER);
 	}};
 	
 	

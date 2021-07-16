@@ -1,10 +1,12 @@
 package com.stanzaliving.core.cafe.order.dto;
 
+import com.stanzaliving.core.cafe.order.constants.OrderStatus;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -22,4 +24,7 @@ public class ResidenceSlotStatRDto {
     private LocalTime startTime;
     private LocalTime endTime;
     private boolean windowClosed;
+    private Map<OrderStatus, Integer> statusWiseCount;
+
+
 }

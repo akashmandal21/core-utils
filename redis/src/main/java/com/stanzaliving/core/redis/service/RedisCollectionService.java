@@ -2,6 +2,7 @@ package com.stanzaliving.core.redis.service;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public interface RedisCollectionService {
 
@@ -30,4 +31,16 @@ public interface RedisCollectionService {
 	boolean addInObjectSet(String setName, Object key);
 
 	void clearMap(String mapName);
+
+	Map<String, String> getStringMapCache(String mapName);
+
+	String getFromStringMapCache(String mapName, String key);
+
+	String addInStringMapCache(String mapName, String key, String value, long ttl, TimeUnit timeUnit);
+
+	boolean existsInStringMapCache(String mapName, String key);
+
+	void removeFromStringMapCache(String mapName, String key);
+
+	void removeFromStringMap(String mapName, String key);
 }

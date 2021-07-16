@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
  * @author naveen.kumar
  *
@@ -22,14 +24,16 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class KitchenCostDto {
+public class KitchenCostDto implements Serializable {
 
 	private String kitchenId;
 
 	private String kitchenName;
 
-	private double cost;
+	private Double cost;
 
 	private Double totalCost;
 
+	private Double totalQuantity;
+	private Double standardQuantity;
 }

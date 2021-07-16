@@ -282,12 +282,20 @@ public class DateUtil {
 		return Math.abs(daysBetweenWithSign(one, two));
 	}
 
+	public long daysBetween(LocalDate one, LocalDate two) {
+		return Math.abs(daysBetweenWithSign(one, two));
+	}
+
 	public long daysBetweenWithSign(Date one, Date two) {
 
 		LocalDate start = convertToLocalDate(one);
 		LocalDate end = convertToLocalDate(two);
 
-		return ChronoUnit.DAYS.between(start, end);
+		return daysBetweenWithSign(start, end);
+	}
+
+	public long daysBetweenWithSign(LocalDate one, LocalDate two) {
+		return ChronoUnit.DAYS.between(one, two);
 	}
 
 	public int getMaxDaysInMonth(LocalDate date) {
@@ -902,4 +910,21 @@ public class DateUtil {
 		}
 		return monthCount;
 	}
+	
+	public long getHoursBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+		if (Objects.isNull(startDateTime) || Objects.isNull(endDateTime)) {
+			return 0;
+		}
+
+		return getDurationBetween(startDateTime, endDateTime).toHours();
+	}
+	
+	public Duration getDurationBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+		return Duration.between(startDateTime, endDateTime);
+	}
+
+	public boolean isBetween(LocalDate checkDate, LocalDate startDate, LocalDate endDate) {
+		return !checkDate.isBefore(startDate) && !checkDate.isAfter(endDate);
+	}
+	
 }

@@ -1,10 +1,20 @@
 package com.stanzaliving.core.client.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.stanzaliving.core.backend.dto.UserHostelDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.transformations.pojo.ResidenceUIDto;
+import com.stanzaliving.venta.OccupiedRoomDto;
+import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
+import com.stanzaliving.wanda.dtos.FullUserDto;
+import com.stanzaliving.wanda.dtos.LocationDetailsListDto;
+import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
+import com.stanzaliving.wanda.dtos.UserDetailDto;
+import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
+import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
+import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
+import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDto;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -13,16 +23,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.backend.dto.UserHostelDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.transformations.pojo.ResidenceUIDto;
-import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
-import com.stanzaliving.wanda.dtos.FullUserDto;
-import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
-import com.stanzaliving.wanda.dtos.UserDetailDto;
-import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
-
-import lombok.extern.log4j.Log4j2;
+import java.time.LocalDate;
+import java.util.*;
 
 @Log4j2
 public class WandaClientApi {
@@ -43,8 +45,8 @@ public class WandaClientApi {
 
 			uriVariables.put("userUuid", userUuid);
 
-			String path = UriComponentsBuilder.fromPath("/coreApi/fulluserdto/id/{userUuid}").buildAndExpand(uriVariables)
-					.toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/fulluserdto/id/{userUuid}")
+					.buildAndExpand(uriVariables).toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -74,8 +76,8 @@ public class WandaClientApi {
 			final Map<String, Object> uriVariables = new HashMap<>();
 			uriVariables.put("userCode", userCode);
 
-			String path = UriComponentsBuilder.fromPath("/coreApi/userDetailDto/id/{userCode}").buildAndExpand(uriVariables)
-					.toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/userDetailDto/id/{userCode}")
+					.buildAndExpand(uriVariables).toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -99,7 +101,7 @@ public class WandaClientApi {
 
 		Object postBody = userCodes;
 
-		log.info("Received request to get Map of userCode {}" , userCodes);
+		log.info("Received request to get Map of userCode {}", userCodes);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -120,7 +122,8 @@ public class WandaClientApi {
 
 		try {
 
-			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
+					returnType);
 
 		} catch (Exception e) {
 			log.error("Exception while getting user code map from wanda: ", e);
@@ -138,7 +141,8 @@ public class WandaClientApi {
 
 			final Map<String, Object> uriVariables = new HashMap<>();
 
-			String path = UriComponentsBuilder.fromPath("/coreApi/user/list/feature/phone").buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/user/list/feature/phone").buildAndExpand(uriVariables)
+					.toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			queryParams.add("hostel", hostel);
@@ -161,7 +165,10 @@ public class WandaClientApi {
 	}
 
 	public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId) {
+		return getUserHostelDetails(hostelId, false);
+	}
 
+	public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId, boolean currentHostel) {
 		try {
 			Object postBody = null;
 
@@ -175,6 +182,7 @@ public class WandaClientApi {
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 			queryParams.add("hostelId", hostelId);
+			queryParams.add("currentHostel", String.valueOf(currentHostel));
 
 			final HttpHeaders headerParams = new HttpHeaders();
 
@@ -190,7 +198,6 @@ public class WandaClientApi {
 		}
 
 		return null;
-
 	}
 
 	public List<UserHostelDto> getUserHostelList() {
@@ -286,7 +293,7 @@ public class WandaClientApi {
 
 		Object postBody = null;
 
-		log.info("Received request to get UserCodeIdMapDto {}",  searchTerm);
+		log.info("Received request to get UserCodeIdMapDto {}", searchTerm);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -316,10 +323,10 @@ public class WandaClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		uriVariables.put("userUuid", userUuid);
+		uriVariables.put("userCode", userUuid);
 		uriVariables.put("flag", flag);
 
-		String path = UriComponentsBuilder.fromPath("/coreApi//get/user/residence/{flag}/{userCode}")
+		String path = UriComponentsBuilder.fromPath("/coreApi/get/user/residence/{flag}/{userCode}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -344,7 +351,8 @@ public class WandaClientApi {
 
 			final Map<String, Object> uriVariables = new HashMap<>();
 
-			String path = UriComponentsBuilder.fromPath("/coreApi/get/userUuid").buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/get/userUuid").buildAndExpand(uriVariables)
+					.toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			queryParams.add("userCode", userCode);
@@ -375,7 +383,8 @@ public class WandaClientApi {
 
 			final Map<String, Object> uriVariables = new HashMap<>();
 
-			String path = UriComponentsBuilder.fromPath("/coreApi/get/userCode").buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/get/userCode").buildAndExpand(uriVariables)
+					.toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			queryParams.add("userUuid", userUuid);
@@ -392,11 +401,200 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception e) {
-			log.error("Error fetching user code for userUuid: {}", userUuid, e);
 		}
 
 		return null;
 
 	}
+
+	public ResponseDto<List<String>> getListOfUserUuidsForCityMicromarketResidenceUuids(LocationDetailsListDto locationDetailsListDto) {
+
+		try {
+			Object postBody = null;
+
+			log.info("Received request to get List of User UUID's by City Micro-market Residence Uuids: {}", locationDetailsListDto);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/student/list")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+			};
+
+			postBody=locationDetailsListDto;
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching User ID's By City Micromarket Residence Uuids: {}", locationDetailsListDto, e);
+		}
+
+		return null;
+	}
+	public ResidenceUIDto getUserCityMicromarketResidenceUuidsByUserCode(String usercode) {
+
+		try {
+			Object postBody = null;
+
+			log.info("Received request to get User City Micromarket Residence Uuids By UserCode: {}", usercode);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("usercode", usercode);
+
+			String path = UriComponentsBuilder.fromPath("/coreApi/get/user/residence/userCode/{usercode}")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResidenceUIDto> returnType = new ParameterizedTypeReference<ResidenceUIDto>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching User City Micromarket Residence Uuids By UserCode: {}", usercode, e);
+		}
+
+		return null;
+	}
+
+	public boolean updateHostelAndRoomOfUser(String userId, String hostelId, String roomNum) {
+
+		Object postBody = null;
+
+		log.info("Received request to update Hostel of user {} hostelId {} ", userId, hostelId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("userId", userId);
+		uriVariables.put("hostelId", hostelId);
+		uriVariables.put("roomNum", roomNum);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/update/hostel/{userId}/{hostelId}/{roomNum}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+		};
+
+		try {
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
+		}
+
+		return false;
+	}
+
+	public List<OccupiedRoomDto> getOccupiedRoomDetails(String residenceUuid, LocalDate fromDate, LocalDate toDate) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/getOccupiedRoomDetails/{residenceUuid}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		List<OccupiedRoomDto> occupiedRoomDtoList = new ArrayList<>();
+		// create path and map variables
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("fromDate", fromDate.toString());
+		queryParams.add("toDate", toDate.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<OccupiedRoomDto>> returnType = new ParameterizedTypeReference<List<OccupiedRoomDto>>() {
+		};
+
+		try {
+			occupiedRoomDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while getting room count for residence: {}", residenceUuid);
+		}
+		return occupiedRoomDtoList;
+	}
+
+	public ResponseDto<ResidentKYCDocumentResponseDto> getResidentKYCDocuments(String residentUuid) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residentUuid", residentUuid);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/get/resident/kyc/{residentUuid}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDto>> returnType =
+				new ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDto>>() {
+		};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public List<FoodRegionPreferenceResponse> getDemoGraphicsData(DemographicsRequestDto demographicsRequestDto) {
+
+		Object postBody = demographicsRequestDto;
+
+		log.info("Received request to get Demographics detail{}", demographicsRequestDto.getHostelIdList().size());
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/demographics/consumer/preference/get").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>> returnType = new ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>>() {
+		};
+
+		List<FoodRegionPreferenceResponse> response = null;
+
+		try {
+			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
+		} catch (Exception e) {
+			log.error("Exception while getting user code map from wanda: ", e);
+		}
+
+		return response;
+	}
+
 
 }

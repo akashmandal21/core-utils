@@ -6,6 +6,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 import com.stanzaliving.core.estate.enums.EstateGender;
@@ -23,7 +24,7 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidenceUIDto implements Serializable{
+public class ResidenceUIDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -67,12 +68,28 @@ public class ResidenceUIDto implements Serializable{
 	@NotNull(message = "Residence Number of Rooms is Mandatory")
 	@Min(value = 1, message = "Number of Rooms cannot be less than 1")
 	private Integer numberOfRooms;
-	
+
 	private Integer coreResidenceId;
-	
+
 	private String coreResidenceName;
 
 	private CityUIDto cityUIDto;
 
 	private MicroMarketUIDto microMarketUIDto;
+
+	private String parentResidenceId;
+
+	private PropertyEntityType propertyEntityType;
+
+	private String estateUuid;
+
+	private String phoenixPropertyUuid;
+
+	private Double premiseArea;
+
+	private String apartmentFloorNumber;
+
+	private Double latitude;
+
+	private Double longitude;
 }

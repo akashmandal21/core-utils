@@ -1,5 +1,6 @@
 package com.stanzaliving.core.estate.client.api;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -412,6 +413,33 @@ public class EstateClientApi {
         };
         
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public ResponseDto<Map<String,Boolean>> getEstateSalesMapping(Collection<String> estateIds) {
+
+        Object postBody = estateIds;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/estate/sales/mapping").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<Map<String,Boolean>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String,Boolean>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
 }

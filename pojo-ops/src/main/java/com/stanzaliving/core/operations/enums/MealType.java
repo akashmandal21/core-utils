@@ -3,19 +3,19 @@
  */
 package com.stanzaliving.core.operations.enums;
 
+import com.stanzaliving.core.base.utils.StanzaParseUtils;
+import com.stanzaliving.core.user.enums.EnumListing;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import com.stanzaliving.core.base.utils.StanzaParseUtils;
-import com.stanzaliving.core.user.enums.EnumListing;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 /**
  * @author naveen.kumar
@@ -27,12 +27,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MealType {
 
-	BREAKFAST(1, "Breakfast", 1, "https://res.cloudinary.com/stanza-living/image/upload/v1604332446/food/meals/Indian_Combo.png","B"),
-	LUNCH(2, "Lunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png","L"),
-	EVENING_SNACKS(3, "Evening Snacks", 5, "https://res.cloudinary.com/stanza-living/image/upload/v1604332760/food/meals/Evening_Snacks.png","S"),
-	DINNER(4, "Dinner", 6, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png","D"),
-	BRUNCH(5, "Brunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/v1604331332/food/meals/Breakfast_Veg.png","Br"),
-	LUNCH_TIFFIN(6, "Lunch Tiffin", 4, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png","T");
+	BREAKFAST(1, "Breakfast", 1, "https://res.cloudinary.com/stanza-living/image/upload/v1604332446/food/meals/Indian_Combo.png", "B"),
+	LUNCH(2, "Lunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "L"),
+	EVENING_SNACKS(3, "Evening Snacks", 5, "https://res.cloudinary.com/stanza-living/image/upload/v1604332760/food/meals/Evening_Snacks.png", "S"),
+	DINNER(4, "Dinner", 6, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "D"),
+	BRUNCH(5, "Brunch", 2, "https://res.cloudinary.com/stanza-living/image/upload/v1604331332/food/meals/Breakfast_Veg.png", "Br"),
+	LUNCH_TIFFIN(6, "Lunch Tiffin", 4, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "T");
 
 	private Integer mealId;
 
@@ -52,6 +52,7 @@ public enum MealType {
 	private static List<EnumListing<MealType>> enumListings = new ArrayList<>();
 	private static Set<MealType> firstHalfMealsSet = new HashSet<>();
 	private static Set<MealType> secondHalfMealsSet = new HashSet<>();
+	private static Set<MealType> majorMeals = new HashSet<>();
 
 	static {
 
@@ -74,14 +75,19 @@ public enum MealType {
 		mealMapByTypeStr.put(BRUNCH.toString(), BRUNCH.getMealName());
 		mealMapByTypeStr.put(EVENING_SNACKS.toString(), EVENING_SNACKS.getMealName());
 		mealMapByTypeStr.put(DINNER.toString(), DINNER.getMealName());
-		
+
 		firstHalfMealsSet.add(BREAKFAST);
 		firstHalfMealsSet.add(BRUNCH);
 		firstHalfMealsSet.add(LUNCH);
 		firstHalfMealsSet.add(LUNCH_TIFFIN);
-		
+
 		secondHalfMealsSet.add(EVENING_SNACKS);
 		secondHalfMealsSet.add(DINNER);
+
+		majorMeals.addAll(Arrays.asList(MealType.values()));
+		majorMeals.remove(LUNCH_TIFFIN);
+		majorMeals.remove(BRUNCH);
+
 	}
 
 	public static Integer getMealId(String mealName) {
@@ -94,6 +100,10 @@ public enum MealType {
 
 	}
 
+	public static Set<MealType> getMajorMeals() {
+		return majorMeals;
+	}
+
 	public static Map<MealType, String> getMealMapByType() {
 		return mealMapByType;
 	}
@@ -101,7 +111,7 @@ public enum MealType {
 	public static Map<String, String> getMealMapByTypeStr() {
 		return mealMapByTypeStr;
 	}
-	
+
 	public static String getMealName(String mealId) {
 
 		if (mealMapById.containsKey(StanzaParseUtils.getIntValue(mealId))) {
@@ -126,20 +136,24 @@ public enum MealType {
 	public static List<EnumListing<MealType>> getMealListing() {
 		return enumListings;
 	}
-	
+
 	public static Set<MealType> getFirstHalfMeals() {
 		return firstHalfMealsSet;
 	}
-	
+
 	public static Set<MealType> getSecondHalfMeals() {
 		return secondHalfMealsSet;
 	}
-	
+
 	public static boolean isFirstHalfMeal(MealType mealType) {
 		return firstHalfMealsSet.contains(mealType);
 	}
-	
+
 	public static boolean isSecondHalfMeal(MealType mealType) {
 		return secondHalfMealsSet.contains(mealType);
+	}
+
+	public static boolean isMealApplicableForKitchenOrder(MealType mealType) {
+		return BREAKFAST == mealType || LUNCH == mealType || EVENING_SNACKS == mealType || DINNER == mealType;
 	}
 }
