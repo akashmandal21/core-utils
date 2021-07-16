@@ -11,5 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class AnswerDetailsDto {
     private String id;
+    private String userUuid;
     private Boolean status;
 }

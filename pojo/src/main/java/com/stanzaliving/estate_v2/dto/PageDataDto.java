@@ -12,4 +12,5 @@ public class PageDataDto {
     private String pageName;
     private String pageUuid;
     private String pageIcon;
+    private PrivilegesDto privileges;
 }
