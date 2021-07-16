@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.response;
 
+import com.stanzaliving.wanda.enums.DocumentSideType;
 import lombok.*;
 
 @Getter
@@ -14,4 +15,6 @@ public class KYCDocumentDto {
     private String fileName;
 
     private String fileUrl;
+
+    private DocumentSideType documentSideType;
 }

@@ -18,8 +18,6 @@ public class KYCListingResponseDto {
 
     private DocumentUploadType documentUploadType;
 
-    private DocumentSideType documentSideType;
-
     private List<KYCDocumentDto> kycDocumentList;
 
     private String metadata;
@@ -38,11 +36,13 @@ public class KYCListingResponseDto {
 
     private String documentLabel;
 
-    private String icon;
+    private String documentIcon;
 
     private String statusBackground;
 
     private String documentName;
 
     private String category;
+
+    private String categoryIcon;
 }
