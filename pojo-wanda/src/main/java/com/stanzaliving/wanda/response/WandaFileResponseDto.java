@@ -53,4 +53,6 @@ public class WandaFileResponseDto {
 	private String statusBackground;
 
 	private String documentName;
+
+	private String category;
 }
