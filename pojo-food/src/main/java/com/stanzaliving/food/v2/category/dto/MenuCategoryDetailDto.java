@@ -64,7 +64,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private String approvalRequestedBy;
 
 	private CompositionRuleV2Dto compositionRules;
-	private List<MealWiseMenuDto> mealWiseMenu;
+	private List<MealWiseMenuDto> mealWiseMenus;
 	private MealCategoryPriceDto mealPriceData;
 	
 	//GrammageData
