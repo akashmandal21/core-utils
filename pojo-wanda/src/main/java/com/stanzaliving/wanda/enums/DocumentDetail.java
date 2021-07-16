@@ -11,7 +11,7 @@ import java.util.Map;
 public enum DocumentDetail {//todo: update
 
     PASSPORT("Passport","", "Address Proof","https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/description.svg"),
-    PAN("PAN Card", "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/contacts.svg","Id Proof","https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/badge.svg'"),
+    PAN("PAN Card", "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/contacts.svg","Id Proof","https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/badge.svg"),
     REFERRAL_PAN("Referral PAN Card","https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/contacts.svg", "Id Proof","https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/badge.svg"),
     ADHAAR_CARD("Aadhaar Card","fingerprint","Address Proof","https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/description.svg"),
     DRIVING_LICENSE("Driving License","","Address Proof","https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/description.svg"),
