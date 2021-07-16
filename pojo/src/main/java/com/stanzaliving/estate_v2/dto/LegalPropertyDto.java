@@ -28,5 +28,6 @@ public class LegalPropertyDto extends AbstractMongoDto{
     private String rooms;
     private String availableBeds;
     private String rent;
-
+    private String address;
+    private String createdByUserEmail;
 }
