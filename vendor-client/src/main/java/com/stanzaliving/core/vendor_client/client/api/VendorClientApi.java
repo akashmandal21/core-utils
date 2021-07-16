@@ -35,6 +35,10 @@ public class VendorClientApi {
         this.restClient = stanzaRestClient;
     }
 
+    public ResponseDto<Map<String,List<VendorPocDetailsDto>>> getVendorPocDetailsV2(List<String> uuids) {
+        return null;
+    }
+
     public ResponseDto<List<VendorDetailsDto>> getVendorDetails(List<String> uuids) {
 
         log.info("HTTP Client call to get Vendor Details DTO for UUID " + uuids);
