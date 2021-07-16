@@ -15,4 +15,5 @@ public class TicketChecklistDetailDto {
     private String checklistUuid;
     private Boolean isMarkedNa;
     private Boolean isClosed;
+    private Boolean isMandatory;
 }
