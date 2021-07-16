@@ -36,7 +36,27 @@ public class VendorClientApi {
     }
 
     public ResponseDto<Map<String,List<VendorPocDetailsDto>>> getVendorPocDetailsV2(List<String> uuids) {
-        return null;
+
+        log.info("HTTP Client call to get Vendor POC Details DTO for UUID " + uuids);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<Map<String,List<VendorPocDetailsDto>>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Map<String,List<VendorPocDetailsDto>>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/getVendorPocDetailsByIdsV2").toUriString();
+
+        map.put("ids", uuids);
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, map, headerParams, accept, vddReturnType);
     }
 
     public ResponseDto<List<VendorDetailsDto>> getVendorDetails(List<String> uuids) {
