@@ -35,7 +35,7 @@ public class VendorClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<Map<String,List<VendorPocDetailsDto>>> getVendorPocDetailsV2(List<String> uuids) {
+    public ResponseDto<Map<String,List<VendorAndPocDetails>>> getVendorPlusPocDetailsByIdsV2(List<String> uuids) {
 
         log.info("HTTP Client call to get Vendor POC Details DTO for UUID " + uuids);
 
@@ -49,10 +49,10 @@ public class VendorClientApi {
 
         Map<String, List<String>> map = new HashMap<>();
 
-        ParameterizedTypeReference<ResponseDto<Map<String,List<VendorPocDetailsDto>>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Map<String,List<VendorPocDetailsDto>>>>() {
+        ParameterizedTypeReference<ResponseDto<Map<String,List<VendorAndPocDetails>>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Map<String,List<VendorAndPocDetails>>>>() {
         };
 
-        String path = UriComponentsBuilder.fromPath("/internal/getVendorPocDetailsByIdsV2").toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/getVendorPlusPocDetailsByIdsV2").toUriString();
 
         map.put("ids", uuids);
 
