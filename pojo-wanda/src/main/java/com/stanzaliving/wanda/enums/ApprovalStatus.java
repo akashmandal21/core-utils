@@ -9,7 +9,7 @@ import java.util.*;
 @AllArgsConstructor
 public enum ApprovalStatus {
 
-    PENDING_VERIFICATION("Pending Verification","", "'#FAB432"),
+    PENDING_VERIFICATION("Pending Verification","", "#FAB432"),
     APPROVED("Verified" ,"Document Verified successfully", "#60C3AD"),
     REJECTED("Rejected", "Document Rejected successfully", "#F55F71");
 
