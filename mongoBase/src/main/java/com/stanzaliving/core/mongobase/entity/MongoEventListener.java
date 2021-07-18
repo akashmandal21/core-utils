@@ -16,7 +16,7 @@ public  class MongoEventListener extends AbstractMongoEventListener<Object> {
 	@Autowired
 	private MongoOperations mongoOperations;
 	
-	@Autowired
+	@Autowired(required = false)
 	private MongoAfterSaveStrategy mongoAfterSaveStrategy;
 
 	@Override
@@ -48,7 +48,7 @@ public  class MongoEventListener extends AbstractMongoEventListener<Object> {
 		}
 	}
 
-	@Autowired
+	@Override
 	public void onAfterSave(AfterSaveEvent<Object> event) {
 		if(mongoAfterSaveStrategy==null) 
 			return;
