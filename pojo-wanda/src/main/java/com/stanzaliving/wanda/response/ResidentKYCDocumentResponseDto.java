@@ -28,5 +28,5 @@ public class ResidentKYCDocumentResponseDto {
 	
 	private DocumentSideType[] documentSideTypes;
 
-	private List<String> rejectionReason;
+	private List<RejectionReasonDto> rejectionReason;
 }
