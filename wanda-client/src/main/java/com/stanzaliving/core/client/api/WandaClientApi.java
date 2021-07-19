@@ -1,26 +1,16 @@
 package com.stanzaliving.core.client.api;
 
 import com.stanzaliving.core.backend.dto.UserHostelDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.transformations.pojo.ResidenceUIDto;
-import com.stanzaliving.venta.OccupiedRoomDto;
-import com.stanzaliving.wanda.dtos.*;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.venta.OccupiedRoomDto;
-import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
-import com.stanzaliving.wanda.dtos.FullUserDto;
-import com.stanzaliving.wanda.dtos.ResidentProfessionalDetailsDto;
-import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
-import com.stanzaliving.wanda.dtos.UserDetailDto;
-import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
-import com.stanzaliving.wanda.response.WandaFileResponseDto;
-
+import com.stanzaliving.wanda.dtos.*;
 import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
+import com.stanzaliving.wanda.response.OnBoardingGetResponse;
 import com.stanzaliving.wanda.response.WandaFileResponseDto;
-
+import com.stanzaliving.wanda.response.WandaResponse;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -29,16 +19,9 @@ import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import java.time.LocalDate;
-import java.util.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Log4j2
 public class WandaClientApi {
@@ -642,5 +625,39 @@ public class WandaClientApi {
 		return response;
 	}
 
+	public WandaResponse<OnBoardingGetResponse> getOnboardingDetails(String userId, String token) {
 
+		try {
+			Object postBody = null;
+
+			log.info("get User details by userUuid is {} ", userId);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			uriVariables.put("userId", userId);
+
+			String path = UriComponentsBuilder.fromPath("/onboarding/get/details/{userId}").buildAndExpand(uriVariables)
+					.toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			HttpHeaders headerParams = new HttpHeaders();
+
+			headerParams.add("Cookie", "token=" + token);
+
+			final String[] accepts = {"*/*"};
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>> returnType = new ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("error while fetching the user details " + e);
+		}
+
+		return null;
+
+	}
 }
