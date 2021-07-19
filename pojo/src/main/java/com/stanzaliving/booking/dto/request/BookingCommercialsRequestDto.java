@@ -5,27 +5,36 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import java.io.Serializable;
+
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookingCommercialsRequestDto {
-	
+public class BookingCommercialsRequestDto implements Serializable {
+
+	@Min(value = 1, message = "license fee cannot be negative or zero")
 	private Double licenseFee;
-	
+
+	@Min(value = 0, message = "city buffer cannot be negative")
 	@Builder.Default
-	private Double cityheadbuffer = 0.0;
-	
+	private Double cityHeadBuffer = 0.0;
+
 	@Builder.Default
 	private Double upsell = 0.0;
-	
+
 	@Builder.Default
 	private Double priceBump = 0.0;
-	
-	private ServicePriceRequestDto packagedServicePriceDto;
-	
-	private ServicePriceRequestDto foodServicePriceDto;
-	
-	private ServicePriceRequestDto vasPriceDto;
+
+	@Valid
+	private ServicePriceDto packagedServicePriceDto;
+
+	@Valid
+	private ServicePriceDto foodServicePriceDto;
+
+	@Valid
+	private ServicePriceDto vasPriceDto;
 
 }

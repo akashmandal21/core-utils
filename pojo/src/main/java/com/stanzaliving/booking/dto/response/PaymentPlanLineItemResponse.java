@@ -15,6 +15,8 @@ public class PaymentPlanLineItemResponse {
 
     private PaymentPlanType type;
 
+    private String label;
+
     private double amount;
 
     private String period;

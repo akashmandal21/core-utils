@@ -1,7 +1,25 @@
 package com.stanzaliving.booking.enums;
 
-public enum PaymentPlanType {
-	
-	RENTAL,SERVICE,FOOD_SERVICE,SECURITY_DEPOSIT,MAINTENANCE_FEE,VAS,BOOKING,ADVANCE_RENTAL,INSTALLMENT,DISCOUNT;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+public enum PaymentPlanType {
+
+	RENTAL("Rental"),
+	SERVICE("Service"),
+	FOOD_SERVICE("Food Service"),
+	SECURITY_DEPOSIT("Security Deposit"),
+	MAINTENANCE_FEE("Maintenance Fee"),
+	ANNUAL_MAINTENANCE_FEE("Annual Maintenance Fee"),
+	VAS("VAS"),
+	BOOKING("Booking"),
+	ADVANCE_RENTAL("Advance Rental"),
+	INSTALLMENT("Instalment"),
+	DISCOUNT("Discount Adjusted");
+
+	private String name;
 }
