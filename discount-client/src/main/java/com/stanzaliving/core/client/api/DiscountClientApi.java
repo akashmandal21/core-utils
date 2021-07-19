@@ -16,7 +16,9 @@ import com.stanzaliving.booking.dto.request.VentaDiscountRequestDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.discount.dto.request.BookingDiscountStrategyDto;
+import com.stanzaliving.core.discount.dto.request.DiscountSplitterRequestDto;
 import com.stanzaliving.core.discount.dto.response.DiscountCodeListDto;
+import com.stanzaliving.core.discount.dto.response.DiscountSplitterResponseDto;
 import com.stanzaliving.core.discount.dto.response.DiscountStrategyListingResponseDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -83,5 +85,26 @@ public class DiscountClientApi {
 		}
 		return null;
 	}
+	
+	public ResponseDto<DiscountSplitterResponseDto> getDiscountSplitter(DiscountSplitterRequestDto discountSplitterRequestDto) {
+		   
+		try {
+		      Object postBody = discountSplitterRequestDto;
+		      log.info("Received request to get discount splitter {}", discountSplitterRequestDto);
+		      final Map<String, Object> uriVariables = new HashMap<>();
+		      String path = UriComponentsBuilder.fromPath("/discount/api/v1/discount-splitter/get").buildAndExpand(uriVariables)
+		         .toUriString();
+		      final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		      final HttpHeaders headerParams = new HttpHeaders();
+		      final String[] accepts = { "*/*" };
+		      final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		      ParameterizedTypeReference<ResponseDto<DiscountSplitterResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DiscountSplitterResponseDto>>() {
+		      };
+		      return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		   } catch (Exception e) {
+		      log.error("Exception while getting discount splitter : ", e);
+		   }
+		   return null;
+		}
 
 }
