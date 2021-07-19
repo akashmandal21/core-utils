@@ -1,7 +1,6 @@
-package com.stanzaliving.booking.dto.response;
+package com.stanzaliving.core.discount.dto.response;
 
 
-import com.stanzaliving.booking.dto.DiscountSplitterDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
