@@ -9,5 +9,5 @@ public class AttributesResponseDto {
 
     private String label;
     private String value;
-
+    private String image;
 }
