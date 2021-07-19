@@ -95,7 +95,8 @@
 		<module>ledger-service-client</module>
 		<module>booking-service-client</module>
 		<module>discount-client</module>
-	</modules>
+        <module>invoice-service-client</module>
+    </modules>
 
 	<build>
 		<plugins>
