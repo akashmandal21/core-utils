@@ -28,5 +28,6 @@ public enum TicketActivityTemplatesEnum {
     ATTACHMENT,
     NAME_UPDATED_TICKET,
     SET_TICKET_STATUS_AS,
-    ONLY_DATA;
+    ONLY_DATA,
+    UPDATED_SATISFACTION_STATUS;
 }
