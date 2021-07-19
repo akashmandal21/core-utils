@@ -997,7 +997,7 @@ public class DateUtil {
 		Integer month = date.getMonths();
 		Integer days = date.getDays();
 		if(year!=0) month = year*12 + month;
-		String diff = "";
+		String diff = " ";
         if(month!=0) diff += month == 1 ? month+" month ": month+" months ";
         if(days!=0) diff += days == 1 ? days+" day": days+" days";
         return diff;
