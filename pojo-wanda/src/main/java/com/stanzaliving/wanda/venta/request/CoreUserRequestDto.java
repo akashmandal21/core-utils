@@ -1,5 +1,7 @@
 package com.stanzaliving.wanda.venta.request;
 
+import com.stanzaliving.core.food.enums.DemoGraphicsRegion;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class CoreUserRequestDto {
 
 	private String foodPreference;
+	private DemoGraphicsRegion foodRegionPreference;
 	private String pincode;
 	private String gender;
 	private String clientName;

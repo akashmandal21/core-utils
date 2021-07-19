@@ -15,4 +15,6 @@ public class FaqDto {
     private String answer;
     private String uuid;
     private Integer sequence;
+    private String categoryUuid;
+    private String categoryName;
 }
