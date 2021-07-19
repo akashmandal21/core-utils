@@ -937,7 +937,9 @@ public class InternalDataControllerApi {
         String path = UriComponentsBuilder.fromPath("/internal/residence/get/details").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("residenceUuid", residenceUuid);        final HttpHeaders headerParams = new HttpHeaders();
+        queryParams.add("residenceUuid", residenceUuid);        
+        
+        final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {
                 "*/*"

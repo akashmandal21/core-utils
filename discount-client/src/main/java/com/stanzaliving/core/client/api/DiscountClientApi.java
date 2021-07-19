@@ -49,17 +49,15 @@ public class DiscountClientApi {
 		ParameterizedTypeReference<ResponseDto<List<VentaDiscountResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<VentaDiscountResponseDto>>>() {
 		};
 
-		List<VentaDiscountResponseDto> response = null;
-
 		try {
-			response = restClient
-					.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType)
-					.getData();
+			return restClient
+					.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
+					
 		} catch (Exception e) {
 			log.error("Exception while getting List Of DiscountCode from discount service : ", e);
 		}
 
-		return response;
+		return null;
 	}
 
 }
