@@ -25,7 +25,7 @@ public class InvoiceServiceApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<List<DocumentResponseDto>> getInvoiceInformation(String referenceId) {
+    public ResponseDto<List<DocumentResponseDto>> getInvoiceInformation(String referenceId,String token) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("referenceId", referenceId);
 
@@ -34,6 +34,7 @@ public class InvoiceServiceApi {
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         HttpHeaders headerParams = new HttpHeaders();
+        headerParams.add("Cookie", "token=" + token);
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
@@ -43,7 +44,7 @@ public class InvoiceServiceApi {
             log.info("Executing Api for getting invoice Info with Url {}", path);
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching invoice information based on referenceId {}, Exception is ", referenceId, e);
+            log.error("Exception while fetching invoice information based on referenceId {}, Exception is {}", referenceId, e);
         }
         return null;
     }
