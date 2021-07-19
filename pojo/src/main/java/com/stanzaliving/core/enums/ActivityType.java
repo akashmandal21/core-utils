@@ -10,4 +10,5 @@ public enum ActivityType {
     VERIFIED,
     DELETED,
     UNVERIFIED,
+    AUTO_REJECTED
 }
