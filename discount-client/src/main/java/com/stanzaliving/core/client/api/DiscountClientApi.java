@@ -1,6 +1,5 @@
 package com.stanzaliving.core.client.api;
 
-import java.awt.PageAttributes.MediaType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +7,7 @@ import java.util.Map;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -16,8 +16,8 @@ import com.stanzaliving.booking.dto.request.VentaDiscountRequestDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.discount.dto.request.BookingDiscountStrategyDto;
+import com.stanzaliving.core.discount.dto.response.DiscountCodeListDto;
 import com.stanzaliving.core.discount.dto.response.DiscountStrategyResponseDto;
-import com.stanzaliving.wanda.discount.response.VentaDiscountResponseDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -30,7 +30,7 @@ public class DiscountClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public List<VentaDiscountResponseDto> getDiscountCouponList(VentaDiscountRequestDto ventaDiscountRequestDto) {
+	public DiscountCodeListDto getDiscountCouponList(VentaDiscountRequestDto ventaDiscountRequestDto) {
 
 		Object postBody = ventaDiscountRequestDto;
 
@@ -47,7 +47,7 @@ public class DiscountClientApi {
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<List<VentaDiscountResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<VentaDiscountResponseDto>>>() {
+		ParameterizedTypeReference<ResponseDto<DiscountCodeListDto>> returnType = new ParameterizedTypeReference<ResponseDto<DiscountCodeListDto>>() {
 		};
 
 		try {
@@ -62,6 +62,7 @@ public class DiscountClientApi {
 	}
 
 	public ResponseDto<DiscountStrategyResponseDto> getDiscountStrategyList(BookingDiscountStrategyDto requestDto) {
+
 		try {
 			Object postBody = requestDto;
 			log.info("Received request to get discount strategies {}", requestDto);
@@ -74,9 +75,9 @@ public class DiscountClientApi {
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 			ParameterizedTypeReference<ResponseDto<DiscountStrategyResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DiscountStrategyResponseDto>>() {
 			};
-			DiscountStrategyResponseDto response = restClient
-					.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType)
-					.getData();
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
 		} catch (Exception e) {
 			log.error("error while fetching the discount strategy list ", e);
 		}
