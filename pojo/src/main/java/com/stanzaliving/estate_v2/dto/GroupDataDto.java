@@ -15,4 +15,5 @@ public class GroupDataDto {
     private String groupUuid;
     private List<PageDataDto> pages;
     private PrivilegesDto privileges;
+    private String groupApprovalStatus;
 }
