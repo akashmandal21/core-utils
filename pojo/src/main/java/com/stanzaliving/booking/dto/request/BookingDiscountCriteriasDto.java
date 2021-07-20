@@ -12,13 +12,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookingDiscountCriteriasDto {
-    private MathematicalSymbol upfrontPaymentSymbol;
+	@Builder.Default
+	private MathematicalSymbol upfrontPaymentSymbol=MathematicalSymbol.GREATER_THAN_EQUAL_TO;
     private Double upfrontPaymentMonth;
-    private MathematicalSymbol lockInDurationSymbol;
+    @Builder.Default
+    private MathematicalSymbol lockInDurationSymbol=MathematicalSymbol.GREATER_THAN_EQUAL_TO;
     private Double lockInDurationMonth;
     private PaymentMode paymentMode;
     private String specificInventory;
+    @Builder.Default
     private Boolean applicableOnRoomConversion = Boolean.FALSE;
     private String leadTag;
-//    private MathematicalSymbol leadTagSymbol;
+
 }
