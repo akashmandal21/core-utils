@@ -2,7 +2,6 @@ package com.stanzaliving.residenceservice;
 
 import com.stanzaliving.core.utilservice.annotations.ValidEnum;
 import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
-
 import lombok.*;
 
 import javax.validation.constraints.NotNull;

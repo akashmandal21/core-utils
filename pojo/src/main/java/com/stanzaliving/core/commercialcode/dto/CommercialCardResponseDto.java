@@ -3,10 +3,7 @@ package com.stanzaliving.core.commercialcode.dto;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -19,6 +16,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class CommercialCardResponseDto {
 
     private CommercialCardStatus cardStatus;

@@ -1,7 +1,9 @@
 package com.stanzaliving.residenceservice.enums;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import lombok.AllArgsConstructor;
@@ -26,7 +28,8 @@ public enum ResidenceAttributes {
 
     RETENTION_MIN_TOKEN_AMOUNT("Retention Min Token Amount", "String"),
     ROOM_CONVERSION_CHARGES("Room Conversion Charges", "String"),
-   RETENTION_CREATION_BUFFER_DAYS("Retention Creation Buffer Days", "Integer");
+   RETENTION_CREATION_BUFFER_DAYS("Retention Creation Buffer Days", "Integer"),
+    NO_LOCK_IN_SUITS_BOOKING("No Lock In Suits Booking", "Boolean");
 
 
     private String label;
@@ -50,5 +53,12 @@ public enum ResidenceAttributes {
     }
     public static String getType(ResidenceAttributes priority) {
         return getLabel.get(priority);
+    }
+
+    public static List<ResidenceAttributes> residenceAttributesList() {
+        List<ResidenceAttributes> residenceAttributes = new ArrayList<>();
+        residenceAttributes.add(BOOKING_EXPIRY_TIME);
+        residenceAttributes.add(NEW_CLOSURE_MIN_TOKEN_AMOUNT);
+        return residenceAttributes;
     }
  }

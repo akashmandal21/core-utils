@@ -7,5 +7,5 @@ import lombok.Getter;
 @AllArgsConstructor
 
 public enum ReferenceType {
-	BOOKING_UUID, MERCHANT_TRANSACTION_ID, USER_ID;
+	BOOKING, MERCHANT_TRANSACTION, USER;
 }

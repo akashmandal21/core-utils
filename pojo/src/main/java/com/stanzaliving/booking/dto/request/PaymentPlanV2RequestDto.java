@@ -13,4 +13,6 @@ public class PaymentPlanV2RequestDto {
 
 	private Double upsell;
 	private String bookingUuid;
+	private DiscountRequestDto discount;
+	private Double discountValueApplied;
 }

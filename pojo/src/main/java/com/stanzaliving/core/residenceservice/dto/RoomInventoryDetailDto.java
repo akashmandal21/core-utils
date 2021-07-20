@@ -33,4 +33,6 @@ public class RoomInventoryDetailDto {
     private int convertedOccupancy;
 
     private RoomStatus roomStatus;
+
+    private String reason;
 }
