@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.response;
 
+import com.stanzaliving.wanda.enums.ApprovalStatus;
 import com.stanzaliving.wanda.enums.DocumentSideType;
 import com.stanzaliving.wanda.enums.DocumentUploadType;
 import com.stanzaliving.wanda.enums.ResidentDocumentContext;
@@ -22,7 +23,7 @@ public class WandaFileResponseDto {
 	private ResidentDocumentContext residentDocumentContext;
 	
 	private DocumentUploadType documentUploadType;
-	
+
 	private DocumentSideType documentSideType;
 	
 	private String filePath;
@@ -44,4 +45,14 @@ public class WandaFileResponseDto {
 	private String rejectedReason;
 
 	private String kycDocumentUuid;
+
+	private String documentLabel;
+
+	private String icon;
+
+	private String statusBackground;
+
+	private String documentName;
+
+	private String category;
 }

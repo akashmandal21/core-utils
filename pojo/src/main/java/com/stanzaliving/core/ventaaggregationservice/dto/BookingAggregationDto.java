@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
+
 @Builder
 @Data
 @NoArgsConstructor
@@ -57,4 +59,6 @@ public class BookingAggregationDto {
     private Date lockinStartDate;
     private Date lockinEndDate;
     private String lockinDuration;
+    private String colorCode;
+    private List<String> bookingTags;
 }

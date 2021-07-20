@@ -2,8 +2,7 @@ package com.stanzaliving.core.venta_aggregation_client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.ventaaggregationservice.dto.*;
-import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
+import com.stanzaliving.ledger.dto.HealthCheckCountDto;
 import com.stanzaliving.ledger.dto.LedgerResponseDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -54,6 +53,29 @@ public class LedgerServiceApi {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Exception while fetching ledger information based on referenceId {}, Exception is ", e);
+        }
+        return null;
+    }
+
+
+    public ResponseDto<HealthCheckCountDto> ledgerHealthChecks() {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/api/v1/health-check")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<HealthCheckCountDto>> returnType = new ParameterizedTypeReference<ResponseDto<HealthCheckCountDto>>() {
+        };
+        try {
+            log.info("Executing Api for health check with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while checking the health of ledgers, Exception is ", e);
         }
         return null;
     }

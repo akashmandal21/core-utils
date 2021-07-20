@@ -3,7 +3,10 @@ package com.stanzaliving.core.bookingservice.dto.request;
 import com.stanzaliving.core.bookingservice.dto.PhoneNumberDto;
 import com.stanzaliving.core.utilservice.annotations.Email;
 import com.stanzaliving.core.utilservice.annotations.IsStringOnlyAlphabet;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
