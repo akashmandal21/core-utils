@@ -29,8 +29,3 @@ public enum ApprovalStatus {
         return map.get(approvalStatus);
     }
 }
-//    On approval we’ll show Verified.
-//
-//        On rejection we’ll show Rejected.
-//
-//        On no action we’ll show Pending Verification.
