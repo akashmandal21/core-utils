@@ -64,7 +64,7 @@ public class DiscountClientApi {
 		return null;
 	}
 
-	public ResponseDto<DiscountStrategyResponseDto> getDiscountStrategyList(BookingDiscountStrategyDto requestDto) {
+	public ResponseDto<List<DiscountStrategyListingResponseDto>> getDiscountStrategyList(BookingDiscountStrategyDto requestDto) {
 
 		try {
 			Object postBody = requestDto;
@@ -76,7 +76,7 @@ public class DiscountClientApi {
 			HttpHeaders headerParams = new HttpHeaders();
 			final String[] accepts = { "*/*" };
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-			ParameterizedTypeReference<ResponseDto<DiscountStrategyResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DiscountStrategyResponseDto>>() {
+			ParameterizedTypeReference<ResponseDto<List<DiscountStrategyListingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DiscountStrategyListingResponseDto>>>() {
 			};
 
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
