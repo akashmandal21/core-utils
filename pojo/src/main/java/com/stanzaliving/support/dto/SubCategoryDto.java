@@ -24,4 +24,5 @@ public class SubCategoryDto {
     private Priority priority;
     private List<SubTicketTaskDto> subTicketTasks = new ArrayList<>();
     private List<FeedbackReasonDto> feedbackReasons = new ArrayList<>();
+    private int templateCount;
 }
