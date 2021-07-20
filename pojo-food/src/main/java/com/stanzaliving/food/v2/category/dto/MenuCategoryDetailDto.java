@@ -1,6 +1,5 @@
 package com.stanzaliving.food.v2.category.dto;
 
-
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.dto.FoodMenuBudgetDto;
@@ -25,6 +24,9 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class MenuCategoryDetailDto extends MenuCategoryDTO {
+
+	private static final long serialVersionUID = -7523293067980628104L;
+	
 	private String versionId;
 	private MenuType menuType;
 	private Double marginPercentage;
@@ -45,7 +47,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private boolean costUpdated;
 	private boolean publishable;
 
-	//derived information
+	// derived information
 	private int totalMealInWeek;
 	private List<MenuCategoryDetailDto> draftVersions;
 	private String mealWiseName;
@@ -55,8 +57,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private List<MicromarketRDto> mmServed;
 	private int noOfMmServed;
 
-
-	//approvalData
+	// approvalData
 	private ApprovalStatus approvalStatus;
 	private List<String> pendingApprovers;
 	private List<UserContactDetailsResponseDto> pendingUsers;
@@ -66,12 +67,12 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private CompositionRuleV2Dto compositionRules;
 	private List<MealWiseMenuDto> mealWiseMenus;
 	private MealCategoryPriceDto mealPriceData;
-	
-	//GrammageData
+
+	// GrammageData
 	private int override;
 	private List<CategoryGrammageBaseResponseDto> grammageVariationDtos;
-	
+
 	private FoodMenuBudgetDto budgetRules;
 	private boolean budgetUtilizationInLimit;
-	
+
 }
