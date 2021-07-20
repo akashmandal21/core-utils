@@ -58,7 +58,7 @@ public class LedgerServiceApi {
     }
 
 
-    public ResponseDto<HealthCheckCountDto> ledgerHealthChecks() {
+    public ResponseDto<List<HealthCheckCountDto>> ledgerHealthChecks() {
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/api/v1/health-check")
                 .buildAndExpand(uriVariables).toUriString();
@@ -69,7 +69,7 @@ public class LedgerServiceApi {
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<HealthCheckCountDto>> returnType = new ParameterizedTypeReference<ResponseDto<HealthCheckCountDto>>() {
+        ParameterizedTypeReference<ResponseDto<List<HealthCheckCountDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<HealthCheckCountDto>>>() {
         };
         try {
             log.info("Executing Api for health check with Url {}", path);
