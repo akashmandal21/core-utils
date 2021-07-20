@@ -10,9 +10,11 @@ import java.util.Map;
 @AllArgsConstructor
 public enum DocumentDetail {//todo: update
 
-    PASSPORT("Passport","", "Address Proof",
-            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/description.svg",
-            3),
+    SELFIE("Resident Image",
+            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/add-photo-alternate.svg",
+            "Resident Image",
+            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/add-photo-alternate.svg",
+            1),
     PAN("PAN Card",
             "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/contacts.svg",
             "Id Proof",
@@ -45,14 +47,12 @@ public enum DocumentDetail {//todo: update
             5),
     VISA("VISA",
             "",
-            "Address Proof",
+            "VISA",
             "",
             3),
-    SELFIE("Resident Image",
-            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/add-photo-alternate.svg",
-            "Resident Image",
-            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/add-photo-alternate.svg",
-            1);
+    PASSPORT("Passport","", "PASSPORT",
+            "",
+            3);
 
     private final String displayName;
     private final String documentIcon;
