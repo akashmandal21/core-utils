@@ -65,5 +65,6 @@ public class MenuItemDto implements Serializable {
 	private boolean stapleDish;
 
 	private List<ListingDto> tagsList;
+
 	private Action action;
 }
