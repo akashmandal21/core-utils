@@ -20,4 +20,6 @@ public class BookingPackageServiceDto {
     private String packageServiceUuid;
 
     private String bookingUuid;
+
+    private String packageServiceName;
 }
