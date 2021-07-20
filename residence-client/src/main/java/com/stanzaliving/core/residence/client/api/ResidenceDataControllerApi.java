@@ -740,6 +740,7 @@ public class ResidenceDataControllerApi {
         //todo: check log
         return null;
     }
+
     
      public CompletableFuture<RoomDetailsResponseDto> getResidenceAmenitie(String roomUUID, String token) {
 
@@ -777,5 +778,36 @@ public class ResidenceDataControllerApi {
 		}
 		return null;
 	}
+
+    public ResponseDto<String> getOccupancyDetails(int occupancy) {
+        log.info("Room-Controller::Processing to fetch occupancy {} details ", occupancy);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("occupancy", occupancy);
+
+        String path = UriComponentsBuilder.fromPath("/internal/occupancy/{occupancy}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType =
+                new ParameterizedTypeReference<ResponseDto<String>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception var10) {
+            log.error("Exception while fetching occupancy {} description ", occupancy);
+            return null;
+        }
+
+    }
+
 
 }

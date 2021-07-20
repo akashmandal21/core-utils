@@ -45,4 +45,6 @@ public class KYCListingResponseDto {
     private String category;
 
     private String categoryIcon;
+
+    private Integer order;
 }

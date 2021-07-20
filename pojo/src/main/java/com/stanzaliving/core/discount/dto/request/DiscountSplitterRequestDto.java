@@ -1,6 +1,9 @@
-package com.stanzaliving.booking.dto.request;
+package com.stanzaliving.core.discount.dto.request;
 
 
+import com.stanzaliving.booking.dto.request.BookingCommercialsRequestDto;
+import com.stanzaliving.booking.dto.request.BookingDetailsRequestDto;
+import com.stanzaliving.booking.dto.request.DiscountRequestDto;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
