@@ -20,6 +20,7 @@ import com.stanzaliving.core.discount.dto.request.DiscountSplitterRequestDto;
 import com.stanzaliving.core.discount.dto.response.DiscountCodeListDto;
 import com.stanzaliving.core.discount.dto.response.DiscountSplitterResponseDto;
 import com.stanzaliving.core.discount.dto.response.DiscountStrategyListingResponseDto;
+import com.stanzaliving.core.discount.dto.response.DiscountStrategyResponseDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -32,7 +33,7 @@ public class DiscountClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public DiscountCodeListDto getDiscountCouponList(VentaDiscountRequestDto ventaDiscountRequestDto) {
+	public DiscountCodeListDto getDiscountCodeList(VentaDiscountRequestDto ventaDiscountRequestDto) {
 
 		Object postBody = ventaDiscountRequestDto;
 
@@ -63,7 +64,7 @@ public class DiscountClientApi {
 		return null;
 	}
 
-	public ResponseDto<List<DiscountStrategyListingResponseDto>> getDiscountStrategyList(BookingDiscountStrategyDto requestDto) {
+	public ResponseDto<DiscountStrategyResponseDto> getDiscountStrategyList(BookingDiscountStrategyDto requestDto) {
 
 		try {
 			Object postBody = requestDto;
@@ -75,7 +76,7 @@ public class DiscountClientApi {
 			HttpHeaders headerParams = new HttpHeaders();
 			final String[] accepts = { "*/*" };
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-			ParameterizedTypeReference<ResponseDto<List<DiscountStrategyListingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DiscountStrategyListingResponseDto>>>() {
+			ParameterizedTypeReference<ResponseDto<DiscountStrategyResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DiscountStrategyResponseDto>>() {
 			};
 
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
