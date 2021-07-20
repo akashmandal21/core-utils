@@ -28,4 +28,6 @@ public class VentaDiscountResponseDto {
     List<String> description;
     private BookingDiscountCriteriasDto bookingDiscountCriterias;
     private DiscountApplicabilityType discountApplicabilityType;
+    private List<String> applicabilityCriteria;
+
 }
