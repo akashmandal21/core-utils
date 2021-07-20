@@ -46,12 +46,12 @@ public enum DocumentDetail {//todo: update
             "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/local-police.svg",
             5),
     VISA("VISA",
-            "",
+            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/badge.svg",
             "VISA",
-            "",
+            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/badge.svg",
             3),
-    PASSPORT("Passport","", "PASSPORT",
-            "",
+    PASSPORT("Passport","https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/badge.svg", "Passport",
+            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/badge.svg",
             3);
 
     private final String displayName;
