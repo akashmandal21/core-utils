@@ -16,7 +16,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class DiscountCodeListDto {
 
-    List<VentaDiscountResponseDto> availabilityCodes;
+    List<VentaDiscountResponseDto> availableCodes;
 
     List<VentaDiscountResponseDto> unavailableCodes;
 
