@@ -13,6 +13,7 @@ import java.util.List;
 @Setter
 @ToString
 public class DocumentResponseDto {
+
     private String uuid;
     private Long id;
     private String stateCode;
@@ -22,6 +23,7 @@ public class DocumentResponseDto {
     private LocalDate toDate;
     private LocalDate issueDate;
     private Double totalAmount;
+    private String referenceUuid;
     private CategoryDto category;
     private SubCategoryDto subCategory;
     private ReferenceType referenceType;
@@ -29,13 +31,15 @@ public class DocumentResponseDto {
     private String remarks;
     private String filePath;
     private String fileName;
-    private String parentId;
+    private String parentUuid;
+    private String parentStanzaDocumentId;
     private String stanzaDocumentId;
-    private DocumentLineItemDto documentLineItemDto;
+    private List<DocumentLineItemDto> documentLineItemDto;
     private Double invoiceAmount;
     private List<CreditAttributionDto> creditAttribution;
     private ResidenceDto residence;
     private String contractId;
     private BillToDto billTo;
     private BillFromDto billFrom;
+    private String studentId;
 }
