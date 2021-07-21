@@ -93,6 +93,8 @@ public class FoodItemDto extends AbstractDto {
 	private String commercialTagName;
 
 	private boolean eggPresent;
+	
+	private boolean vegExclusive;
 
 	private UnitOfMeasurement unitOfMeasurement;
 
