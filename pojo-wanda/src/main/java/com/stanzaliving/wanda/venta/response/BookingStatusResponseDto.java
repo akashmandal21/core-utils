@@ -44,4 +44,9 @@ public class BookingStatusResponseDto {
     private String jsVersion;
     private String residenceUuid;
     private Long bookingId;
+    private String moveInDate;
+    private String ventaHouseUuid;
+    private Double price;
+    private String occupancy;
+    private String expiryDays;
 }
