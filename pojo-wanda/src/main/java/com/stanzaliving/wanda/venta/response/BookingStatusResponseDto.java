@@ -1,5 +1,7 @@
 package com.stanzaliving.wanda.venta.response;
 
+import java.time.LocalDate;
+
 import com.stanzaliving.wanda.enums.AlfredStep;
 import com.stanzaliving.wanda.venta.enums.BookingSource;
 
@@ -44,7 +46,7 @@ public class BookingStatusResponseDto {
     private String jsVersion;
     private String residenceUuid;
     private Long bookingId;
-    private String moveInDate;
+    private LocalDate moveInDate;
     private String ventaHouseUuid;
     private Double price;
     private String occupancy;
