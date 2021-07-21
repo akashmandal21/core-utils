@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum GatePassStatus {
-    LUGGAGE_ALLOWED("LUGGAGE_ALLOWED"),
-    LUGGAGE_NOT_ALLOWED("LUGGAGE_NOT_ALLOWED");
+    LUGGAGE_ALLOWED("Luggage allowed"),
+    LUGGAGE_NOT_ALLOWED("Luggage not allowed");
 
     public final String label;
 
