@@ -9,7 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EligibleStatusMappingDto {
 
-    private String status;
+    private String title;
 
     private String icon;
+
+    private String status;
+
+    private String colorCode;
 }
