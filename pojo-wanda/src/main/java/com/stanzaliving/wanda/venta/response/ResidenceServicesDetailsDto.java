@@ -3,6 +3,7 @@ package com.stanzaliving.wanda.venta.response;
 import java.util.List;
 import java.util.Set;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,6 +11,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @Setter
+@Builder
 public class ResidenceServicesDetailsDto {
 
 	private Set<ResidenceServiceDto> residenceServices;
