@@ -1,11 +1,16 @@
 package com.stanzaliving.wanda.response;
 
+import java.util.List;
+
 import com.stanzaliving.wanda.enums.DocumentSideType;
 import com.stanzaliving.wanda.enums.DocumentUploadType;
 import com.stanzaliving.wanda.enums.ResidentDocumentContext;
-import lombok.*;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -17,6 +22,8 @@ public class KYCListingResponseDto {
     private ResidentDocumentContext residentDocumentContext;
 
     private DocumentUploadType documentUploadType;
+    
+    private DocumentSideType documentSideType;
 
     private List<KYCDocumentDto> kycDocumentList;
 
@@ -47,4 +54,6 @@ public class KYCListingResponseDto {
     private String categoryIcon;
 
     private Integer order;
+    
+    private String fileUrl;
 }
