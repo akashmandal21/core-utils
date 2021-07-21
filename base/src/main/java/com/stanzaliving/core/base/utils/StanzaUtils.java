@@ -124,6 +124,10 @@ public class StanzaUtils {
 		}
 		return EmailValidator.getInstance().isValid(email);
 	}
+	
+	public static String generateUniqueIdInLowerCase(int length) {
+		return RandomStringUtils.randomAlphanumeric(length).toLowerCase();
+	}
 
 	public static String generateUniqueId(int length) {
 		return RandomStringUtils.randomAlphanumeric(length).toUpperCase();
