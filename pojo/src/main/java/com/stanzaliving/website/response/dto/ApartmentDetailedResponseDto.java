@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -99,6 +100,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private String transformationId;
 	
 	private AddressResponseDTO address;
+	
+	private PropertyEntityType propertyEntityType;
 	
 	@Builder.Default
 	private List<FacilityResponseDTO> facilities = Collections.emptyList();
