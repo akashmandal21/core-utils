@@ -21,7 +21,7 @@ import java.util.Map;
 @TypeAlias("leadershipViewEntity")
 public class LeadershipViewEntity extends AbstractMongoEntity {
 
-    boolean status=true;
+//    boolean status=true;
 
     EstateInfo estateInfo;
 
