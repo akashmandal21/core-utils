@@ -1,5 +1,6 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -61,4 +62,5 @@ public class BookingAggregationDto {
     private String lockinDuration;
     private String colorCode;
     private List<String> bookingTags;
+    List<EligibleStatusMappingDto> eligibleStatusMapping;
 }
