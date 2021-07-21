@@ -60,6 +60,7 @@ public class FilterDto {
     private List<UIKeyValue> itemPerPackOptions;
     private List<UIKeyValue> recipeTagOptions;
     private List<UIKeyValue> recipeTagUomOptions;
+    private List<UIKeyValue> uomOptions;
 
     //Main Filters
     private List<UIKeyValue> itemCategory;
