@@ -37,4 +37,6 @@ public class LanguageApprovalGetRequestDto{
     private String templateDocument;
 
     private List<DeviationDTO> deviations;
+
+    private String email;
 }
