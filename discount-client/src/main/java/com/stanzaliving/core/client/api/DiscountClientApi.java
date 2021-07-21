@@ -42,7 +42,7 @@ public class DiscountClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/discount-code/get").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/discount-code/get").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -71,7 +71,7 @@ public class DiscountClientApi {
 			Object postBody = requestDto;
 			log.info("Received request to get discount strategies {}", requestDto);
 			final Map<String, Object> uriVariables = new HashMap<>();
-			String path = UriComponentsBuilder.fromPath("/api/v1/discount-strategy/get")
+			String path = UriComponentsBuilder.fromPath("/discount-strategy/get")
 					.buildAndExpand(uriVariables).toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			HttpHeaders headerParams = new HttpHeaders();
