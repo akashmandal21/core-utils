@@ -162,6 +162,33 @@ public class GrammageClientApi {
         return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 	}
+	
+	public Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>> getGrammagesForMenu(String uuid,
+			Map<String, Map<DayOfWeek, Map<String, Collection<String>>>> mealThaliItemMap) {
+		ResponseDto<Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>>> responseDto = null;
+		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/integration/grammagesForMenu").build().toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("uuid", uuid);
+        
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>>>>() {
+        };
+
+        try {
+             responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, mealThaliItemMap, headerParams, accept, returnType);            
+        }catch (Exception e) {
+            log.error("Error while calculateGrammage ", e);
+            return null;
+        }
+        return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+				: new HashMap<>();
+	}
+	
+	
 
 	public List<CategoryGrammageBaseResponseDto> getGrammageVariationDetails(String uuid) {
 		ResponseDto<List<CategoryGrammageBaseResponseDto>> responseDto = null;
