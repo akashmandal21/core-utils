@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.stanzaliving.core.discount.dto.response.DiscountStrategyResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -21,8 +20,6 @@ import com.stanzaliving.core.discount.dto.request.DiscountSplitterRequestDto;
 import com.stanzaliving.core.discount.dto.response.DiscountCodeListDto;
 import com.stanzaliving.core.discount.dto.response.DiscountSplitterResponseDto;
 import com.stanzaliving.core.discount.dto.response.DiscountStrategyListingResponseDto;
-import com.stanzaliving.core.discount.dto.response.DiscountStrategyResponseDto;
-import com.stanzaliving.discount.controller.BookingDiscountDetailsResponseDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -110,6 +107,8 @@ public class DiscountClientApi {
 		   return null;
 		}
 	
+/*
+	
 	public ResponseDto<BookingDiscountDetailsResponseDto> getBookingDiscountDetails(String bookingUuid) {
 		   
 		try {
@@ -121,7 +120,7 @@ public class DiscountClientApi {
 		         .toUriString();
 		      final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		      final HttpHeaders headerParams = new HttpHeaders();
-		      final String[] accepts = { "*/*" };
+		      
 		      final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 		      ParameterizedTypeReference<ResponseDto<BookingDiscountDetailsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingDiscountDetailsResponseDto>>() {
 		      };
@@ -131,5 +130,5 @@ public class DiscountClientApi {
 		   }
 		   return null;
 		}
-
+*/
 }
