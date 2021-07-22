@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum Dues {
-    NO_DUES("No Dues"),
-    DUES_PENDING("Dues Pending");
+    NO_DUES("No dues"),
+    DUES_PENDING("Dues pending");
 
     private final String label;
 
