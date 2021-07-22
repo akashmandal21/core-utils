@@ -1,14 +1,10 @@
 package com.stanzaliving.booking.dto.request;
 
-import com.stanzaliving.booking.enums.BookingResidenceType;
-import com.stanzaliving.booking.enums.BookingStatus;
-import com.stanzaliving.booking.enums.BookingSubStatus;
-import com.stanzaliving.booking.enums.BookingType;
+import com.stanzaliving.booking.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,6 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookingEvent implements Serializable {
+
     private String bookingUuid;
     private BookingStatus bookingStatus;
     private BookingSubStatus bookingSubStatus;
@@ -35,4 +32,5 @@ public class BookingEvent implements Serializable {
     private int occupancy;
     private String packageServiceUuid;
     private String commercialCardUuid;
+    private BookingEventEnum bookingEvent;
 }
