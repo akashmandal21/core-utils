@@ -1,14 +1,13 @@
 package com.stanzaliving.core.grammage.client.api;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.food.enums.FoodServeType;
+import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.food.v2.grammage.category.request.MenuCategoryVersionDto;
+import com.stanzaliving.food.v2.grammage.category.response.CategoryGrammageBaseResponseDto;
+import com.stanzaliving.food.v2.grammage.response.MenuOptionGrammage;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.util.Pair;
 import org.springframework.http.HttpHeaders;
@@ -18,15 +17,14 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.food.enums.FoodServeType;
-import com.stanzaliving.core.operations.enums.MealType;
-import com.stanzaliving.food.v2.grammage.category.request.MenuCategoryVersionDto;
-import com.stanzaliving.food.v2.grammage.category.response.CategoryGrammageBaseResponseDto;
-import com.stanzaliving.food.v2.grammage.response.MenuOptionGrammage;
-
-import lombok.extern.log4j.Log4j2;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author Manish.Pareek
@@ -235,7 +233,36 @@ public class GrammageClientApi {
 		}
 
 	}
-	
 
+	public Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>> getGrammagesForMenu(String menuCategoryVersionId,
+			Map<String, Map<DayOfWeek, Map<String, Collection<String>>>> mealThaliItemMap) {
+
+		return new HashMap<>();
+	}
+
+	public Map<MealType, Collection<String>> getThalis(String versionId) {
+		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/thalis").build().toUriString();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("versionId", versionId);
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Map<MealType, Collection<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<MealType, Collection<String>>>>() {
+		};
+
+		try {
+			ResponseDto<Map<MealType, Collection<String>>> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			return Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData()) ? responseDto.getData() : new HashMap<>();
+		}catch (Exception e) {
+			log.error("Error while getting thalis", e);
+			return new HashMap<>();
+		}
+	}
+
+	public Map<String, Map<LocalDate, Map<String, MenuOptionGrammage>>> getGrammages(String categoryVersionUuid, Map<String, Map<LocalDate, Map<String, Collection<String>>>> mealDateItemMap) {
+		return new HashMap<>();
+	}
 }
 
