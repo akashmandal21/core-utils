@@ -19,23 +19,16 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookingEvent implements Serializable {
+    private String bookingUuid;
     private BookingStatus bookingStatus;
     private BookingSubStatus bookingSubStatus;
     private BookingResidenceType bookingResidenceType;
     private BookingType bookingType;
     private String userUuid;
     private String contractDuration;
-    private Date expectedMoveInDate;
-    private Date checkInDate;
-    private Date checkoutDate;
     private Date contractStartDate;
     private Date contractEndDate;
-    private Date lockinStartDate;
-    private Date lockinEndDate;
-    private String lockinDuration;
-    private String bookingSource;
     private String leadUUid;
-    private Date bookingExpirationTime;
     private String roomUuid;
     private String roomNumber;
     private String inventoryUuid;
