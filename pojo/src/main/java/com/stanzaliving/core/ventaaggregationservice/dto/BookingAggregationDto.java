@@ -41,8 +41,10 @@ public class BookingAggregationDto {
     private String residenceUuid;
     private String inventoryUuid;
     private String commercialCardUuid;
+    private String packageServiceName;
     private String packageServiceUuid;
     private Integer occupancy;
+    private String occupancyName;
     private Double dues;
     private String riskProfile;
     private boolean duesStatus;
