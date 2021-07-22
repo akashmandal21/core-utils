@@ -1,5 +1,6 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -40,8 +41,10 @@ public class BookingAggregationDto {
     private String residenceUuid;
     private String inventoryUuid;
     private String commercialCardUuid;
+    private String packageServiceName;
     private String packageServiceUuid;
     private Integer occupancy;
+    private String occupancyName;
     private Double dues;
     private String riskProfile;
     private boolean duesStatus;
@@ -61,4 +64,5 @@ public class BookingAggregationDto {
     private String lockinDuration;
     private String colorCode;
     private List<String> bookingTags;
+    List<EligibleStatusMappingDto> eligibleStatusMapping;
 }

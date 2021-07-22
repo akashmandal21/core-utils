@@ -1,25 +1,23 @@
 package com.stanzaliving.booking.dto.response;
 
-import java.time.LocalDate;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvanceRentalDto {
+public class BookingCommercialCardDto {
 
+    private Date fromDate;
 
-    private LocalDate startDate;
+    private Date toDate;
 
-    private LocalDate endDate;
+    private String commercialCardUuid;
 
-    private int advanceRentalMonths;
-
-    private Double advanceRentalMonthsAmount;
-
+    private String bookingUuid;
 }
