@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.stanzaliving.core.discount.dto.response.DiscountStrategyResponseDto;
+import com.stanzaliving.core.discount.dto.response.BookingDiscountDetailsResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -21,7 +21,6 @@ import com.stanzaliving.core.discount.dto.request.DiscountSplitterRequestDto;
 import com.stanzaliving.core.discount.dto.response.DiscountCodeListDto;
 import com.stanzaliving.core.discount.dto.response.DiscountSplitterResponseDto;
 import com.stanzaliving.core.discount.dto.response.DiscountStrategyListingResponseDto;
-import com.stanzaliving.core.discount.dto.response.DiscountStrategyResponseDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -103,6 +102,30 @@ public class DiscountClientApi {
 		      ParameterizedTypeReference<ResponseDto<DiscountSplitterResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DiscountSplitterResponseDto>>() {
 		      };
 		      return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		   } catch (Exception e) {
+		      log.error("Exception while getting discount splitter : ", e);
+		   }
+		   return null;
+		}
+
+	
+	public ResponseDto<BookingDiscountDetailsResponseDto> getBookingDiscountDetails(String bookingUuid) {
+		   
+		try {
+			  Object postBody = null;	
+		      log.info("Received request to get discount for bookingUuid {}", bookingUuid);
+		      final Map<String, Object> uriVariables = new HashMap<>();
+	          uriVariables.put("bookingUuid", bookingUuid);
+		      String path = UriComponentsBuilder.fromPath("/discount-details/{bookingUuid}").buildAndExpand(uriVariables)
+		         .toUriString();
+		      final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		      final HttpHeaders headerParams = new HttpHeaders();
+		      final String[] accepts = { "*/*" };
+
+		      final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		      ParameterizedTypeReference<ResponseDto<BookingDiscountDetailsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingDiscountDetailsResponseDto>>() {
+		      };
+		      return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		   } catch (Exception e) {
 		      log.error("Exception while getting discount splitter : ", e);
 		   }
