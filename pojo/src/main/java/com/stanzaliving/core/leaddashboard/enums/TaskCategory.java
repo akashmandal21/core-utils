@@ -14,8 +14,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum TaskCategory {
 
-	TASK("#58CCB6"),
-	MEETING("#007AFF");
+	TASK("#58CCB6","#58CCB6"),
+	MEETING("#007AFF","#C7CEEA");
 	
 	private String taskCategoryColor;
+	private String taskCategoryColorV3;
 }
