@@ -1,4 +1,4 @@
-package com.stanzaliving.booking.dto.response;
+package com.stanzaliving.booking.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

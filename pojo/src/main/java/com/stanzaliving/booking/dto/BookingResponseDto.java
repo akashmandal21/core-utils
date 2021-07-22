@@ -53,4 +53,6 @@ public class BookingResponseDto {
     private BookingCommercialCardDto bookingCommercialCard;
 
     private BookingPackageServiceDto bookingPackageService;
+
+    private String uuid;
 }
