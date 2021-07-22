@@ -59,8 +59,8 @@ public class GrammageClientApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
-        };
-        
+		};
+
 		try {
 			restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
@@ -70,96 +70,96 @@ public class GrammageClientApi {
 	}
 	
 	public Boolean isGrammageDefined(String versionId) {
-        String path = UriComponentsBuilder.fromPath("/internal/category/grammage/exists").build().toUriString();
-        final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("versionId", versionId);
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
-        };
+		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/exists").build().toUriString();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("versionId", versionId);
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
 
-        try {
-            ResponseDto<Boolean> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-            return Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData()) && responseDto.getData();
-        }catch (Exception e) {
-            log.error("Error while checking isGrammageDefined", e);
-            return null;
-        }
-    }
+		try {
+			ResponseDto<Boolean> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			return Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData()) && responseDto.getData();
+		}catch (Exception e) {
+			log.error("Error while checking isGrammageDefined", e);
+			return null;
+		}
+	}
 	
 	
 	public Map<String, Map<LocalDate, Map<String, MenuOptionGrammage>>> calculateGrammage(String versionId, Map<String, Map<LocalDate, Map<String, Collection<String>>>> optionWiseItemMap) {
 		ResponseDto<Map<String, Map<LocalDate, Map<String, MenuOptionGrammage>>>> responseDto = null;
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/calculateGrammage").build().toUriString();
-        final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("versionId", versionId);
-        queryParams.add("optionWiseItemMap", optionWiseItemMap.toString());
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<Map<String, Map<LocalDate, Map<String, MenuOptionGrammage>>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Map<LocalDate, Map<String, MenuOptionGrammage>>>>>() {
-        };
+		final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("versionId", versionId);
+		queryParams.add("optionWiseItemMap", optionWiseItemMap.toString());
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Map<String, Map<LocalDate, Map<String, MenuOptionGrammage>>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Map<LocalDate, Map<String, MenuOptionGrammage>>>>>() {
+		};
 
-        try {
-             responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);            
-        }catch (Exception e) {
-            log.error("Error while calculateGrammage ", e);
-            return null;
-        }
-        return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		try {
+			 responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+		}catch (Exception e) {
+			log.error("Error while calculateGrammage ", e);
+			return null;
+		}
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
-    }
-																											
+	}
+
 	public Map<MealType, Map<DayOfWeek, MenuOptionGrammage>> getGrammageData(MenuCategoryVersionDto menuCategoryVersionDto, Map<Pair<MealType, DayOfWeek>, Collection<String>> menuItems) {
 		ResponseDto<Map<MealType, Map<DayOfWeek, MenuOptionGrammage>>> responseDto = null;
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/integration/grammageData").build().toUriString();
-        final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("menuItems", menuItems.toString());
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<Map<MealType, Map<DayOfWeek, MenuOptionGrammage>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<MealType, Map<DayOfWeek, MenuOptionGrammage>>>>() {
-        };
+		final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("menuItems", menuItems.toString());
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Map<MealType, Map<DayOfWeek, MenuOptionGrammage>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<MealType, Map<DayOfWeek, MenuOptionGrammage>>>>() {
+		};
 
-        try {
-             responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, menuCategoryVersionDto, headerParams, accept, returnType);            
-        }catch (Exception e) {
-            log.error("Error while calculateGrammage ", e);
-            return null;
-        }
-        return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		try {
+			 responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, menuCategoryVersionDto, headerParams, accept, returnType);
+		}catch (Exception e) {
+			log.error("Error while calculateGrammage ", e);
+			return null;
+		}
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
-    }
+	}
 	
 	public Map<MealType, Map<DayOfWeek, MenuOptionGrammage>> getGrammageData(String versionId,
 			FoodServeType foodServeType, Map<Pair<MealType, DayOfWeek>, Collection<String>> menuItems) {
 		ResponseDto<Map<MealType, Map<DayOfWeek, MenuOptionGrammage>>> responseDto = null;
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/integration/grammageData/byfoodservetype").build().toUriString();
-        final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("versionId", versionId);
-        queryParams.add("foodServeType", foodServeType.toString());
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<Map<MealType, Map<DayOfWeek, MenuOptionGrammage>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<MealType, Map<DayOfWeek, MenuOptionGrammage>>>>() {
-        };
+		final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("versionId", versionId);
+		queryParams.add("foodServeType", foodServeType.toString());
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Map<MealType, Map<DayOfWeek, MenuOptionGrammage>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<MealType, Map<DayOfWeek, MenuOptionGrammage>>>>() {
+		};
 
-        try {
-             responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, menuItems, headerParams, accept, returnType);            
-        }catch (Exception e) {
-            log.error("Error while calculateGrammage ", e);
-            return null;
-        }
-        return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		try {
+			 responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, menuItems, headerParams, accept, returnType);
+		}catch (Exception e) {
+			log.error("Error while calculateGrammage ", e);
+			return null;
+		}
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 	}
 	
@@ -167,24 +167,24 @@ public class GrammageClientApi {
 			Map<String, Map<DayOfWeek, Map<String, Collection<String>>>> mealThaliItemMap) {
 		ResponseDto<Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>>> responseDto = null;
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/integration/grammagesForMenu").build().toUriString();
-        final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("uuid", uuid);
-        
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>>>>() {
-        };
+		final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("uuid", uuid);
 
-        try {
-             responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, mealThaliItemMap, headerParams, accept, returnType);            
-        }catch (Exception e) {
-            log.error("Error while calculateGrammage ", e);
-            return null;
-        }
-        return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>>>>() {
+		};
+
+		try {
+			 responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, mealThaliItemMap, headerParams, accept, returnType);
+		}catch (Exception e) {
+			log.error("Error while calculateGrammage ", e);
+			return null;
+		}
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 	}
 	
@@ -193,23 +193,23 @@ public class GrammageClientApi {
 	public List<CategoryGrammageBaseResponseDto> getGrammageVariationDetails(String uuid) {
 		ResponseDto<List<CategoryGrammageBaseResponseDto>> responseDto = null;
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/integration/variationDetails").build().toUriString();
-        final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("uuid", uuid);
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<List<CategoryGrammageBaseResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CategoryGrammageBaseResponseDto>>>() {
-        };
+		final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("uuid", uuid);
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<List<CategoryGrammageBaseResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CategoryGrammageBaseResponseDto>>>() {
+		};
 
-        try {
-             responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);            
-        }catch (Exception e) {
-            log.error("Error while calculateGrammage ", e);
-            return null;
-        }
-        return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		try {
+			 responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		}catch (Exception e) {
+			log.error("Error while calculateGrammage ", e);
+			return null;
+		}
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new ArrayList<>();
 	}
 
@@ -226,8 +226,8 @@ public class GrammageClientApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
-        };
-        
+		};
+
 		try {
 			restClient.invokeAPI(path, HttpMethod.POST, queryParams, versionUuidList, headerParams, accept, returnType);
 		} catch (Exception e) {
@@ -251,20 +251,14 @@ public class GrammageClientApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
-        };
-        
+		};
+
 		try {
 			restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Error while copy", e);
 		}
 
-	}
-
-	public Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>> getGrammagesForMenu(String menuCategoryVersionId,
-			Map<String, Map<DayOfWeek, Map<String, Collection<String>>>> mealThaliItemMap) {
-
-		return new HashMap<>();
 	}
 
 	public Map<MealType, Collection<String>> getThalis(String versionId) {
