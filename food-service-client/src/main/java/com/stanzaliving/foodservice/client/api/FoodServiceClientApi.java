@@ -669,7 +669,7 @@ public class FoodServiceClientApi {
 	
 	public List<ResidenceMenuDto> findByResidenceIdAndMenuDateBetween(String residenceId, LocalDate startDate, LocalDate endDate){
 		ResponseDto<List<ResidenceMenuDto>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/residence/food/menu/dateBetween").build()
+		String path = UriComponentsBuilder.fromPath("/internal/residence/food/menu/dateBetween").build()
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
