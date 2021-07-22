@@ -282,8 +282,5 @@ public class GrammageClientApi {
 		}
 	}
 
-	public Map<String, Map<LocalDate, Map<String, MenuOptionGrammage>>> getGrammages(String categoryVersionUuid, Map<String, Map<LocalDate, Map<String, Collection<String>>>> mealDateItemMap) {
-		return new HashMap<>();
-	}
 }
 
