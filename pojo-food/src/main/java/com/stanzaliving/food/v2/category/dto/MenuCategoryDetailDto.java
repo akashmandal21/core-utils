@@ -1,15 +1,14 @@
 package com.stanzaliving.food.v2.category.dto;
 
-
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.food.dto.FoodMenuBudgetDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.category.constant.CategoryStatus;
 import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.grammage.category.response.CategoryGrammageBaseResponseDto;
-import com.stanzaliving.food.v2.menu.dto.DayWiseCogsDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +24,9 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class MenuCategoryDetailDto extends MenuCategoryDTO {
+
+	private static final long serialVersionUID = -7523293067980628104L;
+	
 	private String versionId;
 	private MenuType menuType;
 	private Double marginPercentage;
@@ -37,6 +39,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private List<DayWiseCogsDto> dayWiseCogs;
 	private CategoryStatus categoryStatus;
 	private FoodServeType foodServeType;
+	private Integer maxWeeklyCombo;
 	private Integer minWeeklyCombo;
 	private boolean sampleMenuDefined;
 	private boolean grammageDefined;
@@ -44,7 +47,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private boolean costUpdated;
 	private boolean publishable;
 
-	//derived information
+	// derived information
 	private int totalMealInWeek;
 	private List<MenuCategoryDetailDto> draftVersions;
 	private String mealWiseName;
@@ -54,8 +57,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private List<MicromarketRDto> mmServed;
 	private int noOfMmServed;
 
-
-	//approvalData
+	// approvalData
 	private ApprovalStatus approvalStatus;
 	private List<String> pendingApprovers;
 	private List<UserContactDetailsResponseDto> pendingUsers;
@@ -63,10 +65,14 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private String approvalRequestedBy;
 
 	private CompositionRuleV2Dto compositionRules;
-	private List<MealWiseSampleMenuDto> mealWiseMenu;
+	private List<MealWiseMenuDto> mealWiseMenus;
 	private MealCategoryPriceDto mealPriceData;
-	
-	//GrammageData
+
+	// GrammageData
 	private int override;
 	private List<CategoryGrammageBaseResponseDto> grammageVariationDtos;
+
+	private FoodMenuBudgetDto budgetRules;
+	private boolean budgetUtilizationInLimit;
+
 }
