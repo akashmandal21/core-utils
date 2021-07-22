@@ -26,7 +26,7 @@ public enum FieldOptionProvider {
 
     voucherTypeProvider,categoryProvider,verticalProvider,groupProvider,subGroupProvider,expenseTypeProvider,taxCodeProvider,tdsSectionProvider,tdsRateProvider,
 
-    FarCategoryProvider,
+    FarCategoryProvider,HsnOrSacCodesProvider
 
     // Item Rate Master Providers
 
