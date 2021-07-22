@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.discount.dto.response.DiscountStrategyResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -71,7 +72,7 @@ public class DiscountClientApi {
 			Object postBody = requestDto;
 			log.info("Received request to get discount strategies {}", requestDto);
 			final Map<String, Object> uriVariables = new HashMap<>();
-			String path = UriComponentsBuilder.fromPath("/api/v1/discount-strategy/get")
+			String path = UriComponentsBuilder.fromPath("/discount-strategy/get")
 					.buildAndExpand(uriVariables).toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			HttpHeaders headerParams = new HttpHeaders();
@@ -94,7 +95,7 @@ public class DiscountClientApi {
 		      Object postBody = discountSplitterRequestDto;
 		      log.info("Received request to get discount splitter {}", discountSplitterRequestDto);
 		      final Map<String, Object> uriVariables = new HashMap<>();
-		      String path = UriComponentsBuilder.fromPath("/discount/api/v1/discount-splitter/get").buildAndExpand(uriVariables)
+		      String path = UriComponentsBuilder.fromPath("/api/v1/discount-splitter/get").buildAndExpand(uriVariables)
 		         .toUriString();
 		      final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		      final HttpHeaders headerParams = new HttpHeaders();
