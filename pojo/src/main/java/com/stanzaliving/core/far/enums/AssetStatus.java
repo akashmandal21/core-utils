@@ -12,7 +12,9 @@ public enum AssetStatus {
     DISCARDED("Discarded", "#60C3AD", "#EDFFF5"),
     VENDOR_CONFIRMATION_DUE("Vendor Confirmation Due", "#60C3AD", "#EDFFF5"),
     VENDOR_REJECTED_RETURN("Vendor Rejected Return", "#60C3AD", "#EDFFF5"),
-    RETURNED("Returned", "#60C3AD", "#EDFFF5");
+    RETURNED("Returned", "#60C3AD", "#EDFFF5"),
+    PACK_OPENED("Pack Opened", "#60C3AD", "#EDFFF5"),
+    ASSET_FULLY_UNPACKED("Asset Fully Unpacked", "#60C3AD", "#EDFFF5");
 
     private String label;
     private String textColor;
