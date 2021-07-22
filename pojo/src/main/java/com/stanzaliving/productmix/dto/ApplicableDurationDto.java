@@ -5,14 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class ApplicableDurationDto {
-    private LocalDateTime fromDate;
+    private LocalDate fromDate;
 
-    private LocalDateTime toDate;
+    private LocalDate toDate;
 }
