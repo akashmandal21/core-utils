@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Builder
 @Data
@@ -19,7 +20,7 @@ public class EventListAppDTO {
     private Date eventStartDate;
     private Date eventEndDate;
     private Boolean pricingApplicable;
-    private String imageUrl;
+    private List<String> imageUrl;
     private Integer price;
     private Boolean isLiked;
     private Boolean isRegistered;

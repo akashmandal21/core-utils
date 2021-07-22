@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Builder
 @Data
@@ -21,7 +22,7 @@ public class SimilarEventResponseDTO {
     private Long priorityOrder;
     private String eventStatus;
     private String uuid;
-    private String imageUrl;
+    private List<String> imageUrl;
     private Long fomoCount;
     private Boolean isLiked;
     private Boolean isRegistered;
