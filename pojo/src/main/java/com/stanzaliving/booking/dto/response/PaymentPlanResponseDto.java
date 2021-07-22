@@ -17,5 +17,7 @@ public class PaymentPlanResponseDto {
 
     private Double totalAmount;
 
+    private Double totalDiscountApplied;
+
     private List<InstalmentPaymentPlan> instalments;
 }
