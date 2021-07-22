@@ -1,6 +1,7 @@
 package com.stanzaliving.food.v2.menu.dto;
 
 
+import com.stanzaliving.food.v2.category.dto.MealWiseMenuDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
