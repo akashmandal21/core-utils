@@ -72,7 +72,7 @@ public class GrammageClientApi {
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/exists").build().toUriString();
 		final HttpHeaders headerParams = new HttpHeaders();
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("versionId", versionId);
+		queryParams.add("menuCategoryVersionId", versionId);
 		final String[] accepts = {
 				"*/*"
 		};
@@ -221,7 +221,7 @@ public class GrammageClientApi {
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/thalis").build().toUriString();
 		final HttpHeaders headerParams = new HttpHeaders();
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("versionId", versionId);
+		queryParams.add("menuCategoryVersionId", versionId);
 		final String[] accepts = {
 				"*/*"
 		};
