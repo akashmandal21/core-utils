@@ -18,5 +18,5 @@ public class FlatUrlPlaceResponseDTO {
 	private String name;
 	private int placeId;
 	private boolean enabled;
-	private boolean isPlaceEnabled;
+	private Boolean isPlaceEnabled;
 }
