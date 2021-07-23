@@ -24,7 +24,9 @@ public enum AssetActionType {
     INSURANCE_ADDED("Insurance Details Added"),
     INSURANCE_UPDATED("Current Insurance Details Changed"),
     INSURANCE_REMOVED("Asset Insurance Removed"),
-    INSURANCE_EXPIRED("Asset Insurance Expired");
+    INSURANCE_EXPIRED("Asset Insurance Expired"),
+    READYFOR_TRANSFER_OUT("Asset Ready for Transfer Out"),
+    READYFOR_TRANSFER_IN("Asset Ready for Transfer In");
 
     private String label;
 

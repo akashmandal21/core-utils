@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 import java.util.List;
 
+import com.stanzaliving.core.far.enums.AssetActionType;
+
 /**
  * @author dhruv.mathur
  * @date 05/04/21
@@ -24,4 +26,5 @@ public class AssetHistoryResponseDto {
     private String doneBy;
     private Date lastUpdatedOn;
     private String assetActionType;
+    private String assetActionName;
 }
