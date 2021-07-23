@@ -16,9 +16,7 @@ public class InstallmentResponseDto {
    
 	private Set<String> ids;
 	private String installmentNo;
-	@Deprecated
     private String fromDate;
-	@Deprecated
     private String toDate;
     private Double invoiceAmount;
     private Double amountPaid;

@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class PaymentPlanResponseDto {
     private List<InstallmentResponseDto> paymentPlan;
     private String installmentTypeStr;
-    private PaymentTerm installmentType;
+    private PaymentTerm paymentTerm;
     private Boolean isSelected;
     private String view;
     private int upFrontPaymentMonth;

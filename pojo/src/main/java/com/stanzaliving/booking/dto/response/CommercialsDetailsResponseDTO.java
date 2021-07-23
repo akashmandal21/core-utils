@@ -21,6 +21,10 @@ public class CommercialsDetailsResponseDTO {
 
     private Double bookingAmount;
 
+    private Double totalAmount;
+
+    private Double discountApplied;
+
     private MonthlyBreakupDto monthlyBreakup;
 
     private AdvanceRentalDto startingAdvanceRental;
