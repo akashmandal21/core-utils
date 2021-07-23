@@ -12,7 +12,9 @@ import java.util.List;
 public enum FoodServeType {
 
 	PACKAGED("Packaged", "Boxed"),
-	NON_PACKAGED("Non-Packaged", "Buffet");
+	NON_PACKAGED("Non-Packaged", "Buffet"),
+	HYBRID("Hybrid", "Hybrid"),
+	;
 
 	private String serveTypeName;
 	private String commonName;
