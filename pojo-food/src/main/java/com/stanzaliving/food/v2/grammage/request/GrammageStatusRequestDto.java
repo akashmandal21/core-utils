@@ -22,5 +22,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GrammageStatusRequestDto {
+	private boolean enabled;
 	private Integer grammage;
 }

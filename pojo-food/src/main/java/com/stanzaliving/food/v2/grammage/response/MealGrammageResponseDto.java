@@ -25,5 +25,7 @@ public class MealGrammageResponseDto {
 
 	private EnumListing<MealType> mealType;
 
+	private boolean enabled;
+
 	private Integer grammage;
 }
