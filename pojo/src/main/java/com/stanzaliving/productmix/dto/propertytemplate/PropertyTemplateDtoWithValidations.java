@@ -1,4 +1,4 @@
-package com.stanzaliving.productmix.dto.response.propertytemplate;
+package com.stanzaliving.productmix.dto.propertytemplate;
 
 import com.stanzaliving.productmix.dto.ApplicableDurationDto;
 import com.stanzaliving.productmix.dto.LabelValueDto;
@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PropertyTemplateResponseDto {
+public class PropertyTemplateDtoWithValidations {
     @NotBlank(message = "Template uuid should not be blank")
     private String uuid;
 

@@ -13,9 +13,9 @@ import javax.validation.constraints.NotBlank;
 @Builder
 public class LabelValueDto {
 
-    @NotBlank(message = "Label cannot be blank")
+    @NotBlank(message = "Value cannot be blank")
     private String value;
 
-    @NotBlank(message = "Value cannot be blank")
+    @NotBlank(message = "Label cannot be blank")
     private String label;
 }
