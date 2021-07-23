@@ -1,19 +1,17 @@
-package com.stanzaliving.food.v2.grammage.request;
+package com.stanzaliving.food.v2.grammage.category.request;
 
-import com.stanzaliving.core.food.enums.FoodServeType;
+import javax.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import javax.validation.constraints.NotNull;
-
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @since 20-Apr-2021
+ * @since 14-Jun-2021
  *
  * @version 1.0
  */
@@ -24,10 +22,7 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GrammageStatusRequestDto {
-
-	@NotNull(message = "Food serve type is mandatory")
-	private FoodServeType foodServeType;
-
-	private Integer grammage;
+public class MenuCategoryVersionRequestDto {
+	@NotBlank(message = "Menu category version id is required")
+	private String menuCategoryVersionId;
 }
