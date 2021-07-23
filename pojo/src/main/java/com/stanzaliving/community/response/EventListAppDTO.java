@@ -28,4 +28,5 @@ public class EventListAppDTO {
     private Integer fomoCount;
     private Date updatedAt;
     private  String description;
+    private List<String> tags;
 }
