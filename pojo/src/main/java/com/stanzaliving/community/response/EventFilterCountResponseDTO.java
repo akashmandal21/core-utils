@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class EventFilterCountResponseDTO {
     private String categoryUUID;
     private String category;
+    private String imageUrl;
     private String eventTypeUUID;
     private String eventType;
     private Integer freeEventCount;

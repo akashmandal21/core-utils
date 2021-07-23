@@ -14,4 +14,6 @@ import javax.validation.constraints.NotBlank;
 public class AddEventCategoryDTO {
     @NotBlank
     private String name;
+
+    private String imageUrl;
 }
