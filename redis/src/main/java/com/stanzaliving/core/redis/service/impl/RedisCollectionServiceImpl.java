@@ -5,6 +5,7 @@ package com.stanzaliving.core.redis.service.impl;
 
 import com.stanzaliving.core.redis.service.RedisCollectionService;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.redisson.api.RMap;
 import org.redisson.api.RMapCache;
 import org.redisson.api.RSet;
@@ -31,6 +32,8 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 	@Autowired
 	private RedissonClient redissonClient;
 
+	private static final Integer MAX_REDIS_VALUE_LENGTH_IN_LOG = 15000;
+
 	@Override
 	public Map<String, String> getStringMap(String mapName) {
 
@@ -56,7 +59,12 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 	@Override
 	public String addInStringMap(String mapName, String key, String value) {
 
-		log.debug("Adding key: {} with value: {} in map: {} on redis", key, value, mapName);
+		if (StringUtils.isNotBlank(value) && value.length() > MAX_REDIS_VALUE_LENGTH_IN_LOG) {
+			log.debug("Adding key: {} with value: NOT_PRINTED_AS_LENGTH_GREATER_THAN {} in map: {} on redis", key, MAX_REDIS_VALUE_LENGTH_IN_LOG, mapName);
+		} else {
+			log.debug("Adding key: {} with value: {} in map: {} on redis", key, value, mapName);
+		}
+
 
 		return getRedisStringMap(mapName).put(key, value);
 	}
