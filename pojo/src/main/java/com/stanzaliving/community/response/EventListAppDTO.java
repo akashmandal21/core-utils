@@ -20,7 +20,7 @@ public class EventListAppDTO {
     private Date eventStartDate;
     private Date eventEndDate;
     private Boolean pricingApplicable;
-    private List<String> imageUrl;
+    private String imageUrl;
     private Integer price;
     private Boolean isLiked;
     private Boolean isRegistered;

@@ -22,7 +22,7 @@ public class SimilarEventResponseDTO {
     private Long priorityOrder;
     private String eventStatus;
     private String uuid;
-    private List<String> imageUrl;
+    private String imageUrl;
     private Long fomoCount;
     private Boolean isLiked;
     private Boolean isRegistered;
