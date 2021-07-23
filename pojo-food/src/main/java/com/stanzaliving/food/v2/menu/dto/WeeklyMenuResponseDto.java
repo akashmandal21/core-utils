@@ -23,6 +23,7 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private boolean compositionRulesSatisfied;
 	private boolean comboRulesSatisfied;
 	private boolean budgetUtilizationInLimit;
+	private boolean hybridMealRuleSatisfied;
 	private boolean mealOfDayDefined;
 	private boolean menuDefined;
 	private Double newnessPercentage;
