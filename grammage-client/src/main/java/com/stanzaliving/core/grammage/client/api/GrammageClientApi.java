@@ -5,8 +5,11 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.food.v2.grammage.category.response.CategoryGrammageBaseResponseDto;
 import com.stanzaliving.food.v2.grammage.request.CalculateGrammageDayMapRequestDto;
+import com.stanzaliving.food.v2.grammage.request.CalculateGrammageItemRequestDto;
 import com.stanzaliving.food.v2.grammage.request.CalculateGrammageMapRequestDto;
+import com.stanzaliving.food.v2.grammage.response.MenuItemGrammage;
 import com.stanzaliving.food.v2.grammage.response.MenuOptionGrammage;
+import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -24,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * @author Manish.Pareek
@@ -146,6 +150,35 @@ public class GrammageClientApi {
 				: new HashMap<>();
 	}
 
+	public Map<String, MenuItemGrammage> calculateGrammageForResidenceMenu(String menuCategoryVersionId, Set<String> itemIds, ResidenceMenuDto menuDto) {
+		ResponseDto<Map<String, MenuItemGrammage>> responseDto = null;
+		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/calculate/menu").build().toUriString();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		CalculateGrammageItemRequestDto requestDto = CalculateGrammageItemRequestDto.builder()
+				.menuCategoryVersionId(menuCategoryVersionId)
+				.itemIds(itemIds)
+				.menu(menuDto)
+				.build();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Map<String, MenuItemGrammage>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, MenuItemGrammage>>>() {
+		};
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType);
+		}catch (Exception e) {
+			log.error("Error while calculateGrammage ", e);
+			return null;
+		}
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+				: new HashMap<>();
+	}
+
 	public List<CategoryGrammageBaseResponseDto> getGrammageVariationDetails(String uuid) {
 		ResponseDto<List<CategoryGrammageBaseResponseDto>> responseDto = null;
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/integration/variationDetails").build().toUriString();
@@ -189,8 +222,6 @@ public class GrammageClientApi {
 		} catch (Exception e) {
 			log.error("Error while copy", e);
 		}
-
-		
 	}
 
 	public void copyGrammageFromBase(String versionId) {
