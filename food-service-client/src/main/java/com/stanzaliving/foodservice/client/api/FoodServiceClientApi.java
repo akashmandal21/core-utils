@@ -491,29 +491,7 @@ public class FoodServiceClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new ArrayList<>();
 	}
-	
-	public Map<MealType, Map<String, MealDto>> getFirstByMealTypeAndGroup() {
 
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/firstByMealTypeAndGroup").build().toUriString();
-
-		TypeReference<ResponseDto<Map<MealType, Map<String, MealDto>>>> returnType = new TypeReference<ResponseDto<Map<MealType, Map<String, MealDto>>>>() {};
-
-		ResponseDto<Map<MealType, Map<String, MealDto>>> responseDto = null;
-
-		try {
-
-			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
-
-		} catch (Exception e) {
-
-			log.error("Error while getting meal type & group map ", e);
-
-		}
-
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
-
-	}
-	
 	public List<ItemSubCategoryDto> getItemSubCategories() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/subcategory/listing").build().toUriString();
