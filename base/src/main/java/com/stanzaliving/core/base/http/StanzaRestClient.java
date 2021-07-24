@@ -333,7 +333,7 @@ public class StanzaRestClient {
 			HttpHeaders headerParams,
 			List<MediaType> accept,
 			TypeReference<T> returnType,
-			MediaType mediaType) {
+			MediaType contentType) {
 
 		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
 
@@ -341,13 +341,23 @@ public class StanzaRestClient {
 			builder.queryParams(queryParams);
 		}
 
+		if (Objects.isNull(headerParams)) {
+			headerParams = new HttpHeaders();
+		}
+
+		if (CollectionUtils.isEmpty(accept)) {
+			accept = new ArrayList<>();
+			accept.add(MediaType.ALL);
+		}
+
 		final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
+
 
 		if (CollectionUtils.isNotEmpty(accept)) {
 			requestBuilder.accept(accept.toArray(new MediaType[0]));
 		}
 
-		requestBuilder.contentType(mediaType);
+		requestBuilder.contentType(contentType);
 
 		addHeadersToRequest(headerParams, requestBuilder);
 
@@ -618,4 +628,5 @@ public class StanzaRestClient {
 			MediaType mediaType){
 		return request(path, HttpMethod.OPTIONS, queryParams, body, headerParams, accept, returnType, mediaType);
 	}
+
 }
