@@ -17,6 +17,7 @@ import com.stanzaliving.food.v2.common.dto.MealDto;
 import com.stanzaliving.food.v2.menu.dto.ResidenceFoodMenuItemIdProjectionDto;
 import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.core.ParameterizedTypeReference;
@@ -514,226 +515,191 @@ public class FoodServiceClientApi {
 	}
 	
 	public List<ItemSubCategoryDto> getItemSubCategories() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/subcategory/listing").build().toUriString();
+
+		TypeReference<ResponseDto<List<ItemSubCategoryDto>>> returnType = new TypeReference<ResponseDto<List<ItemSubCategoryDto>>>() {};
+
 		ResponseDto<List<ItemSubCategoryDto>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/subcategory/listing").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<List<ItemSubCategoryDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ItemSubCategoryDto>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getMealGroupMap", e);
+
+			log.error("Error while getting sub category listing", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new ArrayList<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 
 	}
 	
 	
 	public Map<String, ItemSubCategoryDto> getItemSubCategoriesMap() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/subcategory/map").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, ItemSubCategoryDto>>> returnType = new TypeReference<ResponseDto<Map<String, ItemSubCategoryDto>>>() {};
+
 		ResponseDto<Map<String, ItemSubCategoryDto>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/subcategory/map").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Map<String, ItemSubCategoryDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, ItemSubCategoryDto>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getMealGroupMap", e);
+
+			log.error("Error while getting dish subcategory map ", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new HashMap<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
 	}
 	
 	public Set<String> getItemSubCategoryIds(String categoryId) {
-		ResponseDto<Set<String>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/subcategory/set").build()
-				.toUriString();
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/subcategory/set").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("categoryId",categoryId);
 
-		final HttpHeaders headerParams = new HttpHeaders();
+		TypeReference<ResponseDto<Set<String>>> returnType = new TypeReference<ResponseDto<Set<String>>>() {};
 
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Set<String>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<String>>>() {
-		};
+		ResponseDto<Set<String>> responseDto = null;
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
+
 			log.error("Error while getItemSubCategoryIds", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new HashSet<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashSet<>();
 
 	}
 	
 	public Map<String, ItemCategoryDto> getItemCategoriesMap() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/category/map").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, ItemCategoryDto>>> returnType = new TypeReference<ResponseDto<Map<String, ItemCategoryDto>>>() {};
+
 		ResponseDto<Map<String, ItemCategoryDto>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/category/map").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Map<String, ItemCategoryDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, ItemCategoryDto>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getMealGroupMap", e);
+
+			log.error("Error while getting item subcategory map", e);
+
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 
 	}
-	
-	
-	
+
 	public List<ResidenceMenuDto> findByResidenceIdAndMenuDateBetween(String residenceId, LocalDate startDate, LocalDate endDate){
-		ResponseDto<List<ResidenceMenuDto>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/residence/food/menu/dateBetween").build()
-				.toUriString();
+
+		String path = UriComponentsBuilder.fromPath("/internal/residence/food/menu/dateBetween").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("residenceId",residenceId);
 		queryParams.add("startDate",startDate.toString());
 		queryParams.add("endDate",endDate.toString());
 
-		final HttpHeaders headerParams = new HttpHeaders();
+		TypeReference<ResponseDto<List<ResidenceMenuDto>>> returnType = new TypeReference<ResponseDto<List<ResidenceMenuDto>>>() {};
 
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<List<ResidenceMenuDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceMenuDto>>>() {
-		};
+		ResponseDto<List<ResidenceMenuDto>> responseDto = null;
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getItemSubCategoryIds", e);
+
+			log.error("Error while getting menu dtos", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new ArrayList<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 
 	}
 	
 	
 	public List<ResidenceFoodMenuItemIdProjectionDto> getFoodMenusItemProjection(Collection<String> residenceMenuIds){
+
+    	String path = UriComponentsBuilder.fromPath("/internal/residence/food/menu/item/foodMenusItemProjection").build().toUriString();
+
+		TypeReference<ResponseDto<List<ResidenceFoodMenuItemIdProjectionDto>>> returnType = new TypeReference<ResponseDto<List<ResidenceFoodMenuItemIdProjectionDto>>>() {};
+
 		ResponseDto<List<ResidenceFoodMenuItemIdProjectionDto>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/residence/food/menu/item/foodMenusItemProjection").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<List<ResidenceFoodMenuItemIdProjectionDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceFoodMenuItemIdProjectionDto>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, residenceMenuIds, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.post(path, null, residenceMenuIds, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while foodMenusItemProjection", e);
+
+			log.error("Error while getting food Menus Items Projection", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new ArrayList<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
 	
 	public Map<Object, Object> getFoodItemMap() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/foodItemMap").build().toUriString();
+
+		TypeReference<ResponseDto<Map<Object, Object>>> returnType = new TypeReference<ResponseDto<Map<Object, Object>>>() {};
+
 		ResponseDto<Map<Object, Object>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/foodItemMap").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Map<Object, Object>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<Object, Object>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while get foodItemMap", e);
+
+			log.error("Error while getting foodItemMap", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new HashMap<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && MapUtils.isNotEmpty(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
 	}
 	
 	public String getResidenceName(String residenceId) {
-		ResponseDto<String> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/category/foodItemMap").build()
-				.toUriString();
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/residence/name").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("residenceId",residenceId);
 
-		final HttpHeaders headerParams = new HttpHeaders();
+		TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {};
 
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-		};
+		ResponseDto<String> responseDto = null;
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while get foodItemMap", e);
+
+			log.error("Error while getting residence name", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: StringUtils.EMPTY;
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : StringUtils.EMPTY;
 
 	}
 	
