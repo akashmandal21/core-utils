@@ -311,9 +311,8 @@ public class FoodServiceClientApi {
 
     }
 
-	public Map<String, MealDto> getMealGroupMap() {
-		ResponseDto<Map<String, MealDto>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealGroupMap").build()
+	public Map<String, Integer> getMealGroupSequenceMap() {
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealGroupSequenceMap").build()
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -323,9 +322,9 @@ public class FoodServiceClientApi {
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<Map<String, MealDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, MealDto>>>() {
-		};
+		ParameterizedTypeReference<ResponseDto<Map<String, Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Integer>>>() {};
 
+		ResponseDto<Map<String, Integer>> responseDto = null;
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
 					returnType);
@@ -333,8 +332,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getMealGroupMap", e);
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new HashMap<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
 	}
 	
