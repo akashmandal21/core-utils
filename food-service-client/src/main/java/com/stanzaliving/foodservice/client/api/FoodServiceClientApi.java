@@ -315,7 +315,7 @@ public class FoodServiceClientApi {
 
 	public Map<String, Integer> getMealGroupSequenceMap() {
 
-    	String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealGroupSequenceMap").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealGroupSequenceMap").build().toUriString();
 
 		TypeReference<ResponseDto<Map<String, Integer>>> returnType = new TypeReference<ResponseDto<Map<String, Integer>>>() {};
 
