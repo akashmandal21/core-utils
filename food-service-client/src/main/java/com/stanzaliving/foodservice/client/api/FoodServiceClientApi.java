@@ -1,5 +1,6 @@
 package com.stanzaliving.foodservice.client.api;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -312,24 +313,21 @@ public class FoodServiceClientApi {
     }
 
 	public Map<String, Integer> getMealGroupSequenceMap() {
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealGroupSequenceMap").build()
-				.toUriString();
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+    	String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealGroupSequenceMap").build().toUriString();
 
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Map<String, Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Integer>>>() {};
+		TypeReference<ResponseDto<Map<String, Integer>>> returnType = new TypeReference<ResponseDto<Map<String, Integer>>>() {};
 
 		ResponseDto<Map<String, Integer>> responseDto = null;
+
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getMealGroupMap", e);
+
+			log.error("Error while getting meal group sequence map", e);
+
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
@@ -337,187 +335,156 @@ public class FoodServiceClientApi {
 	}
 	
 	public Map<String, String> getMealGroupNameIdMap() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/nameIdMap").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, String>>> returnType =
+				new TypeReference<ResponseDto<Map<String, String>>>() {};
+
 		ResponseDto<Map<String, String>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/nameIdMap").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Map<String, String>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, String>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getMealGroupMap", e);
+
+			log.error("Error while getting meal master name map", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new HashMap<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
 	}
 	
 	public Map<Pair<MealType, String>, MealDto> getMealMap() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealMap").build().toUriString();
+
+		TypeReference<ResponseDto<Map<Pair<MealType, String>, MealDto>>> returnType =
+				new TypeReference<ResponseDto<Map<Pair<MealType, String>, MealDto>>>() {};
+
 		ResponseDto<Map<Pair<MealType, String>, MealDto>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealMap").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Map<Pair<MealType, String>, MealDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<Pair<MealType, String>, MealDto>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getMealGroupMap", e);
+
+			log.error("Error while getting meal type and meal group name map", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new HashMap<>();
-
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 	}
 	
 	public Map<String, String> getMealNameMap() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealNameMap").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, String>>> returnType =
+				new TypeReference<ResponseDto<Map<String, String>>>() {};
+
 		ResponseDto<Map<String, String>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealNameMap").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Map<String, String>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, String>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getMealGroupMap", e);
+
+			log.error("Error while getting meal master name map", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new HashMap<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
 	}
 	
 	public Map<String, String> getMealGroupNameMap() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealGroupNameMap").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, String>>> returnType = new TypeReference<ResponseDto<Map<String, String>>>() {};
+
 		ResponseDto<Map<String, String>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealGroupNameMap").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Map<String, String>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, String>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getMealGroupMap", e);
+
+			log.error("Error while getting mealGroupNameMap", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new HashMap<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
 	}
 	
 	public Map<String, MealDto> getMealMasterMap() {
+
+    	String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealMasterMap").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, MealDto>>> returnType =
+				new TypeReference<ResponseDto<Map<String, MealDto>>>() {};
+
 		ResponseDto<Map<String, MealDto>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealMasterMap").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Map<String, MealDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, MealDto>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getMealGroupMap", e);
+
+			log.error("Error while getting mealMasterMap", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new HashMap<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
 	}
 	
 	public Set<Pair<MealType, String>> getMeals() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/getMeals").build().toUriString();
+
+		TypeReference<ResponseDto<Set<Pair<MealType, String>>>> returnType = new TypeReference<ResponseDto<Set<Pair<MealType, String>>>>() {};
+
 		ResponseDto<Set<Pair<MealType, String>>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/getMeals").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Set<Pair<MealType, String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<Pair<MealType, String>>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getMeals", e);
+
+			log.error("Error while getting meals set", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new HashSet<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashSet<>();
 
 	}
 	
 	public List<MealDto> getAllMeals() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/getAllMeals").build().toUriString();
+
+		TypeReference<ResponseDto<List<MealDto>>> returnType = new TypeReference<ResponseDto<List<MealDto>>>() {};
+
 		ResponseDto<List<MealDto>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/getAllMeals").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<List<MealDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<MealDto>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getAllMeals", e);
+
+			log.error("Error while getting all meals", e);
+
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
@@ -525,29 +492,24 @@ public class FoodServiceClientApi {
 	}
 	
 	public Map<MealType, Map<String, MealDto>> getFirstByMealTypeAndGroup() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/firstByMealTypeAndGroup").build().toUriString();
+
+		TypeReference<ResponseDto<Map<MealType, Map<String, MealDto>>>> returnType = new TypeReference<ResponseDto<Map<MealType, Map<String, MealDto>>>>() {};
+
 		ResponseDto<Map<MealType, Map<String, MealDto>>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/firstByMealTypeAndGroup").build()
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Map<MealType, Map<String, MealDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<MealType, Map<String, MealDto>>>>() {
-		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
-					returnType);
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
 		} catch (Exception e) {
-			log.error("Error while getAllMeals", e);
+
+			log.error("Error while getting meal type & group map ", e);
+
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
-				: new HashMap<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
 	}
 	
