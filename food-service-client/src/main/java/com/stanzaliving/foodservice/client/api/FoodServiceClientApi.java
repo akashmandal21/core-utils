@@ -1,26 +1,5 @@
 package com.stanzaliving.foodservice.client.api;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -36,8 +15,27 @@ import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.common.dto.MealDto;
 import com.stanzaliving.food.v2.menu.dto.ResidenceFoodMenuItemIdProjectionDto;
 import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
-
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 @Log4j2
 public class FoodServiceClientApi {
@@ -309,7 +307,7 @@ public class FoodServiceClientApi {
             log.error("Error while fetching recent meal for user with id: {}", userId, e);
         }
 
-        return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+        return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
 
     }
 
@@ -335,7 +333,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getMealGroupMap", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 
 	}
@@ -362,7 +360,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getMealGroupMap", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 
 	}
@@ -389,7 +387,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getMealGroupMap", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 
 	}
@@ -416,7 +414,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getMealGroupMap", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 
 	}
@@ -443,7 +441,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getMealGroupMap", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 
 	}
@@ -470,7 +468,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getMealGroupMap", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 
 	}
@@ -497,7 +495,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getMeals", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashSet<>();
 
 	}
@@ -524,7 +522,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getAllMeals", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new ArrayList<>();
 	}
 	
@@ -550,7 +548,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getAllMeals", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 
 	}
@@ -577,7 +575,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getMealGroupMap", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new ArrayList<>();
 
 	}
@@ -605,7 +603,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getMealGroupMap", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 
 	}
@@ -633,7 +631,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getItemSubCategoryIds", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashSet<>();
 
 	}
@@ -660,7 +658,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getMealGroupMap", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 
 	}
@@ -692,7 +690,7 @@ public class FoodServiceClientApi {
 			log.error("Error while getItemSubCategoryIds", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new ArrayList<>();
 
 	}
@@ -720,13 +718,13 @@ public class FoodServiceClientApi {
 			log.error("Error while foodMenusItemProjection", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new ArrayList<>();
 	}
 	
 	public Map<Object, Object> getFoodItemMap() {
 		ResponseDto<Map<Object, Object>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/category/foodItemMap").build()
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/foodItemMap").build()
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -746,7 +744,7 @@ public class FoodServiceClientApi {
 			log.error("Error while get foodItemMap", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData()
 				: new HashMap<>();
 
 	}
