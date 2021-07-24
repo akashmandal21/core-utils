@@ -7,6 +7,7 @@ import com.stanzaliving.food.v2.grammage.category.response.CategoryGrammageBaseR
 import com.stanzaliving.food.v2.grammage.request.CalculateGrammageDayMapRequestDto;
 import com.stanzaliving.food.v2.grammage.request.CalculateGrammageItemRequestDto;
 import com.stanzaliving.food.v2.grammage.request.CalculateGrammageMapRequestDto;
+import com.stanzaliving.food.v2.grammage.request.CalculateGrammageOptionRequestDto;
 import com.stanzaliving.food.v2.grammage.response.MenuItemGrammage;
 import com.stanzaliving.food.v2.grammage.response.MenuOptionGrammage;
 import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
@@ -181,7 +182,7 @@ public class GrammageClientApi {
 
 	public List<CategoryGrammageBaseResponseDto> getGrammageVariationDetails(String uuid) {
 		ResponseDto<List<CategoryGrammageBaseResponseDto>> responseDto = null;
-		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/integration/variationDetails").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/variationDetails").build().toUriString();
 		final HttpHeaders headerParams = new HttpHeaders();
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("uuid", uuid);
@@ -202,12 +203,13 @@ public class GrammageClientApi {
 				: new ArrayList<>();
 	}
 
-	public void deleteGrammages(Collection<String> versionUuidList) {
-		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/integration/deleteGrammages").build()
+	public void deleteGrammages(String menuCategoryVersionId) {
+		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/deleteGrammages").build()
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		
+		queryParams.add("versionId", menuCategoryVersionId);
+
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = { "*/*" };
@@ -218,23 +220,23 @@ public class GrammageClientApi {
 		};
 
 		try {
-			restClient.invokeAPI(path, HttpMethod.POST, queryParams, versionUuidList, headerParams, accept, returnType);
+			restClient.invokeAPI(path, HttpMethod.DELETE, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while copy", e);
+			log.error("Error while deleting grammages", e);
 		}
 	}
 
 	public void copyGrammageFromBase(String versionId) {
-		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/integration/copyFromBase").build()
+		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/copy/grammageMaster").build()
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("versionId", versionId);
-		
+		queryParams.add("menuCategoryVersionId", versionId);
+
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = { "*/*" };
-		
+
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
@@ -269,5 +271,33 @@ public class GrammageClientApi {
 		}
 	}
 
+	public MenuOptionGrammage calculateGrammage(String versionId, String thaliId, String mealId, Set<String> itemIds) {
+		ResponseDto<MenuOptionGrammage> responseDto = null;
+		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/calculate/option").build().toUriString();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		CalculateGrammageOptionRequestDto requestDto = CalculateGrammageOptionRequestDto.builder()
+				.menuCategoryVersionId(versionId)
+				.itemIds(itemIds)
+				.thaliId(thaliId)
+				.mealId(mealId)
+				.build();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<MenuOptionGrammage>> returnType = new ParameterizedTypeReference<ResponseDto<MenuOptionGrammage>>() {
+		};
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType);
+		}catch (Exception e) {
+			log.error("Error while calculateGrammage ", e);
+			return null;
+		}
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+	}
 }
 
