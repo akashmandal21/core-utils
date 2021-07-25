@@ -1,16 +1,18 @@
-package com.stanzaliving.core.booking.client.dto;
+package com.stanzaliving.core.paymentPlan.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.List;
 
-@Data
 @Builder
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-public class ExpiredBookingsDto {
+@NoArgsConstructor
+public class PaymentPlanRequestDto {
     private List<String> bookingUuid;
+    private LocalDate executionDate;
 }

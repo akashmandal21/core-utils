@@ -10,11 +10,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+	
 public class MonthlyBreakupDto {
 
     private Double subContract1MonthlyRent;
 
     private Double subContract2MonthlyRent;
+    
+	private Double monthlyFee;
 
     private Double licenseFee;
 

@@ -23,6 +23,10 @@ public class InstalmentPaymentPlan {
 	private double amount;
 
 	private String period;
+	
+	private String fromDate;
+   
+	private String toDate;
 
 	private List<PaymentPlanLineItemResponse> lineItems;
 }

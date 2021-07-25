@@ -94,8 +94,10 @@
 		<module>payment-plan-client</module>
 		<module>ledger-service-client</module>
 		<module>booking-service-client</module>
-		<module>booking-client</module>
-	</modules>
+		<module>deal-client</module>
+		<module>discount-client</module>
+	    <module>invoice-service-client</module>
+    </modules>
 
 	<build>
 		<plugins>

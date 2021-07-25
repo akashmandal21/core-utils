@@ -16,13 +16,9 @@ import java.util.List;
 @AllArgsConstructor
 public class DocumentRequestDto {
 
-    private DocumentLineItemDto documentLineItemDto;
+    private List<DocumentLineItemDto> documentLineItemDto;
 
-    @NotNull(message = "ResidentId is required")
-    private String residentId;
-
-    @NotNull(message = "Residence Id cant be null")
-    private String residenceUuid;
+    private String studentId;
 
     @NotNull(message = "ServiceType is required")
     private String serviceType;
@@ -30,7 +26,6 @@ public class DocumentRequestDto {
     @NotNull(message = "Provide a reference Type Resident or Deal")
     private ReferenceType referenceType;
 
-    @NotNull(message = "Reference Id is mandatory")
     private String referenceId;
 
     @NotNull(message = "DocumentType is mandatory")
@@ -53,7 +48,6 @@ public class DocumentRequestDto {
     @NotNull(message = "Amount Is Required")
     private double amount;
 
-    @NotNull(message = "ContractId can not be null")
     private String contractId;
 
     private String remarks;
@@ -64,4 +58,10 @@ public class DocumentRequestDto {
     private BillToDto billTo;
 
     private BillFromDto billFrom;
+
+    private String dealUuid;
+
+    private String dealType;
+
+    private String dealName;
 }
