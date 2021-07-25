@@ -1,6 +1,6 @@
-package com.stanzaliving.core.booking.client.dto;
+package com.stanzaliving.core.deal.client.dto;
 
-import com.stanzaliving.core.booking.client.enums.*;
+import com.stanzaliving.core.deal.client.enums.*;
 import com.stanzaliving.core.sqljpa.entity.AbstractJpaEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

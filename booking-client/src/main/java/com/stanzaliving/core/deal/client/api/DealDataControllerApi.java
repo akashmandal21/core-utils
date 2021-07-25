@@ -1,8 +1,9 @@
-package com.stanzaliving.core.booking.client.api;
+package com.stanzaliving.core.deal.client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.booking.client.dto.*;
+import com.stanzaliving.core.deal.client.dto.*;
+
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;

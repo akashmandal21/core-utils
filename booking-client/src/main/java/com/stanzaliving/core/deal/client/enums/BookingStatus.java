@@ -1,4 +1,4 @@
-package com.stanzaliving.core.booking.client.enums;
+package com.stanzaliving.core.deal.client.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
