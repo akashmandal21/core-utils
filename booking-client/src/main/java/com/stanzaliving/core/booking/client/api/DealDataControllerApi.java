@@ -17,11 +17,11 @@ import java.util.List;
 import java.util.Map;
 
 @Log4j2
-public class BookingDataControllerApi {
+public class DealDataControllerApi {
 
     private StanzaRestClient restClient;
 
-    public BookingDataControllerApi(StanzaRestClient stanzaRestClient) {
+    public DealDataControllerApi(StanzaRestClient stanzaRestClient) {
         this.restClient = stanzaRestClient;
     }
 
@@ -72,28 +72,5 @@ public class BookingDataControllerApi {
         ParameterizedTypeReference<ResponseDto<List<BookingEntity>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingEntity>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-    }
-
-
-    public ResponseDto<ExpiredBookingsResponseDto> expireBooking(ExpiredBookingsDto expiredBookingsDto) {
-
-        Object postBody = expiredBookingsDto;
-
-        final Map<String, Object> uriVariables = new HashMap<>();
-
-        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/expire").buildAndExpand(uriVariables).toUriString();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        HttpHeaders headerParams = new HttpHeaders();
-
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<ExpiredBookingsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ExpiredBookingsResponseDto>>() {
-        };
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 }
