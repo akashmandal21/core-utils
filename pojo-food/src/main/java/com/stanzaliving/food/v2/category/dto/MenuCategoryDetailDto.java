@@ -41,6 +41,10 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private FoodServeType foodServeType;
 	private Integer maxWeeklyCombo;
 	private Integer minWeeklyCombo;
+	
+	private Integer minHybridMeals;
+	private Integer maxHybridMeals;
+	
 	private boolean sampleMenuDefined;
 	private boolean grammageDefined;
 	private List<ListingDto> demographicTags;
