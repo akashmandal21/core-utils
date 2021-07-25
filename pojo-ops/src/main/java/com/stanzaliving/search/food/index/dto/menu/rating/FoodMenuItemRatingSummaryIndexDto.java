@@ -57,4 +57,12 @@ public class FoodMenuItemRatingSummaryIndexDto extends AbstractSearchIndexDto {
 
 	private Integer fpsCount;
 
+	private String mealId;
+
+	private String mealGroupId;
+
+	private String thaliId;
+
+	private String thaliVariant;
+
 }

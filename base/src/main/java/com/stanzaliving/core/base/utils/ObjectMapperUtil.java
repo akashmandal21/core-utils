@@ -3,19 +3,16 @@
  */
 package com.stanzaliving.core.base.utils;
 
-import com.fasterxml.jackson.core.JsonParseException;
+import java.io.IOException;
+
+import org.apache.commons.lang3.StringUtils;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.http.BaseMapperConfig;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
-import org.apache.commons.lang3.StringUtils;
-
-import java.io.IOException;
-
-import java.io.IOException;
 
 /**
  * @author naveen.kumar

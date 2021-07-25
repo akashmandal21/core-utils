@@ -9,6 +9,5 @@ public enum Status {
 	ENABLED("Enabled"), 
 	DISABLED("Disabled"), 
 	COMINGSOON("Coming Soon");
-
 	public String statusName;
 }
