@@ -26,11 +26,11 @@ public class DealDataControllerApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto updateUserDetails(BookingInventoryDto bookingInventoryDto) {
+    public ResponseDto<DealUserResponseDto> updateUserDetails(DealUserRequestDto dealUserRequestDto) {
 
         log.info("Deal-Data-Controller:: update deal user with uuid {} and payload {}");
 
-        Object putBody = bookingInventoryDto;
+        Object putBody = dealUserRequestDto;
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -45,7 +45,7 @@ public class DealDataControllerApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto> returnType = new ParameterizedTypeReference<ResponseDto>() {
+        ParameterizedTypeReference<ResponseDto<DealUserResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DealUserResponseDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, putBody, headerParams, accept, returnType);
     }
