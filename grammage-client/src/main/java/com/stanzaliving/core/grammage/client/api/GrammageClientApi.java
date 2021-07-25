@@ -3,6 +3,7 @@ package com.stanzaliving.core.grammage.client.api;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.food.v2.grammage.category.response.CategoryGrammageBaseResponseDto;
 import com.stanzaliving.food.v2.grammage.request.CalculateGrammageDayMapRequestDto;
@@ -86,12 +87,14 @@ public class GrammageClientApi {
 	}
 
 	public Map<String, Map<LocalDate, Map<String, MenuOptionGrammage>>> calculateGrammage(
-			String versionId, Map<String, Map<LocalDate, Map<String, Collection<String>>>> optionWiseItemMap) {
+			String versionId, FoodServeType foodServeType,
+			Map<String, Map<LocalDate, Map<String, Collection<String>>>> optionWiseItemMap) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/calculate").build().toUriString();
 
 		CalculateGrammageMapRequestDto requestDto = CalculateGrammageMapRequestDto.builder()
 				.menuCategoryVersionId(versionId)
+				.foodServeType(foodServeType)
 				.mealThaliItemMap(optionWiseItemMap)
 				.build();
 
@@ -109,13 +112,15 @@ public class GrammageClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && MapUtils.isNotEmpty(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 	}
 
-	public Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>> getGrammagesForMenu(String menuCategoryVersionId,
+	public Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>> getGrammagesForMenu(
+			String menuCategoryVersionId, FoodServeType foodServeType,
 			Map<String, Map<DayOfWeek, Map<String, Collection<String>>>> mealThaliItemMap) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/calculate/menu").build().toUriString();
 
 		CalculateGrammageDayMapRequestDto requestDto = CalculateGrammageDayMapRequestDto.builder()
 				.menuCategoryVersionId(menuCategoryVersionId)
+				.foodServeType(foodServeType)
 				.mealThaliItemMap(mealThaliItemMap)
 				.build();
 
@@ -133,12 +138,14 @@ public class GrammageClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && MapUtils.isNotEmpty(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 	}
 
-	public Map<String, MenuItemGrammage> calculateGrammageForResidenceMenu(String menuCategoryVersionId, Set<String> itemIds, ResidenceMenuDto menuDto) {
+	public Map<String, MenuItemGrammage> calculateGrammageForResidenceMenu(
+			String menuCategoryVersionId, FoodServeType foodServeType, Set<String> itemIds, ResidenceMenuDto menuDto) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/calculate/residence/menu").build().toUriString();
 
 		CalculateGrammageItemRequestDto requestDto = CalculateGrammageItemRequestDto.builder()
 				.menuCategoryVersionId(menuCategoryVersionId)
+				.foodServeType(foodServeType)
 				.itemIds(itemIds)
 				.menu(menuDto)
 				.build();
@@ -233,12 +240,13 @@ public class GrammageClientApi {
 
 	}
 
-	public MenuOptionGrammage calculateGrammage(String versionId, String thaliId, String mealId, Set<String> itemIds) {
+	public MenuOptionGrammage calculateGrammage(String versionId, String thaliId, String mealId, FoodServeType foodServeType, Set<String> itemIds) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/calculate/option").build().toUriString();
 
 		CalculateGrammageOptionRequestDto requestDto = CalculateGrammageOptionRequestDto.builder()
 				.menuCategoryVersionId(versionId)
+				.foodServeType(foodServeType)
 				.itemIds(itemIds)
 				.thaliId(thaliId)
 				.mealId(mealId)
