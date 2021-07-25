@@ -19,7 +19,11 @@ public class PendingApprovalSummaryDto {
     @Builder.Default
     private Integer foodCategoriesCount = 0;
     @Builder.Default
+    private Integer foodCategoriesCountV2 = 0;
+    @Builder.Default
     private Integer monthlyUnderWrittenCount = 0;
     @Builder.Default
     private Integer weeklyMenuCount = 0;
+    @Builder.Default
+    private Integer weeklyMenuCountV2 = 0;
 }

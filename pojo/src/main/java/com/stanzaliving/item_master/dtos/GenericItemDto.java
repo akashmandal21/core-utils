@@ -22,6 +22,7 @@ public class GenericItemDto {
     private UIKeyValue subCategory;
     private String itemUuid;
     private String itemCode;
+    private String oldItemCode;
     private String itemName;
     private String itemDescription;
     private String itemModel;
@@ -38,4 +39,6 @@ public class GenericItemDto {
     //Rates
     private BigDecimal globalRate;
     private BigDecimal cityRate;
+    private String recipeTag;
+
 }
