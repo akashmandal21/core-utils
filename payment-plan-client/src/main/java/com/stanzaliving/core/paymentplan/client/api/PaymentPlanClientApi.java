@@ -3,11 +3,12 @@
  */
 package com.stanzaliving.core.paymentplan.client.api;
 
-import com.stanzaliving.core.paymentPlan.dto.PaymentPlanRequestDto;
+import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
 import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.paymentPlan.dto.GetPaymentPlanRequestDto;
 import com.stanzaliving.core.paymentPlan.dto.PaymentPlan;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -164,12 +165,12 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<List<PaymentPlan>> getPaymentPlanForInvoiceGeneration(PaymentPlanRequestDto paymentPlanRequestDto) {
+    public ResponseDto<List<PaymentPlan>> getPaymentPlanForInvoiceGeneration(GetPaymentPlanRequestDto getPaymentPlanRequestDto) {
 
         try {
-            Object postBody = paymentPlanRequestDto;
+            Object postBody = getPaymentPlanRequestDto;
 
-            log.info("get paymentPlan for booking Id's is {} ", paymentPlanRequestDto.getBookingUuid());
+            log.info("get paymentPlan for booking Id's is {} ", getPaymentPlanRequestDto.getBookingUuid());
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -187,7 +188,7 @@ public class PaymentPlanClientApi {
             ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>>() {
             };
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("error while fetching the paymentPlan for invoice generation{}", e);
         }
