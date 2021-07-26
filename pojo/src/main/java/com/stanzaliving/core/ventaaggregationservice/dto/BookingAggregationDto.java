@@ -48,7 +48,7 @@ public class BookingAggregationDto {
     private Double dues;
     private String riskProfile;
     private boolean duesStatus;
-    private boolean moveIn;
+    private boolean movein;
     private boolean agreementSent;
     private Boolean agreementSigned;
     private Double licenseFee;
@@ -64,5 +64,7 @@ public class BookingAggregationDto {
     private String lockinDuration;
     private String colorCode;
     private List<String> bookingTags;
+    private Integer tokenAmount;
     List<EligibleStatusMappingDto> eligibleStatusMapping;
+
 }
