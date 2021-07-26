@@ -26,5 +26,7 @@ public class DealUserResponseDto {
 	private Date expectedMoveInDAte;
 	
 	private Date expectedMoveOutDAte;
+	
+	private Date moveInDate;
 
 }
