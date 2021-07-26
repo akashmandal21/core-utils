@@ -23,6 +23,8 @@ public class DealUserResponseDto {
 	
 	private String email;
 	
+	private Date expectedMoveInDAte;
+	
 	private Date expectedMoveOutDAte;
 
 }
