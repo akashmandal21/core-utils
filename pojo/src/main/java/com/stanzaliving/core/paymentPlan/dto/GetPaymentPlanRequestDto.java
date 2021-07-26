@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentPlanRequestDto {
+public class GetPaymentPlanRequestDto {
     private List<String> bookingUuid;
     private LocalDate executionDate;
 }
