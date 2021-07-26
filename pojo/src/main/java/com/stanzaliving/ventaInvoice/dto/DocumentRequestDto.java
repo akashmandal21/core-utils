@@ -1,6 +1,8 @@
 package com.stanzaliving.ventaInvoice.dto;
 
+import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,29 +18,22 @@ import java.util.List;
 @AllArgsConstructor
 public class DocumentRequestDto {
 
-    private DocumentLineItemDto documentLineItemDto;
-
-    @NotNull(message = "ResidentId is required")
-    private String residentId;
-
-    @NotNull(message = "Residence Id cant be null")
-    private String residenceUuid;
-
     @NotNull(message = "ServiceType is required")
     private String serviceType;
 
-    @NotNull(message = "Provide a reference Type Resident or Deal")
-    private ReferenceType referenceType;
-
-    @NotNull(message = "Reference Id is mandatory")
-    private String referenceId;
+    private String generationSource;
 
     @NotNull(message = "DocumentType is mandatory")
-    private String documentType;
+    private InvoiceType documentType;
+
+    @NotNull(message = "Provide a Reference Type Resident or Deal")
+    private ReferenceType referenceType;
+
+    private String bookingUuid;
 
     private String invoiceUuid;
 
-    private String generationSource;
+    private List<DocumentLineItemDto> documentLineItemDto;
 
     private List<CreditAttributionDto> creditAttribution;
 
@@ -46,22 +41,23 @@ public class DocumentRequestDto {
 
     private LocalDate toDate;
 
-    private CategoryDto category;
+    private String callerServiceCategory;
 
-    private SubCategoryDto subCategory;
+    private String categoryUuid;
+
+    private String subCategoryUuid;
 
     @NotNull(message = "Amount Is Required")
     private double amount;
 
-    @NotNull(message = "ContractId can not be null")
-    private String contractId;
-
     private String remarks;
 
-    @NotNull(message = "State code is mandatory")
-    private String stateCode;
+    private String residenceUuid;
 
-    private BillToDto billTo;
+    private String residentUuid;
 
-    private BillFromDto billFrom;
+    private DealDto dealDto;
+
+    private DealBillToDto dealBillToDto;
+
 }
