@@ -10,6 +10,8 @@ import com.stanzaliving.food.v2.grammage.request.CalculateGrammageDayMapRequestD
 import com.stanzaliving.food.v2.grammage.request.CalculateGrammageItemRequestDto;
 import com.stanzaliving.food.v2.grammage.request.CalculateGrammageMapRequestDto;
 import com.stanzaliving.food.v2.grammage.request.CalculateGrammageOptionRequestDto;
+import com.stanzaliving.food.v2.grammage.request.CalculateGrammageThaliRequestDto;
+import com.stanzaliving.food.v2.grammage.request.ThaliGrammageCalculatorRequestDto;
 import com.stanzaliving.food.v2.grammage.response.MenuItemGrammage;
 import com.stanzaliving.food.v2.grammage.response.MenuOptionGrammage;
 import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
@@ -262,6 +264,31 @@ public class GrammageClientApi {
 			log.error("Error while calculateGrammage ", e);
 		}
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+	}
+
+	public Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>> calculateGrammage(String versionId,
+			Map<String, Map<DayOfWeek, Map<String, ThaliGrammageCalculatorRequestDto>>> optionWiseItemMap) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/category/grammage/calculate/menu/new").build().toUriString();
+
+		CalculateGrammageThaliRequestDto requestDto =
+				CalculateGrammageThaliRequestDto.builder()
+				.menuCategoryVersionId(versionId)
+				.foodServeType(FoodServeType.PACKAGED)
+				.itemsMap(optionWiseItemMap)
+				.build();
+
+		TypeReference<ResponseDto<Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>>>> returnType =
+				new TypeReference<ResponseDto<Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>>>>() {};
+
+		ResponseDto<Map<String, Map<DayOfWeek, Map<String, MenuOptionGrammage>>>> responseDto = null;
+
+		try {
+			responseDto = restClient.post(path, null, requestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+		}catch (Exception e) {
+			log.error("Error while calculateGrammage ", e);
+		}
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 	}
 }
 
