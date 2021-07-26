@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.food.dto.FoodItemDto;
 import com.stanzaliving.core.food.dto.IngredientUsageDto;
 import com.stanzaliving.core.food.dto.ItemCategoryDto;
 import com.stanzaliving.core.food.dto.ItemSubCategoryDto;
@@ -634,13 +635,13 @@ public class FoodServiceClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
 	
-	public Map<Object, Object> getFoodItemMap() {
+	public Map<String, FoodItemDto> getFoodItemMap() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/foodItemMap").build().toUriString();
 
-		TypeReference<ResponseDto<Map<Object, Object>>> returnType = new TypeReference<ResponseDto<Map<Object, Object>>>() {};
+		TypeReference<ResponseDto<Map<String, FoodItemDto>>> returnType = new TypeReference<ResponseDto<Map<String, FoodItemDto>>>() {};
 
-		ResponseDto<Map<Object, Object>> responseDto = null;
+		ResponseDto<Map<String, FoodItemDto>> responseDto = null;
 
 		try {
 
