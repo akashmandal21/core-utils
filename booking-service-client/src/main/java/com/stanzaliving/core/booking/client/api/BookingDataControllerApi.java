@@ -1,5 +1,6 @@
 package com.stanzaliving.core.booking.client.api;
 
+import com.stanzaliving.agreement.dto.request.DocumentRequestDTO;
 import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -205,6 +206,26 @@ public class BookingDataControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/agreement-booking/{booking-uuid}/v1/create-agreement").buildAndExpand(uriVariables).toUriString();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+    
+    public Void expireAgreement(DocumentRequestDTO documentRequestDTO) {
+        Object postBody = documentRequestDTO;
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/agreement-booking/api/v1/request").buildAndExpand(uriVariables).toUriString();
         final String[] accepts = {
                 "*/*"
         };
