@@ -27,6 +27,7 @@ import lombok.experimental.SuperBuilder;
 public class MenuItemGrammage {
 
 	private String itemId;
+
 	private KeyValuePairDto item;
 
 	private KeyValuePairDto category;
@@ -34,6 +35,8 @@ public class MenuItemGrammage {
 	private KeyValuePairDto subCategory;
 
 	private EnumListing<FoodItemType> itemType;
+
+	private boolean additive;
 
 	private Integer grammage;
 
