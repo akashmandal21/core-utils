@@ -809,35 +809,35 @@ public class ResidenceDataControllerApi {
 
     }
 
-    public List<com.stanzaliving.residenceservice.Dto.AttributesResponseDto> getRoomDetails(String residenceUuid) {
+    public ResponseDto<List<String>> getRoomInventories(String roomUUID) {
 
-        log.info("Residence-Data-Controller::Processing to get residence attribute based on residenceUuid {}", residenceUuid);
+        log.info("Room-Controller::Processing to fetch room inventories details for room {} ", roomUUID);
 
         Map<String, Object> uriVariables = new HashMap();
 
-        uriVariables.put("residenceUUID", residenceUuid);
+        uriVariables.put("roomUUID", roomUUID);
 
-        String path = UriComponentsBuilder.fromPath("/internal/residence-room-attribute/{residenceUUID}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/get/room-inventories/{roomUUID}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
         HttpHeaders headerParams = new HttpHeaders();
 
-
         String[] accepts = new String[]{"*/*"};
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<List<com.stanzaliving.residenceservice.Dto.AttributesResponseDto>> returnType =
-                new ParameterizedTypeReference<List<com.stanzaliving.residenceservice.Dto.AttributesResponseDto>>() {
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<String>>>() {
                 };
 
         try {
-            return (List<com.stanzaliving.residenceservice.Dto.AttributesResponseDto>) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
-        } catch (Exception var11) {
-            log.error("Exception while fetching residence attribute based on residenceUuid: {}", residenceUuid);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception var10) {
+            log.error("Exception while fetching room inventories for room {}  ", roomUUID);
             return null;
         }
+
     }
 
 }
