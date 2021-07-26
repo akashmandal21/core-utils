@@ -13,6 +13,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+/**
+ * Note: Any fields modified in this class should also be modified in
+ * com.stanzaliving.productmix.dto.propertytemplate.PropertyTemplateDto
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -40,8 +45,8 @@ public class PropertyTemplateDtoWithValidations {
     @Valid
     private LabelValueDto status;
 
-    private String reasonToReject;
-
     @NotNull(message = "Reset status cannot be null")
     private Boolean isReset;
+
+    private Boolean isActive;
 }

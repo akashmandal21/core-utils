@@ -1,5 +1,6 @@
 package com.stanzaliving.productmix.enums;
 
+import com.stanzaliving.productmix.dto.LabelValueDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,4 +13,8 @@ public enum TemplateStatus {
     REJECTED("Rejected");
 
     private final String label;
+
+    public LabelValueDto getLabelValueDTO (){
+        return new LabelValueDto(this.toString(), this.getLabel());
+    }
 }

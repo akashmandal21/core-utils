@@ -8,4 +8,6 @@ public final class AppConstants {
     public static final String PROPERTY_TEMPLATE_REJECT = "reject";
 
     public static final String PROPERTY_TEMPLATE_DELETE = "delete";
+
+    public static final String PROPERTY_TEMPLATE_ACTION_INACTIVE = "inactive";
 }

@@ -9,6 +9,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Note: Any fields modified in this class should also be modified in
+ * com.stanzaliving.productmix.dto.propertytemplate.PropertyTemplateDtoWithValidations
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,7 +33,7 @@ public class PropertyTemplateDto {
 
     private LabelValueDto status;
 
-    private String reasonToReject;
-
     private Boolean isReset;
+
+    private Boolean isActive;
 }
