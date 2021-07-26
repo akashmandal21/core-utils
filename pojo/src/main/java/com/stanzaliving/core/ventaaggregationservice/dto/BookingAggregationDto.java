@@ -57,8 +57,8 @@ public class BookingAggregationDto {
     private Double priceBump;
     private String city;
     private String microMarket;
-    private String bookingCreatedBy;
-    private String bookingUpdatedBy;
+    private String createdBy;
+    private String updatedBy;
     private Date lockinStartDate;
     private Date lockinEndDate;
     private String lockinDuration;
