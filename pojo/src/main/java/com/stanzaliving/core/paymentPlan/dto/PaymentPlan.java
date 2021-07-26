@@ -2,6 +2,7 @@ package com.stanzaliving.core.paymentPlan.dto;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.booking.enums.PaymentPlanType;
@@ -31,6 +32,6 @@ public class PaymentPlan {
 	private ReferenceType referenceType;
 	private PaymentPlanType paymentPlanType;
 	private Map<String, String> metaData;
-
-	private PaymentPlanLineItem discountLineItem;
+	private String invoiceUuid;
+	private List<PaymentPlanLineItem> lineItems;
 }
