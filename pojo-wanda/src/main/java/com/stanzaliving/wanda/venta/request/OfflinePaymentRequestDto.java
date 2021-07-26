@@ -20,4 +20,6 @@ public class OfflinePaymentRequestDto {
     private PaymentMode paymentMode;
 
     private double amount;
+
+    private String bookingUuid;
 }
