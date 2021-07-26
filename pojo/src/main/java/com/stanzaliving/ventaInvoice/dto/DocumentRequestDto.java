@@ -1,10 +1,7 @@
 package com.stanzaliving.ventaInvoice.dto;
 
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -14,11 +11,12 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class DocumentRequestDto {
 
     private List<DocumentLineItemDto> documentLineItemDto;
 
-    private String studentId;
+    private String studentId;//resident uuid
 
     @NotNull(message = "ServiceType is required")
     private String serviceType;
@@ -26,7 +24,7 @@ public class DocumentRequestDto {
     @NotNull(message = "Provide a reference Type Resident or Deal")
     private ReferenceType referenceType;
 
-    private String referenceId;
+    private String referenceId;//booking
 
     @NotNull(message = "DocumentType is mandatory")
     private String documentType;
