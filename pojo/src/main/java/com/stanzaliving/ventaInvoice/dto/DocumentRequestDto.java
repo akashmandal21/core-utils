@@ -1,7 +1,12 @@
 package com.stanzaliving.ventaInvoice.dto;
 
+import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -11,27 +16,23 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class DocumentRequestDto {
-
-    private List<DocumentLineItemDto> documentLineItemDto;
-
-    private String studentId;//resident uuid
-
     @NotNull(message = "ServiceType is required")
     private String serviceType;
 
-    @NotNull(message = "Provide a reference Type Resident or Deal")
-    private ReferenceType referenceType;
-
-    private String referenceId;//booking
+    private String generationSource;
 
     @NotNull(message = "DocumentType is mandatory")
-    private String documentType;
+    private InvoiceType documentType;
+
+    @NotNull(message = "Provide a Reference Type Resident or Deal")
+    private ReferenceType referenceType;
+
+    private String bookingUuid;
 
     private String invoiceUuid;
 
-    private String generationSource;
+    private List<DocumentLineItemDto> documentLineItemDto;
 
     private List<CreditAttributionDto> creditAttribution;
 
@@ -39,27 +40,24 @@ public class DocumentRequestDto {
 
     private LocalDate toDate;
 
-    private CategoryDto category;
+    private String callerServiceCategory;
 
-    private SubCategoryDto subCategory;
+    private String categoryUuid;
+
+    private String subCategoryUuid;
 
     @NotNull(message = "Amount Is Required")
     private double amount;
 
-    private String contractId;
-
     private String remarks;
 
-    @NotNull(message = "State code is mandatory")
-    private String stateCode;
+    private String residenceUuid;
 
-    private BillToDto billTo;
+    private String residentUuid;
 
-    private BillFromDto billFrom;
+    private DealDto dealDto;
 
-    private String dealUuid;
+    private DealBillToDto dealBillToDto;
 
-    private String dealType;
 
-    private String dealName;
 }
