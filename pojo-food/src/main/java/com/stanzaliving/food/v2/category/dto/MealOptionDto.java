@@ -24,5 +24,6 @@ public class MealOptionDto extends OrderedListingDto {
 	private List<MenuItemDto> menuItems;
 	private Double grammage;
 	private Double expectedGrammage;
-	private Boolean mealOfDay;
+	
+	
 }
