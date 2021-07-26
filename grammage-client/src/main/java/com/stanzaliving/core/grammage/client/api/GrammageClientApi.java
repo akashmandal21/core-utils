@@ -274,7 +274,6 @@ public class GrammageClientApi {
 		CalculateGrammageThaliRequestDto requestDto =
 				CalculateGrammageThaliRequestDto.builder()
 				.menuCategoryVersionId(versionId)
-				.foodServeType(FoodServeType.PACKAGED)
 				.itemsMap(optionWiseItemMap)
 				.build();
 
