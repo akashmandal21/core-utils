@@ -17,7 +17,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DocumentRequestDto {
-
     @NotNull(message = "ServiceType is required")
     private String serviceType;
 
@@ -59,5 +58,6 @@ public class DocumentRequestDto {
     private DealDto dealDto;
 
     private DealBillToDto dealBillToDto;
+
 
 }

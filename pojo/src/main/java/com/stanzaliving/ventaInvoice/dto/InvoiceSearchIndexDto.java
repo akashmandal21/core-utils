@@ -22,37 +22,9 @@ public class InvoiceSearchIndexDto extends AbstractSearchIndexDto {
 
     private String stanzaDocumentId;
 
-    private String invoiceType;
+    private String studentId;
 
-    private String categoryName;
-
-    private String subCategory;
-
-    private java.time.LocalDate fromDate;
-
-    private LocalDate toDate;
-
-    private Double amount;
-
-    private String billToName;
-
-    private String referenceId;
-
-    private String residenceName;
-
-    private String residentId;
-
-    private String micromarketName;
-
-    private String cityName;
-
-    private String generationSource;
-    private String ledgerTimestamp;
-    private String parentId;
-    private String remark;
-    private String rentLedgerNarration;
-    private String stateCode;
-    private String fileName;
-    private String filePath;
-
+    private String residenceMicromarketUuid;
+    private String residenceCityUuid;
+    private String residenceUuid;
 }
