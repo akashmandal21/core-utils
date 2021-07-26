@@ -8,12 +8,15 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @since 20-Apr-2021
+ * @since 24-Jul-2021
  *
  * @version 1.0
  */
@@ -24,10 +27,20 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GrammageStatusRequestDto {
+public class CalculateGrammageOptionRequestDto {
 
-	@NotNull(message = "Food serve type is mandatory")
+	@NotBlank(message = "Version Id is required")
+	private String menuCategoryVersionId;
+
+	@NotNull(message = "Food Serve Type is required")
 	private FoodServeType foodServeType;
 
-	private Integer grammage;
+	@NotBlank(message = "Thali Id is required")
+	private String thaliId;
+
+	@NotBlank(message = "Meal Id is required")
+	private String mealId;
+
+	@NotEmpty(message = "Items are required")
+	private Set<String> itemIds;
 }
