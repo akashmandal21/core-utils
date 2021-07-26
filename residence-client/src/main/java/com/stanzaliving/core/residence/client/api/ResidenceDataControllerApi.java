@@ -317,7 +317,7 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("moveInDate", moveInDate);
 
-        String path = UriComponentsBuilder.fromPath("/internal/room-list/search/{residenceUuid}/movein-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/room-list/search/{residenceUuid}/move-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
@@ -344,7 +344,7 @@ public class ResidenceDataControllerApi {
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("roomUUID", roomUUID);
         uriVariables.put("moveInDate", moveInDate);
-        String path = UriComponentsBuilder.fromPath("/internal/room-inventory/{roomUUID}/movein-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/room-inventory/{roomUUID}/move-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
