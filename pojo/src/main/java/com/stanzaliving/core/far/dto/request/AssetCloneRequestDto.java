@@ -6,6 +6,7 @@ package com.stanzaliving.core.far.dto.request;
 
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.far.dto.AssetDto;
 import com.stanzaliving.core.far.enums.AssetType;
 
 import lombok.AllArgsConstructor;
@@ -38,4 +39,6 @@ public class AssetCloneRequestDto {
 
 	@Builder.Default
 	private AssetType childAssetType = AssetType.SINGLE;
+
+	private AssetDto childAssetDto;
 }
