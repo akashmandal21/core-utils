@@ -51,7 +51,7 @@ public class DealDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, putBody, headerParams, accept, returnType);
     }
 
-	public List<String> getServiceMixUuidForDealAndResidence(String dealUuid, String residenceUuid) {
+	public ResponseDto<List<String>> getServiceMixUuidForDealAndResidence(String dealUuid, String residenceUuid) {
 
         Object postBody = null;
 
