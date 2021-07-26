@@ -1,13 +1,13 @@
 package com.stanzaliving.core.food.dto;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.io.Serializable;
 
 @Getter
 @Setter
@@ -22,6 +22,8 @@ public class ItemSubCategoryDto implements Serializable {
 	private String subCategoryId;
 
 	private String subCategoryName;
+	
+	private Integer sequence;
 
 	private String categoryId;
 

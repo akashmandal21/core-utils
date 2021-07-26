@@ -1,4 +1,4 @@
-package com.stanzaliving.food.v2.grammage.category.request;
+package com.stanzaliving.food.v2.grammage.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,15 +7,15 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import java.util.List;
+import java.time.DayOfWeek;
+import java.util.Map;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @since 15-Jun-2021
+ * @since 26-Jul-2021
  *
  * @version 1.0
  */
@@ -26,14 +26,10 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryThaliGrammageRequestDto {
+public class CalculateGrammageThaliRequestDto {
+	@NotBlank(message = "Version Id is required")
+	private String menuCategoryVersionId;
 
-	@NotBlank(message = "Thali selection is mandatory")
-	private String thaliMasterId;
-
-	private boolean status;
-
-	@Valid
-	@NotEmpty(message = "Meal wise grammage selection is mandatory")
-	private List<CategoryMealGrammageRequestDto> mealGrammages;
+	@NotEmpty(message = "Items are required")
+	private Map<String, Map<DayOfWeek, Map<String, ThaliGrammageCalculatorRequestDto>>> itemsMap;
 }

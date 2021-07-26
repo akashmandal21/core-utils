@@ -8,12 +8,17 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @since 20-Apr-2021
+ * @since 22-Jul-2021
  *
  * @version 1.0
  */
@@ -24,10 +29,14 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GrammageStatusRequestDto {
+public class CalculateGrammageMapRequestDto {
 
-	@NotNull(message = "Food serve type is mandatory")
+	@NotBlank(message = "MenuCategoryVersionId is required")
+	private String menuCategoryVersionId;
+
+	@NotNull(message = "Food Serve type is mandatory")
 	private FoodServeType foodServeType;
 
-	private Integer grammage;
+	@NotEmpty(message = "meal wise items map is required")
+	private Map<String, Map<LocalDate, Map<String, Collection<String>>>> mealThaliItemMap;
 }
