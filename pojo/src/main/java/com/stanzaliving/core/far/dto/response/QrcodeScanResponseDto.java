@@ -25,4 +25,7 @@ public class QrcodeScanResponseDto {
     private String discardedBy;
     private Date returnedOn;
     private String returnedBy;
+    private String errorMsg;
+    private String errorHeading;
+    
 }
