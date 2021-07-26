@@ -1,6 +1,5 @@
 package com.stanzaliving.food.v2.grammage.response;
 
-import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.Getter;
@@ -26,7 +25,7 @@ public class MealGrammageResponseDto {
 
 	private EnumListing<MealType> mealType;
 
-	private EnumListing<FoodServeType> foodServeType;
+	private boolean enabled;
 
 	private Integer grammage;
 }

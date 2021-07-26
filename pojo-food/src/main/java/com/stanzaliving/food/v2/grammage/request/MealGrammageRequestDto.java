@@ -1,6 +1,5 @@
 package com.stanzaliving.food.v2.grammage.request;
 
-import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

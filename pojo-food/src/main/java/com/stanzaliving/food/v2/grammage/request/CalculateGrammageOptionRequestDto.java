@@ -1,6 +1,5 @@
 package com.stanzaliving.food.v2.grammage.request;
 
-import com.stanzaliving.core.food.enums.FoodServeType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +9,6 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 /**
@@ -31,9 +29,6 @@ public class CalculateGrammageOptionRequestDto {
 
 	@NotBlank(message = "Version Id is required")
 	private String menuCategoryVersionId;
-
-	@NotNull(message = "Food Serve Type is required")
-	private FoodServeType foodServeType;
 
 	@NotBlank(message = "Thali Id is required")
 	private String thaliId;

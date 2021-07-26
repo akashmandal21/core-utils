@@ -1,6 +1,5 @@
 package com.stanzaliving.food.v2.grammage.request;
 
-import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,8 +36,4 @@ public class CalculateGrammageItemRequestDto {
 
 	@NotNull(message = "Menu Dto is required")
 	private ResidenceMenuDto menu;
-
-	@NotNull(message = "Food Serve type is mandatory")
-	private FoodServeType foodServeType;
-
 }
