@@ -4,6 +4,8 @@
  */
 package com.stanzaliving.core.far.dto.request;
 
+import javax.validation.constraints.NotNull;
+
 import com.stanzaliving.core.far.dto.AssetDto;
 
 import lombok.AllArgsConstructor;
@@ -25,18 +27,9 @@ import lombok.ToString;
 @AllArgsConstructor
 public class AssetCloneRequestDto {
 
-	// @NotNull
-	// private String parentQrCode;
-	//
-	// @NotNull
-	// private String childQrCode;
-	//
-	// @Builder.Default
-	// private AssetType parentAssetType = AssetType.MULTIPLE;
-	//
-	// @Builder.Default
-	// private AssetType childAssetType = AssetType.SINGLE;
+	@NotNull
+	private AssetDto parentAsset;
 
-	private AssetDto parentAssetDto;
-	private AssetDto childAssetDto;
+	@NotNull
+	private AssetDto childAsset;
 }
