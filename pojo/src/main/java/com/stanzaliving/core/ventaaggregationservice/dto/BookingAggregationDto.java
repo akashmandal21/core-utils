@@ -64,5 +64,7 @@ public class BookingAggregationDto {
     private String lockinDuration;
     private String colorCode;
     private List<String> bookingTags;
+    private Integer tokenAmount;
     List<EligibleStatusMappingDto> eligibleStatusMapping;
+
 }
