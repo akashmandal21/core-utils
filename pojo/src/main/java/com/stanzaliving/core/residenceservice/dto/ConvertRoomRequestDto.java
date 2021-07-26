@@ -42,4 +42,6 @@ public class ConvertRoomRequestDto {
     private String bookingInventoryUUID;
 
     private Boolean isAlreadyConverted;
+
+    private String inventoryUuid;
 }

@@ -24,6 +24,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 public class ResidenceDataControllerApi {
     private static final Logger log = LogManager.getLogger(ResidenceDataControllerApi.class);
@@ -195,7 +196,7 @@ public class ResidenceDataControllerApi {
 
     public ResponseDto<PricingDetailsResponseDto> getPricingDetails(String roomUuid, String serviceMixUuid, String moveInDate) {
 
-        log.info("Residence-Data-Controller::Processing to get pricing detail based on move-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
+        log.info("Residence-Data-Controller::Processing to get pricing detail based on movein-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
 
         Map<String, Object> uriVariables = new HashMap();
 
@@ -222,7 +223,7 @@ public class ResidenceDataControllerApi {
         try {
             return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
         } catch (Exception var12) {
-            log.error("Exception while get pricing detail based on move-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
+            log.error("Exception while get pricing detail based on movein-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
             return null;
         }
     }
@@ -277,7 +278,7 @@ public class ResidenceDataControllerApi {
 
     public ResponseDto<RoomNumberListingAndCountDto> getAllRoomsInResidenceAndMoveIn(AdvanceRoomSearchDto advanceRoomSearchDto) {
 
-        log.info("Residence-Data-Controller::Processing to get all rooms in residenceUuid {} and move-in {} date");
+        log.info("Residence-Data-Controller::Processing to get all rooms in residenceUuid {} and movein-in {} date");
 
         Object postBody = advanceRoomSearchDto;
 
@@ -301,14 +302,14 @@ public class ResidenceDataControllerApi {
             return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception var11) {
             log.error(var11);
-            log.error("Exception while Processing to get all rooms in residenceUuid and move-in date");
+            log.error("Exception while Processing to get all rooms in residenceUuid and movein-in date");
             return null;
         }
     }
 
     public ResponseDto<OccupanciesFloorsStatusCountSearchDto> getOccupanciesFloorsAndRoomStatusAndMoveInDateForSearch(String residenceUUID, String moveInDate) {
 
-        log.info("Residence-Data-Controller::Processing to filter search values for residence {} based on move-in date {}", residenceUUID, moveInDate);
+        log.info("Residence-Data-Controller::Processing to filter search values for residence {} based on movein-in date {}", residenceUUID, moveInDate);
 
         Map<String, Object> uriVariables = new HashMap();
 
@@ -316,7 +317,7 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("moveInDate", moveInDate);
 
-        String path = UriComponentsBuilder.fromPath("/internal/room-list/search/{residenceUuid}/move-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/room-list/search/{residenceUuid}/movein-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
@@ -333,17 +334,17 @@ public class ResidenceDataControllerApi {
         try {
             return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
         } catch (Exception var11) {
-            log.error("Exception while filter search values for residence {} based on move-in date {}", residenceUUID, moveInDate);
+            log.error("Exception while filter search values for residence {} based on movein-in date {}", residenceUUID, moveInDate);
             return null;
         }
     }
 
     public ResponseDto<RoomInventoryDetailDto> getRoomWithInventory(String roomUUID, String moveInDate) {
-        log.info("Residence-Data-Controller::Processing to get room inventories for roomUUID {} based on move-in date {}", roomUUID, moveInDate);
+        log.info("Residence-Data-Controller::Processing to get room inventories for roomUUID {} based on movein-in date {}", roomUUID, moveInDate);
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("roomUUID", roomUUID);
         uriVariables.put("moveInDate", moveInDate);
-        String path = UriComponentsBuilder.fromPath("/internal/room-inventory/{roomUUID}/move-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/room-inventory/{roomUUID}/movein-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
@@ -356,7 +357,7 @@ public class ResidenceDataControllerApi {
 
         } catch (Exception ex) {
             log.error(ex);
-            log.error("Exception while getting room inventories for roomUUID {} based on move-in date {}", roomUUID, moveInDate);
+            log.error("Exception while getting room inventories for roomUUID {} based on movein-in date {}", roomUUID, moveInDate);
         }
         return null;
     }
@@ -738,8 +739,45 @@ public class ResidenceDataControllerApi {
         }
         //todo: check log
         return null;
-
     }
+
+    
+     public CompletableFuture<RoomDetailsResponseDto> getResidenceAmenitie(String roomUUID, String token) {
+
+		log.info("Residence-Data-Controller::Processing to get room details based on roomUUID {}", roomUUID);
+
+		if (StringUtils.isBlank(token)) {
+			throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
+		}
+
+		Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("roomUUID", roomUUID);
+
+		String path = UriComponentsBuilder.fromPath("/api/v1/room/{roomUUID}").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.add("Cookie", "token=" + token);
+
+		String[] accepts = new String[]{"*/*"};
+
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<RoomDetailsResponseDto> returnType =
+				new ParameterizedTypeReference<RoomDetailsResponseDto>() {
+				};
+
+		try {
+			return CompletableFuture.completedFuture( this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType));
+
+		} catch (Exception ex) {
+			log.error("Exception while fetching Room Details from roomUuid: {}", roomUUID);
+		}
+		return null;
+	}
 
     public ResponseDto<String> getOccupancyDetails(int occupancy) {
         log.info("Room-Controller::Processing to fetch occupancy {} details ", occupancy);
