@@ -10,6 +10,8 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.paymentPlan.dto.GetPaymentPlanRequestDto;
 import com.stanzaliving.core.paymentPlan.dto.PaymentPlan;
+import com.stanzaliving.core.paymentPlan.dto.PaymentPlanLineItem;
+import com.stanzaliving.core.paymentPlan.dto.PaymentPlanLineItemRequestDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -186,6 +188,39 @@ public class PaymentPlanClientApi {
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
             ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the paymentPlan for invoice generation{}", e);
+        }
+
+        return null;
+
+    }
+
+
+    public ResponseDto<List<PaymentPlanLineItem>> getPaymentPlanLineItem(PaymentPlanLineItemRequestDto paymentPlanLineItemRequestDto) {
+
+        try {
+            Object postBody = paymentPlanLineItemRequestDto;
+
+            log.info("get Payment Plan line item for PaymentPlan Id's {} ", paymentPlanLineItemRequestDto.getPaymentPlanIds());
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/api/v1/get/payment-plan-line-item").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<List<PaymentPlanLineItem>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlanLineItem>>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
