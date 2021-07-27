@@ -6,6 +6,7 @@ package com.stanzaliving.wanda.venta.response;
 
 import java.util.List;
 
+import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.wanda.enums.InstallmentTypeEnum;
 
 import lombok.AllArgsConstructor;
@@ -28,7 +29,7 @@ public class PaymentPlanDetailsResponseDto {
 	private List<InstallmentDetailsResponseDto> paymentPlan;
 	private String installmentType;
     private Boolean isSelected;
-    private InstallmentTypeEnum installmentTypeEnum;
+    private PaymentTerm paymentTerm;
     private String couponCode;
     private double totalDiscount;
     private String discountDescription;

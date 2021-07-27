@@ -10,14 +10,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContractResponseDTO {
-    private int contractId;
+    private long contractId;
 
     private String name;
+    
+    private String contractUuid;
 
     private double months;
 
     private boolean enabled;
 
+    @Builder.Default
     private Double discountAmount = 0.0;
     
 	private Boolean preSelectedContractId;

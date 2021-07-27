@@ -273,4 +273,26 @@ public class GrnClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, null, toFetchRequestDto, headerParams, accept, returnType);
     }
+
+    public ResponseDto<List<String>> getPendingGsriPoUuids(Boolean isPo) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("isPo", isPo);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/pending/gsri/poUuids/{isPo}").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
 }
