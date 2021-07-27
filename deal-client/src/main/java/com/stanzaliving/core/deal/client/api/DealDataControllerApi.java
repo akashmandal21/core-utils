@@ -79,7 +79,7 @@ public class DealDataControllerApi {
 
 	public ResponseDto<List<Integer>> getAllowedOccupanciesForDealAndResidence(DealRoomsRequestDto dealRoomsRequestDto) {
 
-			log.info("fetching rooms for ContactUuid : " + dealRoomsRequestDto.getDealUuid());
+			log.info("fetching allowed occupancies for ContactUuid : " + dealRoomsRequestDto.getDealUuid());
 
 			Object postBody = null;
 
@@ -99,6 +99,53 @@ public class DealDataControllerApi {
 	        ParameterizedTypeReference<ResponseDto<List<Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<List<Integer>>>() {
 	        };
 	        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<DealUserResponseDto> getUserDetails(String userUuid) {
+
+		log.info("fetching user details for userUuid : " + userUuid);
+
+		Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        
+        String path = UriComponentsBuilder.fromPath("/internal/deal/user/"+ userUuid).buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<DealUserResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DealUserResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+}
+
+	public ResponseDto<String> getPackagedServiceDetailsForUser(String userUuid) {
+		log.info("fetching user details for userUuid : " + userUuid);
+
+		Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        
+        String path = UriComponentsBuilder.fromPath("/internal/user/service-mix/"+ userUuid).buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
 }
