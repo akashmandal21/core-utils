@@ -57,8 +57,8 @@ public class BookingAggregationDto {
     private Double priceBump;
     private String city;
     private String microMarket;
-    private String bookingCreatedBy;
-    private String bookingUpdatedBy;
+    private String createdBy;
+    private String updatedBy;
     private Date lockinStartDate;
     private Date lockinEndDate;
     private String lockinDuration;
@@ -66,5 +66,6 @@ public class BookingAggregationDto {
     private List<BookingTag> bookingTags;
     private Integer tokenAmount;
     List<EligibleStatusMappingDto> eligibleStatusMapping;
-
+    private String cityUuid;
+    private String microMarketUuid;
 }
