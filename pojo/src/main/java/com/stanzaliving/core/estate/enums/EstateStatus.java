@@ -27,6 +27,7 @@ public enum EstateStatus {
 	//Level 1 Status
 	SENT_FOR_APPROVAL_TO_CITY_HEAD("L1 Sent to RM"),
 	SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES("L1+DF Sent to RM"),
+	SENT_FOR_APPROVAL_TO_CLUSTER_MANAGER("Pending cluster manager approval"),
 	APPROVED_BY_CITY_HEAD("Shortlisted By RM"),
 	SENT_BACK_BY_CITY_HEAD("L1 Sent Back By RM"),
 	SENT_BACK_FROM_INITIAL_BED_COUNT("Sent Back From Initial Bed Count"),
