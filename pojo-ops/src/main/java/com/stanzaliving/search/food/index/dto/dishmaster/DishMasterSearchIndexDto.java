@@ -1,5 +1,8 @@
 package com.stanzaliving.search.food.index.dto.dishmaster;
 
+import java.util.List;
+import java.util.Set;
+
 import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.CommercialTag;
@@ -9,15 +12,13 @@ import com.stanzaliving.core.food.enums.FoodItemTextColor;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.util.List;
-import java.util.Set;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -93,5 +94,7 @@ public class DishMasterSearchIndexDto extends AbstractSearchIndexDto {
 	private boolean recipeExists;
 
 	private Set<String> feedbackOptions;
+	
+	private boolean vegExclusive;
 
 }
