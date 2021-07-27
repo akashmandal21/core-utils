@@ -1,5 +1,6 @@
 package com.stanzaliving.community.request;
 
+import com.stanzaliving.community.enums.EventStatus;
 import com.stanzaliving.community.validations.ApprovalValidation;
 import com.stanzaliving.community.validations.DraftValidations;
 import lombok.AllArgsConstructor;
@@ -22,7 +23,7 @@ public class AddEventDTO {
 
     @NotEmpty(message = "Event Status Should not be empty",
             groups = {DraftValidations.class, ApprovalValidation.class})
-    private String eventStatus;
+    private EventStatus eventStatus;
 
     @NotEmpty(groups = ApprovalValidation.class,message = "Event Type UUID should not be empty")
     private String eventTypeUUID;

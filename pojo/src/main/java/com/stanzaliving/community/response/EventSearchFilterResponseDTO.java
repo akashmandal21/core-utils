@@ -1,5 +1,6 @@
 package com.stanzaliving.community.response;
 
+import com.stanzaliving.community.enums.EventStatus;
 import com.stanzaliving.community.enums.UserList;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +23,6 @@ public class EventSearchFilterResponseDTO {
     private Date updatedAt;
     private UserListResponseDTO userList;
     private Long priorityOrder;
-    private String eventStatus;
+    private EventStatus eventStatus;
     private String uuid;
 }

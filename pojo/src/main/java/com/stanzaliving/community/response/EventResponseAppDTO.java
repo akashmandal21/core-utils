@@ -1,5 +1,6 @@
 package com.stanzaliving.community.response;
 
+import com.stanzaliving.community.enums.EventStatus;
 import com.stanzaliving.core.base.common.dto.PageResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +20,7 @@ public class EventResponseAppDTO {
     private String uuid;
     private String eventID;
     private String eventName;
-    private String eventStatus;
+    private EventStatus eventStatus;
     private String eventTypeUUID;
     private String eventType;
     private String eventCategoryUUID;
