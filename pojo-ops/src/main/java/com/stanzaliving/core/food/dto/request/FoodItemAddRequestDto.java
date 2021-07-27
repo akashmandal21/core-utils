@@ -3,22 +3,22 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
-import com.opencsv.bean.CsvBindByName;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.DishRegion;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Set;
 
@@ -92,7 +92,7 @@ public class FoodItemAddRequestDto {
 	private ItemRecipeRequestDto recipe;
 
 	private Set<String> feedback;
-	
+
 	private String linkedIngredientId;
 
 }
