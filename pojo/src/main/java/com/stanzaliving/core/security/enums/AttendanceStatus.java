@@ -10,7 +10,7 @@ public enum AttendanceStatus {
     NOT_AVAILABLE("Not available"),
     LEAVE("Leave"),
     LATE_ENTRY("Late entry");
-
+  
     private final String label;
 
     private AttendanceStatus(String label){
