@@ -225,4 +225,25 @@ public class CommentClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, request, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<List<CommentsCountResponseDto>> getCommentCountForFBItemRate(List<CommentsGetRequest> request) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/comment/count/for/fb/item/rate").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<CommentsCountResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CommentsCountResponseDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, request, headerParams, accept, returnType);
+	}
+
 }
