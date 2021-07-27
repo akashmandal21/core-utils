@@ -7,6 +7,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.residenceservice.dto.*;
 import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
+import com.stanzaliving.residenceservice.Dto.AttributesAndGlobalUuidDto;
 import com.stanzaliving.residenceservice.Dto.ResidenceAttributesRequestDto;
 import com.stanzaliving.residenceservice.Dto.ResidenceAttributesResponseDto;
 import org.apache.commons.lang3.StringUtils;
@@ -827,6 +828,43 @@ public class ResidenceDataControllerApi {
             log.error("Exception while fetching occupancy {} description ", occupancy);
             return null;
         }
+
+    }
+
+    public ResponseDto<List<AttributesAndGlobalUuidDto>> getRoomConsumablesAndGlobalUUid(String roomUUID, String token) {
+
+        log.info("Residence-Data-Controller::Processing to get room consumerable details based on roomUUID {}", roomUUID);
+
+        if (StringUtils.isBlank(token)) {
+            throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
+        }
+
+        Map<String, Object> uriVariables = new HashMap();
+        uriVariables.put("roomUuid", roomUUID);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/roomconsumables/{roomUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + token);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<AttributesAndGlobalUuidDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<AttributesAndGlobalUuidDto>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching Room Details from roomUuid: {}", roomUUID);
+        }
+        return null;
 
     }
 
