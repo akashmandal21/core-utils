@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.deal.client.dto.*;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,9 +15,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.deal.client.dto.DealRoomsRequestDto;
-import com.stanzaliving.core.deal.client.dto.DealUserRequestDto;
-import com.stanzaliving.core.deal.client.dto.DealUserResponseDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -100,5 +98,38 @@ public class DealDataControllerApi {
 	        };
 	        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+    public ResponseDto<List<DealApprovedUserResponseDto>> getApprovedUserList(String contractId,
+                                                                              DealApprovedUserRequestDto dealApprovedUserRequestDto, Integer pageNo, Integer pageSize, String sortBy, String sortOrder) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("dealUuid", contractId);
+        String path =
+                UriComponentsBuilder.fromPath("/internal/deal/{dealUuid}/residents")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("pageNo",String.valueOf(pageNo));
+        queryParams.add("pageSize",String.valueOf(pageSize));
+        queryParams.add("sortBy",sortBy);
+        queryParams.add("sortOrder",sortOrder);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<DealApprovedUserResponseDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<DealApprovedUserResponseDto>>>() {
+                };
+        postBody=dealApprovedUserRequestDto;
+        return restClient.invokeAPI(
+                path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
 
 }
