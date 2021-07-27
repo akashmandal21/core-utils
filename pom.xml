@@ -89,11 +89,13 @@
         <module>venta-aggregation-service-client</module>
 		<module>notification-v2-client</module>
 		<module>slack-client</module>
-         <module>pojo-food</module>
+		<module>pojo-food</module>
+		<module>document-client</module>
         <module>commercial-card</module>
 		<module>payment-plan-client</module>
 		<module>ledger-service-client</module>
 		<module>booking-service-client</module>
+		<module>deal-client</module>
 		<module>discount-client</module>
 	    <module>invoice-service-client</module>
     </modules>

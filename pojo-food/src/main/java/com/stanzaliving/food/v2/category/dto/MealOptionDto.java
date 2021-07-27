@@ -1,4 +1,4 @@
-package com.stanzaliving.food.v2.menu.dto;
+package com.stanzaliving.food.v2.category.dto;
 
 import com.stanzaliving.core.food.dto.MenuItemDto;
 import com.stanzaliving.core.food.enums.Action;
