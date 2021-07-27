@@ -11,4 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class TableKey {
     private String table;
+    private String db;
 }
