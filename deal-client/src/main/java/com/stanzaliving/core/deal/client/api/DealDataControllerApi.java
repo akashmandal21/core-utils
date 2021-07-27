@@ -131,5 +131,27 @@ public class DealDataControllerApi {
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public ResponseDto<List<DealKycResponseDto>> getDealKycDocumentsForUser(String userUuid) {
 
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userId",userUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/resident/{userId}/documents")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<DealKycResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DealKycResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 }
