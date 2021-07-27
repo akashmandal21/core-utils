@@ -1,5 +1,6 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.stanzaliving.booking.dto.BookingTag;
 import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,7 +35,6 @@ public class BookingAggregationDto {
     private Date expectedMoveInDate;
     private Date checkInDate;
     private Date checkoutDate;
-    private Date lockInDate;
     private String bookingSource;
     private String leadUuid;
     private String residenceName;
@@ -48,7 +48,7 @@ public class BookingAggregationDto {
     private Double dues;
     private String riskProfile;
     private boolean duesStatus;
-    private boolean movein;
+    private boolean moveIn;
     private boolean agreementSent;
     private Boolean agreementSigned;
     private Double licenseFee;
@@ -57,14 +57,15 @@ public class BookingAggregationDto {
     private Double priceBump;
     private String city;
     private String microMarket;
-    private String bookingCreatedBy;
-    private String bookingUpdatedBy;
+    private String createdBy;
+    private String updatedBy;
     private Date lockinStartDate;
     private Date lockinEndDate;
     private String lockinDuration;
     private String colorCode;
-    private List<String> bookingTags;
+    private List<BookingTag> bookingTags;
     private Integer tokenAmount;
     List<EligibleStatusMappingDto> eligibleStatusMapping;
-
+    private String cityUuid;
+    private String microMarketUuid;
 }

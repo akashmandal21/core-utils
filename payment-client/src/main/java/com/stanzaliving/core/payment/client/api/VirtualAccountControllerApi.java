@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
+import com.stanzaliving.core.projectservice.dto.UserVirtualAccountDetailsDto;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +25,7 @@ public class VirtualAccountControllerApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto getVirtualAccountDetails(String userId){
+    public ResponseDto<UserVirtualAccountDetailsDto> getVirtualAccountDetails(String userId){
 
         log.info("Called api to fetch virtual account details");
         Object postBody=null;
@@ -36,7 +37,7 @@ public class VirtualAccountControllerApi {
         final HttpHeaders headerParams=new HttpHeaders();
         final String[] accepts = { "*/*" };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto> returnType = new ParameterizedTypeReference<ResponseDto>() {
+        ParameterizedTypeReference<ResponseDto<UserVirtualAccountDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserVirtualAccountDetailsDto>>() {
         };
         try {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
@@ -47,3 +48,4 @@ public class VirtualAccountControllerApi {
         return null;
     }
 }
+

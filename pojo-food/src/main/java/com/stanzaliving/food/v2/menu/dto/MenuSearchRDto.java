@@ -7,6 +7,7 @@ import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
+import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.menu.constants.MenuStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -63,5 +64,5 @@ public class MenuSearchRDto extends AbstractDto {
 	private String multiOptionMeals;
 	private String menuWeek;
 	private Integer averageMIR;
-	
+	private List<MicromarketRDto> micromarkets;
 }
