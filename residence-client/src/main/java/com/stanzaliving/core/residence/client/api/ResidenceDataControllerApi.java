@@ -473,7 +473,28 @@ public class ResidenceDataControllerApi {
             log.error("Exception while fetching residence details from the residence Uuid- {}, Exception is ", residenceUuid, exception);
             return null;
         }
+    }
 
+    public ResidencePropertyCardDto getResidenceInternalDetails(String residenceUuid) {
+        Map<String, Object> uriVariables = new HashMap();
+        uriVariables.put("residenceUuid", residenceUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/residence-property-card/{residenceUuid}")
+                .buildAndExpand(uriVariables)
+                .toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<ResidencePropertyCardDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidencePropertyCardDto>>() {
+        };
+        try {
+            log.info("Executing the API for getting residence Info with Url {}", path);
+            ResponseDto<ResidencePropertyCardDto> response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+            return response.getData();
+        } catch (Exception exception) {
+            log.error("Exception while fetching residence details from the residence Uuid- {}, Exception is ", residenceUuid, exception);
+            return null;
+        }
     }
 
     public RoomCardDetailDto getResidenceInventoryInformation(String residenceUuid) {
