@@ -3,6 +3,7 @@ package com.stanzaliving.core.venta_aggregation_client.api;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.ledger.dto.HealthCheckCountDto;
+import com.stanzaliving.ledger.dto.LedgerBalanceDTO;
 import com.stanzaliving.ledger.dto.LedgerResponseDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -57,7 +58,6 @@ public class LedgerServiceApi {
         return null;
     }
 
-
     public ResponseDto<List<HealthCheckCountDto>> ledgerHealthChecks() {
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/api/v1/health-check")
@@ -79,4 +79,26 @@ public class LedgerServiceApi {
         }
         return null;
     }
+
+    public ResponseDto<LedgerBalanceDTO> getLedgerBalance(String referenceId, String referenceType) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/ledger/all/balance")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("referenceId", referenceId);
+        queryParams.add("referenceType", referenceType);
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<LedgerBalanceDTO>> returnType = new ParameterizedTypeReference<ResponseDto<LedgerBalanceDTO>>() {
+        };
+        try {
+            log.info("Executing Api for getting residence Info with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching ledger information based on referenceId {}, Exception is ", e);
+        }
+        return null;
+    }
+
 }
