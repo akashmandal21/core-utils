@@ -6,8 +6,11 @@ import lombok.Getter;
 public enum AttendanceStatus {
     PRESENT("Present"),
     ABSENT("Absent"),
-    EXEMPTED("Exempted");
-
+    EXEMPTED("Exempted"),
+    NOT_AVAILABLE("Not available"),
+    LEAVE("Leave"),
+    LATE_ENTRY("Late entry");
+  
     private final String label;
 
     private AttendanceStatus(String label){
