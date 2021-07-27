@@ -64,4 +64,6 @@ public class FoodItemSearchDto extends AbstractDto {
 	private Boolean recipeExists;
 
 	private DishRegion dishRegion;
+	
+	private Boolean vegExclusive;
 }
