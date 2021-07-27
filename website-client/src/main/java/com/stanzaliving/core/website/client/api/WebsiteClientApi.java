@@ -85,4 +85,29 @@ public class WebsiteClientApi {
 
 	}
 
+	public Object getResidenceDetails(String residenceName) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("name", residenceName);
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/residence/{name}").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Object> returnType = new ParameterizedTypeReference<Object>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
 }
