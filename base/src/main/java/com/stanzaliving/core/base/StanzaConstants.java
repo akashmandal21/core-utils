@@ -22,6 +22,7 @@ public class StanzaConstants {
 	public static final String INDIA_COUNTRY_CODE = "91";
 	public static final String INDIA_ISO_CODE = "IN";
 	public static final int PRICE_ROUND_OFF_DIGITS = 2;
+	public static final String ZONE_OFFSET = "+05:30";
 
 	public static final long SECONDS_IN_DAY = 86400;
 	public static final long MILLI_SECONDS_IN_DAY = SECONDS_IN_DAY * 1000;
