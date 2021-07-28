@@ -98,6 +98,8 @@
 		<module>deal-client</module>
 		<module>discount-client</module>
 	    <module>invoice-service-client</module>
+	    <module>agreement-client</module>
+	    
     </modules>
 
 	<build>
