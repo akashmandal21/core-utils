@@ -11,10 +11,10 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LabelValueDto {
+public class LabelValueDto<T> {
 
     @NotBlank(message = "Value cannot be blank")
-    private String value;
+    private T value;
 
     @NotBlank(message = "Label cannot be blank")
     private String label;
