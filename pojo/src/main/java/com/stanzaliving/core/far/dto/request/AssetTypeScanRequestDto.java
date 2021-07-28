@@ -25,9 +25,13 @@ public class AssetTypeScanRequestDto {
 
 	@Builder.Default
 	private AssetType assetType = AssetType.MULTIPLE;
+
 	private String qrCode;
 	private String qrCodeId;
 	private String allocationUuid;
 	private String sourceAddressUuid;
+
+	@Builder.Default
+	private boolean isAssetCreation = Boolean.FALSE;
 
 }
