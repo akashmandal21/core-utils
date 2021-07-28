@@ -26,7 +26,8 @@ public enum PaymentMode {
 	PINE_LAB("PINE LAB", 12),
 	RAZORPAY("Razorpay", 13),
 	PAYTM_SDK("PAYTM SDK", 14),
-	VIRTUAL_ACCOUNT("Virtual Account" , 15);
+	VIRTUAL_ACCOUNT("Virtual Account" , 15),
+	SOMETHING("SOMETHING" , 16);
 
 	private String paymentModeDesc;
 	private int paymentModeId;
