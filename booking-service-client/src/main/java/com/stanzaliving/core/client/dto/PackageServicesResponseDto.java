@@ -1,4 +1,4 @@
-package com.stanzaliving.core.booking.client.dto;
+package com.stanzaliving.core.client.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
