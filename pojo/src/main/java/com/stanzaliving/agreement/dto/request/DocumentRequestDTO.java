@@ -16,12 +16,16 @@ public class DocumentRequestDTO {
 
     private String actionName;
 
+    //addendum
     private String documentType;
 
+    //booking uuid
     private String referenceId;
 
+    //
     private String referenceId2;
 
+    //service which is crea
     private String referenceType;
 
     private List<HashMap<String, String>> fields;
