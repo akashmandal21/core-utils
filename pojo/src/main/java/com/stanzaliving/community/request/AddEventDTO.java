@@ -21,7 +21,7 @@ public class AddEventDTO {
 
     private String eventID;
 
-    @NotEmpty(message = "Event Status Should not be empty",
+    @NotNull(message = "Event Status Should not be empty",
             groups = {DraftValidations.class, ApprovalValidation.class})
     private EventStatus eventStatus;
 
