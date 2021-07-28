@@ -30,6 +30,7 @@ public class AssetDto {
 
     private String assetId;
     private String poNumber;
+    private String sourceLocationName; // In case the asset is created with a TO (instead of a PO)
     private String poUuid;
     private GenericPOType poType;
     private String poUrl;
