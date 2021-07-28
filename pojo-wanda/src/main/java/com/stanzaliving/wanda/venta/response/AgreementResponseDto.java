@@ -14,7 +14,9 @@ import lombok.NoArgsConstructor;
 public class AgreementResponseDto {
     private String bookingUuid;
     private String agreementUrl;
-    private String agreementId;
+    private String agreementDocumentId;
+    private String addendumDocumentId;
+    private String addendumUrl;
     private String message;
     private Boolean status;
    
