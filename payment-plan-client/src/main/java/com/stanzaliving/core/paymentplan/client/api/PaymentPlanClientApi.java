@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 @Log4j2
 public class PaymentPlanClientApi {
@@ -230,6 +231,30 @@ public class PaymentPlanClientApi {
 
         return null;
 
+    }
+    
+    public CompletableFuture<CommercialsDetailsResponseDTO> getCommercialDetailsByFuture(String bookingId, Date fromDate) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingId", bookingId);
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/commercials/get/{bookingId}")
+                .buildAndExpand(uriVariables).toUriString();
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if (fromDate != null) {
+            queryParams.add("fromDate", date.format(fromDate));
+        }
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<CommercialsDetailsResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<CommercialsDetailsResponseDTO>>() {
+        };
+        try {
+            return CompletableFuture.completedFuture(restClient.invokeAPI(path, HttpMethod.GET, queryParams,
+                    null, headerParams, accept, returnType).getData());
+        } catch (Exception e) {
+            log.error("error while fetching the monthly break up {}", e.getMessage());
+            return null;
+        }
     }
 
 }
