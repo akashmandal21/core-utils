@@ -76,15 +76,17 @@ public class DealDataControllerApi {
     
 	}
 
-	public ResponseDto<List<Integer>> getAllowedOccupanciesForDealAndResidence(DealRoomsRequestDto dealRoomsRequestDto) {
+	public ResponseDto<List<Integer>> getAllowedOccupanciesForDealAndResidence(String dealUuid,String residenceUuid) {
 
-			log.info("fetching allowed occupancies for ContactUuid : " + dealRoomsRequestDto.getDealUuid());
+			log.info("fetching allowed occupancies for ContactUuid : " + dealUuid);
 
 			Object postBody = null;
 
 	        final Map<String, Object> uriVariables = new HashMap<>();
+	        uriVariables.put("dealUuid", dealUuid);
+	        uriVariables.put("residenceUuid", residenceUuid);
 	        
-	        String path = UriComponentsBuilder.fromPath("/internal/deal/allowed-occupancies/"+ dealRoomsRequestDto.getDealUuid() + "/" + dealRoomsRequestDto.getResidenceUuid()).buildAndExpand(uriVariables).toUriString();
+	        String path = UriComponentsBuilder.fromPath("/internal/deal/allowed-occupancies/{dealUuid}/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
 
 	        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
