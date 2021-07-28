@@ -32,6 +32,6 @@ public class AssetTypeScanRequestDto {
 	private String sourceAddressUuid;
 
 	@Builder.Default
-	private boolean isAssetCreation = Boolean.FALSE;
+	private boolean assetCreation = Boolean.FALSE;
 
 }
