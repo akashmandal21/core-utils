@@ -1,9 +1,11 @@
 package com.stanzaliving.core.dto;
 
+import com.stanzaliving.core.base.utils.NumberUtils;
 import lombok.Data;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.StringEscapeUtils;
 
 import java.util.*;
 
@@ -58,6 +60,19 @@ public abstract class AbstractCsvDto {
         return data[this.getColumns().indexOf(columnName)];
     }
 
+    protected Double getDoubleValue(String[] data, String columnName) {
+        String val = data[this.getColumns().indexOf(columnName)];
+        if(NumberUtils.parseableToDouble(val))
+            return Double.parseDouble(val);
+
+        return null;
+    }
+
+    public static String escapeSpecialCharacters(String inputString) {
+        return StringEscapeUtils.unescapeHtml4(inputString.replace(","," ").replace("\n", " ")
+                .replace("\t", " "));
+    }
+
     public static <T extends AbstractCsvDto> List<String[]> prepareResponseCsv(List<T> csvDtos) {
 
         List<String[]> data = new ArrayList<>();
@@ -67,6 +82,21 @@ public abstract class AbstractCsvDto {
             csvDtos.sort(Comparator.comparing(AbstractCsvDto::getRowId));
             for (AbstractCsvDto dto : csvDtos) {
                 data.add(ArrayUtils.addAll(new String[]{dto.getStatus()},dto.getData()));
+            }
+        }
+        return data;
+
+    }
+
+    public static <T extends AbstractCsvDto> List<String[]> prepareRequestCsv(List<T> csvDtos) {
+
+        List<String[]> data = new ArrayList<>();
+        if(CollectionUtils.isNotEmpty(csvDtos)&&csvDtos.stream().findAny().isPresent()) {
+            List<String> columns = csvDtos.stream().findAny().get().columns;
+            data.add(ArrayUtils.addAll(columns.toArray(new String[0])));
+            csvDtos.sort(Comparator.comparing(AbstractCsvDto::getRowId));
+            for (AbstractCsvDto dto : csvDtos) {
+                data.add(ArrayUtils.addAll(dto.getData()));
             }
         }
         return data;
