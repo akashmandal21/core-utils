@@ -18,4 +18,8 @@ public enum PaymentTerm {
 	private String name;
 	private String view;
 
+	public String getName() {
+		return name;
+	}
+
 }

@@ -18,4 +18,6 @@ public class BookingDiscountDetailsResponseDto {
     private String strategyUuid;
 
     private List<String> invoicesDateList;
+
+    private String description;
 }

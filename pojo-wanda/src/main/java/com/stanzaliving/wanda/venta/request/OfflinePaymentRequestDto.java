@@ -1,5 +1,7 @@
 package com.stanzaliving.wanda.venta.request;
 
+import com.stanzaliving.core.payment.enums.PaymentMode;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +12,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OfflinePaymentRequestDto {
-    private String bookingUuid;
+    
+	private String bookingId;
+
+    private String userUuid;
+
+    private PaymentMode paymentMode;
+
     private double amount;
-    private String paymentMode;
+
+    private String bookingUuid;
 }
