@@ -449,12 +449,9 @@ public class ResidenceDataControllerApi {
 
     public ResidencePropertyCardDto getResidenceDetails(String residenceUuid, String token) {
         log.info("Processing to get Residence Details");
-        if (StringUtils.isBlank(token)) {
-            throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
-        }
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("residenceUuid", residenceUuid);
-        String path = UriComponentsBuilder.fromPath("/api/v1/residence-property-card/{residenceUuid}")
+        String path = UriComponentsBuilder.fromPath("/internal/residence-property-card/{residenceUuid}")
                 .buildAndExpand(uriVariables)
                 .toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
