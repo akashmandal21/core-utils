@@ -12,4 +12,8 @@ public enum TemplateStatus {
     REJECTED("Rejected");
 
     private final String label;
+
+//    public LabelValueDto getLabelValueDTO (){
+//        return new LabelValueDto(this.toString(), this.getLabel());
+//    }
 }

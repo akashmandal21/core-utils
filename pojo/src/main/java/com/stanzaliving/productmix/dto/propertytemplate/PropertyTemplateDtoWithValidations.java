@@ -1,7 +1,10 @@
 package com.stanzaliving.productmix.dto.propertytemplate;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.leaddashboard.enums.PropertyTypeEnum;
 import com.stanzaliving.productmix.dto.ApplicableDurationDto;
 import com.stanzaliving.productmix.dto.LabelValueDto;
+import com.stanzaliving.productmix.enums.TemplateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,9 +12,13 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
+
+/**
+ * Note: Any fields modified in this class should also be modified in
+ * com.stanzaliving.productmix.dto.propertytemplate.PropertyTemplateDto
+ */
 
 @Data
 @AllArgsConstructor
@@ -29,19 +36,25 @@ public class PropertyTemplateDtoWithValidations {
     private ApplicableDurationDto applicableDuration;
 
     @Valid
-    private List<LabelValueDto> propertyType;
+    private List<LabelValueDto<PropertyTypeEnum>> propertyType;
 
     @Valid
-    private List<LabelValueDto> propertyBrand;
+    private List<LabelValueDto<ResidenceBrand>> propertyBrand;
 
     @Valid
     private List<ZonesDto> zones;
 
     @Valid
-    private LabelValueDto status;
+    private LabelValueDto<TemplateStatus> templateStatus;
 
-    private String reasonToReject;
+//    @NotNull(message = "Reset status cannot be null")
+//    private Boolean isReset;
 
-    @NotNull(message = "Reset status cannot be null")
-    private Boolean isReset;
+    private Boolean isActive;
+
+    private String backgroundColor;
+
+    private String textColor;
+
+    private String templateId;
 }

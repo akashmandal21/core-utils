@@ -1,6 +1,9 @@
 package com.stanzaliving.productmix.dto.roomtemplate;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.leaddashboard.enums.PropertyTypeEnum;
 import com.stanzaliving.productmix.dto.LabelValueDto;
+import com.stanzaliving.productmix.enums.TemplateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,7 +11,6 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -30,19 +32,19 @@ public class RoomTemplateDtoWithValidations {
     private String templateName;
 
     @Valid
-    private List<LabelValueDto> propertyType;
+    private List<LabelValueDto<PropertyTypeEnum>> propertyType;
 
     @Valid
-    private List<LabelValueDto> propertyBrand;
+    private List<LabelValueDto<ResidenceBrand>> propertyBrand;
 
     @Valid
-    private List<LabelValueDto> roomFeatures;
+    private List<LabelValueDto<String>> roomFeatures;
 
     @Valid
     private List<ConsumablesDto> consumables;
 
     @Valid
-    private LabelValueDto status;
+    private LabelValueDto<TemplateStatus> templateStatus;
 
 //    @NotNull(message = "Reset status cannot be null")
 //    private Boolean isReset;

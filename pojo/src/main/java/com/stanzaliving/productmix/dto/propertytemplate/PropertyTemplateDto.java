@@ -1,13 +1,21 @@
 package com.stanzaliving.productmix.dto.propertytemplate;
 
+import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.leaddashboard.enums.PropertyTypeEnum;
 import com.stanzaliving.productmix.dto.ApplicableDurationDto;
 import com.stanzaliving.productmix.dto.LabelValueDto;
+import com.stanzaliving.productmix.enums.TemplateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
+/**
+ * Note: Any fields modified in this class should also be modified in
+ * com.stanzaliving.productmix.dto.propertytemplate.PropertyTemplateDtoWithValidations
+ */
 
 @Data
 @AllArgsConstructor
@@ -20,15 +28,21 @@ public class PropertyTemplateDto {
 
     private ApplicableDurationDto applicableDuration;
 
-    private List<LabelValueDto> propertyType;
+    private List<LabelValueDto<PropertyTypeEnum>> propertyType;
 
-    private List<LabelValueDto> propertyBrand;
+    private List<LabelValueDto<ResidenceBrand>> propertyBrand;
 
     private List<ZonesDto> zones;
 
-    private LabelValueDto status;
+    private LabelValueDto<TemplateStatus> templateStatus;
 
-    private String reasonToReject;
+//    private Boolean isReset;
 
-    private Boolean isReset;
+    private Boolean isActive;
+
+    private String backgroundColor;
+
+    private String textColor;
+
+    private String templateId;
 }

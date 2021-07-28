@@ -33,7 +33,7 @@ public class RoomTemplateDto {
 
     private List<ConsumablesDto> consumables;
 
-    private LabelValueDto<TemplateStatus> status;
+    private LabelValueDto<TemplateStatus> templateStatus;
 
 //    private Boolean isReset;
 
