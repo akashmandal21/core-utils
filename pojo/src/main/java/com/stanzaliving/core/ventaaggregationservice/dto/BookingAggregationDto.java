@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.util.Date;
 import java.util.List;
 
@@ -62,6 +63,7 @@ public class BookingAggregationDto {
     private Date lockinStartDate;
     private Date lockinEndDate;
     private String lockinDuration;
+    private String contractDuration;
     private String colorCode;
     private List<BookingTag> bookingTags;
     private Integer tokenAmount;

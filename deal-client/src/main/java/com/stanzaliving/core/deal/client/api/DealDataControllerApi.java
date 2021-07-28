@@ -123,14 +123,14 @@ public class DealDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 }
 
-	public ResponseDto<String> getPackagedServiceDetailsForUser(String userUuid) {
+	public ResponseDto<String> getPackagedServiceDetailsForUser(String userUuid, String bookingUuid) {
 		log.info("fetching user details for userUuid : " + userUuid);
 
 		Object postBody = null;
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/user/service-mix/"+ userUuid).buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/user/service-mix/"+ userUuid+"/"+bookingUuid).buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
