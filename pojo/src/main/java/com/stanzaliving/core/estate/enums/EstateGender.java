@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.estate.enums;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum EstateGender {
 
+
 	MALE("M", "Male"),
 	FEMALE("F", "Female"),
 	COED("C", "Coed");
@@ -38,5 +41,13 @@ public enum EstateGender {
 	
 	public static List<EnumListing<EstateGender>> getCopyToServiceMixGendersList() {
 		return copyToServiceMixGendersList;
+	}
+
+	public static Map<EstateGender, String> genderForCms = new HashMap<>();
+
+	static {
+		genderForCms.put(EstateGender.MALE, "MALE");
+		genderForCms.put(EstateGender.FEMALE, "FEMALE");
+		genderForCms.put(EstateGender.COED, "CO_ED");
 	}
 }
