@@ -1,5 +1,6 @@
 package com.stanzaliving.core.deal.client.api;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -200,5 +201,30 @@ public class DealDataControllerApi {
         ParameterizedTypeReference<ResponseDto<List<DealKycResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DealKycResponseDto>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<String> updateExpectedMoveOutDate(String contractUserUuid, LocalDate localDate) {
+
+        Object putBody=null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("contractUserUuid",contractUserUuid);
+        uriVariables.put("moveOutDate",String.valueOf(localDate));
+
+        String path = UriComponentsBuilder.fromPath("/internal/{contractUserUuid}/move-out-date/{moveOutDate}")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, putBody, headerParams, accept, returnType);
     }
 }
