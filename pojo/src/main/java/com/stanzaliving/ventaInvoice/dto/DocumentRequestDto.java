@@ -9,12 +9,14 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
+@EqualsAndHashCode
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class DocumentRequestDto {
+
     @NotNull(message = "ServiceType is required")
     private String serviceType;
 
@@ -56,6 +58,5 @@ public class DocumentRequestDto {
     private DealDto dealDto;
 
     private DealBillToDto dealBillToDto;
-
 
 }
