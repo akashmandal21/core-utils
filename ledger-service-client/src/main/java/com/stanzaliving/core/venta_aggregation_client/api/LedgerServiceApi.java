@@ -2,6 +2,7 @@ package com.stanzaliving.core.venta_aggregation_client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.ledger.dto.AllLedgerResponseDTO;
 import com.stanzaliving.ledger.dto.HealthCheckCountDto;
 import com.stanzaliving.ledger.dto.LedgerResponseDTO;
 import lombok.extern.log4j.Log4j2;
@@ -33,7 +34,7 @@ public class LedgerServiceApi {
      * @param referenceId->Unique ID corresponding to residence
      * @return Aggregated Residence Ledger data on aggregation service
      */
-    public ResponseDto<LedgerResponseDTO> getLedgerInformation(String referenceId, String referenceType) {
+    public ResponseDto<AllLedgerResponseDTO> getLedgerInformation(String referenceId, String referenceType) {
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/ledger/all")
                 .buildAndExpand(uriVariables).toUriString();
@@ -46,7 +47,7 @@ public class LedgerServiceApi {
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<LedgerResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<LedgerResponseDTO>>() {
+        ParameterizedTypeReference<ResponseDto<AllLedgerResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<AllLedgerResponseDTO>>() {
         };
         try {
             log.info("Executing Api for getting residence Info with Url {}", path);
