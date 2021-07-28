@@ -59,6 +59,7 @@ public class ElectricityMeterDto extends AbstractDto {
 	
 	private int sequence;
 
-	private String deActivatedBy;
+	private String activatedBy;
+	private String deactivatedBy;
 
 }
