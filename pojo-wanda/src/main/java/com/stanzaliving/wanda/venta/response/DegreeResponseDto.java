@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DegreeResponseDto {
-    private int degreeId;
+    private Long degreeId;
+    private String degreeUuid;
     private String name;
     private boolean enabled;
     private int maxYears;

@@ -1,5 +1,6 @@
 package com.stanzaliving.ventaInvoice.dto;
 
+
 import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 import lombok.Getter;
@@ -41,5 +42,7 @@ public class DocumentResponseDto {
     private String contractId;
     private BillToDto billTo;
     private BillFromDto billFrom;
-    private String studentId;
+    private String residentId;
+    private String dealName;
+    private String dealType;
 }

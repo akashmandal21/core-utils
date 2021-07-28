@@ -18,9 +18,9 @@ import lombok.ToString;
 @Builder
 public class ResidenceServicesDetailsDto {
 
-	private Set<ResidenceServiceDto> residenceServices;
+	private List<ResidenceServiceDto> residenceServices;
 	private List<ResidenceServiceDto> packagedServices;
-	private Set<ResidenceServiceDto> allValueAddedServices;
+	private List<ResidenceServiceDto> allValueAddedServices;
 	private Set<ResidenceServiceDto> preSelectedValueAddedServices;
 	private String packagedServicesText;
 	private String valueAddedServicesText;

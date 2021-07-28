@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.venta.request;
 
+import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.wanda.enums.InstallmentTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class InstallmentRequestDto {
     private String bookingUuid;
-    private InstallmentTypeEnum installmentType;
+    private PaymentTerm installmentType;
     private String couponCode;
 }

@@ -6,10 +6,12 @@ package com.stanzaliving.core.paymentplan.client.api;
 import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
 import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
-import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.paymentPlan.dto.GetPaymentPlanRequestDto;
 import com.stanzaliving.core.paymentPlan.dto.PaymentPlan;
+import com.stanzaliving.core.paymentPlan.dto.PaymentPlanLineItem;
+import com.stanzaliving.core.paymentPlan.dto.PaymentPlanLineItemRequestDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -91,7 +93,7 @@ public class PaymentPlanClientApi {
             return null;
         }
     }
-    
+
     public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(String bookingUuid, String token) {
 
         try {
@@ -107,7 +109,7 @@ public class PaymentPlanClientApi {
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-            
+
             HttpHeaders headerParams = new HttpHeaders();
 
             headerParams.add("Cookie", "token=" + token);
@@ -128,7 +130,7 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(String bookingUuid, String token,String paymentTerm) {
+    public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(String bookingUuid, String token, String paymentTerm) {
 
         try {
             Object postBody = null;
@@ -144,7 +146,7 @@ public class PaymentPlanClientApi {
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
             queryParams.add("paymentTerm", paymentTerm);
-           
+
             HttpHeaders headerParams = new HttpHeaders();
 
             headerParams.add("Cookie", "token=" + token);
@@ -159,6 +161,71 @@ public class PaymentPlanClientApi {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("error while fetching the paymentPlan {}", e);
+        }
+
+        return null;
+
+    }
+
+    public ResponseDto<List<PaymentPlan>> getPaymentPlanForInvoiceGeneration(GetPaymentPlanRequestDto getPaymentPlanRequestDto) {
+
+        try {
+            Object postBody = getPaymentPlanRequestDto;
+
+            log.info("get paymentPlan for booking Id's is {} ", getPaymentPlanRequestDto.getBookingUuid());
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/api/v1/get/payment-plan-for-invoice").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the paymentPlan for invoice generation{}", e);
+        }
+
+        return null;
+
+    }
+
+
+    public ResponseDto<List<PaymentPlanLineItem>> getPaymentPlanLineItem(PaymentPlanLineItemRequestDto paymentPlanLineItemRequestDto) {
+
+        try {
+            Object postBody = paymentPlanLineItemRequestDto;
+
+            log.info("get Payment Plan line item for PaymentPlan Id's {} ", paymentPlanLineItemRequestDto.getPaymentPlanIds());
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/api/v1/get/payment-plan-line-item").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<List<PaymentPlanLineItem>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlanLineItem>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the paymentPlan for invoice generation{}", e);
         }
 
         return null;

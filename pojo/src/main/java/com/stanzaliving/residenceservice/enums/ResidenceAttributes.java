@@ -28,9 +28,12 @@ public enum ResidenceAttributes {
 
     RETENTION_MIN_TOKEN_AMOUNT("Retention Min Token Amount", "String"),
     ROOM_CONVERSION_CHARGES("Room Conversion Charges", "String"),
-   RETENTION_CREATION_BUFFER_DAYS("Retention Creation Buffer Days", "Integer"),
-    NO_LOCK_IN_SUITS_BOOKING("No Lock In Suits Booking", "Boolean");
-
+    RETENTION_CREATION_BUFFER_DAYS("Retention Creation Buffer Days", "Integer"),
+    NO_LOCK_IN_SUITS_BOOKING("No Lock In Suits Booking", "Boolean"),
+	
+    MONTHLY_MULTIPLIER("Monthly Multiplier","Double"),
+	SD_MULTIPLIER("SD Multiplier","Double"),
+	AMC_MULTIPLIER("SD Multiplier","Double");
 
     private String label;
     private String type;
