@@ -1,10 +1,13 @@
-package com.stanzaliving.core.booking.client.api;
+package com.stanzaliving.core.client.api;
 
+import com.stanzaliving.agreement.dto.request.DocumentRequestDTO;
 import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.booking.client.dto.*;
 import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto;
+import com.stanzaliving.core.client.dto.BookingInventoryDto;
+import com.stanzaliving.core.client.dto.InventoryResponseOccupancyDto;
+import com.stanzaliving.core.client.dto.PackageServicesResponseDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -216,16 +219,36 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
-
+    
     public Void createAddendum(String bookingUUid) {
         Object postBody = null;
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("bookingUuid", bookingUUid);
-
+        
         final HttpHeaders headerParams = new HttpHeaders();
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/agreement-booking/{booking-uuid}/v1/create-addendum").buildAndExpand(uriVariables).toUriString();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+        
+    public Void expireAgreement(DocumentRequestDTO documentRequestDTO) {
+        Object postBody = documentRequestDTO;
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        
+        final HttpHeaders headerParams = new HttpHeaders();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/agreement-booking/api/v1/request").buildAndExpand(uriVariables).toUriString();
         final String[] accepts = {
                 "*/*"
         };

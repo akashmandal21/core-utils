@@ -1,16 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>core-utils</artifactId>
-        <groupId>com.stanzaliving.core</groupId>
-        <version>1.0.0</version>
-        <relativePath>..</relativePath>
-    </parent>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <artifactId>booking-service-client</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
 
@@ -25,14 +20,18 @@
             <artifactId>pojo</artifactId>
             <version>${global.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.stanzaliving.core</groupId>
-            <artifactId>sqljpa</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
+            <artifactId>pojo-wanda</artifactId>
+            <version>${global.version}</version>
         </dependency>
-
     </dependencies>
 
-
+    <parent>
+        <groupId>com.stanzaliving.core</groupId>
+        <artifactId>core-utils</artifactId>
+        <version>1.0.0</version>
+        <relativePath>..</relativePath>
+    </parent>
 </project>
