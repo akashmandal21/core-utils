@@ -88,6 +88,7 @@
 		<module>pojo-food</module>
 		<module>document-client</module>
 		<module>grammage-client</module>
+		<module>dish-client</module>
 	</modules>
 
 	<build>
