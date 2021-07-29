@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class OccupancyResidenceListDto {
 
-    List<String> occupancies;
+    List<Integer> occupancies;
 
     List<String> residences;
 }
