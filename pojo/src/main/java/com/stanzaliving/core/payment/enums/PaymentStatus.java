@@ -12,6 +12,7 @@ public enum PaymentStatus {
 	REFUND_INITIATED,
 	REFUNDED,
 	REFUND_FAILED,
+	ADJUSTED,
 	ACCEPTED;
 
 	public static boolean isFailed(PaymentStatus status) {
