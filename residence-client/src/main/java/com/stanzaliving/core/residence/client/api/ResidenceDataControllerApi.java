@@ -123,21 +123,15 @@ public class ResidenceDataControllerApi {
 
         log.info("Residence-Data-Controller::Processing to fetch packaged service names based on residenceUuid {}", residenceUuid);
 
-        if (StringUtils.isBlank(token)) {
-            throw new IllegalArgumentException("Token missing for retrieving packaged service names based on residenceUuid");
-        }
-
         Map<String, Object> uriVariables = new HashMap();
 
         uriVariables.put("residenceUuid", residenceUuid);
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/packaged-service/get/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/packaged-service/get/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
         HttpHeaders headerParams = new HttpHeaders();
-
-        headerParams.add("Cookie", "token=" + token);
 
         String[] accepts = new String[]{"*/*"};
 
@@ -160,23 +154,17 @@ public class ResidenceDataControllerApi {
 
         log.info("Residence-Data-Controller::Processing to fetch Package service properties for residenceUuid {}, service-mix {}", residenceUuid, serviceMix);
 
-        if (StringUtils.isBlank(token)) {
-            throw new IllegalArgumentException("Token missing for fetching package service based on residenceUuid");
-        }
-
         Map<String, Object> uriVariables = new HashMap();
 
         uriVariables.put("residenceUuid", residenceUuid);
 
         uriVariables.put("servicemix", serviceMix);
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/packaged-service/get/{residenceUuid}/{servicemix}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/packaged-service/get/{residenceUuid}/{servicemix}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
         HttpHeaders headerParams = new HttpHeaders();
-
-        headerParams.add("Cookie", "token=" + token);
 
         String[] accepts = new String[]{"*/*"};
 
@@ -835,10 +823,6 @@ public class ResidenceDataControllerApi {
 
         log.info("Residence-Data-Controller::Processing to get room consumerable details based on roomUUID {}", roomUUID);
 
-        if (StringUtils.isBlank(token)) {
-            throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
-        }
-
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("roomUuid", roomUUID);
 
@@ -847,8 +831,6 @@ public class ResidenceDataControllerApi {
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
         HttpHeaders headerParams = new HttpHeaders();
-
-        headerParams.add("Cookie", "token=" + token);
 
         String[] accepts = new String[]{"*/*"};
 
