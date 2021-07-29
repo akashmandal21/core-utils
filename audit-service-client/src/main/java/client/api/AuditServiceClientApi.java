@@ -7,6 +7,8 @@ import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.ventaAudit.dto.InventoryResponseDto;
 import com.stanzaliving.ventaAudit.dto.RoomHandoverStatusResponseDto;
+import lombok.Builder;
+import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -20,6 +22,7 @@ import java.util.Map;
 import java.util.List;
 
 @Log4j2
+@Data
 public class AuditServiceClientApi {
 
     private final StanzaRestClient stanzaRestClient;
