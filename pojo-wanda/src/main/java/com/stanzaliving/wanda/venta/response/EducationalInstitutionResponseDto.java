@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EducationalInstitutionResponseDto {
-    private int educationalInstitutionId;
-
+    private Long educationalInstitutionId;
+    private String educationalInstitutionUuid;
     private String name;
 
     private boolean enabled;

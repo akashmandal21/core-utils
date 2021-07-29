@@ -70,4 +70,5 @@ public class BookingAggregationDto {
     List<EligibleStatusMappingDto> eligibleStatusMapping;
     private String cityUuid;
     private String microMarketUuid;
+    private String paymentTerm;
 }
