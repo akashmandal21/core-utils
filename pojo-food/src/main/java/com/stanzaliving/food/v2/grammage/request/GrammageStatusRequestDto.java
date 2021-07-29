@@ -26,8 +26,5 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class GrammageStatusRequestDto {
 
-	@NotNull(message = "Food serve type is mandatory")
-	private FoodServeType foodServeType;
-
 	private Integer grammage;
 }
