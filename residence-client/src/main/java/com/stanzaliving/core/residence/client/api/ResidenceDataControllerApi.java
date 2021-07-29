@@ -987,36 +987,6 @@ public class ResidenceDataControllerApi {
 
     }
 
-    public RoomDetailsResponseDto findByRoomNumber(String roomNumber) {
-        log.info("Room-Controller::Processing to fetch room {} details ", roomNumber);
-
-        Map<String, Object> uriVariables = new HashMap();
-
-        uriVariables.put("roomNumber", roomNumber);
-
-        String path = UriComponentsBuilder.fromPath("/internal/room/{roomNumber}").buildAndExpand(uriVariables).toUriString();
-
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
-
-        HttpHeaders headerParams = new HttpHeaders();
-
-        String[] accepts = new String[]{"*/*"};
-
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<RoomDetailsResponseDto> returnType =
-                new ParameterizedTypeReference<RoomDetailsResponseDto>() {
-                };
-
-        try {
-            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-        } catch (Exception var10) {
-            log.error("Exception while fetching room {} details ", roomNumber);
-            return null;
-        }
-
-    }
-
     public List<RoomInventoryLogEntity> getInventoryDetails(InventoryDetailsRequestDto inventoryDetailsRequestDto) {
 
         log.info("Residence-Data-Controller::Processing to get inventory Details{}", inventoryDetailsRequestDto);
