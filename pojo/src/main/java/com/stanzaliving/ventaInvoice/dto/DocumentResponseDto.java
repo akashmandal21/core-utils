@@ -42,6 +42,7 @@ public class DocumentResponseDto {
     private String contractId;
     private BillToDto billTo;
     private BillFromDto billFrom;
-    private String studentId;
+    private String residentId;
+    private String dealName;
+    private String dealType;
 }
-
