@@ -8,10 +8,7 @@ import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.paymentPlan.dto.GetPaymentPlanRequestDto;
-import com.stanzaliving.core.paymentPlan.dto.PaymentPlan;
-import com.stanzaliving.core.paymentPlan.dto.PaymentPlanLineItem;
-import com.stanzaliving.core.paymentPlan.dto.PaymentPlanLineItemRequestDto;
+import com.stanzaliving.core.paymentPlan.dto.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -255,6 +252,39 @@ public class PaymentPlanClientApi {
             log.error("error while fetching the monthly break up {}", e.getMessage());
             return null;
         }
+    }
+
+
+    public ResponseDto<InvoiceGenerationResponseDto> createInvoiceFromPayment(InvoiceGenerationRequestDto invoiceGenerationRequestDto) {
+
+        try {
+            Object postBody = invoiceGenerationRequestDto;
+
+            log.info("Creating invoice for booking id {} ", invoiceGenerationRequestDto.getBookingUuid());
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/invoice").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<InvoiceGenerationResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<InvoiceGenerationResponseDto>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the paymentPlan for invoice generation{}", e);
+        }
+
+        return null;
+
     }
 
 }
