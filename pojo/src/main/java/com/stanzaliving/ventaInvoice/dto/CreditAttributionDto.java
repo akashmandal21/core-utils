@@ -14,5 +14,4 @@ public class CreditAttributionDto {
     private LocalDate fromDate;
     private LocalDate toDate;
     private Double amount;
-    private String split;
 }

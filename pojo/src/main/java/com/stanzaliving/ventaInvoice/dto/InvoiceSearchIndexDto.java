@@ -22,7 +22,7 @@ public class InvoiceSearchIndexDto extends AbstractSearchIndexDto {
 
     private String stanzaDocumentId;
 
-    private String studentId;
+    private String residentId;
 
     private String residenceMicromarketUuid;
     private String residenceCityUuid;
