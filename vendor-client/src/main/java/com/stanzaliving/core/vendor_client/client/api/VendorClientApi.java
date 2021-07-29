@@ -4,18 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.stanzaliving.core.generic.dto.UIKeyValue;
-import com.stanzaliving.core.vendor.FilterVendorDto;
-import com.stanzaliving.core.vendor.dtos.GenericVendorDetailDto;
-import com.stanzaliving.core.vendor.dtos.VendorSuppliedItem;
-import com.stanzaliving.transformations.pojo.CountryUIDto;
-import com.stanzaliving.transformations.projections.StanzaGstView;
-import com.stanzaliving.vendor.model.VendorAndPocDetails;
-import com.stanzaliving.vendor.model.VendorDetailsDto;
-import com.stanzaliving.vendor.model.VendorPoDownloadDataDto;
-import com.stanzaliving.vendor.model.VendorPoDownloadRequest;
-import com.stanzaliving.vendor.model.VendorPocDetailsDto;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -26,6 +14,17 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.core.vendor.FilterVendorDto;
+import com.stanzaliving.core.vendor.dtos.GenericVendorDetailDto;
+import com.stanzaliving.core.vendor.dtos.VendorSuppliedItem;
+import com.stanzaliving.vendor.model.VendorAndPocDetails;
+import com.stanzaliving.vendor.model.VendorDetailsDto;
+import com.stanzaliving.vendor.model.VendorPoDownloadDataDto;
+import com.stanzaliving.vendor.model.VendorPoDownloadRequest;
+import com.stanzaliving.vendor.model.VendorPocDetailsDto;
+
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class VendorClientApi {
@@ -34,6 +33,30 @@ public class VendorClientApi {
 
     public VendorClientApi(StanzaRestClient stanzaRestClient) {
         this.restClient = stanzaRestClient;
+    }
+
+    public ResponseDto<Map<String,List<VendorAndPocDetails>>> getVendorPlusPocDetailsByIdsV2(List<String> uuids) {
+
+        log.info("HTTP Client call to get Vendor POC Details DTO for UUID " + uuids);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<Map<String,List<VendorAndPocDetails>>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Map<String,List<VendorAndPocDetails>>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/getVendorPlusPocDetailsByIdsV2").toUriString();
+
+        map.put("ids", uuids);
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, map, headerParams, accept, vddReturnType);
     }
 
     public ResponseDto<List<VendorDetailsDto>> getVendorDetails(List<String> uuids) {

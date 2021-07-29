@@ -1,6 +1,5 @@
 package com.stanzaliving.food.v2.category.dto;
 
-import com.stanzaliving.core.food.dto.MenuItemDto;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,12 +15,12 @@ import java.util.List;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class MealWiseSampleMenuDto implements Serializable {
-    private MealType mealType;
-    private Double weight;
-    private Double cogs;
-    private List<MenuItemDto> menuItems;
+public class MealWiseMenuDto implements Serializable {
+	private static final long serialVersionUID = 8221908042191780009L;
+	private MealType mealType;
+	private Double cogs;
+	private Double budgeted;
 
-
+	private List<DayWiseMenuDto> dayWiseMenu;
 
 }

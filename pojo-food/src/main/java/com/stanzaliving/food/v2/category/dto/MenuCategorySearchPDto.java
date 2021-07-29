@@ -10,8 +10,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -21,12 +23,21 @@ import java.util.List;
 @NoArgsConstructor
 public class MenuCategorySearchPDto implements Serializable {
     private List<String> residenceIds;
-    private CategoryStatus categoryStatus;
-    private ApprovalStatus approvalStatus;
+    private List<CategoryStatus> categoryStatus;
+    private List<ApprovalStatus> approvalStatus;
     private String name;
     private List<String> tagIds;
     private String cityId;
-    private String vendorId;
+    private List<String> vendorId;
     private SortingType sortingType;
     private CategorySearchSortingField sortingField;
+    private Boolean published;
+    private Boolean detailsRequired;
+    private Boolean grammageVariationRequired;
+    private Boolean approvalDataRequired;
+    private Boolean approvalDashBoard;
+    private Boolean clonable;
+    private Boolean menuSubmitted;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate startDate;
 }

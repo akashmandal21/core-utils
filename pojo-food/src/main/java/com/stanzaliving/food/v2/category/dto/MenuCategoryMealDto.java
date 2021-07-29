@@ -7,31 +7,35 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalTime;
-
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 public class MenuCategoryMealDto extends MealDto {
-    private boolean enabled;
-    private boolean monday;
-    private boolean tuesday;
-    private boolean wednesday;
-    private boolean thursday;
-    private boolean friday;
-    private boolean saturday;
-    private boolean sunday;
-    private LocalTime startTime;
-    private LocalTime endTime;
-    private Double packagingCost;
-    private Double vegCogs;
-    private Double nonVegCogs;
-    private Double externalStaffCogs;
-    private Double optInPercentage;
 
-    private Double mealCost;
-    private Double trueCost;
-    private int activeDays;
+	private static final long serialVersionUID = 1777854348475903595L;
+
+	private boolean enabled;
+	private boolean monday;
+	private boolean tuesday;
+	private boolean wednesday;
+	private boolean thursday;
+	private boolean friday;
+	private boolean saturday;
+	private boolean sunday;
+
+	private Double packagingCost;
+	private Double vegCogs;
+	private Double nonVegCogs;
+	private Double externalStaffCogs;
+	private Double optInPercentage;
+
+	private Double mealCost;
+	private Double trueCost;
+
+	private Double fnbMealCost;
+	private Double fnbTrueCost;
+
+	private int activeDays;
 }
