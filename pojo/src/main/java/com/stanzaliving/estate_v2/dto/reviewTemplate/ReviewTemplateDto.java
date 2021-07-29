@@ -20,6 +20,9 @@ public class ReviewTemplateDto {
     private String templateStatus;
     private List<KeyValueDto> roles;
     private List<ApplicableStatusesDto> propertyStatuses;
+    private boolean bedCountDetailsVisible;
+    private boolean salesReviewVisible;
+    private boolean propertyNaming;
     private List<OtherInformationDto> otherInformation;
     private List<LayoutDto> layouts;
 }
