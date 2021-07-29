@@ -15,6 +15,7 @@ public class CategoryDto {
     private String categoryName;
     private String invoiceSeries;
     private String rentLedgerName;
+    private String generationSource;
     private int vendorSelection;
     private int impactTypes;
     private String categoryUniqueId;
