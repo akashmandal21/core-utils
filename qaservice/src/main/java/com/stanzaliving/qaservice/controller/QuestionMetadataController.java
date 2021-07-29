@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiOperation;
 
 @Api("Question Metadata Controller")
 @RequestMapping("/questionMetadata")
-@RestController
+//@RestController
 public class QuestionMetadataController {
 
     @Autowired
