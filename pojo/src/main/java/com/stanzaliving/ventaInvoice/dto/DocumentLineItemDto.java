@@ -14,6 +14,7 @@ import lombok.Setter;
 public class DocumentLineItemDto {
     private String lineItemDescription;
     private Double lineAmount;
+    private String callerServiceCategory;
     private String categoryUuid;
     private String subCategoryUuid;
     private String categoryName;
@@ -24,4 +25,5 @@ public class DocumentLineItemDto {
     private float cgstPercentage;
     private float sgstPercentage;
     private float igstPercentage;
+    private String hsnCode;
 }
