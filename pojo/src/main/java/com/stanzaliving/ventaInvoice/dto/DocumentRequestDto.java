@@ -1,5 +1,6 @@
 package com.stanzaliving.ventaInvoice.dto;
 
+import com.stanzaliving.booking.enums.PaymentPlanType;
 import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 
@@ -40,7 +41,7 @@ public class DocumentRequestDto {
 
     private LocalDate toDate;
 
-    private String callerServiceCategory;
+    private PaymentPlanType callerServiceCategory;
 
     private String categoryUuid;
 
