@@ -1,6 +1,5 @@
 package com.stanzaliving.wanda.venta.response;
 
-import java.util.List;
 import java.util.Map;
 
 import lombok.AllArgsConstructor;
