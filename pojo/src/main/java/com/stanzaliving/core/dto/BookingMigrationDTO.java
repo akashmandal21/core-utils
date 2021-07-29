@@ -40,5 +40,5 @@ public class BookingMigrationDTO {
     private Date actualContractEndDate;
 
     @JsonSetter(value = "USER_UUID")
-    private String residentUuid;
+    private String userUuid;
 }
