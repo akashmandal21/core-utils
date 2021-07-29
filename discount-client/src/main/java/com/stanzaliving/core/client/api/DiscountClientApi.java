@@ -3,6 +3,7 @@ package com.stanzaliving.core.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 import com.stanzaliving.core.discount.dto.response.BookingDiscountDetailsResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
@@ -131,5 +132,5 @@ public class DiscountClientApi {
 		   }
 		   return null;
 		}
-
+	
 }
