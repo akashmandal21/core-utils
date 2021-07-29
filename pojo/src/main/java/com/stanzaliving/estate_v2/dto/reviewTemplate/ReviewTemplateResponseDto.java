@@ -19,6 +19,9 @@ public class ReviewTemplateResponseDto {
     private List<ApplicableStatusesDto> propertyStatuses;
     private BasicInformationResponse basicInformation;
     private List<OtherInformationResponse> otherInformation;
+    private boolean bedCountDetailsVisible;
+    private boolean salesReviewVisible;
+    private boolean propertyNaming;
     private BedCountInfoDto bedCountInformation;
     private List<LayoutResponse> layouts;
 
