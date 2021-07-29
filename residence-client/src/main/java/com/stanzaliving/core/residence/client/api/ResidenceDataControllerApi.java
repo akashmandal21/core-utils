@@ -1019,5 +1019,31 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
+	public List<ResidencePaymentPlanDto> getInstallmentList(String residenceUuid) {
+		
+		Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/paymentTerm/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<ResidencePaymentPlanDto>> returnType =
+                new ParameterizedTypeReference<List<ResidencePaymentPlanDto>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception var10) {
+            log.error("Exception while fetching paymentTerm list form residenceUuid {}  ", residenceUuid);
+            return null;
+        }
 }
 
