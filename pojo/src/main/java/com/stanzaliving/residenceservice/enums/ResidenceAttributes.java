@@ -33,7 +33,9 @@ public enum ResidenceAttributes {
 	
     MONTHLY_MULTIPLIER("Monthly Multiplier","Double"),
 	SD_MULTIPLIER("SD Multiplier","Double"),
-	AMC_MULTIPLIER("SD Multiplier","Double");
+	AMC_MULTIPLIER("SD Multiplier","Double"),
+	
+	FUTURE_BOOKING_ALLOWED_MONTH("Future Booking Allowed Duration","Integer");
 
     private String label;
     private String type;
