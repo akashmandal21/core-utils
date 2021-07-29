@@ -17,7 +17,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class InterestDto extends AbstractDto{
+public class InterestDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
 
