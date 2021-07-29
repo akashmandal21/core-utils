@@ -129,7 +129,7 @@ public class AgreementClientApi {
 
     	try {
 
-    		log.info("expire agreement for referenceId ", documentRequestDTO.getReferenceId);
+    		log.info("expire agreement for referenceId ", documentRequestDTO.getReferenceId());
 
     		Object postBody = documentRequestDTO;
     		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
