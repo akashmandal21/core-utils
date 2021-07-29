@@ -76,7 +76,7 @@ public class DealDataControllerApi {
     
 	}
 
-	public ResponseDto<List<Integer>> getAllowedOccupanciesForDealAndResidence(String dealUuid,String residenceUuid) {
+	public ResponseDto<OccupancyResidenceListDto> getAllowedOccupanciesForDealAndResidence(String dealUuid,String residenceUuid) {
 
 			log.info("fetching allowed occupancies for ContactUuid : " + dealUuid);
 
@@ -97,7 +97,7 @@ public class DealDataControllerApi {
 	        };
 	        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-	        ParameterizedTypeReference<ResponseDto<List<Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<List<Integer>>>() {
+	        ParameterizedTypeReference<ResponseDto<OccupancyResidenceListDto>> returnType = new ParameterizedTypeReference<ResponseDto<OccupancyResidenceListDto>>() {
 	        };
 	        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
