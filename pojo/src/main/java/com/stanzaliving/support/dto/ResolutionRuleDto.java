@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 public class ResolutionRuleDto {
 
     private TicketType ticketType;
-    private String primaryReferenceUUID;
+    private String primaryReferenceUuid;
     private AccessLevel accessLevel;
-    private String referenceUUID;
-    private String roleUUID;
+    private String referenceUuid;
+    private String roleUuid;
     private Long firstResponseIn;
     private Long resolutionIn;
     private Boolean isEscalation;

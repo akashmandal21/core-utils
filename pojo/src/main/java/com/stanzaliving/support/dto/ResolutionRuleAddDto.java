@@ -14,9 +14,9 @@ import java.util.List;
 @AllArgsConstructor
 public class ResolutionRuleAddDto {
     private TicketType ticketType;
-    private List<String> primaryReferenceUUID;
+    private List<String> primaryReferenceUuid;
     private AccessLevel accessLevel;
-    private List<String> referenceUUID;
+    private List<String> referenceUuid;
     private String roleUUID;
     private Long firstResponseIn;
     private Long resolutionIn;
