@@ -99,7 +99,7 @@
 		<module>discount-client</module>
 	    <module>invoice-service-client</module>
 	    <module>agreement-client</module>
-	    
+        <module>audit-service-client</module>
     </modules>
 
 	<build>
