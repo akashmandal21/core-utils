@@ -26,11 +26,54 @@ public enum BookingStatus {
 
     ONBOARDING_PENDING("ONBOARDING PENDING"),
     ONBOARDING_IN_PROGRESS("ONBOARDING IN PROGRESS"),
-    ONBOARDING_COMPLETED("ONBOARDING COMPLETED");
+    ONBOARDING_COMPLETED("ONBOARDING COMPLETED"),
+
+
+    CANCELLED("CANCELLED"),
+    TRESSPASSER("TRESSPASSER"),
+    BOOKING_FORFEITURE("BOOKING FORFEITURE"),
+    DEFAULTER_PAID("DEFAULTER PAID"),
+    DEFAULTER_UNPAID("DEFAULTER UNPAID"),
+    CONTRACT_TERMINATED("CONTRACT TERMINATED"),
+    CONTRACT_COMPLETED("CONTRACT COMPLETED"),
+    STAY_FORFEITURE("STAY FORFEITURE"),
+    WRONG_BOOKING("WRONG BOOKING");
 
     private String bookingStatus;
 
     public String getDescription() {
+        return bookingStatus;
+    }
+
+    public static List<BookingStatus> bookingEligibleForExpirationStatus() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT);
+        return bookingStatus;
+    }
+
+    public static Set<BookingStatus> paymentRemapStatusTransitionNotAllowedStatus() {
+        Set<BookingStatus> bookingStatus = new HashSet<>();
+        bookingStatus.add(BookingStatus.IN_PROGRESS);
+        bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT);
+        bookingStatus.add(BookingStatus.EXPIRED);
+        bookingStatus.add(BookingStatus.DRAFT);
+        return bookingStatus;
+    }
+
+    public static Set<String> retentionBookingAllowedStatus() {
+        Set<String> bookingStatus = new HashSet<>();
+
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getBookingStatus());
+        bookingStatus.add(BookingStatus.CANCELLED.getBookingStatus());
+        bookingStatus.add(BookingStatus.TRESSPASSER.getBookingStatus());
+        bookingStatus.add(BookingStatus.BOOKING_FORFEITURE.getBookingStatus());
+        bookingStatus.add(BookingStatus.DEFAULTER_PAID.getBookingStatus());
+        bookingStatus.add(BookingStatus.DEFAULTER_UNPAID.getBookingStatus());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getBookingStatus());
+        bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getBookingStatus());
+        bookingStatus.add(BookingStatus.STAY_FORFEITURE.getBookingStatus());
+        bookingStatus.add(BookingStatus.WRONG_BOOKING.getBookingStatus());
+
         return bookingStatus;
     }
 
