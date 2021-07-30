@@ -75,4 +75,6 @@ public class PoDetailsResponse {
 
     private LocationType costCenterLocationType;
     private UIKeyValue costCenterLocationName;
+
+    private String taxLocationType;
 }
