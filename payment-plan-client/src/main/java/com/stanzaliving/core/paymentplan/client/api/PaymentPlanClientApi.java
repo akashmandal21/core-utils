@@ -4,6 +4,7 @@
 package com.stanzaliving.core.paymentplan.client.api;
 
 import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
+import com.stanzaliving.booking.dto.request.VasPaymentPlanRequestDTO;
 import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -281,6 +282,39 @@ public class PaymentPlanClientApi {
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("error while fetching the paymentPlan for invoice generation{}", e);
+        }
+
+        return null;
+
+    }
+    
+    
+    public ResponseDto<List<PaymentPlanResponseDto>> createOrUpdateVasServices(VasPaymentPlanRequestDTO vasPaymentPlanRequestDTO) {
+
+        try {
+            Object postBody = vasPaymentPlanRequestDTO;
+
+            log.info("Creating vas for booking id {} ", vasPaymentPlanRequestDTO.getReferenceId());
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("internal/api/v1/vas/create").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<List<PaymentPlanResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlanResponseDto>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while creating the vas for booking {} error is {}",vasPaymentPlanRequestDTO.getReferenceId(), e);
         }
 
         return null;

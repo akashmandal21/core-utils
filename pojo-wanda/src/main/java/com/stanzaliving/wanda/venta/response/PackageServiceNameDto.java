@@ -19,6 +19,7 @@ public class PackageServiceNameDto {
 
 	private int id;
 	private String serviceName;
+	private String uuid;
 	private String lable;
 	private String serviceImage;
 	private String priorityOrder;

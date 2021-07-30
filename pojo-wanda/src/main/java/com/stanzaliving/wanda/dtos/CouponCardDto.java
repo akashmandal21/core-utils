@@ -18,4 +18,6 @@ public class CouponCardDto {
 	private String couponText;
 	
 	private String couponDescription;
+	
+	private String discountStrategyUuid;
 }
