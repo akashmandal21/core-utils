@@ -17,11 +17,8 @@ public class ResolutionRuleAddDto {
     private List<String> primaryReferenceUuid;
     private AccessLevel accessLevel;
     private List<String> referenceUuid;
-    private String roleUUID;
-    private Long firstResponseIn;
-    private Long resolutionIn;
-    private Boolean isEscalation;
-    private Long escalationIn;
-    private String escalateToRole;
-    private Integer sequence;
+    private List<ResolutionRoleDto> resolutionRole;
+
 }
+
+
