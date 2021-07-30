@@ -289,7 +289,7 @@ public class PaymentPlanClientApi {
     }
     
     
-    public ResponseDto<List<PaymentPlanResponseDto>> createOrUpdateVasServices(VasPaymentPlanRequestDTO vasPaymentPlanRequestDTO) {
+    public ResponseDto<Boolean> createOrUpdateVasServices(VasPaymentPlanRequestDTO vasPaymentPlanRequestDTO) {
 
         try {
             Object postBody = vasPaymentPlanRequestDTO;
@@ -309,7 +309,7 @@ public class PaymentPlanClientApi {
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<ResponseDto<List<PaymentPlanResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlanResponseDto>>>() {
+            ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
