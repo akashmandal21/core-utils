@@ -1,5 +1,7 @@
 package com.stanzaliving.ventaAudit.dto;
 
+import com.stanzaliving.ventaInvoice.dto.BillFromDto;
+import com.stanzaliving.ventaInvoice.dto.BillToDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
