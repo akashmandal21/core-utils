@@ -1,5 +1,6 @@
 package com.stanzaliving.community.request;
 
+import com.stanzaliving.community.enums.EventStatus;
 import lombok.*;
 
 import java.util.Date;
@@ -12,7 +13,7 @@ import java.util.List;
 public class EventFilterDTO {
     private List<String> eventType;
     private List<String> eventCategory;
-    private List<String> status;
+    private List<EventStatus> status;
     private String venueType;
     private List<String> eventOrganizer;
     private UserListDTO userList;
