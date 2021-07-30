@@ -14,4 +14,6 @@ public class BookingTag {
     private String icon;
 
     private String colorCode;
+
+    private String textColor;
 }
