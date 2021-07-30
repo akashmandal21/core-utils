@@ -47,8 +47,8 @@ public class VasPaymentPlanRequestDTO implements Serializable {
     @Builder.Default
     private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
 
-    private boolean savePaymentPlan = false;
+    private Boolean savePaymentPlan = false;
 
-    private boolean isModifyContract = false;
+    private Boolean isModifyContract = false;
 
 }
