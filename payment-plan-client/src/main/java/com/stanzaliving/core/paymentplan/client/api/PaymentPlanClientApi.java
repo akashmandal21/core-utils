@@ -289,7 +289,7 @@ public class PaymentPlanClientApi {
     }
     
     
-    public ResponseDto<Boolean> createOrUpdateVasServices(VasPaymentPlanRequestDTO vasPaymentPlanRequestDTO) {
+    public ResponseDto<Boolean> createOrUpdateVasServices(VasPaymentPlanRequestDTO vasPaymentPlanRequestDTO,String token) {
 
         try {
             Object postBody = vasPaymentPlanRequestDTO;
@@ -298,12 +298,14 @@ public class PaymentPlanClientApi {
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("internal/api/v1/vas/create").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/api/v1/create/vas").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
             HttpHeaders headerParams = new HttpHeaders();
+
+            headerParams.add("Cookie", "token=" + token);
 
             final String[] accepts = {"*/*"};
 
