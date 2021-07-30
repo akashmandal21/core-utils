@@ -14,6 +14,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class ServicePriceDto implements Serializable {
 
+	private String serviceId;
+
 	@Builder.Default
 	@Min(value = 0, message = "service fee cannot be negative")
 	private Double serviceFee = 0.0;
