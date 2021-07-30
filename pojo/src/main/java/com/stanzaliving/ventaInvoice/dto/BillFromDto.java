@@ -28,4 +28,5 @@ public class BillFromDto {
     private String footerMicroMarketName;
     private String footerCityName;
     private String footerZipcode;
+    private String gstCode; //gst state code
 }
