@@ -15,12 +15,12 @@ import java.util.Objects;
  * @date 30/07/21
  */
 @Converter(autoApply = true)
-public class LocalDateToStringAttributeConverter implements AttributeConverter<Date,String> {
+public class DateToStringAttributeConverter implements AttributeConverter<Date,String> {
 
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
     @Override
     public String convertToDatabaseColumn(Date attribute) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         if(Objects.isNull(attribute))
             return null;
         return dateFormat.format(attribute);
@@ -29,7 +29,7 @@ public class LocalDateToStringAttributeConverter implements AttributeConverter<D
     @SneakyThrows
     @Override
     public Date convertToEntityAttribute(String dbData) {
-        Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(dbData);
-        return date1;
+        Date date=dateFormat.parse(dbData);
+        return date;
     }
 }
