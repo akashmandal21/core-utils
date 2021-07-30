@@ -71,4 +71,10 @@ public class BookingAggregationDto {
     private String cityUuid;
     private String microMarketUuid;
     private String paymentTerm;
+   
+    private boolean isRetentionBooking=false;
+    private boolean noLockInSuitsBooking= false;
+    private Date moveInDate;
+    private Date maxMoveInDate;
+ 
 }
