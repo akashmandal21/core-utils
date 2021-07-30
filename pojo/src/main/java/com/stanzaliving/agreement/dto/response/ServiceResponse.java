@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ServiceResponse {
-    private int status;
+    private String referenceUuid;
+    private String agreementStatus;
     private String message;
 }
