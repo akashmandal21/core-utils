@@ -8,6 +8,8 @@ import org.apache.commons.lang3.StringUtils;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.util.function.Supplier;
+
 @Getter
 @ToString(callSuper = true)
 public class ApiValidationException extends RuntimeException {
