@@ -11,7 +11,7 @@ import lombok.Setter;
 @Builder
 public class VasServicesDto{
 
-	private Integer serviceId;
+	private String serviceId;
 	
 	private double serviceCost;
 	
