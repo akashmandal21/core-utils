@@ -12,6 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 public class RoomDetailsResponseDto {
 
+    private String roomUUID;
+
     private String roomNumber;
 
     private String floor;

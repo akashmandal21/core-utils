@@ -76,7 +76,7 @@ public class DealDataControllerApi {
     
 	}
 
-	public ResponseDto<List<Integer>> getAllowedOccupanciesForDealAndResidence(String dealUuid,String residenceUuid) {
+	public ResponseDto<OccupancyResidenceListDto> getAllowedOccupanciesForDealAndResidence(String dealUuid,String residenceUuid) {
 
 			log.info("fetching allowed occupancies for ContactUuid : " + dealUuid);
 
@@ -97,7 +97,7 @@ public class DealDataControllerApi {
 	        };
 	        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-	        ParameterizedTypeReference<ResponseDto<List<Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<List<Integer>>>() {
+	        ParameterizedTypeReference<ResponseDto<OccupancyResidenceListDto>> returnType = new ParameterizedTypeReference<ResponseDto<OccupancyResidenceListDto>>() {
 	        };
 	        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
@@ -229,4 +229,29 @@ public class DealDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, putBody, headerParams, accept, returnType);
     }
+    
+    public ResponseDto<List<String>> getResidenceUuidsForADeal(String dealUuid) {
+
+		log.info("fetching allowed occupancies for ContactUuid : " + dealUuid);
+
+		Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("dealUuid", dealUuid);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/deal/residences/{dealUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+}
 }
