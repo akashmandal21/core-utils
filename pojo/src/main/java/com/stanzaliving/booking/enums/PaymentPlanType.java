@@ -19,7 +19,8 @@ public enum PaymentPlanType {
 	BOOKING("Booking"),
 	ADVANCE_RENTAL("Advance Rental"),
 	INSTALLMENT("Instalment"),
-	DISCOUNT("Discount Adjusted");
+	DISCOUNT("Discount Adjusted"),
+	DAMAGE("Damage");
 
 	private String name;
 }

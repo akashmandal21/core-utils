@@ -14,7 +14,6 @@ import java.util.List;
 @Setter
 @ToString
 public class DocumentResponseDto {
-
     private String uuid;
     private Long id;
     private String stateCode;
@@ -45,4 +44,6 @@ public class DocumentResponseDto {
     private String residentId;
     private String dealName;
     private String dealType;
+    private String dealPostalCode;
+    private List<String> dealResidences;
 }
