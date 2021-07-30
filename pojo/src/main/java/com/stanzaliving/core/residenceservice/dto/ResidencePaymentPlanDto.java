@@ -4,6 +4,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
 
+import com.stanzaliving.booking.enums.PaymentTerm;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,7 +27,7 @@ public class ResidencePaymentPlanDto {
 	private String uuid;
 
 	@NotBlank(message = "payment plan cannot be blank")
-	private String paymentPlan;
+	private PaymentTerm paymentPlan;
 
 	@Enumerated(EnumType.STRING)
 	private String paymentPlanDesc;
