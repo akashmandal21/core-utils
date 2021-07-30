@@ -26,5 +26,6 @@ public class DocumentVersionsDto extends AbstractMongoDto {
 
     private List<ChecklistDTO> checklistDTOList;
 
+    private PdfFileMetaDataDTO pdfMetaData;
 
 }
