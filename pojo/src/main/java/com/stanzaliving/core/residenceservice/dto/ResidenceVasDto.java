@@ -20,7 +20,7 @@ public class ResidenceVasDto {
 	private String globalVasUuid;
 
 	private BillingFrequency billingFrequency;
-
+	private String serviceIcon;
 	private BigDecimal price;
 
 	private BigDecimal gst;
