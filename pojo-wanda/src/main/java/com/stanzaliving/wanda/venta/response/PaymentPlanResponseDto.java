@@ -20,4 +20,6 @@ public class PaymentPlanResponseDto {
     private Boolean isSelected;
     private String view;
     private int upFrontPaymentMonth;
+    @Builder.Default
+    private Double upsell=0d;
 }
