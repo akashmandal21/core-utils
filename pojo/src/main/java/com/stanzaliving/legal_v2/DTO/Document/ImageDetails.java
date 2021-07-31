@@ -14,4 +14,6 @@ public class ImageDetails {
     private int index;
 
     private MultipartFile image;
+
+    private String filePath;
 }
