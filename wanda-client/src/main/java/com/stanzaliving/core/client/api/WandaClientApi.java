@@ -624,6 +624,8 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception e) {
+			
+			log.error(e);
 		}
 
 		return null;
