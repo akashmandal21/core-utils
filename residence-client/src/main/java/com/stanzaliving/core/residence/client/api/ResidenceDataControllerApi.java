@@ -10,6 +10,8 @@ import com.stanzaliving.core.security.helper.SecurityUtils;
 import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.*;
+import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -1046,5 +1048,36 @@ public class ResidenceDataControllerApi {
             return null;
         }
 }
+	
+	
+	 public ResponseDto<AttributesResponseDto> getResidenceAttribute(String residenceUUID,ResidenceAttributes attributeName) {
+
+	        log.info("Residence-Data-Controller::Processing to get attributes for residenceUuid {} and attributeName {}", residenceUUID,attributeName);
+
+	        Map<String, Object> uriVariables = new HashMap();
+
+	        uriVariables.put("residenceUUID", residenceUUID);
+	        uriVariables.put("attributeName", attributeName);
+	        String path = UriComponentsBuilder.fromPath("/internal/booking-attributes/specific/{residenceUUID}").buildAndExpand(uriVariables).toUriString();
+
+	        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+	        queryParams.add("key", attributeName.toString());
+	        HttpHeaders headerParams = new HttpHeaders();
+
+	        String[] accepts = new String[]{"*/*"};
+
+	        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+	        ParameterizedTypeReference<ResponseDto<AttributesResponseDto>> returnType =
+	                new ParameterizedTypeReference<ResponseDto<AttributesResponseDto>>() {
+	                };
+
+	        try {
+	            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+	        } catch (Exception var10) {
+	            log.error("Exception while fetching list of attributes for residenceUuid {}", residenceUUID);
+	            return null;
+	        }
+	    }
 
 }
