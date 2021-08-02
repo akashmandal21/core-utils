@@ -17,4 +17,8 @@ public class MicroClusterResponseDto extends AbstractDto {
     private String microClusterName;
 
     private List<String> residenceIds;
+
+    private String state;
+
+    private String city;
 }

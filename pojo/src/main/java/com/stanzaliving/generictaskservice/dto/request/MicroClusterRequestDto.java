@@ -20,4 +20,12 @@ public class MicroClusterRequestDto {
 
     @NotNull(message = "residenceIds Cannot be blank")
     private List<String> residenceIds;
+
+    @NotBlank(message = "state Cannot be blank")
+    private String state;
+
+    @NotBlank(message = "city Cannot be blank")
+    private String city;
+
+
 }
