@@ -36,4 +36,6 @@ public class KycDocumentDTO {
     private String rejectionReason;
 
     private boolean maxUploadRetriesReached;
+
+    private String message;
 }

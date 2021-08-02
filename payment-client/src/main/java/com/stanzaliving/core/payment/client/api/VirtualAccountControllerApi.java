@@ -7,6 +7,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -46,6 +47,43 @@ public class VirtualAccountControllerApi {
             log.error("Exception while fetching virtual account details with userId",userId);
         }
         return null;
+    }
+
+    public ResponseEntity<Map<String, String>> createVirtualAccountForUser(String firstName, String lastName,
+                                                                           String userCode, String userUuid) {
+
+        try {
+
+            log.info("Creating Virtual Account for User with id:{}",userUuid);
+            Object postBody = null;
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/virtualAccount/create").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            queryParams.add("firstName",firstName);
+            queryParams.add("lastName",lastName);
+            queryParams.add("studentId",userCode);
+            queryParams.add("userId",userUuid);
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseEntity<Map<String, String>>> returnType = new ParameterizedTypeReference<ResponseEntity<Map<String, String>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while creating virtual account for user with id:{} with message:{}",userUuid, e.getMessage());
+        }
+
+        return null;
+
     }
 }
 
