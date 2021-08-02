@@ -537,12 +537,13 @@ public class UserClientApi {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("email", email);
 
-		String path = UriComponentsBuilder.fromPath("/internal/details/by/email/{email}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/details/by").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+		queryParams.add("email", email);
+		
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {
