@@ -1,6 +1,7 @@
 package com.stanzaliving.estate_v2.dto.propertyOnboarding;
 
 import com.stanzaliving.core.dto.AbstractMongoDto;
+import com.stanzaliving.core.user.dto.Address;
 import com.stanzaliving.estate_v2.annotation.constraint.DoubleZeroOrNull;
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
 import lombok.AllArgsConstructor;
@@ -32,7 +33,7 @@ public class PropertyOnboardDto extends AbstractMongoDto {
     private String status;
     @EmptyOrNull(message = "Address cannot be empty or null")
     @Size(max = 200, message = "Address should be less than 200 characters")
-    private String address;
+    private Address address;
     @DoubleZeroOrNull(message = "Latitude cannot be zero or null")
     private Double latitude;
     @DoubleZeroOrNull(message = "Longitude cannot be zero or null")

@@ -1,6 +1,6 @@
 package com.stanzaliving.estate_v2.dto.reviewTemplate;
 
-import com.stanzaliving.estate_v2.dto.propertyOnboarding.PropertyNamingDto;
+import com.stanzaliving.estate_v2.dto.propertyOnboarding.PropertyNameDto;
 import com.stanzaliving.estate_v2.dto.questionTemplate.ApplicableStatusesDto;
 import com.stanzaliving.estate_v2.enumeration.Status;
 import lombok.*;
@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 public class ReviewTemplateResponseDto {
     private String name;
-    private PropertyNamingDto finalName;
+    private PropertyNameDto finalName;
     private String id;
     private String propertyTypeUuid;
     private Status templateStatus;

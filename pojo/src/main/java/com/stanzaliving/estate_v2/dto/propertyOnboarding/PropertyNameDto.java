@@ -10,10 +10,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PropertyNamingDto {
+public class PropertyNameDto {
     private String propertyName;
     private BrandName brandName;
     private SubBrandName subBrandName;
     private GenderAllowed gender;
-    private boolean update;
+    private boolean update=false;
 }
