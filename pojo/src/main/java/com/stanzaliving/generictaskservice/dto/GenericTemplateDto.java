@@ -43,11 +43,11 @@ public class GenericTemplateDto extends AbstractDto {
     private boolean isOverridable;
 
     @NotBlank(message = "Name cannot be empty")
-    private String taskName;
+    private String templateName;
 
     private String description;
 
-    private String entityId;
+    private String entityUUId;
 
     private String entityType;
 
@@ -59,27 +59,27 @@ public class GenericTemplateDto extends AbstractDto {
 
     private String var4;
 
-    private String templateStatus;
+    private String templateStatusUUId;
 
-    private String templateSubStatus;
+    private String templateSubStatusUUId;
 
     private boolean autoTaskCompletion;
 
-    private String autoTaskCompletionEvent;
+    private String autoTaskCompletionEventUUId;
 
-    private String subTaskId;
+    private String parentTaskUUId;
 
     @NotBlank(message = "categoryId cannot be empty")
-    private String categoryId;
+    private String categoryUUId;
 
     @NotBlank(message = "subCategoryId cannot be empty")
-    private String subCategoryId;
+    private String subCategoryUUId;
 
     private List<String> attachments;
 
-    private List<String> dependentantTaskId;
+    private List<String> dependentantTaskUUId;
 
-    private List<String> tags;
+    private List<String> tagsUUId;
 
 }
 

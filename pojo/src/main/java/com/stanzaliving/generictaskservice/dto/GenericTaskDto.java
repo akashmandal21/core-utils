@@ -40,7 +40,7 @@ public class GenericTaskDto extends AbstractDto {
     @NotBlank(message = "Description cannot be empty")
     private String description;
 
-    private String entityId;
+    private String entityUUId;
 
     private String entityType;
 
@@ -53,28 +53,28 @@ public class GenericTaskDto extends AbstractDto {
     private String var4;
 
     @NotBlank(message = "Task Status cannot be empty")
-    private String taskStatus;
+    private String taskStatusUUId;
 
-    private String taskSubStatus;
+    private String taskSubStatusUUId;
 
     private boolean autoTaskCompletion;
 
-    private String autoTaskCompletionEvent;
+    private String autoTaskCompletionEventUUId;
 
     private String parentTaskUUId;
 
     private List<GenericTaskDto> subTasks;
 
     @NotBlank(message = "Category Id cannot be empty")
-    private String categoryId;
+    private String categoryUUId;
 
     @NotBlank(message = "Sub Category Id Name cannot be empty")
-    private String subCategoryId;
+    private String subCategoryUUId;
 
     private List<String> attachments;
 
-    private List<String> dependentantTaskId;
+    private List<String> dependentantTaskUUId;
 
-    private List<String> tags;
+    private List<String> tagsUUId;
 
 }
