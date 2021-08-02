@@ -27,9 +27,9 @@ public final class AppConstants {
 
     public static final String PRODUCT_MIX = "product mix";
 
-    public static final String IDENTIFIER_CODE_ROOM_TEMPLATE = "PMRT";
+    public static final String IDENTIFIER_CODE_ROOM_TEMPLATE = "RT_";
 
-    public static final String IDENTIFIER_CODE_PROPERTY_TEMPLATE = "PMPT";
+    public static final String IDENTIFIER_CODE_PROPERTY_TEMPLATE = "PT_";
 
-    public static final String IDENTIFIER_CODE_PRODUCT_MIX = "PM";
+    public static final String IDENTIFIER_CODE_PRODUCT_MIX = "ProdMix_";
 }
