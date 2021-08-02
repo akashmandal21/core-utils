@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RoomListingFilterDto {
+public class RoomTemplateListingFilterDto {
     private List<LabelValueDto<TemplateStatus>> templateStatus;
 
     private List<LabelValueDto<String>> createdBy;

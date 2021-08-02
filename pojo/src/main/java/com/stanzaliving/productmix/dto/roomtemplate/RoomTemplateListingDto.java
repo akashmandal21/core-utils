@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RoomListingDto {
+public class RoomTemplateListingDto {
     private String templateId;
 
     private String uuid;
@@ -27,9 +27,9 @@ public class RoomListingDto {
 
     private LocalDateTime updatedAt;
 
-    private String approvedBy;
+    private String actionedBy;
 
-    private LocalDateTime approvedAt;
+    private LocalDateTime actionedAt;
 
     private List<String> features;
 
