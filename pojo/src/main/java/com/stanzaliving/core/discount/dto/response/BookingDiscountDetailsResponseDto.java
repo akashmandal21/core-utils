@@ -17,6 +17,8 @@ public class BookingDiscountDetailsResponseDto {
 
     private String strategyUuid;
 
+    private String strategyName;
+
     private List<String> invoicesDateList;
 
     private String description;
