@@ -1,9 +1,32 @@
 package com.stanzaliving.foodservice.client.api;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.food.dto.FoodItemDto;
 import com.stanzaliving.core.food.dto.IngredientUsageDto;
 import com.stanzaliving.core.food.dto.ItemCategoryDto;
 import com.stanzaliving.core.food.dto.ItemSubCategoryDto;
@@ -16,28 +39,8 @@ import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.common.dto.MealDto;
 import com.stanzaliving.food.v2.menu.dto.ResidenceFoodMenuItemIdProjectionDto;
 import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class FoodServiceClientApi {
@@ -634,13 +637,14 @@ public class FoodServiceClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
 	
-	public Map<Object, Object> getFoodItemMap() {
+	//public Map<Object, Object> getFoodItemMap() {
+	public Map<String, FoodItemDto> getFoodItemMap() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/common/item/foodItemMap").build().toUriString();
 
-		TypeReference<ResponseDto<Map<Object, Object>>> returnType = new TypeReference<ResponseDto<Map<Object, Object>>>() {};
+		TypeReference<ResponseDto<Map<String, FoodItemDto>>> returnType = new TypeReference<ResponseDto<Map<String, FoodItemDto>>>() {};
 
-		ResponseDto<Map<Object, Object>> responseDto = null;
+		ResponseDto<Map<String, FoodItemDto>> responseDto = null;
 
 		try {
 
