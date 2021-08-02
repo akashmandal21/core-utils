@@ -3,6 +3,8 @@ package com.stanzaliving.productmix.constants;
 public final class AppConstants {
     public static final String SUCCESS = "SUCCESS";
 
+    public static final String CREATED = "CREATED";
+
     public static final String PROPERTY_TEMPLATE_APPROVE = "approve";
 
     public static final String PROPERTY_TEMPLATE_REJECT = "reject";
