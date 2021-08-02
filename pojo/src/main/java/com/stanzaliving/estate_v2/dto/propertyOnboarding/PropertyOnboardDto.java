@@ -31,8 +31,7 @@ public class PropertyOnboardDto extends AbstractMongoDto {
     private String propertyStatus;
     private String statusDescription;
     private String status;
-    @EmptyOrNull(message = "Address cannot be empty or null")
-    @Size(max = 200, message = "Address should be less than 200 characters")
+
     private Address address;
     @DoubleZeroOrNull(message = "Latitude cannot be zero or null")
     private Double latitude;
