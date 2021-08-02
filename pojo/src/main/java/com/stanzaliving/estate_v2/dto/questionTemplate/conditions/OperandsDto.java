@@ -16,4 +16,5 @@ import java.util.List;
 public class OperandsDto implements Serializable {
     private String key;
     private List<KeyValueDto> value;
+    private String answer;
 }
