@@ -38,4 +38,7 @@ public class BookingMigrationDTO {
 
     @JsonSetter(value = "ACTUAL_CONTRACT_END_DATE")
     private Date actualContractEndDate;
+
+    @JsonSetter(value = "USER_UUID")
+    private String userUuid;
 }
