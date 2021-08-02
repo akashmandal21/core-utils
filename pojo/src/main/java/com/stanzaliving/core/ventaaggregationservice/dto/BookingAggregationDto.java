@@ -76,4 +76,6 @@ public class BookingAggregationDto {
     private Date maxMoveInDate;
     private Date needsAttentionStartTime;
     private Date needsAttentionEndTime;
+    private double pendingAmount;
+    private String paymentMode;
 }
