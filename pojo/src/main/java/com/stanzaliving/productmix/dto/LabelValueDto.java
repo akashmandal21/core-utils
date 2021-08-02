@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -13,9 +13,9 @@ import javax.validation.constraints.NotBlank;
 @Builder
 public class LabelValueDto<T> {
 
-    @NotBlank(message = "Value cannot be blank")
+    @NotNull(message = "Value cannot be null")
     private T value;
 
-    @NotBlank(message = "Label cannot be blank")
+    @NotNull(message = "Label cannot be null")
     private String label;
 }
