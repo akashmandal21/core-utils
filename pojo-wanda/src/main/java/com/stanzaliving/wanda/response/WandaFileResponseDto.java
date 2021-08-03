@@ -35,7 +35,7 @@ public class WandaFileResponseDto {
 
 	private String bookingUuid;
 
-	private boolean verified;
+	private boolean isVerified;
 
 	private String approvalStatus;
 
