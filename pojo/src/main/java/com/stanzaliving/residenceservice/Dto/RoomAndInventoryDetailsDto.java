@@ -1,12 +1,12 @@
 package com.stanzaliving.residenceservice.Dto;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 @Data
 @ToString
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RoomAndInventoryDetailsDto {
 
     float beds;
