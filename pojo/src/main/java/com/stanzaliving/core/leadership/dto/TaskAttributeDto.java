@@ -17,6 +17,7 @@ import lombok.ToString;
 public class TaskAttributeDto {
 
 	private String statusDesc;
+	private String status;
 	private int beds;
 	private Long estateId;
 	private String estateUuid;
