@@ -57,4 +57,6 @@ public class DocumentDTO {
     private boolean maxUploadRetriesReached;
 
     private String message;
+
+    private boolean isActive;
 }
