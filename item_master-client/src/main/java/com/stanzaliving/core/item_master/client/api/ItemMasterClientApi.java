@@ -20,6 +20,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -511,7 +512,7 @@ public class ItemMasterClientApi {
 	}
 
 
-    public ResponseDto<Map<String, Department>> getItemDepartment(List<String> itemUuidList) {
+    public ResponseDto<List<GenericItemDto>> getItemsFromItemIds(FilterDto filterDto) {
 
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -524,12 +525,12 @@ public class ItemMasterClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		String path = UriComponentsBuilder.fromPath("/internal/generic/department/items").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/generic/post/items/getItemsFromItemCodes").buildAndExpand(uriVariables).toUriString();
 
-		ParameterizedTypeReference<ResponseDto<Map<String, Department>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Department>>>() {
+		ParameterizedTypeReference<ResponseDto<List<GenericItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericItemDto>>>() {
 		};
 
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, itemUuidList, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, filterDto, headerParams, accept, returnType);
 
 	}
 }
