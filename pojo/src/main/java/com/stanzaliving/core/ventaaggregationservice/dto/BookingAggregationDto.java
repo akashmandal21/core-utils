@@ -78,4 +78,5 @@ public class BookingAggregationDto {
     private Date needsAttentionEndTime;
     private double pendingAmount;
     private String paymentMode;
+    private String bookingAgreementUrl;
 }

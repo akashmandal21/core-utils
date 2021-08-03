@@ -12,7 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Data
 @Builder
-public class RoomInventoryLogEntity {
+public class RoomInventoryLogDto {
 
     private String inventoryUUID;
 
