@@ -20,4 +20,5 @@ public class DropDownsDto {
     private List<LabelValueDto<ResidenceBrand>> propertyBrand;
 
     private List<LabelValueDto<String>> roomFeatures;
+
 }
