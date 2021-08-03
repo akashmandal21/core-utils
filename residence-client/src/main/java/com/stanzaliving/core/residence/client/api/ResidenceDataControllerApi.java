@@ -987,7 +987,7 @@ public class ResidenceDataControllerApi {
 
     }
 
-    public List<RoomInventoryLogEntity> getInventoryDetails(InventoryDetailsRequestDto inventoryDetailsRequestDto) {
+    public List<RoomInventoryLogDto> getInventoryDetails(InventoryDetailsRequestDto inventoryDetailsRequestDto) {
 
         log.info("Residence-Data-Controller::Processing to get inventory Details{}", inventoryDetailsRequestDto);
 
@@ -1007,7 +1007,7 @@ public class ResidenceDataControllerApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<List<RoomInventoryLogEntity>> returnType = new ParameterizedTypeReference<List<RoomInventoryLogEntity>>() {
+        ParameterizedTypeReference<List<RoomInventoryLogDto>> returnType = new ParameterizedTypeReference<List<RoomInventoryLogDto>>() {
         };
 
         try {
