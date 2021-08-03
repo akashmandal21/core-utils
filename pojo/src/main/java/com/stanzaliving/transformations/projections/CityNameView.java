@@ -14,7 +14,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-@NoArgsConstructor
 public class CityNameView {
 
 	private Long id;

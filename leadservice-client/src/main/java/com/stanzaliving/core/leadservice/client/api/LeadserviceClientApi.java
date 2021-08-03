@@ -325,20 +325,20 @@ public class LeadserviceClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<SearchResponseDto> search(LeadSearchRequestDto leadSearchRequestDto, String token) {
+	public ResponseDto<SearchResponseDto> search(String phoneNumber) {
 
-		log.debug("Lead clienr received {}, token {}", leadSearchRequestDto, token);
-		Object postBody = leadSearchRequestDto;
+		log.debug("Lead client received phone number {}", phoneNumber);
+		Object postBody = null;
 
-		String path = UriComponentsBuilder.fromPath("/lead/search").toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/lead/leadDetail").toUriString();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		final String[] accepts = { "*/*" };
+		queryParams.add("phone", phoneNumber);
 
-		headerParams.add("Cookie", "token=" + token);
+		final String[] accepts = { "*/*" };
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -346,7 +346,7 @@ public class LeadserviceClientApi {
 		};
 
 		try {
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Error while creating the lead {}", e);
 			return null;

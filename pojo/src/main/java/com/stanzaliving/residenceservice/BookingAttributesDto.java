@@ -29,6 +29,8 @@ public class BookingAttributesDto {
 
     private String dataType;
     private String label;
+    private String valueSuffix;
+
 
 
 

@@ -35,10 +35,11 @@ public enum ResidenceAttributes {
 	
     MONTHLY_MULTIPLIER("Monthly Multiplier","Double"),
 	SD_MULTIPLIER("SD Multiplier","Double"),
-	AMC_MULTIPLIER("SD Multiplier","Double"),
+	AMC_MULTIPLIER("AMC Multiplier","Double"),
 	
-	FUTURE_BOOKING_ALLOWED_MONTH("Future Booking Allowed Duration","Integer");
-
+	FUTURE_BOOKING_ALLOWED_MONTH("Future Booking Allowed Duration","Integer"),
+    NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time","String"),
+	CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean");
     private String label;
     private String type;
 
@@ -66,6 +67,7 @@ public enum ResidenceAttributes {
         List<ResidenceAttributes> residenceAttributes = new ArrayList<>();
         residenceAttributes.add(BOOKING_EXPIRY_TIME);
         residenceAttributes.add(NEW_CLOSURE_MIN_TOKEN_AMOUNT);
+        residenceAttributes.add(NEEDS_ATTENTION_EXPIRY_TIME);
         return residenceAttributes;
     }
  }

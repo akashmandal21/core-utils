@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.Map;
 
 @Builder
 @Data
@@ -17,6 +17,7 @@ public class ContractApprovalDto {
     LocalDate fromDate;
     LocalDate toDate;
     String contractUuid;
+    String residenceUuid;
     Object contractStatus;
-    Set<String> roomUuid;
+    Map<String, String> room;
 }

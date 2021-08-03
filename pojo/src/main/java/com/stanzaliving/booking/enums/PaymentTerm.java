@@ -17,6 +17,7 @@ public enum PaymentTerm {
 	TWO_INSTALMENT("TWO INSTALMENT","2 Instalments"),
 	THREE_INSTALMENT("THREE INSTALMENT","3 Instalments"),
 	FOUR_INSTALMENT("FOUR INSTALMENT","4 Instalments"),
+	FIVE_INSTALMENT("FIVE INSTALMENT","5 Instalment"),
 	STAGGERED_MONTHLY("STAGGERED MONTHLY", "Staggered Monthly");
 
 	private String name;
