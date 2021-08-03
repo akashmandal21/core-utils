@@ -21,6 +21,7 @@ public class TaskAttributeDto {
 	private int beds;
 	private Long estateId;
 	private String estateUuid;
+	private String estatePropertyId;
 	private String estateName;
 	private String city;
 	private String micromarket;
