@@ -510,9 +510,70 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams,null,headerParams, accept, returnType);
 	}
 
+	public ResponseDto<Collection<BrandSkuItemDetailDto>> getGlobalItemDetailsByDepartment(Department department) {
 
-    public ResponseDto<Map<String, Department>> getItemDepartment(List<String> itemUuidList) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("department",department);
 
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/generic/get/global-item-details/by/department/{department}").buildAndExpand(uriVariables).toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Collection<BrandSkuItemDetailDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Collection<BrandSkuItemDetailDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams,null,headerParams, accept, returnType);
+	}
+
+	public ResponseDto<Void> removeItemDetailsForDraftLocation(String locationUuid) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("locationUuid",locationUuid);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/generic/remove-item-details-draft-location/{locationUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams,null,headerParams, accept, returnType);
+	}
+
+	public ResponseDto<Void> addItemDetailsForApprovedLocation(Set<String> itemCodes,String locationUuid) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("locationUuid",locationUuid);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/generic/add-item-details-approved-location/{locationUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams,itemCodes,headerParams, accept, returnType);
+	}
+
+	public ResponseDto<Map<String, Department>> getItemDepartment(List<String> itemUuidList) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -530,7 +591,6 @@ public class ItemMasterClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, itemUuidList, headerParams, accept, returnType);
-
 	}
 }
 
