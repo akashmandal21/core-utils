@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.website.request.dto.LeadSearchRequestDto;
+import com.stanzaliving.website.response.dto.SearchResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -320,5 +323,33 @@ public class LeadserviceClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<SearchResponseDto> search(LeadSearchRequestDto leadSearchRequestDto, String token) {
+
+		log.debug("Lead clienr received {}, token {}", leadSearchRequestDto, token);
+		Object postBody = leadSearchRequestDto;
+
+		String path = UriComponentsBuilder.fromPath("/lead/search").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = { "*/*" };
+
+		headerParams.add("Cookie", "token=" + token);
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<SearchResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<SearchResponseDto>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while creating the lead {}", e);
+			return null;
+		}
 	}
 }
