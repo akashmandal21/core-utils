@@ -13,5 +13,5 @@ import lombok.Setter;
 @Builder
 public class SubCategoryDto {
     private String subCategoryUuid;
-    private String subCategoryName;
+    private String categoryName;
 }
