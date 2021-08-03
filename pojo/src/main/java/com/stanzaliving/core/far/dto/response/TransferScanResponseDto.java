@@ -36,4 +36,5 @@ public class TransferScanResponseDto {
     private String locationName;
     private String vendorName;
     private TransferScanStatus message;
+    private String sourceLocationName;
 }
