@@ -26,6 +26,7 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L1_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L1_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L1_APPROVER);
+		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L1);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l2ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
@@ -36,6 +37,7 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L2_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L2_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L2_APPROVER);
+		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L2);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l3ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
@@ -45,17 +47,20 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L3_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L3_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L3_APPROVER);
+		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L3);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l4ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L4_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L4_APPROVER);
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L4_APPROVER);
+		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L4);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l5ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L5_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L5_APPROVER);
+		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L5);
 	}};
 	
 	
