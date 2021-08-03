@@ -22,7 +22,7 @@ public class BookingChargesDto {
 
 	private String bookingId;
 	
-	private PaymentTerm installmentType;
+	private String installmentType;
 	
 	private String couponCode;
 	

@@ -10,17 +10,19 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BillToDto {
-    private String residentId;
+    private String residentUuid;
     private String firstName;
     private String lastName;
     private String addressLine1;
     private String addressLine2;
     private String email;
     private String phoneNumber;
-    private String residenceId;
     private String residenceName;
-    private String cityId;
+    private String cityUuid;
     private String cityName;
-    private String microMarketId;
+    private String microMarketUuid;
     private String microMarketName;
+    private String residenceUuid;
+    private String roomNumber;
+    private String residentPostalCode;
 }

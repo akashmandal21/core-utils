@@ -68,6 +68,7 @@ public enum ResidenceAttributes {
         List<ResidenceAttributes> residenceAttributes = new ArrayList<>();
         residenceAttributes.add(BOOKING_EXPIRY_TIME);
         residenceAttributes.add(NEW_CLOSURE_MIN_TOKEN_AMOUNT);
+        residenceAttributes.add(NEEDS_ATTENTION_EXPIRY_TIME);
         return residenceAttributes;
     }
  }

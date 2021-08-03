@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.response;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.stanzaliving.core.payment.enums.PaymentMode;
@@ -19,8 +20,8 @@ public class PaymentModeResponse {
 	private List<PaymentModeDto> onlinePaymentMode;
 	
 	private List<PaymentModeDto> salesPocPaymentMode;
-	
-	private List<PaymentMode> convenienceFeePaymentModes;
-	    
-	private List<PaymentMode> withoutConvenienceFeePaymentModes;
+	@Builder.Default
+	private List<PaymentMode> convenienceFeePaymentModes=new ArrayList<>();
+	@Builder.Default
+	private List<PaymentMode> withoutConvenienceFeePaymentModes=new ArrayList<>();;
 }

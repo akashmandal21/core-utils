@@ -1,7 +1,5 @@
 package com.stanzaliving.core.residenceservice.dto;
 
-import java.math.BigDecimal;
-
 import com.stanzaliving.core.residenceservice.enums.BillingFrequency;
 
 import lombok.AllArgsConstructor;
@@ -16,14 +14,18 @@ import lombok.NoArgsConstructor;
 public class ResidenceVasDto {
 	private String residenceUuid;
 	private String name;
-
 	private String globalVasUuid;
 
 	private BillingFrequency billingFrequency;
 	private String serviceIcon;
-	private BigDecimal price;
-
-	private BigDecimal gst;
-	private BigDecimal totalAmount;
+	private Double price;
+	private Double totalAmount;
+	@Builder.Default
+	private Double cgst = 0.0;
+    @Builder.Default
+	private Double sgst = 0.0;
+    @Builder.Default
+	private Double igst = 0.0;
+    
 
 }
