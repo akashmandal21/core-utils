@@ -23,6 +23,7 @@ public class ReviewTemplateDto {
     private boolean bedCountDetailsVisible;
     private boolean salesReviewVisible;
     private boolean propertyNaming;
+    private boolean atlDocumentVisible;
     private List<OtherInformationDto> otherInformation;
     private List<LayoutDto> layouts;
 }
