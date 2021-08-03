@@ -38,7 +38,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
 
 		String exceptionId = getExceptionId();

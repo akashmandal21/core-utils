@@ -36,5 +36,9 @@ public class WandaFileResponseDto {
 	private String bookingUuid;
 	
 	private boolean isVerified;
+
+	private String bucketName;
+
+	private String documentUUID;
 	
 }
