@@ -1019,5 +1019,39 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
+
+    public RoomDetailsResponseDto getRoomByNumber(String roomNumber) {
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("roomNumber", roomNumber);
+
+        String path = UriComponentsBuilder.fromPath("/internal/room/{roomNumber}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String tokenValue = SecurityConstants.TOKEN_HEADER_NAME + "=" + SecurityUtils.getCurrentUserToken();
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME,tokenValue);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<RoomDetailsResponseDto> returnType =
+                new ParameterizedTypeReference<RoomDetailsResponseDto>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching room details for room {} ", roomNumber);
+            return null;
+        }
+
+    }
+
+
+
 }
 
