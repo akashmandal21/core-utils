@@ -511,5 +511,28 @@ public class ItemMasterClientApi {
 	}
 
 
+    public ResponseDto<Map<String, Department>> getItemUuidDeapartment() {
+
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		String path = UriComponentsBuilder.fromPath("/internal/generic/get/itemUuid/department").buildAndExpand(uriVariables).toUriString();
+
+		ParameterizedTypeReference<ResponseDto<Map<String, Department>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Department>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+
+
+	}
 }
 
