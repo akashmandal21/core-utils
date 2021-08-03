@@ -9,6 +9,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString(callSuper = true)
@@ -16,9 +18,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class InvoiceSearchDto extends AbstractDto {
-
     private String searchKeyword;
-
     private PageAndSortDto pageDto;
-
+    private List<String> cityIds;
+    private List<String> micromarketIds;
+    private List<String> residenceIds;
 }
