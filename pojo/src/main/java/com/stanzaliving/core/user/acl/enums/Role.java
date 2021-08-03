@@ -24,10 +24,10 @@ public enum Role {
     COUNTRY_LEAD_MANAGER("COUNTRY_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES),
 
     /*******************************Support service - Template Management*******************************/
-    SUPPORT_TEMPLATE_APPROVAL_L1("SUPPORT_TEMPLATE_APPROVAL_L1", AccessLevel.RESIDENCE, Department.CX),
-    SUPPORT_TEMPLATE_APPROVAL_L2("SUPPORT_TEMPLATE_APPROVAL_L2", AccessLevel.CITY, Department.CX),
-    SUPPORT_TEMPLATE_APPROVAL_L3("SUPPORT_TEMPLATE_APPROVAL_L3", AccessLevel.MICROMARKET, Department.CX),
-    SUPPORT_TEMPLATE_APPROVAL_L4("SUPPORT_TEMPLATE_APPROVAL_L4", AccessLevel.REGION, Department.CX),
+    SUPPORT_TEMPLATE_APPROVAL_L1("SUPPORT_TEMPLATE_APPROVAL_L1", AccessLevel.COUNTRY, Department.CX),
+    SUPPORT_TEMPLATE_APPROVAL_L2("SUPPORT_TEMPLATE_APPROVAL_L2", AccessLevel.COUNTRY, Department.CX),
+    SUPPORT_TEMPLATE_APPROVAL_L3("SUPPORT_TEMPLATE_APPROVAL_L3", AccessLevel.COUNTRY, Department.CX),
+    SUPPORT_TEMPLATE_APPROVAL_L4("SUPPORT_TEMPLATE_APPROVAL_L4", AccessLevel.COUNTRY, Department.CX),
     SUPPORT_TEMPLATE_APPROVAL_L5("SUPPORT_TEMPLATE_APPROVAL_L5", AccessLevel.COUNTRY, Department.CX),
 
     /************************************ OPS ************************************/
