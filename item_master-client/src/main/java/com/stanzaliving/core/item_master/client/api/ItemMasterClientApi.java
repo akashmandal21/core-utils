@@ -511,7 +511,7 @@ public class ItemMasterClientApi {
 	}
 
 
-    public ResponseDto<Map<String, Department>> getItemUuidDeapartment() {
+    public ResponseDto<Map<String, Department>> getItemDepartment(List<String> itemUuidList) {
 
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -524,14 +524,12 @@ public class ItemMasterClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		String path = UriComponentsBuilder.fromPath("/internal/generic/get/itemUuid/department").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/generic/department/items").buildAndExpand(uriVariables).toUriString();
 
 		ParameterizedTypeReference<ResponseDto<Map<String, Department>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Department>>>() {
 		};
 
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-
-
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, itemUuidList, headerParams, accept, returnType);
 
 	}
 }
