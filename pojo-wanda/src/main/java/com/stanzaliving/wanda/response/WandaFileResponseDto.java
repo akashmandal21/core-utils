@@ -35,10 +35,13 @@ public class WandaFileResponseDto {
 	
 	private String bookingUuid;
 	
+	@Deprecated
 	private boolean isVerified;
 
 	private String bucketName;
 
 	private String documentUUID;
+	
+	private boolean verified;
 	
 }
