@@ -26,7 +26,6 @@
 			<artifactId>pojo</artifactId>
 			<version>${global.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.stanzaliving.core</groupId>
 			<artifactId>pojo-wanda</artifactId>
