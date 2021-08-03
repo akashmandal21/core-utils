@@ -31,6 +31,8 @@ public class VasServicesDto{
 	
 	private String bgColor;
 	
+	private boolean enabled;
+	
 	private Double price;
 	@Builder.Default
 	private Double cgst = 0.0;

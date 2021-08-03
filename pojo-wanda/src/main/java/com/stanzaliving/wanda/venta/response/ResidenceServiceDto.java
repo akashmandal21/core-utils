@@ -27,7 +27,7 @@ public class ResidenceServiceDto {
 	private Double sgst = 0.0;
 	@Builder.Default
 	private Double igst = 0.0;
-	private Boolean enabled;
+	private boolean enabled;
 	private String serviceId;
 	private String serviceImage;
 	private String description;
