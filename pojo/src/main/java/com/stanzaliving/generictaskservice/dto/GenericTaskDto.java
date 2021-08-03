@@ -71,10 +71,11 @@ public class GenericTaskDto extends AbstractDto {
     @NotBlank(message = "Sub Category Id Name cannot be empty")
     private String subCategoryUUId;
 
-    private List<String> attachments;
+    private List<String> attachmentsList;
 
-    private List<String> dependentantTaskUUId;
+    private List<String> dependentantTaskUUIdList;
 
-    private List<String> tagsUUId;
+    private List<String> tagsUUIdList;
+
 
 }
