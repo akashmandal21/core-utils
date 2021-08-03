@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.Builder.Default;
 
 @Builder
 @Getter
@@ -35,4 +36,7 @@ public class InterestDto extends AbstractDto {
 	private Integer totalCategory;
 	
 	private List<InterestCategoryDto> categoryDtos;
+	
+	@Default
+	private Boolean isSelected = false;
 }
