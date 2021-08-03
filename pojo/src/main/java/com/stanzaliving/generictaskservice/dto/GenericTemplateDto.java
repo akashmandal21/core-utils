@@ -77,7 +77,7 @@ public class GenericTemplateDto extends AbstractDto {
 
     private List<String> attachmentsList;
 
-    private List<String> dependentantTaskUUIdList;
+    private List<String> dependentTaskUUIdList;
 
     private List<String> tagsUUIdList;
 
