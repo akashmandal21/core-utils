@@ -12,6 +12,8 @@ import java.util.List;
 public class BookingDiscountDetailsResponseDto {
 
     private double discountAmount;
+    
+    private double oldDiscountAmount;
 
     private String discountCode;
 
