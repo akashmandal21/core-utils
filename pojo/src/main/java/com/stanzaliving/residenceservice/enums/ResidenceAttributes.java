@@ -37,7 +37,7 @@ public enum ResidenceAttributes {
 	SD_MULTIPLIER("SD Multiplier","Double"),
 	AMC_MULTIPLIER("AMC Multiplier","Double"),
 	
-	FUTURE_BOOKING_ALLOWED_MONTH("Future Booking Allowed Duration","Integer"),
+	FUTURE_BOOKING_ALLOWED_DAYS("Future Booking Allowed Duration","Integer"),
     NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time","String"),
     CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean");
 
