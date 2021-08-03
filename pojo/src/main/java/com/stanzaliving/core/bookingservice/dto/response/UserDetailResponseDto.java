@@ -29,4 +29,5 @@ public class UserDetailResponseDto {
 	private String firstName;
 	private String lastName;
 	private String birthday;
+	private String gender;
 }
