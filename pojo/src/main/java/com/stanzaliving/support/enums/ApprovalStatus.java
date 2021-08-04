@@ -32,17 +32,15 @@ public enum ApprovalStatus {
     private String textColorCode;
     private String responseMessage;
 
-    private static final Map<ApprovalStatus, String> statusMap = new HashMap<>();
+    private static final Map<String, ApprovalStatus> map = new HashMap<>();
 
     static {
         for (ApprovalStatus approvalStatus : ApprovalStatus.values()) {
-            statusMap.put(approvalStatus, approvalStatus.getStatus());
+            map.put(approvalStatus.status, approvalStatus);
         }
     }
 
-
-
-    public static Map<ApprovalStatus, String> getStatusMap() {
-        return statusMap;
+    public static ApprovalStatus enumOf(String approvalStatus) {
+        return map.get(approvalStatus);
     }
 }
