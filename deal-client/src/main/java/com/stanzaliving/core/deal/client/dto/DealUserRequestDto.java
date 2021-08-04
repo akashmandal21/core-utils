@@ -27,6 +27,8 @@ public class DealUserRequestDto {
 	private Date expectedMoveInDate;
 	
 	private Date expectedMoveOutDate;
+
+	private Date actualMovedOutDate;
 	
 	private UserStatusType userStatusType;
 	
