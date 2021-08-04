@@ -29,6 +29,8 @@ public class OrderItemGrammageDto {
 
 	private String itemName;
 
+	private boolean additive;
+
 	@Builder.Default
 	private Integer stdQty = 0;
 
