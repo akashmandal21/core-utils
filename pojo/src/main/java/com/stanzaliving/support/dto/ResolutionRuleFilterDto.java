@@ -12,7 +12,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRuleFilterDto {
-    private List<String> subCategoryUuid;
-    private List<String> locationReferenceUuid;
+    private List<String> primaryReferenceUuid;
+    private List<String> referenceUuid;
+    private List<String> createdBy;
+    private List<String> lastUpdatedBy;
+    private Boolean isActive;
+    /*
+    * true for active
+    * false for inactive
+    * null for all
+    * */
 
 }

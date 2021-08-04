@@ -21,8 +21,7 @@ public class ResolutionRuleDto {
     private Long firstResponseIn;
     private Long resolutionIn;
     private Boolean isEscalation;
-    private Long escalationIn;
-    private String escalateToRole;
+    private String escalateTo;
     private Integer sequence;
 
 }
