@@ -693,4 +693,39 @@ public class WandaClientApi {
 		return null;
 
 	}
+
+
+	public WandaResponse<OnBoardingGetResponse> getOnBoardingDetails(String userId) {
+
+		try {
+			Object postBody = null;
+
+			log.info("get User details by userUuid is {} ", userId);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			uriVariables.put("userId", userId);
+
+			String path = UriComponentsBuilder.fromPath("/internal/get/onboarding/details/{userId}").buildAndExpand(uriVariables)
+					.toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {"*/*"};
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>> returnType = new ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("error while fetching the user details " + e);
+		}
+
+		return null;
+
+	}
 }
