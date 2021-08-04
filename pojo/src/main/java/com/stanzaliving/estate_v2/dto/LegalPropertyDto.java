@@ -1,16 +1,7 @@
 package com.stanzaliving.estate_v2.dto;
 
 import com.stanzaliving.core.dto.AbstractMongoDto;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
