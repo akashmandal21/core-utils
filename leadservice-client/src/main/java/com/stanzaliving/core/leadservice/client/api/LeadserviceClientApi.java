@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.website.request.dto.LeadSearchRequestDto;
+import com.stanzaliving.website.response.dto.LeadDetailEntity;
 import com.stanzaliving.website.response.dto.SearchResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -111,8 +112,8 @@ public class LeadserviceClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("form", formInterface);
 
+		final HttpHeaders headLeadDetailEntityerParams = new HttpHeaders();
 		final HttpHeaders headerParams = new HttpHeaders();
-
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -325,7 +326,7 @@ public class LeadserviceClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<SearchResponseDto> search(String phoneNumber) {
+	public ResponseDto<LeadDetailEntity> search(String phoneNumber) {
 
 		log.debug("Lead client received phone number {}", phoneNumber);
 		Object postBody = null;
@@ -342,7 +343,7 @@ public class LeadserviceClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<SearchResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<SearchResponseDto>>() {
+		ParameterizedTypeReference<ResponseDto<LeadDetailEntity>> returnType = new ParameterizedTypeReference<ResponseDto<LeadDetailEntity>>() {
 		};
 
 		try {
