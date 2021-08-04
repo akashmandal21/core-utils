@@ -14,4 +14,6 @@ public class QRCodeDetails {
 
     private String qrCode;
 
+    private String filePath;
+
 }
