@@ -39,6 +39,6 @@ public class WandaFileResponseDto {
 
 	private String bucketName;
 
-	private String documentUUID;
+	private String documentUuid;
 	
 }
