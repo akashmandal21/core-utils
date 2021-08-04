@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.stanzaliving.core.food.dto;
+package com.stanzaliving.food.v2.common.dto;
 
 import java.io.Serializable;
 
