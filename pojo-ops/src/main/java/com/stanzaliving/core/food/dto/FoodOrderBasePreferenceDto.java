@@ -5,6 +5,7 @@ import com.stanzaliving.core.food.dto.request.OrderItemGrammageDto;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -50,7 +52,8 @@ public class FoodOrderBasePreferenceDto {
 
 	private List<AdditionalItemsRequestDto> additionalItemsDtos;
 
-	private List<OrderItemGrammageDto> buffetItems;
+	@Builder.Default
+	private List<OrderItemGrammageDto> buffetItems = new ArrayList<>();
 	
 	private String thaliId;
 
