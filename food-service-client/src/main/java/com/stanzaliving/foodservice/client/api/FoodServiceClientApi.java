@@ -587,7 +587,7 @@ public class FoodServiceClientApi {
 				: new HashMap<>();
 
 	}
-
+	
 	public List<ResidenceMenuDto> findByResidenceIdAndMenuDateBetween(String residenceId, LocalDate startDate, LocalDate endDate){
 
 		String path = UriComponentsBuilder.fromPath("/internal/residence/food/menu/dateBetween").build().toUriString();

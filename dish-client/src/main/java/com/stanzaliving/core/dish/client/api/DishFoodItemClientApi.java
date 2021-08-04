@@ -2,9 +2,7 @@ package com.stanzaliving.core.dish.client.api;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 import javax.servlet.http.HttpServletResponse;
@@ -23,17 +21,14 @@ import com.stanzaliving.core.dto.KeyValuePairDto;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.food.dto.DishRecipeDetailsDto;
 import com.stanzaliving.core.food.dto.FoodItemDto;
-import com.stanzaliving.core.food.dto.ItemCategoryDto;
-import com.stanzaliving.core.food.dto.ItemSubCategoryCountDto;
-import com.stanzaliving.core.food.dto.ItemSubCategoryDto;
+import com.stanzaliving.core.food.dto.FoodItemQuantityCombinationDto;
 import com.stanzaliving.core.food.dto.RecipePriceCalculatorPDto;
 import com.stanzaliving.core.food.dto.request.FoodItemAddRequestDto;
 import com.stanzaliving.core.food.dto.request.FoodItemUpdateRequestDto;
 import com.stanzaliving.core.food.dto.response.CategoryWiseMealItems;
 import com.stanzaliving.core.food.dto.response.FoodItemSearchDataCountDto;
 import com.stanzaliving.core.food.dto.response.FoodItemSearchLightResponseDto;
-import com.stanzaliving.core.food.dto.response.ItemCategoryCountDto;
-import com.stanzaliving.core.food.dto.response.MealItemCategoryCountDto;
+import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.food.enums.FoodServeType;
@@ -61,6 +56,7 @@ public class DishFoodItemClientApi {
 	public DishFoodItemClientApi(StanzaRestClient stanzaRestClient) {
 		this.restClient = stanzaRestClient;
 	}
+	
 
 	public FoodItemDto addFoodItem(FoodItemAddRequestDto itemAddRequestDto) {
 
@@ -311,111 +307,7 @@ public class DishFoodItemClientApi {
 		
 	}
 	
-	public List<MealItemCategoryCountDto> getItemCategoryCountByMeal() {
 
-		String path = UriComponentsBuilder.fromPath("/internal/item/meal/category/count").build().toUriString();
-
-		TypeReference<ResponseDto<List<MealItemCategoryCountDto>>> returnType = new TypeReference<ResponseDto<List<MealItemCategoryCountDto>>>() {
-		};
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		ResponseDto<List<MealItemCategoryCountDto>> responseDto = null;
-
-		try {
-			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
-		} catch (Exception e) {
-			log.error("Error while geting category wise item listing for meal", e);
-		}
-
-		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new ArrayList<>();
-
-	}
-	
-	public List<ItemCategoryCountDto> getItemCategoryCount() {
-
-		String path = UriComponentsBuilder.fromPath("/internal/item/category/count").build().toUriString();
-
-		TypeReference<ResponseDto<List<ItemCategoryCountDto>>> returnType = new TypeReference<ResponseDto<List<ItemCategoryCountDto>>>() {
-		};
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		ResponseDto<List<ItemCategoryCountDto>> responseDto = null;
-
-		try {
-			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
-		} catch (Exception e) {
-			log.error("Error while geting item category count", e);
-		}
-
-		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new ArrayList<>();
-
-	}
-	
-	
-	public List<ItemSubCategoryCountDto> getItemSubCategoryCount() {
-
-		String path = UriComponentsBuilder.fromPath("/internal/item/subcategory/count").build().toUriString();
-
-		TypeReference<ResponseDto<List<ItemSubCategoryCountDto>>> returnType = new TypeReference<ResponseDto<List<ItemSubCategoryCountDto>>>() {
-		};
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		ResponseDto<List<ItemSubCategoryCountDto>> responseDto = null;
-
-		try {
-			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
-		} catch (Exception e) {
-			log.error("Error while geting item subcategory count", e);
-		}
-
-		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new ArrayList<>();
-
-	}
-	
-	public Map<String, ItemCategoryDto> getItemCategory(Collection<String> categories) {
-
-		String path = UriComponentsBuilder.fromPath("/internal/food/item/integration/category").build().toUriString();
-
-		TypeReference<ResponseDto<Map<String, ItemCategoryDto>>> returnType = new TypeReference<ResponseDto<Map<String, ItemCategoryDto>>>() {
-		};
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		ResponseDto<Map<String, ItemCategoryDto>> responseDto = null;
-
-		try {
-			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
-		} catch (Exception e) {
-			log.error("Error while geting item category count", e);
-		}
-
-		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashMap<>();
-
-	}
-	
-	public Map<String, ItemSubCategoryDto> getSubCategory(Collection<String> categories) {
-
-		String path = UriComponentsBuilder.fromPath("/internal/food/item/integration/subcategory").build().toUriString();
-
-		TypeReference<ResponseDto< Map<String, ItemSubCategoryDto>>> returnType = new TypeReference<ResponseDto<Map<String, ItemSubCategoryDto>>>() {
-		};
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		ResponseDto<Map<String, ItemSubCategoryDto>> responseDto = null;
-
-		try {
-			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
-		} catch (Exception e) {
-			log.error("Error while geting item category count", e);
-		}
-
-		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashMap<>();
-
-	}
 	
 	
 	public Long tagCountByStatus(Boolean status) {
@@ -568,6 +460,42 @@ public class DishFoodItemClientApi {
 		}
 
 	}
+	
+	
+	public List<FoodItemQuantityCombinationDto> getItemsQuantitiesForCombination(MenuCategoryType menuCategoryType,
+			ResidenceBrand residenceBrand, FoodRegion foodRegion, FoodServeType foodServeType, MealType mealType,
+			FoodItemBasePreference preference, GrammageHeavynessLevel grammageHeavynessLevel,
+			Collection<String> itemIds) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/quantity/list").build().toUriString();
+
+		TypeReference<ResponseDto<List<FoodItemQuantityCombinationDto>>> returnType = new TypeReference<ResponseDto<List<FoodItemQuantityCombinationDto>>>() {
+		};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("menuCategoryType", menuCategoryType.toString());
+		queryParams.add("residenceBrand", residenceBrand.toString());
+		queryParams.add("foodRegion", foodRegion.toString());
+		queryParams.add("foodServeType", foodServeType.toString());
+		queryParams.add("mealType", mealType.toString());
+		queryParams.add("preference", preference.toString());
+		queryParams.add("grammageHeavynessLevel", grammageHeavynessLevel.toString());
+		
+		ResponseDto<List<FoodItemQuantityCombinationDto>> responseDto = null;
+
+		try {
+			responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while calculating recipe price", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+
+	}
+	
+	
+	
+	
 
 }
 

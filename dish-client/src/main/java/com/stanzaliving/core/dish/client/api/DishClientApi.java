@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 import org.apache.commons.collections.MapUtils;
 import org.springframework.http.MediaType;
@@ -119,5 +120,28 @@ public class DishClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 		
 	}
+	
+	public Map<String, String> getImageUrl(Set<String> itemIds) {
+		
+		String path = UriComponentsBuilder.fromPath("/internal/dish/imageUrlMap").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, String>>> returnType = new TypeReference<ResponseDto<Map<String, String>>>() {};
+
+		
+		ResponseDto<Map<String, String>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, null, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting imageUrlMap", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && MapUtils.isNotEmpty(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
+	}
+	
 }
 
