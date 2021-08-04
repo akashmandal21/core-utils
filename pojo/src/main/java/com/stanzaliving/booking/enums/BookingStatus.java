@@ -4,10 +4,7 @@ package com.stanzaliving.booking.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @AllArgsConstructor
@@ -172,4 +169,21 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static Map<String , BookingStatus> getBookingStatusList(){
+        Map<String, BookingStatus> bookingStatusMap = new HashMap<>();
+        for(BookingStatus bookingStatus : BookingStatus.values()){
+            bookingStatusMap.put(bookingStatus.getBookingStatus() , bookingStatus);
+        }
+        bookingStatusMap.put("AUTO CANCELLED", BookingStatus.CONTRACT_COMPLETED);
+        bookingStatusMap.put("AWAITING CONFIRMATION", BookingStatus.AGREEMENT_PENDING);
+        bookingStatusMap.put("PAYMENT RESENT", BookingStatus.PAYMENT_PENDING);
+        bookingStatusMap.put("REFUND INITIATED", BookingStatus.CONTRACT_COMPLETED);
+        return bookingStatusMap;
+    }
+
+    public static BookingStatus getBookingStatus(String bookingStatus){
+        Map<String, BookingStatus> bookingStatusMap = getBookingStatusList();
+        if(bookingStatusMap.containsKey(bookingStatus)) return bookingStatusMap.get(bookingStatus);
+        else return null;
+    }
 }

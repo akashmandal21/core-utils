@@ -1055,10 +1055,12 @@ public class ResidenceDataControllerApi {
 
     public RoomAndInventoryDetailsDto getRoomAndInventoryDetails(String roomUuid,String inventoryUuid) {
 
+        log.info("Room-Controller::Processing to fetch room and inventory details for room {} ", roomUuid);
+
         Map<String, Object> uriVariables = new HashMap<>();
 
         uriVariables.put("roomUuid", roomUuid);
-        uriVariables.put("inventoryUuid", inventoryUuid);
+        uriVariables.put("inventoryUuid",inventoryUuid);
 
         String path = UriComponentsBuilder.fromPath("/internal/room/{roomUuid}/{inventoryUuid}").buildAndExpand(uriVariables).toUriString();
 
@@ -1066,7 +1068,7 @@ public class ResidenceDataControllerApi {
 
         HttpHeaders headerParams = new HttpHeaders();
         String tokenValue = SecurityConstants.TOKEN_HEADER_NAME + "=" + SecurityUtils.getCurrentUserToken();
-        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME,tokenValue);
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenValue);
 
         String[] accepts = new String[]{"*/*"};
 
@@ -1079,7 +1081,7 @@ public class ResidenceDataControllerApi {
         try {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching room details for room {} ", roomUuid);
+            log.error("Exception while fetching room and inventory details for room {} ", roomUuid);
             return null;
         }
     }
@@ -1110,7 +1112,7 @@ public class ResidenceDataControllerApi {
             log.error("Exception while fetching paymentTerm list form residenceUuid {}  ", residenceUuid);
             return null;
         }
-}
+   }
 
 
 	 public ResponseDto<AttributesResponseDto> getResidenceAttribute(String residenceUUID,ResidenceAttributes attributeName) {

@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,8 +17,9 @@ public enum PaymentTerm {
 	TWO_INSTALMENT("TWO INSTALMENT","2 Instalments"),
 	THREE_INSTALMENT("THREE INSTALMENT","3 Instalments"),
 	FOUR_INSTALMENT("FOUR INSTALMENT","4 Instalments"),
-	FIVE_INSTALMENT("FIVE INSTALMENT","5 Instalment");
-	 
+	FIVE_INSTALMENT("FIVE INSTALMENT","5 Instalment"),
+	STAGGERED_MONTHLY("STAGGERED MONTHLY", "Staggered Monthly");
+
 	private String name;
 	private String view;
 
@@ -23,10 +27,19 @@ public enum PaymentTerm {
 		return name;
 	}
 
-	public static String getEnumByString(String code){
-        for(PaymentTerm e : PaymentTerm.values()){
-            if(e.name.equals(code)) return e.name();
-        }
-        return null;
-    }
+	public static Map<String , PaymentTerm> getPaymentTermList(){
+		Map<String, PaymentTerm> paymentTermMap = new HashMap<>();
+		for(PaymentTerm paymentTerm : PaymentTerm.values()){
+			paymentTermMap.put(paymentTerm.getName() , paymentTerm);
+		}
+		return paymentTermMap;
+	}
+
+	public static PaymentTerm getPaymentTerm(String paymentTerm){
+		Map<String, PaymentTerm> paymentTermMap = getPaymentTermList();
+		if("Standard Monthly".equals(paymentTerm)) return PaymentTerm.MONTHLY;
+		if(paymentTermMap.containsKey(paymentTerm)) return paymentTermMap.get(paymentTerm);
+		else return null;
+	}
+
 }
