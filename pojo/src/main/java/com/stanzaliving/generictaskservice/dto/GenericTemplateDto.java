@@ -1,6 +1,7 @@
 package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.taskservice.enums.TaskType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import javax.persistence.Column;
@@ -35,12 +36,11 @@ public class GenericTemplateDto extends AbstractDto {
 
     private String taskOwner;
 
-    @NotBlank(message = "Type cannot be empty")
-    private String type;
+    private TaskType type;
 
     private String priority;
 
-    private boolean isOverridable;
+    private boolean overridable;
 
     @NotBlank(message = "Name cannot be empty")
     private String templateName;
