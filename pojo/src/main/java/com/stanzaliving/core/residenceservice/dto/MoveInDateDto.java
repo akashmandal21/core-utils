@@ -1,6 +1,6 @@
 package com.stanzaliving.core.residenceservice.dto;
 
-import com.stanzaliving.booking.enums.BookingType;
+import com.stanzaliving.core.residenceservice.enums.ResidentType;
 import lombok.*;
 
 import javax.persistence.EnumType;
