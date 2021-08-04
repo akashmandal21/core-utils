@@ -66,7 +66,7 @@ public class BookingAggregationDto {
     private String colorCode;
     private List<BookingTag> bookingTags;
     private Integer tokenAmount;
-    List<EligibleStatusMappingDto> eligibleStatusMapping;
+    private List<EligibleStatusMappingDto> eligibleStatusMapping;
     private String cityUuid;
     private String microMarketUuid;
     private String paymentTerm;
