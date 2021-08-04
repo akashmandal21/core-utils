@@ -28,7 +28,9 @@ public class PropertyTemplateListingFilterDto {
 
     private List<LabelValueDto<ResidenceBrand>> propertyBrand;
 
-    private List<ZonesDto> zones;
+    private List<LabelValueDto<String>> zones;
+
+    private List<LabelValueDto<String>> attributes;
 
     private ApplicableDurationDto applicableDuration;
 
