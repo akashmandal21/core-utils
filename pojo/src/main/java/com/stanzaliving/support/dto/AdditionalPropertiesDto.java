@@ -64,5 +64,6 @@ public class AdditionalPropertiesDto {
     private String roomNumber;
     private String mobile;
     private Date createdAt;
+    private String complaintGroupImage;
     private List<AdditionalPropertiesDto> subTickets;
 }
