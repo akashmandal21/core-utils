@@ -32,4 +32,6 @@ public final class AppConstants {
     public static final String IDENTIFIER_CODE_PROPERTY_TEMPLATE = "PT_";
 
     public static final String IDENTIFIER_CODE_PRODUCT_MIX = "ProdMix_";
+
+    public static final int SINGLE_RECORD = 1;
 }

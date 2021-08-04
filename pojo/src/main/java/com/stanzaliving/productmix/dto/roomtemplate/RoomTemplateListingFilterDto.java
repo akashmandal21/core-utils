@@ -16,6 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class RoomTemplateListingFilterDto {
+    private String uuid;
+
     private List<LabelValueDto<TemplateStatus>> templateStatus;
 
     private List<LabelValueDto<String>> createdBy;

@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.List;
 
@@ -17,6 +18,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class PropertyTemplateListingFilterDto {
+
+    private String uuid;
 
     private List<LabelValueDto<TemplateStatus>> templateStatus;
 
