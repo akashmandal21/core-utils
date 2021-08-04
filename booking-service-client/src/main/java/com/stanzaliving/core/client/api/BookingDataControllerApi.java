@@ -269,7 +269,7 @@ public class BookingDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
-
+    
     public ResponseDto<BookingResponseDto> sendBookingForNeedsAttentionUpdate(BookingNeedsAttentionUpdationDto bookingNeedsAttentionUpdationDto) {
 
         Object postBody = bookingNeedsAttentionUpdationDto;
@@ -292,7 +292,7 @@ public class BookingDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
-
+    
     public ResponseDto<ContractModificationDetailsDto> getContractModificationDetails(String bookingUuid) {
 
         Object postBody = null;
