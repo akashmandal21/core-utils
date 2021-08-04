@@ -40,4 +40,6 @@ public class KycDocumentDTO {
     private String message;
 
     private boolean isActive;
+
+    private boolean allowRejection;
 }

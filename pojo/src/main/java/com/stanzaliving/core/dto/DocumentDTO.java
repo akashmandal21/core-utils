@@ -59,4 +59,6 @@ public class DocumentDTO {
     private String message;
 
     private boolean isActive;
+
+    private boolean allowRejection;
 }
