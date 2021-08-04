@@ -31,6 +31,8 @@ public class FoodOrderDetailDto {
 
 	private String vendorName;
 
+	private Integer mir;
+
 	@NotNull(message = "Veg Pax are mandatory")
 	private Integer vegPax;
 
