@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 public enum PaymentPlanResponseType {
 
     BOOKING("Booking Amount"),
-    INSTALMENT("Instalment");
+    INSTALMENT("Instalment"),
+    VAS("Vas");
 
     private String name;
 }

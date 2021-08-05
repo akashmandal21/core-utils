@@ -28,5 +28,7 @@ public class InstalmentPaymentPlan {
    
 	private String toDate;
 
+	private String executionDate;
+
 	private List<PaymentPlanLineItemResponse> lineItems;
 }

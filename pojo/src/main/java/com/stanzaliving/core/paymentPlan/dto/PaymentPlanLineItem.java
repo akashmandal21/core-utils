@@ -15,6 +15,8 @@ public class PaymentPlanLineItem {
 
     private Long paymentPlanId;
 
+    private Long id;
+
     private LineItemValue lineItemValue;
 
     private Double amount;

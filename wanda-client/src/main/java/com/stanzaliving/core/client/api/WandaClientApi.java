@@ -1,10 +1,6 @@
 package com.stanzaliving.core.client.api;
 
 import com.stanzaliving.core.backend.dto.UserHostelDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.transformations.pojo.ResidenceUIDto;
-import com.stanzaliving.venta.OccupiedRoomDto;
-import com.stanzaliving.wanda.dtos.*;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
@@ -18,6 +14,9 @@ import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
 import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDto;
 import com.stanzaliving.wanda.response.WandaFileResponseDto;
+import com.stanzaliving.wanda.dtos.*;
+import com.stanzaliving.wanda.response.OnBoardingGetResponse;
+import com.stanzaliving.wanda.response.WandaResponse;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -659,36 +658,36 @@ public class WandaClientApi {
 		return response;
 	}
 
-
-	public String getUserCodeByEmail(String email) {
+	public WandaResponse<OnBoardingGetResponse> getOnboardingDetails(String userId, String token) {
 
 		try {
 			Object postBody = null;
 
-			log.info("Inside the request for get userCode {}", email);
+			log.info("get User details by userUuid is {} ", userId);
 
 			final Map<String, Object> uriVariables = new HashMap<>();
 
-			String path = UriComponentsBuilder.fromPath("/coreApi/get/userCode/by/email").buildAndExpand(uriVariables)
+			uriVariables.put("userId", userId);
+
+			String path = UriComponentsBuilder.fromPath("/onboarding/get/details/{userId}").buildAndExpand(uriVariables)
 					.toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			queryParams.add("email", email);
 
-			final HttpHeaders headerParams = new HttpHeaders();
+			HttpHeaders headerParams = new HttpHeaders();
 
-			final String[] accepts = { "*/*" };
+			headerParams.add("Cookie", "token=" + token);
+
+			final String[] accepts = {"*/*"};
 
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-			ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+			ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>> returnType = new ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>>() {
 			};
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
 		} catch (Exception e) {
-			
-			log.error(e);
+			log.error("error while fetching the user details " + e);
 		}
 
 		return null;

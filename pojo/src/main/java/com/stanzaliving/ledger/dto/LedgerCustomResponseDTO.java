@@ -23,4 +23,6 @@ public class LedgerCustomResponseDTO {
     private String metaData;
 
     private Date createdDate;
+
+    private String ledgerType;
 }

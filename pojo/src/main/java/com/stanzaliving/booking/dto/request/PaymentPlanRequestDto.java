@@ -30,14 +30,12 @@ public class PaymentPlanRequestDto implements Serializable {
 	private DiscountRequestDto discount;
 
 	@Builder.Default
-	private boolean isWpBooking = false;
+	private Boolean isWpBooking = false;
 	
 	@Builder.Default
-	private boolean savePaymentPlan = false;
+	private Boolean savePaymentPlan = false;
 
 	@Builder.Default
-	private boolean isModifyContract = false;
-
-
+	private Boolean modifyContract = false;
 
 }
