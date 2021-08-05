@@ -18,6 +18,7 @@ public enum SortSpecs {
     ITEMRATE("itemData.globalRate"),
     RENTALRATE("itemData.rentalRate"),
     STATUS("itemData.itemStatus"),
+    BRAND("itemData.itemBrand.label"),
 
     //RecipeTag Collection
     RECIPETAGNAME("recipeTagName"),
