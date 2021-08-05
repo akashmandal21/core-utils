@@ -1,5 +1,6 @@
 package com.stanzaliving.core.dish.client.api;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -15,6 +16,8 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.enums.IngredientType;
 import com.stanzaliving.core.food.dto.IngredientDto;
 import com.stanzaliving.core.food.dto.IngredientUsageDto;
+import com.stanzaliving.core.food.dto.request.IngredientRequestDto;
+import com.stanzaliving.core.inventory.dto.InventorySummaryUpdate;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -135,7 +138,7 @@ public class IngredientClientApi {
 	}
 
 	
-	public Map<String, IngredientDto> getIngredientMapWithPrice(List<String> ingredients) {
+	public Map<String, IngredientDto> getIngredientMapWithPrice(Collection<String> ingredients) {
 		String path = UriComponentsBuilder.fromPath("/internal/ingredients/details").build().toUriString();
 
 		TypeReference<ResponseDto<Map<String, IngredientDto>>> returnType = new TypeReference<ResponseDto<Map<String, IngredientDto>>>() {};
@@ -152,7 +155,7 @@ public class IngredientClientApi {
 	}
 
 	
-	public Map<String, IngredientDto> getIngredientTagMap(List<String> ingredients, Boolean status) {
+	public Map<String, IngredientDto> getIngredientTagMap(Collection<String> ingredients, Boolean status) {
 		String path = UriComponentsBuilder.fromPath("/internal/ingredients/details").build().toUriString();
 
 		TypeReference<ResponseDto<Map<String, IngredientDto>>> returnType = new TypeReference<ResponseDto<Map<String, IngredientDto>>>() {};
@@ -184,11 +187,8 @@ public class IngredientClientApi {
 		} catch (Exception e) {
 			log.error("Error while reset ingredient price", e);
 		}
-
-		
 	}
 
-	
 	public void resetIngredientByTag(String tag) {
 		String path = UriComponentsBuilder.fromPath("/internal/ingredients/reset/cache/tag").build().toUriString();
 
@@ -201,8 +201,6 @@ public class IngredientClientApi {
 		} catch (Exception e) {
 			log.error("Error while reset ingredient by tag", e);
 		}
-
-		
 	}
 
 	public void storeTagWiseIngredientPrice() {
@@ -239,6 +237,79 @@ public class IngredientClientApi {
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 	}
+	
+	
+	public void updatePrice(InventorySummaryUpdate summaryUpdate) {
+		String path = UriComponentsBuilder.fromPath("/internal/ingredients/updatePrice").build().toUriString();
+
+		TypeReference<ResponseDto<Void>> returnType = new TypeReference<ResponseDto<Void>>() {};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		ResponseDto<Void> responseDto = null;
+		
+		try {
+			restClient.post(path, queryParams, summaryUpdate, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while adding food item", e);
+		}
+	}
+	
+	public void addIngredient(IngredientRequestDto ingredientRequestDto) {
+		String path = UriComponentsBuilder.fromPath("/internal/ingredients/addIngredient").build().toUriString();
+
+		TypeReference<ResponseDto<Void>> returnType = new TypeReference<ResponseDto<Void>>() {};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		ResponseDto<Void> responseDto = null;
+		
+		try {
+			restClient.post(path, queryParams, ingredientRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while adding food item", e);
+		}
+	}
+	
+	
+	public void substituteIngredient(String uuid, String substituteItem) {
+		String path = UriComponentsBuilder.fromPath("/internal/ingredients/substituteIngredient").build().toUriString();
+
+		TypeReference<ResponseDto<IngredientUsageDto>> returnType = new TypeReference<ResponseDto<IngredientUsageDto>>() {};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("uuid", uuid);
+		queryParams.add("substituteItem", substituteItem);
+
+		ResponseDto<IngredientUsageDto> responseDto = null;
+		
+		try {
+			restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while adding food item", e);
+		}
+	}
+	
+	
+	public void updateSearchIndex(Integer fromId, Integer toId) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/ingredients/index").build().toUriString();
+
+		TypeReference<ResponseDto<Void>> returnType = new TypeReference<ResponseDto<Void>>() {};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("fromId", fromId.toString());
+		queryParams.add("toId", toId.toString());
+
+		try {
+			 restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while updating food item", e);
+		}
+
+	}
+	
+	
 	
 	
 }
