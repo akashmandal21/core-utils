@@ -9,5 +9,6 @@ public enum TemplateAction {
     APPROVE,
     REJECT,
     DELETE,
-    MARK_INACTIVE;
+    MARK_INACTIVE,
+    MARK_ACTIVE;
 }
