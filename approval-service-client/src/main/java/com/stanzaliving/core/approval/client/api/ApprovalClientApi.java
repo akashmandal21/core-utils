@@ -1,6 +1,7 @@
 package com.stanzaliving.core.approval.client.api;
 
 import com.stanzaliving.approval.dto.ApprovalListingDto;
+import com.stanzaliving.approval.dto.ApprovalResponseDto;
 import com.stanzaliving.approval.enums.ApprovalEntityType;
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -110,5 +111,33 @@ public class ApprovalClientApi {
             log.error("Error while fetching approval status for email {}", emailId, e);
             return Collections.emptyList();
         }
+    }
+
+    public ResponseDto updateApprovalStatus(ApprovalResponseDto approvalResponseDto, String cookieToken) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        System.out.println("Token in Approval Client APi " + cookieToken);
+
+        String path = UriComponentsBuilder.fromPath("updateApprovalStatus").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        headerParams.add("Cookie", cookieToken);
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {};
+
+        try
+
+            {
+                return restClient.invokeAPI(path, HttpMethod.POST, queryParams, approvalResponseDto, headerParams, accept, returnType);
+            } catch(
+            Exception e)
+
+            {
+                log.error("Error while updating approval status", e);
+            return ResponseDto.failure("Unable to update approval status");
+            }
     }
 }
