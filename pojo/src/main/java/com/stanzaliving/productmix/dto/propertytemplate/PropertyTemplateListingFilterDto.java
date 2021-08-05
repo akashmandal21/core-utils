@@ -1,7 +1,7 @@
 package com.stanzaliving.productmix.dto.propertytemplate;
 
 import com.stanzaliving.core.enums.ResidenceBrand;
-import com.stanzaliving.core.leaddashboard.enums.PropertyTypeEnum;
+import com.stanzaliving.productmix.enums.PropertyTypeEnum;
 import com.stanzaliving.productmix.dto.ApplicableDurationDto;
 import com.stanzaliving.productmix.dto.LabelValueDto;
 import com.stanzaliving.productmix.enums.TemplateStatus;
@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.util.List;
 
@@ -47,5 +46,5 @@ public class PropertyTemplateListingFilterDto {
     private String sortBy = "updatedAt";
 
     @Builder.Default
-    private String sortOrder = "asc";
+    private String sortOrder = "desc";
 }
