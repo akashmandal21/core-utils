@@ -92,6 +92,7 @@ public class FilterDto {
 
     private List<UIKeyValue> recipeTag;
     private List<UIKeyValue> recipeTagUom;
+    private List<UIKeyValue> unitOfMeasurement;
 
     //Sort
     private SortSpecs sortSpecs;
