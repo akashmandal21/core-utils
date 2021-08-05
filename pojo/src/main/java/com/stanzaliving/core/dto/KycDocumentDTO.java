@@ -41,5 +41,4 @@ public class KycDocumentDTO {
 
     private boolean isActive;
 
-    private boolean allowRejection;
 }
