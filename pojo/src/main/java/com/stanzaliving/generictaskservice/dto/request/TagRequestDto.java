@@ -21,4 +21,7 @@ public class TagRequestDto {
     @NotNull(message = "department is mandatory")
     private Department department;
 
+    @NotNull(message = "Tag Category Cannot be blank")
+    private String tagCategory;
+
 }

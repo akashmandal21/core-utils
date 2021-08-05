@@ -16,4 +16,6 @@ public class TagResponseDto extends AbstractDto {
     private String tagName;
 
     private Department department;
+
+    private String tagCategory;
 }
