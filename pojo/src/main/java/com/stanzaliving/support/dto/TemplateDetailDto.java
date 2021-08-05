@@ -27,7 +27,6 @@ public class TemplateDetailDto {
     private ApprovalStatus approvalStatus;
     private String updatedBy;
     private Date updatedAt;
-    private String rejectionReason;
     private TemplateActionDto actions;
 
 }
