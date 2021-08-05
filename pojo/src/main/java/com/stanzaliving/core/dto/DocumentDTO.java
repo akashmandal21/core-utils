@@ -24,6 +24,8 @@ public class DocumentDTO {
 
     private String residentUuid;
 
+    public String residentCode;
+
     private String uploadedBy;
 
     private LocalDate uploadedDate;
