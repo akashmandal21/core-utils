@@ -11,8 +11,10 @@ import java.util.List;
 @AllArgsConstructor
 public class BookingDiscountDetailsResponseDto {
 
-    private double discountAmount;
-    
+    private double discountValueApplied;
+
+    private double discountRequested;
+
     private double oldDiscountAmount;
 
     private String discountCode;
@@ -24,4 +26,7 @@ public class BookingDiscountDetailsResponseDto {
     private List<String> invoicesDateList;
 
     private String description;
+
+    @Builder.Default
+    private Boolean status = Boolean.FALSE;
 }
