@@ -29,13 +29,12 @@ public class OrderItemGrammageDto {
 
 	private String itemName;
 
-	private boolean additive;
-
-	@Builder.Default
-	private Integer stdQty = 0;
-
-	@Builder.Default
-	private Integer stdWeight = 0;
-
 	private FoodItemType itemType;
+
+	@Builder.Default
+	private Integer orderedQty = 0;
+
+	@Builder.Default
+	private Integer orderedWeight = 0;
+
 }
