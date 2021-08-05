@@ -116,8 +116,6 @@ public class ApprovalClientApi {
     public ResponseDto updateApprovalStatus(ApprovalResponseDto approvalResponseDto, String cookieToken) {
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        System.out.println("Token in Approval Client APi " + cookieToken);
-
         String path = UriComponentsBuilder.fromPath("updateApprovalStatus").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         final HttpHeaders headerParams = new HttpHeaders();

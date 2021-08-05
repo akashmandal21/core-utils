@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Builder
 @Data
@@ -13,13 +13,13 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class TemplateActionDto {
     private String l1ActionedBy;
-    private LocalDate l1ActionAt;
+    private Date l1ActionAt;
     private String l2ActionedBy;
-    private LocalDate l2ActionAt;
+    private Date l2ActionAt;
     private String l3ActionedBy;
-    private LocalDate l3ActionAt;
+    private Date l3ActionAt;
     private String l4ActionedBy;
-    private LocalDate l4ActionAt;
+    private Date l4ActionAt;
     private String l5ActionedBy;
-    private LocalDate l5ActionAt;
+    private Date l5ActionAt;
 }
