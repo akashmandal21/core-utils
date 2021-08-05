@@ -1,5 +1,8 @@
 package com.stanzaliving.booking.dto;
 
+import com.stanzaliving.booking.dto.response.BookingCommercialCardDto;
+import com.stanzaliving.booking.dto.response.BookingPackageServiceDto;
+import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
 import com.stanzaliving.booking.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,4 +50,10 @@ public class BookingResponseDto {
     private Double transactionAmount;
 
     private Double bookingAmount;
+
+    private InventoryResponseOccupancyDto inventoryOccupancyDetails;
+
+    private BookingCommercialCardDto bookingCommercialCard;
+
+    private BookingPackageServiceDto bookingPackageService;
 }
