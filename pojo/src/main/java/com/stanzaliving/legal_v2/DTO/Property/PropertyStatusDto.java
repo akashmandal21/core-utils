@@ -17,4 +17,6 @@ public class PropertyStatusDto {
 
     private String propertyId;
     private String propertyStatus;
+    private String propertyUuid;
+    private String statusDescription;
 }
