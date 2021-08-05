@@ -3,7 +3,9 @@ package com.stanzaliving.booking.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 @Getter
@@ -39,4 +41,19 @@ public enum BookingSubStatus {
     public String getDescription() {
         return bookingSubStatus;
     }
+
+    public static Map<String , BookingSubStatus> getBookingSubStatusList(){
+        Map<String, BookingSubStatus> bookingStatusMap = new HashMap<>();
+        for(BookingSubStatus bookingSubStatus : BookingSubStatus.values()){
+            bookingStatusMap.put(bookingSubStatus.bookingSubStatus , bookingSubStatus);
+        }
+        return bookingStatusMap;
+    }
+
+    public static BookingSubStatus getBookingSubStatus(String bookingSubStatus){
+        Map<String, BookingSubStatus> bookingSubStatusMap = getBookingSubStatusList();
+        if(bookingSubStatusMap.containsKey(bookingSubStatus)) return bookingSubStatusMap.get(bookingSubStatusMap);
+        return null;
+    }
+
 }

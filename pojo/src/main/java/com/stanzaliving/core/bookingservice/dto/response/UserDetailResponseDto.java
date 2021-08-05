@@ -30,4 +30,5 @@ public class UserDetailResponseDto {
 	private String lastName;
 	private String birthday;
 	private String gender;
+	private String userUuid;
 }

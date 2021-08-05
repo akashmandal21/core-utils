@@ -753,43 +753,43 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    
-     public CompletableFuture<RoomDetailsResponseDto> getResidenceAmenitie(String roomUUID, String token) {
 
-		log.info("Residence-Data-Controller::Processing to get room details based on roomUUID {}", roomUUID);
+    public CompletableFuture<RoomDetailsResponseDto> getResidenceAmenitie(String roomUUID, String token) {
 
-		if (StringUtils.isBlank(token)) {
-			throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
-		}
+        log.info("Residence-Data-Controller::Processing to get room details based on roomUUID {}", roomUUID);
 
-		Map<String, Object> uriVariables = new HashMap<>();
+        if (StringUtils.isBlank(token)) {
+            throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
+        }
 
-		uriVariables.put("roomUUID", roomUUID);
+        Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/room/{roomUUID}").buildAndExpand(uriVariables).toUriString();
+        uriVariables.put("roomUUID", roomUUID);
 
-		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        String path = UriComponentsBuilder.fromPath("/api/v1/room/{roomUUID}").buildAndExpand(uriVariables).toUriString();
 
-		HttpHeaders headerParams = new HttpHeaders();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		headerParams.add("Cookie", "token=" + token);
+        HttpHeaders headerParams = new HttpHeaders();
 
-		String[] accepts = new String[]{"*/*"};
+        headerParams.add("Cookie", "token=" + token);
 
-		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        String[] accepts = new String[]{"*/*"};
 
-		ParameterizedTypeReference<RoomDetailsResponseDto> returnType =
-				new ParameterizedTypeReference<RoomDetailsResponseDto>() {
-				};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-		try {
-			return CompletableFuture.completedFuture( this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType));
+        ParameterizedTypeReference<RoomDetailsResponseDto> returnType =
+                new ParameterizedTypeReference<RoomDetailsResponseDto>() {
+                };
 
-		} catch (Exception ex) {
-			log.error("Exception while fetching Room Details from roomUuid: {}", roomUUID);
-		}
-		return null;
-	}
+        try {
+            return CompletableFuture.completedFuture(this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType));
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching Room Details from roomUuid: {}", roomUUID);
+        }
+        return null;
+    }
 
     public ResponseDto<String> getOccupancyDetails(int occupancy) {
         log.info("Room-Controller::Processing to fetch occupancy {} details ", occupancy);
@@ -882,44 +882,44 @@ public class ResidenceDataControllerApi {
         }
 
     }
-    
+
     public CompletableFuture<ResponseDto<List<ResidenceVasDto>>> getResidenceVas(String residenceUuid, String token) {
 
-		log.info("Residence-Data-Controller::Processing to get vas details based on residenceUuid {}", residenceUuid);
+        log.info("Residence-Data-Controller::Processing to get vas details based on residenceUuid {}", residenceUuid);
 
-		if (StringUtils.isBlank(token)) {
-			throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
-		}
+        if (StringUtils.isBlank(token)) {
+            throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
+        }
 
-		Map<String, Object> uriVariables = new HashMap<>();
+        Map<String, Object> uriVariables = new HashMap<>();
 
-		uriVariables.put("residenceUuid", residenceUuid);
+        uriVariables.put("residenceUuid", residenceUuid);
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/residence-vas/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/api/v1/residence-vas/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
 
-		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		HttpHeaders headerParams = new HttpHeaders();
+        HttpHeaders headerParams = new HttpHeaders();
 
-		headerParams.add("Cookie", "token=" + token);
+        headerParams.add("Cookie", "token=" + token);
 
-		String[] accepts = new String[]{"*/*"};
+        String[] accepts = new String[]{"*/*"};
 
-		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<List<ResidenceVasDto>> > returnType =
-				new ParameterizedTypeReference<ResponseDto<List<ResidenceVasDto>> >() {
-				};
+        ParameterizedTypeReference<ResponseDto<List<ResidenceVasDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<ResidenceVasDto>>>() {
+                };
 
-		try {
-			return CompletableFuture.completedFuture( this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType));
+        try {
+            return CompletableFuture.completedFuture(this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType));
 
-		} catch (Exception ex) {
-			log.error("Exception while fetching vas Details from residenceUuid: {}", residenceUuid);
-		}
-		return null;
-	}
-    
+        } catch (Exception ex) {
+            log.error("Exception while fetching vas Details from residenceUuid: {}", residenceUuid);
+        }
+        return null;
+    }
+
     public CompletableFuture<ResponseDto<Map<Object, Object>>> fetchPackagedService(String token, String residenceUuid, String serviceMix) {
 
         log.info("Residence-Data-Controller::Processing to fetch Package service properties for residenceUuid {}, service-mix {}", residenceUuid, serviceMix);
@@ -951,7 +951,7 @@ public class ResidenceDataControllerApi {
                 };
 
         try {
-            return CompletableFuture.completedFuture( (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType));
+            return CompletableFuture.completedFuture((ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType));
         } catch (Exception var12) {
             log.error("Exception while fetching packaged service properties for residenceUuid, serviceMix : {} , {}", residenceUuid, serviceMix);
             return null;
@@ -970,7 +970,7 @@ public class ResidenceDataControllerApi {
 
         HttpHeaders headerParams = new HttpHeaders();
         String tokenValue = SecurityConstants.TOKEN_HEADER_NAME + "=" + SecurityUtils.getCurrentUserToken();
-        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME,tokenValue);
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenValue);
 
         String[] accepts = new String[]{"*/*"};
 
@@ -983,13 +983,13 @@ public class ResidenceDataControllerApi {
         try {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching occupancy floor dto for residence uuid {} with message:{} ", residenceUuid,e.getMessage());
+            log.error("Exception while fetching occupancy floor dto for residence uuid {} with message:{} ", residenceUuid, e.getMessage());
             return null;
         }
 
     }
 
-    public List<RoomInventoryLogEntity> getInventoryDetails(InventoryDetailsRequestDto inventoryDetailsRequestDto) {
+    public List<RoomInventoryLogDto> getInventoryDetails(InventoryDetailsRequestDto inventoryDetailsRequestDto) {
 
         log.info("Residence-Data-Controller::Processing to get inventory Details{}", inventoryDetailsRequestDto);
 
@@ -1009,7 +1009,7 @@ public class ResidenceDataControllerApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<List<RoomInventoryLogEntity>> returnType = new ParameterizedTypeReference<List<RoomInventoryLogEntity>>() {
+        ParameterizedTypeReference<List<RoomInventoryLogDto>> returnType = new ParameterizedTypeReference<List<RoomInventoryLogDto>>() {
         };
 
         try {
@@ -1021,8 +1021,73 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
+
+    public RoomDetailsResponseDto getRoomByNumber(String roomNumber) {
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("roomNumber", roomNumber);
+
+        String path = UriComponentsBuilder.fromPath("/internal/room/{roomNumber}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String tokenValue = SecurityConstants.TOKEN_HEADER_NAME + "=" + SecurityUtils.getCurrentUserToken();
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenValue);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<RoomDetailsResponseDto> returnType =
+                new ParameterizedTypeReference<RoomDetailsResponseDto>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching room details for room {} ", roomNumber);
+            return null;
+        }
+
+    }
+
+    public RoomAndInventoryDetailsDto getRoomAndInventoryDetails(String roomUuid, String inventoryUuid) {
+
+        log.info("Room-Controller::Processing to fetch room and inventory details for room {} ", roomUuid);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("roomUuid", roomUuid);
+        uriVariables.put("inventoryUuid", inventoryUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/room/{roomUuid}/{inventoryUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String tokenValue = SecurityConstants.TOKEN_HEADER_NAME + "=" + SecurityUtils.getCurrentUserToken();
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenValue);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<RoomAndInventoryDetailsDto> returnType =
+                new ParameterizedTypeReference<RoomAndInventoryDetailsDto>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching room and inventory details for room {} ", roomUuid);
+            return null;
+        }
+    }
+
 	public List<ResidencePaymentPlanDto> getInstallmentList(String residenceUuid) {
-		
+
 		Map<String, Object> uriVariables = new HashMap();
 
         uriVariables.put("residenceUuid", residenceUuid);
@@ -1047,9 +1112,9 @@ public class ResidenceDataControllerApi {
             log.error("Exception while fetching paymentTerm list form residenceUuid {}  ", residenceUuid);
             return null;
         }
-}
-	
-	
+   }
+
+
 	 public ResponseDto<AttributesResponseDto> getResidenceAttribute(String residenceUUID,ResidenceAttributes attributeName) {
 
 	        log.info("Residence-Data-Controller::Processing to get attributes for residenceUuid {} and attributeName {}", residenceUUID,attributeName);
