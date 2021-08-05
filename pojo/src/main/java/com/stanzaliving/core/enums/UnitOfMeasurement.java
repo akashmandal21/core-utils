@@ -14,7 +14,8 @@ public enum UnitOfMeasurement {
 	LITRE("Ltr"),
 	NUMBER("Nos"),
 	GRAM("gm"),
-	MILI_LITRE("ml");
+	MILI_LITRE("ml"),
+	PCS("pcs");
 
 	private String unitName;
 
