@@ -8,16 +8,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResolutionRuleAddDto {
+public class ReminderRuleAddDto {
     private TicketType ticketType;
     private List<String> primaryReferenceUuid;
     private AccessLevel accessLevel;
     private List<String> referenceUuid;
-    private List<ResolutionRoleDto> resolutionRole;
+    private List<ReminderDetailsDto> reminderDetails;
 
 }
+
 
