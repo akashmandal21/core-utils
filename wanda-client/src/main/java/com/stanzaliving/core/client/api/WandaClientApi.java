@@ -697,6 +697,7 @@ public class WandaClientApi {
 
 	public WandaResponse<OnBoardingGetResponse> getOnBoardingDetails(String userId) {
 
+
 		try {
 			Object postBody = null;
 
@@ -723,6 +724,40 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("error while fetching the user details " + e);
+			}
+
+		return null;
+
+	}
+
+	public String getUserCodeByEmail(String email) {
+
+		try {
+			Object postBody = null;
+			log.info("Inside the request for get userCode {}", email);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/coreApi/get/userCode/by/email").buildAndExpand(uriVariables)
+					.toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			queryParams.add("email", email);
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			
+			log.error(e);
 		}
 
 		return null;
