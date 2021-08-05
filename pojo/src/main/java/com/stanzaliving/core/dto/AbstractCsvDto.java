@@ -5,6 +5,7 @@ import lombok.Data;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.StringEscapeUtils;
 
 import java.util.*;
 
@@ -65,6 +66,11 @@ public abstract class AbstractCsvDto {
             return Double.parseDouble(val);
 
         return null;
+    }
+
+    public static String escapeSpecialCharacters(String inputString) {
+        return StringEscapeUtils.unescapeHtml4(inputString.replace(","," ").replace("\n", " ")
+                .replace("\t", " "));
     }
 
     public static <T extends AbstractCsvDto> List<String[]> prepareResponseCsv(List<T> csvDtos) {

@@ -3,12 +3,18 @@
  */
 package com.stanzaliving.core.transformation.client.api;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.stanzaliving.core.addressbook.AddressBookNameDto;
+import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.core.projectservice.tiles.TileDeciderDto;
+import com.stanzaliving.core.projectservice.tiles.TileStatusDto;
+import com.stanzaliving.transformations.pojo.*;
+import com.stanzaliving.transformations.projections.StanzaGstView;
+import com.stanzaliving.transformations.ui.pojo.Country;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -18,36 +24,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.addressbook.AddressBookNameDto;
-import com.stanzaliving.core.base.common.dto.ListingDto;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.enums.AccessLevel;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.generic.dto.UIKeyValue;
-import com.stanzaliving.core.projectservice.tiles.TileDeciderDto;
-import com.stanzaliving.core.projectservice.tiles.TileStatusDto;
-import com.stanzaliving.transformations.pojo.AddressBookMetaDto;
-import com.stanzaliving.transformations.pojo.CityMetadataDto;
-import com.stanzaliving.transformations.pojo.CityUIDto;
-import com.stanzaliving.transformations.pojo.CityUuidListDto;
-import com.stanzaliving.transformations.pojo.CountryLevelAccessMetadata;
-import com.stanzaliving.transformations.pojo.CountryUIDto;
-import com.stanzaliving.transformations.pojo.FilterAddressDto;
-import com.stanzaliving.transformations.pojo.LocationDto;
-import com.stanzaliving.transformations.pojo.MicroMarketDetailsDto;
-import com.stanzaliving.transformations.pojo.MicroMarketMetadataDto;
-import com.stanzaliving.transformations.pojo.MicroMarketUIDto;
-import com.stanzaliving.transformations.pojo.PropertyBoqStatusDto;
-import com.stanzaliving.transformations.pojo.ResidenceDto;
-import com.stanzaliving.transformations.pojo.ResidenceMetadataDto;
-import com.stanzaliving.transformations.pojo.ResidenceUIDto;
-import com.stanzaliving.transformations.pojo.StateMetadataDto;
-import com.stanzaliving.transformations.pojo.StateUIDto;
-import com.stanzaliving.transformations.pojo.ZoneMetadataDto;
-import com.stanzaliving.transformations.projections.StanzaGstView;
-import com.stanzaliving.transformations.ui.pojo.Country;
-
-import lombok.extern.log4j.Log4j2;
+import java.util.*;
 
 /**
  * @author naveen.kumar
@@ -888,7 +865,7 @@ public class InternalDataControllerApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residenceName", residenceName);
 		String path =
-				UriComponentsBuilder.fromPath("/residence/get")
+				UriComponentsBuilder.fromPath("/internal/residence/get")
 						.buildAndExpand(uriVariables)
 						.toUriString();
 
