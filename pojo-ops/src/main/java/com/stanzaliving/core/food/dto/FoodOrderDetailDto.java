@@ -19,10 +19,10 @@ import java.util.List;
 @AllArgsConstructor
 public class FoodOrderDetailDto {
 
-	private String residenceFoodMenuId;
-
 	private MealType mealType;
+
 	private String mealId;
+
 	private String mealGroup;
 
 	private String mealName;
