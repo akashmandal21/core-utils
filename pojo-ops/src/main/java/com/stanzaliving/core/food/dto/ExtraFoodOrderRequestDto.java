@@ -35,16 +35,13 @@ public class ExtraFoodOrderRequestDto {
 	@NotBlank(message = "Menu Id is mandatory")
 	private String residenceFoodMenuId;
 
-	@NotBlank(message = "Residence Id is Mandatory")
 	private String residenceId;
 
 	@NotBlank(message = "Deal Id is Mandatory")
 	private String dealUuid;
 
-	@NotNull(message = "Meal Type is mandatory")
 	private MealType mealType;
 
-	@NotNull(message = "Menu Date is mandatory")
 	private LocalDate menuDate;
 
 	@NotNull(message = "Veg Pax is mandatory")
