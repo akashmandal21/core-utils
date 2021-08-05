@@ -24,6 +24,12 @@ public class ResidentDocumentMigrationDTO {
     @JsonSetter(value = "created_at")
     private Date uploadedDate;
 
+    @JsonSetter(value = "updated_by")
+    private String updatedBy;
+
+    @JsonSetter(value = "updated_at")
+    private Date updatedDate;
+
     @JsonSetter(value = "user_id")
     private String residentUuid;
 

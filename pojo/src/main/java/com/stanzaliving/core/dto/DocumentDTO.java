@@ -55,4 +55,6 @@ public class DocumentDTO {
     private String metadata;
 
     private boolean maxUploadRetriesReached;
+
+    private String message;
 }

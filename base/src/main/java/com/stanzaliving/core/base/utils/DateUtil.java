@@ -16,7 +16,6 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
@@ -57,7 +56,7 @@ public class DateUtil {
 
 		return null;
 	}
-	
+
 	public String customTimeFormatter(LocalTime timeInput, DateFormat dateFormat) {
 
 		if (timeInput != null) {
@@ -66,7 +65,6 @@ public class DateUtil {
 		}
 		return null;
 	}
-
 
 	public String convertLocalDateTimeToDateFormatString(LocalDateTime localDateTime, DateFormat dateFormat) {
 
@@ -109,8 +107,8 @@ public class DateUtil {
 
 	public Date convertToDate(LocalDateTime localdateTime) {
 		Date date = null;
-		if(Objects.nonNull(localdateTime)) {
-			date =  Date.from(localdateTime.atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant());
+		if (Objects.nonNull(localdateTime)) {
+			date = Date.from(localdateTime.atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant());
 		}
 		return date;
 	}
@@ -206,7 +204,7 @@ public class DateUtil {
 	public LocalDate convertToLocalDate(long timestamp) {
 		return Instant.ofEpochMilli(timestamp).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toLocalDate();
 	}
-	
+
 	public LocalDateTime convertToLocalDateTime(long timestamp) {
 		return Instant.ofEpochMilli(timestamp).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toLocalDateTime();
 	}
@@ -426,10 +424,11 @@ public class DateUtil {
 		return new ArrayList<>(dateList);
 	}
 
-	//when start date equals toDate, this method returns -1, can't be changed now as already used elsewhere
-	//returns negative value if startDate is greater than endDate
-	//use getAbsoluteCountOfDates instead
-	@Deprecated
+	/**
+	 * when start date equals toDate, this method returns -1, can't be changed now as already used elsewhere
+	 * returns negative value if startDate is greater than endDate
+	 * use getAbsoluteCountOfDates instead
+	 */
 	public Integer getCountOfDates(LocalDate startDate, LocalDate endDate) {
 		if (startDate == null || endDate == null) {
 			return 0;
@@ -768,19 +767,19 @@ public class DateUtil {
 		return date.with(TemporalAdjusters.next(day));
 	}
 
-	 public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
-	        Calendar calStart = Calendar.getInstance();
-	        calStart.setTime(fromDate);
-	        Calendar calEnd = Calendar.getInstance();
-	        calEnd.setTime(toDate);
-	        int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
-	        return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
-	    }
-	 
-	 public static long getDifferenceBetweenDates(Date d1, Date d2, String differenceIn) {
-			long diff = d2.getTime() - d1.getTime();
-			long requiredValue;
-			switch (differenceIn) {
+	public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
+		Calendar calStart = Calendar.getInstance();
+		calStart.setTime(fromDate);
+		Calendar calEnd = Calendar.getInstance();
+		calEnd.setTime(toDate);
+		int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
+		return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
+	}
+
+	public static long getDifferenceBetweenDates(Date d1, Date d2, String differenceIn) {
+		long diff = d2.getTime() - d1.getTime();
+		long requiredValue;
+		switch (differenceIn) {
 			case "DAYS":
 				requiredValue = diff / (24 * 60 * 60 * 1000);
 				break;
@@ -794,10 +793,10 @@ public class DateUtil {
 				requiredValue = diff / 1000 % 60;
 			default:
 				requiredValue = 0;
-			}
-			return requiredValue;
 		}
-	 
+		return requiredValue;
+	}
+
 	public String getCurrentDateInSpecificFormat(LocalDate localDate) {
 		int dayOfMonth = localDate.getDayOfMonth();
 		String dayNumberSuffix = getDayNumberSuffix(dayOfMonth);
@@ -868,7 +867,7 @@ public class DateUtil {
 		}
 		for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
 			if (monthYear.equals(customDateFormatter(date, dateFormat))) {
-				count +=1;
+				count += 1;
 			}
 		}
 		return count;
@@ -902,20 +901,14 @@ public class DateUtil {
 	}
 
 	public static double getMonthsBetweenDatesInDouble(LocalDate fromDate, LocalDate toDate) {
-
 		List<String> monthYearList = DateUtil.getListOfMonthYear(fromDate, toDate, DateFormat.MMM_YY2);
 		double monthCount = 0;
-		if(fromDate.getDayOfMonth() != 1 && toDate.isAfter(fromDate) && (fromDate.getDayOfMonth() - 1) == toDate.getDayOfMonth()){
-			monthCount = 1;
-			monthYearList.remove(0);
-			monthYearList.remove(monthYearList.size()-1);
-		}
 		for (String monthYear : monthYearList) {
 			int daysToConsider = DateUtil.getDaysCountInMonthYear(fromDate, toDate, DateFormat.MMM_YY2, monthYear);
 			int daysInMonth = YearMonth.parse(monthYear, DateFormat.MMM_YY2.getDateTimeFormatter()).lengthOfMonth();
 			monthCount += (double) daysToConsider / (double) daysInMonth;
 		}
-		return Math.round(monthCount*100.0)/100.0;
+		return monthCount;
 	}
 
 	public long getHoursBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
@@ -925,106 +918,9 @@ public class DateUtil {
 
 		return getDurationBetween(startDateTime, endDateTime).toHours();
 	}
-	
+
 	public Duration getDurationBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
 		return Duration.between(startDateTime, endDateTime);
-	}
-
-	public String getNextDate(String date) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-		Calendar c = Calendar.getInstance();
-
-		try {
-			c.setTime(sdf.parse(date));
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-		c.add(Calendar.DATE, 1);  // number of days to add
-
-		date = sdf.format(c.getTime());
-
-		return date;
-	}
-
-	public static Date getMaximumTimeOfDate(Date date) {
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(date);
-		cal.set(Calendar.HOUR_OF_DAY, 23);
-		cal.set(Calendar.MINUTE, 59);
-		cal.set(Calendar.SECOND, 59);
-		return cal.getTime();
-	}
-
-	public static Date getCurrentDate() {
-		return getCurrentDate(new Date());
-	}
-
-	public static Date getCurrentDate(Date date) {
-		Calendar calendarInstance = Calendar.getInstance();
-		calendarInstance.setTime(date);
-		calendarInstance.set(Calendar.MINUTE, 00);
-		calendarInstance.set(Calendar.HOUR_OF_DAY,00);
-		calendarInstance.set(Calendar.SECOND,00);
-		Date currentDate = calendarInstance.getTime();
-		return currentDate;
-	}
-
-	public static String ConvertMilliSecondsToFormattedDate(String milliSeconds){
-		String dateFormat = "dd-MM-yyyy hh:mm";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
-		Date result = new Date(milliSeconds);
-		return simpleDateFormat.format(result);
-	}
-
-	public static Period findDifference(Date start_date,
-				   Date end_date)
-	{
-		Period dateDifference
-				= Period
-				.between(start_date.toInstant()
-								.atZone(ZoneId.systemDefault())
-								.toLocalDate(),
-						end_date.toInstant().atZone(ZoneId.systemDefault())
-								.toLocalDate());
-		return dateDifference;
-	}
-
-
-	public static String dateDifferenceInString(Period date){
-		Integer year = date.getYears();
-		Integer month = date.getMonths();
-		Integer days = date.getDays();
-		if(year!=0) month = year*12 + month;
-		String diff = " ";
-        if(month!=0) diff += month == 1 ? month+" month ": month+" months ";
-        if(days!=0) diff += days == 1 ? days+" day": days+" days";
-        return diff;
-	}
-
-	public String calculateDifferenceInMonthAndDate(Date startDate, Date endDate) {
-		Period age = Period.between(DateUtil.convertToLocalDate(startDate),
-				DateUtil.convertToLocalDate(endDate));
-		int months = age.getMonths();
-		int days = age.getDays();
-		String datePeriod = "";
-		if (months != 0)
-			datePeriod += months == 1 ? months + " month " : months + " months ";
-		if (days != 0)
-			datePeriod += days == 1 ? days + " day" : days + " days";
-		return datePeriod;
-	}
-
-	public static Integer calculatePeriod(Period date) {
-		Integer year = date.getYears();
-		Integer month = date.getMonths();
-		Integer days = date.getDays();
-		if(year!=0) month = year*12 + month;
-		if(days > 15){
-			month += 1;
-		}
-		return month;
 	}
 
 	public boolean isBetween(LocalDate checkDate, LocalDate startDate, LocalDate endDate) {
