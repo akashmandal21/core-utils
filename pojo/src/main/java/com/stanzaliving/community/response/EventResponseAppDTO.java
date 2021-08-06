@@ -38,7 +38,7 @@ public class EventResponseAppDTO {
     private List<EventImagesResponseDTO> images;
     private UserListResponseDTO userList;
     private EventFaqResponseDTO faq;
-    private Map stickyNotesAndTags;
+    private Object stickyNotesAndTags;
     private Object isRegistrationOpen;
     private PageResponse<SimilarEventResponseDTO> similarEvents;
     private PageResponse<RegisteredUserResponseDTO> registeredUser;
