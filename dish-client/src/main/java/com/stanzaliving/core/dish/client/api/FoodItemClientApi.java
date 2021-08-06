@@ -27,6 +27,7 @@ import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.food.dto.DishRecipeDetailsDto;
 import com.stanzaliving.core.food.dto.FoodItemDto;
 import com.stanzaliving.core.food.dto.FoodItemRecipeCostDto;
+import com.stanzaliving.core.food.dto.FoodMenuCategoryDto;
 import com.stanzaliving.core.food.dto.MenuItemDto;
 import com.stanzaliving.core.food.dto.RecipePriceCalculatorPDto;
 import com.stanzaliving.core.food.dto.request.FoodItemAddRequestDto;
@@ -45,6 +46,8 @@ import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.food.v2.common.dto.FoodItemFeedbackSuggestionDto;
 import com.stanzaliving.food.v2.common.dto.FoodItemQuantityCombinationDto;
+import com.stanzaliving.food.v2.menu.dto.FoodItemQuantityCombinationRequest;
+import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -677,9 +680,31 @@ public class FoodItemClientApi {
 
 	}
 	
-	
-	
-	
+	public List<FoodItemQuantityCombinationDto> getItemQuantityCombinationForItemsAndMenu(Collection<String> items,
+			ResidenceMenuDto menu, FoodMenuCategoryDto menuCategory) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/quantity/combination/itemQuantityCombinationForItemsAndMenu").build().toUriString();
+
+		TypeReference<ResponseDto<List<FoodItemQuantityCombinationDto>>> returnType = new TypeReference<ResponseDto<List<FoodItemQuantityCombinationDto>>>() {
+		};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		FoodItemQuantityCombinationRequest requestBody = FoodItemQuantityCombinationRequest.builder().items(items)
+				.menu(menu).menuCategory(menuCategory).build();
+
+		ResponseDto<List<FoodItemQuantityCombinationDto>> responseDto = null;
+
+		try {
+			responseDto = restClient.post(path, queryParams, requestBody, null, null, returnType,
+					MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while geting ItemQuantityCombinationForItemsAndMenu", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+
+	}
 
 }
 
