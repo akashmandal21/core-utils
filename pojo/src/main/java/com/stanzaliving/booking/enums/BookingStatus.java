@@ -51,6 +51,17 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static Set<BookingStatus> activeStatusBooking() {
+        Set<BookingStatus> bookingStatus = new HashSet<>();
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT);
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED);
+        return bookingStatus;
+    }
+
+
     public static Set<String> retentionBookingAllowedStatus() {
         Set<String> bookingStatus = new HashSet<>();
 
