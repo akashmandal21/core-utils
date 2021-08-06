@@ -29,7 +29,7 @@ public class InvoiceServiceApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("referenceId", referenceId);
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/invoice-details/{referenceId}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/invoice-details/{referenceId}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 

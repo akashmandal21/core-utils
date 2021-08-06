@@ -181,6 +181,13 @@ public enum BookingStatus {
         return bookingStatusMap;
     }
 
+    public static List<String> onboardingPendingStatus() {
+        List<String> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
+        return bookingStatus;
+    }
+
     public static BookingStatus getBookingStatus(String bookingStatus){
         Map<String, BookingStatus> bookingStatusMap = getBookingStatusList();
         if(bookingStatusMap.containsKey(bookingStatus)) return bookingStatusMap.get(bookingStatus);
