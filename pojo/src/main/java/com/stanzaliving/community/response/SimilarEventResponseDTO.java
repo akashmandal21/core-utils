@@ -26,7 +26,7 @@ public class SimilarEventResponseDTO {
     private Long fomoCount;
     private Boolean isLiked;
     private Boolean isRegistered;
-    private List<String> eventTag;
+    private List<String> tags;
     private Long price;
     private Boolean pricingApplicable;
 }
