@@ -13,6 +13,8 @@ public final class AppConstants {
 
     public static final String PROPERTY_TEMPLATE_ACTION_INACTIVE = "inactive";
 
+    public static final String PROPERTY_TEMPLATE_ACTION_ACTIVE = "active";
+
     public static final String ROOM_TEMPLATE_APPROVE = "approve";
 
     public static final String ROOM_TEMPLATE_REJECT = "reject";
