@@ -24,7 +24,7 @@ import java.util.List;
 public class SlotDto {
 
     @NotEmpty(message = "Allowed task is mandatory")
-    private List<String> allowedTask;
+    private List<String> allowedTaskList;
 
     @NotBlank(message = "Entity type is mandatory")
     private String entityType;
