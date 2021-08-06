@@ -623,8 +623,6 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-}
-
 	
 	public ResponseDto<UserProfileDto> getUserProfileByEmail(String email) {
 
