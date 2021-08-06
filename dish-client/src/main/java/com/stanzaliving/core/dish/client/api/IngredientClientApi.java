@@ -15,6 +15,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.enums.IngredientType;
 import com.stanzaliving.core.food.dto.IngredientDto;
+import com.stanzaliving.core.food.dto.IngredientTagDto;
 import com.stanzaliving.core.food.dto.IngredientUsageDto;
 import com.stanzaliving.core.food.dto.request.IngredientRequestDto;
 import com.stanzaliving.core.inventory.dto.InventorySummaryUpdate;
@@ -37,7 +38,6 @@ public class IngredientClientApi {
 	public IngredientClientApi(StanzaRestClient stanzaRestClient) {
 		this.restClient = stanzaRestClient;
 	}
-	
 
 	public List<IngredientDto> getIngredientList() {
 		String path = UriComponentsBuilder.fromPath("/internal/ingredients/listing").build().toUriString();
@@ -76,6 +76,25 @@ public class IngredientClientApi {
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 	}
+	
+	public List<IngredientTagDto> getIngredientTagByUuidIn(Collection<String> ingredients) {
+		String path = UriComponentsBuilder.fromPath("/internal/ingredients/tag/byUuidIn").build().toUriString();
+
+		TypeReference<ResponseDto<List<IngredientTagDto>>> returnType = new TypeReference<ResponseDto<List<IngredientTagDto>>>() {};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		ResponseDto<List<IngredientTagDto>> responseDto = null;
+
+		try {
+			responseDto = restClient.post(path, queryParams, ingredients, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while geting ingredient list", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
+
 
 
 	public List<IngredientDto> getIngredientListFromSearch(IngredientType type) {

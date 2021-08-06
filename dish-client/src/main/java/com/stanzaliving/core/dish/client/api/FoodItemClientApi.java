@@ -1,11 +1,14 @@
 package com.stanzaliving.core.dish.client.api;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -40,6 +43,7 @@ import com.stanzaliving.core.food.enums.MenuCategoryType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.food.v2.common.dto.FoodItemFeedbackSuggestionDto;
 import com.stanzaliving.food.v2.common.dto.FoodItemQuantityCombinationDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -61,7 +65,6 @@ public class FoodItemClientApi {
 		this.restClient = stanzaRestClient;
 	}
 	
-
 	public FoodItemDto addFoodItem(FoodItemAddRequestDto itemAddRequestDto) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/item/add").build().toUriString();
@@ -111,10 +114,8 @@ public class FoodItemClientApi {
 		} catch (Exception e) {
 			log.error("Error while updating food item", e);
 		}
-
 	}
 	
-
 	public FoodItemDto getFoodItem(String itemId) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/item/{item}").build().toUriString();
@@ -151,6 +152,48 @@ public class FoodItemClientApi {
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new ArrayList<>();
+	}
+	
+	public List<FoodItemDto> getFoodItemByUuidInAndTypeIn(Collection<String> itemIds, Collection<FoodItemType> itemTypes) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/findByUuidInAndTypeIn").build().toUriString();
+
+		TypeReference<ResponseDto<List<FoodItemDto>>> returnType = new TypeReference<ResponseDto<List<FoodItemDto>>>() {};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		queryParams.add("itemTypes", itemTypes.toString());
+	
+		ResponseDto<List<FoodItemDto>> responseDto = null;
+
+		try {
+			 responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while get food item", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new ArrayList<>();
+	}
+	
+	public Set<String> getFoodItemNameByUuidInAndItemTypeIn(Collection<String> itemIds, Collection<FoodItemType> itemTypes) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/findNameByUuidInAndTypeIn").build().toUriString();
+
+		TypeReference<ResponseDto<Set<String>>> returnType = new TypeReference<ResponseDto<Set<String>>>() {};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		queryParams.add("itemTypes", itemTypes.toString());
+	
+		ResponseDto<Set<String>> responseDto = null;
+
+		try {
+			 responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while get food item", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashSet<>();
 	}
 	
 	
@@ -279,7 +322,7 @@ public class FoodItemClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new ArrayList<>();
 	}
 		
-	public Map<String, FoodItemRecipeCostDto> getFoodItemCost(List<String> itemIds) {
+	public Map<String, FoodItemRecipeCostDto> getFoodItemCost(Collection<String> itemIds) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/item/cost").build().toUriString();
 
@@ -292,7 +335,28 @@ public class FoodItemClientApi {
 		try {
 			 responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
-			log.error("Error while auto suggest", e);
+			log.error("Error while get food item Cost", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashMap<>();
+	}
+	
+	public Map<String, FoodItemRecipeCostDto> getFoodItemCost(Collection<String> itemIds, LocalDate priceAt) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/cost/priceAt").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, FoodItemRecipeCostDto>>> returnType = new TypeReference<ResponseDto<Map<String, FoodItemRecipeCostDto>>>() {};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		queryParams.add("priceAt", priceAt.toString());
+
+		ResponseDto<Map<String, FoodItemRecipeCostDto>> responseDto = null;
+
+		try {
+			 responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while get food item Cost", e);
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashMap<>();
@@ -409,9 +473,6 @@ public class FoodItemClientApi {
 		
 	}
 	
-
-	
-	
 	public Long tagCountByStatus(Boolean status) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/tag/count").build().toUriString();
@@ -471,6 +532,27 @@ public class FoodItemClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 
 	}
+	
+	public List<FoodItemFeedbackSuggestionDto> findByItemIn(Collection<String> itemIds) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/feedback/findByUuidIn").build().toUriString();
+
+		TypeReference<ResponseDto<List<FoodItemFeedbackSuggestionDto>>> returnType = new TypeReference<ResponseDto<List<FoodItemFeedbackSuggestionDto>>>() {};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		ResponseDto<List<FoodItemFeedbackSuggestionDto>> responseDto = null;
+
+		try {
+			 responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while get food item", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new ArrayList<>();
+	}
+	
+	
 	
 	public void resetCacheItemsUuidsEligibleForMenu() {
 

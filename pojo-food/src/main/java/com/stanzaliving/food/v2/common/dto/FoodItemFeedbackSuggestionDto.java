@@ -27,6 +27,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodItemFeedbackSuggestionDto extends AbstractDto implements Serializable {
+	private static final long serialVersionUID = 6803893629227352229L;
 	private String item;
 	private String suggestion;
 	private String suggestionId;

@@ -2,6 +2,7 @@ package com.stanzaliving.core.dish.client.api;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -17,6 +18,7 @@ import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.PageResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.cafe.dto.CafeVasItemDto;
 import com.stanzaliving.core.dto.KeyValuePairDto;
 import com.stanzaliving.core.food.dto.request.VasMasterSearchRequestDto;
 import com.stanzaliving.core.food.dto.request.VasMasterUpdateRequestDto;
@@ -28,6 +30,7 @@ import com.stanzaliving.core.food.dto.response.VasMasterSearchResponseDto;
 import com.stanzaliving.core.food.enums.VasOrderStatus;
 import com.stanzaliving.food.v2.common.dto.VasFeedbackOptionDto;
 import com.stanzaliving.food.v2.common.dto.VasItemCategoryDto;
+import com.stanzaliving.food.v2.common.dto.VasMasterDishDto;
 import com.stanzaliving.food.v2.common.dto.VasMasterDto;
 import com.stanzaliving.food.v2.common.dto.VasMasterFeedbackOptionDto;
 import com.stanzaliving.food.v2.common.dto.VasOrderDto;
@@ -266,6 +269,32 @@ public class VasClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 	}
 	
+	public String getImageUrl(String itemId) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/vas/integration/imageUrl").build().toUriString();
+
+		TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
+		};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("itemId", itemId);
+
+		ResponseDto<String> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, null, null, null, returnType,
+					MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting imageUrl", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
+	
 	public VasOrderDto getVasOrderDtoByUuid(String orderId) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/vas/order/byUuid").build().toUriString();
@@ -473,32 +502,6 @@ public class VasClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 	}
 	
-	
-	public String getImageUrl(String itemId) {
-
-		String path = UriComponentsBuilder.fromPath("/internal/vas/integration/imageUrl").build().toUriString();
-
-		TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
-		};
-		
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("itemId", itemId);
-
-		ResponseDto<String> responseDto = null;
-
-		try {
-
-			responseDto = restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
-
-		} catch (Exception e) {
-
-			log.error("Error while getting imageUrlMap", e);
-
-		}
-
-		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
-	}
-	
 	public VasItemCategoryDto getVasItemCategoryByUuid(String itemId) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/vas/integration/vasItemCategoryByUuid").build().toUriString();
@@ -578,6 +581,32 @@ public class VasClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new ArrayList<>();
 	}
 	
+	
+	public List<VasMasterDishDto> getDishForItem(String itemId) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/cafe/vas/item/dishForItem").build().toUriString();
+
+		TypeReference<ResponseDto<List<VasMasterDishDto>>> returnType = new TypeReference<ResponseDto<List<VasMasterDishDto>>>() {
+		};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("itemId", itemId);
+		
+		ResponseDto<List<VasMasterDishDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting dish for item", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new ArrayList<>();
+	}
+	
 	public void updateIndex(Integer fromVasMasterId, Integer toVasMasterId) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/vas/integration/index").build().toUriString();
@@ -596,6 +625,84 @@ public class VasClientApi {
 
 	}
 	
+	public Map<String, String> getImageUri(Collection<String> itemIds) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/cafe/vas/item/imageUri").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, String>>> returnType = new TypeReference<ResponseDto<Map<String, String>>>() {
+		};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		ResponseDto<Map<String, String>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting imageUrlMap", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
+	
+	
+	
+	public Map<String, CafeVasItemDto> getItemDetailsForVasItem(Collection<VasMasterDto> itemIds, Boolean basicDetailsOnly, Boolean includeImage) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/cafe/vas/item/detailsForVasItem").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, CafeVasItemDto>>> returnType = new TypeReference<ResponseDto<Map<String, CafeVasItemDto>>>() {
+		};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("basicDetailsOnly", basicDetailsOnly.toString());
+		queryParams.add("includeImage", includeImage.toString());
+		
+		ResponseDto<Map<String, CafeVasItemDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting ItemDetailsForVasItem", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashMap<>();
+	}
+	
+	
+	public Map<String, CafeVasItemDto> getItemDetails(Collection<String> itemIds, Boolean basicDetailsOnly, Boolean includeImage){
+
+		String path = UriComponentsBuilder.fromPath("/internal/cafe/vas/item/itemDetails/map").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, CafeVasItemDto>>> returnType = new TypeReference<ResponseDto<Map<String, CafeVasItemDto>>>() {
+		};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("basicDetailsOnly", basicDetailsOnly.toString());
+		queryParams.add("includeImage", includeImage.toString());
+		
+		ResponseDto<Map<String, CafeVasItemDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting ItemDetailsForVasItem", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashMap<>();
+	}
 	
 	
 }

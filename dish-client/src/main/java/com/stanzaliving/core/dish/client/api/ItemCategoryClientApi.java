@@ -20,6 +20,7 @@ import com.stanzaliving.core.food.dto.FoodItemDto;
 import com.stanzaliving.core.food.dto.ItemCategoryDto;
 import com.stanzaliving.core.food.dto.MenuItemDto;
 import com.stanzaliving.core.food.dto.ResidentFoodItemFeedbackDto;
+import com.stanzaliving.core.food.dto.response.FoodPreferenceComboItemDto;
 import com.stanzaliving.core.food.dto.response.ItemCategoryCountDto;
 import com.stanzaliving.core.food.dto.response.MealItemCategoryCountDto;
 
@@ -107,6 +108,29 @@ public class ItemCategoryClientApi {
 
 	}
 	
+	public Map<String, ItemCategoryDto> getItemCategoryMapByFoodPreferenceComboItem(List<FoodPreferenceComboItemDto> itemDtos) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/category/foodPreferenceComboItemDto").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, ItemCategoryDto>>> returnType = new TypeReference<ResponseDto<Map<String, ItemCategoryDto>>>() {
+		};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		ResponseDto<Map<String, ItemCategoryDto>> responseDto = null;
+
+		try {
+			responseDto = restClient.post(path, queryParams, itemDtos, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while geting ItemSubCategory listing ", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashMap<>();
+	}
+	
+	
+	
+	
 	public List<ItemCategoryCountDto> getItemCategoryCount() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/item/category/count").build().toUriString();
@@ -164,6 +188,27 @@ public class ItemCategoryClientApi {
 			responseDto = restClient.post(path, queryParams, menuItemDtos, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while geting category wise item listing for meal", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashMap<>();
+	}
+	
+	public Map<String, ItemCategoryDto> getItemCategoryMap() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/category/map").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, ItemCategoryDto>>> returnType = new TypeReference<ResponseDto<Map<String, ItemCategoryDto>>>() {
+		};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		ResponseDto<Map<String, ItemCategoryDto>> responseDto = null;
+
+		try {
+			responseDto = restClient.post(path, queryParams, null, null, null, returnType,
+					MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while geting item category map", e);
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashMap<>();
