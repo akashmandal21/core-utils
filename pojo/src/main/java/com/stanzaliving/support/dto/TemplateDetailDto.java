@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.List;
 
 @Builder
 @Data
@@ -27,6 +28,7 @@ public class TemplateDetailDto {
     private ApprovalStatus approvalStatus;
     private String updatedBy;
     private Date updatedAt;
-    private TemplateActionDto actions;
+    private int maxApprovalLevel;
+    private List<TemplateActionDto> actions;
 
 }
