@@ -31,6 +31,8 @@ public class BookingDetailsRequestDto implements Serializable {
 	@NotNull(message = "contractEndDate cannot be null")
 	private Date contractEndDate;
 
+	private Date stayLockIn;
+
 	private Date subContract1EndDate;
 	
 	@Builder.Default

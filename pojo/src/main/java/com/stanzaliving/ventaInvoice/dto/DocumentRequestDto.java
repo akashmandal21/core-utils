@@ -9,6 +9,7 @@ import lombok.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @EqualsAndHashCode
 @Getter
@@ -59,5 +60,7 @@ public class DocumentRequestDto {
     private DealDto dealDto;
 
     private DealBillToDto dealBillToDto;
+
+    private Map<String, String> callerServiceMetaData;
 
 }
