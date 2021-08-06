@@ -4,6 +4,7 @@ import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
 import com.stanzaliving.core.food.dto.response.OrderItemGrammageDto;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.food.enums.FoodServeType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -48,7 +49,7 @@ public class FoodOrderBasePreferenceDto {
 
 	private LocalTime mealEndTime;
 
-	private boolean hybrid;
+	private FoodServeType serveType;
 
 	private List<AdditionalItemsRequestDto> additionalItemsDtos;
 
