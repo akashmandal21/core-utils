@@ -27,6 +27,7 @@ import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.food.dto.FoodItemDto;
+import com.stanzaliving.core.food.dto.FoodVendorDto;
 import com.stanzaliving.core.food.dto.IngredientUsageDto;
 import com.stanzaliving.core.food.dto.ItemCategoryDto;
 import com.stanzaliving.core.food.dto.ItemSubCategoryDto;
@@ -682,8 +683,31 @@ public class FoodServiceClientApi {
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : StringUtils.EMPTY;
-
 	}
 	
+	
+	public List<FoodVendorDto> getVendorWithMasterUuid() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/vendor/masterUuid").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		TypeReference<ResponseDto<List<FoodVendorDto>>> returnType = new TypeReference<ResponseDto<List<FoodVendorDto>>>() {};
+
+		ResponseDto<List<FoodVendorDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting residence name", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
 	
 }

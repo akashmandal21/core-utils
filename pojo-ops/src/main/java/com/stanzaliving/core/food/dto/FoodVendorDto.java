@@ -39,4 +39,10 @@ public class FoodVendorDto extends AbstractDto {
 
 	private String gstCompanyAddress;
 
+	private String vendorMasterUuid;
+
+	private String vendorCode;
+	
+	
+	
 }

@@ -704,6 +704,25 @@ public class VasClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashMap<>();
 	}
 	
+	public void mapNewCityToPackagingCity(String cityId) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/vas/integration/mapNewCityToPackagingCity").build().toUriString();
+
+		TypeReference<ResponseDto<Void>> returnType = new TypeReference<ResponseDto<Void>>() {
+		};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("cityId", cityId);
+
+		try {
+			restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting mapNewCityToPackagingCity", e);
+
+		}
+	}
 	
 }
 
