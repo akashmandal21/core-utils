@@ -8,6 +8,7 @@ public enum UserActionType {
     RC_ACTION("RC-action"),
     QRT_ACTION("QRT-action"),
     NODAL_ACTION("Nodal-action"),
+    SYSTEM_ACTION("System-action"),
     OTHER("Other");
 
     private final String label;

@@ -23,4 +23,5 @@ public class DefaulterSearchIndexDto extends AbstractSearchIndexDto {
     private String residentId;
     private String residentUuid;
     private LocalDate date;
+    private String roomNumber;
 }
