@@ -61,6 +61,6 @@ public class DocumentRequestDto {
 
     private DealBillToDto dealBillToDto;
 
-    private Map<String, Object> callerServiceMetaData;
+    private Map<String, String> callerServiceMetaData;
 
 }
