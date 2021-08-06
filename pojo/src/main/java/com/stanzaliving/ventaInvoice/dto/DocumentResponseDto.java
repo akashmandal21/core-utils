@@ -1,6 +1,7 @@
 package com.stanzaliving.ventaInvoice.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 import lombok.Getter;
