@@ -42,5 +42,5 @@ public class RoomTemplateListingFilterDto {
     private String sortBy = "updatedAt";
 
     @Builder.Default
-    private String sortOrder = "asc";
+    private String sortOrder = "desc";
 }
