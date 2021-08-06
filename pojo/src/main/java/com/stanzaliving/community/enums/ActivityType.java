@@ -7,7 +7,8 @@ import lombok.Getter;
 @Getter
 public enum ActivityType {
     LIKE("like"),
-    SHARE("share");
+    SHARE("share"),
+    UNLIKE("unlike");
 
     private final String name;
 }
