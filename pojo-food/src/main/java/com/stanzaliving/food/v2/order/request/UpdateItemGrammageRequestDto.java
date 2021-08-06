@@ -28,9 +28,6 @@ public class UpdateItemGrammageRequestDto {
 	@NotBlank(message = "Menu selection is mandatory")
 	private String residenceFoodMenuId;
 
-//	@NotEmpty(message = "Items selection is mandatory")
-//	private List<String> items;
-
 	private int vegPax;
 
 	private int nonVegPax;

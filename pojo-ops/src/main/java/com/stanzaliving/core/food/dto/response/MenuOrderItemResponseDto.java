@@ -1,13 +1,13 @@
-package com.stanzaliving.core.food.dto.request;
+package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.food.enums.FoodItemType;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -23,18 +23,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderItemGrammageDto {
+public class MenuOrderItemResponseDto {
 
-	private String itemId;
+	private String residenceFoodMenuId;
 
-	private String itemName;
-
-	private FoodItemType itemType;
-
-	@Builder.Default
-	private Integer orderedQty = 0;
-
-	@Builder.Default
-	private Integer orderedWeight = 0;
+	private List<OrderItemGrammageDto> items;
 
 }

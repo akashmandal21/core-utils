@@ -1,7 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
 import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
-import com.stanzaliving.core.food.dto.request.OrderItemGrammageDto;
+import com.stanzaliving.core.food.dto.response.OrderItemGrammageDto;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import lombok.AllArgsConstructor;
