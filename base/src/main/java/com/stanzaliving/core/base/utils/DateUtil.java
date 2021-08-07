@@ -28,6 +28,16 @@ public class DateUtil {
 		return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
 	}
 
+	public long getDaysBetweenDates(Date fromDate, Date toDate) {
+		return ChronoUnit.DAYS.between(fromDate.toInstant(), toDate.toInstant());
+	}
+
+	public boolean isMidMonth(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		return cal.get(Calendar.DAY_OF_MONTH) <= 15;
+	}
+
 	public String customDateFormatter(Date dateInput, DateFormat dateFormat) {
 
 		if (dateInput != null) {
