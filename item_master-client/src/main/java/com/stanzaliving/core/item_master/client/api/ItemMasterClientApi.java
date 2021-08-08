@@ -531,14 +531,15 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams,null,headerParams, accept, returnType);
 	}
 
-	public ResponseDto<Void> removeItemDetailsForDraftLocation(String locationUuid) {
+	public ResponseDto<Void> removeItemDetailsForDraftLocation(String locationUuid,String userId) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("locationUuid",locationUuid);
+		uriVariables.put("userId",userId);
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/internal/generic/remove-item-details-draft-location/{locationUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/generic/remove-item-details-draft-location/{locationUuid}/{userId}").buildAndExpand(uriVariables).toUriString();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
@@ -552,14 +553,15 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams,null,headerParams, accept, returnType);
 	}
 
-	public ResponseDto<Void> addItemDetailsForApprovedLocation(Set<String> itemCodes,String locationUuid) {
+	public ResponseDto<Void> addItemDetailsForApprovedLocation(Set<String> itemCodes,String locationUuid,String userId) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("locationUuid",locationUuid);
+		uriVariables.put("userId",userId);
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/internal/generic/add-item-details-approved-location/{locationUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/generic/add-item-details-approved-location/{locationUuid}/{userId}").buildAndExpand(uriVariables).toUriString();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
