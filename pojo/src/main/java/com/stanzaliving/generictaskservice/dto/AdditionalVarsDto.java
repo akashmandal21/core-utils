@@ -1,13 +1,22 @@
 package com.stanzaliving.generictaskservice.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Setter
+import com.stanzaliving.core.base.common.dto.AbstractDto;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
+import java.util.Map;
+
 @Getter
-public class AdditionalVarsDto {
-    private int id;
+@Setter
+@ToString(callSuper = true)
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class AdditionalVarsDto  extends AbstractDto {
+
     private String variableName;
     private String type;
-    private String dataStructure;
+    private Map<String, Object> dataStructure;
 }
