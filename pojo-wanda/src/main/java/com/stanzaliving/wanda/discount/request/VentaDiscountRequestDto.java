@@ -18,7 +18,7 @@ public class VentaDiscountRequestDto {
     private PropertyType propertyType;
     private BookingType bookingType;
     private String residenceUuid;
-    private String micromarketUuid;
+    private String mocromarketUuid;
     private String cityUuid;
     private Double bookingMonthlyRent;
     private BookingDiscountCriteriasDto bookingDiscountCriterias;

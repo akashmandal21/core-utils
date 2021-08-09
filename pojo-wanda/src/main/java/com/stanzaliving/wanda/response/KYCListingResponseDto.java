@@ -56,4 +56,12 @@ public class KYCListingResponseDto {
     private Integer order;
     
     private String fileUrl;
+
+    private String bucketName;
+
+    private String documentUuid;
+
+    private String filePath;
+
+    private String fileName;
 }

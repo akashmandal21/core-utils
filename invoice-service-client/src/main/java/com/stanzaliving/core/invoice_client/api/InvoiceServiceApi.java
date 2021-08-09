@@ -25,16 +25,15 @@ public class InvoiceServiceApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<List<DocumentResponseDto>> getInvoiceInformation(String referenceId,String token) {
+    public ResponseDto<List<DocumentResponseDto>> getInvoiceInformation(String referenceId) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("referenceId", referenceId);
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/invoice-details/{referenceId}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/invoice-details/{referenceId}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         HttpHeaders headerParams = new HttpHeaders();
-        headerParams.add("Cookie", "token=" + token);
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
