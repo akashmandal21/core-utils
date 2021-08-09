@@ -163,7 +163,7 @@ public class VentaAggregationServiceApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("booking-uuid", bookingUuid);
 
-        String path = UriComponentsBuilder.fromPath("/booking/{booking-uuid}/details").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/booking/{booking-uuid}/details").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
