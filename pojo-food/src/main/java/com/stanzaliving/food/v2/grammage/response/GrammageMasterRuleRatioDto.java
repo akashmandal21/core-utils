@@ -25,9 +25,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class GrammageMasterRuleRatioDto {
 
-	private Set<String> controllingSubCategoryId;
-
-	private double controllingRatio;
+	private Set<SubCategoryRatioDto> controllingCategories;
 
 	private double derivedRatio;
 }

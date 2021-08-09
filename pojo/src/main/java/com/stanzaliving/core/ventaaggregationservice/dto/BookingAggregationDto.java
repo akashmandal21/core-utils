@@ -1,11 +1,15 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.stanzaliving.booking.dto.BookingTag;
+import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
+
 @Builder
 @Data
 @NoArgsConstructor
@@ -31,15 +35,16 @@ public class BookingAggregationDto {
     private Date expectedMoveInDate;
     private Date checkInDate;
     private Date checkoutDate;
-    private Date lockInDate;
     private String bookingSource;
     private String leadUuid;
     private String residenceName;
     private String residenceUuid;
     private String inventoryUuid;
     private String commercialCardUuid;
+    private String packageServiceName;
     private String packageServiceUuid;
     private Integer occupancy;
+    private String occupancyName;
     private Double dues;
     private String riskProfile;
     private boolean duesStatus;
@@ -52,6 +57,26 @@ public class BookingAggregationDto {
     private Double priceBump;
     private String city;
     private String microMarket;
-    private String bookingCreatedBy;
-    private String bookingUpdatedBy;
+    private String createdBy;
+    private String updatedBy;
+    private Date lockinStartDate;
+    private Date lockinEndDate;
+    private String lockinDuration;
+    private String contractDuration;
+    private String colorCode;
+    private List<BookingTag> bookingTags;
+    private Integer tokenAmount;
+    private List<EligibleStatusMappingDto> eligibleStatusMapping;
+    private String cityUuid;
+    private String microMarketUuid;
+    private String paymentTerm;
+    private boolean isRetentionBooking=false;
+    private boolean noLockInSuitsBooking= false;
+    private Date moveInDate;
+    private Date maxMoveInDate;
+    private Date needsAttentionStartTime;
+    private Date needsAttentionEndTime;
+    private double pendingAmount;
+    private String paymentMode;
+    private String bookingAgreementUrl;
 }

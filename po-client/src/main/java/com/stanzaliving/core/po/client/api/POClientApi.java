@@ -729,4 +729,28 @@ public class POClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, toTemplateDto, headerParams, accept, vddReturnType);
     }
+
+    public ResponseDto<Void> updateRentalItemRate(String propertyUuid, Map<String, BigDecimal> rentalItemUpdatedRateMap) {
+
+        log.info("HTTP Client call to update rental item rate: {}", rentalItemUpdatedRateMap);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("propertyUuid", propertyUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/update/rental/item/rate/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, rentalItemUpdatedRateMap, headerParams, accept, vddReturnType);
+    }
+
 }

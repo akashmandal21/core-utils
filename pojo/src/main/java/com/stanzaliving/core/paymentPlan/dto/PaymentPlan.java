@@ -1,6 +1,9 @@
 package com.stanzaliving.core.paymentPlan.dto;
 
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import com.stanzaliving.booking.enums.PaymentPlanType;
 import com.stanzaliving.booking.enums.ReferenceType;
@@ -20,6 +23,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class PaymentPlan {
 	protected String uuid;
+	private Long id;
 	private LocalDate fromDate;
 	private LocalDate toDate;
 	private Double amount;
@@ -27,4 +31,7 @@ public class PaymentPlan {
 	private String referenceId;
 	private ReferenceType referenceType;
 	private PaymentPlanType paymentPlanType;
+	private Map<String, String> metaData;
+	private String invoiceUuid;
+	private List<PaymentPlanLineItem> lineItems;
 }

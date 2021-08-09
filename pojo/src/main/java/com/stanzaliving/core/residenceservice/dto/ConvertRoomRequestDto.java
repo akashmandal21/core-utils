@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class ConvertRoomRequestDto {
 
     @NotBlank(message = "service mix uuid field cannot be empty")
@@ -39,4 +40,8 @@ public class ConvertRoomRequestDto {
 //    @NotBlank(message = "room number uuid field cannot be empty")
 //    @NotNull(message = "room number uuid field cannot be null") //todo: check it
     private String bookingInventoryUUID;
+
+    private Boolean isAlreadyConverted;
+
+    private String inventoryUuid;
 }

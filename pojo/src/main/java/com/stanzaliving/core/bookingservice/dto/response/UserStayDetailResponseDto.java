@@ -3,8 +3,6 @@
  */
 package com.stanzaliving.core.bookingservice.dto.response;
 
-import java.util.Date;
-
 import lombok.Data;
 
 /**

@@ -22,8 +22,8 @@ import lombok.ToString;
 @ToString
 public class RoomConsumablesDto {
 
-    @NotBlank(message = "roomUUID field cannot be empty")
-    private String roomUUID;
+    @NotBlank(message = "residenceUuid field cannot be empty")
+    private String residenceUuid;
 
     private List<ConsumablesPricesDto> consumablesPrices;
 

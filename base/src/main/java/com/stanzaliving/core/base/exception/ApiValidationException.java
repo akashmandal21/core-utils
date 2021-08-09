@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 
 @Getter
 @ToString(callSuper = true)
-public class ApiValidationException extends RuntimeException  {
+public class ApiValidationException extends RuntimeException {
 
 	private static final long serialVersionUID = -4075250719863628707L;
 

@@ -15,4 +15,6 @@ public class DiscountRequestDto {
     private String discountCode;
 
     private String discountStrategyUuid;
+
+    private Double discountValueApplied;
 }

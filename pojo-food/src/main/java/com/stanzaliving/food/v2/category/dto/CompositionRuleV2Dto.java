@@ -18,6 +18,7 @@ import java.util.Map;
 public class CompositionRuleV2Dto implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long maxAllowedCombo;
+    private Long minAllowedCombo;
     private Long actualComboCount;
     private Map<MealType, List<DayOfWeek>> failedComboMeals;
     

@@ -52,7 +52,7 @@ public class PhoneNumberUtilsTest {
 	@Test
 	public void testIsValidMobileByCountryCodeConditation6() {
 
-		boolean expected = PhoneNumberUtils.isValidMobileForCountry("7358623569", "IN");
+		boolean expected = PhoneNumberUtils.isValidMobileForCountry("8217312599", "IN");
 		assertThat(expected).isTrue();
 	}
 

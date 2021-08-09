@@ -5,6 +5,7 @@ package com.stanzaliving.core.user.client.api;
 
 import java.util.*;
 
+import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -232,6 +233,30 @@ public class UserClientApi {
 	}
 
 
+
+	public ResponseDto<UserDto> updateUserDetails( UpdateUserRequestDto updateUserRequestDto) {
+
+
+		Object postBody = updateUserRequestDto;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/update/mobile").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UserDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+
 	public ResponseDto<UserDto> addUserInternal(AddUserRequestDto addUserRequestDto) {
 		if (Objects.isNull(addUserRequestDto)) {
 			throw new IllegalArgumentException("Request is null for adding user");
@@ -388,7 +413,7 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
 
 	public ResponseDto<List<UserProfileDto>> getAllUsers() {
@@ -558,6 +583,34 @@ public class UserClientApi {
 		String path = UriComponentsBuilder.fromPath("/internal/details/userprofiles").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>>() {
+		};
+
+		UserManagerProfileRequestDto userManagerProfileRequestDto = new UserManagerProfileRequestDto();
+		userManagerProfileRequestDto.setUserUuids(userIds);
+
+		postBody = userManagerProfileRequestDto;
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public ResponseDto<UserProfileDto> getUserProfileByEmail(String email) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/email").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("email", email);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
@@ -566,17 +619,34 @@ public class UserClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>>() {
+
+		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
-
-		UserManagerProfileRequestDto userManagerProfileRequestDto = new UserManagerProfileRequestDto();
-		userManagerProfileRequestDto.setUserUuids(userIds);
-
-		postBody = userManagerProfileRequestDto;
-
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<UserDto> updateUserProfileDetails(UpdateUserRequestDto updateUserRequestDto) {
+
+
+		Object postBody = updateUserRequestDto;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/update").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UserDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
 
 }
+
+

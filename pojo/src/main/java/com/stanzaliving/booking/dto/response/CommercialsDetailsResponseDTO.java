@@ -1,6 +1,6 @@
 package com.stanzaliving.booking.dto.response;
 
-import com.stanzaliving.booking.dto.request.ServicePriceDto;
+import com.stanzaliving.booking.dto.MonthlyBreakupDto;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,28 +19,15 @@ public class CommercialsDetailsResponseDTO {
 
     private MaintenanceFeeCollectionType maintenanceFeeCollectionType;
 
-    private Double licenseFee;
+    private Double bookingAmount;
 
-    private Double cityHeadBuffer;
+    private Double totalAmount;
 
-    private Double upsell;
+    private Double discountApplied;
 
-    private Double priceBump;
+    private MonthlyBreakupDto monthlyBreakup;
 
-    private ServicePriceDto packagedServicePriceDto;
+    private AdvanceRentalDto startingAdvanceRental;
 
-    private ServicePriceDto foodServicePriceDto;
-
-    private ServicePriceDto vasPriceDto;
-
-    private int startingAdvanceRentalMonths;
-
-    private int lastAdvanceRentalMonths;
-
-    private Double startingAdvanceRentalMonthsAmount;
-
-    private Double lastAdvanceRentalMonthsAmount;
-
-
-
+    private AdvanceRentalDto lastAdvanceRental;
 }

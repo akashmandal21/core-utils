@@ -1,5 +1,6 @@
 package com.stanzaliving.core.residenceservice.dto;
 
+import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,4 +31,8 @@ public class RoomInventoryDetailDto {
     private int totalOccupancy;
 
     private int convertedOccupancy;
+
+    private RoomStatus roomStatus;
+
+    private String reason;
 }
