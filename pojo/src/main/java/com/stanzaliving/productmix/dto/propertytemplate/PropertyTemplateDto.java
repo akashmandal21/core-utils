@@ -50,4 +50,8 @@ public class PropertyTemplateDto {
     private String actionedBy;
 
     private LocalDateTime actionedAt;
+
+    private boolean canEdit;
+
+    private boolean canApprove;
 }

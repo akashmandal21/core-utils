@@ -1,9 +1,9 @@
 package com.stanzaliving.productmix.dto.propertytemplate;
 
 import com.stanzaliving.core.enums.ResidenceBrand;
-import com.stanzaliving.productmix.enums.PropertyTypeEnum;
 import com.stanzaliving.productmix.dto.ApplicableDurationDto;
 import com.stanzaliving.productmix.dto.LabelValueDto;
+import com.stanzaliving.productmix.enums.PropertyTypeEnum;
 import com.stanzaliving.productmix.enums.TemplateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -57,4 +58,12 @@ public class PropertyTemplateDtoWithValidations {
     private String textColor;
 
     private String templateId;
+
+    private String actionedBy;
+
+    private LocalDateTime actionedAt;
+
+    private boolean canEdit;
+
+    private boolean canApprove;
 }

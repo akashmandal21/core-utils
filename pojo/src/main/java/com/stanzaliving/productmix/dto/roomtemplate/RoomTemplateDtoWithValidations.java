@@ -1,8 +1,8 @@
 package com.stanzaliving.productmix.dto.roomtemplate;
 
 import com.stanzaliving.core.enums.ResidenceBrand;
-import com.stanzaliving.productmix.enums.PropertyTypeEnum;
 import com.stanzaliving.productmix.dto.LabelValueDto;
+import com.stanzaliving.productmix.enums.PropertyTypeEnum;
 import com.stanzaliving.productmix.enums.TemplateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -55,4 +55,8 @@ public class RoomTemplateDtoWithValidations {
     private String textColor;
 
     private String templateId;
+
+    private boolean canEdit;
+
+    private boolean canApprove;
 }
