@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -17,7 +19,12 @@ import java.util.List;
 public class CreateAuditDto {
 
     private String auditUuid;
-
+    @NotBlank(message = "auditorUuid Is Required")
+    private String auditorUuid;
+    @NotBlank(message = "auditedOn Is Required")
+    private Date auditedOn;
+    @NotBlank(message = "auditorName Is Required")
+    private String auditorName;
     @NotBlank(message = "BookingUuid Is Required")
     private String bookingUuid;
     @NotBlank(message = "ResidentUuid Is Required")
