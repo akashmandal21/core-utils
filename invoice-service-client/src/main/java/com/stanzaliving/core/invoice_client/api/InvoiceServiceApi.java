@@ -12,6 +12,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,16 +27,15 @@ public class InvoiceServiceApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<List<DocumentResponseDto>> getInvoiceInformation(String referenceId,String token) {
+    public ResponseDto<List<DocumentResponseDto>> getInvoiceInformation(String referenceId) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("referenceId", referenceId);
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/invoice-details/{referenceId}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/invoice-details/{referenceId}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         HttpHeaders headerParams = new HttpHeaders();
-        headerParams.add("Cookie", "token=" + token);
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
@@ -47,6 +48,29 @@ public class InvoiceServiceApi {
             log.error("Exception while fetching invoice information based on referenceId {}, Exception is {}", referenceId, e);
         }
         return null;
+    }
+
+    public ResponseDto<List<DocumentResponseDto>> getARInvoice(Date fromDate) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/AR-invoice-details")
+                .buildAndExpand(uriVariables).toUriString();
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("fromDate", date.format(fromDate));
+
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<DocumentResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DocumentResponseDto>>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams,
+                    null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the AR invoice details{}", e.getMessage());
+            return null;
+        }
     }
 
 

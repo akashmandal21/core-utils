@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -36,4 +39,6 @@ public class BookingEvent implements Serializable {
     private String residentId;
     private String residenceUuid;
     private BookingEventEnum bookingEvent;
+    private PaymentTerm paymentTerm;
+    private boolean hasMovedIn;
 }
