@@ -20,6 +20,7 @@ public class CafeVasItemDto implements Serializable {
     private String itemId;
     private String name;
     private String category;
+    private String categoryId;
     private Integer categorySequence;
     private boolean containsEgg;
     private boolean nonVeg;
@@ -37,5 +38,8 @@ public class CafeVasItemDto implements Serializable {
     private FoodItemType foodType;
     private List<VasMasterPackagingResponseDto> packaging;
     private String servingInfo;
+    private Double proposedPrice;
+    private boolean dataComplete;
+    private boolean status;
 
 }
