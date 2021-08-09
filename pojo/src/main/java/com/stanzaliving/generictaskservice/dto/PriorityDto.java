@@ -18,4 +18,6 @@ public class PriorityDto {
 	private String uuid;
 
 	private int sequence;
+
+	private String module;
 }
