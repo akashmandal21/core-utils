@@ -13,6 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetPaymentPlanRequestDto {
-    private List<String> bookingUuid;
+    private String bookingUuid;
     private LocalDate executionDate;
 }

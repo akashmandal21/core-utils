@@ -3,9 +3,14 @@
  */
 package com.stanzaliving.core.bookingservice.dto.response;
 
+import java.util.Date;
+
 import com.stanzaliving.core.bookingservice.dto.PhoneNumberDto;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author raj.kumar
@@ -13,6 +18,8 @@ import lombok.Data;
  */
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDetailResponseDto {
 
 	private String userCode;
@@ -21,4 +28,6 @@ public class UserDetailResponseDto {
 	private String profilePicture;
 	private String firstName;
 	private String lastName;
+	private String birthday;
+	private String gender;
 }

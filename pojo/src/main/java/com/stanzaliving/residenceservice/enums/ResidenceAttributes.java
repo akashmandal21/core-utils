@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @AllArgsConstructor
+@Getter
 public enum ResidenceAttributes {
 
     BOOKING_FLOW("Booking Flow", "String"),
@@ -28,10 +30,16 @@ public enum ResidenceAttributes {
 
     RETENTION_MIN_TOKEN_AMOUNT("Retention Min Token Amount", "String"),
     ROOM_CONVERSION_CHARGES("Room Conversion Charges", "String"),
-   RETENTION_CREATION_BUFFER_DAYS("Retention Creation Buffer Days", "Integer"),
-    NO_LOCK_IN_SUITS_BOOKING("No Lock In Suits Booking", "Boolean");
-
-
+    RETENTION_CREATION_BUFFER_DAYS("Retention Creation Buffer Days", "Integer"),
+    NO_LOCK_IN_SUITS_BOOKING("No Lock In Suits Booking", "Boolean"),
+	
+    MONTHLY_MULTIPLIER("Monthly Multiplier","Double"),
+	SD_MULTIPLIER("SD Multiplier","Double"),
+	AMC_MULTIPLIER("AMC Multiplier","Double"),
+	
+	FUTURE_BOOKING_ALLOWED_DAYS("Future Booking Allowed Duration","Integer"),
+    NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time","String"),
+	CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean");
     private String label;
     private String type;
 
@@ -59,6 +67,7 @@ public enum ResidenceAttributes {
         List<ResidenceAttributes> residenceAttributes = new ArrayList<>();
         residenceAttributes.add(BOOKING_EXPIRY_TIME);
         residenceAttributes.add(NEW_CLOSURE_MIN_TOKEN_AMOUNT);
+        residenceAttributes.add(NEEDS_ATTENTION_EXPIRY_TIME);
         return residenceAttributes;
     }
  }

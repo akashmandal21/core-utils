@@ -1,5 +1,6 @@
 package com.stanzaliving.core.payment.enums;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -8,4 +9,5 @@ import lombok.Getter;
 
 public enum ReferenceType {
 	BOOKING, MERCHANT_TRANSACTION, USER;
+
 }

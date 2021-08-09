@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @ToString
 @Builder
 @Data
@@ -17,16 +16,24 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"serviceId"})
+@EqualsAndHashCode(of = { "serviceId" })
 public class ResidenceServiceDto {
 	private String serviceName;
-    private Boolean optional;
-    private Double price;
-    private Boolean enabled;
-    private Integer serviceId;
-    private String serviceImage;
-    private String description;
-    private String serviceDisclaimer;
-    private String shortText;
-    private String bgColor;
+	private Boolean optional;
+	private Double price;
+	@Builder.Default
+	private Double cgst = 0.0;
+	@Builder.Default
+	private Double sgst = 0.0;
+	@Builder.Default
+	private Double igst = 0.0;
+	private boolean enabled;
+	private String serviceId;
+	private String serviceImage;
+	private String description;
+	private String serviceDisclaimer;
+	private String shortText;
+	private String bgColor;
+	private Double totalAmount;
+
 }

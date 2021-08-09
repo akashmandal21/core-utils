@@ -33,5 +33,7 @@ public class BookingEvent implements Serializable {
     private String packageServiceUuid;
     private String commercialCardUuid;
     private String auditUuid;
+    private String residentId;
+    private String residenceUuid;
     private BookingEventEnum bookingEvent;
 }

@@ -55,4 +55,8 @@ public class BookingResponseDto {
     private BookingPackageServiceDto bookingPackageService;
 
     private String uuid;
+
+    private Double transactionAmount;
+
+    private Double bookingAmount;
 }

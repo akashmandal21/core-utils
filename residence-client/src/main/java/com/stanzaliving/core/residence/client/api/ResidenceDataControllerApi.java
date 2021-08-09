@@ -5,10 +5,13 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.residenceservice.dto.*;
+import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
+import com.stanzaliving.core.security.helper.SecurityUtils;
 import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
-import com.stanzaliving.residenceservice.Dto.ResidenceAttributesRequestDto;
-import com.stanzaliving.residenceservice.Dto.ResidenceAttributesResponseDto;
+import com.stanzaliving.residenceservice.Dto.*;
+import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -122,21 +125,15 @@ public class ResidenceDataControllerApi {
 
         log.info("Residence-Data-Controller::Processing to fetch packaged service names based on residenceUuid {}", residenceUuid);
 
-        if (StringUtils.isBlank(token)) {
-            throw new IllegalArgumentException("Token missing for retrieving packaged service names based on residenceUuid");
-        }
-
         Map<String, Object> uriVariables = new HashMap();
 
         uriVariables.put("residenceUuid", residenceUuid);
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/packaged-service/get/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/packaged-service/get/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
         HttpHeaders headerParams = new HttpHeaders();
-
-        headerParams.add("Cookie", "token=" + token);
 
         String[] accepts = new String[]{"*/*"};
 
@@ -159,23 +156,17 @@ public class ResidenceDataControllerApi {
 
         log.info("Residence-Data-Controller::Processing to fetch Package service properties for residenceUuid {}, service-mix {}", residenceUuid, serviceMix);
 
-        if (StringUtils.isBlank(token)) {
-            throw new IllegalArgumentException("Token missing for fetching package service based on residenceUuid");
-        }
-
         Map<String, Object> uriVariables = new HashMap();
 
         uriVariables.put("residenceUuid", residenceUuid);
 
         uriVariables.put("servicemix", serviceMix);
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/packaged-service/get/{residenceUuid}/{servicemix}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/packaged-service/get/{residenceUuid}/{servicemix}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
         HttpHeaders headerParams = new HttpHeaders();
-
-        headerParams.add("Cookie", "token=" + token);
 
         String[] accepts = new String[]{"*/*"};
 
@@ -448,9 +439,12 @@ public class ResidenceDataControllerApi {
 
     public ResidencePropertyCardDto getResidenceDetails(String residenceUuid, String token) {
         log.info("Processing to get Residence Details");
+        if (StringUtils.isBlank(token)) {
+            throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
+        }
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("residenceUuid", residenceUuid);
-        String path = UriComponentsBuilder.fromPath("/internal/residence-property-card/{residenceUuid}")
+        String path = UriComponentsBuilder.fromPath("/api/v1/residence-property-card/{residenceUuid}")
                 .buildAndExpand(uriVariables)
                 .toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
@@ -827,6 +821,37 @@ public class ResidenceDataControllerApi {
 
     }
 
+    public ResponseDto<List<AttributesAndGlobalUuidDto>> getRoomConsumablesAndGlobalUUid(String roomUUID, String token) {
+
+        log.info("Residence-Data-Controller::Processing to get room consumerable details based on roomUUID {}", roomUUID);
+
+        Map<String, Object> uriVariables = new HashMap();
+        uriVariables.put("roomUuid", roomUUID);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/roomconsumables/{roomUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<AttributesAndGlobalUuidDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<AttributesAndGlobalUuidDto>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching Room Details from roomUuid: {}", roomUUID);
+        }
+        return null;
+
+    }
+
     public ResponseDto<List<String>> getRoomInventories(String roomUUID) {
 
         log.info("Room-Controller::Processing to fetch room inventories details for room {} ", roomUUID);
@@ -932,5 +957,192 @@ public class ResidenceDataControllerApi {
             return null;
         }
     }
+
+    public ResponseDto<OccupanciesFloorsStatusCountSearchDto> getOccupanciesFloorsAndRoomStatusForSearch(String residenceUuid) {
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/room-list/search/dropdown/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String tokenValue = SecurityConstants.TOKEN_HEADER_NAME + "=" + SecurityUtils.getCurrentUserToken();
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME,tokenValue);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<OccupanciesFloorsStatusCountSearchDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<OccupanciesFloorsStatusCountSearchDto>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching occupancy floor dto for residence uuid {} with message:{} ", residenceUuid,e.getMessage());
+            return null;
+        }
+
+    }
+
+    public List<RoomInventoryLogDto> getInventoryDetails(InventoryDetailsRequestDto inventoryDetailsRequestDto) {
+
+        log.info("Residence-Data-Controller::Processing to get inventory Details{}", inventoryDetailsRequestDto);
+
+        Object postBody = inventoryDetailsRequestDto;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/booking-attributes").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<RoomInventoryLogDto>> returnType = new ParameterizedTypeReference<List<RoomInventoryLogDto>>() {
+        };
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception ex) {
+            log.error("Exception while getting getting inventory details {}", inventoryDetailsRequestDto);
+        }
+        //todo: check log
+        return null;
+    }
+
+
+    public RoomDetailsResponseDto getRoomByNumber(String roomNumber) {
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("roomNumber", roomNumber);
+
+        String path = UriComponentsBuilder.fromPath("/internal/room/{roomNumber}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String tokenValue = SecurityConstants.TOKEN_HEADER_NAME + "=" + SecurityUtils.getCurrentUserToken();
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME,tokenValue);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<RoomDetailsResponseDto> returnType =
+                new ParameterizedTypeReference<RoomDetailsResponseDto>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching room details for room {} ", roomNumber);
+            return null;
+        }
+
+    }
+
+    public RoomAndInventoryDetailsDto getRoomAndInventoryDetails(String roomUuid,String inventoryUuid) {
+
+        log.info("Room-Controller::Processing to fetch room and inventory details for room {} ", roomUuid);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("roomUuid", roomUuid);
+        uriVariables.put("inventoryUuid",inventoryUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/room/{roomUuid}/{inventoryUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String tokenValue = SecurityConstants.TOKEN_HEADER_NAME + "=" + SecurityUtils.getCurrentUserToken();
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenValue);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<RoomAndInventoryDetailsDto> returnType =
+                new ParameterizedTypeReference<RoomAndInventoryDetailsDto>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching room and inventory details for room {} ", roomUuid);
+            return null;
+        }
+    }
+
+	public List<ResidencePaymentPlanDto> getInstallmentList(String residenceUuid) {
+
+		Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/paymentTerm/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<ResidencePaymentPlanDto>> returnType =
+                new ParameterizedTypeReference<List<ResidencePaymentPlanDto>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception var10) {
+            log.error("Exception while fetching paymentTerm list form residenceUuid {}  ", residenceUuid);
+            return null;
+        }
+   }
+
+
+	 public ResponseDto<AttributesResponseDto> getResidenceAttribute(String residenceUUID,ResidenceAttributes attributeName) {
+
+	        log.info("Residence-Data-Controller::Processing to get attributes for residenceUuid {} and attributeName {}", residenceUUID,attributeName);
+
+	        Map<String, Object> uriVariables = new HashMap();
+
+	        uriVariables.put("residenceUUID", residenceUUID);
+	        uriVariables.put("attributeName", attributeName);
+	        String path = UriComponentsBuilder.fromPath("/internal/booking-attributes/specific/{residenceUUID}").buildAndExpand(uriVariables).toUriString();
+
+	        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+	        queryParams.add("key", attributeName.toString());
+	        HttpHeaders headerParams = new HttpHeaders();
+
+	        String[] accepts = new String[]{"*/*"};
+
+	        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+	        ParameterizedTypeReference<ResponseDto<AttributesResponseDto>> returnType =
+	                new ParameterizedTypeReference<ResponseDto<AttributesResponseDto>>() {
+	                };
+
+	        try {
+	            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+	        } catch (Exception var10) {
+	            log.error("Exception while fetching list of attributes for residenceUuid {}", residenceUUID);
+	            return null;
+	        }
+	    }
 
 }
