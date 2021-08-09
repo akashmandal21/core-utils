@@ -2,15 +2,19 @@ package com.stanzaliving.ventaAudit.dto;
 
 import com.stanzaliving.ventaAudit.enums.AuditStatus;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+
+import java.time.LocalDate;
 
 @Data
-@SuperBuilder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuditStatusResponseDto {
     private AuditStatus auditStatus;
     private String auditUuid;
+    private LocalDate auditedOn;
+    private String auditorUuid;
 }
