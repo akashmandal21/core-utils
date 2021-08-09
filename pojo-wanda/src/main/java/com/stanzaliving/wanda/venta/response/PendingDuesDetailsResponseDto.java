@@ -21,9 +21,9 @@ public class PendingDuesDetailsResponseDto {
 	private Long currentOutstanding;
 	private String dueDate;
 	private String monthlyFee;
-	private String duesOfCurrentMonth;
-	private String paidThisMonth;
-	private String previousArrears;
+	private Double duesOfCurrentMonth;
+	private Double paidThisMonth;
+	private Double previousArrears;
 
 	
 	
