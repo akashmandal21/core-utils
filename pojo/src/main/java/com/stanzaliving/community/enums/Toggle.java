@@ -6,8 +6,8 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum Toggle {
-    SOLD_OUT("sold_out"),
-    LIMITED_SEATS_AVAILABLE("limited_seats_available");
+    SOLD_OUT("Sold Out"),
+    LIMITED_SEATS_AVAILABLE("Limited Seats Available");
 
     private final String name;
 }
