@@ -20,7 +20,7 @@ public class AuditDashboardListDto {
     private String residentName;
     private String entityName;
     private String roomNumber;
-    private String auditedBy;
+    private String auditorName;
     private LocalDate auditedOn;
     private Double damageTotalAmount;
     private AuditStatus auditStatus;

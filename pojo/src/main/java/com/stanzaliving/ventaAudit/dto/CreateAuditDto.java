@@ -22,7 +22,7 @@ public class CreateAuditDto {
     @NotBlank(message = "auditorUuid Is Required")
     private String auditorUuid;
     @NotBlank(message = "auditedOn Is Required")
-    private Date auditedOn;
+    private LocalDate auditedOn;
     @NotBlank(message = "auditorName Is Required")
     private String auditorName;
     @NotBlank(message = "BookingUuid Is Required")
