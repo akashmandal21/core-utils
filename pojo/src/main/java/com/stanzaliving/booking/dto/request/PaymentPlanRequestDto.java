@@ -1,5 +1,6 @@
 package com.stanzaliving.booking.dto.request;
 
+import com.stanzaliving.booking.enums.BookingType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,6 +32,8 @@ public class PaymentPlanRequestDto implements Serializable {
 
 	@Builder.Default
 	private Boolean isWpBooking = false;
+
+	private BookingType bookingType;
 	
 	@Builder.Default
 	private Boolean savePaymentPlan = false;
