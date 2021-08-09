@@ -18,7 +18,8 @@ public class PendingDuesDetailsResponseDto {
 	private Long totalAmountToBePaid;
 	private Long duesPaid;
 	private Long duesTillDate;
-	private Long currentOutstanding;
+	@Builder.Default
+	private Long currentOutstanding=0l;
 	private String dueDate;
 	private Double monthlyFee;
 	private Double duesOfCurrentMonth;
