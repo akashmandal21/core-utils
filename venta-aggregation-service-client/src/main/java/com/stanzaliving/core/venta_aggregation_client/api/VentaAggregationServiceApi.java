@@ -153,4 +153,29 @@ public class VentaAggregationServiceApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
+
+    public ResponseDto<BookingAggregationDto> getBookingDetailsByBookingUuid(String bookingUuid) {
+        log.info("Aggregation Booking Details Controller::Processing to get booking on basis of bookingUuid {}", bookingUuid);
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("booking-uuid", bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/booking/{booking-uuid}/details").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<BookingAggregationDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingAggregationDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 }
