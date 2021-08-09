@@ -61,5 +61,7 @@ public class CityUIDto implements Serializable {
 	private String zoneUuid;
 
 	private String zoneName;
+	
+	private String policeVerificationFormUrl;
 
 }
