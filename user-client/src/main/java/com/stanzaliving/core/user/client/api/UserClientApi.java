@@ -571,7 +571,6 @@ public class UserClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-<<<<<<< HEAD
 
 	public ResponseDto<Map<String, UserProfileDto>> getUserProfileForUsers(List<String> userIds) {
 
@@ -589,8 +588,6 @@ public class UserClientApi {
 
 		UserManagerProfileRequestDto userManagerProfileRequestDto = new UserManagerProfileRequestDto();
 		userManagerProfileRequestDto.setUserUuids(userIds);
-=======
->>>>>>> 8445d2773b556229ea619e93b90dd9dcd30baff9
 
 		postBody = userManagerProfileRequestDto;
 		final HttpHeaders headerParams = new HttpHeaders();
@@ -601,47 +598,6 @@ public class UserClientApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
-	}
-
-	public ResponseDto<UserProfileDto> getUserProfileByEmail(String email) {
-
-		Object postBody = null;
-
-		final Map<String, Object> uriVariables = new HashMap<>();
-
-		String path = UriComponentsBuilder.fromPath("/internal/details/email").buildAndExpand(uriVariables).toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-<<<<<<< HEAD
-
-		queryParams.add("email", email);
-
-=======
->>>>>>> 8445d2773b556229ea619e93b90dd9dcd30baff9
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-<<<<<<< HEAD
-
-
-		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
-		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-=======
-		ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>>() {
-		};
-
-		UserManagerProfileRequestDto userManagerProfileRequestDto = new UserManagerProfileRequestDto();
-		userManagerProfileRequestDto.setUserUuids(userIds);
-
-		postBody = userManagerProfileRequestDto;
-
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-
->>>>>>> 8445d2773b556229ea619e93b90dd9dcd30baff9
 	}
 
 	public ResponseDto<UserDto> updateUserProfileDetails(UpdateUserRequestDto updateUserRequestDto) {
@@ -691,8 +647,3 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 8445d2773b556229ea619e93b90dd9dcd30baff9
