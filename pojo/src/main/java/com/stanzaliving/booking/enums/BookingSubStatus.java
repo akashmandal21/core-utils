@@ -56,4 +56,9 @@ public enum BookingSubStatus {
         return null;
     }
 
+    public static Set<BookingSubStatus> isPersonalDetailsFilled() {
+        Set<BookingSubStatus> bookingSubStatus = new HashSet<>();
+        bookingSubStatus.add(BookingSubStatus.BOOKING_AMOUNT_PENDING);
+        return bookingSubStatus;
+    }
 }
