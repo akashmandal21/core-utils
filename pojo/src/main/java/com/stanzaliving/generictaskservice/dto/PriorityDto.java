@@ -14,9 +14,11 @@ import lombok.*;
 @NoArgsConstructor
 public class PriorityDto {
 
-    private String priority;
+	private String priority;
 
-    private String uuid;
+	private String uuid;
 
-    private int sequence;
+	private int sequence;
+
+	private String module;
 }
