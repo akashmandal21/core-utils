@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AuditInventoryInfoDto {
     private String roomNumber;
+    private String roomElementsUuid;
     private String roomUuid;
     private String inventoryName;
     private Double damageAmount;
