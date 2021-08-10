@@ -145,6 +145,8 @@ public class PaymentPlanClientApi {
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
             queryParams.add("paymentTerm", paymentTerm);
+            //queryParams.add("bookingType", bookingType);
+            //queryParams.add("maintenanceFeeCollectionType", maintenanceFeeCollectionType);
 
             HttpHeaders headerParams = new HttpHeaders();
 
@@ -317,6 +319,43 @@ public class PaymentPlanClientApi {
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("error while creating the vas for booking {} error is {}",vasPaymentPlanRequestDTO.getReferenceId(), e);
+        }
+
+        return null;
+
+    }
+    
+    public CompletableFuture<ResponseDto<PaymentPlanResponseDto>> getPaymentPlanByFuture(String bookingUuid, String token, String paymentTerm) {
+
+        try {
+            Object postBody = null;
+
+            log.info("get paymentPlan by bookingUuid is {} ", bookingUuid);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("bookingUuid", bookingUuid);
+
+            String path = UriComponentsBuilder.fromPath("/api/v1/get/{bookingUuid}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            queryParams.add("paymentTerm", paymentTerm);
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            headerParams.add("Cookie", "token=" + token);
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>>() {
+            };
+
+            return CompletableFuture.completedFuture(restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType));
+        } catch (Exception e) {
+            log.error("error while fetching the paymentPlan {}", e);
         }
 
         return null;

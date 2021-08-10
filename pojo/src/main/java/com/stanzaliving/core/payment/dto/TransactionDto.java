@@ -52,5 +52,7 @@ public class TransactionDto extends AbstractDto {
 	private PaymentStatus refundStatus;
 
 	private Double refundedAmount;
+	
+	private String currentPaymentId;
 
 }
