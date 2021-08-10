@@ -31,4 +31,5 @@ public class PropertyStatusDto {
     @Size(min = 1,message = "Modules-Visible cannot be less than 1")
     @NotNull(message = "Modules-Visible cannot be null")
     private List<String> moduleVisible;
+    private String statusDescription;
 }
