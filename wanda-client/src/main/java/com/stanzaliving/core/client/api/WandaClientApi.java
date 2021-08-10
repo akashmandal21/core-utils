@@ -688,13 +688,9 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("error while fetching the user details " + e);
+			return null;
 		}
-
-		return null;
-
 	}
-
-
 	public WandaResponse<OnBoardingGetResponse> getOnBoardingDetails(String userId) {
 
 

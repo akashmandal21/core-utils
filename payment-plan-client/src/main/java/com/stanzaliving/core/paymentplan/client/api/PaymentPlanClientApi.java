@@ -145,6 +145,8 @@ public class PaymentPlanClientApi {
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
             queryParams.add("paymentTerm", paymentTerm);
+            //queryParams.add("bookingType", bookingType);
+            //queryParams.add("maintenanceFeeCollectionType", maintenanceFeeCollectionType);
 
             HttpHeaders headerParams = new HttpHeaders();
 
