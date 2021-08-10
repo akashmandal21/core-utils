@@ -15,8 +15,9 @@ import java.util.List;
 public class ResolutionRuleAddDto {
     private TicketType ticketType;
     private List<String> primaryReferenceUuid;
-    private AccessLevel accessLevel;
-    private List<String> referenceUuid;
+    private List<String> city;
+    private List<String> micromarket;
+    private List<String> residence;
     private List<ResolutionRoleDto> resolutionRole;
 
 }
