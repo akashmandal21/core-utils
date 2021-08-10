@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UpdateMicroClusterRequestDto {
     @NotNull(
-            message = "User Id is mandatory to updates user"
+            message = "MicroCluster Id is mandatory to update microcluster"
     )
     private String uuid;
     private String microClusterName;

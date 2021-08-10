@@ -14,6 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 public class MicroClusterResponseDto extends AbstractDto {
 
+    private String uuid;
+    
     private String microClusterName;
 
     private List<String> residenceIds;
