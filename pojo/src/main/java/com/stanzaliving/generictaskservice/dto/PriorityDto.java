@@ -13,6 +13,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 public class PriorityDto {
+
 	private String priority;
 
 	private String uuid;
