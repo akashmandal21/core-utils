@@ -1,9 +1,7 @@
 package com.stanzaliving.support.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.stanzaliving.support.enums.TicketType;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,15 +10,23 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRuleFilterDto {
-    private List<String> primaryReferenceUuid;
-    private List<String> referenceUuid;
+    private TicketType ticketType;
     private List<String> createdBy;
     private List<String> lastUpdatedBy;
     private Boolean isActive;
-    /*
-    * true for active
-    * false for inactive
-    * null for all
-    * */
+    private List<String> city;
+
+    private List<String> micromarket;
+
+    private List<String> residence;
+
+    private List<String> complaintGroup;
+
+    private List<String> category;
+
+    private List<String> subcategory;
+
+    private List<String> subTicketTask;
+
 
 }
