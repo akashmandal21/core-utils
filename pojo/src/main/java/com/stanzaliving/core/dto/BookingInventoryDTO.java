@@ -13,9 +13,9 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingInventoryDTO {
 
-    private int bookingId;
+    private String bookingId;
 
-    private Integer bookingType;
+    private String bookingType;
 
     private String agreement;
 

@@ -3,6 +3,8 @@ package com.stanzaliving.wanda.venta.response;
 import java.time.LocalDate;
 import java.util.Map;
 
+import com.stanzaliving.booking.enums.PaymentTerm;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,7 +18,7 @@ public class PaymentInitialResponseDto {
 
 	private String bookingId;
 	
-	private String installmentType;
+	private PaymentTerm installmentType;
 	
 	private DiscountResponseDto discountResponseDto;
 	

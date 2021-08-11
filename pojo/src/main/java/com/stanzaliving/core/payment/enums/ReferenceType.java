@@ -9,5 +9,4 @@ import lombok.Getter;
 
 public enum ReferenceType {
     BOOKING, MERCHANT_TRANSACTION, USER;
-
 }

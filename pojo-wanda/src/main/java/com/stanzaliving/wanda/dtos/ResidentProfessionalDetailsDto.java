@@ -37,4 +37,6 @@ public class ResidentProfessionalDetailsDto {
 	
 	private String designation;
 	
+	private String profilePic;
+	
 }
