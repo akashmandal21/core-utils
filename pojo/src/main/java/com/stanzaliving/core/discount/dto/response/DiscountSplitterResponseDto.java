@@ -14,5 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class DiscountSplitterResponseDto {
 
+    private String description;
+
     List<DiscountSplitterDto> monthWiseDiscountSplitter;
 }
