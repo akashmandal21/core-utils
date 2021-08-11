@@ -53,7 +53,7 @@ public class InvoiceServiceApi {
     public ResponseDto<List<DocumentResponseDto>> getARInvoice(Date fromDate) {
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/AR-invoice-details")
+        String path = UriComponentsBuilder.fromPath("/internal/advance-rental-invoices")
                 .buildAndExpand(uriVariables).toUriString();
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
