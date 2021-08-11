@@ -15,6 +15,8 @@ import java.util.List;
 public class AreaResponseDto extends AbstractDto {
 
     private String areaName;
-    private List<String> room;
-    private List<String> tag;
+    private List<String> rooms;
+    private List<String> tags;
+    private String categoryID;
+    private String residenceID;
 }
