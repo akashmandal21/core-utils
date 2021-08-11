@@ -767,7 +767,7 @@ public class POClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/generic/get/{sourceDepartment}/otherDepartments").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/{sourceDepartment}/otherDepartments").buildAndExpand(uriVariables).toUriString();
 
         ParameterizedTypeReference<ResponseDto<Collection<Department>>> returnType = new ParameterizedTypeReference<ResponseDto<Collection<Department>>>() {
         };
