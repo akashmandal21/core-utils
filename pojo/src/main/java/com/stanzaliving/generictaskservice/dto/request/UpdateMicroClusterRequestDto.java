@@ -18,7 +18,10 @@ public class UpdateMicroClusterRequestDto {
             message = "MicroCluster Id is mandatory to update microcluster"
     )
     private String uuid;
+
     private String microClusterName;
+
+    private String microMarketName;
 
     private List<String> residenceIds;
 
