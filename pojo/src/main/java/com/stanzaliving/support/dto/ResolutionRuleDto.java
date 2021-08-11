@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Builder
 @Data
 @NoArgsConstructor
@@ -23,5 +25,9 @@ public class ResolutionRuleDto {
     private Boolean isEscalation;
     private String escalateTo;
     private Integer sequence;
+    private Date createdAt;
+    private Date updatedAt;
+    private String createdBy;
+    private String updatedBy;
 
 }
