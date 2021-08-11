@@ -13,6 +13,7 @@ public class ContractModificationDetailsDto {
 
 	private String studentId;
 	private String studentName;
+	private String studentEmail;
 	private String contractStartDate;
 	private String contractEndDate;
 	private double monthlyFee;

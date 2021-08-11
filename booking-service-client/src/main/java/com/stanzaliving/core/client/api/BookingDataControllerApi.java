@@ -302,7 +302,7 @@ public class BookingDataControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/modify-contract/v1/modify/contract/details").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/modify-contract/v1/modify/contract/details/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
