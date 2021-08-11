@@ -19,5 +19,7 @@ import lombok.NoArgsConstructor;
 public class OccupancyBlendedPriceDto {
 
 	private Integer occupancy;
+	private String occupancyName;
+	private Integer bedCount;
 	private double blendedPrice;
 }
