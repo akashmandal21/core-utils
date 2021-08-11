@@ -47,6 +47,6 @@ public class DocumentResponseDto {
     private String dealType;
     private String dealPostalCode;
     private List<String> dealResidences;
-    private String callerServiceMetaData;
+    private String metaDataCallerService;
     private String generationSource;
 }
