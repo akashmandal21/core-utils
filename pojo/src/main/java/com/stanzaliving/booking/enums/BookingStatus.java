@@ -204,4 +204,15 @@ public enum BookingStatus {
         if(bookingStatusMap.containsKey(bookingStatus)) return bookingStatusMap.get(bookingStatus);
         else return null;
     }
+
+    public static Set<BookingStatus> isPersonalDetailsFilled() {
+        Set<BookingStatus> bookingStatus = new HashSet<>();
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED);
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT);
+        bookingStatus.add(BookingStatus.CANCELLED);
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED);
+        return bookingStatus;
+    }
 }

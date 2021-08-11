@@ -2,6 +2,7 @@ package com.stanzaliving.booking.dto.request;
 
 import com.stanzaliving.booking.dto.request.ServicePriceDto;
 import com.stanzaliving.booking.dto.request.VasPriceDto;
+import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.booking.enums.ReferenceType;
 import lombok.AllArgsConstructor;
@@ -35,6 +36,10 @@ public class VasPaymentPlanRequestDTO implements Serializable {
 
     @NotNull(message = "contractEndDate cannot be null")
     private Date contractEndDate;
+
+    private Date stayLockInDate;
+
+    private BookingType bookingType;
 
     @Builder.Default
     private Integer startingAdvanceRentalMonths = 1;

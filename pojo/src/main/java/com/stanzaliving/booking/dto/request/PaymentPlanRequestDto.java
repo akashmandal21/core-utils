@@ -33,8 +33,6 @@ public class PaymentPlanRequestDto implements Serializable {
 	@Builder.Default
 	private Boolean isWpBooking = false;
 
-	private BookingType bookingType;
-	
 	@Builder.Default
 	private Boolean savePaymentPlan = false;
 

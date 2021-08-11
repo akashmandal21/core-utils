@@ -15,8 +15,6 @@ public enum ResidenceAttributes {
 
     BOOKING_FLOW("Booking Flow", "String"),
 
-    ROOM_COUNT("Room Count", "String"),
-
     CITY_HEAD_BUFFER_CONTRIBUTION("City Head Buffer Contribution", "String"),
     AUTO_BOOKING_CANCELLATION_TIME("Auto Booking Cancellation Time", "String"),
     MODIFY_CONTRACT_CUT_OFF_DAYS("Modify Contract Cut off Days", "String"),
