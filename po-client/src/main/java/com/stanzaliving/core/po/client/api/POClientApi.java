@@ -772,7 +772,7 @@ public class POClientApi {
         ParameterizedTypeReference<ResponseDto<Collection<Department>>> returnType = new ParameterizedTypeReference<ResponseDto<Collection<Department>>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
     }
 }
