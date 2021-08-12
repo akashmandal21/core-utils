@@ -19,6 +19,8 @@ public class MonthlyBreakupDto {
 
     private Double subContract2MonthlyRent;
     
+	private Double monthlyFee;
+
     private Double licenseFee;
 
     private Double cityHeadBuffer;
