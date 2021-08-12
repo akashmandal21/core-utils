@@ -79,4 +79,5 @@ public class BookingAggregationDto {
     private double pendingAmount;
     private String paymentMode;
     private String bookingAgreementUrl;
+    private String bookingSubType;
 }
