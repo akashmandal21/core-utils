@@ -18,11 +18,11 @@ public class MicroClusterResponseDto extends AbstractDto {
     
     private String microClusterName;
 
-    private String microMarketName;
+    private List<String> microMarkets;
 
     private List<String> residenceIds;
 
-    private String state;
+    private String stateUuid;
 
-    private String city;
+    private String cityUuid;
 }

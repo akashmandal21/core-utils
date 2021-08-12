@@ -19,15 +19,15 @@ public class MicroClusterRequestDto extends AbstractDto {
     @NotNull(message = "MicroCluster is mandatory")
     private String microClusterName;
 
-    @NotBlank(message = "MicroMarket cannot be blank")
-    private String microMarketName;
+    @NotNull(message = "MicroMarkets cannot be blank")
+    private List<String> microMarkets;
 
     @NotNull(message = "ResidenceIds Cannot be blank")
     private List<String> residenceIds;
 
-    @NotBlank(message = "State Cannot be blank")
-    private String state;
+    @NotBlank(message = "StateUuid Cannot be blank")
+    private String stateUuid;
 
-    @NotBlank(message = "City Cannot be blank")
-    private String city;
+    @NotBlank(message = "CityUuid Cannot be blank")
+    private String cityUuid;
 }
