@@ -40,8 +40,13 @@ public enum EstateV2Status {
 
     //Legal
     SENT_TO_LEGAL("Sent To Legal"),
-    ATL_UPLOAD_PENDING("ATL Upload Pending");
+    ATL_UPLOAD_PENDING("ATL Upload Pending"),
 
+
+    //SocietyFlowStatus
+    SOCIETY_SENT_TO_RM("Sent To RM"),
+    SOCIETY_SENT_TO_NH("Sent To NH"),
+    SOCIETY_APPROVED("Society Approved");
 
     private final String description;
 
@@ -95,6 +100,14 @@ public enum EstateV2Status {
         return legalStatus;
     }
 
+    public static List<StatusDto> getStatusGamma()
+    {  final List<StatusDto> gammaStatus=new ArrayList<>();
+        gammaStatus.add(new StatusDto(DRAFT_IN_PROGRESS.name(), DRAFT_IN_PROGRESS.getDescription()));
+        gammaStatus.add(new StatusDto(SOCIETY_SENT_TO_RM.name(), SOCIETY_SENT_TO_RM.getDescription()));
+        gammaStatus.add(new StatusDto(SOCIETY_SENT_TO_NH.name(), SOCIETY_SENT_TO_NH.getDescription()));
+        gammaStatus.add(new StatusDto(SOCIETY_APPROVED.name(), SOCIETY_APPROVED.getDescription()));
+        return gammaStatus;
+    }
 
 
 

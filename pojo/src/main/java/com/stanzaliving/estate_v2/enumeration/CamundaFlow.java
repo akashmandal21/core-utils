@@ -5,14 +5,15 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Getter
 public enum CamundaFlow {
 
     ALPHA("Alpha", "1000"),
-    BETA("Beta", "1001");
-
+    BETA("Beta", "1001"),
+    GAMMA("Gamma","1002");
     private final String name;
     private final String id;
 
@@ -39,6 +40,9 @@ public enum CamundaFlow {
         return modulesList;
     }
 
+    public static List<ModulesDto> getGammaModules() {
+      return Collections.emptyList();
+    }
     public static List<CamundaFlow> getCamundaFlow() {
            return new ArrayList<>( Arrays.asList(CamundaFlow.values()));
     }
