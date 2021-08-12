@@ -297,22 +297,29 @@ public class BookingDataControllerApi {
 
     public ResponseDto<ContractModificationDetailsDto> getContractModificationDetails(String bookingUuid) {
 
-    	Object postBody = null;
+        Object postBody = null;
 
-    	// create path and map variables
-    	final Map<String, Object> uriVariables = new HashMap<>();
-    	uriVariables.put("bookingUuid", bookingUuid);
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
 
-    	String path = UriComponentsBuilder.fromPath("/modify-contract/v1/modify/contract/details/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/modify-contract/v1/modify/contract/details/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
-    	final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-    	final HttpHeaders headerParams = new HttpHeaders();
-    	final String[] accepts = { "*/*" };
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-    	final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-    	ParameterizedTypeReference<ResponseDto<ContractModificationDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<ContractModificationDetailsDto>>() {
-    	};
-    	return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        queryParams.add("bookingUuid", bookingUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ContractModificationDetailsDto>> returnType
+                = new ParameterizedTypeReference<ResponseDto<ContractModificationDetailsDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    
 }
 
     public ResponseDto<Integer> getBedCountForNonMgDeal(String dealUuid) {
