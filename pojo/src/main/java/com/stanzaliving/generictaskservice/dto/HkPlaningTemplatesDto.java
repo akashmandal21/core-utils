@@ -30,6 +30,6 @@ public class HkPlaningTemplatesDto {
 
 	private List<String> tags = new ArrayList<>();
 
-	private List<String> shiftAllocationUuid = new ArrayList<>();
+	private List<ShiftAllocationDto> ShiftAllocationDtoList = new ArrayList<>();
 
 }
