@@ -37,5 +37,4 @@ public class ResolutionRuleDto {
     private Date updatedAt;
     private String createdBy;
     private String updatedBy;
-
 }
