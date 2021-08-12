@@ -2,6 +2,8 @@ package com.stanzaliving.core.residenceservice.dto;
 
 import lombok.*;
 
+import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -9,7 +11,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResidenceListRequestDto {
+public class ResidenceListRequestDto implements Serializable {
 
     private Set<String> cityList;
 
