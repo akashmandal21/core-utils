@@ -1,6 +1,6 @@
 package com.stanzaliving.estate_v2.enumeration;
 
-import com.stanzaliving.core.estate.enums.EstateStatus;
+import com.stanzaliving.estate_v2.dto.StatusDto;
 import lombok.Getter;
 
 import java.util.*;
@@ -43,55 +43,55 @@ public enum EstateV2Status {
     ATL_UPLOAD_PENDING("ATL Upload Pending");
 
 
-    private final String name;
+    private final String description;
 
-    EstateV2Status(String name) {
-        this.name = name;
+    EstateV2Status(String description) {
+        this.description = description;
     }
 
 
-    public static SortedMap<EstateV2Status, String> getBasicStatusAlpha() {
-         final TreeMap<EstateV2Status, String> basicStatusAlpha = new TreeMap<>();
-        basicStatusAlpha.put(DRAFT_IN_PROGRESS, DRAFT_IN_PROGRESS.getName());
-        basicStatusAlpha.put(SENT_FOR_APPROVAL_TO_CITY_HEAD, SENT_FOR_APPROVAL_TO_CITY_HEAD.getName());
-        basicStatusAlpha.put(SENT_BACK_BY_CITY_HEAD, SENT_BACK_BY_CITY_HEAD.getName());
-        basicStatusAlpha.put(SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD, SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD.getName());
-        basicStatusAlpha.put(SENT_BACK_L1_BY_NATIONAL_HEAD, SENT_BACK_L1_BY_NATIONAL_HEAD.getName());
-        basicStatusAlpha.put(SENT_FOR_L1_APPROVAL_TO_LEADERSHIP, SENT_FOR_L1_APPROVAL_TO_LEADERSHIP.getName());
-        basicStatusAlpha.put(SENT_BACK_L1_BY_LEADERSHIP, SENT_BACK_L1_BY_LEADERSHIP.getName());
-        basicStatusAlpha.put(APPROVED_L1_BY_LEADERSHIP, APPROVED_L1_BY_LEADERSHIP.getName());
-        basicStatusAlpha.put(SENT_FOR_APPROVAL, SENT_FOR_APPROVAL.getName());
-        basicStatusAlpha.put(SENT_FOR_NH_DH_APPROVED, SENT_FOR_NH_DH_APPROVED.getName());
-        basicStatusAlpha.put(SENT_BACK_L2_BY_NATIONAL_HEAD, SENT_BACK_L2_BY_NATIONAL_HEAD.getName());
-        basicStatusAlpha.put(SENT_FOR_DH_NH_APPROVED, SENT_FOR_DH_NH_APPROVED.getName());
-        basicStatusAlpha.put(SENT_BACK_BY_TRANSFORMATION,SENT_BACK_BY_TRANSFORMATION .getName());
-        basicStatusAlpha.put(SENT_FOR_SANDEEP_APPROVAL,SENT_FOR_SANDEEP_APPROVAL .getName());
-        basicStatusAlpha.put(SENT_BACK_BY_SANDEEP,SENT_BACK_BY_SANDEEP .getName());
-        basicStatusAlpha.put(SIGNED_ATL_UPLOADED,SIGNED_ATL_UPLOADED .getName());
-        basicStatusAlpha.put(APPROVED_BY_LEADERSHIP,APPROVED_BY_LEADERSHIP .getName());
+    public static List<StatusDto> getBasicStatusAlpha() {
+        final List<StatusDto> basicStatusAlpha=new ArrayList<>();
+        basicStatusAlpha.add(new StatusDto(DRAFT_IN_PROGRESS.name(), DRAFT_IN_PROGRESS.getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_FOR_APPROVAL_TO_CITY_HEAD.name(), SENT_FOR_APPROVAL_TO_CITY_HEAD.getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_BACK_BY_CITY_HEAD.name(), SENT_BACK_BY_CITY_HEAD.getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD.name(), SENT_FOR_L1_APPROVAL_TO_NATIONAL_HEAD.getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_BACK_L1_BY_NATIONAL_HEAD.name(), SENT_BACK_L1_BY_NATIONAL_HEAD.getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_FOR_L1_APPROVAL_TO_LEADERSHIP.name(), SENT_FOR_L1_APPROVAL_TO_LEADERSHIP.getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_BACK_L1_BY_LEADERSHIP.name(), SENT_BACK_L1_BY_LEADERSHIP.getDescription()));
+        basicStatusAlpha.add(new StatusDto(APPROVED_L1_BY_LEADERSHIP.name(), APPROVED_L1_BY_LEADERSHIP.getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_FOR_APPROVAL.name(), SENT_FOR_APPROVAL.getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_FOR_NH_DH_APPROVED.name(), SENT_FOR_NH_DH_APPROVED.getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_BACK_L2_BY_NATIONAL_HEAD.name(), SENT_BACK_L2_BY_NATIONAL_HEAD.getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_FOR_DH_NH_APPROVED.name(), SENT_FOR_DH_NH_APPROVED.getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_BACK_BY_TRANSFORMATION.name(),SENT_BACK_BY_TRANSFORMATION .getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_FOR_SANDEEP_APPROVAL.name(),SENT_FOR_SANDEEP_APPROVAL .getDescription()));
+        basicStatusAlpha.add(new StatusDto(SENT_BACK_BY_SANDEEP.name(),SENT_BACK_BY_SANDEEP .getDescription()));
+        basicStatusAlpha.add(new StatusDto(SIGNED_ATL_UPLOADED.name(),SIGNED_ATL_UPLOADED .getDescription()));
+        basicStatusAlpha.add(new StatusDto(APPROVED_BY_LEADERSHIP.name(),APPROVED_BY_LEADERSHIP .getDescription()));
         return basicStatusAlpha;
     }
 
-    public static SortedMap<EstateV2Status, String> getInitialBedCountStatus() {
-        final TreeMap<EstateV2Status, String> initialBedCountStatus = new TreeMap<>();
-        initialBedCountStatus.put(SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES, SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES.getName());
-        initialBedCountStatus.put(PENDING_DESIGN_FILES, PENDING_DESIGN_FILES.getName());
-        initialBedCountStatus.put(PENDING_INITIAL_BED_COUNT, PENDING_INITIAL_BED_COUNT.getName());
-        initialBedCountStatus.put(SENT_BACK_FROM_INITIAL_BED_COUNT, SENT_BACK_FROM_INITIAL_BED_COUNT.getName());
+    public static List<StatusDto> getInitialBedCountStatus() {
+        final List<StatusDto> initialBedCountStatus=new ArrayList<>();
+        initialBedCountStatus.add(new StatusDto(SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES.name(), SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES.getDescription()));
+        initialBedCountStatus.add(new StatusDto(PENDING_DESIGN_FILES.name(), PENDING_DESIGN_FILES.getDescription()));
+        initialBedCountStatus.add(new StatusDto(PENDING_INITIAL_BED_COUNT.name(), PENDING_INITIAL_BED_COUNT.getDescription()));
+        initialBedCountStatus.add(new StatusDto(SENT_BACK_FROM_INITIAL_BED_COUNT.name(), SENT_BACK_FROM_INITIAL_BED_COUNT.getDescription()));
         return initialBedCountStatus;
     }
 
-    public static SortedMap<EstateV2Status, String> getSalesReviewStatus() {
-        final TreeMap<EstateV2Status, String> salesReviewStatus = new TreeMap<>();
-        salesReviewStatus.put(SENT_FOR_APPROVAL_TO_CLUSTER_MANAGER, SENT_FOR_APPROVAL_TO_CLUSTER_MANAGER.getName());
-        salesReviewStatus.put(SENT_FOR_APPROVAL_TO_ZONAL_HEAD, SENT_FOR_APPROVAL_TO_ZONAL_HEAD.getName());
+    public static List<StatusDto> getSalesReviewStatus() {
+        final List<StatusDto> salesReviewStatus=new ArrayList<>();
+        salesReviewStatus.add(new StatusDto(SENT_FOR_APPROVAL_TO_CLUSTER_MANAGER.name(), SENT_FOR_APPROVAL_TO_CLUSTER_MANAGER.getDescription()));
+        salesReviewStatus.add(new StatusDto(SENT_FOR_APPROVAL_TO_ZONAL_HEAD.name(), SENT_FOR_APPROVAL_TO_ZONAL_HEAD.getDescription()));
         return salesReviewStatus;
     }
 
-    public static SortedMap<EstateV2Status, String> getLegalStatus() {
-        final TreeMap<EstateV2Status, String> legalStatus = new TreeMap<>();
-        legalStatus.put(SENT_TO_LEGAL, SENT_TO_LEGAL.getName());
-        legalStatus.put(ATL_UPLOAD_PENDING, ATL_UPLOAD_PENDING.getName());
+    public static List<StatusDto> getLegalStatus() {
+        final List<StatusDto> legalStatus=new ArrayList<>();
+        legalStatus.add(new StatusDto(SENT_TO_LEGAL.name(), SENT_TO_LEGAL.getDescription()));
+        legalStatus.add(new StatusDto(ATL_UPLOAD_PENDING.name(), ATL_UPLOAD_PENDING.getDescription()));
         return legalStatus;
     }
 
