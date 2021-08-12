@@ -11,11 +11,19 @@ import java.util.Map;
 @AllArgsConstructor
 public enum Type {
 
-    DATETIME("DateTime"),
+    DATE_TIME("Date Time"),
     STRING("String"),
-    INT("Int"),
+    INTEGER("Integer"),
     FLOAT("Float"),
-    ARRAY("Array");
+    DOUBLE("Double"),
+    DATE("Date"),
+    TIME("Time"),
+    BOOLEAN("Boolean"),
+    ARRAY("Array"),
+    LIST_STRING("List of String"),
+    List_INTEGER("List Of Integer"),
+    LIST_DOUBLE("List of Double") ;
+
 
     private String type;
     @Override
