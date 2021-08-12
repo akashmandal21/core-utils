@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @author raj.kumar
  *
@@ -16,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OccupancyBlendedPriceDto {
+public class OccupancyBlendedPriceDto implements Serializable {
 
 	private Integer occupancy;
 	private String occupancyName;
