@@ -315,10 +315,12 @@ public class BookingDataControllerApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<ContractModificationDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<ContractModificationDetailsDto>>() {
+        ParameterizedTypeReference<ResponseDto<ContractModificationDetailsDto>> returnType
+                = new ParameterizedTypeReference<ResponseDto<ContractModificationDetailsDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-    }
+    
+}
 
     public ResponseDto<Integer> getBedCountForNonMgDeal(String dealUuid) {
 
