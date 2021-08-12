@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 @Builder
@@ -14,7 +15,14 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRuleDto {
-
+    private String complaintGroupUuid;
+    private String complaintGroup;
+    private String categoryUuid;
+    private String category;
+    private String subCategoryUuid;
+    private String subCategory;
+    private String subTicketTaskUuid;
+    private String subTicketTask;
     private TicketType ticketType;
     private String primaryReferenceUuid;
     private AccessLevel accessLevel;
@@ -29,5 +37,4 @@ public class ResolutionRuleDto {
     private Date updatedAt;
     private String createdBy;
     private String updatedBy;
-
 }
