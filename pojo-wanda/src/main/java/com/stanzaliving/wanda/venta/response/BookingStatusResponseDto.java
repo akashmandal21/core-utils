@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.venta.response;
 
+import com.stanzaliving.booking.enums.BookingSubType;
 import com.stanzaliving.wanda.enums.AlfredStep;
 import com.stanzaliving.wanda.venta.enums.BookingSource;
 
@@ -44,4 +45,5 @@ public class BookingStatusResponseDto {
     private String jsVersion;
     private String residenceUuid;
     private Long bookingId;
+    private BookingSubType bookingSubType;
 }
