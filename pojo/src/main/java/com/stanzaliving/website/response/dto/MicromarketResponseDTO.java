@@ -60,9 +60,6 @@ public class MicromarketResponseDTO {
 	private String apartmentSeoDescription;
 	private String apartmentMicromarketDescription;
 	
-	@Builder.Default
-	private boolean comingSoonPg = false;
-	
-	@Builder.Default
-	private boolean comingSoonApartment = false;
+	private boolean comingSoonPg;
+	private boolean comingSoonApartment;
 }
