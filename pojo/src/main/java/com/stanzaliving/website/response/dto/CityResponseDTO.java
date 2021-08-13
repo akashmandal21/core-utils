@@ -43,14 +43,8 @@ public class CityResponseDTO {
 	private Boolean whatsappChatFlag;
 	private String cityDescription;
 	
-	@Builder.Default
-	private boolean comingSoon = false;
-	
-	@Builder.Default
-	private boolean comingSoonPg = false;
-	
-	@Builder.Default
-	private boolean comingSoonApartment = false;
+	private boolean comingSoonPg;
+	private boolean comingSoonApartment;
 	
 	private List<AttributeDto> attributeDto;
     @Builder.Default
