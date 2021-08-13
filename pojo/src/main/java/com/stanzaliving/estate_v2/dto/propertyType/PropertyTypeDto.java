@@ -18,6 +18,8 @@ public class PropertyTypeDto extends AbstractMongoDto {
     @EmptyOrNull(message = "Property type name cannot be empty or null")
     private String name;
 
+    private String camundaFlow;
+
     private String description;
     private ParentUuidNameDto parent;
 
