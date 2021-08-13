@@ -25,5 +25,6 @@ public class FilterDto {
     private DurationDto auditedOn;
     private Double damageAmountMinPrice;
     private Double damageAmountMaxPrice;
+    private List<String> auditorUuid;
 
 }
