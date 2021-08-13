@@ -301,12 +301,11 @@ public class BookingDataControllerApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-
-        String path = UriComponentsBuilder.fromPath("/modify-contract/v1/modify/contract/details/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+        uriVariables.put("bookingUuid", bookingUuid);
+        
+        String path = UriComponentsBuilder.fromPath("/internal/modify/contract/details/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        queryParams.add("bookingUuid", bookingUuid);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
