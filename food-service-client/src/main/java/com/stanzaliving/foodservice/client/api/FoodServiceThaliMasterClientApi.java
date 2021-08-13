@@ -7,6 +7,7 @@ import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.food.v2.common.dto.ThaliMasterDto;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.http.MediaType;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -88,14 +89,14 @@ public class FoodServiceThaliMasterClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
 	
-	public Map<Pair<FoodRegion, FoodItemBasePreference>, ThaliMasterDto> getThaliMapper() {
+	public Map<ImmutablePair<FoodRegion, FoodItemBasePreference>, ThaliMasterDto> getThaliMapper() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/common/thali/master/thaliMapper").build().toUriString();
 
-		TypeReference<ResponseDto<Map<Pair<FoodRegion, FoodItemBasePreference>, ThaliMasterDto>>> returnType =
-				new TypeReference<ResponseDto<Map<Pair<FoodRegion, FoodItemBasePreference>, ThaliMasterDto>>>() {};
+		TypeReference<ResponseDto<Map<ImmutablePair<FoodRegion, FoodItemBasePreference>, ThaliMasterDto>>> returnType =
+				new TypeReference<ResponseDto<Map<ImmutablePair<FoodRegion, FoodItemBasePreference>, ThaliMasterDto>>>() {};
 
-		ResponseDto<Map<Pair<FoodRegion, FoodItemBasePreference>, ThaliMasterDto>> responseDto = null;
+		ResponseDto<Map<ImmutablePair<FoodRegion, FoodItemBasePreference>, ThaliMasterDto>> responseDto = null;
 
 		try {
 
