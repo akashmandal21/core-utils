@@ -46,6 +46,12 @@ public class CityResponseDTO {
 	@Builder.Default
 	private boolean comingSoon = false;
 	
+	@Builder.Default
+	private boolean comingSoonPg = false;
+	
+	@Builder.Default
+	private boolean comingSoonApartment = false;
+	
 	private List<AttributeDto> attributeDto;
     @Builder.Default
 	private boolean isSelected = false;
