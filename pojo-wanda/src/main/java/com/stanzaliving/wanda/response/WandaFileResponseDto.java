@@ -1,8 +1,10 @@
 package com.stanzaliving.wanda.response;
 
+import com.stanzaliving.core.enums.ApprovalStatus;
 import com.stanzaliving.wanda.enums.DocumentSideType;
 import com.stanzaliving.wanda.enums.DocumentUploadType;
 import com.stanzaliving.wanda.enums.ResidentDocumentContext;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -56,4 +58,7 @@ public class WandaFileResponseDto {
 	private String bucketName;
 
 	private String documentUuid;
+
+	private ApprovalStatus approvalStatus;
+	
 }
