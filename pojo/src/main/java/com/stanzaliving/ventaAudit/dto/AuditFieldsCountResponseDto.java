@@ -6,12 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuditFieldsCountResponseDto {
-    List<CountAuditorResponseDto> countAuditor;
+    Set<CountAuditorResponseDto> countAuditor;
     List<CountDueDateResponseDto> countDueDate;
     List<CountAuditStatusResponseDto> countAuditStatus;
 }
