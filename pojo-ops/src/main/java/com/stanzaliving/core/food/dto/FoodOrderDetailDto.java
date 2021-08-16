@@ -105,6 +105,9 @@ public class FoodOrderDetailDto {
 	
 	private LocalTime cutoffTime;
 
+	@Builder.Default
+	private boolean cutOffTimeExpired = true;
+
 	private UserPreferenceCountDto userPreferenceCountDto;
 
 }
