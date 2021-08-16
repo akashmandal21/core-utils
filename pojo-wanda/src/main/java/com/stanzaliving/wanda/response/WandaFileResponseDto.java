@@ -59,6 +59,6 @@ public class WandaFileResponseDto {
 
 	private String documentUuid;
 
-	private ApprovalStatus approvalStatus;
+	private ApprovalStatus documentApprovalStatus;
 	
 }
