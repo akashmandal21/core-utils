@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+
 @Builder
 @Data
 @NoArgsConstructor
@@ -27,6 +28,8 @@ public class TicketResponseDto {
     private String complaintGroup;
 
     private Date slaTime;
+
+    private String chipColor;
 
     private String description;
 

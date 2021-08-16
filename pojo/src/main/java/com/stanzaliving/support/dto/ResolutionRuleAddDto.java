@@ -7,14 +7,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.util.List;
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRuleAddDto {
-    private TicketType ticketType;
     private List<String> primaryReferenceUuid;
+    private TicketType ticketType;
     private List<String> city;
     private List<String> micromarket;
     private List<String> residence;
