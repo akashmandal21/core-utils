@@ -1,12 +1,9 @@
 package com.stanzaliving.generictaskservice.dto;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotEmpty;
-import java.util.Date;
 import java.util.List;
 
 /**

@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.taskservice.enums.TaskType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
@@ -65,11 +66,11 @@ public class GenericTaskDto extends AbstractDto {
 
     private List<GenericTaskDto> subTasks;
 
-    @NotBlank(message = "Category Id cannot be empty")
-    private String categoryUUId;
+    @NotBlank(message = "Task category Id cannot be empty")
+    private String taskCategoryUUId;
 
-    @NotBlank(message = "Sub Category Id Name cannot be empty")
-    private String subCategoryUUId;
+    @NotBlank(message = "Task Sub Category Id Name cannot be empty")
+    private String taskSubCategoryUUId;
 
     private List<String> attachmentsList;
 
