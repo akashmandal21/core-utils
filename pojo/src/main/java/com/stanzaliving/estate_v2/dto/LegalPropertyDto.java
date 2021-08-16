@@ -1,6 +1,8 @@
 package com.stanzaliving.estate_v2.dto;
 
 import com.stanzaliving.core.dto.AbstractMongoDto;
+import com.stanzaliving.core.dto.AddressDTO;
+import com.stanzaliving.core.user.dto.Address;
 import lombok.*;
 
 @AllArgsConstructor
@@ -19,6 +21,6 @@ public class LegalPropertyDto extends AbstractMongoDto{
     private String rooms;
     private String availableBeds;
     private String rent;
-    private String address;
+    private Address address;
     private String createdByUserEmail;
 }
