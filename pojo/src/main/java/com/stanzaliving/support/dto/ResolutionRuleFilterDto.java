@@ -3,6 +3,7 @@ package com.stanzaliving.support.dto;
 import com.stanzaliving.support.enums.TicketType;
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Builder
@@ -10,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRuleFilterDto {
+    @NotNull(message = "Ticket type must not be null.")
     private TicketType ticketType;
     private List<String> createdBy;
     private List<String> lastUpdatedBy;
