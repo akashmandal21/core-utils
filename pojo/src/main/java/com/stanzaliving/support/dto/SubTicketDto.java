@@ -20,6 +20,7 @@ public class SubTicketDto {
     private String taskTypeDetail;
     private String teamDetail;
     private String assignedTo;
+    private String assignedToUuid;
     private Date slaTime;
     private boolean markForDelay;
     private String description;

@@ -27,5 +27,7 @@ public class TicketCardDto {
     private String residenceName;
     private String roomNumber;
     private String description;
+    private String assignedToUuid;
+    private String assignedTo;
 }
 

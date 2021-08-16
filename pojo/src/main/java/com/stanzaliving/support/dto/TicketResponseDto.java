@@ -54,4 +54,6 @@ public class TicketResponseDto {
 
     private Priority priority;
 
+    private String residenceUuid;
+
 }

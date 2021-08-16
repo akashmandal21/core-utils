@@ -31,5 +31,7 @@ public class TicketRequestDto {
 
     private String assignedToUuid;
 
+    private String residenceUuid;
+
     private List<TagDto> tagDtos;
 }
