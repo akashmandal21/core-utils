@@ -18,7 +18,7 @@ public class InventoryOccupancyDto {
     private String inventoryUuid;
     private Date startDate;
     private Date endDate;
-    private Integer beds;
+    private Double beds;
     private boolean selfConverted;
     private String uuid;
 }
