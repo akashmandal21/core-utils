@@ -105,7 +105,7 @@ public class CommercialDataControllerApi {
         return this.restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
     }
     
-	public CommercialCardResponseDto getCommercialCardResponseDto(String commercialCardUuid, String token) {
+	public CommercialCardResponseDto getCommercialCardResponseDto(String commercialCardUuid) {
 
 		Object postBody = null;
 
@@ -114,13 +114,12 @@ public class CommercialDataControllerApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("uuid", commercialCardUuid);
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/commercial-card/{uuid}").buildAndExpand(uriVariables)
+		String path = UriComponentsBuilder.fromPath("/internal/commercial-card/{uuid}").buildAndExpand(uriVariables)
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
-		headerParams.add("Cookie", "token=" + token);
 
 		final String[] accepts = { "*/*" };
 		List<MediaType> accept = restClient.selectHeaderAccept(accepts);
