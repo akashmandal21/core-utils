@@ -916,4 +916,34 @@ public class InternalDataControllerApi {
 		}
 		return null;
 	}
+
+	public void publishToKafkaResidenceUuids(List<String> residenceUuids) {
+		log.info("publishToKafkaResidenceUuids is called for residenceUuids {}", residenceUuids);
+
+		if (CollectionUtils.isEmpty(residenceUuids)) {
+			return;
+		}
+		String uuids = String.join(",", residenceUuids);
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/residence/publish/kafka/").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.putAll(restClient.parameterToMultiValueMap(null, "residenceUuids", uuids));
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+		};
+		restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
 }
