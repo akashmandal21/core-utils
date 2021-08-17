@@ -6,8 +6,10 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
+
 /**
  * @author Priyadarshini MB
+ *
  */
 
 @Getter
@@ -16,10 +18,12 @@ import java.util.List;
 @SuperBuilder
 @ToString
 @NoArgsConstructor
-public class GenericTemplateFilterDto {
+public class GenericTaskFilterDTO {
 
-    protected String name;
-    protected List<String> taskIds;
+    private String name;
+    private String statusUUID;
+    private String taskCategoryUUId;
+    private String taskSubCategoryUUId;//taskType
+    private List<String> tagsUUIds;//tags
     private PaginationRequest pageRequest;
 }
-
