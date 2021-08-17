@@ -24,6 +24,8 @@ public class ReviewTemplateDto {
     private boolean salesReviewVisible;
     private boolean propertyNaming;
     private boolean atlDocumentVisible;
+    private boolean l1CallBackVisible;
+    private boolean l2CallBackVisible;
     private List<OtherInformationDto> otherInformation;
     private List<LayoutDto> layouts;
 }

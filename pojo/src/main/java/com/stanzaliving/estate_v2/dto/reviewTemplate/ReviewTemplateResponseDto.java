@@ -25,6 +25,8 @@ public class ReviewTemplateResponseDto {
     private boolean bedCountDetailsVisible;
     private boolean salesReviewVisible;
     private boolean propertyNaming;
+    private boolean l1CallBackVisible;
+    private boolean l2CallBackVisible;
     private BedCountInfoDto bedCountInformation;
     private List<LayoutResponse> layouts;
 
