@@ -80,7 +80,7 @@ public class InvoiceServiceApi {
         Object postBody = invoiceIds;
 
         final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/merge-pdf")
+        String path = UriComponentsBuilder.fromPath("/internal/merge-pdf")
                 .buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
