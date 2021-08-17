@@ -19,7 +19,7 @@ public class PropertyBoqListingGroupByBoq {
 
     private String boqUuid;
 
-    private BoqType boqType;
+    private String boqType;
 
     private Long updatedOn;
 
@@ -35,7 +35,7 @@ public class PropertyBoqListingGroupByBoq {
 
     private String statusText;
 
-    private BoqStatus boqStatus;
+    private String boqStatus;
 
     private String textColor;
 
