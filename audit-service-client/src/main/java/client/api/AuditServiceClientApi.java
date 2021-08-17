@@ -7,9 +7,11 @@ import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.ventaAudit.dto.InventoryResponseDto;
 import com.stanzaliving.ventaAudit.dto.RoomHandoverStatusResponseDto;
+import com.stanzaliving.ventaAudit.dto.VentaNotificationDto;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -117,6 +119,32 @@ public class AuditServiceClientApi {
             throw new PreconditionFailedException(responseDto.getMessage());
         }
         return responseDto;
+    }
+
+    public ResponseDto<VentaNotificationDto> getAuditDetails(String bookingUuid) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid",bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/audit/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.add("bookingUuid", bookingUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = stanzaRestClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<VentaNotificationDto>> returnType = new ParameterizedTypeReference<ResponseDto<VentaNotificationDto>>() {
+        };
+        return stanzaRestClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
 
