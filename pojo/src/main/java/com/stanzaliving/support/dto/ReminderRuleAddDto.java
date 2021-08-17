@@ -14,10 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReminderRuleAddDto {
-    private TicketType ticketType;
     private List<String> primaryReferenceUuid;
-    private AccessLevel accessLevel;
-    private List<String> referenceUuid;
+    private TicketType ticketType;
+    private List<String> city;
+    private List<String> micromarket;
+    private List<String> residence;
     private List<ReminderDetailsDto> reminderDetails;
 
 }
