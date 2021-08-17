@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class MicroClusterFilterDto {
 
-    protected String city;
+    protected String cityUuid;
 
     protected List<String> residenceIds;
 

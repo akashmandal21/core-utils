@@ -21,11 +21,7 @@ public class UpdateMicroClusterRequestDto {
 
     private String microClusterName;
 
-    private List<String> microMarkets;
-
     private List<String> residenceIds;
-
-    private String stateUuid;
 
     private String cityUuid;
 
