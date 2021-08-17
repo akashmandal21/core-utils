@@ -16,7 +16,7 @@ public class AreaRequestDto  extends AbstractDto {
     private String areaName;
     private List<String> rooms;
     private List<String> tags;
-    private String categoryID;
-    private String residenceID;
+    private String category;
+    private String residence;
 
 }
