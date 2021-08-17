@@ -1114,4 +1114,35 @@ public class ResidenceDataControllerApi {
         }
     }
 
+
+    public ResponseDto<List<AttributesAndGlobalUuidDto>> getRoomConsumables(String roomUuid) {
+
+        log.info("Residence-Data-Controller::Processing to get Room detail consumables response for room uuid {}", roomUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("roomUuid", roomUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/roomconsumables/{roomUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<AttributesAndGlobalUuidDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<AttributesAndGlobalUuidDto>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var11) {
+            log.error("Exception while fetching getting room detail consumables for room uuid {}", roomUuid);
+            log.error(var11);
+            return null;
+        }
+    }
 }
