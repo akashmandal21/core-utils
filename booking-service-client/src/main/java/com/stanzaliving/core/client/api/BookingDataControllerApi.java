@@ -299,7 +299,7 @@ public class BookingDataControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
-
+        
         String path = UriComponentsBuilder.fromPath("/internal/modify/contract/details/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -315,8 +315,8 @@ public class BookingDataControllerApi {
                 = new ParameterizedTypeReference<ResponseDto<ContractModificationDetailsDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
-    }
+    
+}
 
     public ResponseDto<Double> getBedCountForNonMgDeal(String dealUuid) {
 
@@ -376,7 +376,7 @@ public class BookingDataControllerApi {
                     .toUriString();
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
             final HttpHeaders headerParams = new HttpHeaders();
-            final String[] accepts = {"*/*"};
+            final String[] accepts = { "*/*" };
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
             ParameterizedTypeReference<ResponseDto<BookingCommercialsCardResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingCommercialsCardResponseDto>>() {
@@ -387,7 +387,6 @@ public class BookingDataControllerApi {
         }
         return null;
     }
-
     public ResponseDto<ExceptionOnboardingDetailsDto> getExceptionOnboardingDetails(String bookingUuid) {
 
         Object postBody = null;
