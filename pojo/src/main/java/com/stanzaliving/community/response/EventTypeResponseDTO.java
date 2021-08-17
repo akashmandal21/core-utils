@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventTypeResponseDTO {
-
     private Long id;
     private String uuid;
     private String name;

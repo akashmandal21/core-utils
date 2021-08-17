@@ -12,7 +12,6 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventCategoryResponseDTO {
-
     private Long id;
     private String uuid;
     private String name;
