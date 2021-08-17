@@ -21,6 +21,6 @@ public class AttributesAndGlobalUuidDto {
 
   private String attributeName;
   private String globalUuid;
-
+  private String image;
 }
 
