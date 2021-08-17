@@ -142,9 +142,21 @@ public class AuditServiceClientApi {
         };
         final List<MediaType> accept = stanzaRestClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<VentaNotificationDto>> returnType = new ParameterizedTypeReference<ResponseDto<VentaNotificationDto>>() {
+        TypeReference<ResponseDto<VentaNotificationDto>> returnType = new TypeReference<ResponseDto<VentaNotificationDto>>() {
         };
-        return stanzaRestClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+        ResponseDto<VentaNotificationDto> responseDto;
+
+        try {
+            responseDto = stanzaRestClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            return responseDto;
+        } catch (Exception e) {
+
+            log.error("Error while searching from venta aggregation service.", e);
+
+            throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+        }
     }
 
 
