@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.user.acl.dto.RoleDto;
+import com.stanzaliving.core.user.acl.enums.Role;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -618,7 +620,7 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<UserProfileDto> getRoleByUuid(String roleUuid, String cookieToken) {
+	public ResponseDto<RoleDto> getRoleByUuid(String roleUuid, String cookieToken) {
 
 		Object postBody = null;
 		System.out.println("token " + cookieToken);
@@ -638,7 +640,7 @@ public class UserClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
+		ParameterizedTypeReference<ResponseDto<RoleDto>> returnType = new ParameterizedTypeReference<ResponseDto<RoleDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
