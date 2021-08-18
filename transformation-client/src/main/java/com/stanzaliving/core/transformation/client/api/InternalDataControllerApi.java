@@ -917,13 +917,13 @@ public class InternalDataControllerApi {
 		return null;
 	}
 
-	public void publishToKafkaResidenceUuids(List<String> residenceUuids) {
-		log.info("publishToKafkaResidenceUuids is called for residenceUuids {}", residenceUuids);
+	public void publishResidencesToKafkaByPhoenixPropertyUuids(List<String> phoenixPropertyUuids) {
+		log.info("publishResidencesToKafkaByPhoenixPropertyUuids is called for phoenixPropertyUuids {}", phoenixPropertyUuids);
 
-		if (CollectionUtils.isEmpty(residenceUuids)) {
+		if (CollectionUtils.isEmpty(phoenixPropertyUuids)) {
 			return;
 		}
-		String uuids = String.join(",", residenceUuids);
+		String uuids = String.join(",", phoenixPropertyUuids);
 		Object postBody = null;
 
 		// create path and map variables
@@ -933,7 +933,7 @@ public class InternalDataControllerApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		queryParams.putAll(restClient.parameterToMultiValueMap(null, "residenceUuids", uuids));
+		queryParams.putAll(restClient.parameterToMultiValueMap(null, "phoenixPropertyUuids", uuids));
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
