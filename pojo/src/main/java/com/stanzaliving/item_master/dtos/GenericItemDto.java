@@ -29,6 +29,7 @@ public class GenericItemDto {
     private String glCode;
     private UIKeyValue itemType;
     private UIKeyValue uom;
+    private UIKeyValue brand;
     private String hsnSacCode;
     private UIKeyValue gstSlabs;
     private Double cgst;
