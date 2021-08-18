@@ -4,8 +4,6 @@ import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
-
 /**
  * @author Priyadarshini MB
  */
@@ -18,8 +16,12 @@ import java.util.List;
 @NoArgsConstructor
 public class GenericTemplateFilterDto {
 
-    protected String name;
-    protected List<String> taskIds;
+    private String name;
+    private String statusUUID;
+    private String categoryUUId;
+    private String subCategoryUUId;
     private PaginationRequest pageRequest;
+
+
 }
 
