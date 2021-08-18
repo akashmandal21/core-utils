@@ -1,6 +1,6 @@
 package com.stanzaliving.core.cafe.order.dto;
 
-import com.stanzaliving.core.cafe.dto.CafeVasItemDto;
+import com.stanzaliving.core.cafe.dto.CafeVasItemDto;;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 

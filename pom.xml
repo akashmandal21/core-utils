@@ -87,7 +87,8 @@
 		<module>slack-client</module>
 		<module>pojo-food</module>
 		<module>document-client</module>
-	</modules>
+        <module>user-food-order-master-client</module>
+    </modules>
 
 	<build>
 		<plugins>

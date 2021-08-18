@@ -1,7 +1,7 @@
 package com.stanzaliving.core.cafe.dto.menu;
 
 import com.stanzaliving.core.base.utils.StanzaUtils;
-import com.stanzaliving.core.cafe.dto.CafeVasItemDto;
+import com.stanzaliving.core.cafe.dto.CafeVasItemDto;;
 import com.stanzaliving.core.cafe.enums.CafeMenuItemDurationType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
