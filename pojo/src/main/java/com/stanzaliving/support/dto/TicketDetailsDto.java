@@ -27,4 +27,6 @@ public class TicketDetailsDto {
     private TicketCardDto ticketCardDtoList;
 
     private TeamDto teamDto;
+
+    private TicketChipColorDto ticketChipColorDto;
 }

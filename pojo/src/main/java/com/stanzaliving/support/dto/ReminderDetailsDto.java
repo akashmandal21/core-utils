@@ -14,6 +14,5 @@ public class ReminderDetailsDto {
     private Long sendReminderIn;
     private String sendReminderTo;
     private ReminderActionType sendReminderWhen;
-    private Integer sequence;
 
 }

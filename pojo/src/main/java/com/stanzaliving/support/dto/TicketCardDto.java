@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 @Builder
@@ -29,5 +30,8 @@ public class TicketCardDto {
     private String description;
     private String assignedToUuid;
     private String assignedTo;
+    private String residenceUuid;
+    private String micromarketUuid;
+    private String cityUuid;
 }
 
