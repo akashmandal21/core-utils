@@ -21,22 +21,22 @@ import java.util.Map;
 @AllArgsConstructor
 public class TaskTimelineDto {
 
-    String taskName;
+    private String taskName;
 
-    String taskId;
+    private String taskId;
 
-    String taskOwner;
+    private String taskOwner;
 
-    String subTaskStatus;
+    private String subTaskStatus;
 
-    String subTaskSubStatus;
+    private String subTaskSubStatus;
 
-    String taskStatus;
+    private String taskStatus;
 
-    String taskSubStatus;
+    private String taskSubStatus;
 
     private List<String> comments;
 
-    Map<String, Object> metaDataChanges;
+    private Map<String, Object> metaDataChanges;
 
 }
