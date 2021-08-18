@@ -3,9 +3,6 @@ package com.stanzaliving.generictaskservice.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.HashMap;
-import java.util.Map;
-
 
 @Getter
 @AllArgsConstructor
@@ -22,13 +19,11 @@ public enum Type {
     ARRAY("Array"),
     LIST_STRING("List of String"),
     List_INTEGER("List Of Integer"),
-    LIST_DOUBLE("List of Double") ;
-
+    LIST_DOUBLE("List of Double");
 
     private String type;
     @Override
     public String toString() {
         return type;
     }
-    private static Map<String, com.stanzaliving.generictaskservice.enums.Type> typeTypeByStr = new HashMap<>();
 }
