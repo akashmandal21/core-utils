@@ -12,11 +12,11 @@ import lombok.experimental.UtilityClass;
  *
  * @date 18-Aug-2021
  *
-**/
+ **/
 @UtilityClass
 public class LocationUtil {
 
 	public double calculateDistanceMeters(double userLat, double userLng, double venueLat, double venueLng) {
-		return SloppyMath.haversinMeters(userLat, userLng, venueLat, venueLng);
+		return Math.abs(SloppyMath.haversinMeters(userLat, userLng, venueLat, venueLng));
 	}
 }
