@@ -14,6 +14,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +33,7 @@ public class UserFoodOrderMasterClientApi {
 		String path = UriComponentsBuilder.fromPath("internal/order/master/get").buildAndExpand(uriVariables).toUriString();
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("orderId", orderId);
-		queryParams.add("orderType", orderType.name());
+		queryParams.add("orderType", orderType.toString());
 		final HttpHeaders headerParams = new HttpHeaders();
 		final String[] accepts = {
 				"*/*"
@@ -69,6 +70,46 @@ public class UserFoodOrderMasterClientApi {
 		} catch (Exception e) {
 			log.error("Error while creating order {}", ObjectMapperUtil.getString(orderDetails), e);
 			return null;
+		}
+	}
+	
+	public void cancelOrder(FoodOrderType orderType, Collection<String> orderIds) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("internal/order/master/cancel").buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("orderType", orderType.toString());
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+		};
+		
+		try {
+			restClient.invokeAPI(path, HttpMethod.POST, queryParams, orderIds, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while canceling orders");
+		}
+	}
+	
+	public void deliverOrder(FoodOrderType orderType, Collection<String> orderIds) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("internal/order/master/deliver").buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("orderType", orderType.toString());
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+		};
+		
+		try {
+			restClient.invokeAPI(path, HttpMethod.POST, queryParams, orderIds, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while canceling orders");
 		}
 	}
 	
