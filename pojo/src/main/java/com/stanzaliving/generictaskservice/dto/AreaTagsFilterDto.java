@@ -4,11 +4,10 @@ import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
-
 /**
- * @author Priyadarshini MB
- */
+ * @author Vikas S T
+ * @date 09-Aug-21
+ **/
 
 @Getter
 @Setter
@@ -16,10 +15,8 @@ import java.util.List;
 @SuperBuilder
 @ToString
 @NoArgsConstructor
-public class GenericTemplateFilterDto {
-
-    protected String name;
-    protected List<String> taskIds;
+public class AreaTagsFilterDto {
+    private String areaTagsName;
+    private String category;
     private PaginationRequest pageRequest;
 }
-

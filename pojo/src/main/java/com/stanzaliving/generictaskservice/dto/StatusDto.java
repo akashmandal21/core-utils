@@ -16,7 +16,6 @@ public class StatusDto {
 
     private String uuid;
 
-    @NotBlank(message = "Status name is mandatory")
     private String statusName;
 
     private String parentStatusUuid;

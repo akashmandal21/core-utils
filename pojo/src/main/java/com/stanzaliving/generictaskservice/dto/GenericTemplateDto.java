@@ -4,12 +4,8 @@ import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.taskservice.enums.TaskType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
