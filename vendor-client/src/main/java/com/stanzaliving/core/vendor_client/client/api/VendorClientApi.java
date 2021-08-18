@@ -3,6 +3,7 @@ package com.stanzaliving.core.vendor_client.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -33,6 +34,31 @@ public class VendorClientApi {
 
     public VendorClientApi(StanzaRestClient stanzaRestClient) {
         this.restClient = stanzaRestClient;
+    }
+    
+    public ResponseDto<Set<String>> getApprovedVendorUuids(List<String> uuids) {
+
+        log.info("HTTP Client call to get Approved Vendor UUIDs " + uuids);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<Set<String>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Set<String>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/getApprovedVendorUuids").toUriString();
+
+        map.put("ids", uuids);
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, map, headerParams, accept, vddReturnType);
+        
     }
 
     public ResponseDto<Map<String,List<VendorAndPocDetails>>> getVendorPlusPocDetailsByIdsV2(List<String> uuids) {
@@ -272,7 +298,6 @@ public class VendorClientApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
-
 
     public ResponseDto<List<VendorSuppliedItem>> getGenericVendorSuppliedItems(String vendorUuid, String cityUuid) {
 
