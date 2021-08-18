@@ -27,6 +27,7 @@ public class SimilarEventResponseDTO {
     private Boolean isLiked;
     private Boolean isRegistered;
     private List<String> tags;
+    private String ctxTest;
     private Object stickyNotesAndTags;
     private Object isRegistrationOpen;
     private Long price;
