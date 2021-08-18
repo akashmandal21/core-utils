@@ -28,6 +28,7 @@ public class EventListAppDTO {
     private Integer fomoCount;
     private Date updatedAt;
     private String description;
+    private String ctaText;
     private Object stickyNotesAndTags;
     private Object isRegistrationOpen;
     private List<String> tags;
