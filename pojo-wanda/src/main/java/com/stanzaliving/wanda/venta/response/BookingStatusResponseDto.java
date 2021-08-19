@@ -49,5 +49,6 @@ public class BookingStatusResponseDto {
     private Long bookingId;
     private BookingSubType bookingSubType;
     private Date expectedMoveInDate;
-    
+    private RetentionBookingResponseDto retentionBooking;
+    private String contractStartDate;
 }
