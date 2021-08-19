@@ -39,6 +39,7 @@ public class EventResponseAppDTO {
     private UserListResponseDTO userList;
     private EventFaqResponseDTO faq;
     private Object stickyNotesAndTags;
+    private Boolean isRegistered;
     private Object isRegistrationOpen;
     private Boolean isLiked;
     private PageResponse<SimilarEventResponseDTO> similarEvents;
