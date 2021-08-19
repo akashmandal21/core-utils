@@ -5,8 +5,9 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @author Priyadarshini MB
- */
+ * @author Vikas S T
+ * @date 09-Aug-21
+ **/
 
 @Getter
 @Setter
@@ -14,14 +15,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @ToString
 @NoArgsConstructor
-public class GenericTemplateFilterDto {
-
-    private String name;
-    private String statusUUID;
-    private String categoryUUId;
-    private String subCategoryUUId;
+public class AreaTagsFilterDto {
+    private String areaTagsName;
+    private String areaCategory;
     private PaginationRequest pageRequest;
-
-
 }
-

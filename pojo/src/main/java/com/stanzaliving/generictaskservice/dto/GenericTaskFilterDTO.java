@@ -4,8 +4,12 @@ import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
+
 /**
  * @author Priyadarshini MB
+ *
  */
 
 @Getter
@@ -14,14 +18,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @ToString
 @NoArgsConstructor
-public class GenericTemplateFilterDto {
+public class GenericTaskFilterDTO {
 
     private String name;
     private String statusUUID;
-    private String categoryUUId;
-    private String subCategoryUUId;
+    private String taskCategoryUUId;
+    private String taskSubCategoryUUId;//taskType
+    private List<String> tagsUUIds;//tags
     private PaginationRequest pageRequest;
-
-
 }
-
