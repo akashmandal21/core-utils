@@ -40,7 +40,5 @@ public class CafeVasItemDto implements Serializable {
     private List<VasMasterPackagingResponseDto> packaging;
     private String servingInfo;
     private Double proposedPrice;
-    private boolean dataComplete;
-    private boolean status;
 
 }

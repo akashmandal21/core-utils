@@ -9,6 +9,7 @@ import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VasMasterResponseDto {
+public class VasMasterResponseDto implements Serializable {
 	private String vasMasterId;
 
 	private boolean status;
@@ -43,6 +44,7 @@ public class VasMasterResponseDto {
 	private ListingDto category;
 
 	private Integer serves;
+	private Integer categorySequence;
 
 	private Double shelfLife;
 
@@ -60,4 +62,5 @@ public class VasMasterResponseDto {
 	private List<VasMasterPackagingResponseDto> packaging;
 
 	private List<ListingDto> feedback;
+	private List<String> accompaniments;
 }
