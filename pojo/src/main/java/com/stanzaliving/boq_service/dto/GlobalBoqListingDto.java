@@ -24,11 +24,11 @@ public class GlobalBoqListingDto {
 
     private Integer numberOfBoqs;
 
-    private BigDecimal totalBudget;
+//    private BigDecimal totalBudget;
 
     private BigDecimal totalCapex;
 
-    private BigDecimal margin;
+//    private BigDecimal margin;
 
     private BoqStatus boqStatus;
 }
