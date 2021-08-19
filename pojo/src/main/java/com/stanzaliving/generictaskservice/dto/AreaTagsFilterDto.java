@@ -17,6 +17,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class AreaTagsFilterDto {
     private String areaTagsName;
-    private String category;
+    private String areaCategory;
     private PaginationRequest pageRequest;
 }
