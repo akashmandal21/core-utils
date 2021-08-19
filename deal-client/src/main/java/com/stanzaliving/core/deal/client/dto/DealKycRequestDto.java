@@ -25,7 +25,7 @@ public class DealKycRequestDto {
 
     private String filePath;
 
-    private Map<String,String> metadata;
+    private Map<String, String> metadata;
 
     private String contractUuid;
 
