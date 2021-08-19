@@ -20,7 +20,7 @@ import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -359,14 +359,14 @@ public class FoodServiceClientApi {
 
 	}
 	
-	public Map<ImmutablePair<MealType, String>, MealDto> getMealMap() {
+	public Map<Pair<MealType, String>, MealDto> getMealMap() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealMap").build().toUriString();
 
-		TypeReference<ResponseDto<Map<ImmutablePair<MealType, String>, MealDto>>> returnType =
-				new TypeReference<ResponseDto<Map<ImmutablePair<MealType, String>, MealDto>>>() {};
+		TypeReference<ResponseDto<Map<Pair<MealType, String>, MealDto>>> returnType =
+				new TypeReference<ResponseDto<Map<Pair<MealType, String>, MealDto>>>() {};
 
-		ResponseDto<Map<ImmutablePair<MealType, String>, MealDto>> responseDto = null;
+		ResponseDto<Map<Pair<MealType, String>, MealDto>> responseDto = null;
 
 		try {
 
@@ -449,13 +449,13 @@ public class FoodServiceClientApi {
 
 	}
 	
-	public Set<ImmutablePair<MealType, String>> getMeals() {
+	public Set<Pair<MealType, String>> getMeals() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/getMeals").build().toUriString();
 
-		TypeReference<ResponseDto<Set<ImmutablePair<MealType, String>>>> returnType = new TypeReference<ResponseDto<Set<ImmutablePair<MealType, String>>>>() {};
+		TypeReference<ResponseDto<Set<Pair<MealType, String>>>> returnType = new TypeReference<ResponseDto<Set<Pair<MealType, String>>>>() {};
 
-		ResponseDto<Set<ImmutablePair<MealType, String>>> responseDto = null;
+		ResponseDto<Set<Pair<MealType, String>>> responseDto = null;
 
 		try {
 
