@@ -14,10 +14,7 @@ import com.stanzaliving.core.base.localdate.Java8LocalDateStdDeserializer;
 import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
 import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
 import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
-import com.stanzaliving.core.base.pair.PairStdDeSerializer;
-import com.stanzaliving.core.base.pair.PairStdSerializer;
 import lombok.experimental.UtilityClass;
-import org.apache.commons.lang3.tuple.Pair;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -50,9 +47,6 @@ public class BaseMapperConfig {
 
 		module.addSerializer(new Java8LocalTimeSerializer());
 		module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
-		
-		module.addSerializer(new PairStdSerializer());
-		module.addDeserializer(Pair.class, new PairStdDeSerializer());
 		
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
 		module.addSerializer(new LocalDateTimeSerializer(dateTimeFormatter));
