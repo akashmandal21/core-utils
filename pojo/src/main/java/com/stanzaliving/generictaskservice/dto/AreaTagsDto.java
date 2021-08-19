@@ -20,8 +20,8 @@ public class AreaTagsDto {
     @NotBlank(message = "Area tags name is Mandatory.")
     private String areaTagsName;
 
-    @NotBlank(message = "Category is Mandatory.")
-    private String category;
+    @NotBlank(message = "Area category is Mandatory.")
+    private String areaCategory;
 
     private boolean status;
 
