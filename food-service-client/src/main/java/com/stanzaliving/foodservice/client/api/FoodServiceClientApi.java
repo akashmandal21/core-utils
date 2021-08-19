@@ -15,6 +15,7 @@ import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.common.dto.MealDto;
+import com.stanzaliving.food.v2.common.dto.MealTypeAndGroupIdDto;
 import com.stanzaliving.food.v2.menu.dto.ResidenceFoodMenuItemIdProjectionDto;
 import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
 import lombok.extern.log4j.Log4j2;
@@ -360,14 +361,14 @@ public class FoodServiceClientApi {
 
 	}
 	
-	public Map<Pair<MealType, String>, MealDto> getMealMap() {
+	public Map<MealTypeAndGroupIdDto, MealDto> getMealMap() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/mealMap").build().toUriString();
 
-		TypeReference<ResponseDto<Map<Pair<MealType, String>, MealDto>>> returnType =
-				new TypeReference<ResponseDto<Map<Pair<MealType, String>, MealDto>>>() {};
+		TypeReference<ResponseDto<Map<MealTypeAndGroupIdDto, MealDto>>> returnType =
+				new TypeReference<ResponseDto<Map<MealTypeAndGroupIdDto, MealDto>>>() {};
 
-		ResponseDto<Map<Pair<MealType, String>, MealDto>> responseDto = null;
+		ResponseDto<Map<MealTypeAndGroupIdDto, MealDto>> responseDto = null;
 
 		try {
 
@@ -450,13 +451,13 @@ public class FoodServiceClientApi {
 
 	}
 	
-	public Set<Pair<MealType, String>> getMeals() {
+	public Map<MealType, String> getMeals() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/getMeals").build().toUriString();
 
-		TypeReference<ResponseDto<Set<Pair<MealType, String>>>> returnType = new TypeReference<ResponseDto<Set<Pair<MealType, String>>>>() {};
+		TypeReference<ResponseDto<Map<MealType, String>>> returnType = new TypeReference<ResponseDto<Map<MealType, String>>>() {};
 
-		ResponseDto<Set<Pair<MealType, String>>> responseDto = null;
+		ResponseDto<Map<MealType, String>> responseDto = null;
 
 		try {
 
@@ -469,7 +470,7 @@ public class FoodServiceClientApi {
 
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashSet<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
 	}
 	
