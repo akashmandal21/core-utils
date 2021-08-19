@@ -15,4 +15,5 @@ public class RetentionBookingResponseDto {
 
 	private String bookingUuid;
 	private String contractStartDate;
+	private String expectedMoveInDate;
 }
