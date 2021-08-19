@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -22,5 +23,6 @@ public class UserSubscriptionDto {
 	private Double subscriptionAmount;
 	private Double expectedSubscriptionAmount;
 	private String bannerMessage;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate menuDate;
 }
