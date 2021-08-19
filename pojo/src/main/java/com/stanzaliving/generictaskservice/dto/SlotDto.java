@@ -5,8 +5,10 @@ import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.*;
-import java.time.LocalDate;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -38,9 +40,9 @@ public class SlotDto {
     @NotNull(message = "Is movable slot is mandatory")
     private Boolean isMovableSlot;
 
-    private Integer minimumSlotSize;
+    private LocalTime minimumSlotSize;
 
-    private Integer maximumSlotSize;
+    private LocalTime maximumSlotSize;
 
     @NotNull(message = "Is overlapping allowed is mandatory")
     private Boolean isOverLappingAllowed;
@@ -63,9 +65,6 @@ public class SlotDto {
 
     private List<TagResponseDto> tags;
 
-    private List<CategoryDto> allowedTasksList;
+    private List<GenericTaskDto> allowedTasksList;
 
-    private LocalDate menuDate;
-
-    private LocalTime localTime;
 }

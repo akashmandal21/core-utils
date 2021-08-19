@@ -43,4 +43,6 @@ public class ShiftDto {
 
     private List<TagResponseDto> tags;
 
+    private ShiftCategoryDto category;
+
 }
