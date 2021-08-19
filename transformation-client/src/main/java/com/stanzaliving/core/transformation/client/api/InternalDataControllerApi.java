@@ -1078,5 +1078,4 @@ public class InternalDataControllerApi {
 		};
 		restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
->>>>>>> feature/produceResidenceToResidenceTopic
 }
