@@ -19,5 +19,6 @@ public class QuickCardFilterStatusDto {
 
     private boolean outsideSla;
 
-    private boolean pendingTasks;
+    private boolean todayTasks;
+    //TODO: make implementation for this
 }

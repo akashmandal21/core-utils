@@ -2,6 +2,7 @@ package com.stanzaliving.support.dto;
 
 import com.stanzaliving.support.enums.Priority;
 import com.stanzaliving.support.enums.Source;
+import com.stanzaliving.support.enums.TicketSource;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -58,5 +59,7 @@ public class TicketResponseDto {
     private Priority priority;
 
     private String residenceUuid;
+
+    private TicketSource ticketSource;
 
 }
