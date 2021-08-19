@@ -78,8 +78,9 @@ public class InternalDocumentGeneratorClientApi {
 		};
 
 		ResponseDto<PdfRequestDto> responseDto = null;
-
+		log.info("pdfRequestDto  before try"+pdfRequestDto);
 		try {
+			log.info("pdfRequestDto "+pdfRequestDto);
 			responseDto = restClient.request(path, HttpMethod.POST, null, pdfRequestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while generating Pdf ", e);
