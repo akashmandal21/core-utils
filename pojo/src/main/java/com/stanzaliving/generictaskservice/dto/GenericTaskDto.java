@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -78,5 +79,6 @@ public class GenericTaskDto extends AbstractDto {
 
     private List<String> tagsUUIdList;
 
+    private List<String> commentsUUIdList ;
 
 }
