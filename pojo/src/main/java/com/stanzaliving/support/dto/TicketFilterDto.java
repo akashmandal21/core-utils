@@ -1,5 +1,6 @@
 package com.stanzaliving.support.dto;
 
+import com.stanzaliving.support.enums.TicketSource;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -55,5 +56,7 @@ public class TicketFilterDto {
     private Date reopenedAtEndDate;
 
     private TicketTypeDto ticketType;
+
+    private List<String> ticketSource;
 }
 
