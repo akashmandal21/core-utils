@@ -88,6 +88,7 @@
 		<module>pojo-food</module>
 		<module>document-client</module>
         <module>user-food-order-master-client</module>
+        <module>dish-master-client</module>
     </modules>
 
 	<build>

@@ -28,6 +28,7 @@ public class CafeVasItemDto implements Serializable {
     private Double shelfLife;
     private String description;
     private String image;
+    private String imagePath;
     private Integer serves;
     private List<DishDetailsResponseDto> dishes;
     private List<String> accompaniments;

@@ -53,6 +53,7 @@ public class VasMasterResponseDto {
 	private Double grammagePerPax;
 
 	private String imageUrl;
+	private String imagePath;
 
 	private List<DishDetailsResponseDto> dish;
 
