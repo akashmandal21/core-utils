@@ -20,6 +20,7 @@ import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -449,17 +450,18 @@ public class FoodServiceClientApi {
 
 	}
 	
-	public Set<Pair<MealType, String>> getMeals() {
+	public Set<ImmutablePair<MealType, String>> getMeals() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/getMeals").build().toUriString();
 
-		TypeReference<ResponseDto<Set<Pair<MealType, String>>>> returnType = new TypeReference<ResponseDto<Set<Pair<MealType, String>>>>() {};
+		TypeReference<ResponseDto<Set<ImmutablePair<MealType, String>>>> returnType = new TypeReference<ResponseDto<Set<ImmutablePair<MealType, String>>>>() {};
 
-		ResponseDto<Set<Pair<MealType, String>>> responseDto = null;
+		ResponseDto<Set<ImmutablePair<MealType, String>>> responseDto = null;
 
 		try {
 
 			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+			log.info("responseDto Data {}", responseDto.getData());
 
 		} catch (Exception e) {
 
