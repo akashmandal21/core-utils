@@ -450,13 +450,13 @@ public class FoodServiceClientApi {
 
 	}
 	
-	public Set<ImmutablePair<MealType, String>> getMeals() {
+	public Set<Pair<MealType, String>> getMeals() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/getMeals").build().toUriString();
 
-		TypeReference<ResponseDto<Set<ImmutablePair<MealType, String>>>> returnType = new TypeReference<ResponseDto<Set<ImmutablePair<MealType, String>>>>() {};
+		TypeReference<ResponseDto<Set<Pair<MealType, String>>>> returnType = new TypeReference<ResponseDto<Set<Pair<MealType, String>>>>() {};
 
-		ResponseDto<Set<ImmutablePair<MealType, String>>> responseDto = null;
+		ResponseDto<Set<Pair<MealType, String>>> responseDto = null;
 
 		try {
 
