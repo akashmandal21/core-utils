@@ -21,8 +21,6 @@ import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -450,14 +448,14 @@ public class FoodServiceClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 
 	}
-	
-	public Map<MealType, String> getMeals() {
+
+	public Set<Map<MealType, String>> getMeals() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/common/meal/master/getMeals").build().toUriString();
 
-		TypeReference<ResponseDto<Map<MealType, String>>> returnType = new TypeReference<ResponseDto<Map<MealType, String>>>() {};
+		TypeReference<ResponseDto<Set<Map<MealType, String>>>> returnType = new TypeReference<ResponseDto<Set<Map<MealType, String>>>>() {};
 
-		ResponseDto<Map<MealType, String>> responseDto = null;
+		ResponseDto<Set<Map<MealType, String>>> responseDto = null;
 
 		try {
 
@@ -470,7 +468,7 @@ public class FoodServiceClientApi {
 
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashSet<>();
 
 	}
 	
