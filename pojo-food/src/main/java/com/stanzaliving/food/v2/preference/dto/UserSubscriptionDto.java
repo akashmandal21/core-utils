@@ -20,5 +20,7 @@ public class UserSubscriptionDto {
 	private LocalDate endDate;
 	private boolean subscribed;
 	private Double subscriptionAmount;
+	private Double expectedSubscriptionAmount;
+	private String bannerMessage;
 	private LocalDate menuDate;
 }
