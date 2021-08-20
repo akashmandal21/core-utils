@@ -3,11 +3,6 @@
  */
 package com.stanzaliving.core.operations.enums;
 
-import com.stanzaliving.core.base.utils.StanzaParseUtils;
-import com.stanzaliving.core.user.enums.EnumListing;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,6 +11,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import com.stanzaliving.core.base.utils.StanzaParseUtils;
+import com.stanzaliving.core.user.enums.EnumListing;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  * @author naveen.kumar
@@ -48,6 +49,7 @@ public enum MealType {
 	private static List<String> mealIds = new ArrayList<>();
 	private static Map<MealType, String> mealMapByType = new LinkedHashMap<>();
 	private static Map<String, String> mealMapByTypeStr = new LinkedHashMap<>();
+	private static Map<String, MealType> mealMapByTypeString = new LinkedHashMap<>();
 
 	private static List<EnumListing<MealType>> enumListings = new ArrayList<>();
 	private static Set<MealType> firstHalfMealsSet = new HashSet<>();
@@ -61,6 +63,7 @@ public enum MealType {
 			mealMapByName.put(mealType.getMealName(), mealType);
 			mealIds.add(mealType.getMealId().toString());
 			enumListings.add(EnumListing.of(mealType, mealType.getMealName()));
+			mealMapByTypeString.put(mealType.toString(), mealType);
 		}
 		mealMapByType.put(BREAKFAST, BREAKFAST.getMealName());
 		mealMapByType.put(LUNCH, LUNCH.getMealName());
@@ -131,6 +134,10 @@ public enum MealType {
 
 	public static MealType getMealByName(String mealName) {
 		return mealMapByName.get(mealName);
+	}
+	
+	public static MealType getMealByTypeString(String mealName) {
+		return mealMapByTypeString.get(mealName);
 	}
 
 	public static List<EnumListing<MealType>> getMealListing() {
