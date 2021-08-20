@@ -18,4 +18,5 @@ import java.util.Collection;
 public class ThaliGrammageCalculatorRequestDto {
 	private FoodServeType foodServeType;
 	private Collection<String> itemIds;
+	private boolean selected;
 }
