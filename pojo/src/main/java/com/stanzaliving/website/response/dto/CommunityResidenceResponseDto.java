@@ -22,6 +22,6 @@ public class CommunityResidenceResponseDto {
 	private String cityName;
 	private int cityId;
 	private String StateName;
-	private long stateId;
+	private Long stateId;
 
 }
