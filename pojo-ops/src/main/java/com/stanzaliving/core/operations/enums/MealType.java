@@ -27,12 +27,12 @@ import java.util.Set;
 @AllArgsConstructor
 public enum MealType {
 
-	BREAKFAST(1, "Breakfast", 1, "https://res.cloudinary.com/stanza-living/image/upload/v1604332446/food/meals/Indian_Combo.png", "B"),
-	LUNCH(2, "Lunch", 3, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "L"),
-	EVENING_SNACKS(3, "Evening Snacks", 5, "https://res.cloudinary.com/stanza-living/image/upload/v1604332760/food/meals/Evening_Snacks.png", "S"),
-	DINNER(4, "Dinner", 7, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "D"),
-	BRUNCH(5, "Brunch", 3, "https://res.cloudinary.com/stanza-living/image/upload/v1604331332/food/meals/Breakfast_Veg.png", "Br"),
-	LUNCH_TIFFIN(6, "Lunch Tiffin", 4, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "T");
+	BREAKFAST(1, "Breakfast", 10, "https://res.cloudinary.com/stanza-living/image/upload/v1604332446/food/meals/Indian_Combo.png", "B"),
+	LUNCH(2, "Lunch", 20, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "L"),
+	EVENING_SNACKS(3, "Evening Snacks", 50, "https://res.cloudinary.com/stanza-living/image/upload/v1604332760/food/meals/Evening_Snacks.png", "S"),
+	DINNER(4, "Dinner", 60, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "D"),
+	BRUNCH(5, "Brunch", 20, "https://res.cloudinary.com/stanza-living/image/upload/v1604331332/food/meals/Breakfast_Veg.png", "Br"),
+	LUNCH_TIFFIN(6, "Lunch Tiffin", 40, "https://res.cloudinary.com/stanza-living/image/upload/v1604331333/food/meals/Roti_Thali.png", "T");
 
 	private Integer mealId;
 
