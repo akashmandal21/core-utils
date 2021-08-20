@@ -3,10 +3,9 @@
  */
 package com.stanzaliving.core.counter.client.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.exception.PreconditionFailedException;
+import com.stanzaliving.core.base.http.StanzaRestClient;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -16,8 +15,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author naveen.kumar
@@ -88,5 +88,22 @@ public class CounterControllerApi {
 		ParameterizedTypeReference<ResponseDto<Long>> returnType = new ParameterizedTypeReference<ResponseDto<Long>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public Long getCounter(String counterKey) {
+		return getCounter(counterKey, 1);
+	}
+
+	private Long getCounter(String counterKey, int retryAttempt) {
+		if (retryAttempt > 5) {
+			throw new PreconditionFailedException("Unable to get counter for Vendor. Please retry");
+		} else {
+			ResponseDto<Long> counterResponse = getCounterForKeyFromParam(counterKey);
+			if (counterResponse.isStatus()) {
+				return counterResponse.getData();
+			} else {
+				return getCounter(counterKey, retryAttempt + 1);
+			}
+		}
 	}
 }

@@ -72,4 +72,7 @@ public class PoDetailsResponse {
 
     private String poDownloadUrl;
     private String poCreatedBy;
+
+    private LocationType costCenterLocationType;
+    private UIKeyValue costCenterLocationName;
 }

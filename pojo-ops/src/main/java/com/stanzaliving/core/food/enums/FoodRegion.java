@@ -3,15 +3,14 @@
  */
 package com.stanzaliving.core.food.enums;
 
+import com.stanzaliving.core.user.enums.EnumListing;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.stanzaliving.core.user.enums.EnumListing;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 /**
  * @author naveen.kumar
@@ -27,7 +26,8 @@ public enum FoodRegion {
 	NORTH("North Indian"),
 	SOUTH("South Indian"),
 	CONTINENTAL("Continental"),
-	INDIAN("Indian");
+	INDIAN("Indian"),
+	SINGLE("Single");
 
 	private String regionName;
 

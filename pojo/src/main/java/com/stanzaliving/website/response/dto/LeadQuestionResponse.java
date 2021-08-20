@@ -16,5 +16,5 @@ import lombok.ToString;
 public class LeadQuestionResponse {
 
 	private String message;
-	private ResidenceResponseShortDTO residenceResponseShortDTO;
+	private Object residenceResponseShortDTO;
 }

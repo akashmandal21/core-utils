@@ -36,6 +36,9 @@ public abstract class AbstractMongoEntity implements Serializable {
 
 	protected String updatedBy;
 
+	@Builder.Default
+	protected boolean status = true;
+
 
 
 

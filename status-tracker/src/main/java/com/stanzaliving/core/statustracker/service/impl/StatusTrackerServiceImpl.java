@@ -70,8 +70,7 @@ public class StatusTrackerServiceImpl implements StatusTrackerService {
 		try {
 			statusTrackerEntity = statusTrackerDbService.save(statusTrackerEntity);
 		} catch (Exception e) {
-			e.printStackTrace();
-			log.error("Got error while saving status");
+			log.error("Got error while saving status: ", e);
 
 			return false;
 		}

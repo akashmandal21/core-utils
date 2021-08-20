@@ -26,6 +26,8 @@ import com.stanzaliving.search.food.search.dto.response.menu.fps.FoodMenuItemFps
 import com.stanzaliving.search.food.search.dto.response.menu.fps.MenuCategoryFpsResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.FoodMenuMicromarketRatingResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.MealItemRatingResponseDto;
+import com.stanzaliving.search.food.search.dto.response.menu.rating.MicromarketItemRatingDto;
+import com.stanzaliving.search.medulla.dtos.PoSearchRequetDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -33,11 +35,13 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**

@@ -1,11 +1,17 @@
 package com.stanzaliving.core.inventory.client.api;
 
-import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.dto.AddressResponseDTO;
+import com.stanzaliving.core.dto.CityResponseDTO;
+import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
+import com.stanzaliving.core.inventory.dto.InventoryActionRequestDto;
+import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
+import com.stanzaliving.core.inventory.dto.InventoryTOResponse;
+import com.stanzaliving.item_master.dtos.FilterDto;
+import com.stanzaliving.website.response.dto.LeadRequestDto;
+import com.stanzaliving.website.response.dto.RazorPayRequestDto;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,146 +20,143 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
-import com.stanzaliving.core.inventory.dto.InventoryActionRequestDto;
-import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
-import com.stanzaliving.core.inventory.dto.InventoryTOResponse;
-import com.stanzaliving.item_master.dtos.FilterDto;
-import com.stanzaliving.website.response.dto.LeadRequestDto;
-
-import lombok.extern.log4j.Log4j2;
+import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Log4j2
 public class InventoryClientApi {
 
-    private StanzaRestClient restClient;
-    
-    public InventoryClientApi(StanzaRestClient stanzaRestClient) {
-        this.restClient = stanzaRestClient;
-    }
+	private StanzaRestClient restClient;
 
-    public ResponseDto<Collection<InventoryItemDetailedDto>> getInventoryItems(String addressUuid, FilterDto filterDto) {
+	public InventoryClientApi(StanzaRestClient stanzaRestClient) {
+		this.restClient = stanzaRestClient;
+	}
 
-        Object postBody = filterDto;
+	public ResponseDto<Collection<InventoryItemDetailedDto>> getInventoryItems(String addressUuid,
+			FilterDto filterDto) {
 
-        String path = UriComponentsBuilder.fromPath("/internal/get/items/" + addressUuid).toUriString();
+		Object postBody = filterDto;
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/get/items/" + addressUuid).toUriString();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final String[] accepts = {"*/*"};
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final String[] accepts = { "*/*" };
 
-        ParameterizedTypeReference<ResponseDto<Collection<InventoryItemDetailedDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Collection<InventoryItemDetailedDto>>>() {
-        };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-    }
+		ParameterizedTypeReference<ResponseDto<Collection<InventoryItemDetailedDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Collection<InventoryItemDetailedDto>>>() {
+		};
 
-    public ResponseDto<InventoryTOResponse> blockQuantities(InventoryActionRequestDto inventoryActionRequestDto) {
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
 
-        Object postBody = inventoryActionRequestDto;
+	public ResponseDto<InventoryTOResponse> blockQuantities(InventoryActionRequestDto inventoryActionRequestDto) {
 
-        String path = UriComponentsBuilder.fromPath("/internal/block/resources").toUriString();
+		Object postBody = inventoryActionRequestDto;
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/block/resources").toUriString();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final String[] accepts = {"*/*"};
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final String[] accepts = { "*/*" };
 
-        ParameterizedTypeReference<ResponseDto<InventoryTOResponse>> returnType = new ParameterizedTypeReference<ResponseDto<InventoryTOResponse>>() {
-        };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-    }
+		ParameterizedTypeReference<ResponseDto<InventoryTOResponse>> returnType = new ParameterizedTypeReference<ResponseDto<InventoryTOResponse>>() {
+		};
 
-    public ResponseDto<Boolean> releaseQuantities(InventoryActionRequestDto inventoryActionRequestDto) {
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
 
-        Object postBody = inventoryActionRequestDto;
+	public ResponseDto<Boolean> releaseQuantities(InventoryActionRequestDto inventoryActionRequestDto) {
 
-        String path = UriComponentsBuilder.fromPath("/internal/release/all").toUriString();
+		Object postBody = inventoryActionRequestDto;
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/release/all").toUriString();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final String[] accepts = {"*/*"};
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final String[] accepts = { "*/*" };
 
-        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
-        };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-    }
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
 
-    public ResponseDto<Boolean> handleTOShortClose(InventoryActionRequestDto inventoryActionRequestDto) {
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
 
-        Object postBody = inventoryActionRequestDto;
+	public ResponseDto<Boolean> handleTOShortClose(InventoryActionRequestDto inventoryActionRequestDto) {
 
-        String path = UriComponentsBuilder.fromPath("/internal/release/partial").toUriString();
+		Object postBody = inventoryActionRequestDto;
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/release/partial").toUriString();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final String[] accepts = {"*/*"};
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final String[] accepts = { "*/*" };
 
-        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
-        };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-    }
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
 
-    public ResponseDto<Map<String, BigDecimal>> getTOShortclosePricing(InventoryActionRequestDto inventoryActionRequestDto) {
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
 
-        Object postBody = inventoryActionRequestDto;
+	public ResponseDto<Map<String, BigDecimal>> getTOShortclosePricing(
+			InventoryActionRequestDto inventoryActionRequestDto) {
 
-        String path = UriComponentsBuilder.fromPath("/internal/get/price/release/partial").toUriString();
+		Object postBody = inventoryActionRequestDto;
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/get/price/release/partial").toUriString();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final String[] accepts = {"*/*"};
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final String[] accepts = { "*/*" };
 
-        ParameterizedTypeReference<ResponseDto<Map<String, BigDecimal>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, BigDecimal>>>() {
-        };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-    }
+		ParameterizedTypeReference<ResponseDto<Map<String, BigDecimal>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, BigDecimal>>>() {
+		};
 
-    public ResponseDto<Boolean> handleNegGrn(GrsiEventUpdateDto grsiEventUpdateDto) {
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
 
-        Object postBody = grsiEventUpdateDto;
+	public ResponseDto<Boolean> handleNegGrn(GrsiEventUpdateDto grsiEventUpdateDto) {
 
-        String path = UriComponentsBuilder.fromPath("/internal/reduce/neg/grn").toUriString();
+		Object postBody = grsiEventUpdateDto;
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/reduce/neg/grn").toUriString();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final String[] accepts = {"*/*"};
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final String[] accepts = { "*/*" };
 
-        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
-        };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-    }
-    
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 	public LeadRequestDto createBrokerLead(LeadRequestDto leadRequestDto) {
 
 		try {
@@ -190,14 +193,15 @@ public class InventoryClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/internal/lead/otp/verify").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/lead/otp/verify").buildAndExpand(uriVariables)
+				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("phone", phone);
 		queryParams.add("otp", otp);
 
 		final HttpHeaders headerParams = new HttpHeaders();
-		
+
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -215,14 +219,15 @@ public class InventoryClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/internal/lead/otp/send").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/lead/otp/send").buildAndExpand(uriVariables)
+				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("flow", flow);
 		queryParams.add("phone", phone);
 
 		final HttpHeaders headerParams = new HttpHeaders();
-		
+
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -231,12 +236,12 @@ public class InventoryClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public LeadRequestDto leadCreation(LeadRequestDto leadRequestDto) {
 
 		try {
 			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
-			
+
 			Object postBody = leadRequestDto;
 
 			String path = UriComponentsBuilder.fromPath("/internal/lead/create/temp/variant").toUriString();
@@ -262,10 +267,10 @@ public class InventoryClientApi {
 	}
 
 	public LeadRequestDto leadMigration(LeadRequestDto leadRequestDto) {
-		
+
 		try {
 			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
-	
+
 			Object postBody = leadRequestDto;
 
 			String path = UriComponentsBuilder.fromPath("/internal/lead/create/variant").toUriString();
@@ -289,4 +294,207 @@ public class InventoryClientApi {
 
 		return null;
 	}
+
+	public String unverifiedOtp(LeadRequestDto leadRequestDto) {
+
+		try {
+			log.error("leadRequestDto is {}", leadRequestDto);
+
+			Object postBody = leadRequestDto;
+
+			String path = UriComponentsBuilder.fromPath("lead/otp/unverified").toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Error while creating the lead {}", e);
+		}
+
+		return null;
+	}
+
+	public String confirmRazorPayPayment(RazorPayRequestDto razorPayRequestDto) {
+
+		try {
+			log.error("razorPayRequestDto is {}", razorPayRequestDto);
+
+			Object postBody = razorPayRequestDto;
+
+			String path = UriComponentsBuilder.fromPath("/website/confirm/razorPay").toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.info("razorpay Response sent to IMS: " + razorPayRequestDto);
+			log.error("Exception caught while updating the payment details in ims ", e);
+		}
+
+		return null;
+	}
+
+	public boolean verifyReferralCode(String referralCode) {
+
+		Object postBody = null;
+
+		log.info("Received request to verify referralCode : {}", referralCode);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/referral/verify").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("code", referralCode);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caught while verifying referral code on IMS ", e);
+		}
+		return false;
+	}
+
+	public LeadRequestDto createSchdeuledVisit(LeadRequestDto leadRequestDto) {
+
+		try {
+			log.error("LeadRequestDto is {}", leadRequestDto);
+
+			Object postBody = leadRequestDto;
+
+			String path = null;
+			if (leadRequestDto.isCreateHotLead()) {
+				path = UriComponentsBuilder.fromPath("/lead/create/website/").toUriString();
+			} else {
+				path = UriComponentsBuilder.fromPath("lead/website/").toUriString();
+			}
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<LeadRequestDto> returnType = new ParameterizedTypeReference<LeadRequestDto>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.info("leadRequestDto Response sent to IMS: " + leadRequestDto);
+			log.error("Exception caught while schedule vist in ims ", e);
+		}
+
+		return null;
+	}
+
+    public Map<String, Object> getBookingInformation(String bookingUuid) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+        String path =
+                UriComponentsBuilder.fromPath("/booking/{bookingUuid}")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Map<String, Object>> returnType =
+                new ParameterizedTypeReference<Map<String, Object>>() {};
+
+        return restClient.invokeAPI(
+                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public CityResponseDTO getCity(int cityId) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("id", cityId);
+        String path =
+                UriComponentsBuilder.fromPath("/city/{id}")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<CityResponseDTO> returnType =
+                new ParameterizedTypeReference<CityResponseDTO>() {};
+
+        return restClient.invokeAPI(
+                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public AddressResponseDTO getAddress(int addressId) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("id", addressId);
+        String path =
+                UriComponentsBuilder.fromPath("/address/get/{id}")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<AddressResponseDTO> returnType =
+                new ParameterizedTypeReference<AddressResponseDTO>() {};
+
+        return restClient.invokeAPI(
+                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 }

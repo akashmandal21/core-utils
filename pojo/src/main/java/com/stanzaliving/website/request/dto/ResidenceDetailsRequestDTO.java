@@ -1,7 +1,5 @@
 package com.stanzaliving.website.request.dto;
 
-import com.stanzaliving.core.enums.PropertyEntityType;
-import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -31,12 +29,11 @@ public class ResidenceDetailsRequestDTO {
 	private String mobileNo;
 	private String phoneNo;
 	private Integer preBookingAmount;
-	private int priorityOrder;
+	private Integer sortOrder;
 	private boolean virtualTour;
-	private int cardCTAId;
+	private Integer cardCTAId;
 	private String cardCTAName;
 	private FomoTag fomoTag;
-	private String virtualTourURL;
-	private PropertyEntityType propertType;
-
+	private String virtualTourImage;
+	private String videoLink;
 }

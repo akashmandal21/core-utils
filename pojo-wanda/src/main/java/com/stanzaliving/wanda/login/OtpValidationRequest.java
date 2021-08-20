@@ -5,6 +5,7 @@ import javax.validation.constraints.Size;
 
 import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
 
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -20,4 +21,8 @@ public class OtpValidationRequest {
 	@NotBlank(message = "Mobile Number is Mandatory for Login")
 	@EnsureNumber(message = "Mobile must contain only numbers", fieldName = "mobile")
 	private String mobileNumber;
+	
+	@Default
+	private boolean whatsAppOptIn=false;
 }
+

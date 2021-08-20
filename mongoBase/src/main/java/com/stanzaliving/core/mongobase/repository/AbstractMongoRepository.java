@@ -14,4 +14,6 @@ public interface AbstractMongoRepository<T extends AbstractMongoEntity, I extend
 	T findFirstByUuid(String uuid);
 
 	List<T> findByUuidIn(Collection<String> uuids);
+
+	List<T> findAllByStatus(Boolean status);
 }

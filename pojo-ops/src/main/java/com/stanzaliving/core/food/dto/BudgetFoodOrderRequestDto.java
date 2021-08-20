@@ -26,6 +26,8 @@ public class BudgetFoodOrderRequestDto {
 
 	private Integer pending;
 
+	private Integer totalMenu;
+
 	@Builder.Default
 	private Double plannedUtilization = 0d;
 

@@ -48,5 +48,6 @@ public class ServiceMixEntityDto implements Serializable {
 	private DealCategory dealCategory;
 	private String transformationChangeUuid;
 	private boolean isDefault = false;
+	private Map<String, String> tags;
 
 }

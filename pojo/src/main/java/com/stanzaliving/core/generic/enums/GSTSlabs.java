@@ -53,4 +53,11 @@ public enum GSTSlabs {
         }
     }
 
+    public static Double getPctOrZero(GSTSlabs slab){
+        if(Objects.isNull(slab.getGstPct()))
+            return 0.0;
+
+        return slab.getGstPct();
+    }
+
 }

@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -35,12 +36,19 @@ import com.stanzaliving.core.sqljpa.service.impl.AbstractJpaServiceImpl;
 import com.stanzaliving.core.sqljpa.specification.utils.CriteriaOperation;
 import com.stanzaliving.core.sqljpa.specification.utils.StanzaSpecificationBuilder;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 @Service
 @Log4j2
 public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Long, EstateRepository> implements EstateDbService {
 
 	@Autowired
 	private EstateRepository estateRepository;
+
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	@Override
 	protected EstateRepository getJpaRepository() {
@@ -124,5 +132,30 @@ public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Lo
 		return estateRepository.findByEstateName(estateName);
 	}
 
+	@Override
+	public List<String> getLandlordNames(String searchText, int page, int limit) {
+		String query = "SELECT attribute_value  FROM estate_attributes where attribute_name='landlordDetails' and JSON_SEARCH( lower(JSON_EXTRACT(attribute_value, '$[*].landlordName')),'one','%"+searchText+"%') is not null";
+		log.info("landlord query {}",query);
+		Query sql = entityManager.createNativeQuery(query);
+//		sql.setMaxResults(limit);
+//		sql.setFirstResult(getOffset(limit,page));
+		List<String> res = sql.getResultList();
+		log.info(res);
+		if(CollectionUtils.isNotEmpty(res)){
+			return res;
+		}
+
+		return ListUtils.EMPTY_LIST;
+	}
+
+
+	private int getOffset(int limit, int page){
+		if(limit<=0 || page<0)
+			throw new StanzaException("Incorrect Limits");
+		if(page==0)
+			page=1;
+		int offset = (page-1)*limit;
+		return offset;
+	}
 
 }

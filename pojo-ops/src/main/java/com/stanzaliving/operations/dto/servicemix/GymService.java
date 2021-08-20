@@ -9,4 +9,6 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class GymService extends BooleanService {
 	private Gym gym = new Gym();
+	private AcquiredBooleanService multiGym = new AcquiredBooleanService();
+	private AcquiredBooleanService treadmill = new AcquiredBooleanService();
 }

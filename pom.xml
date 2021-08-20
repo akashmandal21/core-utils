@@ -76,15 +76,17 @@
 		<module>ops-calculator-client</module>
         <module>notification-client</module>
         <module>shortUrl-client</module>
-        <module>approval-service-client</module>
 		<module>inventory-client</module>
 		<module>generic-po-client</module>
+		<module>approval-service-client</module>
         <module>wanda-client</module>
 		<module>search-client</module>
-        <module>leadservice-client</module>
+		<module>leadservice-client</module>
+		<module>far-client</module>
 		<module>notification-v2-client</module>
 		<module>slack-client</module>
-
+		<module>pojo-food</module>
+		<module>document-client</module>
 	</modules>
 
 	<build>

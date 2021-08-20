@@ -1,20 +1,15 @@
 package com.stanzaliving.core.food.dto;
 
+import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
+import com.stanzaliving.core.operations.enums.MealType;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
-
-import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
-import com.stanzaliving.core.operations.enums.MealType;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -27,6 +22,8 @@ public class FoodOrderDetailDto {
 	private String residenceFoodMenuId;
 
 	private MealType mealType;
+	private String mealId;
+	private String mealGroup;
 
 	private String mealName;
 
@@ -34,11 +31,11 @@ public class FoodOrderDetailDto {
 
 	private String vendorName;
 
-	@Builder.Default
-	private Integer vegPax = 0;
+	@NotNull(message = "Veg Pax are mandatory")
+	private Integer vegPax;
 
-	@Builder.Default
-	private Integer nonVegPax = 0;
+	@NotNull(message = "Non-Veg Pax are mandatory")
+	private Integer nonVegPax;
 
 	@Builder.Default
 	private Double vegCost = 0d;
@@ -46,8 +43,8 @@ public class FoodOrderDetailDto {
 	@Builder.Default
 	private Double nonVegCost = 0d;
 
-	@Builder.Default
-	private Integer stanzaStaffVegPax = 0;
+	@NotNull(message = "Stanza Staff Pax are mandatory")
+	private Integer stanzaStaffVegPax;
 
 	@Builder.Default
 	private Integer stanzaStaffNonVegPax = 0;
@@ -58,6 +55,7 @@ public class FoodOrderDetailDto {
 	@Builder.Default
 	private Double stanzaStaffNonVegCost = 0d;
 
+	@NotNull
 	private Integer nonStanzaStaffVegPax;
 
 	private Integer nonStanzaStaffNonVegPax;
@@ -90,7 +88,8 @@ public class FoodOrderDetailDto {
 
 	private String comments;
 
-	private boolean extraFoodOrderWindowClosed;
+	@Builder.Default
+	private boolean extraFoodOrderWindowClosed = true;
 
 	private Date extraFoodOrderWindowCloseTime;
 	
@@ -103,5 +102,7 @@ public class FoodOrderDetailDto {
 	private LocalDate cutoffDate;
 	
 	private LocalTime cutoffTime;
+
+	private UserPreferenceCountDto userPreferenceCountDto;
 
 }

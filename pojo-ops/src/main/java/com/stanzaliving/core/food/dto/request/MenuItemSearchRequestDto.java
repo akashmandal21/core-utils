@@ -14,6 +14,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -30,7 +31,7 @@ import java.util.Set;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuItemSearchRequestDto {
+public class MenuItemSearchRequestDto implements Serializable {
 
 	private Set<String> itemIds;
 

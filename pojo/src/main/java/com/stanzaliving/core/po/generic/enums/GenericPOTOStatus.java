@@ -10,34 +10,34 @@ import java.util.*;
 @AllArgsConstructor
 public enum GenericPOTOStatus {
 
-    IN_DRAFT("In Draft", "#7A7D7E", "#E6E9EA", -1, false, false, null),
-    L1_APPROVAL_DUE("L1 Approval Due", "#FFB701", "#FFEAB6", 0, false, false, ApprovalCycle.NORMAL),
-    L2_APPROVAL_DUE("L2 Approval Due", "#FFB701", "#FFEAB6", 1, false, false, ApprovalCycle.NORMAL),
-    L3_APPROVAL_DUE("L3 Approval Due", "#FFB701", "#FFEAB6", 2, false, false, ApprovalCycle.NORMAL),
-    L1_SENT_BACK("L1 Sent Back", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 1, false, false, null),
-    L2_SENT_BACK("L2 Sent Back", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 2, false, false, null),
-    L3_SENT_BACK("L3 Sent Back", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 3, false, false, null),
+    IN_DRAFT("In Draft", "#7A7D7E", "#E6E9EA", -1, false, false, null,false),
+    L1_APPROVAL_DUE("L1 Approval Due", "#FFB701", "#FFEAB6", 0, false, false, ApprovalCycle.NORMAL,false),
+    L2_APPROVAL_DUE("L2 Approval Due", "#FFB701", "#FFEAB6", 1, false, false, ApprovalCycle.NORMAL,false),
+    L3_APPROVAL_DUE("L3 Approval Due", "#FFB701", "#FFEAB6", 2, false, false, ApprovalCycle.NORMAL,false),
+    L1_SENT_BACK("L1 Sent Back", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 1, false, false, null,false),
+    L2_SENT_BACK("L2 Sent Back", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 2, false, false, null,false),
+    L3_SENT_BACK("L3 Sent Back", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 3, false, false, null,false),
 
     //underShortCloseCycle =true
-    SC_L1_APPROVAL_DUE("SC L1 Approval Due", "#FFB701", "#FFEAB6", 0, true, false, ApprovalCycle.SHORTCLOSE),
-    SC_L2_APPROVAL_DUE("SC L2 Approval Due", "#FFB701", "#FFEAB6", 1, true, false, ApprovalCycle.SHORTCLOSE),
-    SC_L3_APPROVAL_DUE("SC L3 Approval Due", "#FFB701", "#FFEAB6", 2, true, false, ApprovalCycle.SHORTCLOSE),
-    SC_L1_REJECTED("SC L1 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 1, false, false, null),
-    SC_L2_REJECTED("SC L2 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 2, false, false, null),
-    SC_L3_REJECTED("SC L3 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 3, false, false, null),
+    SC_L1_APPROVAL_DUE("SC L1 Approval Due", "#FFB701", "#FFEAB6", 0, true, false, ApprovalCycle.SHORTCLOSE,true),
+    SC_L2_APPROVAL_DUE("SC L2 Approval Due", "#FFB701", "#FFEAB6", 1, true, false, ApprovalCycle.SHORTCLOSE,true),
+    SC_L3_APPROVAL_DUE("SC L3 Approval Due", "#FFB701", "#FFEAB6", 2, true, false, ApprovalCycle.SHORTCLOSE,true),
+    SC_L1_REJECTED("SC L1 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 1, false, false, null,true),
+    SC_L2_REJECTED("SC L2 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 2, false, false, null,true),
+    SC_L3_REJECTED("SC L3 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 3, false, false, null,true),
 
     //underCancelCycle =true
-    CANCEL_L1_APPROVAL_DUE("Cancel L1 Due", "#FFB701", "#FFEAB6", 0, false, true, ApprovalCycle.CANCEL),
-    CANCEL_L2_APPROVAL_DUE("Cancel L2 Due", "#FFB701", "#FFEAB6", 1, false, true, ApprovalCycle.CANCEL),
-    CANCEL_L3_APPROVAL_DUE("Cancel L3 Due", "#FFB701", "#FFEAB6", 2, false, true, ApprovalCycle.CANCEL),
-    CANCEL_L1_REJECTED("Cancel L1 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 1, false, false, null),
-    CANCEL_L2_REJECTED("Cancel L2 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 2, false, false, null),
-    CANCEL_L3_REJECTED("Cancel L3 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 3, false, false, null),
+    CANCEL_L1_APPROVAL_DUE("Cancel L1 Due", "#FFB701", "#FFEAB6", 0, false, true, ApprovalCycle.CANCEL,true),
+    CANCEL_L2_APPROVAL_DUE("Cancel L2 Due", "#FFB701", "#FFEAB6", 1, false, true, ApprovalCycle.CANCEL,true),
+    CANCEL_L3_APPROVAL_DUE("Cancel L3 Due", "#FFB701", "#FFEAB6", 2, false, true, ApprovalCycle.CANCEL,true),
+    CANCEL_L1_REJECTED("Cancel L1 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 1, false, false, null,true),
+    CANCEL_L2_REJECTED("Cancel L2 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 2, false, false, null,true),
+    CANCEL_L3_REJECTED("Cancel L3 Rejected", "#FF5238", "#FFE5E1", GenericConstants.rejectionStart - 3, false, false, null,true),
 
-    APPROVED("Approved", "#60C3AD", "#EDFFF5", 3, false, false, null),
-    SHORTCLOSED("Shortclosed", "#5F11D7", "#F4EEFF", 4, false, false, null),
-    CANCELLED("Cancelled", "#5FC4F5", "#EDF4FF", 5, false, false, null),
-    GSRI_COMPLETED("GSRI Closed", "#37CF76", "#EFF9F6", 6, false, false, null);
+    APPROVED("Approved", "#60C3AD", "#EDFFF5", 3, false, false, null,true),
+    SHORTCLOSED("Shortclosed", "#5F11D7", "#F4EEFF", 4, false, false, null,true),
+    CANCELLED("Cancelled", "#5FC4F5", "#EDF4FF", 5, false, false, null,false),
+    GSRI_COMPLETED("GSRI Closed", "#37CF76", "#EFF9F6", 6, false, false, null,true);
 //    WORK_COMPLETED("Work Completed","#60C3AD","#60c3ad4d",7,false,false);
 
     private String statusText;
@@ -47,6 +47,7 @@ public enum GenericPOTOStatus {
     private boolean underShortClose;
     private boolean underCancel;
     private ApprovalCycle cycle;
+    private boolean visibleInGrn;
 
     @Getter
     private static Set<GenericPOTOStatus> cancelStatus = new HashSet<>(5);
@@ -111,5 +112,6 @@ public enum GenericPOTOStatus {
     public static int getLevel(GenericPOTOStatus genericPOTOStatus) {
         return genericPOTOStatus.getOrder() >= 0 ? (genericPOTOStatus.getOrder()) + 1 : Math.abs(genericPOTOStatus.getOrder() - GenericConstants.rejectionStart);
     }
+
 
 }

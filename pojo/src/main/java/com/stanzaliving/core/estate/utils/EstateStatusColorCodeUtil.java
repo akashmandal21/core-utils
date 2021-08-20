@@ -80,7 +80,8 @@ public class EstateStatusColorCodeUtil {
 				new ColorCodeDto("#2F9A34", "#C9E6CA", "Call Back Requested For Under Draft","Call Back Requested For Under Draft"));
 		colorCodeMap.put(EstateStatus.CALLBACK_TO_L1_APPROVED, 
 				new ColorCodeDto("#2F9A34", "#C9E6CA", "Call Back Requested For L1 Approved","Callback Request To L1"));
-		
+		colorCodeMap.put(EstateStatus.PENDING_SALES_APPROVAL,
+				new ColorCodeDto("#0002CF", "#C1C3FF", "Pending Sales Approval",""));
 	    return colorCodeMap;
 
 	}

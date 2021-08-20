@@ -20,10 +20,10 @@ public class LeadRequestDto {
 	private String firstName;
 	private String lastName;
 	private String email;
-	
+	private String leadEmail;
 	private String phone;
 	private String otp;
-	
+
 	private boolean phoneVerified;
 
 	private String leadSource;
@@ -61,7 +61,7 @@ public class LeadRequestDto {
 	private String status;
 	private String zohoId;
 	private String zohoStatus;
-	
+
 	private String referralId;
 	private String referralCategory;
 	private String utmSource;
@@ -74,12 +74,12 @@ public class LeadRequestDto {
 	private String utmTarget;
 	private String utmAdformat;
 	private int commissionEarned;
-	
+
 	private String gender;
 	private String profession;
 	private String dateOfVisit;
 	private String moveInDateRange;
-	
+
 	private int leadModeId;
 	private String leadMode;
 	private String leadSubMode;
@@ -91,24 +91,36 @@ public class LeadRequestDto {
 	private String creative;
 	private String gClientId;
 	private String gSessionId;
-	
-	
+
+	private String razorpayPaymentId;
+
+	private String razorPayOrderId;
+
+	private String razorpaySignature;
+
 	@Default
 	private boolean lastQuestion = false;
-
+	private String errorMessage;
+	private int bookingId;
 	@Default
 	private boolean isHotLead = false;
 	@Default
 	private boolean whatsappnotification = false;
 	@Default
 	private boolean qrCodeFlag = false;
-	
+
 	private boolean leadQualificationForm;
-	
+
 	@Default
 	private boolean otpVerified = false;
-	
+
 	@Default
-	private boolean ignoreScheduleVisit=false;
+	private boolean ignoreScheduleVisit = false;
+	@Default
+	private String accommodationType="PG";
+
+	private boolean createHotLead;
+	
+	private String extendDurationMessage;
 
 }

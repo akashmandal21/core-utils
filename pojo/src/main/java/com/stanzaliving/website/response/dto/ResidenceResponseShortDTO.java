@@ -1,11 +1,11 @@
 package com.stanzaliving.website.response.dto;
 
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.HashSet;
-import java.util.Objects;
+import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
+import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
 import lombok.AllArgsConstructor;
@@ -15,112 +15,72 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @ToString
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class ResidenceResponseShortDTO {
 
 	private int residenceId;
-
+	
 	private String name;
-
+	
+	private String slug;
+	
 	private Gender gender;
-
+	
 	private int micromarketId;
-
+	
 	private String micromarketName;
-
+	
 	private String micromarketSlug;
 
 	private int cityId;
-
+	
 	private String cityName;
-
+	
 	private String citySlug;
-
-	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
-
-	private Set<ImageResponseDTO> images = new HashSet<>(0);
-
-	private AddressResponseDTO address;
-
-	private String description;
-
-	private String seoTitle;
-
-	private String seoDescription;
-
-	private String pricingPlan;
-
+	
 	private int startingPrice;
-
-	private double latitude;
-
-	private double longitude;
-
-	private boolean enabled;
-
-	private String slug;
-
-	private Integer fomoBedCount;
-
-	private Double distanceFromPlace;
-
+	
+	private String pricingPlan;
+	
 	private Integer preBookingAmount;
-
+	
 	private String preBookingMode;
-
-	private Set<FacilityResponseDTO> facilites = new HashSet<>(0);
-
-	private String facilitesSortedString;
-
+	
 	private String googleMapLink;
-
-	private Integer sortOrder;
-
-	private boolean soldOut;
-
+	
+	private double latitude;
+	
+	private double longitude;
+	
 	private String virtualTourImage;
 
-	private String fomoTag;
+	private String videoLink;
+	
+	private Integer sortOrder;
+	
+	private FomoTag fomoTag;
+	
+	private String fomoTagName;
+	
+	private String fomoTagcolour;
+	
+	private Double distanceFromPlace;
+	
+	private String transformationUuid;
+	
+	private String transformationId;
 
-	public Set<ResidenceOccupancyResponseDTO> getResidenceOccupancies() {
-		TreeSet<ResidenceOccupancyResponseDTO> occupancyComp = new TreeSet<ResidenceOccupancyResponseDTO>(
-				new Comparator<ResidenceOccupancyResponseDTO>() {
+	@Builder.Default
+	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
 
-					@Override
-					public int compare(ResidenceOccupancyResponseDTO o1, ResidenceOccupancyResponseDTO o2) {
-						if (o1.getOccupancyOccupancy() > o2.getOccupancyOccupancy()) {
-							return 1;
-						} else {
-							return -1;
-						}
-					}
-				});
+	@Builder.Default
+	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = Collections.emptyList();
 
-		System.out.println(residenceOccupancies);
-		if (Objects.nonNull(residenceOccupancies)) {
-			occupancyComp.addAll(residenceOccupancies);
-		}
-		return occupancyComp;
-	}
-
-	public Set<ImageResponseDTO> getImages() {
-		TreeSet<ImageResponseDTO> imagesComp = new TreeSet<ImageResponseDTO>(new Comparator<ImageResponseDTO>() {
-
-			@Override
-			public int compare(ImageResponseDTO o1, ImageResponseDTO o2) {
-				if (o1.getImageOrder() > o2.getImageOrder()) {
-					return 1;
-				} else {
-					return -1;
-				}
-			}
-		});
-		imagesComp.addAll(images);
-		return imagesComp;
-	}
+	@Builder.Default
+	private Set<ImageResponseDTO> images = new HashSet<>(0);
 }

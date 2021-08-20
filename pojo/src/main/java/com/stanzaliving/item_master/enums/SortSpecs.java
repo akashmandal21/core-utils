@@ -17,7 +17,15 @@ public enum SortSpecs {
     GST("itemData.gst.label"),
     ITEMRATE("itemData.globalRate"),
     RENTALRATE("itemData.rentalRate"),
-    STATUS("itemData.itemStatus");
+    STATUS("itemData.itemStatus"),
+
+    //RecipeTag Collection
+    RECIPETAGNAME("recipeTagName"),
+    COUNTOFMAPPING("countOfMapping"),
+    RECIPETAGUOM("recipeTagUom"),
+    RECIPETAGCREATEDBY("createdAt"), //for front end sorting by createdBy should be done on createdAt
+    RECIPETAGLASTUPDATEDBY("updatedAt"), //for front end sorting by updatedBy should be done on updatedAt
+    RECIPETAGSTATUS("status");
 
 
     private String dbKey;

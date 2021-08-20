@@ -47,5 +47,9 @@ public class FoodOrderBasePreferenceDto {
 	private LocalTime mealEndTime;
 
 	private List<AdditionalItemsRequestDto> additionalItemsDtos;
+	
+	private String thaliId;
+	private String thaliVariant;
+	private String thaliName;
 
 }

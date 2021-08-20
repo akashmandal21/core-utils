@@ -45,6 +45,14 @@ public class FoodOrderRequestDto {
 
 	private Integer nonVeg;
 
+	@Builder.Default
+	private Integer totalOrder = 0;
+
+	@Builder.Default
+	private Integer orderedCount = 0;
+
+	private List<FoodOrderMenuCategoryDto> foodOrderMenuCategoryDtoList;
+
 	@NotEmpty(message = "Meal Orders are mandatory")
 	private List<FoodOrderDetailDto> foodOrderDetailDtos;
 
@@ -53,5 +61,8 @@ public class FoodOrderRequestDto {
 
 	@Builder.Default
 	private Double actualUtilization = 0d;
+
+	@Builder.Default
+	private Boolean residenceFoodOrderTimeOut = true;
 
 }

@@ -277,4 +277,44 @@ public class MonthlyForcastCsvDto implements Serializable {
 	@CsvBindByName(column = "EquipmentRentalDryer")
 	private Double equipmentRentalDryer;
 
+	@CsvBindByPosition(position = 65)
+	@CsvBindByName(column = "EquipmentRentalAc")
+	private Double equipmentRentalAc;
+
+	@CsvBindByPosition(position = 66)
+	@CsvBindByName(column = "EquipmentRentalCommonGeyser")
+	private Double equipmentRentalCommonGeyser;
+
+	@CsvBindByPosition(position = 67)
+	@CsvBindByName(column = "EquipmentRentalRoomGeyser")
+	private Double equipmentRentalRoomGeyser;
+
+	@CsvBindByPosition(position = 68)
+	@CsvBindByName(column = "EquipmentRentalPowerBackup")
+	private Double equipmentRentalPowerBackup;
+
+	@CsvBindByPosition(position = 69)
+	@CsvBindByName(column = "EquipmentRentalTv")
+	private Double equipmentRentalTv;
+
+	@CsvBindByPosition(position = 70)
+	@CsvBindByName(column = "EquipmentRentalRo")
+	private Double equipmentRentalRo;
+
+	@CsvBindByPosition(position = 71)
+	@CsvBindByName(column = "EquipmentRentalSmartLock")
+	private Double equipmentRentalSmartLock;
+
+	@CsvBindByPosition(position = 72)
+	@CsvBindByName(column = "EquipmentRentalFacialRecognition")
+	private Double equipmentRentalFacialRecognition;
+
+	@CsvBindByPosition(position = 73)
+	@CsvBindByName(column = "EquipmentRentalTreadmill")
+	private Double equipmentRentalTreadmill;
+
+	@CsvBindByPosition(position = 74)
+	@CsvBindByName(column = "EquipmentRentalMultiGym")
+	private Double equipmentRentalMultiGym;
+
 }

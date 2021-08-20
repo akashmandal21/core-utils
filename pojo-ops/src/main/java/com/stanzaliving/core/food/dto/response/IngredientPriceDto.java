@@ -18,5 +18,10 @@ public class IngredientPriceDto {
 	private double price;
 	private double gst;
 	private double totalPrice;
+	
+	private double stockQuantity;
+	private double stockValue;
+	private double conversionFactor;
+	
 	private boolean priceMissing;
 }

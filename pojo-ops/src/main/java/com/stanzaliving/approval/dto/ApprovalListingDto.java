@@ -1,8 +1,10 @@
 package com.stanzaliving.approval.dto;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
@@ -13,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @Builder
-public class ApprovalListingDto {
+public class ApprovalListingDto implements Serializable {
 
     LocalDate requestTime;
 
@@ -83,6 +85,7 @@ public class ApprovalListingDto {
 
     private List<String> pendingApprovers;
     private List<String> pendingApproversEmails;
+    private List<UserContactDetailsResponseDto> pendingUsers;
 
     private Date requestDateTime;
     private Date l1ActionDateTime;

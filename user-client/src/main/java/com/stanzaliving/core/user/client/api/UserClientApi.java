@@ -3,12 +3,12 @@
  */
 package com.stanzaliving.core.user.client.api;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.stanzaliving.core.generic.dto.UIKeyValue;
-import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
-import com.stanzaliving.core.user.dto.*;
-import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -25,6 +25,14 @@ import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
+import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
+import com.stanzaliving.core.user.dto.AccessLevelRoleRequestDto;
+import com.stanzaliving.core.user.dto.UserDto;
+import com.stanzaliving.core.user.dto.UserManagerProfileRequestDto;
+import com.stanzaliving.core.user.dto.UserProfileDto;
+import com.stanzaliving.core.user.dto.UserRoleCacheDto;
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
+import com.stanzaliving.core.user.request.dto.ActiveUserRequestDto;
 import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -500,5 +508,51 @@ public class UserClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
+	}
+	
+	public ResponseDto<List<UserProfileDto>> getAllUsersByUuidIn(ActiveUserRequestDto activeUserRequestDto) {
+
+		Object postBody = activeUserRequestDto;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/user/all").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserProfileDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
+	public ResponseDto<UserProfileDto> getUserProfileByEmail(String email) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/email").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("email", email);
+		
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 }

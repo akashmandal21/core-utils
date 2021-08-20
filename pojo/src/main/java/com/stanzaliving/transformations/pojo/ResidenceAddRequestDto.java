@@ -67,4 +67,5 @@ public class ResidenceAddRequestDto {
 	private String parentResidenceId;
 	
 	private PropertyEntityType propertyEntityType;
+	
 }

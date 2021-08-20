@@ -17,74 +17,98 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Log4j2
 public class ApprovalClientApi {
 
-	private StanzaRestClient restClient;
+    private StanzaRestClient restClient;
 
-	public ApprovalClientApi(StanzaRestClient stanzaRestClient) {
-		this.restClient = stanzaRestClient;
-	}
+    public ApprovalClientApi(StanzaRestClient stanzaRestClient) {
+        this.restClient = stanzaRestClient;
+    }
 
-	public ResponseDto<ApprovalListingDto> getApprovalListing(String entityUuid, ApprovalEntityType approvalEntityType){
-		ResponseDto<ApprovalListingDto> responseDto = null;
+    public ResponseDto<ApprovalListingDto> getApprovalListing(String entityUuid, ApprovalEntityType approvalEntityType) {
+        ResponseDto<ApprovalListingDto> responseDto = null;
 
-		// create path and map variables
-		final Map<String, Object> uriVariables = new HashMap<>();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/internal/getApprovalDto").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/getApprovalDto").buildAndExpand(uriVariables).toUriString();
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("entityUuid", entityUuid);
-		queryParams.add("approvalEntityType", approvalEntityType.toString());
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("entityUuid", entityUuid);
+        queryParams.add("approvalEntityType", approvalEntityType.toString());
 
-		final HttpHeaders headerParams = new HttpHeaders();
+        final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<ApprovalListingDto>> returnType = new ParameterizedTypeReference<ResponseDto<ApprovalListingDto>>() {
-		};
+        ParameterizedTypeReference<ResponseDto<ApprovalListingDto>> returnType = new ParameterizedTypeReference<ResponseDto<ApprovalListingDto>>() {
+        };
 
-		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("Error while fetching approval listing for entityUuid: {}", entityUuid, e);
-		}
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while fetching approval listing for entityUuid: {}", entityUuid, e);
+        }
 
-		return (Objects.nonNull(responseDto)) ? responseDto : null;
-	}
+        return (Objects.nonNull(responseDto)) ? responseDto : null;
+    }
 
-	public ApprovalListingDto getApprovalData(String entityUuid, ApprovalEntityType approvalEntityType) {
-		ResponseDto<ApprovalListingDto> data = getApprovalListing(entityUuid, approvalEntityType);
-		return data == null || data.getData() == null ? null : data.getData();
-	}
+    public Map<String, ApprovalListingDto> getApprovalData(ApprovalEntityType entityType, Collection<String> uuids) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("internal/get/approval-data").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("entityType", entityType.toString());
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<ApprovalListingDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ApprovalListingDto>>>() {
+        };
 
-	public List<ApprovalStatus> getAllowedStatusForEmail(String emailId, ApprovalEntityType entityType) {
-		final Map<String, Object> uriVariables = new HashMap<>();
-		String path = UriComponentsBuilder.fromPath("internal/dropdown/approval-status").buildAndExpand(uriVariables).toUriString();
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("email", emailId);
-		queryParams.add("entityType", entityType.toString());
-		final HttpHeaders headerParams = new HttpHeaders();
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-		ParameterizedTypeReference<ResponseDto<List<EnumListing<ApprovalStatus>>>> returnType = new ParameterizedTypeReference<ResponseDto<List<EnumListing<ApprovalStatus>>>>() {
-		};
+        try {
+            ResponseDto<List<ApprovalListingDto>> responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, uuids, headerParams, accept, returnType);
+            return Objects.isNull(responseDto) || CollectionUtils.isEmpty(responseDto.getData()) ? Collections.emptyMap() :
+                    responseDto.getData().stream().collect(Collectors.toMap(ApprovalListingDto::getEntityUuid, Function.identity()));
+        } catch (Exception e) {
+            log.error("Error while fetching approval data for entity type {}", entityType);
+            return Collections.emptyMap();
+        }
+    }
 
-		try {
-			ResponseDto<List<EnumListing<ApprovalStatus>>> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-			return Objects.isNull(responseDto)|| CollectionUtils.isEmpty(responseDto.getData()) ? Collections.emptyList():
-					responseDto.getData().stream().map(EnumListing::getKey).collect(Collectors.toList());
-		} catch (Exception e) {
-			log.error("Error while fetching approval status for email {}", emailId, e);
-			return Collections.emptyList();
-		}
-	}
+    public ApprovalListingDto getApprovalData(String entityUuid, ApprovalEntityType approvalEntityType) {
+        ResponseDto<ApprovalListingDto> data = getApprovalListing(entityUuid, approvalEntityType);
+        return data == null || data.getData() == null ? null : data.getData();
+    }
+
+    public List<ApprovalStatus> getAllowedStatusForEmail(String emailId, ApprovalEntityType entityType) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("internal/dropdown/approval-status").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("email", emailId);
+        queryParams.add("entityType", entityType.toString());
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<EnumListing<ApprovalStatus>>>> returnType = new ParameterizedTypeReference<ResponseDto<List<EnumListing<ApprovalStatus>>>>() {
+        };
+
+        try {
+            ResponseDto<List<EnumListing<ApprovalStatus>>> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            return Objects.isNull(responseDto) || CollectionUtils.isEmpty(responseDto.getData()) ? Collections.emptyList() :
+                    responseDto.getData().stream().map(EnumListing::getKey).collect(Collectors.toList());
+        } catch (Exception e) {
+            log.error("Error while fetching approval status for email {}", emailId, e);
+            return Collections.emptyList();
+        }
+    }
 }

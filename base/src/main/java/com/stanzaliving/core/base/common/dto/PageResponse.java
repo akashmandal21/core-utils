@@ -1,8 +1,6 @@
-/**
- * 
- */
 package com.stanzaliving.core.base.common.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +21,9 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class PageResponse<T> {
+public class PageResponse<T>  implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	private int page;
 

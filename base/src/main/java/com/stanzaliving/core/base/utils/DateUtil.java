@@ -12,6 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
@@ -56,7 +57,7 @@ public class DateUtil {
 
 		return null;
 	}
-	
+
 	public String customTimeFormatter(LocalTime timeInput, DateFormat dateFormat) {
 
 		if (timeInput != null) {
@@ -65,7 +66,6 @@ public class DateUtil {
 		}
 		return null;
 	}
-
 
 	public String convertLocalDateTimeToDateFormatString(LocalDateTime localDateTime, DateFormat dateFormat) {
 
@@ -106,10 +106,28 @@ public class DateUtil {
 		return null;
 	}
 
+	public LocalDateTime customDateTimeParser(String dateInput) {
+		return customDateTimeParser(dateInput, DateFormat.ELASTIC_SEARCH);
+	}
+	
+	public LocalDateTime customDateTimeParser(String dateInput, DateFormat dateFormat) {
+
+		if (dateInput != null) {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateFormat.getValue());
+			try {
+				return LocalDateTime.parse(dateInput, formatter);
+			} catch (DateTimeParseException e) {
+				// Ignore
+			}
+		}
+
+		return null;
+	}
+	
 	public Date convertToDate(LocalDateTime localdateTime) {
 		Date date = null;
-		if(Objects.nonNull(localdateTime)) {
-			date =  Date.from(localdateTime.atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant());
+		if (Objects.nonNull(localdateTime)) {
+			date = Date.from(localdateTime.atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toInstant());
 		}
 		return date;
 	}
@@ -205,7 +223,7 @@ public class DateUtil {
 	public LocalDate convertToLocalDate(long timestamp) {
 		return Instant.ofEpochMilli(timestamp).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toLocalDate();
 	}
-	
+
 	public LocalDateTime convertToLocalDateTime(long timestamp) {
 		return Instant.ofEpochMilli(timestamp).atZone(ZoneId.of(StanzaConstants.IST_TIMEZONE)).toLocalDateTime();
 	}
@@ -425,10 +443,11 @@ public class DateUtil {
 		return new ArrayList<>(dateList);
 	}
 
-	//when start date equals toDate, this method returns -1, can't be changed now as already used elsewhere
-	//returns negative value if startDate is greater than endDate
-	//use getAbsoluteCountOfDates instead
-	@Deprecated
+	/**
+	 * when start date equals toDate, this method returns -1, can't be changed now as already used elsewhere
+	 * returns negative value if startDate is greater than endDate
+	 * use getAbsoluteCountOfDates instead
+	 */
 	public Integer getCountOfDates(LocalDate startDate, LocalDate endDate) {
 		if (startDate == null || endDate == null) {
 			return 0;
@@ -766,20 +785,20 @@ public class DateUtil {
 
 		return date.with(TemporalAdjusters.next(day));
 	}
-	
-	 public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
-	        Calendar calStart = Calendar.getInstance();
-	        calStart.setTime(fromDate);
-	        Calendar calEnd = Calendar.getInstance();
-	        calEnd.setTime(toDate);
-	        int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
-	        return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
-	    }
-	 
-	 public static long getDifferenceBetweenDates(Date d1, Date d2, String differenceIn) {
-			long diff = d2.getTime() - d1.getTime();
-			long requiredValue;
-			switch (differenceIn) {
+
+	public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
+		Calendar calStart = Calendar.getInstance();
+		calStart.setTime(fromDate);
+		Calendar calEnd = Calendar.getInstance();
+		calEnd.setTime(toDate);
+		int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
+		return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
+	}
+
+	public static long getDifferenceBetweenDates(Date d1, Date d2, String differenceIn) {
+		long diff = d2.getTime() - d1.getTime();
+		long requiredValue;
+		switch (differenceIn) {
 			case "DAYS":
 				requiredValue = diff / (24 * 60 * 60 * 1000);
 				break;
@@ -793,10 +812,10 @@ public class DateUtil {
 				requiredValue = diff / 1000 % 60;
 			default:
 				requiredValue = 0;
-			}
-			return requiredValue;
 		}
-	 
+		return requiredValue;
+	}
+
 	public String getCurrentDateInSpecificFormat(LocalDate localDate) {
 		int dayOfMonth = localDate.getDayOfMonth();
 		String dayNumberSuffix = getDayNumberSuffix(dayOfMonth);
@@ -867,7 +886,7 @@ public class DateUtil {
 		}
 		for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
 			if (monthYear.equals(customDateFormatter(date, dateFormat))) {
-				count +=1;
+				count += 1;
 			}
 		}
 		return count;
@@ -910,7 +929,7 @@ public class DateUtil {
 		}
 		return monthCount;
 	}
-	
+
 	public long getHoursBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
 		if (Objects.isNull(startDateTime) || Objects.isNull(endDateTime)) {
 			return 0;
@@ -918,9 +937,13 @@ public class DateUtil {
 
 		return getDurationBetween(startDateTime, endDateTime).toHours();
 	}
-	
+
 	public Duration getDurationBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
 		return Duration.between(startDateTime, endDateTime);
 	}
-	
+
+	public boolean isBetween(LocalDate checkDate, LocalDate startDate, LocalDate endDate) {
+		return !checkDate.isBefore(startDate) && !checkDate.isAfter(endDate);
+	}
+
 }

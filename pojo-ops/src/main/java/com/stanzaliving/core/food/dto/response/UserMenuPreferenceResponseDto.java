@@ -21,37 +21,21 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserMenuPreferenceResponseDto {
-
 	private String userResidenceFoodMenuId;
-
 	private MealType meal;
-
 	private String mealName;
-
 	private String mealImg;
-
 	private boolean multiMenuPresent;
-
 	private LocalDate date;
-
 	private LocalTime startTime;
-
 	private LocalTime endTime;
-
 	private Date windowCloseTime;
-	
 	private LocalDate cutoffDate;
-	
 	private LocalTime cutoffTime;
-
 	private boolean defaultChoice;
-	
 	private boolean mealSkippable;
-	
 	private boolean mealSkipped;
-
 	private FoodPreferenceComboResponseDto selectedCombo;
-
 	private List<FoodPreferenceComboResponseDto> preferenceComboResponseDtos;
 
 }

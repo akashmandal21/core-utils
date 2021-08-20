@@ -67,4 +67,6 @@ public class ServiceMixDto extends AbstractDto {
 	
 	private DealCategory dealCategory;
 
+	private Map<String, String> tags;
+
 }

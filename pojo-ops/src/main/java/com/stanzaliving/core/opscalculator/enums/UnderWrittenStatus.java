@@ -14,7 +14,8 @@ public enum UnderWrittenStatus {
     SENT_FOR_APPROVAL("Sent For Approval", "Underwritten submitted for approval", ColorCode.PALE_ORANGE.getColorCode(), ColorCode.WHITE.getColorCode()),
     APPROVED("Approved", "Underwritten approved successfully", ColorCode.MODERATE_CYAN.getColorCode(), ColorCode.WHITE.getColorCode()),
     REJECTED("Rejected", "Underwritten rejected successfully", ColorCode.RED.getColorCode(), ColorCode.WHITE.getColorCode()),
-    DISCARDED("Discarded", "Underwritten discarded successfully", ColorCode.RED.getColorCode(), ColorCode.WHITE.getColorCode());
+    DISCARDED("Discarded", "Underwritten discarded successfully", ColorCode.RED.getColorCode(), ColorCode.WHITE.getColorCode()),
+    MERGED("Merged", "Underwritten merged successfully", ColorCode.RED.getColorCode(), ColorCode.WHITE.getColorCode());
 
     String status;
     String responseMsg;

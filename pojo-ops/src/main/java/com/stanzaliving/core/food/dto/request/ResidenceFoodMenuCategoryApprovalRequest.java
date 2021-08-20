@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.operations.enums.DealCategory;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,12 @@ public class ResidenceFoodMenuCategoryApprovalRequest {
 
 	@NotBlank(message = "Menu Category can not be blank")
 	private String menuCategory;
+
+	@NotBlank(message = "Deal Id can not be blank")
+	private String dealUuid;
+
+	@NotBlank(message = "Deal Category can not be blank")
+	private DealCategory dealCategory;
 
 	@NotNull(message = "Start Date can not be null")
 	private LocalDate startDate;

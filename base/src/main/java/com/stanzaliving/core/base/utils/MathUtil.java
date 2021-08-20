@@ -32,4 +32,15 @@ public class MathUtil {
 
 	}
 
+	public static double getWeightedAverage(double[] value, int[] weight) {
+		int sum = 0;
+		double numWeight = 0;
+
+		for (int i = 0; i < value.length; i++) {
+			numWeight = numWeight + value[i] * weight[i];
+			sum = sum + weight[i];
+		}
+
+		return (float) (numWeight) / sum;
+	}
 }

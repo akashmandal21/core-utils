@@ -27,8 +27,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ComboMenuRuleCheckResponseDto {
-
 	private String missingTagName;
-
 	private List<RegionBasePreferenceDto> combosMissingMandatoryItems;
+	private List<String> thaliIds;
 }

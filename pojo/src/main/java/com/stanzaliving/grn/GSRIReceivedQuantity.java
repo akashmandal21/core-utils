@@ -24,4 +24,7 @@ public class GSRIReceivedQuantity {
     private BigDecimal poQuantity;
 
     private BigDecimal gsriRcvdQuantity;
+    private BigDecimal gsriInstalledQuantity;
+
+    private BigDecimal gsriQuantity;
 }

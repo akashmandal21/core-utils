@@ -1,10 +1,10 @@
 package com.stanzaliving.website.response.dto;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
-import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -21,10 +21,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ResidenceDetailsResponseDTO {
+public class ResidenceDetailsResponseDTO implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private int residenceId;
 	private String name;
+	private String apartmentName;
 	private Gender gender;
 	private String genderName;
 	private int micromarketId;
@@ -47,24 +49,28 @@ public class ResidenceDetailsResponseDTO {
 	private FomoTag fomoTag;
 	private String fomoTagName;
 	private String fomoTagcolour;
-	private int priorityOrder;
+	private int sortOrder;
 	private String residenceType;
-	private String mobileNo;
-	private String gmbLink;
-	private String virtualTourURL;
+	private String googleMapLink;
+	private String virtualTourImage;
+	private String videoLink;
 	private String cardCTAName;
-	private int cardCTAId;
-	private int residenceTypeId;
+	private Integer cardCTAId;
+	private Integer residenceTypeId;
 	private String genderSlug;
+	private String mobileNo;
 	private String phoneNo;
-	EnumListing<PropertyEntityType> propertType;
-	@Builder.Default
-	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = new ArrayList(0);
+	
+	private PropertyEntityType propertyEntityType;
 
 	@Builder.Default
-	private List<ImageResponseDTO> images = new ArrayList(0);
+	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
+
 	@Builder.Default
-	private List<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new ArrayList(0);
+	private Set<ImageResponseDTO> images = new HashSet<>(0);
+	
+	@Builder.Default
+	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
 
 	private AddressResponseDTO address;
 }

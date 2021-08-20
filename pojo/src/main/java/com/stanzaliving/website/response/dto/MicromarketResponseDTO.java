@@ -30,12 +30,11 @@ public class MicromarketResponseDTO {
 	private double latitude;
 	private double longitude;
 	private String slug;
-	@Default
-	private boolean enabled = true;
 	private String seoTitle;
 	private String seoDescription;
 	private String phone;
 	private String description;
+	private String micromarketDescription;
 	private String citySlug;
 	EnumListing<Status> status;
 	private Long reviewCount;
@@ -43,6 +42,24 @@ public class MicromarketResponseDTO {
 	private Long minPriceValue;
 	private List<MicromarketAliasDTO> micromarketAlias;
 	private List<AttributeDto> attributeDto;
+	
+	@Default
+	private boolean enabled = true;
+	
+	@Builder.Default
+	private boolean isSelected = false;
+
 	@Default
 	private boolean leadQualificationForm=false;
+	
+	private String apartmentMMSlug;
+	private Double apartmentRating;
+	private Long apartmentReviewCount;
+	private Long apartmentMinPriceValue;
+	private String apartmentSeoTitle;
+	private String apartmentSeoDescription;
+	private String apartmentMicromarketDescription;
+	
+	private boolean comingSoonPg;
+	private boolean comingSoonApartment;
 }

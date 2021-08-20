@@ -34,7 +34,7 @@ public class LeadershipFilterRequestDto {
 	private String slSubBrand;
 	private String bdExecutive;
 	private String regionalManager;
-	
+	private String additionalManagers;
 	private String estateOrHouseName;
 	
 	private SortFilterEnum sortBy;

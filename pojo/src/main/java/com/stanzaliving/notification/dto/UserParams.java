@@ -8,6 +8,7 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class UserParams {
 
     private String userId;

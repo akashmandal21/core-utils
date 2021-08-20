@@ -1,6 +1,7 @@
 package com.stanzaliving.operations.dto.servicemix;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 import com.stanzaliving.core.operations.enums.DealCategory;
 
@@ -40,4 +41,6 @@ public class ServiceMixSerializableDto {
 	private DealCategory dealCategory;
 
 	private Config config = new Config();
+
+	private Map<String, String> tags;
 }

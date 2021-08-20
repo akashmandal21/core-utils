@@ -1,16 +1,12 @@
 package com.stanzaliving.core.security.interceptor;
 
-import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.http.interceptor.BaseUIDInterceptor;
 import lombok.extern.log4j.Log4j2;
-import org.slf4j.MDC;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Enumeration;
-import java.util.UUID;
 
 @Log4j2
 public class UIDInterceptor extends HandlerInterceptorAdapter {

@@ -11,8 +11,9 @@ public class ContextType {
 
     public static final String PO_DOC_GENERATION = "poDocGeneration";
 
-    
     public static final String GC_DOC_GENERATION = "gcDocGeneration";
+
+    public static final String ASSET_QR_GENERATION = "assetQrGeneration"; // for QrCodes pdf
 
     public static final String SERVICE_MIX = "serviceMix";
 }
