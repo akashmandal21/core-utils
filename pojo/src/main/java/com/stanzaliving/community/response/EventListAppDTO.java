@@ -16,6 +16,7 @@ public class EventListAppDTO {
     private String uuid;
     private String eventName;
     private String eventType;
+    private String eventTypeUuid;
     private String eventCategory;
     private Date eventStartDate;
     private Date eventEndDate;
