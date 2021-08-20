@@ -11,9 +11,9 @@ import java.util.List;
 @Getter
 public enum CamundaFlow {
 
-    ALPHA("Alpha", "1000"),
-    BETA("Beta", "1001"),
-    GAMMA("Gamma","1002");
+    Estate_flow("Estate_flow", "1000"),
+    Estate_flow_2("Estate_flow_2", "1001"),
+    Estate_flow_3("Estate_flow_3","1002");
     private final String name;
     private final String id;
 
