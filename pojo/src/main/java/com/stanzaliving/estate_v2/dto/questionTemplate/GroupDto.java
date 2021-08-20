@@ -31,6 +31,8 @@ public class GroupDto {
     @Size(min = 1,message = "Mandatory to choose at-least 1 Applicable Status")
     @NotNull(message = "Applicable Status cannot be null")
     private List<ApplicableStatusesDto> applicableStatuses;
+    private List<ApplicableStatusesDto> submitStatuses;
+    private List<ApplicableStatusesDto> approveStatuses;
     private VisibilityConditionDto visibilityCondition;
     private MandatoryConditionDto mandatoryCondition;
     private PrivilegeDto privileges;
