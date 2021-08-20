@@ -97,6 +97,7 @@ public enum BookingStatus {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(BookingStatus.AGREEMENT_PENDING.getDescription());
         bookingStatus.add(BookingStatus.AGREEMENT_SENT.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         return bookingStatus;
     }
 

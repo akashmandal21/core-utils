@@ -19,6 +19,7 @@ public class ContractModificationDetailsDto {
 	private double monthlyFee;
 	private double amc;
 	private double securityDeposit;
+	private double discountAmount;
 	private double advanceRentalMonths;
 	private double totalAmount;
 	private String addendumLink;

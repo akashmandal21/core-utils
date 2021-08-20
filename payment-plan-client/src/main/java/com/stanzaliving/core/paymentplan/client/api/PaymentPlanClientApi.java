@@ -35,8 +35,8 @@ public class PaymentPlanClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<PaymentPlanResponseDto> createPaymentPlan(PaymentPlanRequestDto paymentPlanRequestDto,
-                                                                 String token) {
+    public ResponseDto<PaymentPlanResponseDto> createPaymentPlan(PaymentPlanRequestDto paymentPlanRequestDto
+                                                                 ) {
 
         Object postBody = null;
 
@@ -44,13 +44,11 @@ public class PaymentPlanClientApi {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/create").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/create").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         HttpHeaders headerParams = new HttpHeaders();
-
-        headerParams.add("Cookie", "token=" + token);
 
         final String[] accepts = {"*/*"};
 
@@ -93,7 +91,7 @@ public class PaymentPlanClientApi {
         }
     }
 
-    public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(String bookingUuid, String token) {
+    public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(String bookingUuid) {
 
         try {
             Object postBody = null;
@@ -104,14 +102,12 @@ public class PaymentPlanClientApi {
 
             uriVariables.put("bookingUuid", bookingUuid);
 
-            String path = UriComponentsBuilder.fromPath("/api/v1/get/{bookingUuid}").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/get/{bookingUuid}").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
             HttpHeaders headerParams = new HttpHeaders();
-
-            headerParams.add("Cookie", "token=" + token);
 
             final String[] accepts = {"*/*"};
 
@@ -129,7 +125,7 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(String bookingUuid, String token, String paymentTerm) {
+    public ResponseDto<PaymentPlanResponseDto> getPaymentPlan(String bookingUuid, String paymentTerm) {
 
         try {
             Object postBody = null;
@@ -140,17 +136,13 @@ public class PaymentPlanClientApi {
 
             uriVariables.put("bookingUuid", bookingUuid);
 
-            String path = UriComponentsBuilder.fromPath("/api/v1/get/{bookingUuid}").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/get/{bookingUuid}").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
             queryParams.add("paymentTerm", paymentTerm);
-            //queryParams.add("bookingType", bookingType);
-            //queryParams.add("maintenanceFeeCollectionType", maintenanceFeeCollectionType);
-
+            
             HttpHeaders headerParams = new HttpHeaders();
-
-            headerParams.add("Cookie", "token=" + token);
 
             final String[] accepts = {"*/*"};
 
@@ -177,7 +169,7 @@ public class PaymentPlanClientApi {
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/api/v1/get/payment-plan-for-invoice").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/get/payment-plan-for-invoice").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -210,7 +202,7 @@ public class PaymentPlanClientApi {
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/api/v1/get/payment-plan-line-item").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/get/payment-plan-line-item").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -291,6 +283,7 @@ public class PaymentPlanClientApi {
     }
 
 
+
     public ResponseDto<String> savePaymentPlanAndLineItem(List<PaymentPlan> paymentPlans) {
 
         try {
@@ -333,14 +326,12 @@ public class PaymentPlanClientApi {
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/api/v1/create/vas").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/create/vas").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
             HttpHeaders headerParams = new HttpHeaders();
-
-            headerParams.add("Cookie", "token=" + token);
 
             final String[] accepts = {"*/*"};
 
@@ -358,7 +349,7 @@ public class PaymentPlanClientApi {
 
     }
     
-    public CompletableFuture<ResponseDto<PaymentPlanResponseDto>> getPaymentPlanByFuture(String bookingUuid, String token, String paymentTerm) {
+    public CompletableFuture<ResponseDto<PaymentPlanResponseDto>> getPaymentPlanByFuture(String bookingUuid, String paymentTerm) {
 
         try {
             Object postBody = null;
@@ -369,15 +360,13 @@ public class PaymentPlanClientApi {
 
             uriVariables.put("bookingUuid", bookingUuid);
 
-            String path = UriComponentsBuilder.fromPath("/api/v1/get/{bookingUuid}").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/get/{bookingUuid}").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
             queryParams.add("paymentTerm", paymentTerm);
 
             HttpHeaders headerParams = new HttpHeaders();
-
-            headerParams.add("Cookie", "token=" + token);
 
             final String[] accepts = {"*/*"};
 
