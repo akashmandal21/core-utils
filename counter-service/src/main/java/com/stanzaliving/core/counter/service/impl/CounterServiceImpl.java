@@ -35,6 +35,8 @@ public class CounterServiceImpl implements CounterService{
 		log.info("Key {}",key);
 		CounterKeyEntity count = countRepository.findByKey(key);
 
+		log.info("CounterKeyEntity count : {}", count.getCount());
+
 		if(Objects.isNull(count))
 		{
 			try {
@@ -46,7 +48,11 @@ public class CounterServiceImpl implements CounterService{
 					throw new CounterServiceException("Unable to create new category row "+categoryKey.getKey()+"  "+ex.getMessage()+" "+ex.getCause());
 			}
 		}
-		return incrementCounterForKey(count);
+
+		Long res = incrementCounterForKey(count);
+		log.info("incrementCounterForKey(count) : {}", res);
+//		return incrementCounterForKey(count);
+		return res;
 	}
 
 	@Override
