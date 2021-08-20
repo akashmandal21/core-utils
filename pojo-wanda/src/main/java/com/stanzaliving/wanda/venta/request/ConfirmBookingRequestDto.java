@@ -10,5 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ConfirmBookingRequestDto {
-	private int bookingId;
+	    
+	    private String bookingId;
+
+	    private String userUuid;
+	    
 }

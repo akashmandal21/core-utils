@@ -2,7 +2,7 @@ package com.stanzaliving.wanda.venta.response;
 
 import java.util.List;
 
-import com.stanzaliving.wanda.enums.InstallmentTypeEnum;
+import com.stanzaliving.booking.enums.PaymentTerm;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,8 +16,10 @@ import lombok.NoArgsConstructor;
 public class PaymentPlanResponseDto {
     private List<InstallmentResponseDto> paymentPlan;
     private String installmentTypeStr;
-    private InstallmentTypeEnum installmentType;
+    private PaymentTerm paymentTerm;
     private Boolean isSelected;
     private String view;
     private int upFrontPaymentMonth;
+    @Builder.Default
+    private Double upsell=0d;
 }

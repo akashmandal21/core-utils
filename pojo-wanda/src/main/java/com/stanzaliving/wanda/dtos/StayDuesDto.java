@@ -26,7 +26,7 @@ public class StayDuesDto {
 	private String feesPerMonth;
 	private String dueDate;
 	private String currentDues;
-	private long due;
+	private Double due;
 	private String nextBillingDate;
 
 }

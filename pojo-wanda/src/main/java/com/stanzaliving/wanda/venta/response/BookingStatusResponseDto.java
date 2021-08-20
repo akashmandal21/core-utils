@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class BookingStatusResponseDto {
-    private String houseName;
+	private String houseName;
     private String bookingUuid;
     private String bookingStatus;
     private boolean hasMovedIn;
@@ -43,4 +43,5 @@ public class BookingStatusResponseDto {
     private String mobileNumber;
     private String jsVersion;
     private String residenceUuid;
+    private Long bookingId;
 }
