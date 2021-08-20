@@ -17,11 +17,10 @@ import lombok.experimental.SuperBuilder;
 public class GenericTemplateFilterDto {
 
     private String name;
-    private String statusUUID;
-    private String categoryUUId;
-    private String subCategoryUUId;
+    private String statusUuid;
+    private String categoryUuid;
+    private String subCategoryUuid;
     private PaginationRequest pageRequest;
-
 
 }
 
