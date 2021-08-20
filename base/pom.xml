@@ -158,7 +158,6 @@
 		<dependency>
 			<groupId>com.sendgrid</groupId>
 			<artifactId>sendgrid-java</artifactId>
-			<version>4.3.0</version>
 		</dependency>
 
 		<dependency>
@@ -185,6 +184,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
+        
+        <dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-spatial</artifactId>
+			<version>7.4.0</version>
+		</dependency>
 
     </dependencies>
 
