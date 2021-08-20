@@ -35,8 +35,6 @@ public class CounterServiceImpl implements CounterService{
 		log.info("Key {}",key);
 		CounterKeyEntity count = countRepository.findByKey(key);
 
-		log.info("CounterKeyEntity count : {}", count.getCount());
-
 		if(Objects.isNull(count))
 		{
 			try {
@@ -49,10 +47,7 @@ public class CounterServiceImpl implements CounterService{
 			}
 		}
 
-		Long res = incrementCounterForKey(count);
-		log.info("incrementCounterForKey(count) : {}", res);
-//		return incrementCounterForKey(count);
-		return res;
+		return incrementCounterForKey(count);
 	}
 
 	@Override
