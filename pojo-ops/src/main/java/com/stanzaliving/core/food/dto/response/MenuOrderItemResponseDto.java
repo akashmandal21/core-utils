@@ -1,6 +1,5 @@
-package com.stanzaliving.food.v2.grammage.request;
+package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.food.enums.FoodServeType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,14 +7,14 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
- * @since 20-Apr-2021
+ * @version 2.0
  *
- * @version 1.0
+ * @since 04-Aug-2021
  */
 
 @Getter
@@ -24,7 +23,10 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GrammageStatusRequestDto {
+public class MenuOrderItemResponseDto {
 
-	private Integer grammage;
+	private String residenceFoodMenuId;
+
+	private List<OrderItemGrammageDto> items;
+
 }

@@ -30,4 +30,7 @@ public class MealGrammageRequestDto extends GrammageStatusRequestDto {
 	@NotNull(message = "Meal selection is mandatory")
 	private MealType mealType;
 
+	@NotNull(message = "Food serve type is mandatory")
+	private FoodServeType foodServeType;
+
 }

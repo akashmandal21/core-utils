@@ -28,7 +28,9 @@ public class DayWiseMenuDto implements Serializable {
 	private Boolean mealOfDayChanged;
 	
 	private boolean subMealEnabled;
+	private boolean subMealMenuDefined;
 	private boolean regularMealEnabled;
+	private boolean regularMealMenuDefined;
 	private Double cogs;
 	private Double budgeted;
 }

@@ -1,14 +1,21 @@
 package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
-
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+/**
+ * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
+ *
+ * @version 2.0
+ *
+ * @since 04-Aug-2021
+ */
 
 @Getter
 @Setter
@@ -16,18 +23,18 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodPreferenceComboItemDto {
+public class OrderItemGrammageDto {
 
 	private String itemId;
-	private String categoryId;
-	private String subCategoryId;
+
 	private String itemName;
-	private Integer stdQty;
-	private Integer stdWeight;
-	private ListingDto units;
+
 	private FoodItemType itemType;
-	private boolean quantifiable;
-	private boolean hideGrammage;
-	private boolean hybridBuffetItem;
+
+	@Builder.Default
+	private Integer orderedQty = 0;
+
+	@Builder.Default
+	private Integer orderedWeight = 0;
 
 }
