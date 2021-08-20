@@ -53,7 +53,7 @@ public enum PaymentMode {
     }
 
 	public static List<PaymentMode> getActivePaymentModes() {
-		return Arrays.asList(CHEQUE, CASH, VIRTUAL_ACCOUNT , RAZORPAY,PAYTM_SDK);
+		return Arrays.asList(CHEQUE, CASH, VIRTUAL_ACCOUNT);
 	}
     
     public static PaymentMode getPaymentModeByDesc(String desc) {
