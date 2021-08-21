@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.enums;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -29,12 +30,19 @@ public enum AlfredStep {
 	private List<String> bookingStatuses;
 
 	private static final Map<AlfredStep, List<String>> bookingStatusMap = new HashMap<AlfredStep, List<String>>();
-
+	private static final List<String> retentionNonBlockerStatus = new ArrayList<>();
+	
 	static {
 		for (AlfredStep as : AlfredStep.values()) {
 			bookingStatusMap.put(as, as.bookingStatuses);
 		}
 	}
+	
+	static {
+		retentionNonBlockerStatus.addAll(Arrays.asList("REFUND INITIATED","ONBOARDING COMPLETED",
+				"VERIFICATION PENDING","ONBOARDING PENDING", "ONBOARDING IN PROGRESS"));
+	}
+		
 
 	public static AlfredStep getByBookingStatus(String bookingStatus) {
 		for (Map.Entry<AlfredStep, List<String>> entry : bookingStatusMap.entrySet()) {
@@ -43,6 +51,15 @@ public enum AlfredStep {
 			}
 		}
 		return SELFBOOKING;
+	}
+	
+	public static boolean checkRetentionScreen(String bookingStatus) {
+		for (String status : retentionNonBlockerStatus) {
+			if (status.equals(bookingStatus)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }
