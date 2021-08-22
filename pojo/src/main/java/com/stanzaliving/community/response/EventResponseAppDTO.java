@@ -42,6 +42,7 @@ public class EventResponseAppDTO {
     private Boolean isRegistered;
     private Object isRegistrationOpen;
     private Boolean isLiked;
+    private Object bookingDetails;
     private PageResponse<SimilarEventResponseDTO> similarEvents;
     private PageResponse<RegisteredUserResponseDTO> registeredUser;
 }
