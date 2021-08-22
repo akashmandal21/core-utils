@@ -1,5 +1,6 @@
 package com.stanzaliving.support.dto;
 
+import com.stanzaliving.core.base.enums.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,4 +27,7 @@ public class ResolutionRuleMetadataDto {
     private List<ResolutionLevelDto> resolutionLevelList;
     private List<SubTicketTaskDto> subTicketTaskDtoList;
     private boolean isResolutionRuleActive;
+    private String referenceUuid;
+    private AccessLevel accessLevel;
+
 }

@@ -12,6 +12,6 @@ public enum ResolutionRuleColumnEnum {
     RESOLUTION_LEVEL("resolutionLevel"),
     ACTIVE("active"),
     CREATED_BY("createdBy"),
-    LAST_UPDATED_BY("lastUpdatedBy");
+    UPDATED_BY("UpdatedBy");
     private final String name;
 }
