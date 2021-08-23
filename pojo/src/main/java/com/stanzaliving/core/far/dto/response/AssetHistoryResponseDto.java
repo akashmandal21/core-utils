@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 import java.util.List;
 
+import com.stanzaliving.core.far.enums.AssetActionType;
+
 /**
  * @author dhruv.mathur
  * @date 05/04/21
@@ -17,10 +19,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AssetHistoryResponseDto {
+    private String assetUuid;
     private String assetHistoryUuid;
     private String contextDescription;
     private List<UpdatedFieldsDto> updatedFields;
     private String doneBy;
     private Date lastUpdatedOn;
     private String assetActionType;
+    private String assetActionName;
 }

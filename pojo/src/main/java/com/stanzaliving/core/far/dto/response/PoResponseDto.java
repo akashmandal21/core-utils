@@ -1,6 +1,6 @@
-package com.stanzaliving.core.far.dto;
+package com.stanzaliving.core.far.dto.response;
 
-import java.util.Collection;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -14,7 +14,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class BlockGrnRequestDto {
-    private Collection<BlockGrnDto> blockGrnDtoList;
-    private String toNumber;
+public class PoResponseDto {
+    private String label;
+    private String value;
+    private boolean isPo;
+    private BigDecimal itemMaxQty;
+    
 }
