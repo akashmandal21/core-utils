@@ -110,6 +110,8 @@ public class FilterDto {
     @Builder.Default
     private boolean includeRate=false;
 
+    private String cityUuid;
+
     public void addAdditionalFilterFields(Set<String> deptFields){
         deptFields.add("department");
         deptFields.add("dateRangeCreatedAt");
