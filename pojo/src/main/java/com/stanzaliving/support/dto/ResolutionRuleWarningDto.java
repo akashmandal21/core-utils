@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ResolutionRuleWarningDto {
     Boolean isExist;
+    String message;
 }
