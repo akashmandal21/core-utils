@@ -27,6 +27,8 @@ public class TaskTimelineDto {
 
     private String taskOwner;
 
+    private String updatedBy;
+
     private String subTaskStatus;
 
     private String subTaskSubStatus;
@@ -35,8 +37,9 @@ public class TaskTimelineDto {
 
     private String taskSubStatus;
 
-    private List<String> comments;
+    private String comment;
 
     private Map<String, Object> metaDataChanges;
 
+    private String summary;
 }
