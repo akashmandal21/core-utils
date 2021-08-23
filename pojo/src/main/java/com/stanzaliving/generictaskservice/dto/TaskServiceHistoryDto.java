@@ -33,6 +33,8 @@ public class TaskServiceHistoryDto {
 
     private String updatedBy;
 
+    private Date updatedAt;
+
     private String description;
 
     private List<String> attachments;

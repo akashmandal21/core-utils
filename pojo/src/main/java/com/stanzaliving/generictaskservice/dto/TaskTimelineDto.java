@@ -2,6 +2,7 @@ package com.stanzaliving.generictaskservice.dto;
 
 import lombok.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +29,8 @@ public class TaskTimelineDto {
     private String taskOwner;
 
     private String updatedBy;
+
+    private Date updatedAt;
 
     private String subTaskStatus;
 
