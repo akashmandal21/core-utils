@@ -8,26 +8,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GlobalBoqListingRequestFilterDto {
-
-    @Builder.Default
-    private int pageNo = 1;
-
-    @Builder.Default
-    private int pageSize = 20;
-
-    @Builder.Default
-    private String sortBy = "PropertyName";
-
-    @Builder.Default
-    private String sortOrder = "asc";
+public class GlobalListingFilterOptionsDto {
 
     private List<LabelValueDto<BoqType>> boqType;
 
@@ -37,19 +24,11 @@ public class GlobalBoqListingRequestFilterDto {
 
     private List<LabelValueDto<String>> city;
 
-    private List<LabelValueDto<String>> micromarket;
+//    private List<LabelValueDto<String>> micromarket; city -> mm at FE
 
     private List<LabelValueDto<String>> createdBy;
 
     private List<LabelValueDto<String>> approvedBy; //todo: how??
 
     private List<LabelValueDto<String>> lastUpdatedBy;
-
-    private LocalDate createdFromDate;
-
-    private LocalDate createdToDate;
-
-    private LocalDate approvedFromDate; //todo: how??
-
-    private LocalDate approvedToDate; //todo: how??
 }
