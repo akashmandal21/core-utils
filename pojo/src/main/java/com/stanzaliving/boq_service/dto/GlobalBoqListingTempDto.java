@@ -12,25 +12,17 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GlobalBoqListingDto {
+public class GlobalBoqListingTempDto {
 
     private String propertyUuid;
 
-    private String propertyName;
+    private Long micromarketId;
 
-    private String micromarketName;
-
-    private String cityName;
+    private String cityUuid;
 
     private Integer numberOfBeds;
 
-    private Integer numberOfBoqs;
+    private BigDecimal capex;
 
-//    private BigDecimal totalBudget;
-
-    private BigDecimal totalCapex;
-
-//    private BigDecimal margin;
-
-    private LabelValueDto<BoqStatus> boqStatus;
+    private BoqStatus boqStatus;
 }

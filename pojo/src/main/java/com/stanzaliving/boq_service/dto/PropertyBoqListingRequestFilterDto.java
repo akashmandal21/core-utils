@@ -19,7 +19,7 @@ public class PropertyBoqListingRequestFilterDto {
     private int pageNo = 1;
 
     @Builder.Default
-    private int pageSize = 20;
+    private int pageSize = 10000;
 
     @Builder.Default
     private String sortBy = "UpdatedOn";
