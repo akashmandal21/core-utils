@@ -7,6 +7,8 @@ import java.util.*;
 @Getter
 public enum EstateV2Status {
 
+    //PG Flow
+
     DRAFT_IN_PROGRESS("Under Draft"),
     SENT_FOR_APPROVAL_TO_CITY_HEAD("L1 Sent To RM"),
     SENT_BACK_BY_CITY_HEAD("Sent Back BY "),
@@ -45,8 +47,31 @@ public enum EstateV2Status {
 
     //SocietyFlowStatus
     SENT_TO_CH("Sent To CH"),
-    SENT_TO_SL("Sent To SL"),
-    SOCIETY_APPROVED("Society Approved");
+    SENT_TO_SL("Pending SL Approval"),
+    SOCIETY_APPROVED("Society Approved"),
+
+    //Apartment Flow
+
+    SENT_TO_ZH("Pending ZH Approval"),
+    SENT_FOR_L2_DETAILS("Sent to fill L2 Details"),
+    L2_SENT_TO_CH("Pending CH Approval for L2 Details"),
+    SENT_TO_SL_AND_LEGAL("Pending L2 SL and Legal Approval"),
+    SENT_TO_SL_L2("Pending L2 SL Approval"),
+    SENT_TO_PROPERTY_NAMING("Sent To Property Naming"),
+    APARTMENT_APPROVED("Apartment Approved"),
+    ESTATE_LEADERSHIP("Sent To Andy"),
+    SENT_TO_LEGAL_L2("L2 Sent To Legal"),
+    SENT_BACK_BY_CH("Sent Back By CH"),
+    SENT_BACK_BY_ZH("Sent Back By ZH"),
+    SENT_BACK_BY_SL("Sent Back By SL"),
+    SENT_BACK_BY_LEGAL("Sent Back By Legal"),
+    SENT_BACK_BY_SL_L2("Sent back By SL L2"),
+    SENT_BACK_BY_ANDY("Sent back By Andy"),
+    SENT_BACK_BY_CH_L2("Sent back By CH L2");
+
+
+
+
 
     private final String description;
 
@@ -101,12 +126,38 @@ public enum EstateV2Status {
     }
 
     public static List<StatusDto> getSocietyStatus()
-    {  final List<StatusDto> gammaStatus=new ArrayList<>();
-        gammaStatus.add(new StatusDto(DRAFT_IN_PROGRESS.name(), DRAFT_IN_PROGRESS.getDescription()));
-        gammaStatus.add(new StatusDto(SENT_TO_CH.name(), SENT_TO_CH.getDescription()));
-        gammaStatus.add(new StatusDto(SENT_TO_SL.name(), SENT_TO_SL.getDescription()));
-        gammaStatus.add(new StatusDto(SOCIETY_APPROVED.name(), SOCIETY_APPROVED.getDescription()));
-        return gammaStatus;
+    {  final List<StatusDto> societyStatus=new ArrayList<>();
+        societyStatus.add(new StatusDto(DRAFT_IN_PROGRESS.name(), DRAFT_IN_PROGRESS.getDescription()));
+        societyStatus.add(new StatusDto(SENT_TO_CH.name(), SENT_TO_CH.getDescription()));
+        societyStatus.add(new StatusDto(SENT_TO_SL.name(), SENT_TO_SL.getDescription()));
+        societyStatus.add(new StatusDto(SOCIETY_APPROVED.name(), SOCIETY_APPROVED.getDescription()));
+        return societyStatus;
+    }
+
+
+    public static List<StatusDto> getApartmentStatus()
+    {  final List<StatusDto> apartmentStatus=new ArrayList<>();
+        apartmentStatus.add(new StatusDto(DRAFT_IN_PROGRESS.name(), DRAFT_IN_PROGRESS.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_TO_CH.name(), SENT_TO_CH.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_TO_SL.name(), SENT_TO_SL.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_TO_ZH.name(), SENT_TO_ZH.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_FOR_L2_DETAILS.name(), SENT_FOR_L2_DETAILS.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_TO_SL_AND_LEGAL.name(), SENT_TO_SL_AND_LEGAL.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_TO_SL_L2.name(), SENT_TO_SL_L2.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_TO_PROPERTY_NAMING.name(), SENT_TO_PROPERTY_NAMING.getDescription()));
+        apartmentStatus.add(new StatusDto(SIGNED_ATL_UPLOADED.name(), SIGNED_ATL_UPLOADED.getDescription()));
+        apartmentStatus.add(new StatusDto(APARTMENT_APPROVED.name(), APARTMENT_APPROVED.getDescription()));
+        apartmentStatus.add(new StatusDto(L2_SENT_TO_CH.name(), L2_SENT_TO_CH.getDescription()));
+        apartmentStatus.add(new StatusDto(ESTATE_LEADERSHIP.name(), ESTATE_LEADERSHIP.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_TO_LEGAL_L2.name(), SENT_TO_LEGAL_L2.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_BACK_BY_CH.name(), SENT_BACK_BY_CH.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_BACK_BY_ZH.name(), SENT_BACK_BY_ZH.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_BACK_BY_SL.name(), SENT_BACK_BY_SL.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_BACK_BY_LEGAL.name(), SENT_BACK_BY_LEGAL.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_BACK_BY_SL_L2.name(), SENT_BACK_BY_SL_L2.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_BACK_BY_CH_L2.name(), SENT_BACK_BY_CH_L2.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_BACK_BY_ANDY.name(), SENT_BACK_BY_ANDY.getDescription()));
+        return apartmentStatus;
     }
 
 

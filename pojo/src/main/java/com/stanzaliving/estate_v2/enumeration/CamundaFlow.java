@@ -34,9 +34,7 @@ public enum CamundaFlow {
 
     public static List<ModulesDto> getBetaModules() {
         List<ModulesDto> modulesList=new ArrayList<>();
-        modulesList.add(new ModulesDto(Module.SALES_REVIEW.getName(),Module.SALES_REVIEW.getUuid()));
         modulesList.add(new ModulesDto(Module.LEGAL_DEVIATION.getName(),Module.LEGAL_DEVIATION.getUuid()));
-        modulesList.add(new ModulesDto(Module.PROPERTY_NAMING.getName(),Module.PROPERTY_NAMING.getUuid()));
         return modulesList;
     }
 

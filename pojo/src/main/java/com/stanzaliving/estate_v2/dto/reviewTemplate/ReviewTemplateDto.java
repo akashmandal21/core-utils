@@ -28,4 +28,5 @@ public class ReviewTemplateDto {
     private boolean l2CallBackVisible;
     private List<OtherInformationDto> otherInformation;
     private List<LayoutDto> layouts;
+    private String propertyAction;
 }

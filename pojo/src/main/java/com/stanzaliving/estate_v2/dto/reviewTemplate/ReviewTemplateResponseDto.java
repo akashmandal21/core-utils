@@ -29,5 +29,6 @@ public class ReviewTemplateResponseDto {
     private boolean l2CallBackVisible;
     private BedCountInfoDto bedCountInformation;
     private List<LayoutResponse> layouts;
+    private String propertyAction;
 
 }
