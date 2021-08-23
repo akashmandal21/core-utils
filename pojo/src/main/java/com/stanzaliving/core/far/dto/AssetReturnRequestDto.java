@@ -1,7 +1,5 @@
 package com.stanzaliving.core.far.dto;
 
-import java.util.Collection;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.AllArgsConstructor;
@@ -14,7 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class BlockGrnRequestDto {
-    private Collection<BlockGrnDto> blockGrnDtoList;
-    private String toNumber;
+public class AssetReturnRequestDto {
+    private String qrCode;
+    private String qrCodeId;
+    private String sourceAddressUuid;
 }

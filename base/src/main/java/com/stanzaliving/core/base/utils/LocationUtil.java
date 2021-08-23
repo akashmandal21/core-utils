@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.stanzaliving.core.location.util;
+package com.stanzaliving.core.base.utils;
 
 import org.apache.lucene.util.SloppyMath;
 
