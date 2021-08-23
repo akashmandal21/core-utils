@@ -24,6 +24,8 @@ public class SimilarEventResponseDTO {
     private String uuid;
     private String imageUrl;
     private Long fomoCount;
+    private String mapLink;
+    private String eventLink;
     private Boolean isLiked;
     private Boolean isRegistered;
     private List<String> tags;

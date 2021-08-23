@@ -23,6 +23,7 @@ public class EventListAppDTO {
     private Boolean pricingApplicable;
     private String imageUrl;
     private Integer price;
+    private String mapLink;
     private Boolean isLiked;
     private Boolean isRegistered;
     private String eventLink;
