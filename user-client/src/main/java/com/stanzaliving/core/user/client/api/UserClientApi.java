@@ -560,7 +560,7 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<UserProfileDto> getFilterRoles(Department department, AccessLevel accessLevel, String roleName) {
+	public ResponseDto<List<RoleDto>> getFilterRoles(Department department, AccessLevel accessLevel, String roleName, String token) {
 
 		Object postBody = null;
 
@@ -581,13 +581,14 @@ public class UserClientApi {
 		}
 
 		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add("Cookie", "token=" + token);
 
 		final String[] accepts = {
 				"*/*"
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
+		ParameterizedTypeReference<ResponseDto<List<RoleDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RoleDto>>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}

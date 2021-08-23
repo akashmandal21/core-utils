@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class FilterAccessLevelDto {
     private AccessLevel originalAccessLevel;
-    private List<String> CityList;
+    private List<String> cityList;
     private List<String> micromarketList;
     private List<String> residenceList;
 }

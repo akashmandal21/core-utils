@@ -17,6 +17,7 @@ public class ComplaintGroupServiceMixMetadataDto {
     private String complaintGroup;
     private String description;
     private String imageUrl;
+    private String imagePath;
     private String createdBy;
     private String lastUpdatedBy;
     private Date createdAt;
