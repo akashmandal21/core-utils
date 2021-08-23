@@ -67,4 +67,6 @@ public class AdditionalPropertiesDto {
     private String complaintGroupImage;
     private TicketChipColorDto ticketChipColorDto;
     private List<AdditionalPropertiesDto> subTickets;
+    private Integer version;
+    private String currentTicketLevelUuid;
 }
