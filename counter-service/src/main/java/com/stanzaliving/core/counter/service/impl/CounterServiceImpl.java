@@ -46,7 +46,6 @@ public class CounterServiceImpl implements CounterService{
 					throw new CounterServiceException("Unable to create new category row "+categoryKey.getKey()+"  "+ex.getMessage()+" "+ex.getCause());
 			}
 		}
-
 		return incrementCounterForKey(count);
 	}
 
