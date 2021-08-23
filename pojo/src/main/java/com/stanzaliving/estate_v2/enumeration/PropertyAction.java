@@ -39,31 +39,31 @@ public enum PropertyAction {
 
     public static List<KeyValueDto> getPropertyActionForPg() {
         final List<KeyValueDto> pgPropertyActions=new ArrayList<>();
-        pgPropertyActions.add(new KeyValueDto(L1_NATIONAL_HEAD.getName(),L1_NATIONAL_HEAD.uuid));
-        pgPropertyActions.add(new KeyValueDto(L1_TO_LEADERSHIP.getName(),L1_TO_LEADERSHIP.uuid));
-        pgPropertyActions.add(new KeyValueDto(L2_NATIONAL_HEAD.getName(),L2_NATIONAL_HEAD.uuid));
-        pgPropertyActions.add(new KeyValueDto(L2_TRANSFORMATION.getName(),L2_TRANSFORMATION.uuid));
-        pgPropertyActions.add(new KeyValueDto(L2_PROPERTY_NAMING.getName(),L2_PROPERTY_NAMING.uuid));
-        pgPropertyActions.add(new KeyValueDto(ESTATE_LEADERSHIP.getName(),ESTATE_LEADERSHIP.uuid));
+        pgPropertyActions.add(new KeyValueDto(L1_NATIONAL_HEAD.getAlias(),L1_NATIONAL_HEAD.uuid));
+        pgPropertyActions.add(new KeyValueDto(L1_TO_LEADERSHIP.getAlias(),L1_TO_LEADERSHIP.uuid));
+        pgPropertyActions.add(new KeyValueDto(L2_NATIONAL_HEAD.getAlias(),L2_NATIONAL_HEAD.uuid));
+        pgPropertyActions.add(new KeyValueDto(L2_TRANSFORMATION.getAlias(),L2_TRANSFORMATION.uuid));
+        pgPropertyActions.add(new KeyValueDto(L2_PROPERTY_NAMING.getAlias(),L2_PROPERTY_NAMING.uuid));
+        pgPropertyActions.add(new KeyValueDto(ESTATE_LEADERSHIP.getAlias(),ESTATE_LEADERSHIP.uuid));
 
         return pgPropertyActions;
     }
 
     public static List<KeyValueDto> getPropertyActionForApartment() {
         final List<KeyValueDto> apartmentPropertyActions=new ArrayList<>();
-        apartmentPropertyActions.add(new KeyValueDto(L1_ZH.getName(),L1_ZH.uuid));
-        apartmentPropertyActions.add(new KeyValueDto(L1_SL.getName(),L1_SL.uuid));
-        apartmentPropertyActions.add(new KeyValueDto(L2_SL.getName(),L2_SL.uuid));
-        apartmentPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL.getName(),SENT_TO_LEGAL.uuid));
-        apartmentPropertyActions.add(new KeyValueDto(ESTATE_LEADERSHIP.getName(),ESTATE_LEADERSHIP.uuid));
-        apartmentPropertyActions.add(new KeyValueDto(LEGAL_DUE_DILIGENCE.getName(),LEGAL_DUE_DILIGENCE.uuid));
-        apartmentPropertyActions.add(new KeyValueDto(SENT_TO_PROPERTY_NAMING.getName(),SENT_TO_PROPERTY_NAMING.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(L1_ZH.getAlias(),L1_ZH.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(L1_SL.getAlias(),L1_SL.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(L2_SL.getAlias(),L2_SL.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL.getAlias(),SENT_TO_LEGAL.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(ESTATE_LEADERSHIP.getAlias(),ESTATE_LEADERSHIP.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(LEGAL_DUE_DILIGENCE.getAlias(),LEGAL_DUE_DILIGENCE.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(SENT_TO_PROPERTY_NAMING.getAlias(),SENT_TO_PROPERTY_NAMING.uuid));
         return apartmentPropertyActions;
     }
 
     public static List<KeyValueDto> getPropertyActionForSociety() {
         final List<KeyValueDto> societyPropertyActions=new ArrayList<>();
-        societyPropertyActions.add(new KeyValueDto(L1_SL.getName(),L1_SL.uuid));
+        societyPropertyActions.add(new KeyValueDto(L1_SL.getAlias(),L1_SL.uuid));
         return societyPropertyActions;
     }
 
