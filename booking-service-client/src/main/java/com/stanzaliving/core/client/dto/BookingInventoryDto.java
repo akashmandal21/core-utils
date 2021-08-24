@@ -15,6 +15,7 @@ public class BookingInventoryDto {
 
     private List<String> roomUUID;
     private String moveInDate;
+    private String moveOutDate;
 //    private List<String> inventoryUUID;
 
 }
