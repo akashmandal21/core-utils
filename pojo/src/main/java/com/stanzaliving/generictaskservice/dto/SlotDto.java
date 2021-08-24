@@ -1,11 +1,15 @@
 package com.stanzaliving.generictaskservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -21,6 +25,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SlotDto {
 
     @NotEmpty(message = "Allowed task is mandatory")
@@ -38,9 +43,9 @@ public class SlotDto {
     @NotNull(message = "Is movable slot is mandatory")
     private Boolean isMovableSlot;
 
-    private Integer minimumSlotSize;
+    private LocalTime minimumSlotSize;
 
-    private Integer maximumSlotSize;
+    private LocalTime maximumSlotSize;
 
     @NotNull(message = "Is overlapping allowed is mandatory")
     private Boolean isOverLappingAllowed;
@@ -63,7 +68,7 @@ public class SlotDto {
 
     private List<TagResponseDto> tags;
 
-    private List<CategoryDto> allowedTasksList;
+    private List<TaskCategoryDto> allowedTasksList;
 
     private LocalDate menuDate;
 
