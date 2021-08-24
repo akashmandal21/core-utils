@@ -457,10 +457,10 @@ public class BookingDataControllerApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
 
-        String path = UriComponentsBuilder.fromPath("/booking/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/booking/get/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("desc", String.valueOf(Boolean.FALSE));
+        //queryParams.add("desc", description);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
