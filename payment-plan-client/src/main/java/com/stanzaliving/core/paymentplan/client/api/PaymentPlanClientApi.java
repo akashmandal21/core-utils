@@ -317,7 +317,7 @@ public class PaymentPlanClientApi {
     }
 
 
-    public ResponseDto<Boolean> createOrUpdateVasServices(VasPaymentPlanRequestDTO vasPaymentPlanRequestDTO,String token) {
+    public ResponseDto<Boolean> createOrUpdateVasServices(VasPaymentPlanRequestDTO vasPaymentPlanRequestDTO) {
 
         try {
             Object postBody = vasPaymentPlanRequestDTO;
