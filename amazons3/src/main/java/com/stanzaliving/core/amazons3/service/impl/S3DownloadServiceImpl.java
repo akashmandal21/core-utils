@@ -78,7 +78,6 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 	}
 
 	@Override
-	@SneakyThrows(IOException.class)
 	public File downloadFile(String bucket, String filePath, AmazonS3 s3Client) {
 		S3Object s3Object = null;
 		try {
