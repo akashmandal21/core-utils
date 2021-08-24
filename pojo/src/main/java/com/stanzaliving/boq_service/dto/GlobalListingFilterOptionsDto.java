@@ -20,7 +20,7 @@ public class GlobalListingFilterOptionsDto {
 
     private List<LabelValueDto<BoqStatus>> boqStatus;
 
-    private List<LabelValueDto<ItemType>> capexType;
+    private List<LabelValueDto<ItemType>> boqCapexType;
 
     private List<LabelValueDto<String>> city;
 

@@ -1,7 +1,5 @@
 package com.stanzaliving.boq_service.dto;
 
-import com.stanzaliving.core.boq_service.enums.BoqType;
-import com.stanzaliving.transformations.enums.BoqStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
