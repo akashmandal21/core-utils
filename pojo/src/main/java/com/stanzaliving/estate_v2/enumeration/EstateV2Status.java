@@ -67,7 +67,8 @@ public enum EstateV2Status {
     SENT_BACK_BY_LEGAL("Sent Back By Legal"),
     SENT_BACK_BY_SL_L2("Sent back By SL L2"),
     SENT_BACK_BY_ANDY("Sent back By Andy"),
-    SENT_BACK_BY_CH_L2("Sent back By CH L2");
+    SENT_BACK_BY_CH_L2("Sent back By CH L2"),
+    SENT_TO_LEGAL_FOR_APPROVAL("Sent To Legal For Approval");
 
 
 
@@ -157,6 +158,8 @@ public enum EstateV2Status {
         apartmentStatus.add(new StatusDto(SENT_BACK_BY_SL_L2.name(), SENT_BACK_BY_SL_L2.getDescription()));
         apartmentStatus.add(new StatusDto(SENT_BACK_BY_CH_L2.name(), SENT_BACK_BY_CH_L2.getDescription()));
         apartmentStatus.add(new StatusDto(SENT_BACK_BY_ANDY.name(), SENT_BACK_BY_ANDY.getDescription()));
+        apartmentStatus.add(new StatusDto(SENT_TO_LEGAL_FOR_APPROVAL.name(), SENT_TO_LEGAL_FOR_APPROVAL.getDescription()));
+
         return apartmentStatus;
     }
 

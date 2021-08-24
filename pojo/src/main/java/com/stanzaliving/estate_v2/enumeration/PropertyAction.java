@@ -24,8 +24,8 @@ public enum PropertyAction {
     SENT_TO_LEGAL("Legal", "f7aad98c-0428-11ec-9a03-0242ac130003", "SENT_TO_LEGAL"),
     ESTATE_LEADERSHIP("Leadership", "f7aadd88-0428-11ec-9a03-0242ac130003", "ESTATE_LEADERSHIP"),
     LEGAL_DUE_DILIGENCE("Legal Due Diligence", "f7aade6e-0428-11ec-9a03-0242ac130003", "LEGAL_DUE_DILIGENCE"),
-    SENT_TO_PROPERTY_NAMING("Property Naming", "f7aadf22-0428-11ec-9a03-0242ac130003", "SENT_TO_PROPERTY_NAMING");
-
+    SENT_TO_PROPERTY_NAMING("Property Naming", "f7aadf22-0428-11ec-9a03-0242ac130003", "SENT_TO_PROPERTY_NAMING"),
+    SENT_TO_LEGAL_FOR_APPROVAL("Sent To Legal For Approval","f7aadf22-0428-11ec-9a03-0242ac130006","SENT_TO_LEGAL_FOR_APPROVAL");
     private final String name;
     private final String uuid;
     private final String alias;
@@ -58,6 +58,7 @@ public enum PropertyAction {
         apartmentPropertyActions.add(new KeyValueDto(ESTATE_LEADERSHIP.getAlias(),ESTATE_LEADERSHIP.uuid));
         apartmentPropertyActions.add(new KeyValueDto(LEGAL_DUE_DILIGENCE.getAlias(),LEGAL_DUE_DILIGENCE.uuid));
         apartmentPropertyActions.add(new KeyValueDto(SENT_TO_PROPERTY_NAMING.getAlias(),SENT_TO_PROPERTY_NAMING.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL_FOR_APPROVAL.getAlias(),SENT_TO_LEGAL_FOR_APPROVAL.uuid));
         return apartmentPropertyActions;
     }
 
