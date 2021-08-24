@@ -16,8 +16,8 @@ import javax.validation.constraints.NotEmpty;
 @SuperBuilder
 public class GenericTaskAttachmentDto {
 
-    @NotEmpty(message = "ReferenceId is mandatory")
-    private String attachmentReferenceId;
+    @NotEmpty(message = "Task Id is mandatory")
+    private String taskId;
 
     private String attachmentFilePath;
 
