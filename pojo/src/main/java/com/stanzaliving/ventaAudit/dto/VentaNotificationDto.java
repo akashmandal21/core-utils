@@ -16,6 +16,7 @@ public class VentaNotificationDto {
     String bookingUuid;
     String residentUuid;
     String auditorUuid;
+    Double damageTotalAmount;
     List<AttachmentDto> attachmentDtos;
     BookingEventEnum eventEnum;
     String message;
