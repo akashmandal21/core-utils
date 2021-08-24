@@ -1,5 +1,6 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
+import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
@@ -186,7 +187,6 @@ public class VentaAggregationServiceApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-
 
         String path = UriComponentsBuilder.fromPath("/internal/residence/update-price-bed-cache").buildAndExpand(uriVariables).toUriString();
 

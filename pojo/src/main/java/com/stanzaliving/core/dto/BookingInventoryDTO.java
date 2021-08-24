@@ -15,7 +15,7 @@ public class BookingInventoryDTO {
 
     private String bookingId;
 
-    private String bookingType;
+    private Integer bookingType;
 
     private String agreement;
 
