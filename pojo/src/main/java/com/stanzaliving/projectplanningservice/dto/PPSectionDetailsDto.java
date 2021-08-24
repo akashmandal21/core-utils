@@ -1,11 +1,12 @@
 package com.stanzaliving.projectplanningservice.dto;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,7 +17,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class PPSectionDetailsDto extends AbstractDto {
+public class PPSectionDetailsDto implements Serializable {
+
+    private static final long serialVersionUID = 1635296868115644218L;
 
     private String uuid;
 
@@ -38,5 +41,16 @@ public class PPSectionDetailsDto extends AbstractDto {
 
     private String predecessorTasks;
 
+    private Date createdAt;
+
+    private String createdBy;
+
+    private Date updatedAt;
+
+    private String updatedBy;
+
+    private Boolean status;
+
     private List<PPSectionDetailsDto> subTasks;
+
 }
