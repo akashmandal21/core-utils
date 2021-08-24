@@ -12,6 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
@@ -105,6 +106,24 @@ public class DateUtil {
 		return null;
 	}
 
+	public LocalDateTime customDateTimeParser(String dateInput) {
+		return customDateTimeParser(dateInput, DateFormat.ELASTIC_SEARCH);
+	}
+	
+	public LocalDateTime customDateTimeParser(String dateInput, DateFormat dateFormat) {
+
+		if (dateInput != null) {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateFormat.getValue());
+			try {
+				return LocalDateTime.parse(dateInput, formatter);
+			} catch (DateTimeParseException e) {
+				// Ignore
+			}
+		}
+
+		return null;
+	}
+	
 	public Date convertToDate(LocalDateTime localdateTime) {
 		Date date = null;
 		if (Objects.nonNull(localdateTime)) {
