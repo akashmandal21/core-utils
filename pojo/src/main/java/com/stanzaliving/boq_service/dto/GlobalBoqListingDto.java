@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class GlobalBoqListingDto {
 
+    private String propertyUuid;
+
     private String propertyName;
 
     private String micromarketName;
@@ -30,5 +32,9 @@ public class GlobalBoqListingDto {
 
 //    private BigDecimal margin;
 
-    private BoqStatus boqStatus;
+    private LabelValueDto<BoqStatus> boqStatus;
+
+    private String textColor;
+
+    private String bgColor;
 }

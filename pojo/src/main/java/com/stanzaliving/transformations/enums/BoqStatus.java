@@ -21,7 +21,7 @@ public enum BoqStatus {
 	APPROVED_BY_ZH("Sent For Approval to Design Head", "#FFC300",UserType.NATIONAL_HEAD,Department.DESIGN,3, "L2 Approval Due", ColorCode.VIVID_ORANGE.getColorCode(), ColorCode.PALE_ORANGE.getColorCode()),
 	APPROVED_BY_NH("Sent For Approval to Projects Zonal Head", "#FFC300",UserType.MANAGER,Department.TRANSFORMATIONS,4, "L3 Approval Due", ColorCode.VIVID_ORANGE.getColorCode(), ColorCode.PALE_ORANGE.getColorCode()),
 	APPROVED_BY_PZH("Sent For Approval to Nitin", "#FFC300",UserType.ZONAL_HEAD,Department.PROJECTS,5, "L4 Approval Due", ColorCode.VIVID_ORANGE.getColorCode(), ColorCode.PALE_ORANGE.getColorCode()),
-	SENT_BACK("Sent Back", "#d41111",UserType.DESIGN_COORDINATOR,Department.DESIGN,1, "Sent Back", ColorCode.SOFT_RED.getColorCode(), ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode()),
+	SENT_BACK("Sent Back", "#d41111",UserType.DESIGN_COORDINATOR,Department.DESIGN,6, "Sent Back", ColorCode.SOFT_RED.getColorCode(), ColorCode.VERY_PALE_MOSTLY_WHITE_RED.getColorCode()),
 	APPROVED_BY_NITIN("Sent For Approval to Leadership", "#77baa6",UserType.MANAGER,Department.TRANSFORMATIONS,7, "L5 Approval Due", ColorCode.VIVID_ORANGE.getColorCode(), ColorCode.PALE_ORANGE.getColorCode()),
 	APPROVED_BY_LEADERSHIP("Approved", "#77baa6",UserType.LEADERSHIP,Department.LEADERSHIP,8, "Approved", ColorCode.GREEN_CYAN.getColorCode(), ColorCode.SOFT_GREEN.getColorCode());
 
