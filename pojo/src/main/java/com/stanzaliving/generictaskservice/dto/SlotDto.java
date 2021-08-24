@@ -1,6 +1,5 @@
 package com.stanzaliving.generictaskservice.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
@@ -25,7 +24,6 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SlotDto {
 
     @NotEmpty(message = "Allowed task is mandatory")
