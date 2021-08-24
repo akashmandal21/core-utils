@@ -281,9 +281,43 @@ public class PaymentPlanClientApi {
         return null;
 
     }
-    
-    
-    public ResponseDto<Boolean> createOrUpdateVasServices(VasPaymentPlanRequestDTO vasPaymentPlanRequestDTO) {
+
+
+
+    public ResponseDto<String> savePaymentPlanAndLineItem(List<PaymentPlan> paymentPlans) {
+
+        try {
+            Object postBody = paymentPlans;
+
+            log.info("Saving payment plan");
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/save").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the paymentPlan for invoice generation{}", e);
+        }
+
+        return null;
+
+    }
+
+
+    public ResponseDto<Boolean> createOrUpdateVasServices(VasPaymentPlanRequestDTO vasPaymentPlanRequestDTO,String token) {
 
         try {
             Object postBody = vasPaymentPlanRequestDTO;
