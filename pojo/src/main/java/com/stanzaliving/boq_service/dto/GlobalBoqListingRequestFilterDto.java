@@ -41,7 +41,7 @@ public class GlobalBoqListingRequestFilterDto {
 
     private List<LabelValueDto<String>> createdBy;
 
-    private List<LabelValueDto<String>> approvedBy; //todo: how??
+    private List<LabelValueDto<String>> approvedBy;
 
     private List<LabelValueDto<String>> lastUpdatedBy;
 
@@ -49,7 +49,7 @@ public class GlobalBoqListingRequestFilterDto {
 
     private LocalDate createdToDate;
 
-    private LocalDate approvedFromDate; //todo: how??
+    private LocalDate approvedFromDate;
 
-    private LocalDate approvedToDate; //todo: how??
+    private LocalDate approvedToDate;
 }

@@ -33,4 +33,8 @@ public class GlobalBoqListingDto {
 //    private BigDecimal margin;
 
     private LabelValueDto<BoqStatus> boqStatus;
+
+    private String textColor;
+
+    private String bgColor;
 }

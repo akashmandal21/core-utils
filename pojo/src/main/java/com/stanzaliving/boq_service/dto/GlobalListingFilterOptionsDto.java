@@ -24,11 +24,9 @@ public class GlobalListingFilterOptionsDto {
 
     private List<LabelValueDto<String>> city;
 
-//    private List<LabelValueDto<String>> micromarket; city -> mm at FE
-
     private List<LabelValueDto<String>> createdBy;
 
-    private List<LabelValueDto<String>> approvedBy; //todo: how??
+    private List<LabelValueDto<String>> approvedBy;
 
     private List<LabelValueDto<String>> lastUpdatedBy;
 }
