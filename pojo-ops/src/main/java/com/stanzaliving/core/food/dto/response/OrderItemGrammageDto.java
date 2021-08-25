@@ -35,6 +35,6 @@ public class OrderItemGrammageDto {
 	private Integer orderedQty = 0;
 
 	@Builder.Default
-	private Integer orderedWeight = 0;
+	private Double orderedWeight = 0d;
 
 }
