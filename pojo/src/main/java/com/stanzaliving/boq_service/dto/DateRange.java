@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DateRange {
-    private Long fromDate;
+    @Builder.Default
+    private Long fromDate = 0L;
 
-    private Long toDate;
+    @Builder.Default
+    private Long toDate = 0L;
 }
