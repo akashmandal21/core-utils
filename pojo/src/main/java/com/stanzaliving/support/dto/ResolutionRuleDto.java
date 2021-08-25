@@ -1,5 +1,6 @@
 package com.stanzaliving.support.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.support.enums.TicketType;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRuleDto {
+    private String uuid;
     private String complaintGroupUuid;
     private String complaintGroup;
     private String categoryUuid;
