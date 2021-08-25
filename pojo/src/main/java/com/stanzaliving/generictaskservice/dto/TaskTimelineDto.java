@@ -30,7 +30,7 @@ public class TaskTimelineDto {
 
     private String updatedBy;
 
-    private Date updatedAt;
+    private String updatedAt;
 
     private String subTaskStatus;
 
