@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -40,6 +40,13 @@
 			<version>0.10.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-spatial</artifactId>
+			<version>7.4.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<parent>
@@ -48,5 +55,5 @@
 		<version>1.0.0</version>
 		<relativePath>..</relativePath>
 	</parent>
-	
+
 </project>
