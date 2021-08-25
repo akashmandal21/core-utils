@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.transformations.pojo.ResidenceDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 
 import java.util.List;
 
@@ -26,4 +27,6 @@ public class MicroClusterResponseDto extends AbstractDto {
     private List<String> microMarketNames;
 
     private List<String> residenceIds;
+
+    private List<ResidenceUIDto> residenceUIDto;
 }
