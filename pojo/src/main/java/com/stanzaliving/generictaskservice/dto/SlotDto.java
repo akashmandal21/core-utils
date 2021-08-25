@@ -38,9 +38,9 @@ public class SlotDto {
     @NotNull(message = "Is movable slot is mandatory")
     private Boolean isMovableSlot;
 
-    private Integer minimumSlotSize;
+    private LocalTime  minimumSlotTime;
 
-    private Integer maximumSlotSize;
+    private LocalTime  maximumSlotTime;
 
     @NotNull(message = "Is overlapping allowed is mandatory")
     private Boolean isOverLappingAllowed;
@@ -63,7 +63,7 @@ public class SlotDto {
 
     private List<TagResponseDto> tags;
 
-    private List<CategoryDto> allowedTasksList;
+    private List<TaskCategoryDto> allowedTasksList;
 
     private LocalDate menuDate;
 
