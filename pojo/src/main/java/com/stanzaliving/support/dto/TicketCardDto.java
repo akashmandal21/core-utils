@@ -1,5 +1,6 @@
 package com.stanzaliving.support.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,5 +34,7 @@ public class TicketCardDto {
     private String residenceUuid;
     private String micromarketUuid;
     private String cityUuid;
+    @JsonProperty("isPrimary")
+    private boolean isPrimary;
 }
 
