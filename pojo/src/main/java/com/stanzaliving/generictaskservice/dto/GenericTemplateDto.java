@@ -1,5 +1,6 @@
 package com.stanzaliving.generictaskservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.taskservice.enums.TaskType;
 import lombok.*;
@@ -26,8 +27,10 @@ public class GenericTemplateDto extends AbstractDto {
     @NotBlank(message = "Module cannot be empty")
     private String module;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date startDate;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date dueDate;
 
     private String taskOwner;
@@ -76,6 +79,8 @@ public class GenericTemplateDto extends AbstractDto {
     private List<String> dependentTaskUUIdList;
 
     private List<String> tagsUUIdList;
+
+    private List<String> commentsUUIdList ;
 
 }
 
