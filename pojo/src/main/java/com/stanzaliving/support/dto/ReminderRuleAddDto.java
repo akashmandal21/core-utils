@@ -21,11 +21,8 @@ public class ReminderRuleAddDto {
     private List<String> primaryReferenceUuid;
     @NotNull(message = "ticket type can't be left blank.")
     private TicketType ticketType;
-    @NotEmpty(message = "city can't be left blank.")
     private List<String> city;
-    @NotEmpty(message = "micromarket can't be left blank.")
     private List<String> micromarket;
-    @NotEmpty(message = "residence can't be left blank.")
     private List<String> residence;
     @NotEmpty(message = "reminder rules can't be left blank.")
     private List<ReminderDetailsDto> reminderDetails;

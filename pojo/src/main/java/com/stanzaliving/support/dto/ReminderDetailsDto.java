@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -16,9 +17,9 @@ import javax.validation.constraints.NotNull;
 public class ReminderDetailsDto {
     @NotNull(message = "sendReminderIn can't be left blank.")
     private Long sendReminderIn;
-    @NotNull(message = "sendReminderTo can't be left blank.")
+    @NotBlank(message = "sendReminderTo can't be left blank.")
     private String sendReminderTo;
-    @NotNull(message = "sendReminderWhen can't be left blank.")
+    @NotNull    (message = "sendReminderWhen can't be left blank.")
     private ReminderActionType sendReminderWhen;
 
 }

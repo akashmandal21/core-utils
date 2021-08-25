@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Builder
@@ -15,16 +17,15 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRoleDto {
-    @NotNull(message = "role uuid can't be left blank.")
     private String roleUuid;
     @NotNull(message = "first response time can't be left blank.")
     private Long firstResponseIn;
     @NotNull(message = "resolutionIn can't be left blank.")
     private Long resolutionIn;
-    @NotNull(message = "isEscalation can't be left blank.")
     private Boolean isEscalation;
     private String escalateTo;
     @NotNull(message = "sequence can't be left blank.")
+    @Min(0)
     private Integer sequence;
 
 }
