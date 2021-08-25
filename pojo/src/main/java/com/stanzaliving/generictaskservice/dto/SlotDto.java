@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * @author Vikas S T
- * @date 02-Aug-21
+ * @date 25-Aug-21
  **/
 
 @Getter
@@ -41,9 +41,9 @@ public class SlotDto {
     @NotNull(message = "Is movable slot is mandatory")
     private Boolean isMovableSlot;
 
-    private LocalTime minimumSlotSize;
+    private LocalTime minimumSlotTime;
 
-    private LocalTime maximumSlotSize;
+    private LocalTime maximumSlotTime;
 
     @NotNull(message = "Is overlapping allowed is mandatory")
     private Boolean isOverLappingAllowed;
