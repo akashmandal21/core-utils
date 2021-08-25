@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.stanzaliving.core.vendor.dtos.VendorListingDto;
+import com.stanzaliving.item_master.dtos.FilterDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -420,6 +422,28 @@ public class VendorClientApi {
         };
 
         String path = UriComponentsBuilder.fromPath("/generic/internal/createHHWVendor").toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, vddReturnType);
+    }
+
+    public ResponseDto<List<VendorListingDto>> getListOfVendorsWithFilters(FilterDto filterDto) {
+
+        log.info("HTTP Client call to get list of vendors for the filterDto: {}", filterDto);
+
+        Object postBody = filterDto;
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<VendorListingDto>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<VendorListingDto>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/listing/filtered").toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, vddReturnType);
     }
