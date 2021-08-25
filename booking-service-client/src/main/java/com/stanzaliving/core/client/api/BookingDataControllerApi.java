@@ -448,4 +448,27 @@ public class BookingDataControllerApi {
         return null;
     }
 
+    public void checkForTresspasserBookings() {
+        Object postBody = null;
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/exit/tresspasser/bookings").buildAndExpand(uriVariables).toUriString();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+        };
+        try {
+            restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+        }
+        catch (Exception e){
+            log.error("Exception occurred while calling api with message:{}",e.getMessage());
+        }
+    }
+
 }
