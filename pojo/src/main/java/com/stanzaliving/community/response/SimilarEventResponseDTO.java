@@ -17,6 +17,7 @@ public class SimilarEventResponseDTO {
     private String eventName;
     private String eventType;
     private String eventCategory;
+    private String eventCategoryName;
     private Date eventStartDate;
     private Date eventEndDate;
     private Long priorityOrder;
