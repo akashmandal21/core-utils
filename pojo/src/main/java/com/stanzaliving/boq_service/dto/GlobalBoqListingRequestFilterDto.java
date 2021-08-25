@@ -8,7 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Builder
@@ -45,11 +44,15 @@ public class GlobalBoqListingRequestFilterDto {
 
     private List<LabelValueDto<String>> lastUpdatedBy;
 
-    private LocalDate createdFromDate;
+    private DateRange createdDateRange;
 
-    private LocalDate createdToDate;
-
-    private LocalDate approvedFromDate;
-
-    private LocalDate approvedToDate;
+    private DateRange approvedDateRange;
+//
+//    private Long createdFromDate;
+//
+//    private Long createdToDate;
+//
+//    private Long approvedFromDate;
+//
+//    private Long approvedToDate;
 }
