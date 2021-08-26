@@ -11,7 +11,7 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BulkBoq {
+public class MaxQuantityDto {
 
-    private Map<String,Map<String,Quantity>> items;
+    private Map<String,Map<String, QuantityDto>> items;
 }

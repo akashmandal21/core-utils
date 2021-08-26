@@ -14,10 +14,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BoqFilterOptionsDto {
+public class BulkActionsModalFilterOptionsDto {
     private List<LabelValueDto<Long>> cities;
+
     private List<LabelValueDto<String>> microMarkets;
+
     private List<LabelValueDto<PropertyEntityType>> propertyTypes;
+
     private List<LabelValueDto<BoqItemProvider>> doneBy;
+
     private List<LabelValueDto<AreaOfUse>> usedByArea;
 }

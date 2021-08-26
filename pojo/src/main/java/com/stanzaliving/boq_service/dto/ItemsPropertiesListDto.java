@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ItemsPropertiesList {
+public class ItemsPropertiesListDto {
 
     private List<LabelValueDto<String>> items;
     private List<LabelValueDto<String>> properties;

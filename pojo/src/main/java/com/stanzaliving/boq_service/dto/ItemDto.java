@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Item {
+public class ItemDto {
 
     private String label;
     private String value;
@@ -22,5 +22,5 @@ public class Item {
     private BoqItemProvider doneBy;
     private BoqItemProvider budgetDoneBy;
     private BigDecimal llrate;
-    private List<Property> properties;
+    private List<PropertyDto> properties;
 }

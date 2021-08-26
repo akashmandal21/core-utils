@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BoqRequestDto {
+public class BulkAddDeleteDto {
 
-    private Item item;
+    private ItemDto itemDto;
 }

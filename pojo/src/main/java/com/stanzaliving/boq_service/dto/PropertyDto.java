@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Property {
+public class PropertyDto {
 
     private String label;
     private String value;

@@ -3,7 +3,7 @@
  */
 package com.stanzaliving.core.transformation.client.api;
 
-import com.stanzaliving.boq_service.dto.BoqFilterOptionsDto;
+import com.stanzaliving.boq_service.dto.BulkActionsModalFilterOptionsDto;
 import com.stanzaliving.boq_service.dto.LabelValueDto;
 import com.stanzaliving.core.addressbook.AddressBookNameDto;
 import com.stanzaliving.core.base.common.dto.ListingDto;
@@ -90,7 +90,7 @@ public class InternalDataControllerApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<BoqFilterOptionsDto> getAllPropertyFilters() {
+	public ResponseDto<BulkActionsModalFilterOptionsDto> getAllPropertyFilters() {
 
 		Object postBody = null;
 
@@ -108,14 +108,14 @@ public class InternalDataControllerApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<BoqFilterOptionsDto>> returnType = new ParameterizedTypeReference<ResponseDto<BoqFilterOptionsDto>>() {
+		ParameterizedTypeReference<ResponseDto<BulkActionsModalFilterOptionsDto>> returnType = new ParameterizedTypeReference<ResponseDto<BulkActionsModalFilterOptionsDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<List<LabelValueDto<String>>> getFilteredPropertyList(BoqFilterOptionsDto filters) {
+	public ResponseDto<List<LabelValueDto<String>>> getFilteredPropertyList(BulkActionsModalFilterOptionsDto filters) {
 
-		BoqFilterOptionsDto postBody = filters;
+		BulkActionsModalFilterOptionsDto postBody = filters;
 
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();

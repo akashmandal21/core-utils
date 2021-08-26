@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ItemList {
+public class ItemListDto {
 
     private String itemUuid;
     private String itemCode;
