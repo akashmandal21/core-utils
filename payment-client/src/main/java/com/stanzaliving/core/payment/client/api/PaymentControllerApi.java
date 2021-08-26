@@ -3,6 +3,7 @@ package com.stanzaliving.core.payment.client.api;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.pojo.AttachmentDto;
 import com.stanzaliving.ventaAudit.dto.VentaNotificationDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -76,7 +77,7 @@ public class PaymentControllerApi {
         return null;
     }
 
-    public ResponseDto<String> getTransactionReceipt(String transactionId){
+    public ResponseDto<List<AttachmentDto>> getTransactionReceipt(String transactionId){
 
         log.info("Called api to fetch TransactionReceipt");
         Object postBody=null;
@@ -89,9 +90,9 @@ public class PaymentControllerApi {
         final HttpHeaders headerParams=new HttpHeaders();
         final String[] accepts = { "*/*" };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
+        TypeReference<ResponseDto<List<AttachmentDto>>> returnType = new TypeReference<ResponseDto<List<AttachmentDto>>>() {
         };
-        ResponseDto<String> responseDto;
+        ResponseDto<List<AttachmentDto>> responseDto;
         try {
             responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
                     returnType);
