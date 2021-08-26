@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class QuantityDto {
-    private int max_quantity;
+    private int maxQuantity;
 }
