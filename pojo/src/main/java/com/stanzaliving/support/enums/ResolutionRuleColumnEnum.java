@@ -1,17 +1,16 @@
 package com.stanzaliving.support.enums;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
 public enum ResolutionRuleColumnEnum {
-    COMPLAINT_GROUP("complaintGroup"),
-    CATEGORY("category"),
-    SUB_CATEGORY("subCategory"),
-    SUB_TICKET_TASK("subTicketTask"),
-    RESOLUTION_LEVEL("resolutionLevel"),
-    ACTIVE("active"),
-    CREATED_BY("createdBy"),
-    UPDATED_BY("updatedBy");
-    private final String name;
+    COMPLAINT_GROUP("ComplaintGroup"),
+    CATEGORY("Category"),
+    SUB_CATEGORY("SubCategory"),
+    CREATED_BY("CreatedAt"),
+    UPDATED_BY("LastUpdatedAt");
+    private final String columnName;
+
 }

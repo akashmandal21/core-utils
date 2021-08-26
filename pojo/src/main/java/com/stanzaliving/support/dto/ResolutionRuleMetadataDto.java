@@ -25,7 +25,7 @@ public class ResolutionRuleMetadataDto {
     private Date createdAt;
     private Date lastUpdatedAt;
     private List<ResolutionLevelDto> resolutionLevelList;
-    private List<SubTicketTaskDto> subTicketTaskDtoList;
+    private SubTicketTaskDto subTicketTaskDto;
     private boolean isResolutionRuleActive;
     private String referenceUuid;
     private AccessLevel accessLevel;
