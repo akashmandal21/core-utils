@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.food.enums.FoodItemType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
