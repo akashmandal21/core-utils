@@ -21,6 +21,7 @@ public enum DateFormat {
 	YYYY_MM_DD("yyyyMMdd"),
 	ELASTIC_SEARCH("yyyy-MM-dd HH:mm:ss"),
 	COMMENT_FORMAT("dd/MM/YYYY (HH:mm)"),
+	ZOHO_DATE_COMMENT_FORMAT("dd MMM''YY (HH:mm)"),
 	MONTH_FULL_NAME("MMMM"),
 	DD_MMM("dd MMM"),
 	MMM("MMM"),
