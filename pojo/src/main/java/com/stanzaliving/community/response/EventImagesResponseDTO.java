@@ -1,4 +1,4 @@
-package com.stanzaliving.core.dto;
+package com.stanzaliving.community.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidentDTO {
+public class EventImagesResponseDTO {
+    private Long id;
     private String uuid;
 
-    private String firstName;
+    private String imageUrl;
 
-    private String lastName;
+    private Long imageOrder;
 
-    private String mobileNumber;
+    private Boolean isFeatured;
 
-    private String residentCode;
 }
