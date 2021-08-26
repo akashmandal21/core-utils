@@ -1,11 +1,16 @@
 package com.stanzaliving.projectplanningservice.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.projectplanningservice.dto.helper.CustomDateDeserializer;
+import com.stanzaliving.projectplanningservice.dto.helper.CustomDateSerializer;
+import com.stanzaliving.projectplanningservice.enums.PlanningStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -17,13 +22,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class PPSectionDetailsDto implements Serializable {
+public class SectionDetailsDto extends AbstractDto {
 
-    private static final long serialVersionUID = 1635296868115644218L;
-
-    private String uuid;
-
-    private String ppPlanningTemplateUuid;
+    private String parentUuid;
 
     private String sectionName;
 
@@ -35,22 +36,20 @@ public class PPSectionDetailsDto implements Serializable {
 
     private List<String> taskServiceUuIds;
 
-    private String statusUuid;
+    private PlanningStatus sectionStatus;
 
     private String activities;
 
     private String predecessorTasks;
 
-    private Date createdAt;
+    @JsonDeserialize(using = CustomDateDeserializer.class)
+    @JsonSerialize(using= CustomDateSerializer.class)
+    protected Date createdAt;
 
-    private String createdBy;
+    @JsonDeserialize(using = CustomDateDeserializer.class)
+    @JsonSerialize(using= CustomDateSerializer.class)
+    protected Date updatedAt;
 
-    private Date updatedAt;
-
-    private String updatedBy;
-
-    private Boolean status;
-
-    private List<PPSectionDetailsDto> subTasks;
+    private List<SectionDetailsDto> subTasks;
 
 }

@@ -1,13 +1,18 @@
 package com.stanzaliving.projectplanningservice.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.projectplanningservice.dto.helper.CustomDateDeserializer;
+import com.stanzaliving.projectplanningservice.dto.helper.CustomDateSerializer;
 import com.stanzaliving.projectplanningservice.enums.Duration;
+import com.stanzaliving.projectplanningservice.enums.PlanningStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -19,11 +24,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class PPPlanningTemplateDto implements Serializable {
-
-    private static final long serialVersionUID = 1635296868115644218L;
-
-    private String uuid;
+public class PlanningTemplateDto extends AbstractDto {
 
     @NotBlank(message = "Project Plan name is required")
     private String templateName;
@@ -32,21 +33,17 @@ public class PPPlanningTemplateDto implements Serializable {
 
     private List<String> taskServiceUuids;
 
-    private String statusUuid;
+    private PlanningStatus planningStatus;
 
     private Duration durationDays;
 
-    private Date createdAt;
+    @JsonDeserialize(using = CustomDateDeserializer.class)
+    @JsonSerialize(using= CustomDateSerializer.class)
+    protected Date createdAt;
 
-    private String createdBy;
+    @JsonDeserialize(using = CustomDateDeserializer.class)
+    @JsonSerialize(using= CustomDateSerializer.class)
+    protected Date updatedAt;
 
-    private Date updatedAt;
-
-    private String updatedBy;
-
-    private Boolean status;
-
-    private List<PPSectionDetailsDto> ppSectionDetails;
-
-
+    private List<SectionDetailsDto> sectionDetails;
 }
