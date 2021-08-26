@@ -2,6 +2,7 @@ package com.stanzaliving.generictaskservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.taskservice.enums.TaskType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -81,6 +82,8 @@ public class GenericTemplateDto extends AbstractDto {
     private List<String> tagsUUIdList;
 
     private List<String> commentsUUIdList ;
+
+    private Department department;
 
 }
 
