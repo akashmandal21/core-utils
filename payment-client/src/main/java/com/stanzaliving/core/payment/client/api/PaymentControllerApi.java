@@ -1,7 +1,9 @@
 package com.stanzaliving.core.payment.client.api;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.ventaAudit.dto.VentaNotificationDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -73,5 +75,34 @@ public class PaymentControllerApi {
         }
         return null;
     }
+
+    public ResponseDto<String> getTransactionReceipt(String transactionId){
+
+        log.info("Called api to fetch TransactionReceipt");
+        Object postBody=null;
+        final Map<String,Object> uriVariables=new HashMap<>();
+        uriVariables.put("transactionId",transactionId);
+        String path= UriComponentsBuilder.fromPath("/payment/receipt/generate-pdf/{transactionId}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams=new HttpHeaders();
+        final String[] accepts = { "*/*" };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
+        };
+        ResponseDto<String> responseDto;
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
+                    returnType);
+            return responseDto;
+
+        } catch (Exception e) {
+            log.error("Exception while fetching Transaction Receipt with transactionId",transactionId);
+        }
+        return null;
+    }
 }
+
+
 
