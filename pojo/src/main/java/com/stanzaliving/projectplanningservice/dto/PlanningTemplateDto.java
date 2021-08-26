@@ -1,10 +1,6 @@
 package com.stanzaliving.projectplanningservice.dto;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.projectplanningservice.dto.helper.CustomDateDeserializer;
-import com.stanzaliving.projectplanningservice.dto.helper.CustomDateSerializer;
 import com.stanzaliving.projectplanningservice.enums.Duration;
 import com.stanzaliving.projectplanningservice.enums.PlanningStatus;
 import lombok.AllArgsConstructor;
@@ -37,12 +33,8 @@ public class PlanningTemplateDto extends AbstractDto {
 
     private Duration durationDays;
 
-    @JsonDeserialize(using = CustomDateDeserializer.class)
-    @JsonSerialize(using= CustomDateSerializer.class)
     protected Date createdAt;
 
-    @JsonDeserialize(using = CustomDateDeserializer.class)
-    @JsonSerialize(using= CustomDateSerializer.class)
     protected Date updatedAt;
 
     private List<SectionDetailsDto> sectionDetails;
