@@ -34,11 +34,11 @@ public class PaymentPlan {
 	private String invoiceUuid;
 	private List<PaymentPlanLineItem> lineItems;
 
-	private Date createdAt;
+	//private Date createdAt;
 
 	private String createdBy;
 
-	private Date updatedAt;
+	//private Date updatedAt;
 
 	private String updatedBy;
 
