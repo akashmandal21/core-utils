@@ -2,6 +2,7 @@ package com.stanzaliving.core.vendor.dtos;
 
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
+@SuperBuilder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class VendorListingDto {
     @EqualsAndHashCode.Include
