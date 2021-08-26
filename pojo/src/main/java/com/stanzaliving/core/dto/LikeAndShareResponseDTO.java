@@ -5,15 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventTypeResponseDTO {
-    private Long id;
-    private String uuid;
-    private String name;
-
-
+public class LikeAndShareResponseDTO {
+    private String message;
+    private Long shareCount;
 }

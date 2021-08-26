@@ -5,15 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventTypeResponseDTO {
-    private Long id;
-    private String uuid;
-    private String name;
-
-
+public class RegisteredUserResponseDTO {
+    private String firstName;
+    private String lastName;
+    private String middleName;
+    private String profilePicture;
 }
