@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DateRange {
+public class DateRangeDto {
     @Builder.Default
     private Long fromDate = 0L;
 

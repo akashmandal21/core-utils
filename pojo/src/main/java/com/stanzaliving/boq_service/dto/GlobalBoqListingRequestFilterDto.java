@@ -44,15 +44,9 @@ public class GlobalBoqListingRequestFilterDto {
 
     private List<LabelValueDto<String>> lastUpdatedBy;
 
-    private DateRange createdDateRange;
+    private DateRangeDto createdDateRangeDto;
 
-    private DateRange approvedDateRange;
-//
-//    private Long createdFromDate;
-//
-//    private Long createdToDate;
-//
-//    private Long approvedFromDate;
-//
-//    private Long approvedToDate;
+    private DateRangeDto approvedDateRangeDto;
+
+    private String propertyNameLike;
 }
