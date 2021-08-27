@@ -1,6 +1,7 @@
 package com.stanzaliving.boq_service.dto;
 
 import com.stanzaliving.core.boq_service.enums.BoqItemProvider;
+import com.stanzaliving.item_master.enums.ItemType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class ItemListDto {
     private BigDecimal quantity;
     private String areaOfUse;
     private BoqItemProvider doneBy;
+    private ItemType itemType;
     private BigDecimal llrate;
     private BoqItemProvider budgetDoneBy;
 }
