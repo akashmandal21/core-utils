@@ -37,4 +37,6 @@ public class GlobalBoqListingDto {
     private String textColor;
 
     private String bgColor;
+
+    private boolean canApprove;
 }
