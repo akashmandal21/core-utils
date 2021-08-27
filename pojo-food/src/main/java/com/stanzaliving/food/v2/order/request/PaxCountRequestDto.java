@@ -1,6 +1,7 @@
 package com.stanzaliving.food.v2.order.request;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,7 +23,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaxCountRequestDto {
-	private Integer vegPax;
+	
+	@Builder.Default
+	private Integer vegPax = 0;
 
-	private Integer nonVegPax;
+	@Builder.Default
+	private Integer nonVegPax = 0;
 }
