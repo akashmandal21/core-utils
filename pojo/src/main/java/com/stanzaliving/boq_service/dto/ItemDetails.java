@@ -14,5 +14,4 @@ public class ItemDetails {
 
     private LabelValueDto<String> itemUuid;
     private LabelValueDto<String> itemCode;
-    private LabelValueDto<ItemType> itemType;
 }
