@@ -65,7 +65,7 @@ public enum MealType {
 			mealIds.add(mealType.getMealId().toString());
 			enumListings.add(EnumListing.of(mealType, mealType.getMealName()));
 			mealMapByTypeString.put(mealType.toString(), mealType);
-			mealMapNameByTypeString.put(mealType.toString(), mealType.name());
+			mealMapNameByTypeString.put(mealType.toString(), mealType.getMealName());
 			mealMapByType.put(mealType, mealType.getMealName());
 			mealMapByTypeStr.put(mealType.toString(), mealType.getMealName());	
 		}
