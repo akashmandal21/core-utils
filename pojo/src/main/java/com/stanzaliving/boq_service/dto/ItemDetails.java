@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ItemDetails {
 
-    private LabelValueDto<String> itemUuid;
+    private String value;
+    private String label;
     private LabelValueDto<String> itemCode;
 }
