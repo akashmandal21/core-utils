@@ -28,6 +28,9 @@ public class AsyncCustomerApi {
     @Autowired
     CustomerPaymentApiService customerPaymentApiService;
 
+    @Autowired
+    CustomerInvoiceApiService customerInvoiceApiService;
+
 
 
     ObjectMapper objectMapper = new ObjectMapper();
@@ -39,6 +42,8 @@ public class AsyncCustomerApi {
                 return customerCreationApiService;
             case  CUSTOMER_PAYMENT:
                 return customerPaymentApiService;
+            case  CUSTOMER_INVOICE:
+                return customerInvoiceApiService;
         }
         return null;
     }

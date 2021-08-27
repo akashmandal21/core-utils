@@ -4,14 +4,13 @@ import com.stanzaliving.booking.dto.response.BookingCommercialCardDto;
 import com.stanzaliving.booking.dto.response.BookingPackageServiceDto;
 import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
 import com.stanzaliving.booking.enums.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
