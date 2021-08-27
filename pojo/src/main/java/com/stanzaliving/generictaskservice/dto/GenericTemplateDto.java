@@ -28,10 +28,8 @@ public class GenericTemplateDto extends AbstractDto {
     @NotBlank(message = "Module cannot be empty")
     private String module;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date startDate;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date dueDate;
 
     private String taskOwner;

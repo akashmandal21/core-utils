@@ -51,5 +51,4 @@ public class GenericTaskFilterDTO {
     private List<String> priorityList;
     private List<String> entityUUIdList;
 
-
 }
