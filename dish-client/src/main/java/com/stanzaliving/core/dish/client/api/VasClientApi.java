@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -20,9 +21,11 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.cafe.dto.CafeVasItemDto;
 import com.stanzaliving.core.dto.KeyValuePairDto;
+import com.stanzaliving.core.food.dto.request.GetVasMasterMapRequestDto;
 import com.stanzaliving.core.food.dto.request.VasMasterSearchRequestDto;
 import com.stanzaliving.core.food.dto.request.VasMasterUpdateRequestDto;
 import com.stanzaliving.core.food.dto.response.DishDetailsResponseDto;
+import com.stanzaliving.core.food.dto.response.ImageUploadResponseDto;
 import com.stanzaliving.core.food.dto.response.VasDataCountDto;
 import com.stanzaliving.core.food.dto.response.VasMasterPackagingResponseDto;
 import com.stanzaliving.core.food.dto.response.VasMasterResponseDto;
@@ -139,12 +142,13 @@ public class VasClientApi {
 		TypeReference<ResponseDto<List<VasMasterDto>>> returnType = new TypeReference<ResponseDto<List<VasMasterDto>>>() {};
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("status", status.toString());
+		
+		GetVasMasterMapRequestDto requestDto = GetVasMasterMapRequestDto.builder().vasItemIds(uuids).status(status).build();
 		
 		ResponseDto<List<VasMasterDto>> responseDto = null;
 
 		try {
-			responseDto = restClient.post(path, queryParams, uuids, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, requestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while geting data", e);
 		}
@@ -198,12 +202,12 @@ public class VasClientApi {
 		TypeReference<ResponseDto<Long>> returnType = new TypeReference<ResponseDto<Long>>() {};
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("dataComplete", dataComplete.toString());
+		GetVasMasterMapRequestDto requestDto = GetVasMasterMapRequestDto.builder().vasItemIds(items).dataComplete(dataComplete).build();
 		
 		ResponseDto<Long> responseDto = null;
 
 		try {
-			responseDto = restClient.post(path, queryParams, items, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, requestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while search from vas item master", e);
 		}
@@ -289,6 +293,30 @@ public class VasClientApi {
 		} catch (Exception e) {
 
 			log.error("Error while getting imageUrl", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
+	
+	public ImageUploadResponseDto uploadImage(MultipartFile file) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/vas/integration/image/upload").build().toUriString();
+
+		TypeReference<ResponseDto<ImageUploadResponseDto>> returnType = new TypeReference<ResponseDto<ImageUploadResponseDto>>() {
+		};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		ResponseDto<ImageUploadResponseDto> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, file, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while uploading image", e);
 
 		}
 
@@ -470,12 +498,13 @@ public class VasClientApi {
 		TypeReference<ResponseDto<Map<String, VasMasterDto>>> returnType = new TypeReference<ResponseDto<Map<String, VasMasterDto>>>() {};
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("status", status.toString());
+		
+		GetVasMasterMapRequestDto requestDto = GetVasMasterMapRequestDto.builder().vasItemIds(uuids).status(status).build();
 		
 		ResponseDto<Map<String, VasMasterDto>> responseDto = null;
 
 		try {
-			responseDto = restClient.post(path, queryParams, uuids, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, requestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while geting data count", e);
 		}

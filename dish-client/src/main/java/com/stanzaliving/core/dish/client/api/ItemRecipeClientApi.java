@@ -17,10 +17,14 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.food.dto.DishRecipeDetailsDto;
 import com.stanzaliving.core.food.dto.FoodItemDto;
 import com.stanzaliving.core.food.dto.FoodItemRecipeCostDto;
+import com.stanzaliving.core.food.dto.FoodItemRecipeCostRequestDto;
 import com.stanzaliving.core.food.dto.request.ItemRecipeRequestDto;
+import com.stanzaliving.core.food.dto.request.ItemRecipeRequestDtoAndFoodItemDto;
 import com.stanzaliving.core.food.dto.response.IngredientPriceDto;
 import com.stanzaliving.food.v2.common.dto.ItemRecipeDto;
+import com.stanzaliving.food.v2.common.dto.ItemRecipeDtoAndFoodItemDto;
 import com.stanzaliving.food.v2.common.dto.ItemRecipeIngredientsDto;
+import com.stanzaliving.food.v2.common.dto.ItemRecipeIngredientsRequestDto;
 import com.stanzaliving.search.food.index.dto.dishmaster.DishMasterRecipeSearchIndexDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -42,8 +46,6 @@ public class ItemRecipeClientApi {
 		this.restClient = stanzaRestClient;
 	}
 	
-	
-	
 	public DishRecipeDetailsDto getRecipeForItem(String itemId) {
 		String path = UriComponentsBuilder.fromPath("/internal/recipe/item").build().toUriString();
 
@@ -61,7 +63,7 @@ public class ItemRecipeClientApi {
 
 		} catch (Exception e) {
 
-			log.error("Error while getting ItemDetailsForVasItem", e);
+			log.error("Error while getting RecipeForItem", e);
 
 		}
 
@@ -84,7 +86,7 @@ public class ItemRecipeClientApi {
 
 		} catch (Exception e) {
 
-			log.error("Error while getting ItemDetailsForVasItem", e);
+			log.error("Error while getting RecipeByItemIdIn", e);
 
 		}
 
@@ -107,7 +109,7 @@ public class ItemRecipeClientApi {
 
 		} catch (Exception e) {
 
-			log.error("Error while getting ItemDetailsForVasItem", e);
+			log.error("Error while getting ItemRecipeIngredients By ItemRecipeIdIn", e);
 
 		}
 
@@ -132,31 +134,31 @@ public class ItemRecipeClientApi {
 
 		} catch (Exception e) {
 
-			log.error("Error while getting ItemDetailsForVasItem", e);
+			log.error("Error while getting Recipe By Item ForSearchIndex", e);
 
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 	}
 
-	//
 	public String addRecipe(ItemRecipeRequestDto recipeRequestDto, FoodItemDto foodItem) {
-		String path = UriComponentsBuilder.fromPath("/internal/recipe").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/recipe/addRecipe").build().toUriString();
 
 		TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
 		};
 		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
+		ItemRecipeRequestDtoAndFoodItemDto itemRecipeAndFoodItemRequestDto = ItemRecipeRequestDtoAndFoodItemDto.builder().foodItem(foodItem).recipeRequestDto(recipeRequestDto).build();
 		ResponseDto<String> responseDto = null;
 
 		try {
 
-			responseDto = restClient.post(path, queryParams, recipeRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, itemRecipeAndFoodItemRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 
-			log.error("Error while getting ItemDetailsForVasItem", e);
+			log.error("Error while adding Recipe", e);
 
 		}
 
@@ -164,24 +166,24 @@ public class ItemRecipeClientApi {
 	}
 
 	public String saveItemRecipe(ItemRecipeDto itemRecipe, String itemId) {
-		String path = UriComponentsBuilder.fromPath("/internal/recipe").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/recipe/saveRecipe").build().toUriString();
 
 		TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
 		};
 		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("itemId", itemId);
 		
+		ItemRecipeDtoAndFoodItemDto itemRecipeDtoAndFoodItemDto = ItemRecipeDtoAndFoodItemDto.builder().itemRecipe(itemRecipe).itemId(itemId).build();
 		
 		ResponseDto<String> responseDto = null;
 
 		try {
 
-			responseDto = restClient.post(path, queryParams, itemRecipe, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, itemRecipeDtoAndFoodItemDto, null, null, returnType, MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 
-			log.error("Error while getting ItemDetailsForVasItem", e);
+			log.error("Error while save ItemRecipe", e);
 
 		}
 
@@ -189,33 +191,33 @@ public class ItemRecipeClientApi {
 	}
 
 	
-	public void saveItemRecipeIngredients(String itemId, List<ItemRecipeIngredientsDto> itemRecipeIngredients, String recipeId) {
-		String path = UriComponentsBuilder.fromPath("/internal/recipe").build().toUriString();
+	public void saveItemRecipeIngredients(String itemId, List<ItemRecipeIngredientsDto> itemRecipeIngredients,
+			String recipeId) {
+		String path = UriComponentsBuilder.fromPath("/internal/recipe/saveRecipe/ingredients").build().toUriString();
 
 		TypeReference<ResponseDto<Void>> returnType = new TypeReference<ResponseDto<Void>>() {
 		};
-		
+
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("itemId", itemId);
-		queryParams.add("recipeId", recipeId);
-		
-		ResponseDto<Void> responseDto = null;
+
+		ItemRecipeIngredientsRequestDto itemRecipeIngredientsRequestDto = ItemRecipeIngredientsRequestDto.builder()
+				.itemRecipeIngredients(itemRecipeIngredients).itemId(itemId).recipeId(recipeId).build();
 
 		try {
 
-			responseDto = restClient.post(path, queryParams, itemRecipeIngredients, null, null, returnType, MediaType.APPLICATION_JSON);
+			restClient.post(path, queryParams, itemRecipeIngredientsRequestDto, null, null, returnType,
+					MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 
-			log.error("Error while getting ItemDetailsForVasItem", e);
+			log.error("Error while getting save ItemRecipeIngredients", e);
 
 		}
-		
-	}
 
+	}
 	
 	public void substituteIngredient(String fromIngredientId, String toIngredientId) {
-		String path = UriComponentsBuilder.fromPath("/internal/recipe").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/recipe/substituteIngredient").build().toUriString();
 
 		TypeReference<ResponseDto<Void>> returnType = new TypeReference<ResponseDto<Void>>() {
 		};
@@ -223,40 +225,38 @@ public class ItemRecipeClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("fromIngredientId", fromIngredientId);
 		queryParams.add("toIngredientId", toIngredientId);
-		
-		ResponseDto<Void> responseDto = null;
 
 		try {
 
-			responseDto = restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
+			restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 
-			log.error("Error while getting ItemDetailsForVasItem", e);
+			log.error("Error while substituteIngredient", e);
 
 		}
 		
 	}
 
 	public FoodItemRecipeCostDto getRecipeCost(String itemId, LocalDate costDate) {
-		String path = UriComponentsBuilder.fromPath("/internal/recipe").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/recipe/cost").build().toUriString();
 
 		TypeReference<ResponseDto<FoodItemRecipeCostDto>> returnType = new TypeReference<ResponseDto<FoodItemRecipeCostDto>>() {
 		};
 		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("itemId", itemId);
-		queryParams.add("costDate", costDate.toString());
+
+		FoodItemRecipeCostRequestDto recipeCostRequestDto = FoodItemRecipeCostRequestDto.builder().itemId(itemId).costDate(costDate).build();
 		
 		ResponseDto<FoodItemRecipeCostDto> responseDto = null;
 
 		try {
 
-			responseDto = restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, recipeCostRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 
-			log.error("Error while getting ItemDetailsForVasItem", e);
+			log.error("Error while getting Recipe cost", e);
 
 		}
 
@@ -265,24 +265,24 @@ public class ItemRecipeClientApi {
 
 	
 	public FoodItemRecipeCostDto getRecipeCost(String itemId, LocalDate costDate, Map<String, Map<String, List<IngredientPriceDto>>> ingredientVendorPriceMap) {
-		String path = UriComponentsBuilder.fromPath("internal/recipe").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("internal/recipe/cost/vendorPriceMap").build().toUriString();
 
 		TypeReference<ResponseDto<FoodItemRecipeCostDto>> returnType = new TypeReference<ResponseDto<FoodItemRecipeCostDto>>() {
 		};
 		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("itemId", itemId);
-		queryParams.add("costDate", costDate.toString());
+		
+		FoodItemRecipeCostRequestDto recipeCostRequestDto = FoodItemRecipeCostRequestDto.builder().itemId(itemId).costDate(costDate).ingredientVendorPriceMap(ingredientVendorPriceMap).build();
 		
 		ResponseDto<FoodItemRecipeCostDto> responseDto = null;
 
 		try {
 
-			responseDto = restClient.post(path, queryParams, ingredientVendorPriceMap, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, recipeCostRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 
-			log.error("Error while getting ItemDetailsForVasItem", e);
+			log.error("Error while getting Recipe cost", e);
 
 		}
 

@@ -31,6 +31,7 @@ import com.stanzaliving.core.food.dto.FoodMenuCategoryDto;
 import com.stanzaliving.core.food.dto.MenuItemDto;
 import com.stanzaliving.core.food.dto.RecipePriceCalculatorPDto;
 import com.stanzaliving.core.food.dto.request.FoodItemAddRequestDto;
+import com.stanzaliving.core.food.dto.request.FoodItemGetRequestDto;
 import com.stanzaliving.core.food.dto.request.FoodItemUpdateRequestDto;
 import com.stanzaliving.core.food.dto.response.CategoryWiseMealItems;
 import com.stanzaliving.core.food.dto.response.FoodItemSearchDataCountDto;
@@ -165,12 +166,12 @@ public class FoodItemClientApi {
 		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
-		queryParams.add("itemTypes", itemTypes.toString());
+		FoodItemGetRequestDto foodItemGetRequestDto = FoodItemGetRequestDto.builder().itemIds(itemIds).itemTypes(itemTypes).build(); 
 	
 		ResponseDto<List<FoodItemDto>> responseDto = null;
 
 		try {
-			 responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+			 responseDto = restClient.post(path, queryParams, foodItemGetRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while get food item", e);
 		}
@@ -186,12 +187,12 @@ public class FoodItemClientApi {
 		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
-		queryParams.add("itemTypes", itemTypes.toString());
+		FoodItemGetRequestDto foodItemGetRequestDto = FoodItemGetRequestDto.builder().itemIds(itemIds).itemTypes(itemTypes).build();
 	
 		ResponseDto<Set<String>> responseDto = null;
 
 		try {
-			 responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+			 responseDto = restClient.post(path, queryParams, foodItemGetRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while get food item", e);
 		}
@@ -352,12 +353,12 @@ public class FoodItemClientApi {
 		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
-		queryParams.add("priceAt", priceAt.toString());
+		FoodItemGetRequestDto foodItemGetRequestDto = FoodItemGetRequestDto.builder().itemIds(itemIds).priceAt(priceAt).build();
 
 		ResponseDto<Map<String, FoodItemRecipeCostDto>> responseDto = null;
 
 		try {
-			 responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+			 responseDto = restClient.post(path, queryParams, foodItemGetRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while get food item Cost", e);
 		}

@@ -96,18 +96,18 @@ public class DishClientApi {
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 	}
-	//To Verify
+	
 	public PageResponse<DishMasterSearchResponseDto> searchItems(int pageNo, int limit, MenuItemSearchPdto searchPdto, boolean dataComplete, boolean status, List<RecipeType> recipeTypes, boolean receipeExists ) {
 		String path = UriComponentsBuilder.fromPath("/internal/item/search/light/name/{pageNo}/{limit}").build().toUriString();
 
 		TypeReference<ResponseDto<PageResponse<DishMasterSearchResponseDto>>> returnType = new TypeReference<ResponseDto<PageResponse<DishMasterSearchResponseDto>>>() {};
 		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-//		queryParams.add("dataComplete", dataComplete);
-//		queryParams.add("status", status);
-//		queryParams.addAll("recipeTypes", recipeTypes);
-//		queryParams.add("receipeExists", receipeExists.toString());
-		
+
+		searchPdto.setDataComplete(dataComplete);
+		searchPdto.setStatus(status);
+		searchPdto.setRecipeTypes(recipeTypes);
+		searchPdto.setReceipeExists(receipeExists);
 		
 		ResponseDto<PageResponse<DishMasterSearchResponseDto>> responseDto = null;
 
