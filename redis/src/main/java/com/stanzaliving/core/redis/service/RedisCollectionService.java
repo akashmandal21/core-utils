@@ -1,5 +1,6 @@
 package com.stanzaliving.core.redis.service;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -43,4 +44,12 @@ public interface RedisCollectionService {
 	void removeFromStringMapCache(String mapName, String key);
 
 	void removeFromStringMap(String mapName, String key);
+
+	boolean addInStringList(String listName, String key);
+
+	boolean removeFromStringList(String listName, String key);
+
+	List<String> getStringList(String listName);
+
+	boolean existsInStringList(String listName , String key);
 }
