@@ -1,5 +1,26 @@
 package com.stanzaliving.foodservice.client.api;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -12,6 +33,7 @@ import com.stanzaliving.core.food.dto.ItemSubCategoryDto;
 import com.stanzaliving.core.food.dto.request.FullCategoryDto;
 import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
 import com.stanzaliving.core.food.dto.response.RecentMealDto;
+import com.stanzaliving.core.food.dto.response.VendorResponseDto;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
@@ -19,27 +41,8 @@ import com.stanzaliving.food.v2.common.dto.MealDto;
 import com.stanzaliving.food.v2.common.dto.MealTypeAndGroupIdDto;
 import com.stanzaliving.food.v2.menu.dto.ResidenceFoodMenuItemIdProjectionDto;
 import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class FoodServiceClientApi {
@@ -700,7 +703,7 @@ public class FoodServiceClientApi {
 
 		} catch (Exception e) {
 
-			log.error("Error while getting residence name", e);
+			log.error("Error while getting vendor detail", e);
 
 		}
 
@@ -708,4 +711,28 @@ public class FoodServiceClientApi {
 
 	}
 	
+	public VendorResponseDto getVendorWithId(String id) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/vendor/id").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("id", id);
+
+		TypeReference<ResponseDto<VendorResponseDto>> returnType = new TypeReference<ResponseDto<VendorResponseDto>>() {};
+
+		ResponseDto<VendorResponseDto> responseDto = null;
+
+		try {
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting vendor detail", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
+	}
 }
