@@ -92,8 +92,8 @@ public class ItemRecipeClientApi {
 	}
 	
 	public List<ItemRecipeIngredientsDto> getItemRecipeIngredientsByItemRecipeIdIn(Collection<String> itemIds) {
-		String path = UriComponentsBuilder.fromPath("/internal/recipe/ingerdients").build().toUriString();
-
+		String path = UriComponentsBuilder.fromPath("/internal/recipe/ingredients").build().toUriString();
+		
 		TypeReference<ResponseDto<List<ItemRecipeIngredientsDto>>> returnType = new TypeReference<ResponseDto<List<ItemRecipeIngredientsDto>>>() {
 		};
 		
