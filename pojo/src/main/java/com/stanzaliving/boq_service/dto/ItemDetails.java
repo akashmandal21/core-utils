@@ -1,22 +1,18 @@
 package com.stanzaliving.boq_service.dto;
 
+import com.stanzaliving.item_master.enums.ItemType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PropertyDto {
+public class ItemDetails {
 
-    private String label;
     private String value;
-    private BigDecimal maxQuantity;
-    private String error;
-    private String quantity;
-    private Boolean checked;
+    private String label;
+    private LabelValueDto<String> itemCode;
 }
