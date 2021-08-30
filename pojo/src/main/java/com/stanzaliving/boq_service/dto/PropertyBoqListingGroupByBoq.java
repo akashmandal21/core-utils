@@ -1,5 +1,7 @@
 package com.stanzaliving.boq_service.dto;
 
+import com.stanzaliving.core.boq_service.enums.BoqType;
+import com.stanzaliving.transformations.enums.BoqStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,9 +21,15 @@ public class PropertyBoqListingGroupByBoq {
 
     private String boqType;
 
+    private BoqType boqTypeValue;
+
     private Long updatedOn;
 
     private String updatedBy;
+
+    private Long createdOn;
+
+    private String createdBy;
 
     private BigDecimal totalCapex;
 
@@ -34,6 +42,8 @@ public class PropertyBoqListingGroupByBoq {
     private String statusText;
 
     private String boqStatus;
+
+    private BoqStatus boqStatusValue;
 
     private String textColor;
 

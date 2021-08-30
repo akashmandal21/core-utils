@@ -27,7 +27,7 @@ public class PropertyBoqListingRequestFilterDto {
     @Builder.Default
     private String sortOrder = "desc";
 
-    private List<BoqType> boqTypes;
+    private List<LabelValueDto<BoqType>> boqType;
 
-    private List<BoqStatus> boqStatuses;
+    private List<LabelValueDto<BoqStatus>> boqStatus;
 }
