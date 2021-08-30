@@ -32,6 +32,7 @@ import com.stanzaliving.core.food.dto.MenuItemDto;
 import com.stanzaliving.core.food.dto.RecipePriceCalculatorPDto;
 import com.stanzaliving.core.food.dto.request.FoodItemAddRequestDto;
 import com.stanzaliving.core.food.dto.request.FoodItemGetRequestDto;
+import com.stanzaliving.core.food.dto.request.FoodItemSearchLightRequestDto;
 import com.stanzaliving.core.food.dto.request.FoodItemUpdateRequestDto;
 import com.stanzaliving.core.food.dto.response.CategoryWiseMealItems;
 import com.stanzaliving.core.food.dto.response.FoodItemSearchDataCountDto;
@@ -418,7 +419,7 @@ public class FoodItemClientApi {
 		ResponseDto<Boolean> responseDto = null;
 		
 		try {
-			restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while copy", e);
 		}
@@ -428,21 +429,20 @@ public class FoodItemClientApi {
 
 	
 	public PageResponse<FoodItemSearchLightResponseDto> search(int pageNo, int limit, String name,
-			FoodItemType itemType, Boolean dataComplete, List<RecipeType> recipeType) {
+			FoodItemType itemType, Boolean dataComplete, Collection<RecipeType> recipeType) {
 		
 		String path = UriComponentsBuilder.fromPath("/internal/item/search/light/name/{pageNo}/{limit}").build().toUriString();
 
 		TypeReference<ResponseDto<PageResponse<FoodItemSearchLightResponseDto>>> returnType = new TypeReference<ResponseDto<PageResponse<FoodItemSearchLightResponseDto>>>() {};
 		
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("name", name);
-		queryParams.add("itemType", itemType.toString());
-		queryParams.add("dataComplete", dataComplete.toString());
+		
+		FoodItemSearchLightRequestDto lightRequestDto = FoodItemSearchLightRequestDto.builder().name(name).itemType(itemType).dataComplete(dataComplete).recipeType(recipeType).build();
 		
 		ResponseDto<PageResponse<FoodItemSearchLightResponseDto>> responseDto = null;
 
 		try {
-			 responseDto = restClient.post(path, queryParams, recipeType, null, null, returnType, MediaType.APPLICATION_JSON);
+			 responseDto = restClient.post(path, queryParams, lightRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while searching food item", e);
 		}
@@ -700,18 +700,22 @@ public class FoodItemClientApi {
 		};
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("menuCategoryType", menuCategoryType.toString());
-		queryParams.add("residenceBrand", residenceBrand.toString());
-		queryParams.add("foodRegion", foodRegion.toString());
-		queryParams.add("foodServeType", foodServeType.toString());
-		queryParams.add("mealType", mealType.toString());
-		queryParams.add("preference", preference.toString());
-		queryParams.add("grammageHeavynessLevel", grammageHeavynessLevel.toString());
+		
+		FoodItemQuantityCombinationRequest requestBody = FoodItemQuantityCombinationRequest.builder()
+				.items(itemIds)
+				.menuCategoryType(menuCategoryType)
+				.residenceBrand(residenceBrand)
+				.foodRegion(foodRegion)
+				.foodServeType(foodServeType)
+				.mealType(mealType)
+				.foodItemBasePreference(preference)
+				.grammageHeavynessLevel(grammageHeavynessLevel)
+				.build();
 		
 		ResponseDto<List<FoodItemQuantityCombinationDto>> responseDto = null;
 
 		try {
-			responseDto = restClient.post(path, queryParams, itemIds, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, requestBody, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while calculating recipe price", e);
 		}
@@ -723,7 +727,7 @@ public class FoodItemClientApi {
 	public List<FoodItemQuantityCombinationDto> getItemQuantityCombinationForItemsAndMenu(Collection<String> items,
 			ResidenceMenuDto menu, FoodMenuCategoryDto menuCategory) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/item/quantity/combination/itemQuantityCombinationForItemsAndMenu").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/item/quantity/combination").build().toUriString();
 
 		TypeReference<ResponseDto<List<FoodItemQuantityCombinationDto>>> returnType = new TypeReference<ResponseDto<List<FoodItemQuantityCombinationDto>>>() {
 		};
