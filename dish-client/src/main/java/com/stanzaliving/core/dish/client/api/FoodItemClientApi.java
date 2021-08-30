@@ -133,7 +133,7 @@ public class FoodItemClientApi {
 		try {
 			 responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
-			log.error("Error while adding food item", e);
+			log.error("Error while get food item", e);
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
@@ -179,6 +179,27 @@ public class FoodItemClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new ArrayList<>();
 	}
 	
+	public Boolean existsByUuidInAndFoodItemType(Collection<String> itemIds, Collection<FoodItemType> itemTypes) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/existsByUuidInAndFoodItemType").build().toUriString();
+
+		TypeReference<ResponseDto<Boolean>> returnType = new TypeReference<ResponseDto<Boolean>>() {};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		FoodItemGetRequestDto foodItemGetRequestDto = FoodItemGetRequestDto.builder().itemIds(itemIds).itemTypes(itemTypes).build(); 
+	
+		ResponseDto<Boolean> responseDto = null;
+
+		try {
+			 responseDto = restClient.post(path, queryParams, foodItemGetRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while get food item", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : false;
+	}
+	
 	public Set<String> getFoodItemNameByUuidInAndItemTypeIn(Collection<String> itemIds, Collection<FoodItemType> itemTypes) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/item/findNameByUuidInAndTypeIn").build().toUriString();
@@ -200,7 +221,6 @@ public class FoodItemClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashSet<>();
 	}
 	
-	
 	public FoodItemDto getFoodItemfromCache(String itemId) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/item/cache/{item}").build().toUriString();
@@ -210,6 +230,25 @@ public class FoodItemClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
 		ResponseDto<FoodItemDto> responseDto = null;
+
+		try {
+			 responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while adding food item", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
+	
+	public Long countByUuidInAndItemTypeIn(Set<String> itemIds, Set<FoodItemType> userFoodPreferences) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/countByUuidInAndItemTypeIn").build().toUriString();
+
+		TypeReference<ResponseDto<Long>> returnType = new TypeReference<ResponseDto<Long>>() {};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		ResponseDto<Long> responseDto = null;
 
 		try {
 			 responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);

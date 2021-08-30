@@ -2,15 +2,18 @@ package com.stanzaliving.core.dish.client.api;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -20,6 +23,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.food.dto.FoodItemDto;
 import com.stanzaliving.core.food.dto.MenuItemDto;
 import com.stanzaliving.core.food.dto.response.DishMasterSearchResponseDto;
+import com.stanzaliving.core.food.dto.response.ImageUploadResponseDto;
 import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.food.v2.category.dto.MenuItemSearchPdto;
 
@@ -143,7 +147,63 @@ public class DishClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && MapUtils.isNotEmpty(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 	}
 	
+	
+	public void uploadFoodItemCsv(MultipartFile file) {
 
+		String path = UriComponentsBuilder.fromPath("/internal/item/add/items/csv").build().toUriString();
+
+		TypeReference<Void> returnType = new TypeReference<Void>() {
+		};
+
+		try {
+
+			restClient.post(path, null, file, null, null, returnType, MediaType.MULTIPART_FORM_DATA);
+
+		} catch (Exception e) {
+
+			log.error("Error while adding item from Csv", e);
+		}
+	}
+	
+	public Set<String> uploadFoodItemTagsCsv(MultipartFile file) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/update/item/tags/csv").build().toUriString();
+
+		TypeReference<ResponseDto<Set<String>>> returnType = new TypeReference<ResponseDto<Set<String>>>() {};
+
+		ResponseDto<Set<String>> responseDto = null;
+		
+		try {
+
+			responseDto = restClient.post(path, null, file, null, null, returnType, MediaType.MULTIPART_FORM_DATA);
+
+		} catch (Exception e) {
+
+			log.error("Error while upload food item tag from Csv ", e);
+
+		}
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && CollectionUtils.isNotEmpty(responseDto.getData())) ? responseDto.getData() : new HashSet<>();
+	}
+	
+	public ImageUploadResponseDto uploadDishImage(MultipartFile file) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/upload/image").build().toUriString();
+
+		TypeReference<ResponseDto<ImageUploadResponseDto>> returnType = new TypeReference<ResponseDto<ImageUploadResponseDto>>() {};
+
+		ResponseDto<ImageUploadResponseDto> responseDto = null;
+		
+		try {
+
+			responseDto = restClient.post(path, null, file, null, null, returnType, MediaType.MULTIPART_FORM_DATA);
+
+		} catch (Exception e) {
+
+			log.error("Error while upload DishImage ", e);
+
+		}
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
 	
 }
 

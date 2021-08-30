@@ -59,7 +59,7 @@ public class IngredientClientApi {
 
 
 	public List<IngredientDto> getIngredientTagList(Boolean includePrice) {
-		String path = UriComponentsBuilder.fromPath("/internal/ingredients/listing").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/ingredients/tag/listing").build().toUriString();
 
 		TypeReference<ResponseDto<List<IngredientDto>>> returnType = new TypeReference<ResponseDto<List<IngredientDto>>>() {};
 		
@@ -89,7 +89,7 @@ public class IngredientClientApi {
 		try {
 			responseDto = restClient.post(path, queryParams, ingredients, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
-			log.error("Error while geting ingredient list", e);
+			log.error("Error while geting ingredient tag by uuidin", e);
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
@@ -249,9 +249,9 @@ public class IngredientClientApi {
 		ResponseDto<IngredientUsageDto> responseDto = null;
 		
 		try {
-			restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
-			log.error("Error while adding food item", e);
+			log.error("Error while checking isIngredientUsed", e);
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
@@ -270,7 +270,7 @@ public class IngredientClientApi {
 		try {
 			restClient.post(path, queryParams, summaryUpdate, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
-			log.error("Error while adding food item", e);
+			log.error("Error while update price", e);
 		}
 	}
 	
@@ -286,7 +286,7 @@ public class IngredientClientApi {
 		try {
 			restClient.post(path, queryParams, ingredientRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
-			log.error("Error while adding food item", e);
+			log.error("Error while adding ingredient", e);
 		}
 	}
 	
@@ -305,7 +305,7 @@ public class IngredientClientApi {
 		try {
 			restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
-			log.error("Error while adding food item", e);
+			log.error("Error while subsstitute ingredient", e);
 		}
 	}
 	
@@ -323,7 +323,7 @@ public class IngredientClientApi {
 		try {
 			 restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
-			log.error("Error while updating food item", e);
+			log.error("Error while updating search index", e);
 		}
 
 	}
