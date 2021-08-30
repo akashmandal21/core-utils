@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.item_master.client.api;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 import com.stanzaliving.boq_service.BoqItemSearchRequestDto;
@@ -102,12 +103,12 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<Map<String,Integer>> getMaxQuantities(String itemUuid) {
+	public ResponseDto<Map<String, BigDecimal>> getMaxQuantities(String itemUuid) {
 
 		Object postBody = null;
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("itemUuid",itemUuid);
-		String path = UriComponentsBuilder.fromPath("/internal/generic/po/remaining/item/quantity/itemLevel/{itemUuid}")
+		String path = UriComponentsBuilder.fromPath("/internal/generic/po/remaining/item/quantity/propertyWise/{itemUuid}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -119,7 +120,7 @@ public class ItemMasterClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<Map<String,Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String,Integer>>>() {
+		ParameterizedTypeReference<ResponseDto<Map<String,BigDecimal>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String,BigDecimal>>>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
