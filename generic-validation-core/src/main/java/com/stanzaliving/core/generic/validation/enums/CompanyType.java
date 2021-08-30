@@ -15,7 +15,6 @@ public enum CompanyType {
     PVT_LTD("Private Limited Company"),
     PUB_LTD("Public Limited Company"),
     INDUSTRY_BODY("Industry Body"),
-//    RWA("Residential Welfare Association");
     RWA("RWA");
 
     private String companyTypeText;
@@ -27,7 +26,6 @@ public enum CompanyType {
         companyTypeMap.put("Limited Liability Partnership",LTD_LIABILITY_PARTNERSHIP);
         companyTypeMap.put("Private Limited Company",PVT_LTD);
         companyTypeMap.put("Public Limited Company",PUB_LTD);
-//        companyTypeMap.put("Residential Welfare Association",RWA);
         companyTypeMap.put("RWA",RWA);
     }
 
