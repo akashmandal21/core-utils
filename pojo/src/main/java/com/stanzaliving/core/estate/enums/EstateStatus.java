@@ -77,6 +77,11 @@ public enum EstateStatus {
 	CALLBACK_TO_L1_APPROVED("Callback Request To L1"),
 	CALLBACK_APPROVED("Call Back Request Approved"),
 	CALLBACK_DECLINE("Call Back Request Declined"),
+
+	L1_CALLBACK_APPROVAL("L1 Call Back Request"),
+	L2_CALLBACK_APPROVAL("L2 Call Back Request"),
+	L1_DROP_APPROVAL("L1 Drop Request"),
+	L2_DROP_APPROVAL("L2 Drop Request"),
 	
 	//Sales status
 	PENDING_SALES_APPROVAL("Pending Sales Approval"),
