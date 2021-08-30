@@ -1,6 +1,7 @@
 package com.stanzaliving.core.food.dto.response;
 
 import com.stanzaliving.core.food.enums.FoodItemType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,6 +36,6 @@ public class OrderItemGrammageDto {
 	private Integer orderedQty = 0;
 
 	@Builder.Default
-	private Integer orderedWeight = 0;
+	private Double orderedWeight = 0d;
 
 }
