@@ -20,5 +20,6 @@ public class UpcomingBookingsDto {
     Date contractStartDate;
 
     Date contractEndDate;
+
 }
 
