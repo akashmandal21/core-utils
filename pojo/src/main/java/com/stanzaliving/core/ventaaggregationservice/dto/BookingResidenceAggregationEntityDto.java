@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -34,6 +36,9 @@ public class BookingResidenceAggregationEntityDto {
     private Long totalRooms;
 
     private Long totalApartments;
+
+    private List<String> residenceUuids;
+
 }
 
 

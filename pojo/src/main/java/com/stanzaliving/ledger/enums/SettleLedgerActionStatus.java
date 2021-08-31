@@ -3,15 +3,31 @@ package com.stanzaliving.ledger.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 @AllArgsConstructor
 @Getter
 public enum SettleLedgerActionStatus {
 
-    REFUNDED,
-    CARRY_FORWARD,
-    PENDING,
-    SETTLED_WITH_EXHAUSTION,
-    RAISED_TO_NODAL,
-    PENDING_ON_FINANACE_APPROVAL;
+    REFUNDED("Refunded"),
+    CARRY_FORWARD("CarryForward"),
+    PENDING("Pending"),
+    SETTLED_WITH_EXHAUSTION("Settle With Exhaustion"),
+    RAISED_TO_NODAL("Raised To Nodal"),
+    PENDING_ON_FINANCE_APPROVAL("Pending On Finance Approval");
+
+    private String name;
+    public static Set<Object> ENUM_MAP = new HashSet<>();
+    static {
+        for (SettleLedgerActionStatus actionType: SettleLedgerActionStatus.values()) {
+            Map<Object,Object > map = new HashMap<>();
+            map.put("label" , actionType.name);
+            map.put("value",actionType);
+            ENUM_MAP.add(map);
+        }
+    }
 }
 
