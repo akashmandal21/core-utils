@@ -33,4 +33,5 @@ public class SubTicketResponseDto {
     private String currentRoomNo;
     private String currentHostelId;
     private String currentHostelName;
+    private TicketChipColorDto ticketChipColorDto;
 }
