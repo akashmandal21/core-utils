@@ -50,6 +50,7 @@ public enum MealType {
 	private static Map<MealType, String> mealMapByType = new LinkedHashMap<>();
 	private static Map<String, String> mealMapByTypeStr = new LinkedHashMap<>();
 	private static Map<String, MealType> mealMapByTypeString = new LinkedHashMap<>();
+	private static Map<String, String> mealMapNameByTypeString = new LinkedHashMap<>();
 
 	private static List<EnumListing<MealType>> enumListings = new ArrayList<>();
 	private static Set<MealType> firstHalfMealsSet = new HashSet<>();
@@ -64,6 +65,7 @@ public enum MealType {
 			mealIds.add(mealType.getMealId().toString());
 			enumListings.add(EnumListing.of(mealType, mealType.getMealName()));
 			mealMapByTypeString.put(mealType.toString(), mealType);
+			mealMapNameByTypeString.put(mealType.toString(), mealType.getMealName());
 			mealMapByType.put(mealType, mealType.getMealName());
 			mealMapByTypeStr.put(mealType.toString(), mealType.getMealName());	
 		}
@@ -102,6 +104,10 @@ public enum MealType {
 
 	public static Map<String, String> getMealMapByTypeStr() {
 		return mealMapByTypeStr;
+	}
+	
+	public static String getMealMapNameByTypeStr(String mealType) {
+		return mealMapNameByTypeString.get(mealType);
 	}
 
 	public static String getMealName(String mealId) {
