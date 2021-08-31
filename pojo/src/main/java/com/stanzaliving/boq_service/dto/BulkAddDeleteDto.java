@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,10 +18,21 @@ import java.util.List;
 @AllArgsConstructor
 public class BulkAddDeleteDto {
 
+    @Valid
     private LabelValueDto<AreaOfUse> areaOfUse;
+
+    @Valid
     private LabelValueDto<BoqItemProvider> doneBy;
+
+    @Valid
     private LabelValueDto<BoqItemProvider> budgetDoneBy;
+
+    @NotBlank
+    @Valid
     private ItemDetails itemDetails;
+
     private String llrate;
-    private List<PropertyDto> properties;
+
+    @NotBlank
+    private List<@Valid PropertyDto> properties;
 }
