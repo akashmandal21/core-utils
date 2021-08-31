@@ -7,9 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -71,4 +69,18 @@ public class FilixBookingDto {
     private boolean personalDetailsFilled;
 
     private boolean agreementSent;
+
+    private Long id;
+
+    private String uuid;
+
+    private Date createdAt;
+
+    private String createdBy;
+
+    private Date updatedAt;
+
+    private String updatedBy;
+
+    private boolean status = true;
 }

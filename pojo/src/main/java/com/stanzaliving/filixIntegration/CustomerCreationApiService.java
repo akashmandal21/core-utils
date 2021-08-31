@@ -64,11 +64,10 @@ public class CustomerCreationApiService extends CustomerApiFactory {
             CustomerApiDto customerApiDto = objectMapper.readValue(dataMap.get("data").toString(), CustomerApiDto.class);
             if(null != customerApiDto && null != customerApiDto.getFilixBookingResponseDto()) {
                 FilixUserDetailResponseDto filixUserDetailResponseDto=customerApiDto.getFilixUserDetailResponseDto();
-                FilixBookingResponseDto bookingResponseDto = customerApiDto.getFilixBookingResponseDto();
                 FilixBookingDto booking = customerApiDto.getBooking();
-                mapToSend.put(entityid,bookingResponseDto.getResidentId() );
+                mapToSend.put(entityid,booking.getResidentId() );
                 mapToSend.put(isPerson, Boolean.TRUE );
-                mapToSend.put(salutation, Gender.MALE.equals(filixUserDetailResponseDto.getGender()) ?"Mr":"Mrs" );
+                mapToSend.put(salutation, Gender.MALE.toString().equals(filixUserDetailResponseDto.getGender()) ?"Mr":"Mrs" );
                 mapToSend.put(firstName, filixUserDetailResponseDto.getFirstName());
                 mapToSend.put(lastname, StringUtils.isNotEmpty(filixUserDetailResponseDto.getLastName()) ? filixUserDetailResponseDto.getLastName() : ".");
                 mapToSend.put(custentity_xxflx_dateofbirth,filixUserDetailResponseDto.getBirthday());
@@ -76,8 +75,8 @@ public class CustomerCreationApiService extends CustomerApiFactory {
                 mapToSend.put(custentity_xxflx_gender, filixUserDetailResponseDto.getGender());
                 mapToSend.put(phone,filixUserDetailResponseDto.getMobile());
                 mapToSend.put(custentity_xxflx_nationality,"null!=student.getCountry().getNationality() ? student.getCountry().getNationality():");
-                mapToSend.put(bookingInfo, getBookingInfo(bookingResponseDto, booking));
-                mapToSend.put(addressbook, getAddressBook(bookingResponseDto));
+                mapToSend.put(bookingInfo, getBookingInfo(booking));
+                mapToSend.put(addressbook, getAddressBook(booking));
 
 //                if(null != customerApiDto.getStudentOnboardingDetails()) {
 //                    FilixIntegrationStudentOnboardingDetailsDto studentOnboardingDetails = customerApiDto.getStudentOnboardingDetails();
@@ -130,14 +129,14 @@ public class CustomerCreationApiService extends CustomerApiFactory {
         return itemList;
     }
 
-    private Object getAddressBook(FilixBookingResponseDto student) {
+    private Object getAddressBook(FilixBookingDto bookingDto) {
         Map<String, List<Map>> addressBook = new HashMap<>();
         List<Map> itemList = new ArrayList<>();
         Map<String, Object> listMap = new HashMap<>();
         listMap.put(label, "");
         listMap.put(defaultbilling, Boolean.FALSE);
         listMap.put(defaultshipping,Boolean.TRUE);
-        listMap.put(addressbookaddress,getAddressBookAddress(student));
+        listMap.put(addressbookaddress,getAddressBookAddress(bookingDto));
         itemList.add(listMap);
 
         addressBook.put(items, itemList);
@@ -145,11 +144,11 @@ public class CustomerCreationApiService extends CustomerApiFactory {
         return addressBook;
     }
 
-    private Object getAddressBookAddress(FilixBookingResponseDto student) {
+    private Object getAddressBookAddress(FilixBookingDto bookingDto) {
 
         Map<String, Object> mapToSend = new HashMap<>();
         mapToSend.put(addressee,"student.getFullName()");
-        if(null != student) {
+        if(null != bookingDto) {
             mapToSend.put(addr1, "StringUtils.isNotEmpty(student.getAddress().getLine1()) ? student.getAddress().getLine1() : ");
             mapToSend.put(addr2, "StringUtils.isNotEmpty(student.getAddress().getLine2()) ? student.getAddress().getLine2() : ");
             mapToSend.put(addr3, "StringUtils.isNotEmpty(student.getAddress().getCity().getName()) ? student.getAddress().getCity().getName() : ");
@@ -170,9 +169,9 @@ public class CustomerCreationApiService extends CustomerApiFactory {
         return mapToSend;
     }
 
-    private List<Map<String, Object>> getBookingInfo(FilixBookingResponseDto filixBookingResponseDto, FilixBookingDto bookingDto) {
+    private List<Map<String, Object>> getBookingInfo( FilixBookingDto bookingDto) {
         Map<String, Object> mapToSend = new HashMap<>();
-        mapToSend.put(bookingid,String.valueOf(filixBookingResponseDto.getBookingUuid()));
+        mapToSend.put(bookingid,String.valueOf(bookingDto.getUuid()));
         mapToSend.put(bookingtype, bookingDto.getBookingType().toString());
         mapToSend.put(startdate, DateUtil.convertDateToString(bookingDto.getContractStartDate(), DateUtil.dd_MMM_yyyy_Slash_Format));
         mapToSend.put(enddate, DateUtil.convertDateToString(bookingDto.getContractEndDate(), DateUtil.dd_MMM_yyyy_Slash_Format));
