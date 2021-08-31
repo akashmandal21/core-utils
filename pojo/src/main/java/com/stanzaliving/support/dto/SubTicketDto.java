@@ -30,4 +30,5 @@ public class SubTicketDto {
     private String statusDetail;
     private Date createdAt;
     private String createdBy;
+    private TicketChipColorDto ticketChipColorDto;
 }
