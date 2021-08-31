@@ -581,7 +581,8 @@ public class UserClientApi {
 		}
 
 		final HttpHeaders headerParams = new HttpHeaders();
-		headerParams.add("Cookie", "token=" + token);
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
 		final String[] accepts = {
 				"*/*"
@@ -609,7 +610,8 @@ public class UserClientApi {
 		}
 
 		final HttpHeaders headerParams = new HttpHeaders();
-		headerParams.add("Cookie", "token=" + cookieToken);
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + cookieToken;
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
 		final String[] accepts = {
 				"*/*"
@@ -624,7 +626,6 @@ public class UserClientApi {
 	public ResponseDto<RoleDto> getRoleByUuid(String roleUuid, String cookieToken) {
 
 		Object postBody = null;
-		System.out.println("token " + cookieToken);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("roleUuid", roleUuid);
@@ -634,7 +635,8 @@ public class UserClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
-		headerParams.add("Cookie", "token=" + cookieToken);
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + cookieToken;
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
 		final String[] accepts = {
 				"*/*"
