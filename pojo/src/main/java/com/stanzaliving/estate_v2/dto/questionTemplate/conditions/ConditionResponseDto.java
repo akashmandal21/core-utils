@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class ConditionResponseDto {
+    private String groupUuid;
     private String pageUuid;
     private String questionUuid;
 }
