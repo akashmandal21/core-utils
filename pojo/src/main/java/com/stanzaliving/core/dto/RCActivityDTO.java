@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
+
 @Builder
 @Data
 @NoArgsConstructor
@@ -23,7 +25,7 @@ public class RCActivityDTO {
 
     String updatedBy;
 
-    LocalDate updatedAt;
+    Date updatedAt;
 
     String rejectionReason;
 }
