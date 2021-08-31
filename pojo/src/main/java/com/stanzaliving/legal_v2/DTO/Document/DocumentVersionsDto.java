@@ -28,4 +28,6 @@ public class DocumentVersionsDto extends AbstractMongoDto {
 
     private PdfFileMetaDataDTO pdfMetaData;
 
+    private boolean buttonStatus = true;
+
 }
