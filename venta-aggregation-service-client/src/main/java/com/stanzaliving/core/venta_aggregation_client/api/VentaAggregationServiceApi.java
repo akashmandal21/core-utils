@@ -203,4 +203,22 @@ public class VentaAggregationServiceApi {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
+
+    public ResponseDto<List<Integer>> getOccupanciesForManagedApartment(String microMarketUuid) {
+        log.info("Residence Internal Controller::Processing to update residence pricing and bed info");
+        Object postBody = null;
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("microMarketUuid", microMarketUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/residence/managed-apartment/occupancies/{microMarketUuid}").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<List<Integer>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 }
