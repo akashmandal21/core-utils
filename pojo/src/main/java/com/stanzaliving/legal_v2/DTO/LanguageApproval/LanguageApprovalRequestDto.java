@@ -2,6 +2,7 @@ package com.stanzaliving.legal_v2.DTO.LanguageApproval;
 
 import com.stanzaliving.core.dto.AbstractMongoDto;
 import com.stanzaliving.legal_v2.DTO.BdRemarks.AllRemarksResponseDto;
+import com.stanzaliving.legal_v2.DTO.LegalTemplate.CodeBlock;
 import com.stanzaliving.legal_v2.DTO.LegalTemplate.DeviationDTO;
 import com.stanzaliving.legal_v2.enums.PropertyListStatus;
 import lombok.Getter;

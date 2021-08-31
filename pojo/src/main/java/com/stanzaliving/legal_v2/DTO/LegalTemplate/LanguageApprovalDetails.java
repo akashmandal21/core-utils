@@ -17,4 +17,6 @@ public class LanguageApprovalDetails {
 
     List<DeviationDTO> deviationDTOList;
 
+    private List<CodeBlock> codeBlockList;
+
 }
