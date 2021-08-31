@@ -35,4 +35,6 @@ public class LegalTemplateDTO extends AbstractMongoDto {
     @Valid
     private List<DeviationDTO> deviationList;
 
+    private List<CodeBlock> codeBlockList;
+
 }
