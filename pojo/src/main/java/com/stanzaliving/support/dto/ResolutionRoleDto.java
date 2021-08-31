@@ -17,15 +17,20 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRoleDto {
+
     private String roleUuid;
+
     @NotNull(message = "first response time can't be left blank.")
     private Long firstResponseIn;
+
     @NotNull(message = "resolutionIn can't be left blank.")
     private Long resolutionIn;
+
     private Boolean isEscalation;
+
     private String escalateTo;
+
     @NotNull(message = "sequence can't be left blank.")
     @Min(0)
     private Integer sequence;
-
 }

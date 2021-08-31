@@ -19,7 +19,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRuleAddDto {
-    @NotEmpty(message = "primary reference uuid can't be left blank.")
     private List<String> primaryReferenceUuid;
     @NotNull(message = "ticket type can't be left blank.")
     private TicketType ticketType;

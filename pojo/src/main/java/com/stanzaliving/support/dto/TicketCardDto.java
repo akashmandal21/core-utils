@@ -36,5 +36,7 @@ public class TicketCardDto {
     private String cityUuid;
     @JsonProperty("isPrimary")
     private boolean isPrimary;
+    private TicketChipColorDto ticketChipColorDto;
+
 }
 

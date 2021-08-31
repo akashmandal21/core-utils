@@ -28,5 +28,4 @@ public class TicketDetailsDto {
 
     private TeamDto teamDto;
 
-    private TicketChipColorDto ticketChipColorDto;
 }
