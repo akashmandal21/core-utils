@@ -22,8 +22,8 @@ public class PaymentModeDto {
 	private String paymentModeName;
 	
 	private String paymentModeText;
-	
-	private boolean enabled;
+	@Builder.Default
+	private boolean enabled=true;
 	
 	private Boolean isEndUserPayingFee;
 }
