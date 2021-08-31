@@ -15,7 +15,7 @@ public class PropertyDto {
 
     private String label;
     private String value;
-    private BigDecimal maxQuantity;
+    private String maxQuantity;
     private String error;
     private String quantity;
     private Boolean checked;

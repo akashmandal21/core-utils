@@ -20,6 +20,6 @@ public class BulkAddDeleteDto {
     private LabelValueDto<BoqItemProvider> doneBy;
     private LabelValueDto<BoqItemProvider> budgetDoneBy;
     private ItemDetails itemDetails;
-    private BigDecimal llrate;
+    private String llrate;
     private List<PropertyDto> properties;
 }
