@@ -2,7 +2,7 @@ package com.stanzaliving.generictaskservice.dto;
 
 import lombok.*;
 
-import java.util.List;
+import java.time.LocalDate;
 import java.util.Map;
 
 /**
@@ -27,6 +27,10 @@ public class TaskTimelineDto {
 
     private String taskOwner;
 
+    private String updatedBy;
+
+    private LocalDate updatedAt;
+
     private String subTaskStatus;
 
     private String subTaskSubStatus;
@@ -35,8 +39,9 @@ public class TaskTimelineDto {
 
     private String taskSubStatus;
 
-    private List<String> comments;
+    private String comment;
 
     private Map<String, Object> metaDataChanges;
 
+    private String summary;
 }
