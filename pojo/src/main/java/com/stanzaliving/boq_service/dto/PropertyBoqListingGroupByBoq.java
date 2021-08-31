@@ -52,4 +52,6 @@ public class PropertyBoqListingGroupByBoq {
     private boolean isEditable;
 
     private boolean canApprove;
+
+    private int commentCount;
 }

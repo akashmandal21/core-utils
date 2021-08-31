@@ -50,5 +50,8 @@ public class GlobalBoqListingRequestFilterDto {
 
     private String propertyNameLike;
 
+    private String uuid;
+
+    //note: not to take below value in an API request, used to searching purposes
     private List<String> propertyUuids;
 }

@@ -39,4 +39,6 @@ public class GlobalBoqListingDto {
     private String bgColor;
 
     private boolean canApprove;
+
+    private int commentCount;
 }
