@@ -34,6 +34,7 @@ import com.stanzaliving.core.user.dto.UserRoleCacheDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.core.user.request.dto.ActiveUserRequestDto;
 import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
+import com.stanzaliving.core.user.request.dto.UserRequestDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -83,24 +84,24 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 	
-	public ResponseDto<PageResponse<UserProfileDto>> getUserDetailsRequest(int pageNumber, int pageSize, List<String> userIds) {
+	public ResponseDto<PageResponse<UserProfileDto>> getUserDetailsRequest(UserRequestDto userRequestDto) {
 
-		if (pageNumber < 1 || pageSize < 1 || CollectionUtils.isEmpty(userIds)) {
+		log.info("UserRequestDto: {} ", userRequestDto);
+		
+		if (Objects.isNull(userRequestDto) || userRequestDto.getPageNo() < 1 || userRequestDto.getLimit() < 1
+				|| CollectionUtils.isEmpty(userRequestDto.getUserIds())) {
+			
 			throw new IllegalArgumentException("Please check all the provided params!!");
 		}
 
-		Object postBody = null;
+		Object postBody = userRequestDto;
 
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("pageNo", pageNumber);
-		uriVariables.put("limit", pageSize);
-
-		String path = UriComponentsBuilder.fromPath("/search/user/{pageNo}/{limit}").buildAndExpand(uriVariables).toUriString();
+		
+		String path = UriComponentsBuilder.fromPath("/search/user").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		queryParams.putAll(restClient.parameterToMultiValueMap(null, "userIds", userIds));
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
