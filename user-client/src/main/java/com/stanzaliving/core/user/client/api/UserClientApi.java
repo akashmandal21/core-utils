@@ -82,6 +82,37 @@ public class UserClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+	
+	public ResponseDto<PageResponse<UserProfileDto>> getUserDetailsRequest(int pageNumber, int pageSize, List<String> userIds) {
+
+		if (pageNumber < 1 || pageSize < 1 || CollectionUtils.isEmpty(userIds)) {
+			throw new IllegalArgumentException("Please check all the provided params!!");
+		}
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("pageNo", pageNumber);
+		uriVariables.put("limit", pageSize);
+
+		String path = UriComponentsBuilder.fromPath("/search/user/{pageNo}/{limit}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.putAll(restClient.parameterToMultiValueMap(null, "userIds", userIds));
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<PageResponse<UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<PageResponse<UserProfileDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
 
 	public ResponseDto<List<String>> getUserIdsMappedToManagerId(String managerId) {
 		Object postBody = null;
