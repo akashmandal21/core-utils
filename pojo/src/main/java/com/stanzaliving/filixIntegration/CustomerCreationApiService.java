@@ -31,7 +31,7 @@ public class CustomerCreationApiService extends CustomerApiFactory {
     @Autowired
     NotificationProducer notificationProducer;
 
-    @Value("oracle_integration_venta")
+    @Value("venta-integration")
     private String oracleIntegrationTopic;
 
     @Override

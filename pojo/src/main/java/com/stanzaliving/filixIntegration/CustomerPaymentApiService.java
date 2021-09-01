@@ -36,7 +36,7 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
     }
 
 
-    @Value("oracle_integration_venta")
+    @Value("venta-integration")
     private String oracleIntegrationTopic;
 
     @Override

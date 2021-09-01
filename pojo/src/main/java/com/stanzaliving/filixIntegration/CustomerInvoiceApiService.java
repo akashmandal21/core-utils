@@ -30,7 +30,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
     ObjectMapper objectMapper = new ObjectMapper();
 
 
-    @Value("oracle_integration_venta")
+    @Value("venta-integration")
     private String oracleIntegrationTopic;
     @Autowired
     NotificationProducer notificationProducer;
