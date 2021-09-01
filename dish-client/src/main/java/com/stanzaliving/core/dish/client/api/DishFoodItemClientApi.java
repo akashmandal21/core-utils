@@ -225,6 +225,25 @@ public class DishFoodItemClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashSet<>();
 	}
 	
+	public Set<String> findItemsUuidsEligibleForMenu() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/eligibleForMenu").build().toUriString();
+
+		TypeReference<ResponseDto<Set<String>>> returnType = new TypeReference<ResponseDto<Set<String>>>() {};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+	
+		ResponseDto<Set<String>> responseDto = null;
+
+		try {
+			 responseDto = restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while get eligible food item for menu", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashSet<>();
+	}
+
 	public FoodItemDto getFoodItemfromCache(String itemId) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/item/cache/{item}").build().toUriString();

@@ -13,7 +13,9 @@ import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.PageResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.food.dto.FoodItemTagsDto;
 import com.stanzaliving.core.food.dto.TagDto;
+import com.stanzaliving.core.food.dto.request.FoodItemTagsRequestDto;
 import com.stanzaliving.core.food.dto.request.TagRequestDto;
 import com.stanzaliving.core.food.enums.TagLabel;
 
@@ -96,6 +98,26 @@ public class TagClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 	}
 
+	public List<ListingDto> getTagsForItem(String itemId) {
+		
+		String path = UriComponentsBuilder.fromPath("/internal/tag/item/get/listing").build().toUriString();
+
+		TypeReference<ResponseDto<List<ListingDto>>> returnType = new TypeReference<ResponseDto<List<ListingDto>>>() {};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("itemId", itemId);
+		
+		ResponseDto<List<ListingDto>> responseDto = null;
+
+		try {
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while geting tags for label", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
+
 	public List<ListingDto> getServiceMixEnabledTags() {
 
 		String path = UriComponentsBuilder.fromPath("/internal/tag/get/serviceMixListing").build().toUriString();
@@ -110,6 +132,45 @@ public class TagClientApi {
 			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
 			log.error("Error while geting serviceMix enabled tags", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
+ 
+	public FoodItemTagsDto addFoodItemTags(FoodItemTagsRequestDto foodItemTagsRequestDto) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/tag/add/foodItemTag").build().toUriString();
+
+		TypeReference<ResponseDto<FoodItemTagsDto>> returnType = new TypeReference<ResponseDto<FoodItemTagsDto>>() {};
+
+		ResponseDto<FoodItemTagsDto> responseDto = null;
+
+		try {
+			 responseDto = restClient.post(path, null, foodItemTagsRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while adding tag", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
+
+	
+	public PageResponse<FoodItemTagsDto> searchFoodItemTags(int pageNo, int limit, String tagId) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/tag/search/foodItemTag/{pageNo}/{limit}").build().toUriString();
+
+		TypeReference<ResponseDto<PageResponse<FoodItemTagsDto>>> returnType = new TypeReference<ResponseDto<PageResponse<FoodItemTagsDto>>>() {};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		queryParams.add("tagId", tagId);
+		
+		ResponseDto<PageResponse<FoodItemTagsDto>> responseDto = null;
+
+		try {
+			 responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while search foodItem tag", e);
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;

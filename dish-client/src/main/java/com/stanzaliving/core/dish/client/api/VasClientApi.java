@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
@@ -26,6 +27,7 @@ import com.stanzaliving.core.food.dto.request.VasMasterSearchRequestDto;
 import com.stanzaliving.core.food.dto.request.VasMasterUpdateRequestDto;
 import com.stanzaliving.core.food.dto.response.DishDetailsResponseDto;
 import com.stanzaliving.core.food.dto.response.ImageUploadResponseDto;
+import com.stanzaliving.core.food.dto.response.ItemCostResponseDto;
 import com.stanzaliving.core.food.dto.response.VasDataCountDto;
 import com.stanzaliving.core.food.dto.response.VasMasterPackagingResponseDto;
 import com.stanzaliving.core.food.dto.response.VasMasterResponseDto;
@@ -323,22 +325,22 @@ public class VasClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 	}
 	
-	public VasOrderDto getVasOrderDtoByUuid(String orderId) {
+	public VasOrderDto getVasOrderDtoByUuid(String id) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/vas/order/byUuid").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/vas/order/id").build().toUriString();
 
 		TypeReference<ResponseDto<VasOrderDto>> returnType = new TypeReference<ResponseDto<VasOrderDto>>() {};
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
-		queryParams.add("orderId", orderId);
+		queryParams.add("id", id);
 		
 		ResponseDto<VasOrderDto> responseDto = null;
 
 		try {
-			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
 		} catch (Exception e) {
-			log.error("Error while geting data count", e);
+			log.error("Error while geting vas order", e);
 		}
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
@@ -346,7 +348,7 @@ public class VasClientApi {
 	
 	public List<VasOrderDto> getOrderForMigration(String residenceId, List<String> alreadyMigratedOrder, List<VasOrderStatus> notToInclude) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/vas/order/orderForMigration").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/vas/order/forMigration").build().toUriString();
 
 		TypeReference<ResponseDto<List<VasOrderDto>>> returnType = new TypeReference<ResponseDto<List<VasOrderDto>>>() {};
 
@@ -367,10 +369,29 @@ public class VasClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 	}
 	
+	public List<VasOrderDto> findByUuidIn(Collection<String> vasOrderIds) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/vas/order/list").build().toUriString();
+
+		TypeReference<ResponseDto<List<VasOrderDto>>> returnType = new TypeReference<ResponseDto<List<VasOrderDto>>>() {};
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		ResponseDto<List<VasOrderDto>> responseDto = null;
+
+		try {
+			responseDto = restClient.post(path, queryParams, vasOrderIds, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while geting data count", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
+	
 	
 	public List<VasOrderItemsDto> findVasOrderItemsByOrderIds(Collection<String> vasOrderIds) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/vas/order/findVasOrderItemsByOrderIds").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/vas/order/findVasOrderItems/orderIds").build().toUriString();
 
 		TypeReference<ResponseDto<List<VasOrderItemsDto>>> returnType = new TypeReference<ResponseDto<List<VasOrderItemsDto>>>() {};
 
@@ -389,7 +410,7 @@ public class VasClientApi {
 	
 	public List<VasOrderItemsDto> findVasOrderItemsByOrderId(String vasOrderId) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/vas/order/findVasOrderItemsByOrderId").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/vas/order/findVasOrderItems/orderId").build().toUriString();
 
 		TypeReference<ResponseDto<List<VasOrderItemsDto>>> returnType = new TypeReference<ResponseDto<List<VasOrderItemsDto>>>() {};
 
@@ -748,9 +769,35 @@ public class VasClientApi {
 
 		} catch (Exception e) {
 
-			log.error("Error while getting mapNewCityToPackagingCity", e);
+			log.error("Error while map new city to PackagingCity", e);
 
 		}
+	}
+	
+	
+	
+	public Map<String, List<ItemCostResponseDto>> getVasOrderItemsMap(Set<String> foodOrderIds){
+
+		String path = UriComponentsBuilder.fromPath("/internal/vas/order/map").build().toUriString();
+
+		TypeReference<ResponseDto<Map<String, List<ItemCostResponseDto>>>> returnType = new TypeReference<ResponseDto<Map<String, List<ItemCostResponseDto>>>>() {
+		};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		ResponseDto<Map<String, List<ItemCostResponseDto>>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, foodOrderIds, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting VasOrderItemsMap", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : new HashMap<>();
 	}
 	
 }
