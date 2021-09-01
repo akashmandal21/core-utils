@@ -1145,6 +1145,35 @@ public class ResidenceDataControllerApi {
             return null;
         }
     }
+    
+    public ResidencePaymentModeDto getPaymentModes(String residenceUuid) {
+
+        log.info("Residence-Data-Controller::Processing to get payment mode for residenceUuid {}", residenceUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+        uriVariables.put("residenceUuid", residenceUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/residencePaymentMode/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ResidencePaymentModeDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<ResidencePaymentModeDto>>() {
+                };
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType).getData();
+        } catch (Exception var10) {
+            log.error("Exception while fetching getting payment mode for residenceUuid {}", residenceUuid);
+            log.error(var10);  
+            return null;
+        }
+        
+    }
 
     public ResponseDto<OccupanciesFloorsStatusCountSearchDto> getFloorsAndRoomStatusFilterForManagedApartment(List<String> residenceUuid, String moveInDate) {
 
@@ -1155,7 +1184,7 @@ public class ResidenceDataControllerApi {
         uriVariables.put("moveInDate", moveInDate);
 
         String path = UriComponentsBuilder.fromPath("/internal/managed-apartment/floor/{moveInDate}").buildAndExpand(uriVariables).toUriString();
-
+       
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
         HttpHeaders headerParams = new HttpHeaders();
