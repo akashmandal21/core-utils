@@ -5,6 +5,7 @@ package com.stanzaliving.core.estate.dto;
 
 
 import java.util.Date;
+import java.util.Map;
 
 import com.stanzaliving.core.estate.enums.PropertyAction;
 
@@ -27,4 +28,6 @@ public class EstatePropertyActionResponseDto {
 	private PropertyAction requestType;
 	private String requestTypeDesc;
 	private Date createdAt;
+	private Map<String, String> metaInfo;
+
 }

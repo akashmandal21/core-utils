@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Map;
+
 /**
  * @author raj.kumar
  *
@@ -24,4 +26,5 @@ public class PropertyActionRequestDto {
 	private EstateStatus estateStatus; //This attribute set internally
 	private PropertyAction propertyAction;	
 	private String propertyName;
+	private Map<String, String> metaInfo;
 }

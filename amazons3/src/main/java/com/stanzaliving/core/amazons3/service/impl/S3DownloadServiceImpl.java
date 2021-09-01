@@ -4,6 +4,7 @@
 package com.stanzaliving.core.amazons3.service.impl;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.amazonaws.services.s3.model.*;
+import lombok.SneakyThrows;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
@@ -37,14 +39,14 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 	public String downloadStringContent(String bucket, String filePath, AmazonS3 s3Client) {
 
 		String fileContent = null;
-
+		S3Object s3Object = null;
 		try {
 
 			log.debug("Downloading File: " + filePath + " from Bucket: " + bucket);
 
 			GetObjectRequest getObjectRequest = new GetObjectRequest(bucket, filePath);
 
-			S3Object s3Object = S3Util.getAmazonS3Client(s3Client).getObject(getObjectRequest);
+			s3Object = S3Util.getAmazonS3Client(s3Client).getObject(getObjectRequest);
 
 			if (s3Object != null) {
 				S3ObjectInputStream inputStream = s3Object.getObjectContent();
@@ -54,6 +56,14 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 
 		} catch (Exception e) {
 			log.error("Error while downloading object from S3: ", e);
+		} finally {
+			if (s3Object != null) {
+				try {
+					s3Object.close();
+				} catch (IOException e) {
+					log.error("IOException while closing s3Object: ", e);
+				}
+			}
 		}
 
 		return fileContent;
@@ -69,14 +79,14 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 
 	@Override
 	public File downloadFile(String bucket, String filePath, AmazonS3 s3Client) {
-
+		S3Object s3Object = null;
 		try {
 
 			log.debug("Downloading File: " + filePath + " from Bucket: " + bucket);
 
 			GetObjectRequest getObjectRequest = new GetObjectRequest(bucket, filePath);
 
-			S3Object s3Object = S3Util.getAmazonS3Client(s3Client).getObject(getObjectRequest);
+			s3Object = S3Util.getAmazonS3Client(s3Client).getObject(getObjectRequest);
 
 			if (s3Object != null) {
 				S3ObjectInputStream inputStream = s3Object.getObjectContent();
@@ -89,6 +99,14 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 
 		} catch (Exception e) {
 			log.error("Error while downloading object from S3: ", e);
+		} finally {
+			if (s3Object != null) {
+				try {
+					s3Object.close();
+				} catch (IOException e) {
+					log.error("IOException while closing s3Object: ", e);
+				}
+			}
 		}
 
 		return null;
