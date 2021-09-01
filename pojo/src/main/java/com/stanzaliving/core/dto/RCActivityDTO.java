@@ -26,7 +26,7 @@ public class RCActivityDTO {
 
     String updatedBy;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     Date updatedAt;
 
     String rejectionReason;
