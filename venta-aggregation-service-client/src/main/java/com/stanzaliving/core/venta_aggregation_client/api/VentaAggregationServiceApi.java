@@ -223,7 +223,7 @@ public class VentaAggregationServiceApi {
     }
 
     public ResponseDto<List<Integer>> getOccupanciesForManagedApartment(String microMarketUuid) {
-        log.info("Residence Internal Controller::Processing to update residence pricing and bed info");
+        log.info("Residence Internal Controller::Processing to get occupancies based on micro market uuid");
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
