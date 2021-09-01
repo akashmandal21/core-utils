@@ -6,14 +6,16 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum CommercialCardStatus {
-    DRAFT("Draft"),
-    PENDING("Pending"),
-    ACTIVE ("Active"),
-    USED("Used"),
-    EXPIRED("Expired"),
-    DISABLED ("Disabled"),
-    APPROVED("Approved");
+    DRAFT("Draft",4),
+    PENDING("Pending",6),
+    ACTIVE ("Active",1),
+    USED("Used",7),
+    EXPIRED("Expired",5),
+    DISABLED ("Disabled",3),
+    APPROVED("Approved",2);
 
    private String status;
+
+   int order;
 
 }

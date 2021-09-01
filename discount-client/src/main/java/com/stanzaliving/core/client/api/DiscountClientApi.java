@@ -134,7 +134,7 @@ public class DiscountClientApi {
 		return null;
 	}
 
-	public ResponseDto<DiscountDto> getDiscountDetail(String discountCode, String token) {
+	public ResponseDto<DiscountDto> getDiscountDetail(String discountCode) {
 
 		try {
 			Object postBody = null;
@@ -148,7 +148,7 @@ public class DiscountClientApi {
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			final HttpHeaders headerParams = new HttpHeaders();
-			headerParams.add("Cookie", "token=" + token);
+	
 			final String[] accepts = { "*/*" };
 
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
