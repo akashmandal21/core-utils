@@ -65,11 +65,11 @@ import lombok.extern.log4j.Log4j2;
  */
 
 @Log4j2
-public class FoodItemClientApi {
+public class DishFoodItemClientApi {
 
 	private final StanzaRestClient restClient;
 
-	public FoodItemClientApi(StanzaRestClient stanzaRestClient) {
+	public DishFoodItemClientApi(StanzaRestClient stanzaRestClient) {
 		this.restClient = stanzaRestClient;
 	}
 	
