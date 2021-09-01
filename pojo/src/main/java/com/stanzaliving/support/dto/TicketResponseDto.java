@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 @Builder
@@ -61,5 +62,7 @@ public class TicketResponseDto {
     private String residenceUuid;
 
     private TicketSource ticketSource;
+
+    private String currentResolutionLevelUuid;
 
 }
