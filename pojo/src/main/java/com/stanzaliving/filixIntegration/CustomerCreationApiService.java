@@ -61,8 +61,8 @@ public class CustomerCreationApiService extends CustomerApiFactory {
         Map<String, Object> mapToSend = new HashMap<>();
         try {
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
             CustomerApiDto customerApiDto = objectMapper.readValue(dataMap.get("data").toString(), CustomerApiDto.class);
+            logger.info("customerApiDto "+customerApiDto);
             if(null != customerApiDto && null != customerApiDto.getFilixBookingResponseDto()) {
                 FilixUserDetailResponseDto filixUserDetailResponseDto=customerApiDto.getFilixUserDetailResponseDto();
                 FilixResidenceDetailsDto filixResidenceDetailsDto=customerApiDto.getFilixResidenceDetailsDto();
