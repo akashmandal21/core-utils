@@ -26,6 +26,8 @@ import com.stanzaliving.core.dto.KeyValuePairDto;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.food.dto.DishRecipeDetailsDto;
 import com.stanzaliving.core.food.dto.FoodItemDto;
+import com.stanzaliving.core.food.dto.FoodItemMealMappingDto;
+import com.stanzaliving.core.food.dto.FoodItemMealMappingRequestDto;
 import com.stanzaliving.core.food.dto.FoodItemRecipeCostDto;
 import com.stanzaliving.core.food.dto.FoodMenuCategoryDto;
 import com.stanzaliving.core.food.dto.MenuItemDto;
@@ -46,6 +48,7 @@ import com.stanzaliving.core.food.enums.MenuCategoryType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.food.v2.common.dto.FoodItemFeedbackSuggestionDto;
 import com.stanzaliving.food.v2.common.dto.FoodItemQuantityCombinationDto;
 import com.stanzaliving.food.v2.menu.dto.FoodItemQuantityCombinationRequest;
@@ -749,6 +752,43 @@ public class FoodItemClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 
 	}
+	
+	public List<FoodItemMealMappingDto> getItemsForMeal(MealType mealType) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/meal/getItems").build().toUriString();
+
+		TypeReference<ResponseDto<List<FoodItemMealMappingDto>>> returnType = new TypeReference<ResponseDto<List<FoodItemMealMappingDto>>>() {};
+
+		ResponseDto<List<FoodItemMealMappingDto>> responseDto = null;
+
+		try {
+			 responseDto = restClient.post(path, null, mealType, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while get items for meal", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
+
+	public List<EnumListing<MealType>> addMealMappings(String itemId, Collection<MealType> meals) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/item/meal/mapping/add").build().toUriString();
+
+		TypeReference<ResponseDto<List<EnumListing<MealType>>>> returnType = new TypeReference<ResponseDto<List<EnumListing<MealType>>>>() {};
+
+		FoodItemMealMappingRequestDto mappingRequestDto = FoodItemMealMappingRequestDto.builder().itemId(itemId).meals(meals).build();
+		
+		ResponseDto<List<EnumListing<MealType>>> responseDto = null;
+
+		try {
+			 responseDto = restClient.post(path, null, mappingRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while adding MealMappings", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+	}
+	
 
 }
 
