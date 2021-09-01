@@ -22,18 +22,19 @@ public class AsyncCustomerApi {
 
     private Logger logger = LoggerFactory.getLogger(AsyncCustomerApi.class);
 
-    @Autowired
-    CustomerCreationApiService customerCreationApiService;
+    private final CustomerCreationApiService customerCreationApiService;
 
-    @Autowired
-    CustomerPaymentApiService customerPaymentApiService;
+    private final CustomerPaymentApiService customerPaymentApiService;
 
-    @Autowired
-    CustomerInvoiceApiService customerInvoiceApiService;
-
-
+    private final CustomerInvoiceApiService customerInvoiceApiService;
 
     ObjectMapper objectMapper = new ObjectMapper();
+
+    public AsyncCustomerApi(CustomerCreationApiService customerCreationApiService, CustomerPaymentApiService customerPaymentApiService, CustomerInvoiceApiService customerInvoiceApiService) {
+        this.customerCreationApiService = customerCreationApiService;
+        this.customerPaymentApiService = customerPaymentApiService;
+        this.customerInvoiceApiService = customerInvoiceApiService;
+    }
 
 
     public CustomerApiFactory getApi(CustomerApiEnum api) {

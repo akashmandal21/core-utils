@@ -36,7 +36,7 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
     }
 
 
-    @Value("${kafka.topic.oracleIntegration}")
+    @Value("oracle_integration_venta")
     private String oracleIntegrationTopic;
 
     @Override
