@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @Builder
@@ -17,6 +18,6 @@ public class RequestAuditDateAndAuditorDto {
     @NotBlank(message = "Audit Uuid is required")
     private String auditUuid;
     @FutureOrPresent
-    private LocalDate auditedOn;
+    private LocalDate auditScheduledAt;
     private String auditorUuid;
 }

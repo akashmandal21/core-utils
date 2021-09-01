@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -21,8 +22,9 @@ public class CreateAuditDto {
     private String auditUuid;
     @NotBlank(message = "auditorUuid Is Required")
     private String auditorUuid;
-    @NotBlank(message = "auditedOn Is Required")
-    private LocalDate auditedOn;
+    private LocalDateTime auditedOn;
+    @NotBlank(message = "auditScheduledAt Is Required")
+    private LocalDate auditScheduledAt;
     @NotBlank(message = "auditorName Is Required")
     private String auditorName;
     @NotBlank(message = "BookingUuid Is Required")
