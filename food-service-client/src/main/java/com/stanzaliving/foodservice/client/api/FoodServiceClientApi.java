@@ -735,4 +735,29 @@ public class FoodServiceClientApi {
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
 
 	}
+	
+	public List<FoodVendorDto> findAllVendors() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/vendor/all").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		TypeReference<ResponseDto<List<FoodVendorDto>>> returnType = new TypeReference<ResponseDto<List<FoodVendorDto>>>() {};
+
+		ResponseDto<List<FoodVendorDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting vendor detail", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
+	
 }
