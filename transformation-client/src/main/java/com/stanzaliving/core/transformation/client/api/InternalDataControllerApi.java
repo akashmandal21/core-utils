@@ -916,4 +916,34 @@ public class InternalDataControllerApi {
 		}
 		return null;
 	}
+
+	public ResponseDto<List<LocationDetailsDto>> getLocationDetailsWithFilters(FilterAddressDto filterAddress) {
+
+		try {
+			Object postBody = filterAddress;
+
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/get/locations/details/filtered").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<List<LocationDetailsDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<LocationDetailsDto>>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Exception Caught while Fetching location details for filters: ", e);
+		}
+		return null;
+	}
+
 }
