@@ -1,5 +1,6 @@
 package com.stanzaliving.core.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.enums.ApprovalStatus;
 import com.stanzaliving.core.enums.DocumentTypeEnum;
 import lombok.AllArgsConstructor;
@@ -26,7 +27,7 @@ public class RCActivityDTO {
 
     String updatedBy;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss",timezone = "Asia/Kolkata")
     Date updatedAt;
 
     String rejectionReason;
