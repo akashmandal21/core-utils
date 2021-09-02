@@ -58,4 +58,6 @@ public class BookingResponseDto {
     private BookingPackageServiceDto bookingPackageService;
 
     private Double pendingAmount;
+
+    private PaymentTerm paymentTerm;
 }
