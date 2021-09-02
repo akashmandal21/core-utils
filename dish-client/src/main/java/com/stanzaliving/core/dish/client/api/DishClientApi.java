@@ -1,5 +1,6 @@
 package com.stanzaliving.core.dish.client.api;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,8 +23,10 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.food.dto.FoodItemDto;
 import com.stanzaliving.core.food.dto.MenuItemDto;
+import com.stanzaliving.core.food.dto.request.PackagingRequestDto;
 import com.stanzaliving.core.food.dto.response.DishMasterSearchResponseDto;
 import com.stanzaliving.core.food.dto.response.ImageUploadResponseDto;
+import com.stanzaliving.core.food.dto.response.PackagingResponseDto;
 import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.food.v2.category.dto.MenuItemSearchPdto;
 
@@ -205,5 +208,45 @@ public class DishClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 	}
 	
+	public void savePackaging(PackagingRequestDto packagingRequestDto) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/packaging/save").build().toUriString();
+
+		TypeReference<ResponseDto<ImageUploadResponseDto>> returnType = new TypeReference<ResponseDto<ImageUploadResponseDto>>() {
+		};
+
+		try {
+
+			restClient.post(path, null, packagingRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while saving packaging detail ", e);
+
+		}
+
+	}
+	
+	public List<PackagingResponseDto> getPackagingListing() {
+
+		String path = UriComponentsBuilder.fromPath("/internal/packaging/listing").build().toUriString();
+
+		TypeReference<ResponseDto<List<PackagingResponseDto>>> returnType = new TypeReference<ResponseDto<List<PackagingResponseDto>>>() {};
+
+		ResponseDto<List<PackagingResponseDto>> responseDto = null;
+		
+		try {
+
+			responseDto = restClient.post(path, null, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting packaging listing detail", e);
+
+		}
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && CollectionUtils.isNotEmpty(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+	}
+	
+
 }
 
