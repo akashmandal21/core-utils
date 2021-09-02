@@ -48,7 +48,7 @@ public class DishClientApi {
 
 	public Map<String, FoodItemDto> getFoodItemMap() {
 
-		String path = UriComponentsBuilder.fromPath("/internal/common/food/item/integration").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/food/item/integration").build().toUriString();
 
 		TypeReference<ResponseDto<Map<String, FoodItemDto>>> returnType = new TypeReference<ResponseDto<Map<String, FoodItemDto>>>() {};
 
@@ -69,7 +69,7 @@ public class DishClientApi {
 	
 	public Map<String, MenuItemDto> getItemDetails(Collection<String> itemIds) {
 
-		String path = UriComponentsBuilder.fromPath("/internal/common/food/item/integration/itemDetails").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/food/item/integration/itemDetails").build().toUriString();
 
 		TypeReference<ResponseDto<Map<String, MenuItemDto>>> returnType = new TypeReference<ResponseDto<Map<String, MenuItemDto>>>() {};
 		
@@ -102,7 +102,7 @@ public class DishClientApi {
 	}
 	
 	public PageResponse<DishMasterSearchResponseDto> searchItems(int pageNo, int limit, MenuItemSearchPdto searchPdto, boolean dataComplete, boolean status, List<RecipeType> recipeTypes, boolean receipeExists ) {
-		String path = UriComponentsBuilder.fromPath("/internal/item/integration/searchItems/{pageNo}/{limit}").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/food/item/integration/searchItems/{pageNo}/{limit}").build().toUriString();
 
 		TypeReference<ResponseDto<PageResponse<DishMasterSearchResponseDto>>> returnType = new TypeReference<ResponseDto<PageResponse<DishMasterSearchResponseDto>>>() {};
 		
