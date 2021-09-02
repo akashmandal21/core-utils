@@ -26,9 +26,13 @@ import java.util.List;
 @JsonIgnoreProperties({"pageRequest"})
 public class GenericTaskFilterDTO {
 
+
     private String name;
+    private String statusUUID;
     private String taskCategoryUUId;
-    private List<String> tagsUUIds;
+    private String taskSubCategoryUUId;//taskType
+    private List<String> tagsUUIds;//tags
+    private PaginationRequest pageRequest;
     private List<String> taskOwnerlist;
     private Boolean overridable;
     private String module;
@@ -44,7 +48,6 @@ public class GenericTaskFilterDTO {
     private Date creationDateFrom;
     private String createdBy;
     private Department department;
-    private PaginationRequest pageRequest;
     private List<String> taskStatusUUIdList;
     private List<String> taskSubStatusUUIdList;
     private List<String> taskSubCategoryUUIdList;
