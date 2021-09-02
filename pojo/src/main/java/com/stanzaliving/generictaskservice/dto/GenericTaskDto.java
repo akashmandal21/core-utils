@@ -1,10 +1,11 @@
 package com.stanzaliving.generictaskservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.taskservice.enums.TaskType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
@@ -69,7 +70,7 @@ public class GenericTaskDto extends AbstractDto {
     @NotBlank(message = "Task category Id cannot be empty")
     private String taskCategoryUUId;
 
-    @NotBlank(message = "Task Sub Category Id Name cannot be empty")
+    @NotBlank(message = "Task Sub Category Id cannot be empty")
     private String taskSubCategoryUUId;
 
     private List<String> attachmentsList;
@@ -78,5 +79,8 @@ public class GenericTaskDto extends AbstractDto {
 
     private List<String> tagsUUIdList;
 
+    private List<String> commentsUUIdList ;
+
+    private Department department;
 
 }

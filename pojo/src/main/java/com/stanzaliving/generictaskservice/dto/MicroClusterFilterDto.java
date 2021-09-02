@@ -4,10 +4,7 @@ import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author Vikas S T
- * @date 09-Aug-21
- **/
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,8 +12,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @ToString
 @NoArgsConstructor
-public class AreaTagsFilterDto {
-    private String areaTagsName;
-    private String areaCategory;
+public class MicroClusterFilterDto {
+
+    protected String cityUuid;
+
+    protected List<String> residenceIds;
+
     private PaginationRequest pageRequest;
 }

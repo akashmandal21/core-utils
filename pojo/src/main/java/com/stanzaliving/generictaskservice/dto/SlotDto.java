@@ -9,12 +9,13 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
 /**
  * @author Vikas S T
- * @date 02-Aug-21
+ * @date 25-Aug-21
  **/
 
 @Getter
@@ -40,9 +41,9 @@ public class SlotDto {
     @NotNull(message = "Is movable slot is mandatory")
     private Boolean isMovableSlot;
 
-    private LocalTime minimumSlotSize;
+    private LocalTime minimumSlotTime;
 
-    private LocalTime maximumSlotSize;
+    private LocalTime maximumSlotTime;
 
     @NotNull(message = "Is overlapping allowed is mandatory")
     private Boolean isOverLappingAllowed;
@@ -65,6 +66,9 @@ public class SlotDto {
 
     private List<TagResponseDto> tags;
 
-    private List<GenericTaskDto> allowedTasksList;
+    private List<TaskCategoryDto> allowedTasksList;
 
+    private LocalDate menuDate;
+
+    private LocalTime localTime;
 }
