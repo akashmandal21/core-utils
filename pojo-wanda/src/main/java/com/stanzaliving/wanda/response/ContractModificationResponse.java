@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.response;
 
+import com.stanzaliving.agreement.dto.response.AgreementDto;
 import com.stanzaliving.booking.dto.response.ModifyContractCommercialsResponseDto;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
 
@@ -15,4 +16,5 @@ import lombok.NoArgsConstructor;
 public class ContractModificationResponse {
 	private ModifyContractCommercialsResponseDto modifyContractCommercialsResponseDto;
 	private PaymentPlanResponseDto paymentPlanResponseDto;
+	private AgreementDto agreementDto;
 }
