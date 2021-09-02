@@ -29,5 +29,6 @@ public class FoodPreferenceComboItemDto {
 	private boolean quantifiable;
 	private boolean hideGrammage;
 	private boolean hybridBuffetItem;
-
+	private boolean vegExclusive;
+	
 }

@@ -1,5 +1,8 @@
 package com.stanzaliving.core.food.dto.response;
 
+import java.io.Serializable;
+import java.util.List;
+
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.dto.KeyValuePairDto;
 import com.stanzaliving.core.enums.UnitOfMeasurement;
@@ -9,15 +12,13 @@ import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.user.enums.EnumListing;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.io.Serializable;
-import java.util.List;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com'
@@ -80,4 +81,6 @@ public class DishMasterSearchResponseDto implements Serializable {
 	private boolean recipeExists;
 
 	private boolean stapleDish;
+	
+	private boolean vegExclusive;
 }

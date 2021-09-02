@@ -102,7 +102,7 @@ public class DishClientApi {
 	}
 	
 	public PageResponse<DishMasterSearchResponseDto> searchItems(int pageNo, int limit, MenuItemSearchPdto searchPdto, boolean dataComplete, boolean status, List<RecipeType> recipeTypes, boolean receipeExists ) {
-		String path = UriComponentsBuilder.fromPath("/internal/item/search/light/name/{pageNo}/{limit}").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/item/integration/searchItems/{pageNo}/{limit}").build().toUriString();
 
 		TypeReference<ResponseDto<PageResponse<DishMasterSearchResponseDto>>> returnType = new TypeReference<ResponseDto<PageResponse<DishMasterSearchResponseDto>>>() {};
 		

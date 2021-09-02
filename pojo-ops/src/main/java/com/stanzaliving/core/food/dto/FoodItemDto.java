@@ -131,5 +131,7 @@ public class FoodItemDto extends AbstractDto {
 	private List<ListingDto> feedback;
 
 	private String linkedIngredientId;
+	
+	private boolean vegExclusive;
 
 }

@@ -3,18 +3,19 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.io.Serializable;
+import java.util.List;
+
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.enums.Action;
 import com.stanzaliving.core.food.enums.FoodItemType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.io.Serializable;
-import java.util.List;
 
 /**
  * @author naveen.kumar
@@ -67,4 +68,6 @@ public class MenuItemDto implements Serializable {
 	private List<ListingDto> tagsList;
 
 	private Action action;
+	
+	private boolean vegExclusive;
 }

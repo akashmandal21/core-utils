@@ -1,16 +1,19 @@
 package com.stanzaliving.core.food.dto.response;
 
-import com.stanzaliving.core.base.common.dto.ListingDto;
+import java.util.List;
+
 import com.stanzaliving.core.enums.UnitOfMeasurement;
-import com.stanzaliving.core.food.dto.GstDto;
 import com.stanzaliving.core.food.dto.RecipeIngredientDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.user.enums.EnumListing;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -44,4 +47,6 @@ public class FoodItemSearchLightResponseDto {
 	private Integer gstPercentage;
 
 	private boolean recipeExists;
+	
+	private boolean vegExclusive;
 }

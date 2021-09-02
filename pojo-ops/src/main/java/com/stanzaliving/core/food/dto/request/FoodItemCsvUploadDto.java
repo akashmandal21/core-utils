@@ -95,5 +95,8 @@ public class FoodItemCsvUploadDto {
 
 	@CsvBindByName(column = "Regional_tags")
 	private String regionalTags;
+	
+	@CsvBindByName(column = "Veg_Exclusive")
+	private String vegExclusive;
 
 }

@@ -3,24 +3,26 @@
  */
 package com.stanzaliving.core.food.dto.request;
 
+import java.util.List;
+import java.util.Set;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.CommercialTag;
 import com.stanzaliving.core.food.enums.DishRegion;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.util.List;
-import java.util.Set;
 
 /**
  * @author naveen.kumar
@@ -94,5 +96,7 @@ public class FoodItemAddRequestDto {
 	private Set<String> feedback;
 
 	private String linkedIngredientId;
+	
+	private boolean vegExclusive;
 
 }
