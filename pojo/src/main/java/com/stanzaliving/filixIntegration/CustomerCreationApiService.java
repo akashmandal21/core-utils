@@ -31,7 +31,7 @@ public class CustomerCreationApiService extends CustomerApiFactory {
     @Autowired
     NotificationProducer notificationProducer;
 
-    @Value("oracle_integration_venta")
+    @Value("venta-integration")
     private String oracleIntegrationTopic;
 
     @Override
@@ -63,7 +63,7 @@ public class CustomerCreationApiService extends CustomerApiFactory {
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             CustomerApiDto customerApiDto = objectMapper.readValue(dataMap.get("data").toString(), CustomerApiDto.class);
             logger.info("customerApiDto "+customerApiDto);
-            if(null != customerApiDto && null != customerApiDto.getFilixBookingResponseDto()) {
+            if(null != customerApiDto) {
                 FilixUserDetailResponseDto filixUserDetailResponseDto=customerApiDto.getFilixUserDetailResponseDto();
                 FilixResidenceDetailsDto filixResidenceDetailsDto=customerApiDto.getFilixResidenceDetailsDto();
                 FilixBookingDto booking = customerApiDto.getBooking();
@@ -76,7 +76,7 @@ public class CustomerCreationApiService extends CustomerApiFactory {
                 mapToSend.put(email, filixUserDetailResponseDto.getEmail());
                 mapToSend.put(custentity_xxflx_gender, filixUserDetailResponseDto.getGender());
                 mapToSend.put(phone,filixUserDetailResponseDto.getMobile());
-                mapToSend.put(custentity_xxflx_nationality,"null!=student.getCountry().getNationality() ? student.getCountry().getNationality():");
+                mapToSend.put(custentity_xxflx_nationality,".");
                 mapToSend.put(bookingInfo, getBookingInfo(booking));
                 mapToSend.put(addressbook, getAddressBook(booking,filixUserDetailResponseDto));
 
@@ -90,23 +90,23 @@ public class CustomerCreationApiService extends CustomerApiFactory {
 //                }
 
 
-                    mapToSend.put(custentity_xxflx_aadhar, "");
-                    mapToSend.put(custentity_xxflx_pantype, "");
-                    mapToSend.put(custentity_xxflx_pancard, "");
-                    mapToSend.put(custentity_xxflx_otherid, "");
-                    mapToSend.put(custentity_xxflx_otheridnumber, "");
+                    mapToSend.put(custentity_xxflx_aadhar, ".");
+                    mapToSend.put(custentity_xxflx_pantype, ".");
+                    mapToSend.put(custentity_xxflx_pancard, ".");
+                    mapToSend.put(custentity_xxflx_otherid, ".");
+                    mapToSend.put(custentity_xxflx_otheridnumber, ".");
 
-                mapToSend.put(custentity_xxflx_idnumber, "");
-                mapToSend.put(accountnumber, "");
+                mapToSend.put(custentity_xxflx_idnumber, ".");
+                mapToSend.put(accountnumber, ".");
                 mapToSend.put(receivablesaccount, "AR100");
-                mapToSend.put(draccount, "");
-                mapToSend.put(pricelevel, "");
-                mapToSend.put(terms, "");
+                mapToSend.put(draccount, ".");
+                mapToSend.put(pricelevel, ".");
+                mapToSend.put(terms, ".");
                 mapToSend.put(registrationtype,"Unregistered");
                 mapToSend.put(isinactive, "F");
                 mapToSend.put(currency, "INR");
-                mapToSend.put(creditlimit,"");
-                mapToSend.put(creditholdoverride, "");
+                mapToSend.put(creditlimit,".");
+                mapToSend.put(creditholdoverride, ".");
 
                 mapToSend.put(taxregistration, getTaxregistration());
 
@@ -121,12 +121,12 @@ public class CustomerCreationApiService extends CustomerApiFactory {
     private List<Map> getTaxregistration() {
         List<Map> itemList = new ArrayList<>();
         Map<String, Object> listMap = new HashMap<>();
-        listMap.put(nexuscountry,"");
-        listMap.put(nexus, "");
-        listMap.put(nexusstate, "");
-        listMap.put(taxregistrationnumber,"");
-        listMap.put(address,"");
-        listMap.put(default_str,"");
+        listMap.put(nexuscountry,".");
+        listMap.put(nexus, ".");
+        listMap.put(nexusstate, ".");
+        listMap.put(taxregistrationnumber,".");
+        listMap.put(address,".");
+        listMap.put(default_str,".");
         itemList.add(listMap);
         return itemList;
     }
@@ -135,7 +135,7 @@ public class CustomerCreationApiService extends CustomerApiFactory {
         Map<String, List<Map>> addressBook = new HashMap<>();
         List<Map> itemList = new ArrayList<>();
         Map<String, Object> listMap = new HashMap<>();
-        listMap.put(label, "");
+        listMap.put(label, ".");
         listMap.put(defaultbilling, Boolean.FALSE);
         listMap.put(defaultshipping,Boolean.TRUE);
         listMap.put(addressbookaddress,getAddressBookAddress(bookingDto,filixUserDetailResponseDto));
@@ -149,20 +149,20 @@ public class CustomerCreationApiService extends CustomerApiFactory {
     private Object getAddressBookAddress(FilixBookingDto bookingDto,FilixUserDetailResponseDto filixUserDetailResponseDto) {
 
         Map<String, Object> mapToSend = new HashMap<>();
-        mapToSend.put(addressee,"student.getFullName()");
+        mapToSend.put(addressee,".");
         if(null != bookingDto) {
-            mapToSend.put(addr1, "StringUtils.isNotEmpty(student.getAddress().getLine1()) ? student.getAddress().getLine1() : ");
-            mapToSend.put(addr2, "StringUtils.isNotEmpty(student.getAddress().getLine2()) ? student.getAddress().getLine2() : ");
-            mapToSend.put(addr3, "StringUtils.isNotEmpty(student.getAddress().getCity().getName()) ? student.getAddress().getCity().getName() : ");
-            mapToSend.put(state,"StringUtils.isNotEmpty(student.getAddress().getState().getStateCode()) ? student.getAddress().getState().getStateCode() : ");
-            mapToSend.put(zip, "0 < student.getAddress().getZipCode() ? student.getAddress().getZipCode() : ");
+            mapToSend.put(addr1, ".");
+            mapToSend.put(addr2, ".");
+            mapToSend.put(addr3, ".");
+            mapToSend.put(state,".");
+            mapToSend.put(zip, ".");
         }
         else {
-            mapToSend.put(addr1, "");
-            mapToSend.put(addr2, "");
-            mapToSend.put(addr3, "");
-            mapToSend.put(state,"");
-            mapToSend.put(zip, "");
+            mapToSend.put(addr1, ".");
+            mapToSend.put(addr2, ".");
+            mapToSend.put(addr3, ".");
+            mapToSend.put(state,".");
+            mapToSend.put(zip, ".");
         }
 
         mapToSend.put(addrephone,filixUserDetailResponseDto.getMobile().getMobile());
