@@ -37,6 +37,8 @@ public class CreateAuditDto {
     private String residentName;
     @NotBlank(message = "Resident's room no. Is Required")
     private String roomNumber;
+    @NotBlank(message = "Resident's room uuid Is Required")
+    private String roomUuid;
     @NotNull(message = "City id is required")
     private String cityUuid;
     @NotNull(message = "MicroMarket id Is required")
