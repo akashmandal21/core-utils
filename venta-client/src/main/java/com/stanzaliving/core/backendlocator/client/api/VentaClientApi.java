@@ -351,7 +351,7 @@ public class VentaClientApi {
 
 		Object postBody = bookingId;
 
-		log.info("Reject student onboarding details for booking ID: {}", bookingId);
+		log.info("Reject student onBoarding details for booking ID: {}", bookingId);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -371,4 +371,31 @@ public class VentaClientApi {
 				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
 	}
+
+	public Map<String, String> clearKycRejectStatus(Integer bookingId)  {
+
+		Object postBody = bookingId;
+
+		log.info("Clear Reject status for booking ID: {}", bookingId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/onboarding/clear/kycReject/status")
+				.build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<Map<String,String>> returnType =
+				new ParameterizedTypeReference<Map<String,String>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
 }
