@@ -36,7 +36,9 @@ import com.stanzaliving.core.food.dto.request.FoodItemAddRequestDto;
 import com.stanzaliving.core.food.dto.request.FoodItemGetRequestDto;
 import com.stanzaliving.core.food.dto.request.FoodItemSearchLightRequestDto;
 import com.stanzaliving.core.food.dto.request.FoodItemUpdateRequestDto;
+import com.stanzaliving.core.food.dto.request.MenuItemSearchRequestDto;
 import com.stanzaliving.core.food.dto.response.CategoryWiseMealItems;
+import com.stanzaliving.core.food.dto.response.DishMasterSearchResponseDto;
 import com.stanzaliving.core.food.dto.response.FoodItemSearchDataCountDto;
 import com.stanzaliving.core.food.dto.response.FoodItemSearchLightResponseDto;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
@@ -368,6 +370,32 @@ public class DishFoodItemClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 		
 	}
+	
+	public PageResponse<DishMasterSearchResponseDto> searchDish(int pageNo, int limit, MenuItemSearchRequestDto searchRequestDto, Boolean dataComplete, Boolean status, List<RecipeType> recipeTypes,
+			Boolean recipeExists) {
+		
+		String path = UriComponentsBuilder.fromPath("/internal/item/search/dish/{pageNo}/{limit}").build().toUriString();
+
+		TypeReference<ResponseDto<PageResponse<DishMasterSearchResponseDto>>> returnType = new TypeReference<ResponseDto<PageResponse<DishMasterSearchResponseDto>>>() {};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		searchRequestDto.setDataComplete(dataComplete);
+		searchRequestDto.setStatus(status);
+		searchRequestDto.setRecipeTypes(recipeTypes);
+		searchRequestDto.setRecipeExists(recipeExists);
+
+		ResponseDto<PageResponse<DishMasterSearchResponseDto>> responseDto = null;
+
+		try {
+			 responseDto = restClient.post(path, queryParams, searchRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while searching food item", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
+		
+	}
+
 
 	public Collection<MenuItemDto> getItemListingForMealType(MealType mealType) {
 

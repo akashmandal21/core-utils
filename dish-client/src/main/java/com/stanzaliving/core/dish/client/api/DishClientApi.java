@@ -208,6 +208,24 @@ public class DishClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus()) ? responseDto.getData() : null;
 	}
 	
+	public void uploadFoodItemFeedbackSuggestionsCsv(MultipartFile file) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/feedback/upload/csv").build().toUriString();
+
+		TypeReference<Void> returnType = new TypeReference<Void>() {
+		};
+
+		try {
+
+			restClient.post(path, null, file, null, null, returnType, MediaType.MULTIPART_FORM_DATA);
+
+		} catch (Exception e) {
+
+			log.error("Error while adding item from Csv", e);
+		}
+	}
+	
+	
 	public void savePackaging(PackagingRequestDto packagingRequestDto) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/packaging/save").build().toUriString();

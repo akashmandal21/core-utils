@@ -1,21 +1,25 @@
 package com.stanzaliving.core.food.dto.request;
 
+import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
+
+import javax.validation.constraints.NotNull;
+
 import com.stanzaliving.core.dto.SortDto;
 import com.stanzaliving.core.food.dto.OperatorValueDto;
 import com.stanzaliving.core.food.enums.DishRegion;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.food.enums.RecipeType;
 import com.stanzaliving.core.operations.enums.MealType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.util.Set;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
@@ -64,4 +68,10 @@ public class MenuItemSearchRequestDto implements Serializable {
 	private FoodItemBasePreference basePreference;
 
 	private SortDto sort;
+	
+	
+	private Boolean dataComplete;
+	private Boolean status;
+	private List<RecipeType> recipeTypes;
+	private Boolean recipeExists;
 }
