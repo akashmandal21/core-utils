@@ -20,6 +20,4 @@ public class UpcomingBookingsDto {
     String contractStartDate;
 
     String contractEndDate;
-
 }
-
