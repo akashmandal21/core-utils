@@ -68,5 +68,5 @@ public class AdditionalPropertiesDto {
     private TicketChipColorDto ticketChipColorDto;
     private List<AdditionalPropertiesDto> subTickets;
     private Integer version;
-    private String currentTicketLevelUuid;
+    private String currentResolutionLevelUuid;
 }

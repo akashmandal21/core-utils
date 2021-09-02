@@ -4,13 +4,14 @@ import com.stanzaliving.core.base.enums.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.sql.Array;
 import java.util.*;
 
 @Getter
 @AllArgsConstructor
 public enum SupportRole {
 
-    SIGMA_CUSTOMER_SUPPORT("SIGMA_CUSTOMER_SUPPORT", AccessLevel.COUNTRY, Arrays.asList(SupportModule.BLISS_DASHBOARD)),
+    SIGMA_CUSTOMER_SUPPORT("SIGMA_CUSTOMER_SUPPORT", AccessLevel.COUNTRY, Collections.emptyList()),
     SUPPORT_TICKET_VIEW_ALL("SUPPORT_TICKET_VIEW_ALL", AccessLevel.COUNTRY, Arrays.asList(SupportModule.BLISS_DASHBOARD)),
     SUPPORT_TICKET_EDIT_ALL("SUPPORT_TICKET_EDIT_ALL", AccessLevel.COUNTRY, Arrays.asList(SupportModule.BLISS_DASHBOARD, SupportModule.TICKET_ESCALATION)),
     SUPPORT_TICKET_VIEW_CITY("SUPPORT_TICKET_VIEW_CITY", AccessLevel.CITY, Arrays.asList(SupportModule.BLISS_DASHBOARD)),
