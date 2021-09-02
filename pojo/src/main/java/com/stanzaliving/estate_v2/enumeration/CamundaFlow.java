@@ -22,7 +22,7 @@ public enum CamundaFlow {
         this.id = id;
     }
 
-    public static List<ModulesDto> getAlphaModules() {
+    public static List<ModulesDto> getPgModules() {
         List<ModulesDto> modulesList=new ArrayList<>();
         modulesList.add(new ModulesDto(Module.INITIAL_BED_TEST.getName(),Module.INITIAL_BED_TEST.getUuid()));
         modulesList.add(new ModulesDto(Module.SALES_REVIEW.getName(),Module.SALES_REVIEW.getUuid()));
@@ -32,13 +32,13 @@ public enum CamundaFlow {
 
     }
 
-    public static List<ModulesDto> getBetaModules() {
+    public static List<ModulesDto> getApartmentModules() {
         List<ModulesDto> modulesList=new ArrayList<>();
         modulesList.add(new ModulesDto(Module.LEGAL_DEVIATION.getName(),Module.LEGAL_DEVIATION.getUuid()));
         return modulesList;
     }
 
-    public static List<ModulesDto> getGammaModules() {
+    public static List<ModulesDto> getSocietyModules() {
       return Collections.emptyList();
     }
     public static List<CamundaFlow> getCamundaFlow() {
