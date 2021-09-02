@@ -1,5 +1,6 @@
 package com.stanzaliving.generictaskservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.taskservice.enums.TaskType;
@@ -43,6 +44,10 @@ public class GenericTemplateDto extends AbstractDto {
 
     @NotBlank(message = "subCategoryId cannot be empty")
     private String templateSubCategoryUuid;
+    private Department department;
+
+    private List<String> commentsUUIdList ;
+
     private Department department;
 
 }
