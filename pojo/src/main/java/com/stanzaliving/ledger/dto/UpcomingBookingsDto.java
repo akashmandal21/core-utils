@@ -17,7 +17,7 @@ public class UpcomingBookingsDto {
 
     String residentId;
 
-    Date contractStartDate;
+    String contractStartDate;
 
-    Date contractEndDate;
+    String contractEndDate;
 }
