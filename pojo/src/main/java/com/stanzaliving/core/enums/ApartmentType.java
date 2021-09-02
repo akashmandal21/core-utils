@@ -10,11 +10,11 @@ import java.util.Map;
 @AllArgsConstructor
 public enum ApartmentType {
 
-    ONE_BHK("1BHK"),
-    TWO_BHK("2BHK"),
-    THREE_BHK("3BHK"),
-    FOUR_BHK("4BHK"),
-    FIVE_BHK("5BHK");
+    ONE_BHK("1 BHK"),
+    TWO_BHK("2 BHK"),
+    THREE_BHK("3 BHK"),
+    FOUR_BHK("4 BHK"),
+    FIVE_BHK("5 BHK");
 
 
     private static final Map<String, ApartmentType> map = new HashMap<>();
