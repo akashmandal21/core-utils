@@ -27,8 +27,7 @@ public class RCActivityDTO {
 
     String updatedBy;
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss",timezone = "Asia/Kolkata")
-    Date updatedAt;
+    String updatedAt;
 
     String rejectionReason;
 }
