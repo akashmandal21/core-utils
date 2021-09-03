@@ -7,6 +7,7 @@ import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
 import com.stanzaliving.core.user.enums.Gender;
 import com.stanzaliving.filixIntegration.Dto.*;
+import com.stanzaliving.filixIntegration.Enum.DocumentUploadType;
 import com.stanzaliving.filixIntegration.Enum.EventType;
 import com.stanzaliving.filixIntegration.Enum.OracleServiceOwner;
 import org.apache.commons.lang3.StringUtils;
@@ -63,38 +64,56 @@ public class CustomerCreationApiService extends CustomerApiFactory {
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             CustomerApiDto customerApiDto = objectMapper.readValue(dataMap.get("data").toString(), CustomerApiDto.class);
             logger.info("customerApiDto "+customerApiDto);
+
             if(null != customerApiDto) {
                 FilixUserDetailResponseDto filixUserDetailResponseDto=customerApiDto.getFilixUserDetailResponseDto();
                 FilixResidenceDetailsDto filixResidenceDetailsDto=customerApiDto.getFilixResidenceDetailsDto();
+                FilixResidentKYCDocumentResponseDto residentKYCDocumentResponseDto=customerApiDto.getResidentKYCDocumentResponseDto();
+                FilixOnBoardingGetResponse onBoardingGetResponse=customerApiDto.getOnBoardingGetResponse();
                 FilixBookingDto booking = customerApiDto.getBooking();
                 mapToSend.put(entityid,booking.getResidentId() );
                 mapToSend.put(isPerson, Boolean.TRUE );
-                mapToSend.put(salutation, Gender.MALE.toString().equals(filixUserDetailResponseDto.getGender()) ?"Mr":"Mrs" );
+                mapToSend.put(salutation, Gender.MALE.equals(onBoardingGetResponse.getUserProfileDto().getGender()) ?"Mr":"Mrs" );
                 mapToSend.put(firstName, filixUserDetailResponseDto.getFirstName());
                 mapToSend.put(lastname, StringUtils.isNotEmpty(filixUserDetailResponseDto.getLastName()) ? filixUserDetailResponseDto.getLastName() : ".");
                 mapToSend.put(custentity_xxflx_dateofbirth,filixUserDetailResponseDto.getBirthday());
                 mapToSend.put(email, filixUserDetailResponseDto.getEmail());
                 mapToSend.put(custentity_xxflx_gender, filixUserDetailResponseDto.getGender());
                 mapToSend.put(phone,filixUserDetailResponseDto.getMobile());
-                mapToSend.put(custentity_xxflx_nationality,".");
+                mapToSend.put(custentity_xxflx_nationality,onBoardingGetResponse.getUserProfileDto().getNationality());
                 mapToSend.put(bookingInfo, getBookingInfo(booking));
-                mapToSend.put(addressbook, getAddressBook(booking,filixUserDetailResponseDto));
+                mapToSend.put(addressbook, getAddressBook(onBoardingGetResponse));
 
-//                if(null != customerApiDto.getStudentOnboardingDetails()) {
-//                    FilixIntegrationStudentOnboardingDetailsDto studentOnboardingDetails = customerApiDto.getStudentOnboardingDetails();
-//                    mapToSend.put(custentity_xxflx_aadhar, StringUtils.isNotEmpty(studentOnboardingDetails.getAadhar()) ? studentOnboardingDetails.getAadhar() : "");
-//                    mapToSend.put(custentity_xxflx_pantype, StringUtils.isNotEmpty(studentOnboardingDetails.getPanType()) ? studentOnboardingDetails.getPanType() : "");
-//                    mapToSend.put(custentity_xxflx_pancard, StringUtils.isNotEmpty(studentOnboardingDetails.getPanCard()) ? studentOnboardingDetails.getPanCard() :"");
-//                    mapToSend.put(custentity_xxflx_otherid, StringUtils.isNotEmpty(studentOnboardingDetails.getOtherIdName()) ? studentOnboardingDetails.getOtherIdName() : "");
-//                    mapToSend.put(custentity_xxflx_otheridnumber, StringUtils.isNotEmpty(studentOnboardingDetails.getOtherId()) ? studentOnboardingDetails.getOtherId() : "");
-//                }
+                if(Objects.nonNull(residentKYCDocumentResponseDto)) {
+                    String panNumber=null;
+                    String aadharNumber=null;
+                    if(null!=residentKYCDocumentResponseDto.getFileResponseDtos()) {
+                        for (KYCListingResponseDto kycListingResponse : residentKYCDocumentResponseDto.getFileResponseDtos()) {
+                            if (DocumentUploadType.PAN.equals(kycListingResponse.getDocumentUploadType())) {
+                                panNumber = getPanNumber(kycListingResponse.getMetadata(),panNumber);
+                                logger.info("pan  " + panNumber);
+                            }
+                            if(DocumentUploadType.ADHAAR_CARD.equals(kycListingResponse.getDocumentUploadType())){
+                                aadharNumber=getPanNumber(kycListingResponse.getMetadata(),aadharNumber);
+                                logger.info("aadharNumber  " + aadharNumber);
+                            }
 
+                        }
+                    }
+                    mapToSend.put(custentity_xxflx_aadhar,Objects.isNull(aadharNumber)?".":aadharNumber);
+                    mapToSend.put(custentity_xxflx_pantype,".");
+                    mapToSend.put(custentity_xxflx_pancard,Objects.isNull(panNumber)?".":panNumber);
+                    mapToSend.put(custentity_xxflx_otherid, ".");
+                    mapToSend.put(custentity_xxflx_otheridnumber,".");
+                }
 
+                else {
                     mapToSend.put(custentity_xxflx_aadhar, ".");
                     mapToSend.put(custentity_xxflx_pantype, ".");
                     mapToSend.put(custentity_xxflx_pancard, ".");
                     mapToSend.put(custentity_xxflx_otherid, ".");
                     mapToSend.put(custentity_xxflx_otheridnumber, ".");
+                }
 
                 mapToSend.put(custentity_xxflx_idnumber, ".");
                 mapToSend.put(accountnumber, ".");
@@ -114,6 +133,7 @@ public class CustomerCreationApiService extends CustomerApiFactory {
         } catch (IOException e) {
             logger.error("Error occurred in getPayloadForCustomerCreation {}", e.getStackTrace());
         }
+        logger.info("final map for filix "+mapToSend);
         return mapToSend;
     }
 
@@ -131,14 +151,14 @@ public class CustomerCreationApiService extends CustomerApiFactory {
         return itemList;
     }
 
-    private Object getAddressBook(FilixBookingDto bookingDto,FilixUserDetailResponseDto filixUserDetailResponseDto) {
+    private Object getAddressBook(FilixOnBoardingGetResponse onBoardingGetResponse) {
         Map<String, List<Map>> addressBook = new HashMap<>();
         List<Map> itemList = new ArrayList<>();
         Map<String, Object> listMap = new HashMap<>();
         listMap.put(label, ".");
         listMap.put(defaultbilling, Boolean.FALSE);
         listMap.put(defaultshipping,Boolean.TRUE);
-        listMap.put(addressbookaddress,getAddressBookAddress(bookingDto,filixUserDetailResponseDto));
+        listMap.put(addressbookaddress,getAddressBookAddress(onBoardingGetResponse));
         itemList.add(listMap);
 
         addressBook.put(items, itemList);
@@ -146,26 +166,19 @@ public class CustomerCreationApiService extends CustomerApiFactory {
         return addressBook;
     }
 
-    private Object getAddressBookAddress(FilixBookingDto bookingDto,FilixUserDetailResponseDto filixUserDetailResponseDto) {
+    private Object getAddressBookAddress(FilixOnBoardingGetResponse onBoardingGetResponse) {
 
         Map<String, Object> mapToSend = new HashMap<>();
         mapToSend.put(addressee,".");
-        if(null != bookingDto) {
-            mapToSend.put(addr1, ".");
-            mapToSend.put(addr2, ".");
+        if(null != onBoardingGetResponse) {
+            mapToSend.put(addr1, Objects.isNull(onBoardingGetResponse.getUserProfileDto().getAddress().getAddressLine1())?".":onBoardingGetResponse.getUserProfileDto().getAddress().getAddressLine1());
+            mapToSend.put(addr2, Objects.isNull(onBoardingGetResponse.getUserProfileDto().getAddress().getAddressLine2())?".":onBoardingGetResponse.getUserProfileDto().getAddress().getAddressLine2());
             mapToSend.put(addr3, ".");
-            mapToSend.put(state,".");
-            mapToSend.put(zip, ".");
-        }
-        else {
-            mapToSend.put(addr1, ".");
-            mapToSend.put(addr2, ".");
-            mapToSend.put(addr3, ".");
-            mapToSend.put(state,".");
-            mapToSend.put(zip, ".");
+            mapToSend.put(state,Objects.isNull(onBoardingGetResponse.getUserProfileDto().getAddress().getStateName())?".":onBoardingGetResponse.getUserProfileDto().getAddress().getStateName());
+            mapToSend.put(zip,Objects.isNull(onBoardingGetResponse.getUserProfileDto().getAddress().getPostalCode())?".":onBoardingGetResponse.getUserProfileDto().getAddress().getPostalCode());
         }
 
-        mapToSend.put(addrephone,filixUserDetailResponseDto.getMobile().getMobile());
+        mapToSend.put(addrephone,Objects.isNull(onBoardingGetResponse.getUserProfileDto().getMobile())?".":onBoardingGetResponse.getUserProfileDto().getMobile());
         mapToSend.put(country,"IN");
 
         return mapToSend;
@@ -177,9 +190,29 @@ public class CustomerCreationApiService extends CustomerApiFactory {
         mapToSend.put(bookingtype, bookingDto.getBookingType().toString());
         mapToSend.put(startdate, DateUtil.convertDateToString(bookingDto.getContractStartDate(), DateUtil.dd_MMM_yyyy_Slash_Format));
         mapToSend.put(enddate, DateUtil.convertDateToString(bookingDto.getContractEndDate(), DateUtil.dd_MMM_yyyy_Slash_Format));
-        mapToSend.put(agreementurl, "StringUtils.isNoneEmpty(student.getAgreementUrl()) ? student.getAgreementUrl() : ");
-        mapToSend.put(addendumurl, "StringUtils.isNoneEmpty(student.getAddendumUrl()) ? student.getAddendumUrl() : ");
+        mapToSend.put(agreementurl, ".");
+        mapToSend.put(addendumurl, ".");
         return Arrays.asList(mapToSend);
+    }
+    private String getPanNumber(String metaData,String type){
+        metaData=metaData.replaceAll("\\{", "").replaceAll("\\}","").replaceAll("\"", "");
+        Map<String, String> hashMap = new HashMap<String, String>();
+
+        String parts[] = metaData.split(",");
+        for (String part : parts) {
+
+            String metadata[] = part.split(":");
+
+            String key = metadata[0].trim();
+            String value = metadata[1].trim();
+
+            hashMap.put(key, value);
+        }
+
+        logger.info(" HashMap: " + hashMap);
+        String panNumber=hashMap.get(type);
+        logger.info(" panNumberValue " + panNumber);
+        return panNumber;
     }
 
 

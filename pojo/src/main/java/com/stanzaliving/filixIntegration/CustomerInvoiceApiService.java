@@ -59,13 +59,16 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
 
     private Map<String, Object> getPayloadForInvoice(Map<Object, Object> dataMap) {
         Map<String, Object> mapToSend = new HashMap<>();
+        logger.info("start map filling " );
         try {
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            logger.info("dataMap "+dataMap);
             CustomerApiDto customerApiDto = objectMapper.readValue(dataMap.get("data").toString(), CustomerApiDto.class);
+            logger.info("customerApiDto "+customerApiDto );
             if(null != customerApiDto && null != customerApiDto.getFilixInvoiceDto()) {
                 FilixInvoiceDto invoice = customerApiDto.getFilixInvoiceDto();
                 mapToSend.put(stanzaId, String.valueOf(invoice.getInventoryInvoiceId()));
-                mapToSend.put(date, DateUtil.convertDateToString(DateUtil.convertToDate(invoice.getIssueDate()), DateUtil.dd_MMM_yyyy_Slash_Format) );
+                mapToSend.put(date, null==invoice.getIssueDate()?".":DateUtil.convertDateToString(DateUtil.convertToDate(invoice.getIssueDate()), DateUtil.dd_MMM_yyyy_Slash_Format) );
                 mapToSend.put(startDate, null != invoice.getFromDate() ? DateUtil.convertDateToString(DateUtil.convertToDate(invoice.getFromDate()) , DateUtil.dd_MMM_yyyy_Slash_Format) : "");
                 mapToSend.put(endDate, null != invoice.getToDate() ? DateUtil.convertDateToString(DateUtil.convertToDate(invoice.getToDate()), DateUtil.dd_MMM_yyyy_Slash_Format) : "");
                 if(null == invoice.getFromDate() && null == invoice.getToDate()) {
@@ -74,9 +77,9 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
                     mapToSend.put(invoiceType,invoice.getInvoiceType());
                 }
                 mapToSend.put(bookingid,"");
-                mapToSend.put(tranid, "String.valueOf(invoice.getStanzaInvoiceId())");
+                mapToSend.put(tranid, "");
                 mapToSend.put(dueDate,"");
-                mapToSend.put(customer, invoice.getResidentId());
+                mapToSend.put(customer,invoice.getResidentId());
                 mapToSend.put(class_str, "");
                 mapToSend.put(department, "");
                 mapToSend.put(excahngeRate,1.00);
@@ -90,6 +93,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
         } catch (IOException e) {
             logger.error("Error occurred in getPayloadForInvoice {}", e);
         }
+        logger.info("final mapToSend "+mapToSend );
         return mapToSend;
     }
 
@@ -125,9 +129,16 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
         else {
             //Services with 18% GST
             //TODO: Constants.SERVICE_INVOICE_GST_PERCENTAGE)
-            double taxAmount = invoice.getTotalAmount() - (invoice.getTotalAmount() * (100 / (100 +18 )));
-            Double nonGstInvoiceAmount = invoice.getTotalAmount() - taxAmount;
-            map = createLineItemMap(invoice, null, nonGstInvoiceAmount, lineId++, 0D, 0, "");
+            if(Objects.isNull(invoice.getTotalAmount())){
+                map = createLineItemMap(invoice, null, 0, lineId++, 0D, 0, "");
+            }
+            else {
+                double taxAmount = invoice.getTotalAmount() - (invoice.getTotalAmount() * (100 / (100 + 18)));
+                Double nonGstInvoiceAmount = invoice.getTotalAmount() - taxAmount;
+
+                map = createLineItemMap(invoice, null, nonGstInvoiceAmount, lineId++, 0D, 0, "");
+            }
+
 
         }
 
