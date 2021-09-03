@@ -23,7 +23,5 @@ public class HomeScreenResponse {
 
 	private ComplaintListingDto complaintListingDto;
 
-	private boolean interestMenuVisiblity;
-
 	private boolean interestBanner;
 }
