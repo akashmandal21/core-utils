@@ -44,11 +44,11 @@ public class PaymentPlanLineItem {
 
     private String uuid;
 
-    private Date createdAt;
+   // private Date createdAt;
 
     private String createdBy;
 
-    private Date updatedAt;
+    //private Date updatedAt;
 
     private String updatedBy;
 

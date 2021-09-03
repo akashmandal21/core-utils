@@ -67,16 +67,19 @@ public class AgreementClientApi {
 
 		try {
 
-			log.info("create agreement for referenceId ", bookingUUid);
+			log.info("create agreement for referenceId {}", bookingUUid);
 
 			Object postBody = null;
-			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			queryParams.add("bookingUuid", bookingUUid);
-
-			final HttpHeaders headerParams = new HttpHeaders();
-			// create path and map variables
+			
 			final Map<String, Object> uriVariables = new HashMap<>();
+	        uriVariables.put("booking-uuid", bookingUUid);
+
 			String path = UriComponentsBuilder.fromPath("/agreement-booking/{booking-uuid}/v1/create-agreement").buildAndExpand(uriVariables).toUriString();
+			
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+	        final HttpHeaders headerParams = new HttpHeaders();
+	        
 			final String[] accepts = {
 					"*/*"
 			};
@@ -129,7 +132,7 @@ public class AgreementClientApi {
 
     	try {
 
-    		log.info("expire agreement for referenceId ", documentRequestDTO.getReferenceId());
+    		log.info("expire agreement for referenceId {} with payload {} ", documentRequestDTO.getReferenceId(), documentRequestDTO.toString());
 
     		Object postBody = documentRequestDTO;
     		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();

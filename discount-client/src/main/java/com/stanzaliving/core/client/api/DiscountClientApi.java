@@ -134,7 +134,7 @@ public class DiscountClientApi {
 		return null;
 	}
 
-	public ResponseDto<DiscountDto> getDiscountDetail(String discountCode, String token) {
+	public ResponseDto<DiscountDto> getDiscountDetail(String discountCode) {
 
 		try {
 			Object postBody = null;
@@ -148,7 +148,7 @@ public class DiscountClientApi {
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			final HttpHeaders headerParams = new HttpHeaders();
-			headerParams.add("Cookie", "token=" + token);
+	
 			final String[] accepts = { "*/*" };
 
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
@@ -160,4 +160,28 @@ public class DiscountClientApi {
 		}
 		return null;
 	}
+
+	public ResponseDto<String> removeDiscount(String bookingUuid) {
+
+		try {
+			Object postBody = null;
+			log.info("Received request to remove discount for bookingUuid {}", bookingUuid);
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("bookingUuid", bookingUuid);
+			String path = UriComponentsBuilder.fromPath("/remove/{bookingUuid}").buildAndExpand(uriVariables)
+					.toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.DELETE, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while removing discount : ", e);
+		}
+		return null;
+	}
+
 }
