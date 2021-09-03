@@ -18,13 +18,10 @@ import java.util.List;
 @AllArgsConstructor
 public class BulkAddDeleteDto {
 
-    @Valid
     private LabelValueDto<AreaOfUse> areaOfUse;
 
-    @Valid
     private LabelValueDto<BoqItemProvider> doneBy;
 
-    @Valid
     private LabelValueDto<BoqItemProvider> budgetDoneBy;
 
     @NotBlank
