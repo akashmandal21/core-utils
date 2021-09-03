@@ -33,22 +33,23 @@ public class GenericTemplateDto extends AbstractDto {
 
     private String description;
 
-    private String entityUUId;
+    private String entityUuid;
 
     private String entityType;
     private boolean autoTaskCompletion;
 
-    private String autoTaskCompletionEventUUId;
+    private String autoTaskCompletionEventUuid;
     @NotBlank(message = "categoryId cannot be empty")
     private String templateCategoryUuid;
 
     @NotBlank(message = "subCategoryId cannot be empty")
     private String templateSubCategoryUuid;
-    private Department department;
-
-    private List<String> commentsUUIdList ;
 
     private Department department;
+
+    private List<String> commentsUuidList;
+
+
 
 }
 
