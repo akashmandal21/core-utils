@@ -20,7 +20,7 @@ public class GlobalBoqListingRequestFilterDto {
     private int pageNo = 1;
 
     @Builder.Default
-    private int pageSize = 20;
+    private int pageSize = 10000;
 
     @Builder.Default
     private String sortBy = "PropertyName";
@@ -52,6 +52,6 @@ public class GlobalBoqListingRequestFilterDto {
 
     private String uuid;
 
-    //note: not to take below value in an API request, used to searching purposes
+    //note: not to take below value in an API request, used for searching purposes
     private List<String> propertyUuids;
 }
