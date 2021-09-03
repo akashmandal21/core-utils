@@ -3,6 +3,7 @@ package com.stanzaliving.wanda.venta.response;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import com.stanzaliving.booking.enums.PaymentTerm;
 
@@ -36,7 +37,7 @@ public class CommercialsResponseDto {
     private String propertyType;
     private Double maintenanceFeeAdjustedInSD;
     private DateRange stayLockInRange;
-    
+    private BookingType bookingType;
     private String subContract1StartDate; //add 
     private String subContract1EndDate; //add
     private MonthlyFeeDto subContract2MonthlyFee; //add

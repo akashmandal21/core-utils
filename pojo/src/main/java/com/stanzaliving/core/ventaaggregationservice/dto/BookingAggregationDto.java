@@ -82,4 +82,5 @@ public class BookingAggregationDto {
     private String bookingAgreementUrl;
     private String bookingSubType;
     private boolean exceptionOnboarding;
+    private boolean allowExceptionalOnboarding;
 }
