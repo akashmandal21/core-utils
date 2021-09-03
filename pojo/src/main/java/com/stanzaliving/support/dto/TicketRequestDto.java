@@ -1,5 +1,6 @@
 package com.stanzaliving.support.dto;
 
+import com.stanzaliving.core.base.enums.Department;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,4 +35,7 @@ public class TicketRequestDto {
     private String residenceUuid;
 
     private List<TagDto> tagDtos;
+
+    private Department department;
+
 }
