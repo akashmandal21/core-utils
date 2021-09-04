@@ -1,11 +1,13 @@
 package com.stanzaliving.core.security.dto;
 
+import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.security.enums.RequestReason;
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 
 @Builder
 @Data
@@ -23,8 +25,7 @@ public class RequestNudgeMetadataDTO {
 
     private String startTime;
 
-    //TODO : will replace with enum when available
-    private String nextMealType;
+    private MealType nextMealType;
 
     private RequestReason reasonType;
 

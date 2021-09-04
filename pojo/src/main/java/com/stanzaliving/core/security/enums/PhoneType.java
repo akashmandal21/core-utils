@@ -4,7 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum PhoneType {
-    FEATURE_PHONE("Feature-phone");
+    FEATURE_PHONE("Feature-phone"),
+    SMART_PHONE("Smart-phone");
 
     private final String label;
 

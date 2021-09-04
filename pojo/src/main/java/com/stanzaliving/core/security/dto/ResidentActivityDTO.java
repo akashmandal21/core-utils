@@ -1,6 +1,8 @@
 package com.stanzaliving.core.security.dto;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import com.stanzaliving.core.security.enums.ResidentActivityType;
 import lombok.AllArgsConstructor;
@@ -18,9 +20,9 @@ public class ResidentActivityDTO {
 
     private ResidentActivityType residentActivityType;
 
-    private String description;
-
     private String residentActivityDetails;
 
-    private LocalDateTime activityTime;
+    private LocalDate activityDate;
+
+    private LocalTime activityTime;
 }

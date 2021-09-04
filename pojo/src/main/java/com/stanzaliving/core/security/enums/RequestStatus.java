@@ -12,7 +12,8 @@ public enum RequestStatus {
     APPROVED("Approved"),
     PENDING("Pending"),
     REJECTED("Rejected"),
-    CANCELLED("Cancelled");
+    CANCELLED("Cancelled"),
+    AUTO_REJECTED("Auto-rejected");
 
     private final String label;
 

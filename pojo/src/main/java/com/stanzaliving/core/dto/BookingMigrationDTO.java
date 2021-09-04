@@ -15,30 +15,21 @@ public class BookingMigrationDTO {
     @JsonSetter(value = "BOOKING_ID")
     private Integer bookingNumber;
 
-    @JsonSetter(value = "CONTRACT_START_DATE")
-    private Date contractStartDate;
-
-    @JsonSetter(value = "CONTRACT_END_DATE")
-    private Date contractEndDate;
-
-    @JsonSetter(value = "BOOKING_STATUS")
-    private String onboardingStatus;
+    @JsonSetter(value = "BOOKING_TYPE")
+    private Integer bookingType;
 
     @JsonSetter(value = "STUDENT_ID")
-    private String residentCode;
+    private String residentId;
 
     @JsonSetter(value = "INVENTORY_ID")
     private Integer inventoryId;
 
-    @JsonSetter(value = "BOOKING_TYPE")
-    private Integer bookingType;
+    @JsonSetter(value = "ROOM_ID")
+    private Integer roomId;
 
-    @JsonSetter(value = "CREATED")
-    private Date createdAt;
+    @JsonSetter(value = "HAS_MOVED_IN")
+    private boolean hasMovedIn;
 
-    @JsonSetter(value = "ACTUAL_CONTRACT_END_DATE")
-    private Date actualContractEndDate;
-
-    @JsonSetter(value = "USER_UUID")
-    private String userUuid;
+    @JsonSetter(value = "CONTRACT_END_DATE")
+    private Date contractEndDate;
 }
