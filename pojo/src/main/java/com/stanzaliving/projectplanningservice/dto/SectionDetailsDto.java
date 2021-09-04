@@ -42,6 +42,8 @@ public class SectionDetailsDto extends AbstractDto {
 
     protected Date updatedAt;
 
+    private String propertyUuid;
+
     private List<SectionDetailsDto> subTasks;
 
 }
