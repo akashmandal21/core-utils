@@ -43,7 +43,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
         abstractOracleDto.setEventType(EventType.CREATE);
         abstractOracleDto.setServiceOwner(OracleServiceOwner.CUSTOMER_INVOICE);
         logger.info("In CustomerInvoiceApiService packet to produce {} ", abstractOracleDto);
-        notificationProducer.publish(oracleIntegrationTopic,"student",new KafkaDTO("filix-integration", "student", AbstractOracleDto.class.getName(), abstractOracleDto));
+        notificationProducer.publish(oracleIntegrationTopic,"student",new KafkaDTO("filix-integration", "invoice", AbstractOracleDto.class.getName(), abstractOracleDto));
 
     }
 
@@ -53,7 +53,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
         kafkaDto.setContextArgs(getPayloadForInvoice(dataMap));
         kafkaDto.setEventType(EventType.UPDATE);
         kafkaDto.setServiceOwner(OracleServiceOwner.CUSTOMER_INVOICE);
-        notificationProducer.publish(oracleIntegrationTopic,"student",new KafkaDTO("filix-integration", "student", AbstractOracleDto.class.getName(), kafkaDto));
+        notificationProducer.publish(oracleIntegrationTopic,"student",new KafkaDTO("filix-integration", "invoice", AbstractOracleDto.class.getName(), kafkaDto));
 
     }
 

@@ -102,27 +102,15 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
 //		    		Transaction transaction = transactionService.findByStatusAndType(booking.getBookingId(), Constants.COMPLETED, "BOOKING");
 //		    		mapToSend.put(account, "100001"); //pending
                     mapToSend.put(account, getAccount(transaction.getPaymentMode()));
-                    mapToSend.put(stanzaId, "invoice_adjustment_"+"booking.getBookingId()");//pending
+                    mapToSend.put(stanzaId, "");//pending
                     mapToSend.put(date, DateUtil.convertDateToString(new Date(), DateUtil.dd_MMM_yyyy_Slash_Format));
-                    mapToSend.put(bookingid, "String.valueOf(booking.getBookingId())");
-                    mapToSend.put(customer, "booking.getStudent().getStudentId()");
-                    mapToSend.put(paymentOption, "");
-                    mapToSend.put(applyDeposit, "getApplyDeposit(sdAdjusted, booking)");
-                    mapToSend.put(paymentAmount, 0);
-                    mapToSend.put(extraFields,"getExtraFields(booking.getStudent().getStudentId()");
-
-                }else {
-                    FilixPaymentTransactionRequestDto transaction = customerApiDto.getFilixPaymentTransactionRequestDto();
-//                    FilixIntegrationStudentDto student = customerApiDto.getStudent();
-//		        	mapToSend.put(account, "100001");
-                    mapToSend.put(account, getAccount(transaction.getPaymentMode()));
-                    mapToSend.put(stanzaId, String.valueOf(transaction.getTransactionId()));
-                    mapToSend.put(date, "DateUtil.convertDateToString(transaction.getCompletionDate(), DateUtil.dd_MMM_yyyy_Slash_Format)");
-                    mapToSend.put(bookingid, "String.valueOf(transaction.getBookingId())");
-                    mapToSend.put(customer, "student.getStudentId()");
-                    mapToSend.put(paymentOption, transaction.getPaymentMode().getPaymentModeDesc());
+                    mapToSend.put(bookingid,transaction.getTransactionId());
+                    mapToSend.put(customer, "");
+                    mapToSend.put(paymentOption,transaction.getPaymentMode().getPaymentModeDesc());
+                    mapToSend.put(applyDeposit,"");
                     mapToSend.put(paymentAmount, transaction.getAmount());
-                    mapToSend.put(extraFields,"getExtraFields(student.getStudentId())");
+                    mapToSend.put(extraFields,"");
+
                 }
             }
         } catch (IOException e) {
@@ -131,28 +119,6 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
 
         return mapToSend;
     }
-
-//    private List<Map<String, Object>> getApplyDeposit(Double sdAdjusted, FilixIntegrationBookingDto booking) {
-//        boolean isWpBooking = BookingUtil.isWpBooking(booking.getBookingType());
-//        Invoice invoice = invoiceService.fetchByInvoiceTypeAndBookingId(isWpBooking ? InvoiceType.SECURITY_DEPOSIT : InvoiceType.BOOKING, booking.getBookingId());
-//        List<Map> securityLedgers = securityLedgerDao.findNarrationByBookingIds(Arrays.asList(booking.getBookingId()));
-//        Map securityLedger = securityLedgers.get(0);
-//        String narration = (String) securityLedger.get("narration");
-//        Integer transactionId =  Integer.valueOf(narration.replace("Corresponding to transactionId ", ""));
-//
-//        List<Map<String, Object>> applyDeposit = new ArrayList();
-//        Map<String, Object> map = new HashMap<>();
-//        map.put(depositRefNumber, transactionId);
-//        map.put(debitPaymentRate, sdAdjusted);
-//        applyDeposit.add(map);
-//        return applyDeposit;
-//    }
-//
-//    private Map<String, Object> getExtraFields(String studentId) {
-//        Map<String, Object> map = new HashMap<>();
-//        map.put(residenceName,residenceDao.getResidenceNameFromStudentId(studentId));
-//        return map;
-//    }
 
     private String getAccount(PaymentMode paymentMode) {
         switch (paymentMode.getPaymentModeDesc()) {
