@@ -34,6 +34,7 @@ public class TicketRequestDto {
 
     private String residenceUuid;
 
+    @NotNull
     private List<TagDto> tagDtos;
 
     private Department department;
