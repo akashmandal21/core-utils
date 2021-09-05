@@ -30,4 +30,8 @@ public class RequestNudgeMetadataDTO {
     private RequestReason reasonType;
 
     private Date date;
+
+    private String attendanceRequestUuid;
+
+    private String description;
 }
