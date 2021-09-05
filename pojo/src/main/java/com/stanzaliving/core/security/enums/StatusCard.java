@@ -12,15 +12,22 @@ public enum StatusCard {
     PENDING("PENDING"),
     NOT_PRESENT("NOT PRESENT"),
     NODAL_ACTION_TAKEN("NODAL ACTION TAKEN"),
-    PENDING_ACTION("PENDING ACTION");
+    IN_PROPERTY("IN PROPERTY"),
+    PENDING_ACTION("PENDING ACTION"),
+    PENDING_BEFORE_RC_TIME("PENDING BEFORE RC TIME");
 
-    private final String label;
+    public final String label;
 
-    private StatusCard(String label){
+    StatusCard(String label) {
         this.label = label;
     }
 
-    public static List<StatusCard> getPresentPendingStatusList() {
-        return new ArrayList<>(Arrays.asList(StatusCard.PENDING, StatusCard.PRESENT));
+    public static List<String> getStatusList() {
+        return new ArrayList<>(
+                Arrays.asList(
+                        StatusCard.PRESENT.name(),
+                        StatusCard.PENDING.name(),
+                        StatusCard.IN_PROPERTY.name(),
+                        StatusCard.NODAL_ACTION_TAKEN.name()));
     }
 }
