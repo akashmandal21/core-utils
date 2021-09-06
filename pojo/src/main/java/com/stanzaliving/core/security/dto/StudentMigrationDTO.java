@@ -34,5 +34,9 @@ public class StudentMigrationDTO {
 
     @JsonSetter(value = "IMAGE")
     private String image;
+
+    @JsonSetter(value = "GENDER")
+    private Integer gender;
+
 }
 
