@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.grammage.category.request;
 
+import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.food.v2.grammage.request.GrammageStatusRequestDto;
 import lombok.AllArgsConstructor;
@@ -29,5 +30,8 @@ public class CategoryMealGrammageRequestDto extends GrammageStatusRequestDto {
 
 	@NotNull(message = "Meal selection is mandatory")
 	private MealType mealType;
+
+	@NotNull(message = "Food serve type is mandatory")
+	private FoodServeType foodServeType;
 
 }
