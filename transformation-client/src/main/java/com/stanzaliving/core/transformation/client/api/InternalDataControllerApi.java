@@ -3,10 +3,13 @@
  */
 package com.stanzaliving.core.transformation.client.api;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.addressbook.AddressBookNameDto;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.base.exception.ApiValidationException;
+import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.projectservice.tiles.TileDeciderDto;
@@ -32,6 +35,9 @@ import com.stanzaliving.transformations.pojo.StateUIDto;
 import com.stanzaliving.transformations.pojo.ZoneMetadataDto;
 import com.stanzaliving.transformations.projections.StanzaGstView;
 import com.stanzaliving.transformations.ui.pojo.Country;
+import com.stanzaliving.ventaAudit.dto.GstInformationDto;
+import com.stanzaliving.ventaInvoice.dto.AddressDto;
+import com.stanzaliving.ventaInvoice.dto.BillFromDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -1078,4 +1084,33 @@ public class InternalDataControllerApi {
 		};
 		restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+
+    public ResponseDto<GstInformationDto> getGstDataByCityUuid(String cityUuid) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("uuid", cityUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/invoice/city/{uuid}")
+                .buildAndExpand(uriVariables)
+                .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        TypeReference<ResponseDto<GstInformationDto>> returnType = new TypeReference<ResponseDto<GstInformationDto>>() {
+        };
+
+        ResponseDto<GstInformationDto> responseDto;
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while fetching Gst Information by City UUID.", e);
+
+        }
+        return null;
+    }
+
 }
