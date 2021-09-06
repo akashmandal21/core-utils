@@ -37,7 +37,9 @@ public enum ResidenceAttributes {
 	
 	FUTURE_BOOKING_ALLOWED_DAYS("Future Booking Allowed Duration","Integer"),
     NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time","String"),
-	CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean");
+
+    CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean");
+
     private String label;
     private String type;
 

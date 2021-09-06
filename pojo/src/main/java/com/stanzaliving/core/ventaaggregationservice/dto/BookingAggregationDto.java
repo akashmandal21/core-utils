@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.util.Date;
 import java.util.List;
 
@@ -79,4 +80,7 @@ public class BookingAggregationDto {
     private double pendingAmount;
     private String paymentMode;
     private String bookingAgreementUrl;
+    private String bookingSubType;
+    private boolean exceptionOnboarding;
+    private boolean allowExceptionalOnboarding;
 }
