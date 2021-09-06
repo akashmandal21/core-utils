@@ -76,8 +76,8 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
                 }else {
                     mapToSend.put(invoiceType,invoice.getInvoiceType());
                 }
-                mapToSend.put(bookingid,"");
-                mapToSend.put(tranid, "");
+                mapToSend.put(bookingid,invoice.getReferenceUuid());
+                mapToSend.put(tranid," invoice.get");
                 mapToSend.put(dueDate,"");
                 mapToSend.put(customer,invoice.getResidentId());
                 mapToSend.put(class_str, "");

@@ -22,6 +22,7 @@ public class CustomerApiDto {
     private FilixOnBoardingGetResponse onBoardingGetResponse;
     private FilixResidentKYCDocumentResponseDto residentKYCDocumentResponseDto;
     private FilixTransactionDto filixTransactionDto;
+    private FilixInvoiceLineItems filixInvoiceLineItems;
 
 
 }

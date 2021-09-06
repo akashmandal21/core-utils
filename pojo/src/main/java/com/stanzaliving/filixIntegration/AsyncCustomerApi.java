@@ -29,6 +29,8 @@ public class AsyncCustomerApi {
     private final CustomerInvoiceApiService customerInvoiceApiService;
 
     private final CustomerDepositApiService customerDepositApiService;
+    @Autowired
+    CustomerCreditMemoApiService customerCreditMemoApiService;
 
     ObjectMapper objectMapper = new ObjectMapper();
 
@@ -50,6 +52,8 @@ public class AsyncCustomerApi {
                 return customerInvoiceApiService;
             case  CUSTOMER_DEPOSIT:
                 return customerDepositApiService;
+            case  CUSTOMER_CREDIT_MEMO:
+                return customerCreditMemoApiService;
         }
         return null;
     }
