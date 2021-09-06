@@ -87,4 +87,6 @@ public class AttendanceRequestDTO {
     private Date rejectionDateEpoch;
 
     private Date cancellationDateEpoch;
+
+    private LocalTime mealEndTime;
 }
