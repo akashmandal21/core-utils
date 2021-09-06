@@ -1,4 +1,4 @@
-package com.stanzaliving.food.v2.budgetPlanner.dto;
+package com.stanzaliving.food.v2.monthlybudgetplanner.dto;
 
 import com.stanzaliving.core.operations.enums.MealType;
 

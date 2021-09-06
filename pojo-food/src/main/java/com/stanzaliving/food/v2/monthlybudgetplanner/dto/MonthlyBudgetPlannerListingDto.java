@@ -1,4 +1,4 @@
-package com.stanzaliving.food.v2.budgetPlanner.dto;
+package com.stanzaliving.food.v2.monthlybudgetplanner.dto;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class DayWiseBudgetDto {
+public class MonthlyBudgetPlannerListingDto {
 	
 	private LocalDate date;
 
