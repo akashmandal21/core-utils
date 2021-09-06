@@ -82,7 +82,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
                 mapToSend.put(billingState,"");
                 mapToSend.put(billingCountry, "India");
                 mapToSend.put(bookingId,creditNote.getReferenceUuid());
-                mapToSend.put(itemList,lineItems);
+                mapToSend.put(itemList,createLineItemMap(creditNote,lineItems));
                 mapToSend.put(autoApplyList, getAutoApplyList(creditNote));
                 mapToSend.put(extraFields,getExtraFields(creditNote));
             }
@@ -93,7 +93,23 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
         return mapToSend;
     }
 
-
+    private Map<String, Object> createLineItemMap(FilixInvoiceDto creditNote,FilixInvoiceLineItems lineItems) {
+        Map<String, Object> map = new HashMap<>();
+        if(null == creditNote.getFromDate() && null == creditNote.getToDate()) {
+            map.put(item, "Maintenance Charges");
+        }else {
+            map.put(item, "");
+        }
+        map.put(quantity, 1);
+        map.put(itemRate, "");
+        map.put(hsnCode, lineItems.getHsnCode());
+        map.put(stanzaLineId, "");
+        map.put(taxlocationtype,"INTRASTATE");
+        map.put(amount, lineItems.getLineAmount());
+        map.put(taxamount, lineItems.getCgstAmount());
+        map.put(taxrate, lineItems.getCgstPercentage());
+        return map;
+    }
 
     private Object getAutoApplyList(FilixInvoiceDto creditNote) {
         List<Map<String, Object>> lineItems = new ArrayList();
