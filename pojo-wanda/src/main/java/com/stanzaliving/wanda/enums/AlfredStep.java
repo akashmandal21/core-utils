@@ -24,13 +24,27 @@ public enum AlfredStep {
 	UPDATE_BY_SALES_POC(8, Arrays.asList("NEEDS ATTENTION")),
 	HOMESCREEN(9, Arrays.asList("REFUND INITIATED","ONBOARDING COMPLETED","VERIFICATION PENDING")),
 	SECOND_AGREEMENT(10,Arrays.asList("SUBCONTRACT 2 AGREEMENT SENT")),
-	RETENTION_BOOKING(11,Arrays.asList("RETENTION BOOKING"));
+	RETENTION_BOOKING(11,Arrays.asList("RETENTION BOOKING")),
+	CONTRACT_MODIFICATION_PENDING(12,Arrays.asList("CONTRACT MODIFICATION PENDING"));
 	
 	private Integer sequenceId;
 	private List<String> bookingStatuses;
 
 	private static final Map<AlfredStep, List<String>> bookingStatusMap = new HashMap<AlfredStep, List<String>>();
 	private static final List<String> retentionNonBlockerStatus = new ArrayList<>();
+	private static final Map<AlfredStep, List<String>> bookingSubStatusMap = new HashMap<AlfredStep, List<String>>();
+	
+	static {
+		bookingSubStatusMap.put(PROFILE_COMPLETION, Arrays.asList("PROFILE"));
+		bookingSubStatusMap.put(PAYMENT_PENDING, Arrays.asList("PAYMENT PENDING"));
+		bookingSubStatusMap.put(PAYMENT_COLLECTION_PENDING, Arrays.asList("COLLECT PAYMENT FROM RESIDENT"));
+		bookingSubStatusMap.put(KYC_REJECTED, Arrays.asList("KYC REJECTED"));
+		bookingSubStatusMap.put(UPDATE_BY_SALES_POC, Arrays.asList("NEEDS ATTENTION"));
+		bookingSubStatusMap.put(KYC_REJECTED, Arrays.asList("KYC REJECTED"));
+		bookingSubStatusMap.put(HOMESCREEN, Arrays.asList("PENDING KYC VERIFICATION"));
+		bookingSubStatusMap.put(KYC, Arrays.asList("PENDING KYC SUBMISSION"));
+		bookingSubStatusMap.put(CONTRACT_MODIFICATION_PENDING, Arrays.asList("CONTRACT MODIFICATION PENDING"));
+	}
 	
 	static {
 		for (AlfredStep as : AlfredStep.values()) {
@@ -42,7 +56,6 @@ public enum AlfredStep {
 		retentionNonBlockerStatus.addAll(Arrays.asList("REFUND INITIATED","ONBOARDING COMPLETED",
 				"VERIFICATION PENDING","ONBOARDING PENDING", "ONBOARDING IN PROGRESS"));
 	}
-		
 
 	public static AlfredStep getByBookingStatus(String bookingStatus) {
 		for (Map.Entry<AlfredStep, List<String>> entry : bookingStatusMap.entrySet()) {
@@ -60,6 +73,16 @@ public enum AlfredStep {
 			}
 		}
 		return true;
+	}
+	
+	public static AlfredStep getAlfredStep(String bookingSubStatus) {
+		
+		for (Map.Entry<AlfredStep, List<String>> entry : bookingSubStatusMap.entrySet()) {
+			if (entry.getValue().contains(bookingSubStatus)) {
+				return entry.getKey();
+			}
+		}
+		return SELFBOOKING;
 	}
 
 }

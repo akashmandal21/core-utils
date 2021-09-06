@@ -83,7 +83,7 @@ public class VentaAggregationServiceApi {
     }
 
     public ResponseDto<RestResponsePage<BookingAggregationDto>> getBookingAggregationListing(BookingFilterRequestDto bookingFilterRequestDto) {
-        log.info("Aggregation Booking Controller");
+        log.info("Aggregation Booking Controller {}", bookingFilterRequestDto);
 
         Object postBody = bookingFilterRequestDto;
 
@@ -202,5 +202,23 @@ public class VentaAggregationServiceApi {
         ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<ResidenceNameAndBhkTypeDto> getResidenceNameAndBhkType(String residenceUuid) {
+        log.info("Residence Internal Controller::Processing to get residence name and bhk type");
+        Object postBody = null;
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("residenceUuid", residenceUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/residence/managed-apartment-info/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<ResidenceNameAndBhkTypeDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceNameAndBhkTypeDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 }
