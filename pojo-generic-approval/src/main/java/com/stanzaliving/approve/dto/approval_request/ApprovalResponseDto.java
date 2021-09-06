@@ -32,7 +32,5 @@ public class ApprovalResponseDto {
 
     private HashMap<String, Object> metadata;
 
-    private String rejectionReason;
-
     private String approvedBy;
 }
