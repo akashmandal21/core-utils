@@ -1,22 +1,18 @@
-package com.stanzaliving.core.dto;
+package com.stanzaliving.core.paymentPlan.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Builder
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class BookingNudgeMetadataDTO {
+@NoArgsConstructor
+public class InitiateExitRequestDto {
 
     private String bookingUuid;
-
-    private String message;
-
-    private String comment;
-
-    private String deepLink;
-
+    private LocalDate moveOutDate;
 }

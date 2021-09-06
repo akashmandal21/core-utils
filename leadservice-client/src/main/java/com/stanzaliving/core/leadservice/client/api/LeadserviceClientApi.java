@@ -6,6 +6,7 @@ package com.stanzaliving.core.leadservice.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import com.stanzaliving.website.request.dto.LeadSearchRequestDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
@@ -326,7 +327,7 @@ public class LeadserviceClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<LeadDetailEntity> search(String phoneNumber) {
+	public ResponseDto<LeadDetailEntity> search(String phoneNumber, String leadUuid) {
 
 		log.debug("Lead client received phone number {}", phoneNumber);
 		Object postBody = null;
@@ -337,7 +338,10 @@ public class LeadserviceClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		queryParams.add("phone", phoneNumber);
+		if(Objects.nonNull(phoneNumber))
+			queryParams.add("phone", phoneNumber);
+		if(Objects.nonNull(leadUuid))
+			queryParams.add("leadUuid", leadUuid);
 
 		final String[] accepts = { "*/*" };
 
