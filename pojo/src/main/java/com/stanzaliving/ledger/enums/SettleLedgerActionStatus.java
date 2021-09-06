@@ -13,6 +13,8 @@ import java.util.Set;
 public enum SettleLedgerActionStatus {
 
     REFUNDED("Refunded"),
+    PARTIAL_REFUND("Partial Refund"),
+    REJECTED("Rejected"),
     CARRY_FORWARD("CarryForward"),
     PENDING("Pending"),
     SETTLED_WITH_EXHAUSTION("Settle With Exhaustion"),
