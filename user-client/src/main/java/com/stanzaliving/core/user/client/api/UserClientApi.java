@@ -9,12 +9,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.user.acl.dto.RoleDto;
+import com.stanzaliving.core.user.acl.enums.Role;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.lang.Nullable;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -555,4 +559,93 @@ public class UserClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+	public ResponseDto<List<RoleDto>> getFilterRoles(Department department, AccessLevel accessLevel, String roleName, String token) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/acl/role/list").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		if(!Objects.isNull(department)) {
+			queryParams.add("department", department.shortCode);
+		}
+		if(!Objects.isNull(accessLevel)) {
+			queryParams.add("accessLevel", accessLevel.toString());
+		}
+		if(!Objects.isNull(roleName)) {
+			queryParams.add("department", roleName);
+		}
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<RoleDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RoleDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<UserProfileDto> getRoleByDepartment(Department department, @Nullable  AccessLevel accessLevel, String cookieToken) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/acl/role/getRoles").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("department", department.shortCode);
+		if(!Objects.isNull(accessLevel)) {
+			queryParams.add("accessLevel", accessLevel.toString());
+		}
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + cookieToken;
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<RoleDto> getRoleByUuid(String roleUuid, String cookieToken) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("roleUuid", roleUuid);
+
+		String path = UriComponentsBuilder.fromPath("/acl/role/{roleUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + cookieToken;
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<RoleDto>> returnType = new ParameterizedTypeReference<ResponseDto<RoleDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 }
