@@ -10,5 +10,6 @@ public enum QuestionType {
     DATE_PICKER,
     E_COMMERCE,
     BINARY,
-    CALCULATIVE_FIELD
+    CALCULATIVE_FIELD,
+    HEADING
 }
