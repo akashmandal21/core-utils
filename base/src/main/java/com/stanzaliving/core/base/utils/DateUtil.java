@@ -794,6 +794,21 @@ public class DateUtil {
 		int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
 		return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
 	}
+	
+	public static List<LocalDate> getCalendarMonthOfYear(Integer month,Integer year) {
+
+		LocalDate startDate = getMonthStartBeginningDate(month, year);
+		LocalDate endDate = getMonthEndBeginningDate(month, year);
+		
+		DayOfWeek startDayOfMonth = startDate.getDayOfWeek();
+		startDate = startDayOfMonth==DayOfWeek.MONDAY?startDate:startDate.minusDays(startDayOfMonth.getValue()-1);
+		
+		DayOfWeek endDayOfMonth = endDate.getDayOfWeek();
+		endDate = endDate.plusDays(7-endDayOfMonth.getValue());
+		
+		return getAllLocalDatesForRange(startDate,endDate);
+		
+	}
 
 	public static long getDifferenceBetweenDates(Date d1, Date d2, String differenceIn) {
 		long diff = d2.getTime() - d1.getTime();
@@ -917,6 +932,10 @@ public class DateUtil {
 			}
 		}
 		return weekendDays;
+	}
+	
+	public static boolean isWeekDay(LocalDate date) {
+		return date.getDayOfWeek().getValue()<6;
 	}
 
 	public static double getMonthsBetweenDatesInDouble(LocalDate fromDate, LocalDate toDate) {
