@@ -1,8 +1,6 @@
 package com.stanzaliving.food.v2.monthlybudgetplanner.request.dto;
 
-import java.time.LocalDate;
-
-import com.stanzaliving.core.food.enums.FoodDayType;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,16 +14,17 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 public class MonthlyBudgetPlannerRequestDto {
-	
-	private LocalDate date;
 
-	private FoodDayType dayType;
+	private Integer month;
 
-	private Boolean specialEvent;
-	
-	private Double plannedcost;
-	
-	private Double budgetedcost;
-    
+	private Integer year;
+
+	private String vendorId;
+
+	private List<String> menuCategoryIds;
+
+	private List<String> residenceIds;
+
+	private List<String> planningStatus;  
 
 }

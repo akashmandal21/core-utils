@@ -18,6 +18,8 @@ public class MealWiseBudgetPlannerDto {
 	private MealType mealType;
 
 	private String mealName;
+	
+	private String mealNameInitial;
 
 	private Double plannedBudget;
 

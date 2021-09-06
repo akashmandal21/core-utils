@@ -1,10 +1,10 @@
 package com.stanzaliving.food.v2.monthlybudgetplanner.dto;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.food.enums.SpecialEventType;
+import com.stanzaliving.food.v2.common.dto.ResidenceRDto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,9 +18,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 public class SpecialEventDetailDto extends AbstractDto {
-	
-	private LocalDate date;
-	
+
+	private static final long serialVersionUID = 6900097045470592571L;
+
 	private String eventDescription;
 
 	private SpecialEventType specialEventType;
@@ -29,6 +29,6 @@ public class SpecialEventDetailDto extends AbstractDto {
 	
 	private Integer applicableResidences;
 	
-	private List<String> residenceNames;    
-
+	private List<ResidenceRDto> residenceRDto;
+   
 }

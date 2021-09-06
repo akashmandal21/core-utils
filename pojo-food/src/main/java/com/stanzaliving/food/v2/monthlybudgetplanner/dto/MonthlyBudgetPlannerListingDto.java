@@ -1,9 +1,10 @@
 package com.stanzaliving.food.v2.monthlybudgetplanner.dto;
 
-import java.time.LocalDate;
+import java.io.Serializable;
 import java.util.List;
 
-import com.stanzaliving.core.food.enums.FoodDayType;
+import com.stanzaliving.core.base.common.dto.ListingCountDto;
+import com.stanzaliving.core.base.common.dto.PageResponse;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,21 +17,9 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class MonthlyBudgetPlannerListingDto {
-	
-	private LocalDate date;
+public class MonthlyBudgetPlannerListingDto implements Serializable {
 
-	private FoodDayType dayType;
-
-	private Boolean specialEvent;
-	
-	private List<SpecialEventDetailDto> specialEventDetailDto;
-
-	private List<MealWiseBudgetPlannerDto> mealWiseBudgetPlannerDto;
-	
-	private Double plannedcost;
-	
-	private Double budgetedcost;
-    
-
+	private static final long serialVersionUID = 3538768605666556421L;
+	private List<ListingCountDto> stats;
+	private PageResponse<MonthlyBudgetPlannerDto> plannerData;
 }
