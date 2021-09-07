@@ -98,9 +98,7 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
 //TODO: "0 < customerApiDto.getSdAdjusted()" chnge if condition
                 if(null != customerApiDto) {
                     FilixPaymentTransactionRequestDto transaction = customerApiDto.getFilixPaymentTransactionRequestDto();
-//                    Double sdAdjusted = customerApiDto.getSdAdjusted();
-//		    		Transaction transaction = transactionService.findByStatusAndType(booking.getBookingId(), Constants.COMPLETED, "BOOKING");
-//		    		mapToSend.put(account, "100001"); //pending
+
                     mapToSend.put(account, getAccount(transaction.getPaymentMode()));
                     mapToSend.put(stanzaId, "");//pending
                     mapToSend.put(date, DateUtil.convertDateToString(new Date(), DateUtil.dd_MMM_yyyy_Slash_Format));

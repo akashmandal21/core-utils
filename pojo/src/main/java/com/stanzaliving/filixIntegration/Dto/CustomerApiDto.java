@@ -23,6 +23,7 @@ public class CustomerApiDto {
     private FilixResidentKYCDocumentResponseDto residentKYCDocumentResponseDto;
     private FilixTransactionDto filixTransactionDto;
     private FilixInvoiceLineItems filixInvoiceLineItems;
+    private FilixBillingFromDto filixBillingFromDto;
 
 
 }

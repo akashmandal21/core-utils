@@ -5,14 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
-import com.stanzaliving.filixIntegration.Dto.AbstractOracleDto;
-import com.stanzaliving.filixIntegration.Dto.CustomerApiDto;
-import com.stanzaliving.filixIntegration.Dto.FilixInvoiceDto;
-import com.stanzaliving.filixIntegration.Dto.FilixInvoiceLineItems;
+import com.stanzaliving.filixIntegration.Dto.*;
 import com.stanzaliving.filixIntegration.Enum.EventType;
 import com.stanzaliving.filixIntegration.Enum.OracleServiceOwner;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +61,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
             if(null != customerApiDto && null != customerApiDto.getFilixInvoiceDto()) {
                 FilixInvoiceDto creditNote = customerApiDto.getFilixInvoiceDto();
                 FilixInvoiceLineItems lineItems =customerApiDto.getFilixInvoiceLineItems() ;
+                FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
                 //confirm
                 mapToSend.put(stanzaId, String.valueOf(creditNote.getReferenceUuid()));
                 mapToSend.put(date, DateUtil.convertDateToString(DateUtil.convertToDate(creditNote.getIssueDate()), DateUtil.dd_MMM_yyyy_Slash_Format));
@@ -79,7 +75,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
                 mapToSend.put(po_hash, "");
                 mapToSend.put(memo, "");
                 mapToSend.put(autoapply, Boolean.FALSE);
-                mapToSend.put(billingState,"");
+                mapToSend.put(billingState,filixBillFromDto.getGstState());
                 mapToSend.put(billingCountry, "India");
                 mapToSend.put(bookingId,creditNote.getReferenceUuid());
                 mapToSend.put(itemList,createLineItemMap(creditNote,lineItems));
@@ -106,6 +102,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
         map.put(stanzaLineId, "");
         map.put(taxlocationtype,"INTRASTATE");
         map.put(amount, lineItems.getLineAmount());
+        //confirm this
         map.put(taxamount, lineItems.getCgstAmount());
         map.put(taxrate, lineItems.getCgstPercentage());
         return map;

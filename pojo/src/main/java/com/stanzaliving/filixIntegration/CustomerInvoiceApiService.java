@@ -8,6 +8,7 @@ import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
 import com.stanzaliving.filixIntegration.Dto.AbstractOracleDto;
 import com.stanzaliving.filixIntegration.Dto.CustomerApiDto;
+import com.stanzaliving.filixIntegration.Dto.FilixBillingFromDto;
 import com.stanzaliving.filixIntegration.Dto.FilixInvoiceDto;
 import com.stanzaliving.filixIntegration.Enum.EventType;
 import com.stanzaliving.filixIntegration.Enum.OracleServiceOwner;
@@ -67,6 +68,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
             logger.info("customerApiDto "+customerApiDto );
             if(null != customerApiDto && null != customerApiDto.getFilixInvoiceDto()) {
                 FilixInvoiceDto invoice = customerApiDto.getFilixInvoiceDto();
+                FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
                 mapToSend.put(stanzaId, String.valueOf(invoice.getInventoryInvoiceId()));
                 mapToSend.put(date, null==invoice.getIssueDate()?".":DateUtil.convertDateToString(DateUtil.convertToDate(invoice.getIssueDate()), DateUtil.dd_MMM_yyyy_Slash_Format) );
                 mapToSend.put(startDate, null != invoice.getFromDate() ? DateUtil.convertDateToString(DateUtil.convertToDate(invoice.getFromDate()) , DateUtil.dd_MMM_yyyy_Slash_Format) : "");
@@ -77,17 +79,17 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
                     mapToSend.put(invoiceType,invoice.getInvoiceType());
                 }
                 mapToSend.put(bookingid,invoice.getReferenceUuid());
-                mapToSend.put(tranid," invoice.get");
-                mapToSend.put(dueDate,"");
+                mapToSend.put(tranid,".");
+                mapToSend.put(dueDate,DateUtil.addDaysToDate(DateUtil.convertToDate(invoice.getIssueDate()),6));
                 mapToSend.put(customer,invoice.getResidentId());
                 mapToSend.put(class_str, "");
                 mapToSend.put(department, "");
                 mapToSend.put(excahngeRate,1.00);
                 mapToSend.put(currency,"INR");
-                mapToSend.put(billingState, "");
+                mapToSend.put(billingState, filixBillFromDto.getGstState());
                 mapToSend.put(billingCountry,"India");
                 mapToSend.put(postingPeriod,"");
-                mapToSend.put(itemList, getInvoiceLineItems(invoice));
+                mapToSend.put(itemList,"");
                 mapToSend.put(extraFields,getExtraFields(invoice));
             }
         } catch (IOException e) {
@@ -97,76 +99,6 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
         return mapToSend;
     }
 
-    private List getInvoiceLineItems(FilixInvoiceDto invoice) {
-
-        List<Map<String, Object>> lineItems = new ArrayList();
-        int lineId = 0;
-        Map<String, Object> map = new HashMap<>();
-        if(InvoiceType.RENTAL.toString().equals(invoice.getInvoiceType()) || InvoiceType.PENALTY.toString().equals(invoice.getInvoiceType()) || InvoiceType.AD_HOC.toString().equals(invoice.getInvoiceType())) {
-            map = createLineItemMap(invoice, null, invoice.getTotalAmount(), lineId++, 0D, 0, "INTRASTATE");
-
-        }
-        else if(InvoiceType.FOOD.toString().equals(invoice.getInvoiceType())) {
-            double taxAmount = invoice.getTotalAmount() - (invoice.getTotalAmount() * (100 / (100 + 5)));
-            Double nonGstInvoiceAmount = invoice.getTotalAmount() - taxAmount;
-            //TODO: Constants.FOOD_INVOICE_GST_PERCENTAGE
-            map = createLineItemMap(invoice, null, nonGstInvoiceAmount, lineId++, taxAmount, 5, "INTRASTATE");
-
-        }
-        else if(InvoiceType.VAS.toString().equals(invoice.getInvoiceType())) {
-//            List<BookingService> bookingServices = bookingServicesDaoImpl.getActiveVasServices(Integer.valueOf(invoice.getBookingId()));
-//            for(BookingService bookingService : bookingServices) {
-//                com.stanzaliving.inventory.model.Service service = serviceDao.findById(bookingService.getServiceId());
-//                double taxRate = service.getCgst()+service.getSgst();
-//                double servicePrice = bookingService.getPrice();
-//
-//                double taxAmount = servicePrice - (servicePrice * ( 100 / (100 + (taxRate))));
-//                Double nonGstInvoiceAmount = servicePrice - taxAmount;
-//                map = createLineItemMap(invoice, service.getName(), nonGstInvoiceAmount, lineId++, taxAmount, taxRate, "INTRASTATE");
-//                lineId += 1;
-     //       }
-        }
-        else {
-            //Services with 18% GST
-            //TODO: Constants.SERVICE_INVOICE_GST_PERCENTAGE)
-            if(Objects.isNull(invoice.getTotalAmount())){
-                map = createLineItemMap(invoice, null, 0, lineId++, 0D, 0, "");
-            }
-            else {
-                double taxAmount = invoice.getTotalAmount() - (invoice.getTotalAmount() * (100 / (100 + 18)));
-                Double nonGstInvoiceAmount = invoice.getTotalAmount() - taxAmount;
-
-                map = createLineItemMap(invoice, null, nonGstInvoiceAmount, lineId++, 0D, 0, "");
-            }
-
-
-        }
-
-        lineItems.add(map);
-        Map<String, Object> discountMap = getDiscountLineIfApplicable(invoice, lineId++);
-        logger.info("discountMap {}", discountMap );
-        if(null != discountMap) {
-            lineItems.add(discountMap);
-        }
-        return lineItems;
-
-
-
-    }
-
-    private Map<String, Object> getDiscountLineIfApplicable(FilixInvoiceDto invoice, int lineId) {
-        Map<String, Object> map = new HashMap<>();
-//        Double discountAmount = invoice.getInvoiceLineItems().stream().filter(item -> item.getLineItem().contains("Discount")).mapToDouble(item -> Math.abs(item.getAmount())).sum();
-        Double discountAmount=0.0;
-        logger.info("discountAmount {}", discountAmount );
-        if(0 < discountAmount) {
-            map.put(item, "Discount");
-            map.put(amount, -1 * discountAmount);
-            map.put(stanzaLineId, lineId);
-            return map;
-        }
-        return null;
-    }
 
     private Map<String, Object> createLineItemMap(FilixInvoiceDto invoice, String serviceName, double nonGstInvoiceAmount, int lineId , double taxAmount, double taxRate, String taxlocation) {
         Map<String, Object> map = new HashMap<>();
@@ -176,13 +108,13 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
             map.put(item, invoice.getInvoiceType());
         }
         map.put(quantity, 1);
-        map.put(rate, nonGstInvoiceAmount);
-        map.put(amount, nonGstInvoiceAmount);
+        map.put(rate, "");
+        map.put(amount, "");
         map.put(hsnCode, "");
-        map.put(stanzaLineId, lineId);
-        map.put(taxlocationtype, taxlocation);
-        map.put(taxrate, taxRate);
-        map.put(taxamount, taxAmount);
+        map.put(stanzaLineId, "");
+        map.put(taxlocationtype, "");
+        map.put(taxrate, "");
+        map.put(taxamount, "");
 
 
         return map;

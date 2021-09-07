@@ -107,13 +107,6 @@ public class CustomerCreationApiService extends CustomerApiFactory {
                     mapToSend.put(custentity_xxflx_otheridnumber,".");
                 }
 
-                else {
-                    mapToSend.put(custentity_xxflx_aadhar, ".");
-                    mapToSend.put(custentity_xxflx_pantype, ".");
-                    mapToSend.put(custentity_xxflx_pancard, ".");
-                    mapToSend.put(custentity_xxflx_otherid, ".");
-                    mapToSend.put(custentity_xxflx_otheridnumber, ".");
-                }
 
                 mapToSend.put(custentity_xxflx_idnumber, ".");
                 mapToSend.put(accountnumber, ".");
