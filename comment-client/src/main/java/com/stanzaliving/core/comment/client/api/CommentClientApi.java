@@ -233,7 +233,7 @@ public class CommentClientApi {
 		uriVariables.put("serviceName", serviceName);
 		uriVariables.put("contextType", contextType);
 
-		String path = UriComponentsBuilder.fromPath("/get/comment/count/{serviceName}/{contextType}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/get/comment/count/{serviceName}/{contextType}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
