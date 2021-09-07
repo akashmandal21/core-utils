@@ -15,16 +15,14 @@ import lombok.ToString;
 @AllArgsConstructor
 public class PendingDuesDetailsResponseDto {
 
-	private Double totalAmountToBePaid;
-	private Double duesPaid;
-	private Double duesTillDate;
-	private Double currentOutstanding;
+	private Long totalAmountToBePaid;
+	private Long duesPaid;
+	private Long duesTillDate;
+	private Long currentOutstanding;
 	private String dueDate;
-	private Double monthlyFee;
-	private Double duesOfCurrentMonth;
-	private Double paidThisMonth;
-	private Double previousArrears;
+	private String monthlyFee;
+	private String duesOfCurrentMonth;
+	private String paidThisMonth;
+	private String previousArrears;
 
-	
-	
 }
