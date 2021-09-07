@@ -43,4 +43,6 @@ public class AdvanceRoomSearchDto {
     private Integer limit;
 
     private ResidenceSortBy sortBy;
+
+    private String moveOutDate;
 }

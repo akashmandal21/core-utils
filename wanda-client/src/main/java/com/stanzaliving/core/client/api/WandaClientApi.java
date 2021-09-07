@@ -658,7 +658,7 @@ public class WandaClientApi {
 		return response;
 	}
 
-	public WandaResponse<OnBoardingGetResponse> getOnboardingDetails(String userId, String token) {
+	public WandaResponse<OnBoardingGetResponse> getOnboardingDetails(String userId) {
 
 		try {
 			Object postBody = null;
@@ -669,14 +669,12 @@ public class WandaClientApi {
 
 			uriVariables.put("userId", userId);
 
-			String path = UriComponentsBuilder.fromPath("/onboarding/get/details/{userId}").buildAndExpand(uriVariables)
+			String path = UriComponentsBuilder.fromPath("/internal/get/onboarding/details//{userId}").buildAndExpand(uriVariables)
 					.toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 			HttpHeaders headerParams = new HttpHeaders();
-
-			headerParams.add("Cookie", "token=" + token);
 
 			final String[] accepts = {"*/*"};
 

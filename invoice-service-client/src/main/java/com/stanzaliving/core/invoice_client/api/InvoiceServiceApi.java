@@ -53,7 +53,7 @@ public class InvoiceServiceApi {
     public ResponseDto<List<DocumentResponseDto>> getARInvoice(Date fromDate) {
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/AR-invoice-details")
+        String path = UriComponentsBuilder.fromPath("/internal/advance-rental-invoices")
                 .buildAndExpand(uriVariables).toUriString();
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -73,5 +73,29 @@ public class InvoiceServiceApi {
         }
     }
 
+    public ResponseDto<String> downloadInvoiceByInvoiceIds(List<String> invoiceIds) {
+       
+    	log.info("get Invoice Pdf form invoiceIds [" + invoiceIds + "]");
+
+        Object postBody = invoiceIds;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/merge-pdf")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
 
 }

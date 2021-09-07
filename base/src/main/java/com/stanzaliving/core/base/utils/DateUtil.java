@@ -1061,4 +1061,27 @@ public class DateUtil {
 		return !checkDate.isBefore(startDate) && !checkDate.isAfter(endDate);
 	}
 
+	public static String dateDifferenceInString(Period date, Date endDate){
+		Integer year = date.getYears();
+		Integer month = date.getMonths();
+		Integer days = date.getDays();
+		if(year!=0) month = year*12 + month;
+		String diff = " ";
+		if(enableRoundOff(endDate.getMonth() + 1, days)){
+			month = month + 1;
+			days = 0;
+		}
+		if(month!=0) diff += month == 1 ? month+" month ": month+" months ";
+		if(days!=0) diff += days == 1 ? days+" day": days+" days";
+		return diff;
+	}
+
+	public static boolean enableRoundOff(int month, int day){
+		List<Integer> oddMonth = Arrays.asList(1,3,5,7,8,10,12);
+		List<Integer> evenMonth = Arrays.asList(4,6,9,11);
+		if((month == 2 && (day == 28 || day == 29)) ||
+				(day == 31 && oddMonth.contains(month)) ||
+				(day == 30 && evenMonth.contains(month))) return true;
+		return false;
+	}
 }

@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PaymentModeResponse {
 
-	private List<PaymentModeDto> onlinePaymentMode;
+	private Boolean isEndUserPayingFee;
 	
 	private List<PaymentModeDto> salesPocPaymentMode;
 	@Builder.Default
