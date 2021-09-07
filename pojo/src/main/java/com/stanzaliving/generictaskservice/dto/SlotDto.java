@@ -5,7 +5,10 @@ import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -21,7 +24,8 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SlotDto {
+public class
+SlotDto {
 
     @NotEmpty(message = "Allowed task is mandatory")
     private List<String> allowedTaskList;
@@ -63,7 +67,7 @@ public class SlotDto {
 
     private List<TagResponseDto> tags;
 
-    private List<CategoryDto> allowedTasksList;
+    private List<TaskCategoryDto> allowedTasksList;
 
     private LocalDate menuDate;
 
