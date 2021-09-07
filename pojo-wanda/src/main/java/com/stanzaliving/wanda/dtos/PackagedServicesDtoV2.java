@@ -9,16 +9,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Builder
-public class VasServicesDto{
+public class PackagedServicesDtoV2 {
 
-	private Integer serviceId;
+	private String serviceId;
 	
-	private double serviceCost;
-	
-	private String serviceCostStr;
-	
-	private String duration;
-
 	private String serviceName;
 	
 	private String serviceImage;
@@ -31,13 +25,6 @@ public class VasServicesDto{
 	
 	private String bgColor;
 	
-	private boolean enabled;
+	private boolean tappable;
 	
-	private Double price;
-	@Builder.Default
-	private Double cgst = 0.0;
-	@Builder.Default
-	private Double sgst = 0.0;
-	@Builder.Default
-	private Double igst = 0.0;
 }

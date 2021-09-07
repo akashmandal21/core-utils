@@ -9,9 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Builder
-public class VasServicesDto{
+public class VasServicesDtoV2{
 
-	private Integer serviceId;
+	private String serviceId;
 	
 	private double serviceCost;
 	
