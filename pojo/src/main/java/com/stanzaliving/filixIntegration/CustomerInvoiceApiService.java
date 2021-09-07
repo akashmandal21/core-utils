@@ -81,8 +81,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
                 }
                 mapToSend.put(bookingid,invoice.getReferenceUuid());
                 mapToSend.put(tranid,".");
-                mapToSend.put(dueDate,"");
-                //TODO :DateUtil.addDaysToDate(DateUtil.convertToDate(invoice.getIssueDate()),6)
+                mapToSend.put(dueDate,DateUtil.addDaysToDate(DateUtil.convertToDate(invoice.getIssueDate()),6));
                 mapToSend.put(customer,invoice.getResidentId());
                 mapToSend.put(class_str, "");
                 mapToSend.put(department, "");
