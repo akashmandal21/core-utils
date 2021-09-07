@@ -68,6 +68,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
             logger.info("customerApiDto "+customerApiDto );
             if(null != customerApiDto && null != customerApiDto.getFilixInvoiceDto()) {
                 FilixInvoiceDto invoice = customerApiDto.getFilixInvoiceDto();
+                logger.info("invoice "+invoice);
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
                 mapToSend.put(stanzaId, String.valueOf(invoice.getInventoryInvoiceId()));
                 mapToSend.put(date, null==invoice.getIssueDate()?".":DateUtil.convertDateToString(DateUtil.convertToDate(invoice.getIssueDate()), DateUtil.dd_MMM_yyyy_Slash_Format) );
@@ -80,7 +81,8 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
                 }
                 mapToSend.put(bookingid,invoice.getReferenceUuid());
                 mapToSend.put(tranid,".");
-                mapToSend.put(dueDate,DateUtil.addDaysToDate(DateUtil.convertToDate(invoice.getIssueDate()),6));
+                mapToSend.put(dueDate,"");
+                //TODO :DateUtil.addDaysToDate(DateUtil.convertToDate(invoice.getIssueDate()),6)
                 mapToSend.put(customer,invoice.getResidentId());
                 mapToSend.put(class_str, "");
                 mapToSend.put(department, "");
