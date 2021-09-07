@@ -2,6 +2,7 @@ package com.stanzaliving.filixIntegration;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.stanzaliving.collector.enums.InvoiceType;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.kafka.dto.KafkaDTO;
@@ -19,6 +20,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.*;
 
@@ -30,7 +32,10 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
-
+    @PostConstruct
+    public void setUp() {
+        objectMapper.registerModule(new JavaTimeModule());
+    }
     @Value("venta-integration")
     private String oracleIntegrationTopic;
     @Autowired
