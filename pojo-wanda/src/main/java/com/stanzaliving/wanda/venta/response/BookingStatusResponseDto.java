@@ -44,4 +44,6 @@ public class BookingStatusResponseDto {
     private String mobileNumber;
     private String jsVersion;
     private String residenceUuid;
+    private boolean interestMenuVisiblity;
+    private boolean interestBanner;
 }
