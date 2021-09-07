@@ -83,4 +83,6 @@ public class BookingAggregationDto {
     private String bookingSubType;
     private boolean exceptionOnboarding;
     private boolean allowExceptionalOnboarding;
+    private Double totalLedgerBalance;
+    private String ledgerStatus;
 }
