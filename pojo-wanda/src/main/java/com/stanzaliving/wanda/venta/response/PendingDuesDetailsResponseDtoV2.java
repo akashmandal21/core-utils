@@ -13,16 +13,18 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PendingDuesDetailsResponseDto {
+public class PendingDuesDetailsResponseDtoV2 {
 
-	private Long totalAmountToBePaid;
-	private Long duesPaid;
-	private Long duesTillDate;
-	private Long currentOutstanding;
+	private Double totalAmountToBePaid;
+	private Double duesPaid;
+	private Double duesTillDate;
+	private Double currentOutstanding;
 	private String dueDate;
-	private String monthlyFee;
-	private String duesOfCurrentMonth;
-	private String paidThisMonth;
-	private String previousArrears;
+	private Double monthlyFee;
+	private Double duesOfCurrentMonth;
+	private Double paidThisMonth;
+	private Double previousArrears;
 
+	
+	
 }

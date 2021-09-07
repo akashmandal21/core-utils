@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EducationalInstitutionResponseDto {
-    private int educationalInstitutionId;
-    private String educationalInstitutionUuid;
+public class DegreeResponseDtoV2 {
+    private Long degreeId;
+    private String degreeUuid;
     private String name;
-
     private boolean enabled;
+    private int maxYears;
 }

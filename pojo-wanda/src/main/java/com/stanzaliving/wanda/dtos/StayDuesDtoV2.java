@@ -21,12 +21,12 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class StayDuesDto {
+public class StayDuesDtoV2 {
 
 	private String feesPerMonth;
 	private String dueDate;
 	private String currentDues;
-	private long due;
+	private Double due;
 	private String nextBillingDate;
 
 }
