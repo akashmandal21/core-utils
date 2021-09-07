@@ -24,6 +24,10 @@
             <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+        </dependency>
     </dependencies>
 	<parent>
 		<groupId>com.stanzaliving.core</groupId>
