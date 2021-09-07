@@ -5,11 +5,11 @@
 package com.stanzaliving.wanda.dtos;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 /**
  * @author nipunaggarwal
@@ -17,16 +17,14 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@SuperBuilder
+@Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(callSuper = true)
-public class StayDuesDto {
+public class StayDetailDtoV2 {
 
-	private String feesPerMonth;
-	private String dueDate;
-	private String currentDues;
-	private long due;
-	private String nextBillingDate;
+	private StayResidenceDto residenceDetails;
+	private StayDuesDtoV2 dueDetails;
+	private StayServicesDtoV2 serviceDetails;
 
 }

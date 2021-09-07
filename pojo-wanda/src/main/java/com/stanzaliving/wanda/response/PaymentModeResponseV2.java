@@ -15,14 +15,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Getter
 @NoArgsConstructor
-public class PaymentModeResponse {
+public class PaymentModeResponseV2 {
 
-    private List<PaymentModeDto> onlinePaymentMode;
+	private Boolean isEndUserPayingFee;
 	
 	private List<PaymentModeDto> salesPocPaymentMode;
 	@Builder.Default
 	private List<PaymentMode> convenienceFeePaymentModes=new ArrayList<>();
 	@Builder.Default
 	private List<PaymentMode> withoutConvenienceFeePaymentModes=new ArrayList<>();;
-
 }

@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EducationalInstitutionResponseDto {
-    private int educationalInstitutionId;
+public class EducationalInstitutionResponseDtoV2 {
+    private Long educationalInstitutionId;
     private String educationalInstitutionUuid;
     private String name;
 
