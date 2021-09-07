@@ -25,8 +25,6 @@ import static com.google.common.base.Preconditions.checkArgument;
 @UtilityClass
 public class DateUtil {
 
-	public static SimpleDateFormat dd_MMM_yyyy_Slash_Format = new SimpleDateFormat("dd/MM/yyyy");
-
 	public String formatIst(Date date, String format) {
 		return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
 	}

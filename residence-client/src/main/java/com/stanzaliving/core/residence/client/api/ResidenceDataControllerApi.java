@@ -1204,4 +1204,35 @@ public class ResidenceDataControllerApi {
             return null;
         }
     }
+
+    public ResponseDto<Map<String, Object>> fetchPackagedServiceData(String uuid) {
+
+        log.info("Residence-Data-Controller::Processing to fetch Package service for service-mix uuid {}", uuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("uuid", uuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/packaged-service/{uuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, Object>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Map<String, Object>>>() {
+                };
+
+        try {
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var13) {
+            log.error("Exception while fetching packaged service for service-mix uuid {}", uuid);
+            return null;
+        }
+    }
+
 }
