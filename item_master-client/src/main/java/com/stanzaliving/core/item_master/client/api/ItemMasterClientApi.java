@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.stanzaliving.core.item_master.client.api;
 
 import java.util.*;
@@ -485,10 +482,7 @@ public class ItemMasterClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams,null,headerParams, accept, returnType);
 	}
-
-
-
-
+	
 	public ResponseDto<Collection<BrandSkuItemDetailDto>> getItemDetailsByLocation(String locationUuid) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -511,7 +505,7 @@ public class ItemMasterClientApi {
 	}
 
 	public ResponseDto<Collection<BrandSkuItemDetailDto>> getGlobalItemDetailsByDepartment(Department department) {
-
+		
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("department",department);
 
@@ -540,13 +534,13 @@ public class ItemMasterClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		String path = UriComponentsBuilder.fromPath("/internal/generic/remove-item-details-draft-location/{locationUuid}/{userId}").buildAndExpand(uriVariables).toUriString();
-
+		
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
+		
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
 		};
 
