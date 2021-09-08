@@ -24,8 +24,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class
-SlotDto {
+public class SlotDto {
 
     @NotEmpty(message = "Allowed task is mandatory")
     private List<String> allowedTaskList;
