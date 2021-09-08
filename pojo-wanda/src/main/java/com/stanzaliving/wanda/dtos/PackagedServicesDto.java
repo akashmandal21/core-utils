@@ -11,7 +11,7 @@ import lombok.Setter;
 @Builder
 public class PackagedServicesDto {
 
-	private String serviceId;
+	private Integer serviceId;
 	
 	private String serviceName;
 	
