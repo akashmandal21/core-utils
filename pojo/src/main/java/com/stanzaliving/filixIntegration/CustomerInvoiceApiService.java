@@ -30,8 +30,8 @@ import java.util.*;
 public class CustomerInvoiceApiService extends CustomerApiFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerInvoiceApiService.class);
-
-    ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    private ObjectMapper objectMapper ;
 
 //    @PostConstruct
 //    public void setUp() {
@@ -68,7 +68,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
         Map<String, Object> mapToSend = new HashMap<>();
         logger.info("start map filling " );
         try {
-            objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
+//            objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
 //            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             logger.info("dataMap "+dataMap.get("data").toString().replaceAll("\\{", "").replaceAll("\\}",""));
             //dataMap.get("data").toString()
