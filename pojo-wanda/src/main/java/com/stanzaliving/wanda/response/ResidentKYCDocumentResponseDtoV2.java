@@ -16,9 +16,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
-public class ResidentKYCDocumentResponseDto {
+public class ResidentKYCDocumentResponseDtoV2 {
 
-private List<WandaFileResponseDto> fileResponseDtos;
+	private List<KYCListingResponseDto> fileResponseDtos;
 	
 	private List<DocumentUploadType> validDocuments;
 	
@@ -27,4 +27,6 @@ private List<WandaFileResponseDto> fileResponseDtos;
 	private List<DocumentUploadType> dualSideDocuments;
 	
 	private DocumentSideType[] documentSideTypes;
+
+	private List<RejectionReasonDto> rejectionReason;
 }

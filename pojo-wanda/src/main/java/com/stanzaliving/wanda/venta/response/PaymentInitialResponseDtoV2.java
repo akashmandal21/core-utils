@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Getter
-public class PaymentInitialResponseDto {
+public class PaymentInitialResponseDtoV2 {
 
-private String bookingId;
+	private String bookingId;
 	
-	private String installmentType;
+	private PaymentTerm installmentType;
 	
 	private DiscountResponseDto discountResponseDto;
 	

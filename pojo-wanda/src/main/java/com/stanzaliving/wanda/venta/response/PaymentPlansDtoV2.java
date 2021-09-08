@@ -21,8 +21,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentPlansDto {
+public class PaymentPlansDtoV2 {
 
-	private List<PaymentPlanDetailsResponseDto> paymentPlanDetailsResponseDtos;
+	private List<PaymentPlanDetailsResponseDtoV2> paymentPlanDetailsResponseDtos;
 	private String view;
+	@Builder.Default
+    private Double upsell=0d;
 }

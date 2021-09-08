@@ -24,12 +24,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentPlanDetailsResponseDto {
+public class PaymentPlanDetailsResponseDtoV2 {
 
 	private List<InstallmentDetailsResponseDto> paymentPlan;
 	private String installmentType;
     private Boolean isSelected;
-    private InstallmentTypeEnum installmentTypeEnum;
+    private PaymentTerm paymentTerm;
     private String couponCode;
     private double totalDiscount;
     private String discountDescription;
