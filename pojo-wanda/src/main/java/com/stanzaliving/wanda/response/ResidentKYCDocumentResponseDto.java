@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 public class ResidentKYCDocumentResponseDto {
 
-	private List<WandaFileResponseDto> fileResponseDtos;
+private List<WandaFileResponseDto> fileResponseDtos;
 	
 	private List<DocumentUploadType> validDocuments;
 	
@@ -27,5 +27,4 @@ public class ResidentKYCDocumentResponseDto {
 	private List<DocumentUploadType> dualSideDocuments;
 	
 	private DocumentSideType[] documentSideTypes;
-	
 }
