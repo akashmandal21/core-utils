@@ -28,5 +28,5 @@ public class GstInformationDto {
     private String footerMicroMarketName;
     private String footerCityName;
     private String footerZipcode;
-    private int gstCode;
+    private String gstCode;
 }

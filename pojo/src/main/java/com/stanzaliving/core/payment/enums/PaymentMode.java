@@ -1,5 +1,6 @@
 package com.stanzaliving.core.payment.enums;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -76,4 +77,15 @@ public enum PaymentMode {
 		else if(paymentMode == 5) return PaymentMode.VIRTUAL_ACCOUNT;
 		else return null;
 	}
+	
+    public static List<PaymentMode> getPaymentModeConfigurationList() {
+    	List<PaymentMode> paymentMode = new ArrayList<>();
+    	
+    	paymentMode.add(CHEQUE);
+    	paymentMode.add(CASH);
+    	paymentMode.add(PAYTM);
+    	paymentMode.add(RAZORPAY);
+    	
+    	return paymentMode;    	
+    }
 }

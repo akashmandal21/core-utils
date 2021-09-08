@@ -1,5 +1,6 @@
 package com.stanzaliving.core.deal.client.dto;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
@@ -31,5 +32,9 @@ public class DealRoomsRequestDto {
 	private List<Integer> floor;
 	
 	private String searchString;
+
+	private Date moveInDate;
+
+	private Date dealEndDate;
 
 }

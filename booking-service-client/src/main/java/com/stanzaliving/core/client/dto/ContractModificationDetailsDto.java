@@ -13,11 +13,13 @@ public class ContractModificationDetailsDto {
 
 	private String studentId;
 	private String studentName;
+	private String studentEmail;
 	private String contractStartDate;
 	private String contractEndDate;
 	private double monthlyFee;
 	private double amc;
 	private double securityDeposit;
+	private double discountAmount;
 	private double advanceRentalMonths;
 	private double totalAmount;
 	private String addendumLink;

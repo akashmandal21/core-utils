@@ -1,6 +1,7 @@
 package com.stanzaliving.core.deal.client.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.stanzaliving.booking.dto.BookingTag;
 import com.stanzaliving.core.deal.client.enums.UserStatusType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +10,8 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 @Builder
 @Data
@@ -37,9 +40,13 @@ public class DealApprovedUserResponseDto {
     @JsonFormat(pattern="dd MMM`YY")
     private LocalDate actualMoveOutDate;
 
-    private BigDecimal dues;
+    private Double dues;
 
     private String contractUserUuid;
 
     private String bookingUuid;
+
+    private String backgroundColor;
+
+    private List<BookingTag> tags;
 }
