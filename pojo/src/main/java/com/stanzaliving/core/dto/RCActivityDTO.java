@@ -19,7 +19,7 @@ import java.util.Date;
 public class RCActivityDTO {
    private DocumentTypeEnum documentType;
 
-    private String BookingUuid;
+    private String bookingUuid;
 
     private Boolean isVerified;
 
