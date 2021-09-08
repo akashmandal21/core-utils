@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EducationalInstitutionResponseDto {
     private int educationalInstitutionId;
-
+    private String educationalInstitutionUuid;
     private String name;
 
     private boolean enabled;
