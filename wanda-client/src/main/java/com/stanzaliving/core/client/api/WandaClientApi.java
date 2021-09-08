@@ -5,6 +5,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.venta.OccupiedRoomDto;
+import com.stanzaliving.ventaInvoice.dto.DocumentResponseDto;
 import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
 import com.stanzaliving.wanda.dtos.FullUserDto;
 import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
@@ -756,5 +757,28 @@ public class WandaClientApi {
 
 		return null;
 
+	}
+
+	public ResponseDto<BankDetailsDto> getBankDetailsForUserId(String userId) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("userId", userId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/bank-details/{userId}").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[]{"*/*"};
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<BankDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<BankDetailsDto>>() {
+		};
+		try {
+			log.info("Executing Api for getting bank account details with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching bank account details based on userId {}, Exception is {}", userId, e);
+		}
+		return null;
 	}
 }
