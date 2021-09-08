@@ -32,10 +32,10 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
-    @PostConstruct
-    public void setUp() {
-        objectMapper.registerModule(new JavaTimeModule());
-    }
+//    @PostConstruct
+//    public void setUp() {
+//        objectMapper.registerModule(new JavaTimeModule());
+//    }
     @Value("venta-integration")
     private String oracleIntegrationTopic;
     @Autowired
@@ -67,8 +67,10 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
         Map<String, Object> mapToSend = new HashMap<>();
         logger.info("start map filling " );
         try {
-            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            logger.info("dataMap "+dataMap);
+            objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
+//            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            logger.info("dataMap "+dataMap.get("data").toString().replaceAll("\\{", "").replaceAll("\\}",""));
+            //dataMap.get("data").toString()
             CustomerApiDto customerApiDto = objectMapper.readValue(dataMap.get("data").toString(), CustomerApiDto.class);
             logger.info("customerApiDto "+customerApiDto );
             if(null != customerApiDto && null != customerApiDto.getFilixInvoiceDto()) {

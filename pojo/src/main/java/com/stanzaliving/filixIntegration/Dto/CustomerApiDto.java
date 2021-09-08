@@ -12,11 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CustomerApiDto {
 
-    private FilixBookingResponseDto filixBookingResponseDto;
-    private FilixBookingDto booking;
-    private FilixUserDetailResponseDto filixUserDetailResponseDto;
-    private FilixPaymentTransactionRequestDto filixPaymentTransactionRequestDto;
-    private FilixTransactionInitiateDto filFilixTransactionInitiateDto;
     private FilixInvoiceDto filixInvoiceDto;
     private FilixResidenceDetailsDto filixResidenceDetailsDto;
     private FilixOnBoardingGetResponse onBoardingGetResponse;
@@ -24,6 +19,11 @@ public class CustomerApiDto {
     private FilixTransactionDto filixTransactionDto;
     private FilixInvoiceLineItems filixInvoiceLineItems;
     private FilixBillingFromDto filixBillingFromDto;
+    private FilixBookingResponseDto filixBookingResponseDto;
+    private FilixBookingDto booking;
+    private FilixUserDetailResponseDto filixUserDetailResponseDto;
+    private FilixPaymentTransactionRequestDto filixPaymentTransactionRequestDto;
+    private FilixTransactionInitiateDto filFilixTransactionInitiateDto;
 
 
 }
