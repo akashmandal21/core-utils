@@ -273,27 +273,6 @@ public class VendorClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<Void> updateBrandStoreSkuForVendor(String locationUuid, String vendorUuid) {
-
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("vendorUuid",vendorUuid);
-        uriVariables.put("locationUuid",locationUuid);
-        String path = UriComponentsBuilder.fromPath("/generic/internal/updateBrandStoreSkuItems/{locationUuid}/{vendorUuid}").buildAndExpand(uriVariables).toUriString();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        final HttpHeaders headerParams = new HttpHeaders();
-
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
-        };
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
-    }
 
     public ResponseDto<List<VendorSuppliedItem>> getGenericVendorSuppliedItems(String vendorUuid, String cityUuid) {
 
