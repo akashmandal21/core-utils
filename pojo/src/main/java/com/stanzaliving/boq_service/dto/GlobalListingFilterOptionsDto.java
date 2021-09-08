@@ -18,7 +18,7 @@ public class GlobalListingFilterOptionsDto {
 
     private List<LabelValueDto<BoqType>> boqType;
 
-    private LabelValueDto<BoqStatus> boqStatus;
+    private List<LabelValueDto<BoqStatus>> boqStatus;
 
     private List<LabelValueDto<BoqStatus>> boqStatusOptions;
 
