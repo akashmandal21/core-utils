@@ -62,4 +62,7 @@ public class MicromarketResponseDTO {
 	
 	private boolean comingSoonPg;
 	private boolean comingSoonApartment;
+	
+	private int livePgsCount;
+	private int liveApartmentsCount;
 }
