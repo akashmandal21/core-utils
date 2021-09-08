@@ -1,5 +1,6 @@
 package com.stanzaliving.generictaskservice.dto.response;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.generictaskservice.dto.TaskCategoryDto;
 import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
@@ -18,13 +19,11 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SlotDetailsResponse {
+public class SlotDetailsResponse extends AbstractDto {
 
     private SlotType slotType;
 
     private List<String> tagsUuid;
-
-    private String slotUuid;
 
     private List<TagResponseDto> tags;
 
@@ -40,9 +39,9 @@ public class SlotDetailsResponse {
 
     private Boolean isMovableSlot;
 
-    private LocalTime minimumSlotSize;
+    private LocalTime minimumSlotTime;
 
-    private LocalTime maximumSlotSize;
+    private LocalTime maximumSlotTime;
 
     private String entityUuid;
 

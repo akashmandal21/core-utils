@@ -3,6 +3,7 @@ package com.stanzaliving.generictaskservice.dto;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,8 +17,14 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShiftCategoryDto {
+public class ShiftCategoryDto{
     private String uuid;
+
+    protected Date createdAt;
+
+    protected String createdBy;
+
+    protected Boolean status;
 
     private String parentShiftCategoryUuid;
 
