@@ -53,5 +53,5 @@ public class PropertyBoqListingGroupByBoq {
 
     private boolean canApprove;
 
-    private int commentCount;
+    private long commentCount;
 }

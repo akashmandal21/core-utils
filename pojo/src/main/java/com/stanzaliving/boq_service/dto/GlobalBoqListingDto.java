@@ -40,5 +40,5 @@ public class GlobalBoqListingDto {
 
     private boolean canApprove;
 
-    private int commentCount;
+    private long commentCount;
 }
