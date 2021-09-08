@@ -19,15 +19,15 @@ import java.util.Date;
 public class RCActivityDTO {
     DocumentTypeEnum documentType;
 
-    String BookingUuid;
+    private String BookingUuid;
 
-    Boolean isVerified;
+    private Boolean isVerified;
 
-    ApprovalStatus approvalStatus;
+    private ApprovalStatus approvalStatus;
 
-    String updatedBy;
+    private String updatedBy;
 
-    String updatedAt;
+    private String updatedAt;
 
-    String rejectionReason;
+    private String rejectionReason;
 }
