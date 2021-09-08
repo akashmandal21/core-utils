@@ -38,12 +38,4 @@ public class ItemGLCodeMapping implements Serializable {
         }
     }
 
-    public static String createGlCodeKey(ItemGLCodeMapping itemGLCodeMapping) {
-        if(itemGLCodeMapping!=null) {
-            return String.format("%s_%s_%s",itemGLCodeMapping.getCostHead(),itemGLCodeMapping.getItemCategory(),itemGLCodeMapping.getItemSubCategory());
-        } else {
-            return StringUtils.EMPTY;
-        }
-    }
-
 }
