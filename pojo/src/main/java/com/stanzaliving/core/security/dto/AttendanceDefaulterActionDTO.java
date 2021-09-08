@@ -18,8 +18,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class AttendanceDefaulterActionDTO {
 
-    @NotNull(message = "Uuid cannot be null")
-    private String uuid;
+    @NotNull @NotEmpty private String uuid;
 
     private UserActionType userActionType;
 
@@ -29,7 +28,7 @@ public class AttendanceDefaulterActionDTO {
 
     private String comment;
 
-    private LocalDateTime creationTime;
+    private Date creationTime;
 
     private boolean isLoopClosure;
 }
