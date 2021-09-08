@@ -20,5 +20,4 @@ public class GenericConstants {
     public static final int SCALE = 2;
     public static final RoundingMode roundingMode = RoundingMode.HALF_EVEN;
     public static final BigDecimal HUNDRED =  new BigDecimal("100", MathContext.DECIMAL128);
-    public static final int SCALE10 = 10;
 }
