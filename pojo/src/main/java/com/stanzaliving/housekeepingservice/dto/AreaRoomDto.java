@@ -2,6 +2,7 @@ package com.stanzaliving.housekeepingservice.dto;
 
 import lombok.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -53,7 +54,7 @@ public class AreaRoomDto {
 
     private String createdBy;
 
-    private String createdAt;
+    private Date createdAt;
 
     private String residenceUuid;
 
