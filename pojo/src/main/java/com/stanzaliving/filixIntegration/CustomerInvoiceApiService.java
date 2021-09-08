@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.stanzaliving.collector.enums.InvoiceType;
+import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
@@ -78,9 +79,9 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
                 logger.info("invoice "+invoice);
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
                 mapToSend.put(stanzaId, String.valueOf(invoice.getInventoryInvoiceId()));
-                mapToSend.put(date, null==invoice.getIssueDate()?".":DateUtil.convertDateToString(DateUtil.convertToDate(invoice.getIssueDate()), DateUtil.dd_MMM_yyyy_Slash_Format) );
-                mapToSend.put(startDate, null != invoice.getFromDate() ? DateUtil.convertDateToString(DateUtil.convertToDate(invoice.getFromDate()) , DateUtil.dd_MMM_yyyy_Slash_Format) : "");
-                mapToSend.put(endDate, null != invoice.getToDate() ? DateUtil.convertDateToString(DateUtil.convertToDate(invoice.getToDate()), DateUtil.dd_MMM_yyyy_Slash_Format) : "");
+                mapToSend.put(date, null==invoice.getIssueDate()?".":DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getIssueDate()), DateFormat.D_DD_MMM_YY) );
+                mapToSend.put(startDate, null != invoice.getFromDate() ? DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getFromDate()) , DateFormat.D_DD_MMM_YY) : "");
+                mapToSend.put(endDate, null != invoice.getToDate() ? DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getToDate()),DateFormat.D_DD_MMM_YY) : "");
                 if(null == invoice.getFromDate() && null == invoice.getToDate()) {
                     mapToSend.put(invoiceType, "Maintenance Charges");
                 }else {

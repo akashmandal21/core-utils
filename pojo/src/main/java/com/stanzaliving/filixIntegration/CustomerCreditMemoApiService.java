@@ -2,6 +2,7 @@ package com.stanzaliving.filixIntegration;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
@@ -64,9 +65,9 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
                 //confirm
                 mapToSend.put(stanzaId, String.valueOf(creditNote.getReferenceUuid()));
-                mapToSend.put(date, DateUtil.convertDateToString(DateUtil.convertToDate(creditNote.getIssueDate()), DateUtil.dd_MMM_yyyy_Slash_Format));
-                mapToSend.put(startDate, DateUtil.convertDateToString(DateUtil.convertToDate(creditNote.getFromDate()), DateUtil.dd_MMM_yyyy_Slash_Format));
-                mapToSend.put(endDate, DateUtil.convertDateToString(DateUtil.convertToDate(creditNote.getToDate()), DateUtil.dd_MMM_yyyy_Slash_Format));
+                mapToSend.put(date, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getIssueDate()), DateFormat.D_DD_MMM_YY));
+                mapToSend.put(startDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getFromDate()),DateFormat.D_DD_MMM_YY));
+                mapToSend.put(endDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getToDate()), DateFormat.D_DD_MMM_YY));
                 mapToSend.put(classString, "");
                 mapToSend.put(department, "");
                 mapToSend.put(customer,creditNote.getResidentId());

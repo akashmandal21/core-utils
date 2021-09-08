@@ -2,6 +2,7 @@ package com.stanzaliving.filixIntegration;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
@@ -181,8 +182,8 @@ public class CustomerCreationApiService extends CustomerApiFactory {
         Map<String, Object> mapToSend = new HashMap<>();
         mapToSend.put(bookingid,String.valueOf(bookingDto.getResidentId()));
         mapToSend.put(bookingtype, bookingDto.getBookingType().toString());
-        mapToSend.put(startdate, DateUtil.convertDateToString(bookingDto.getContractStartDate(), DateUtil.dd_MMM_yyyy_Slash_Format));
-        mapToSend.put(enddate, DateUtil.convertDateToString(bookingDto.getContractEndDate(), DateUtil.dd_MMM_yyyy_Slash_Format));
+        mapToSend.put(startdate, DateUtil.customDateFormatter(bookingDto.getContractStartDate(), DateFormat.D_DD_MMM_YY));
+        mapToSend.put(enddate, DateUtil.customDateFormatter(bookingDto.getContractEndDate(), DateFormat.D_DD_MMM_YY));
         mapToSend.put(agreementurl, ".");
         mapToSend.put(addendumurl, ".");
         return Arrays.asList(mapToSend);

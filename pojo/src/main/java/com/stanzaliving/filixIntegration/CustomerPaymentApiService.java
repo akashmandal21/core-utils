@@ -2,6 +2,7 @@ package com.stanzaliving.filixIntegration;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
@@ -70,7 +71,7 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
                 FilixPaymentTransactionRequestDto transaction = customerApiDto.getFilixPaymentTransactionRequestDto();
                 mapToSend.put(Stanzaid, String.valueOf(transaction.getTransactionId()));
                 mapToSend.put(writeOff, Boolean.TRUE);
-                mapToSend.put(writeoffDate, DateUtil.convertDateToString(new Date(), DateUtil.dd_MMM_yyyy_Slash_Format));
+                mapToSend.put(writeoffDate, DateUtil.customDateFormatter(new Date(), DateFormat.D_DD_MMM_YY));
             }
         }
         catch (IOException e) {
@@ -101,7 +102,7 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
 
                     mapToSend.put(account, getAccount(transaction.getPaymentMode()));
                     mapToSend.put(stanzaId, "");//pending
-                    mapToSend.put(date, DateUtil.convertDateToString(new Date(), DateUtil.dd_MMM_yyyy_Slash_Format));
+                    mapToSend.put(date, DateUtil.customDateFormatter(new Date(), DateFormat.D_DD_MMM_YY));
                     mapToSend.put(bookingid,transaction.getTransactionId());
                     mapToSend.put(customer, "");
                     mapToSend.put(paymentOption,transaction.getPaymentMode().getPaymentModeDesc());
