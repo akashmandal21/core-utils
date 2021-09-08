@@ -18,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 public class SpecialDayMenuResponseDto extends MenuWiseMenuSearchRDto {
 
+	private EventsDemographicsDetailsDto eventsDemographicsDetailsDto;
 	private List<MealWiseMenuDto> mealWiseMenus;
 	private DayWiseCogsDto eventdayCogs;
 
