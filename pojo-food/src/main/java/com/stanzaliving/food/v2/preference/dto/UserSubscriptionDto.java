@@ -26,4 +26,5 @@ public class UserSubscriptionDto {
 	private String bannerMessage;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate menuDate;
+	private Boolean foodOrderWindowCloseStatus;
 }
