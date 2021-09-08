@@ -17,7 +17,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RCActivityDTO {
-    DocumentTypeEnum documentType;
+   private DocumentTypeEnum documentType;
 
     private String BookingUuid;
 
