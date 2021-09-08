@@ -6,9 +6,8 @@ package com.stanzaliving.core.website.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-
-import com.stanzaliving.website.response.dto.ResidenceResponseDTO;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -83,31 +82,6 @@ public class WebsiteClientApi {
 		};
 
 		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-
-	}
-
-	public ResidenceResponseDTO getResidenceDetails(String residenceName) {
-		Object postBody = null;
-
-		// create path and map variables
-		final Map<String, Object> uriVariables = new HashMap<>();
-
-		uriVariables.put("name", residenceName);
-
-		String path = UriComponentsBuilder.fromPath("/internal/get/residence/{name}").buildAndExpand(uriVariables)
-				.toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResidenceResponseDTO> returnType = new ParameterizedTypeReference<ResidenceResponseDTO>() {
-		};
-
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 	}
 

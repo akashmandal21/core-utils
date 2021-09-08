@@ -14,7 +14,6 @@ import lombok.ToString;
 public class CourseResponseDto {
 
     private int courseId;
-    private String courseUuid;
     private String name;
     private boolean enabled;
 }

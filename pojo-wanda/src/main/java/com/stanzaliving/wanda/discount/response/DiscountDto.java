@@ -11,12 +11,9 @@ import com.stanzaliving.wanda.discount.enums.DiscountValueType;
 import com.stanzaliving.wanda.discount.enums.PropertyType;
 import com.stanzaliving.wanda.discount.request.BookingDiscountCriteriasDto;
 
-import lombok.*;
+import lombok.Getter;
 
-@Builder
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
 public class DiscountDto implements Comparable<DiscountDto> {
     @NotNull
     private String discountCode;

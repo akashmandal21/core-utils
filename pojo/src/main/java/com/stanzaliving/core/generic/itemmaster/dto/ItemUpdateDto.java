@@ -66,6 +66,4 @@ public class ItemUpdateDto extends AbstractDto {
     private String itemImage;
     private String genericItemName;
 
-    private Boolean taggable;
-
 }

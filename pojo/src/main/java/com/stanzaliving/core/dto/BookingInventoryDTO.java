@@ -13,7 +13,7 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingInventoryDTO {
 
-    private String bookingId;
+    private int bookingId;
 
     private Integer bookingType;
 

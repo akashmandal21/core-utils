@@ -10,8 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OfflinePaymentRequestDto {
-
-	private String bookingUuid;
-	private double amount;
-	private String paymentMode;
+    private String bookingUuid;
+    private double amount;
+    private String paymentMode;
 }

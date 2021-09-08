@@ -2,8 +2,6 @@ package com.stanzaliving.wanda.venta.response;
 
 import java.time.LocalDate;
 
-import com.stanzaliving.booking.enums.BookingSubType;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,7 +32,5 @@ public class PendingBookingVentaDto {
     private String occupancy;
     
     private String expiryDays;
-    
-    private BookingSubType bookingSubType;
     
 }

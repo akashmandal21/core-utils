@@ -30,14 +30,4 @@ public class VasServicesDto{
 	private String serviceDisclaimer;
 	
 	private String bgColor;
-	
-	private boolean enabled;
-	
-	private Double price;
-	@Builder.Default
-	private Double cgst = 0.0;
-	@Builder.Default
-	private Double sgst = 0.0;
-	@Builder.Default
-	private Double igst = 0.0;
 }

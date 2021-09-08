@@ -15,7 +15,7 @@ import java.util.Date;
 public class StudentInventoryDTO {
     private String studentId;
 
-    private String bookingId;
+    private int bookingId;
 
     private String firstName;
 

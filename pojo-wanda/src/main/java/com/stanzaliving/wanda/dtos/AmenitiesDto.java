@@ -17,10 +17,7 @@ public class AmenitiesDto {
 
 	private String name;
 
-	@Deprecated
 	private Integer id;
-	
-	private String uuid;
 
 	private String amenityImage;
 }

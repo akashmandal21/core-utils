@@ -1,5 +1,7 @@
 package com.stanzaliving.campaign.dto.response;
 
+import com.stanzaliving.campaign.dto.response.OfferResponseDto.OfferResponseDtoBuilder;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

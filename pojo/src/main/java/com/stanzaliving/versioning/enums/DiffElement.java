@@ -11,7 +11,7 @@ public enum DiffElement
 
         ADD("add","Added"),
         REMOVE("remove", "Removed"),
-        MOVED("movein", "Moved"),
+        MOVED("move", "Moved"),
         CHANGED("", "Changed");
 
         private String property;

@@ -16,11 +16,11 @@ public class AddressResponseDTO {
 
     private int zipCode;
 
-    private String stateId;
+    private int stateId;
 
     private String stateName;
 
-    private String cityId;
+    private int cityId;
 
     private String cityName;
 

@@ -47,7 +47,4 @@ public class UserDocumentMigrationDTO {
 
     @JsonSetter(value = "uuid")
     private String uuid;
-
-    @JsonSetter(value = "mobile")
-    private String mobileNumber;
 }

@@ -25,4 +25,5 @@ public class PaymentPlansDto {
 
 	private List<PaymentPlanDetailsResponseDto> paymentPlanDetailsResponseDtos;
 	private String view;
+
 }

@@ -29,13 +29,5 @@ public class ResidenceMetadataDto {
     private PropertyEntityType propertyEntityType;
     
     private String phoenixPropertyUuid;
-
-    private String code;
-
-    private String category;
-
-    private String company;
-
-    private String addressUuid;
-
+    
 }

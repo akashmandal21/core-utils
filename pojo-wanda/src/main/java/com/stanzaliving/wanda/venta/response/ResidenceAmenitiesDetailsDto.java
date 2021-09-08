@@ -5,18 +5,11 @@ import java.util.List;
 import com.stanzaliving.wanda.dtos.AmenitiesDto;
 
 import com.stanzaliving.wanda.enums.PropertyCategory;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Builder
 @Getter
 @ToString
-@NoArgsConstructor
-@AllArgsConstructor
 public class ResidenceAmenitiesDetailsDto {
 	
 	private Boolean rofr;
@@ -39,7 +32,6 @@ public class ResidenceAmenitiesDetailsDto {
 	
 	private String roomNumber;
 	
-	@Deprecated
 	private Integer roomId;
 
 	private String bookingUuid;
@@ -49,6 +41,4 @@ public class ResidenceAmenitiesDetailsDto {
 	private Integer bedLeftNumber;
 	
 	private String userId;
-	
-	private String roomUuid;
 }

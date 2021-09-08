@@ -25,6 +25,4 @@ public class OtherFeeRowDto {
     private BigDecimal invoiceFeeAmt;
 
     private  double gstPct;
-
-    private String feeItemUuid;
 }

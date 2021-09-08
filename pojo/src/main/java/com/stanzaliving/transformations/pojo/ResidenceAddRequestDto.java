@@ -67,14 +67,5 @@ public class ResidenceAddRequestDto {
 	private String parentResidenceId;
 	
 	private PropertyEntityType propertyEntityType;
-
-	private String code;
-
-	private String category;
-
-	private String company;
-
-	private String addressUuid;
-
-
+	
 }

@@ -16,7 +16,4 @@ public class DiscountResponseDto {
     private Double discountValueApplied;
     private List<String> discountMonthList;
     private boolean status;
-    private List<String> invoicesDateList;
-    private String description;
-    private String discountStrategyUuid;
 }

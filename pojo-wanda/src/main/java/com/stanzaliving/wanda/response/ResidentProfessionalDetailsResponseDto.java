@@ -26,11 +26,11 @@ public class ResidentProfessionalDetailsResponseDto {
 	private ResidentType residentType;
 
 	private String educationalInstitute;
-	private String educationalInstituteName;
+	
 	private String course;
-	private String courseName;
+	
 	private String degree;
-	private String degreeName;
+	
 	private Integer yearOfStudy;
 	
 	private String companyName;

@@ -18,11 +18,10 @@ public class MonthlyFee {
 	private String monthlyFeeStr;
 
 	private String packedServicesFeeStr;
-	private String foodServicesFeeStr;
+
 	private Double monthlyFee;
 
 	private Double packedServicesFee;
-	private Double foodServicesFee;
 
 	private String total;
 	

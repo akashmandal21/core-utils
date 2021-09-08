@@ -14,5 +14,4 @@ public class SalesResponseDto {
     private String mobileNumber;
     private String name;
     private String duration;
-    
 }

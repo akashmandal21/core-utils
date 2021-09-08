@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
  * to given values in array provided.
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.PARAMETER)
+@Target(ElementType.FIELD)
 @Constraint(validatedBy = AllowedStringsValidator.class)
 public @interface AllowedStrings {
 

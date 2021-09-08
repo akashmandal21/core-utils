@@ -1,10 +1,10 @@
 package com.stanzaliving.core.user.enums;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
@@ -213,7 +213,6 @@ public enum Nationality {
 	TAJIK("Tajik", "Tajikistan"),
 	TANZANIAN("Tanzanian", "Tanzania, United Republic Of"),
 	THAI("Thai", "Thailand"),
-	TIBETAN("Tibetan","Tibet"),
 	TOGOLESE("Togolese", "Togo"),
 	TONGAN("Tongan", "Tonga"),
 	TRINIDADIAN("Trinidadian", "Trinidad And Tobago"),

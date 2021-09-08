@@ -13,6 +13,5 @@ import lombok.NoArgsConstructor;
 public class InstallmentLineItemResponseDto {
     private String name;
     private Double lineItemAmount;
-    @Builder.Default
-    private Double lineItemAmountPaid=0.0d;
+    private Double lineItemAmountPaid;
 }

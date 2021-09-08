@@ -24,8 +24,6 @@ public class DocumentDTO {
 
     private String residentUuid;
 
-    public String residentCode;
-
     private String uploadedBy;
 
     private LocalDate uploadedDate;
@@ -59,8 +57,4 @@ public class DocumentDTO {
     private boolean maxUploadRetriesReached;
 
     private String message;
-
-    private boolean isActive;
-
-    private boolean allowRejection;
 }

@@ -180,21 +180,11 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>io.github.resilience4j</groupId>
-			<artifactId>resilience4j-retry</artifactId>
-			<version>1.7.0</version>
-		</dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
+        
         <dependency>
 			<groupId>org.apache.lucene</groupId>
 			<artifactId>lucene-spatial</artifactId>
