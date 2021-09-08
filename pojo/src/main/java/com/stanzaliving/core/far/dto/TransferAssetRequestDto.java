@@ -3,7 +3,6 @@ package com.stanzaliving.core.far.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.stanzaliving.core.base.enums.Department;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,7 +22,6 @@ public class TransferAssetRequestDto {
     private String cartAssetUuid;
     private String sourceAddressUuid;
     private String destinationAddressUuid;
-    private Department toDepartment;
 
     @NotNull
     private Boolean transferOut;
