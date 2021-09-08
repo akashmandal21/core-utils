@@ -1,7 +1,6 @@
 package com.stanzaliving.core.generic.itemmaster.dto;
 
 import lombok.*;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 
@@ -18,17 +17,6 @@ public class ItemGLCodeMapping implements Serializable {
 
     @EqualsAndHashCode.Exclude
     private String glCode;
-    
-    public static boolean validateGlCodeMapping(ItemGLCodeMapping glCodeMapping) {
-        if(glCodeMapping!=null) {
-            if(StringUtils.isNotBlank(glCodeMapping.itemCategory)
-                    &&StringUtils.isNotBlank(glCodeMapping.itemSubCategory)
-                    &&StringUtils.isNotBlank(glCodeMapping.costHead)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public static String createGlCodeKey(ItemGLCodeMapping itemGLCodeMapping) {
         if(itemGLCodeMapping!=null) {
