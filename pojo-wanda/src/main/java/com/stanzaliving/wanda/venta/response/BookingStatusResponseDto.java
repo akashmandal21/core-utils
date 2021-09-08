@@ -46,11 +46,11 @@ public class BookingStatusResponseDto {
     private String mobileNumber;
     private String jsVersion;
     private String residenceUuid;
-    private boolean interestMenuVisiblity;
-    private boolean interestBanner;
     private Long bookingId;
     private BookingSubType bookingSubType;
     private Date expectedMoveInDate;
     private RetentionBookingResponseDto retentionBooking;
     private String contractStartDate;
+    private boolean interestMenuVisiblity;
+    private boolean interestBanner;
 }
