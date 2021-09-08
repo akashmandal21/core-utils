@@ -1048,34 +1048,6 @@ public class DateUtil {
         return diff;
     }
 
-    public String calculateDifferenceInMonthAndDate(Date startDate, Date endDate) {
-        Period age = Period.between(DateUtil.convertToLocalDate(startDate),
-                DateUtil.convertToLocalDate(endDate));
-        int months = age.getMonths();
-        int days = age.getDays();
-        String datePeriod = "";
-        if (months != 0)
-            datePeriod += months == 1 ? months + " month " : months + " months ";
-        if (days != 0)
-            datePeriod += days == 1 ? days + " day" : days + " days";
-        return datePeriod;
-    }
-
-    public static Integer calculatePeriod(Period date) {
-        Integer year = date.getYears();
-        Integer month = date.getMonths();
-        Integer days = date.getDays();
-        if (year != 0) month = year * 12 + month;
-        if (days > 15) {
-            month += 1;
-        }
-        return month;
-    }
-
-    public boolean isBetween(LocalDate checkDate, LocalDate startDate, LocalDate endDate) {
-        return !checkDate.isBefore(startDate) && !checkDate.isAfter(endDate);
-    }
-
     public static String dateDifferenceInString(Period date, Date endDate) {
         Integer year = date.getYears();
         Integer month = date.getMonths();
@@ -1099,4 +1071,43 @@ public class DateUtil {
                 (day == 30 && evenMonth.contains(month))) return true;
         return false;
     }
+
+	public String calculateDifferenceInMonthAndDate(Date startDate, Date endDate) {
+		Period age = Period.between(DateUtil.convertToLocalDate(startDate),
+				DateUtil.convertToLocalDate(endDate));
+		int months = age.getMonths();
+		int days = age.getDays();
+		String datePeriod = "";
+		if (months != 0)
+			datePeriod += months == 1 ? months + " month " : months + " months ";
+		if (days != 0)
+			datePeriod += days == 1 ? days + " day" : days + " days";
+		return datePeriod;
+	}
+
+	public static Integer calculatePeriod(Period date) {
+		Integer year = date.getYears();
+		Integer month = date.getMonths();
+		Integer days = date.getDays();
+		if(year!=0) month = year*12 + month;
+		if(days > 15){
+			month += 1;
+		}
+		return month;
+	}
+
+	public boolean isBetween(LocalDate checkDate, LocalDate startDate, LocalDate endDate) {
+		return !checkDate.isBefore(startDate) && !checkDate.isAfter(endDate);
+	}
+	
+	public static boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
+		LocalDate localDate = getLocalDate(date);
+		return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
+	}
+	
+	public static int getMonthsBetweenDates(LocalDate fromDate, LocalDate toDate) {
+		Date localfromdate = convertToDate(fromDate);
+		Date localtodate = convertToDate(toDate);
+		return getMonthsBetweenDates(localfromdate, localtodate);
+	}
 }
