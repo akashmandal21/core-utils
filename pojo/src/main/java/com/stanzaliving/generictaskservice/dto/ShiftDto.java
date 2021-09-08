@@ -1,11 +1,8 @@
 package com.stanzaliving.generictaskservice.dto;
 
-import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -25,19 +22,17 @@ public class ShiftDto {
 
     private String shiftUuid;
 
-    @NotBlank(message = "Module is mandatory")
+    @NotBlank(message = "Module mandatory")
     private String module;
 
-    @NotBlank(message = "Shift name is mandatory")
+    @NotBlank(message = "Shift name mandatory")
     private String shiftName;
 
     @NotNull(message = "Shift category is mandatory")
     private String shiftCategory;
 
     @NotNull(message = "Duration is mandatory")
-    @Min(value = 1, message = "Shift hour cannot be less than 1 hours")
-    @Max(value = 24, message = "Shift hour cannot be more than 24 hours")
-    private Double durationInHours;
+    private Integer duration;
 
     private List<String> tagsUuidList;
 
