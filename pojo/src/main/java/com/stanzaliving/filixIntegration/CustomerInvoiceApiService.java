@@ -30,13 +30,10 @@ import java.util.*;
 public class CustomerInvoiceApiService extends CustomerApiFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerInvoiceApiService.class);
+
     @Autowired
     private ObjectMapper objectMapper ;
 
-//    @PostConstruct
-//    public void setUp() {
-//        objectMapper.registerModule(new JavaTimeModule());
-//    }
     @Value("venta-integration")
     private String oracleIntegrationTopic;
     @Autowired

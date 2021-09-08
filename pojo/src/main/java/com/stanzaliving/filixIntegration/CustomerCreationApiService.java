@@ -28,7 +28,8 @@ public class CustomerCreationApiService extends CustomerApiFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerCreationApiService.class);
 
-    ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    private  ObjectMapper objectMapper;
 
     @Autowired
     NotificationProducer notificationProducer;

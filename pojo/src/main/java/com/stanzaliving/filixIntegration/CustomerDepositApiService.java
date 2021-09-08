@@ -32,7 +32,8 @@ public class CustomerDepositApiService extends CustomerApiFactory {
     @Autowired
     NotificationProducer notificationProducer;
 
-    ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    private  ObjectMapper objectMapper;
 
     @Override
     public void produceOnKafkaForCreate(Map<Object, Object> dataMap) {

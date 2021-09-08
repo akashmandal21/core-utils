@@ -25,7 +25,8 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerCreditMemoApiService.class);
 
-    ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    private  ObjectMapper objectMapper;
 
     @Autowired
     NotificationProducer notificationProducer;
@@ -57,7 +58,6 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
 
         Map<String, Object> mapToSend = new HashMap<>();
         try {
-            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             CustomerApiDto customerApiDto = objectMapper.readValue(dataMap.get("data").toString(), CustomerApiDto.class);
             if(null != customerApiDto && null != customerApiDto.getFilixInvoiceDto()) {
                 FilixInvoiceDto creditNote = customerApiDto.getFilixInvoiceDto();
