@@ -16,4 +16,7 @@ public class BookingNudgeMetadataDTO {
     private String message;
 
     private String comment;
+
+    private String deepLink;
+
 }

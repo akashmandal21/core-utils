@@ -17,6 +17,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -41,6 +42,10 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private FoodServeType foodServeType;
 	private Integer maxWeeklyCombo;
 	private Integer minWeeklyCombo;
+	
+	private Integer minHybridMeals;
+	private Integer maxHybridMeals;
+	
 	private boolean sampleMenuDefined;
 	private boolean grammageDefined;
 	private List<ListingDto> demographicTags;
@@ -74,5 +79,8 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 
 	private FoodMenuBudgetDto budgetRules;
 	private boolean budgetUtilizationInLimit;
+
+	//Tags
+	private Map<String, String> tags;
 
 }
