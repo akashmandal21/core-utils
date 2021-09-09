@@ -195,12 +195,19 @@
 			<artifactId>lucene-spatial</artifactId>
 			<version>7.4.0</version>
 		</dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-spatial</artifactId>
+			<version>7.4.0</version>
+		</dependency>
 
     </dependencies>
 
