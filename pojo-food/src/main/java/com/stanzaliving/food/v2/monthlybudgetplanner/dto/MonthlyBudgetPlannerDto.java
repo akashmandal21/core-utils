@@ -2,9 +2,11 @@ package com.stanzaliving.food.v2.monthlybudgetplanner.dto;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
+import com.stanzaliving.food.v2.category.dto.MealCategoryPriceDto;
 import com.stanzaliving.food.v2.category.dto.MenuCategoryDTO;
 import com.stanzaliving.food.v2.category.dto.MenuCategoryResidenceRDto;
 import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
@@ -25,11 +27,12 @@ public class MonthlyBudgetPlannerDto extends MenuCategoryDTO {
 
 	private static final long serialVersionUID = -631333844318576490L;
 	private Double monthlyBudget;
-    private List<String> tagNames;
+	private Map<String, String> tags;
     private Integer eventCount;
     
 	private String mealWiseName;
 	private Double mealPrice;
+	private MealCategoryPriceDto mealPriceData;
 	private FoodServeType foodServeType;
 	private MenuType menuType;
 
