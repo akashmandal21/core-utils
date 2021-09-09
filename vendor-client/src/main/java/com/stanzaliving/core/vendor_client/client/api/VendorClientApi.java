@@ -419,14 +419,11 @@ public class VendorClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, vddReturnType);
     }
 
-//    public ResponseDto<List<VendorListingDetailsDto>> getListOfVendorsWithFilters(FilterDto filterDto) {
-    public ResponseDto<List<VendorListingDetailsDto>> getListOfVendorsWithFilters() {
+    public ResponseDto<List<VendorListingDetailsDto>> getListOfVendorsWithFilters(VendorFilterDto filterDto) {
 
-//        log.info("HTTP Client call to get list of vendors for the filterDto: {}", filterDto);
-        log.info("HTTP Client call to get list of vendors");
+        log.info("HTTP Client call to get list of vendors for the filterDto: {}", filterDto);
 
-//        Object postBody = filterDto;
-        Object postBody = null;
+        Object postBody = filterDto;
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
