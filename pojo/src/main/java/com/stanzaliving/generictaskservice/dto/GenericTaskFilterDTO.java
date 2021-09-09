@@ -28,10 +28,10 @@ public class GenericTaskFilterDTO {
 
 
     private String name;
-    private String statusUUID;
-    private String taskCategoryUUId;
-    private String taskSubCategoryUUId;//taskType
-    private List<String> tagsUUIds;//tags
+    private String statusUuid;
+    private String taskCategoryUuid;
+    private String taskSubCategoryUuid;
+    private List<String> tagsUuids;
     private PaginationRequest pageRequest;
     private List<String> taskOwnerlist;
     private Boolean overridable;
