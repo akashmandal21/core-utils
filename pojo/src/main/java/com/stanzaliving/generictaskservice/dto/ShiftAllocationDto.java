@@ -26,7 +26,6 @@ public class ShiftAllocationDto extends AbstractDto {
 	@NotBlank(message = "ShiftId is mandatory")
 	private String shiftUuid;
 
-	@NotBlank(message = "SlotUuid is mandatory")
 	private String slotUuid;
 
 	@NotBlank(message = "Day is mandatory")
