@@ -12,7 +12,7 @@ import com.stanzaliving.wanda.dtos.UserDetailDto;
 import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
 import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
-import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDto;
+import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDtoV2;
 import com.stanzaliving.wanda.response.WandaFileResponseDto;
 import com.stanzaliving.wanda.dtos.*;
 import com.stanzaliving.wanda.response.OnBoardingGetResponse;
@@ -599,7 +599,7 @@ public class WandaClientApi {
 	}
 
 
-	public ResponseDto<ResidentKYCDocumentResponseDto> getResidentKYCDocuments(String residentUuid) {
+	public ResponseDto<ResidentKYCDocumentResponseDtoV2> getResidentKYCDocuments(String residentUuid) {
 		Object postBody = null;
 
 		// create path and map variables
@@ -617,8 +617,8 @@ public class WandaClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDto>> returnType =
-				new ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDto>>() {
+		ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDtoV2>> returnType =
+				new ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDtoV2>>() {
 		};
 
 		return restClient.invokeAPI(
