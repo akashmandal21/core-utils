@@ -1,13 +1,14 @@
 package com.stanzaliving.projectplanningservice.dto.request;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.projectplanningservice.enums.PlanningStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Date;
 
 
 /**
@@ -18,23 +19,19 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class SectionFilterRequest implements Serializable {
+public class PlanningTemplateFilterRequestDto implements Serializable {
 
     private static final long serialVersionUID = 1635296868115644218L;
 
-    private String durationUnit;
+    private String planningTemplateName;
 
-    private int minDaysRange;
+    private String addedBy;
 
-    private int maxDaysRange;
+    private Date startDate;
 
-    private List<String> module;
+    private Date endDate;
 
-    private String activities;
-
-    private List<String> predecessorTasks;
-
-    private String owner;
+    private PlanningStatus planningStatus;
 
     private PaginationRequest pageRequest;
 }
