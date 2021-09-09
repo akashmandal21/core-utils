@@ -1,4 +1,4 @@
-package com.stanzaliving.housekeeping.dto;
+package com.stanzaliving.housekeepingservice.dto;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import lombok.*;
