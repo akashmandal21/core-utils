@@ -36,7 +36,7 @@ public class SectionDetailsDto extends AbstractDto {
 
     private String activities;
 
-    private String predecessorTasks;
+    private List<String> predecessorTasks;
 
     protected Date createdAt;
 
