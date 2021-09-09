@@ -78,12 +78,11 @@ public class POClientApi {
 
     public ResponseDto<Map<String, BigDecimal>> getMaxQuantities(String itemUuid, List<String> propertyUuidList) {
 
-        Object postBody = null;
+        List<String> postBody = propertyUuidList;
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("itemUuid",itemUuid);
-        uriVariables.put("propertyUuidList",propertyUuidList);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/po/remaining/item/quantity/propertyWise/{itemUuid}/{propertyUuidList}")
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/remaining/item/quantity/propertyWise/{itemUuid}")
                 .buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -98,7 +97,7 @@ public class POClientApi {
         ParameterizedTypeReference<ResponseDto<Map<String,BigDecimal>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String,BigDecimal>>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public ResponseDto<Boolean> acceptInvoiceFlag(String poDetailsId, String userName) {
