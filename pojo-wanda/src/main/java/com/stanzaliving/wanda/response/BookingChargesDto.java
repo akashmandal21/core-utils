@@ -3,6 +3,7 @@ package com.stanzaliving.wanda.response;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.wanda.dtos.TransactionDto;
 
 import lombok.AllArgsConstructor;

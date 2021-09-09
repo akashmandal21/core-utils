@@ -314,4 +314,37 @@ public class VentaClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
+
+	public Map<String,Object> getInventoryBookingDetails(String id) {
+
+		try {
+			Object postBody = null;
+
+			log.info("get booking details for booking uuid {} ", id);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("id", id);
+
+			String path = UriComponentsBuilder.fromPath("/booking/{id}").buildAndExpand(uriVariables)
+					.toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {"*/*"};
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<Map<String,Object>> returnType = new ParameterizedTypeReference<Map<String,Object>>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("error while fetching the booking details " + e);
+		}
+
+		return null;
+
+	}
 }

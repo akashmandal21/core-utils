@@ -38,4 +38,7 @@ public class KycDocumentDTO {
     private boolean maxUploadRetriesReached;
 
     private String message;
+
+    private boolean isActive;
+
 }
