@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.food.v2.category.dto.MealCategoryPriceDto;
@@ -28,6 +29,7 @@ public class MonthlyBudgetPlannerDto extends MenuCategoryDTO {
 	private static final long serialVersionUID = -631333844318576490L;
 	private Double monthlyBudget;
 	private Map<String, String> tags;
+	private List<ListingDto> demographicTags;
     private Integer eventCount;
     
 	private String mealWiseName;

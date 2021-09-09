@@ -20,6 +20,7 @@ import lombok.experimental.SuperBuilder;
 public class MonthlyBudgetPlannerListingDto implements Serializable {
 
 	private static final long serialVersionUID = 3538768605666556421L;
+	private MonthlyBudgetPlannerStatsDto monthlyBudgetPlannerStatsDto;
 	private List<ListingCountDto> stats;
 	private PageResponse<MonthlyBudgetPlannerDto> plannerData;
 }
