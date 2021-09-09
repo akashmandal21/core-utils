@@ -75,7 +75,8 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
-    public ResponseDto<Map<String, BigDecimal>> getMaxQuantities(String itemUuid,List<String> propertyUuidList) {
+
+    public ResponseDto<Map<String, BigDecimal>> getMaxQuantities(String itemUuid, List<String> propertyUuidList) {
 
         Object postBody = null;
         final Map<String, Object> uriVariables = new HashMap<>();
