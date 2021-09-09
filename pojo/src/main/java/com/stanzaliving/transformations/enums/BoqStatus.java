@@ -34,8 +34,18 @@ public enum BoqStatus {
 	private String textColor;
 	private String bgColor;
 
+	BoqStatus(String desc, String color, UserType editableByUser, Department editableByDepartment, Integer order) {
+		this.desc = desc;
+		this.color = color;
+		this.editableByUser = editableByUser;
+		this.editableByDepartment = editableByDepartment;
+		this.order = order;
+		this.approvalState = null;
+		this.textColor = null;
+		this.bgColor = null;
+	}
 
-	private BoqStatus(String name, String color, UserType userType, Department department, int order, String approvalState, String textColor, String bgColor) {
+	BoqStatus(String name, String color, UserType userType, Department department, int order, String approvalState, String textColor, String bgColor) {
 		this.desc = name;
 		this.color = color;
 		this.editableByUser = userType;
