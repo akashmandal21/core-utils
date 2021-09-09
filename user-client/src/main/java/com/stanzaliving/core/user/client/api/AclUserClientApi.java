@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.user.client.api;
 
@@ -222,7 +222,7 @@ public class AclUserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 	}
-	
+
 	public ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>> getUserInfoByEmailId(String email) {
 
 		Object postBody = null;
@@ -231,7 +231,7 @@ public class AclUserClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		uriVariables.put("email", email);
-		
+
 		String path = UriComponentsBuilder.fromPath("/internal/acl/user/fe/{email}")
 				.buildAndExpand(uriVariables).toUriString();
 
