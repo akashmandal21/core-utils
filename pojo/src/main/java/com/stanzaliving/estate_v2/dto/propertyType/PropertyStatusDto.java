@@ -27,6 +27,8 @@ public class PropertyStatusDto {
     @EmptyOrNull(message = "Text-Color cannot be empty or null")
     private String textColor;
 
+    private int statusOrder;
+
     private List<String> moduleVisible;
     private String statusDescription;
 }
