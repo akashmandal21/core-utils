@@ -75,12 +75,14 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
-    public ResponseDto<Map<String, BigDecimal>> getMaxQuantities(String itemUuid) {
+    public ResponseDto<Map<String, BigDecimal>> getMaxQuantities(String itemUuid,List<String> propertyUuidList) {
 
         Object postBody = null;
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("itemUuid",itemUuid);
-        String path = UriComponentsBuilder.fromPath("/internal/generic/po/remaining/item/quantity/propertyWise/{itemUuid}")
+        uriVariables.put("propertyUuidList",propertyUuidList);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/remaining/item/quantity/propertyWise/{itemUuid}/{propertyUuidList}")
                 .buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
