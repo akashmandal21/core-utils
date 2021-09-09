@@ -104,7 +104,7 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
                     mapToSend.put(account, getAccount(transaction.getPaymentMode()));
                     mapToSend.put(stanzaId, "");//pending
                     mapToSend.put(gatewayTransactionId,initatieTransaction.getPgOrderId());
-                    mapToSend.put(date, DateUtil.customDateFormatter(new Date(), DateFormat.D_DD_MMM_YY));
+                    mapToSend.put(date, DateUtil.customDateFormatter(new Date(), DateFormat.DD_MM_YYYY));
                     mapToSend.put(bookingid,transaction.getTransactionId());
                     mapToSend.put(customer, "");
                     mapToSend.put(paymentOption,transaction.getPaymentMode().getPaymentModeDesc());

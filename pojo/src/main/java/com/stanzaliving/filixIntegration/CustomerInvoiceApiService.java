@@ -76,16 +76,16 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
                 logger.info("invoice "+invoice);
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
                 mapToSend.put(stanzaId, String.valueOf(invoice.getInventoryInvoiceId()));
-                mapToSend.put(date, null==invoice.getIssueDate()?".":DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getIssueDate()), DateFormat.D_DD_MMM_YY) );
-                mapToSend.put(startDate, null != invoice.getFromDate() ? DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getFromDate()) , DateFormat.D_DD_MMM_YY) : "");
-                mapToSend.put(endDate, null != invoice.getToDate() ? DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getToDate()),DateFormat.D_DD_MMM_YY) : "");
+                mapToSend.put(date, null==invoice.getIssueDate()?"":DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getIssueDate()), DateFormat.DD_MM_YYYY) );
+                mapToSend.put(startDate, null != invoice.getFromDate() ? DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getFromDate()) , DateFormat.DD_MM_YYYY) : "");
+                mapToSend.put(endDate, null != invoice.getToDate() ? DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getToDate()),DateFormat.DD_MM_YYYY) : "");
                 if(null == invoice.getFromDate() && null == invoice.getToDate()) {
                     mapToSend.put(invoiceType, "Maintenance Charges");
                 }else {
                     mapToSend.put(invoiceType,invoice.getInvoiceType());
                 }
                 mapToSend.put(bookingid,invoice.getReferenceUuid());
-                mapToSend.put(tranid,".");
+                mapToSend.put(tranid,"");
                 mapToSend.put(dueDate,DateUtil.addDaysToDate(DateUtil.convertToDate(invoice.getIssueDate()),6));
                 mapToSend.put(customer,invoice.getResidentId());
                 mapToSend.put(class_str, "");
