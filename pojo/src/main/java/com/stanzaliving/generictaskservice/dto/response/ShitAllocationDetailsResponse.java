@@ -3,6 +3,7 @@ package com.stanzaliving.generictaskservice.dto.response;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.DayOfWeek;
 import java.util.List;
 
 /**
@@ -16,6 +17,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ShitAllocationDetailsResponse {
-    private String day;
+    private DayOfWeek day;
     private List<ShiftDetailsResponse> shifts;
 }
