@@ -13,6 +13,8 @@ public enum MonthlyBudgetStatus {
 
     DRAFT("In Draft"),
     SUBMITTED("Submitted"),
+    PENDING("Pending"),
+    UNDER_APPROVAL("Under Approval"),
     APPROVED("Approved");
     private final String status;
 
