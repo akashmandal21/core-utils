@@ -1,13 +1,13 @@
 package com.stanzaliving.generictaskservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
+import java.time.DayOfWeek;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
  * @author Vikas S T
@@ -16,28 +16,30 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@Builder
-@ToString
+@ToString(callSuper = true)
+@SuperBuilder
 @NoArgsConstructor
-public class ShiftAllocationDto {
-
-	private String uuid;
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+public class ShiftAllocationDto extends AbstractDto {
 
 	@NotBlank(message = "ShiftId is mandatory")
 	private String shiftUuid;
 
+	@NotBlank(message = "SlotUuid is mandatory")
 	private String slotUuid;
 
-	private String day;
+	@NotBlank(message = "Day is mandatory")
+	private DayOfWeek shiftDay;
 
-	private String taskTemplateUuid;
-
+	@NotBlank(message = "StartingTime is mandatory")
 	private LocalTime startingTime;
 
+	@NotBlank(message = "EndingTime is mandatory")
 	private LocalTime endingTime;
 
-	private String createdBy;
+	private SlotDto slotDto;
 
-	private Date createdDate;
+	private ShiftDto shiftDto;
+
 }

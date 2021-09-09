@@ -1,6 +1,8 @@
 package com.stanzaliving.generictaskservice.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import java.util.List;
@@ -8,12 +10,10 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TaskCategoryDto {
-
-    private String uuid;
+public class TaskCategoryDto extends AbstractDto {
 
     private String parentTaskCategoryUuid;
 

@@ -1,5 +1,6 @@
 package com.stanzaliving.generictaskservice.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
@@ -9,7 +10,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -24,7 +24,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SlotDto {
+public class SlotDto extends AbstractDto {
 
     @NotEmpty(message = "Allowed task is mandatory")
     private List<String> allowedTaskList;
@@ -54,21 +54,16 @@ public class SlotDto {
     @NotBlank(message = "Slot name is mandatory")
     private String slotName;
 
-    @NotBlank(message = "Slot source is mandatory")
-    private String slotSource;
+    @NotBlank(message = "Module is mandatory")
+    private String module;
 
     @NotNull(message = "Slot type is mandatory")
     private SlotType slotType;
 
     private List<String> tagsUuid;
 
-    private String slotUuid;
-
     private List<TagResponseDto> tags;
 
     private List<TaskCategoryDto> allowedTasksList;
 
-    private LocalDate menuDate;
-
-    private LocalTime localTime;
 }
