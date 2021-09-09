@@ -65,9 +65,9 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
                 //confirm
                 mapToSend.put(stanzaId, String.valueOf(creditNote.getReferenceUuid()));
-                mapToSend.put(date, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getIssueDate()), DateFormat.D_DD_MMM_YY));
-                mapToSend.put(startDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getFromDate()),DateFormat.D_DD_MMM_YY));
-                mapToSend.put(endDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getToDate()), DateFormat.D_DD_MMM_YY));
+                mapToSend.put(date, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getIssueDate()), DateFormat.DD_MM_YYYY));
+                mapToSend.put(startDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getFromDate()),DateFormat.DD_MM_YYYY));
+                mapToSend.put(endDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getToDate()), DateFormat.DD_MM_YYYY));
                 mapToSend.put(classString, "");
                 mapToSend.put(department, "");
                 mapToSend.put(customer,creditNote.getResidentId());
