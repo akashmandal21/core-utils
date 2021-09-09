@@ -2,6 +2,7 @@ package com.stanzaliving.core.client.api;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.booking.dto.*;
+import com.stanzaliving.booking.dto.request.DealApprovalRequestDto;
 import com.stanzaliving.booking.dto.response.BookingCommercialsCardResponseDto;
 import com.stanzaliving.booking.dto.response.LedgerResponseDto;
 import com.stanzaliving.booking.dto.response.NeedsAttentionBookingResponseDto;
@@ -20,10 +21,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Log4j2
 public class BookingDataControllerApi {
@@ -302,7 +300,7 @@ public class BookingDataControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
-        
+
         String path = UriComponentsBuilder.fromPath("/internal/modify/contract/details/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -318,7 +316,7 @@ public class BookingDataControllerApi {
                 = new ParameterizedTypeReference<ResponseDto<ContractModificationDetailsDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-    
+
 }
 
     public ResponseDto<Double> getBedCountForNonMgDeal(String dealUuid) {
@@ -494,6 +492,69 @@ public class BookingDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
+    }
+
+    public List<String> getRoomNumberForActiveBookingByContractUuidAndRoomNumber(String dealUuid, Set<String> roomNumber) {
+
+        DealApprovalRequestDto dealApprovalRequestDto = DealApprovalRequestDto.builder()
+                .dealUuid(dealUuid)
+                .roomNumber(roomNumber)
+                .build();
+
+        Object postBody = dealApprovalRequestDto;
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/deal/active/booking").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<String>> returnType =
+                new ParameterizedTypeReference<List<String>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error(e);
+            log.error("Exception while Processing API");
+            return null;
+        }
+    }
+
+    public ResponseDto<String> checkAndUpdateContractBasedInventories(UpdateDealAndInventoryDto updateDealAndInventoryDto) {
+
+        Object postBody = updateDealAndInventoryDto;
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/update/contract/inventory").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType =
+                new ParameterizedTypeReference<ResponseDto<String>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error(e);
+            log.error("Exception while Processing API");
+            return null;
+        }
     }
 
 }
