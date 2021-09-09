@@ -23,7 +23,7 @@ public class CustomerApiDto {
     private FilixBookingDto booking;
     private FilixUserDetailResponseDto filixUserDetailResponseDto;
     private FilixPaymentTransactionRequestDto filixPaymentTransactionRequestDto;
-    private FilixTransactionInitiateDto filFilixTransactionInitiateDto;
+    private FilixTransactionInitiateDto filixTransactionInitiateDto;
 
 
 }
