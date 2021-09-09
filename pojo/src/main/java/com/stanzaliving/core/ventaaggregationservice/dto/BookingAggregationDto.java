@@ -2,6 +2,7 @@ package com.stanzaliving.core.ventaaggregationservice.dto;
 
 import com.stanzaliving.booking.dto.BookingTag;
 import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
+import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -83,4 +84,5 @@ public class BookingAggregationDto {
     private String bookingSubType;
     private boolean exceptionOnboarding;
     private boolean allowExceptionalOnboarding;
+    private List<InventoryResponseOccupancyDto> inventoryOccupancy;
 }
