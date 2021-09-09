@@ -35,6 +35,8 @@ public class TransactionInitiateDto {
 	private Integer amount;
 	
 	private String currency;
+
+	private String merchantTransactionId;
 	
 	@Default
 	private Boolean isEndUserPayingFee = false;

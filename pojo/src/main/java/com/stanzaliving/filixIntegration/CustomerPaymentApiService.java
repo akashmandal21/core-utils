@@ -10,6 +10,7 @@ import com.stanzaliving.core.payment.enums.PaymentMode;
 import com.stanzaliving.filixIntegration.Dto.AbstractOracleDto;
 import com.stanzaliving.filixIntegration.Dto.CustomerApiDto;
 import com.stanzaliving.filixIntegration.Dto.FilixPaymentTransactionRequestDto;
+import com.stanzaliving.filixIntegration.Dto.FilixTransactionInitiateDto;
 import com.stanzaliving.filixIntegration.Enum.EventType;
 import com.stanzaliving.filixIntegration.Enum.OracleServiceOwner;
 import org.slf4j.Logger;
@@ -99,10 +100,11 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
 //TODO: "0 < customerApiDto.getSdAdjusted()" chnge if condition
                 if(null != customerApiDto) {
                     FilixPaymentTransactionRequestDto transaction = customerApiDto.getFilixPaymentTransactionRequestDto();
-
+                    FilixTransactionInitiateDto initatieTransaction=customerApiDto.getFilixTransactionInitiateDto();
                     mapToSend.put(account, getAccount(transaction.getPaymentMode()));
                     mapToSend.put(stanzaId, "");//pending
-                    mapToSend.put(date, DateUtil.customDateFormatter(new Date(), DateFormat.D_DD_MMM_YY));
+                    mapToSend.put(gatewayTransactionId,initatieTransaction.getPgOrderId());
+                    mapToSend.put(date, DateUtil.customDateFormatter(new Date(), DateFormat.DD_MM_YYYY));
                     mapToSend.put(bookingid,transaction.getTransactionId());
                     mapToSend.put(customer, "");
                     mapToSend.put(paymentOption,transaction.getPaymentMode().getPaymentModeDesc());
@@ -158,6 +160,8 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
     private String debitPaymentRate="debitPaymentRate";
     private String class_str = "class";
     private String department = "department";
+    private String gatewayTransactionId="gatewayTransactionId";
+    private String merchantTransactionId="merchantTransactionId";
     private String memo = "memo";
     private String url = "https://5742638-sb1.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=450&deploy=1";
 

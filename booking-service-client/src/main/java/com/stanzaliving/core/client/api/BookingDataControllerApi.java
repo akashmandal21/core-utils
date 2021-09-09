@@ -20,6 +20,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -386,7 +387,7 @@ public class BookingDataControllerApi {
             };
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while getting discount splitter : ", e);
+            log.error("Exception while getting booking details : ", e);
         }
         return null;
     }
