@@ -39,9 +39,9 @@ public class HkPlaningTemplatesDto {
 
 	private List<String> tags = new ArrayList<>();
 
-	private List<TagResponseDto> tagResponse = new ArrayList<>();
+	private List<TagResponseDto> tagResponses = new ArrayList<>();
 
-	private List<String> shiftAllocationUuid = new ArrayList<>();
+	private List<String> shiftAllocationUuids = new ArrayList<>();
 
 	private List<ShiftAllocationDto> shifts = new ArrayList<>();
 
