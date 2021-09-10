@@ -1,7 +1,9 @@
 package com.stanzaliving.core.food.enums;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.stanzaliving.core.generic.dto.UIKeyValue;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public enum SpecialEventType {
 
@@ -13,11 +15,11 @@ public enum SpecialEventType {
     
     private String eventTypeName;
     
-    public static Map<String,String> eventTypeMap = new HashMap<>();
+    public static List<UIKeyValue> eventTypeUIList = new ArrayList<>();
     
     static {
         for(SpecialEventType eventType : SpecialEventType.values()) {
-            eventTypeMap.put(eventType.toString(),eventType.eventTypeName);
+            eventTypeUIList.add(new UIKeyValue(eventType.eventTypeName,eventType.name()));
         }
     }
     
