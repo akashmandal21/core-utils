@@ -12,7 +12,9 @@ import java.util.List;
 public enum PlanningStatus {
     ACTIVE("active"),
     INACTIVE("inactive"),
-    DRAFT("draft");
+    DRAFT("draft"),
+    PENDINGAPPROVAL("pendingapproval"),
+    REJECT("reject");
 
     private String status;
 
