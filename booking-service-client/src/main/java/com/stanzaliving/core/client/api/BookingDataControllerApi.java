@@ -20,7 +20,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -303,7 +302,7 @@ public class BookingDataControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
-
+        
         String path = UriComponentsBuilder.fromPath("/internal/modify/contract/details/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -319,7 +318,7 @@ public class BookingDataControllerApi {
                 = new ParameterizedTypeReference<ResponseDto<ContractModificationDetailsDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
+    
 }
 
     public ResponseDto<Double> getBedCountForNonMgDeal(String dealUuid) {
@@ -387,7 +386,7 @@ public class BookingDataControllerApi {
             };
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while getting booking details : ", e);
+            log.error("Exception while getting discount splitter : ", e);
         }
         return null;
     }
@@ -449,30 +448,27 @@ public class BookingDataControllerApi {
         return null;
     }
 
-
-    public ResponseDto<BookingResponseDto> getBookingDetails(String bookingUuid) {
+    public void checkForTresspasserBookings() {
         Object postBody = null;
-
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("booking-uuid", bookingUuid);
-
-        String path = UriComponentsBuilder.fromPath("/booking/get/{booking-uuid}").buildAndExpand(uriVariables).toUriString();
-
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
-
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/exit/tresspasser/bookings").buildAndExpand(uriVariables).toUriString();
         final String[] accepts = {
                 "*/*"
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<BookingResponseDto>> returnType
-                = new ParameterizedTypeReference<ResponseDto<BookingResponseDto>>() {
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
+        try {
+            restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+        }
+        catch (Exception e){
+            log.error("Exception occurred while calling api with message:{}",e.getMessage());
+        }
     }
 
 }
