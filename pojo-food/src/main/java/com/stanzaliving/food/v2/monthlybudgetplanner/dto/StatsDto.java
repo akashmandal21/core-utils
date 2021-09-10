@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.monthlybudgetplanner.dto;
 
+import com.stanzaliving.food.v2.menu.constants.MonthlyBudgetStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,9 +14,10 @@ import java.io.Serializable;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class MonthlyBudgetPlannerStatsDto implements Serializable {
-	private StatsDto overAllMenuCategories;
-	private StatsDto pending;
-	private StatsDto underApproval;
-	private StatsDto approved;
+public class StatsDto implements Serializable {
+	
+	private String name;
+	private MonthlyBudgetStatus filterStatus;
+	private long count;
+
 }
