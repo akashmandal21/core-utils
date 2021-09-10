@@ -1,19 +1,19 @@
 package com.stanzaliving.filixIntegration.Dto;
 
+import com.stanzaliving.filixIntegration.LocalDateAttributeConverter;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
+
 @Getter
 @Setter
 @ToString
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class FilixInvoiceDto {
     private String stanzaDocumentId;
 
@@ -27,10 +27,13 @@ public class FilixInvoiceDto {
 
     private String parentUuid;
 
+    @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate fromDate;
 
+    @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate toDate;
 
+    @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate issueDate;
 
     private Double totalAmount;
@@ -72,4 +75,18 @@ public class FilixInvoiceDto {
     private Long inventoryInvoiceId;
 
     private String metaDataCallerService;
+
+    private Long id;
+
+    private String uuid;
+
+    private Date createdAt;
+
+    private String createdBy;
+
+    private Date updatedAt;
+
+    private String updatedBy;
+
+    private boolean status = true;
 }

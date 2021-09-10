@@ -2,6 +2,7 @@ package com.stanzaliving.filixIntegration;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
@@ -9,6 +10,7 @@ import com.stanzaliving.core.payment.enums.PaymentMode;
 import com.stanzaliving.filixIntegration.Dto.AbstractOracleDto;
 import com.stanzaliving.filixIntegration.Dto.CustomerApiDto;
 import com.stanzaliving.filixIntegration.Dto.FilixPaymentTransactionRequestDto;
+import com.stanzaliving.filixIntegration.Dto.FilixTransactionInitiateDto;
 import com.stanzaliving.filixIntegration.Enum.EventType;
 import com.stanzaliving.filixIntegration.Enum.OracleServiceOwner;
 import org.slf4j.Logger;
@@ -70,7 +72,7 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
                 FilixPaymentTransactionRequestDto transaction = customerApiDto.getFilixPaymentTransactionRequestDto();
                 mapToSend.put(Stanzaid, String.valueOf(transaction.getTransactionId()));
                 mapToSend.put(writeOff, Boolean.TRUE);
-                mapToSend.put(writeoffDate, DateUtil.convertDateToString(new Date(), DateUtil.dd_MMM_yyyy_Slash_Format));
+                mapToSend.put(writeoffDate, DateUtil.customDateFormatter(new Date(), DateFormat.D_DD_MMM_YY));
             }
         }
         catch (IOException e) {
@@ -98,31 +100,18 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
 //TODO: "0 < customerApiDto.getSdAdjusted()" chnge if condition
                 if(null != customerApiDto) {
                     FilixPaymentTransactionRequestDto transaction = customerApiDto.getFilixPaymentTransactionRequestDto();
-//                    Double sdAdjusted = customerApiDto.getSdAdjusted();
-//		    		Transaction transaction = transactionService.findByStatusAndType(booking.getBookingId(), Constants.COMPLETED, "BOOKING");
-//		    		mapToSend.put(account, "100001"); //pending
+                    FilixTransactionInitiateDto initatieTransaction=customerApiDto.getFilixTransactionInitiateDto();
                     mapToSend.put(account, getAccount(transaction.getPaymentMode()));
-                    mapToSend.put(stanzaId, "invoice_adjustment_"+"booking.getBookingId()");//pending
-                    mapToSend.put(date, DateUtil.convertDateToString(new Date(), DateUtil.dd_MMM_yyyy_Slash_Format));
-                    mapToSend.put(bookingid, "String.valueOf(booking.getBookingId())");
-                    mapToSend.put(customer, "booking.getStudent().getStudentId()");
-                    mapToSend.put(paymentOption, "");
-                    mapToSend.put(applyDeposit, "getApplyDeposit(sdAdjusted, booking)");
-                    mapToSend.put(paymentAmount, 0);
-                    mapToSend.put(extraFields,"getExtraFields(booking.getStudent().getStudentId()");
-
-                }else {
-                    FilixPaymentTransactionRequestDto transaction = customerApiDto.getFilixPaymentTransactionRequestDto();
-//                    FilixIntegrationStudentDto student = customerApiDto.getStudent();
-//		        	mapToSend.put(account, "100001");
-                    mapToSend.put(account, getAccount(transaction.getPaymentMode()));
-                    mapToSend.put(stanzaId, String.valueOf(transaction.getTransactionId()));
-                    mapToSend.put(date, "DateUtil.convertDateToString(transaction.getCompletionDate(), DateUtil.dd_MMM_yyyy_Slash_Format)");
-                    mapToSend.put(bookingid, "String.valueOf(transaction.getBookingId())");
-                    mapToSend.put(customer, "student.getStudentId()");
-                    mapToSend.put(paymentOption, transaction.getPaymentMode().getPaymentModeDesc());
+                    mapToSend.put(stanzaId, "");//pending
+                    mapToSend.put(gatewayTransactionId,initatieTransaction.getPgOrderId());
+                    mapToSend.put(date, DateUtil.customDateFormatter(new Date(), DateFormat.DD_MM_YYYY));
+                    mapToSend.put(bookingid,transaction.getTransactionId());
+                    mapToSend.put(customer, "");
+                    mapToSend.put(paymentOption,transaction.getPaymentMode().getPaymentModeDesc());
+                    mapToSend.put(applyDeposit,"");
                     mapToSend.put(paymentAmount, transaction.getAmount());
-                    mapToSend.put(extraFields,"getExtraFields(student.getStudentId())");
+                    mapToSend.put(extraFields,"");
+
                 }
             }
         } catch (IOException e) {
@@ -131,28 +120,6 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
 
         return mapToSend;
     }
-
-//    private List<Map<String, Object>> getApplyDeposit(Double sdAdjusted, FilixIntegrationBookingDto booking) {
-//        boolean isWpBooking = BookingUtil.isWpBooking(booking.getBookingType());
-//        Invoice invoice = invoiceService.fetchByInvoiceTypeAndBookingId(isWpBooking ? InvoiceType.SECURITY_DEPOSIT : InvoiceType.BOOKING, booking.getBookingId());
-//        List<Map> securityLedgers = securityLedgerDao.findNarrationByBookingIds(Arrays.asList(booking.getBookingId()));
-//        Map securityLedger = securityLedgers.get(0);
-//        String narration = (String) securityLedger.get("narration");
-//        Integer transactionId =  Integer.valueOf(narration.replace("Corresponding to transactionId ", ""));
-//
-//        List<Map<String, Object>> applyDeposit = new ArrayList();
-//        Map<String, Object> map = new HashMap<>();
-//        map.put(depositRefNumber, transactionId);
-//        map.put(debitPaymentRate, sdAdjusted);
-//        applyDeposit.add(map);
-//        return applyDeposit;
-//    }
-//
-//    private Map<String, Object> getExtraFields(String studentId) {
-//        Map<String, Object> map = new HashMap<>();
-//        map.put(residenceName,residenceDao.getResidenceNameFromStudentId(studentId));
-//        return map;
-//    }
 
     private String getAccount(PaymentMode paymentMode) {
         switch (paymentMode.getPaymentModeDesc()) {
@@ -193,6 +160,8 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
     private String debitPaymentRate="debitPaymentRate";
     private String class_str = "class";
     private String department = "department";
+    private String gatewayTransactionId="gatewayTransactionId";
+    private String merchantTransactionId="merchantTransactionId";
     private String memo = "memo";
     private String url = "https://5742638-sb1.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=450&deploy=1";
 

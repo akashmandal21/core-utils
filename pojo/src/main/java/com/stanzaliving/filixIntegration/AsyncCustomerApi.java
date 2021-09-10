@@ -28,12 +28,17 @@ public class AsyncCustomerApi {
 
     private final CustomerInvoiceApiService customerInvoiceApiService;
 
+    private final CustomerDepositApiService customerDepositApiService;
+    @Autowired
+    CustomerCreditMemoApiService customerCreditMemoApiService;
+
     ObjectMapper objectMapper = new ObjectMapper();
 
-    public AsyncCustomerApi(CustomerCreationApiService customerCreationApiService, CustomerPaymentApiService customerPaymentApiService, CustomerInvoiceApiService customerInvoiceApiService) {
+    public AsyncCustomerApi(CustomerCreationApiService customerCreationApiService, CustomerPaymentApiService customerPaymentApiService, CustomerInvoiceApiService customerInvoiceApiService,CustomerDepositApiService customerDepositApiService) {
         this.customerCreationApiService = customerCreationApiService;
         this.customerPaymentApiService = customerPaymentApiService;
         this.customerInvoiceApiService = customerInvoiceApiService;
+        this.customerDepositApiService = customerDepositApiService;
     }
 
 
@@ -45,6 +50,10 @@ public class AsyncCustomerApi {
                 return customerPaymentApiService;
             case  CUSTOMER_INVOICE:
                 return customerInvoiceApiService;
+            case  CUSTOMER_DEPOSIT:
+                return customerDepositApiService;
+            case  CUSTOMER_CREDIT_MEMO:
+                return customerCreditMemoApiService;
         }
         return null;
     }

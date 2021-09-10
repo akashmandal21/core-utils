@@ -25,8 +25,6 @@ import static com.google.common.base.Preconditions.checkArgument;
 @UtilityClass
 public class DateUtil {
 
-	public static SimpleDateFormat dd_MMM_yyyy_Slash_Format = new SimpleDateFormat("dd/MM/yyyy");
-
 	public String formatIst(Date date, String format) {
 		return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
 	}
@@ -126,7 +124,7 @@ public class DateUtil {
 	public LocalDateTime customDateTimeParser(String dateInput) {
 		return customDateTimeParser(dateInput, DateFormat.ELASTIC_SEARCH);
 	}
-	
+
 	public LocalDateTime customDateTimeParser(String dateInput, DateFormat dateFormat) {
 
 		if (dateInput != null) {
@@ -788,7 +786,7 @@ public class DateUtil {
 
 	/**
 	 * Method to generate a standard date String for display purpose
-	 * 
+	 *
 	 * @return Date string eg. 1st May, 2020
 	 */
 	public String getStandardDateString(Date dateInput) {
@@ -803,19 +801,19 @@ public class DateUtil {
 		return date.with(TemporalAdjusters.next(day));
 	}
 
-	 public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
-	        Calendar calStart = Calendar.getInstance();
-	        calStart.setTime(fromDate);
-	        Calendar calEnd = Calendar.getInstance();
-	        calEnd.setTime(toDate);
-	        int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
-	        return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
-	    }
-	 
-	 public static long getDifferenceBetweenDates(Date d1, Date d2, String differenceIn) {
-			long diff = d2.getTime() - d1.getTime();
-			long requiredValue;
-			switch (differenceIn) {
+	public static int getMonthsBetweenDates(Date fromDate, Date toDate) {
+		Calendar calStart = Calendar.getInstance();
+		calStart.setTime(fromDate);
+		Calendar calEnd = Calendar.getInstance();
+		calEnd.setTime(toDate);
+		int diffYear = calEnd.get(Calendar.YEAR) - calStart.get(Calendar.YEAR);
+		return diffYear * 12 + calEnd.get(Calendar.MONTH) - calStart.get(Calendar.MONTH);
+	}
+
+	public static long getDifferenceBetweenDates(Date d1, Date d2, String differenceIn) {
+		long diff = d2.getTime() - d1.getTime();
+		long requiredValue;
+		switch (differenceIn) {
 
 			case "DAYS":
 				requiredValue = diff / (24 * 60 * 60 * 1000);
@@ -1015,7 +1013,7 @@ public class DateUtil {
 	}
 
 	public static Period findDifference(Date start_date,
-				   Date end_date)
+										Date end_date)
 	{
 		Period dateDifference
 				= Period
@@ -1034,9 +1032,9 @@ public class DateUtil {
 		Integer days = date.getDays();
 		if(year!=0) month = year*12 + month;
 		String diff = " ";
-        if(month!=0) diff += month == 1 ? month+" month ": month+" months ";
-        if(days!=0) diff += days == 1 ? days+" day": days+" days";
-        return diff;
+		if(month!=0) diff += month == 1 ? month+" month ": month+" months ";
+		if(days!=0) diff += days == 1 ? days+" day": days+" days";
+		return diff;
 	}
 
 	public String calculateDifferenceInMonthAndDate(Date startDate, Date endDate) {
