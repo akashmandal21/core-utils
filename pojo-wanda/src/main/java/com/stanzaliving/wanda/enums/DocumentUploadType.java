@@ -5,14 +5,15 @@ import java.util.List;
 
 public enum DocumentUploadType {
 
-	PASSPORT,PAN,REFERRAL_PAN,ADHAAR_CARD,DRIVING_LICENSE,OTHERS,POLICE_VERIFICATION,VISA,SELFIE;
+	PASSPORT,PAN,REFERRAL_PAN,ADHAAR_CARD,DRIVING_LICENSE,OTHERS,POLICE_VERIFICATION,POLICE_VERIFICATION_FORM,VISA,SELFIE;
 	
 	private static List<DocumentUploadType> indianDocumentTypes = new ArrayList<DocumentUploadType>(4);
 
 	private static List<DocumentUploadType> foriegnDocumentTypes = new ArrayList<DocumentUploadType>(4);
 	
 	private static List<DocumentUploadType> dualSideDocuments = new ArrayList<DocumentUploadType>(4);
-	
+
+
 	static {
 		indianDocumentTypes.add(DRIVING_LICENSE);
 		indianDocumentTypes.add(OTHERS);
@@ -27,7 +28,7 @@ public enum DocumentUploadType {
 		dualSideDocuments.add(ADHAAR_CARD);
 		dualSideDocuments.add(DRIVING_LICENSE);
 	}
-	
+
 	public static List<DocumentUploadType> getIndianDocuments(){
 		return indianDocumentTypes;
 	}
@@ -39,4 +40,5 @@ public enum DocumentUploadType {
 	public static List<DocumentUploadType> getDualSideDocuments(){
 		return dualSideDocuments;
 	}
+
 }
