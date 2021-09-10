@@ -64,10 +64,11 @@ public class ErpInvoiceClient {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, invoiceNumbers, headerParams, accept, returnType);
     }
 
-    public ResponseDto<Map<String, Integer>> getMaxReject(String po_to_uuid) {
+    public ResponseDto<Map<String, Integer>> getMaxRejectionCountForInstallableItems(String po_to_uuid) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("po_to_uuid",po_to_uuid);
+        uriVariables.put("po_uuid",po_to_uuid);
+        uriVariables.put("property","maxRejection");
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
@@ -76,7 +77,7 @@ public class ErpInvoiceClient {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/get/maxRejection/{po_to_uuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/po/{po_uuid}/invoice/items/{property}/get").buildAndExpand(uriVariables).toUriString();
 
         ParameterizedTypeReference<ResponseDto<Map<String, Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Integer>>>() {};
 
