@@ -5,12 +5,17 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.venta.OccupiedRoomDto;
-import com.stanzaliving.wanda.dtos.*;
+import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
+import com.stanzaliving.wanda.dtos.FullUserDto;
+import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
+import com.stanzaliving.wanda.dtos.UserDetailDto;
+import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
 import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
-import com.stanzaliving.wanda.response.OnBoardingGetResponse;
-import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDto;
+import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDtoV2;
 import com.stanzaliving.wanda.response.WandaFileResponseDto;
+import com.stanzaliving.wanda.dtos.*;
+import com.stanzaliving.wanda.response.OnBoardingGetResponse;
 import com.stanzaliving.wanda.response.WandaResponse;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -27,765 +32,752 @@ import java.util.*;
 @Log4j2
 public class WandaClientApi {
 
-    private StanzaRestClient restClient;
+	private StanzaRestClient restClient;
 
-    public WandaClientApi(StanzaRestClient stanzaRestClient) {
-        this.restClient = stanzaRestClient;
-    }
+	public WandaClientApi(StanzaRestClient stanzaRestClient) {
+		this.restClient = stanzaRestClient;
+	}
 
-    public FullUserDto getUserDetails(String userUuid) {
-        try {
-            Object postBody = null;
+	public FullUserDto getUserDetails(String userUuid) {
+		try {
+			Object postBody = null;
 
-            log.info("Received request to get FullUserDto of userUuid {}", userUuid);
+			log.info("Received request to get FullUserDto of userUuid {}", userUuid);
 
-            final Map<String, Object> uriVariables = new HashMap<>();
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-            uriVariables.put("userUuid", userUuid);
+			uriVariables.put("userUuid", userUuid);
 
-            String path = UriComponentsBuilder.fromPath("/coreApi/fulluserdto/id/{userUuid}")
-                    .buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/fulluserdto/id/{userUuid}")
+					.buildAndExpand(uriVariables).toUriString();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-            final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-            final String[] accepts = {"*/*"};
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<FullUserDto> returnType = new ParameterizedTypeReference<FullUserDto>() {
-            };
+			ParameterizedTypeReference<FullUserDto> returnType = new ParameterizedTypeReference<FullUserDto>() {
+			};
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Error while fetching user details for userUuid: {}", userUuid, e);
-        }
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching user details for userUuid: {}", userUuid, e);
+		}
 
-        return null;
-    }
+		return null;
+	}
 
-    public UserDetailDto getUserDetailsByUserCode(String userCode) {
+	public UserDetailDto getUserDetailsByUserCode(String userCode) {
 
-        try {
-            Object postBody = null;
+		try {
+			Object postBody = null;
 
-            log.info("Received request to get UserDetailDto of userCode: {}", userCode);
+			log.info("Received request to get UserDetailDto of userCode: {}", userCode);
 
-            final Map<String, Object> uriVariables = new HashMap<>();
-            uriVariables.put("userCode", userCode);
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("userCode", userCode);
 
-            String path = UriComponentsBuilder.fromPath("/coreApi/userDetailDto/id/{userCode}")
-                    .buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/userDetailDto/id/{userCode}")
+					.buildAndExpand(uriVariables).toUriString();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-            final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-            final String[] accepts = {"*/*"};
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<UserDetailDto> returnType = new ParameterizedTypeReference<UserDetailDto>() {
-            };
+			ParameterizedTypeReference<UserDetailDto> returnType = new ParameterizedTypeReference<UserDetailDto>() {
+			};
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Error while fetching user details for user code: {}", userCode, e);
-        }
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching user details for user code: {}", userCode, e);
+		}
 
-        return null;
-    }
+		return null;
+	}
 
-    public Map<String, String> getUserCodeIdMap(Set<String> userCodes) {
+	public Map<String, String> getUserCodeIdMap(Set<String> userCodes) {
 
-        Object postBody = userCodes;
+		Object postBody = userCodes;
 
-        log.info("Received request to get Map of userCode {}", userCodes);
+		log.info("Received request to get Map of userCode {}", userCodes);
 
-        final Map<String, Object> uriVariables = new HashMap<>();
+		final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/coreApi/user/userCodeId").buildAndExpand(uriVariables)
-                .toUriString();
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/userCodeId").buildAndExpand(uriVariables)
+				.toUriString();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<Map<String, String>> returnType = new ParameterizedTypeReference<Map<String, String>>() {
-        };
+		ParameterizedTypeReference<Map<String, String>> returnType = new ParameterizedTypeReference<Map<String, String>>() {
+		};
 
-        Map<String, String> response = new HashMap<>();
+		Map<String, String> response = new HashMap<>();
 
-        try {
+		try {
 
-            response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
-                    returnType);
+			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
+					returnType);
 
-        } catch (Exception e) {
-            log.error("Exception while getting user code map from wanda: ", e);
-        }
+		} catch (Exception e) {
+			log.error("Exception while getting user code map from wanda: ", e);
+		}
 
-        return response;
-    }
+		return response;
+	}
 
-    public List<FeaturephoneUserDto> getFeaturePhoneUsers(String hostel) {
+	public List<FeaturephoneUserDto> getFeaturePhoneUsers(String hostel) {
 
-        try {
-            Object postBody = null;
+		try {
+			Object postBody = null;
 
-            log.info("Received request to get Feature phone user dto of hostel: {}", hostel);
+			log.info("Received request to get Feature phone user dto of hostel: {}", hostel);
 
-            final Map<String, Object> uriVariables = new HashMap<>();
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/coreApi/user/list/feature/phone").buildAndExpand(uriVariables)
-                    .toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/user/list/feature/phone").buildAndExpand(uriVariables)
+					.toUriString();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-            queryParams.add("hostel", hostel);
-            queryParams.add("featurePhone", Boolean.TRUE.toString());
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			queryParams.add("hostel", hostel);
+			queryParams.add("featurePhone", Boolean.TRUE.toString());
 
-            final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-            final String[] accepts = {"*/*"};
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<List<FeaturephoneUserDto>> returnType = new ParameterizedTypeReference<List<FeaturephoneUserDto>>() {
-            };
+			ParameterizedTypeReference<List<FeaturephoneUserDto>> returnType = new ParameterizedTypeReference<List<FeaturephoneUserDto>>() {
+			};
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Error while fetching feature phone users for hostel: {}", hostel, e);
-        }
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching feature phone users for hostel: {}", hostel, e);
+		}
 
-        return null;
-    }
+		return null;
+	}
 
-    public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId) {
-        return getUserHostelDetails(hostelId, false);
-    }
+	public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId) {
+		return getUserHostelDetails(hostelId, false);
+	}
 
-    public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId, boolean currentHostel) {
-        try {
-            Object postBody = null;
+	public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId, boolean currentHostel) {
+		try {
+			Object postBody = null;
 
-            log.info("Received request to get UserHostelDetailsDto of hostelId: {}", hostelId);
+			log.info("Received request to get UserHostelDetailsDto of hostelId: {}", hostelId);
 
-            final Map<String, Object> uriVariables = new HashMap<>();
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/coreApi/user/hostel/details").buildAndExpand(uriVariables)
-                    .toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/user/hostel/details").buildAndExpand(uriVariables)
+					.toUriString();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-            queryParams.add("hostelId", hostelId);
-            queryParams.add("currentHostel", String.valueOf(currentHostel));
+			queryParams.add("hostelId", hostelId);
+			queryParams.add("currentHostel", String.valueOf(currentHostel));
 
-            final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-            final String[] accepts = {"*/*"};
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<List<UserHostelDetailsDto>> returnType = new ParameterizedTypeReference<List<UserHostelDetailsDto>>() {
-            };
+			ParameterizedTypeReference<List<UserHostelDetailsDto>> returnType = new ParameterizedTypeReference<List<UserHostelDetailsDto>>() {
+			};
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Error while fetching users for hostel: {}", hostelId, e);
-        }
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching users for hostel: {}", hostelId, e);
+		}
 
-        return null;
-    }
+		return null;
+	}
 
-    public List<UserHostelDto> getUserHostelList() {
+	public List<UserHostelDto> getUserHostelList() {
 
-        Object postBody = null;
+		Object postBody = null;
 
-        log.info("Received request to get UserHostelDto");
+		log.info("Received request to get UserHostelDto");
 
-        final Map<String, Object> uriVariables = new HashMap<>();
+		final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/coreApi/user/list/hostel").buildAndExpand(uriVariables)
-                .toUriString();
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/list/hostel").buildAndExpand(uriVariables)
+				.toUriString();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
+		final String[] accepts = { "*/*" };
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<List<UserHostelDto>> returnType = new ParameterizedTypeReference<List<UserHostelDto>>() {
-        };
+		ParameterizedTypeReference<List<UserHostelDto>> returnType = new ParameterizedTypeReference<List<UserHostelDto>>() {
+		};
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
-    }
+	}
 
-    public boolean updateHostelOfUser(String userId, String hostelId) {
+	public boolean updateHostelOfUser(String userId, String hostelId) {
 
-        Object postBody = null;
+		Object postBody = null;
 
-        log.info("Received request to update Hostel of user {} hostelId {} ", userId, hostelId);
+		log.info("Received request to update Hostel of user {} hostelId {} ", userId, hostelId);
 
-        final Map<String, Object> uriVariables = new HashMap<>();
+		final Map<String, Object> uriVariables = new HashMap<>();
 
-        uriVariables.put("userId", userId);
-        uriVariables.put("hostelId", hostelId);
+		uriVariables.put("userId", userId);
+		uriVariables.put("hostelId", hostelId);
 
-        String path = UriComponentsBuilder.fromPath("/coreApi/user/update/hostel/{userId}/{hostelId}")
-                .buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/update/hostel/{userId}/{hostelId}")
+				.buildAndExpand(uriVariables).toUriString();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
-        };
+		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+		};
 
-        try {
+		try {
 
-            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
-        } catch (Exception e) {
-            log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
-        }
+		} catch (Exception e) {
+			log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
+		}
 
-        return false;
-    }
+		return false;
+	}
 
-    public UserDetailDto getUserDetailsByMobile(String mobile) {
+	public UserDetailDto getUserDetailsByMobile(String mobile) {
 
-        Object postBody = null;
+		Object postBody = null;
 
-        log.info("Received request to get UserDetailDto from mobile: {}", mobile);
+		log.info("Received request to get UserDetailDto from mobile: {}", mobile);
 
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("mobileNumber", mobile);
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("mobileNumber", mobile);
 
-        String path = UriComponentsBuilder.fromPath("/coreApi/user/userDetailDto/{mobileNumber}")
-                .buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/userDetailDto/{mobileNumber}")
+				.buildAndExpand(uriVariables).toUriString();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        try {
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
-                    UserDetailDto.class);
-        } catch (Exception e) {
-            log.error("Error while getting user Details from Core by mobile: {}", mobile, e);
-        }
-        return null;
-    }
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					UserDetailDto.class);
+		} catch (Exception e) {
+			log.error("Error while getting user Details from Core by mobile: {}", mobile, e);
+		}
+		return null;
+	}
 
-    public List<UserCodeIdMapDto> getUserDataBySearch(String searchTerm) {
+	public List<UserCodeIdMapDto> getUserDataBySearch(String searchTerm) {
 
-        Object postBody = null;
+		Object postBody = null;
 
-        log.info("Received request to get UserCodeIdMapDto {}", searchTerm);
+		log.info("Received request to get UserCodeIdMapDto {}", searchTerm);
 
-        final Map<String, Object> uriVariables = new HashMap<>();
+		final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/coreApi/get/all/user").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/coreApi/get/all/user").buildAndExpand(uriVariables).toUriString();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("searchTerm", searchTerm);
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("searchTerm", searchTerm);
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
+		final String[] accepts = { "*/*" };
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<List<UserCodeIdMapDto>> returnType = new ParameterizedTypeReference<List<UserCodeIdMapDto>>() {
-        };
+		ParameterizedTypeReference<List<UserCodeIdMapDto>> returnType = new ParameterizedTypeReference<List<UserCodeIdMapDto>>() {
+		};
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
-    }
+	}
 
-    public ResidenceUIDto getUserResidenceDetails(String userUuid, String flag) {
+	public ResidenceUIDto getUserResidenceDetails(String userUuid, String flag) {
 
-        Object postBody = null;
+		Object postBody = null;
 
-        log.info("Received request to get ResidenceUIDto of userUuid {}", userUuid);
+		log.info("Received request to get ResidenceUIDto of userUuid {}", userUuid);
 
-        final Map<String, Object> uriVariables = new HashMap<>();
+		final Map<String, Object> uriVariables = new HashMap<>();
 
-        uriVariables.put("userCode", userUuid);
-        uriVariables.put("flag", flag);
+		uriVariables.put("userCode", userUuid);
+		uriVariables.put("flag", flag);
 
-        String path = UriComponentsBuilder.fromPath("/coreApi/get/user/residence/{flag}/{userCode}")
-                .buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/coreApi/get/user/residence/{flag}/{userCode}")
+				.buildAndExpand(uriVariables).toUriString();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResidenceUIDto> returnType = new ParameterizedTypeReference<ResidenceUIDto>() {
-        };
+		ParameterizedTypeReference<ResidenceUIDto> returnType = new ParameterizedTypeReference<ResidenceUIDto>() {
+		};
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-    }
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
 
-    public String getUserUuidByUserCode(String userCode) {
+	public String getUserUuidByUserCode(String userCode) {
 
-        try {
-            Object postBody = null;
+		try {
+			Object postBody = null;
 
-            log.info("Inside the request for get userUuid {}", userCode);
+			log.info("Inside the request for get userUuid {}", userCode);
 
-            final Map<String, Object> uriVariables = new HashMap<>();
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/coreApi/get/userUuid").buildAndExpand(uriVariables)
-                    .toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/get/userUuid").buildAndExpand(uriVariables)
+					.toUriString();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-            queryParams.add("userCode", userCode);
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			queryParams.add("userCode", userCode);
 
-            final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-            final String[] accepts = {"*/*"};
+			final String[] accepts = { "*/*" };
 
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
-            };
+			ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+			};
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Error fetching user uuid for userCode: {}", userCode, e);
-        }
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error fetching user uuid for userCode: {}", userCode, e);
+		}
 
-        return null;
-    }
+		return null;
+	}
 
-    public String getUserCodeByUserUuid(String userUuid) {
+	public String getUserCodeByUserUuid(String userUuid) {
 
-        try {
-            Object postBody = null;
+		try {
+			Object postBody = null;
 
-            log.info("Inside the request for get userCode {}", userUuid);
+			log.info("Inside the request for get userCode {}", userUuid);
 
-            final Map<String, Object> uriVariables = new HashMap<>();
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/coreApi/get/userCode").buildAndExpand(uriVariables)
-                    .toUriString();
+			String path = UriComponentsBuilder.fromPath("/coreApi/get/userCode").buildAndExpand(uriVariables)
+					.toUriString();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-            queryParams.add("userUuid", userUuid);
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			queryParams.add("userUuid", userUuid);
 
-            final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-            final String[] accepts = {"*/*"};
+			final String[] accepts = { "*/*" };
 
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
-            };
+			ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+			};
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
-        } catch (Exception e) {
-        }
+		} catch (Exception e) {
+		}
 
-        return null;
+		return null;
 
-    }
+	}
 
-    public ResponseDto<List<String>> getListOfUserUuidsForCityMicromarketResidenceUuids(LocationDetailsListDto locationDetailsListDto) {
+	public ResponseDto<List<String>> getListOfUserUuidsForCityMicromarketResidenceUuids(LocationDetailsListDto locationDetailsListDto) {
 
-        try {
-            Object postBody = null;
+		try {
+			Object postBody = null;
 
-            log.info("Received request to get List of User UUID's by City Micro-market Residence Uuids: {}", locationDetailsListDto);
+			log.info("Received request to get List of User UUID's by City Micro-market Residence Uuids: {}", locationDetailsListDto);
 
-            final Map<String, Object> uriVariables = new HashMap<>();
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/internal/student/list")
-                    .buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("/internal/student/list")
+					.buildAndExpand(uriVariables).toUriString();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-            final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-            final String[] accepts = {"*/*"};
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
-            };
+			ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+			};
 
-            postBody = locationDetailsListDto;
+			postBody=locationDetailsListDto;
 
-            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Error while fetching User ID's By City Micromarket Residence Uuids: {}", locationDetailsListDto, e);
-        }
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching User ID's By City Micromarket Residence Uuids: {}", locationDetailsListDto, e);
+		}
 
-        return null;
-    }
+		return null;
+	}
+	public ResidenceUIDto getUserCityMicromarketResidenceUuidsByUserCode(String usercode) {
 
-    public ResidenceUIDto getUserCityMicromarketResidenceUuidsByUserCode(String usercode) {
+		try {
+			Object postBody = null;
 
-        try {
-            Object postBody = null;
+			log.info("Received request to get User City Micromarket Residence Uuids By UserCode: {}", usercode);
 
-            log.info("Received request to get User City Micromarket Residence Uuids By UserCode: {}", usercode);
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("usercode", usercode);
 
-            final Map<String, Object> uriVariables = new HashMap<>();
-            uriVariables.put("usercode", usercode);
+			String path = UriComponentsBuilder.fromPath("/coreApi/get/user/residence/userCode/{usercode}")
+					.buildAndExpand(uriVariables).toUriString();
 
-            String path = UriComponentsBuilder.fromPath("/coreApi/get/user/residence/userCode/{usercode}")
-                    .buildAndExpand(uriVariables).toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-            final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            final String[] accepts = {"*/*"};
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<ResidenceUIDto> returnType = new ParameterizedTypeReference<ResidenceUIDto>() {
+			};
 
-            ParameterizedTypeReference<ResidenceUIDto> returnType = new ParameterizedTypeReference<ResidenceUIDto>() {
-            };
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching User City Micromarket Residence Uuids By UserCode: {}", usercode, e);
+		}
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Error while fetching User City Micromarket Residence Uuids By UserCode: {}", usercode, e);
-        }
+		return null;
+	}
 
-        return null;
-    }
 
+	public List<WandaFileResponseDto> getUserProfile(List<String> userUuids) {
 
-    public List<WandaFileResponseDto> getUserProfile(List<String> userUuids) {
 
+		Object postBody = userUuids;
 
-        Object postBody = userUuids;
+		log.info("Received request to get profile of user {}" , userUuids);
 
-        log.info("Received request to get profile of user {}", userUuids);
+		final Map<String, Object> uriVariables = new HashMap<>();
 
-        final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/user/profile").buildAndExpand(uriVariables)
+				.toUriString();
 
-        String path = UriComponentsBuilder.fromPath("/internal/user/profile").buildAndExpand(uriVariables)
-                .toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<List<WandaFileResponseDto>> returnType = new ParameterizedTypeReference<List<WandaFileResponseDto>>() {
+		};
 
-        ParameterizedTypeReference<List<WandaFileResponseDto>> returnType = new ParameterizedTypeReference<List<WandaFileResponseDto>>() {
-        };
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
 
-    }
 
+	public ResidentProfessionalDetailsDto getProfessionalDetails(String userUuid) {
 
-    public ResidentProfessionalDetailsDto getProfessionalDetails(String userUuid) {
+		try {
+			Object postBody = null;
 
-        try {
-            Object postBody = null;
+			log.info("Received request to get ProfessionalDetails for User :{}", userUuid);
 
-            log.info("Received request to get ProfessionalDetails for User :{}", userUuid);
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("userUuid", userUuid);
 
-            final Map<String, Object> uriVariables = new HashMap<>();
-            uriVariables.put("userUuid", userUuid);
+			String path = UriComponentsBuilder.fromPath("/internal/user/professionalDetails/{userUuid}").buildAndExpand(uriVariables).toUriString();
 
-            String path = UriComponentsBuilder.fromPath("/internal/user/professionalDetails/{userUuid}").buildAndExpand(uriVariables).toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-            final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            final String[] accepts = {"*/*"};
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<ResidentProfessionalDetailsDto> returnType = new ParameterizedTypeReference<ResidentProfessionalDetailsDto>() {
+			};
 
-            ParameterizedTypeReference<ResidentProfessionalDetailsDto> returnType = new ParameterizedTypeReference<ResidentProfessionalDetailsDto>() {
-            };
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching get ProfessionalDetails By userUuid: {}", userUuid, e);
+		}
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Error while fetching get ProfessionalDetails By userUuid: {}", userUuid, e);
-        }
+		return null;
+	}
 
-        return null;
-    }
+	public boolean updateHostelAndRoomOfUser(String userId, String hostelId, String roomNum) {
 
-    public boolean updateHostelAndRoomOfUser(String userId, String hostelId, String roomNum) {
+		Object postBody = null;
 
-        Object postBody = null;
+		log.info("Received request to update Hostel of user {} hostelId {} ", userId, hostelId);
 
-        log.info("Received request to update Hostel of user {} hostelId {} ", userId, hostelId);
+		final Map<String, Object> uriVariables = new HashMap<>();
 
-        final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("userId", userId);
+		uriVariables.put("hostelId", hostelId);
+		uriVariables.put("roomNum", roomNum);
 
-        uriVariables.put("userId", userId);
-        uriVariables.put("hostelId", hostelId);
-        uriVariables.put("roomNum", roomNum);
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/update/hostel/{userId}/{hostelId}/{roomNum}")
+				.buildAndExpand(uriVariables).toUriString();
 
-        String path = UriComponentsBuilder.fromPath("/coreApi/user/update/hostel/{userId}/{hostelId}/{roomNum}")
-                .buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+		};
 
-        ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
-        };
+		try {
 
-        try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
-            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
+		}
 
-        } catch (Exception e) {
-            log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
-        }
+		return false;
+	}
 
-        return false;
-    }
+	public List<OccupiedRoomDto> getOccupiedRoomDetails(String residenceUuid, LocalDate fromDate, LocalDate toDate) {
+		Object postBody = null;
 
-    public List<OccupiedRoomDto> getOccupiedRoomDetails(String residenceUuid, LocalDate fromDate, LocalDate toDate) {
-        Object postBody = null;
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
 
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("residenceUuid", residenceUuid);
+		String path = UriComponentsBuilder.fromPath("/coreApi/getOccupiedRoomDetails/{residenceUuid}")
+				.buildAndExpand(uriVariables).toUriString();
 
-        String path = UriComponentsBuilder.fromPath("/coreApi/getOccupiedRoomDetails/{residenceUuid}")
-                .buildAndExpand(uriVariables).toUriString();
+		List<OccupiedRoomDto> occupiedRoomDtoList = new ArrayList<>();
+		// create path and map variables
 
-        List<OccupiedRoomDto> occupiedRoomDtoList = new ArrayList<>();
-        // create path and map variables
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("fromDate", fromDate.toString());
+		queryParams.add("toDate", toDate.toString());
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("fromDate", fromDate.toString());
-        queryParams.add("toDate", toDate.toString());
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<List<OccupiedRoomDto>> returnType = new ParameterizedTypeReference<List<OccupiedRoomDto>>() {
+		};
 
-        ParameterizedTypeReference<List<OccupiedRoomDto>> returnType = new ParameterizedTypeReference<List<OccupiedRoomDto>>() {
-        };
+		try {
+			occupiedRoomDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while getting room count for residence: {}", residenceUuid);
+		}
+		return occupiedRoomDtoList;
+	}
 
-        try {
-            occupiedRoomDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Error while getting room count for residence: {}", residenceUuid);
-        }
-        return occupiedRoomDtoList;
-    }
 
+	public ResponseDto<ResidentKYCDocumentResponseDtoV2> getResidentKYCDocuments(String residentUuid) {
+		Object postBody = null;
 
-    public ResponseDto<ResidentKYCDocumentResponseDto> getResidentKYCDocuments(String residentUuid) {
-        Object postBody = null;
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residentUuid", residentUuid);
 
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("residentUuid", residentUuid);
+		String path = UriComponentsBuilder.fromPath("/coreApi/get/resident/kyc/{residentUuid}")
+				.buildAndExpand(uriVariables).toUriString();
 
-        String path = UriComponentsBuilder.fromPath("/coreApi/get/resident/kyc/{residentUuid}")
-                .buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
 
-        final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDtoV2>> returnType =
+				new ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDtoV2>>() {
+		};
 
-        ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDto>> returnType =
-                new ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDto>>() {
-                };
+		return restClient.invokeAPI(
+				path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
 
-        return restClient.invokeAPI(
-                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-    }
+	public List<FoodRegionPreferenceResponse> getDemoGraphicsData(DemographicsRequestDto demographicsRequestDto) {
 
-    public List<FoodRegionPreferenceResponse> getDemoGraphicsData(DemographicsRequestDto demographicsRequestDto) {
+		Object postBody = demographicsRequestDto;
 
-        Object postBody = demographicsRequestDto;
+		log.info("Received request to get Demographics detail{}", demographicsRequestDto.getHostelIdList().size());
 
-        log.info("Received request to get Demographics detail{}", demographicsRequestDto.getHostelIdList().size());
+		final Map<String, Object> uriVariables = new HashMap<>();
 
-        final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/demographics/consumer/preference/get").buildAndExpand(uriVariables)
+				.toUriString();
 
-        String path = UriComponentsBuilder.fromPath("/internal/demographics/consumer/preference/get").buildAndExpand(uriVariables)
-                .toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-        final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
 
-        final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>> returnType = new ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>>() {
+		};
 
-        ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>> returnType = new ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>>() {
-        };
+		List<FoodRegionPreferenceResponse> response = null;
 
-        List<FoodRegionPreferenceResponse> response = null;
+		try {
+			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
+		} catch (Exception e) {
+			log.error("Exception while getting user code map from wanda: ", e);
+		}
 
-        try {
-            response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
-        } catch (Exception e) {
-            log.error("Exception while getting user code map from wanda: ", e);
-        }
+		return response;
+	}
 
-        return response;
-    }
+	public WandaResponse<OnBoardingGetResponse> getOnboardingDetails(String userId) {
 
-    public WandaResponse<OnBoardingGetResponse> getOnboardingDetails(String userId) {
+		try {
+			Object postBody = null;
 
-        try {
-            Object postBody = null;
+			log.info("get User details by userUuid is {} ", userId);
 
-            log.info("get User details by userUuid is {} ", userId);
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-            final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("userId", userId);
 
-            uriVariables.put("userId", userId);
+			String path = UriComponentsBuilder.fromPath("/internal/get/onboarding/details//{userId}").buildAndExpand(uriVariables)
+					.toUriString();
 
-            String path = UriComponentsBuilder.fromPath("/internal/get/onboarding/details//{userId}").buildAndExpand(uriVariables)
-                    .toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			HttpHeaders headerParams = new HttpHeaders();
 
-            HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = {"*/*"};
 
-            final String[] accepts = {"*/*"};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>> returnType = new ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>>() {
+			};
 
-            ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>> returnType = new ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>>() {
-            };
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("error while fetching the user details " + e);
+			return null;
+		}
+	}
+	public WandaResponse<OnBoardingGetResponse> getOnBoardingDetails(String userId) {
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("error while fetching the user details " + e);
-            return null;
-        }
-    }
 
-    public WandaResponse<OnBoardingGetResponse> getOnBoardingDetails(String userId) {
+		try {
+			Object postBody = null;
 
+			log.info("get User details by userUuid is {} ", userId);
 
-        try {
-            Object postBody = null;
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-            log.info("get User details by userUuid is {} ", userId);
+			uriVariables.put("userId", userId);
 
-            final Map<String, Object> uriVariables = new HashMap<>();
+			String path = UriComponentsBuilder.fromPath("/internal/get/onboarding/details/{userId}").buildAndExpand(uriVariables)
+					.toUriString();
 
-            uriVariables.put("userId", userId);
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/internal/get/onboarding/details/{userId}").buildAndExpand(uriVariables)
-                    .toUriString();
+			HttpHeaders headerParams = new HttpHeaders();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final String[] accepts = {"*/*"};
 
-            HttpHeaders headerParams = new HttpHeaders();
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            final String[] accepts = {"*/*"};
+			ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>> returnType = new ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>>() {
+			};
 
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("error while fetching the user details " + e);
+			}
 
-            ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>> returnType = new ParameterizedTypeReference<WandaResponse<OnBoardingGetResponse>>() {
-            };
+		return null;
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("error while fetching the user details " + e);
-        }
+	}
 
-        return null;
+	public String getUserCodeByEmail(String email) {
 
-    }
+		try {
+			Object postBody = null;
+			log.info("Inside the request for get userCode {}", email);
 
-    public String getUserCodeByEmail(String email) {
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-        try {
-            Object postBody = null;
-            log.info("Inside the request for get userCode {}", email);
+			String path = UriComponentsBuilder.fromPath("/coreApi/get/userCode/by/email").buildAndExpand(uriVariables)
+					.toUriString();
 
-            final Map<String, Object> uriVariables = new HashMap<>();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			queryParams.add("email", email);
 
-            String path = UriComponentsBuilder.fromPath("/coreApi/get/userCode/by/email").buildAndExpand(uriVariables)
-                    .toUriString();
+			final HttpHeaders headerParams = new HttpHeaders();
 
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-            queryParams.add("email", email);
+			final String[] accepts = { "*/*" };
 
-            final HttpHeaders headerParams = new HttpHeaders();
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            final String[] accepts = {"*/*"};
+			ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+			};
 
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
-            ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
-            };
+		} catch (Exception e) {
+			
+			log.error(e);
+		}
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		return null;
 
-        } catch (Exception e) {
+	}
 
-            log.error(e);
-        }
+	public ResponseDto<BankDetailsDto> getBankDetailsForUserId(String userId) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("userId", userId);
 
-        return null;
+		String path = UriComponentsBuilder.fromPath("/internal/bank-details/{userId}").buildAndExpand(uriVariables).toUriString();
 
-    }
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-    public ResponseDto<BankDetailsDto> getBankDetailsForUser(String userId) {
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[]{"*/*"};
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        try {
-            Object postBody = null;
-            log.info("Inside the request to get bank account details");
-
-            final Map<String, Object> uriVariables = new HashMap<>();
-            uriVariables.put("userId", userId);
-
-            String path = UriComponentsBuilder.fromPath("/internal/bank-details/{userId}").buildAndExpand(uriVariables)
-                    .toUriString();
-
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-            final HttpHeaders headerParams = new HttpHeaders();
-
-            final String[] accepts = {"*/*"};
-
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-            ParameterizedTypeReference<ResponseDto<BankDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<BankDetailsDto>>() {
-            };
-
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
-        } catch (Exception e) {
-
-            log.error(e);
-        }
-
-        return null;
-
-    }
+		ParameterizedTypeReference<ResponseDto<BankDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<BankDetailsDto>>() {
+		};
+		try {
+			log.info("Executing Api for getting bank account details with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching bank account details based on userId {}, Exception is {}", userId, e);
+		}
+		return null;
+	}
 }
