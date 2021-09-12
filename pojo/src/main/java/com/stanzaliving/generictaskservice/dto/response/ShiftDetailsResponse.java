@@ -1,8 +1,10 @@
 package com.stanzaliving.generictaskservice.dto.response;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -15,10 +17,11 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShiftDetailsResponse {
-    private String shiftUuid;
+public class ShiftDetailsResponse extends AbstractDto {
     private String module;
     private String shiftName;
     private Double durationInHours;
+    private LocalTime startTime;
+    private LocalTime endTime;
     private List<SlotDetailsResponse> slots;
 }
