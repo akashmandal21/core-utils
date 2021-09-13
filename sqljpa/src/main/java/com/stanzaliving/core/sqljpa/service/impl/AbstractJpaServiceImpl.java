@@ -180,6 +180,11 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	}
 
 	@Override
+	public List<T> findByCreatedBy(String createdByUuid) {
+		return getJpaRepository().findByCreatedBy(createdByUuid);
+	}
+
+	@Override
 	public void flush() {
 		getJpaRepository().flush();
 	}
