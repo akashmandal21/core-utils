@@ -4,9 +4,11 @@ import lombok.Getter;
 
 @Getter
 public enum AttendanceActionType {
-    CALLED_RESIDENT("Directly called and confirmed with resident"),
+    CALLED_RESIDENT("Called-resident"),
+    VISITED_ROOM("Visited-room"),
+    RESIDENT_MARKED_PRESENT("Resident-marked-present"),
     RESIDENT_ACTIVITY("Resident-activity"),
-    VISITED_ROOM("Visited room & verified");
+    MEAL_SCAN("Meal-scan");
 
     private final String label;
 

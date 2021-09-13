@@ -56,7 +56,7 @@ public class ResidentDTO {
 
     private Boolean attendanceOptOut;
 
-    private Floor floor;
+    private String floor;
 
     private String residentType;
 
