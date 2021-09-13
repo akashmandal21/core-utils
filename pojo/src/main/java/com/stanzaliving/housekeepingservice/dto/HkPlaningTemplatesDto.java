@@ -1,6 +1,8 @@
 package com.stanzaliving.housekeepingservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
+import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import com.stanzaliving.housekeepingservice.enums.HKPlanningTemplateStatus;
 import lombok.*;
@@ -11,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Keshav Singh
+ * @author Vikas S T
  * @date 8/10/2021
  **/
 
@@ -43,6 +45,8 @@ public class HkPlaningTemplatesDto {
 
 	private List<String> shiftAllocationUuids = new ArrayList<>();
 
-	private List<ShiftAllocationDto> shifts = new ArrayList<>();
+	private List<ShitAllocationDetailsResponse> templateDetails = new ArrayList<>();
+
+	private List<ShiftAllocationDto> shiftsAllocationDtos = new ArrayList<>();
 
 }
