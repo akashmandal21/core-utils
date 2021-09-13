@@ -68,6 +68,10 @@ public class DateUtil {
         return null;
     }
 
+    public static String convertDateToString(Date date, SimpleDateFormat sdf) {
+        return sdf.format(date);
+    }
+
     public String customTimeFormatter(LocalTime timeInput, DateFormat dateFormat) {
 
         if (timeInput != null) {

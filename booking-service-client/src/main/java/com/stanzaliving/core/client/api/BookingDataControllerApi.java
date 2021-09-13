@@ -10,7 +10,7 @@ import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto;
 import com.stanzaliving.core.client.dto.*;
-import com.stanzaliving.ventaAudit.dto.VentaNotificationDto;
+import com.stanzaliving.ledger.dto.UpcomingBookingsDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -320,7 +320,7 @@ public class BookingDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
-}
+    }
 
     public ResponseDto<Double> getBedCountForNonMgDeal(String dealUuid) {
 
@@ -380,7 +380,7 @@ public class BookingDataControllerApi {
                     .toUriString();
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
             final HttpHeaders headerParams = new HttpHeaders();
-            final String[] accepts = { "*/*" };
+            final String[] accepts = {"*/*"};
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
             ParameterizedTypeReference<ResponseDto<BookingCommercialsCardResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingCommercialsCardResponseDto>>() {
@@ -391,6 +391,7 @@ public class BookingDataControllerApi {
         }
         return null;
     }
+
     public ResponseDto<ExceptionOnboardingDetailsDto> getExceptionOnboardingDetails(String bookingUuid) {
 
         Object postBody = null;
@@ -415,10 +416,9 @@ public class BookingDataControllerApi {
         };
         ResponseDto<ExceptionOnboardingDetailsDto> responseDto;
         try {
-            responseDto  =restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+            responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
             return responseDto;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
             log.error("Error while searching from exceptional onboarding.", e);
 
@@ -449,6 +449,27 @@ public class BookingDataControllerApi {
         return null;
     }
 
+    public void checkForTresspasserBookings() {
+        Object postBody = null;
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/exit/tresspasser/bookings").buildAndExpand(uriVariables).toUriString();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+        };
+        try {
+            restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception occurred while calling api with message:{}", e.getMessage());
+        }
+    }
 
     public ResponseDto<BookingResponseDto> getBookingDetails(String bookingUuid) {
         Object postBody = null;
@@ -475,4 +496,51 @@ public class BookingDataControllerApi {
 
     }
 
+    public ResponseDto<List<UpcomingBookingsDto>> getUpcomingBookingDetails(String userUuid, String currentBookingUuid) {
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userUuid", userUuid);
+        uriVariables.put("currentBookingUuid", currentBookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/get/user/{userUuid}/upcomingBooking/details/{currentBookingUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<UpcomingBookingsDto>>> returnType
+                = new ParameterizedTypeReference<ResponseDto<List<UpcomingBookingsDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public ResponseDto<List<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto>> findBookedInventoryDetailsForManagedApartment(String bookingUuid) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/{bookingUuid}/booked-inventory")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto>>>() {
+        };
+        try {
+            log.info("Executing Api for getting booked inventory with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching booked inventory for booking uuid {}, Exception is ", bookingUuid, e);
+        }
+        return null;
+    }
 }

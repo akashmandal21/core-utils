@@ -50,6 +50,14 @@ public class NewLedgerLineItemResponseDto  implements Comparable {
 
     private List<String> transactionIds;
 
+    private String remarks;
+
+    private String issueDate;
+
+    private String issuedBy;
+
+    private String category;
+
     @Override
     public int compareTo(Object o){
 
