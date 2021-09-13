@@ -26,5 +26,5 @@ public class HkShiftAllocationPlanningDto {
 
 	private List<String> tags = new ArrayList<>();
 
-	private List<String> shiftAllocationUuid = new ArrayList<>();
+	private List<String> shiftAllocationUuids = new ArrayList<>();
 }

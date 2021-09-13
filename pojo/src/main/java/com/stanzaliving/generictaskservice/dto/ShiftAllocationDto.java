@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
@@ -28,7 +29,7 @@ public class ShiftAllocationDto extends AbstractDto {
 
 	private String slotUuid;
 
-	@NotBlank(message = "Day is mandatory")
+	@NotNull(message = "Day is mandatory")
 	private DayOfWeek shiftDay;
 
 	@NotBlank(message = "StartingTime is mandatory")
