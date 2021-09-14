@@ -25,6 +25,8 @@ public class SpecialEventDetailDto extends AbstractDto {
 
 	private SpecialEventType specialEventType;
 
+	private String eventTypeInitial;
+
 	private Integer totalResidences;
 	
 	private Integer applicableResidences;
