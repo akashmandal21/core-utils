@@ -8,10 +8,7 @@ import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
-import com.stanzaliving.filixIntegration.Dto.AbstractOracleDto;
-import com.stanzaliving.filixIntegration.Dto.CustomerApiDto;
-import com.stanzaliving.filixIntegration.Dto.FilixBillingFromDto;
-import com.stanzaliving.filixIntegration.Dto.FilixInvoiceDto;
+import com.stanzaliving.filixIntegration.Dto.*;
 import com.stanzaliving.filixIntegration.Enum.EventType;
 import com.stanzaliving.filixIntegration.Enum.OracleServiceOwner;
 import org.slf4j.Logger;
@@ -73,6 +70,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
             logger.info("customerApiDto "+customerApiDto );
             if(null != customerApiDto && null != customerApiDto.getFilixInvoiceDto()) {
                 FilixInvoiceDto invoice = customerApiDto.getFilixInvoiceDto();
+                FilixInvoiceCategoryDto invoiceCategoryDto=customerApiDto.getFilixInvoiceCategoryDto();
                 logger.info("invoice "+invoice);
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
                 mapToSend.put(stanzaId,invoice.getId());
@@ -82,7 +80,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
                 if(null == invoice.getFromDate() && null == invoice.getToDate()) {
                     mapToSend.put(invoiceType, "Maintenance Charges");
                 }else {
-                    mapToSend.put(invoiceType,invoice.getInvoiceType());
+                    mapToSend.put(invoiceType,invoiceCategoryDto.getCategoryName());
                 }
                 mapToSend.put(bookingid,invoice.getReferenceUuid());
                 mapToSend.put(tranid,"");
