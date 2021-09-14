@@ -26,13 +26,13 @@ public class PlanningTemplateFilterRequestDto implements Serializable {
 
     private String planningTemplateName;
 
-    private List<String> addedBy;
+    private List<String> addedByList;
 
     private Date startDate;
 
     private Date endDate;
 
-    private List<PlanningStatus> planningStatus;
+    private List<PlanningStatus> planningStatusList;
 
     private String orderByColumnName;
 
