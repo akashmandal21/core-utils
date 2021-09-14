@@ -1105,7 +1105,6 @@ public class DateUtil {
     }
     
     public static Boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
-    	log.info("In DateUtil isDateInDateRange date {} fromDate {} toDate {}", date, fromDate, toDate);
 		LocalDate localDate = getLocalDate(date);
 		return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
 	}
