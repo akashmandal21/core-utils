@@ -24,4 +24,5 @@ public class LegalPropertyDto extends AbstractMongoDto{
     private String createdByUserEmail;
     private boolean legalDeviation;
     private boolean businessDeviation;
+    private boolean sowApproval;
 }
