@@ -22,4 +22,6 @@ public class RejectTagCategoryDto extends AbstractDto {
 
     private String module;
 
+
+
 }
