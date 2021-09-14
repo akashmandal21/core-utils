@@ -9,6 +9,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,7 +41,7 @@ public class ShiftDto extends AbstractDto {
     @Max(value = 24, message = "Shift hour cannot be more than 24 hours")
     private Double durationInHours;
 
-    private List<String> tagsUuidList;
+    private List<String> tagsUuidList = new ArrayList<>();
 
     private List<TagResponseDto> tags;
 
