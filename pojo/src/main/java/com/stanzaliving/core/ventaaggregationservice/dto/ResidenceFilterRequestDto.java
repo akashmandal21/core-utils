@@ -53,4 +53,7 @@ public class ResidenceFilterRequestDto {
 
     private String entity;
 
+    private String type;
+
+
 }

@@ -68,6 +68,10 @@ public class DateUtil {
         return null;
     }
 
+    public static String convertDateToString(Date date, SimpleDateFormat sdf) {
+        return sdf.format(date);
+    }
+
     public String customTimeFormatter(LocalTime timeInput, DateFormat dateFormat) {
 
         if (timeInput != null) {
@@ -1099,4 +1103,9 @@ public class DateUtil {
                 (day == 30 && evenMonth.contains(month))) return true;
         return false;
     }
+    
+    public static boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
+		LocalDate localDate = getLocalDate(date);
+		return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
+	}
 }
