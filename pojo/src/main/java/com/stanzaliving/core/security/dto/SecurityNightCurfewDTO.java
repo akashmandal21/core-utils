@@ -12,5 +12,5 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class SecurityNightCurfewDTO {
     private Boolean active;
-    private LocalTime time;
+    private String timing;
 }

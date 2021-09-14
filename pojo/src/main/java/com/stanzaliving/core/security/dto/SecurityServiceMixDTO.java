@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SecurityServiceMixDTO {
     private Boolean active;
-    private SecurityNightCurfewDTO securityNightCurfewDTO;
+    private SecurityNightCurfewDTO nightCurfew;
 }
