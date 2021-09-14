@@ -80,7 +80,8 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
                 if(null == invoice.getFromDate() && null == invoice.getToDate()) {
                     mapToSend.put(invoiceType, "Maintenance Charges");
                 }else {
-                    mapToSend.put(invoiceType,invoiceCategoryDto.getCategoryName());
+                    mapToSend.put(invoiceType,"Damage");
+                    //invoiceCategoryDto.getCategoryName()
                 }
                 mapToSend.put(bookingid,invoice.getReferenceUuid());
                 mapToSend.put(tranid,"");
