@@ -1,10 +1,14 @@
 package com.stanzaliving.core.food.enums;
 
 import com.stanzaliving.core.generic.dto.UIKeyValue;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@AllArgsConstructor
 public enum SpecialEventType {
 
     EXAMS("Exams", "E"),
