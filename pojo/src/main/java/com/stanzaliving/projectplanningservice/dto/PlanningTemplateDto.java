@@ -25,6 +25,10 @@ public class PlanningTemplateDto extends AbstractDto {
     @NotBlank(message = "Project Plan name is required")
     private String templateName;
 
+    private String createdByName;
+
+    private String updatedByName;
+
     private String description;
 
     private List<String> taskServiceUuids;
