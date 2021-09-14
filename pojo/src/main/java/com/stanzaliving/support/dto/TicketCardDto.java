@@ -37,6 +37,8 @@ public class TicketCardDto {
     @JsonProperty("isPrimary")
     private boolean isPrimary;
     private TicketChipColorDto ticketChipColorDto;
+    private String expandableBarColor;
+
 
 }
 
