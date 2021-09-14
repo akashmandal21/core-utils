@@ -22,5 +22,7 @@ public class MicroClusterFilterDto {
 
     protected List<String> residenceIds;
 
+    protected List<String> microMarketUuid;
+
     private PaginationRequest pageRequest;
 }

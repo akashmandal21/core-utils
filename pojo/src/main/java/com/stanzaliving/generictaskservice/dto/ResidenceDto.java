@@ -16,4 +16,6 @@ public class ResidenceDto {
 
     private String rName;
 
+    private String microMarketName;
+
 }
