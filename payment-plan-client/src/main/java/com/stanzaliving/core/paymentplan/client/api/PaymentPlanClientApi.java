@@ -427,7 +427,7 @@ public class PaymentPlanClientApi {
 		try {
             Object postBody = oldPaymentPlan;
 
-            log.info("raise credit/debit note for contract modification for referenceId {} old payment plan {} ", referenceId, oldPaymentPlan);
+            log.info("raise credit/debit note for contract modification for referenceId {} old payment plan {} ", referenceId, oldPaymentPlan.toString());
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
