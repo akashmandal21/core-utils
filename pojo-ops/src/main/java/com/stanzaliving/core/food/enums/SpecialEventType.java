@@ -7,13 +7,15 @@ import java.util.List;
 
 public enum SpecialEventType {
 
-    EXAMS("Exams"),
-    FESTIVAL("Festival"),
-    NATIONAL_HOLIDAY("National Holiday"),
-    SPECIAL_EVENT("Special Event"),
-    OTHER("Other");
+    EXAMS("Exams", "E"),
+    FESTIVAL("Festival", "F"),
+    NATIONAL_HOLIDAY("National Holiday", "N"),
+    SPECIAL_EVENT("Special Event", "S"),
+    OTHER("Other", "O");
     
     private String eventTypeName;
+
+    private String eventTypeInitial;
     
     public static List<UIKeyValue> eventTypeUIList = new ArrayList<>();
     
