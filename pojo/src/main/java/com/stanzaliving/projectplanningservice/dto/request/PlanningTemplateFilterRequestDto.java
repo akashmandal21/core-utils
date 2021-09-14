@@ -9,6 +9,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -25,13 +26,17 @@ public class PlanningTemplateFilterRequestDto implements Serializable {
 
     private String planningTemplateName;
 
-    private String addedBy;
+    private List<String> addedBy;
 
     private Date startDate;
 
     private Date endDate;
 
-    private PlanningStatus planningStatus;
+    private List<PlanningStatus> planningStatus;
+
+    private String orderByColumnName;
+
+    private String orderBy;
 
     private PaginationRequest pageRequest;
 }
