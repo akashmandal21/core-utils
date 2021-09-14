@@ -32,6 +32,12 @@ public class FnBPriceCalculateRequestDto {
 
 	private Double packagingCost;
 
+	private Double transportCost;
+
+	private Double incentiveCost;
+
+	private Double serviceStaffCost;
+
 	@NotEmpty(message = "Meal Mappings are mandatory")
 	private List<FoodMenuCategoryMealDto> meals;
 }

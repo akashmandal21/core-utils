@@ -18,8 +18,15 @@ import java.util.Map;
 public class CompositionRuleV2Dto implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long maxAllowedCombo;
+    private Long minAllowedCombo;
     private Long actualComboCount;
+    
+    private Long maxHybridMeals;
+    private Long minHybridMeals;
+    private Long actualHybridMeals;
+    
     private Map<MealType, List<DayOfWeek>> failedComboMeals;
+    private Map<MealType, List<DayOfWeek>> failedHybridMeals;
     
     @NotNull(message = "Mandatory Rules Are Empty")
     private List<CompositionConditionV2Dto> mandatoryRules;

@@ -24,6 +24,7 @@
 		<module>pojo</module>
 		<module>pojo-ops</module>
 		<module>pojo-wanda</module>
+        <module>pojo-generic-approval</module>
 		<module>security</module>
 		<module>properties</module>
 		<module>utilservice</module>
@@ -83,9 +84,25 @@
 		<module>search-client</module>
 		<module>leadservice-client</module>
 		<module>far-client</module>
+        <module>residence-client</module>
+		<module>file-utils</module>
+        <module>venta-aggregation-service-client</module>
 		<module>notification-v2-client</module>
 		<module>slack-client</module>
-        <module>pojo-food</module>
+		<module>pojo-food</module>
+		<module>document-client</module>
+        <module>commercial-card</module>
+		<module>payment-plan-client</module>
+		<module>ledger-service-client</module>
+		<module>booking-service-client</module>
+		<module>deal-client</module>
+		<module>discount-client</module>
+	    <module>invoice-service-client</module>
+	    <module>agreement-client</module>
+        <module>audit-service-client</module>
+        <module>vault-service-client</module>
+        <module>venta-notification-client</module>
+		<module>grammage-client</module>
 	</modules>
 
 	<build>

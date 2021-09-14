@@ -2,6 +2,8 @@ package com.stanzaliving.food.v2.menu.dto;
 
 import com.stanzaliving.core.food.dto.FoodMenuBudgetDto;
 import com.stanzaliving.food.v2.category.dto.CompositionRuleV2Dto;
+import com.stanzaliving.food.v2.category.dto.DayWiseCogsDto;
+import com.stanzaliving.food.v2.category.dto.MealWiseMenuDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +23,7 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private boolean compositionRulesSatisfied;
 	private boolean comboRulesSatisfied;
 	private boolean budgetUtilizationInLimit;
+	private boolean hybridMealRuleSatisfied;
 	private boolean mealOfDayDefined;
 	private boolean menuDefined;
 	private Double newnessPercentage;
