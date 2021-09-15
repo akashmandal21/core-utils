@@ -37,7 +37,7 @@ public class ComplaintMetaDataDto extends AbstractDto {
 	@NotBlank(message = "Complaint Sub Category is Mandatory")
 	private String complaintSubCategoryUuid;
 
-	private Long cmsId;
+	private String cmsId;
 
 	private String ticketRequesterEmail;
 
