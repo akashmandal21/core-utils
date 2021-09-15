@@ -1,19 +1,17 @@
-package com.stanzaliving.ledger.dto;
+package com.stanzaliving.core.commentsservice.response.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpcomingBookingsDto {
+public class SubContextCommentCountDto {
 
-    String label;
+    private String uuid;
 
-    String value;
-
+    private Long commentCount;
 }

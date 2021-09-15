@@ -53,4 +53,9 @@ public enum PaymentPlanType {
 	ADDITIONAL_INVOICE_LICENSE_FEE("Additional Invoice - License Fee");
 
 	private String name;
+	
+	 @Override
+	 public String toString() {
+	   return name;
+	 }
 }

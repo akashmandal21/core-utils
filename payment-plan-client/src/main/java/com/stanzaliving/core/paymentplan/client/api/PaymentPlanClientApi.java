@@ -427,7 +427,7 @@ public class PaymentPlanClientApi {
 		try {
             Object postBody = oldPaymentPlan;
 
-            log.info("raise credit/debit note for contract modification for referenceId {} old payment plan {} ", referenceId, oldPaymentPlan);
+            log.info("raise credit/debit note for contract modification for referenceId {} old payment plan {} ", referenceId, oldPaymentPlan.toString());
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -448,7 +448,7 @@ public class PaymentPlanClientApi {
             ParameterizedTypeReference<ResponseDto> returnType = new ParameterizedTypeReference<ResponseDto>() {
             };
 
-            restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+            restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("error while fetching the paymentPlan {}", e);
         }

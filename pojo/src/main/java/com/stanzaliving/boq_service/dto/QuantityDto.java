@@ -1,19 +1,14 @@
-package com.stanzaliving.ledger.dto;
+package com.stanzaliving.boq_service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@Builder
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpcomingBookingsDto {
-
-    String label;
-
-    String value;
-
+public class QuantityDto {
+    private int maxQuantity;
 }
