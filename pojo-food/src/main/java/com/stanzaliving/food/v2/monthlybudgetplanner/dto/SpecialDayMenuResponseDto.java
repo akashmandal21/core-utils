@@ -3,7 +3,7 @@ package com.stanzaliving.food.v2.monthlybudgetplanner.dto;
 import com.stanzaliving.food.v2.category.dto.DayWiseCogsDto;
 import com.stanzaliving.food.v2.category.dto.MealWiseMenuDto;
 import com.stanzaliving.food.v2.menu.dto.MenuWiseMenuSearchRDto;
-import com.stanzaliving.wanda.BudgetDemographicsData;
+import com.stanzaliving.wanda.BudgetDemographicsResponseDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +20,7 @@ import java.util.List;
 public class SpecialDayMenuResponseDto extends MenuWiseMenuSearchRDto {
 
 	private EventsDemographicsDetailsDto eventsDemographicsDetailsDto;
-	List<BudgetDemographicsData> budgetDemographicsDataList;
+	private BudgetDemographicsResponseDto budgetDemographicsResponseDto;
 	private List<MealWiseMenuDto> mealWiseMenus;
 	private DayWiseCogsDto eventdayCogs;
 
