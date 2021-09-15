@@ -64,7 +64,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
                 FilixInvoiceLineItems lineItems =customerApiDto.getFilixInvoiceLineItems() ;
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
                 //confirm
-                mapToSend.put(stanzaId,creditNote.getId());
+                mapToSend.put(stanzaId,creditNote.getId().toString());
                 mapToSend.put(date, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getIssueDate()), DateFormat.DD_MM_YYYY));
                 mapToSend.put(startDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getFromDate()),DateFormat.DD_MM_YYYY));
                 mapToSend.put(endDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getToDate()), DateFormat.DD_MM_YYYY));
@@ -74,10 +74,12 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
                 mapToSend.put(exchangerate, 1.00);
                 mapToSend.put(currency, "INR");
                 mapToSend.put(po_hash, "");
+                //TODO: left
                 mapToSend.put(memo, "");
                 mapToSend.put(autoapply, Boolean.FALSE);
                 mapToSend.put(billingState,filixBillFromDto.getGstState());
                 mapToSend.put(billingCountry, "India");
+                //TODO: left
                 mapToSend.put(bookingId,creditNote.getReferenceUuid());
                 mapToSend.put(itemList,createLineItemMap(creditNote,lineItems));
                 mapToSend.put(autoApplyList, getAutoApplyList(creditNote));
@@ -100,7 +102,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
         }
         map.put(quantity, 1);
         map.put(itemRate, "");
-        map.put(hsnCode, lineItems.getHsnCode());
+        map.put(hsnCode, lineItems.getHsnCode().isEmpty()?"9963": lineItems.getHsnCode());
         map.put(stanzaLineId, "");
         map.put(taxlocationtype,"INTRASTATE");
         map.put(amount, lineItems.getLineAmount());
@@ -113,7 +115,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
     private Object getAutoApplyList(FilixInvoiceDto creditNote) {
         List<Map<String, Object>> lineItems = new ArrayList();
         Map<String, Object> map = new HashMap<>();
-        map.put(invoiceNum,creditNote.getId());
+        map.put(invoiceNum,creditNote.getId().toString());
         map.put(paymentAmount, creditNote.getTotalAmount());
         lineItems.add(map);
         return lineItems;
