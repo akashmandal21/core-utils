@@ -8,12 +8,10 @@ import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
-import com.stanzaliving.filixIntegration.Dto.AbstractOracleDto;
-import com.stanzaliving.filixIntegration.Dto.CustomerApiDto;
-import com.stanzaliving.filixIntegration.Dto.FilixBillingFromDto;
-import com.stanzaliving.filixIntegration.Dto.FilixInvoiceDto;
+import com.stanzaliving.filixIntegration.Dto.*;
 import com.stanzaliving.filixIntegration.Enum.EventType;
 import com.stanzaliving.filixIntegration.Enum.OracleServiceOwner;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,20 +71,23 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
             logger.info("customerApiDto "+customerApiDto );
             if(null != customerApiDto && null != customerApiDto.getFilixInvoiceDto()) {
                 FilixInvoiceDto invoice = customerApiDto.getFilixInvoiceDto();
+                FilixInvoiceCategoryDto invoiceCategoryDto=customerApiDto.getFilixInvoiceCategoryDto();
                 logger.info("invoice "+invoice);
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
                 mapToSend.put(stanzaId, String.valueOf(invoice.getInventoryInvoiceId()));
+                mapToSend.put(stanzaId,invoice.getId());
                 mapToSend.put(date, null==invoice.getIssueDate()?"":DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getIssueDate()), DateFormat.DD_MM_YYYY) );
                 mapToSend.put(startDate, null != invoice.getFromDate() ? DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getFromDate()) , DateFormat.DD_MM_YYYY) : "");
                 mapToSend.put(endDate, null != invoice.getToDate() ? DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getToDate()),DateFormat.DD_MM_YYYY) : "");
                 if(null == invoice.getFromDate() && null == invoice.getToDate()) {
                     mapToSend.put(invoiceType, "Maintenance Charges");
                 }else {
-                    mapToSend.put(invoiceType,invoice.getInvoiceType());
+                    mapToSend.put(invoiceType,"Damage");
+                    //invoiceCategoryDto.getCategoryName()
                 }
                 mapToSend.put(bookingid,invoice.getReferenceUuid());
                 mapToSend.put(tranid,"");
-                mapToSend.put(dueDate,DateUtil.addDaysToDate(DateUtil.convertToDate(invoice.getIssueDate()),6));
+                mapToSend.put(dueDate,DateUtil.customDateFormatter(DateUtil.addDaysToDate(DateUtil.convertToDate(invoice.getIssueDate()),6),DateFormat.DD_MM_YYYY));
                 mapToSend.put(customer,invoice.getResidentId());
                 mapToSend.put(class_str, "");
                 mapToSend.put(department, "");
@@ -95,7 +96,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
                 mapToSend.put(billingState, filixBillFromDto.getGstState());
                 mapToSend.put(billingCountry,"India");
                 mapToSend.put(postingPeriod,"");
-                mapToSend.put(itemList,"");
+                mapToSend.put(itemList,getInvoiceLineItems(invoice,invoiceCategoryDto));
                 mapToSend.put(extraFields,getExtraFields(invoice));
             }
         } catch (IOException e) {
@@ -105,26 +106,90 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
         return mapToSend;
     }
 
+    private List getInvoiceLineItems(FilixInvoiceDto invoice,FilixInvoiceCategoryDto invoiceCategoryDto) {
+
+        List<Map<String, Object>> lineItems = new ArrayList();
+        int lineId = 0;
+        Map<String, Object> map = new HashMap<>();
+        if(invoice.getInvoiceType().equals("Rental") || invoice.getInvoiceType().equals("Penalty")) {
+            map = createLineItemMap(invoice, null, invoice.getTotalAmount(), lineId++, 0D, 0, "INTRASTATE");
+
+        }
+//        else if(InvoiceType.FOOD_SERVICE.equals(invoice.getInvoiceType())) {
+//            double taxAmount = invoice.getInvoiceAmount() - (invoice.getInvoiceAmount() * ( 100 / (100 + Constants.FOOD_INVOICE_GST_PERCENTAGE)));
+//            Double nonGstInvoiceAmount = invoice.getInvoiceAmount() - taxAmount;
+//            map = createLineItemMap(invoice, null, nonGstInvoiceAmount, lineId++, taxAmount, Constants.FOOD_INVOICE_GST_PERCENTAGE, "INTRASTATE");
+//
+//        }
+//        else if(InvoiceType.VAS.equals(invoice.getInvoiceType())) {
+//            List<BookingService> bookingServices = bookingServicesDaoImpl.getActiveVasServices(Integer.valueOf(invoice.getBookingId()));
+//            for(BookingService bookingService : bookingServices) {
+//                com.stanzaliving.inventory.model.Service service = serviceDao.findById(bookingService.getServiceId());
+//                double taxRate = service.getCgst()+service.getSgst();
+//                double servicePrice = bookingService.getPrice();
+//
+//                double taxAmount = servicePrice - (servicePrice * ( 100 / (100 + (taxRate))));
+//                Double nonGstInvoiceAmount = servicePrice - taxAmount;
+//                map = createLineItemMap(invoice, service.getName(), nonGstInvoiceAmount, lineId++, taxAmount, taxRate, "INTRASTATE");
+//                lineId += 1;
+//            }
+//        }
+        else {
+            //Services with 18% GST
+//            double taxAmount = invoice.getTotalAmount() - (invoice.getTotalAmount() * ( 100 / (100 + Constants.SERVICE_INVOICE_GST_PERCENTAGE)));
+            double taxAmount=0;
+            Double nonGstInvoiceAmount = invoice.getTotalAmount() - taxAmount;
+            map = createLineItemMap(invoice, null, nonGstInvoiceAmount, lineId++, 0D, 0, "");
+
+        }
+
+        lineItems.add(map);
+        Map<String, Object> discountMap = getDiscountLineIfApplicable(invoice, lineId++);
+        logger.info("discountMap {}", discountMap );
+        if(null != discountMap) {
+            lineItems.add(discountMap);
+        }
+        return lineItems;
+
+
+
+    }
+
+    private Map<String, Object> getDiscountLineIfApplicable(FilixInvoiceDto invoice, int lineId) {
+        Map<String, Object> map = new HashMap<>();
+//        Double discountAmount = invoice.getInvoiceLineItems().stream().filter(item -> item.getLineItem().contains("Discount")).mapToDouble(item -> Math.abs(item.getAmount())).sum();
+        Double discountAmount=0.0;
+        logger.info("discountAmount {}", discountAmount );
+        if(0 < discountAmount) {
+            map.put(item, "Discount");
+            map.put(amount, -1 * discountAmount);
+            map.put(stanzaLineId, lineId);
+            return map;
+        }
+        return null;
+    }
 
     private Map<String, Object> createLineItemMap(FilixInvoiceDto invoice, String serviceName, double nonGstInvoiceAmount, int lineId , double taxAmount, double taxRate, String taxlocation) {
         Map<String, Object> map = new HashMap<>();
         if(null == invoice.getFromDate() && null == invoice.getToDate()) {
             map.put(item, "Maintenance Charges");
         }else {
-            map.put(item, invoice.getInvoiceType());
+            map.put(item, "Damage");
         }
         map.put(quantity, 1);
-        map.put(rate, "");
-        map.put(amount, "");
-        map.put(hsnCode, "");
-        map.put(stanzaLineId, "");
-        map.put(taxlocationtype, "");
-        map.put(taxrate, "");
-        map.put(taxamount, "");
+        map.put(rate, nonGstInvoiceAmount);
+        map.put(amount, nonGstInvoiceAmount);
+        map.put(hsnCode,"");
+        map.put(stanzaLineId, lineId);
+        map.put(taxlocationtype, taxlocation);
+        map.put(taxrate, taxRate);
+        map.put(taxamount, taxAmount);
 
 
         return map;
     }
+
+
 
 
     private Map<String, Object> getExtraFields(FilixInvoiceDto invoice) {

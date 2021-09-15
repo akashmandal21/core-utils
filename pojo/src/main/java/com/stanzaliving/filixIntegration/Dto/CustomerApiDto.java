@@ -24,6 +24,7 @@ public class CustomerApiDto {
     private FilixUserDetailResponseDto filixUserDetailResponseDto;
     private FilixPaymentTransactionRequestDto filixPaymentTransactionRequestDto;
     private FilixTransactionInitiateDto filixTransactionInitiateDto;
+    private FilixInvoiceCategoryDto filixInvoiceCategoryDto;
 
 
 }

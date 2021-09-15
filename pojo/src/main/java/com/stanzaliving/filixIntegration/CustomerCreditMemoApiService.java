@@ -63,8 +63,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
                 FilixInvoiceDto creditNote = customerApiDto.getFilixInvoiceDto();
                 FilixInvoiceLineItems lineItems =customerApiDto.getFilixInvoiceLineItems() ;
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
-                //confirm
-                mapToSend.put(stanzaId, String.valueOf(creditNote.getReferenceUuid()));
+                mapToSend.put(stanzaId,creditNote.getId().toString());
                 mapToSend.put(date, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getIssueDate()), DateFormat.DD_MM_YYYY));
                 mapToSend.put(startDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getFromDate()),DateFormat.DD_MM_YYYY));
                 mapToSend.put(endDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getToDate()), DateFormat.DD_MM_YYYY));
@@ -74,10 +73,12 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
                 mapToSend.put(exchangerate, 1.00);
                 mapToSend.put(currency, "INR");
                 mapToSend.put(po_hash, "");
+                //TODO: left
                 mapToSend.put(memo, "");
                 mapToSend.put(autoapply, Boolean.FALSE);
                 mapToSend.put(billingState,filixBillFromDto.getGstState());
                 mapToSend.put(billingCountry, "India");
+                //TODO: left
                 mapToSend.put(bookingId,creditNote.getReferenceUuid());
                 mapToSend.put(itemList,createLineItemMap(creditNote,lineItems));
                 mapToSend.put(autoApplyList, getAutoApplyList(creditNote));
@@ -90,29 +91,32 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
         return mapToSend;
     }
 
-    private Map<String, Object> createLineItemMap(FilixInvoiceDto creditNote,FilixInvoiceLineItems lineItems) {
+    private List createLineItemMap(FilixInvoiceDto creditNote,FilixInvoiceLineItems lineItems) {
+        List<Map<String, Object>> list = new ArrayList();
         Map<String, Object> map = new HashMap<>();
         if(null == creditNote.getFromDate() && null == creditNote.getToDate()) {
             map.put(item, "Maintenance Charges");
         }else {
-            map.put(item, "");
+            //chnge this in invoice too
+            map.put(item, "Damage");
         }
         map.put(quantity, 1);
-        map.put(itemRate, "");
-        map.put(hsnCode, lineItems.getHsnCode());
+        map.put(itemRate, lineItems.getLineAmount());
+        map.put(hsnCode,Objects.isNull(lineItems.getHsnCode())?"9963":lineItems.getHsnCode());
         map.put(stanzaLineId, "");
         map.put(taxlocationtype,"INTRASTATE");
-        map.put(amount, lineItems.getLineAmount());
+        map.put(amount, lineItems.getCgstPercentage());
         //confirm this
         map.put(taxamount, lineItems.getCgstAmount());
         map.put(taxrate, lineItems.getCgstPercentage());
-        return map;
+        list.add(map);
+        return list;
     }
 
     private Object getAutoApplyList(FilixInvoiceDto creditNote) {
         List<Map<String, Object>> lineItems = new ArrayList();
         Map<String, Object> map = new HashMap<>();
-        map.put(invoiceNum, String.valueOf(creditNote.getUuid()));
+        map.put(invoiceNum,creditNote.getId().toString());
         map.put(paymentAmount, creditNote.getTotalAmount());
         lineItems.add(map);
         return lineItems;
