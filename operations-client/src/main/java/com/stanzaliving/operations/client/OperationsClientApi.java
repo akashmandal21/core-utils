@@ -2,12 +2,13 @@ package com.stanzaliving.operations.client;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import org.apache.commons.collections.CollectionUtils;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -16,10 +17,12 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.operations.dto.ActiveResidenceDetailsDto;
+import com.stanzaliving.core.operations.dto.DealDto;
 import com.stanzaliving.core.operations.dto.ResidentFoodPreferenceCountDto;
 import com.stanzaliving.core.operations.dto.ServiceMixDto;
 import com.stanzaliving.core.operations.enums.DealCategory;
@@ -530,4 +533,26 @@ public class OperationsClientApi {
 		return Objects.nonNull(serviceMixEntity) ? serviceMixEntity : null;
 	}
 
+	public List<DealDto> getDealsByUuidIn(Collection<String> uuids){
+
+    	String path = UriComponentsBuilder.fromPath("/internal/deal/list").build().toUriString();
+
+		TypeReference<ResponseDto<List<DealDto>>> returnType = new TypeReference<ResponseDto<List<DealDto>>>() {};
+
+		ResponseDto<List<DealDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, null, uuids, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting deal detail", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+	}
+
+	
 }
