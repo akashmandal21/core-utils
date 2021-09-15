@@ -69,4 +69,5 @@ public class AdditionalPropertiesDto {
     private List<AdditionalPropertiesDto> subTickets;
     private Integer version;
     private String currentResolutionLevelUuid;
+    private String expandableBarColor;
 }

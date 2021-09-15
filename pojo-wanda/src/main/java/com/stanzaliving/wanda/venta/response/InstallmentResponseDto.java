@@ -25,5 +25,5 @@ public class InstallmentResponseDto {
     private Boolean discountApplied;
     private List<InstallmentLineItemResponseDto> installmentLineItemResponseDtoList;
     private String type;
-    
+    private String period;
 }

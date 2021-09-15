@@ -30,4 +30,8 @@ public enum FoodServeType {
 	public static List<EnumListing<FoodServeType>> getEnumListings() {
 		return enumListings;
 	}
+
+	public static boolean isPackagedOrHybrid(FoodServeType foodServeType) {
+		return PACKAGED == foodServeType || HYBRID == foodServeType;
+	}
 }
