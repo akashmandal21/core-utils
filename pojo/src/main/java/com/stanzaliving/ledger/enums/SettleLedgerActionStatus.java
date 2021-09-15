@@ -17,7 +17,7 @@ public enum SettleLedgerActionStatus {
     REJECTED("Rejected"),
     CARRY_FORWARD("CarryForward"),
     PENDING("Pending"),
-    SETTLED_WITH_EXHAUSTION("Settle With Exhaustion"),
+    SETTLED_WITH_EXHAUSTION("Settled With Exhaustion"),
     RAISED_TO_NODAL("Raised To Nodal"),
     PENDING_ON_FINANCE_APPROVAL("Pending On Finance Approval");
 
