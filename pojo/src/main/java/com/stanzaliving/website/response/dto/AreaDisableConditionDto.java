@@ -1,5 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,10 +15,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class FlatUrlPlaceResponseDTO {
+public class AreaDisableConditionDto {
 
-	private String name;
-	private int placeId;
-	private boolean enabled;
-	private Boolean isPlaceEnabled;
+	List<FlatUrlResponseDTO> flatUrlResponseDtos;
+
+	Integer flatUrlCount;
+	
+	boolean canBeDisabled;
 }
