@@ -1,5 +1,6 @@
 package com.stanzaliving.core.item_master.client.api;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 import com.stanzaliving.boq_service.BoqItemSearchRequestDto;
