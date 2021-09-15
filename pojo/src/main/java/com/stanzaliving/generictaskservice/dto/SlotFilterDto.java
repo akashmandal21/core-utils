@@ -1,6 +1,7 @@
 package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -20,7 +21,7 @@ import java.util.List;
 public class SlotFilterDto {
 
     private String slotName;
-    private String slotType;
+    private SlotType slotType;
     private Boolean overLap;
     private Boolean movable;
     private Boolean reschedule;
