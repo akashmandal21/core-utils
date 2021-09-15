@@ -102,7 +102,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
         }
         map.put(quantity, 1);
         map.put(itemRate, "");
-        map.put(hsnCode, lineItems.getHsnCode().isEmpty()?"9963": lineItems.getHsnCode());
+        map.put(hsnCode,Objects.isNull(lineItems.getHsnCode())?"9963":lineItems.getHsnCode());
         map.put(stanzaLineId, "");
         map.put(taxlocationtype,"INTRASTATE");
         map.put(amount, lineItems.getLineAmount());
