@@ -8,7 +8,6 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalTime;
 import java.util.List;
@@ -26,16 +25,13 @@ import java.util.List;
 @AllArgsConstructor
 public class SlotDto extends AbstractDto {
 
-    @NotEmpty(message = "Allowed task is mandatory")
     private List<String> allowedTaskList;
 
-    @NotBlank(message = "Entity type is mandatory")
     private String entityType;
 
     @Min(value = 1, message = "Duration Value cannot be less than 0")
     private Double defaultDuration;
 
-    @NotBlank(message = "Entity uuid is mandatory")
     private String entityUuid;
 
     @NotNull(message = "Is movable slot is mandatory")
