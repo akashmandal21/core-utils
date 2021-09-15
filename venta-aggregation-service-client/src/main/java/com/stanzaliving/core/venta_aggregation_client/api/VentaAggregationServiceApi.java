@@ -82,7 +82,7 @@ public class VentaAggregationServiceApi {
     }
 
     public ResponseDto<RestResponsePage<BookingAggregationDto>> getBookingAggregationListing(BookingFilterRequestDto bookingFilterRequestDto) {
-        log.info("Aggregation Booking Controller");
+        log.info("Aggregation Booking Controller getBookingAggregationListing with payload {}", bookingFilterRequestDto.toString());
 
         Object postBody = bookingFilterRequestDto;
 
