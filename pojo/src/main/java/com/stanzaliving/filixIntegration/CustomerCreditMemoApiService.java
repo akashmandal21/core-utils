@@ -64,7 +64,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
                 FilixInvoiceLineItems lineItems =customerApiDto.getFilixInvoiceLineItems() ;
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
                 //confirm
-                mapToSend.put(stanzaId, String.valueOf(creditNote.getReferenceUuid()));
+                mapToSend.put(stanzaId,creditNote.getId());
                 mapToSend.put(date, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getIssueDate()), DateFormat.DD_MM_YYYY));
                 mapToSend.put(startDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getFromDate()),DateFormat.DD_MM_YYYY));
                 mapToSend.put(endDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getToDate()), DateFormat.DD_MM_YYYY));
@@ -95,7 +95,8 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
         if(null == creditNote.getFromDate() && null == creditNote.getToDate()) {
             map.put(item, "Maintenance Charges");
         }else {
-            map.put(item, "");
+            //chnge this in invoice too
+            map.put(item, "Damage");
         }
         map.put(quantity, 1);
         map.put(itemRate, "");
@@ -112,7 +113,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
     private Object getAutoApplyList(FilixInvoiceDto creditNote) {
         List<Map<String, Object>> lineItems = new ArrayList();
         Map<String, Object> map = new HashMap<>();
-        map.put(invoiceNum, String.valueOf(creditNote.getUuid()));
+        map.put(invoiceNum,creditNote.getId());
         map.put(paymentAmount, creditNote.getTotalAmount());
         lineItems.add(map);
         return lineItems;
