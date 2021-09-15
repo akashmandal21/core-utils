@@ -173,7 +173,7 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
         if(null == invoice.getFromDate() && null == invoice.getToDate()) {
             map.put(item, "Maintenance Charges");
         }else {
-            map.put(item, "");
+            map.put(item, "Damage");
         }
         map.put(quantity, 1);
         map.put(rate, nonGstInvoiceAmount);
