@@ -10,7 +10,10 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum Duration {
-    DAYS("days");
+    DAYS("days"),
+    MONTHS("Months"),
+    WEEKS("Weeks"),
+    HOURS("Hours");
 
     private String unit;
 
