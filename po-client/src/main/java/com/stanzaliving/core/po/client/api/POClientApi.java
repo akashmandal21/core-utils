@@ -302,9 +302,9 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
-    public ResponseDto<Department> getPoToDepartment(String poToNumber) {
+    public ResponseDto<PoDetailsResponse> getPoToDetailsFromPoToNumber(String poToNumber) {
 
-        log.info("HTTP Client call to get PO/TO Department {}",poToNumber);
+        log.info("HTTP Client call to get PO/TO Details from Po Number {}",poToNumber);
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -320,10 +320,10 @@ public class POClientApi {
 
         Map<String, List<String>> map = new HashMap<>();
 
-        ParameterizedTypeReference<ResponseDto<Department>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Department>>() {
+        ParameterizedTypeReference<ResponseDto<PoDetailsResponse>> vddReturnType = new ParameterizedTypeReference<ResponseDto<PoDetailsResponse>>() {
         };
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/po/department/{poToNumber}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/details/{poToNumber}").buildAndExpand(uriVariables).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
