@@ -1,6 +1,7 @@
 package com.stanzaliving.core.client.dto;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.booking.dto.PaymentDetailsDto;
@@ -34,4 +35,18 @@ public class ExitDetailsResponseDto {
 	private boolean isEligibleForExitInitiation = true;
 
 	private BankDetailsDto bankDetails;
+
+	private String exitReason;
+
+	private String exitReasonUuid;
+
+	private String defaulterUuid;
+
+	private String defaulterReason;
+
+	private String roomKeyHandOverStatus;
+
+	private Date contractStartDate;
+
+	private Date contractEndDate;
 }
