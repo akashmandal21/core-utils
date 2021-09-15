@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serializable;
 import java.util.List;
 
 
@@ -18,9 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class SectionFilterRequestDto implements Serializable {
-
-    private static final long serialVersionUID = 1635296868115644218L;
+public class SectionFilterRequestDto{
 
     private String durationUnit;
 
@@ -30,11 +27,11 @@ public class SectionFilterRequestDto implements Serializable {
 
     private List<String> module;
 
-    private String activities;
+    private PaginationRequest pageRequest;
+
+    private List<String> owners;
+
+    private List<String> activityList;
 
     private List<String> predecessorTasks;
-
-    private String owner;
-
-    private PaginationRequest pageRequest;
 }
