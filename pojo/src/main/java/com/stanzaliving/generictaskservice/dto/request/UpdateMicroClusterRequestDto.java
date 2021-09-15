@@ -25,4 +25,9 @@ public class UpdateMicroClusterRequestDto {
 
     private String cityUuid;
 
+    private boolean microClusterStatus;
+
+    private List<String> microMarketNames;
+
+
 }

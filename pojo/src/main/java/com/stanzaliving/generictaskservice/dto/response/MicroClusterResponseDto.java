@@ -23,7 +23,7 @@ public class MicroClusterResponseDto extends AbstractDto {
 
     private String cityName;
 
-    private List<String> microMarketUuid;
+    private List<String> microMarketUuids;
 
     private List<String> microMarketNames;
 
@@ -31,6 +31,8 @@ public class MicroClusterResponseDto extends AbstractDto {
 
     private List<ResidenceUIDto> residenceUIDto;
 
-    private List<ResidenceDto> residence;
+    private List<ResidenceDto> residences;
+
+    private boolean microClusterStatus;
 
 }
