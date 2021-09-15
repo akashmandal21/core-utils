@@ -92,7 +92,8 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
         return mapToSend;
     }
 
-    private Map<String, Object> createLineItemMap(FilixInvoiceDto creditNote,FilixInvoiceLineItems lineItems) {
+    private List createLineItemMap(FilixInvoiceDto creditNote,FilixInvoiceLineItems lineItems) {
+        List<Map<String, Object>> list = new ArrayList();
         Map<String, Object> map = new HashMap<>();
         if(null == creditNote.getFromDate() && null == creditNote.getToDate()) {
             map.put(item, "Maintenance Charges");
@@ -109,7 +110,8 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
         //confirm this
         map.put(taxamount, lineItems.getCgstAmount());
         map.put(taxrate, lineItems.getCgstPercentage());
-        return map;
+        list.add(map);
+        return list;
     }
 
     private Object getAutoApplyList(FilixInvoiceDto creditNote) {
