@@ -1,6 +1,8 @@
 package com.stanzaliving.genericdashboard.dto;
 
 import com.stanzaliving.genericdashboard.enums.EventDataType;
+import com.stanzaliving.genericdashboard.enums.EventDurationType;
+
 import lombok.*;
 
 @Getter
@@ -19,4 +21,6 @@ public class CampaignEventAttributesDto{
     private String operation;
 
     private EventDataType eventDataType;
+    
+    private EventDurationType eventDurationType;
 }
