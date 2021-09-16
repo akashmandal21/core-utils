@@ -76,7 +76,7 @@ public enum PaymentMode {
     	
     	paymentMode.add(CHEQUE);
     	paymentMode.add(CASH);
-    	paymentMode.add(PAYTM);
+    	paymentMode.add(PAYTM_SDK);
     	paymentMode.add(RAZORPAY);
     	
     	return paymentMode;    	
