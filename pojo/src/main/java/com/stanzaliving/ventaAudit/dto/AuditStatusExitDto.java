@@ -15,6 +15,6 @@ import java.time.LocalDate;
 public class AuditStatusExitDto {
     private AuditStatus auditStatus;
     private String bookingUuid;
-    private LocalDate roomUuid;
+    private String roomUuid;
     private String auditUuid;
 }
