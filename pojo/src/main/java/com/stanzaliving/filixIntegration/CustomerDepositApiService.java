@@ -77,7 +77,7 @@ public class CustomerDepositApiService extends CustomerApiFactory {
                 mapToSend.put(date,DateUtil.customDateFormatter(new Date(), DateFormat.DD_MM_YYYY));
                 mapToSend.put(exchangeRate, 1.00);
                 mapToSend.put(currency, "INR");
-                mapToSend.put(customer, Objects.isNull(filixTransactionDto.getUserId())?"": filixTransactionDto.getUserId());
+                mapToSend.put(customer, Objects.isNull(filixTransactionDto.getUserId())?"123456": filixTransactionDto.getUserId());
                 mapToSend.put(class_str, "");
                 mapToSend.put(department, "");
                 mapToSend.put(memo, "SD Deposit");
