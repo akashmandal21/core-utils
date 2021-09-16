@@ -1,5 +1,7 @@
 package com.stanzaliving.booking.enums;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -55,8 +57,9 @@ public enum PaymentPlanType {
 
 	private String name;
 	
-	 @Override
+	@JsonValue
 	 public String toString() {
 	   return name;
 	 }
+	 
 }
