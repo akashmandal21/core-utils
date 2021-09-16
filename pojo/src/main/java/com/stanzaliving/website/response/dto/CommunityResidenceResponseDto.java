@@ -5,18 +5,23 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
-public class FlatUrlPlaceResponseDTO {
+public class CommunityResidenceResponseDto {
 
+	private String residenceUuid;
 	private String name;
-	private int placeId;
-	private boolean enabled;
-	private Boolean isPlaceEnabled;
+	private String gmbLink;
+	private String line1;
+	private String line2;
+	private int zipCode;
+	private String cityName;
+	private int cityId;
+	private String StateName;
+	private Long stateId;
+
 }
