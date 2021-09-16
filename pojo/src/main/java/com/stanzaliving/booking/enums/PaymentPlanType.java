@@ -11,8 +11,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-//@AllArgsConstructor
-//@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public enum PaymentPlanType {
 
 	RENTAL("Rental"),
@@ -61,29 +61,4 @@ public enum PaymentPlanType {
 
 	private final String name;
 	
-	PaymentPlanType(final String name) {
-		this.name = name;
-	}
-	
-	@Override
-    public String toString() {
-        return name;
-    }
-
-//	@JsonValue
-//	public String getName() { 
-//		return this.name; 
-//	}
-//
-//	@JsonCreator
-//	public static PaymentPlanType create(String name) {
-//		PaymentPlanType[] units = PaymentPlanType.values();
-//		for (PaymentPlanType unit : units) {
-//			if (unit.getName().equals(name)) {
-//				return unit;
-//			}
-//		}
-//		return null;
-//	}
-
 }
