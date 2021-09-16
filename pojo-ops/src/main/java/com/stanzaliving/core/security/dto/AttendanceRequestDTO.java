@@ -1,5 +1,6 @@
 package com.stanzaliving.core.security.dto;
 
+import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.security.enums.GatePassStatus;
 import com.stanzaliving.core.security.enums.RequestStatus;
 import com.stanzaliving.core.security.enums.RequestType;
@@ -35,8 +36,7 @@ public class AttendanceRequestDTO {
 
     private LocalTime endTime;
 
-    //TODO: replace with MealType enum
-    private String nextMealType;
+    private MealType nextMealType;
 
     private String description;
 
@@ -58,7 +58,6 @@ public class AttendanceRequestDTO {
 
     private GatePassStatus gatePassStatus;
 
-    // adding resident details
     private String residentName;
 
     private String roomNumber;
@@ -69,8 +68,25 @@ public class AttendanceRequestDTO {
 
     private double dues;
 
-    // adding applied on date and time
     private Date createdAt;
 
     private String attendanceRequestReasonTypeUuid;
+
+    private String qrCodeData;
+
+    private String rejectionReason;
+
+    private LocalDateTime startDateTime;
+
+    private LocalDateTime endDateTime;
+
+    private String gatePassUuid;
+
+    private Date approvalDateEpoch;
+
+    private Date rejectionDateEpoch;
+
+    private Date cancellationDateEpoch;
+
+    private LocalTime mealEndTime;
 }

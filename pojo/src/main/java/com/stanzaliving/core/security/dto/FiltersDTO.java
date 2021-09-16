@@ -37,7 +37,7 @@ public class FiltersDTO {
 
     private List<StatusCard> attendance;
 
-    private List<Floor> floor;
+    private List<String> floor;
 
     private List<Dues> dues;
 

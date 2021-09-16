@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Builder
@@ -17,8 +18,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class AttendanceDefaulterActionDTO {
 
-    @NotNull(message = "Uuid cannot be null")
-    private String uuid;
+    @NotNull @NotEmpty private String uuid;
 
     private UserActionType userActionType;
 
@@ -28,7 +28,7 @@ public class AttendanceDefaulterActionDTO {
 
     private String comment;
 
-    private LocalDateTime creationTime;
+    private Date creationTime;
 
     private boolean isLoopClosure;
 }

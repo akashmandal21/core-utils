@@ -32,7 +32,6 @@ public class AttendanceDTO {
 
     private String verificationMode;
 
-    @NotNull(message = "Location cannot be null")
     private LatLongDTO location;
 
     private String markedBy;

@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.security.enums.ActionStatus;
 import com.stanzaliving.core.security.enums.GatePassStatus;
 import com.stanzaliving.core.security.enums.RequestType;
@@ -48,8 +49,7 @@ public class AttendanceRequestDefaulterDTO {
 
     private LocalTime endTime;
 
-    //TODO: replace with meal type enum when available
-    private String nextMealType;
+    private MealType nextMealType;
 
     private GatePassStatus gatePassStatus;
 
