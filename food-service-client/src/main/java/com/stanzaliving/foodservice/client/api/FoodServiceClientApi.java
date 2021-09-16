@@ -150,7 +150,7 @@ public class FoodServiceClientApi {
         try {
             responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Error while fetching menu category details for id: {}", id);
+            log.error("Error while fetching menu category details for id: {}", id, e);
         }
 
         return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
