@@ -13,5 +13,5 @@ public class InventoryMigrationDTO {
     private Integer residenceID;
 
     @JsonSetter(value = "INVENTORY_ID")
-    private Integer inventoryId;
+    private String inventoryId;
 }

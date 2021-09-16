@@ -19,5 +19,5 @@ public class RoomMigrationDTO {
     private String floor;
 
     @JsonSetter(value = "ROOM_ID")
-    private Integer roomId;
+    private String roomId;
 }

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class InvoiceMigrationDTO {
 
     @JsonSetter(value = "BOOKING_ID")
-    private Integer bookingId;
+    private String bookingId;
 
     @JsonSetter(value = "INVOICE_TYPE")
     private Integer invoiceType;

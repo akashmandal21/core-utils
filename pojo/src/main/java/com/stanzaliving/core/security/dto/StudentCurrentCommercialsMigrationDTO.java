@@ -15,7 +15,7 @@ public class StudentCurrentCommercialsMigrationDTO {
     private Integer id;
 
     @JsonSetter(value = "BOOKING_ID")
-    private Integer bookingId;
+    private String bookingId;
 
     @JsonSetter(value = "REFUNDABLE_SECURITY")
     private Integer refundableSecurity;
