@@ -1,6 +1,8 @@
 package com.stanzaliving.core.boq_service.dtos;
 
+import com.stanzaliving.boq_service.dto.LabelValueDto;
 import com.stanzaliving.core.boq_service.enums.BoqItemProvider;
+import com.stanzaliving.transformations.enums.AreaOfUse;
 import com.stanzaliving.transformations.enums.LineItemStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +17,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BoqLineItemDto implements Comparable<BoqLineItemDto>{
-	
+
+    //todo: add these in cde
+    private List<LabelValueDto<AreaOfUse>> areaOfUseOptions;
+    private LabelValueDto<AreaOfUse> areaOfUseValue;
+    private BigDecimal itemAmount;
+
     private String itemUuid;
     private String lineItemUuid;
     private String categoryName;
