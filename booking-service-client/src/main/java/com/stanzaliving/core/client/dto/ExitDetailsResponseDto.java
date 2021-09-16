@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Builder
@@ -33,6 +34,20 @@ public class ExitDetailsResponseDto {
     private boolean isEligibleForExitInitiation = true;
 
     private BankDetailsDto bankDetails;
+
+    private String exitReason;
+
+    private String exitReasonUuid;
+
+    private String defaulterUuid;
+
+    private String defaulterReason;
+
+    private String roomKeyHandOverStatus;
+
+    private Date contractStartDate;
+
+    private Date contractEndDate;
 
     private Integer noticePeriod;
 
