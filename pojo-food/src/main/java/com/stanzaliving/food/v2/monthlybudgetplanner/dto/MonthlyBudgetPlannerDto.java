@@ -10,6 +10,7 @@ import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.food.v2.category.constant.CategorySearchSortingField;
 import com.stanzaliving.food.v2.category.dto.MealCategoryPriceDto;
 import com.stanzaliving.food.v2.category.dto.MenuCategoryDTO;
+import com.stanzaliving.food.v2.category.dto.MenuCategoryMealDto;
 import com.stanzaliving.food.v2.category.dto.MenuCategoryResidenceRDto;
 import com.stanzaliving.food.v2.common.constant.SortingType;
 import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
@@ -29,6 +30,8 @@ import lombok.experimental.SuperBuilder;
 public class MonthlyBudgetPlannerDto extends MenuCategoryDTO {
 
 	private static final long serialVersionUID = -631333844318576490L;
+	private String menuCategoryMonthlyBudgetPlannerId;
+
 	private Double monthlyBudget;
 	private Map<String, String> tags;
 	private List<ListingDto> demographicTags;
@@ -49,6 +52,8 @@ public class MonthlyBudgetPlannerDto extends MenuCategoryDTO {
 	private List<MenuCategoryResidenceRDto> residences;
 	private List<MicromarketRDto> mmServed;
 	private int noOfMmServed;
+
+	private List<MenuCategoryMealDto> mealData;
 
     //Day level (Planned/Budgeted)
     List<DayWiseBudgetDto> dayWiseBudgetDto;
