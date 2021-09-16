@@ -1,6 +1,5 @@
 package com.stanzaliving.genericdashboard.dto;
 
-import com.stanzaliving.genericdashboard.enums.EventDurationType;
 import com.stanzaliving.genericdashboard.enums.EventType;
 import lombok.*;
 

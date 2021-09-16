@@ -7,6 +7,7 @@ import lombok.*;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
@@ -22,5 +23,6 @@ public class CampaignEventAttributesDto{
 
     private EventDataType eventDataType;
     
-    private EventDurationType eventDurationType;
+    @Builder.Default
+    private EventDurationType eventDurationType=EventDurationType.FIXED_DURATION;
 }
