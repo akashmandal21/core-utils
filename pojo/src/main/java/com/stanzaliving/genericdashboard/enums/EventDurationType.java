@@ -6,8 +6,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum EventDurationType {
-	ROLLING_DURATION("Rolling Duration"),
-	FIXED_DURATION("Fixed Duration");
+	FIXED_DURATION("Fixed Duration"),
+	ROLLING_DURATION("Rolling Duration");
 	
 	 String eventDurationType;
 }
