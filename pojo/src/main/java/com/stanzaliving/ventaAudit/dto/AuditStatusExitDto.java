@@ -16,4 +16,5 @@ public class AuditStatusExitDto {
     private AuditStatus auditStatus;
     private String bookingUuid;
     private LocalDate roomUuid;
+    private String auditUuid;
 }
