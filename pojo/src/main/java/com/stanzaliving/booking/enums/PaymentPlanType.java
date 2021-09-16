@@ -59,6 +59,6 @@ public enum PaymentPlanType {
 	ADDITIONAL_INVOICE_LICENSE_FEE("Additional Invoice - License Fee"),
 	ADDITIONAL_INVOICE_SERVICE_FEE("Additional Invoice - Service Fee");
 
-	private final String name;
+	private String name;
 	
 }
