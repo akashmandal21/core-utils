@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class BookingCommercialsMigrationDTO {
 
     @JsonSetter(value = "BOOKING_ID")
-    private Integer bookingId;
+    private String bookingId;
 
     @JsonSetter(value = "MAINTENANCE_FEE_SELECTION_ID")
     private Integer maintenanceFeeSelectionId;

@@ -22,10 +22,10 @@ public class BookingMigrationDTO {
     private String residentId;
 
     @JsonSetter(value = "INVENTORY_ID")
-    private Integer inventoryId;
+    private String inventoryId;
 
     @JsonSetter(value = "ROOM_ID")
-    private Integer roomId;
+    private String roomId;
 
     @JsonSetter(value = "HAS_MOVED_IN")
     private boolean hasMovedIn;
