@@ -26,5 +26,5 @@ public enum BookingEventEnum {
     AUDIT_APPROVED,
     AUDIT_REJECTED,
     ADDENDUM_SIGNED,
-    INITIATE_EXIT
+    INITIATE_AUDIT
 }
