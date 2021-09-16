@@ -1,6 +1,14 @@
 package com.stanzaliving.booking.enums;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 //@AllArgsConstructor
@@ -52,14 +60,30 @@ public enum PaymentPlanType {
 	ADDITIONAL_INVOICE_SERVICE_FEE("Additional Invoice - Service Fee");
 
 	private final String name;
-
-	PaymentPlanType(String name) {
+	
+	PaymentPlanType(final String name) {
 		this.name = name;
 	}
-
+	
 	@Override
-	public String toString() {
-		return name;
-	}
+    public String toString() {
+        return name;
+    }
+
+//	@JsonValue
+//	public String getName() { 
+//		return this.name; 
+//	}
+//
+//	@JsonCreator
+//	public static PaymentPlanType create(String name) {
+//		PaymentPlanType[] units = PaymentPlanType.values();
+//		for (PaymentPlanType unit : units) {
+//			if (unit.getName().equals(name)) {
+//				return unit;
+//			}
+//		}
+//		return null;
+//	}
 
 }
