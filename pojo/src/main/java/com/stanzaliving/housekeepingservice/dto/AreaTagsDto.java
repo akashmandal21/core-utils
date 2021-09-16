@@ -1,6 +1,9 @@
 package com.stanzaliving.housekeepingservice.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.housekeepingservice.enums.AreaTagStatus;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 
@@ -12,19 +15,18 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @Setter
 @ToString
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AreaTagsDto {
+public class AreaTagsDto extends AbstractDto {
 
     @NotBlank(message = "Area tags name is Mandatory.")
     private String areaTagsName;
 
     @NotBlank(message = "Area category is Mandatory.")
-    private String areaCategory;
+    private String areaCategoryUuid;
 
-    private boolean status;
+    private AreaCategoryDto areaCategoryDto;
 
-    private String uuid;
-
+    private AreaTagStatus areaTagStatus;
 }
