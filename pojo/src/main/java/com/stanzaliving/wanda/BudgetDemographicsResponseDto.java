@@ -17,9 +17,8 @@ import java.util.List;
 @ToString
 public class BudgetDemographicsResponseDto {
 
-	private BudgetDemographicsData applicableResidenceDemoData;
-	private BudgetDemographicsData nonApplicableResidenceDemoData;
-	private BudgetDemographicsData overAllDemoData;
+	private List<BudgetDemographicsData> demographicsDataList;
+
 	private List<String> demographicsNameList;
 
 
