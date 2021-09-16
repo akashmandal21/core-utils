@@ -1,5 +1,7 @@
 package com.stanzaliving.booking.enums;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import lombok.AllArgsConstructor;
@@ -7,8 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum PaymentPlanType {
 
 	RENTAL("Rental"),
@@ -55,11 +57,16 @@ public enum PaymentPlanType {
 	ADDITIONAL_INVOICE_LICENSE_FEE("Additional Invoice - License Fee"),
 	ADDITIONAL_INVOICE_SERVICE_FEE("Additional Invoice - Service Fee");
 
+	@JsonProperty("name")
 	private String name;
 	
 	@JsonValue
 	 public String toString() {
 	   return name;
 	 }
-	 
+	
+	PaymentPlanType(String name) {
+        this.name = name;
+    }
+
 }
