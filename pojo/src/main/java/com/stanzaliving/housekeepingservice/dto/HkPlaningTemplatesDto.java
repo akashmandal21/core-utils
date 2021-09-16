@@ -1,11 +1,14 @@
 package com.stanzaliving.housekeepingservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
+import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import com.stanzaliving.housekeepingservice.enums.HKPlanningTemplateStatus;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -20,13 +23,11 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @ToString
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class HkPlaningTemplatesDto {
-
-	private String uuid;
+public class HkPlaningTemplatesDto extends AbstractDto {
 
 	@NotBlank(message = "Template name is mandatory")
 	private String templateName;
@@ -41,6 +42,8 @@ public class HkPlaningTemplatesDto {
 
 	private List<String> tags = new ArrayList<>();
 
+	private MicroClusterResponseDto microClusterDetails;
+
 	private List<TagResponseDto> tagResponses = new ArrayList<>();
 
 	private List<String> shiftAllocationUuids = new ArrayList<>();
@@ -48,5 +51,7 @@ public class HkPlaningTemplatesDto {
 	private List<ShitAllocationDetailsResponse> templateDetails = new ArrayList<>();
 
 	private List<ShiftAllocationDto> shiftsAllocationDtos = new ArrayList<>();
+
+
 
 }
