@@ -16,7 +16,7 @@ public enum MonthlyBudgetStatus {
     PENDING("Pending"),
     UNDER_APPROVAL("Under Approval"),
     APPROVED("Approved");
-    private final String status;
+    private final String budgetStatusName;
 
     public static boolean showOnApprovalDashboard(MonthlyBudgetStatus monthlyBudgetStatus) {
         return SUBMITTED.equals(monthlyBudgetStatus) || APPROVED.equals(monthlyBudgetStatus);
@@ -30,7 +30,7 @@ public enum MonthlyBudgetStatus {
 
     static {
         for (MonthlyBudgetStatus curStatus : MonthlyBudgetStatus.values()) {
-            enumListing.add(EnumListing.of(curStatus, curStatus.getStatus()));
+            enumListing.add(EnumListing.of(curStatus, curStatus.getBudgetStatusName()));
         }
     }
 

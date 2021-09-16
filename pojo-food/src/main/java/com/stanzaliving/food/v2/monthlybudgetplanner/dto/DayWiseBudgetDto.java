@@ -19,6 +19,10 @@ public class DayWiseBudgetDto {
 	private LocalDate date;
 
 	private Boolean specialEvent;
+
+	private Boolean specialMenuAdded;
+
+	private String dayWiseMonthlyBudgetId;
 	
 	private List<SpecialEventDetailDto> specialEventDetailDto;
 
