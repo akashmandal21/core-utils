@@ -14,6 +14,7 @@ public enum PlanningStatus {
     INACTIVE("inactive"),
     DRAFT("draft"),
     PENDINGAPPROVAL("pendingapproval"),
+    APPROVED("approved"),
     REJECT("reject");
 
     private String status;
