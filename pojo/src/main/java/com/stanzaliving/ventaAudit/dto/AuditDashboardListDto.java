@@ -24,7 +24,7 @@ public class AuditDashboardListDto {
     private String roomNumber;
     private String auditorName;
     private LocalDate auditedOn;
-    private LocalDate auditScheduledAt;
+    private LocalDate auditScheduledOn;
     private Double damageTotalAmount;
     private AuditStatus auditStatus;
     private String uuid;
