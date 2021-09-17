@@ -14,5 +14,5 @@ public class SendBackReasonDto {
 
     private String value;
 
-    private Boolean checked;
+    private boolean checked;
 }
