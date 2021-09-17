@@ -2,11 +2,18 @@ package com.stanzaliving.wanda.venta.response;
 
 import com.stanzaliving.wanda.enums.InstallmentTypeEnum;
 
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class InstalmentPlanResponseDto {
-    private String name;
-    private InstallmentTypeEnum instalmentTypeEnum;
-    private Double upfrontPaymentMonth;
+	private String name;
+	private InstallmentTypeEnum instalmentTypeEnum;
+	private Double upfrontPaymentMonth;
+
 }
