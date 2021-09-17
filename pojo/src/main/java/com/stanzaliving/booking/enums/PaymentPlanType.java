@@ -50,7 +50,8 @@ public enum PaymentPlanType {
 	BOOKING_FORFEITURE("Booking Forfeiture"),
 	BOOKING_CANCELLATION("Booking Cancellation"),
 	CREDIT_NOTE_FOR_MODIFY_CONTRACT("Credit Note For Modify Contract"),
-	ADDITIONAL_INVOICE_LICENSE_FEE("Additional Invoice - License Fee");
+	ADDITIONAL_INVOICE("Additional Invoice - License Fee"),
+	ADDITIONAL_INVOICE_SERVICE_FEE("Additional Invoice - Service Fee");
 
 	private String name;
 	
