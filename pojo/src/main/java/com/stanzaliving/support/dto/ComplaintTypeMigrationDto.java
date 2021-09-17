@@ -10,6 +10,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ComplaintTypeMigrationDto {
 
+    @JsonSetter(value="id")
+    private String id;
+
+    @JsonSetter(value="uuid")
+    private String uuid;
+
     @JsonSetter(value="name")
     private String name;
 
@@ -18,5 +24,21 @@ public class ComplaintTypeMigrationDto {
 
     @JsonSetter(value="image_url")
     private String imageUrl;
+
+    @JsonSetter(value="created_at")
+    private String createdAt;
+
+    @JsonSetter(value="created_by")
+    private String createdBy;
+
+    @JsonSetter(value="status")
+    private String status;
+
+    @JsonSetter(value="updated_at")
+    private String updatedAt;
+
+    @JsonSetter(value="updated_by")
+    private String updatedBy;
+
 
 }
