@@ -51,7 +51,7 @@ public class GenericTaskDto extends AbstractDto {
 
     private Map<String, Object> var2;
 
-    private String variable2;
+    private String var2Uuid;
 
     private String var3;
 
