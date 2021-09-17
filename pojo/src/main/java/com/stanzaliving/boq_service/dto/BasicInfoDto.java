@@ -29,4 +29,8 @@ public class BasicInfoDto {
     private boolean canEdit;
 
     private boolean canApprove;
+
+    private String bgColor;
+
+    private String textColor;
 }
