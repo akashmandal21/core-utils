@@ -1,6 +1,8 @@
 package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.generictaskservice.enums.ShiftSortSpecs;
+import com.stanzaliving.item_master.enums.SortDirection;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -22,4 +24,8 @@ public class ShiftFilterDto {
     private Double shiftDuration;
     private List<String> tagList;
     private PaginationRequest pageRequest;
+
+    //Sort
+    private ShiftSortSpecs sortSpecs;
+    private SortDirection sortDirection;
 }
