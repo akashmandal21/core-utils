@@ -1,5 +1,7 @@
 package com.stanzaliving.website.dto;
 
+import java.util.List;
+
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
@@ -20,4 +22,6 @@ public class FaqCategoryDto extends AbstractDto {
 	private String categoryName;
 
 	private Integer displayOrder;
+	
+	private List<FaqDto> faqDtos;
 }
