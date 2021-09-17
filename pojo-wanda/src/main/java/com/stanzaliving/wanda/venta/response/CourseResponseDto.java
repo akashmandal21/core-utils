@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 public class CourseResponseDto {
 
-    private Long courseId;
+    private int courseId;
     private String courseUuid;
     private String name;
     private boolean enabled;
