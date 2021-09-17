@@ -5,7 +5,6 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.venta.OccupiedRoomDto;
-import com.stanzaliving.ventaInvoice.dto.DocumentResponseDto;
 import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
 import com.stanzaliving.wanda.dtos.FullUserDto;
 import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
