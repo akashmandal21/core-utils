@@ -18,10 +18,12 @@ import java.util.List;
 @AllArgsConstructor
 public class BoqLineItemDto implements Comparable<BoqLineItemDto>{
 
-    //todo: add these in cde
+    //new keys; will replace old keys with time
     private List<LabelValueDto<AreaOfUse>> areaOfUseOptions;
     private LabelValueDto<AreaOfUse> areaOfUseValue;
     private BigDecimal itemAmount;
+    private LabelValueDto<BoqItemProvider> budgetByValue;
+    private LabelValueDto<BoqItemProvider> doneByValue;
 
     private String itemUuid;
     private String lineItemUuid;
