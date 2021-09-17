@@ -3,7 +3,7 @@ package com.stanzaliving.housekeepingservice.dto;
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import com.stanzaliving.housekeepingservice.enums.HKPlanningTemplateStatus;
 import com.stanzaliving.housekeepingservice.enums.HkTemplateSortSpecs;
-import com.stanzaliving.housekeepingservice.enums.SortDirection;
+import com.stanzaliving.item_master.enums.SortDirection;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
