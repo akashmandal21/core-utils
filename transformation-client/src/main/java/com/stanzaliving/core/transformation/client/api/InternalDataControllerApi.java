@@ -6,11 +6,13 @@ package com.stanzaliving.core.transformation.client.api;
 import com.stanzaliving.core.addressbook.AddressBookNameDto;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.projectservice.tiles.TileDeciderDto;
 import com.stanzaliving.core.projectservice.tiles.TileStatusDto;
+import com.stanzaliving.core.residenceservice.dto.RoomDetailsResponseDto;
 import com.stanzaliving.transformations.pojo.*;
 import com.stanzaliving.transformations.pojo.AddressBookMetaDto;
 import com.stanzaliving.transformations.pojo.CityMetadataDto;
@@ -1078,4 +1080,33 @@ public class InternalDataControllerApi {
 		};
 		restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+    public RoomDetailsResponseDto getResidenceUuidByResidenceId(String residenceId) {
+        log.info("Fetching Transformation details for residence id {}",residenceId);
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceId", residenceId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/get/residenceUuid/{residenceId}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<RoomDetailsResponseDto> returnType =
+                new ParameterizedTypeReference<RoomDetailsResponseDto>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching residence uuid for residence id {} ", residenceId);
+            return null;
+        }
+
+    }
 }
