@@ -40,4 +40,5 @@ public class ResolutionRuleDto {
     private String createdBy;
     private String updatedBy;
     private Boolean isActive;
+    private String groupUuid;
 }
