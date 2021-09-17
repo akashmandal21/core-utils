@@ -10,11 +10,41 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ComplaintCommentsMigrationDto {
 
+    @JsonSetter(value="id")
+    private String id;
+
+    @JsonSetter(value="uuid")
+    private String uuid;
+
+    @JsonSetter(value="cms_id")
+    private String cmsId;
+
+    @JsonSetter(value="freshdesk_user_id")
+    private String freshdeskUserId;
+
     @JsonSetter(value="comment")
     private String comment;
 
+    @JsonSetter(value="incoming")
+    private String incoming;
+
     @JsonSetter(value="private_msg")
     private String privateMsg;
+
+    @JsonSetter(value="created_at")
+    private String createdAt;
+
+    @JsonSetter(value="created_by")
+    private String createdBy;
+
+    @JsonSetter(value="status")
+    private String status;
+
+    @JsonSetter(value="updated_at")
+    private String updatedAt;
+
+    @JsonSetter(value="updated_by")
+    private String updatedBy;
 
 
 }
