@@ -1081,7 +1081,7 @@ public class InternalDataControllerApi {
 		restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-    public RoomDetailsResponseDto getResidenceUuidByResidenceId(String residenceId) {
+    public String getResidenceUuidByResidenceId(String residenceId) {
         log.info("Fetching Transformation details for residence id {}",residenceId);
         Map<String, Object> uriVariables = new HashMap<>();
 
@@ -1097,8 +1097,8 @@ public class InternalDataControllerApi {
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<RoomDetailsResponseDto> returnType =
-                new ParameterizedTypeReference<RoomDetailsResponseDto>() {
+        ParameterizedTypeReference<String> returnType =
+                new ParameterizedTypeReference<String>() {
                 };
 
         try {
