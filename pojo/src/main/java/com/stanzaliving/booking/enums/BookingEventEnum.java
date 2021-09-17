@@ -40,5 +40,6 @@ public enum BookingEventEnum {
     MARK_STAY_FORFEITURE,
     MARK_CONTRACT_COMPLETED,
     RESIDENT_CREATED,
+    MARK_RENT_DEFAULTER
     ;
 }
