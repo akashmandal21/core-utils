@@ -19,6 +19,8 @@ import java.util.List;
 @SuperBuilder
 public class SectionFilterRequestDto{
 
+    private String templateUuid;
+
     private String durationUnit;
 
     private int minDaysRange;
