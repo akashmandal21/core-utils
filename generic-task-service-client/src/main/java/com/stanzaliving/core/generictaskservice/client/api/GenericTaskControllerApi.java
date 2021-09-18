@@ -2,7 +2,9 @@ package com.stanzaliving.core.generictaskservice.client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
+import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
 import lombok.extern.log4j.Log4j2;
@@ -74,6 +76,28 @@ public class GenericTaskControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+    public ResponseDto<ShitAllocationDetailsResponse> getShiftAllocationDtoByDayOfWeek(List<String> shiftAllocationUuid,String dayofWeek){
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/shift/allocation/"+dayofWeek).buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.put("shiftAllocationUuidList",shiftAllocationUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ShitAllocationDetailsResponse>> returnType = new ParameterizedTypeReference<ResponseDto<ShitAllocationDetailsResponse>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
     public ResponseDto<MicroClusterResponseDto> getMicroClusterByUuid(String microClusterUuid) {
         Object postBody = null;
 
@@ -120,5 +144,49 @@ public class GenericTaskControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
+    }
+
+    public ResponseDto<List<GenericTaskDto>> createGenericTaskDto(List<GenericTaskDto> tasks) {
+        Object postBody = tasks;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/task/addAll").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public ResponseDto<List<GenericTaskResponseDto>> getGenericTaskDto(List<String> taskIds) {
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/task").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.put("genericTaskUuidList",taskIds);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 }
