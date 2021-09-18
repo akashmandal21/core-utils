@@ -21,5 +21,6 @@ public class ReminderRuleDto {
     private Long sendReminderIn;
     private String sendReminderTo;
     private ReminderActionType sendReminderWhen;
+    private String groupUuid;
 
 }
