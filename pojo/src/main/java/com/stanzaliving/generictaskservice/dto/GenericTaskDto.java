@@ -1,11 +1,12 @@
 package com.stanzaliving.generictaskservice.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.generictaskservice.dto.response.DependencyTaskResponseDto;
 import com.stanzaliving.taskservice.enums.TaskType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
@@ -83,4 +84,5 @@ public class GenericTaskDto extends AbstractDto {
 
     private Department department;
 
+    private List<DependencyTaskResponseDto> dependencyTaskDetails;
 }
