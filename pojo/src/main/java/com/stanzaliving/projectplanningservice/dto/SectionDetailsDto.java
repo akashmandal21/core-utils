@@ -28,13 +28,13 @@ public class SectionDetailsDto extends AbstractDto {
 
     private String owner;
 
-    private String modules;
+    private ModuleDto module;
 
     private List<String> taskServiceUuIds;
 
     private PlanningStatus sectionStatus;
 
-    private String activities;
+    private ActivitiesDto activity;
 
     private List<String> predecessorTasks;
 
