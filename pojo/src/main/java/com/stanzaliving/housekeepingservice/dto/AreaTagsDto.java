@@ -1,6 +1,7 @@
 package com.stanzaliving.housekeepingservice.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.user.dto.UserProfileDto;
 import com.stanzaliving.housekeepingservice.enums.AreaTagStatus;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -29,4 +30,8 @@ public class AreaTagsDto extends AbstractDto {
     private AreaCategoryDto areaCategoryDto;
 
     private AreaTagStatus areaTagStatus;
+
+    private UserProfileDto createdByUser;
+
+    private UserProfileDto updateByUser;
 }
