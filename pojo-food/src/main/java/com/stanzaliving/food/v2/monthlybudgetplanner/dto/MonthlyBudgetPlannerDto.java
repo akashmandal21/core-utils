@@ -61,5 +61,7 @@ public class MonthlyBudgetPlannerDto extends MenuCategoryDTO {
     //Sorting Types
 	private SortingType sortingType;
 	private CategorySearchSortingField sortingField;
+
+	private String draftVersionId;
     
 }
