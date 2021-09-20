@@ -19,7 +19,7 @@ import java.util.List;
 @SuperBuilder
 public class RejectTemplateDto extends AbstractDto {
 
-   private String planningTemplateID;
+   private List<String> planningTemplateIDs;
 
     private Date selectDate;
 
