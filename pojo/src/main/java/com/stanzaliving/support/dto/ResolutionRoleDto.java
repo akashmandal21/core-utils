@@ -28,7 +28,6 @@ public class ResolutionRoleDto {
     @Min(1)
     private Long resolutionIn;
 
-    @NotNull(message = "escalation toggle can't be nll")
     private Boolean isEscalation;
 
     private String escalateTo;
