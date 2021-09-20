@@ -7,9 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MicroClusterSortSpecs {
 
-    CITYUUID("cityUuid"),
     UUID("uuid"),
-    MICROCLUSTERNAME("microClusterName");
+    NAME("microClusterName"),
+    CITY("cityName"),
+    STATUS("microClusterStatus");
 
     private String dbKey;
 

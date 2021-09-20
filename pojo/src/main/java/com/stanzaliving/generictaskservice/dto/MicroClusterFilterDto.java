@@ -18,7 +18,9 @@ public class MicroClusterFilterDto {
 
     protected String microClusterName;
 
-    protected String cityUuid;
+    protected String cityName;
+
+    protected Boolean microClusterStatus;
 
     protected List<String> residenceIds;
 
