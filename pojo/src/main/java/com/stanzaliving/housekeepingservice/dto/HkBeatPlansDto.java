@@ -19,7 +19,7 @@ import java.util.List;
 public class HkBeatPlansDto {
 	private String uuid;
 
-	private String planingTemplateId;
+	private String planningTemplateId;
 
 	private List<String> shiftAllocationId = new ArrayList<>();
 
