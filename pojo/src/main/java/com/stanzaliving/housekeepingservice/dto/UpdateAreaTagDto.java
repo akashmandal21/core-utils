@@ -22,6 +22,8 @@ public class UpdateAreaTagDto {
     @NotBlank(message = "Area tags uuid is Mandatory.")
     private String uuid;
 
+    private String areaTagName;
+
     private String areaCategoryUuid;
 
     private AreaTagStatus areaTagStatus;
