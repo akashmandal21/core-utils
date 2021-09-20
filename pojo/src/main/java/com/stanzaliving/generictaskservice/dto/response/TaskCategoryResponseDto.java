@@ -1,6 +1,7 @@
-package com.stanzaliving.generictaskservice.dto;
+package com.stanzaliving.generictaskservice.dto.response;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.generictaskservice.dto.TaskCategoryDto;
 import com.stanzaliving.generictaskservice.dto.request.TaskCategoryTypeDetailsRequestDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -8,13 +9,17 @@ import lombok.experimental.SuperBuilder;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
+/**
+ * @author Priyadarshini MB
+ */
+
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TaskCategoryDto extends AbstractDto {
+public class TaskCategoryResponseDto extends AbstractDto {
 
     private String parentTaskCategoryUuid;
 
@@ -28,6 +33,5 @@ public class TaskCategoryDto extends AbstractDto {
 
     private String taskType;
 
-    private TaskCategoryTypeDetailsRequestDto taskCategoryTypeDetailsRequestDto;
-
+    private TaskCategoryTypeDetailsResponseDto taskCategoryTypeDetailsResponseDto;
 }
