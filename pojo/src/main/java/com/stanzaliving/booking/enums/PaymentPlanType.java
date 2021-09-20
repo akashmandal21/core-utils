@@ -48,7 +48,14 @@ public enum PaymentPlanType {
 	MODIFY_CONTRACT("Modify Contract"),
 	DISCOUNT_READJUSTMENT("Discount Readjustment"),
 	BOOKING_FORFEITURE("Booking Forfeiture"),
-	BOOKING_CANCELLATION("Booking Cancellation");
+	BOOKING_CANCELLATION("Booking Cancellation"),
+	CREDIT_NOTE_FOR_MODIFY_CONTRACT("Credit Note For Modify Contract"),
+	ADDITIONAL_INVOICE_LICENSE_FEE("Additional Invoice - License Fee");
 
 	private String name;
+	
+	 @Override
+	 public String toString() {
+	   return name;
+	 }
 }

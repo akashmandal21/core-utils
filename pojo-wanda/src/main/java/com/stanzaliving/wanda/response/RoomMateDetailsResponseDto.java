@@ -23,8 +23,11 @@ public class RoomMateDetailsResponseDto {
 	private Integer age;
 	private String companyName;
 	private String educationalInstitute;
+	private String educationalInstituteId;
 	private String degree;
+	private String degreeId;
 	private String course;
+	private String courseId;
 	private String batch;
 	private Address address;
 	private ResidentType residentType;
