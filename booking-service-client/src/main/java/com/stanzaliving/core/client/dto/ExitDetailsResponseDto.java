@@ -52,4 +52,8 @@ public class ExitDetailsResponseDto {
     private Integer noticePeriod;
 
     private String zhComments;
+
+    private String exitReasonNote;
+
+    private String bookingStatus;
 }
