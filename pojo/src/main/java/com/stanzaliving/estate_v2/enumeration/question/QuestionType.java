@@ -11,5 +11,6 @@ public enum QuestionType {
     E_COMMERCE,
     BINARY,
     CALCULATIVE_FIELD,
-    HEADING
+    HEADING,
+    REPETITIVE
 }
