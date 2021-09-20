@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class InventoryMigrationDTO {
     @JsonSetter(value = "RESIDENCE_ID")
-    private Integer residenceId;
+    private Integer residenceID;
 
     @JsonSetter(value = "INVENTORY_ID")
-    private Integer inventoryId;
+    private String inventoryId;
 }
