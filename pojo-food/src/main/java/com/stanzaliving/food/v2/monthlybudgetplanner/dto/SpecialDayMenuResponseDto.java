@@ -22,6 +22,7 @@ public class SpecialDayMenuResponseDto extends MenuWiseMenuSearchRDto {
 
 	private String dayWiseMonthlyBudgetId;
 	private BudgetDemographicsResponseDto budgetDemographicsResponseDto;
+	private List<BudgetDemographicsResponseDto> budgetDemographicsResponseDtoList;
 	private List<MealWiseMenuDto> mealWiseMenus;
 	private DayWiseCogsDto eventdayCogs;
 
