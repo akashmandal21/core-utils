@@ -1,7 +1,9 @@
 package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.generictaskservice.enums.SlotSortSpecs;
 import com.stanzaliving.generictaskservice.enums.SlotType;
+import com.stanzaliving.item_master.enums.SortDirection;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -30,4 +32,8 @@ public class SlotFilterDto {
     private List<String> allowedTaskList;
     private List<String> tagList;
     private PaginationRequest pageRequest;
+
+    //Sort
+    private SlotSortSpecs sortSpecs;
+    private SortDirection sortDirection;
 }
