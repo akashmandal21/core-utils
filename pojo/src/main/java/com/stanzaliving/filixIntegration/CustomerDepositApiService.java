@@ -2,6 +2,7 @@ package com.stanzaliving.filixIntegration;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
@@ -18,8 +19,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Log4j2
 @Service
@@ -71,10 +74,10 @@ public class CustomerDepositApiService extends CustomerApiFactory {
                 mapToSend.put(FundType, Boolean.FALSE);
                 mapToSend.put(account, "730309");
                 mapToSend.put(stanzaId,filixTransactionDto.getServiceTransactionId());
-                mapToSend.put(date,"");
+                mapToSend.put(date,DateUtil.customDateFormatter(new Date(), DateFormat.DD_MM_YYYY));
                 mapToSend.put(exchangeRate, 1.00);
                 mapToSend.put(currency, "INR");
-                mapToSend.put(customer,filixTransactionDto.getUserId());
+                mapToSend.put(customer, Objects.isNull(filixTransactionDto.getUserId())?"123456": filixTransactionDto.getUserId());
                 mapToSend.put(class_str, "");
                 mapToSend.put(department, "");
                 mapToSend.put(memo, "SD Deposit");

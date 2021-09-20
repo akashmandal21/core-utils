@@ -21,7 +21,7 @@ public class CustomerApiConsumer<T> extends BaseConsumer<T> {
     AsyncCustomerApi asyncCustomerApi;
     @Autowired
     private ObjectMapper objectMapper;
-    @KafkaListener(topics = { "new_lead_notify" }, idIsGroup = false, id = "filix-consumer-group", autoStartup = "${kafka.consumer.autostart}")
+    @KafkaListener(topics = { "new_lead_notify_V2" }, idIsGroup = false, id = "filix-consumer-group", autoStartup = "${kafka.consumer.autostart}")
     public void receive(ConsumerRecords<String, String> records) {
         if (records != null && !records.isEmpty()) {
             log.info("Filix Records:: Received: {} record(s) to process", records.count());
