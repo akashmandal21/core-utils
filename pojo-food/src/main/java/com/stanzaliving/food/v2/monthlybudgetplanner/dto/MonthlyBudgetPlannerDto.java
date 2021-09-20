@@ -16,6 +16,7 @@ import com.stanzaliving.food.v2.common.constant.SortingType;
 import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.menu.constants.MonthlyBudgetStatus;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -61,5 +62,9 @@ public class MonthlyBudgetPlannerDto extends MenuCategoryDTO {
     //Sorting Types
 	private SortingType sortingType;
 	private CategorySearchSortingField sortingField;
+
+	@Builder.Default
+	private boolean isDraftVersionAvailable = false;
+	private String draftVersionId;
     
 }
