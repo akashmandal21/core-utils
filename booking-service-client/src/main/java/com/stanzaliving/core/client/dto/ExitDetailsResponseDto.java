@@ -1,16 +1,15 @@
 package com.stanzaliving.core.client.dto;
 
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
-
 import com.stanzaliving.booking.dto.PaymentDetailsDto;
 import com.stanzaliving.wanda.dtos.BankDetailsDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 @Builder
 @Data
@@ -18,35 +17,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ExitDetailsResponseDto {
 
-	private String bookingUuid;
+    private String bookingUuid;
 
-	private LocalDate moveOutDate;
+    private LocalDate moveOutDate;
 
-	private LocalDate actualMoveOutDate;
+    private LocalDate actualMoveOutDate;
 
-	private Double dues;
+    private Double dues;
 
-	private String actualEndDateNote;
+    private String actualEndDateNote;
 
-	private String confirmationNote;
+    private String confirmationNote;
 
-	private List<PaymentDetailsDto> paymentDetails;
+    private List<PaymentDetailsDto> paymentDetails;
 
-	private boolean isEligibleForExitInitiation = true;
+    private boolean isEligibleForExitInitiation = true;
 
-	private BankDetailsDto bankDetails;
+    private BankDetailsDto bankDetails;
 
-	private String exitReason;
+    private String exitReason;
 
-	private String exitReasonUuid;
+    private String exitReasonUuid;
 
-	private String defaulterUuid;
+    private String defaulterUuid;
 
-	private String defaulterReason;
+    private String defaulterReason;
 
-	private String roomKeyHandOverStatus;
+    private String roomKeyHandOverStatus;
 
-	private Date contractStartDate;
+    private Date contractStartDate;
 
-	private Date contractEndDate;
+    private Date contractEndDate;
+
+    private Integer noticePeriod;
+
+    private String zhComments;
 }
