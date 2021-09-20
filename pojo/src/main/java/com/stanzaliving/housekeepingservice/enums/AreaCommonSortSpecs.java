@@ -5,9 +5,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum AreaCommonSortSpecs {
 
-    AREANAME("areaName"),
-    SIZEINSQFT("sizeInSqFt"),
-    CLEANINGTIMEINMINUTES("cleaningTimeInMinutes");
+    AREA_NAME("areaName"),
+    SIZE_IN_SQFT("sizeInSqFt"),
+    CLEANING_TIME_IN_MINUTES("cleaningTimeInMinutes");
     private String dbKey;
 
 }
