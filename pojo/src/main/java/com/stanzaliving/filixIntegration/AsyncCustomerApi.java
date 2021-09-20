@@ -44,10 +44,6 @@ public class AsyncCustomerApi {
 
     public CustomerApiFactory getApi(CustomerApiEnum api) {
         switch(api) {
-            case CUSTOMER_CREATION :
-                return customerCreationApiService;
-            case  CUSTOMER_PAYMENT:
-                return customerPaymentApiService;
             case  CUSTOMER_INVOICE:
                 return customerInvoiceApiService;
             case  CUSTOMER_DEPOSIT:

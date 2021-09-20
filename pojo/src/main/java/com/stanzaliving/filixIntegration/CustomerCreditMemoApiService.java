@@ -63,6 +63,7 @@ public class CustomerCreditMemoApiService extends CustomerApiFactory {
                 FilixInvoiceDto creditNote = customerApiDto.getFilixInvoiceDto();
                 FilixInvoiceLineItems lineItems =customerApiDto.getFilixInvoiceLineItems() ;
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
+                //confirm
                 mapToSend.put(stanzaId,creditNote.getId().toString());
                 mapToSend.put(date, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getIssueDate()), DateFormat.DD_MM_YYYY));
                 mapToSend.put(startDate, DateUtil.customDateFormatter(DateUtil.convertToDate(creditNote.getFromDate()),DateFormat.DD_MM_YYYY));

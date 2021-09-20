@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.transformation.client.api;
 
+import com.stanzaliving.boq_service.dto.BulkActionsModalFilterOptionsDto;
+import com.stanzaliving.boq_service.dto.LabelValueDto;
 import com.stanzaliving.core.addressbook.AddressBookNameDto;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -111,6 +113,52 @@ public class InternalDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
+
+	public ResponseDto<BulkActionsModalFilterOptionsDto> getAllPropertyFilters() {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/allFilters").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<BulkActionsModalFilterOptionsDto>> returnType = new ParameterizedTypeReference<ResponseDto<BulkActionsModalFilterOptionsDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<LabelValueDto<String>>> getFilteredPropertyList(BulkActionsModalFilterOptionsDto filters) {
+
+		BulkActionsModalFilterOptionsDto postBody = filters;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/propertyList").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<LabelValueDto<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<List<LabelValueDto<String>>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
 
     public ResponseDto<List<ZoneMetadataDto>> getAllZones() {
 

@@ -13,6 +13,7 @@ import javax.persistence.Enumerated;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 
 @Builder
@@ -44,4 +45,5 @@ public class BookingEvent implements Serializable {
     private PaymentTerm paymentTerm;
     private boolean hasMovedIn;
     private List<InventoryResponseOccupancyDto> inventoryOccupancy;
+    private Map<String,String> metaData;
 }
