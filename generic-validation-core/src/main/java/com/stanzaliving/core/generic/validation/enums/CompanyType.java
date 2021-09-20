@@ -15,7 +15,7 @@ public enum CompanyType {
     PVT_LTD("Private Limited Company"),
     PUB_LTD("Public Limited Company"),
     INDUSTRY_BODY("Industry Body"),
-    RWA("RWA");
+    RWA("Residential Welfare Association");
 
     private String companyTypeText;
 
