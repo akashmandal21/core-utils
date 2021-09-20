@@ -24,6 +24,7 @@ public class MonthlyBudgetPlannerDetailRequestDto {
 
 	private String menuCategoryId;
 
+	@NotBlank(message = "category version id cannot be null")
 	private String categoryVersionId;
 
 	@NotBlank(message = "vendorId cannot be blank")
