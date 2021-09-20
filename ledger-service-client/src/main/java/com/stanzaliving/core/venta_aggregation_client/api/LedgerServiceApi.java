@@ -5,7 +5,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.ledger.dto.AllLedgerResponseDTO;
 import com.stanzaliving.ledger.dto.HealthCheckCountDto;
 import com.stanzaliving.ledger.dto.LedgerBalanceDTO;
-import com.stanzaliving.ledger.dto.LedgerResponseDTO;
+import com.stanzaliving.ledger.dto.TransactionsDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -102,4 +102,26 @@ public class LedgerServiceApi {
         return null;
     }
 
+    public ResponseDto<String> createLedgerEntry(List<TransactionsDTO> transactionsDTO) {
+        Object postBody = transactionsDTO;
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/ledger/all")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            log.info("Executing Api for creating ledger entry Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while creating ledger, Exception is ", e);
+        }
+        return null;
+    }
 }
