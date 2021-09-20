@@ -1,16 +1,13 @@
 package com.stanzaliving.legal_v2.DTO.LanguageApproval;
 
 import com.stanzaliving.core.dto.AbstractMongoDto;
-import com.stanzaliving.legal_v2.DTO.BdRemarks.AllRemarksResponseDto;
-import com.stanzaliving.legal_v2.DTO.LegalTemplate.CodeBlock;
+import com.stanzaliving.estate_v2.dto.propertyOnboarding.LegalAllRemarksResponseDto;
 import com.stanzaliving.legal_v2.DTO.LegalTemplate.DeviationDTO;
-import com.stanzaliving.legal_v2.enums.PropertyListStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class LanguageApprovalRequestDto extends AbstractMongoDto {
 
     private String templateDocument;
 
-    private List<AllRemarksResponseDto> bdRemarks;
+    private List<LegalAllRemarksResponseDto> bdRemarks;
 
     @NotNull
     private String propertyStatus;
