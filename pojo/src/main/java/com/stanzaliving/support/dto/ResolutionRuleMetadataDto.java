@@ -15,10 +15,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRuleMetadataDto {
-    private String complaintGroup;
-    private String complaintGroupUuid;
-    private String category;
-    private String categoryUuid;
+    private Set<ComplaintGroupDto> complaintGroupDtoSet;
+    private Set<CategoryDto> categoryDtoSet;
     private Set<SubCategoryDto> subCategoryDtoList;
     private Set<SubTicketTaskDto> subTicketTaskDtoList;
     private String createdBy;
