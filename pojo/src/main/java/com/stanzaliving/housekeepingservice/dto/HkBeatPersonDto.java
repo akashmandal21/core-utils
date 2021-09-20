@@ -29,7 +29,7 @@ public class HkBeatPersonDto {
 
 	private String slotUuid;
 
-	private List<String> taskId;
+	private List<String> taskIds;
 
 }
 

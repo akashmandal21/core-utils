@@ -21,7 +21,7 @@ public class HkBeatPlansDto {
 
 	private String planningTemplateId;
 
-	private List<String> shiftAllocationId = new ArrayList<>();
+	private List<String> shiftAllocationIds;
 
 	private String createdBy;
 
