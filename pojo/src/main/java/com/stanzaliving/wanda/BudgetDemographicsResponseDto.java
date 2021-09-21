@@ -17,6 +17,8 @@ import java.util.List;
 @ToString
 public class BudgetDemographicsResponseDto {
 
+	private String eventDescription;
+
 	private List<BudgetDemographicsData> demographicsDataList;
 
 	private List<String> demographicsNameList;
