@@ -12,6 +12,7 @@ import java.util.Map;
 @Builder
 public class FullTableResponse implements LayoutData{
     private boolean iterative;
+    private String iterativeCountVariableName;
     private String numberOfRows;
     private String numberOfColumns;
     private List<Map<String,TableAnswers>> tableData;

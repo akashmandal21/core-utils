@@ -12,6 +12,7 @@ import java.util.Map;
 @Builder
 public class HalfTableResponse implements LayoutData{
     private boolean iterative;
+    private String iterativeCountVariableName;
     private String numberOfRows;
     private String numberOfColumns;
     private List<Map<String,TableAnswers>> tableData;
