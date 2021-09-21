@@ -20,6 +20,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
@@ -450,7 +451,7 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<List<PaymentPlan>> updatePaymentPlanAfterMoveOutDate(String referenceId, Date moveOutDate, boolean savePaymentPlan) {
+    public ResponseDto<List<PaymentPlan>> updatePaymentPlanAfterMoveOutDate(String referenceId, LocalDate moveOutDate, boolean savePaymentPlan) {
         try {
             Object postBody = null;
 
@@ -461,7 +462,7 @@ public class PaymentPlanClientApi {
             uriVariables.put("referenceId", referenceId);
 
 
-            String path = UriComponentsBuilder.fromPath("/api/v1/get/{referenceId}").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/api/v1/exit-flow/get/{referenceId}").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -477,7 +478,7 @@ public class PaymentPlanClientApi {
             ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>>() {
             };
 
-            return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("error while fetching the paymentPlan {}", e);
             return null;
