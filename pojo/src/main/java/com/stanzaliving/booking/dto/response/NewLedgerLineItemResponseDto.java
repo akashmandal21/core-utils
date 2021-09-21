@@ -8,14 +8,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include. NON_NULL)
-public class NewLedgerLineItemResponseDto  implements Comparable {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class NewLedgerLineItemResponseDto implements Comparable {
 
     @JsonIgnore
     private Integer position = 0;
@@ -49,16 +50,18 @@ public class NewLedgerLineItemResponseDto  implements Comparable {
     private List<String> invoiceIds;
 
     private List<String> transactionIds;
+    
+    private HashMap<String, String> summaryData;
 
     @Override
-    public int compareTo(Object o){
+    public int compareTo(Object o) {
 
-        int value1 = ((NewLedgerLineItemResponseDto)o).getDate().compareTo(this.date);
+        int value1 = ((NewLedgerLineItemResponseDto) o).getDate().compareTo(this.date);
         if (value1 == 0) {
-            int value2 = this.position.compareTo(((NewLedgerLineItemResponseDto)o).getPosition());
+            int value2 = this.position.compareTo(((NewLedgerLineItemResponseDto) o).getPosition());
             if (value2 == 0) {
-                int value3 = ((NewLedgerLineItemResponseDto)o).getFromDate().compareTo(this.fromDate);
-                if(value3 == 0){
+                int value3 = ((NewLedgerLineItemResponseDto) o).getFromDate().compareTo(this.fromDate);
+                if (value3 == 0) {
                     return value2;
                 } else {
                     return value3;
