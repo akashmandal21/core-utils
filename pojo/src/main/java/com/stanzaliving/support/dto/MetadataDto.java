@@ -14,7 +14,7 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 public class MetadataDto {
     private String uuid;
-    @NotEmpty(message = "Name cannot be null")
+    @NotBlank(message = "Name cannot be null")
     private String name;
     @NotBlank(message = "Position cannot be null")
     private int position;
