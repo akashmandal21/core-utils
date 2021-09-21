@@ -45,7 +45,6 @@ public class MonthlyBudgetPlannerRequestDto {
 
 	private List<ApprovalStatus> approvalStatus;
 
-	@Builder.Default
-	private Boolean approvalDashboard = false;
+	private boolean approvalDashboard;
 
 }
