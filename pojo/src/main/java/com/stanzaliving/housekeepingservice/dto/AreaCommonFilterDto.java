@@ -3,7 +3,7 @@ package com.stanzaliving.housekeepingservice.dto;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import com.stanzaliving.housekeepingservice.enums.AreaCommonSortSpecs;
-import com.stanzaliving.housekeepingservice.enums.SortDirection;
+import org.springframework.data.domain.Sort;
 import lombok.*;
 
 @Getter
@@ -20,5 +20,5 @@ public class AreaCommonFilterDto {
 
     private AreaCommonSortSpecs sortSpecs;
 
-    private SortDirection sortDirection;
+    private  Sort.Direction  sortDirection;
 }
