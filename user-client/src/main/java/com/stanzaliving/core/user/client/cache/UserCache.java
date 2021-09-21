@@ -15,7 +15,6 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Log4j2
-@Component
 public class UserCache {
 
 	private UserClientApi userClientApi;
