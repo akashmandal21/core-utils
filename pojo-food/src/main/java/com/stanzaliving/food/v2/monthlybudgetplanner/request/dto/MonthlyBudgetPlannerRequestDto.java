@@ -30,7 +30,6 @@ public class MonthlyBudgetPlannerRequestDto {
 	@NotNull(message = "year cannot be null")
 	private Integer year;
 
-	@NotBlank(message = "vendorId cannot be blank")
 	private String vendorId;
 
 	private SortingType sortingType;
