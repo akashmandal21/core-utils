@@ -23,6 +23,7 @@ public class FilterDto {
     private String searchKey;
     private List<AuditStatus> auditStatus;
     private DurationDto auditedOn;
+    private DurationDto auditScheduledOn;
     private Double damageAmountMinPrice;
     private Double damageAmountMaxPrice;
     private List<String> auditorUuid;
