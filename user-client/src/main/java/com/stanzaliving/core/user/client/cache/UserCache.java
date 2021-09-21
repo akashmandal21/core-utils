@@ -9,11 +9,13 @@ import com.stanzaliving.core.user.dto.UserProfileDto;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Log4j2
+@Component
 public class UserCache {
 
 	private UserClientApi userClientApi;
