@@ -28,6 +28,8 @@ public class ResolutionRuleAddDto {
     @NotEmpty(message = "resolutionRole can't be left blank.")
     @Valid
     private List<ResolutionRoleDto> resolutionRole;
-
+    @NotEmpty(message = "reminder rules can't be left blank.")
+    @Valid
+    private List<ReminderDetailsDto> reminderDetails;
 }
 
