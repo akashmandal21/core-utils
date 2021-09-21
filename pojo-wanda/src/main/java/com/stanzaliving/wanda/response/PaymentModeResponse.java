@@ -17,11 +17,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PaymentModeResponse {
 
-	private List<PaymentModeDto> onlinePaymentMode;
+    private List<PaymentModeDto> onlinePaymentMode;
 	
 	private List<PaymentModeDto> salesPocPaymentMode;
 	@Builder.Default
 	private List<PaymentMode> convenienceFeePaymentModes=new ArrayList<>();
 	@Builder.Default
 	private List<PaymentMode> withoutConvenienceFeePaymentModes=new ArrayList<>();;
+
 }

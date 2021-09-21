@@ -55,8 +55,8 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private String virtualTourImage;
 	private String videoLink;
 	private String cardCTAName;
-	private int cardCTAId;
-	private int residenceTypeId;
+	private Integer cardCTAId;
+	private Integer residenceTypeId;
 	private String genderSlug;
 	private String mobileNo;
 	private String phoneNo;

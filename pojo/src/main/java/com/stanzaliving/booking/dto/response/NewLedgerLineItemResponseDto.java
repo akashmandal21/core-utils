@@ -50,6 +50,8 @@ public class NewLedgerLineItemResponseDto  implements Comparable {
 
     private List<String> transactionIds;
 
+    private List<CreditNoteInfoDto> creditNoteInfo;
+
     @Override
     public int compareTo(Object o){
 

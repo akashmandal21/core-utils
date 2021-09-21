@@ -8,6 +8,5 @@ import lombok.Getter;
 @AllArgsConstructor
 
 public enum ReferenceType {
-	BOOKING, MERCHANT_TRANSACTION, USER;
-
+    BOOKING, MERCHANT_TRANSACTION, USER;
 }

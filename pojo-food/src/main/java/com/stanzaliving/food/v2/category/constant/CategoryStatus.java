@@ -21,6 +21,10 @@ public enum CategoryStatus {
 		return categoryStatus == DRAFT || categoryStatus == APPROVED;
 	}
 	
+	public static boolean showOnApprovalDashboard(CategoryStatus categoryStatus) {
+		return SUBMITTED.equals(categoryStatus) || APPROVED.equals(categoryStatus);
+	}
+	
 	public static boolean createNewVersion(CategoryStatus categoryStatus) {
 		return categoryStatus == APPROVED;
 	}
