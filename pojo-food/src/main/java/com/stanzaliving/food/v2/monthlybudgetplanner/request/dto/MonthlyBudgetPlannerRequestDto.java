@@ -5,6 +5,7 @@ import java.util.List;
 import com.stanzaliving.food.v2.category.constant.CategorySearchSortingField;
 import com.stanzaliving.food.v2.common.constant.SortingType;
 import com.stanzaliving.food.v2.menu.constants.MonthlyBudgetStatus;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -42,6 +43,7 @@ public class MonthlyBudgetPlannerRequestDto {
 
 	private List<MonthlyBudgetStatus> planningStatus;
 
-	private Boolean approvalDashboard;
+	@Builder.Default
+	private Boolean approvalDashboard = false;
 
 }
