@@ -7,10 +7,7 @@ import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
 import com.stanzaliving.core.payment.enums.PaymentMode;
-import com.stanzaliving.filixIntegration.Dto.AbstractOracleDto;
-import com.stanzaliving.filixIntegration.Dto.CustomerApiDto;
-import com.stanzaliving.filixIntegration.Dto.FilixPaymentTransactionRequestDto;
-import com.stanzaliving.filixIntegration.Dto.FilixTransactionInitiateDto;
+import com.stanzaliving.filixIntegration.Dto.*;
 import com.stanzaliving.filixIntegration.Enum.EventType;
 import com.stanzaliving.filixIntegration.Enum.OracleServiceOwner;
 import org.slf4j.Logger;
@@ -89,7 +86,9 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
         try {
 
             CustomerApiDto customerApiDto = objectMapper.readValue(dataMap.get("data").toString(), CustomerApiDto.class);
-            if(null != customerApiDto  &&  ((null != customerApiDto.getFilixPaymentTransactionRequestDto() ) )) {
+            if(null != customerApiDto ) {
+                FilixBookingRequestDto filixBookingRequestDto=customerApiDto.getFilixBookingRequestDto();
+                FilixBookingResponseDto filixBookingResponseDto=customerApiDto.getFilixBookingResponseDto();
                 mapToSend.put(FundType, Boolean.FALSE);
                 mapToSend.put(exchangeRate, 1.00);
                 mapToSend.put(currency, "INR");
@@ -97,22 +96,18 @@ public class CustomerPaymentApiService extends CustomerApiFactory{
                 mapToSend.put(class_str ,"");
                 mapToSend.put(department, "");
                 mapToSend.put(memo ,"Customer payment");
-//TODO: "0 < customerApiDto.getSdAdjusted()" chnge if condition
-                if(null != customerApiDto) {
-                    FilixPaymentTransactionRequestDto transaction = customerApiDto.getFilixPaymentTransactionRequestDto();
-                    FilixTransactionInitiateDto initatieTransaction=customerApiDto.getFilixTransactionInitiateDto();
-                    mapToSend.put(account, getAccount(transaction.getPaymentMode()));
-                    mapToSend.put(stanzaId, "");//pending
-                    mapToSend.put(gatewayTransactionId,initatieTransaction.getPgOrderId());
-                    mapToSend.put(date, DateUtil.customDateFormatter(new Date(), DateFormat.DD_MM_YYYY));
-                    mapToSend.put(bookingid,transaction.getTransactionId());
-                    mapToSend.put(customer, "");
-                    mapToSend.put(paymentOption,transaction.getPaymentMode().getPaymentModeDesc());
-                    mapToSend.put(applyDeposit,"");
-                    mapToSend.put(paymentAmount, transaction.getAmount());
-                    mapToSend.put(extraFields,"");
+                mapToSend.put(account, getAccount(filixBookingRequestDto.getPaymentMode()));
+                mapToSend.put(stanzaId, "");//pending
+                mapToSend.put(gatewayTransactionId,filixBookingRequestDto.getMerchantTransactionId());
+                mapToSend.put(date, DateUtil.customDateFormatter(new Date(), DateFormat.DD_MM_YYYY));
+                mapToSend.put(bookingid,filixBookingRequestDto.getBookingId());
+                mapToSend.put(customer, "");
+                mapToSend.put(paymentOption,filixBookingRequestDto.getPaymentMode().getPaymentModeDesc());
+                mapToSend.put(applyDeposit,"");
+                mapToSend.put(paymentAmount,filixBookingRequestDto.getAmount());
+                mapToSend.put(extraFields,"");
 
-                }
+
             }
         } catch (IOException e) {
             logger.error("Error occurred in getPayloadForPayment {}", e);

@@ -23,12 +23,13 @@ public enum BookingStatus {
     CANCELLED("CANCELLED"),
     TRESSPASSER("TRESSPASSER"),
     BOOKING_FORFEITURE("BOOKING FORFEITURE"),
-    DEFAULTER_PAID("DEFAULTER PAID"),
-    DEFAULTER_UNPAID("DEFAULTER UNPAID"),
+    RENT_DEFAULTER_PAID("DEFAULTER PAID"),
+    RENT_DEFAULTER_UNPAID("DEFAULTER UNPAID"),
     CONTRACT_TERMINATED("CONTRACT TERMINATED"),
     CONTRACT_COMPLETED("CONTRACT COMPLETED"),
     STAY_FORFEITURE("STAY FORFEITURE"),
-    WRONG_BOOKING("WRONG BOOKING");
+    WRONG_BOOKING("WRONG BOOKING"),
+    RENT_DEFAULTER("RENT DEFAULTER");
 
     private String bookingStatus;
 
@@ -80,8 +81,8 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.CANCELLED.getBookingStatus());
         bookingStatus.add(BookingStatus.TRESSPASSER.getBookingStatus());
         bookingStatus.add(BookingStatus.BOOKING_FORFEITURE.getBookingStatus());
-        bookingStatus.add(BookingStatus.DEFAULTER_PAID.getBookingStatus());
-        bookingStatus.add(BookingStatus.DEFAULTER_UNPAID.getBookingStatus());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_PAID.getBookingStatus());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getBookingStatus());
         bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getBookingStatus());
         bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getBookingStatus());
         bookingStatus.add(BookingStatus.STAY_FORFEITURE.getBookingStatus());

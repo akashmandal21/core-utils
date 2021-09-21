@@ -74,7 +74,6 @@ public class CustomerInvoiceApiService extends CustomerApiFactory {
                 FilixInvoiceCategoryDto invoiceCategoryDto=customerApiDto.getFilixInvoiceCategoryDto();
                 logger.info("invoice "+invoice);
                 FilixBillingFromDto filixBillFromDto=customerApiDto.getFilixBillingFromDto();
-                mapToSend.put(stanzaId, String.valueOf(invoice.getInventoryInvoiceId()));
                 mapToSend.put(stanzaId,invoice.getId());
                 mapToSend.put(date, null==invoice.getIssueDate()?"":DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getIssueDate()), DateFormat.DD_MM_YYYY) );
                 mapToSend.put(startDate, null != invoice.getFromDate() ? DateUtil.customDateFormatter(DateUtil.convertToDate(invoice.getFromDate()) , DateFormat.DD_MM_YYYY) : "");

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.core.commentsservice.response.dto.CommentsCountResponseDto;
+import com.stanzaliving.core.commentsservice.response.dto.ContextCommentsCountDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -223,6 +224,30 @@ public class CommentClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, request, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<ContextCommentsCountDto>> getCommentCountByServiceNameAndContextType(String serviceName, String contextType, List<String> contextIds) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("serviceName", serviceName);
+		uriVariables.put("contextType", contextType);
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/comment/count/{serviceName}/{contextType}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ContextCommentsCountDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ContextCommentsCountDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, contextIds, headerParams, accept, returnType);
 	}
 
 }
