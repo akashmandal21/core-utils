@@ -2,7 +2,7 @@ package com.stanzaliving.food.v2.monthlybudgetplanner.request.dto;
 
 import java.util.List;
 
-import com.stanzaliving.core.enums.ApprovalStatus;
+import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.food.v2.category.constant.CategorySearchSortingField;
 import com.stanzaliving.food.v2.common.constant.SortingType;
 import com.stanzaliving.food.v2.menu.constants.MonthlyBudgetStatus;
