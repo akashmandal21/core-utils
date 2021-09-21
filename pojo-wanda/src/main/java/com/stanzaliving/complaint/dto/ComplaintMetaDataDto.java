@@ -37,7 +37,7 @@ public class ComplaintMetaDataDto extends AbstractDto {
 	@NotBlank(message = "Complaint Sub Category is Mandatory")
 	private String complaintSubCategoryUuid;
 
-	private String cmsId;
+	private Long cmsId;
 
 	private String ticketRequesterEmail;
 
@@ -80,5 +80,8 @@ public class ComplaintMetaDataDto extends AbstractDto {
 	private String userType;
 	
 	private Boolean satisfied;
+
+	// added field to store ticket id for Support Service
+	private String customTicketId;
 
 }
