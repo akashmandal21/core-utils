@@ -7,6 +7,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,6 +49,8 @@ public class SlotDetailsResponse extends AbstractDto {
     private Double defaultDuration;
 
     private String entityType;
+
+    private List<GenericTaskResponseDto> tasks = new ArrayList<>();
 
     private LocalTime startTime;
 

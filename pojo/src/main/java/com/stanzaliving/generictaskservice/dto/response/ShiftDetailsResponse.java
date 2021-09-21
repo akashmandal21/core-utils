@@ -23,5 +23,6 @@ public class ShiftDetailsResponse extends AbstractDto {
     private Double durationInHours;
     private LocalTime startTime;
     private LocalTime endTime;
+    private List<GenericTaskResponseDto> tasks;
     private List<SlotDetailsResponse> slots;
 }
