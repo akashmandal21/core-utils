@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 @Builder
@@ -50,8 +49,8 @@ public class NewLedgerLineItemResponseDto implements Comparable {
     private List<String> invoiceIds;
 
     private List<String> transactionIds;
-    
-    private HashMap<String, String> summaryData;
+
+    private List<NewLedgerLineItemResponseSummaryDto> summaryData;
 
     @Override
     public int compareTo(Object o) {
