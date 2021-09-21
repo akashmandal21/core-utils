@@ -42,4 +42,6 @@ public class MonthlyBudgetPlannerRequestDto {
 
 	private List<MonthlyBudgetStatus> planningStatus;
 
+	private Boolean approvalDashboard;
+
 }

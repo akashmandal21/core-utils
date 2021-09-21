@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.approval.dto.ApprovalListingDto;
+import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
@@ -55,6 +57,8 @@ public class MonthlyBudgetPlannerDto extends MenuCategoryDTO {
 	private int noOfMmServed;
 
 	private List<MenuCategoryMealDto> mealData;
+	private ApprovalStatus approvalStatus;
+	private ApprovalListingDto approvalData;
 
     //Day level (Planned/Budgeted)
     List<DayWiseBudgetDto> dayWiseBudgetDto;
