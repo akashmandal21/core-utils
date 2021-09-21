@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 
@@ -18,6 +19,9 @@ import java.util.List;
 @NoArgsConstructor
 @SuperBuilder
 public class SectionFilterRequestDto{
+
+    @NotBlank(message = "Template ID is required")
+    private String templateUuid;
 
     private String durationUnit;
 
