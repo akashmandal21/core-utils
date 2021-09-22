@@ -8,26 +8,24 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRuleMetadataDto {
-    private String complaintGroup;
-    private String complaintGroupUuid;
-    private String category;
-    private String categoryUuid;
-    private String subCategory;
-    private String subCategoryUuid;
+    private Set<ComplaintGroupDto> complaintGroupDtoSet;
+    private Set<CategoryDto> categoryDtoSet;
+    private Set<SubCategoryDto> subCategoryDtoList;
+    private Set<SubTicketTaskDto> subTicketTaskDtoList;
     private String createdBy;
     private String lastUpdatedBy;
     private Date createdAt;
     private Date lastUpdatedAt;
-    private List<ResolutionLevelDto> resolutionLevelList;
-    private SubTicketTaskDto subTicketTaskDto;
+    private Set<ResolutionLevelDto> resolutionLevelList;
     private boolean isResolutionRuleActive;
-    private String referenceUuid;
-    private AccessLevel accessLevel;
+    private Set<LocationDto> locationDto;
+    private String groupUuid;
 
 }

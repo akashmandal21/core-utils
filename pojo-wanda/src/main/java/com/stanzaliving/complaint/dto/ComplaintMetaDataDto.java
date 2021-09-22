@@ -81,4 +81,7 @@ public class ComplaintMetaDataDto extends AbstractDto {
 	
 	private Boolean satisfied;
 
+	// added field to store ticket id for Support Service
+	private String customTicketId;
+
 }
