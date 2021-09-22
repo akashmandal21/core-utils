@@ -504,12 +504,13 @@ public class InternalDataControllerApi {
 	public ResponseDto<CityUIDto> getCityDetailsByCityUuid(String cityId) {
 
 		Object postBody = null;
+		StringBuilder getByCityUuidUrl = new StringBuilder("/internal/city/get/id/{cityId}");
 
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("cityId", cityId);
 
-		String path = UriComponentsBuilder.fromPath("/internal/city/get/id/{cityId}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath(getByCityUuidUrl).buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
