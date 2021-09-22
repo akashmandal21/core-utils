@@ -1,6 +1,8 @@
-package com.stanzaliving.housekeeping.dto;
+package com.stanzaliving.housekeepingservice.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import java.util.List;
@@ -13,12 +15,10 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AreaCategoryDto {
-
-    private String uuid;
+public class AreaCategoryDto extends AbstractDto {
 
     private String parentAreaCategoryUuid;
 

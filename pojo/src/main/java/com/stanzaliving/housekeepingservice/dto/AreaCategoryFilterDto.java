@@ -1,4 +1,4 @@
-package com.stanzaliving.housekeeping.dto;
+package com.stanzaliving.housekeepingservice.dto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;

@@ -1,10 +1,11 @@
 package com.stanzaliving.generictaskservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.taskservice.enums.TaskType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
@@ -54,29 +55,32 @@ public class GenericTaskDto extends AbstractDto {
     private String var4;
 
     @NotBlank(message = "Task Status cannot be empty")
-    private String taskStatusUUId;
+    private String taskStatusUuid;
 
-    private String taskSubStatusUUId;
+    private String taskSubStatusUuid;
 
     private boolean autoTaskCompletion;
 
-    private String autoTaskCompletionEventUUId;
+    private String autoTaskCompletionEventUuid;
 
-    private String parentTaskUUId;
+    private String parentTaskUuid;
 
     private List<GenericTaskDto> subTasks;
 
     @NotBlank(message = "Task category Id cannot be empty")
-    private String taskCategoryUUId;
+    private String taskCategoryUuid;
 
-    @NotBlank(message = "Task Sub Category Id Name cannot be empty")
-    private String taskSubCategoryUUId;
+    @NotBlank(message = "Task Sub Category Id cannot be empty")
+    private String taskSubCategoryUuid;
 
     private List<String> attachmentsList;
 
-    private List<String> dependentTaskUUIdList;
+    private List<String> dependentTaskUuidList;
 
-    private List<String> tagsUUIdList;
+    private List<String> tagsUuidList;
 
+    private List<String> commentsUuidList;
+
+    private Department department;
 
 }
