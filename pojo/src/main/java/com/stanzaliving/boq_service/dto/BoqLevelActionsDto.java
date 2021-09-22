@@ -14,5 +14,5 @@ import java.util.List;
 public class BoqLevelActionsDto {
     private boolean allSelected;
 
-    private List<String> boqUuid;
+    private List<String> boqUuids;
 }
