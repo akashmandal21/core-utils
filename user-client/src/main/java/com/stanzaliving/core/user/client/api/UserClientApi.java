@@ -5,7 +5,7 @@ package com.stanzaliving.core.user.client.api;
 
 import java.util.*;
 
-import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
+import com.stanzaliving.core.user.request.dto.*;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -29,9 +29,6 @@ import com.stanzaliving.core.user.dto.UserProfileDto;
 import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
 import com.stanzaliving.core.user.dto.UserRoleCacheDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
-import com.stanzaliving.core.user.request.dto.ActiveUserRequestDto;
-import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
-import com.stanzaliving.core.user.request.dto.UserRequestDto;
 
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
@@ -681,9 +678,9 @@ public class UserClientApi {
 	}
 
 
-	public ResponseDto<Map<String,String>> getAllUsersUuidEmailMap() {
+	public ResponseDto<Map<String,String>> getAllUsersUuidEmailMap(UserRequestDtoByField dto) {
 
-		Object postBody = null;
+		Object postBody = dto;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -700,7 +697,7 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<Map<String,String>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String,String>>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
 }
