@@ -22,6 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 public class SlotFilterDto {
 
+    private String uuid;
     private String slotName;
     private SlotType slotType;
     private Boolean overLap;
