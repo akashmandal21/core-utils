@@ -27,7 +27,7 @@ public class RazorPayXControllerApi {
         this.restClient = restClient;
     }
 
-    public ResponseDto<?> getResponseFromRazorpayX(String payoutId,
+    public ResponseEntity<HashMap<String, String>> getResponseFromRazorpayX(String payoutId,
                                                    Boolean isRefund ) {
         log.info("Initiate RazorpayXPayout Controller");
         Map<String, Object> uriVariables = new HashMap<>();
@@ -44,7 +44,7 @@ public class RazorPayXControllerApi {
          String[] accepts = { "*/*" };
          List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<?>> returnType = new ParameterizedTypeReference<ResponseDto<?>>() {
+        ParameterizedTypeReference<ResponseEntity<HashMap<String, String>>> returnType = new ParameterizedTypeReference<ResponseEntity<HashMap<String, String>>>() {
         };
         try {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
