@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class PredecessorTaskDto {
 
-    String taskUuid;
+    private String taskUuid;
 
-    String taskName;
+    private String taskName;
 }
