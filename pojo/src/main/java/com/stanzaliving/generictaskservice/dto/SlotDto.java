@@ -2,6 +2,7 @@ package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
+import com.stanzaliving.generictaskservice.enums.SlotStatus;
 import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -62,4 +63,9 @@ public class SlotDto extends AbstractDto {
 
     private List<TaskCategoryDto> allowedTasksList;
 
+    private SlotStatus slotStatus;
+
+    private String createdByUser;
+
+    private String updatedByUser;
 }
