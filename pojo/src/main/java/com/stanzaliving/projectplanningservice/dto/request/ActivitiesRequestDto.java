@@ -16,4 +16,7 @@ public class ActivitiesRequestDto {
     @NotBlank(message = "Activity name cannot be empty")
     private String activityName;
 
+    @NotBlank(message = "Module id is required")
+    private String moduleUuid;
+
 }
