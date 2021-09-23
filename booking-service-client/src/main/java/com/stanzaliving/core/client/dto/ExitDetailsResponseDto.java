@@ -1,5 +1,6 @@
 package com.stanzaliving.core.client.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.booking.dto.PaymentDetailsDto;
 import com.stanzaliving.wanda.dtos.BankDetailsDto;
 import lombok.AllArgsConstructor;
@@ -19,8 +20,10 @@ public class ExitDetailsResponseDto {
 
     private String bookingUuid;
 
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate moveOutDate;
 
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate actualMoveOutDate;
 
     private Double dues;
