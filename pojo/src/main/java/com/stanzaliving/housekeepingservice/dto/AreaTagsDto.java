@@ -22,7 +22,7 @@ import javax.validation.constraints.NotBlank;
 public class AreaTagsDto extends AbstractDto {
 
     @NotBlank(message = "Area tags name is Mandatory.")
-    private String areaTagsName;
+    private String areaTagName;
 
     @NotBlank(message = "Area category is Mandatory.")
     private String areaCategoryUuid;
