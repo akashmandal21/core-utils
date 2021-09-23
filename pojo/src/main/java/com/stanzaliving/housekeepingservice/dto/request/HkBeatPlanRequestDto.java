@@ -3,7 +3,7 @@ package com.stanzaliving.housekeepingservice.dto.request;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -21,7 +21,7 @@ public class HkBeatPlanRequestDto {
 
 	private String planningTemplateId;
 	private String planningStatus;
-	private Date startDate;
-	private Date endDate;
+	private LocalDate startDate;
+	private LocalDate endDate;
 	private List<HkBeatPersonRequestDto> hkPersons;
 }

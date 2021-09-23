@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -20,7 +20,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class HkBeatPersonRequestDto {
 	private String personName;
-	private Date day;
+	private LocalDate day;
 	private String beatPlanUuid;
 	private List<GenericTaskDto> tasks;
 	private String shiftUuid;
