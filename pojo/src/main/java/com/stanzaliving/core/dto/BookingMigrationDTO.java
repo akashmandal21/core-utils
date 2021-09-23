@@ -13,7 +13,7 @@ import java.util.Date;
 public class BookingMigrationDTO {
 
     @JsonSetter(value = "BOOKING_ID")
-    private Integer bookingNumber;
+    private String bookingNumber;
 
     @JsonSetter(value = "BOOKING_TYPE")
     private Integer bookingType;
