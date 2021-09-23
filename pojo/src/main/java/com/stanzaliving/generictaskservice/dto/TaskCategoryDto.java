@@ -6,6 +6,8 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -26,8 +28,12 @@ public class TaskCategoryDto extends AbstractDto {
 
     private List<TaskCategoryDto> taskSubCategoryList;
 
-    private String taskType;
-
-    private TaskCategoryTypeDetailsRequestDto taskCategoryTypeDetailsRequestDto;
+    private String description;
+    private boolean autoCompleteTask;
+    private boolean overLapTask;
+    private boolean overrideTask;
+    private LocalTime startTime;
+    private String autoCompletionEvent;
+    private List<String> tagsList = new ArrayList<String>();
 
 }
