@@ -9,7 +9,6 @@ import lombok.experimental.SuperBuilder;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Getter
 @Setter
@@ -49,9 +48,7 @@ public class GenericTaskDto extends AbstractDto {
 
     private String var1;
 
-    private Map<String, Object> var2;
-
-    private String var2Uuid;
+    private String var2;
 
     private String var3;
 
