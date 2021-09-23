@@ -20,7 +20,7 @@ public class PrepaidMeterRechargeHistoryDto {
 	private Date rechargeDate;
 	private Double rechargeAmount;
 	private Double balanceAvailable;
-	private Double balanceConsumed;
 	private String rechargeBy;
 	private String txnId;
+	private String meterId;
 }

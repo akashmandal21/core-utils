@@ -17,8 +17,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PrepaidMeterRechargeScheduleRefundDto {
-    private String orderId;
+public class PrepaidMeterScheduleRefundDto {
+    private String meterId;
     private String paymentId;
     private double amount;
     private RefundReason refundReason;

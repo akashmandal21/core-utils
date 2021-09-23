@@ -38,5 +38,7 @@ public class ElectricityReadingDto extends AbstractDto {
 	private boolean mandatoryDay;
 	
 	private Double unitBalance;
+	
+	private Double amountBalance;
 
 }
