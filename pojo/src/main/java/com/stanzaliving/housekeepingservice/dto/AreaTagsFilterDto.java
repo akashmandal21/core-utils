@@ -23,6 +23,7 @@ public class AreaTagsFilterDto {
     private AreaTagStatus areaTagStatus;
     private String areaCategory;
     private PaginationRequest pageRequest;
+    private String uuid;
 
     //Sort
     private AreaTagsSortSpecs sortSpecs;
