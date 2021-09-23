@@ -14,7 +14,8 @@ public enum CompanyType {
     LTD_LIABILITY_PARTNERSHIP("Limited Liability Partnership"),
     PVT_LTD("Private Limited Company"),
     PUB_LTD("Public Limited Company"),
-    INDUSTRY_BODY("Industry Body");
+    INDUSTRY_BODY("Industry Body"),
+    RWA("Residential Welfare Association");
 
     private String companyTypeText;
 
@@ -25,6 +26,7 @@ public enum CompanyType {
         companyTypeMap.put("Limited Liability Partnership",LTD_LIABILITY_PARTNERSHIP);
         companyTypeMap.put("Private Limited Company",PVT_LTD);
         companyTypeMap.put("Public Limited Company",PUB_LTD);
+        companyTypeMap.put("RWA",RWA);
     }
 
     public static CompanyType getCompanyType(String name){
