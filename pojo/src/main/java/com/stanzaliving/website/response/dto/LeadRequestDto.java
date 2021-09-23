@@ -123,4 +123,6 @@ public class LeadRequestDto {
 	
 	private String extendDurationMessage;
 
+	private Integer placeId;
+	private String placeName;
 }
