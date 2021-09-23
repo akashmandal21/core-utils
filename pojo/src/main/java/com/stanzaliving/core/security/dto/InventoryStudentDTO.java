@@ -33,4 +33,6 @@ public class InventoryStudentDTO {
     private String phone;
 
     private Date dateOfBirth;
+
+    private String gender;
 }
