@@ -330,7 +330,7 @@ public class DealDataControllerApi {
         return  restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public Map<String, Object> getContractPricingDetailsRoomNumbers(String contractUuid) {
+    public List<String> getContractPricingDetailsRoomNumbers(String contractUuid) {
 
         log.info("Booking-Data-Controller::Processing to fetch Contract Pricing Details for Contract uuid {}", contractUuid);
 
@@ -348,8 +348,8 @@ public class DealDataControllerApi {
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<Map<String, Object>> returnType =
-                new ParameterizedTypeReference<Map<String, Object>>() {
+        ParameterizedTypeReference<List<String>> returnType =
+                new ParameterizedTypeReference<List<String>>() {
                 };
 
         try {
