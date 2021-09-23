@@ -3,13 +3,11 @@ package com.stanzaliving.generictaskservice.dto.response;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.generictaskservice.dto.TaskCategoryDto;
-import com.stanzaliving.generictaskservice.dto.request.TaskCategoryTypeDetailsRequestDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
