@@ -12,7 +12,7 @@ import lombok.experimental.SuperBuilder;
 public class StatusDto {
 
     private String statusName;
-    private String NoOfTask;
+    private String totalTasks;
     private String statusPercent;
 
 }
