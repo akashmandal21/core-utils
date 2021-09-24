@@ -44,12 +44,15 @@ public class MonthlyBudgetPlannerDto extends MenuCategoryDTO {
 	private Double mealPrice;
 	private MealCategoryPriceDto mealPriceData;
 	private FoodServeType foodServeType;
+	private String foodServeTypeName;
 	private MenuType menuType;
+	private String menuTypeName;
 
 	//Format May'21
 	private LocalDate monthYear;
 	
 	private MonthlyBudgetStatus monthlyBudgetStatus;
+	private String monthlyBudgetStatusName;
 	
 	private int noOfResidenceServed;
 	private List<MenuCategoryResidenceRDto> residences;
