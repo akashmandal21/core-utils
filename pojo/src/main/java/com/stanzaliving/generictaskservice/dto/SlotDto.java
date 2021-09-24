@@ -1,6 +1,5 @@
 package com.stanzaliving.generictaskservice.dto;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
@@ -8,7 +7,9 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 

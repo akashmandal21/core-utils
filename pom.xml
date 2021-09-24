@@ -87,6 +87,7 @@
 		<module>slack-client</module>
 		<module>pojo-food</module>
 		<module>document-client</module>
+		<module>generic-task-service-client</module>
 	</modules>
 
 	<build>
