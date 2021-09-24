@@ -19,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 public class PrepaidMeterRechargeHistoryDto {
 	private Date rechargeDate;
 	private Double rechargeAmount;
-	private Double balanceAvailable;
+	private Double amountAvailableAtRecharge;
 	private String rechargeBy;
 	private String txnId;
 	private String meterId;

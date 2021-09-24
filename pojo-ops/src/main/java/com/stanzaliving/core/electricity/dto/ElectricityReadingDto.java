@@ -39,6 +39,4 @@ public class ElectricityReadingDto extends AbstractDto {
 	
 	private Double unitBalance;
 	
-	private Double amountBalance;
-
 }
