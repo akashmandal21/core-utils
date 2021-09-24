@@ -34,4 +34,8 @@ public enum FoodServeType {
 	public static boolean isPackagedOrHybrid(FoodServeType foodServeType) {
 		return PACKAGED == foodServeType || HYBRID == foodServeType;
 	}
+	
+	public static boolean isBuffetOrHybrid(FoodServeType foodServeType) {
+		return NON_PACKAGED == foodServeType || HYBRID == foodServeType;
+	}
 }
