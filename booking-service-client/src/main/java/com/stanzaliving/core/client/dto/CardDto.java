@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CardListingDto {
+public class CardDto {
     private String title;
-    private String amount;
-    private String amountColorCode;
+    private String subTitle;
+    private String icon;
 }

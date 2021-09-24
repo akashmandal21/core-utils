@@ -1,22 +1,21 @@
 package com.stanzaliving.core.client.dto;
 
-import com.stanzaliving.core.enums.ApprovalStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ZHResponseDto {
+public class MoveOutDateDto {
 
-    private ApprovalStatus approvalStatus;
-    private LocalDate contractTerminationDate;
-    private String zonalHeadRemark; //todo: add validation
+    @NotNull(message = "bookingUuid cannot be null")
     private String bookingUuid;
-    private String bookingStatus;
+
+    private LocalDate moveOutDate;
 }
