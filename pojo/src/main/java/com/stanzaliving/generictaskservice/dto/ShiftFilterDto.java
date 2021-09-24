@@ -21,8 +21,9 @@ import java.util.List;
 @NoArgsConstructor
 public class ShiftFilterDto {
     private String shiftName;
-    private Double shiftDuration;
+    private String shiftDuration;
     private List<String> tagList;
+    private String uuid;
     private PaginationRequest pageRequest;
 
     //Sort
