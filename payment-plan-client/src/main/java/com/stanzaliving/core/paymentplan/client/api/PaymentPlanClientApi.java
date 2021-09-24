@@ -536,4 +536,36 @@ public class PaymentPlanClientApi {
 
     }
 
+    public ResponseDto<PaymentPlanAndLineItems> getPaymentPlanAndLineItems(String referenceId) {
+        try {
+            Object postBody = null;
+
+            log.info("Request received to fetch payment plan and line items for referenceId:{}", referenceId);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("referenceId", referenceId);
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/line-items/{referenceId}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<PaymentPlanAndLineItems>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPlanAndLineItems>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the paymentPlan {}", e);
+            return null;
+        }
+
+    }
+
 }
