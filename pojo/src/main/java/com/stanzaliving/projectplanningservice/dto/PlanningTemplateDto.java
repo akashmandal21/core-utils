@@ -35,7 +35,9 @@ public class PlanningTemplateDto extends AbstractDto {
 
     private PlanningStatus planningStatus;
 
-    private Duration durationDays;
+    private int duration;
+
+    private Duration durationUnit;
 
     protected Date createdAt;
 

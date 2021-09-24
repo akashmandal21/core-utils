@@ -18,4 +18,6 @@ public class ActivitiesDto extends AbstractDto {
 
     private String activityName;
 
+    private String moduleUuid;
+
 }
