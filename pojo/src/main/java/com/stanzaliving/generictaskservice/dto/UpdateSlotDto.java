@@ -5,7 +5,6 @@ import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.Min;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -28,8 +27,7 @@ public class UpdateSlotDto {
 
     private String entityType;
 
-    @Min(value = 1, message = "Duration Value cannot be less than 0")
-    private Double defaultDuration;
+    private LocalTime defaultDuration;
 
     private String entityUuid;
 

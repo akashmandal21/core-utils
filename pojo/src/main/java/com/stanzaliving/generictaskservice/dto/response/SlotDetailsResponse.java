@@ -46,7 +46,7 @@ public class SlotDetailsResponse extends AbstractDto {
 
     private String entityUuid;
 
-    private Double defaultDuration;
+    private LocalTime defaultDuration;
 
     private String entityType;
 
