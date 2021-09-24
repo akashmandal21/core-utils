@@ -70,7 +70,7 @@ public class TransactionControllerApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<TransactionInitiateDto> initiateRazorpayTransaction(PaymentTransactionRequestDto paymentTransactionRequestDto) {
+	public ResponseDto<TransactionInitiateDto> initiateTransactionByPaymentMode(PaymentTransactionRequestDto paymentTransactionRequestDto) {
 
 		if (Objects.isNull(paymentTransactionRequestDto)) {
 			throw new IllegalArgumentException("Required payload is missing");
@@ -81,7 +81,7 @@ public class TransactionControllerApi {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/transaction/razorpay/initiate").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/transaction/initiate/by/paymentmode").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
