@@ -7,7 +7,6 @@ import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalTime;
@@ -30,8 +29,8 @@ public class SlotDto extends AbstractDto {
 
     private String entityType;
 
-    @Min(value = 1, message = "Duration Value cannot be less than 0")
-    private Double defaultDuration;
+    @NotNull(message = "Default duration is mandatory")
+    private LocalTime defaultDuration;
 
     private String entityUuid;
 
