@@ -23,7 +23,7 @@ public class ResolutionRuleMetadataDto {
     private String lastUpdatedBy;
     private Date createdAt;
     private Date lastUpdatedAt;
-    private Set<ResolutionLevelDto> resolutionLevelList;
+    private List<ResolutionLevelDto> resolutionLevelList;
     private boolean isResolutionRuleActive;
     private Set<LocationDto> locationDto;
     private String groupUuid;
