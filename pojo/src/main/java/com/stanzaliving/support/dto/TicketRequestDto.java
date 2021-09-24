@@ -38,4 +38,7 @@ public class TicketRequestDto {
 
     private Department department;
 
+    private List<String> applicableSubTicketList;
+
+    private List<String> notApplicableSubTicketList;
 }
