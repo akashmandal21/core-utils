@@ -21,7 +21,6 @@ public enum BookingSubStatus {
     PENDING_KYC_SUBMISSION("PENDING KYC SUBMISSION"),
     PENDING_KYC_VERIFICATION("PENDING KYC VERIFICATION"),
     EXIT_INITIATED("EXIT INITIATED"),
-    ZH_APPROVED("ZH APPROVED"),
     KYC_REJECTED("KYC REJECTED"),
     ROOM_HANDOVER_PENDING("ROOM HANDOVER PENDING"),
     CONTRACT_MODIFICATION_PENDING("CONTRACT MODIFICATION PENDING"),
@@ -72,7 +71,7 @@ public enum BookingSubStatus {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
         bookingStatus.add(PENDING_ZH_APPROVAL.getBookingSubStatus());
-        bookingStatus.add(ZH_APPROVED.getBookingSubStatus());
+        bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
         return bookingStatus;
     }
 
