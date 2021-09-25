@@ -86,7 +86,7 @@ public class VirtualAccountControllerApi {
 
     }
 
-    public ResponseEntity<Map<String, String>> createVirtualAccountForContract(int contractId, String contractUuid,
+    public ResponseDto<String> createVirtualAccountForContract(int contractId, String contractUuid,
                                                                                String organizationName) {
 
         try {
@@ -110,7 +110,7 @@ public class VirtualAccountControllerApi {
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<ResponseEntity<Map<String, String>>> returnType = new ParameterizedTypeReference<ResponseEntity<Map<String, String>>>() {
+            ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
