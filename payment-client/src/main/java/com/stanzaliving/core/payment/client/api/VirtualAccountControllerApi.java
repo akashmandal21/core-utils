@@ -85,5 +85,42 @@ public class VirtualAccountControllerApi {
         return null;
 
     }
+
+    public ResponseEntity<Map<String, String>> createVirtualAccountForContract(int contractId, String contractUuid,
+                                                                               String organizationName) {
+
+        try {
+
+            log.info("Creating Virtual Account for Contract:{}",contractUuid);
+            Object postBody = null;
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("contractId",String.valueOf(contractId));
+            uriVariables.put("contractUuid",contractUuid);
+            uriVariables.put("organizationName",organizationName);
+
+            String path = UriComponentsBuilder.fromPath("/contract/VA/{contractId}/{contractUuid}/{organizationName}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseEntity<Map<String, String>>> returnType = new ParameterizedTypeReference<ResponseEntity<Map<String, String>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while creating virtual account for Account for Contract:{}",contractUuid);
+        }
+
+        return null;
+
+    }
+
 }
 
