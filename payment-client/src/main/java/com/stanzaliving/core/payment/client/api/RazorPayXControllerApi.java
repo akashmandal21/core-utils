@@ -56,7 +56,7 @@ public class RazorPayXControllerApi {
 
     }
 
-    public ResponseEntity<HashMap<String, String>> initiateRazorpayXPayout(RefundRequest refundRequestDTO){
+    public ResponseDto<HashMap<String, String>> initiateRazorpayXPayout(RefundRequest refundRequestDTO){
         log.info("Initiate RazorpayXPayout Controller");
 
         Object postBody = refundRequestDTO;
@@ -74,7 +74,7 @@ public class RazorPayXControllerApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseEntity<HashMap<String, String>>> returnType = new ParameterizedTypeReference<ResponseEntity<HashMap<String, String>>>() {
+        ParameterizedTypeReference<ResponseDto<HashMap<String, String>>> returnType = new ParameterizedTypeReference<ResponseDto<HashMap<String, String>>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
