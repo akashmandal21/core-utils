@@ -99,7 +99,7 @@ public class VirtualAccountControllerApi {
             uriVariables.put("contractUuid",contractUuid);
             uriVariables.put("organizationName",organizationName);
 
-            String path = UriComponentsBuilder.fromPath("/contract/VA/{contractId}/{contractUuid}/{organizationName}").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/virtualAccount/contract/VA/{contractId}/{contractUuid}/{organizationName}").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
