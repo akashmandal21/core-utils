@@ -15,6 +15,7 @@ import java.util.List;
 public class ReviewTemplateResponseDto {
     private String name;
     private PropertyNameDto finalName;
+    private String propertyStatus;
     private String id;
     private String propertyTypeUuid;
     private Status templateStatus;
