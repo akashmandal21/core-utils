@@ -10,6 +10,7 @@ import java.util.List;
 public class RoomNumberListingAndCountDto {
 
     private int count;
+    private boolean isAllRoomsAvailable;
     private List<RoomNumberListingResponseDto> roomNumberAttributes;
     private List<ManagedApartmentDetailDto> managedApartmentDetails;
 
