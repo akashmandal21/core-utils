@@ -3,6 +3,7 @@ package com.stanzaliving.core.generictaskservice.client.api;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
+import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
 import lombok.extern.log4j.Log4j2;
@@ -120,5 +121,27 @@ public class GenericTaskControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
+    }
+
+    public ResponseDto <GenericTaskResponseDto> getTasks(String uuid) {
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("taskId",uuid);
+
+        String path = UriComponentsBuilder.fromPath("/task/{taskId}").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}",path);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto  <GenericTaskResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto <GenericTaskResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 }
