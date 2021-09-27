@@ -13,4 +13,9 @@ import lombok.NoArgsConstructor;
 public class LocationDto {
     private AccessLevel accessLevel;
     private String accessLevelUuid;
+
+    public LocationDto(String name, String uuid) {
+        this.accessLevel = AccessLevel.valueOf(name);
+        this.accessLevelUuid = uuid;
+    }
 }

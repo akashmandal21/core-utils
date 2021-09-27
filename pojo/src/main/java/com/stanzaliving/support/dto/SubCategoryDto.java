@@ -25,4 +25,9 @@ public class SubCategoryDto {
     private List<SubTicketTaskDto> subTicketTasks = new ArrayList<>();
     private List<FeedbackReasonDto> feedbackReasons = new ArrayList<>();
     private int templateCount;
+
+    public SubCategoryDto(String name, String uuid) {
+        this.name = name;
+        this.uuid = uuid;
+    }
 }

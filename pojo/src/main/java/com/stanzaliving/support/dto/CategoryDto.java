@@ -19,4 +19,9 @@ public class CategoryDto {
     private String description;
     private boolean active;
     private List<SubCategoryDto> subCategories = new ArrayList<>();
+
+    public CategoryDto(String name, String uuid) {
+        this.name = name;
+        this.uuid = uuid;
+    }
 }

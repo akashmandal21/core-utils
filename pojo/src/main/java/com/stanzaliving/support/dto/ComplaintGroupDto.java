@@ -20,4 +20,9 @@ public class ComplaintGroupDto {
     private String imageUrl;
     private boolean active;
     private List<CategoryDto> categories = new ArrayList<>();
+
+    public ComplaintGroupDto(String name, String uuid) {
+        this.name = name;
+        this.uuid = uuid;
+    }
 }

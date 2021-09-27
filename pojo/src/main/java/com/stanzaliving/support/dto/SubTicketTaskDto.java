@@ -13,5 +13,10 @@ public class SubTicketTaskDto {
     private int position;
     private String uuid;
     private String name;
+
+    public SubTicketTaskDto(String name, String uuid) {
+        this.name = name;
+        this.uuid = uuid;
+    }
 }
 
