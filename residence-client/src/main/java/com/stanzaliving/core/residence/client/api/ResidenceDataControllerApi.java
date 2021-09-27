@@ -29,6 +29,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 public class ResidenceDataControllerApi {
@@ -1288,7 +1289,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public InventoryPricingResponseDto getInventoryPricingDataForMultipleInventory(String residenceUuid, List<String> inventoryUuid, LocalDate fromDate, LocalDate toDate) {
+    public InventoryPricingResponseDto getInventoryPricingDataForMultipleInventory(String residenceUuid, Set<String> inventoryUuid, LocalDate fromDate, LocalDate toDate) {
         log.info("get pricing details for residenceUuid {}, inventoryUuid {},fromDate{}, toDate {},", residenceUuid, inventoryUuid, fromDate, toDate);
 
         Map<String, Object> uriVariables = new HashMap();
