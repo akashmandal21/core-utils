@@ -5,11 +5,9 @@ import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -32,8 +30,8 @@ public class SlotDto {
     @NotBlank(message = "Entity type is mandatory")
     private String entityType;
 
-    @Min(value = 1, message = "Duration Value cannot be less than 0")
-    private Double defaultDuration;
+    @NotBlank(message = "Default duration is mandatory")
+    private LocalTime defaultDuration;
 
     @NotBlank(message = "Entity uuid is mandatory")
     private String entityUuid;
@@ -68,7 +66,4 @@ public class SlotDto {
 
     private List<TaskCategoryDto> allowedTasksList;
 
-    private LocalDate menuDate;
-
-    private LocalTime localTime;
 }
