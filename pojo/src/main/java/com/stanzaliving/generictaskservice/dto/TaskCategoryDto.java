@@ -1,11 +1,11 @@
 package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.generictaskservice.dto.request.TaskCategoryTypeDetailsRequestDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import java.time.LocalTime;
 import java.util.List;
 
 @Getter
@@ -26,8 +26,12 @@ public class TaskCategoryDto extends AbstractDto {
 
     private List<TaskCategoryDto> taskSubCategoryList;
 
-    private String taskType;
-
-    private TaskCategoryTypeDetailsRequestDto taskCategoryTypeDetailsRequestDto;
+    private String description;
+    private boolean autoCompleteTask;
+    private boolean overLapTask;
+    private boolean overrideTask;
+    private LocalTime startTime;
+    private String autoCompletionEvent;
+    private List<String> tagsList ;
 
 }

@@ -1,12 +1,13 @@
 package com.stanzaliving.generictaskservice.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.generictaskservice.dto.TaskCategoryDto;
-import com.stanzaliving.generictaskservice.dto.request.TaskCategoryTypeDetailsRequestDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -19,6 +20,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class TaskCategoryResponseDto extends AbstractDto {
 
     private String parentTaskCategoryUuid;
@@ -32,6 +34,12 @@ public class TaskCategoryResponseDto extends AbstractDto {
     private List<TaskCategoryDto> taskSubCategoryList;
 
     private String taskType;
+    private String description;
+    private boolean autoCompleteTask;
+    private boolean overLapTask;
+    private boolean overrideTask;
+    private LocalTime startTime;
+    private String autoCompletionEvent;
+    private List<TagsGenericResponseDto> tags;
 
-    private TaskCategoryTypeDetailsResponseDto taskCategoryTypeDetailsResponseDto;
 }
