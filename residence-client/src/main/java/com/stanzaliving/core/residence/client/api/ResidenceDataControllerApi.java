@@ -1290,7 +1290,7 @@ public class ResidenceDataControllerApi {
     }
 
     public InventoryPricingResponseDto getInventoryPricingDataForMultipleInventory(String residenceUuid, Set<String> inventoryUuid, LocalDate fromDate, LocalDate toDate) {
-        log.info("get pricing details for residenceUuid {}, inventoryUuid {},fromDate{}, toDate {},", residenceUuid, inventoryUuid, fromDate, toDate);
+        log.info("get pricing details for residenceUuid {}, inventoryUuidList {},fromDate{}, toDate {},", residenceUuid, inventoryUuid, fromDate, toDate);
 
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("residenceUuid", residenceUuid);
@@ -1308,9 +1308,40 @@ public class ResidenceDataControllerApi {
         try {
             return (InventoryPricingResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, inventoryUuid, headerParams, accept, returnType);
         } catch (Exception var14) {
-            log.error("Exception while fetching pricing details by residenceUuid, inventoryUuid : {} , {}", residenceUuid, inventoryUuid);
+            log.error("Exception while fetching pricing details by residenceUuid, inventoryUuidList : {} , {}", residenceUuid, inventoryUuid);
             return null;
         }
 
+    }
+
+    public ResponseDto<PricingDetailsResponseDto> getPricingDetailsForMultipleRooms(List<String> roomUuidList, String serviceMixUuid, String moveInDate) {
+        log.info("Residence-Data-Controller::Processing to get pricing detail based on movein-in date {} , serviceMixUuid {}, roomUuidList {}", moveInDate, serviceMixUuid, roomUuidList);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("serviceMixUUID", serviceMixUuid);
+
+        uriVariables.put("moveInDate", moveInDate);
+
+        String path = UriComponentsBuilder.fromPath("/internal/room-pricing/{serviceMixUUID}/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<PricingDetailsResponseDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<PricingDetailsResponseDto>>() {
+                };
+
+        try {
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, roomUuidList, headerParams, accept, returnType);
+        } catch (Exception var12) {
+            log.error("Exception while get pricing detail based on movein-in date {} , serviceMixUuid {}, roomUuidList {}", moveInDate, serviceMixUuid, roomUuidList);
+            return null;
+        }
     }
 }
