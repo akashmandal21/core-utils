@@ -31,7 +31,7 @@ public class PlanningTemplateDto extends AbstractDto {
 
     private String description;
 
-    private List<String> taskServiceUuids;
+    private List<String> taskChildUuids;
 
     private PlanningStatus planningStatus;
 
@@ -43,5 +43,5 @@ public class PlanningTemplateDto extends AbstractDto {
 
     protected Date updatedAt;
 
-    private List<SectionDetailsDto> sectionDetails;
+    private List<SectionDetailsDto> sections;
 }
