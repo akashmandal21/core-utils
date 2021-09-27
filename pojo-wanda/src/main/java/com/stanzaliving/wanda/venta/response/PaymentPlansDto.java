@@ -25,6 +25,4 @@ public class PaymentPlansDto {
 
 	private List<PaymentPlanDetailsResponseDto> paymentPlanDetailsResponseDtos;
 	private String view;
-	@Builder.Default
-    private Double upsell=0d;
 }

@@ -16,7 +16,7 @@ public class VentaDiscountRequestDto {
 	private PropertyType propertyType;
 	private BookingType bookingType;
 	private String residenceUuid;
-	private String micromarketUuid;
+	private String mocromarketUuid;
 	private String cityUuid;
 	@Builder.Default
 	private Double bookingMonthlyRent=0.0;

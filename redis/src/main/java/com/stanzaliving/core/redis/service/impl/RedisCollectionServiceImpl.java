@@ -5,17 +5,11 @@ package com.stanzaliving.core.redis.service.impl;
 
 import com.stanzaliving.core.redis.service.RedisCollectionService;
 import lombok.extern.log4j.Log4j2;
-import org.redisson.api.RMap;
-import org.redisson.api.RMapCache;
-import org.redisson.api.RSet;
-import org.redisson.api.RedissonClient;
+import org.redisson.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -189,6 +183,37 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 	public void removeFromStringMap(String mapName, String key) {
 		log.info("Removing key: {} from map: {} from redis",key,mapName);
 		redissonClient.getMap(mapName).remove(key);
+	}
+
+	@Override
+	public boolean addInStringList(String listName, String key) {
+		log.debug("Adding key: {} in list: {} on redis", key, listName);
+
+		return getRedisStringList(listName).add(key);
+	}
+
+	@Override
+	public boolean removeFromStringList(String listName, String key) {
+		log.info("Removing key: {} from list: {} from redis",key,listName);
+
+		return getRedisStringList(listName).remove(key);
+	}
+
+	@Override
+	public List<String> getStringList(String listName) {
+		log.info("Returning String List from redis for list name:{}",listName);
+		RList<String> redisStringList = getRedisStringList(listName);
+		return new ArrayList<>(redisStringList);
+	}
+
+	@Override
+	public boolean existsInStringList(String listName, String key) {
+		log.info("Checking for key:{} in list :{} in redis",key,listName);
+		return getRedisStringList(listName).contains(key);
+	}
+
+	private RList<String> getRedisStringList(String listName) {
+		return redissonClient.getList(listName);
 	}
 
 	@Override

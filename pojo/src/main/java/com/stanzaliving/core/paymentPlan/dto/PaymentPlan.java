@@ -17,12 +17,12 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentPlan {
-	protected String uuid;
+	private String uuid;
 	private Long id;
 	private LocalDate fromDate;
 	private LocalDate toDate;
@@ -34,4 +34,14 @@ public class PaymentPlan {
 	private Map<String, String> metaData;
 	private String invoiceUuid;
 	private List<PaymentPlanLineItem> lineItems;
+
+	//private Date createdAt;
+
+	private String createdBy;
+
+	//private Date updatedAt;
+
+	private String updatedBy;
+
+	private boolean status;
 }

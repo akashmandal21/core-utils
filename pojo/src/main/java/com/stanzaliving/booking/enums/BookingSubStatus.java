@@ -20,9 +20,14 @@ public enum BookingSubStatus {
     BOOKING_AMOUNT_PENDING("BOOKING AMOUNT PENDING"),
     PENDING_KYC_SUBMISSION("PENDING KYC SUBMISSION"),
     PENDING_KYC_VERIFICATION("PENDING KYC VERIFICATION"),
+    EXIT_INITIATED("EXIT INITIATED"),
     KYC_REJECTED("KYC REJECTED"),
     ROOM_HANDOVER_PENDING("ROOM HANDOVER PENDING"),
-    CONTRACT_MODIFICATION_PENDING("CONTRACT MODIFICATION PENDING");
+    CONTRACT_MODIFICATION_PENDING("CONTRACT MODIFICATION PENDING"),
+    KEY_HANDOVER_PENDING("KEY HANDOVER PENDING"),
+    AUDIT_PENDING("AUDIT PENDING"),
+    PENDING_ZH_APPROVAL("PENDING ZH APPROVAL"),
+    AUDIT_APPROVAL_PENDING("AUDIT APPROVAL PENDING");
 
     private String bookingSubStatus;
 
@@ -52,8 +57,23 @@ public enum BookingSubStatus {
 
     public static BookingSubStatus getBookingSubStatus(String bookingSubStatus){
         Map<String, BookingSubStatus> bookingSubStatusMap = getBookingSubStatusList();
-        if(bookingSubStatusMap.containsKey(bookingSubStatus)) return bookingSubStatusMap.get(bookingSubStatusMap);
+        if(bookingSubStatusMap.containsKey(bookingSubStatus)) return bookingSubStatusMap.get(bookingSubStatus);
         return null;
     }
+
+    public static Set<BookingSubStatus> isPersonalDetailsFilled() {
+        Set<BookingSubStatus> bookingSubStatus = new HashSet<>();
+        bookingSubStatus.add(BookingSubStatus.BOOKING_AMOUNT_PENDING);
+        return bookingSubStatus;
+    }
+
+    public static Set<String> exitInitiatedBookingSubStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
+        bookingStatus.add(PENDING_ZH_APPROVAL.getBookingSubStatus());
+        bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
+        return bookingStatus;
+    }
+
 
 }

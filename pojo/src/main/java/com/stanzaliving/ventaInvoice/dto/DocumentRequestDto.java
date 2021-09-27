@@ -9,6 +9,7 @@ import lombok.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @EqualsAndHashCode
 @Getter
@@ -16,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class DocumentRequestDto {
 
     @NotNull(message = "ServiceType is required")
@@ -59,5 +61,7 @@ public class DocumentRequestDto {
     private DealDto dealDto;
 
     private DealBillToDto dealBillToDto;
+
+    private Map<String, Object> callerServiceMetaData;
 
 }

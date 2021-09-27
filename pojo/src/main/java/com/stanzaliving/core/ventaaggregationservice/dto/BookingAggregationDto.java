@@ -2,11 +2,13 @@ package com.stanzaliving.core.ventaaggregationservice.dto;
 
 import com.stanzaliving.booking.dto.BookingTag;
 import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
+import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.util.Date;
 import java.util.List;
 
@@ -66,7 +68,7 @@ public class BookingAggregationDto {
     private String colorCode;
     private List<BookingTag> bookingTags;
     private Integer tokenAmount;
-    List<EligibleStatusMappingDto> eligibleStatusMapping;
+    private List<EligibleStatusMappingDto> eligibleStatusMapping;
     private String cityUuid;
     private String microMarketUuid;
     private String paymentTerm;
@@ -79,4 +81,11 @@ public class BookingAggregationDto {
     private double pendingAmount;
     private String paymentMode;
     private String bookingAgreementUrl;
+    private String bookingSubType;
+    private boolean exceptionOnboarding;
+    private boolean allowExceptionalOnboarding;
+    private List<InventoryResponseOccupancyDto> inventoryOccupancy;
+    private Double totalLedgerBalance;
+    private String ledgerStatus;
+    private String ledgerStatusColorCode;
 }

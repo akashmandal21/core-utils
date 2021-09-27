@@ -16,9 +16,9 @@ import lombok.NoArgsConstructor;
 @Getter
 public class PaymentInitialResponseDto {
 
-	private String bookingId;
+private String bookingId;
 	
-	private PaymentTerm installmentType;
+	private String installmentType;
 	
 	private DiscountResponseDto discountResponseDto;
 	

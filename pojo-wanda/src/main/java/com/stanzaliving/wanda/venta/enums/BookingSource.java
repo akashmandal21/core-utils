@@ -9,5 +9,5 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum BookingSource {
-	VENTA, ALFRED, MIGRATION;
+	VENTA, ALFRED,SIGMA, MIGRATION;
 }

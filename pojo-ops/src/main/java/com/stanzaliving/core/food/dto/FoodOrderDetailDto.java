@@ -19,10 +19,10 @@ import java.util.List;
 @AllArgsConstructor
 public class FoodOrderDetailDto {
 
-	private String residenceFoodMenuId;
-
 	private MealType mealType;
+
 	private String mealId;
+
 	private String mealGroup;
 
 	private String mealName;
@@ -30,6 +30,8 @@ public class FoodOrderDetailDto {
 	private String vendorId;
 
 	private String vendorName;
+
+	private Integer mir;
 
 	@NotNull(message = "Veg Pax are mandatory")
 	private Integer vegPax;
@@ -102,6 +104,9 @@ public class FoodOrderDetailDto {
 	private LocalDate cutoffDate;
 	
 	private LocalTime cutoffTime;
+
+	@Builder.Default
+	private boolean cutOffTimeExpired = true;
 
 	private UserPreferenceCountDto userPreferenceCountDto;
 
