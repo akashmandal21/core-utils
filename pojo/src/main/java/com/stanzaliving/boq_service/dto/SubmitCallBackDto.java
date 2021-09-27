@@ -16,4 +16,6 @@ public class SubmitCallBackDto {
     private Map<String, BoqLevelActionsDto> properties;
 
     private BulkActionSubmitCallback action;
+
+    private boolean isFilterSelected;
 }
