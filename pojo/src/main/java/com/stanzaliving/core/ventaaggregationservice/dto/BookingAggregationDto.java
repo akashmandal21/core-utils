@@ -3,6 +3,7 @@ package com.stanzaliving.core.ventaaggregationservice.dto;
 import com.stanzaliving.booking.dto.BookingTag;
 import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
 import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
+import com.stanzaliving.booking.enums.BookingResidenceType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Builder
 @Data
@@ -88,4 +90,6 @@ public class BookingAggregationDto {
     private Double totalLedgerBalance;
     private String ledgerStatus;
     private String ledgerStatusColorCode;
+    private BookingResidenceType bookingResidenceType;
+    private Set<String> roomNumberList;
 }
