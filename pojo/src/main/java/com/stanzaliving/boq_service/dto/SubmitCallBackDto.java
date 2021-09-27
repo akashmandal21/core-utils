@@ -17,5 +17,5 @@ public class SubmitCallBackDto {
 
     private BulkActionSubmitCallback action;
 
-    private boolean isFilterSelected;
+    private Boolean isFilterSelected;
 }
