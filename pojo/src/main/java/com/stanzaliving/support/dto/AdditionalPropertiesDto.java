@@ -39,7 +39,7 @@ public class AdditionalPropertiesDto {
     private String resolvedByUuid;
     private String resolvedBy;
     private Date reopenedAt;
-    private Long ticketId;
+    private String ticketId;
     private String ticketUuid;
     private Long subTicketId;
     private String subTicketUuid;

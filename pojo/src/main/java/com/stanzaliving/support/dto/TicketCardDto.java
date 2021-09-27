@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class TicketCardDto {
 
-    private Long ticketId;
+    private String ticketId;
     private String ticketUuid;
     private String statusDetail;
     private Date createdAt;
