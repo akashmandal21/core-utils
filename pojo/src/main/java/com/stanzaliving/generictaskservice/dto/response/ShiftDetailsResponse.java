@@ -20,7 +20,7 @@ import java.util.List;
 public class ShiftDetailsResponse extends AbstractDto {
     private String module;
     private String shiftName;
-    private Double durationInHours;
+    private LocalTime durationInHours;
     private LocalTime startTime;
     private LocalTime endTime;
     private List<GenericTaskResponseDto> tasks;

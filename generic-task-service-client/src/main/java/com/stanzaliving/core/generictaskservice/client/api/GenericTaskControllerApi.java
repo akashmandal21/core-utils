@@ -7,6 +7,7 @@ import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
 import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
+import com.stanzaliving.housekeepingservice.dto.request.ShiftAllocationRequestDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -32,7 +33,7 @@ public class GenericTaskControllerApi {
         this.restClient = restClient;
     }
 
-    public ResponseDto<List<ShiftAllocationDto>> createShiftAllocationDto(List<ShiftAllocationDto> shiftAllocationDtoList) {
+    public ResponseDto<List<ShiftAllocationDto>> createShiftAllocationDto(List<ShiftAllocationRequestDto> shiftAllocationDtoList) {
         Object postBody = shiftAllocationDtoList;
 
         // create path and map variables
