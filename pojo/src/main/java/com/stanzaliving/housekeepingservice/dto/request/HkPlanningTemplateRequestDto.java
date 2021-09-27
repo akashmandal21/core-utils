@@ -5,7 +5,6 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -31,7 +30,6 @@ public class HkPlanningTemplateRequestDto {
 
     private List<ShiftAllocationRequestDto> shiftsAllocationDtos;
 
-    @NotNull(message = "Entities uuid is mandatory")
     private List<String> applicableEntities;
 
     private List<String> tags;
