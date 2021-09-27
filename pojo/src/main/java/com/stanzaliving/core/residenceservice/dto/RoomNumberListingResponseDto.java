@@ -36,5 +36,8 @@ public class RoomNumberListingResponseDto {
     private String residenceName;
     List<AttributesResponseDto> attributesResponseDto;
 
+    private List<String> inventoryUuidList;
+
+
 
 }
