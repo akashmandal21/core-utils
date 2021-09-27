@@ -3,10 +3,7 @@ package com.stanzaliving.booking.dto;
 import com.stanzaliving.booking.dto.response.BookingCommercialCardDto;
 import com.stanzaliving.booking.dto.response.BookingPackageServiceDto;
 import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
-import com.stanzaliving.booking.enums.BookingResidenceType;
-import com.stanzaliving.booking.enums.BookingSource;
-import com.stanzaliving.booking.enums.BookingStatus;
-import com.stanzaliving.booking.enums.BookingType;
+import com.stanzaliving.booking.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,33 +17,39 @@ import java.util.Date;
 @AllArgsConstructor
 public class BookingResponseDto {
 
+    private String bookingUuid;
+
+    private String leadUUid;
+
+    private String userUuid;
+
+    private String residentId;
+
+    private BookingStatus bookingStatus;
+
+    private BookingSubStatus bookingSubStatus;
+
+    private BookingType bookingType;
+
+    private BookingResidenceType bookingResidenceType;
+
     private Date contractStartDate;
 
     private Date contractEndDate;
 
     private Date expectedMoveInDate;
 
-    private Date checkInDate;
+    private Date moveInDate;
 
-    private Date checkoutDate;
+    private Date moveOutDate;
 
     private Date LockInDate;
 
-    private BookingType bookingType;
-
-    private BookingStatus bookingStatus;
-
-    private BookingResidenceType bookingResidenceType;
-
-    private String userUuid;
-
     private BookingSource bookingSource;
 
-    private String commercialCardUuid;
+    private Double transactionAmount;
 
-    private String leadUUid;
-
-    private String bookingUuid;
+    private Double bookingAmount;
 
     private InventoryResponseOccupancyDto inventoryOccupancyDetails;
 
@@ -54,9 +57,7 @@ public class BookingResponseDto {
 
     private BookingPackageServiceDto bookingPackageService;
 
-    private String uuid;
+    private Double pendingAmount;
 
-    private Double transactionAmount;
-
-    private Double bookingAmount;
+    private PaymentTerm paymentTerm;
 }

@@ -1,5 +1,8 @@
 package com.stanzaliving.wanda.venta.response;
 
+import java.util.Date;
+
+import com.stanzaliving.booking.enums.BookingSubType;
 import com.stanzaliving.wanda.enums.AlfredStep;
 import com.stanzaliving.wanda.venta.enums.BookingSource;
 
@@ -16,6 +19,7 @@ public class BookingStatusResponseDto {
 	private String houseName;
     private String bookingUuid;
     private String bookingStatus;
+    private String bookingStatusDesc;
     private boolean hasMovedIn;
     private AlfredStep alfredStep;
 	@Builder.Default
@@ -44,4 +48,8 @@ public class BookingStatusResponseDto {
     private String jsVersion;
     private String residenceUuid;
     private Long bookingId;
+    private BookingSubType bookingSubType;
+    private Date expectedMoveInDate;
+    private RetentionBookingResponseDto retentionBooking;
+    private String contractStartDate;
 }

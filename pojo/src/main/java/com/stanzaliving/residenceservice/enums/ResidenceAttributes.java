@@ -15,8 +15,6 @@ public enum ResidenceAttributes {
 
     BOOKING_FLOW("Booking Flow", "String"),
 
-    ROOM_COUNT("Room Count", "String"),
-
     CITY_HEAD_BUFFER_CONTRIBUTION("City Head Buffer Contribution", "String"),
     AUTO_BOOKING_CANCELLATION_TIME("Auto Booking Cancellation Time", "String"),
     MODIFY_CONTRACT_CUT_OFF_DAYS("Modify Contract Cut off Days", "String"),
@@ -39,7 +37,9 @@ public enum ResidenceAttributes {
 	
 	FUTURE_BOOKING_ALLOWED_DAYS("Future Booking Allowed Duration","Integer"),
     NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time","String"),
-	CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean");
+
+    CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean");
+
     private String label;
     private String type;
 

@@ -1,11 +1,11 @@
 package com.stanzaliving.core.deal.client.api;
 
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.deal.client.dto.*;
+import com.stanzaliving.core.user.enums.EnumListing;
+import com.stanzaliving.core.user.enums.Nationality;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,10 +14,10 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-
-import lombok.extern.log4j.Log4j2;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Log4j2
 public class DealDataControllerApi {
@@ -52,14 +52,14 @@ public class DealDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, putBody, headerParams, accept, returnType);
     }
 
-	public ResponseDto<List<String>> getServiceMixUuidForDealAndResidence(String dealUuid, String residenceUuid) {
+    public ResponseDto<List<String>> getServiceMixUuidForDealAndResidence(String dealUuid, String residenceUuid) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/deal/service-mix/"+dealUuid+"/"+residenceUuid).buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/deal/service-mix/" + dealUuid + "/" + residenceUuid).buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -73,44 +73,44 @@ public class DealDataControllerApi {
         ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-    
-	}
 
-	public ResponseDto<OccupancyResidenceListDto> getAllowedOccupanciesForDealAndResidence(String dealUuid,String residenceUuid) {
+    }
 
-			log.info("fetching allowed occupancies for ContactUuid : " + dealUuid);
+    public ResponseDto<OccupancyResidenceListDto> getAllowedOccupanciesForDealAndResidence(String dealUuid, String residenceUuid) {
 
-			Object postBody = null;
+        log.info("fetching allowed occupancies for ContactUuid : " + dealUuid);
 
-	        final Map<String, Object> uriVariables = new HashMap<>();
-	        uriVariables.put("dealUuid", dealUuid);
-	        uriVariables.put("residenceUuid", residenceUuid);
-	        
-	        String path = UriComponentsBuilder.fromPath("/internal/deal/allowed-occupancies/{dealUuid}/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+        Object postBody = null;
 
-	        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("dealUuid", dealUuid);
+        uriVariables.put("residenceUuid", residenceUuid);
 
-	        final HttpHeaders headerParams = new HttpHeaders();
+        String path = UriComponentsBuilder.fromPath("/internal/deal/allowed-occupancies/{dealUuid}/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
 
-	        final String[] accepts = {
-	                "*/*"
-	        };
-	        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-	        ParameterizedTypeReference<ResponseDto<OccupancyResidenceListDto>> returnType = new ParameterizedTypeReference<ResponseDto<OccupancyResidenceListDto>>() {
-	        };
-	        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-	}
+        final HttpHeaders headerParams = new HttpHeaders();
 
-	public ResponseDto<DealUserResponseDto> getUserDetails(String userUuid) {
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		log.info("fetching user details for userUuid : " + userUuid);
+        ParameterizedTypeReference<ResponseDto<OccupancyResidenceListDto>> returnType = new ParameterizedTypeReference<ResponseDto<OccupancyResidenceListDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 
-		Object postBody = null;
+    public ResponseDto<DealUserResponseDto> getUserDetails(String userUuid) {
+
+        log.info("fetching user details for userUuid : " + userUuid);
+
+        Object postBody = null;
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/deal/user/"+ userUuid).buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/deal/user/" + userUuid).buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -124,16 +124,16 @@ public class DealDataControllerApi {
         ParameterizedTypeReference<ResponseDto<DealUserResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DealUserResponseDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-}
+    }
 
-	public ResponseDto<String> getPackagedServiceDetailsForUser(String userUuid, String bookingUuid) {
-		log.info("fetching user details for userUuid : " + userUuid);
+    public ResponseDto<String> getPackagedServiceDetailsForUser(String userUuid, String bookingUuid) {
+        log.info("fetching user details for userUuid : " + userUuid);
 
-		Object postBody = null;
+        Object postBody = null;
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/user/service-mix/"+ userUuid+"/"+bookingUuid).buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/user/service-mix/" + userUuid + "/" + bookingUuid).buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -147,10 +147,10 @@ public class DealDataControllerApi {
         ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-	}
+    }
 
-    public ResponseDto<List<DealApprovedUserResponseDto>> getApprovedUserList(String contractId,
-                                                                              DealApprovedUserRequestDto dealApprovedUserRequestDto, Integer pageNo, Integer pageSize, String sortBy, String sortOrder) {
+    public ResponseDto<DealApprovedUserPageDto> getApprovedUserList(String contractId,
+                                                                    DealApprovedUserRequestDto dealApprovedUserRequestDto, Integer pageNo, Integer pageSize, String sortBy, String sortOrder) {
 
         Object postBody = null;
 
@@ -163,20 +163,20 @@ public class DealDataControllerApi {
                         .toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("pageNo",String.valueOf(pageNo));
-        queryParams.add("pageSize",String.valueOf(pageSize));
-        queryParams.add("sortBy",sortBy);
-        queryParams.add("sortOrder",sortOrder);
+        queryParams.add("pageNo", String.valueOf(pageNo));
+        queryParams.add("pageSize", String.valueOf(pageSize));
+        queryParams.add("sortBy", sortBy);
+        queryParams.add("sortOrder", sortOrder);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<List<DealApprovedUserResponseDto>>> returnType =
-                new ParameterizedTypeReference<ResponseDto<List<DealApprovedUserResponseDto>>>() {
+        ParameterizedTypeReference<ResponseDto<DealApprovedUserPageDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<DealApprovedUserPageDto>>() {
                 };
-        postBody=dealApprovedUserRequestDto;
+        postBody = dealApprovedUserRequestDto;
         return restClient.invokeAPI(
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
@@ -186,7 +186,7 @@ public class DealDataControllerApi {
         Object postBody = null;
 
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("userId",userUuid);
+        uriVariables.put("userId", userUuid);
 
         String path = UriComponentsBuilder.fromPath("/internal/resident/{userId}/documents")
                 .buildAndExpand(uriVariables).toUriString();
@@ -207,11 +207,11 @@ public class DealDataControllerApi {
 
     public ResponseDto<String> updateExpectedMoveOutDate(String contractUserUuid, LocalDate localDate) {
 
-        Object putBody=null;
+        Object putBody = null;
 
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("contractUserUuid",contractUserUuid);
-        uriVariables.put("moveOutDate",String.valueOf(localDate));
+        uriVariables.put("contractUserUuid", contractUserUuid);
+        uriVariables.put("moveOutDate", String.valueOf(localDate));
 
         String path = UriComponentsBuilder.fromPath("/internal/{contractUserUuid}/move-out-date/{moveOutDate}")
                 .buildAndExpand(uriVariables).toUriString();
@@ -229,16 +229,16 @@ public class DealDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, putBody, headerParams, accept, returnType);
     }
-    
+
     public ResponseDto<List<String>> getResidenceUuidsForADeal(String dealUuid) {
 
-		log.info("fetching allowed occupancies for ContactUuid : " + dealUuid);
+        log.info("fetching allowed occupancies for ContactUuid : " + dealUuid);
 
-		Object postBody = null;
+        Object postBody = null;
 
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("dealUuid", dealUuid);
-        
+
         String path = UriComponentsBuilder.fromPath("/internal/deal/residences/{dealUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -253,5 +253,110 @@ public class DealDataControllerApi {
         ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<B2bKycPageDto> getDocumentStatusForUser(String userUuid, Nationality nationality) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userId", userUuid);
+        uriVariables.put("nationality", nationality);
+
+        String path = UriComponentsBuilder.fromPath("/internal/resident/{userId}/nationality/{nationality}/document-status")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<B2bKycPageDto>> returnType = new ParameterizedTypeReference<ResponseDto<B2bKycPageDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<EnumListing<Nationality>> getNationalityForUser(String userUuid) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userId", userUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/resident/{userId}/nationality")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<EnumListing<Nationality>>> returnType = new ParameterizedTypeReference<ResponseDto<EnumListing<Nationality>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 }
+
+    public ResponseDto<List<B2bRoomOccupancyDto>> getRoomsForResidenceAndContractFromBookingService(DealRoomsRequestDto dealRoomsRequestDto) {
+
+        log.info("fetching rooms for ContactUuid : " + dealRoomsRequestDto.getDealUuid());
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("dealUuid", dealRoomsRequestDto.getDealUuid());
+        uriVariables.put("residenceUuid", dealRoomsRequestDto.getResidenceUuid());
+
+        String path = UriComponentsBuilder.fromPath("/getRooms/{dealUuid}/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<B2bRoomOccupancyDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<B2bRoomOccupancyDto>>>() {
+        };
+
+        return  restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public List<String> getContractPricingDetailsRoomNumbers(String contractUuid) {
+
+        log.info("Booking-Data-Controller::Processing to fetch Contract Pricing Details for Contract uuid {}", contractUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("contractUuid", contractUuid);
+
+        String path = UriComponentsBuilder.fromPath("/contract-pricing/{contractUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<String>> returnType =
+                new ParameterizedTypeReference<List<String>>() {
+                };
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception var13) {
+            log.error("Exception while fetching fetch Contract Pricing Details for Contract uuid {}", contractUuid);
+            return null;
+        }
+    }
 }

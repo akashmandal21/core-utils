@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
 @Builder
