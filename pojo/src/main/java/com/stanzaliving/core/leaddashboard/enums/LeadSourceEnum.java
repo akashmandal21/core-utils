@@ -110,7 +110,8 @@ public enum LeadSourceEnum {
 	PREBOOKING_VIRTUAL_TOUR("Prebooking-Virtual Tour"),
 	ZOHO("zoho"),
 	SIGMA_APP ("Sigma App"),
-	VANTAGE_CIRCLE("Vantage Circle");
+	VANTAGE_CIRCLE("Vantage Circle"),
+	COLLEGE_DUNIA("Collegedunia");
 	
 	private String leadSourceName;
 	
