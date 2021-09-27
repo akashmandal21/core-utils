@@ -18,4 +18,6 @@ public class KeyHandOverResponseDto {
     private Double keyLostCharges;
 
     private String bookingUuid;
+
+    private String propertyUuid;
 }

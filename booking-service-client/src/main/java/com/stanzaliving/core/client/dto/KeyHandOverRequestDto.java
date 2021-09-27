@@ -1,5 +1,6 @@
 package com.stanzaliving.core.client.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 public class KeyHandOverRequestDto {
 
     @Builder.Default
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate keyHandoverDate = LocalDate.now();
 
     @NotNull
