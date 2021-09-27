@@ -1,8 +1,5 @@
 package com.stanzaliving.housekeepingservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.generictaskservice.dto.ShiftDto;
-import com.stanzaliving.generictaskservice.dto.SlotDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +19,7 @@ import java.time.LocalTime;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShiftAllocationRequestDto extends AbstractDto {
+public class ShiftAllocationRequestDto {
 
     private String shiftUuid;
 
@@ -33,9 +30,5 @@ public class ShiftAllocationRequestDto extends AbstractDto {
     private LocalTime startingTime;
 
     private LocalTime endingTime;
-
-    private SlotDto slotDto;
-
-    private ShiftDto shiftDto;
 
 }
