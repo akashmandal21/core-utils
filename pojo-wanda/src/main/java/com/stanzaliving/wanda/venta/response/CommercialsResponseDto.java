@@ -3,9 +3,7 @@ package com.stanzaliving.wanda.venta.response;
 import java.util.List;
 import java.util.Map;
 
-import com.stanzaliving.booking.enums.BookingType;
-import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
-import com.stanzaliving.booking.enums.PaymentTerm;
+import com.stanzaliving.wanda.enums.InstallmentTypeEnum;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,14 +28,12 @@ public class CommercialsResponseDto {
     private Integer advanceMonths;
     private Double advanceFee;
     private String maxDate;
-    private double upsell;
-    private MaintenanceFeeCollectionType maintenanceFeeCollectionType;
     private List<Map<String, String>> adjustedAdvanceRentalMonths;
-    private PaymentTerm instalmentType;
+    private InstallmentTypeEnum instalmentType;
     private String propertyType;
     private Double maintenanceFeeAdjustedInSD;
     private DateRange stayLockInRange;
-    private BookingType bookingType;
+    
     private String subContract1StartDate; //add 
     private String subContract1EndDate; //add
     private MonthlyFeeDto subContract2MonthlyFee; //add

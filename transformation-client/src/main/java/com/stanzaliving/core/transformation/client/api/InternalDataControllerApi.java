@@ -2,6 +2,7 @@
  *
  */
 package com.stanzaliving.core.transformation.client.api;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import com.stanzaliving.boq_service.dto.BulkActionsModalFilterOptionsDto;
 import com.stanzaliving.boq_service.dto.LabelValueDto;
@@ -35,9 +36,6 @@ import com.stanzaliving.transformations.pojo.ZoneMetadataDto;
 import com.stanzaliving.transformations.projections.StanzaGstView;
 import com.stanzaliving.transformations.ui.pojo.Country;
 import com.stanzaliving.ventaAudit.dto.GstInformationDto;
-import com.stanzaliving.ventaInvoice.dto.AddressDto;
-import com.stanzaliving.ventaInvoice.dto.BillFromDto;
-import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -47,7 +45,6 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
-import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;

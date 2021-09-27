@@ -87,4 +87,5 @@ public class BookingAggregationDto {
     private List<InventoryResponseOccupancyDto> inventoryOccupancy;
     private Double totalLedgerBalance;
     private String ledgerStatus;
+    private String ledgerStatusColorCode;
 }
