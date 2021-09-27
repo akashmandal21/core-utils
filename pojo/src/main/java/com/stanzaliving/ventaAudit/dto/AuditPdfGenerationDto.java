@@ -19,6 +19,6 @@ public class AuditPdfGenerationDto {
     private StayDetailsDto stayDetailsDto;
     private List<PdfDamageSectionDto> damageSectionDtoList;
     private Double AmountPayable;
-    private String bookingUuid;
+    private String auditUuid;
 
 }
