@@ -501,6 +501,31 @@ public class InternalDataControllerApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<CityUIDto> getCityDetailsByCityUuid(String cityId) {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("cityId", cityId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/city/get/id/{cityId}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<CityUIDto>> returnType = new ParameterizedTypeReference<ResponseDto<CityUIDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+
 	public ResponseDto<MicroMarketUIDto> getMicromarketDtoUsingId(Long mmId) {
 
 		Object postBody = null;
