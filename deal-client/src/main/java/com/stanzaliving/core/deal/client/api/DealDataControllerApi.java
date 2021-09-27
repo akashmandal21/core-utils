@@ -352,11 +352,6 @@ public class DealDataControllerApi {
                 new ParameterizedTypeReference<List<String>>() {
                 };
 
-        try {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-        } catch (Exception var13) {
-            log.error("Exception while fetching fetch Contract Pricing Details for Contract uuid {}", contractUuid);
-            return null;
-        }
     }
 }
