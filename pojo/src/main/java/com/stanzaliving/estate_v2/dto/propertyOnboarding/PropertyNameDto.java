@@ -15,5 +15,6 @@ public class PropertyNameDto {
     private BrandName brandName;
     private SubBrandName subBrandName;
     private GenderAllowed gender;
+    private String propertyAction;
     private boolean update;
 }
