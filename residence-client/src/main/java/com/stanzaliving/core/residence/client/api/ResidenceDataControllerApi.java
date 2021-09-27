@@ -1313,4 +1313,8 @@ public class ResidenceDataControllerApi {
         }
 
     }
+
+    public ResponseDto<PricingDetailsResponseDto> getPricingDetailsForMultipleRooms(List<String> roomUuidList, String serviceMixUuid, String moveInDate) {
+        return null;
+    }
 }
