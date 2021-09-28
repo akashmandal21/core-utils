@@ -1,5 +1,8 @@
 package com.stanzaliving.core.leaddashboard.constants;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class LeadQuestionIdentifier {
     public static final String QUALIFIED_QUALIFICATION = "qualification";
     public static final String QUALIFIED_DURATION_OF_STAY = "durationOfStay";
@@ -63,4 +66,7 @@ public class LeadQuestionIdentifier {
     public static final String POST_VISIT_3_FOLLOWUP_DATE = "postVisit3FollowUpDate";
     public static final String POST_VISIT_4_FOLLOWUP_DATE = "postVisit4FollowUpDate";
     public static final String POST_VISIT_5_FOLLOWUP_DATE = "postVisit5FollowUpDate";
+    
+    public static final List<String> PROPERTY_VISITING_LIST = Arrays.asList(PROPERTY_1_VISITING, PROPERTY_2_VISITING,
+			PROPERTY_3_VISITING, PROPERTY_4_VISITING, PROPERTY_5_VISITING);
 }
