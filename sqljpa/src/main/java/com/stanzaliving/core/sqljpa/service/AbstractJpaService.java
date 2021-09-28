@@ -64,7 +64,7 @@ public interface AbstractJpaService<T extends AbstractJpaEntity, I extends Seria
 
 	List<T> findByUuidIn(Collection<String> uuids);
 
-	List<T> findByUuidInAndStatus(Collection<String> uuids, boolean status);
+	List<T> findAllByUuidInAndStatus(Collection<String> uuids, boolean status);
 
 	void flush();
 

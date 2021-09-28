@@ -160,7 +160,7 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 
 
 	@Override
-	public List<T> findByUuidInAndStatus(Collection<String> uuids, boolean status) {
+	public List<T> findAllByUuidInAndStatus(Collection<String> uuids, boolean status) {
 		return getJpaRepository().findByUuidInAndStatus(uuids, status);
 	}
 
