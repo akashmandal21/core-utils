@@ -4,21 +4,21 @@
 package com.stanzaliving.core.backendlocator.client.api;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.backendlocator.client.dto.ResidenceGstDto;
 import com.stanzaliving.core.backendlocator.client.dto.ResidentDto;
+import com.stanzaliving.core.backendlocator.client.dto.RoomResponseDTO2;
 import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -314,4 +314,112 @@ public class VentaClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
+
+	public Map<String,Object> getInventoryBookingDetails(String id) {
+
+		try {
+			Object postBody = null;
+
+			log.info("get booking details for booking uuid {} ", id);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("id", id);
+
+			String path = UriComponentsBuilder.fromPath("/booking/{id}").buildAndExpand(uriVariables)
+					.toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {"*/*"};
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<Map<String,Object>> returnType = new ParameterizedTypeReference<Map<String,Object>>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("error while fetching the booking details " + e);
+		}
+
+		return null;
+
+	}
+
+	public Map<String, String> rejectStudentOnboardingDetails(Integer bookingId)  {
+
+		Object postBody = bookingId;
+
+		log.info("Reject student onBoarding details for booking ID: {}", bookingId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/onboarding/reject").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<Map<String,String>> returnType =
+				new ParameterizedTypeReference<Map<String,String>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public Map<String, String> clearKycRejectStatus(Integer bookingId)  {
+
+		Object postBody = bookingId;
+
+		log.info("Clear Reject status for booking ID: {}", bookingId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/onboarding/clear/kycReject/status")
+				.build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<Map<String,String>> returnType =
+				new ParameterizedTypeReference<Map<String,String>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+	
+	
+	public RoomResponseDTO2 getRoomDetails(String roomId) {
+		
+		final Map<String, Object> uriVariables = new HashMap<>();
+		
+		uriVariables.put("id", roomId);
+		
+		String path = UriComponentsBuilder.fromPath("/room/{id}")
+				.buildAndExpand(uriVariables).toUriString();
+	
+		final HttpHeaders headerParams = new HttpHeaders();
+		
+		ParameterizedTypeReference<RoomResponseDTO2> returnType = new ParameterizedTypeReference<RoomResponseDTO2>() {
+		};
+		
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, null, returnType);
+		} catch (Exception e) {
+			log.error("Error while getting room Details from roomId: {} exception is {}", roomId, e);
+		}
+		return null;
+	}
+
 }

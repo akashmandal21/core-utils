@@ -31,6 +31,8 @@ public class CategoryThaliGrammageRequestDto {
 	@NotBlank(message = "Thali selection is mandatory")
 	private String thaliMasterId;
 
+	private boolean status;
+
 	@Valid
 	@NotEmpty(message = "Meal wise grammage selection is mandatory")
 	private List<CategoryMealGrammageRequestDto> mealGrammages;
