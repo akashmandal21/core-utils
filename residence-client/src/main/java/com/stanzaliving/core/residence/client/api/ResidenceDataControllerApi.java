@@ -1344,4 +1344,36 @@ public class ResidenceDataControllerApi {
             return null;
         }
     }
+
+
+    public ResponseDto<RoomNumberListingAndCountDto> getAllRoomsCardDetails(AdvanceRoomSearchDto advanceRoomSearchDto) {
+
+        log.info("Residence-Data-Controller::Processing to get all rooms in residenceUuid {} and movein-in {} date");
+
+        Object postBody = advanceRoomSearchDto;
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/internal/room-list").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<RoomNumberListingAndCountDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<RoomNumberListingAndCountDto>>() {
+                };
+
+        try {
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception var11) {
+            log.error(var11);
+            log.error("Exception while Processing to get all rooms in residenceUuid and movein-in date");
+            return null;
+        }
+    }
 }
