@@ -3,11 +3,12 @@ package com.stanzaliving.foodservice.client.api;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.enums.DateFormat;
+import com.stanzaliving.core.base.exception.ApiValidationException;
+import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.food.dto.FoodItemDto;
-import com.stanzaliving.core.food.dto.IngredientUsageDto;
-import com.stanzaliving.core.food.dto.ItemCategoryDto;
-import com.stanzaliving.core.food.dto.ItemSubCategoryDto;
+import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.core.food.dto.*;
 import com.stanzaliving.core.food.dto.request.FullCategoryDto;
 import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
 import com.stanzaliving.core.food.dto.response.RecentMealDto;
@@ -30,6 +31,8 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -49,7 +52,58 @@ public class FoodServiceClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public FoodMenuCategoryBasicDetailsDto getMenuCategory(String id) {
+
+	public ResidenceDayLevelMealDto getMealTimings(String residenceUuid) {
+		String path =
+				UriComponentsBuilder.fromPath(
+								"/internal/residence/meal/plan/" + residenceUuid + "/next")
+						.build()
+						.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		List<String> eventDateTimes = new ArrayList<>();
+		eventDateTimes.add(
+				DateUtil.customDateFormatter(
+						LocalDateTime.of(LocalDate.now(), LocalTime.of(00, 00, 00)),
+						DateFormat.ELASTIC_SEARCH));
+		queryParams.put("eventDateTime", eventDateTimes);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<ResidenceDayLevelMealDto>> returnType =
+				new TypeReference<ResponseDto<ResidenceDayLevelMealDto>>() {};
+
+		ResponseDto<ResidenceDayLevelMealDto> responseDto = null;
+		try {
+			responseDto =
+					restClient.request(
+							path,
+							HttpMethod.GET,
+							queryParams,
+							residenceUuid,
+							headerParams,
+							accept,
+							returnType,
+							MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.info("Error while fetching meal timing");
+			throw new ApiValidationException(
+					"Some error occurred. Please try again after some time.");
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+		}
+
+		return responseDto.getData();
+	}
+
+	public FoodMenuCategoryBasicDetailsDto getMenuCategory(String id) {
 
         ResponseDto<FoodMenuCategoryBasicDetailsDto> responseDto = null;
         String path = UriComponentsBuilder.fromPath("/internal/menu/category/getById/{id}").buildAndExpand(id).toUriString();
@@ -150,7 +204,7 @@ public class FoodServiceClientApi {
         try {
             responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Error while fetching menu category details for id: {}", id);
+            log.error("Error while fetching menu category details for id: {}", id, e);
         }
 
         return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
