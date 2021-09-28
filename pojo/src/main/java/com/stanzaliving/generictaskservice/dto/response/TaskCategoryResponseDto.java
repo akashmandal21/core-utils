@@ -40,7 +40,6 @@ public class TaskCategoryResponseDto extends AbstractDto {
     private LocalTime startTime;
     private String autoCompletionEvent;
     private List<TagsGenericResponseDto> tags;
-
     @JsonIgnore
     private List<String> tagsUuids;
 
