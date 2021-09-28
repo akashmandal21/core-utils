@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SubTicketResponseDto {
-    private Long ticketId;
+    private String ticketId;
     private String taskTypeUuid;
     private String subTicketUuid;
     private Long subTicketId;
