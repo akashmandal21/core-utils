@@ -2,6 +2,7 @@ package com.stanzaliving.food.v2.menu.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.food.dto.FoodMenuBudgetDto;
+import com.stanzaliving.core.food.dto.response.SpecialEventDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.food.v2.category.dto.CompositionRuleV2Dto;
@@ -48,7 +49,7 @@ public class WeeklyMenuDto extends AbstractDto {
     private boolean newnessAdherence;
     private Double currentWeekBudget;
     private Double currentWeekCogs;
-    private int currentWeekBudgetDeviation;
+    private Double currentWeekBudgetDeviation;
     private Double mtdBudget;
     private Double mtdCogs;
     private int mtdBudgetDeviation;
@@ -74,5 +75,6 @@ public class WeeklyMenuDto extends AbstractDto {
     private CompositionRuleV2Dto rules;
     private FoodMenuBudgetDto budgetRules;
     private List<MenuCategoryResidenceRDto> residences;
+    private List<SpecialEventDto> events;
 
 }
