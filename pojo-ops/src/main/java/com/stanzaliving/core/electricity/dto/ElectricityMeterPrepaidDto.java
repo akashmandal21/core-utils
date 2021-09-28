@@ -53,6 +53,10 @@ public class ElectricityMeterPrepaidDto extends AbstractDto {
 	private ElectricityReadingDto lReading;
 
 	private ElectricityReadingDto oReading;
+	
+	private PrepaidMeterConsumptionSummaryDto dailyConsumptionSummaryDto;
+	
+	private PrepaidMeterRechargeSummaryDto rechargeSummaryDto;
 
 
 }
