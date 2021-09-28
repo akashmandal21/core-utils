@@ -6,7 +6,6 @@ import com.stanzaliving.taskservice.enums.TaskType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
 
@@ -46,9 +45,13 @@ public class GenericTaskResponseDto {
     private Department department;
     private List<String> commentsUUIdList ;
     private List<GenericTaskAttachmentDto> attachmentsList;
+
     private List<String> dependentTaskUUIdList;
+    private List<DependencyTaskResponseDto> dependentTasks;
+
     private List<TagsGenericResponseDto> tags;
     private List<GenericTaskDto> subTasks;
+
 
     private String entityUUId;
     private String taskOwnerUuid;
