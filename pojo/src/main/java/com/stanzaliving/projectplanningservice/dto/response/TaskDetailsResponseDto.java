@@ -17,5 +17,5 @@ public class TaskDetailsResponseDto {
 
     private List<GenericTaskResponseDto> tasks;
     private String totalProperty;
-    private List<PPStatusDto> taskStatus;
+    private List<PPStatusDto> statusDtoList;
 }
