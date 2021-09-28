@@ -24,13 +24,29 @@ import java.util.List;
 @NoArgsConstructor
 public class GroupedWeeklyMenuResponseDto extends AbstractDto {
 
+    private String fullName;
     List<WeeklyMenuDto> weeklyMenuResponseDtoList;
     private LocalDate startDate;
     private LocalDate endDate;
+    private Double cogs;
+    private Double budget;
+    private Double budgetDeviation;
+    private int fpsScore;
+    private String vendorId;
+    private String cityId;
+    private String cityName;
+    private String vendorName;
+    private Long mealsWithRatingLessThanFour;
+    private Long dayWithRatingLessThanFour;
+    private Long totalDays;
+    private Long totalMeals;
     private Integer monthForBudgetPlanner;
     private Integer yearForBudgetPlanner;
+    private String categoryUuid;
+    private String versionId;
     private boolean compositionRulesSatisfied;
     private boolean budgetUtilizationInLimit;
+    private boolean rulesViolated;
     private boolean mealOfDayDefined;
     private Double ratings;
     private boolean comboRulesSatisfied;
