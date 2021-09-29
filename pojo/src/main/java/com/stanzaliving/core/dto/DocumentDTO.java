@@ -63,4 +63,6 @@ public class DocumentDTO {
     private boolean isActive;
 
     private boolean allowRejection;
+
+    private LocalDate updatedAt;
 }
