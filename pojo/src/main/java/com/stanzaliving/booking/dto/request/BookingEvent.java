@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -46,4 +47,5 @@ public class BookingEvent implements Serializable {
     private boolean hasMovedIn;
     private List<InventoryResponseOccupancyDto> inventoryOccupancy;
     private Map<String,String> metaData;
+    private LocalDate moveOutDate;
 }
