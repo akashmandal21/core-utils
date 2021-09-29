@@ -28,4 +28,5 @@ public class InventoryPricingResponseDto {
 	
 	private double licenseFee;
 	private double cityBuffer;
+	private double conversionPrice;
 }
