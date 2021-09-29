@@ -40,6 +40,10 @@ public class HkPlaningTemplatesDto extends AbstractDto {
 	@NotEmpty(message = "Entities uuid is mandatory")
 	private List<String> applicableEntities = new ArrayList<>();
 
+	private String createByUserName;
+
+	private String updateByUserName;
+
 	private List<String> tags = new ArrayList<>();
 
 	private MicroClusterResponseDto microClusterDetails;
