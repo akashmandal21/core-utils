@@ -26,9 +26,8 @@ public enum UnitType {
 	LITERS("Ltrs"),
 	CUBIC_METER ("cu.mtr."),
 	PCS("pcs"),
-	NOTAPPLICABLE("Not Applicable"),
-	DOZEN("Dozen");
-	
+	NOTAPPLICABLE("Not Applicable");
+
 	private String unitName;
 
 	private static Map<String, UnitType> unitByNameMap = new HashMap<>();

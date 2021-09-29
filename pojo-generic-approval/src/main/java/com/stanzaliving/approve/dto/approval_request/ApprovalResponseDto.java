@@ -31,6 +31,4 @@ public class ApprovalResponseDto {
     private String comment;
 
     private HashMap<String, Object> metadata;
-
-    private String approvedBy;
 }

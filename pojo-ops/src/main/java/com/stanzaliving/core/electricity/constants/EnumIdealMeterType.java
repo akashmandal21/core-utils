@@ -10,8 +10,7 @@ import java.util.Map;
 @AllArgsConstructor
 public enum EnumIdealMeterType {
 
-    PREPAID(1, "PREPAID"),
-    POSTPAID(2, "POSTPAID");
+    PREPAID(1, "PREPAID");
 
     private Integer id;
     private String meterType;

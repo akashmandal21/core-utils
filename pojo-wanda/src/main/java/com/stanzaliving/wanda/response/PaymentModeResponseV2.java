@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.stanzaliving.core.payment.enums.PaymentMode;
-import com.stanzaliving.wanda.dtos.PaymentModeDtoV2;
+import com.stanzaliving.wanda.dtos.PaymentModeDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +19,7 @@ public class PaymentModeResponseV2 {
 
 	private Boolean isEndUserPayingFee;
 	
-	private List<PaymentModeDtoV2> salesPocPaymentMode;
+	private List<PaymentModeDto> salesPocPaymentMode;
 	@Builder.Default
 	private List<PaymentMode> convenienceFeePaymentModes=new ArrayList<>();
 	@Builder.Default
