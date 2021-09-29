@@ -1,16 +1,16 @@
 package com.stanzaliving.internet.response;
 
-import java.time.LocalDate;
-
 import com.stanzaliving.core.enums.DataUnit;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserCurrentPlanDetailDto {
 
 	private Double planData;
@@ -21,7 +21,7 @@ public class UserCurrentPlanDetailDto {
 
 	private DataUnit dataUnit;
 
-	private LocalDate planExpiryDate;
+	private String planExpiryDate;
 
 	private boolean boosterPackActive;
 
