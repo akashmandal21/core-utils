@@ -16,5 +16,4 @@ public enum EventStatus {
     COMPLETED("COMPLETED");
 
     private final String name;
-
 }
