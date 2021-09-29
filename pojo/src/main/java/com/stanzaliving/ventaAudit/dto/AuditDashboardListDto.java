@@ -28,5 +28,6 @@ public class AuditDashboardListDto {
     private Double damageTotalAmount;
     private AuditStatus auditStatus;
     private String bookingUuid;
+    private String roomUuid;
     private String uuid;
 }
