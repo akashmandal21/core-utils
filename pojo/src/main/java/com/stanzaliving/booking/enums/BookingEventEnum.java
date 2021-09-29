@@ -43,4 +43,5 @@ public enum BookingEventEnum {
     MARK_RENT_DEFAULTER,
     CANCEL_BOOKING,
     INITIATE_AUDIT
+    ;
 }
