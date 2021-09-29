@@ -1,16 +1,10 @@
 package com.stanzaliving.internet.response;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
-@ToString
-@SuperBuilder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class PurchaseResponseDto {

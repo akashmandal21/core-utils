@@ -4,34 +4,27 @@ import java.time.LocalDate;
 
 import com.stanzaliving.core.enums.DataUnit;
 
-
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
-@ToString
-@SuperBuilder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserCurrentPlanDetailDto {
 
-    private Double planData;
+	private Double planData;
 
-    private Double usedData;
+	private Double usedData;
 
-    private Double availableData;
+	private Double availableData;
 
-    private DataUnit dataUnit;
+	private DataUnit dataUnit;
 
-    private LocalDate planExpiryDate;
+	private LocalDate planExpiryDate;
 
-    private boolean boosterPackActive;
+	private boolean boosterPackActive;
 
-    private Double boosterPackData;
+	private Double boosterPackData;
 
 }

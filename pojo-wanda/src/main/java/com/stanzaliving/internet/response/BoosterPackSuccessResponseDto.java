@@ -5,27 +5,21 @@ import java.time.LocalDate;
 import com.stanzaliving.core.enums.DataUnit;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
-@ToString
-@SuperBuilder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class BoosterPackSuccessResponseDto {
 
-    private String planName;
+	private String planName;
 
-    private Double planData;
+	private Double planData;
 
-    private DataUnit dataUnit;
+	private DataUnit dataUnit;
 
-    private LocalDate rechargeDate;
+	private LocalDate rechargeDate;
 
-    private LocalDate planExpiry;
+	private LocalDate planExpiry;
 }
