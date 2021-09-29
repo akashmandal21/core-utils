@@ -8,9 +8,11 @@ import com.stanzaliving.booking.dto.request.VasPaymentPlanRequestDTO;
 import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.paymentPlan.dto.*;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -20,6 +22,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
@@ -450,18 +453,22 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<List<PaymentPlan>> updatePaymentPlanAfterMoveOutDate(String referenceId, Date moveOutDate, boolean savePaymentPlan) {
+    public ResponseDto<List<PaymentPlan>> updatePaymentPlanAfterMoveOutDate(String referenceId, LocalDate moveOutDate, boolean savePaymentPlan, String token) {
         try {
+            if (StringUtils.isBlank(token)) {
+                throw new IllegalArgumentException("Token missing for updating payment plan");
+            }
             Object postBody = null;
 
             log.info("Request received to update payment plan after move out date for referenceId:{} for move-out-date:{}", referenceId, moveOutDate);
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
+
             uriVariables.put("referenceId", referenceId);
 
 
-            String path = UriComponentsBuilder.fromPath("/api/v1/get/{referenceId}").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/api/v1/exit-flow/get/{referenceId}").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -469,6 +476,9 @@ public class PaymentPlanClientApi {
             queryParams.add("savePaymentPlan", String.valueOf(savePaymentPlan));
 
             HttpHeaders headerParams = new HttpHeaders();
+
+            String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+            headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
             final String[] accepts = {"*/*"};
 
@@ -485,8 +495,13 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<List<PaymentPlan>> fetchPaymentPlan(String referenceId) {
+    public ResponseDto<List<PaymentPlan>> fetchPaymentPlan(String referenceId, String token) {
         try {
+
+            if (StringUtils.isBlank(token)) {
+                throw new IllegalArgumentException("Token missing for fetching payment plan");
+            }
+
             Object postBody = null;
 
             log.info("Request received to fetch payment plan for referenceId:{} for move-out-date:{}", referenceId);
@@ -503,11 +518,46 @@ public class PaymentPlanClientApi {
 
             HttpHeaders headerParams = new HttpHeaders();
 
+            String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+            headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
             final String[] accepts = {"*/*"};
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
             ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the paymentPlan {}", e);
+            return null;
+        }
+
+    }
+
+    public ResponseDto<PaymentPlanAndLineItems> getPaymentPlanAndLineItems(String referenceId) {
+        try {
+            Object postBody = null;
+
+            log.info("Request received to fetch payment plan and line items for referenceId:{}", referenceId);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("referenceId", referenceId);
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/line-items/{referenceId}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<PaymentPlanAndLineItems>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPlanAndLineItems>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);

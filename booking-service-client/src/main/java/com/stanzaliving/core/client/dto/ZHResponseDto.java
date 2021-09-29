@@ -1,6 +1,5 @@
 package com.stanzaliving.core.client.dto;
 
-import com.stanzaliving.booking.enums.BookingStatus;
 import com.stanzaliving.core.enums.ApprovalStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
