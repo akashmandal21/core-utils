@@ -27,5 +27,6 @@ public class AuditDashboardListDto {
     private LocalDate auditScheduledOn;
     private Double damageTotalAmount;
     private AuditStatus auditStatus;
+    private String bookingUuid;
     private String uuid;
 }
