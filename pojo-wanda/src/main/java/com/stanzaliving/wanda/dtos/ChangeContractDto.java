@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Getter
 public class ChangeContractDto {
 
-	private int contractId;
+	private long contractId;
 	
 	private String contractMonths;
 	

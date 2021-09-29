@@ -1,5 +1,8 @@
 package com.stanzaliving.core.food.dto.request;
 
+import java.io.Serializable;
+import java.time.LocalTime;
+
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -8,9 +11,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.io.Serializable;
-import java.time.LocalTime;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -25,41 +25,43 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class FoodMenuCategoryMealDto implements Serializable {
 
-    private String menuCategoryId;
+	private String menuCategoryId;
 
-    private MealType mealType;
+	private MealType mealType;
 
-    private boolean status;
+	private boolean status;
 
-    private boolean mondayActive;
+	private boolean mondayActive;
 
-    private boolean tuesdayActive;
+	private boolean tuesdayActive;
 
-    private boolean wednesdayActive;
+	private boolean wednesdayActive;
 
-    private boolean thursdayActive;
+	private boolean thursdayActive;
 
-    private boolean fridayActive;
+	private boolean fridayActive;
 
-    private boolean saturdayActive;
+	private boolean saturdayActive;
 
-    private boolean sundayActive;
+	private boolean sundayActive;
 
-    private Double expectedVegCost;
+	private Double packagingCost;
 
-    private Double expectedNonVegCost;
+	private Double expectedVegCost;
 
-    private Double nonStanzaStaffCost;
+	private Double expectedNonVegCost;
 
-    private LocalTime mealStartTime;
+	private Double nonStanzaStaffCost;
 
-    private LocalTime mealEndTime;
+	private LocalTime mealStartTime;
 
-    private LocalTime pickupStartTime;
-    private LocalTime pickupEndTime;
+	private LocalTime mealEndTime;
 
-    private LocalTime deliveryStartTime;
-    private LocalTime deliveryEndTime;
-    private int activeDays;
+	private LocalTime pickupStartTime;
+	private LocalTime pickupEndTime;
+
+	private LocalTime deliveryStartTime;
+	private LocalTime deliveryEndTime;
+	private int activeDays;
 
 }

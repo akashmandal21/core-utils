@@ -116,11 +116,13 @@ public class LeadRequestDto {
 
 	@Default
 	private boolean ignoreScheduleVisit = false;
-	@Default
-	private String accommodationType="PG";
+	
+	private String accommodationType;
 
 	private boolean createHotLead;
 	
 	private String extendDurationMessage;
 
+	private Integer placeId;
+	private String placeName;
 }
