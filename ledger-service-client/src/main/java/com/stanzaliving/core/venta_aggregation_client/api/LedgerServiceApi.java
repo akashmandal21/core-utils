@@ -128,4 +128,23 @@ public class LedgerServiceApi {
         }
     }
 
+    public void processRefundStatusCheck() {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/api/v1/settle-ledger/processRefundStatusCheck")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+        };
+        try {
+            log.info("Executing Api for getting refund status {}", path);
+            restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while getting refund status {}, Exception is ", e);
+        }
+
+    }
 }
