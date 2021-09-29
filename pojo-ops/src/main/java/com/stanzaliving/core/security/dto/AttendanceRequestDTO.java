@@ -90,5 +90,5 @@ public class AttendanceRequestDTO {
 
     private LocalTime mealEndTime;
 
-    private ResidentDTO residentDTO;
+    private ResidentDTO resident;
 }
