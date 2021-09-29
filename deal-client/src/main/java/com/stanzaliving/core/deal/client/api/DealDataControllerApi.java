@@ -1,5 +1,6 @@
 package com.stanzaliving.core.deal.client.api;
 
+import com.stanzaliving.booking.dto.RoomAndBedsResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.deal.client.dto.*;
@@ -330,7 +331,7 @@ public class DealDataControllerApi {
         return  restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public List<String> getContractPricingDetailsRoomNumbers(String contractUuid) {
+    public List<RoomAndBedsResponseDto> getContractPricingDetailsRoomNumbers(String contractUuid) {
 
         log.info("Booking-Data-Controller::Processing to fetch Contract Pricing Details for Contract uuid {}", contractUuid);
 
@@ -348,8 +349,8 @@ public class DealDataControllerApi {
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<List<String>> returnType =
-                new ParameterizedTypeReference<List<String>>() {
+        ParameterizedTypeReference<List<RoomAndBedsResponseDto>> returnType =
+                new ParameterizedTypeReference<List<RoomAndBedsResponseDto>>() {
                 };
 
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
