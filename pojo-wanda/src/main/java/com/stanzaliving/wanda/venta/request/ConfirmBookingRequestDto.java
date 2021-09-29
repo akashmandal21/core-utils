@@ -1,5 +1,8 @@
 package com.stanzaliving.wanda.venta.request;
 
+import com.stanzaliving.core.payment.enums.PaymentMode;
+import com.stanzaliving.core.payment.enums.PaymentStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,5 +13,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ConfirmBookingRequestDto {
-	private int bookingId;
+	    
+	    private String bookingId;
+
+	    private String userUuid;
+	    
+	    private PaymentMode paymentMode;
+
+	    private double amount;
+
+	    private PaymentStatus paymentStatus;
+	    
 }
