@@ -1344,4 +1344,71 @@ public class ResidenceDataControllerApi {
             return null;
         }
     }
+
+
+    public ResponseDto<RoomNumberListingAndCountDto> getAllRoomsCardDetails(AdvanceRoomSearchDto advanceRoomSearchDto) {
+
+        log.info("Residence-Data-Controller::Processing to get all rooms in residenceUuid {} and movein-in {} date");
+
+        Object postBody = advanceRoomSearchDto;
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/internal/room-list").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<RoomNumberListingAndCountDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<RoomNumberListingAndCountDto>>() {
+                };
+
+        try {
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception var11) {
+            log.error(var11);
+            log.error("Exception while Processing to get all rooms in residenceUuid and movein-in date");
+            return null;
+        }
+    }
+
+    public ResponseDto<PricingDetailsResponseDto> getPricingDetailsForManagedApartment(String roomUuid, String serviceMixUuid, String moveInDate) {
+
+        log.info("Residence-Data-Controller::Processing to get pricing detail for managed-apartment based on movein-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("roomUUID", roomUuid);
+
+        uriVariables.put("serviceMixUUID", serviceMixUuid);
+
+        uriVariables.put("moveInDate", moveInDate);
+
+        String path = UriComponentsBuilder.fromPath("/internal/managed-apartment/room-pricing/{roomUUID}/{serviceMixUUID}/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<PricingDetailsResponseDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<PricingDetailsResponseDto>>() {
+                };
+
+        try {
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var12) {
+            log.error("Exception while get pricing detail for managed-apartment based on movein-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
+            return null;
+        }
+    }
+
 }
