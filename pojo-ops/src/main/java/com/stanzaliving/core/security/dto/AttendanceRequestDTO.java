@@ -89,4 +89,6 @@ public class AttendanceRequestDTO {
     private Date cancellationDateEpoch;
 
     private LocalTime mealEndTime;
+
+    private ResidentDTO residentDTO;
 }
