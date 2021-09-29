@@ -94,4 +94,6 @@ public class BookingAggregationDto {
     private BookingResidenceType bookingResidenceType;
     private Set<String> roomNumberList;
     private Map<String, Integer> roomBedCountMap;
+    private String ledgerStatusBackgroundColour;
+    private String bookingStatusBackgroundColour;
 }
