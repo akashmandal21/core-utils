@@ -27,7 +27,7 @@ import java.util.Map;
  **/
 @Log4j2
 public class GenericTaskControllerApi {
-    private StanzaRestClient restClient;
+    private final StanzaRestClient restClient;
 
     public GenericTaskControllerApi(StanzaRestClient restClient) {
         this.restClient = restClient;
@@ -174,7 +174,7 @@ public class GenericTaskControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/task").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/task/getAll").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.put("genericTaskUuidList",taskIds);
