@@ -73,5 +73,10 @@ public class MonthlyBudgetPlannerDto extends MenuCategoryDTO {
 	@Builder.Default
 	private boolean isDraftVersionAvailable = false;
 	private String draftVersionId;
+
+	//week wise sum
+	private List<WeeklyPlannerSumDto> weekWiseTotalBudget;
+	private Double latestMonthTotalBudget;
+
     
 }
