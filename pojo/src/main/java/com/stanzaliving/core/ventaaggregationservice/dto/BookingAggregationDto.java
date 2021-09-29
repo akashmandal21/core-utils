@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @Builder
@@ -92,4 +93,5 @@ public class BookingAggregationDto {
     private String ledgerStatusColorCode;
     private BookingResidenceType bookingResidenceType;
     private Set<String> roomNumberList;
+    private Map<String, Integer> roomBedCountMap;
 }

@@ -21,4 +21,6 @@ public class ManagedApartmentDetailDto {
     private float deadRooms = 0.0F;
     private float totalRooms = 0.0F;
     private float blockedRooms = 0.0F;
+    private String residenceCode;
+
 }
