@@ -43,4 +43,7 @@ public class RoomInventoryDetailDto {
     private String microMarketUuid;
 
     private int availableRoom;
+
+    private String residenceCode;
+
 }
