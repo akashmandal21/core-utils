@@ -5,9 +5,9 @@ import java.util.List;
 
 import com.stanzaliving.banner.enumeration.AppPage;
 import com.stanzaliving.community.enums.EventStatus;
+import com.stanzaliving.community.request.FeedPostMediaDto;
 import com.stanzaliving.community.request.UserListDTO;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.user.enums.EnumListing;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -48,4 +48,6 @@ public class FeedPostRequestDto extends AbstractDto {
 	private String csvUrl;
 	
 	private UserListDTO userList;
+	
+	private List<FeedPostMediaDto> mediaDtos;
 }
