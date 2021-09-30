@@ -544,4 +544,34 @@ public class BookingDataControllerApi {
         return null;
     }
 
+    public ResponseDto<Map<String, Object>> getContractPricingDetailsRoomNumbers(String contractUuid) {
+
+        log.info("Booking-Data-Controller::Processing to fetch Contract Pricing Details for Contract uuid {}", contractUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("contractUuid", contractUuid);
+
+        String path = UriComponentsBuilder.fromPath("/contract-pricing/{contractUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, Object>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Map<String, Object>>>() {
+                };
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception var13) {
+            log.error("Exception while fetching fetch Contract Pricing Details for Contract uuid {}", contractUuid);
+            return null;
+        }
+    }
+
 }
