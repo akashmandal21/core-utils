@@ -10,5 +10,8 @@ import lombok.*;
 public class ResidenceNameAndBhkTypeDto {
     private Integer residenceBhkType;
     private String residenceName;
+    private String residenceUuid;
+    private String microMarketId;
+
 
 }
