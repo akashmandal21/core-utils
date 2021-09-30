@@ -20,6 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 public class GenericTaskResponseDto {
 
+    private String uuid;
     private boolean taskTemplate;
     private String taskUuid;
     private Date startDate;
