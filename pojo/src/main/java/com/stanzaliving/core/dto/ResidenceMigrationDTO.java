@@ -10,15 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ResidenceMigrationDTO {
 
-    @JsonSetter(value = "MICROMARKET_ID")
-    private Integer microMarketId;
-
     @JsonSetter(value = "RESIDENCE_ID")
     private Integer residenceId;
 
     @JsonSetter(value = "NAME")
     private String residenceName;
-
-    @JsonSetter(value = "RESIDENCE_ADDRESS_ID")
-    private Integer currentAddressId;
 }

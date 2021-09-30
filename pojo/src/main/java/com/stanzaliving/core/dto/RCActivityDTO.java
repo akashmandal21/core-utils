@@ -17,17 +17,17 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RCActivityDTO {
-    DocumentTypeEnum documentType;
+   private DocumentTypeEnum documentType;
 
-    String BookingUuid;
+    private String bookingUuid;
 
-    Boolean isVerified;
+    private Boolean isVerified;
 
-    ApprovalStatus approvalStatus;
+    private ApprovalStatus approvalStatus;
 
-    String updatedBy;
+    private String updatedBy;
 
-    String updatedAt;
+    private String updatedAt;
 
-    String rejectionReason;
+    private String rejectionReason;
 }
