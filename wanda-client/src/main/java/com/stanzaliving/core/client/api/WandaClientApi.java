@@ -641,7 +641,6 @@ public class WandaClientApi {
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = { "*/*" };
-
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>> returnType = new ParameterizedTypeReference<ResponseDto<List<FoodRegionPreferenceResponse>>>() {
@@ -750,7 +749,7 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception e) {
-			
+
 			log.error(e);
 		}
 
