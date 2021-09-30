@@ -43,7 +43,7 @@ public class FeedPostRequestDto extends AbstractDto {
     @Builder.Default
 	protected boolean prompted = false;
 
-    private List<EnumListing<AppPage>> appPages;
+	private List<AppPage> appPages;
     
 	private String csvUrl;
 	
