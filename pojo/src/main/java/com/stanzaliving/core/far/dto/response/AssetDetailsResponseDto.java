@@ -74,5 +74,5 @@ public class AssetDetailsResponseDto {
     private BigDecimal acquisitionPrice;
     private String poPdf;
     private Map<String, String> invoices;
-    private boolean isEditable;
+    private Boolean isEditable;
 }
