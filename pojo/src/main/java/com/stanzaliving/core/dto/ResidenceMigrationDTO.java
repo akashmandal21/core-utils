@@ -20,5 +20,5 @@ public class ResidenceMigrationDTO {
     private String residenceName;
 
     @JsonSetter(value = "RESIDENCE_ADDRESS_ID")
-    private String currentAddressId;
+    private Integer currentAddressId;
 }
