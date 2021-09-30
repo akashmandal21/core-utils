@@ -123,27 +123,4 @@ public class InvoiceServiceApi {
         }
     }
 
-    public ResponseDto<InvoiceMaxApprovalLevelDto> getMaxApprovalLevelForDepartment(Department department) {
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("department", department);
-
-        String path = UriComponentsBuilder.fromPath("/internal/get/max-approval-level-for-department/{department}").buildAndExpand(uriVariables).toUriString();
-
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        HttpHeaders headerParams = new HttpHeaders();
-        String[] accepts = new String[]{"*/*"};
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<InvoiceMaxApprovalLevelDto>> returnType = new ParameterizedTypeReference<ResponseDto<InvoiceMaxApprovalLevelDto>>() {
-        };
-        try {
-            log.info("Executing Api for getting invoice Info with Url {}", path);
-            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Exception while fetching invoice information based on referenceId {}, Exception is {}", department, e);
-        }
-        return null;
-    }
-
 }
