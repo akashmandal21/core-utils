@@ -111,7 +111,8 @@ public enum LeadSourceEnum {
 	ZOHO("zoho"),
 	SIGMA_APP ("Sigma App"),
 	VANTAGE_CIRCLE("Vantage Circle"),
-	COLLEGE_DUNIA("Collegedunia");
+	COLLEGE_DUNIA("Collegedunia"),
+	MICROSITE("microsite");
 	
 	
 	private String leadSourceName;
