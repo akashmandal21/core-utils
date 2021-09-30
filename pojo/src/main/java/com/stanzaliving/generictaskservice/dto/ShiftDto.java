@@ -4,10 +4,9 @@ import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -35,9 +34,7 @@ public class ShiftDto {
     private String shiftCategory;
 
     @NotNull(message = "Duration is mandatory")
-    @Min(value = 1, message = "Shift hour cannot be less than 1 hours")
-    @Max(value = 24, message = "Shift hour cannot be more than 24 hours")
-    private Double durationInHours;
+    private LocalTime durationInHours;
 
     private List<String> tagsUuidList;
 

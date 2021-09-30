@@ -7,6 +7,7 @@ import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
 import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
+import com.stanzaliving.housekeepingservice.dto.request.ShiftAllocationRequestDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -26,19 +27,19 @@ import java.util.Map;
  **/
 @Log4j2
 public class GenericTaskControllerApi {
-    private StanzaRestClient restClient;
+    private final StanzaRestClient restClient;
 
     public GenericTaskControllerApi(StanzaRestClient restClient) {
         this.restClient = restClient;
     }
 
-    public ResponseDto<List<ShiftAllocationDto>> createShiftAllocationDto(List<ShiftAllocationDto> shiftAllocationDtoList) {
+    public ResponseDto<List<ShiftAllocationDto>> createShiftAllocationDto(List<ShiftAllocationRequestDto> shiftAllocationDtoList) {
         Object postBody = shiftAllocationDtoList;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/shift/allocation/saveAll").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/shift/allocation/saveAll").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -59,7 +60,7 @@ public class GenericTaskControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/shift/allocation").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/shift/allocation").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.put("shiftAllocationUuidList",shiftAllocationUuid);
@@ -81,7 +82,7 @@ public class GenericTaskControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/shift/allocation/"+dayofWeek).buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/shift/allocation/"+dayofWeek).buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.put("shiftAllocationUuidList",shiftAllocationUuid);
@@ -104,7 +105,7 @@ public class GenericTaskControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("microClusterUuid", microClusterUuid);
-        String path = UriComponentsBuilder.fromPath("/microcluster/get/{microClusterUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/microcluster/get/{microClusterUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -129,7 +130,7 @@ public class GenericTaskControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/template/getTaskUuidByTaskTemplate").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/template/getTaskUuidByTaskTemplate").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -152,7 +153,7 @@ public class GenericTaskControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/task/addAll").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/task/addAll").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -173,7 +174,7 @@ public class GenericTaskControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/task").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/task/getAll").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.put("genericTaskUuidList",taskIds);
