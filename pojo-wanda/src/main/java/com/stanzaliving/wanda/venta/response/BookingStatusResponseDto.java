@@ -52,4 +52,6 @@ public class BookingStatusResponseDto {
     private Date expectedMoveInDate;
     private RetentionBookingResponseDto retentionBooking;
     private String contractStartDate;
+    private boolean interestMenuVisiblity;
+    private boolean interestBanner;
 }
