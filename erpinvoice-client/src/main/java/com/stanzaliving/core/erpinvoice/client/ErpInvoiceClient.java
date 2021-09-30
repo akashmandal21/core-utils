@@ -1,10 +1,13 @@
 package com.stanzaliving.core.erpinvoice.client;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.invoice.dto.ErpInvoiceUpdateDto;
 import com.stanzaliving.grn.GrnQuantity;
+import com.stanzaliving.invoice.dto.InvoiceMaxApprovalLevelDto;
 import com.stanzaliving.po.enums.PoType;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -17,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Log4j2
 public class ErpInvoiceClient {
 
     private StanzaRestClient restClient;
@@ -28,7 +32,7 @@ public class ErpInvoiceClient {
     public ResponseDto<ErpInvoiceUpdateDto> getInvoiceStatus(String poUuid) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("poUuid",poUuid);
+        uriVariables.put("poUuid", poUuid);
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
@@ -39,7 +43,8 @@ public class ErpInvoiceClient {
 
         String path = UriComponentsBuilder.fromPath("/internal/get/invoicesStatus/{poUuid}").buildAndExpand(uriVariables).toUriString();
 
-        ParameterizedTypeReference<ResponseDto<ErpInvoiceUpdateDto>> returnType = new ParameterizedTypeReference<ResponseDto<ErpInvoiceUpdateDto>>() {};
+        ParameterizedTypeReference<ResponseDto<ErpInvoiceUpdateDto>> returnType = new ParameterizedTypeReference<ResponseDto<ErpInvoiceUpdateDto>>() {
+        };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
@@ -67,8 +72,8 @@ public class ErpInvoiceClient {
     public ResponseDto<Map<String, Integer>> getMaxRejectionCountForInstallableItems(String po_to_uuid) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("po_uuid",po_to_uuid);
-        uriVariables.put("property","maxRejection");
+        uriVariables.put("po_uuid", po_to_uuid);
+        uriVariables.put("property", "maxRejection");
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
@@ -79,7 +84,8 @@ public class ErpInvoiceClient {
 
         String path = UriComponentsBuilder.fromPath("/internal/po/{po_uuid}/invoice/items/{property}/get").buildAndExpand(uriVariables).toUriString();
 
-        ParameterizedTypeReference<ResponseDto<Map<String, Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Integer>>>() {};
+        ParameterizedTypeReference<ResponseDto<Map<String, Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Integer>>>() {
+        };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
@@ -105,5 +111,7 @@ public class ErpInvoiceClient {
             log.error("Exception while fetching invoice information based on referenceId {}, Exception is {}", department, e);
         }
         return null;
+    }
+
 }
 
