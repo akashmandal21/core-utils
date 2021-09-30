@@ -18,6 +18,7 @@ import lombok.experimental.SuperBuilder;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -69,6 +70,8 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private Integer averageMIR;
     private Double mealPrice;
     private String mealWiseName;
+    private Map<String, String> tags;
+    private Integer noOfWeeks;
 
 
 
