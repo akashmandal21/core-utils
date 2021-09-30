@@ -4,6 +4,7 @@ import com.stanzaliving.booking.dto.BookingTag;
 import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
 import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
 import com.stanzaliving.booking.enums.BookingResidenceType;
+import com.stanzaliving.booking.enums.PaymentTerm;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -74,7 +75,7 @@ public class BookingAggregationDto {
     private List<EligibleStatusMappingDto> eligibleStatusMapping;
     private String cityUuid;
     private String microMarketUuid;
-    private String paymentTerm;
+    private PaymentTerm paymentTerm;
     private boolean isRetentionBooking=false;
     private boolean noLockInSuitsBooking= false;
     private Date moveInDate;
