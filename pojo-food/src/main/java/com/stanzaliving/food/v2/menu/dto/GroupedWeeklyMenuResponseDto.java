@@ -6,6 +6,8 @@ import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
+import com.stanzaliving.food.v2.category.dto.MenuCategoryResidenceRDto;
+import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.menu.constants.MenuStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,6 +34,7 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private Double budget;
     private Double budgetDeviation;
     private int fpsScore;
+    private boolean fpsScorePassed;
     private String vendorId;
     private String cityId;
     private String cityName;
@@ -42,6 +45,7 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private Long totalMeals;
     private Integer monthForBudgetPlanner;
     private Integer yearForBudgetPlanner;
+    private String categoryId;
     private String categoryUuid;
     private String versionId;
     private boolean compositionRulesSatisfied;
@@ -60,6 +64,12 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private MenuStatus menuStatus;
     private MenuType menuType;
     private FoodServeType foodServeType;
+    private List<MenuCategoryResidenceRDto> residences;
+    private List<MicromarketRDto> micromarkets;
+    private Integer averageMIR;
+    private Double mealPrice;
+    private String mealWiseName;
+
 
 
 }
