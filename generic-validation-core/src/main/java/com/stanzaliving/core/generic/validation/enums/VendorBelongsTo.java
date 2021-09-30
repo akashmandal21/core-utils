@@ -10,7 +10,7 @@ import java.util.Map;
 @Getter
 public enum VendorBelongsTo {
 
-    STANZA("stanza"),
+    STANZA("Stanza"),
     AWL("AWL");
 
     private String VendorBelongsToText;
@@ -19,7 +19,7 @@ public enum VendorBelongsTo {
 
     static{
 
-        VendorBelongsToMap.put("stanza", STANZA);
+        VendorBelongsToMap.put("Stanza", STANZA);
         VendorBelongsToMap.put("AWL", AWL);
     }
 
