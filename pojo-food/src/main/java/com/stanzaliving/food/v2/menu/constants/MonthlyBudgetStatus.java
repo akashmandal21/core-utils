@@ -13,7 +13,7 @@ public enum MonthlyBudgetStatus {
 
     DRAFT("In Draft"),
     SUBMITTED("Submitted"),
-    PENDING("Pending"),
+    NOT_PLANNED("Not Planned"),
     UNDER_APPROVAL("Under Approval"),
     APPROVED("Approved");
     private final String budgetStatusName;

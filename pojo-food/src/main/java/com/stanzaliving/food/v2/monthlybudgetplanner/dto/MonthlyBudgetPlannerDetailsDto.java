@@ -9,6 +9,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -23,4 +24,6 @@ public class MonthlyBudgetPlannerDetailsDto implements Serializable {
 	private String budgetPlannerVersionUuid;
 	private MonthlyBudgetStatus monthlyBudgetStatus;
 	private LocalDate startDate;
+	private String updatedBy;
+	private Date updatedAt;
 }
