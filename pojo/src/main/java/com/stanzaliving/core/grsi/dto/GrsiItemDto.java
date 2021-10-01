@@ -19,6 +19,7 @@ public class GrsiItemDto {
     private String itemCode;
     private Department itemDept;
     private String batchId;
+    private String awlBatchId;
     private LocalDate expiryDate;
     private BigDecimal effectivePrice;//Unit Rate
     private BigDecimal quantity;

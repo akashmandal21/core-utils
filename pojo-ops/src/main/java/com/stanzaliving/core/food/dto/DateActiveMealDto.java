@@ -26,6 +26,8 @@ public class DateActiveMealDto {
 	@Builder.Default
 	private FoodServeType serveType = FoodServeType.PACKAGED;
 
+	private String serveTypeName;
+	
 	private List<ActiveMealDto> activeMealDtos;
 
 }
