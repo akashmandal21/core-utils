@@ -17,4 +17,5 @@ public class LocationDetailsDto {
     private AddressBookMetaDto addressBookMetaDto;
     private StanzaGstView stanzaGstView;
     private List<VendorAndPocDetails> vendorAndPocDetailsList;
+    private String actionType;
 }
