@@ -19,6 +19,10 @@ public class BudgetDemographicsResponseDto {
 
 	private String eventDescription;
 
+	private String eventUUid;
+
+	private String specialEventType;
+
 	private List<BudgetDemographicsData> demographicsDataList;
 
 	private List<String> demographicsNameList;
