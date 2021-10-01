@@ -38,8 +38,10 @@ public enum ResidenceAttributes {
 	FUTURE_BOOKING_ALLOWED_DAYS("Future Booking Allowed Duration","Integer"),
     NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time","String"),
 
-    CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean");
+    CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean"),
 
+    BOOKING_EXIT_DELTA_DAYS("Booking Exit Delta Days", "Integer"),
+    BOOKING_EXIT_NOTICE_PERIOD("Notice Period Days", "Integer");
     private String label;
     private String type;
 
