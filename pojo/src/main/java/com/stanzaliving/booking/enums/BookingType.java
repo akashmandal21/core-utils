@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 @Getter
 @AllArgsConstructor
@@ -49,5 +51,13 @@ public enum BookingType {
                 return null;
         }
     }
+
+    public static Set<String> getExitInitiateBookingTypes(){
+        Set<String> types = new HashSet<>();
+        types.add(BookingType.SCHOLAR.name());
+        types.add(BookingType.PROFESSIONAL.name());
+        return types;
+    }
+
 }
 
