@@ -22,6 +22,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class AttendanceRequestDTO {
 
+    private String uuid;
+
     @NotNull
     @NotEmpty(message = "Resident UUID cannot be empty")
     private String residentUuid;
