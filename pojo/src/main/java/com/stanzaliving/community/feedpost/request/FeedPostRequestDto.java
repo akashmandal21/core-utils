@@ -46,8 +46,6 @@ public class FeedPostRequestDto extends AbstractDto {
 
 	private List<AppPage> appPages;
     
-	private String csvUrl;
-	
 	private UserListDTO userList;
 	
 	private List<FeedPostMediaDto> mediaDtos;
