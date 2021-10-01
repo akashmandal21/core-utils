@@ -26,6 +26,6 @@ public class AddUserDeptLevelByEmailRequestDto {
     @NotNull
     private AccessLevel accessLevel;
 
-    @NotEmpty
+//    @NotEmpty
     private List<String> accessLevelEntityListUuid;
 }
