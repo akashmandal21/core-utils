@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class SectionFilterRequestDto{
+public class SectionFilterRequestDto {
 
     @NotBlank(message = "Template ID is required")
     private String templateUuid;
@@ -38,4 +38,15 @@ public class SectionFilterRequestDto{
     private List<String> activityList;
 
     private List<String> predecessorTasks;
+
+    private String taskName;
+
+    // Not required Please check
+    private List<String> taskUuids;
+
+    private boolean taskTemplate;
+
+    private String orderBy;
+
+    private String orderByColumnName;
 }

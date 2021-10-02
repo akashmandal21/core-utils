@@ -43,5 +43,5 @@ public class PlanningTemplateDto extends AbstractDto {
 
     protected Date updatedAt;
 
-    private List<SectionDetailsDto> sectionDetails;
+    private List<SectionDetailsDto> sections;
 }
