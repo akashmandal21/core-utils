@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum HKPlanningTemplateStatus {
-	COPY_FROM("Copy from"),SAVE_AS_DRAFT("Save as draft"),PUBLISH("Publish");
+	ACTIVE("Active"),SAVE_AS_DRAFT("Save as draft"),DISABLED("Disabled");
 
 	private String hkPlanningTemplateStatus;
 
