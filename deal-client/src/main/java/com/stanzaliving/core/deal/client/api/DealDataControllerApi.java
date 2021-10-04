@@ -1,5 +1,6 @@
 package com.stanzaliving.core.deal.client.api;
 
+import com.stanzaliving.booking.dto.RoomAndBedsResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.deal.client.dto.*;
@@ -302,7 +303,7 @@ public class DealDataControllerApi {
         ParameterizedTypeReference<ResponseDto<EnumListing<Nationality>>> returnType = new ParameterizedTypeReference<ResponseDto<EnumListing<Nationality>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-}
+    }
 
     public ResponseDto<List<B2bRoomOccupancyDto>> getRoomsForResidenceAndContractFromBookingService(DealRoomsRequestDto dealRoomsRequestDto) {
 
@@ -327,10 +328,36 @@ public class DealDataControllerApi {
         ParameterizedTypeReference<ResponseDto<List<B2bRoomOccupancyDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<B2bRoomOccupancyDto>>>() {
         };
 
-        return  restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public List<String> getContractPricingDetailsRoomNumbers(String contractUuid) {
+    public List<RoomOccupancyDto> getRoomsForDeal(DealRoomsRequestDto dealRoomsRequestDto) {
+
+        log.info("fetching rooms for ContactUuid : " + dealRoomsRequestDto.getDealUuid());
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("dealUuid", dealRoomsRequestDto.getDealUuid());
+        uriVariables.put("residenceUuid", dealRoomsRequestDto.getResidenceUuid());
+
+        String path = UriComponentsBuilder.fromPath("/getRooms/{dealUuid}/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<RoomOccupancyDto>> returnType = new ParameterizedTypeReference<List<RoomOccupancyDto>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public List<RoomAndBedsResponseDto> getContractPricingDetailsRoomNumbers(String contractUuid) {
 
         log.info("Booking-Data-Controller::Processing to fetch Contract Pricing Details for Contract uuid {}", contractUuid);
 
@@ -348,15 +375,10 @@ public class DealDataControllerApi {
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<List<String>> returnType =
-                new ParameterizedTypeReference<List<String>>() {
+        ParameterizedTypeReference<List<RoomAndBedsResponseDto>> returnType =
+                new ParameterizedTypeReference<List<RoomAndBedsResponseDto>>() {
                 };
 
-        try {
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-        } catch (Exception var13) {
-            log.error("Exception while fetching fetch Contract Pricing Details for Contract uuid {}", contractUuid);
-            return null;
-        }
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 }
