@@ -30,6 +30,8 @@ public class SlotDetailsResponse extends AbstractDto {
 
     private List<TaskCategoryDto> allowedTasksList;
 
+    private String shiftAllocationUuid;
+
     private String module;
 
     private String slotName;
