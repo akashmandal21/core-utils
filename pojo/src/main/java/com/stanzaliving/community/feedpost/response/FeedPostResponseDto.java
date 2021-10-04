@@ -9,6 +9,7 @@ import com.stanzaliving.community.request.FeedPostMediaDto;
 import com.stanzaliving.community.request.FeedPostTagsDto;
 import com.stanzaliving.community.request.UserListDTO;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.user.enums.EnumListing;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,8 +25,7 @@ public class FeedPostResponseDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
 
-	@Default
-	private EventStatus postStatus = EventStatus.IN_DRAFT;
+	private EnumListing<EventStatus> postStatus;
 	
     private String title;
 
@@ -41,10 +41,9 @@ public class FeedPostResponseDto extends AbstractDto {
 
     private Integer priority;
     
-    @Builder.Default
-	protected boolean prompted = false;
+	protected boolean prompted;
 
-	private List<AppPage> appPages;
+	private List<EnumListing<AppPage>> appPages;
     
 	private UserListDTO userList;
 	

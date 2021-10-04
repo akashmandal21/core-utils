@@ -7,13 +7,14 @@ import lombok.Getter;
 @Getter
 public enum EventStatus {
 
-    IN_DRAFT("IN_DRAFT"),
-    PENDING_APPROVAL("PENDING_APPROVAL"),
-    APPROVED("APPROVED"),
-    REJECTED("REJECTED"),
-    INACTIVE("INACTIVE"),
-    LIVE("LIVE"),
-    COMPLETED("COMPLETED");
+    IN_DRAFT("IN_DRAFT", "Draft"),
+    PENDING_APPROVAL("PENDING_APPROVAL", "Pending Approval"),
+    APPROVED("APPROVED", "Approved"),
+    REJECTED("REJECTED", "Rejected"),
+    INACTIVE("INACTIVE", "Inactive"),
+    LIVE("LIVE", "Live"),
+    COMPLETED("COMPLETED", "Completed");
 
-    private final String name;
+	private final String name;
+	private final String displayName;
 }
