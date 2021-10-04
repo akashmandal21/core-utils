@@ -18,6 +18,7 @@ public class AuditLogDto {
     private LocalDate date;
     private AuditAction auditAction;
     private String actionBy;
+    private String auditRejectionReason;
     private DamageAssessed damageAssessed;
     private Double damageAmount;
 }
