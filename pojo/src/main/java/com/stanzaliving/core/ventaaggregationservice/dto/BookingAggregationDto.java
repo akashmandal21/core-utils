@@ -100,5 +100,6 @@ public class BookingAggregationDto {
     private String bhkType;
     private boolean allRoomsSelected;
     private List<String> inventoryUuidList;
+    private List<InventoryResponseOccupancyDto> inventoryOccupancyResponse;
 
 }
