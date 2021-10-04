@@ -17,7 +17,8 @@ public enum SlotSortSpecs {
     MOVEABLESLOT("movableSlot"),
     ALLOWEDTASK("allowedTask"),
     STATUS("status"),
-    CREATEDBY("createdBy");
+    CREATEDBY("createdBy"),
+    UPDATEDAT("updatedAt");
 
     private String dbKey;
 }

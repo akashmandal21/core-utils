@@ -15,7 +15,8 @@ public enum ShiftSortSpecs {
     SHIFTNAME("shiftName"),
     SHIFTCATEGORY("shiftCategory"),
     DURATIONINHOURS("durationInHours"),
-    TAGS("tags");
+    TAGS("tags"),
+    UPDATEDAT("updatedAt");
 
     private String dbKey;
 
