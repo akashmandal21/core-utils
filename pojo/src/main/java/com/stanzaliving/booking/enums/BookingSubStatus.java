@@ -78,5 +78,12 @@ public enum BookingSubStatus {
         return bookingStatus;
     }
 
+    public static Set<String> AuditBookingSubStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(AUDIT_PENDING.getBookingSubStatus());
+        bookingStatus.add(AUDIT_APPROVAL_PENDING.getBookingSubStatus());
+        return bookingStatus;
+    }
+
 
 }
