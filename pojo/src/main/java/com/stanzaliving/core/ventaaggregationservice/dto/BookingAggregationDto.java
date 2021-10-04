@@ -98,4 +98,5 @@ public class BookingAggregationDto {
     private String ledgerStatusBackgroundColour;
     private String bookingStatusBackgroundColour;
     private String bhkType;
+    private boolean allRoomsSelected;
 }
