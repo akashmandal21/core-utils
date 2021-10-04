@@ -2,6 +2,10 @@ package com.stanzaliving.documentgenerator.client.api;
 
 import java.util.List;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.stanzaliving.core.base.exception.ApiValidationException;
+import com.stanzaliving.core.base.exception.PreconditionFailedException;
+import com.stanzaliving.documentgenerator.dto.PdfRequestDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -59,6 +63,35 @@ public class InternalDocumentGeneratorClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfStampingDto, headerParams, accept,
 				returnType);
+	}
+
+	public PdfRequestDto generatePDF(PdfRequestDto pdfRequestDto) {
+		String path = UriComponentsBuilder.fromPath("/internal/generate/pdf").build().toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<PdfRequestDto>> returnType = new TypeReference<ResponseDto<PdfRequestDto>>() {
+		};
+
+		ResponseDto<PdfRequestDto> responseDto = null;
+		log.info("pdfRequestDto  before try"+pdfRequestDto);
+		try {
+			log.info("pdfRequestDto "+pdfRequestDto);
+			responseDto = restClient.request(path, HttpMethod.POST, null, pdfRequestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while generating Pdf ", e);
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+		}
+
+		if (!responseDto.isStatus()) {
+			throw new PreconditionFailedException(responseDto.getMessage());
+		}
+
+		return responseDto.getData();
 	}
 
 }
