@@ -56,7 +56,7 @@ public class GenericTaskControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<List<ShitAllocationDetailsResponse>> getShiftAllocationDto(List<String> shiftAllocationUuid) {
+    public ResponseDto<List<ShitAllocationDetailsResponse>> getShiftAllocationDto(List<String> shiftAllocationUuids) {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -64,7 +64,7 @@ public class GenericTaskControllerApi {
         String path = UriComponentsBuilder.fromPath("/shift/allocation").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.put("shiftAllocationUuidList", shiftAllocationUuid);
+        queryParams.put("shiftAllocationUuidList", shiftAllocationUuids);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
