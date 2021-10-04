@@ -24,7 +24,8 @@ public class RoomConsumablesDto {
 
     @NotBlank(message = "residenceUuid field cannot be empty")
     private String residenceUuid;
-
+    
+    @NotBlank(message = "consumablesPrices list field cannot be empty")
     private List<ConsumablesPricesDto> consumablesPrices;
 
 }

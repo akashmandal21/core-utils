@@ -19,6 +19,7 @@ import lombok.Data;
 @AllArgsConstructor
 @ToString
 public class ConsumablesPricesDto {
+
     @NotBlank(message = "name field cannot be empty")
     private String name;
 	
