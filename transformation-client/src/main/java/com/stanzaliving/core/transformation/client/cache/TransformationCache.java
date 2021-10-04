@@ -311,8 +311,16 @@ public class TransformationCache {
 		return internalDataControllerApi.getResidenceData(residenceUuid).getData();
 	}
 
+	public ResidenceDto getResidenceDataFromPhoenixUuid(String residenceUuid) {
+		return internalDataControllerApi.getResidenceForPhoenixProperty(residenceUuid).getData();
+	}
+
 	public MicroMarketMetadataDto getMicromarketDataFromUuid(String micromarketUuid) {
 		return internalDataControllerApi.getMicromarketData(micromarketUuid).getData();
+	}
+
+	public CityUIDto getCityDataFromId(Long cityId) {
+		return internalDataControllerApi.getCityDtoUsingId(cityId).getData();
 	}
 
 	private LoadingCache<String, Map<String,String>> allStatesUuidCache = CacheBuilder.newBuilder()
