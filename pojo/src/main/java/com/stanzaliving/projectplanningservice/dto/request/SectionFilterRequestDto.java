@@ -41,7 +41,6 @@ public class SectionFilterRequestDto {
 
     private String taskName;
 
-    // Not required Please check
     private List<String> taskUuids;
 
     private boolean taskTemplate;
