@@ -99,4 +99,6 @@ public class BookingAggregationDto {
     private String bookingStatusBackgroundColour;
     private String bhkType;
     private boolean allRoomsSelected;
+    private List<String> inventoryUuidList;
+
 }
