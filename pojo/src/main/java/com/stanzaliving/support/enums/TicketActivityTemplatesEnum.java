@@ -9,6 +9,7 @@ public enum TicketActivityTemplatesEnum {
 
     CREATE_TICKET,
     UPDATED_STATUS_TO,
+    UPDATED_TICKET_CHECKLIST,
     MERGED_TICKET_TO,
     SET_CATEGORY_AS,
     SET_HOUSE_AS,
