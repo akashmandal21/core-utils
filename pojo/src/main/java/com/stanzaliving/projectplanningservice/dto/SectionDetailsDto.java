@@ -30,8 +30,6 @@ public class SectionDetailsDto extends AbstractDto {
 
     private Duration durationUnit;
 
-    //    @Valid
-    //    private ModuleDto module;
     private String moduleUuid;
 
     private String moduleName;
@@ -40,8 +38,6 @@ public class SectionDetailsDto extends AbstractDto {
 
     private PlanningStatus sectionStatus;
 
-    //    @Valid
-    //    private ActivitiesDto activity;
     private String activityUuid;
 
     private String activityName;
@@ -54,13 +50,12 @@ public class SectionDetailsDto extends AbstractDto {
 
     private String propertyUuid;
 
-    // =======================================
     private String taskServiceUuid;
 
     private String parentTemplateUuid;
 
     private List<String> taskChildUuids;
-    // =======================================
+
     private boolean taskTemplate;
 
     private Date startDate;
@@ -97,7 +92,5 @@ public class SectionDetailsDto extends AbstractDto {
 
     private Department department;
 
-    // =======================================
     private List<SectionDetailsDto> tasks;
-
 }
