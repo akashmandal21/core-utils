@@ -54,4 +54,5 @@ public class BookingStatusResponseDto {
     private String contractStartDate;
     private boolean interestMenuVisiblity;
     private boolean interestBanner;
+    private String propertyCategory;
 }
