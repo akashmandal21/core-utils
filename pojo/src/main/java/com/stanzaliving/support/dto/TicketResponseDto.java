@@ -66,4 +66,6 @@ public class TicketResponseDto {
     private String currentResolutionLevelUuid;
 
     private String ticketId;
+
+    private Integer version;
 }
