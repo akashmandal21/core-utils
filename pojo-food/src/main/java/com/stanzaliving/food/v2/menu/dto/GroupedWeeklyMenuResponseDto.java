@@ -9,6 +9,7 @@ import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.category.dto.MenuCategoryResidenceRDto;
 import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.menu.constants.MenuStatus;
+import com.stanzaliving.food.v2.monthlybudgetplanner.dto.SpecialDayMealDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -72,7 +73,6 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private String mealWiseName;
     private Map<String, String> tags;
     private Integer noOfWeeks;
-
-
+    private List<SpecialDayMealDto> specialDayMealDtoList;
 
 }
