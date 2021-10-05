@@ -7,16 +7,15 @@ import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.venta.OccupiedRoomDto;
 import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
 import com.stanzaliving.wanda.dtos.FullUserDto;
+import com.stanzaliving.wanda.dtos.LocationDetailsListDto;
+import com.stanzaliving.wanda.dtos.ResidentProfessionalDetailsDto;
 import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
 import com.stanzaliving.wanda.dtos.UserDetailDto;
 import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
 import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
-import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDto;
-import com.stanzaliving.wanda.response.WandaFileResponseDto;
+import com.stanzaliving.wanda.response.*;
 import com.stanzaliving.wanda.dtos.*;
-import com.stanzaliving.wanda.response.OnBoardingGetResponse;
-import com.stanzaliving.wanda.response.WandaResponse;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -599,7 +598,7 @@ public class WandaClientApi {
 	}
 
 
-	public ResponseDto<ResidentKYCDocumentResponseDto> getResidentKYCDocuments(String residentUuid) {
+	public ResponseDto<ResidentKYCDocumentResponseDtoV2> getResidentKYCDocuments(String residentUuid) {
 		Object postBody = null;
 
 		// create path and map variables
@@ -617,8 +616,8 @@ public class WandaClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDto>> returnType =
-				new ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDto>>() {
+		ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDtoV2>> returnType =
+				new ParameterizedTypeReference<ResponseDto<ResidentKYCDocumentResponseDtoV2>>() {
 		};
 
 		return restClient.invokeAPI(
@@ -755,5 +754,76 @@ public class WandaClientApi {
 
 		return null;
 
+	}
+	
+	public boolean updateHostelOfUserByUserCode(String userCode, String hostelId) {
+
+		Object postBody = null;
+
+		log.info("Received request to update Hostel of user {} hostelId {} ", userCode, hostelId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("userCode", userCode);
+		uriVariables.put("hostelId", hostelId);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/hostel/update/{userCode}/{hostelId}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+		};
+
+		try {
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Exception while update hostel for user: {} to {}", userCode, hostelId, e);
+		}
+
+		return false;
+	}
+	
+	public boolean updateHostelAndRoomOfUserByUserCode(String userCode, String hostelId, String roomNum) {
+
+		Object postBody = null;
+
+		log.info("Received request to update Hostel of user {} hostelId {} ", userCode, hostelId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("userCode", userCode);
+		uriVariables.put("hostelId", hostelId);
+		uriVariables.put("roomNum", roomNum);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/hostel/update/{userCode}/{hostelId}/{roomNum}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+		};
+
+		try {
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Exception while update hostel for user: {} to {}", userCode, hostelId, e);
+		}
+
+		return false;
 	}
 }

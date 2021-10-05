@@ -191,4 +191,32 @@ public class TransactionControllerApi {
 
 	}
 
+	public ResponseDto<TransactionDto> getPaymentDetailsByBookingUUid(String referenceId) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("referenceId", referenceId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/payment/{referenceId}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<TransactionDto>> returnType = new ParameterizedTypeReference<ResponseDto<TransactionDto>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching payment Status {} ", referenceId);
+		}
+		return null;
+
+	}
+
 }

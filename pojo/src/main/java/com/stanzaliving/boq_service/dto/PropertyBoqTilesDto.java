@@ -15,11 +15,11 @@ public class PropertyBoqTilesDto {
 
     private String propertyName;
 
-    private BigDecimal propertyCapex;
+    private String propertyCapex;
 
-    private BigDecimal propertyBoiCapexPerBed;
+    private String propertyBoiCapexPerBed;
 
-    private BigDecimal propertyGCCapexPerBed;
+    private String propertyGCCapexPerBed;
 
     private Integer numberOfBeds;
 }
