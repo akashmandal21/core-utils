@@ -1,8 +1,10 @@
+@@ -0,0 +1,56 @@
 package com.stanzaliving.community.feedpost.response;
 
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.stanzaliving.banner.enumeration.AppPage;
 import com.stanzaliving.community.enums.EventStatus;
 import com.stanzaliving.community.request.FeedPostMediaDto;
@@ -24,6 +26,7 @@ public class FeedPostResponseDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
 
+	@JsonIgnore
 	private EnumListing<EventStatus> postStatus;
 	
     private String title;
@@ -42,8 +45,10 @@ public class FeedPostResponseDto extends AbstractDto {
     
 	protected boolean prompted;
 
+	@JsonIgnore
 	private List<EnumListing<AppPage>> appPages;
     
+	@JsonIgnore
 	private UserListDTO userList;
 	
 	private List<FeedPostMediaDto> mediaDtos;
