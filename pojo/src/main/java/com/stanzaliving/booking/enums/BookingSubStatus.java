@@ -82,6 +82,8 @@ public enum BookingSubStatus {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(AUDIT_PENDING.getBookingSubStatus());
         bookingStatus.add(AUDIT_APPROVAL_PENDING.getBookingSubStatus());
+        bookingStatus.add(AUDIT_PENDING.getBookingSubStatus());
+        bookingStatus.add(AUDIT_REJECTED.getBookingSubStatus());
         return bookingStatus;
     }
 
