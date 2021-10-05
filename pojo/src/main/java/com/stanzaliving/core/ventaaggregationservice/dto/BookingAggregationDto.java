@@ -10,7 +10,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -76,8 +75,8 @@ public class BookingAggregationDto {
     private String cityUuid;
     private String microMarketUuid;
     private PaymentTerm paymentTerm;
-    private boolean isRetentionBooking=false;
-    private boolean noLockInSuitsBooking= false;
+    private boolean isRetentionBooking = false;
+    private boolean noLockInSuitsBooking = false;
     private Date moveInDate;
     private Date maxMoveInDate;
     private Date needsAttentionStartTime;
@@ -97,4 +96,8 @@ public class BookingAggregationDto {
     private Map<String, Integer> roomBedCountMap;
     private String ledgerStatusBackgroundColour;
     private String bookingStatusBackgroundColour;
+    private String bhkType;
+    private boolean allRoomsSelected;
+    private List<InventoryResponseOccupancyDto> inventoryOccupancyResponse;
+
 }
