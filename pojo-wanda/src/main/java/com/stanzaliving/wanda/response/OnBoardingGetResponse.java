@@ -23,4 +23,5 @@ public class OnBoardingGetResponse {
 	private ResidentEmergencyContactDto residentEmergencyContactDto;
 	
 	private ResidentRelationDto residentRelationDto;
+
 }
