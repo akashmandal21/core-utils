@@ -44,6 +44,8 @@ public class HkPlaningTemplatesDto extends AbstractDto {
 
 	private String updateByUserName;
 
+	private String description;
+
 	private List<String> tags = new ArrayList<>();
 
 	private MicroClusterResponseDto microClusterDetails;

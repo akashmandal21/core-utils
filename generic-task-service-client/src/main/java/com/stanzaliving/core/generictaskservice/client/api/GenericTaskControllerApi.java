@@ -4,10 +4,10 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
+import com.stanzaliving.generictaskservice.dto.request.HkShiftAllocationRequestDto;
 import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
-import com.stanzaliving.housekeepingservice.dto.request.ShiftAllocationRequestDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -33,7 +33,7 @@ public class GenericTaskControllerApi {
         this.restClient = restClient;
     }
 
-    public ResponseDto<List<ShiftAllocationDto>> createShiftAllocationDto(List<ShiftAllocationRequestDto> shiftAllocationDtoList) {
+    public ResponseDto<List<ShiftAllocationDto>> createShiftAllocationDto(List<HkShiftAllocationRequestDto> shiftAllocationDtoList) {
         Object postBody = shiftAllocationDtoList;
 
         // create path and map variables
@@ -75,6 +75,30 @@ public class GenericTaskControllerApi {
         ParameterizedTypeReference<ResponseDto<List<ShitAllocationDetailsResponse>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ShitAllocationDetailsResponse>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+
+
+    public ResponseDto<Void> deleteShiftAllocation(List<String> shiftAllocationUuid){
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/shift/allocation/deleteAll").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.put("uuids",shiftAllocationUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.DELETE, queryParams, null, headerParams, accept, returnType);
     }
 
     public ResponseDto<ShitAllocationDetailsResponse> getShiftAllocationDtoByDayOfWeek(List<String> shiftAllocationUuid,String dayofWeek){
