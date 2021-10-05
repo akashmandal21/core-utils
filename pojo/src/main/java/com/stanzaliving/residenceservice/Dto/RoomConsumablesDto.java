@@ -3,6 +3,7 @@ package com.stanzaliving.residenceservice.Dto;
 
 import java.util.List;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class RoomConsumablesDto {
     @NotBlank(message = "residenceUuid field cannot be empty")
     private String residenceUuid;
 
+    @Valid
     private List<ConsumablesPricesDto> consumablesPrices;
 
 }
