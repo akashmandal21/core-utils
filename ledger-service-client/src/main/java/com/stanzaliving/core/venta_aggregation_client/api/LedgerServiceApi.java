@@ -189,7 +189,7 @@ public class LedgerServiceApi {
         };
         try {
             log.info("Executing Api for getting current date rejected refunds with Url {}", path);
-            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Exception while getting current date rejected refunds, Exception is ", e);
         }
