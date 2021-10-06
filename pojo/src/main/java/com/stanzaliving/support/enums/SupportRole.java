@@ -10,7 +10,7 @@ import java.util.*;
 @AllArgsConstructor
 public enum SupportRole {
 
-    SIGMA_CUSTOMER_SUPPORT(9,"SIGMA_CUSTOMER_SUPPORT", AccessLevel.COUNTRY, Collections.emptyList()),
+    SIGMA_CUSTOMER_SUPPORT(1,"SIGMA_CUSTOMER_SUPPORT", AccessLevel.COUNTRY, Collections.emptyList()),
     SUPPORT_TICKET_VIEW_ALL(1,"SUPPORT_TICKET_VIEW_ALL", AccessLevel.COUNTRY, Arrays.asList(SupportModule.BLISS_DASHBOARD)), // 1
     SUPPORT_TICKET_EDIT_ALL(1,"SUPPORT_TICKET_EDIT_ALL", AccessLevel.COUNTRY, Arrays.asList(SupportModule.BLISS_DASHBOARD, SupportModule.TICKET_ESCALATION)), // 1
     SUPPORT_TICKET_VIEW_CITY(2,"SUPPORT_TICKET_VIEW_CITY", AccessLevel.CITY, Arrays.asList(SupportModule.BLISS_DASHBOARD)), // 2
