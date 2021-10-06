@@ -381,4 +381,29 @@ public class DealDataControllerApi {
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
+
+    public Map<String,String> getContractDetails(String contractUuid) {
+
+        log.info("Booking-Data-Controller::Processing to fetch Contract Details for Contract uuid {}", contractUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("contractUuid", contractUuid);
+
+        String path = UriComponentsBuilder.fromPath("/contract-details/{contractUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Map<String,String>> returnType =
+                new ParameterizedTypeReference<Map<String,String>>() {
+                };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
 }

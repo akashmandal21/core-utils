@@ -193,4 +193,26 @@ public class LedgerServiceApi {
         }
 
     }
+
+    public ResponseDto<List<RefundDetailsResponseDto>> getRefundApprovalStatus() {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/current-date/refund-approval-status")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>>() {
+        };
+        try {
+            log.info("Executing Api for getting current date rejected refunds with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while getting current date rejected refunds, Exception is ", e);
+        }
+        return null;
+    }
 }
