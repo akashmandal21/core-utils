@@ -26,6 +26,8 @@ public enum BookingSubStatus {
     CONTRACT_MODIFICATION_PENDING("CONTRACT MODIFICATION PENDING"),
     KEY_HANDOVER_PENDING("KEY HANDOVER PENDING"),
     AUDIT_PENDING("AUDIT PENDING"),
+    AUDIT_APPROVED("AUDIT APPROVED"),
+    AUDIT_REJECTED("AUDIT REJECTED"),
     PENDING_CH_APPROVAL("PENDING CH APPROVAL"),
     AUDIT_APPROVAL_PENDING("AUDIT APPROVAL PENDING"),
     PENDING_ZH_APPROVAL("PENDING ZH APPROVAL");
@@ -73,6 +75,15 @@ public enum BookingSubStatus {
         bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
         bookingStatus.add(PENDING_CH_APPROVAL.getBookingSubStatus());
         bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
+        return bookingStatus;
+    }
+
+    public static Set<String> AuditBookingSubStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(AUDIT_PENDING.getBookingSubStatus());
+        bookingStatus.add(AUDIT_APPROVAL_PENDING.getBookingSubStatus());
+        bookingStatus.add(AUDIT_PENDING.getBookingSubStatus());
+        bookingStatus.add(AUDIT_REJECTED.getBookingSubStatus());
         return bookingStatus;
     }
 

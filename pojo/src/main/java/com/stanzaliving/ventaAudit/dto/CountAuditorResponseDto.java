@@ -6,10 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-public class TotalDamageResponseDto {
-    private Double totalDamage;
-    private String inventoryChecklistUuid;
+@NoArgsConstructor
+@AllArgsConstructor
+public class CountAuditorResponseDto {
+    String auditorUuid;
+    String auditorName;
+    Long count;
 }
