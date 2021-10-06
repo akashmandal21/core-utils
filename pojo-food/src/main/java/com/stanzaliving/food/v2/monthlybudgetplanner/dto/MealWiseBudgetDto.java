@@ -20,7 +20,7 @@ public class MealWiseBudgetDto {
 
 	private MealType mealType;
 
-	private double mealWiseBudget;
+	private Double mealWiseBudget;
 
 
 
