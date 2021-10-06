@@ -544,4 +544,31 @@ public class BookingDataControllerApi {
         return null;
     }
 
+    public ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>> getBookedInventoryDetailForContract(BookingInventoryDto bookingInventoryDto) {
+
+        log.info("Booking-Data-Controller::Processing to get booked inventories detail of rooms {} for contract {}, moveInDate {}",
+                bookingInventoryDto.getRoomUUID(),
+                bookingInventoryDto.getBookingUuid(),
+                bookingInventoryDto.getMoveInDate());
+
+        Object postBody = bookingInventoryDto;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/contract/inventory-occupancy/fetch").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
 }
