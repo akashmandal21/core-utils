@@ -194,9 +194,9 @@ public class LedgerServiceApi {
 
     }
 
-    public ResponseDto<List<RefundDetailsResponseDto>> getRejectedRefundDetails() {
+    public ResponseDto<List<RefundDetailsResponseDto>> getRefundApprovalStatus() {
         Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/current-date/rejected-refunds")
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/current-date/refund-approval-status")
                 .buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
