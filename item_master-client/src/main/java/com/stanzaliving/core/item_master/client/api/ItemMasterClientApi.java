@@ -419,6 +419,7 @@ public class ItemMasterClientApi {
 	}
 
 	public ResponseDto<MasterBoqDto> getItemAndRate(String itemUuid, String cityUuid) {
+		log.info("getItemAndRate called from {} {}", Thread.currentThread().getStackTrace()[2], Thread.currentThread().getStackTrace()[3]);
 
 		Object postBody = null;
 

@@ -77,6 +77,7 @@ public class POClientApi {
 
 
     public ResponseDto<Map<String, BigDecimal>> getMaxQuantities(String itemUuid, List<String> propertyUuidList) {
+        log.info("getMaxQuantities called from {} {}", Thread.currentThread().getStackTrace()[2], Thread.currentThread().getStackTrace()[3]);
 
         List<String> postBody = propertyUuidList;
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -244,6 +245,7 @@ public class POClientApi {
     }
 
     public ResponseDto<Map<String, BigDecimal>> poItemQuantityForPropertyUuid(String propertyUuid) {
+        log.info("poItemQuantityForPropertyUuid called from {} {}", Thread.currentThread().getStackTrace()[2], Thread.currentThread().getStackTrace()[3]);
 
         if (Objects.isNull(propertyUuid))
             return null;
