@@ -41,4 +41,10 @@ public class BookingMigrationDTO {
 
     @JsonSetter(value = "USER_UUID")
     private String userUuid;
+
+    @JsonSetter(value = "ROOM_ID")
+    private String roomId;
+
+    @JsonSetter(value = "HAS_MOVED_IN")
+    private boolean hasMovedIn;
 }
