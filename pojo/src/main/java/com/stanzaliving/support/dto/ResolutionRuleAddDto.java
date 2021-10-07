@@ -20,6 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ResolutionRuleAddDto {
     @NotEmpty(message = "select at least one subCategory.")
+    @Valid
     private List<String> primaryReferenceUuid;
     @NotNull(message = "ticket type can't be left blank.")
     private TicketType ticketType;
