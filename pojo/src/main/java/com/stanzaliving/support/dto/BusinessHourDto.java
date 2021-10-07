@@ -26,4 +26,6 @@ public class BusinessHourDto {
     private LocalTime EndTime;
 
     private LocalTime BufferTime;
+
+    private Boolean isActive;
 }

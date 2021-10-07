@@ -20,6 +20,5 @@ public class BusinessHourFilterDto {
     private List<String> complaintGroup;
     private List<String> category;
     private List<String> subcategory;
-    private List<String> subTicketTask;
 
 }
