@@ -19,7 +19,7 @@ public class SpecialDayMealDto {
 
     private LocalDate date;
 
-    private String eventDescription;
+    private List<String> eventDescription;
 
     private List<MealType> mealTypeList;
 
