@@ -19,7 +19,7 @@ public class SpecialDayWiseBudgetDto {
 
 	private LocalDate date ;
 
-	private double dayWiseBudget;
+	private Double dayWiseBudget;
 
 	private boolean isSpecialDay;
 
