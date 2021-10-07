@@ -39,8 +39,6 @@ public class SectionFilterRequestDto {
 
     private List<String> predecessorTasks;
 
-    private String taskName;
-
     private List<String> taskUuids;
 
     private boolean taskTemplate;
