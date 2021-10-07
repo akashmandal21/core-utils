@@ -9,6 +9,7 @@ import com.stanzaliving.generictaskservice.dto.request.TaskSearchFilterRequestDt
 import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
+import com.stanzaliving.projectplanningservice.dto.request.SectionFilterRequestDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -365,5 +366,30 @@ public class GenericTaskControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
+    }
+
+    public ResponseDto<PageResponse<GenericTaskResponseDto>> getBySectionFilterRequestInputs(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
+        Object getBody = taskSearchFilterRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("pageNo", taskSearchFilterRequestDto.getPageRequest().getPageNo());
+        uriVariables.put("limit", taskSearchFilterRequestDto.getPageRequest().getLimit());
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/tasks/{pageNo}/{limit}").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<PageResponse<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<PageResponse<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
     }
 }
