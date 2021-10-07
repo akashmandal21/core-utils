@@ -76,7 +76,7 @@ public class MonthlyBudgetPlannerDto extends MenuCategoryDTO {
 
 	//week wise sum
 	private List<WeeklyPlannerSumDto> weekWiseTotalBudget;
-	private Double latestMonthTotalBudget;
+	private Double nextMonthTotalBudget;
 
     
 }
