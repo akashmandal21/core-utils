@@ -570,7 +570,7 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams,itemCodes,headerParams, accept, returnType);
 	}
 
-	public ResponseDto<PageResponse<GenericItemDto>> getGenericItemsWithFilters(FilterDto filterDto) {
+	public ResponseDto<List<GenericItemDto>> getGenericItemsWithFilters(FilterDto filterDto) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		String path = UriComponentsBuilder.fromPath("/internal/generic/post/items/fetchItems/filtered")
@@ -585,7 +585,7 @@ public class ItemMasterClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<PageResponse<GenericItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<PageResponse<GenericItemDto>>>() {
+		ParameterizedTypeReference<ResponseDto<List<GenericItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericItemDto>>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, filterDto, headerParams, accept, returnType);
 	}
