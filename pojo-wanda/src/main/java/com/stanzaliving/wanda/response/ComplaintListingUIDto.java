@@ -43,7 +43,7 @@ public class ComplaintListingUIDto {
 	
 	private String complaintTypeImgUrl;
 	
-	private Long cmsId;
+	private String cmsId;
 
 	private Boolean satisfied;
 }
