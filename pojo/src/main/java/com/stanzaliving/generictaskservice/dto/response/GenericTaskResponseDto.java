@@ -26,7 +26,8 @@ public class GenericTaskResponseDto {
     private Date dueDate;
     private String taskName;
     private TaskType type;
-    private boolean overridable;    private boolean status;
+    private boolean overridable;
+    private boolean status;
     private String module;
     private String priority;
     private String priorityUuid;
