@@ -99,5 +99,6 @@ public class BookingAggregationDto {
     private String bhkType;
     private boolean allRoomsSelected;
     private List<InventoryResponseOccupancyDto> inventoryOccupancyResponse;
+    private Date exitDate;
 
 }
