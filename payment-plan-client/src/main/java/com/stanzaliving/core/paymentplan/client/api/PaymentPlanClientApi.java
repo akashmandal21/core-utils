@@ -495,6 +495,44 @@ public class PaymentPlanClientApi {
 
     }
 
+    public ResponseDto<Boolean> enablePaymentPlanForCancelOrModifyExit(String referenceId,String token) {
+        try {
+            if (StringUtils.isBlank(token)) {
+                throw new IllegalArgumentException("Token missing for updating payment plan");
+            }
+            Object postBody = null;
+
+            log.info("request received to enable payment plan for reference Id {}", referenceId);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("referenceId", referenceId);
+
+
+            String path = UriComponentsBuilder.fromPath("/api/v1/exit-flow/undo-split/{referenceId}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+            headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the paymentPlan {}", e);
+            return null;
+        }
+
+    }
+
     public ResponseDto<List<PaymentPlan>> fetchPaymentPlan(String referenceId, String token) {
         try {
 
