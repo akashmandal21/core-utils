@@ -15,6 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BusinessHourResponseDto {
+
     private Set<ComplaintGroupDto> complaintGroupDtoSet;
     private Set<CategoryDto> categoryDtoSet;
     private Set<SubCategoryDto> subCategoryDtoList;
@@ -27,4 +28,6 @@ public class BusinessHourResponseDto {
     private LocalTime StartTime;
     private LocalTime EndTime;
     private LocalTime BufferTime;
+  //  private boolean isActive;
+
 }
