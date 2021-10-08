@@ -80,4 +80,6 @@ public class GenericTaskDto extends AbstractDto {
     private Department department;
 
     private List<DependencyTaskResponseDto> dependencyTaskDetails;
+
+    private DelayDto delayDto;
 }
