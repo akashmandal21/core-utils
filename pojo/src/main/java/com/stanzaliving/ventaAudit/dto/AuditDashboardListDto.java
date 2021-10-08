@@ -1,6 +1,7 @@
 package com.stanzaliving.ventaAudit.dto;
 
 
+import com.stanzaliving.booking.enums.BookingResidenceType;
 import com.stanzaliving.ventaAudit.enums.AuditStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +23,7 @@ public class AuditDashboardListDto {
     private String residentName;
     private String entityName;
     private String roomNumber;
+    private BookingResidenceType propertyType;
     private String auditorName;
     private LocalDate auditedOn;
     private LocalDate auditScheduledOn;
