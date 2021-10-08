@@ -38,6 +38,12 @@ public class TicketFilterDto {
 
     private UserTypeDto user;
 
+    private Boolean assignedToSelected;
+
+    private Boolean resolvedBySelected;
+
+    private Boolean updatedBySelected;
+
     private Date createdAtStartDate;
 
     private Date createdAtEndDate;
