@@ -25,7 +25,7 @@ public class CreateAuditDto {
     private String auditorUuid;
     private LocalDateTime auditedOn;
     @NotBlank(message = "auditScheduledAt Is Required")
-    private LocalDate auditScheduledOn;
+    private LocalDate auditScheduledAt;
     @NotBlank(message = "auditorName Is Required")
     private String auditorName;
     @NotBlank(message = "BookingUuid Is Required")
