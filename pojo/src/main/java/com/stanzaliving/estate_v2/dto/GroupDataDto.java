@@ -16,4 +16,6 @@ public class GroupDataDto {
     private List<PageDataDto> pages;
     private PrivilegesDto privileges;
     private String groupApprovalStatus;
+    private boolean legalInfoGroup;
+    private boolean legalDocumentInfoGroup;
 }
