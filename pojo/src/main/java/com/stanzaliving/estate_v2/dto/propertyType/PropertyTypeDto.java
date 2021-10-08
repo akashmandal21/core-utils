@@ -40,4 +40,7 @@ public class PropertyTypeDto extends AbstractMongoDto {
     private List<@Valid PropertyTypeDetailsDto> propertyTypeDetails;
 
     private AdditionalMetaDataDto additionalMetaData;
+
+    private boolean legalInfoGroup;
+    private boolean legalDocumentInfoGroup;
 }
