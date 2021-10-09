@@ -3,14 +3,13 @@ package com.stanzaliving.core.generictaskservice.client.api;
 import com.stanzaliving.core.base.common.dto.PageResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.user.acl.dto.RoleDto;
 import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
+import com.stanzaliving.generictaskservice.dto.request.TaskRequestDto;
 import com.stanzaliving.generictaskservice.dto.request.TaskSearchFilterRequestDto;
 import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
-import com.stanzaliving.projectplanningservice.dto.request.SectionFilterRequestDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -345,7 +344,6 @@ public class GenericTaskControllerApi {
     }
 
 
-
     /**
      * GET TASK WITH CHILD TASKS BY UUID
      *
@@ -375,15 +373,16 @@ public class GenericTaskControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, getBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<Boolean> deleteAllTasksByUuids(List<String> uuids) {
+    public ResponseDto<List<GenericTaskResponseDto>> deleteAllTasksByUuids(TaskRequestDto taskRequestDto) {
+        Object getBody = taskRequestDto;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
         String path = UriComponentsBuilder.fromPath("/internal/task/delete/ids").buildAndExpand(uriVariables).toUriString();
         log.info("Path: {}", path);
+
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.put("uuids", uuids);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -392,9 +391,9 @@ public class GenericTaskControllerApi {
         };
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
 
     }
 
