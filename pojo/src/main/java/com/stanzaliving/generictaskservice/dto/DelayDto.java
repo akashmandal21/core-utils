@@ -5,7 +5,9 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
-
+/**
+ * @author Ranjiht Kumar Jain
+ */
 @Getter
 @Setter
 @ToString(callSuper = true)
@@ -14,8 +16,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class DelayDto extends AbstractDto{
 
-    private String delay_reason;
-    private Date due_date;
+    private String delayReason;
+    private Date dueDate;
     private String comment;
 
 }
