@@ -422,6 +422,16 @@ public class GenericTaskControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
     }
 
+    /**
+     * NOTE: Request should contain taskUuids [ optional ], taskTemplate [ true/false( Mandatory ) ]
+     *
+     * @param taskSearchFilterRequestDto
+     * @return List of GenericTaskResponseDto [ return Generic tasks for taskUuids passed, if not all Generic tasks ]
+     * @description FETCH GENERIC TASKS
+     * Case1: GET ALL GENERIC TASKS
+     * Case2: GET SPECIFIED GENERIC TASKS BY PASSING TASK UUIDS
+     * Case3: QUERY BY MODULE UUIDS AND TASK UUIDS [ SEARCH BY FILTER CRITERIA ]
+     */
     public ResponseDto<List<GenericTaskResponseDto>> getBySectionFilterRequestInputs(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
         Object getBody = taskSearchFilterRequestDto;
 
