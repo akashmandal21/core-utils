@@ -1,6 +1,7 @@
 package com.stanzaliving.projectplanningservice.dto.request;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.projectplanningservice.enums.Duration;
 import com.stanzaliving.projectplanningservice.enums.TaskOwnerTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,13 +25,13 @@ public class SectionFilterRequestDto {
     @NotBlank(message = "Template ID is required")
     private String templateUuid;
 
-    private String durationUnit;
+    private Duration durationUnit;
 
     private Integer minDaysRange;
 
     private Integer maxDaysRange;
 
-    private List<String> module;
+    private List<String> modules;
 
     private PaginationRequest pageRequest;
 
