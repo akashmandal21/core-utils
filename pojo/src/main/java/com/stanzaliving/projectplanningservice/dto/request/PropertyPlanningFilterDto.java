@@ -21,9 +21,7 @@ public class PropertyPlanningFilterDto {
 
     private String propertyName;
 
-    private String microMarket;
-
-    private String city;
+    private List<String> microMarketList;
 
     private Integer bedCount;
 
@@ -33,7 +31,7 @@ public class PropertyPlanningFilterDto {
 
     private Integer progress;
 
-    private PlanningStatus planningStatus;
+    private List<PlanningStatus> planningStatusList;
 
     private String orderByColumnName;
 
