@@ -1,6 +1,5 @@
 package com.stanzaliving.ventaAudit.dto;
 
-import com.stanzaliving.booking.enums.BookingResidenceType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +10,6 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -42,8 +40,6 @@ public class CreateAuditDto {
     private String roomUuid;
     @NotNull(message = "City id is required")
     private String cityUuid;
-    @NotNull(message = "Property Type is required")
-    private BookingResidenceType propertyType;
     @NotNull(message = "MicroMarket id Is required")
     private String microMarketUuid;
     @NotBlank(message = "Society Uuid Is required")
