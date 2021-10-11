@@ -32,6 +32,8 @@ public class PropertyPlanningDto extends AbstractDto {
 
     private String residenceUuid;
 
+    private List<String> taskServiceUuids;
+
     private List<String> tasksUuids;
 
     private List<SectionDetailsDto> sections;

@@ -1,6 +1,7 @@
 package com.stanzaliving.projectplanningservice.dto.request;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.projectplanningservice.enums.TaskOwnerTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,9 +26,9 @@ public class SectionFilterRequestDto {
 
     private String durationUnit;
 
-    private int minDaysRange;
+    private Integer minDaysRange;
 
-    private int maxDaysRange;
+    private Integer maxDaysRange;
 
     private List<String> module;
 
@@ -39,9 +40,11 @@ public class SectionFilterRequestDto {
 
     private List<String> predecessorTasks;
 
+    private TaskOwnerTypeEnum taskOwnerType;
+
     private List<String> taskUuids;
 
-    private boolean taskTemplate;
+    private Boolean taskTemplate;
 
     private String orderBy;
 
