@@ -8,6 +8,7 @@ import com.stanzaliving.generictaskservice.dto.request.HkShiftAllocationRequestD
 import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
+import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -76,6 +77,29 @@ public class GenericTaskControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
+
+    public ResponseDto<List<TagResponseDto>> getTagResponseDto(List<String> tagsUuid){
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/tags").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.put("tagsUuid",tagsUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<TagResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<TagResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
 
 
 
