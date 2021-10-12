@@ -46,7 +46,9 @@ public class HkPlaningTemplatesDto extends AbstractDto {
 
 	private String description;
 
-	private List<String> tags = new ArrayList<>();
+	private List<String> tagsUuid = new ArrayList<>();
+
+	private List<TagResponseDto> tags;
 
 	private MicroClusterResponseDto microClusterDetails;
 
