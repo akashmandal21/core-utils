@@ -3,6 +3,7 @@ package com.stanzaliving.core.vendor_client.client.api;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.core.generic.validation.enums.VendorManagedBy;
 import com.stanzaliving.core.vendor.FilterVendorDto;
 import com.stanzaliving.core.vendor.dtos.GenericVendorDetailDto;
 import com.stanzaliving.core.vendor.dtos.VendorListingDetailsDto;
@@ -439,6 +440,26 @@ public class VendorClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/listing/filtered").toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<Map<String, VendorManagedBy>> getVendorManagedByForInternalWarehouse() {
+
+        log.info("HTTP Client call to get vendor managedBy for internal warehouse type");
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, VendorManagedBy>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, VendorManagedBy>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/managed-by/internal-warehouse").toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
 
 }
