@@ -459,7 +459,7 @@ public class VendorClientApi {
 
         String path = UriComponentsBuilder.fromPath("/internal/managed-by/internal-warehouse").toUriString();
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
 }
