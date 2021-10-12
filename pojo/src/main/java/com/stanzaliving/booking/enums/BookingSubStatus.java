@@ -87,5 +87,14 @@ public enum BookingSubStatus {
         return bookingStatus;
     }
 
+    public static Set<String> exitProcessBookingSubStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
+        bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
+        return bookingStatus;
+    }
+
+
+
 
 }
