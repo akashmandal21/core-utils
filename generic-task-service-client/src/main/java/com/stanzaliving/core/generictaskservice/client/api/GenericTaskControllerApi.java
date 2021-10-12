@@ -170,6 +170,7 @@ public class GenericTaskControllerApi {
     }
 
     /**
+     * @author Pradeep Naik R
      * GET TASKS WITH CHILD TASKS
      *
      * @param taskSearchFilterRequestDto
@@ -315,6 +316,7 @@ public class GenericTaskControllerApi {
     }
 
     /**
+     * @author Pradeep Naik R
      * GET TASKS BY NAME
      *
      * @param taskSearchFilterRequestDto
@@ -345,6 +347,7 @@ public class GenericTaskControllerApi {
 
 
     /**
+     * @author Pradeep Naik R
      * GET TASK WITH CHILD TASKS BY UUID
      *
      * @param genericTaskUuid
@@ -423,6 +426,7 @@ public class GenericTaskControllerApi {
     }
 
     /**
+     * @author Pradeep Naik R
      * NOTE: Request should contain taskUuids [ optional ], taskTemplate [ true/false( Mandatory ) ]
      *
      * @param taskSearchFilterRequestDto
@@ -439,6 +443,37 @@ public class GenericTaskControllerApi {
         final Map<String, Object> uriVariables = new HashMap<>();
 
         String path = UriComponentsBuilder.fromPath("/internal/task/get/tasks").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    /**
+     * @author Pradeep Naik R
+     *
+     * @param taskSearchFilterRequestDto
+     * @return
+     * @description Fetches all the section along with tasks and subtasks as flat array
+     * Case 1: Send section taskServiceUuids fetched by templateUuid, Prepare TaskSearchFilterRequestDto and set taskTemplate
+     */
+    public ResponseDto<List<GenericTaskResponseDto>> getSectionTasksAndSubTasksAsFlatArray(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
+        Object getBody = taskSearchFilterRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/all").buildAndExpand(uriVariables).toUriString();
         log.info("Path: {}", path);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
