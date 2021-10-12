@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.Column;
 import javax.validation.Valid;
@@ -19,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRuleAddDto {
+    private String groupUuid;
     @NotEmpty(message = "select at least one subCategory.")
     @Valid
     private List<String> primaryReferenceUuid;
