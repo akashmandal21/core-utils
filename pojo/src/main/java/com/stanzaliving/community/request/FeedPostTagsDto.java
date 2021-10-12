@@ -6,11 +6,11 @@ import com.stanzaliving.community.enums.FeedPostTagType;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-@Builder
+@SuperBuilder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
