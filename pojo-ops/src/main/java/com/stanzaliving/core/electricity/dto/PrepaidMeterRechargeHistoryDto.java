@@ -1,6 +1,7 @@
 package com.stanzaliving.core.electricity.dto;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.stanzaliving.core.payment.enums.PaymentMode;
@@ -18,7 +19,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PrepaidMeterRechargeHistoryDto {
+public class PrepaidMeterRechargeHistoryDto implements Serializable {
+
+	private static final long serialVersionUID = 5409980353936704825L;
 	private Date rechargeDate;
 	private Double rechargeAmount;
 	private Double amountAvailableAtRecharge;
@@ -28,4 +31,5 @@ public class PrepaidMeterRechargeHistoryDto {
 	private String txnId;
 	private String meterId;
 	private PaymentMode paymentMode;
+	private String userId;
 }

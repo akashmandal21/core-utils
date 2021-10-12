@@ -1,6 +1,7 @@
 package com.stanzaliving.core.electricity.dto;
 
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -16,8 +17,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PrepaidMeterRechargeSummaryDto {
+public class PrepaidMeterRechargeSummaryDto implements Serializable {
 
+	private static final long serialVersionUID = 2652332741318486345L;
 	private Double totalRecharge;
 	private Double totalConsumed;
 	private Double balanceAvailable;

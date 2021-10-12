@@ -1,5 +1,6 @@
 package com.stanzaliving.core.electricity.dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -16,8 +17,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class PrepaidMeterDailyConsumptionDto {
+public class PrepaidMeterDailyConsumptionDto implements Serializable {
 
+	private static final long serialVersionUID = 3007039109072326224L;
 	private LocalDate readingDate;
 	private Month month;
 	private int monthValue;
