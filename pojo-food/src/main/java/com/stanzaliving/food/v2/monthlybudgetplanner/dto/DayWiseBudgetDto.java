@@ -31,6 +31,8 @@ public class DayWiseBudgetDto {
 	private Double totalPlannedcost;
 	
 	private Double totalBudgetedcost;
+
+	private Boolean weeklySubmitted;
     
 
 }
