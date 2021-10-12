@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 /**
  * @author Anudeep Alevoor
  * @description DTO for Property plan Search Filter Parameters
@@ -19,9 +21,7 @@ public class PropertyPlanningFilterDto {
 
     private String propertyName;
 
-    private String microMarket;
-
-    private String city;
+    private List<String> microMarketList;
 
     private Integer bedCount;
 
@@ -31,11 +31,13 @@ public class PropertyPlanningFilterDto {
 
     private Integer progress;
 
-    private PlanningStatus planningStatus;
+    private List<PlanningStatus> planningStatusList;
 
     private String orderByColumnName;
 
     private String orderBy;
 
     private PaginationRequest pageRequest;
+
+    private List<String> cityList;
 }
