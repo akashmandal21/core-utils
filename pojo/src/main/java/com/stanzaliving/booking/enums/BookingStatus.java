@@ -10,7 +10,7 @@ import java.util.*;
 @AllArgsConstructor
 public enum BookingStatus {
 
-    DRAFT("DRAFT"),
+	DRAFT("DRAFT"),
     IN_PROGRESS("IN PROGRESS"),
     EXPIRED("EXPIRED"),
     SHARED_WITH_RESIDENT("SHARED WITH RESIDENT"),
