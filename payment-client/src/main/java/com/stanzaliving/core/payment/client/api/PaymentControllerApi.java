@@ -3,6 +3,7 @@ package com.stanzaliving.core.payment.client.api;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.payment.dto.TransactionDto;
 import com.stanzaliving.core.pojo.AttachmentDto;
 import com.stanzaliving.ventaAudit.dto.VentaNotificationDto;
 import lombok.extern.log4j.Log4j2;
@@ -73,6 +74,31 @@ public class PaymentControllerApi {
                     returnType);
         } catch (Exception e) {
             log.error("Exception while fetching payement amount details with uuid",bookingUuid);
+        }
+        return null;
+    }
+
+
+    public ResponseDto<TransactionDto> getPaymentDetailsFromUuid(String uuid){
+
+        log.info("Called api to fetch payment  details");
+        Object postBody=null;
+        final Map<String,Object> uriVariables=new HashMap<>();
+        uriVariables.put("uuid",uuid);
+        String path= UriComponentsBuilder.fromPath("/Details/FromUuid/{uuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams=new HttpHeaders();
+        final String[] accepts = { "*/*" };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<TransactionDto>> returnType = new ParameterizedTypeReference<ResponseDto<TransactionDto>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+                    returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching payement  details with uuid",uuid);
         }
         return null;
     }
