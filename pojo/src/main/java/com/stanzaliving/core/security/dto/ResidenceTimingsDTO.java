@@ -25,9 +25,15 @@ public class ResidenceTimingsDTO {
 
     private LocalTime lateEntryTime;
 
-    private LocalTime cutOffTimeRc;
+    private LocalTime cutOffTimeRcStart;
 
-    private LocalTime cutOffTimeNodal;
+    private LocalTime cutOffTimeRcEnd;
 
-    private LocalTime cutOffTimeQrt;
+    private LocalTime cutOffTimeNodalStart;
+
+    private LocalTime cutOffTimeNodalEnd;
+
+    private LocalTime cutOffTimeQrtStart;
+
+    private LocalTime cutOffTimeQrtEnd;
 }
