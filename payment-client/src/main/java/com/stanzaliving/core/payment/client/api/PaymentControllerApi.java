@@ -85,7 +85,7 @@ public class PaymentControllerApi {
         Object postBody=null;
         final Map<String,Object> uriVariables=new HashMap<>();
         uriVariables.put("uuid",uuid);
-        String path= UriComponentsBuilder.fromPath("/Details/FromUuid/{uuid}").buildAndExpand(uriVariables).toUriString();
+        String path= UriComponentsBuilder.fromPath("/payment/Details/FromUuid/{uuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
