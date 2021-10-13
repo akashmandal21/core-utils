@@ -7,6 +7,7 @@ import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.electricity.constants.ElectricityBillStatus;
 import com.stanzaliving.core.electricity.constants.ElectricityBillType;
+import com.stanzaliving.core.enums.ApartmentType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,7 +29,24 @@ public class ElectricityBillDto extends AbstractDto {
 	private String residenceId;
 
 	private String propertyCode;
+	
+	private String propertyName;
 
+	private ApartmentType apartmentType;
+	
+	private String propertyAddressLine1;
+	
+	private String propertyAddressLine2;
+	
+	private String cityName;
+	
+	private String cityId;
+	
+	private String micromarketName;
+	
+	private String micromarketId;
+	
+	
 	private String billNumber;
 
 	private String billId;
@@ -40,6 +58,8 @@ public class ElectricityBillDto extends AbstractDto {
 	private Date billEndDate;
 
 	private String billUrl;
+	
+	private Double totalCharges;
 
 	private Double totalConsumptionCharges;
 
