@@ -13,20 +13,24 @@ import java.util.Set;
 public enum BookingSubStatus {
 
 
-    IN_PROGRESS("IN PROGRESS"),
+	IN_PROGRESS("IN PROGRESS"),
     NEEDS_ATTENTION("NEEDS ATTENTION"),
     COLLECT_PAYMENT_FROM_RESIDENT("COLLECT PAYMENT FROM RESIDENT"),
     PERSONAL_DETAILS_PENDING("PERSONAL DETAILS PENDING"),
     BOOKING_AMOUNT_PENDING("BOOKING AMOUNT PENDING"),
     PENDING_KYC_SUBMISSION("PENDING KYC SUBMISSION"),
     PENDING_KYC_VERIFICATION("PENDING KYC VERIFICATION"),
+    EXIT_INITIATED("EXIT INITIATED"),
     KYC_REJECTED("KYC REJECTED"),
     ROOM_HANDOVER_PENDING("ROOM HANDOVER PENDING"),
     CONTRACT_MODIFICATION_PENDING("CONTRACT MODIFICATION PENDING"),
     KEY_HANDOVER_PENDING("KEY HANDOVER PENDING"),
     AUDIT_PENDING("AUDIT PENDING"),
-    PENDING_ZH_APPROVAL("PENDING ZH APPROVAL"),
-    AUDIT_APPROVAL_PENDING("AUDIT APPROVAL PENDING");
+    AUDIT_APPROVED("AUDIT APPROVED"),
+    AUDIT_REJECTED("AUDIT REJECTED"),
+    PENDING_CH_APPROVAL("PENDING CH APPROVAL"),
+    AUDIT_APPROVAL_PENDING("AUDIT APPROVAL PENDING"),
+    PENDING_ZH_APPROVAL("PENDING ZH APPROVAL");
 
     private String bookingSubStatus;
 
@@ -65,6 +69,32 @@ public enum BookingSubStatus {
         bookingSubStatus.add(BookingSubStatus.BOOKING_AMOUNT_PENDING);
         return bookingSubStatus;
     }
+
+    public static Set<String> exitInitiatedBookingSubStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
+        bookingStatus.add(PENDING_CH_APPROVAL.getBookingSubStatus());
+        bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
+        return bookingStatus;
+    }
+
+    public static Set<String> AuditBookingSubStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(AUDIT_PENDING.getBookingSubStatus());
+        bookingStatus.add(AUDIT_APPROVAL_PENDING.getBookingSubStatus());
+        bookingStatus.add(AUDIT_APPROVED.getBookingSubStatus());
+        bookingStatus.add(AUDIT_REJECTED.getBookingSubStatus());
+        return bookingStatus;
+    }
+
+    public static Set<String> exitProcessBookingSubStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
+        bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
+        return bookingStatus;
+    }
+
+
 
 
 }
