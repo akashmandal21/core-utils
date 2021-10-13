@@ -100,5 +100,6 @@ public class BookingAggregationDto {
     private boolean allRoomsSelected;
     private List<InventoryResponseOccupancyDto> inventoryOccupancyResponse;
     private Date exitDate;
+    private boolean isInventorySelected;
 
 }
