@@ -1,4 +1,4 @@
-package com.stanzaliving.core.generic.validation.enums;
+package com.stanzaliving.vendor.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
