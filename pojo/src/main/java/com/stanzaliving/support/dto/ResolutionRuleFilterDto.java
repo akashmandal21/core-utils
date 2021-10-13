@@ -13,9 +13,13 @@ import java.util.List;
 public class ResolutionRuleFilterDto {
     @NotNull(message = "Ticket type must not be null.")
     private TicketType ticketType;
+
     private List<String> createdBy;
+
     private List<String> lastUpdatedBy;
+
     private Boolean isActive;
+
     private List<String> city;
 
     private List<String> micromarket;

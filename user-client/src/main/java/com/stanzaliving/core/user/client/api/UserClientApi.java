@@ -716,7 +716,7 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<UserProfileDto> getRoleByDepartment(Department department, @Nullable  AccessLevel accessLevel, String cookieToken) {
+	public ResponseDto<List<RoleDto>> getRoleByDepartment(Department department, @Nullable  AccessLevel accessLevel, String cookieToken) {
 
 		Object postBody = null;
 
@@ -740,7 +740,7 @@ public class UserClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
+		ParameterizedTypeReference<ResponseDto<List<RoleDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RoleDto>>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}

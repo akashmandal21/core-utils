@@ -8,6 +8,7 @@ import lombok.Getter;
 public enum TicketActivityTemplatesEnum {
 
     CREATE_TICKET,
+    SYSTEM_ASSIGNED_TICKET,
     UPDATED_STATUS_TO,
     UPDATED_TICKET_CHECKLIST,
     MERGED_TICKET_TO,
@@ -33,5 +34,6 @@ public enum TicketActivityTemplatesEnum {
     UPDATED_SATISFACTION_STATUS,
     ADD_RESOLUTION_RULE,
     UPDATE_RESOLUTION_RULE,
-    TEAM_UPDATED;
+    TEAM_UPDATED,
+    ADD_BUSINESS_HOUR;
 }
