@@ -38,4 +38,6 @@ public class ComplaintSummaryDto {
 
 	private Long cmsId;
 
+	private String ticketId;
+
 }
