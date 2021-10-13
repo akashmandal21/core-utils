@@ -5,13 +5,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ComplaintTypeResidenceMigrationDto {
 
     @JsonSetter(value = "id")
-    private String id;
+    private Long id;
 
     @JsonSetter(value = "uuid")
     private String uuid;
@@ -23,16 +25,16 @@ public class ComplaintTypeResidenceMigrationDto {
     private String residenceId;
 
     @JsonSetter(value="created_at")
-    private String createdAt;
+    private Date createdAt;
 
     @JsonSetter(value="created_by")
     private String createdBy;
 
     @JsonSetter(value="status")
-    private String status;
+    private boolean status;
 
     @JsonSetter(value="updated_at")
-    private String updatedAt;
+    private Date updatedAt;
 
     @JsonSetter(value="updated_by")
     private String updatedBy;
