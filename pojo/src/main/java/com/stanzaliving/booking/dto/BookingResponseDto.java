@@ -60,4 +60,7 @@ public class BookingResponseDto {
     private Double pendingAmount;
 
     private PaymentTerm paymentTerm;
+
+    private Boolean exceptionalOnboarded;
+
 }
