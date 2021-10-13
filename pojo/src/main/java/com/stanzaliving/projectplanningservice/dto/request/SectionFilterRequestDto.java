@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 import java.util.List;
 
 
@@ -50,4 +51,14 @@ public class SectionFilterRequestDto {
     private String orderBy;
 
     private String orderByColumnName;
+
+    private Date plannedStartDate;
+
+    private Date plannedDueDate;
+
+    private Date actualStartDate;
+
+    private Date actualDueDate;
+
+    private List<Integer> completionStatusList;
 }

@@ -92,4 +92,14 @@ public class SectionDetailsDto extends AbstractDto {
     private Department department;
 
     private List<SectionDetailsDto> tasks;
+
+    private Date plannedStartDate;
+
+    private Date plannedDueDate;
+
+    private Date actualStartDate;
+
+    private Date actualDueDate;
+
+    private Integer completionStatus;
 }
