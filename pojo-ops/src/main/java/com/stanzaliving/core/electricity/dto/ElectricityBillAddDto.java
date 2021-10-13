@@ -22,8 +22,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ElectricityBillAddDto {
 
-	@NotBlank(message = "PropertyId Cannot be blank")
-	private String propertyId;
+	@NotBlank(message = "PropertyCode Cannot be blank")
+	private String propertyCode;
 	
 	@NotBlank(message = "ResidenceId Cannot be blank")
 	private String residenceId;
@@ -53,10 +53,10 @@ public class ElectricityBillAddDto {
 	private double arrearsCharges = 0;
 	
 	@NotBlank(message = "Grid supply units cannot be blank")
-	private double gridSupplyUnits;
+	private double gridUnits;
 	
 	@Default
-	private double dgSupplyUnits = 0;
+	private double dgUnits = 0;
 	
 
 

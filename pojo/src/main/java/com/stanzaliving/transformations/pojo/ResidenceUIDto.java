@@ -6,6 +6,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.enums.ApartmentType;
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
@@ -100,5 +101,11 @@ public class ResidenceUIDto implements Serializable {
 	private String company;
 
 	private String addressUuid;
+	
+	private String addressLine1;
+	
+	private String addressLine2;
+	
+	private ApartmentType apartmentType;
 
 }

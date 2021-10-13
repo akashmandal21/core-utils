@@ -13,13 +13,13 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class QuickFilterCountDto {
-    private String id;
-    private String name;
-    private double amount; 
-    private double residentShareAmount;
-    private double stanzaShareAmount;
-    private double residentSharePercent;
-    private double stanzaSharePercent;
-    private Integer sequence;
+public class ElectricityBillInvoicingSummaryDto {
+	
+	private double invoicePendingAmount;
+	private int invoicePendingCount;
+	private double invoiceDoneAmount;
+	private int invoiceDoneCount;
+	private double overAllInvoiceAmount;
+	private int overAllInvoiceCount;
+
 }

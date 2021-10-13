@@ -27,7 +27,7 @@ public class ElectricityBillDto extends AbstractDto {
 
 	private String residenceId;
 
-	private String propertyId;
+	private String propertyCode;
 
 	private String billNumber;
 
