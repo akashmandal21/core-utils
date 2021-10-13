@@ -26,4 +26,6 @@ public class SpecialDayMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private List<MealWiseMenuDto> mealWiseMenus;
 	private DayWiseCogsDto eventdayCogs;
 
+	private boolean isSpecialMenuAvailable;
+
 }
