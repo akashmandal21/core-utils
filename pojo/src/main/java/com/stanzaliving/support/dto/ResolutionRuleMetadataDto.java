@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -27,5 +28,7 @@ public class ResolutionRuleMetadataDto {
     private boolean isResolutionRuleActive;
     private Set<LocationDto> locationDto;
     private String groupUuid;
-
+    private LocalTime StartTime;
+    private LocalTime EndTime;
+    private LocalTime BufferTime;
 }

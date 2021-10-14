@@ -12,6 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BusinessHourDto {
+    private String groupUuid;
+
     @NotEmpty(message = "primary reference uuid can't be left blank.")
     private List<String> primaryReferenceUuid;
 

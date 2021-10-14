@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Builder
@@ -41,4 +42,7 @@ public class ResolutionRuleDto {
     private String updatedBy;
     private Boolean isActive;
     private String groupUuid;
+    private LocalTime StartTime;
+    private LocalTime EndTime;
+    private LocalTime BufferTime;
 }
