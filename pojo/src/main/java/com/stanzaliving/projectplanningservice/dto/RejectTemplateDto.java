@@ -21,9 +21,11 @@ public class RejectTemplateDto extends AbstractDto {
 
    private List<String> planningTemplateIDs;
 
-    private Date selectDate;
+   private boolean template;
 
-    private String remarks;
+   private Date selectDate;
 
-    private List<String> tagList;
+   private String remarks;
+
+   private List<String> tagList;
 }
