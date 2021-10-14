@@ -29,6 +29,8 @@ public class ElectricityBillAddDto {
 	private String residenceId;
 
 	private String billNumber;
+	
+	private String billUuid;
 
 	@NotBlank(message = "ElectricityBillType Cannot be blank")
 	private ElectricityBillType electricityBillType;
