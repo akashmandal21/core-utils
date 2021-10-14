@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class ElectricityBillSearchResponseDto implements Serializable {
+public class ElectricityBillSearchSummaryDto implements Serializable {
 
 	private static final long serialVersionUID = -6779962402404539465L;
 	private List<QuickFilterCountDto> stats;

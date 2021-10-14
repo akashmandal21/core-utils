@@ -28,17 +28,16 @@ public class ElectricityBillAddDto {
 	@NotBlank(message = "ResidenceId Cannot be blank")
 	private String residenceId;
 
-	@NotBlank(message = "BillNumber Cannot be blank")
 	private String billNumber;
 
 	@NotBlank(message = "ElectricityBillType Cannot be blank")
 	private ElectricityBillType electricityBillType;
 
-	@NotBlank(message = "BillStartDate Cannot be blank")
-	private Date billStartDate;
+	@NotBlank(message = "BillDurationFrom Cannot be blank")
+	private Date billDurationFrom;
 
-	@NotBlank(message = "BillEndDate Cannot be blank")
-	private Date billEndDate;
+	@NotBlank(message = "BillDurationTo Cannot be blank")
+	private Date billDurationTo;
 
 	@NotBlank(message = "ConsumptionCharges Cannot be blank")
 	private double consumptionCharges;

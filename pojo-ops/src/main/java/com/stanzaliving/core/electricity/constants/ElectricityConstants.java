@@ -15,4 +15,7 @@ public class ElectricityConstants {
 	public final String INVOICING_PENDING = "Invoicing Pending";
 	public final String INVOICING_DONE = "Invoicing Done";
 	
+	public final String PENDING_APPROVAL = "Pending Approval";
+	public final String APPROVED = "Approved";
+
 }
