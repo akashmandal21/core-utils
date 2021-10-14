@@ -21,15 +21,25 @@ import java.util.List;
 @SuperBuilder
 public class PropertyStatusProgressDto extends AbstractDto {
 
-    private String overAllPlanDelayedBy;
+    private Integer overAllPlanDelayedBy;
 
-    private String taskDelayedBy;
+    private Integer taskDelayedBy;
 
-    private String taskCompleted;
+    private Integer totalTaskDelayedBy;
+
+    private Integer taskCompleted;
+
+    private Integer totalTaskCompleted;
 
     private Integer taskInProgress;
 
+    private Integer totalTaskInProgress;
+
     private Integer taskDelayed;
 
-    private PlanningStatus taskNotStarted;
+    private Integer totalTaskDelayed;
+
+    private Integer taskNotStarted;
+
+    private Integer totalTaskNotStarted;
 }
