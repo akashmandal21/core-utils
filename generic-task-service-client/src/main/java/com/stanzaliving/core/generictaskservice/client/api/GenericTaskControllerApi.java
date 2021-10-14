@@ -170,11 +170,10 @@ public class GenericTaskControllerApi {
     }
 
     /**
-     * @author Pradeep Naik R
-     * GET TASKS WITH CHILD TASKS
-     *
      * @param taskSearchFilterRequestDto
      * @return List of Generic tasks
+     * @author Pradeep Naik R
+     * GET TASKS WITH CHILD TASKS
      * @required ProjectPlanningService
      */
     public ResponseDto<List<GenericTaskResponseDto>> getGenericTaskByTaskIdList(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
@@ -316,11 +315,10 @@ public class GenericTaskControllerApi {
     }
 
     /**
-     * @author Pradeep Naik R
-     * GET TASKS BY NAME
-     *
      * @param taskSearchFilterRequestDto
      * @return
+     * @author Pradeep Naik R
+     * GET TASKS BY NAME
      */
     public ResponseDto<List<GenericTaskResponseDto>> getGenericTaskByNameUsingTaskIdList(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
         Object getBody = taskSearchFilterRequestDto;
@@ -347,11 +345,10 @@ public class GenericTaskControllerApi {
 
 
     /**
-     * @author Pradeep Naik R
-     * GET TASK WITH CHILD TASKS BY UUID
-     *
      * @param genericTaskUuid
      * @return
+     * @author Pradeep Naik R
+     * GET TASK WITH CHILD TASKS BY UUID
      */
     public ResponseDto<GenericTaskResponseDto> getGenericTaskWithChildTasksByUuid(String genericTaskUuid) {
         Object getBody = null;
@@ -426,11 +423,10 @@ public class GenericTaskControllerApi {
     }
 
     /**
-     * @author Pradeep Naik R
-     * NOTE: Request should contain taskUuids [ optional ], taskTemplate [ true/false( Mandatory ) ]
-     *
      * @param taskSearchFilterRequestDto
      * @return List of GenericTaskResponseDto [ return Generic tasks for taskUuids passed, if not all Generic tasks ]
+     * @author Pradeep Naik R
+     * NOTE: Request should contain taskUuids [ optional ], taskTemplate [ true/false( Mandatory ) ]
      * @description FETCH GENERIC TASKS
      * Case1: GET ALL GENERIC TASKS
      * Case2: GET SPECIFIED GENERIC TASKS BY PASSING TASK UUIDS
@@ -460,10 +456,9 @@ public class GenericTaskControllerApi {
     }
 
     /**
-     * @author Pradeep Naik R
-     *
      * @param taskSearchFilterRequestDto
      * @return
+     * @author Pradeep Naik R
      * @description Fetches all the section along with tasks and subtasks as flat array
      * Case 1: Send section taskServiceUuids fetched by templateUuid, Prepare TaskSearchFilterRequestDto and set taskTemplate
      */
