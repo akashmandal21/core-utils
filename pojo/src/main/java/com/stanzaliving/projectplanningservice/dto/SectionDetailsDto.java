@@ -51,13 +51,9 @@ public class SectionDetailsDto extends AbstractDto {
 
     protected Date updatedAt;
 
-    private String propertyUuid;
-
     private String taskServiceUuid;
 
     private String parentTemplateUuid;
-
-    private List<String> taskChildUuids;
 
     private boolean taskTemplate;
 
@@ -66,8 +62,6 @@ public class SectionDetailsDto extends AbstractDto {
     private Date dueDate;
 
     private String taskOwner;
-
-    private String priority;
 
     @NotBlank(message = "Task Name cannot be empty")
     private String taskName;
@@ -82,12 +76,6 @@ public class SectionDetailsDto extends AbstractDto {
     private String parentTaskUuid;
 
     private String taskStatusUuid;
-
-    private String taskSubStatusUuid;
-
-    private String taskCategoryUuid;
-
-    private String taskSubCategoryUuid;
 
     private Department department;
 
