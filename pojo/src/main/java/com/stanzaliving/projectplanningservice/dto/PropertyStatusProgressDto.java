@@ -19,9 +19,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class PropertyStatusProgressDto extends AbstractDto {
+public class PropertyStatusProgressDto {
 
     private Integer overAllPlanDelayedBy;
+
+    private Integer overAllPlanOnTrackBy;
 
     private Integer taskDelayedBy;
 

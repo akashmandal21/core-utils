@@ -63,6 +63,11 @@ public class SectionDetailsDto extends AbstractDto {
 
     private String taskOwner;
 
+    /*
+    module = pp,gts,hk
+     */
+    private String module;
+
     @NotBlank(message = "Task Name cannot be empty")
     private String taskName;
 
