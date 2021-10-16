@@ -1,18 +1,20 @@
 package com.stanzaliving.support.dto;
 
+import com.stanzaliving.core.dto.PageAndSortDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 import java.util.List;
 
-@Builder
+@SuperBuilder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TicketFilterDto {
+public class TicketFilterDto extends PageAndSortDto {
 
     private List<String> status;
 
@@ -63,5 +65,7 @@ public class TicketFilterDto {
     private TicketTypeDto ticketType;
 
     private List<String> ticketSource;
+
+    private String search;
 }
 
