@@ -11,12 +11,16 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResolutionRuleFilterDto extends PageAndSortDto {
+
     private TicketType ticketType;
     private List<String> createdBy;
     private List<String> lastUpdatedBy;
     private Boolean isActive;
+    @NotNull(message="city cannot be null")
     private List<String> city;
+    @NotNull(message="micromarket cannot be null")
     private List<String> micromarket;
+    @NotNull(message="residence cannot be null")
     private List<String> residence;
     private List<String> complaintGroup;
     private List<String> category;

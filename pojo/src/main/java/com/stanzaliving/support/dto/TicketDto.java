@@ -2,6 +2,7 @@ package com.stanzaliving.support.dto;
 
 import com.stanzaliving.support.enums.Priority;
 import com.stanzaliving.support.enums.Source;
+import com.stanzaliving.support.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +19,7 @@ public class TicketDto {
 
     private String description;
     private String statusUuid;
-    private String statusName;
+    private Status statusName;
     private String complaintGroupUuid;
     private String complaintGroupName;
     private String categoryUuid;
@@ -39,7 +40,7 @@ public class TicketDto {
     private String resolvedBy;
     private Date reopenedAt;
     private String ticketId;
-    private String ticketUuid;
+    private String uuid;
     private Long subTicketId;
     private String subTicketUuid;
     private String taskTypeUuid;
