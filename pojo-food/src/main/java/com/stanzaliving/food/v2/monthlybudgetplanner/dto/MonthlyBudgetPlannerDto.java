@@ -35,6 +35,8 @@ public class MonthlyBudgetPlannerDto extends MenuCategoryDTO {
 	private static final long serialVersionUID = -631333844318576490L;
 	private String menuCategoryMonthlyBudgetPlannerId;
 
+	private String menuCategoryId;
+
 	private Double monthlyBudget;
 	private Map<String, String> tags;
 	private List<ListingDto> demographicTags;
