@@ -1,4 +1,4 @@
-package com.stanzaliving.wanda.food.response;
+package com.stanzaliving.wanda;
 
 import com.stanzaliving.core.food.enums.DemoGraphicsRegion;
 import lombok.AllArgsConstructor;
