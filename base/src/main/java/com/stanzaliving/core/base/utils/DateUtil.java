@@ -1116,6 +1116,6 @@ public class DateUtil {
     }
 
     public static boolean isWeekDay(LocalDate date) {
-        return date.getDayOfWeek().getValue()<6;
+        return date.getDayOfWeek()!=DayOfWeek.SATURDAY&&date.getDayOfWeek()!=DayOfWeek.SUNDAY;
     }
 }
