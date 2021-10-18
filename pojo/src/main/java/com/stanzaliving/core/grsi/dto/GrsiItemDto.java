@@ -20,6 +20,11 @@ public class GrsiItemDto {
     private Department itemDept;
     private String batchId;
     private String awlBatchId;
+    private BigDecimal pieceDamaged;
+    private BigDecimal cartonDamaged;
+    private BigDecimal qcChk;
+    private BigDecimal rePck;
+    private BigDecimal totalQuantity;
     private LocalDate expiryDate;
     private BigDecimal effectivePrice;//Unit Rate
     private BigDecimal quantity;
