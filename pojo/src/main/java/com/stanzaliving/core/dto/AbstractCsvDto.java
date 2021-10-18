@@ -108,15 +108,19 @@ public abstract class AbstractCsvDto {
     public LocalDate getDateValue(String[] data, String columnName) {
         try {
             return LocalDate.parse(data[this.getColumns().indexOf(columnName)]);
-        } catch(DateTimeParseException e) {
+        } catch(Exception e) {
             return null;
         }
     }
 
     public Set<String> getSetOfStrings(String[] data, String columnName, String delimiter) {
 
-        return new HashSet<>(Arrays.asList(data[this.getColumns().indexOf(columnName)].split(delimiter)));
-
+        if(StringUtils.isNotBlank(data[this.getColumns().indexOf(columnName)])) {
+            return new HashSet<>(Arrays.asList(data[this.getColumns().indexOf(columnName)].split(delimiter)));
+        } else {
+            return new HashSet<>();
+        }
+        
     }
 
 }
