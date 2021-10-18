@@ -8,8 +8,8 @@ import lombok.Getter;
 public enum ResolutionRuleColumnEnum {
     COMPLAINT_GROUP("ComplaintGroup"),
     CATEGORY("Category"),
-    CREATED_BY("CreatedAt"),
-    UPDATED_BY("LastUpdatedAt");
+    CREATED_AT("CreatedAt"),
+    UPDATED_AT("LastUpdatedAt");
     private final String columnName;
 
 }

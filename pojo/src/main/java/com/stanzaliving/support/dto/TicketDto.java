@@ -2,12 +2,12 @@ package com.stanzaliving.support.dto;
 
 import com.stanzaliving.support.enums.Priority;
 import com.stanzaliving.support.enums.Source;
+import com.stanzaliving.support.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -15,18 +15,18 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdditionalPropertiesDto {
+public class TicketDto {
 
     private String description;
     private String statusUuid;
-    private String statusDetail;
+    private Status statusName;
     private String complaintGroupUuid;
-    private String complaintGroupDetail;
+    private String complaintGroupName;
     private String categoryUuid;
-    private String categoryDetail;
+    private String categoryName;
     private String subCategoryUuid;
-    private String subCategoryDetail;
-    private String assignedToUuid;
+    private String subCategoryName;
+    private String assignedToUserUuid;
     private String assignedTo;
     private Priority priorityDetail;
     private Long mergedTicketId;
@@ -40,7 +40,7 @@ public class AdditionalPropertiesDto {
     private String resolvedBy;
     private Date reopenedAt;
     private String ticketId;
-    private String ticketUuid;
+    private String uuid;
     private Long subTicketId;
     private String subTicketUuid;
     private String taskTypeUuid;
@@ -66,8 +66,8 @@ public class AdditionalPropertiesDto {
     private Date createdAt;
     private String complaintGroupImage;
     private TicketChipColorDto ticketChipColorDto;
-    private List<AdditionalPropertiesDto> subTickets;
+    private List<TicketDto> subTickets;
     private Integer version;
-    private String currentResolutionLevelUuid;
+    private String assignedToRoleUuid;
     private String expandableBarColor;
 }

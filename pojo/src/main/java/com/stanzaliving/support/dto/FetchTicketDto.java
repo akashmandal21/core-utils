@@ -2,6 +2,6 @@ package com.stanzaliving.support.dto;
 
 import java.util.List;
 
-public class FetchTicketDto extends AdditionalPropertiesDto {
-    List<AdditionalPropertiesDto> subTickets;
+public class FetchTicketDto extends TicketDto {
+    List<TicketDto> subTickets;
 }
