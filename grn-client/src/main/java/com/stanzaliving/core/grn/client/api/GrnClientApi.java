@@ -13,6 +13,7 @@ import com.stanzaliving.core.po.generic.dtos.GenericPoUpdate;
 import com.stanzaliving.grn.GSRIEmailData;
 import com.stanzaliving.grn.GSRIReceivedQuantity;
 import com.stanzaliving.grn.GrnQuantity;
+import com.stanzaliving.grn.SwimGsriRequestDto;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.po.enums.PoType;
 import lombok.extern.log4j.Log4j2;
@@ -293,6 +294,29 @@ public class GrnClientApi {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<Void> performGsriFromSwim(String platform, EventType eventType, boolean isComplete, SwimGsriRequestDto swimGsriRequestDto) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("platform", platform);
+        uriVariables.put("eventType", eventType);
+        uriVariables.put("isComplete", isComplete);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/perform-gsri/{platform}/{eventType}/{isComplete}").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, swimGsriRequestDto, headerParams, accept, returnType);
     }
 
 }
