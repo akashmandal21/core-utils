@@ -18,4 +18,5 @@ public class ModuleDto extends AbstractDto {
 
     private String moduleName;
 
+    private String colorCode;
 }
