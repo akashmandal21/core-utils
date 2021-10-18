@@ -108,7 +108,7 @@ public abstract class AbstractCsvDto {
     public LocalDate getDateValue(String[] data, String columnName) {
         try {
             return LocalDate.parse(data[this.getColumns().indexOf(columnName)]);
-        } catch(DateTimeParseException e) {
+        } catch(Exception e) {
             return null;
         }
     }
