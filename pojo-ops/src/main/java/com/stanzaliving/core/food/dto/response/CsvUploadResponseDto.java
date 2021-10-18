@@ -13,6 +13,20 @@ public class CsvUploadResponseDto {
     private long totalCount;
     private long errorCount;
     private long successCount;
-    private String failedMessage;
+    private String message;
+    
+    public String getResultMessage() {
+        
+        if(this.totalCount==0l) {
+            return "No records found in the upload request";
+        } else if(totalCount==successCount) {
+            return "File uploaded successfully";
+        } else if(totalCount==errorCount) {
+            return "File uploaded failed";
+        } else {
+            return "Some records have been uploaded";
+        }
+        
+    }
 
 }
