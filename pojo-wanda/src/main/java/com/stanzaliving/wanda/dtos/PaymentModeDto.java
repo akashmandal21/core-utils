@@ -1,6 +1,6 @@
 package com.stanzaliving.wanda.dtos;
 
-import com.stanzaliving.core.payment.enums.PaymentMode;
+import com.stanzaliving.wanda.enums.WandaPaymentMode;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,13 +17,13 @@ import lombok.ToString;
 @NoArgsConstructor
 public class PaymentModeDto {
 
-	private PaymentMode wandaPaymentMode;
+	private WandaPaymentMode wandaPaymentMode;
 	
 	private String paymentModeName;
 	
 	private String paymentModeText;
-	@Builder.Default
-	private boolean enabled=true;
+	
+	private boolean enabled;
 	
 	private Boolean isEndUserPayingFee;
 }

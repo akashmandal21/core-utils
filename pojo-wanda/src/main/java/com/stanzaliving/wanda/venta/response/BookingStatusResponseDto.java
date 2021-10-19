@@ -19,6 +19,7 @@ public class BookingStatusResponseDto {
 	private String houseName;
     private String bookingUuid;
     private String bookingStatus;
+    private String bookingStatusDesc;
     private boolean hasMovedIn;
     private AlfredStep alfredStep;
 	@Builder.Default
@@ -51,4 +52,7 @@ public class BookingStatusResponseDto {
     private Date expectedMoveInDate;
     private RetentionBookingResponseDto retentionBooking;
     private String contractStartDate;
+    private boolean interestMenuVisiblity;
+    private boolean interestBanner;
+    private String propertyCategory;
 }
