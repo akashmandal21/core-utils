@@ -13,6 +13,23 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookingDiscountDetailsResponseDto {
+    private double discountValueApplied;
 
+    private double discountRequested;
+
+    private double oldDiscountAmount;
+
+    private String discountCode;
+
+    private String strategyUuid;
+
+    private String strategyName;
+
+    private List<String> invoicesDateList;
+
+    private String description;
+
+    @Builder.Default
+    private Boolean status = Boolean.FALSE;
     List<BookingDiscountDetails> bookingDiscountDetailsList;
 }
