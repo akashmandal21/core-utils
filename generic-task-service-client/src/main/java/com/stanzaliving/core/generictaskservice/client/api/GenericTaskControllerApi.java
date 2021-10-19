@@ -195,7 +195,7 @@ public class GenericTaskControllerApi {
 
     }
 
-    public ResponseDto<List<GenericTaskDto>> createGenericTaskDto(List<GenericTaskDto> tasks) {
+    public ResponseDto<List<GenericTaskResponseDto>> createGenericTaskDto(List<GenericTaskDto> tasks) {
         Object postBody = tasks;
 
         // create path and map variables
@@ -212,7 +212,7 @@ public class GenericTaskControllerApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<List<GenericTaskDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskDto>>>() {
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
