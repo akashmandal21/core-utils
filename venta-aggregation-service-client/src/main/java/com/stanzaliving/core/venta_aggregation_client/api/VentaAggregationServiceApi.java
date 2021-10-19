@@ -1,6 +1,5 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
-import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
@@ -83,7 +82,7 @@ public class VentaAggregationServiceApi {
     }
 
     public ResponseDto<RestResponsePage<BookingAggregationDto>> getBookingAggregationListing(BookingFilterRequestDto bookingFilterRequestDto) {
-        log.info("Aggregation Booking Controller {}", bookingFilterRequestDto);
+        log.info("Aggregation Booking Controller getBookingAggregationListing with payload {}", bookingFilterRequestDto.toString());
 
         Object postBody = bookingFilterRequestDto;
 
@@ -188,6 +187,7 @@ public class VentaAggregationServiceApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
+
         String path = UriComponentsBuilder.fromPath("/internal/residence/update-price-bed-cache").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -203,6 +203,37 @@ public class VentaAggregationServiceApi {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
+
+    public ResponseDto<List<BookingAggregationDto>> fetchAllTrespassersInCity(String cityUuid) {
+        try {
+            log.info("Aggregation Booking Details Controller::Processing to get tresspasser bookings on basis of cityUuid {}", cityUuid);
+
+            Object postBody = null;
+
+            // create path and map variables
+            final Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("cityUuid", cityUuid);
+
+            String path = UriComponentsBuilder.fromPath("/internal/trespassers/{cityUuid}").buildAndExpand(uriVariables).toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {
+                    "*/*"
+            };
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>>() {
+            };
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        }catch (Exception e){
+            log.error("Exception occurred while fetching tresspasser bookings for city id:{} with message",cityUuid,e);
+            return null;
+        }
+    }
+
 
 
 }

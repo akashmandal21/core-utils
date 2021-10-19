@@ -42,6 +42,7 @@ public enum DateFormat {
     MMM_YYYY("MMM, yyyy"),
     MMM_YY("MMM, yy"),
     MMM_YY2("MMM''yy"),
+    DD_MM_YYYY("dd/MM/yyyy"),
     DD_MMM_YYYY_H_MM_A("dd MMM yyyy h:mm a"),
     DD_MMM_YY_H_MM_A1("dd MMM''YY, h:mm a"),
     H_MM_A("h:mm a"),
