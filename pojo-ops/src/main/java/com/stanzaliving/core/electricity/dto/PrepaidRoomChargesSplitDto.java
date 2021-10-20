@@ -1,5 +1,7 @@
 package com.stanzaliving.core.electricity.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,10 +16,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PrepaidRoomChargesSplitDto {
-	private PrepaidRoomChargesSplitRow prepaidRoomChargesSplitRow;
-	private String nameTotal;
-	private int gridUnitsTotal;
-	private double gridChargesTotal;
-	private int dgUnitsTotal;
-	private double dgChargesTotal;
+	private List<PrepaidRoomChargesSplitRow> prepaidRoomChargesSplitRows;
+	private PrepaidRoomChargesSplitRow prepaidRoomChargesSplitTotalRow;
+
 }

@@ -1,5 +1,7 @@
 package com.stanzaliving.core.electricity.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +19,7 @@ public class PostpaidChargesSplitSummaryDto {
 
 	private double residentShareTotal;
 	private double stanzaShareTotal;
-	private PostpaidRoomChargesSplitDto postpaidRoomChargesSplitDto;
+	private List<PostpaidRoomChargesSplitDto> postpaidRoomChargesSplitDtos;
 	private PostpaidResidentChargesSplitDto postpaidResidentChargesSplitDto;
 
 }

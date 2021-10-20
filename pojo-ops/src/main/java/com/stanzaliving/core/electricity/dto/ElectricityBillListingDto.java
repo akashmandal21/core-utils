@@ -2,8 +2,6 @@ package com.stanzaliving.core.electricity.dto;
 
 import java.util.Date;
 
-import com.stanzaliving.core.enums.ApartmentType;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +21,7 @@ public class ElectricityBillListingDto {
 	
 	private String propertyCode;
 	
-	private ApartmentType apartmentType;
+	private String apartmentType;
 	
 	private String propertyAddressLine1;
 	

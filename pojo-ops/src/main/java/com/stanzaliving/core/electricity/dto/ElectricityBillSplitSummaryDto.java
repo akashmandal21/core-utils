@@ -14,11 +14,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ElectricityBillSplitSummaryDto {
-
 	private double totalBillAmount;
 	private double prepaidChargesTotal;
 	private double postpaidChargesTotal;
-	private PrepaidChargesSplitSummaryDto prepaidChargesDto;
+	private PrepaidRoomChargesSplitDto prepaidRoomChargesSplitDto;
 	private PostpaidChargesSplitSummaryDto postpaidChargesDto;
-
 }
