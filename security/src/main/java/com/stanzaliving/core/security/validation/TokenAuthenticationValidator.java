@@ -40,6 +40,8 @@ public class TokenAuthenticationValidator implements RequestValidator {
 
 			for (Cookie cookie : cookies) {
 
+				log.info("RequestCookie [Name: {}, Value: {}]", cookie.getName(), cookie.getValue());
+
 				if (SecurityConstants.TOKEN_HEADER_NAME.equals(cookie.getName())) {
 					token = cookie.getValue();
 					break;
@@ -48,7 +50,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 		}
 		if (token == null) {
 			token = request.getHeader(SecurityConstants.AUTHORIZATION_HEADER);
-			if (token != null && token.startsWith(SecurityConstants.VENTA_TOKEN_PREFIX)) {		//only if it follows bearer schema, then we would consider valid token
+			if (token != null && token.startsWith(SecurityConstants.VENTA_TOKEN_PREFIX)) { // only if it follows bearer schema, then we would consider valid token
 				token = token.replace(SecurityConstants.VENTA_TOKEN_PREFIX, "");
 			} else {
 				token = null;
