@@ -41,7 +41,7 @@ public class TicketDto {
     private Date reopenedAt;
     private String ticketId;
     private String ticketUuid;
-    private Long subTicketId;
+    private String subTicketId;
     private String subTicketUuid;
     private String taskTypeUuid;
     private String taskTypeDetail;
