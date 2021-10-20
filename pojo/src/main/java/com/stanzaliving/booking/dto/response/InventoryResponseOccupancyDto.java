@@ -39,4 +39,7 @@ public class InventoryResponseOccupancyDto {
     private boolean allRoomsSelected;
 
     private String bhkType;
+
+    private boolean isInventorySelected;
+
 }

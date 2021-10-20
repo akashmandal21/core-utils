@@ -55,4 +55,6 @@ public class TransactionDto extends AbstractDto {
 	
 	private String currentPaymentId;
 
+	private String bookingUuid;
+
 }

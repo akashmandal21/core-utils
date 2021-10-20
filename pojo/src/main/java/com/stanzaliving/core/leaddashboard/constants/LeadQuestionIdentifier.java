@@ -10,6 +10,7 @@ public class LeadQuestionIdentifier {
     public static final String QUALIFIED_OCCUPANCY = "occupancy";  
     public static final String QUALIFIED_GENDER = "gender";
     public static final String QUALIFIED_LEAD_TYPE = "leadType";
+    public static final String QUALIFIED_ACCOMMODATION_TYPE = "accommodationType";
     public static final String QUALIFIED_DISQUALIFICATION_REASON = "qualifiedDisqualificationReason";
 
     public static final String PRE_VISIT_SCHEDULED_DROP_REASON = "preVisitScheduledDropReason";

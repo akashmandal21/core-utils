@@ -62,4 +62,5 @@ public class BookingResponseDto {
     private PaymentTerm paymentTerm;
 
     private Boolean exceptionalOnboarded;
+
 }
