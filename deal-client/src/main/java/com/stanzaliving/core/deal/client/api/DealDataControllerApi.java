@@ -405,5 +405,6 @@ public class DealDataControllerApi {
                 };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
     }
 }

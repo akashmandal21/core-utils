@@ -13,7 +13,7 @@ import java.util.Set;
 public enum BookingSubStatus {
 
 
-    IN_PROGRESS("IN PROGRESS"),
+	IN_PROGRESS("IN PROGRESS"),
     NEEDS_ATTENTION("NEEDS ATTENTION"),
     COLLECT_PAYMENT_FROM_RESIDENT("COLLECT PAYMENT FROM RESIDENT"),
     PERSONAL_DETAILS_PENDING("PERSONAL DETAILS PENDING"),
@@ -82,10 +82,19 @@ public enum BookingSubStatus {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(AUDIT_PENDING.getBookingSubStatus());
         bookingStatus.add(AUDIT_APPROVAL_PENDING.getBookingSubStatus());
-        bookingStatus.add(AUDIT_PENDING.getBookingSubStatus());
+        bookingStatus.add(AUDIT_APPROVED.getBookingSubStatus());
         bookingStatus.add(AUDIT_REJECTED.getBookingSubStatus());
         return bookingStatus;
     }
+
+    public static Set<String> exitProcessBookingSubStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
+        bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
+        return bookingStatus;
+    }
+
+
 
 
 }
