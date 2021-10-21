@@ -152,7 +152,7 @@ public class GenericTaskControllerApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("taskOwnerUuid", uuid);
 
-        String path = UriComponentsBuilder.fromPath("/task/task/{taskOwnerUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/task/task/{taskOwnerUuid}").buildAndExpand(uriVariables).toUriString();
         log.info("Path: {}", path);
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
