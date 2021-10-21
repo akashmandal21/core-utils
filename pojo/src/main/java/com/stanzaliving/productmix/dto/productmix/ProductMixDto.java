@@ -18,12 +18,12 @@ public class ProductMixDto {
     private PropertyAttributeDto propertyAttribute;
 
     public void setPropertyTemplateOptionsDto(PropertyTemplateOptionsDto propertyTemplateOptionsDto) {
-        propertyAttribute.setPropertyTemplateOptions(propertyTemplateOptionsDto.getPropertyTemplateOptions());
-        propertyAttribute.setPropertyTemplateOptionsData(propertyTemplateOptionsDto.getPropertyTemplateOptionsData());
+        this.propertyAttribute.setPropertyTemplateOptions(propertyTemplateOptionsDto.getPropertyTemplateOptions());
+        this.propertyAttribute.setPropertyTemplateOptionsData(propertyTemplateOptionsDto.getPropertyTemplateOptionsData());
     }
 
     public void setRoomTemplateOptionsDto(RoomTemplateOptionsDto roomTemplateOptionsDto) {
-        roomAttribute.setRoomTemplateOptions(roomTemplateOptionsDto.getRoomTemplateOptions());
-        roomAttribute.setRoomTemplateOptionsData(roomTemplateOptionsDto.getRoomTemplateOptionsData());
+        this.roomAttribute.setRoomTemplateOptions(roomTemplateOptionsDto.getRoomTemplateOptions());
+        this.roomAttribute.setRoomTemplateOptionsData(roomTemplateOptionsDto.getRoomTemplateOptionsData());
     }
 }
