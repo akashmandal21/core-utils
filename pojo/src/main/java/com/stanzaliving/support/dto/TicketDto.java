@@ -19,7 +19,7 @@ public class TicketDto {
 
     private String description;
     private String statusUuid;
-    private Status statusName;
+    private String statusName;
     private String complaintGroupUuid;
     private String complaintGroupName;
     private String categoryUuid;
