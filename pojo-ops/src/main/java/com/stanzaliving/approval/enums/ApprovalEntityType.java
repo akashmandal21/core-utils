@@ -17,7 +17,8 @@ public enum ApprovalEntityType {
 	FOOD_MENU_CATEGORY_V2("Food Menu Category", "foodmenucategory", "foodmenucategory"),
 	WEEKLY_MENU("Weekly Menu", "FOOD_SERVICE", "WEEKLY_MENU"),
 	WEEKLY_MENU_V2("Weekly Menu", "FOOD_SERVICE", "WEEKLY_MENU"),
-	SUPPORT_TEMPLATE("Support Template", "support-service", "SUPPORT_TEMPLATE");
+	SUPPORT_TEMPLATE("Support Template", "support-service", "SUPPORT_TEMPLATE"),
+	MONTHLY_BUDGET_MENU_PLANNING("Food Monthly Planning", "FOOD_SERVICE", "MONTHLY_BUDGET_MENU_PLANNING");
 
 	private final String value;
 	private final String commentServiceName;
