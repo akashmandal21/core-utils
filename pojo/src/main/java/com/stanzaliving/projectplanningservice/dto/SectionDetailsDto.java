@@ -86,6 +86,10 @@ public class SectionDetailsDto extends AbstractDto {
 
     private List<SectionDetailsDto> tasks;
 
+    private List<String> attachmentsList;
+
+    private List<String> dependentTaskUuidList;
+
     private Date plannedStartDate;
 
     private Date plannedDueDate;
