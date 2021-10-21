@@ -1,6 +1,5 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
-import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
@@ -83,7 +82,7 @@ public class VentaAggregationServiceApi {
     }
 
     public ResponseDto<RestResponsePage<BookingAggregationDto>> getBookingAggregationListing(BookingFilterRequestDto bookingFilterRequestDto) {
-        log.info("Aggregation Booking Controller {}", bookingFilterRequestDto);
+        log.info("Aggregation Booking Controller");
 
         Object postBody = bookingFilterRequestDto;
 
@@ -187,6 +186,7 @@ public class VentaAggregationServiceApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+
 
         String path = UriComponentsBuilder.fromPath("/internal/residence/update-price-bed-cache").buildAndExpand(uriVariables).toUriString();
 

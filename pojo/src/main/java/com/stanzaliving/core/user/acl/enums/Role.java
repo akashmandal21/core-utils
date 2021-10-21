@@ -73,6 +73,14 @@ public enum Role {
     WEEKLY_MENU_L4_APPROVER("Weekly Menu Vendor Approval", AccessLevel.FOOD_VENDOR, Department.FOOD_OPS),
     WEEKLY_MENU_L5_APPROVER("Country - Weekly Menu Approval L3", AccessLevel.COUNTRY, Department.FOOD_OPS),
 
+
+    MONTHLY_BUDGET_MENU_PLANNING_L1_APPROVER("City - Menu Budget Planner L1 Approver", AccessLevel.CITY, Department.FOOD_OPS),
+    MONTHLY_BUDGET_MENU_PLANNING_L2_APPROVER("City - Menu Budget Planner L2 Approver", AccessLevel.CITY, Department.FOOD_OPS),
+    MONTHLY_BUDGET_MENU_PLANNING_L3_APPROVER("Country - Menu Budget Planner L3 Approver", AccessLevel.COUNTRY, Department.FOOD_OPS),
+    MONTHLY_BUDGET_MENU_PLANNING_L4_APPROVER("Country - Menu Budget Planner L4 Approver", AccessLevel.COUNTRY, Department.FOOD_OPS),
+    MONTHLY_BUDGET_MENU_PLANNING_L5_APPROVER("Country - Menu Budget Planner L5 Approver", AccessLevel.COUNTRY, Department.FOOD_OPS),
+
+
     /********************************* GENERIC-APPROVAL-DASHBOARD *************************************/
 
     CITY_INVENTORY_L1_APPROVAL("CITY_INVENTORY_L1_APPROVAL", AccessLevel.CITY, Department.SALES),
