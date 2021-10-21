@@ -17,11 +17,11 @@ public class ResolutionRoleDto {
     private String roleUuid;
 
     @NotNull(message = "first response time can't be left blank.")
-    @Min(0)
+    @Min(1)
     private Long firstResponseIn;
 
     @NotNull(message = "resolutionIn can't be left blank.")
-    @Min(0)
+    @Min(1)
     private Long resolutionIn;
 
     private Boolean isEscalation;
