@@ -18,25 +18,17 @@ public class ProductMixDto {
 
     private ProductMixDetails productMixDetails;
 
-    private LabelValueDto<String> propertyTemplate;
+    private RoomAttributeDto roomAttribute;
 
-    private List<RoomDetails> roomDetails;
-
-    private List<LabelValueDto<String>> roomTemplateOptions;
-
-    private Map<String, RoomTemplateTypeOptionsData> roomTemplateOptionsData;
-
-    private List<LabelValueDto<String>> propertyTemplateOptions;
-
-    private Map<String, List<ZonesDto>> propertyTemplateOptionsData;
+    private PropertyAttributeDto propertyAttribute;
 
     public void setPropertyTemplateOptionsDto(PropertyTemplateOptionsDto propertyTemplateOptionsDto) {
-        propertyTemplateOptions = propertyTemplateOptionsDto.getPropertyTemplateOptions();
-        propertyTemplateOptionsData = propertyTemplateOptionsDto.getPropertyTemplateOptionsData();
+        propertyAttribute.setPropertyTemplateOptions(propertyTemplateOptionsDto.getPropertyTemplateOptions());
+        propertyAttribute.setPropertyTemplateOptionsData(propertyTemplateOptionsDto.getPropertyTemplateOptionsData());
     }
 
     public void setRoomTemplateOptionsDto(RoomTemplateOptionsDto roomTemplateOptionsDto) {
-        roomTemplateOptions = roomTemplateOptionsDto.getRoomTemplateOptions();
-        roomTemplateOptionsData = roomTemplateOptionsDto.getRoomTemplateOptionsData();
+        roomAttribute.setRoomTemplateOptions(roomTemplateOptionsDto.getRoomTemplateOptions());
+        roomAttribute.setRoomTemplateOptionsData(roomTemplateOptionsDto.getRoomTemplateOptionsData());
     }
 }
