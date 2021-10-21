@@ -16,7 +16,7 @@ public class SubTicketResponseDto {
     private String ticketId;
     private String taskTypeUuid;
     private String subTicketUuid;
-    private String subTicketId;
+    private Long subTicketId;
     private String team;
     private String teamUuid;
     private String assignedTo;

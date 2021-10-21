@@ -23,7 +23,7 @@ public class ComplaintFaqResidenceMigrationDto {
     private String complaintTypeUuid;
 
     @JsonSetter(value="commonly_asked_question")
-    private boolean commonlyAskedQuestion;
+    private String commonlyAskedQuestion;
 
     @JsonSetter(value="created_at")
     private String createdAt;

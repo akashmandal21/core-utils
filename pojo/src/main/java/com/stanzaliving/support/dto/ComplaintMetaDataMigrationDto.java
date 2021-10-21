@@ -5,8 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -67,16 +65,16 @@ public class ComplaintMetaDataMigrationDto {
     private String ticketAgentEmail;
 
     @JsonSetter(value="closed_at")
-    private Date closedAt;
+    private String closedAt;
 
     @JsonSetter(value="closed_on_comment")
     private String closedOnComment;
 
     @JsonSetter(value="satisfied")
-    private boolean satisfied;
+    private String satisfied;
 
     @JsonSetter(value="resolved_at")
-    private Date resolvedAt;
+    private String resolvedAt;
 
     @JsonSetter(value="resolved_on_comment")
     private String resolvedOnComment;
@@ -85,7 +83,7 @@ public class ComplaintMetaDataMigrationDto {
     private String ticketOfUserId;
 
     @JsonSetter(value="created_at")
-    private Date createdAt;
+    private String createdAt;
 
     @JsonSetter(value="created_by")
     private String createdBy;
@@ -94,7 +92,7 @@ public class ComplaintMetaDataMigrationDto {
     private String status;
 
     @JsonSetter(value="updated_at")
-    private Date updatedAt;
+    private String updatedAt;
 
     @JsonSetter(value="updated_by")
     private String updatedBy;

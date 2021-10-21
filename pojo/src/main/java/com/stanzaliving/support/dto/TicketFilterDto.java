@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TicketFilterDto extends PageAndSortDto {
+public class TicketFilterDto {
 
     private List<String> status;
 
@@ -65,7 +65,5 @@ public class TicketFilterDto extends PageAndSortDto {
     private TicketTypeDto ticketType;
 
     private List<String> ticketSource;
-
-    private String search;
 }
 

@@ -17,19 +17,19 @@ public class TicketCardDto {
 
     private String ticketId;
     private String ticketUuid;
-    private String statusName;
+    private String statusDetail;
     private Date createdAt;
     private Date slaTime;
     private String categoryUuid;
-    private String categoryName;
+    private String categoryDetail;
     private String subCategoryUuid;
-    private String subCategoryName;
+    private String subCategoryDetail;
     private String userName;
     private String userCode;
     private String residenceName;
     private String roomNumber;
     private String description;
-    private String assignedToUserUuid;
+    private String assignedToUuid;
     private String assignedTo;
     private String residenceUuid;
     private String micromarketUuid;

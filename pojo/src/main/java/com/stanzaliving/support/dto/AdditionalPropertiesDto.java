@@ -2,7 +2,6 @@ package com.stanzaliving.support.dto;
 
 import com.stanzaliving.support.enums.Priority;
 import com.stanzaliving.support.enums.Source;
-import com.stanzaliving.support.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,18 +14,18 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TicketDto {
+public class AdditionalPropertiesDto {
 
     private String description;
     private String statusUuid;
-    private Status statusName;
+    private String statusDetail;
     private String complaintGroupUuid;
-    private String complaintGroupName;
+    private String complaintGroupDetail;
     private String categoryUuid;
-    private String categoryName;
+    private String categoryDetail;
     private String subCategoryUuid;
-    private String subCategoryName;
-    private String assignedToUserUuid;
+    private String subCategoryDetail;
+    private String assignedToUuid;
     private String assignedTo;
     private Priority priorityDetail;
     private Long mergedTicketId;
@@ -41,7 +40,7 @@ public class TicketDto {
     private Date reopenedAt;
     private String ticketId;
     private String ticketUuid;
-    private String subTicketId;
+    private Long subTicketId;
     private String subTicketUuid;
     private String taskTypeUuid;
     private String taskTypeDetail;
@@ -66,8 +65,8 @@ public class TicketDto {
     private Date createdAt;
     private String complaintGroupImage;
     private TicketChipColorDto ticketChipColorDto;
-    private List<TicketDto> subTickets;
+    private List<AdditionalPropertiesDto> subTickets;
     private Integer version;
-    private String assignedToRoleUuid;
+    private String currentResolutionLevelUuid;
     private String expandableBarColor;
 }

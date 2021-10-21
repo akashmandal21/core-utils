@@ -13,7 +13,7 @@ import java.util.Date;
 public class ComplaintTypeResidenceMigrationDto {
 
     @JsonSetter(value = "id")
-    private Long id;
+    private String id;
 
     @JsonSetter(value = "uuid")
     private String uuid;
@@ -25,16 +25,16 @@ public class ComplaintTypeResidenceMigrationDto {
     private String residenceId;
 
     @JsonSetter(value="created_at")
-    private Date createdAt;
+    private String createdAt;
 
     @JsonSetter(value="created_by")
     private String createdBy;
 
     @JsonSetter(value="status")
-    private boolean status;
+    private String status;
 
     @JsonSetter(value="updated_at")
-    private Date updatedAt;
+    private String updatedAt;
 
     @JsonSetter(value="updated_by")
     private String updatedBy;

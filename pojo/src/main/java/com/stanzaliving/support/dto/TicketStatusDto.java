@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TicketStatusDto {
     private String uuid;
-    private String statusName;
+    private String statusDetail;
 }

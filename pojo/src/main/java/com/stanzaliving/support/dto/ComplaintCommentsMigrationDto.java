@@ -5,21 +5,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ComplaintCommentsMigrationDto {
 
     @JsonSetter(value="id")
-    private Long id;
+    private String id;
 
     @JsonSetter(value="uuid")
     private String uuid;
 
     @JsonSetter(value="cms_id")
-    private Long cmsId;
+    private String cmsId;
 
     @JsonSetter(value="freshdesk_user_id")
     private String freshdeskUserId;
@@ -31,19 +29,19 @@ public class ComplaintCommentsMigrationDto {
     private String incoming;
 
     @JsonSetter(value="private_msg")
-    private boolean privateMsg;
+    private String privateMsg;
 
     @JsonSetter(value="created_at")
-    private Date createdAt;
+    private String createdAt;
 
     @JsonSetter(value="created_by")
     private String createdBy;
 
     @JsonSetter(value="status")
-    private boolean status;
+    private String status;
 
     @JsonSetter(value="updated_at")
-    private Date updatedAt;
+    private String updatedAt;
 
     @JsonSetter(value="updated_by")
     private String updatedBy;
