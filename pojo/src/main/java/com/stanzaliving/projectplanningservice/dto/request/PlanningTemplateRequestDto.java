@@ -1,6 +1,6 @@
-package com.stanzaliving.projectplanningservice.dto;
+package com.stanzaliving.projectplanningservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.projectplanningservice.dto.SectionDetailsDto;
 import com.stanzaliving.projectplanningservice.enums.Duration;
 import com.stanzaliving.projectplanningservice.enums.PlanningStatus;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -21,28 +21,20 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class PlanningTemplateDto extends AbstractDto {
+public class PlanningTemplateRequestDto {
 
     @NotBlank(message = "Project Plan name is required")
     private String templateName;
 
-    private String createdByName;
-
-    private String updatedByName;
-
     private String description;
-
-    private List<String> taskServiceUuids;
-
+    
+    @NotNull
     private PlanningStatus planningStatus;
 
     private int duration;
 
+    @NotNull
     private Duration durationUnit;
-
-    protected Date createdAt;
-
-    protected Date updatedAt;
 
     @Valid
     private List<SectionDetailsDto> sections;

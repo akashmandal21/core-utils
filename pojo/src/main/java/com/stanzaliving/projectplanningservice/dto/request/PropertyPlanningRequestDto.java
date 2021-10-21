@@ -1,29 +1,27 @@
-package com.stanzaliving.projectplanningservice.dto;
+package com.stanzaliving.projectplanningservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.projectplanningservice.dto.SectionDetailsDto;
 import com.stanzaliving.projectplanningservice.enums.PlanningStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.Required;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
 /**
  * @author Pradeep Naik R
- * @description DTO for Project Plan Template
+ * @description Request DTO for Property Plan
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class PropertyPlanningDto extends AbstractDto {
-
-    @NotBlank(message = "Uuid is required")
-    protected String uuid;
+public class PropertyPlanningRequestDto {
 
     @NotBlank(message = "Project Plan name is required")
     private String projectName;
@@ -38,10 +36,7 @@ public class PropertyPlanningDto extends AbstractDto {
     @NotBlank(message = "Residence uuid is required")
     private String residenceUuid;
 
-    private List<String> taskServiceUuids;
-
-    private List<String> tasksUuids;
-
+    @Valid
     private List<SectionDetailsDto> sections;
 
     private String propertyName;
@@ -54,6 +49,6 @@ public class PropertyPlanningDto extends AbstractDto {
 
     private Integer progress;
 
-    @NotNull
+    @Required(message = "Planning status is required")
     private PlanningStatus planningStatus;
 }
