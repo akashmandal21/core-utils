@@ -31,7 +31,7 @@ public class RoomTemplateListingDto {
 
     private LocalDateTime actionedAt;
 
-    private List<String> features;
+    private List<String> roomFeatures;
 
     private List<String> consumables;
 
