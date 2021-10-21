@@ -18,6 +18,7 @@ public class TicketActivityDto {
     private String title;
     private String ticketUuid;
     private String actionedBy;
+    private String actionedByUuid;
     private String actionedTo;
     private boolean isMarkedPrivate;
     private TicketActivityTemplatesEnum type = TicketActivityTemplatesEnum.OTHER;
