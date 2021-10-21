@@ -41,6 +41,8 @@ public class ProductMixDetails {
     @NotNull
     private boolean isActive;
 
+    private int noOfRooms=35;
+
     @NotBlank
     private String backgroundColor;
 
