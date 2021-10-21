@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -17,5 +19,6 @@ public class EscalateTicketDto {
     private String userUuid;
     private String message;
     private String role;
+    private Date escalationResolutionDate;
 
 }
