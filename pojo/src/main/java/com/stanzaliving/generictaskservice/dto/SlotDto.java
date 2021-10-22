@@ -41,6 +41,8 @@ public class SlotDto extends AbstractDto {
 
     private LocalTime maximumSlotTime;
 
+    private Boolean isMappedToTemplateOrBeatPlan;
+
     @NotNull(message = "Is overlapping allowed is mandatory")
     private Boolean isOverLappingAllowed;
 
@@ -67,4 +69,8 @@ public class SlotDto extends AbstractDto {
     private String createdByUser;
 
     private String updatedByUser;
+
+    private List<String> templateNames;
+
+    private List<String> beatPlanNames;
 }
