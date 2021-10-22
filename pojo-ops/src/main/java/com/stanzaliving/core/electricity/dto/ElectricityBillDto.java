@@ -52,6 +52,8 @@ public class ElectricityBillDto extends AbstractDto {
 
 	private ElectricityBillType electricityBillType;
 	
+	private String electricityBillTypeName;
+	
 	private Date billDurationFrom;
 	
 	private Date billDurationTo;

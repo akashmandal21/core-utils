@@ -15,11 +15,11 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ResidentPayableAmountInfoDto {
 	
-	private double roomPostpaidCharges;
-	private double residentPostpaidCharges;
-	private int bedsInRoomCount;
-	private int bookedBedsInRoomCount;
-	private int billDurationDaysCount;
-	private int residentRoomOccupiedDaysCount;
+	private Double roomPostpaidCharges;
+	private Double residentPostpaidCharges;
+	private Integer bedsInRoomCount;
+	private Integer bookedBedsInRoomCount;
+	private Integer billDurationDaysCount;
+	private Integer residentRoomOccupiedDaysCount;
 
 }

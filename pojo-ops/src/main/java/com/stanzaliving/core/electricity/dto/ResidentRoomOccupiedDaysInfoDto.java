@@ -18,16 +18,16 @@ import lombok.experimental.SuperBuilder;
 public class ResidentRoomOccupiedDaysInfoDto {
 	private LocalDate billDurationFrom;
 	private LocalDate billDurationTo;
-	private int billDurationDaysCount;
+	private Integer billDurationDaysCount;
 	
 	private LocalDate residentContractFrom;
 	private LocalDate residentContractTo;
-	private int residentContractDaysCount;
+	private Integer residentContractDaysCount;
 	
 	private LocalDate residentMoveInDate;
 	private LocalDate residentMoveOutDate;
 	
 	private LocalDate residentRoomOccupiedFrom;
 	private LocalDate residentRoomOccupiedTo;
-	private int residentRoomOccupiedDaysCount;
+	private Integer residentRoomOccupiedDaysCount;
 }
