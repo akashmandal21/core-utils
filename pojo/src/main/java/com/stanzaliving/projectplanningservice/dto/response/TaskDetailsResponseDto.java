@@ -16,6 +16,9 @@ import java.util.List;
 public class TaskDetailsResponseDto {
 
     private List<GenericTaskResponseDto> tasks;
-    private int totalProperty;
     private List<PPStatusDto> statusDtoList;
+    private List<GenericTaskResponseDto> todaysTasks;
+    private List<GenericTaskResponseDto> pendingTasks;
+    private List<GenericTaskResponseDto> notStartedTasks;
+
 }
