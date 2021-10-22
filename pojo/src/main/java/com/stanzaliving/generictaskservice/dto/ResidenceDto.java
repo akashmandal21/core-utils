@@ -1,8 +1,9 @@
 package com.stanzaliving.generictaskservice.dto;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -11,6 +12,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResidenceDto {
+
+    private String residenceId;
+    private List<String> roomIds;
 
     private String rId;
 

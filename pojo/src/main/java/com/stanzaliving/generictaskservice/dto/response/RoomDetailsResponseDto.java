@@ -3,11 +3,11 @@ package com.stanzaliving.generictaskservice.dto.response;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
+import java.time.LocalTime;
 
 /**
  * @author Vikas S T
- * @date 18-Oct-21
+ * @date 22-Oct-21
  **/
 
 @Getter
@@ -16,8 +16,8 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TaskAttributeResponse {
-    private List<GarbageCollectionResponseDto> garbageCollection;
-    private List<MealTypeResponseDto> mealType;
-    private List<CleaningResponseDto> cleaning;
+public class RoomDetailsResponseDto {
+    private String roomNumber;
+    private String bedCount;
+    private LocalTime duration;
 }

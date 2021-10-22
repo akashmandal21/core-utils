@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author Vikas S T
- * @date 18-Oct-21
+ * @date 22-Oct-21
  **/
 
 @Getter
@@ -16,8 +16,8 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TaskAttributeResponse {
-    private List<GarbageCollectionResponseDto> garbageCollection;
-    private List<MealTypeResponseDto> mealType;
-    private List<CleaningResponseDto> cleaning;
+public class AreaTagDetailsResponseDto {
+    private String tagName;
+    private List<RoomDetailsResponseDto> rooms;
+    private List<CommonAreaResponseDto> commonAreas;
 }
