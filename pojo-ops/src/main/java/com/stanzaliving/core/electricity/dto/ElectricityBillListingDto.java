@@ -37,8 +37,6 @@ public class ElectricityBillListingDto {
 	
 	private String societyName;
 	
-	private String societyId;
-	
 	private double invoicePendingAmount;
 	
 	private int invoicePendingCount;

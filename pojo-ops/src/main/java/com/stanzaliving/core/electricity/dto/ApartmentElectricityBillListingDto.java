@@ -27,6 +27,8 @@ public class ApartmentElectricityBillListingDto {
 	private Date billDurationTo;
 	
 	private ElectricityBillType electricityBillType;
+	
+	private String electricityBillTypeName;
 
 	private double billAmount;
 
@@ -39,6 +41,8 @@ public class ApartmentElectricityBillListingDto {
 	private double stanzaSharePercent;
 	
 	private ApprovalStatus approvalStatus;
+	
+	private String approvalStatusName;
 	
 	private Date addedAt;
 

@@ -1,6 +1,6 @@
 package com.stanzaliving.core.electricity.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.validation.constraints.NotBlank;
 
@@ -36,10 +36,10 @@ public class ElectricityBillAddDto {
 	private ElectricityBillType electricityBillType;
 
 	@NotBlank(message = "BillDurationFrom Cannot be blank")
-	private Date billDurationFrom;
+	private LocalDate billDurationFrom;
 
 	@NotBlank(message = "BillDurationTo Cannot be blank")
-	private Date billDurationTo;
+	private LocalDate billDurationTo;
 
 	@NotBlank(message = "ConsumptionCharges Cannot be blank")
 	private double consumptionCharges;

@@ -1,5 +1,23 @@
 package com.stanzaliving.core.client.api;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -14,19 +32,12 @@ import com.stanzaliving.wanda.dtos.UserDetailDto;
 import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
 import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
-import com.stanzaliving.wanda.response.*;
-import com.stanzaliving.wanda.dtos.*;
-import lombok.extern.log4j.Log4j2;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
+import com.stanzaliving.wanda.response.OnBoardingGetResponse;
+import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDtoV2;
+import com.stanzaliving.wanda.response.WandaFileResponseDto;
+import com.stanzaliving.wanda.response.WandaResponse;
 
-import java.time.LocalDate;
-import java.util.*;
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class WandaClientApi {
@@ -202,6 +213,32 @@ public class WandaClientApi {
 		return null;
 	}
 
+	public Map<String, List<UserHostelDetailsDto>> getUserHostelDetailsByHostelIdIn(Collection<String> hostelIds) {
+
+		Object postBody = hostelIds;
+
+		log.info("Received request to get UserHostelDetailsDto of hostelIds: {}", hostelIds);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/hostel/details/map").buildAndExpand(uriVariables).toUriString();
+
+		TypeReference<ResponseDto<Map<String, List<UserHostelDetailsDto>>>> returnType = new TypeReference<ResponseDto<Map<String, List<UserHostelDetailsDto>>>>() {
+		};
+
+		ResponseDto<Map<String, List<UserHostelDetailsDto>>> responseDto = null;
+
+		try {
+			responseDto = restClient.post(path, null, postBody, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while getting userhostel details ", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
+
+	}
+
+	
 	public List<UserHostelDto> getUserHostelList() {
 
 		Object postBody = null;

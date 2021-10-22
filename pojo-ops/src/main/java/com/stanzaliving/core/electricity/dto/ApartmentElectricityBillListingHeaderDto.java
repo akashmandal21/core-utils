@@ -25,6 +25,8 @@ public class ApartmentElectricityBillListingHeaderDto {
 	
 	private ApartmentType apartmentType;
 	
+	private String apartmentTypeName;
+	
 	private String propertyAddressLine1;
 	
 	private String propertyAddressLine2;
