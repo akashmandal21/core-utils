@@ -16,5 +16,11 @@ import java.util.Map;
 public class RoomTemplateOptionsDto {
     private List<LabelValueDto<String>> roomTemplateOptions;
 
-    private Map<String, RoomTemplateTypeOptionsData> roomTemplateOptionsData;
+    private List<LabelValueDto<String>> allConsumablesList;
+
+    private List<LabelValueDto<String>> allRoomFeaturesList;
+
+    private Map<String, RoomsDataCombined> roomTemplateOptionsData;
+
+    private List<RoomDetails> roomDetails;
 }

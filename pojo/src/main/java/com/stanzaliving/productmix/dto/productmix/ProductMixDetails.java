@@ -21,46 +21,40 @@ import java.util.List;
 @Builder
 public class ProductMixDetails {
 
-    @NotBlank
+    @NotBlank(message = "Product mix uuid cannot be blank")
     private String uuid;
 
-    @NotBlank
+    @NotBlank(message = "Property uuid cannot be blank")
     private String propertyUuid;
 
-    @NotBlank
+    @NotBlank(message = "Product mix name cannot be blank")
     private String productMixName;
 
-    @NotNull @Valid
+    @NotNull(message = "Applicable duration cannot be null")
+    @Valid
     private ApplicableDurationDto applicableDuration;
 
-    //todo: bed count and room count from API or can skip these?
+    private int noOfRooms; //todo: validation
 
-    @NotNull @Valid
+    private int noOfBeds; //todo: validation
+
+    @NotNull
+    @Valid
     private LabelValueDto<TemplateStatus> mixStatus;
 
-    @NotNull
     private boolean isActive;
 
-    private int noOfRooms=35;
-
-    @NotBlank
     private String backgroundColor;
 
-    @NotBlank
     private String textColor;
 
-    @NotBlank
     private String templateId;
 
-    @NotBlank
     private String actionedBy;
 
-    @NotNull
     private LocalDateTime actionedAt;
 
-    @NotNull
     private boolean canEdit;
 
-    @NotNull
     private boolean canApprove;
 }

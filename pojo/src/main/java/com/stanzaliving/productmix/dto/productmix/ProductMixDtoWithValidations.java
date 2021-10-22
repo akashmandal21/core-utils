@@ -19,34 +19,22 @@ import java.util.Map;
 @Builder
 public class ProductMixDtoWithValidations {
 
-    @NotNull @Valid
+    @NotNull (message = "Product mix details cannot be null")
+    @Valid
     private ProductMixDetails productMixDetails;
 
-    @NotNull @Valid
-    private LabelValueDto<String> propertyTemplate;
-
-    @NotNull @Valid
-    private List<RoomDetails> roomDetails;
-
-    @NotNull @Valid
     private List<LabelValueDto<String>> roomTemplateOptions;
 
-    @NotNull @Valid
-    private Map<String, RoomTemplateTypeOptionsData> roomTemplateOptionsData;
+    private List<LabelValueDto<String>> allConsumablesList;
 
-    @NotNull @Valid
-    private List<LabelValueDto<String>> propertyTemplateOptions;
+    private List<LabelValueDto<String>> allRoomFeaturesList;
 
-    @NotNull @Valid
-    private Map<String, List<ZonesDto>> propertyTemplateOptionsData;
+    @NotNull(message = "Room attributes cannot be null")
+    @Valid
+    private RoomAttributeDto roomAttribute;
 
-    public void setPropertyTemplateOptionsDto(PropertyTemplateOptionsDto propertyTemplateOptionsDto) {
-        propertyTemplateOptions = propertyTemplateOptionsDto.getPropertyTemplateOptions();
-        propertyTemplateOptionsData = propertyTemplateOptionsDto.getPropertyTemplateOptionsData();
-    }
+    @NotNull(message = "Property attributes cannot be null")
+    @Valid
+    private PropertyAttributeDto propertyAttribute;
 
-    public void setRoomTemplateOptionsDto(RoomTemplateOptionsDto roomTemplateOptionsDto) {
-        roomTemplateOptions = roomTemplateOptionsDto.getRoomTemplateOptions();
-        roomTemplateOptionsData = roomTemplateOptionsDto.getRoomTemplateOptionsData();
-    }
 }

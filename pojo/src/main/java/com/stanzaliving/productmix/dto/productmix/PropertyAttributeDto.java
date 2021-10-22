@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +17,8 @@ import java.util.Map;
 @NoArgsConstructor
 @Builder
 public class PropertyAttributeDto {
+    @NotNull(message = "Property template cannot be null")
+    @Valid
     private LabelValueDto<String> propertyTemplate;
 
     private List<LabelValueDto<String>> propertyTemplateOptions;

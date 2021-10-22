@@ -16,18 +16,19 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class RoomDetails {
 
-    @NotBlank
+    @NotBlank(message = "Room number cannot be blank")
     private String roomNumber;
 
-    @NotNull
+    @NotNull(message = "Position cannot be blank")
     private int position;
 
-    @NotNull
+    @NotNull(message = "Floor cannot be blank")
     private int floor;
 
-    @NotNull
+    @NotNull(message = "Beds cannot be null")
     private int beds;
 
-    @NotNull @Valid
+    @NotNull (message = "Room template cannot be null")
+    @Valid
     private LabelValueDto<String> roomTemplate;
 }
