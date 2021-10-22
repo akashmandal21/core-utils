@@ -22,6 +22,7 @@ public class ResidenceCityMicroMarketDto implements Serializable {
     private String mmName;
     private String cityId;
     private String cityName;
+	private String apartmentTypeName;
 	private ApartmentType apartmentType;
 	private String addressLine1;
 	private String addressLine2;
