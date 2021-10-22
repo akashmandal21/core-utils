@@ -38,4 +38,6 @@ public class CommercialCardRequestDto {
     private String serviceMixUuid;
 
     private String bookingUuid;
+
+    private String moveInDate;
 }
