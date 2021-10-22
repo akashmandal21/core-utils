@@ -2,6 +2,7 @@ package com.stanzaliving.food.v2.category.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.vendor.enums.VendorType;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class MenuCategoryDTO extends AbstractDto {
     private String categoryId;
+    private String fullName;
     private String vendorId;
     private String cityId;
     private String cityName;

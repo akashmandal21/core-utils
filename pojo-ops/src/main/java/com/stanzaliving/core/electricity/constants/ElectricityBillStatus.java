@@ -36,7 +36,7 @@ public enum ElectricityBillStatus {
        }
    }
 
-   public static  List<EnumListing<ElectricityBillStatus>> getelectricityBillStatus(){
+   public static  List<EnumListing<ElectricityBillStatus>> getElectricityBillStatus(){
        return electricityBillStatusList;
    }
 

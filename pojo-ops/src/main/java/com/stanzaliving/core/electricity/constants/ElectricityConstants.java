@@ -15,4 +15,11 @@ public class ElectricityConstants {
 	public final String INVOICING_PENDING = "Invoicing Pending";
 	public final String INVOICING_DONE = "Invoicing Done";
 	
+	public final String PENDING_APPROVAL = "Pending Approval";
+	public final String APPROVED = "Approved";	
+	
+	public static final String ROOM_UNIT_RATE_CONFIG_PATH = "electricity.room.rate";
+	public static final String COMMON_AREA_UNIT_RATE_CONFIG_PATH = "electricity.common_area.rate";
+
+
 }

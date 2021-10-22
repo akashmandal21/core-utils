@@ -429,6 +429,30 @@ public class OperationsClientApi {
 		return Objects.nonNull(serviceMixDto) ? serviceMixDto : null;
 	}
 	
+	public List<ServiceMixDto> getCurrentServiceMixByUserCodeIn(String residenceUuid, Collection<String> userCodes){
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
+      
+		String path = UriComponentsBuilder.fromPath("/internal/servicemix/current/servicemix/list/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+		TypeReference<ResponseDto<List<ServiceMixDto>>> returnType = new TypeReference<ResponseDto<List<ServiceMixDto>>>() {};
+
+		ResponseDto<List<ServiceMixDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, null, userCodes, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting ServiceMix detail", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+	}
+	
 	public ResponseDto<List<ActiveResidenceDetailsDto>> getActiveResidenceList() {
 
 		final Map<String, Object> uriVariables = new HashMap<>();

@@ -34,6 +34,8 @@ public class ElectricityBillDto extends AbstractDto {
 
 	private ApartmentType apartmentType;
 	
+	private String apartmentTypeName;
+	
 	private String propertyAddressLine1;
 	
 	private String propertyAddressLine2;
@@ -46,16 +48,15 @@ public class ElectricityBillDto extends AbstractDto {
 	
 	private String micromarketId;
 	
-	
 	private String billNumber;
 
-	private String billId;
-
 	private ElectricityBillType electricityBillType;
-
-	private Date billStartDate;
-
-	private Date billEndDate;
+	
+	private String electricityBillTypeName;
+	
+	private Date billDurationFrom;
+	
+	private Date billDurationTo;
 
 	private String billUrl;
 	

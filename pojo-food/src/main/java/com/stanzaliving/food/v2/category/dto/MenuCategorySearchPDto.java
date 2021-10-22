@@ -42,4 +42,8 @@ public class MenuCategorySearchPDto implements Serializable {
     private FoodServeType serveType;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
+
+    private String categoryVersionId;
+
+
 }

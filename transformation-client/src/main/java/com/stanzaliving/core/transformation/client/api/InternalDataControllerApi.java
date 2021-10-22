@@ -2,8 +2,25 @@
  *
  */
 package com.stanzaliving.core.transformation.client.api;
-import com.fasterxml.jackson.core.type.TypeReference;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.boq_service.dto.BulkActionsModalFilterOptionsDto;
 import com.stanzaliving.boq_service.dto.LabelValueDto;
 import com.stanzaliving.core.addressbook.AddressBookNameDto;
@@ -14,14 +31,13 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.projectservice.tiles.TileDeciderDto;
 import com.stanzaliving.core.projectservice.tiles.TileStatusDto;
-import com.stanzaliving.transformations.pojo.*;
 import com.stanzaliving.transformations.pojo.AddressBookMetaDto;
 import com.stanzaliving.transformations.pojo.CityMetadataDto;
 import com.stanzaliving.transformations.pojo.CityUIDto;
-import com.stanzaliving.transformations.pojo.CityUuidListDto;
 import com.stanzaliving.transformations.pojo.CountryLevelAccessMetadata;
 import com.stanzaliving.transformations.pojo.CountryUIDto;
 import com.stanzaliving.transformations.pojo.FilterAddressDto;
+import com.stanzaliving.transformations.pojo.LocationDetailsDto;
 import com.stanzaliving.transformations.pojo.LocationDto;
 import com.stanzaliving.transformations.pojo.MicroMarketDetailsDto;
 import com.stanzaliving.transformations.pojo.MicroMarketMetadataDto;
@@ -36,18 +52,8 @@ import com.stanzaliving.transformations.pojo.ZoneMetadataDto;
 import com.stanzaliving.transformations.projections.StanzaGstView;
 import com.stanzaliving.transformations.ui.pojo.Country;
 import com.stanzaliving.ventaAudit.dto.GstInformationDto;
-import lombok.extern.log4j.Log4j2;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.*;
-import java.util.concurrent.CompletableFuture;
+import lombok.extern.log4j.Log4j2;
 
 /**
  * @author naveen.kumar
@@ -520,7 +526,32 @@ public class InternalDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
     }
+    
+	public List<ResidenceUIDto> getAllStudio21Residences() {
 
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/residences/studio21/all").buildAndExpand(uriVariables).toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ResidenceUIDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceUIDto>>>() {
+		};
+
+		ResponseDto<List<ResidenceUIDto>> responseDto = null;
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while getting studio21 residences ", e);
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+	}
+    
     public ResponseDto<List<ResidenceMetadataDto>> getAllResidencesBoth() {
 
         Object postBody = null;
@@ -1156,6 +1187,7 @@ public class InternalDataControllerApi {
         return null;
     }
 
+
 	public ResponseDto<List<LocationDetailsDto>> getLocationDetailsWithFilters(FilterAddressDto filterAddress) {
 
 		try {
@@ -1184,5 +1216,34 @@ public class InternalDataControllerApi {
 		}
 		return null;
 	}
+
+
+    
+    public ResponseDto<GstInformationDto> getGstDataByCityId(String cityId) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("cityId", cityId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/invoice/cityId/{cityId}")
+                .buildAndExpand(uriVariables)
+                .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        TypeReference<ResponseDto<GstInformationDto>> returnType = new TypeReference<ResponseDto<GstInformationDto>>() {
+        };
+
+        ResponseDto<GstInformationDto> responseDto;
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while fetching Gst Information by cityId.", e);
+
+        }
+        return null;
+    }
 
 }

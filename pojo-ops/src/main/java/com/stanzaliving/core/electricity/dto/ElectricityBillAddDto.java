@@ -1,8 +1,9 @@
 package com.stanzaliving.core.electricity.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.electricity.constants.ElectricityBillType;
 
@@ -28,36 +29,38 @@ public class ElectricityBillAddDto {
 	@NotBlank(message = "ResidenceId Cannot be blank")
 	private String residenceId;
 
-	@NotBlank(message = "BillNumber Cannot be blank")
 	private String billNumber;
+	
+	private String billUuid;
 
-	@NotBlank(message = "ElectricityBillType Cannot be blank")
+	@NotNull(message = "ElectricityBillType Cannot be blank")
 	private ElectricityBillType electricityBillType;
 
-	@NotBlank(message = "BillStartDate Cannot be blank")
-	private Date billStartDate;
+	@NotNull(message = "BillDurationFrom Cannot be blank")
+	private LocalDate billDurationFrom;
 
-	@NotBlank(message = "BillEndDate Cannot be blank")
-	private Date billEndDate;
+	@NotNull(message = "BillDurationTo Cannot be blank")
+	private LocalDate billDurationTo;
 
-	@NotBlank(message = "ConsumptionCharges Cannot be blank")
-	private double consumptionCharges;
+	@NotNull(message = "ConsumptionCharges Cannot be null")
+	private Double consumptionCharges;
+	
+	@NotNull(message = "TotalCharges Cannot be null")
+	private Double totalCharges;
 	
 	@Default
-	private double otherCharges = 0;
+	private Double otherCharges = 0d;
 	
 	@Default
-	private double panaltyCharges = 0;
+	private Double panaltyCharges = 0d;
 	
 	@Default
-	private double arrearsCharges = 0;
+	private Double arrearsCharges = 0d;
 	
-	@NotBlank(message = "Grid supply units cannot be blank")
-	private double gridUnits;
+	@NotNull(message = "Grid supply units cannot be blank")
+	private Double gridUnits;
 	
 	@Default
-	private double dgUnits = 0;
-	
-
+	private Double dgUnits = 0d;
 
 }

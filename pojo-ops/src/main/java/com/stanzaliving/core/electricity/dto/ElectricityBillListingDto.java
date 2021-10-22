@@ -25,6 +25,8 @@ public class ElectricityBillListingDto {
 	
 	private ApartmentType apartmentType;
 	
+	private String apartmentTypeName;
+	
 	private String propertyAddressLine1;
 	
 	private String propertyAddressLine2;
@@ -38,8 +40,6 @@ public class ElectricityBillListingDto {
 	private String micromarketId;
 	
 	private String societyName;
-	
-	private String societyId;
 	
 	private double invoicePendingAmount;
 	
