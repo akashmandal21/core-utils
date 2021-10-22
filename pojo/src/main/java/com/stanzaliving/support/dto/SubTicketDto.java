@@ -14,7 +14,7 @@ import java.util.Date;
 public class SubTicketDto {
     private String ticketUuid;
     private String subTicketUuid;
-    private Long subTicketId;
+    private String subTicketId;
     private String taskTypeUuid;
     private String teamUuid;
     private String taskTypeDetail;
