@@ -58,7 +58,5 @@ public class ElectricityBillAddDto {
 	
 	@Default
 	private double dgUnits = 0;
-	
-
 
 }
