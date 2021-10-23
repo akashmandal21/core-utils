@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UserRoleDataDto {
     private Department department;
-    private AccessLevel accessLevel;
-    private List<String> accessLevelUuids;
+    private List<String> cityUuids;
+    private List<String> micromarketUuids;
+    private List<String> residenceUuids;
 }
