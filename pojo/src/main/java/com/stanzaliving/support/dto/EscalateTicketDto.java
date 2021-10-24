@@ -19,6 +19,7 @@ public class EscalateTicketDto {
     private String userUuid;
     private String message;
     private String role;
+    private Integer sequenceNo;
     private Date escalationResolutionDate;
 
 }
