@@ -7,7 +7,6 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.common.SortingType;
 import com.stanzaliving.core.electricity.constants.ApartmentElectricityBillSortingField;
 import com.stanzaliving.core.electricity.constants.ApartmentElectricityBillStatusFilter;
@@ -27,8 +26,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class ApartmentElectricityBillRequestDto {
 	
-	private int pageNo;
-	private int limit;
+	@Default
+	private int pageNo = 1;
+	@Default
+	private int limit = 50;
 
 	@NotBlank
 	private String propertyCode;
@@ -38,7 +39,6 @@ public class ApartmentElectricityBillRequestDto {
 	private LocalDate fromDate;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate toDate;
-	private ApprovalStatus approvalStatus;
 	private String billNumber;
 	
 	@Default

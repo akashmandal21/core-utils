@@ -23,8 +23,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class ElectricityBillSearchRequestDto {
 	
-	private int pageNo;
-	private int limit;
+	@Default
+	private int pageNo = 1;
+	@Default
+	private int limit = 50;
 	
 	@Default
 	private ElectricityBillRequestStatusFilter quickFilter = ElectricityBillRequestStatusFilter.ALL;
