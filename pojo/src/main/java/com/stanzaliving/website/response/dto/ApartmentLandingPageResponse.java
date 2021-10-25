@@ -16,5 +16,5 @@ import lombok.ToString;
 public class ApartmentLandingPageResponse {
 
 	private String message;
-	private Set<ApartmentResponseDto> apartmentResponseDto;
+	private List<ApartmentResponseDto> apartmentResponseDto;
 }
