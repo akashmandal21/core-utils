@@ -22,6 +22,8 @@ public class ApartmentElectricityBillListingDto {
 	
 	private String billNumber;
 	
+	private String uuid;
+	
 	private Date billDurationFrom;
 	
 	private Date billDurationTo;

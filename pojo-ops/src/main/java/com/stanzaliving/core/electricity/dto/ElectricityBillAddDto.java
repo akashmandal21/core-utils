@@ -62,5 +62,11 @@ public class ElectricityBillAddDto {
 	
 	@Default
 	private Double dgUnits = 0d;
-
+	
+	@Default
+	private Boolean newBill = true;
+	
+	@Default
+	private Boolean forceSubmit = false;
+	
 }

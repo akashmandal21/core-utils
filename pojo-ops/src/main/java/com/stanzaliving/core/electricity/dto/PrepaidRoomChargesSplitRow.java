@@ -14,7 +14,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PrepaidRoomChargesSplitRow {
-	private String meterId;
 	private String name;
 	private int bedCount;
 	private int gridUnit;
