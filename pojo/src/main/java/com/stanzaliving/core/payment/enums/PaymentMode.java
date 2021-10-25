@@ -80,12 +80,10 @@ public enum PaymentMode {
 	
     public static List<PaymentMode> getPaymentModeConfigurationList() {
     	List<PaymentMode> paymentMode = new ArrayList<>();
-    	
     	paymentMode.add(CHEQUE);
     	paymentMode.add(CASH);
     	paymentMode.add(PAYTM);
     	paymentMode.add(RAZORPAY);
-    	
     	return paymentMode;    	
     }
 }
