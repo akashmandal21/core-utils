@@ -38,6 +38,7 @@ public class TicketCardDto {
     private boolean isPrimary;
     private TicketChipColorDto ticketChipColorDto;
     private String expandableBarColor;
+    private String designation;
 
 
 }
