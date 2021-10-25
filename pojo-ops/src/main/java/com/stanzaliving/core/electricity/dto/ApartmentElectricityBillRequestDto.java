@@ -31,10 +31,10 @@ public class ApartmentElectricityBillRequestDto {
 	@Default
 	private int limit = 50;
 
-	@NotBlank
+	@NotBlank(message = "PropertyCode may not be blank")
 	private String propertyCode;
 	
-	@NotBlank
+	@NotBlank(message = "ResidenceId may not be blank")
 	private String residenceId;
 	
 	private ElectricityBillType electricityBillType;

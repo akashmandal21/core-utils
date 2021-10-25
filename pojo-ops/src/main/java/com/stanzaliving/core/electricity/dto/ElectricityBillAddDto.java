@@ -33,13 +33,13 @@ public class ElectricityBillAddDto {
 	
 	private String billUuid;
 
-	@NotNull(message = "ElectricityBillType Cannot be blank")
+	@NotNull(message = "ElectricityBillType Cannot be null")
 	private ElectricityBillType electricityBillType;
 
-	@NotNull(message = "BillDurationFrom Cannot be blank")
+	@NotNull(message = "BillDurationFrom Cannot be null")
 	private LocalDate billDurationFrom;
 
-	@NotNull(message = "BillDurationTo Cannot be blank")
+	@NotNull(message = "BillDurationTo Cannot be null")
 	private LocalDate billDurationTo;
 
 	@NotNull(message = "ConsumptionCharges Cannot be null")
@@ -57,14 +57,11 @@ public class ElectricityBillAddDto {
 	@Default
 	private Double arrearsCharges = 0d;
 	
-	@NotNull(message = "Grid supply units cannot be blank")
+	@NotNull(message = "Grid supply units cannot be null")
 	private Double gridUnits;
 	
 	@Default
 	private Double dgUnits = 0d;
-	
-	@Default
-	private Boolean newBill = true;
 	
 	@Default
 	private Boolean forceSubmit = false;
