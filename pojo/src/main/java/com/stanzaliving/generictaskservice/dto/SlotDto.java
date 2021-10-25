@@ -1,6 +1,8 @@
 package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.generictaskservice.dto.response.MappedBeatPlanResponseDto;
+import com.stanzaliving.generictaskservice.dto.response.MappedTemplateResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import com.stanzaliving.generictaskservice.enums.SlotStatus;
 import com.stanzaliving.generictaskservice.enums.SlotType;
@@ -70,7 +72,7 @@ public class SlotDto extends AbstractDto {
 
     private String updatedByUser;
 
-    private List<String> templateNames;
+    private List<MappedTemplateResponseDto> mappedTemplate;
 
-    private List<String> beatPlanNames;
+    private List<MappedBeatPlanResponseDto> mappedBeatPlan;
 }
