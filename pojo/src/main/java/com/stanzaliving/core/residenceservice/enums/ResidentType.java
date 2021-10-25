@@ -7,7 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ResidentType {
     PROFESSIONAL("Professional"),
-    SCHOLAR("Scholar");
+    SCHOLAR("Scholar"),
+    MANAGED_APARTMENT("MANAGED APARTMENT");
 
     private String name;
 
