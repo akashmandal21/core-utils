@@ -34,6 +34,9 @@ public class ApartmentElectricityBillRequestDto {
 	@NotBlank
 	private String propertyCode;
 	
+	@NotBlank
+	private String residenceId;
+	
 	private ElectricityBillType electricityBillType;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fromDate;

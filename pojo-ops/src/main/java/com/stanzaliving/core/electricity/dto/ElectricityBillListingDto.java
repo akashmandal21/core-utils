@@ -23,6 +23,8 @@ public class ElectricityBillListingDto {
 	
 	private String propertyCode;
 	
+	private String residenceId;
+	
 	private ApartmentType apartmentType;
 	
 	private String apartmentTypeName;
