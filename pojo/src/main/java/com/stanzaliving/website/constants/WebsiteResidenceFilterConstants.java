@@ -44,4 +44,10 @@ public class WebsiteResidenceFilterConstants {
 
 	public final Integer FILTER_SERVICES_SEQUENCE_ID = 9;
 	public final String FILTER_SERVICES_NAME = "Services";
+	
+	public final Integer FILTER_ROOMCOUNT_SEQUENCE_ID = 10;
+	public final String  FILTER_ROOMCOUNT_NAME = "roomCount";
+	
+	public final Integer FILTER_SOCIETY_SEQUENCE_ID = 11;
+	public final String  FILTER_SOCIETY_NAME = "society";
 }
