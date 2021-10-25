@@ -53,6 +53,8 @@ public class GenericTaskDto extends AbstractDto {
 
     private String var4;
 
+    private String var5;
+
     private String taskStatusUuid;
 
     private String taskSubStatusUuid;

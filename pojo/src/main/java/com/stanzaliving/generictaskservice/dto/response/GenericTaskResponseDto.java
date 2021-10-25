@@ -38,6 +38,7 @@ public class GenericTaskResponseDto {
     private AdditionalVarsDto var2;
     private AdditionalVarsDto var3;
     private AdditionalVarsDto var4;
+    private AdditionalVarsDto var5;
     private TaskCategoryDto taskCategoryDto;
     private TaskCategoryDto taskSubCategoryDto;
     private StatusDto taskStatusDto;
