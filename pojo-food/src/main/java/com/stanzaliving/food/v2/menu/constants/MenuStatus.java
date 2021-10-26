@@ -22,6 +22,13 @@ public enum MenuStatus {
 	public static boolean isEditable(MenuStatus menuStatus) {
 		return menuStatus == DRAFT || menuStatus == APPROVED ;
 	}
+
+	public static List<MenuStatus> getApprovalDashboardStatusList() {
+		List<MenuStatus> menuStatusList = new ArrayList<>();
+		menuStatusList.add(MenuStatus.APPROVED);
+		menuStatusList.add(MenuStatus.SUBMITTED);
+		return menuStatusList;
+	}
 	
 	private static final List<EnumListing<MenuStatus>> enumListing = new ArrayList<>();
 	
