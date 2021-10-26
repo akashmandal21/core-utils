@@ -28,16 +28,16 @@ import lombok.experimental.SuperBuilder;
 public class ApartmentElectricityBillRequestDto {
 	
 	@Builder.Default
-	@Min(value = 1, message = "Page no cannot be negative")
+	@Min(value = 1, message = "Page no cannot be less than 1")
 	private int pageNo = 1;
 	@Builder.Default
-	@Min(value = 1, message = "Limit no cannot be negative")
+	@Min(value = 1, message = "Limit cannot be less than 1")
 	private int limit = 50;
 
-	@NotBlank(message = "PropertyCode may not be blank")
+	@NotBlank(message = "PropertyCode can not be blank")
 	private String propertyCode;
 	
-	@NotBlank(message = "ResidenceId may not be blank")
+	@NotBlank(message = "ResidenceId can not be blank")
 	private String residenceId;
 	
 	private ElectricityBillType electricityBillType;
