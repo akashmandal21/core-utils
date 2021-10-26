@@ -98,7 +98,9 @@ public class SectionDetailsDto extends AbstractDto {
 
     private Date actualDueDate;
 
-    private long completionPercentage;
+    private Integer completionStatus;
 
     private String color;
+
+    private Long percentage;
 }
