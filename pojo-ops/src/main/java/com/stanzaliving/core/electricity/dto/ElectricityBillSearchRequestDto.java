@@ -3,13 +3,15 @@ package com.stanzaliving.core.electricity.dto;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Min;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.stanzaliving.core.common.SortingType;
 import com.stanzaliving.core.electricity.constants.ElectricityBillRequestStatusFilter;
 import com.stanzaliving.core.electricity.constants.ElectricityBillSearchSortingField;
 
-import lombok.Builder.Default;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,13 +24,15 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 public class ElectricityBillSearchRequestDto {
-	
-	@Default
+
+	@Builder.Default
+	@Min(value = 1, message = "Page no cannot be negative")
 	private int pageNo = 1;
-	@Default
+	@Builder.Default
+	@Min(value = 1, message = "Limit no cannot be negative")
 	private int limit = 50;
 	
-	@Default
+	@Builder.Default
 	private ElectricityBillRequestStatusFilter quickFilter = ElectricityBillRequestStatusFilter.ALL;
 	private String cityId;
 	private String microMarketId;

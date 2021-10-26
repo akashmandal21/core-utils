@@ -3,6 +3,7 @@ package com.stanzaliving.core.electricity.dto;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,7 +13,7 @@ import com.stanzaliving.core.electricity.constants.ApartmentElectricityBillSorti
 import com.stanzaliving.core.electricity.constants.ApartmentElectricityBillStatusFilter;
 import com.stanzaliving.core.electricity.constants.ElectricityBillType;
 
-import lombok.Builder.Default;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,9 +27,11 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class ApartmentElectricityBillRequestDto {
 	
-	@Default
+	@Builder.Default
+	@Min(value = 1, message = "Page no cannot be negative")
 	private int pageNo = 1;
-	@Default
+	@Builder.Default
+	@Min(value = 1, message = "Limit no cannot be negative")
 	private int limit = 50;
 
 	@NotBlank(message = "PropertyCode may not be blank")
@@ -44,7 +47,7 @@ public class ApartmentElectricityBillRequestDto {
 	private LocalDate toDate;
 	private String billNumber;
 	
-	@Default
+	@Builder.Default
 	private ApartmentElectricityBillStatusFilter quickFilter = ApartmentElectricityBillStatusFilter.ALL;
 	private SortingType sortingType;
 	private ApartmentElectricityBillSortingField sortingField;

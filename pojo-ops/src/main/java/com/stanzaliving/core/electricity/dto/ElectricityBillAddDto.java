@@ -5,10 +5,12 @@ import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.stanzaliving.core.electricity.constants.ElectricityBillType;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder.Default;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -37,9 +39,11 @@ public class ElectricityBillAddDto {
 	private ElectricityBillType electricityBillType;
 
 	@NotNull(message = "BillDurationFrom Cannot be null")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate billDurationFrom;
 
 	@NotNull(message = "BillDurationTo Cannot be null")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate billDurationTo;
 
 	@NotNull(message = "ConsumptionCharges Cannot be null")
@@ -48,22 +52,22 @@ public class ElectricityBillAddDto {
 	@NotNull(message = "TotalCharges Cannot be null")
 	private Double totalCharges;
 	
-	@Default
+	@Builder.Default
 	private Double otherCharges = 0d;
 	
-	@Default
+	@Builder.Default
 	private Double panaltyCharges = 0d;
 	
-	@Default
+	@Builder.Default
 	private Double arrearsCharges = 0d;
 	
 	@NotNull(message = "Grid supply units cannot be null")
 	private Double gridUnits;
 	
-	@Default
+	@Builder.Default
 	private Double dgUnits = 0d;
 	
-	@Default
+	@Builder.Default
 	private Boolean forceSubmit = false;
 	
 }
