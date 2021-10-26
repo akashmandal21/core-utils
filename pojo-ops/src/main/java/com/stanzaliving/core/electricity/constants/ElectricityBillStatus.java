@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public enum ElectricityBillStatus {
-	UNDER_DRAFT("Under Draft", 3), 
+	DRAFT("Draft", 3), 
 	SUBMITTED("Submitted", 2), 
 	CANCELLED("Cancelled", 4), 
 	APPROVED("Approved", 1),
