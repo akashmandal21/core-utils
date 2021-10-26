@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Map;
 
@@ -14,9 +17,9 @@ import java.util.Map;
 @NoArgsConstructor
 @Builder
 public class RoomAttributeDto {
+    @NotEmpty(message = "Room details cannot be empty/null")
+    @Valid
     private List<RoomDetails> roomDetails;
 
-    private List<LabelValueDto<String>> roomTemplateOptions;
-
-    private Map<String, RoomTemplateTypeOptionsData> roomTemplateOptionsData;
+    private Map<String, RoomsDataCombined> roomTemplateOptionsData;
 }
