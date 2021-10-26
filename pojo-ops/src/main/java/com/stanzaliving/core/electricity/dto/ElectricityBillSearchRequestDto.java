@@ -2,11 +2,13 @@ package com.stanzaliving.core.electricity.dto;
 
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.validation.constraints.Min;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.common.SortingType;
 import com.stanzaliving.core.electricity.constants.ElectricityBillRequestStatusFilter;
 import com.stanzaliving.core.electricity.constants.ElectricityBillSearchSortingField;
@@ -44,5 +46,9 @@ public class ElectricityBillSearchRequestDto {
 	private LocalDate toDate;
 	private SortingType sortingType;
 	private ElectricityBillSearchSortingField sortingField;
-	
+
+	private List<ApprovalStatus> approvalStatus;
+	private Boolean approvalDataRequired;
+	private Boolean approvalDashBoard;
+
 }
