@@ -19,7 +19,7 @@ public class HkBeatPersonDto {
 
 	private String personName;
 
-	private String personUuid;
+	private String pseudoPersonUuid;
 
 	private LocalDate day;
 
@@ -30,6 +30,7 @@ public class HkBeatPersonDto {
 	private String slotUuid;
 
 	private List<String> taskIds;
+
 
 }
 
