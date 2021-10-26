@@ -450,5 +450,9 @@ public class SearchClientApi {
 		return foodMenuAggregationClient.aggregateWeeklyMenuItemsRating(restClient, requestDto);
 	}
 
+	public FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(MenuMealResidenceItemRequestDto requestDto) {
+		return foodMenuAggregationClient.aggregateWeeklyMenuItemsRating(restClient, requestDto);
+	}
+
 }
 
