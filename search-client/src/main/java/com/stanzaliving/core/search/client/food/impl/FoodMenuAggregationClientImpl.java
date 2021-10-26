@@ -7,6 +7,7 @@ import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.search.client.food.FoodMenuAggregationClient;
 import com.stanzaliving.search.food.search.dto.request.MenuMealItemRequestDto;
+import com.stanzaliving.search.food.search.dto.request.MenuMealResidenceItemRequestDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.FoodMenuMicromarketRatingResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.rating.MealItemRatingResponseDto;
 import lombok.extern.log4j.Log4j2;
@@ -36,6 +37,44 @@ public class FoodMenuAggregationClientImpl implements FoodMenuAggregationClient 
 	public List<MealItemRatingResponseDto> aggregateMenuItemsRating(StanzaRestClient restClient, MenuMealItemRequestDto requestDto) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/menu/item/rating").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<List<MealItemRatingResponseDto>>> returnType = new TypeReference<ResponseDto<List<MealItemRatingResponseDto>>>() {};
+
+		ResponseDto<List<MealItemRatingResponseDto>> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		return responseDto.getData();
+	}
+
+	@Override
+	public List<MealItemRatingResponseDto> aggregateMenuItemsRating(StanzaRestClient restClient, MenuMealResidenceItemRequestDto requestDto) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/menu/item/rating/residence").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
