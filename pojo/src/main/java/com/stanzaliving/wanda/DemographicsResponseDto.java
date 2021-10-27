@@ -1,4 +1,4 @@
-package com.stanzaliving.wanda.food.response;
+package com.stanzaliving.wanda;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

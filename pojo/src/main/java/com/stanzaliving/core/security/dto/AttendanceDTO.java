@@ -22,7 +22,6 @@ public class AttendanceDTO {
     @NotBlank(message = "Residence UUID cannot be empty")
     private String residenceUuid;
 
-    @NotBlank(message = "Attendance activity type UUID cannot be empty")
     private String attendanceActivityTypeUuid;
 
     @NotNull(message = "Date cannot be null")

@@ -91,6 +91,7 @@
 		<module>slack-client</module>
 		<module>pojo-food</module>
 		<module>document-client</module>
+		<module>grammage-client</module>
         <module>commercial-card</module>
 		<module>payment-plan-client</module>
 		<module>ledger-service-client</module>

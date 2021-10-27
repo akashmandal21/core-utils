@@ -590,5 +590,26 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, filterDto, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<Map<String, MasterBoqDto>> getBulkItemAndRate(List<String> itemUuids, String cityUuid) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("cityUuid", cityUuid);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/get/item-rate/{cityUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, MasterBoqDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, MasterBoqDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, itemUuids, headerParams, accept, returnType);
+	}
+
 }
 
