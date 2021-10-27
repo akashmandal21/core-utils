@@ -74,4 +74,5 @@ public class GenericTaskResponseDto {
     protected Date createdAt;
     protected Date updatedAt;
     private DelayDto delayDto;
+    private boolean adhocTask;
 }
