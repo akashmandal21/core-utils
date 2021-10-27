@@ -34,7 +34,6 @@ public class ProductMixDetails {
     @Valid
     private ApplicableDurationDto applicableDuration;
 
-    @NotBlank(message = "No. of rooms cannot be blank")
     private int noOfRooms; //todo: validation
 
     @NotBlank(message = "Upload CSV URL cannot be blank")
