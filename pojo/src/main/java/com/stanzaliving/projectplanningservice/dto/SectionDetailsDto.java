@@ -71,7 +71,6 @@ public class SectionDetailsDto extends AbstractDto {
     @NotBlank(message = "Task Name cannot be empty")
     private String taskName;
 
-    @NotBlank(message = "Description cannot be empty")
     private String description;
 
     private TaskType type;
