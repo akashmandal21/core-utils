@@ -20,4 +20,5 @@ public class AdditionalVarsDto  extends AbstractDto {
     private String variableName;
     private Type type;
     private Map<String, Object> dataStructure;
+    private String dataStruct;
 }
