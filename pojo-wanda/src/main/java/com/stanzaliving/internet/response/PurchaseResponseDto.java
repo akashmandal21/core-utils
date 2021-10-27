@@ -14,4 +14,6 @@ public class PurchaseResponseDto {
 	private String pgResponse;
 
 	private String txnId;
+	
+	private String returnUrl;
 }
