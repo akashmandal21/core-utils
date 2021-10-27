@@ -26,4 +26,5 @@ public class HkBeatPersonRequestDto {
 	private String shiftUuid;
 	private String slotUuid;
 	private List<CheckingShiftRequestDto> shifts;
+	private String pseudoPersonUuid;
 }
