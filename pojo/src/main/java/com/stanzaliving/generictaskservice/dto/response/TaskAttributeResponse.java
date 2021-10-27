@@ -17,7 +17,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TaskAttributeResponse {
-    private List<GarbageCollectionResponseDto> garbageCollection;
-    private List<MealTypeResponseDto> mealType;
-    private List<CleaningResponseDto> cleaning;
+        private List<GarbageCollectionResponseDto> garbageCollectionList;
+        private List<CleaningResponseDto> deepCleaningList;
+        private List<CleaningResponseDto> roomCleaningList;
+        private List<CleaningResponseDto> sanitizationList;
+        private List<CleaningResponseDto> commonAreaCleaningList;
+        private List<MealTypeResponseDto> utensilRinsingList;
+        private List<MealTypeResponseDto> mealServingList;
+        private List<MealTypeResponseDto> plateCollectionList;
+        private List<MealTypeResponseDto> mealReceivingList;
 }

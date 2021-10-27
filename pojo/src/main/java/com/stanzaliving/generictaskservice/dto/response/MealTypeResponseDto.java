@@ -3,8 +3,6 @@ package com.stanzaliving.generictaskservice.dto.response;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -21,7 +19,5 @@ import java.util.List;
 public class MealTypeResponseDto {
     private String residenceUuid;
     private String residenceName;
-    private LocalTime duration;
-    private List<MealDetails> mealType;
-    private LocalDate date;
+    private List<MealDetails> mealDetails;
 }

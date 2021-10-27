@@ -3,7 +3,6 @@ package com.stanzaliving.generictaskservice.dto.response;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 /**
@@ -22,5 +21,4 @@ public class GarbageCollectionResponseDto {
     private String residenceUuid;
     private boolean collectGarbage;
     private LocalTime duration;
-    private LocalDate date;
 }

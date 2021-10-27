@@ -19,4 +19,5 @@ import java.time.LocalTime;
 public class MealDetails {
     private String mealTypeName;
     private LocalTime mealTime;
+    private LocalTime duration;
 }
