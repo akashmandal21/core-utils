@@ -15,4 +15,6 @@ public interface FoodMenuAggregationClient {
 	List<MealItemRatingResponseDto> aggregateMenuItemsRating(StanzaRestClient restClient, MenuMealResidenceItemRequestDto requestDto);
 
 	FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(StanzaRestClient restClient, MenuMealItemRequestDto requestDto);
+
+	FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(StanzaRestClient restClient, MenuMealResidenceItemRequestDto requestDto);
 }
