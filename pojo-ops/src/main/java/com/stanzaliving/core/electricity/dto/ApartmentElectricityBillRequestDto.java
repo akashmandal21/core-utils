@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.stanzaliving.core.common.SortingType;
 import com.stanzaliving.core.electricity.constants.ApartmentElectricityBillSortingField;
 import com.stanzaliving.core.electricity.constants.ApartmentElectricityBillStatusFilter;
+import com.stanzaliving.core.electricity.constants.ElectricityBillStatus;
 import com.stanzaliving.core.electricity.constants.ElectricityBillType;
 
 import lombok.Builder;
@@ -41,6 +42,9 @@ public class ApartmentElectricityBillRequestDto {
 	private String residenceId;
 	
 	private ElectricityBillType electricityBillType;
+	
+	private ElectricityBillStatus electricityBillStatus;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fromDate;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
