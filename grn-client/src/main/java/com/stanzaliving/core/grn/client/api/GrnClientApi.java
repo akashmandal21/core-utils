@@ -296,7 +296,7 @@ public class GrnClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
-    public ResponseDto<Void> performGsriFromSwim(String platform, EventType eventType, boolean isComplete, SwimGsriRequestDto swimGsriRequestDto) {
+    public ResponseDto<String> performGsriFromSwim(String platform, EventType eventType, boolean isComplete, SwimGsriRequestDto swimGsriRequestDto) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("platform", platform);
@@ -313,7 +313,7 @@ public class GrnClientApi {
 
         String path = UriComponentsBuilder.fromPath("/internal/generic/perform-gsri/{platform}/{eventType}/{isComplete}").buildAndExpand(uriVariables).toUriString();
 
-        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, swimGsriRequestDto, headerParams, accept, returnType);
