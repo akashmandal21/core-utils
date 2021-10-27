@@ -84,4 +84,6 @@ public class GenericTaskDto extends AbstractDto {
     private List<DependencyTaskResponseDto> dependencyTaskDetails;
 
     private DelayDto delayDto;
+
+    private boolean adhocTask;
 }
