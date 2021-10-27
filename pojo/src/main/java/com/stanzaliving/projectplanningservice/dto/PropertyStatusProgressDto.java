@@ -15,27 +15,25 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class PropertyStatusProgressDto {
 
-    private Integer overAllPlanDelayedBy;
+    private Integer overAllPlanDelayedByPercentage;
 
-    private Integer overAllPlanOnTrackBy;
+    private Integer overAllPlanOnTrackByPercentage;
 
-    private Integer taskDelayedBy;
+    private Integer taskDelayedByDays;
 
-    private Integer totalTaskDelayedBy;
+    private Integer taskCompletedPercentage;
 
-    private Integer taskCompleted;
+    private Integer numberOfTasksCompleted;
 
-    private Integer totalTaskCompleted;
+    private Integer taskInProgressPercentage;
 
-    private Integer taskInProgress;
+    private Integer numberOfTasksInProgress;
 
-    private Integer totalTaskInProgress;
+    private Integer taskDelayedPercentage;
 
-    private Integer taskDelayed;
+    private Integer numberOfTasksDelayed;
 
-    private Integer totalTaskDelayed;
+    private Integer taskNotStartedPercentage;
 
-    private Integer taskNotStarted;
-
-    private Integer totalTaskNotStarted;
+    private Integer numberOfTasksNotStarted;
 }
