@@ -14,6 +14,7 @@ import com.stanzaliving.grn.GSRIEmailData;
 import com.stanzaliving.grn.GSRIReceivedQuantity;
 import com.stanzaliving.grn.GrnQuantity;
 import com.stanzaliving.grn.SwimGsriRequestDto;
+import com.stanzaliving.grn.SwimUploadChallanDto;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.po.enums.PoType;
 import lombok.extern.log4j.Log4j2;
@@ -317,6 +318,47 @@ public class GrnClientApi {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, swimGsriRequestDto, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<Boolean> checkIfGrnEventDetailsExistsByGsriId(String gsriId) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("gsriId", gsriId);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/event-details/gsriId/{gsriId}").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<String> updateChallanUrlByGsriId(SwimUploadChallanDto swimUploadChallanDto) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/event-details/update-challan-url").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, swimUploadChallanDto, headerParams, accept, returnType);
     }
 
 }
