@@ -65,4 +65,6 @@ public class AreaRoomDto {
     private String categoryUuid;
 
     private String categoryName;
+
+    private String areaTagUuid;
 }
