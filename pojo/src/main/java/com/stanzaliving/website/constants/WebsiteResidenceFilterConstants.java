@@ -20,7 +20,7 @@ public class WebsiteResidenceFilterConstants {
 	public final String HIGHEST_PRICE_FIRST = "Highest Price First";
 	public final String ASC = "asc";
 	public final String DESC = "desc";
-
+	
 	public final Integer FILTER_LOCALITY_SEQUENCE_ID = 3;
 	public final String FILTER_LOCALITY_NAME = "Locality";
 
