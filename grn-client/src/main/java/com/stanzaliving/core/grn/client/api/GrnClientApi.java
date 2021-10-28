@@ -320,10 +320,10 @@ public class GrnClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, swimGsriRequestDto, headerParams, accept, returnType);
     }
 
-    public ResponseDto<Boolean> checkIfGrnEventDetailsExistsByGsriId(String gsriId) {
+    public ResponseDto<Boolean> checkIfGrnEventDetailsExistsByAwlRefNo(String awlRefNo) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("gsriId", gsriId);
+        uriVariables.put("awlRefNo", awlRefNo);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -333,7 +333,7 @@ public class GrnClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/event-details/gsriId/{gsriId}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/event-details/awlRefNo/{awlRefNo}").buildAndExpand(uriVariables).toUriString();
 
         ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
         };
