@@ -53,6 +53,8 @@ public class NewLedgerLineItemResponseDto implements Comparable {
 
 	private List<CreditNoteInfoDto> creditNoteInfo;
 
+    private List<String> merchantTransactionIds;
+
 	private List<NewLedgerLineItemResponseSummaryDto> summaryData;
 
 	@Override

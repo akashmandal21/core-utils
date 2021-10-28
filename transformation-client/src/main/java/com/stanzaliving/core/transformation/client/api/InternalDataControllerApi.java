@@ -1159,9 +1159,8 @@ public class InternalDataControllerApi {
         return null;
     }
 
-
     public String getResidenceUuidByResidenceId(String residenceId) {
-        log.info("Fetching Transformation details for residence id {}",residenceId);
+        log.info("Fetching Transformation details for residence id {}", residenceId);
         Map<String, Object> uriVariables = new HashMap<>();
 
         uriVariables.put("residenceId", residenceId);
@@ -1186,6 +1185,32 @@ public class InternalDataControllerApi {
             log.error("Exception while fetching residence uuid for residence id {} ", residenceId);
             return null;
         }
+    }
 
+    public ResponseDto<GstInformationDto> getGstDataByCityId(String cityId) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("cityId", cityId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/invoice/cityId/{cityId}")
+                .buildAndExpand(uriVariables)
+                .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        TypeReference<ResponseDto<GstInformationDto>> returnType = new TypeReference<ResponseDto<GstInformationDto>>() {
+        };
+
+        ResponseDto<GstInformationDto> responseDto;
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while fetching Gst Information by cityId.", e);
+
+        }
+        return null;
     }
 }
