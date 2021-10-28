@@ -39,6 +39,13 @@ public class BookingResidenceAggregationEntityDto {
 
     private List<String> residenceUuids;
 
+    Integer liveRooms;
+    Float liveBeds;
+    Integer deadRooms;
+    Float deadBeds;
+    Integer occupiedRooms;
+    Float occupiedBeds;
+
 }
 
 
