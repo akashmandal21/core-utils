@@ -15,6 +15,6 @@ public class SwimUploadChallanDto {
         @NotBlank(message = "fileUrl cannot be blank")
         private String fileUrl;
 
-        @NotBlank(message = "gsriId cannot be blank")
-        private String gsriId;
+        @NotBlank(message = "awlRefNo cannot be blank")
+        private String awlRefNo;
 }
