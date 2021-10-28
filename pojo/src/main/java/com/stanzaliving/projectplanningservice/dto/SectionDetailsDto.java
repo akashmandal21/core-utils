@@ -73,7 +73,6 @@ public class SectionDetailsDto extends AbstractDto {
 
     private String description;
 
-    @NotBlank(message = "Type is required for GTS task creation")
     private TaskType type;
 
     private boolean autoTaskCompletion;
