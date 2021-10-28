@@ -71,9 +71,9 @@ public class SectionDetailsDto extends AbstractDto {
     @NotBlank(message = "Task Name cannot be empty")
     private String taskName;
 
-    @NotBlank(message = "Description cannot be empty")
     private String description;
 
+    @NotBlank(message = "Type is required for GTS task creation")
     private TaskType type;
 
     private boolean autoTaskCompletion;
