@@ -41,6 +41,8 @@ public class BookingResidenceAggregationEntityDto {
     private Float deadBeds;
     private Integer occupiedRooms;
     private Float occupiedBeds;
+    private Integer blockedRoom;
+    private Float blockedBeds;
 
 }
 
