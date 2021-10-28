@@ -37,7 +37,7 @@ public class ProductMixDetails {
     private int noOfRooms; //todo: validation
 
     @NotBlank(message = "Upload CSV URL cannot be blank")
-    private String uploadCsv;
+    private List<String> uploadCsv;
 
     @NotNull
     @Valid
