@@ -23,6 +23,9 @@ public class FreshdeskUpdateDto {
 
 	private String newComplaintSubcategory;
 
+	private String complaintType;
+
+
 	private String description;
 
 	private String cityName;
