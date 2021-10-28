@@ -49,6 +49,8 @@ public class NewLedgerLineItemResponseDto implements Comparable {
     private List<String> invoiceIds;
 
     private List<String> transactionIds;
+    
+    private List<String> merchantTransactionIds;
 
     private List<NewLedgerLineItemResponseSummaryDto> summaryData;
 

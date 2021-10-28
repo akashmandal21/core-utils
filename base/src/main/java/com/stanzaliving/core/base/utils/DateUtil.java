@@ -1099,4 +1099,23 @@ public class DateUtil {
                 (day == 30 && evenMonth.contains(month))) return true;
         return false;
     }
+
+    public static List<LocalDate> getCalendarMonthOfYear(Integer month,Integer year) {
+
+        LocalDate startDate = getMonthStartBeginningDate(month, year);
+        LocalDate endDate = getMonthEndBeginningDate(month, year);
+
+        DayOfWeek startDayOfMonth = startDate.getDayOfWeek();
+        startDate = startDayOfMonth==DayOfWeek.MONDAY?startDate:startDate.minusDays(startDayOfMonth.getValue()-1);
+
+        DayOfWeek endDayOfMonth = endDate.getDayOfWeek();
+        endDate = endDate.plusDays(7-endDayOfMonth.getValue());
+
+        return getAllLocalDatesForRange(startDate,endDate);
+
+    }
+
+    public static boolean isWeekDay(LocalDate date) {
+        return date.getDayOfWeek()!=DayOfWeek.SATURDAY&&date.getDayOfWeek()!=DayOfWeek.SUNDAY;
+    }
 }
