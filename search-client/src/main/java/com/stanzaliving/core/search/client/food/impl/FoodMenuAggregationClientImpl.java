@@ -146,4 +146,41 @@ public class FoodMenuAggregationClientImpl implements FoodMenuAggregationClient 
 
 		return responseDto.getData();
 	}
+
+	@Override
+	public FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(StanzaRestClient restClient, MenuMealResidenceItemRequestDto requestDto) {
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/menu/item/weekly/rating/residence/summary").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<FoodMenuMicromarketRatingResponseDto>> returnType = new TypeReference<ResponseDto<FoodMenuMicromarketRatingResponseDto>>() {};
+
+		ResponseDto<FoodMenuMicromarketRatingResponseDto> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		return responseDto.getData();
+	}
 }
