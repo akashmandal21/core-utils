@@ -2,7 +2,6 @@ package com.stanzaliving.productmix.dto.productmix;
 
 import com.stanzaliving.productmix.dto.ApplicableDurationDto;
 import com.stanzaliving.productmix.dto.LabelValueDto;
-import com.stanzaliving.productmix.dto.propertytemplate.RoomRequestDto;
 import com.stanzaliving.productmix.enums.TemplateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,7 +35,6 @@ public class ProductMixDetails {
 
     private int noOfRooms; //todo: validation
 
-    @NotBlank(message = "Upload CSV URL cannot be blank")
     private List<String> uploadCsv;
 
     @NotNull
