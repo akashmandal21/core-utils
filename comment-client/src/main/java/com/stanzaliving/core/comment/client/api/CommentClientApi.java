@@ -10,6 +10,7 @@ import com.stanzaliving.core.commentsservice.request.dto.CommentsGetRequest;
 import com.stanzaliving.core.commentsservice.response.dto.CommentsCountResponseDto;
 import com.stanzaliving.core.commentsservice.response.dto.CommentsResponseDto;
 import com.stanzaliving.core.commentsservice.response.dto.ContextCommentsCountDto;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -28,6 +29,7 @@ import java.util.Map;
  * @date 03-Nov-2019
  *
  **/
+@Log4j2
 public class CommentClientApi {
 
 	private StanzaRestClient restClient;
@@ -270,8 +272,12 @@ public class CommentClientApi {
 
 		ParameterizedTypeReference<ResponseDto<List<CommentsDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CommentsDto>>>() {
 		};
-
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		}catch (Exception e){
+			log.error("Exception occurred while fetching comments for context with id:{}",contextId);
+			return null;
+		}
 
 	}
 
