@@ -2,10 +2,7 @@ package com.stanzaliving.core.venta_aggregation_client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.ledger.dto.AllLedgerResponseDTO;
-import com.stanzaliving.ledger.dto.HealthCheckCountDto;
-import com.stanzaliving.ledger.dto.LedgerBalanceDTO;
-import com.stanzaliving.ledger.dto.TransactionsDTO;
+import com.stanzaliving.ledger.dto.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
