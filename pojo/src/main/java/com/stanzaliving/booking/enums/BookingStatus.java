@@ -232,4 +232,28 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.CONTRACT_TERMINATED);
         return bookingStatus;
     }
+
+    public static Set<String> notInitiatedExitBookingStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus());
+        return bookingStatus;
+    }
+
+    public static Set<String> exitInitiatedBookingStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(TRESSPASSER.getBookingStatus());
+        bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus());
+        return bookingStatus;
+    }
+
+    public static Set<String> exitProcessBookingStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(CONTRACT_COMPLETED.getBookingStatus());
+        bookingStatus.add(STAY_FORFEITURE.getBookingStatus());
+        bookingStatus.add(TRESSPASSER.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_PAID.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_UNPAID.getBookingStatus());
+        bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());
+        return bookingStatus;
+    }
 }

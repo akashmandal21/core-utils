@@ -68,6 +68,10 @@ public class DateUtil {
         return null;
     }
 
+    public static String convertDateToString(Date date, SimpleDateFormat sdf) {
+        return sdf.format(date);
+    }
+
     public String customTimeFormatter(LocalTime timeInput, DateFormat dateFormat) {
 
         if (timeInput != null) {
@@ -1118,4 +1122,9 @@ public class DateUtil {
     public static boolean isWeekDay(LocalDate date) {
         return date.getDayOfWeek()!=DayOfWeek.SATURDAY&&date.getDayOfWeek()!=DayOfWeek.SUNDAY;
     }
+    
+    public static Boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
+		LocalDate localDate = getLocalDate(date);
+		return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
+	}
 }
