@@ -118,4 +118,7 @@ public class FreshdeskUpdateDto {
 
 	private String userType;
 
+	private boolean fromSupport;
+
+
 }
