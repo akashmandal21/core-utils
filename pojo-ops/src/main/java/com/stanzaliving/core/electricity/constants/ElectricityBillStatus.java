@@ -30,6 +30,7 @@ public enum ElectricityBillStatus {
    private int sequence;
    
    private static List<EnumListing<ElectricityBillStatus>> electricityBillStatusList = new ArrayList<>();
+   private static List<EnumListing<ElectricityBillStatus>> electricityBillStatusForApprovalDashBoard = new ArrayList<>();
    static {
        for(ElectricityBillStatus electricityBillStatus: ElectricityBillStatus.values()){
     	   electricityBillStatusList.add(EnumListing.of(electricityBillStatus, electricityBillStatus.getBillStatus()));
@@ -39,5 +40,11 @@ public enum ElectricityBillStatus {
    public static  List<EnumListing<ElectricityBillStatus>> getElectricityBillStatus(){
        return electricityBillStatusList;
    }
+   
+	public static List<EnumListing<ElectricityBillStatus>> getElectricityBillStatusForApprovalDashBoard() {
+		electricityBillStatusForApprovalDashBoard.add(EnumListing.of(ElectricityBillStatus.APPROVED, ElectricityBillStatus.APPROVED.getBillStatus()));
+		electricityBillStatusForApprovalDashBoard.add(EnumListing.of(ElectricityBillStatus.SUBMITTED, ElectricityBillStatus.SUBMITTED.getBillStatus()));
+		return electricityBillStatusForApprovalDashBoard;
+	}
 
 }

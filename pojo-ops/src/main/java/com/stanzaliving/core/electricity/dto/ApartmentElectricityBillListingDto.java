@@ -50,4 +50,8 @@ public class ApartmentElectricityBillListingDto {
 
 	private String addedBy;
 	
+	private String bgColorCode;
+	
+	private String textColorCode;
+	
 }

@@ -17,7 +17,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -213,7 +212,7 @@ public class WandaClientApi {
 		return null;
 	}
 
-	public Map<String, List<UserHostelDetailsDto>> getUserHostelDetailsByHostelIdIn(Collection<String> hostelIds) {
+	public List<UserHostelDetailsDto> getUserHostelDetailsByHostelIdIn(Collection<String> hostelIds) {
 
 		Object postBody = hostelIds;
 
@@ -223,18 +222,25 @@ public class WandaClientApi {
 
 		String path = UriComponentsBuilder.fromPath("/coreApi/user/hostel/details/map").buildAndExpand(uriVariables).toUriString();
 
-		TypeReference<ResponseDto<Map<String, List<UserHostelDetailsDto>>>> returnType = new TypeReference<ResponseDto<Map<String, List<UserHostelDetailsDto>>>>() {
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		ParameterizedTypeReference<List<UserHostelDetailsDto>> returnType = new ParameterizedTypeReference<List<UserHostelDetailsDto>>() {
 		};
+		
+		final HttpHeaders headerParams = new HttpHeaders();
 
-		ResponseDto<Map<String, List<UserHostelDetailsDto>>> responseDto = null;
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		List<UserHostelDetailsDto> responseDto = null;
 
 		try {
-			responseDto = restClient.post(path, null, postBody, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Error while getting userhostel details ", e);
 		}
 
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
+		return Objects.nonNull(responseDto) ? responseDto : new ArrayList<>();
 
 	}
 

@@ -2,12 +2,14 @@ package com.stanzaliving.core.electricity.dto;
 
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.common.SortingType;
 import com.stanzaliving.core.electricity.constants.ApartmentElectricityBillSortingField;
 import com.stanzaliving.core.electricity.constants.ApartmentElectricityBillStatusFilter;
@@ -55,5 +57,8 @@ public class ApartmentElectricityBillRequestDto {
 	private ApartmentElectricityBillStatusFilter quickFilter = ApartmentElectricityBillStatusFilter.ALL;
 	private SortingType sortingType;
 	private ApartmentElectricityBillSortingField sortingField;
+	
+	private List<ApprovalStatus> approvalStatus;
+	private Boolean approvalDashBoard;
 	
 }

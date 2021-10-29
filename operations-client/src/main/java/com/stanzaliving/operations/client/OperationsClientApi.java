@@ -430,7 +430,7 @@ public class OperationsClientApi {
 		return Objects.nonNull(serviceMixDto) ? serviceMixDto : null;
 	}
 	
-	public Map<String, Map<String, ServiceMixDto>> getCurrentServiceMixByHostelIdInAndUserCodeIn(CurrentServiceMixRequestDto currentServiceMixRequestDto){
+	public Map<String, Map<String, ServiceMixDto>> getCurrentServiceMixList(CurrentServiceMixRequestDto currentServiceMixRequestDto){
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
