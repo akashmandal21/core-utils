@@ -16,24 +16,25 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum PaymentMode {
 
-	NET_BANKING("Netbanking", 3),
-	CC("CC", 0),
-	CHEQUE("Cheque", 2),
-	CASH("Cash", 1),
-	MPOS("MPOS", 6),
+	NET_BANKING("Netbanking", 3), 
+	CC("CC", 0), 
+	CHEQUE("Cheque", 2), 
+	CASH("Cash", 1), 
+	MPOS("MPOS", 6), 
 	QR("QR Code", 4),
-	PAYTM("PAYTM", 9),
-	ICICI("ICICI", 10),
-	PINE_LAB("PINE LAB", 12),
+	PAYTM("PAYTM", 9), 
+	ICICI("ICICI", 10), 
+	PINE_LAB("PINE LAB", 12), 
 	RAZORPAY("Razorpay", 13),
-	PAYTM_SDK("PAYTM SDK", 14),
-	VIRTUAL_ACCOUNT("Virtual Account" , 15),
-	RETENTION_CARRY_FORWARD("Retention Carry Forward" , 16),
-	RETENTION_SECURITY_CARRY_FORWARD("Retention Security Carry Forward" , 17),
-	SECURITY_CARRY_FORWARD("Security Carry Forward" , 18),
-	MANUAL_UPLOADS("Manual Uploads" , 19),
-	BULK_PAYMENT("Bulk Payment",20),
-	I_SUREPAY("I SurePay",21);
+	PAYTM_SDK("PAYTM SDK", 14), 
+	VIRTUAL_ACCOUNT("Virtual Account", 15),
+	RETENTION_CARRY_FORWARD("Retention Carry Forward", 16),
+	RETENTION_SECURITY_CARRY_FORWARD("Retention Security Carry Forward", 17),
+	SECURITY_CARRY_FORWARD("Security Carry Forward", 18), 
+	MANUAL_UPLOADS("Manual Uploads", 19),
+	BULK_PAYMENT("Bulk Payment", 20), 
+	I_SUREPAY("I SurePay", 21),
+	EMI_RAZORPAY("Emi Razorpay", 22);
 
 	private String paymentModeDesc;
 	private int paymentModeId;
