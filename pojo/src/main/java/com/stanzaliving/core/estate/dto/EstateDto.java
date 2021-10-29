@@ -56,4 +56,6 @@ public class EstateDto extends AbstractDto {
 	private LegalAgreementDocTypes legalAgreementDocType;
 
 	private String brandType;
+
+	private String competitorName;
 }
