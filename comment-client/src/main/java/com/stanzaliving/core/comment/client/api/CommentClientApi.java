@@ -3,11 +3,12 @@
  */
 package com.stanzaliving.core.comment.client.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.commentsservice.dto.CommentsDto;
+import com.stanzaliving.core.commentsservice.request.dto.CommentsGetRequest;
 import com.stanzaliving.core.commentsservice.response.dto.CommentsCountResponseDto;
+import com.stanzaliving.core.commentsservice.response.dto.CommentsResponseDto;
 import com.stanzaliving.core.commentsservice.response.dto.ContextCommentsCountDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -17,11 +18,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.commentsservice.dto.CommentsDto;
-import com.stanzaliving.core.commentsservice.request.dto.CommentsGetRequest;
-import com.stanzaliving.core.commentsservice.response.dto.CommentsResponseDto;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author naveen.kumar
@@ -248,6 +247,32 @@ public class CommentClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, contextIds, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<CommentsDto>> getCommentsForContextId(String contextId) {
+
+		Object postBody = null;
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("contextId", contextId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/all/{contextId}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<CommentsDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CommentsDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
 	}
 
 }
