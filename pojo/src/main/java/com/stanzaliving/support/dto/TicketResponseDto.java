@@ -3,16 +3,14 @@ package com.stanzaliving.support.dto;
 import com.stanzaliving.support.enums.Priority;
 import com.stanzaliving.support.enums.Source;
 import com.stanzaliving.support.enums.TicketSource;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import java.util.Date;
 
 @Builder
 @Data
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class TicketResponseDto {

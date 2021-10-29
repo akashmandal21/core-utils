@@ -17,8 +17,6 @@ import javax.validation.constraints.NotNull;
 public class ReminderDetailsDto {
     @NotNull(message = "sendReminderIn can't be left blank.")
     private Long sendReminderIn;
-    @NotBlank(message = "sendReminderTo can't be left blank.")
-    private String sendReminderTo;
     @NotNull    (message = "sendReminderWhen can't be left blank.")
     private ReminderActionType sendReminderWhen;
 
