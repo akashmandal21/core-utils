@@ -1,4 +1,4 @@
-package com.stanzaliving.projectplanningservice.dto;
+package com.stanzaliving.projectplanningservice.dto.request;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.enums.Department;
@@ -23,11 +23,17 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class SectionDetailsDto extends AbstractDto {
+public class SectionDetailsStatusUpdateRequestDto {
+
+    protected Long id;
+
+    @NotBlank(message = "Uuid is required")
+    protected String uuid;
+
+    @NotBlank(message = "task service uuid is required")
+    private String taskServiceUuid;
 
     private TaskOwnerTypeEnum taskOwnerType;
-
-    private String parentUuid;
 
     private int duration;
 
@@ -35,27 +41,11 @@ public class SectionDetailsDto extends AbstractDto {
 
     private String moduleUuid;
 
-    private String moduleName;
-
-    private List<String> taskServiceUuIds;
-
     private PlanningStatus sectionStatus;
 
     private String activityUuid;
 
-    private String activityName;
-
     private List<String> predecessorTasks;
-
-    protected Date createdAt;
-
-    protected Date updatedAt;
-
-    private String taskServiceUuid;
-
-    private String parentTemplateUuid;
-
-    private boolean taskTemplate;
 
     private Date startDate;
 
@@ -63,12 +53,6 @@ public class SectionDetailsDto extends AbstractDto {
 
     private String taskOwner;
 
-    /*
-    module = pp,gts,hk
-     */
-    private String module;
-
-    @NotBlank(message = "Task Name cannot be empty")
     private String taskName;
 
     private String description;
@@ -77,13 +61,15 @@ public class SectionDetailsDto extends AbstractDto {
 
     private boolean autoTaskCompletion;
 
+    private String parentTemplateUuid;
+
     private String parentTaskUuid;
 
     private String taskStatusUuid;
 
     private Department department;
 
-    private List<SectionDetailsDto> tasks;
+    private List<SectionDetailsStatusUpdateRequestDto> tasks;
 
     private List<String> attachmentsList;
 
@@ -96,13 +82,4 @@ public class SectionDetailsDto extends AbstractDto {
     private Date actualStartDate;
 
     private Date actualDueDate;
-
-    private Integer completionStatus;
-
-    private String color;
-
-    private Long percentage;
-
-    private Integer orderSequence;
-
 }
