@@ -32,7 +32,7 @@ public class GlobalBoqListingRequestFilterDto {
 
     private List<LabelValueDto<BoqStatus>> boqStatus;
 
-    private List<LabelValueDto<ItemType>> capexType;
+    private List<LabelValueDto<ItemType>> boqCapexType;
 
     private List<LabelValueDto<String>> city;
 
@@ -44,9 +44,9 @@ public class GlobalBoqListingRequestFilterDto {
 
     private List<LabelValueDto<String>> lastUpdatedBy;
 
-    private DateRangeDto createdDateRangeDto;
+    private DateRangeDto createdDateRange;
 
-    private DateRangeDto approvedDateRangeDto;
+    private DateRangeDto approvedDateRange;
 
     private String propertyNameLike;
 

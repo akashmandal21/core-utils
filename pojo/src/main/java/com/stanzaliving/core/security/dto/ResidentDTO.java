@@ -78,4 +78,6 @@ public class ResidentDTO {
     private String residentCode;
 
     private String colorCode;
+
+    private Double duesThreshold;
 }

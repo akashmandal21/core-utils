@@ -7,6 +7,8 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 @Data
@@ -101,6 +103,24 @@ public abstract class AbstractCsvDto {
         }
         return data;
 
+    }
+
+    public LocalDate getDateValue(String[] data, String columnName) {
+        try {
+            return LocalDate.parse(data[this.getColumns().indexOf(columnName)]);
+        } catch(Exception e) {
+            return null;
+        }
+    }
+
+    public Set<String> getSetOfStrings(String[] data, String columnName, String delimiter) {
+
+        if(StringUtils.isNotBlank(data[this.getColumns().indexOf(columnName)])) {
+            return new HashSet<>(Arrays.asList(data[this.getColumns().indexOf(columnName)].split(delimiter)));
+        } else {
+            return new HashSet<>();
+        }
+        
     }
 
 }
