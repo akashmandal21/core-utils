@@ -17,4 +17,6 @@ public class ResidenceDto {
     private String uuid;
 
     private String cityUuid;
+
+    private int faqCount;
 }

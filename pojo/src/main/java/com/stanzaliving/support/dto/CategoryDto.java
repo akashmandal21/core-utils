@@ -19,6 +19,7 @@ public class CategoryDto {
     private String description;
     private boolean active;
     private List<SubCategoryDto> subCategories = new ArrayList<>();
+    private List<ResidenceDto> residences = new ArrayList<>();
 
     public CategoryDto(String name, String uuid) {
         this.name = name;
