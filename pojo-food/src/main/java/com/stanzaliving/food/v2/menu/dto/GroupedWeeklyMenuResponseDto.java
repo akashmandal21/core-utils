@@ -76,7 +76,6 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private Map<String, String> tags;
     private Integer noOfWeeks;
     private List<SpecialDayMealDto> specialDayMealDtoList;
-    private List<MenuCategoryMealDto> mealData;
     private Boolean canSubmit;
 
 }
