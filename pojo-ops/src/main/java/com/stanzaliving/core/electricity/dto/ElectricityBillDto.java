@@ -62,7 +62,7 @@ public class ElectricityBillDto extends AbstractDto {
 	
 	private Double totalCharges;
 
-	private Double totalConsumptionCharges;
+	private Double consumptionCharges;
 
 	private Double gridConsumptionCharges;
 
