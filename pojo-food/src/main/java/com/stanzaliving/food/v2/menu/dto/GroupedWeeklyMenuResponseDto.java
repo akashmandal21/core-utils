@@ -6,6 +6,7 @@ import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
+import com.stanzaliving.food.v2.category.dto.MenuCategoryMealDto;
 import com.stanzaliving.food.v2.category.dto.MenuCategoryResidenceRDto;
 import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.menu.constants.MenuStatus;
@@ -74,6 +75,7 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private Map<String, String> tags;
     private Integer noOfWeeks;
     private List<SpecialDayMealDto> specialDayMealDtoList;
+    private List<MenuCategoryMealDto> mealData;
     private Boolean canSubmit;
 
 }
