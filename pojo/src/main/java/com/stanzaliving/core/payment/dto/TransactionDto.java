@@ -32,6 +32,8 @@ public class TransactionDto extends AbstractDto {
 	private static final long serialVersionUID = -5460205171309799210L;
 
 	private String merchantTransactionId;
+	
+	private String uuid;
 
 	private double amount;
 
