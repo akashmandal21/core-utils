@@ -24,7 +24,7 @@ public class GrsiItemDto {
     private BigDecimal cartonDamaged;
     private BigDecimal qcChk;
     private BigDecimal rePck;
-    private BigDecimal totalQuantity;
+    private BigDecimal okQty;
     private LocalDate expiryDate;
     private BigDecimal effectivePrice;//Unit Rate
     private BigDecimal quantity;
