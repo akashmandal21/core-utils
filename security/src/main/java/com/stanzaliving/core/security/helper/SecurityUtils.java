@@ -56,8 +56,6 @@ public class SecurityUtils {
 			userId = currentUser.getUserId();
 		}
 
-		log.info("========>>>>>>>> token = " + currentUser.getToken());
-		
 		return userId;
 	}
 
