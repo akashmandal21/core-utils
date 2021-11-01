@@ -141,4 +141,8 @@ public class NumberUtils {
 		}
 		return firstDouble + secondDouble;
 	}
+
+	public int getNonNullIntegerValue(Integer number) {
+		return number!=null?number:0;
+	}
 }

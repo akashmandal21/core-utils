@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.estate.constants.AttributeNames;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -441,5 +442,17 @@ public class EstateClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
+    }
+
+    public String getAttributeValueEmptyStringIfUnavailable(String estateUuid, String estateId, String attributeName) {
+        String competitionName = "";
+        try {
+            ResponseDto<EstateAttributeDto> estateAttributeDtoResponseDto = getSpecificEstateAttributeByEstateUuidOrEstateId(estateUuid, estateId, attributeName);
+            EstateAttributeDto estateAttributeDto = estateAttributeDtoResponseDto.getData();
+            competitionName = null == estateAttributeDto || StringUtils.isBlank(estateAttributeDto.getAttributeValue()) ? "" : estateAttributeDto.getAttributeValue();
+        } catch (Exception e) {
+            log.error("Unable to getAttributevalue for estateUuid {}, estateId {}, attributeName {}", estateUuid, estateId, attributeName, e);
+        }
+        return competitionName;
     }
 }
