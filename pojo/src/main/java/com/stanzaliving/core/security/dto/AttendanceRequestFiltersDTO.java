@@ -23,7 +23,9 @@ public class AttendanceRequestFiltersDTO {
     @NotBlank(message = "Residence UUID cannot be empty")
     private String residenceUuid;
 
-    private int lateBy;
+    private int lateByMin;
+
+    private int lateByMax;
 
     private List<RequestType> requestType;
 
