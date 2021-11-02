@@ -18,17 +18,13 @@ import java.util.List;
 public class ProductMixListingFilterDto {
     private String uuid;
 
-    private List<LabelValueDto<TemplateStatus>> templateStatus;
+    private List<LabelValueDto<TemplateStatus>> productMixStatus;
 
     private List<LabelValueDto<String>> createdBy;
 
+    private List<LabelValueDto<String>> updatedBy;
+
     private List<LabelValueDto<String>> actionedBy;
-
-    //todo: verify
-    private List<LabelValueDto<PropertyTypeEnum>> propertyType;
-
-    //todo: verify
-    private List<LabelValueDto<ResidenceBrand>> propertyBrand;
 
     private List<LabelValueDto<String>> roomFeatures;
 
@@ -45,7 +41,7 @@ public class ProductMixListingFilterDto {
     private int pageSize = 20;
 
     @Builder.Default
-    private String sortBy = "updatedAt";
+    private String sortBy = "UpdatedAt";
 
     @Builder.Default
     private String sortOrder = "desc";
