@@ -1104,6 +1104,11 @@ public class DateUtil {
         return false;
     }
 
+    public static Boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
+		LocalDate localDate = getLocalDate(date);
+		return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
+	}
+
     public static List<LocalDate> getCalendarMonthOfYear(Integer month,Integer year) {
 
         LocalDate startDate = getMonthStartBeginningDate(month, year);
@@ -1122,9 +1127,4 @@ public class DateUtil {
     public static boolean isWeekDay(LocalDate date) {
         return date.getDayOfWeek()!=DayOfWeek.SATURDAY&&date.getDayOfWeek()!=DayOfWeek.SUNDAY;
     }
-    
-    public static Boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
-		LocalDate localDate = getLocalDate(date);
-		return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
-	}
 }
