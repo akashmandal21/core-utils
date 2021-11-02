@@ -91,7 +91,7 @@ public class NotificationClientApi {
 			        path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error(e);
-			return null;
+			return ResponseDto.failure(e.getMessage());
 		}
     }
 
