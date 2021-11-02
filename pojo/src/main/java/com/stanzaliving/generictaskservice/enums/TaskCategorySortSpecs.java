@@ -3,9 +3,6 @@ package com.stanzaliving.generictaskservice.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.time.LocalTime;
-import java.util.Date;
-
 /**
  * @author Priyadarshini MB
  */
@@ -18,6 +15,7 @@ public enum TaskCategorySortSpecs {
     STARTTIME("startTime"),
     AUTOCOMPLETIONEVENT("autoCompletionEvent"),
     AUTOCOMPLETETASK("autoCompleteTask"),
-    CREATEDAT("createdAt");
+    CREATEDAT("createdAt"),
+    UPDATEAT("updateAt");
     private String dbKey;
 }
