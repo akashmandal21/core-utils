@@ -48,4 +48,5 @@ public class BookingEvent implements Serializable {
     private Map<String,String> metaData;
     private String mobile;
     private Integer cityId;
+    private String email;
 }
