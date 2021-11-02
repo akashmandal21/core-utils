@@ -224,7 +224,7 @@ public class StanzaRestClient {
 		try {
 			if (null != messageConverter) {
 				List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
-				messageConverters.add(messageConverter)
+				messageConverters.add(messageConverter);
 				restTemplate.setMessageConverters(messageConverters);
 			}
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
