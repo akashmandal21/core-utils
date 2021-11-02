@@ -7,7 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @Data
@@ -16,7 +18,7 @@ import java.util.Objects;
 @Builder
 public class ProductMixDto {
 
-    @NotNull (message = "Product mix details cannot be null")
+    @NotNull(message = "Product mix details cannot be null")
     private ProductMixDetails productMixDetails;
 
     private List<LabelValueDto<String>> roomTemplateOptions;
@@ -46,5 +48,34 @@ public class ProductMixDto {
                 .roomTemplateOptionsData(roomTemplateOptionsDto.getRoomTemplateOptionsData())
                 .roomDetails(Objects.nonNull(roomTemplateOptionsDto.getRoomDetails()) ? roomTemplateOptionsDto.getRoomDetails() : null)
                 .build();
+    }
+
+    public void setAllItemsList(RoomTemplateOptionsDto roomTemplateOptionsDto) {
+        Map<String, LabelValueDto<String>> oldRoomFeaturesMap = new HashMap<>();
+        Map<String, LabelValueDto<String>> oldConsumablesMap = new HashMap<>();
+
+        this.allRoomFeaturesList
+                .forEach(roomFeature -> {
+                    oldRoomFeaturesMap.put(roomFeature.getValue(), roomFeature);
+                });
+
+        this.allConsumablesList
+                .forEach(consumable -> {
+                    oldConsumablesMap.put(consumable.getValue(), consumable);
+                });
+
+        roomTemplateOptionsDto.getAllRoomFeaturesList()
+                .forEach(newRoomFeature -> {
+                    if (!oldRoomFeaturesMap.containsKey(newRoomFeature.getValue())) {
+                        this.allRoomFeaturesList.add(newRoomFeature);
+                    }
+                });
+
+        roomTemplateOptionsDto.getAllConsumablesList()
+                .forEach(newConsumable -> {
+                    if (!oldConsumablesMap.containsKey(newConsumable.getValue())) {
+                        this.allConsumablesList.add(newConsumable);
+                    }
+                });
     }
 }
