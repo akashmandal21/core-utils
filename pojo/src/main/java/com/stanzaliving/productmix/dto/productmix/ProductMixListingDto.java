@@ -43,4 +43,6 @@ public class ProductMixListingDto {
     private String productMixStatus;
 
     private TemplateStatus productMixStatusValue;
+
+    private int mixIdentifier;
 }
