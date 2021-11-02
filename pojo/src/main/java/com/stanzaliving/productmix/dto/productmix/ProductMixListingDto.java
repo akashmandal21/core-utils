@@ -1,6 +1,7 @@
 package com.stanzaliving.productmix.dto.productmix;
 
 import com.stanzaliving.productmix.dto.ApplicableDurationDto;
+import com.stanzaliving.productmix.enums.TemplateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -40,4 +41,6 @@ public class ProductMixListingDto {
     private String productMixName;
 
     private String productMixStatus;
+
+    private TemplateStatus productMixStatusValue;
 }
