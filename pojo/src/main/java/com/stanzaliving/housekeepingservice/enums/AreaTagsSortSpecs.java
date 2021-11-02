@@ -13,6 +13,7 @@ public enum AreaTagsSortSpecs {
     NAME("areaTagName"),
     CATEGORY("areaCategoryUuid"),
     CREATEDBY("createdBy"),
-    STATUS("areaTagStatus");
+    STATUS("areaTagStatus"),
+    UPDATEDAT("updatedAt");
     private String dbKey;
 }

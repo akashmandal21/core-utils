@@ -15,7 +15,8 @@ public enum HkTemplateSortSpecs {
     MICROCLUSTER("microClusterUuid"),
     CREATED_BY("createdBy"),
     TAGS("tags"),
-    STATUS("templateStatus");
+    STATUS("templateStatus"),
+    UPDATEDAT("updatedAt");
 
     private String dbKey;
 
