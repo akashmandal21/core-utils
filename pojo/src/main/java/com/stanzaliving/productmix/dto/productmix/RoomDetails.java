@@ -23,7 +23,7 @@ public class RoomDetails {
     private int position;
 
     @NotNull(message = "Floor cannot be blank")
-    private int floor;
+    private String floor;
 
     @NotNull(message = "Beds cannot be null")
     private int beds;
