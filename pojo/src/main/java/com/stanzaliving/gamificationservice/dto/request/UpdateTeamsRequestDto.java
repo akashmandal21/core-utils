@@ -34,6 +34,8 @@ public class UpdateTeamsRequestDto extends AbstractDto {
 
     private String clusterName;
 
-    private String clusterManagerUserUuid;
+    private String clusterManager;
+
+    private int noOfMembers;
 
 }

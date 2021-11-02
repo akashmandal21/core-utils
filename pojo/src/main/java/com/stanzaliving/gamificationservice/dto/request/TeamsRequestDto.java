@@ -30,6 +30,7 @@ public class TeamsRequestDto extends AbstractDto {
 
     private String clusterName;
 
-    private String clusterManagerUserUuid;
+    private String clusterManager;
 
+    private int noOfMembers;
 }
