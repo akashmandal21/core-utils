@@ -46,6 +46,5 @@ public class BookingEvent implements Serializable {
     private boolean hasMovedIn;
     private List<InventoryResponseOccupancyDto> inventoryOccupancy;
     private Map<String,String> metaData;
-    private String email;
     private String mobile;
 }
