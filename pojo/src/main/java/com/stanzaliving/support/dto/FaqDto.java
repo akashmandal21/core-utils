@@ -1,8 +1,8 @@
 package com.stanzaliving.support.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.support.enums.ApprovalStatus;
 import com.stanzaliving.support.enums.FaqStatus;
-import com.stanzaliving.support.enums.TemplateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,18 +16,16 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class FaqDto {
 
     @NotBlank(message = "Faq name cannot be null")
     private String faqName;
-//    @NotBlank(message = "Question cannot be null")
-//    private String question;
-//    @NotBlank(message = "Answer cannot be null")
-//    private String answer;
     private String uuid;
-    private Integer sequence;
     private boolean visible;
-    private String residenceUuid;
+    private List<String> residenceUuid;
+    private String complaintGroupUuid;
+    private String categoryUuid;
     private Date createdAt;
     private String createdBy;
     private FaqStatus faqStatus;
@@ -37,4 +35,5 @@ public class FaqDto {
     private int maxApprovalLevel;
     private List<FaqActionDto> actions;
     private List<FaqDetailDto> faqDetail;
+
 }

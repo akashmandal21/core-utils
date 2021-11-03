@@ -14,7 +14,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class FaqActionDto {
     private String level;
-    private FaqStatus faqStatus;
     private Date actionAt;
     private String actionBy;
 }
