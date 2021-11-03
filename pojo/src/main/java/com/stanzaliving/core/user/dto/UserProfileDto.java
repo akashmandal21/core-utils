@@ -70,4 +70,6 @@ public class UserProfileDto extends UserDto {
 	private LocalDate arrivalDate;
 	
 	private int ageLimit;
+	
+	private Date onboardedDate;
 }
