@@ -51,5 +51,5 @@ public class BookingEvent implements Serializable {
     private String userName;
     private String email;
     private String mobile;
-    private Integer cityId;
+    private String cityUuid;
 }
