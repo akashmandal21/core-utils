@@ -41,4 +41,6 @@ public class TicketRequestDto {
     private List<String> applicableSubTicketList;
 
     private List<String> notApplicableSubTicketList;
+
+    private String complaintAttachmentUuid;
 }

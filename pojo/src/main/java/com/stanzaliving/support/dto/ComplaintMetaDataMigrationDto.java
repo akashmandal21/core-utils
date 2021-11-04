@@ -91,7 +91,7 @@ public class ComplaintMetaDataMigrationDto {
     private String createdBy;
 
     @JsonSetter(value="status")
-    private String status;
+    private boolean status;
 
     @JsonSetter(value="updated_at")
     private Date updatedAt;
