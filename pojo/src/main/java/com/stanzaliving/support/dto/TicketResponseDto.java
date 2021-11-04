@@ -66,4 +66,7 @@ public class TicketResponseDto {
     private String ticketId;
 
     private Integer version;
+
+    private Date alfredSlaTime;
+
 }
