@@ -16,6 +16,6 @@ public enum TaskCategorySortSpecs {
     AUTOCOMPLETIONEVENT("autoCompletionEvent"),
     AUTOCOMPLETETASK("autoCompleteTask"),
     CREATEDAT("createdAt"),
-    UPDATEAT("updateAt");
+    UPDATEDAT("updatedAt");
     private String dbKey;
 }
