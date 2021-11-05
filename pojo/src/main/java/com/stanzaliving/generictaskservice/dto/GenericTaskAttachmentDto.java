@@ -19,6 +19,8 @@ public class GenericTaskAttachmentDto {
     @NotEmpty(message = "Task Id is mandatory")
     private String taskId;
 
+    private String attachmentUuid;
+
     private String attachmentFilePath;
 
     private String attachmentFileName;
