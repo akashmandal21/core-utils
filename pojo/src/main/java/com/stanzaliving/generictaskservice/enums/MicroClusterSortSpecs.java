@@ -12,7 +12,8 @@ public enum MicroClusterSortSpecs {
     CITY("cityName"),
     CITYUUID("cityUuid"),
     STATUS("microClusterStatus"),
-    CREATEDBY("createdBy");
+    CREATEDBY("createdBy"),
+    UPDATEDAT("updatedAt");
 
     private String dbKey;
 
