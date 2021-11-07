@@ -1,6 +1,7 @@
 package com.stanzaliving.gamificationservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.stanzaliving.gamificationservice.enums.ContestStatus;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -46,5 +47,5 @@ public class ContestDto {
 
 	private String pair;
 
-	private String status;
+	private ContestStatus contestStatus;
 }
