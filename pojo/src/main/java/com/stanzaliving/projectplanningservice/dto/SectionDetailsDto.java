@@ -13,6 +13,7 @@ import lombok.experimental.SuperBuilder;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ import java.util.List;
 @SuperBuilder
 public class SectionDetailsDto extends AbstractDto {
 
-    @NotBlank(message = "Owner Type is required")
+    @NotNull(message = "Task Owner Type cannot be null")
     private TaskOwnerTypeEnum taskOwnerType;
 
     private int duration;
@@ -83,7 +84,7 @@ public class SectionDetailsDto extends AbstractDto {
 
     private String description;
 
-    @NotBlank(message = "Type is required")
+    @NotNull(message = "type cannot be null")
     private TaskType type;
 
     private boolean autoTaskCompletion;
@@ -95,7 +96,7 @@ public class SectionDetailsDto extends AbstractDto {
      */
     private String taskStatusUuid;
 
-    @NotBlank(message = "Department is required")
+    @NotNull(message = "department cannot be null")
     private Department department;
 
     @Valid
