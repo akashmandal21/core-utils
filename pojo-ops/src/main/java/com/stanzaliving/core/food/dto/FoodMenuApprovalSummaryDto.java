@@ -30,6 +30,9 @@ public class FoodMenuApprovalSummaryDto {
 	private Double price;
 	private String boxOption;
 
+	private String vendorId;
+	private String vendorName;
+
 	private String requestDateTimeLabel;
 	private String l1ActionDateTimeLabel;
 	private String l2ActionDateTimeLabel;
