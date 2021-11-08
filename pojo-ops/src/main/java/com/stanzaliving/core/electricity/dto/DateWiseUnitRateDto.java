@@ -20,5 +20,6 @@ public class DateWiseUnitRateDto {
 	private LocalDate startDate;
 	private LocalDate endDate;
 	private double unitRate;
+	private String userCode;
 		
 }
