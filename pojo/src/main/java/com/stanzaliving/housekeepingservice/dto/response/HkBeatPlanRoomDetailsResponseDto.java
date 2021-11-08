@@ -18,6 +18,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HkBeatPlanRoomDetailsResponseDto {
-    private AreaTagsDto tags;
+    private AreaTagsDto tag;
     private List<ParticularRoomsResponseDto> rooms;
 }
