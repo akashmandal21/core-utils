@@ -16,7 +16,7 @@ public enum ElectricityBillType {
 	MAIN("Main"), 
 	COMMON_AREA("Common area"), 
 	ROOM("Room"),
-	DG_CHARGES("DG_Charges"),
+	DG_CHARGES("DG Charges"),
 	MAINTENANCE_CHARGES("Maintenance Charges");
 
     private String billTypeName;

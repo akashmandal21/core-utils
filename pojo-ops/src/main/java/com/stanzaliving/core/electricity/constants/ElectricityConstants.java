@@ -20,6 +20,9 @@ public class ElectricityConstants {
 	
 	public static final String ROOM_UNIT_RATE_CONFIG_PATH = "electricity.room.rate";
 	public static final String COMMON_AREA_UNIT_RATE_CONFIG_PATH = "electricity.common_area.rate";
+	
+	public static final String STANZA_SHARE_CONFIG_PATH = "postpaidChargesDto.stanzaShareTotal";
+	public static final String RESIDENT_SHARE_CONFIG_PATH = "postpaidChargesDto.residentShareTotal";
 
 
 }
