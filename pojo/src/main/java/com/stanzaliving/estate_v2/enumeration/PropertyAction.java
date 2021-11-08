@@ -25,7 +25,18 @@ public enum PropertyAction {
     ESTATE_LEADERSHIP("Leadership", "f7aadd88-0428-11ec-9a03-0242ac130003", "ESTATE_LEADERSHIP"),
     LEGAL_DUE_DILIGENCE("Legal Due Diligence", "f7aade6e-0428-11ec-9a03-0242ac130003", "LEGAL_DUE_DILIGENCE"),
     SENT_TO_PROPERTY_NAMING("Property Naming", "f7aadf22-0428-11ec-9a03-0242ac130003", "SENT_TO_PROPERTY_NAMING"),
-    SENT_TO_LEGAL_FOR_APPROVAL("Sent To Legal For Approval","f7aadf22-0428-11ec-9a03-0242ac130006","SENT_TO_LEGAL_FOR_APPROVAL");
+    SENT_TO_LEGAL_FOR_APPROVAL("Sent To Legal For Approval","f7aadf22-0428-11ec-9a03-0242ac130006","SENT_TO_LEGAL_FOR_APPROVAL"),
+
+    // Kitchen Flow
+
+    KITCHEN_LO("Kitchen L0","133b023c-9147-4ad3-8b8b-d0cc3e1bb300","KITCHEN_LO"),
+    KITCHEN_L1("Kitchen L1","3b0ff0ed-9d1e-4e65-b75d-40fcdb1178e1","KITCHEN_L1"),
+    KITCHEN_L2("Kitchen L2","a18a5f58-5824-4c1f-932d-3722b8204dfa","KITCHEN_L2"),
+    KITCHEN_L3("Kitchen L3","ada55ac5-e59a-421e-a28c-176f483d5c68","KITCHEN_L3"),
+    KITCHEN_L4("Kitchen L4","9436a69e-19ff-4245-abdc-8d1e59587963","KITCHEN_L4");
+
+
+
     private final String name;
     private final String uuid;
     private final String alias;
@@ -69,5 +80,17 @@ public enum PropertyAction {
     }
 
 
+    public static List<KeyValueDto> getPropertyActionForKitchen() {
+        final List<KeyValueDto> kitchenPropertyActions=new ArrayList<>();
+        kitchenPropertyActions.add(new KeyValueDto(KITCHEN_LO.getAlias(),KITCHEN_LO.uuid));
+        kitchenPropertyActions.add(new KeyValueDto(KITCHEN_L1.getAlias(),KITCHEN_L1.uuid));
+        kitchenPropertyActions.add(new KeyValueDto(KITCHEN_L2.getAlias(),KITCHEN_L2.uuid));
+        kitchenPropertyActions.add(new KeyValueDto(KITCHEN_L3.getAlias(),KITCHEN_L3.uuid));
+        kitchenPropertyActions.add(new KeyValueDto(KITCHEN_L4.getAlias(),KITCHEN_L4.uuid));
+        kitchenPropertyActions.add(new KeyValueDto(ESTATE_LEADERSHIP.getAlias(),ESTATE_LEADERSHIP.uuid));
+        return kitchenPropertyActions;
 
+
+
+    }
 }
