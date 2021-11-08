@@ -37,6 +37,8 @@ public enum TicketActivityTemplatesEnum {
     TEAM_UPDATED,
     ADD_BUSINESS_HOUR,
     CLOSE_TICKET,
+    REOPEN,
+    CLOSE_TICKET_RESOLUTION,
     USER_SATISFIED,
     USER_NOT_SATISFIED;
 }
