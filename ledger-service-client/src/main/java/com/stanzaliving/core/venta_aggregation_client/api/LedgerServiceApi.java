@@ -2,10 +2,7 @@ package com.stanzaliving.core.venta_aggregation_client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.ledger.dto.AllLedgerResponseDTO;
-import com.stanzaliving.ledger.dto.HealthCheckCountDto;
-import com.stanzaliving.ledger.dto.LedgerBalanceDTO;
-import com.stanzaliving.ledger.dto.TransactionsDTO;
+import com.stanzaliving.ledger.dto.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -18,6 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Log4j2
 public class LedgerServiceApi {
@@ -100,6 +98,34 @@ public class LedgerServiceApi {
             log.error("Exception while fetching ledger information based on referenceId {}, Exception is ", e);
         }
         return null;
+    }
+
+    public ResponseDto<List<TotalLedgerBalanceDto>> getTotalLegerBalanceForReferenceIds(Set<String> referenceIds) {
+        Object postBody = referenceIds;
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/ledger/get/totalBalance").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<TotalLedgerBalanceDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<TotalLedgerBalanceDto>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception var11) {
+            log.error(var11);
+            log.error("Exception while Processing to get data for requested referenceIds");
+            return null;
+        }
     }
 
     public ResponseDto<String> createLedgerEntry(List<TransactionsDTO> transactionsDTO) {

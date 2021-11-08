@@ -1,5 +1,6 @@
 package com.stanzaliving.booking.dto.request;
 
+import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
 import com.stanzaliving.booking.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,6 +12,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 
 @Builder
@@ -41,4 +44,6 @@ public class BookingEvent implements Serializable {
     private BookingEventEnum bookingEvent;
     private PaymentTerm paymentTerm;
     private boolean hasMovedIn;
+    private List<InventoryResponseOccupancyDto> inventoryOccupancy;
+    private Map<String,String> metaData;
 }
