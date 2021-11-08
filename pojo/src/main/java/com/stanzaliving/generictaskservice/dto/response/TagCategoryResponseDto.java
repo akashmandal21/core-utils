@@ -22,7 +22,5 @@ public class TagCategoryResponseDto extends AbstractDto {
 
     private String tagSubCategoryUuid;
 
-    private String module;
-
     private Department department;
 }

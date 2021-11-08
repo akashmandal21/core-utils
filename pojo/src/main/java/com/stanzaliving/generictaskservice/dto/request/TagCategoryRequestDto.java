@@ -23,8 +23,6 @@ public class TagCategoryRequestDto {
 
     private String tagSubCategoryUuid;
 
-    private String module;
-
     private Department department;
 
 }
