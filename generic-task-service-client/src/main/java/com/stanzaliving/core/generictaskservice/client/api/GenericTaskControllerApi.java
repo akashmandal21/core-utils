@@ -5,10 +5,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
 import com.stanzaliving.generictaskservice.dto.request.HkShiftAllocationRequestDto;
-import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
-import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
-import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
-import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
+import com.stanzaliving.generictaskservice.dto.response.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -260,5 +257,28 @@ public class GenericTaskControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
+    }
+
+    //Method to invoke shift duration from generic task service.
+    public ResponseDto<ShiftDurationResponse> getShiftDuration(List<String> shiftUuidList){
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/shift/duration/").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.put("shiftUuidList",shiftUuidList);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ShiftDurationResponse>> returnType = new ParameterizedTypeReference<ResponseDto<ShiftDurationResponse>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 }
