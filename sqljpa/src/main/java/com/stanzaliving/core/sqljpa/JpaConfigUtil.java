@@ -56,6 +56,29 @@ public class JpaConfigUtil {
 
 	}
 
+	public static void configureDbConnection(
+			ComboPooledDataSource dataSource,
+			int maxStatements,
+			int maxIdleTime,
+			int maxIdleTimeExcessConnections,
+			int checkoutTimeout,
+			String preferredTestQuery,
+			boolean testConnectionOnCheckin,
+			int numHelperThreads,
+			int maxConnectionAge,
+			int statementCacheNumDeferredCloseThreads) {
+
+		dataSource.setMaxStatements(maxStatements);
+		dataSource.setMaxIdleTime(maxIdleTime);
+		dataSource.setMaxIdleTimeExcessConnections(maxIdleTimeExcessConnections);
+		dataSource.setCheckoutTimeout(checkoutTimeout);
+		dataSource.setPreferredTestQuery(preferredTestQuery);
+		dataSource.setTestConnectionOnCheckin(testConnectionOnCheckin);
+		dataSource.setNumHelperThreads(numHelperThreads);
+		dataSource.setMaxConnectionAge(maxConnectionAge);
+		dataSource.setStatementCacheNumDeferredCloseThreads(statementCacheNumDeferredCloseThreads);
+	}
+
 	public static Map<String, String> configureHibernateProperties(
 			String hibernateCacheProviderClass,
 			String hibernateDialect,

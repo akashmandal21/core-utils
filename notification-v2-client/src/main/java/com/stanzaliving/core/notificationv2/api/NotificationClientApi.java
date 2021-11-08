@@ -8,6 +8,9 @@ import com.stanzaliving.notification.dto.FcmTokenDto;
 import com.stanzaliving.notification.dto.NotificationDTO;
 import com.stanzaliving.notification.dto.NotificationRegistryDto;
 import com.stanzaliving.notification.dto.UserDataDto;
+
+import lombok.extern.log4j.Log4j2;
+
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -21,6 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Log4j2
 public class NotificationClientApi {
 
     public static final String USER_ID = "userId";
@@ -65,25 +69,30 @@ public class NotificationClientApi {
     public ResponseDto<NotificationDTO> saveGenericNotification(
             NotificationDTO notificationRegistryDto) {
 
-        Object postBody = null;
+        try {
+			Object postBody = null;
 
-        String path =
-                UriComponentsBuilder.fromPath("/api/v1/generic-notification")
-                        .toUriString();
+			String path =
+			        UriComponentsBuilder.fromPath("/api/v1/generic-notification")
+			                .toUriString();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final String[] accepts = {"*/*"};
+			final String[] accepts = {"*/*"};
 
-        final HttpHeaders headerParams = new HttpHeaders();
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			final HttpHeaders headerParams = new HttpHeaders();
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<NotificationDTO>> returnType =
-                new ParameterizedTypeReference<ResponseDto<NotificationDTO>>() {
-                };
-        postBody = notificationRegistryDto;
-        return restClient.invokeAPI(
-                path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			ParameterizedTypeReference<ResponseDto<NotificationDTO>> returnType =
+			        new ParameterizedTypeReference<ResponseDto<NotificationDTO>>() {
+			        };
+			postBody = notificationRegistryDto;
+			return restClient.invokeAPI(
+			        path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error(e);
+			return ResponseDto.failure(e.getMessage());
+		}
     }
 
     public ResponseDto<NotificationRegistryDto> saveNotification(
