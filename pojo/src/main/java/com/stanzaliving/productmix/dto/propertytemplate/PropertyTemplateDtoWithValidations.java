@@ -26,7 +26,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class PropertyTemplateDtoWithValidations {
-    @NotBlank(message = "Template uuid should not be blank")
+//    @NotBlank(message = "Template uuid should not be blank")
     private String uuid;
 
     @NotBlank(message = "Template name should not be blank")
