@@ -23,6 +23,7 @@ public class HkTemplateFilterDto {
 
     private String templateName;
     private String microClusterUuid;
+    private String templateUuid;
     private List<String> tagList;
     private HKPlanningTemplateStatus templateStatus;
     private String createdBy;
