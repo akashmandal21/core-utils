@@ -44,6 +44,7 @@ public class CityLevelFoodSummaryDto {
 	private String residenceName;
 	private String menuStatus;
 	private boolean menuApproved;
+	private String categoryId;
 	private String categoryName;
 	private String categoryMealWiseName;
 	private String micromarketName;
