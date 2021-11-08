@@ -37,7 +37,6 @@ public class ApartmentElectricityBillRequestDto {
 	@Min(value = 1, message = "Limit cannot be less than 1")
 	private int limit = 50;
 
-	@NotBlank(message = "PropertyCode can not be blank")
 	private String propertyCode;
 	
 	@NotBlank(message = "ResidenceId can not be blank")
