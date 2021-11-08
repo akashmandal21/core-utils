@@ -24,12 +24,11 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ElectricityBillAddDto {
-
-	@NotBlank(message = "PropertyCode Cannot be blank")
-	private String propertyCode;
 	
 	@NotBlank(message = "ResidenceId Cannot be blank")
 	private String residenceId;
+	
+	private String propertyId;
 
 	private String billNumber;
 	

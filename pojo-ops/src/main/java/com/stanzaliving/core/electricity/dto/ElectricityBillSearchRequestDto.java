@@ -37,7 +37,8 @@ public class ElectricityBillSearchRequestDto {
 	private String cityId;
 	private String microMarketId;
 	private String societyName;
-	private String propertyCode;
+	private String propertyId;
+	private String residenceId;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fromDate;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

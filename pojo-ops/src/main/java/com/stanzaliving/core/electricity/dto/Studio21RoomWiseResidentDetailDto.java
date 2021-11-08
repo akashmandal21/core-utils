@@ -20,7 +20,7 @@ import lombok.experimental.SuperBuilder;
 public class Studio21RoomWiseResidentDetailDto {
 
 	private String residenceId;
-	private String propertyCode;
+	private String propertyId;
 	private List<RoomDetailDto> roomDetailDto;
 		
 }
