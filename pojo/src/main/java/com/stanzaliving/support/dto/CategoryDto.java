@@ -18,6 +18,7 @@ public class CategoryDto {
     private String name;
     private String description;
     private boolean active;
+    private int faqCount;
     private List<SubCategoryDto> subCategories = new ArrayList<>();
     private List<ResidenceDto> residences = new ArrayList<>();
 
