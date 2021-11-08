@@ -2,7 +2,10 @@
  *
  */
 package com.stanzaliving.core.transformation.client.api;
+import com.fasterxml.jackson.core.type.TypeReference;
 
+import com.stanzaliving.boq_service.dto.BulkActionsModalFilterOptionsDto;
+import com.stanzaliving.boq_service.dto.LabelValueDto;
 import com.stanzaliving.core.addressbook.AddressBookNameDto;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -34,6 +37,7 @@ import com.stanzaliving.transformations.pojo.StateUIDto;
 import com.stanzaliving.transformations.pojo.ZoneMetadataDto;
 import com.stanzaliving.transformations.projections.StanzaGstView;
 import com.stanzaliving.transformations.ui.pojo.Country;
+import com.stanzaliving.ventaAudit.dto.GstInformationDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -108,6 +112,52 @@ public class InternalDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
+
+	public ResponseDto<BulkActionsModalFilterOptionsDto> getAllPropertyFilters() {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/allFilters").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<BulkActionsModalFilterOptionsDto>> returnType = new ParameterizedTypeReference<ResponseDto<BulkActionsModalFilterOptionsDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<LabelValueDto<String>>> getFilteredPropertyList(BulkActionsModalFilterOptionsDto filters) {
+
+		BulkActionsModalFilterOptionsDto postBody = filters;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/propertyList").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<LabelValueDto<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<List<LabelValueDto<String>>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
 
     public ResponseDto<List<ZoneMetadataDto>> getAllZones() {
 
@@ -1082,7 +1132,7 @@ public class InternalDataControllerApi {
 	}
 
     public String getResidenceUuidByResidenceId(String residenceId) {
-        log.info("Fetching Transformation details for residence id {}",residenceId);
+        log.info("Fetching Transformation details for residence id {}", residenceId);
         Map<String, Object> uriVariables = new HashMap<>();
 
         uriVariables.put("residenceId", residenceId);
@@ -1108,5 +1158,58 @@ public class InternalDataControllerApi {
             return null;
         }
 
+    }
+        public ResponseDto<GstInformationDto> getGstDataByCityUuid (String cityUuid){
+            final Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("uuid", cityUuid);
+
+            String path = UriComponentsBuilder.fromPath("/internal/invoice/city/{uuid}")
+                    .buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            final HttpHeaders headerParams = new HttpHeaders();
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            TypeReference<ResponseDto<GstInformationDto>> returnType = new TypeReference<ResponseDto<GstInformationDto>>() {
+            };
+
+            ResponseDto<GstInformationDto> responseDto;
+            try {
+                return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            } catch (Exception e) {
+                log.error("Error while fetching Gst Information by City UUID.", e);
+
+            }
+            return null;
+        }
+
+    public ResponseDto<GstInformationDto> getGstDataByCityId(String cityId) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("cityId", cityId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/invoice/cityId/{cityId}")
+                .buildAndExpand(uriVariables)
+                .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        TypeReference<ResponseDto<GstInformationDto>> returnType = new TypeReference<ResponseDto<GstInformationDto>>() {
+        };
+
+        ResponseDto<GstInformationDto> responseDto;
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while fetching Gst Information by cityId.", e);
+
+        }
+        return null;
     }
 }

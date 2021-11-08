@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 @Getter
 @AllArgsConstructor
 public enum DateFormat {
-
+  
     YYYY_HIFEN_MM_HIFEN_DD("yyyy-MM-dd"),
     YYYY_MM_DD("yyyyMMdd"),
     ELASTIC_SEARCH("yyyy-MM-dd HH:mm:ss"),
@@ -42,6 +42,7 @@ public enum DateFormat {
     MMM_YYYY("MMM, yyyy"),
     MMM_YY("MMM, yy"),
     MMM_YY2("MMM''yy"),
+    DD_MM_YYYY("dd/MM/yyyy"),
     DD_MMM_YYYY_H_MM_A("dd MMM yyyy h:mm a"),
     DD_MMM_YY_H_MM_A1("dd MMM''YY, h:mm a"),
     H_MM_A("h:mm a"),
@@ -49,7 +50,9 @@ public enum DateFormat {
     YYYY_MM_DD_T_HH_MM_SSXXX("yyyy-MM-dd'T'HH:mm:ssXXX"),
     YYYY_MM_DD_HH_MM_SS("yyyy-MM-dd_HH-mm-ss"),
     E_MMM_DD_HH_MM_SS_Z_YYYY("E MMM dd HH:mm:ss Z yyyy"),
-    FILIX_ORACLE_FORMAT("dd/MM/YYYY");
+    DATE_TIME_TIME_SSS_ZONE("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"),
+    FILIX_ORACLE_FORMAT("dd/MM/YYYY"),
+    ZOHO_DATE_COMMENT_FORMAT("dd MMM, yyyy (HH:mm)");
 
     private String value;
 
