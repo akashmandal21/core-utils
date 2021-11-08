@@ -85,7 +85,15 @@ public class ElectricityBillDto extends AbstractDto {
 	private Double gridUnitRate;
 
 	private Map<String, Object> config;
-
+	
+	private Double stanzaCharges;
+	
+	private Double residentCharges;
+	
+	private Double prepaidCharges;
+	
+	private Double postpaidCharges;
+	
 	private Date addedAt;
 
 	private String addedBy;

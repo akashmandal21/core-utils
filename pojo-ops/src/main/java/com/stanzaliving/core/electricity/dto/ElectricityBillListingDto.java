@@ -58,5 +58,13 @@ public class ElectricityBillListingDto {
 	private Date lastUpdatedAt;
 
 	private String lastUpdatedBy;
+	
+	private double stanzaCharges;
+	
+	private double residentCharges;
+	
+	private double prepaidCharges;
+	
+	private double postpaidCharges;
 
 }

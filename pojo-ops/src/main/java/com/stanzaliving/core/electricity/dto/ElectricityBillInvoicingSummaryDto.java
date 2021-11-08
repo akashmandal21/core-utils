@@ -22,4 +22,9 @@ public class ElectricityBillInvoicingSummaryDto {
 	private double overAllInvoiceAmount;
 	private int overAllInvoiceCount;
 
+	private double stanzaCharges;
+	private double residentCharges;
+	private double prepaidCharges;
+	private double postpaidCharges;
+
 }
