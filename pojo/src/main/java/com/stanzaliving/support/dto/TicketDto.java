@@ -70,4 +70,6 @@ public class TicketDto {
     private Integer version;
     private String assignedToRoleUuid;
     private String expandableBarColor;
+    private Boolean satisfied;
+
 }
