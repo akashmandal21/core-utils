@@ -25,5 +25,6 @@ public class FreshDeskNoteDto {
 
 	private String body;
 	private long user_id;
+	private Boolean isPrivate;
 
 }
