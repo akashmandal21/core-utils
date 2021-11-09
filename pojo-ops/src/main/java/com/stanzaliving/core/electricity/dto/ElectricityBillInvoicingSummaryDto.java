@@ -22,9 +22,14 @@ public class ElectricityBillInvoicingSummaryDto {
 	private double overAllInvoiceAmount;
 	private int overAllInvoiceCount;
 
-	private double stanzaCharges;
-	private double residentCharges;
-	private double prepaidCharges;
-	private double postpaidCharges;
+	private double pendingStanzaCharges;
+	private double pendingResidentCharges;
+	private double pendingPrepaidCharges;
+	private double pendingPostpaidCharges;
+	
+	private double approvedStanzaCharges;
+	private double approvedResidentCharges;
+	private double approvedPrepaidCharges;
+	private double approvedPostpaidCharges;
 
 }

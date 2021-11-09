@@ -59,12 +59,14 @@ public class ElectricityBillListingDto {
 
 	private String lastUpdatedBy;
 	
-	private double stanzaCharges;
+	private double pendingStanzaCharges;
+	private double pendingResidentCharges;
+	private double pendingPrepaidCharges;
+	private double pendingPostpaidCharges;
 	
-	private double residentCharges;
+	private double approvedStanzaCharges;
+	private double approvedResidentCharges;
+	private double approvedPrepaidCharges;
+	private double approvedPostpaidCharges;
 	
-	private double prepaidCharges;
-	
-	private double postpaidCharges;
-
 }
