@@ -23,4 +23,11 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class MicromarketMealFpsDto extends MealFpsDto {
 	private String micromarketId;
+	
+	public MicromarketMealFpsDto(MealFpsDto mealFpsDto) {
+		this.setDelightedCount(mealFpsDto.getDelightedCount());
+		this.setDisgustedCount(mealFpsDto.getDisgustedCount());
+		this.setTotalRatingCount(mealFpsDto.getTotalRatingCount());
+		this.setFpsPercent(mealFpsDto.getFpsPercent());
+	}
 }
