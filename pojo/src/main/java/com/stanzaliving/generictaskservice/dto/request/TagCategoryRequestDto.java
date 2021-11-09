@@ -21,8 +21,10 @@ public class TagCategoryRequestDto {
 
     private String tagCategoryName;
 
-    private String tagSubCategoryUuid;
+    private String parentUuid;
 
     private Department department;
+
+    private String module;
 
 }
