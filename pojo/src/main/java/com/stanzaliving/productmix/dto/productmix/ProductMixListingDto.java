@@ -36,8 +36,6 @@ public class ProductMixListingDto {
 
     private Long noOfRooms;
 
-    private Long noOfBeds;
-
     private String productMixName;
 
     private String productMixStatus;
