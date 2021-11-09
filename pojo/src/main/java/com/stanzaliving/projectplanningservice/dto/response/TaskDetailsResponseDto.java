@@ -17,8 +17,8 @@ public class TaskDetailsResponseDto {
 
     private List<GenericTaskResponseDto> tasks;
     private List<PPStatusDto> statusDtoList;
-    private List<GenericTaskResponseDto> todaysTasks;
-    private List<GenericTaskResponseDto> pendingTasks;
-    private List<GenericTaskResponseDto> notStartedTasks;
+    private List<TaskDetailsWithPropertyResponseDto> todaysTasks;
+    private List<TaskDetailsWithPropertyResponseDto> pendingTasks;
+    private List<TaskDetailsWithPropertyResponseDto> notStartedTasks;
 
 }
