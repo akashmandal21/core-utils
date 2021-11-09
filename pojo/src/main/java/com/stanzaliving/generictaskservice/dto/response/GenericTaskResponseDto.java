@@ -68,4 +68,6 @@ public class GenericTaskResponseDto {
 
     protected Date createdAt;
     protected Date updatedAt;
+
+    private String parentTaskUuid;
 }
