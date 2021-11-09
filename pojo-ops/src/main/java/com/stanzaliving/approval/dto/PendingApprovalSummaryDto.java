@@ -26,4 +26,6 @@ public class PendingApprovalSummaryDto {
     private Integer weeklyMenuCount = 0;
     @Builder.Default
     private Integer weeklyMenuCountV2 = 0;
+    @Builder.Default
+    private Integer monthlyBudgetMenuPlanningCount = 0;
 }

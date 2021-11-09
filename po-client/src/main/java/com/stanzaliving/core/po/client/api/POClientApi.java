@@ -327,6 +327,32 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
+    public ResponseDto<PoDetailsResponse> getPoToDetailsFromPoToNumber(String poToNumber) {
+
+        log.info("HTTP Client call to get PO/TO Details from Po Number {}",poToNumber);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("poToNumber", poToNumber);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<PoDetailsResponse>> vddReturnType = new ParameterizedTypeReference<ResponseDto<PoDetailsResponse>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/details/{poToNumber}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
+    }
+
     public ResponseDto<Void> markGrnCompletion(GrsiUpdateDto grsiUpdateDto){
         log.info("HTTP Client call to update PO for GRN Completion {}",grsiUpdateDto);
 

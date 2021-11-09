@@ -19,6 +19,7 @@ import com.stanzaliving.search.food.search.dto.IngredientSearchDto;
 import com.stanzaliving.search.food.search.dto.VasMasterSearchDto;
 import com.stanzaliving.search.food.search.dto.request.MenuCategoryAggregateRequestDto;
 import com.stanzaliving.search.food.search.dto.request.MenuMealItemRequestDto;
+import com.stanzaliving.search.food.search.dto.request.MenuMealResidenceItemRequestDto;
 import com.stanzaliving.search.food.search.dto.request.MenuMicromarketAggregateRequestDto;
 import com.stanzaliving.search.food.search.dto.response.menu.consumption.FoodMenuCategoryConsumptionResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.consumption.FoodMenuConsumptionSearchResponseDto;
@@ -441,7 +442,15 @@ public class SearchClientApi {
 		return foodMenuAggregationClient.aggregateMenuItemsRating(restClient, requestDto);
 	}
 
+	public List<MealItemRatingResponseDto> aggregateMenuItemsRating(MenuMealResidenceItemRequestDto requestDto) {
+		return foodMenuAggregationClient.aggregateMenuItemsRating(restClient, requestDto);
+	}
+
 	public FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(MenuMealItemRequestDto requestDto) {
+		return foodMenuAggregationClient.aggregateWeeklyMenuItemsRating(restClient, requestDto);
+	}
+
+	public FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(MenuMealResidenceItemRequestDto requestDto) {
 		return foodMenuAggregationClient.aggregateWeeklyMenuItemsRating(restClient, requestDto);
 	}
 
