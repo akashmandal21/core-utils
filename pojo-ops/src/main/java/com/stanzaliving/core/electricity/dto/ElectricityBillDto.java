@@ -70,9 +70,9 @@ public class ElectricityBillDto extends AbstractDto {
 
 	private Double otherCharges;
 
-	private Double penalties;
-
-	private Double arrears;
+	private Double panaltyCharges;
+	
+	private Double arrearsCharges;
 
 	private Double totalUnits;
 
