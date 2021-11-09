@@ -1,5 +1,8 @@
 package com.stanzaliving.productmix.constants;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class AppConstants {
     public static final String SUCCESS = "SUCCESS";
 
@@ -36,4 +39,34 @@ public final class AppConstants {
     public static final String IDENTIFIER_CODE_PRODUCT_MIX = "ProdMix_";
 
     public static final int SINGLE_RECORD = 1;
+
+    public static final List<String> PROPERTY_TEMPLATE_REJECT_REASONS = new ArrayList<String>(){{
+        add("Strategic Location (College Perspective");
+        add("Strategic Location (Hotspot Perspective");
+        add("Brand New Property");
+        add("Well Ventilated Rooms");
+        add("Running Hostel With Full Occupancy");
+        add("Main Road Frontage");
+        add("Other");
+    }};
+
+    public static final List<String> ROOM_TEMPLATE_REJECT_REASONS = new ArrayList<String>(){{
+        add("Strategic Location (College Perspective");
+        add("Strategic Location (Hotspot Perspective");
+        add("Brand New Property");
+        add("Well Ventilated Rooms");
+        add("Running Hostel With Full Occupancy");
+        add("Main Road Frontage");
+        add("Other");
+    }};
+
+    public static final List<String> PRODUCT_MIX_REJECT_REASONS = new ArrayList<String>(){{
+        add("Strategic Location (College Perspective");
+        add("Strategic Location (Hotspot Perspective");
+        add("Brand New Property");
+        add("Well Ventilated Rooms");
+        add("Running Hostel With Full Occupancy");
+        add("Main Road Frontage");
+        add("Other");
+    }};
 }
