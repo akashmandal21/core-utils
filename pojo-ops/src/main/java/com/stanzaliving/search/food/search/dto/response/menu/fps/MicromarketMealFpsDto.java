@@ -25,6 +25,7 @@ public class MicromarketMealFpsDto extends MealFpsDto {
 	private String micromarketId;
 	
 	public MicromarketMealFpsDto(MealFpsDto mealFpsDto) {
+		this.setMealType(mealFpsDto.getMealType());
 		this.setDelightedCount(mealFpsDto.getDelightedCount());
 		this.setDisgustedCount(mealFpsDto.getDisgustedCount());
 		this.setTotalRatingCount(mealFpsDto.getTotalRatingCount());
