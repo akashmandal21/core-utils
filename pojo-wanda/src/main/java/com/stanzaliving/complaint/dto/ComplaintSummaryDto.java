@@ -40,4 +40,6 @@ public class ComplaintSummaryDto {
 
 	private String ticketId;
 
+	private Date alfredSlaTime;
+
 }
