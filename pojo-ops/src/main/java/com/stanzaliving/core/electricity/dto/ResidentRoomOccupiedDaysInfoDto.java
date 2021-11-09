@@ -1,6 +1,5 @@
 package com.stanzaliving.core.electricity.dto;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -21,8 +20,8 @@ public class ResidentRoomOccupiedDaysInfoDto {
 	private Date billDurationTo;
 	private Integer billDurationDaysCount;
 	
-	private LocalDate residentContractFrom;
-	private LocalDate residentContractTo;
+	private Date residentContractFrom;
+	private Date residentContractTo;
 	private Integer residentContractDaysCount;
 	
 	private Date residentMoveInDate;
