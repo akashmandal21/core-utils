@@ -5,11 +5,13 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
+import com.stanzaliving.generictaskservice.dto.StatusDto;
 import com.stanzaliving.generictaskservice.dto.request.TaskRequestDto;
 import com.stanzaliving.generictaskservice.dto.request.TaskSearchFilterRequestDto;
 import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
+import com.stanzaliving.projectplanningservice.dto.SectionDetailsDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -483,5 +485,35 @@ public class GenericTaskControllerApi {
         ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    /**
+     * @param sectionDetailsDto
+     * @return
+     * @description GET status uuid for the respective pattern as input
+     * [ NOT_STARTED, IN_PROGRESS, DELAYED, COMPLETED ]
+     */
+    public ResponseDto<List<StatusDto>> getTaskStatus(SectionDetailsDto sectionDetailsDto) {
+        Object getBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("department", sectionDetailsDto.getDepartment());
+        uriVariables.put("status", sectionDetailsDto.getTaskStatusUuid());
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/{department}/status/{status}").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<StatusDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<StatusDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, getBody, headerParams, accept, returnType);
     }
 }

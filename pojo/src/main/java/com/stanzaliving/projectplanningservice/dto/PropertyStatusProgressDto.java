@@ -19,7 +19,7 @@ public class PropertyStatusProgressDto {
 
     private Integer overAllPlanOnTrackByPercentage;
 
-    private Integer taskDelayedByDays;
+    private Long taskDelayedByDays;
 
     private Integer taskCompletedPercentage;
 
