@@ -39,6 +39,6 @@ public enum TicketActivityTemplatesEnum {
     CLOSE_TICKET,
     REOPEN,
     CLOSE_TICKET_RESOLUTION,
-    FFEDBACK,
+    FEEDBACK,
     USER_SATISFACTION;
 }
