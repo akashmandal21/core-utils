@@ -107,7 +107,8 @@ public class VentaClientApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, null, returnType);
 		} catch (Exception e) {
-			log.error("Error while getting user Details from Core by userCode: {}", residentCode, e);
+			log.error("Error while getting user Details from Core by userCode: {}", residentCode);
+			//log.error("Error while getting user Details from Core by userCode: {}", residentCode, e.getMessage());
 		}
 		return null;
 	}
