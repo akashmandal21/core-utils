@@ -75,4 +75,6 @@ public class GenericTaskResponseDto {
     protected Date updatedAt;
     private DelayDto delayDto;
     private boolean adhocTask;
+
+    private String parentTaskUuid;
 }
