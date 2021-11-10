@@ -453,39 +453,6 @@ public class OperationsClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 	}
 	
-	public Map<String, Map<String, ServiceMixDto>> getCurrentServiceMixList1(CurrentServiceMixRequestDto currentServiceMixRequestDto){
-
-		final Map<String, Object> uriVariables = new HashMap<>();
-
-		String path = UriComponentsBuilder.fromPath("/internal/servicemix/current/servicemix/list1").buildAndExpand(uriVariables).toUriString();
-
-		TypeReference<ResponseDto<Map<String, Map<String, ServiceMixDto>>>> returnType = new TypeReference<ResponseDto<Map<String, Map<String, ServiceMixDto>>>>() {};
-
-		ResponseDto<Map<String, Map<String, ServiceMixDto>>> responseDto = null;
-		
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final String[] accepts = { "*/*" };
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		try {
-
-			//responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
-			
-			responseDto = restClient.invokeAPI(path, HttpMethod.GET, null, currentServiceMixRequestDto, headerParams, accept, returnType);
-
-		} catch (Exception e) {
-
-			log.error("Error while getting ServiceMix detail", e);
-
-		}
-
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
-	}
-	
 	public ResponseDto<List<ActiveResidenceDetailsDto>> getActiveResidenceList() {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
