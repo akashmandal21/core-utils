@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.gamificationservice.enums.CorrelationCategory;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -14,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateContestTargetRequestDto extends AbstractDto {
+public class UpdateContestTargetRequestDto {
     @NotNull(
             message = "ContestTarget Id is mandatory to update"
     )

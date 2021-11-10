@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.gamificationservice.enums.BadgeType;
 import com.stanzaliving.gamificationservice.enums.Type;
 import lombok.*;
@@ -17,7 +16,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BadgesRequestDto extends AbstractDto {
+public class BadgesRequestDto {
     @NotBlank(message = "badge name is Mandatory.")
     private String badgeName;
 

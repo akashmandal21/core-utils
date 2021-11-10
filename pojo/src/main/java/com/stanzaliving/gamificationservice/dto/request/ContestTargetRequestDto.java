@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.gamificationservice.enums.CorrelationCategory;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -14,7 +13,7 @@ import javax.validation.constraints.NotBlank;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ContestTargetRequestDto extends AbstractDto {
+public class ContestTargetRequestDto {
     @NotBlank(message = "correlation Id cannot be empty")
     private String correlationUuid;
 
