@@ -780,7 +780,7 @@ public class WandaClientApi {
 		}
 		return null;
 	}
-	
+
 	public boolean updateHostelOfUserByUserCode(String userCode, String hostelId) {
 
 		Object postBody = null;
@@ -815,7 +815,7 @@ public class WandaClientApi {
 
 		return false;
 	}
-	
+
 	public boolean updateHostelAndRoomOfUserByUserCode(String userCode, String hostelId, String roomNum) {
 
 		Object postBody = null;
@@ -850,5 +850,7 @@ public class WandaClientApi {
 		}
 
 		return false;
+
 	}
+
 }

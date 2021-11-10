@@ -1187,6 +1187,7 @@ public class InternalDataControllerApi {
         }
     }
 
+
     public ResponseDto<GstInformationDto> getGstDataByCityId(String cityId) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("cityId", cityId);
