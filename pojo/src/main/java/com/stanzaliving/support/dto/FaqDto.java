@@ -19,21 +19,12 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FaqDto {
 
-    @NotBlank(message = "Faq name cannot be null")
-    private String faqName;
-    private String uuid;
-    private boolean visible;
     private List<String> residenceUuid;
     private String complaintGroupUuid;
     private String categoryUuid;
-    private Date createdAt;
-    private String createdBy;
     private FaqStatus faqStatus;
     private ApprovalStatus approvalStatus;
-    private String updatedBy;
-    private Date updatedAt;
     private int maxApprovalLevel;
     private List<FaqActionDto> actions;
     private List<FaqDetailDto> faqDetail;
-
 }
