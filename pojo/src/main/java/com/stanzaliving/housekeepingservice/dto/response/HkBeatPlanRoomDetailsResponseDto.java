@@ -19,6 +19,5 @@ import java.util.List;
 @AllArgsConstructor
 public class HkBeatPlanRoomDetailsResponseDto {
     private AreaTagsDto tag;
-
     private List<ParticularRoomsResponseDto> rooms;
 }
