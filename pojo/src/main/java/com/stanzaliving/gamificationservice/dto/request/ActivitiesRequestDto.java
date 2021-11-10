@@ -13,8 +13,8 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ActivitiesRequestDto{
-    @NotBlank(message = "activities is Mandatory.")
-    private String activities;
+    @NotBlank(message = "activity is Mandatory.")
+    private String activity;
 
     private String description;
 
