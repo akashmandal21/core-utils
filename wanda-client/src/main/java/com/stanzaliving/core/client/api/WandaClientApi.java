@@ -221,7 +221,7 @@ public class WandaClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/coreApi/user/hostel/details/map").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/hostel/details/list").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		
