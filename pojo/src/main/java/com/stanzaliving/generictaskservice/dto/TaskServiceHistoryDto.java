@@ -46,4 +46,6 @@ public class TaskServiceHistoryDto {
     private String taskChanges;
 
     private String comment;
+
+    private String delayReason;
 }

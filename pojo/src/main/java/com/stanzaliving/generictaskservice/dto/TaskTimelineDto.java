@@ -62,4 +62,6 @@ public class TaskTimelineDto {
     private Map<String, Object> metaDataChanges;
 
     private String summary;
+
+    private String delayReason;
 }
