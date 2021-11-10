@@ -4,14 +4,15 @@
 package com.stanzaliving.core.backendlocator.client.api;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import com.stanzaliving.core.base.constants.SecurityConstants;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -26,6 +27,7 @@ import com.stanzaliving.core.leaddashboard.dto.LeadDetailsDto;
 import com.stanzaliving.core.payment.dto.PreBookingRefundDto;
 import com.stanzaliving.venta.BedCountDetailsDto;
 import com.stanzaliving.venta.DeadBedCountDto;
+import com.stanzaliving.venta.ResidenceRoomDetails;
 import com.stanzaliving.website.constants.WebsiteConstants;
 import com.stanzaliving.website.response.dto.VentaSyncDataResponseDTO;
 
@@ -217,6 +219,34 @@ public class VentaClientApi {
 		return roomNumberList;
 	}
 	
+	public List<ResidenceRoomDetails> getRoomDetailsForResidence(String residenceUuid) {
+		Object postBody = null;
+
+		List<ResidenceRoomDetails> roomNumberList = new ArrayList<>();
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
+		String path = UriComponentsBuilder.fromPath("coreApi/residence/roomInfo/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<ResidenceRoomDetails>> returnType = new ParameterizedTypeReference<List<ResidenceRoomDetails>>() {
+		};
+
+		try {
+			roomNumberList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching room numbers list for residence {} ", residenceUuid);
+		}
+
+		return roomNumberList;
+	}
+
 	public Map<String, Object> getBookingDetails(int bookingId) {
 
 		Object postBody = null;
