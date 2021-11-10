@@ -236,7 +236,7 @@ public class WandaClientApi {
 		List<UserHostelDetailsDto> responseDto = null;
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, hostelIds, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Error while getting userhostel details ", e);
 		}
