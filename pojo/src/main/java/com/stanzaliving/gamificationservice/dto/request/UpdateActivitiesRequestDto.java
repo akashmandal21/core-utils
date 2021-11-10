@@ -18,7 +18,7 @@ public class UpdateActivitiesRequestDto {
     )
     private String uuid;
 
-    private String activities;
+    private String activity;
 
     private String description;
 
