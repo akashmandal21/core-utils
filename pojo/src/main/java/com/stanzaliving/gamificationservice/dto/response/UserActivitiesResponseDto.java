@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -13,7 +12,7 @@ import java.util.Date;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserActivitiesResponseDto extends AbstractDto {
+public class UserActivitiesResponseDto {
     private String userUuid;
 
     private Date activityTime;

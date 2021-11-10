@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -15,7 +14,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TeamsResponseDto extends AbstractDto {
+public class TeamsResponseDto {
 
     private String teamName;
 

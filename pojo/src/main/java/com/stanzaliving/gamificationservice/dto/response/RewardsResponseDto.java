@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -11,7 +10,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RewardsResponseDto extends AbstractDto {
+public class RewardsResponseDto {
     private String name;
 
     private String employeeCode;
