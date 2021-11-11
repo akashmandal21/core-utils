@@ -1,6 +1,7 @@
 package com.stanzaliving.support.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,9 @@ public class FaqDetailDto  {
     private String answer;
     private Integer sequence;
     private boolean visible;
+    @JsonIgnore
     private String faqUuid;
+    @JsonIgnore
     private String uuid;
 
 }
