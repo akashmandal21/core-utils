@@ -19,7 +19,8 @@ public enum Type {
     ARRAY("Array"),
     LIST_STRING("List of String"),
     List_INTEGER("List Of Integer"),
-    LIST_DOUBLE("List of Double");
+    LIST_DOUBLE("List of Double"),
+    JSON("Json");
 
     private String type;
     @Override
