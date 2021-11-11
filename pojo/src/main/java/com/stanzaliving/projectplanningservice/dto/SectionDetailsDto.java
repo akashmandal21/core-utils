@@ -124,4 +124,6 @@ public class SectionDetailsDto extends AbstractDto {
       @NotBlank(message = "Order Sequence is required")
      */
     private Integer orderSequence;
+
+    private Integer taskTypeSequence;
 }
