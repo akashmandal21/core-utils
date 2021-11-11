@@ -40,7 +40,15 @@ public final class AppConstants {
 
     public static final int SINGLE_RECORD = 1;
 
-    public static final List<String> PROPERTY_TEMPLATE_REJECT_REASONS = new ArrayList<String>(){{
+    public static final String SAMPLE_CSV_PRODUCT_MIX = "Sample CSV Product Mix";
+
+    public static final String ROOM_HEADER_ROOM_NO = "Room No.";
+
+    public static final String ROOM_HEADER_FLOOR = "Floor No.";
+
+    public static final String ROOM_HEADER_ROOM_TEMPLATE = "Template UID";
+
+    public static final List<String> PROPERTY_TEMPLATE_REJECT_REASONS = new ArrayList<String>() {{
         add("Strategic Location (College Perspective");
         add("Strategic Location (Hotspot Perspective");
         add("Brand New Property");
@@ -50,7 +58,7 @@ public final class AppConstants {
         add("Other");
     }};
 
-    public static final List<String> ROOM_TEMPLATE_REJECT_REASONS = new ArrayList<String>(){{
+    public static final List<String> ROOM_TEMPLATE_REJECT_REASONS = new ArrayList<String>() {{
         add("Strategic Location (College Perspective");
         add("Strategic Location (Hotspot Perspective");
         add("Brand New Property");
@@ -60,7 +68,7 @@ public final class AppConstants {
         add("Other");
     }};
 
-    public static final List<String> PRODUCT_MIX_REJECT_REASONS = new ArrayList<String>(){{
+    public static final List<String> PRODUCT_MIX_REJECT_REASONS = new ArrayList<String>() {{
         add("Strategic Location (College Perspective");
         add("Strategic Location (Hotspot Perspective");
         add("Brand New Property");
