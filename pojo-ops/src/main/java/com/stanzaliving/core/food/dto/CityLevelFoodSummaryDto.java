@@ -39,6 +39,7 @@ public class CityLevelFoodSummaryDto {
 	private String approvalStatus;
 	private Double price;
 	private String boxOption;
+	private String foodServeType;
 	private ApprovalListingDto approvalSummary;
 	private List<String> residences;
 	private String residenceName;

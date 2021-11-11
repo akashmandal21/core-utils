@@ -29,6 +29,7 @@ public class FoodMenuApprovalSummaryDto {
 	private Integer mir;
 	private Double price;
 	private String boxOption;
+	private String foodServeType;
 
 	private String vendorId;
 	private String vendorName;
