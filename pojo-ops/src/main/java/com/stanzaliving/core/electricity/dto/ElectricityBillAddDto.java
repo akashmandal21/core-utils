@@ -68,13 +68,11 @@ public class ElectricityBillAddDto {
 	@Builder.Default
 	private Double dgUnits = 0d;
 	
-	//@NotNull(message = "Grid unit rate cannot be null")
 	@Builder.Default
-	private Double gridUnitRate = 15d;
+	private Double gridUnitRate = 1d;
 	
-	//@NotNull(message = "Dg unit rate cannot be null")
 	@Builder.Default
-	private Double dgUnitRate = 20d;
+	private Double dgUnitRate = 1d;
 	
 	@Builder.Default
 	private Boolean forceSubmit = false;
