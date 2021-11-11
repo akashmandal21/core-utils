@@ -11,6 +11,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RewardsResponseDto {
+    private String uuid;
+
     private String name;
 
     private String employeeCode;

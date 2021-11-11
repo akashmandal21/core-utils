@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TeamsResponseDto {
+    private String uuid;
 
     private String teamName;
 

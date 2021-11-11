@@ -16,6 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BadgesResponseDto {
+    private String uuid;
+
     private String badgeName;
 
     private String description;
