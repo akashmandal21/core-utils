@@ -2,6 +2,7 @@ package com.stanzaliving.core.user.acl.enums;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.enums.Department;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,10 +30,8 @@ public enum Role {
 	CITY_APARTMENT_LEAD_MANAGER("CITY_APARTMENT_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
 	ZONAL_APARTMENT_LEAD_MANAGER("ZONAL_APARTMENT_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
 	COUNTRY_APARTMENT_LEAD_MANAGER("COUNTRY_APARTMENT_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES),
-	
 
-
-    /************************************ OPS ************************************/
+	/************************************ OPS ************************************/
     RC("Resident Captain", AccessLevel.RESIDENCE, Department.OPS),
     CLUSTER_MANAGER("Cluster Manager", AccessLevel.MICROMARKET, Department.OPS),
     CITY_MANAGER("City Manager", AccessLevel.CITY, Department.OPS),
@@ -81,6 +80,12 @@ public enum Role {
     MONTHLY_BUDGET_MENU_PLANNING_L5_APPROVER("Country - Menu Budget Planner L5 Approver", AccessLevel.COUNTRY, Department.FOOD_OPS),
 
 
+    /************************************ ELECTRICITY ************************************/
+	MICROMARKET_ELECTRICITY_SPLITTER_L1_APPROVER("MICROMARKET_ELECTRICITY_SPLITTER_L1_APPROVER", AccessLevel.MICROMARKET, Department.FOOD_OPS),
+	CITY_ELECTRICITY_SPLITTER_L2_APPROVER("CITY_ELECTRICITY_SPLITTER_L2_APPROVER", AccessLevel.CITY, Department.FOOD_OPS),
+	COUNTRY_ELECTRICITY_SPLITTER_L3_APPROVER("COUNTRY_ELECTRICITY_SPLITTER_L3_APPROVER", AccessLevel.COUNTRY, Department.FOOD_OPS),
+
+    
     /********************************* GENERIC-APPROVAL-DASHBOARD *************************************/
 
     CITY_INVENTORY_L1_APPROVAL("CITY_INVENTORY_L1_APPROVAL", AccessLevel.CITY, Department.SALES),
