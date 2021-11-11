@@ -11,6 +11,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContestPenaltyResponseDto {
+    private String uuid;
+
     private String contestTitle;
 
     private String associateName;

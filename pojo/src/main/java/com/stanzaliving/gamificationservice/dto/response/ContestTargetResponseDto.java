@@ -11,6 +11,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContestTargetResponseDto {
+    private String uuid;
+
     private String correlationUuid;
 
     private String correlationValue;

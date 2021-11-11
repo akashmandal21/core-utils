@@ -13,6 +13,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserActivitiesResponseDto {
+    private String uuid;
+
     private String userUuid;
 
     private Date activityTime;

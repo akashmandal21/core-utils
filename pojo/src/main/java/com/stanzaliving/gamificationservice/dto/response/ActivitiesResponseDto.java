@@ -11,6 +11,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ActivitiesResponseDto {
+    private String uuid;
+
     private String activity;
 
     private String description;

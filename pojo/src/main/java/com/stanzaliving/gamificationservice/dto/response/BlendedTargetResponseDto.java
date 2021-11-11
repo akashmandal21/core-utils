@@ -13,6 +13,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlendedTargetResponseDto {
+    private String uuid;
 
     private String saName;
 
