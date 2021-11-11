@@ -1,6 +1,8 @@
 package com.stanzaliving.generictaskservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.taskservice.enums.TaskType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -22,20 +24,8 @@ import java.util.List;
 public class GenericTemplateDto extends AbstractDto {
 
     private boolean taskTemplate;
-
     @NotBlank(message = "Module cannot be empty")
     private String module;
-
-    private Date startDate;
-
-    private Date dueDate;
-
-    private String taskOwner;
-
-    private TaskType type;
-
-    private String priority;
-
     private boolean overridable;
 
     @NotBlank(message = "Name cannot be empty")
@@ -43,39 +33,23 @@ public class GenericTemplateDto extends AbstractDto {
 
     private String description;
 
-    private String entityUUId;
+    private String entityUuid;
 
     private String entityType;
-
-    private String var1;
-
-    private String var2;
-
-    private String var3;
-
-    private String var4;
-
-    private String templateStatusUUId;
-
-    private String templateSubStatusUUId;
-
     private boolean autoTaskCompletion;
 
-    private String autoTaskCompletionEventUUId;
-
-    private String parentTaskUUId;
-
+    private String autoTaskCompletionEventUuid;
     @NotBlank(message = "categoryId cannot be empty")
-    private String categoryUUId;
+    private String templateCategoryUuid;
 
     @NotBlank(message = "subCategoryId cannot be empty")
-    private String subCategoryUUId;
+    private String templateSubCategoryUuid;
 
-    private List<String> attachmentsList;
+    private Department department;
 
-    private List<String> dependentTaskUUIdList;
+    private List<String> commentsUuidList;
 
-    private List<String> tagsUUIdList;
+
 
 }
 

@@ -23,12 +23,30 @@ public class TaskServiceHistoryDto {
 
     private String taskId;
 
+    private String taskStatus;
+
+    private String taskName;
+
+    private String taskOwner;
+
     private Date generatedDate;
 
-    private String taskStatus;
+    private String updatedBy;
+
+    private Date updatedAt;
 
     private String description;
 
     private List<String> attachments;
+
+    private GenericTaskDto metaData;
+
+    private GenericTaskDto previousMetaData;
+
+    private String taskChanges;
+
+    private String comment;
+
+    private String delayReason;
 
 }

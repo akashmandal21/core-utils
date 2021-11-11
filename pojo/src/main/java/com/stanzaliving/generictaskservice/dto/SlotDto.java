@@ -1,19 +1,22 @@
 package com.stanzaliving.generictaskservice.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.generictaskservice.dto.response.MappedBeatPlanResponseDto;
+import com.stanzaliving.generictaskservice.dto.response.MappedTemplateResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
+import com.stanzaliving.generictaskservice.enums.SlotStatus;
 import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalTime;
 import java.util.List;
 
 /**
  * @author Vikas S T
- * @date 02-Aug-21
+ * @date 25-Aug-21
  **/
 
 @Getter
@@ -22,26 +25,25 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SlotDto {
+public class SlotDto extends AbstractDto {
 
-    @NotEmpty(message = "Allowed task is mandatory")
     private List<String> allowedTaskList;
 
-    @NotBlank(message = "Entity type is mandatory")
     private String entityType;
 
-    @NotBlank(message = "Default duration is mandatory")
+    @NotNull(message = "Default duration is mandatory")
     private LocalTime defaultDuration;
 
-    @NotBlank(message = "Entity uuid is mandatory")
     private String entityUuid;
 
     @NotNull(message = "Is movable slot is mandatory")
     private Boolean isMovableSlot;
 
-    private Integer minimumSlotSize;
+    private LocalTime minimumSlotTime;
 
-    private Integer maximumSlotSize;
+    private LocalTime maximumSlotTime;
+
+    private Boolean isMappedToTemplateOrBeatPlan;
 
     @NotNull(message = "Is overlapping allowed is mandatory")
     private Boolean isOverLappingAllowed;
@@ -52,18 +54,25 @@ public class SlotDto {
     @NotBlank(message = "Slot name is mandatory")
     private String slotName;
 
-    @NotBlank(message = "Slot source is mandatory")
-    private String slotSource;
+    @NotBlank(message = "Module is mandatory")
+    private String module;
 
     @NotNull(message = "Slot type is mandatory")
     private SlotType slotType;
 
     private List<String> tagsUuid;
 
-    private String slotUuid;
-
     private List<TagResponseDto> tags;
 
     private List<TaskCategoryDto> allowedTasksList;
 
+    private SlotStatus slotStatus;
+
+    private String createdByUser;
+
+    private String updatedByUser;
+
+    private List<MappedTemplateResponseDto> mappedTemplate;
+
+    private List<MappedBeatPlanResponseDto> mappedBeatPlan;
 }

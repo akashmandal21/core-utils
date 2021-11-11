@@ -14,22 +14,22 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum HKPlanningTemplateStatus {
-	ACTIVE("Active"),SAVE_AS_DRAFT("Save as draft"),DISABLED("Disabled");
+    COPY_FROM("Copy from"),SAVE_AS_DRAFT("Save as draft"),PUBLISH("Publish");
 
-	private String hkPlanningTemplateStatus;
+    private static final List<EnumListing<HKPlanningTemplateStatus>> enumListing = new ArrayList<>();
 
-	private static final List<EnumListing<HKPlanningTemplateStatus>> enumListing = new ArrayList<>();
+    static {
+        for (HKPlanningTemplateStatus hkPlanningTemplateStatus : HKPlanningTemplateStatus.values()) {
+            EnumListing<HKPlanningTemplateStatus> listing = EnumListing.of(hkPlanningTemplateStatus, hkPlanningTemplateStatus.getHkPlanningTemplateStatus());
+            enumListing.add(listing);
+        }
+    }
 
-	public static List<EnumListing<HKPlanningTemplateStatus>> getEnumListing() {
-		return enumListing;
-	}
+    private String hkPlanningTemplateStatus;
 
-	static {
-		for (HKPlanningTemplateStatus hkPlanningTemplateStatus : HKPlanningTemplateStatus.values()) {
-			EnumListing<HKPlanningTemplateStatus> listing = EnumListing.of(hkPlanningTemplateStatus, hkPlanningTemplateStatus.getHkPlanningTemplateStatus());
-			enumListing.add(listing);
-		}
-	}
+    public static List<EnumListing<HKPlanningTemplateStatus>> getEnumListing() {
+        return enumListing;
+    }
 
 
 }

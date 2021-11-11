@@ -1,5 +1,6 @@
 package com.stanzaliving.generictaskservice.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -7,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +22,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShiftDto {
+public class ShiftDto extends AbstractDto {
 
     private String shiftUuid;
 
@@ -36,8 +38,10 @@ public class ShiftDto {
     @NotNull(message = "Duration is mandatory")
     private LocalTime durationInHours;
 
-    private List<String> tagsUuidList;
+    private List<String> tagsUuidList = new ArrayList<>();
 
     private List<TagResponseDto> tags;
+
+    private ShiftCategoryDto category;
 
 }

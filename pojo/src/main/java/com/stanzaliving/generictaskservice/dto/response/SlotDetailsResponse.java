@@ -1,13 +1,13 @@
 package com.stanzaliving.generictaskservice.dto.response;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import com.stanzaliving.generictaskservice.dto.TaskCategoryDto;
 import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,10 +52,10 @@ public class SlotDetailsResponse extends AbstractDto {
 
     private String entityType;
 
-    private List<GenericTaskResponseDto> tasks = new ArrayList<>();
-
     private LocalTime startTime;
 
     private LocalTime endTime;
+
+    private List<GenericTaskDto> tasks;
 
 }
