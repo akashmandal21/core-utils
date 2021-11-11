@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.gamificationservice.enums.BadgeType;
 import com.stanzaliving.gamificationservice.enums.Type;
 import lombok.*;
@@ -16,7 +15,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BadgesResponseDto extends AbstractDto {
+public class BadgesResponseDto {
     private String badgeName;
 
     private String description;

@@ -12,14 +12,18 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateActivitiesRequestDto {
+public class UpdateContestPenaltyRequestDto {
     @NotNull(
-            message = "Activities Id is mandatory to update"
+            message = "ContestPenalty Id is mandatory to update"
     )
     private String uuid;
 
-    private String activity;
+    private String contestTitle;
+
+    private String associateName;
 
     private String description;
+
+    private int penaltyPoints;
 
 }

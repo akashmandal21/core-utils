@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -14,7 +13,7 @@ import java.util.Date;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserActivitiesRequestDto extends AbstractDto {
+public class UserActivitiesRequestDto {
     @NotBlank(message = "userId cannot be empty")
     private String userUuid;
 

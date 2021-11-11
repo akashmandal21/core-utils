@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -13,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateBlendedTargetRequestDto extends AbstractDto {
+public class UpdateBlendedTargetRequestDto {
 
     @NotNull(
             message = "BlendedTarget Id is mandatory to update"

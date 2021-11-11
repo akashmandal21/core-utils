@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -14,7 +13,7 @@ import java.util.Date;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateUserActivitiesRequestDto extends AbstractDto {
+public class UpdateUserActivitiesRequestDto {
     @NotNull(
             message = "UserActivities Id is mandatory to update"
     )

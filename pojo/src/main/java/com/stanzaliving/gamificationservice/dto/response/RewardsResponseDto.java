@@ -10,13 +10,14 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ContestPenaltyResponseDto {
-    private String contestTitle;
+public class RewardsResponseDto {
+    private String name;
 
-    private String associateName;
+    private String employeeCode;
 
-    private String description;
+    private String emailId;
 
-    private int penaltyPoints;
+    private String location;
 
+    private int bonusPoints;
 }

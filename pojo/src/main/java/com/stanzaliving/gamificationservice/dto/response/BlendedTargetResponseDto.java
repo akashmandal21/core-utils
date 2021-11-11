@@ -1,7 +1,6 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -13,7 +12,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class BlendedTargetResponseDto extends AbstractDto {
+public class BlendedTargetResponseDto {
 
     private String saName;
 

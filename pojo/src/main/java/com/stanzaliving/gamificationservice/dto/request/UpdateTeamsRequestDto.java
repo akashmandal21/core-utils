@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -16,7 +15,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateTeamsRequestDto extends AbstractDto {
+public class UpdateTeamsRequestDto {
     @NotNull(
             message = "Teams Id is mandatory to update"
     )

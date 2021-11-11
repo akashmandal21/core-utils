@@ -1,6 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -14,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ContestPenaltyRequestDto extends AbstractDto {
+public class ContestPenaltyRequestDto {
     @NotBlank(message = "ContestTitle is Mandatory.")
     private String contestTitle;
 
