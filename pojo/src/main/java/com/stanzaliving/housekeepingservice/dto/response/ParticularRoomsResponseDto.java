@@ -4,8 +4,9 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @author Priyadarshini MB
- */
+ * @author Vikas S T
+ * @date 08-Nov-21
+ **/
 
 @Getter
 @Setter
@@ -13,11 +14,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class OperationalEfficiencyMetricsResponse {
-
-    long averageWorkingHoursPerDay;
-    float averageDailyTimeUtilizationPercentage;
-
-
+public class ParticularRoomsResponseDto {
+    private String roomNumber;
+    private String status;
 }

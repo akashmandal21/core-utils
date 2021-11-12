@@ -3,9 +3,12 @@ package com.stanzaliving.housekeepingservice.dto.response;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 /**
- * @author Priyadarshini MB
- */
+ * @author Vikas S T
+ * @date 08-Nov-21
+ **/
 
 @Getter
 @Setter
@@ -13,11 +16,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class OperationalEfficiencyMetricsResponse {
-
-    long averageWorkingHoursPerDay;
-    float averageDailyTimeUtilizationPercentage;
-
-
+public class LeftOverRoomsDetailsResponseDto {
+    private String residenceUuid;
+    private List<HkBeatPlanRoomDetailsResponseDto> areaTags;
 }
