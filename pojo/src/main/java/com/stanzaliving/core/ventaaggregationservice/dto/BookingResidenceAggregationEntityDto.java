@@ -5,12 +5,12 @@ import lombok.*;
 
 import java.util.List;
 
+@Builder
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BookingResidenceAggregationEntityDto {
 

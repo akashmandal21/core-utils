@@ -543,32 +543,53 @@ public class BookingDataControllerApi {
         }
         return null;
     }
-    
+    public ResponseDto<String> checkAndUpdateContractBasedInventories(UpdateDealAndInventoryDto updateDealAndInventoryDto) {
+
+        Object postBody = updateDealAndInventoryDto;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/v1/update/contract/inventory").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
     public ResponseDto<RequestDto> fetchLatestModifyRequestForBooking(String bookingUuid, String requestType){
-    	  Map<String, Object> uriVariables = new HashMap<>();
-          uriVariables.put("bookingUuid", bookingUuid);
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
 
-          String path = UriComponentsBuilder.fromPath("/internal/v1/request/{bookingUuid}")
-                  .buildAndExpand(uriVariables).toUriString();
-          MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/v1/request/{bookingUuid}")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-          queryParams.add("requestType", requestType);
+        queryParams.add("requestType", requestType);
 
 
-          HttpHeaders headerParams = new HttpHeaders();
-          String[] accepts = new String[]{"*/*"};
-          List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-          ParameterizedTypeReference<ResponseDto<RequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<RequestDto>>() {
-          };
-          try {
-              log.info("Executing Api for getting latest request with Url {}", path);
-              return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-          } catch (Exception e) {
-              log.error("Exception while fetching booked inventory for booking uuid {}, Exception is ", bookingUuid, e);
-          }
-          return null;
-    	
-    	
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<RequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<RequestDto>>() {
+        };
+        try {
+            log.info("Executing Api for getting latest request with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching booked inventory for booking uuid {}, Exception is ", bookingUuid, e);
+        }
+        return null;
+
+
     }
 
     public ResponseDto<Map<String, Object>> getContractPricingDetailsRoomNumbers(String contractUuid) {
