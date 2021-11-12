@@ -19,6 +19,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectResult;
 import com.stanzaliving.core.amazons3.service.S3UploadService;
 import com.stanzaliving.core.amazons3.util.S3Util;
+import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -56,7 +57,9 @@ public class S3UploadServiceImpl implements S3UploadService {
 				if (result != null) {
 
 					log.debug(filePath + " Uploaded Successfully in Bucket: " + bucket);
-
+					
+					log.info("Response from aws is: {}", ObjectMapperUtil.getString(result));
+					
 					return filePath;
 				}
 
