@@ -10,6 +10,7 @@ import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto;
 import com.stanzaliving.core.client.dto.*;
+import com.stanzaliving.core.dto.AddressResponseDTO;
 import com.stanzaliving.ventaAudit.dto.VentaNotificationDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -469,6 +470,33 @@ public class BookingDataControllerApi {
         catch (Exception e){
             log.error("Exception occurred while calling api with message:{}",e.getMessage());
         }
+    }
+
+    public BookingResponseDto rejectKycV2(String bookingUuid) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+        String path =
+                UriComponentsBuilder.fromPath("internal/v1/reject-kyc/{bookingUuid}")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<BookingResponseDto> returnType =
+                new ParameterizedTypeReference<BookingResponseDto>() {};
+
+        return restClient.invokeAPI(
+                path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
 }
