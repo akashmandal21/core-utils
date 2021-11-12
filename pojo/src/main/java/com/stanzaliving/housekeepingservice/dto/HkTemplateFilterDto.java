@@ -7,6 +7,7 @@ import com.stanzaliving.item_master.enums.SortDirection;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -27,6 +28,7 @@ public class HkTemplateFilterDto {
     private List<String> tagList;
     private HKPlanningTemplateStatus templateStatus;
     private String createdBy;
+    private Date createdAt;
     private PaginationRequest pageRequest;
 
     //Sort
