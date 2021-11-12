@@ -281,4 +281,27 @@ public class GenericTaskControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
+
+    //Method to invoke shift duration from generic task service by UUid
+    public ResponseDto<ShiftDurationResponse> getShiftDurationByUuid(String shiftUuid){
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/shift/durationPerShift/").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("shiftUuid",shiftUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ShiftDurationResponse>> returnType = new ParameterizedTypeReference<ResponseDto<ShiftDurationResponse>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
 }
