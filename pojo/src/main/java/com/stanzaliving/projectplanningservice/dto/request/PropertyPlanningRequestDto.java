@@ -10,6 +10,8 @@ import org.apache.logging.log4j.core.config.plugins.validation.constraints.Requi
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
@@ -23,26 +25,34 @@ import java.util.List;
 @SuperBuilder
 public class PropertyPlanningRequestDto {
 
+    @Size(max = 100, message = "Max allowed characters up to 100")
     @NotBlank(message = "Project Plan name is required")
     private String projectName;
 
+    @Size(max = 40, message = "Max allowed characters up to 40")
     @NotBlank(message = "Template uuid is required")
     private String templateUuid;
 
+    @NotNull(message = "Start Date is required")
     private Date startDate;
 
+    @NotNull(message = "End Date is required")
     private Date endDate;
 
+    @Size(max = 40, message = "Max allowed characters up to 40")
     @NotBlank(message = "Residence uuid is required")
     private String residenceUuid;
 
     @Valid
     private List<SectionDetailsDto> sections;
 
+    @Size(max = 100, message = "Max allowed characters up to 100")
     private String propertyName;
 
+    @Size(max = 40, message = "Max allowed characters up to 40")
     private String microMarket;
 
+    @Size(max = 40, message = "Max allowed characters up to 40")
     private String city;
 
     private Integer bedCount;

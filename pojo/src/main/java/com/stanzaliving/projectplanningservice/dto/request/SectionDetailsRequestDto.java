@@ -1,4 +1,4 @@
-package com.stanzaliving.projectplanningservice.dto;
+package com.stanzaliving.projectplanningservice.dto.request;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.enums.Department;
@@ -26,7 +26,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class SectionDetailsDto extends AbstractDto {
+public class SectionDetailsRequestDto {
 
     @NotNull(message = "Task Owner Type cannot be null")
     private TaskOwnerTypeEnum taskOwnerType;
@@ -38,17 +38,8 @@ public class SectionDetailsDto extends AbstractDto {
     @Size(max = 40, message = "Max allowed characters up to 40")
     private String moduleUuid;
 
-    private String moduleName;
-
-    /*
-     Child sections uuids [ Template/Property plan Level ]
-     */
-    private List<String> taskServiceUuIds;
-
     @Size(max = 40, message = "Max allowed characters up to 40")
     private String activityUuid;
-
-    private String activityName;
 
     /*
      Dependent tasks [ Mandatory/Pre-requisite tasks ]
@@ -63,10 +54,6 @@ public class SectionDetailsDto extends AbstractDto {
     protected Date createdAt;
 
     protected Date updatedAt;
-
-    private String taskServiceUuid;
-
-    private String parentTemplateUuid;
 
     private boolean taskTemplate;
 
@@ -98,8 +85,6 @@ public class SectionDetailsDto extends AbstractDto {
 
     private boolean autoTaskCompletion;
 
-    private String parentTaskUuid;
-
     /*
      Status of the task
      */
@@ -109,30 +94,14 @@ public class SectionDetailsDto extends AbstractDto {
     private Department department;
 
     @Valid
-    private List<SectionDetailsDto> tasks;
+    private List<SectionDetailsRequestDto> tasks;
 
     private List<String> attachmentsList;
 
     private List<String> dependentTaskUuidList;
 
-    private Date plannedStartDate;
-
-    private Date plannedDueDate;
-
-    private Date actualStartDate;
-
-    private Date actualDueDate;
-
-    private Integer completionStatus;
-
-    private String color;
-
-    private Long percentage;
-
     /*
       @NotBlank(message = "Order Sequence is required")
      */
     private Integer orderSequence;
-
-    private Integer taskTypeSequence;
 }

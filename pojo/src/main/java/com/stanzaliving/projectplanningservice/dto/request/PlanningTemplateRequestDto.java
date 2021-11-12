@@ -11,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -23,9 +24,11 @@ import java.util.List;
 @SuperBuilder
 public class PlanningTemplateRequestDto {
 
+    @Size(max = 100, message = "Max allowed characters up to 100")
     @NotBlank(message = "Project Plan name is required")
     private String templateName;
 
+    @Size(max = 100, message = "Max allowed characters up to 100")
     private String description;
     
     @NotNull
