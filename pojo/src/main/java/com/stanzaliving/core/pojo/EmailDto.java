@@ -3,22 +3,20 @@
  */
 package com.stanzaliving.core.pojo;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
 import com.sendgrid.Personalization;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import com.stanzaliving.core.base.utils.StanzaUtils;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author naveen

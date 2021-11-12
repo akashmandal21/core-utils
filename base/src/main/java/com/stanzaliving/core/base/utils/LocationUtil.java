@@ -3,9 +3,8 @@
  */
 package com.stanzaliving.core.base.utils;
 
-import org.apache.lucene.util.SloppyMath;
-
 import lombok.experimental.UtilityClass;
+import org.apache.lucene.util.SloppyMath;
 
 /**
  * @author naveen.kumar
