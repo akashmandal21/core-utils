@@ -282,7 +282,7 @@ public class GenericTaskControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
-    //Method to invoke shift duration from generic task service by UUid
+    /** Method to invoke shift duration from generic task service by UUid **/
     public ResponseDto<ShiftDurationResponse> getShiftDurationByUuid(String shiftUuid){
 
         // create path and map variables

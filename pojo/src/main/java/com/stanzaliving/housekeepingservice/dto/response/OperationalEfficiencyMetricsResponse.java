@@ -18,6 +18,4 @@ public class OperationalEfficiencyMetricsResponse {
 
     long averageWorkingHoursPerDay;
     float averageDailyTimeUtilizationPercentage;
-
-
 }
