@@ -18,5 +18,5 @@ public class ResidenceDto {
 
     private String cityUuid;
 
-    private boolean faqPresent;
+    private boolean faqApproved;
 }
