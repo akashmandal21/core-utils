@@ -18,5 +18,5 @@ public class ResidenceDto {
 
     private String cityUuid;
 
-    private int faqCount;
+    private boolean faqApproved;
 }
