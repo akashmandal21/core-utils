@@ -21,5 +21,7 @@ public class QuickFilterCountDto {
     private double stanzaShareAmount;
     private double residentSharePercent;
     private double stanzaSharePercent;
+    private double residentPrepaidShareAmount;
+    private double residentPrepaidSharePercent;
     private Integer sequence;
 }

@@ -58,6 +58,8 @@ public class ApartmentElectricityBillRequestDto {
 	private ApartmentElectricityBillSortingField sortingField;
 	
 	private List<ApprovalStatus> approvalStatus;
-	private Boolean approvalDashBoard;
+	
+	@Builder.Default
+	private Boolean approvalDashBoard = false;
 	
 }

@@ -3,6 +3,7 @@ package com.stanzaliving.core.electricity.dto;
 import java.util.Date;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
+import com.stanzaliving.core.electricity.constants.ElectricityBillStatus;
 import com.stanzaliving.core.electricity.constants.ElectricityBillType;
 
 import lombok.AllArgsConstructor;
@@ -43,6 +44,14 @@ public class ApartmentElectricityBillListingDto {
 	private double residentSharePercent;
 	
 	private double stanzaSharePercent;
+	
+	private double postpaidCharges; 
+	
+	private double prepaidCharges; 
+
+	private ElectricityBillStatus electricityBillStatus;
+	
+	private String electricityBillStatusName;
 	
 	private ApprovalStatus approvalStatus;
 	

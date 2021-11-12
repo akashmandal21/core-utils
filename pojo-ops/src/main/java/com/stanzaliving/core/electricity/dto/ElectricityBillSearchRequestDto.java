@@ -46,6 +46,7 @@ public class ElectricityBillSearchRequestDto {
 	private SortingType sortingType;
 	private ElectricityBillSearchSortingField sortingField;
 
-	private Boolean approvalDashBoard;
+	@Builder.Default
+	private Boolean approvalDashBoard = false;
 
 }
