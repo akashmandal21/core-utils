@@ -22,7 +22,7 @@ public class ResidenceServiceDto {
     private Boolean optional;
     private Double price;
     private Boolean enabled;
-    private String serviceId;
+    private Integer serviceId;
     private String serviceImage;
     private String description;
     private String serviceDisclaimer;
