@@ -22,4 +22,6 @@ public class RewardsResponseDto {
     private String location;
 
     private int bonusPoints;
+
+    private int pointsScored;
 }
