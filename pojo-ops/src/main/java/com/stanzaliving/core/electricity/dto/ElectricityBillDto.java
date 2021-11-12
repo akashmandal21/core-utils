@@ -101,5 +101,7 @@ public class ElectricityBillDto extends AbstractDto {
 	private ElectricityBillStatus electricityBillStatus;
 
 	private ApprovalStatus approvalStatus;
+	
+	private String approvalStatusName;
 
 }
