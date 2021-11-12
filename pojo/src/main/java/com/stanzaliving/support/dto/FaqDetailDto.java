@@ -23,7 +23,6 @@ public class FaqDetailDto  {
     private boolean visible;
     @JsonIgnore
     private String faqUuid;
-    @JsonIgnore
     private String uuid;
 
 }
