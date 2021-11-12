@@ -20,6 +20,7 @@ public class FaqDto extends AbstractDto {
     private String categoryUuid;
     private FaqStatus faqStatus;
     private ApprovalStatus approvalStatus;
+    private int maxApprovalLevel;
     private List<FaqActionDto> actions;
     private List<FaqDetailDto> faqDetail;
 }
