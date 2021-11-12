@@ -33,4 +33,5 @@ public class PropertyBedCountReponseDto {
 	private DesignStatus designStatus;
 	private String designDescription;
 	private Date updatedAt;
+	private String competitorName;
 }

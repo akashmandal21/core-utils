@@ -68,6 +68,10 @@ public class DateUtil {
         return null;
     }
 
+    public static String convertDateToString(Date date, SimpleDateFormat sdf) {
+        return sdf.format(date);
+    }
+
     public String customTimeFormatter(LocalTime timeInput, DateFormat dateFormat) {
 
         if (timeInput != null) {
@@ -1098,5 +1102,29 @@ public class DateUtil {
                 (day == 31 && oddMonth.contains(month)) ||
                 (day == 30 && evenMonth.contains(month))) return true;
         return false;
+    }
+
+    public static Boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
+		LocalDate localDate = getLocalDate(date);
+		return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
+	}
+
+    public static List<LocalDate> getCalendarMonthOfYear(Integer month,Integer year) {
+
+        LocalDate startDate = getMonthStartBeginningDate(month, year);
+        LocalDate endDate = getMonthEndBeginningDate(month, year);
+
+        DayOfWeek startDayOfMonth = startDate.getDayOfWeek();
+        startDate = startDayOfMonth==DayOfWeek.MONDAY?startDate:startDate.minusDays(startDayOfMonth.getValue()-1);
+
+        DayOfWeek endDayOfMonth = endDate.getDayOfWeek();
+        endDate = endDate.plusDays(7-endDayOfMonth.getValue());
+
+        return getAllLocalDatesForRange(startDate,endDate);
+
+    }
+
+    public static boolean isWeekDay(LocalDate date) {
+        return date.getDayOfWeek()!=DayOfWeek.SATURDAY&&date.getDayOfWeek()!=DayOfWeek.SUNDAY;
     }
 }
