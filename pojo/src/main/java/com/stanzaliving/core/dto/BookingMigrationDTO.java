@@ -13,7 +13,7 @@ import java.util.Date;
 public class BookingMigrationDTO {
 
     @JsonSetter(value = "BOOKING_ID")
-    private Integer bookingNumber;
+    private String bookingNumber;
 
     @JsonSetter(value = "CONTRACT_START_DATE")
     private Date contractStartDate;
@@ -38,4 +38,13 @@ public class BookingMigrationDTO {
 
     @JsonSetter(value = "ACTUAL_CONTRACT_END_DATE")
     private Date actualContractEndDate;
+
+    @JsonSetter(value = "USER_UUID")
+    private String userUuid;
+
+    @JsonSetter(value = "ROOM_ID")
+    private String roomId;
+
+    @JsonSetter(value = "HAS_MOVED_IN")
+    private boolean hasMovedIn;
 }
