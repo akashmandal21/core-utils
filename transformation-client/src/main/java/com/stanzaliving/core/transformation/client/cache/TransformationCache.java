@@ -1,5 +1,14 @@
 package com.stanzaliving.core.transformation.client.cache;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.transformation.client.api.InternalDataControllerApi;
+import com.stanzaliving.core.user.acl.enums.AccessLevelEntityEnum;
+import com.stanzaliving.transformations.pojo.*;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -7,25 +16,15 @@ import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-import com.stanzaliving.core.user.acl.enums.AccessLevelEntityEnum;
-import com.stanzaliving.transformations.pojo.*;
-import org.apache.commons.lang3.StringUtils;
-
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
-import com.stanzaliving.core.base.enums.AccessLevel;
-import com.stanzaliving.core.transformation.client.api.InternalDataControllerApi;
-
 public class TransformationCache {
 
-	private InternalDataControllerApi internalDataControllerApi;
+	private final InternalDataControllerApi internalDataControllerApi;
 
 	public TransformationCache(InternalDataControllerApi internalDataControllerApi) {
 		this.internalDataControllerApi = internalDataControllerApi;
 	}
 
-	private LoadingCache<String, List<CityMetadataDto>> allCityCache = CacheBuilder.newBuilder()
+	private final LoadingCache<String, List<CityMetadataDto>> allCityCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<CityMetadataDto>>() {
@@ -38,7 +37,7 @@ public class TransformationCache {
 
 
 
-	private LoadingCache<String, List<ZoneMetadataDto>> allZoneCache = CacheBuilder.newBuilder()
+	private final LoadingCache<String, List<ZoneMetadataDto>> allZoneCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<ZoneMetadataDto>>() {
@@ -49,7 +48,7 @@ public class TransformationCache {
 						}
 					});
 
-	private LoadingCache<AccessLevel, List<LocationDto>> allLocationsCache = CacheBuilder.newBuilder()
+	private final LoadingCache<AccessLevel, List<LocationDto>> allLocationsCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(5, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<AccessLevel, List<LocationDto>>() {
@@ -72,7 +71,7 @@ public class TransformationCache {
 		return allLocationsCache.getUnchecked(accessLevel);
 	}
 
-	private LoadingCache<String, List<MicroMarketMetadataDto>> allMicroMarketCache = CacheBuilder.newBuilder()
+	private final LoadingCache<String, List<MicroMarketMetadataDto>> allMicroMarketCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<MicroMarketMetadataDto>>() {
@@ -87,7 +86,7 @@ public class TransformationCache {
 		return allMicroMarketCache.getUnchecked("micromarket");
 	}
 
-	private LoadingCache<String, List<ResidenceMetadataDto>> allResidenceCache = CacheBuilder.newBuilder()
+	private final LoadingCache<String, List<ResidenceMetadataDto>> allResidenceCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<ResidenceMetadataDto>>() {
@@ -103,7 +102,7 @@ public class TransformationCache {
 	}
 
 
-	private LoadingCache<String, List<ResidenceUIDto>> allResidenceWithCoreCache = CacheBuilder.newBuilder()
+	private final LoadingCache<String, List<ResidenceUIDto>> allResidenceWithCoreCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<ResidenceUIDto>>() {
@@ -115,7 +114,7 @@ public class TransformationCache {
 					});
 
 
-	private LoadingCache<String, Map<String,String>> allStatesNameCache = CacheBuilder.newBuilder()
+	private final LoadingCache<String, Map<String,String>> allStatesNameCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
@@ -126,7 +125,7 @@ public class TransformationCache {
 						}
 					});
 
-	private LoadingCache<String, Map<String,String>> allCityNameCache = CacheBuilder.newBuilder()
+	private final LoadingCache<String, Map<String,String>> allCityNameCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
@@ -137,7 +136,7 @@ public class TransformationCache {
 						}
 					});
 
-	private LoadingCache<String, Map<String,String>> allMicromarketNameCache = CacheBuilder.newBuilder()
+	private final LoadingCache<String, Map<String,String>> allMicromarketNameCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
@@ -149,7 +148,7 @@ public class TransformationCache {
 					});
 
 
-	private LoadingCache<String, Map<String,String>> allCountryNameCache = CacheBuilder.newBuilder()
+	private final LoadingCache<String, Map<String,String>> allCountryNameCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
@@ -161,7 +160,7 @@ public class TransformationCache {
 					});
 
 
-	private LoadingCache<String, Map<String,String>> allStatesNameToIdCache = CacheBuilder.newBuilder()
+	private final LoadingCache<String, Map<String,String>> allStatesNameToIdCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
@@ -310,12 +309,7 @@ public class TransformationCache {
 	public ResidenceDto getResidenceDataFromUuid(String residenceUuid) {
 		return internalDataControllerApi.getResidenceData(residenceUuid).getData();
 	}
-
-	public MicroMarketMetadataDto getMicromarketDataFromUuid(String micromarketUuid) {
-		return internalDataControllerApi.getMicromarketData(micromarketUuid).getData();
-	}
-
-	private LoadingCache<String, Map<String,String>> allStatesUuidCache = CacheBuilder.newBuilder()
+	private final LoadingCache<String, Map<String,String>> allStatesUuidCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
@@ -325,5 +319,13 @@ public class TransformationCache {
 							return internalDataControllerApi.getAllStates().getData().stream().collect(Collectors.toMap(f->f.getStateName(), f->f.getUuid()));
 						}
 					});
+
+	public MicroMarketMetadataDto getMicromarketDataFromUuid(String micromarketUuid) {
+		return internalDataControllerApi.getMicromarketData(micromarketUuid).getData();
+	}
+
+	public List<ResidenceDto> getResidenceDataFromUuids(List<String> residenceUuids){
+		return internalDataControllerApi.getResidenceDetailsByResidenceUuids(residenceUuids).getData();
+	}
 
 }

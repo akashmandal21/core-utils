@@ -25,8 +25,8 @@ public class HkShiftAllocationRequestDto {
     @NotBlank(message = "Day is mandatory")
     private DayOfWeek shiftDay;
 
-    private List<HkShiftRequestDto> shifts;
-
     private String uuid;
+
+    private List<HkShiftRequestDto> shifts;
 
 }

@@ -14,13 +14,13 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class HKSubCategoryConfigDTO {
 
-    private String subCategoryUuid;
+	private String subCategoryUuid;
 
-    private String variable;
+	private String variable;
 
-    private String variableName;
+	private String variableName;
 
-    private String variableDataType;
+	private String variableDataType;
 
 
 

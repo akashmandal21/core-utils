@@ -1,14 +1,11 @@
 package com.stanzaliving.housekeepingservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
-import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import com.stanzaliving.housekeepingservice.enums.HKPlanningTemplateStatus;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -23,11 +20,13 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-@SuperBuilder
+@Builder
 @ToString
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class HkPlaningTemplatesDto extends AbstractDto {
+public class HkPlaningTemplatesDto {
+
+	private String uuid;
 
 	@NotBlank(message = "Template name is mandatory")
 	private String templateName;
@@ -40,26 +39,14 @@ public class HkPlaningTemplatesDto extends AbstractDto {
 	@NotEmpty(message = "Entities uuid is mandatory")
 	private List<String> applicableEntities = new ArrayList<>();
 
-	private String createByUserName;
+	private List<String> tags = new ArrayList<>();
 
-	private String updateByUserName;
+	private List<TagResponseDto> tagResponse = new ArrayList<>();
 
-	private String description;
-
-	private List<String> tagsUuids;
-
-	private List<TagResponseDto> tags;
-
-	private MicroClusterResponseDto microClusterDetails;
-
-	private List<TagResponseDto> tagResponses = new ArrayList<>();
-
-	private List<String> shiftAllocationUuids = new ArrayList<>();
+	private List<String> shiftAllocationUuid = new ArrayList<>();
 
 	private List<ShitAllocationDetailsResponse> templateDetails = new ArrayList<>();
 
 	private List<ShiftAllocationDto> shiftsAllocationDtos = new ArrayList<>();
-
-
 
 }

@@ -17,11 +17,15 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShiftCategoryDto {
-    protected Date createdAt;
-    protected String createdBy;
-    protected Boolean status;
+public class ShiftCategoryDto{
     private String uuid;
+
+    protected Date createdAt;
+
+    protected String createdBy;
+
+    protected Boolean status;
+
     private String parentShiftCategoryUuid;
 
     @NotBlank(message = "Shift category name is Mandatory.")
