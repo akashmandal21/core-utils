@@ -35,7 +35,7 @@ public class HouseKeepingControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("subCategoryUuid", subCategoryUuid);
-        String path = UriComponentsBuilder.fromPath("/hkTasksTypeConfig/{subCategoryUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/hkTasksTypeConfig/{subCategoryUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -60,7 +60,7 @@ public class HouseKeepingControllerApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("subCategoryUuid", subCategoryUuid);
         uriVariables.put("variable", variable);
-        String path = UriComponentsBuilder.fromPath("/hkTasksTypeConfig/{subCategoryUuid}/{variable}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/hkTasksTypeConfig/{subCategoryUuid}/{variable}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
