@@ -16,8 +16,6 @@ public class AreaCommonDto{
 
     private String areaName;
 
-    private List<String> tags;
-
     private Double sizeInSqFt;
 
     private Integer cleaningTimeInMinutes;
@@ -35,4 +33,8 @@ public class AreaCommonDto{
     private String categoryName;
 
     private String areaCommonUuid;
+
+    private String areaTagUuid;
+
+    private String areaTagName;
 }

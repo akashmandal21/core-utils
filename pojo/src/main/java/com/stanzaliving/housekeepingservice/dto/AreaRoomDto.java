@@ -24,10 +24,6 @@ public class AreaRoomDto {
 
     private String areaRoomUuid;
 
-//    private List<String> areaTags;
-//
-//    private List<AreaTagsDto> areaTagList;
-
     private int roomSizeInSqFt;
 
     private boolean attachedWashroom;
