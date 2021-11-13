@@ -1,6 +1,7 @@
 package com.stanzaliving.housekeepingservice.dto.response;
 
 import com.stanzaliving.housekeepingservice.dto.HkPlaningTemplatesDto;
+import com.stanzaliving.housekeepingservice.enums.HkBeatPlanStatus;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -19,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 public class HkBeatPlanResponseDto {
     private HkPlaningTemplatesDto planingTemplate;
-    private String planStatus;
+    private HkBeatPlanStatus planStatus;
     private LocalDate startDate;
     private LocalDate endDate;
     private String city;
