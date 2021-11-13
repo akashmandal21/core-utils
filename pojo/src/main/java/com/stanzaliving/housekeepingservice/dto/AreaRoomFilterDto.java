@@ -22,7 +22,7 @@ public class AreaRoomFilterDto {
 
     private PaginationRequest pageRequest;
 
-    private List<String> tags;
+    private List<String> areaTagUuids;
 
     private String categoryUuid;
 }
