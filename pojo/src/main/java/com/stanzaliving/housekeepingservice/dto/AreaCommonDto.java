@@ -12,7 +12,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AreaCommonDto  extends AbstractDto {
+public class AreaCommonDto{
 
     private String areaName;
 
@@ -34,6 +34,5 @@ public class AreaCommonDto  extends AbstractDto {
 
     private String categoryName;
 
-
-
+    private String areaCommonUuid;
 }

@@ -18,7 +18,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class RoomDetailsResponseDto {
     private String roomNumber;
-    private String bedCount;
+    private int bedCount;
     private LocalTime duration;
     private int roomSizeInSqFt;
     private boolean attachedWashroom;
