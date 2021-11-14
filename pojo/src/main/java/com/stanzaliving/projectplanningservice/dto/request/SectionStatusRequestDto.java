@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 
 /**
  * @author Pradeep Naik R
@@ -25,4 +26,8 @@ public class SectionStatusRequestDto {
      */
     @NotBlank(message = "Task status uuid is required")
     private String taskStatusUuid;
+
+    private Date actualStartDate;
+
+    private Date actualDueDate;
 }

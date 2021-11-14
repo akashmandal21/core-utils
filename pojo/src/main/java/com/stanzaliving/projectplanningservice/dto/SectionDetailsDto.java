@@ -70,15 +70,19 @@ public class SectionDetailsDto extends AbstractDto {
 
     private boolean taskTemplate;
 
-    @NotNull(message = "Start Date is required")
+    /*
+     date validation handled in validation function
+     Since Dto used by plan and template, adding validation will effect @dto level
+     */
     private Date startDate;
 
-    @NotNull(message = "Due Date is required")
     private Date dueDate;
 
     @Size(max = 40, message = "Max allowed characters up to 40")
     @NotEmpty(message = "Task owner cannot be null")
     private String taskOwner;
+
+    private String taskOwnerName;
 
     /*
     module = pp,gts,hk

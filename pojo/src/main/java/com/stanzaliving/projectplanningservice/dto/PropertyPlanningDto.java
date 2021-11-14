@@ -56,4 +56,8 @@ public class PropertyPlanningDto extends AbstractDto {
 
     @NotNull
     private PlanningStatus planningStatus;
+
+    private Integer duration;
+
+    private Integer durationUnit;
 }
