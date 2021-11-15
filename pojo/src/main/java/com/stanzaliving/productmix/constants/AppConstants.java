@@ -78,9 +78,9 @@ public final class AppConstants {
         add("Other");
     }};
 
-    public static final String TRUE = "TRUE";
+    public static final String TRUE = "YES";
 
-    public static final String FALSE = "FALSE";
+    public static final String FALSE = "NO";
 
     public static final String BLANK_SPACE = " ";
 }
