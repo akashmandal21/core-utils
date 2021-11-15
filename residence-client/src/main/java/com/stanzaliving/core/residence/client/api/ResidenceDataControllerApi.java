@@ -1304,7 +1304,7 @@ public class ResidenceDataControllerApi {
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference returnType = new ParameterizedTypeReference<ResponseDto<RoomInventoryDetailDto>>() {
+        ParameterizedTypeReference returnType = new ParameterizedTypeReference<ResponseDto<ServiceMixResponse>>() {
         };
         try {
             return (ResponseDto<ServiceMixResponse>) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
