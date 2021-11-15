@@ -77,4 +77,10 @@ public final class AppConstants {
         add("Main Road Frontage");
         add("Other");
     }};
+
+    public static final String TRUE = "TRUE";
+
+    public static final String FALSE = "FALSE";
+
+    public static final String BLANK_SPACE = " ";
 }
