@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 
 @Data
@@ -85,6 +87,7 @@ public class ComplaintMetaDataMigrationDto {
     private String ticketOfUserId;
 
     @JsonSetter(value="created_at")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
     @JsonSetter(value="created_by")
@@ -94,6 +97,7 @@ public class ComplaintMetaDataMigrationDto {
     private boolean status;
 
     @JsonSetter(value="updated_at")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
     @JsonSetter(value="updated_by")
