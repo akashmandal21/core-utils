@@ -480,7 +480,7 @@ public class BookingDataControllerApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
         String path =
-                UriComponentsBuilder.fromPath("internal/v1/reject-kyc/{bookingUuid}")
+                UriComponentsBuilder.fromPath("/internal/v1/reject-kyc/{bookingUuid}")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
