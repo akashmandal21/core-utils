@@ -20,5 +20,4 @@ public class MenuItemSearchPdto extends MenuItemSearchRequestDto {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate ratingDate;
 	private boolean customPriceMap;
-	private String customMap;
 }
