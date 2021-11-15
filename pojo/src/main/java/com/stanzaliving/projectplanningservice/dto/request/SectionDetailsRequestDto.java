@@ -57,10 +57,8 @@ public class SectionDetailsRequestDto {
 
     private boolean taskTemplate;
 
-    @NotNull(message = "Start Date is required")
     private Date startDate;
 
-    @NotNull(message = "Due Date is required")
     private Date dueDate;
 
     @Size(max = 40, message = "Max allowed characters up to 40")
