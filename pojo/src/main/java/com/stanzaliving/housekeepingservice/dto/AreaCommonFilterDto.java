@@ -25,4 +25,6 @@ public class AreaCommonFilterDto {
     private SortDirection sortDirection;
 
     private List<String> areaTagUuids;
+
+    private String residenceUuid;
 }
