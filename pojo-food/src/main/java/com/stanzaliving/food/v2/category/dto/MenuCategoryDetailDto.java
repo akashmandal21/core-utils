@@ -44,7 +44,6 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private FoodServeType foodServeType;
 	private Integer maxWeeklyCombo;
 	private Integer minWeeklyCombo;
-	private String customMapUuid;
 
 	private Integer minHybridMeals;
 	private Integer maxHybridMeals;
@@ -54,6 +53,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private List<ListingDto> demographicTags;
 	private boolean costUpdated;
 	private boolean publishable;
+	private boolean customMapApplicable;
 
 	// derived information
 	private int totalMealInWeek;
