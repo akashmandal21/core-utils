@@ -7,7 +7,8 @@ public enum AreaCommonSortSpecs {
 
     AREA_NAME("areaName"),
     SIZE_IN_SQFT("sizeInSqFt"),
-    CLEANING_TIME_IN_MINUTES("cleaningTimeInMinutes");
+    CLEANING_TIME_IN_MINUTES("cleaningTimeInMinutes"),
+    AREA_TAG_UUID("areaTagUuid");
     private String dbKey;
 
 }
