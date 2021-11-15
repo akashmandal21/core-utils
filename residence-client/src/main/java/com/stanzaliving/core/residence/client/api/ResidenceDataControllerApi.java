@@ -1295,7 +1295,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public ResponseDto<ServiceMixResponse> getInventoryServiceMix(String inventoryUUid, Date moveInDate) {
+    public ResponseDto<ServiceMixResponse> getInventoryServiceMix(String inventoryUUid, String moveInDate) {
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("inventoryUUid", inventoryUUid);
         uriVariables.put("moveInDate", moveInDate);
