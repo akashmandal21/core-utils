@@ -21,7 +21,7 @@ public class QuickCardFilterStatusDto {
 
     private boolean todayTasks;
 
-    private boolean satisfied;
+    private Boolean satisfied;
 
-    private boolean unsatisfied;
+    private Boolean unSatisfied;
 }
