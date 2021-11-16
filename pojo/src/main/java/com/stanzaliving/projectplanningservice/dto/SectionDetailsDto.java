@@ -2,6 +2,7 @@ package com.stanzaliving.projectplanningservice.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.generictaskservice.dto.DelayDto;
 import com.stanzaliving.projectplanningservice.enums.Duration;
 import com.stanzaliving.projectplanningservice.enums.TaskOwnerTypeEnum;
 import com.stanzaliving.taskservice.enums.TaskType;
@@ -63,6 +64,10 @@ public class SectionDetailsDto extends AbstractDto {
     protected Date createdAt;
 
     protected Date updatedAt;
+
+    private String createdByName;
+
+    private String updatedByName;
 
     private String taskServiceUuid;
 
@@ -139,4 +144,6 @@ public class SectionDetailsDto extends AbstractDto {
     private Integer orderSequence;
 
     private Integer taskTypeSequence;
+
+    private DelayDto delayDto;
 }

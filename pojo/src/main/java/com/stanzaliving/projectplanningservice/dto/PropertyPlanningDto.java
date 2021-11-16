@@ -35,6 +35,10 @@ public class PropertyPlanningDto extends AbstractDto {
 
     private Date endDate;
 
+    private String createdByName;
+
+    private String updatedByName;
+
     @NotBlank(message = "Residence uuid is required")
     private String residenceUuid;
 
