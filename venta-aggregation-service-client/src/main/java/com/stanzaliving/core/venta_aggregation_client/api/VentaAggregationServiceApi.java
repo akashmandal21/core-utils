@@ -9,6 +9,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -224,12 +225,14 @@ public class VentaAggregationServiceApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<List<MoveInDetailDataDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<MoveInDetailDataDto>>>() {
+        ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
         };
 
-        List<MoveInDetailDataDto> moveInDetailDataDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
+        String response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
-        return moveInDetailDataDtoList;
+        log.info("response {}", response);
+
+        return null;
     }
 
 
