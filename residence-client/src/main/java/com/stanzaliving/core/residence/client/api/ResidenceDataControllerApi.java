@@ -37,38 +37,6 @@ public class ResidenceDataControllerApi {
         this.restClient = stanzaRestClient;
     }
 
-    
-    public ResponseDto<List<String>> fetchLockInDateForResidence(String residenceUuid, MoveInDateDto moveInDateDto) {
-
-        log.info("Residence-Data-Controller::Processing to get lock-in date based on residenceUuid {} and moveInDate {}", residenceUuid, moveInDateDto);
-
-        Object postBody = moveInDateDto;
-
-        final Map<String, Object> uriVariables = new HashMap<>();
-
-        uriVariables.put("residenceUuid", residenceUuid);
-
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/lock-in-date/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        final HttpHeaders headerParams = new HttpHeaders();
-
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
-        };
-
-        try {
-            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception var13) {
-            log.error("Exception while fetching lock-in date based on residenceUuid {} and moveInDate {}", residenceUuid, moveInDateDto);
-            return null;
-        }
-    }
 
 
     public ResponseDto<List<ServiceMixDto>> fetchPackagedServiceForResidenceUuid(String token, String residenceUuid) {
