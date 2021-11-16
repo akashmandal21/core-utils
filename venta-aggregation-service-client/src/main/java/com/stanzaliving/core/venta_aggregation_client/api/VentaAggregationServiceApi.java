@@ -6,6 +6,7 @@ import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
 import com.stanzaliving.core.ventaaggregationservice.dto.*;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -217,7 +218,9 @@ public class VentaAggregationServiceApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("Date", date);
-        queryParams.add("residenceUuid", residenceUuid);
+        if (StringUtils.isNotBlank(residenceUuid)) {
+            queryParams.add("residenceUuid", residenceUuid);
+        }
 
         final HttpHeaders headerParams = new HttpHeaders();
 
