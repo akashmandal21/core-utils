@@ -206,7 +206,7 @@ public class VentaAggregationServiceApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public List<MoveInDetailDataDto> getMoveInDetailData(Date date, String residenceUuid) {
+    public List<MoveInDetailDataDto> getMoveInDetailData(String date, String residenceUuid) {
 
         Object postBody = null;
 
@@ -215,7 +215,7 @@ public class VentaAggregationServiceApi {
         String path = UriComponentsBuilder.fromPath("/booking/move-in-detail-data").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("Date", date.toString());
+        queryParams.add("Date", date);
         queryParams.add("residenceUuid", residenceUuid);
 
         final HttpHeaders headerParams = new HttpHeaders();
