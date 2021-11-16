@@ -114,6 +114,8 @@ public class SectionDetailsDto extends AbstractDto {
      */
     private String taskStatusUuid;
 
+    private String taskStatusName;
+
     @NotNull(message = "department cannot be null")
     private Department department;
 
