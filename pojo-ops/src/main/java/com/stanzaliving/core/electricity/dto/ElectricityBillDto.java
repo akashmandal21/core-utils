@@ -105,6 +105,6 @@ public class ElectricityBillDto extends AbstractDto {
 	
 	private String approvalStatusName;
 	
-	private List<String> approvalStatusText;
+	private List<String> pendingApprovers;
 
 }

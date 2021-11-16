@@ -58,7 +58,7 @@ public class ApartmentElectricityBillListingDto {
 	
 	private String approvalStatusName;
 	
-	private List<String> approvalStatusText;
+	private List<String> pendingApprovers;
 	
 	private Date addedAt;
 
