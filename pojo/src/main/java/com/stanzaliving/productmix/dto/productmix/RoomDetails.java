@@ -16,6 +16,8 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class RoomDetails {
 
+    private String uuid;
+
     @NotBlank(message = "Room number cannot be blank")
     private String roomNumber;
 
