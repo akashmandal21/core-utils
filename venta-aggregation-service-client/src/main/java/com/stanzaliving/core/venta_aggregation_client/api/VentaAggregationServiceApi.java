@@ -2,9 +2,11 @@ package com.stanzaliving.core.venta_aggregation_client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
 import com.stanzaliving.core.ventaaggregationservice.dto.*;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -216,7 +218,9 @@ public class VentaAggregationServiceApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("Date", date);
-        queryParams.add("residenceUuid", residenceUuid);
+        if (StringUtils.isNotBlank(residenceUuid)) {
+            queryParams.add("residenceUuid", residenceUuid);
+        }
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -225,12 +229,12 @@ public class VentaAggregationServiceApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+        ParameterizedTypeReference<ResponseDto<List<MoveInDetailDataDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<MoveInDetailDataDto>>>() {
         };
 
-        String response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        ResponseDto<List<MoveInDetailDataDto>> response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
-        log.info("response {}", response);
+        log.info("response {}", ObjectMapperUtil.getString(response));
 
         return null;
     }
