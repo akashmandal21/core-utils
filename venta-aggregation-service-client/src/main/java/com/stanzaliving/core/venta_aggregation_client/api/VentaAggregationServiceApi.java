@@ -229,14 +229,14 @@ public class VentaAggregationServiceApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<List<MoveInDetailDataDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<MoveInDetailDataDto>>>() {
+        ParameterizedTypeReference<List<MoveInDetailDataDto>> returnType = new ParameterizedTypeReference<List<MoveInDetailDataDto>>() {
         };
 
-        ResponseDto<List<MoveInDetailDataDto>> response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        List<MoveInDetailDataDto> response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
         log.info("response {}", ObjectMapperUtil.getString(response));
 
-        return null;
+        return response;
     }
 
 
