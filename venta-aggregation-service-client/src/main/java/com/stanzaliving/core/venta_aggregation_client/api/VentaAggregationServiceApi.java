@@ -205,7 +205,7 @@ public class VentaAggregationServiceApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<List<MoveInDetailDataDto>> getMoveInDetailData(Date date, String residenceUuid) {
+    public List<MoveInDetailDataDto> getMoveInDetailData(Date date, String residenceUuid) {
 
         Object postBody = null;
 
@@ -227,7 +227,7 @@ public class VentaAggregationServiceApi {
         ParameterizedTypeReference<ResponseDto<List<MoveInDetailDataDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<MoveInDetailDataDto>>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
     }
 
 
