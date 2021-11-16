@@ -13,11 +13,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ElectricityBillType {
 
-	MAIN("Main"), 
-	COMMON_AREA("Common area"), 
-	ROOM("Room"),
-	DG_CHARGES("DG Charges"),
-	MAINTENANCE_CHARGES("Maintenance Charges");
+	MAIN("Main Bill"), 
+	CAM_CHARGES("CAM Charges");
 
     private String billTypeName;
 

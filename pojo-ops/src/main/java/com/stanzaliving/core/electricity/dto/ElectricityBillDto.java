@@ -1,6 +1,7 @@
 package com.stanzaliving.core.electricity.dto;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
@@ -103,5 +104,7 @@ public class ElectricityBillDto extends AbstractDto {
 	private ApprovalStatus approvalStatus;
 	
 	private String approvalStatusName;
+	
+	private List<String> approvalStatusText;
 
 }

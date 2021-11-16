@@ -1,6 +1,7 @@
 package com.stanzaliving.core.electricity.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.electricity.constants.ElectricityBillStatus;
@@ -56,6 +57,8 @@ public class ApartmentElectricityBillListingDto {
 	private ApprovalStatus approvalStatus;
 	
 	private String approvalStatusName;
+	
+	private List<String> approvalStatusText;
 	
 	private Date addedAt;
 
