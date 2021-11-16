@@ -1,5 +1,6 @@
 package com.stanzaliving.projectplanningservice.dto.request;
 
+import com.stanzaliving.generictaskservice.dto.DelayDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,4 +31,6 @@ public class SectionStatusRequestDto {
     private Date actualStartDate;
 
     private Date actualDueDate;
+
+    private DelayDto delayDto;
 }
