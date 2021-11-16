@@ -17,8 +17,6 @@ import java.util.Objects;
 @Service
 @Lazy(false)
 public class CustomerApiConsumer<T> extends BaseConsumer<T> {
-	//ToDo Commented because of kafka.consumer.autostart not found: placeholder error
-	
 //    @Autowired
 //    AsyncCustomerApi asyncCustomerApi;
 //    @Autowired

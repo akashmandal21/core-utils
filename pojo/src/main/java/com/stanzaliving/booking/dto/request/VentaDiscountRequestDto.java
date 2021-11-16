@@ -1,5 +1,6 @@
 package com.stanzaliving.booking.dto.request;
 
+import com.stanzaliving.booking.enums.BookingSubType;
 import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.booking.enums.PropertyType;
 
@@ -25,4 +26,6 @@ public class VentaDiscountRequestDto {
 	@Builder.Default
 	private Boolean ventaFlow = Boolean.FALSE;
 	private String discountUuid;
+
+	private BookingSubType bookingSubType;
 }
