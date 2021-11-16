@@ -13,7 +13,9 @@ public enum PaymentStatus {
 	REFUNDED,
 	REFUND_FAILED,
 	ADJUSTED,
-	ACCEPTED;
+	ACCEPTED,
+	WRITE_OFF,
+	REMAPPED;
 
 	public static boolean isFailed(PaymentStatus status) {
 		return Objects.nonNull(status) && FAILED.equals(status);
