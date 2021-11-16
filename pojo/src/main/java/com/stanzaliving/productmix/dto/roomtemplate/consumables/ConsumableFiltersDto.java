@@ -14,4 +14,6 @@ import java.util.List;
 @Builder
 public class ConsumableFiltersDto {
     private List<LabelValueDto<String>> categories;
+
+    private String uniqueKey;
 }
