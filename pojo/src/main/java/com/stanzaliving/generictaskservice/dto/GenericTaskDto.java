@@ -30,6 +30,8 @@ public class GenericTaskDto extends AbstractDto {
 
     private String taskOwner;
 
+    private String taskOwnerName;
+
     private TaskType type;
 
     private String priority;
@@ -56,6 +58,8 @@ public class GenericTaskDto extends AbstractDto {
     private String var5;
 
     private String taskStatusUuid;
+
+    private String taskStatusName;
 
     private String taskSubStatusUuid;
 
