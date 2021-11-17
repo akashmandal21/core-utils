@@ -1,5 +1,6 @@
 package com.stanzaliving.core.projectservice.dto;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.GenderAllowed;
 import com.stanzaliving.transformations.enums.SubBrandName;
@@ -30,6 +31,12 @@ public class PropertyInfoDto {
     private Double leasedArea;
     private int bdBedCount;
     private int roomCount;
+    private String thumbnailUrl;
+    private PropertyEntityType propertyType;
+    private LocalDate expectedLandLordHandoverDate;
+    private LocalDate expectedOpsHandoverDate;
+    private LocalDate landLordHandoverDate;
+    private LocalDate opsHandoverDate;
 
     private String addressLine1;
     private String addressLine2;
