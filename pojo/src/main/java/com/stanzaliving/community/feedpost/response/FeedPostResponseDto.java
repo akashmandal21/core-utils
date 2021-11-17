@@ -27,9 +27,9 @@ public class FeedPostResponseDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
 
-	@JsonIgnore
-	@JsonProperty(access = Access.WRITE_ONLY)
-	private EnumListing<EventStatus> postStatus;
+//	@JsonIgnore
+//	@JsonProperty(access = Access.WRITE_ONLY)
+//	private EnumListing<EventStatus> postStatus;
 	
     private String title;
 
@@ -48,7 +48,7 @@ public class FeedPostResponseDto extends AbstractDto {
 	protected boolean prompted;
 
 	@JsonIgnore
-	@JsonProperty(access = Access.WRITE_ONLY)
+	@JsonProperty(access = Access.AUTO)
 	private List<EnumListing<AppPage>> appPages;
     
 	@JsonIgnore
