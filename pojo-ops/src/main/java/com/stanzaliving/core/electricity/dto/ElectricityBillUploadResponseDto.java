@@ -21,4 +21,5 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ElectricityBillUploadResponseDto {
 	private String uploadedFileUrl;
+	private String uploadedFilePath;
 }

@@ -35,6 +35,8 @@ public class ElectricityBillAddDto {
 	private String billUuid;
 	
 	private String billUrl;
+	
+	private String billPath;
 
 	@NotNull(message = "ElectricityBillType Cannot be null")
 	private ElectricityBillType electricityBillType;

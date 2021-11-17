@@ -61,6 +61,8 @@ public class ElectricityBillDto extends AbstractDto {
 
 	private String billUrl;
 	
+	private String billPath;
+	
 	private Double totalCharges;
 
 	private Double consumptionCharges;
