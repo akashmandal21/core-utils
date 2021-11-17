@@ -3,9 +3,6 @@ package com.stanzaliving.community.feedpost.response;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.stanzaliving.banner.enumeration.AppPage;
 import com.stanzaliving.community.enums.EventStatus;
 import com.stanzaliving.community.request.FeedPostMediaDto;
@@ -27,9 +24,7 @@ public class FeedPostResponseDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
 
-//	@JsonIgnore
-//	@JsonProperty(access = Access.WRITE_ONLY)
-//	private EnumListing<EventStatus> postStatus;
+	private EnumListing<EventStatus> postStatusDto;
 	
     private String title;
 
@@ -47,13 +42,9 @@ public class FeedPostResponseDto extends AbstractDto {
     
 	protected boolean prompted;
 
-	@JsonIgnore
-	@JsonProperty(access = Access.AUTO)
-	private List<EnumListing<AppPage>> appPages;
+	private List<EnumListing<AppPage>> appPagesDto;
     
-	@JsonIgnore
-	@JsonProperty(access = Access.WRITE_ONLY)
-	private UserListDTO userList;
+	private UserListDTO userListDto;
 	
 	private List<FeedPostMediaDto> mediaDtos;
 	
