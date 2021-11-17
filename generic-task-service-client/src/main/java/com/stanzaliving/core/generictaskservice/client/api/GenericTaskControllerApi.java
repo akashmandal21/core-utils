@@ -499,7 +499,7 @@ public class GenericTaskControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("department", sectionDetailsDto.getDepartment());
-        uriVariables.put("status", sectionDetailsDto.getTaskStatusUuid());
+        uriVariables.put("status", sectionDetailsDto.getTaskStatusName());
 
         String path = UriComponentsBuilder.fromPath("/internal/task/get/{department}/status/{status}").buildAndExpand(uriVariables).toUriString();
         log.info("Path: {}", path);
