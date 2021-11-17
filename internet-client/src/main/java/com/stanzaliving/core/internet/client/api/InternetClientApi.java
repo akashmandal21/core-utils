@@ -73,7 +73,7 @@ public class InternetClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		Map<String, Object> postBody = new HashMap<String, Object>();
-		postBody.put("residenceIds", residenceIds);
+		postBody.put("residenceIdList", residenceIds);
 		postBody.put("endDate", endDate);
 		postBody.put("startDate", startDate);
 
