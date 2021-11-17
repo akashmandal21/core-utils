@@ -8,6 +8,7 @@ import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
 import com.stanzaliving.core.residenceservice.dto.*;
 import com.stanzaliving.core.security.helper.SecurityUtils;
+import com.stanzaliving.housekeepingservice.dto.response.ResidenceClientResponseDto;
 import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.*;
@@ -35,6 +36,32 @@ public class ResidenceDataControllerApi {
 
     public ResidenceDataControllerApi(StanzaRestClient stanzaRestClient) {
         this.restClient = stanzaRestClient;
+    }
+
+
+
+    public List<ResidenceClientResponseDto> getResidenceDetailsUuid(String uuid) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+
+        String path = UriComponentsBuilder.fromPath("/internal/residences").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("residenceUuid", uuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<ResidenceClientResponseDto>> returnType = new ParameterizedTypeReference<List<ResidenceClientResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
 
