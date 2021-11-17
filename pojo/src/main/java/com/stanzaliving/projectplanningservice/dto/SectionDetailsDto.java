@@ -140,9 +140,7 @@ public class SectionDetailsDto extends AbstractDto {
 
     private Long percentage;
 
-    /*
-      @NotBlank(message = "Order Sequence is required")
-     */
+    @NotBlank(message = "Order Sequence is required")
     private Integer orderSequence;
 
     private Integer taskTypeSequence;
