@@ -17,4 +17,6 @@ public class PropertyTilesDto {
     private String propertyType;
 
     private String propertyBrand;
+
+    private String propertyName;
 }
