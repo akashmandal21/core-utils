@@ -22,4 +22,6 @@ public class RoomAttributeDto {
     private List<RoomDetails> roomDetails;
 
     private Map<String, RoomsDataCombined> roomTemplateOptionsData;
+
+    private boolean errorOccurred;
 }

@@ -34,7 +34,7 @@ public class RoomDetails {
     @Valid
     private LabelValueDto<String> roomTemplate;
 
-    private String error;
+    private String errorMsg;
 
     private boolean errorOccurred;
 }

@@ -24,4 +24,8 @@ public class PropertyAttributeDto {
     private List<LabelValueDto<String>> propertyTemplateOptions;
 
     private Map<String, List<ZonesDto>> propertyTemplateOptionsData;
+
+    private String errorMsg;
+
+    private boolean errorOccurred;
 }
