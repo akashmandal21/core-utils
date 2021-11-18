@@ -57,6 +57,11 @@ public class SectionDetailsDto extends AbstractDto {
     private List<String> predecessorTasks;
 
     /*
+    Response Sent to FE with Name and Uuid
+     */
+    private List<PredecessorTaskDto> predecessorTasksDtoResponseList;
+
+    /*
      Upcoming tasks
      */
     private List<String> successorTasks;
