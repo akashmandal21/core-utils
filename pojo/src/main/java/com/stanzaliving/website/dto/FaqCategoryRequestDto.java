@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class FaqCategoryDtoV2 extends AbstractDto {
+public class FaqCategoryRequestDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
 	
