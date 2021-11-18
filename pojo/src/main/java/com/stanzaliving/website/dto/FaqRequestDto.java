@@ -1,6 +1,6 @@
 package com.stanzaliving.website.dto;
 
-import java.util.List;
+import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
@@ -15,17 +15,17 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class FaqCategoryResponseDto extends AbstractDto {
+public class FaqRequestDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
 	
-	private String categoryName;
-	
-	private String slug;
+	@NotNull(message = "faqCategoryId cannot be null")
+	private Long faqCategoryId;
 
+	@NotNull(message = "question cannot be null")
+	private String question;
+	
+	private String answer;
+	
 	private Integer displayOrder;
-	
-	private List<FaqResponseDto> faqDtos;
-	
-	private Integer totalFaqCount;
 }
