@@ -232,11 +232,7 @@ public class VentaAggregationServiceApi {
         ParameterizedTypeReference<List<MoveInDetailDataDto>> returnType = new ParameterizedTypeReference<List<MoveInDetailDataDto>>() {
         };
 
-        List<MoveInDetailDataDto> response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
-        log.info("response {}", ObjectMapperUtil.getString(response));
-
-        return response;
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
 
