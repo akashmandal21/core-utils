@@ -32,4 +32,12 @@ public class TeamsResponseDto {
     private String clusterManager;
 
     private int noOfMembers;
+
+    private String bucket;
+
+    private String filePath;
+
+    private String fileName;
+
+    private String uploadedFileUrl;
 }
