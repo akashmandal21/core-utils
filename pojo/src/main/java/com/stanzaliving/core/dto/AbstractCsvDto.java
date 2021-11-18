@@ -63,10 +63,11 @@ public abstract class AbstractCsvDto {
     }
 
     protected Double getDoubleValue(String[] data, String columnName) {
-        String val = data[this.getColumns().indexOf(columnName)];
-        if(NumberUtils.parseableToDouble(val))
-            return Double.parseDouble(val);
-
+        if(this.getColumns().indexOf(columnName)<data.length) {
+            String val = data[this.getColumns().indexOf(columnName)];
+            if(NumberUtils.parseableToDouble(val))
+                return Double.parseDouble(val);
+        }
         return null;
     }
 
