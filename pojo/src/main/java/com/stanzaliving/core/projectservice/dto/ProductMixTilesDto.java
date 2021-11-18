@@ -19,4 +19,6 @@ public class ProductMixTilesDto {
     private BrandName propertyType;
 
     private SubBrandName propertyBrand;
+
+    private String propertyName;
 }
