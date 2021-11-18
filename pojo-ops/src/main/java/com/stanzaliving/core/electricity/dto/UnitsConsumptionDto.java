@@ -19,6 +19,7 @@ public class UnitsConsumptionDto {
 	private double consumptionAmount;
 	private double unitsConsumed;
 	private double unitRate;
+	private double gstPercent;
 	private LocalDate consumptionUnitsStartDate;
 	private LocalDate consumptionUnitsEndDate;
 

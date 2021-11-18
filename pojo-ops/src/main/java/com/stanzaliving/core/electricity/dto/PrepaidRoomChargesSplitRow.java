@@ -1,5 +1,7 @@
 package com.stanzaliving.core.electricity.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +21,8 @@ public class PrepaidRoomChargesSplitRow {
 	private Integer sequence;
 	private int bedCount;
 	private int gridUnit;
+	private List<Double> gridUnitList;
+	private List<Double> gridUnitGstList;
 	private double gridChargesAmount;
 	private int dgUnit;
 	private double dgChargesAmount;
