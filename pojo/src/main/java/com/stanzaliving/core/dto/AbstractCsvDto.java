@@ -72,8 +72,13 @@ public abstract class AbstractCsvDto {
     }
 
     public static String escapeSpecialCharacters(String inputString) {
-        return StringEscapeUtils.unescapeHtml4(inputString.replace(","," ").replace("\n", " ")
-                .replace("\t", " "));
+        if(StringUtils.isNotBlank(inputString)) {
+            return StringEscapeUtils.unescapeHtml4(inputString.replace(","," ").replace("\n", " ")
+                    .replace("\t", " "));
+        } else {
+            return StringUtils.EMPTY;
+        }
+
     }
 
     public static <T extends AbstractCsvDto> List<String[]> prepareResponseCsv(List<T> csvDtos) {
