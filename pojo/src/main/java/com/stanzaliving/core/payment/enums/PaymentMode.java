@@ -82,7 +82,7 @@ public enum PaymentMode {
     	List<PaymentMode> paymentMode = new ArrayList<>();
     	paymentMode.add(CHEQUE);
     	paymentMode.add(CASH);
-    	paymentMode.add(PAYTM_SDK);
+    	paymentMode.add(PAYTM);
     	paymentMode.add(RAZORPAY);
     	return paymentMode;    	
     }

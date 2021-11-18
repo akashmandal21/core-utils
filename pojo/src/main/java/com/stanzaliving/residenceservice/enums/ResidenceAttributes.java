@@ -39,6 +39,9 @@ public enum ResidenceAttributes {
     NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time","String"),
 
     CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean"),
+
+    BOOKING_EXIT_DELTA_DAYS("Booking Exit Delta Days", "Integer"),
+    BOOKING_EXIT_NOTICE_PERIOD("Notice Period Days", "Integer"),
 	EMI_ENABLED("EMI Enabled","Boolean");
 	
     private String label;
