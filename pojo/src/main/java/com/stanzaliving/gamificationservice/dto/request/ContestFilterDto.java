@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import com.stanzaliving.gamificationservice.enums.ContestStatus;
 import lombok.*;
-
 import java.time.LocalDate;
 
 /**
