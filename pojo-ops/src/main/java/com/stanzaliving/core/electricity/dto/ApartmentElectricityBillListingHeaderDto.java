@@ -39,6 +39,8 @@ public class ApartmentElectricityBillListingHeaderDto {
 	
 	private String micromarketId;
 	
+	private String code;
+	
 	private double pendingAmount;
 	
 	private int occupiedRoom;
