@@ -33,4 +33,8 @@ public class RoomDetails {
     @NotNull (message = "Room template cannot be null")
     @Valid
     private LabelValueDto<String> roomTemplate;
+
+    private String error;
+
+    private boolean errorOccurred;
 }
