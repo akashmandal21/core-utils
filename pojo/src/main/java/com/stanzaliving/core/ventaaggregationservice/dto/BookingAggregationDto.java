@@ -101,5 +101,8 @@ public class BookingAggregationDto {
     private List<InventoryResponseOccupancyDto> inventoryOccupancyResponse;
     private Date exitDate;
     private boolean isInventorySelected;
+    private String movedInStatusTextColourCode;
+    private String movedInStatusBackgroundColour;
+    private String movedInStatus;
 
 }
