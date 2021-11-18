@@ -526,11 +526,6 @@ public class InternalDataControllerApi {
 	}
 
 
-
-	public CityMetadataDto getCityByUuid(String cityUuid) {
-		return getAllCities().getData().stream().filter(city -> city.getUuid().equals(cityUuid)).findFirst().orElse(null);
-	}
-
 	public ResponseDto<MicroMarketUIDto> getMicromarketDtoUsingId(Long mmId) {
 
 		Object postBody = null;
