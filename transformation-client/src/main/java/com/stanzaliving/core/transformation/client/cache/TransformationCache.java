@@ -215,6 +215,11 @@ public class TransformationCache {
 		}
 	}
 
+
+	public CityMetadataDto getCityByUuid(String cityUuid) {
+		return getAllCities().stream().filter(city -> city.getUuid().equals(cityUuid)).findFirst().orElse(null);
+	}
+
 	public List<ResidenceUIDto> getAllResidencesWithCoreData() {
 		return allResidenceWithCoreCache.getUnchecked("residenceWithCore");
 	}
