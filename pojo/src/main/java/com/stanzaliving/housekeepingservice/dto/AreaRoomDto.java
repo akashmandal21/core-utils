@@ -75,4 +75,12 @@ public class AreaRoomDto {
     private AreaCategoryDto areaCategory;
 
     private boolean roomUpdated;
+
+    private int availableBeds;
+
+    private int deadBeds;
+
+    private int totalBeds;
+
+    private int blockedBeds;
 }
