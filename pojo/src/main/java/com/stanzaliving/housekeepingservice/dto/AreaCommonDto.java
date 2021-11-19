@@ -1,10 +1,7 @@
 package com.stanzaliving.housekeepingservice.dto;
 
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -26,15 +23,9 @@ public class AreaCommonDto{
 
     private String residenceId;
 
-    private String residenceName;
-
     private String categoryId;
-
-    private String categoryName;
 
     private String areaCommonUuid;
 
     private String areaTagUuid;
-
-    private String areaTagName;
 }
