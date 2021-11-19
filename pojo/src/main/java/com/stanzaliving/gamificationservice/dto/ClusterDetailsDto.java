@@ -3,6 +3,8 @@ package com.stanzaliving.gamificationservice.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,5 +18,7 @@ public class ClusterDetailsDto {
     private String clusterManagerName;
 
     private int clusterMemberCount;
+
+    private List<String> clusterMemberNames;
 
 }
