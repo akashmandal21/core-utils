@@ -22,7 +22,7 @@ public class FaqRequestDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
 
-	private List<FaqCategoryRequestDto> faqCategoryDtos;
+	private List<FaqCategoryMappingDto> faqCategoryMappingDtos;
 
 	@NotNull(message = "question cannot be null")
 	private String question;
@@ -30,7 +30,4 @@ public class FaqRequestDto extends AbstractDto {
 	private String answer;
 	
 	private FaqStatus faqStatus;
-	
-	@NotNull(message = "faqCategoryId cannot be null")
-	private Long faqCategoryId;
 }
