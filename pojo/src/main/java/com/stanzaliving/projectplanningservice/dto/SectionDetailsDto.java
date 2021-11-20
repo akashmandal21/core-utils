@@ -124,9 +124,6 @@ public class SectionDetailsDto extends AbstractDto {
     @NotNull(message = "department cannot be null")
     private Department department;
 
-    @Valid
-    private List<SectionDetailsDto> tasks;
-
     private List<String> attachmentsList;
 
     private List<String> dependentTaskUuidList;
@@ -150,4 +147,7 @@ public class SectionDetailsDto extends AbstractDto {
     private Integer taskTypeSequence;
 
     private DelayDto delayDto;
+
+    @Valid
+    private List<SectionDetailsDto> tasks;
 }
