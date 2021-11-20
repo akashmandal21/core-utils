@@ -21,4 +21,5 @@ public class ResidenceClientRoomDetailsResponseDto {
     private double deadBeds;
     private double totalBeds;
     private double blockedBeds;
+    private double occupiedBeds;
 }

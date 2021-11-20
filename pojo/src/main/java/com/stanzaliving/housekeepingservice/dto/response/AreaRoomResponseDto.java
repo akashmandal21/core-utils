@@ -48,6 +48,8 @@ public class AreaRoomResponseDto extends AbstractDto {
 
     private double blockedBeds;
 
+    private double occupiedBeds;
+
     private AreaTagsDto areaTag;
 
     private AreaCategoryDto areaCategory;

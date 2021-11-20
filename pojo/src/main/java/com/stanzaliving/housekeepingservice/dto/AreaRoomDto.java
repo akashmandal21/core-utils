@@ -83,4 +83,6 @@ public class AreaRoomDto {
     private int totalBeds;
 
     private int blockedBeds;
+
+    private double occupiedBeds;
 }
