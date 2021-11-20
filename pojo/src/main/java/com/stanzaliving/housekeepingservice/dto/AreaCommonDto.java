@@ -3,6 +3,9 @@ package com.stanzaliving.housekeepingservice.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 @Getter
 @Setter
 @ToString
@@ -11,21 +14,27 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class AreaCommonDto{
 
+    @NotBlank(message = "Area name is Mandatory.")
     private String areaName;
 
-    private Double sizeInSqFt;
+    @Min(value = 1, message = "Room size in sqFt must be greater zero")
+    private int sizeInSqFt;
 
-    private Integer cleaningTimeInMinutes;
+    @Min(value = 1, message = "Cleaning time min must be greater than zero")
+    private int cleaningTimeInMinutes;
 
-    private Integer sanitizationTimeInMinutes;
-
-    private String areaRoomId;
-
+    @NotBlank(message = "Residence uuid is mandatory")
     private String residenceId;
 
     private String categoryId;
 
     private String areaCommonUuid;
 
+    @NotBlank(message = "Area tag uuid is mandatory")
     private String areaTagUuid;
+
+    private AreaTagsDto areaTagsDto;
+
+    private AreaCategoryDto areaCategory;
+
 }
