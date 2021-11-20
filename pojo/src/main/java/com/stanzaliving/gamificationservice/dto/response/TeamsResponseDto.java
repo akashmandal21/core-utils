@@ -33,11 +33,8 @@ public class TeamsResponseDto {
 
     private int noOfMembers;
 
-    private String bucket;
+    private String uploadedFrontFileUrl;
 
-    private String filePath;
+    private String uploadedBackgroundFileUrl;
 
-    private String fileName;
-
-    private String uploadedFileUrl;
 }
