@@ -1,5 +1,6 @@
 package com.stanzaliving.projectplanningservice.dto.request;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.generictaskservice.dto.DelayDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,4 +34,8 @@ public class SectionStatusRequestDto {
     private Date actualDueDate;
 
     private DelayDto delayDto;
+
+    private Department department;
+
+    private String propertyUuid;
 }
