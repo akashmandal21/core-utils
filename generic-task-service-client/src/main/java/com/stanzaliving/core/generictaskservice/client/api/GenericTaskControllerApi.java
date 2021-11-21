@@ -493,7 +493,7 @@ public class GenericTaskControllerApi {
      * @description GET status uuid for the respective pattern as input
      * [ NOT_STARTED, IN_PROGRESS, DELAYED, COMPLETED ]
      */
-    public ResponseDto<List<StatusDto>> getTaskStatus(SectionDetailsDto sectionDetailsDto) {
+    public ResponseDto<List<StatusDto>> getTaskStatusByName(SectionDetailsDto sectionDetailsDto) {
         Object getBody = null;
 
         // create path and map variables
@@ -501,7 +501,37 @@ public class GenericTaskControllerApi {
         uriVariables.put("department", sectionDetailsDto.getDepartment());
         uriVariables.put("status", sectionDetailsDto.getTaskStatusName());
 
-        String path = UriComponentsBuilder.fromPath("/internal/task/get/{department}/status/{status}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/{department}/status/name/{status}").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<StatusDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<StatusDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    /**
+     * @param sectionDetailsDto
+     * @return
+     * @description GET status uuid for the respective pattern as input
+     * [ NOT_STARTED, IN_PROGRESS, DELAYED, COMPLETED ]
+     */
+    public ResponseDto<List<StatusDto>> getTaskStatusByUuid(SectionDetailsDto sectionDetailsDto) {
+        Object getBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("department", sectionDetailsDto.getDepartment());
+        uriVariables.put("statusUuid", sectionDetailsDto.getTaskStatusUuid());
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/{department}/status/id/{statusUuid}").buildAndExpand(uriVariables).toUriString();
         log.info("Path: {}", path);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
