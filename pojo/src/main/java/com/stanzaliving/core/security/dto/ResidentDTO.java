@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import com.stanzaliving.core.enums.Nationality;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -77,4 +78,6 @@ public class ResidentDTO {
     private String residentCode;
 
     private String colorCode;
+
+    private Double duesThreshold;
 }

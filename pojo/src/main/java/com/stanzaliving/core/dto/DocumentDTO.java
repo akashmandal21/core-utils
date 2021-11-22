@@ -1,6 +1,7 @@
 package com.stanzaliving.core.dto;
 
 import com.stanzaliving.core.enums.ApprovalStatus;
+import com.stanzaliving.core.enums.DocumentCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -63,4 +64,8 @@ public class DocumentDTO {
     private boolean isActive;
 
     private boolean allowRejection;
+
+    private LocalDate updatedAt;
+
+    private DocumentCategory documentCategory;
 }

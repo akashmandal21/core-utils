@@ -1,5 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -89,7 +91,11 @@ public class LeadRequestDto {
 	private String category;
 	private String fbclId;
 	private String creative;
+	
+	@JsonProperty("gClientId")
 	private String gClientId;
+	
+	@JsonProperty("gSessionId")
 	private String gSessionId;
 
 	private String razorpayPaymentId;
@@ -123,4 +129,6 @@ public class LeadRequestDto {
 	
 	private String extendDurationMessage;
 
+	private Integer placeId;
+	private String placeName;
 }
