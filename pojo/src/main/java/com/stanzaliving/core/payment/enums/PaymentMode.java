@@ -22,7 +22,7 @@ public enum PaymentMode {
 	CASH("Cash", 1),
 	MPOS("MPOS", 6),
 	QR("QR Code", 4),
-	PAYTM("PAYTM", 9),
+	PAYTM("Paytm", 9),
 	ICICI("ICICI", 10),
 	PINE_LAB("PINE LAB", 12),
 	RAZORPAY("Razorpay", 13),
@@ -80,12 +80,10 @@ public enum PaymentMode {
 	
     public static List<PaymentMode> getPaymentModeConfigurationList() {
     	List<PaymentMode> paymentMode = new ArrayList<>();
-    	
     	paymentMode.add(CHEQUE);
     	paymentMode.add(CASH);
     	paymentMode.add(PAYTM_SDK);
     	paymentMode.add(RAZORPAY);
-    	
     	return paymentMode;    	
     }
 }
