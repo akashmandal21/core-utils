@@ -151,29 +151,6 @@ public class LedgerServiceApi {
         }
     }
 
-    public ResponseDto<String> createLedgerEntry(List<TransactionsDTO> transactionsDTO) {
-        Object postBody = transactionsDTO;
-        Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/ledger/all")
-                .buildAndExpand(uriVariables).toUriString();
-
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        HttpHeaders headerParams = new HttpHeaders();
-        String[] accepts = new String[]{"*/*"};
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-        };
-        try {
-            log.info("Executing Api for creating ledger entry Url {}", path);
-            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Exception while creating ledger, Exception is ", e);
-        }
-        return null;
-    }
-
     public ResponseDto<List<RefundDetailsResponseDto>> getRefundApprovalStatus() {
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/current-date/refund-approval-status")
