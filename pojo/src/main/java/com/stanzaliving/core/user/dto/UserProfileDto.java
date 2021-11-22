@@ -4,6 +4,7 @@
 package com.stanzaliving.core.user.dto;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.user.enums.BloodGroup;
