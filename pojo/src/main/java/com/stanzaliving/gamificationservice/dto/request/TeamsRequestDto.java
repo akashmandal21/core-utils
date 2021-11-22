@@ -32,4 +32,6 @@ public class TeamsRequestDto {
     private String clusterManager;
 
     private int noOfMembers;
+
+    private List<String> clusterMemberNames;
 }
