@@ -2,9 +2,11 @@ package com.stanzaliving.gamificationservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.gamificationservice.enums.ContestStatus;
+import com.stanzaliving.gamificationservice.enums.ContestType;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  * @author Keshav Singh
@@ -27,7 +29,7 @@ public class ContestDto {
 
 	private String createdBy;
 
-	private int duration;
+	private LocalTime duration;
 
 	private LocalDate startDate;
 
@@ -35,7 +37,7 @@ public class ContestDto {
 
 	private LocalDate dateOfJoining;
 
-	private String contestType;
+	private ContestType contestType;
 
 	private String contestTypeId;
 
