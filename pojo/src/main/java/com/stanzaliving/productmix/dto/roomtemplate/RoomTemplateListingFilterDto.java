@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -30,7 +31,7 @@ public class RoomTemplateListingFilterDto {
 
     private List<LabelValueDto<String>> roomFeatures;
 
-    private List<LabelValueDto<String>> consumables;
+    private Set<LabelValueDto<String>> consumables;
 
     @Builder.Default
     private int pageNo = 1;
