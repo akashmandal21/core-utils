@@ -2,8 +2,8 @@ package com.stanzaliving.housekeepingservice.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.generictaskservice.dto.ResidenceDto;
 import com.stanzaliving.housekeepingservice.enums.HkBeatPlanStatus;
-import com.stanzaliving.transformations.pojo.ResidenceDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
