@@ -28,5 +28,5 @@ public class AreaCommonFilterDto {
 
     private String residenceUuid;
 
-    private List<String> categoryUuids;
+    private String categoryUuid;
 }
