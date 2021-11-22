@@ -23,7 +23,7 @@ public class RoomTemplateListingFilterDto {
 
     private List<LabelValueDto<String>> createdBy;
 
-    private List<LabelValueDto<String>> approvedBy;
+    private List<LabelValueDto<String>> actionedBy;
 
     private List<LabelValueDto<PropertyTypeEnum>> propertyType;
 
