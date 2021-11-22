@@ -29,7 +29,7 @@ public class ContestDto {
 
 	private String createdBy;
 
-	private LocalTime duration;
+	private int duration;
 
 	private LocalDate startDate;
 
