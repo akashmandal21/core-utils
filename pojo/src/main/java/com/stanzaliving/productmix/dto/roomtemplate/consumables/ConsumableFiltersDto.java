@@ -6,14 +6,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class ConsumableFiltersDto {
-    private List<LabelValueDto<String>> categories;
+    private Set<LabelValueDto<String>> categories;
 
     private String uniqueKey;
 }
