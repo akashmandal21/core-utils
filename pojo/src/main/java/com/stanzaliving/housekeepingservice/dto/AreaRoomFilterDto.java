@@ -24,5 +24,5 @@ public class AreaRoomFilterDto {
 
     private List<String> areaTagUuids;
 
-    private List<String> categoryUuids;
+    private String categoryUuid;
 }
