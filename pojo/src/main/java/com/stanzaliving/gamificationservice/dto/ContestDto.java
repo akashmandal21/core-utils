@@ -50,4 +50,6 @@ public class ContestDto {
 	private String pair;
 
 	private ContestStatus contestStatus;
+
+	private String profilePhotoUrl;
 }
