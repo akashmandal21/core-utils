@@ -11,15 +11,14 @@ import java.util.List;
 
 /**
  * Note any added/removed key in this DTO should also be added/removed to/from
- * com.stanzaliving.boq_service.dto.PropertyBoqListingByItemRequestFilterDto
+ * com.stanzaliving.boq_service.dto.PropertyBoqListingRequestFilterDto
  */
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PropertyBoqListingRequestFilterDto {
-
+public class PropertyBoqListingByItemRequestFilterDto {
     @Builder.Default
     private int pageNo = 1;
 
@@ -27,10 +26,10 @@ public class PropertyBoqListingRequestFilterDto {
     private int pageSize = 10000;
 
     @Builder.Default
-    private String sortBy = "UpdatedOn";
+    private String sortBy = "ItemCode";
 
     @Builder.Default
-    private String sortOrder = "desc";
+    private String sortOrder = "asc";
 
     private List<LabelValueDto<BoqType>> boqType;
 
