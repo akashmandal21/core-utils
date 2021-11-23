@@ -24,7 +24,7 @@ public class CommercialsResponseDtoV2 {
     private int contractId;
     private String stayLockInPeriod;
     private String contractEndDate;
-    private MonthlyFeeDto monthlyFee;
+    private MonthlyFeeDtoV2 monthlyFee;
     private Double securityDeposit;
     private Double maintenanceFee;
     private Integer advanceMonths;
