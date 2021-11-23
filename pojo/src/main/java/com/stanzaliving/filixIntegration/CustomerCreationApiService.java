@@ -8,7 +8,6 @@ import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
 import com.stanzaliving.core.user.enums.Gender;
 import com.stanzaliving.filixIntegration.Dto.*;
-import com.stanzaliving.filixIntegration.Enum.DocumentUploadType;
 import com.stanzaliving.filixIntegration.Enum.EventType;
 import com.stanzaliving.filixIntegration.Enum.OracleServiceOwner;
 import org.apache.commons.lang3.StringUtils;

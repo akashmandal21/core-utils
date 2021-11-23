@@ -8,8 +8,6 @@ import com.stanzaliving.core.kafka.dto.KafkaDTO;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
 import com.stanzaliving.core.payment.enums.PaymentMode;
 import com.stanzaliving.filixIntegration.Dto.AbstractOracleDto;
-import com.stanzaliving.filixIntegration.Dto.CustomerApiDto;
-import com.stanzaliving.filixIntegration.Dto.FilixTransactionDto;
 import com.stanzaliving.filixIntegration.Enum.EventType;
 import com.stanzaliving.filixIntegration.Enum.OracleServiceOwner;
 import lombok.extern.log4j.Log4j2;
