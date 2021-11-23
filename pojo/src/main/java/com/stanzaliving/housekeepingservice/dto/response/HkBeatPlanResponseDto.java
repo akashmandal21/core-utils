@@ -24,6 +24,8 @@ public class HkBeatPlanResponseDto {
     private LocalDate startDate;
     private LocalDate endDate;
     private String city;
+    private String beatPlanUuid;
+    private boolean draft;
     private String microClusterUuid;
     private List<HkBeatDaysResponseDto> hkDetails;
 }
