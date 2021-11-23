@@ -33,6 +33,8 @@ public class TeamsResponseDto {
 
     private int noOfMembers;
 
+    private List<String> clusterMemberNames;
+
     private String uploadedFrontFileUrl;
 
     private String uploadedBackgroundFileUrl;
