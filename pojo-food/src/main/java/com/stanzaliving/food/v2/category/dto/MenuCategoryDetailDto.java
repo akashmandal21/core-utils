@@ -53,6 +53,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private List<ListingDto> demographicTags;
 	private boolean costUpdated;
 	private boolean publishable;
+	private boolean customMapApplicable;
 
 	// derived information
 	private int totalMealInWeek;
