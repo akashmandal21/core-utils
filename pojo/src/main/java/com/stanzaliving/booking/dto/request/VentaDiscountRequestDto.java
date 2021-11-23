@@ -26,6 +26,5 @@ public class VentaDiscountRequestDto {
 	@Builder.Default
 	private Boolean ventaFlow = Boolean.FALSE;
 	private String discountUuid;
-
 	private BookingSubType bookingSubType;
 }

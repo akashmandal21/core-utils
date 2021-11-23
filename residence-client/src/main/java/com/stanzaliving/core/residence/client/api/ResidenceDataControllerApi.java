@@ -1,6 +1,7 @@
 package com.stanzaliving.core.residence.client.api;
 
 import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
+import com.stanzaliving.booking.dto.response.ServiceMixResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -1343,6 +1345,27 @@ public class ResidenceDataControllerApi {
         } catch (Exception ex) {
             log.error(ex);
             log.error("Exception while getting room inventories for residenceUuid {} based on movein-in date {}", residenceUuid, moveInDate);
+        }
+        return null;
+    }
+
+    public ResponseDto<ServiceMixResponse> getInventoryServiceMix(String inventoryUUid, String moveInDate) {
+        Map<String, Object> uriVariables = new HashMap();
+        uriVariables.put("inventoryUUid", inventoryUUid);
+        uriVariables.put("moveInDate", moveInDate);
+        String path = UriComponentsBuilder.fromPath("/internal/current-service-mix/inventory/{inventoryUUid}/moveInDate/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference returnType = new ParameterizedTypeReference<ResponseDto<ServiceMixResponse>>() {
+        };
+        try {
+            return (ResponseDto<ServiceMixResponse>) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception ex) {
+            log.error(ex);
+            log.error("Exception while getting room inventories service mix for  inventoryUUid {} based on movein-in date {}", inventoryUUid, moveInDate);
         }
         return null;
     }
