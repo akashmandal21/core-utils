@@ -89,6 +89,8 @@ public class NewLedgerLineItemResponseDto implements Comparable {
         String INSTALMENT = "Instalment ";
         String SECURITY_DEPOSIT_REVERSAL = "Security deposit reversal";
         String AMOUNT_REFUNDED = "Amount Refunded";
+        String WRITE_OFF = "Write Off";
+
     }
 
     public interface TRANSACTION_TYPE {
