@@ -126,7 +126,7 @@ public class InvoiceServiceApi {
         }
     }
 
-    public ResponseDto<DocumentResponseDto> createDocument(DocumentRequestDto documentRequestDto,String token) {
+    public ResponseDto<DocumentResponseDto> createDocument(DocumentRequestDto documentRequestDto) {
 
         Object postBody = null;
 
@@ -134,13 +134,11 @@ public class InvoiceServiceApi {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/invoice/create").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/invoice/create").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
         final HttpHeaders headerParams = new HttpHeaders();
-        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
         final String[] accepts = {"*/*"};
 
@@ -153,7 +151,7 @@ public class InvoiceServiceApi {
         try {
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
-            throw new StanzaException("error while creating the invoice/credit-note {}", e);
+            throw new StanzaException("error while creating the invoice/credit-note. Error is "+ e.getMessage());
         }
 
     }
