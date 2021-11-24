@@ -1,6 +1,7 @@
 package com.stanzaliving.core.invoice_client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -125,7 +126,7 @@ public class InvoiceServiceApi {
         }
     }
 
-    public ResponseDto<DocumentResponseDto> createDocument(DocumentRequestDto documentRequestDto) {
+    public ResponseDto<DocumentResponseDto> createDocument(DocumentRequestDto documentRequestDto,String token) {
 
         Object postBody = null;
 
@@ -137,7 +138,9 @@ public class InvoiceServiceApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        HttpHeaders headerParams = new HttpHeaders();
+        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+        final HttpHeaders headerParams = new HttpHeaders();
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
         final String[] accepts = {"*/*"};
 
