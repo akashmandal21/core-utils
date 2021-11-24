@@ -2,6 +2,7 @@ package com.stanzaliving.projectplanningservice.dto.request;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.generictaskservice.dto.DelayDto;
+import com.stanzaliving.projectplanningservice.enums.PlanningStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,4 +39,6 @@ public class SectionStatusRequestDto {
     private Department department;
 
     private String propertyUuid;
+
+    private PlanningStatus planningStatus;
 }
