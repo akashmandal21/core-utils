@@ -54,6 +54,8 @@ public class NewLedgerLineItemResponseDto implements Comparable {
 
     private List<NewLedgerLineItemResponseSummaryDto> summaryData;
 
+    private List<CreditNoteInfoDto> creditNoteInfo;
+
     @Override
     public int compareTo(Object o) {
 
