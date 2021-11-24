@@ -42,7 +42,7 @@ public class RedisLockServiceImpl implements RedisLockService {
 			return;
 		}
 
-		log.info("Releasing lock for: {}", rLock.getName());
+		//log.info("Releasing lock for: {}", rLock.getName());
 		rLock.unlock();
 	}
 
