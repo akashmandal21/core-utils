@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -64,4 +65,22 @@ public class PropertyPlanningDto extends AbstractDto {
     private Integer duration;
 
     private Integer durationUnit;
+
+    private Double residenceLatitude;
+
+    private Double residenceLongitude;
+
+    private String residenceName;
+
+    private String residenceStatus;
+
+    private String residenceBrandName;
+
+    private String residenceSubBrandName;
+
+    private String residenceThumbnailUrl;
+
+    private Date llHODate;
+
+    private Date opsHODate;
 }
