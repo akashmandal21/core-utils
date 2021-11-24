@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -14,6 +15,8 @@ import java.util.Set;
 @Builder
 public class ConsumableFiltersDto {
     private Set<LabelValueDto<String>> categories;
+
+    private List<String> excludingKeys;
 
     private String uniqueKey;
 }
