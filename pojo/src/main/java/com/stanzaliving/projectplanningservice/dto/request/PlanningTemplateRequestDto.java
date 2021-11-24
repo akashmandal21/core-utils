@@ -24,13 +24,13 @@ import java.util.List;
 @SuperBuilder
 public class PlanningTemplateRequestDto {
 
-    @Size(max = 100, message = "Max allowed characters up to 100")
-    @NotBlank(message = "Project Plan name is required")
+    @Size(min = 3, max = 100, message = "Characters should be minimum from 3 to maximum 100")
+    @NotBlank(message = "Template name is required")
     private String templateName;
 
     @Size(max = 100, message = "Max allowed characters up to 100")
     private String description;
-    
+
     @NotNull
     private PlanningStatus planningStatus;
 
