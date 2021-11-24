@@ -35,4 +35,5 @@ public class TaskCategoryFilterDto {
 
     private TaskCategorySortSpecs sortSpecs;
     private SortDirection sortDirection ;
+    private String uuid;
 }
