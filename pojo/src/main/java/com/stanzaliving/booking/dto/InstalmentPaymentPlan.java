@@ -31,4 +31,6 @@ public class InstalmentPaymentPlan {
 	private String executionDate;
 
 	private List<PaymentPlanLineItemResponse> lineItems;
+
+	private String invoiceUuid;
 }

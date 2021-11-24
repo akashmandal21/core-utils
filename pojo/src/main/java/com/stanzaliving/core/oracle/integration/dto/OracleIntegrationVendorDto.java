@@ -1,7 +1,6 @@
 package com.stanzaliving.core.oracle.integration.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.vendor.enums.VendorType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +10,6 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.List;
 
 @Setter
@@ -71,7 +69,7 @@ public class OracleIntegrationVendorDto extends AbstractOracleDto {
     private VendorType vendorType; //set
 
     @JsonProperty("creatorDepartment")
-    private Department creatorDepartment;  //set
+    private String creatorDepartment;  //set
 
     @JsonProperty("addressbook")
     private OracleVendorAddressBookDto addressbook;  //set
@@ -121,7 +119,7 @@ public class OracleIntegrationVendorDto extends AbstractOracleDto {
 
     @NotNull
     @JsonProperty("datecreated")
-    private Date datecreated;  //set
+    private String datecreated;  //set
 
     @JsonProperty("accountnumber")
     private String accountnumber;
@@ -186,8 +184,8 @@ public class OracleIntegrationVendorDto extends AbstractOracleDto {
     @JsonProperty("receiptquantitydiff")
     private String receiptquantitydiff;
 
-    @JsonProperty("taxregistrations")
-    private OracleVendorTaxRegistrationDto taxregistrations;  //set
+    @JsonProperty("taxregistration")
+    private OracleVendorTaxRegistrationDto taxregistration;  //set
 
     @JsonProperty("financialHealth")
     private List<OracleFinancialHealthDto> financialHealth;  //set
@@ -201,7 +199,7 @@ public class OracleIntegrationVendorDto extends AbstractOracleDto {
     @JsonProperty("GSTCertificates")
     private List<OracleGSTCertificatesDto> GSTCertificates;
 
-    @JsonProperty("taxregistration")
-    private String taxregistration;
+    /*@JsonProperty("taxregistration")
+    private String taxregistration;*/
 
 }
