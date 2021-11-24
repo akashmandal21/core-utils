@@ -28,4 +28,7 @@ public class TicketDetailsDto {
 
     private TeamDto teamDto;
 
+    @Builder.Default
+    private boolean canEdit = false;
+
 }
