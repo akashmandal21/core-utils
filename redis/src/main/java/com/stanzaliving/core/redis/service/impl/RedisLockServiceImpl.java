@@ -21,7 +21,7 @@ public class RedisLockServiceImpl implements RedisLockService {
 	@Override
 	public RLock acquire(String lockName) {
 
-		log.info("Acquiring Lock for [{}]", lockName);
+	//	log.info("Acquiring Lock for [{}]", lockName);
 
 		return redissonClient.getLock(lockName);
 	}
