@@ -52,7 +52,8 @@ public enum DateFormat {
     E_MMM_DD_HH_MM_SS_Z_YYYY("E MMM dd HH:mm:ss Z yyyy"),
     DATE_TIME_TIME_SSS_ZONE("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"),
     FILIX_ORACLE_FORMAT("dd/MM/YYYY"),
-    ZOHO_DATE_COMMENT_FORMAT("dd MMM, yyyy (HH:mm)");
+    ZOHO_DATE_COMMENT_FORMAT("dd MMM, yyyy (HH:mm)"),
+    YYYY_SLASH_MM_SLASH_DD("yyyy/MM/dd");
 
     private String value;
 
