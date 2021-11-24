@@ -1,19 +1,8 @@
-package com.stanzaliving.generictaskservice.controller;
+package com.stanzaliving.housekeepingservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
-import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
-import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
-import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
-import com.stanzaliving.housekeepingservice.enums.HKPlanningTemplateStatus;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Getter
