@@ -5,6 +5,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
 import com.stanzaliving.core.ventaaggregationservice.dto.*;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -204,32 +205,33 @@ public class VentaAggregationServiceApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-	public List<MoveInDetailDataDto> getMoveInDetailData(String date, String residenceUuid) {
+    public List<MoveInDetailDataDto> getMoveInDetailData(String date, String residenceUuid) {
 
-		Object postBody = null;
+        Object postBody = null;
 
-		final Map<String, Object> uriVariables = new HashMap<>();
+        final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/booking/move-in-detail-data").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/booking/move-in-detail-data").buildAndExpand(uriVariables).toUriString();
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("Date", date);
-		if (StringUtils.isNotBlank(residenceUuid)) {
-			queryParams.add("residenceUuid", residenceUuid);
-		}
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("Date", date);
+        if (StringUtils.isNotBlank(residenceUuid)) {
+            queryParams.add("residenceUuid", residenceUuid);
+        }
 
-		final HttpHeaders headerParams = new HttpHeaders();
+        final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<List<MoveInDetailDataDto>> returnType = new ParameterizedTypeReference<List<MoveInDetailDataDto>>() {
-		};
+        ParameterizedTypeReference<List<MoveInDetailDataDto>> returnType = new ParameterizedTypeReference<List<MoveInDetailDataDto>>() {
+        };
 
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-	}
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
     public List<String> getBookingUuidByResidentId(String residentId) {
         log.info("Resident Details Controller::Processing to get booking uuids on basis of residentId {}", residentId);
 
@@ -243,4 +245,15 @@ public class VentaAggregationServiceApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<String>> returnType = new ParameterizedTypeReference<List<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 }
