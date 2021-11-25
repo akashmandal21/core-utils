@@ -31,7 +31,7 @@ public class RazorPayXControllerApi {
         this.restClient = restClient;
     }
 
-    public ResponseDto<List<String>> getResponseFromRazorpayX(RazorPayXDto razorPayXDto) {
+    public ResponseDto<HashMap<String,List<String>>> getResponseFromRazorpayX(RazorPayXDto razorPayXDto) {
         if (Objects.isNull(razorPayXDto)) {
             throw new IllegalArgumentException("Required payload is missing");
         }
@@ -53,7 +53,7 @@ public class RazorPayXControllerApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        TypeReference<ResponseDto<List<String>>> returnType = new TypeReference<ResponseDto<List<String>>>() {
+        TypeReference<ResponseDto<HashMap<String,List<String>>>> returnType = new TypeReference<ResponseDto<HashMap<String,List<String>>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
