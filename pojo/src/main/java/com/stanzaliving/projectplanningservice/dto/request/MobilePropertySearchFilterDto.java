@@ -20,7 +20,7 @@ import java.util.List;
 @SuperBuilder
 public class MobilePropertySearchFilterDto {
 
-    private List<PlanningStatus> planningStatusList;
+    private List<String> residenceStatus;
 
     private Date startDate;
 
@@ -30,9 +30,9 @@ public class MobilePropertySearchFilterDto {
 
     private List<String> cityList;
 
-    private List<String> propertyBrand;
+    private List<String> propertyBrands;
 
-    private List<String> propertyType;
+    private List<String> propertyTypes;
 
     private String orderByColumnName;
 
