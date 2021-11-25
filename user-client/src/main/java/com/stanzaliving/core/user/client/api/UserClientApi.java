@@ -678,6 +678,13 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		}
+		catch (Exception ex) {
+			log.error("Error occurred while fetching user details from email ",ex);
+			return null;
+		}
 	}
 }
