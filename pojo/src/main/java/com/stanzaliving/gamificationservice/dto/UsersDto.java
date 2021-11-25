@@ -25,4 +25,6 @@ public class UsersDto {
 	private String lastName;
 
 	private LocalDate dateOfJoining;
+
+	private String emailId;
 }
