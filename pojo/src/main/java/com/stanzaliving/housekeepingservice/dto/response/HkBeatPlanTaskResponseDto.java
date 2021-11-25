@@ -1,10 +1,14 @@
 package com.stanzaliving.housekeepingservice.dto.response;
 
+import com.stanzaliving.generictaskservice.dto.ResidenceDto;
+import com.stanzaliving.generictaskservice.dto.StatusDto;
+import com.stanzaliving.generictaskservice.dto.TaskCategoryDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author Vikas S T
@@ -32,6 +36,11 @@ public class HkBeatPlanTaskResponseDto {
     private LocalDateTime startDate;
     private LocalDateTime dueDate;
     private HkBeatPlanTaskStatusResponseDto status;
-
+    private TaskCategoryDto taskCategoryDto;
+    private TaskCategoryDto taskSubCategoryDto;
+    private StatusDto taskStatusDto;
+    private StatusDto taskSubStatusDto;
+    private List<ResidenceDto> residenceDtos;
+    private HkPseudoPersonResponseDto pseudoPerson;
 
 }

@@ -23,7 +23,7 @@ public class UpdateAreaRoomRequestDto {
     @NotBlank(message = "Area room uuid is Mandatory.")
     private String areaRoomUuid;
 
-    @Min(value = 1, message = "Room size must be greater zero Zero")
+    @Min(value = 1, message = "Room size must be greater Zero")
     private int roomSizeInSqFt;
 
     @Min(value = 1, message = "Cleaning time min must be greater than zero")
