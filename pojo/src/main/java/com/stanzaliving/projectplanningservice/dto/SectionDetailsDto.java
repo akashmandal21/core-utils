@@ -64,7 +64,7 @@ public class SectionDetailsDto extends AbstractDto {
     /*
      Upcoming tasks
      */
-    private List<String> successorTasks;
+    private List<SuccessorTaskDto> successorTasksDtoResponseList;
 
     protected Date createdAt;
 
@@ -100,7 +100,7 @@ public class SectionDetailsDto extends AbstractDto {
     @Size(max = 6, message = "Max allowed characters up to 6")
     private String module;
 
-    @Size(max = 80, message = "Max allowed characters up to 80")
+    @Size(min =3, max = 80, message = "Max allowed characters up to 80")
     @NotBlank(message = "Task Name cannot be empty")
     private String taskName;
 
