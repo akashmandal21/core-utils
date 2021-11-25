@@ -3,15 +3,13 @@ package com.stanzaliving.core.food.dto.response;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serializable;
-
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class IngredientPriceDto implements Serializable {
+public class IngredientPriceDto {
 	private String ingredientId;
 	private String cityId;
 	private String vendorId;
