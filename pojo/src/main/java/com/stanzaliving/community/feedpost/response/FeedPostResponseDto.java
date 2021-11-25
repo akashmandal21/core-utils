@@ -27,6 +27,8 @@ public class FeedPostResponseDto extends AbstractDto {
 	private EnumListing<EventStatus> postStatusDto;
 	
     private String title;
+    
+    private String postId;
 
 	private String description;
 
