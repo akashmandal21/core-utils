@@ -3,6 +3,7 @@ package com.stanzaliving.housekeepingservice.dto.response;
 import com.stanzaliving.generictaskservice.dto.ResidenceDto;
 import com.stanzaliving.generictaskservice.dto.StatusDto;
 import com.stanzaliving.generictaskservice.dto.TaskCategoryDto;
+import com.stanzaliving.generictaskservice.dto.response.TagsGenericResponseDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -42,5 +43,6 @@ public class HkBeatPlanTaskResponseDto {
     private StatusDto taskSubStatusDto;
     private List<ResidenceDto> residenceDtos;
     private HkPseudoPersonResponseDto pseudoPerson;
+    private List<TagsGenericResponseDto> tags;
 
 }
