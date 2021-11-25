@@ -1,10 +1,10 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.lang3.StringUtils;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
+import com.stanzaliving.core.ventaaggregationservice.dto.*;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -13,203 +13,196 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
-import com.stanzaliving.core.ventaaggregationservice.dto.BookingAggregationDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.BookingFilterRequestDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.BookingResidenceAggregationEntityDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.MoveInDetailDataDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceAggregationEntityDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceFilterRequestDto;
-
-import lombok.extern.log4j.Log4j2;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Log4j2
 public class VentaAggregationServiceApi {
 
-	private StanzaRestClient restClient;
 
-	public VentaAggregationServiceApi(StanzaRestClient stanzaRestClient) {
-		this.restClient = stanzaRestClient;
-	}
+    private StanzaRestClient restClient;
 
-	/**
-	 * This method is used to fetch ResidenceAggregation Data from Venta-Aggregation-Service
-	 *
-	 * @param residenceUuid->Unique
-	 *            ID corresponding to residence
-	 * @return Aggregated Residence data on aggregation service
-	 */
-	public ResponseDto<ResidenceAggregationEntityDto> getAggregatedResidenceInformation(String residenceUuid) {
-		log.info("Aggregation Residence Controller::Processing to get residence information on basis of residenceUuid {}", residenceUuid);
-		Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("residenceUuid", residenceUuid);
+    public VentaAggregationServiceApi(StanzaRestClient stanzaRestClient) {
+        this.restClient = stanzaRestClient;
+    }
 
-		String path = UriComponentsBuilder.fromPath("/internal/residence/{residenceUuid}")
-				.buildAndExpand(uriVariables).toUriString();
+    /**
+     * This method is used to fetch ResidenceAggregation Data from Venta-Aggregation-Service
+     *
+     * @param residenceUuid->Unique ID corresponding to residence
+     * @return Aggregated Residence data on aggregation service
+     */
+    public ResponseDto<ResidenceAggregationEntityDto> getAggregatedResidenceInformation(String residenceUuid) {
+        log.info("Aggregation Residence Controller::Processing to get residence information on basis of residenceUuid {}", residenceUuid);
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("residenceUuid", residenceUuid);
 
-		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		HttpHeaders headerParams = new HttpHeaders();
-		String[] accepts = new String[] { "*/*" };
-		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        String path = UriComponentsBuilder.fromPath("/internal/residence/{residenceUuid}")
+                .buildAndExpand(uriVariables).toUriString();
 
-		ParameterizedTypeReference<ResponseDto<ResidenceAggregationEntityDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceAggregationEntityDto>>() {
-		};
-		try {
-			log.info("Executing Api for getting residence Info with Url {}", path);
-			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("Exception while fetching residence information based on residenceUUID {}, Exception is ", residenceUuid, e);
-		}
-		return null;
-	}
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-	public ResponseDto<RestResponsePage<BookingResidenceAggregationEntityDto>> getResidenceListing(ResidenceFilterRequestDto residenceFilterRequestDto) {
-		log.info("Aggregation Residence Controller::Processing to get residence listing based on residence filter request dto {}", residenceFilterRequestDto);
+        ParameterizedTypeReference<ResponseDto<ResidenceAggregationEntityDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceAggregationEntityDto>>() {
+        };
+        try {
+            log.info("Executing Api for getting residence Info with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching residence information based on residenceUUID {}, Exception is ", residenceUuid, e);
+        }
+        return null;
+    }
 
-		Object postBody = residenceFilterRequestDto;
+    public ResponseDto<RestResponsePage<BookingResidenceAggregationEntityDto>> getResidenceListing(ResidenceFilterRequestDto residenceFilterRequestDto) {
+        log.info("Aggregation Residence Controller::Processing to get residence listing based on residence filter request dto {}", residenceFilterRequestDto);
 
-		final Map<String, Object> uriVariables = new HashMap<>();
+        Object postBody = residenceFilterRequestDto;
 
-		String path = UriComponentsBuilder.fromPath("/internal/residence/listing").buildAndExpand(uriVariables).toUriString();
+        final Map<String, Object> uriVariables = new HashMap<>();
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/residence/listing").buildAndExpand(uriVariables).toUriString();
 
-		final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        final HttpHeaders headerParams = new HttpHeaders();
 
-		ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingResidenceAggregationEntityDto>>> returnType =
-				new ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingResidenceAggregationEntityDto>>>() {
-				};
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-	}
+        ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingResidenceAggregationEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingResidenceAggregationEntityDto>>>() {
+        };
 
-	public ResponseDto<RestResponsePage<BookingAggregationDto>> getBookingAggregationListing(BookingFilterRequestDto bookingFilterRequestDto) {
-		log.info("Aggregation Booking Controller getBookingAggregationListing with payload {}", bookingFilterRequestDto.toString());
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
 
-		Object postBody = bookingFilterRequestDto;
+    public ResponseDto<RestResponsePage<BookingAggregationDto>> getBookingAggregationListing(BookingFilterRequestDto bookingFilterRequestDto) {
+        log.info("Aggregation Booking Controller getBookingAggregationListing with payload {}", bookingFilterRequestDto.toString());
 
-		final Map<String, Object> uriVariables = new HashMap<>();
+        Object postBody = bookingFilterRequestDto;
 
-		String path = UriComponentsBuilder.fromPath("/booking/listing").buildAndExpand(uriVariables).toUriString();
+        final Map<String, Object> uriVariables = new HashMap<>();
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        String path = UriComponentsBuilder.fromPath("/booking/listing").buildAndExpand(uriVariables).toUriString();
 
-		final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        final HttpHeaders headerParams = new HttpHeaders();
 
-		ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationDto>>>() {
-		};
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-	}
+        ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationDto>>>() {
+        };
 
-	public ResponseDto<List<BookingAggregationDto>> getActiveBookings() {
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
 
-		Object postBody = null;
 
-		// create path and map variables
-		final Map<String, Object> uriVariables = new HashMap<>();
+    public ResponseDto<List<BookingAggregationDto>> getActiveBookings() {
 
-		String path = UriComponentsBuilder.fromPath("/booking/v1/active").buildAndExpand(uriVariables).toUriString();
+        Object postBody = null;
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
 
-		final HttpHeaders headerParams = new HttpHeaders();
+        String path = UriComponentsBuilder.fromPath("/booking/v1/active").buildAndExpand(uriVariables).toUriString();
 
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>>() {
-		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-	}
+        final HttpHeaders headerParams = new HttpHeaders();
 
-	public Map<String, Object> getBookingDetails(String bookingUuid) {
-		log.info("Aggregation Booking Details Controller::Processing to get booking information on basis of bookingUuid {}", bookingUuid);
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		Object postBody = null;
+        ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 
-		// create path and map variables
-		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("bookingUuid", bookingUuid);
+    public Map<String, Object> getBookingDetails(String bookingUuid) {
+        log.info("Aggregation Booking Details Controller::Processing to get booking information on basis of bookingUuid {}", bookingUuid);
 
-		String path = UriComponentsBuilder.fromPath("/internal/data/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+        Object postBody = null;
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
 
-		final HttpHeaders headerParams = new HttpHeaders();
+        String path = UriComponentsBuilder.fromPath("/internal/data/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		ParameterizedTypeReference<Map<String, Object>> returnType = new ParameterizedTypeReference<Map<String, Object>>() {
-		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-	}
+        final HttpHeaders headerParams = new HttpHeaders();
 
-	public ResponseDto<BookingAggregationDto> getBookingDetailsByBookingUuid(String bookingUuid) {
-		log.info("Aggregation Booking Details Controller::Processing to get booking on basis of bookingUuid {}", bookingUuid);
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		Object postBody = null;
+        ParameterizedTypeReference<Map<String, Object>> returnType = new ParameterizedTypeReference<Map<String, Object>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 
-		// create path and map variables
-		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("booking-uuid", bookingUuid);
+    public ResponseDto<BookingAggregationDto> getBookingDetailsByBookingUuid(String bookingUuid) {
+        log.info("Aggregation Booking Details Controller::Processing to get booking on basis of bookingUuid {}", bookingUuid);
 
-		String path = UriComponentsBuilder.fromPath("/internal/booking/{booking-uuid}/details").buildAndExpand(uriVariables).toUriString();
+        Object postBody = null;
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("booking-uuid", bookingUuid);
 
-		final HttpHeaders headerParams = new HttpHeaders();
+        String path = UriComponentsBuilder.fromPath("/internal/booking/{booking-uuid}/details").buildAndExpand(uriVariables).toUriString();
 
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		ParameterizedTypeReference<ResponseDto<BookingAggregationDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingAggregationDto>>() {
-		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-	}
+        final HttpHeaders headerParams = new HttpHeaders();
 
-	public ResponseDto<String> updateResidencePricingAndBedInformation() {
-		log.info("Residence Internal Controller::Processing to update residence pricing and bed info");
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		Object postBody = null;
+        ParameterizedTypeReference<ResponseDto<BookingAggregationDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingAggregationDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 
-		// create path and map variables
-		final Map<String, Object> uriVariables = new HashMap<>();
+    public ResponseDto<String> updateResidencePricingAndBedInformation() {
+        log.info("Residence Internal Controller::Processing to update residence pricing and bed info");
 
-		String path = UriComponentsBuilder.fromPath("/internal/residence/update-price-bed-cache").buildAndExpand(uriVariables).toUriString();
+        Object postBody = null;
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
 
-		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        String path = UriComponentsBuilder.fromPath("/internal/residence/update-price-bed-cache").buildAndExpand(uriVariables).toUriString();
 
-		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-		};
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-	}
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
 
 	public List<MoveInDetailDataDto> getMoveInDetailData(String date, String residenceUuid) {
 
@@ -237,5 +230,17 @@ public class VentaAggregationServiceApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+    public List<String> getBookingUuidByResidentId(String residentId) {
+        log.info("Resident Details Controller::Processing to get booking uuids on basis of residentId {}", residentId);
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("residentId", residentId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/resident/data/{residentId}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 }
