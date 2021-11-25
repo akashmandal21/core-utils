@@ -17,28 +17,28 @@ import java.util.Objects;
 @Service
 @Lazy(false)
 public class CustomerApiConsumer<T> extends BaseConsumer<T> {
-    @Autowired
-    AsyncCustomerApi asyncCustomerApi;
-    @Autowired
-    private ObjectMapper objectMapper;
-    @KafkaListener(topics = { "new_lead_notify_V2" }, idIsGroup = false, id = "filix-consumer-group", autoStartup = "${kafka.consumer.autostart}")
-    public void receive(ConsumerRecords<String, String> records) {
-        if (records != null && !records.isEmpty()) {
-            log.info("Filix Records:: Received: {} record(s) to process", records.count());
-            try {
-                for (ConsumerRecord<String, String> record : records) {
-                    log.info("FilixConsumer:: Received Payload= {}", record);
-                    KafkaDTO kafkaDTO=objectMapper.readValue(record.value(),KafkaDTO.class);
-                    log.info("FilixConsumer::  Record: {} ",kafkaDTO);
-                    if(Objects.nonNull(kafkaDTO)){
-                        asyncCustomerApi.produceKafkaPacketForApi(kafkaDTO);
-
-                    }
-
-                }
-            } catch (Exception e) {
-                log.error("FilixConsumer:: Error while Processing Kafka Dto : ", e);
-            }
-        }
-    }
+//    @Autowired
+//    AsyncCustomerApi asyncCustomerApi;
+//    @Autowired
+//    private ObjectMapper objectMapper;
+//    @KafkaListener(topics = { "new_lead_notify_V2" }, idIsGroup = false, id = "filix-consumer-group", autoStartup = "${kafka.consumer.autostart}")
+//    public void receive(ConsumerRecords<String, String> records) {
+//        if (records != null && !records.isEmpty()) {
+//            log.info("Filix Records:: Received: {} record(s) to process", records.count());
+//            try {
+//                for (ConsumerRecord<String, String> record : records) {
+//                    log.info("FilixConsumer:: Received Payload= {}", record);
+//                    KafkaDTO kafkaDTO=objectMapper.readValue(record.value(),KafkaDTO.class);
+//                    log.info("FilixConsumer::  Record: {} ",kafkaDTO);
+//                    if(Objects.nonNull(kafkaDTO)){
+//                        asyncCustomerApi.produceKafkaPacketForApi(kafkaDTO);
+//
+//                    }
+//
+//                }
+//            } catch (Exception e) {
+//                log.error("FilixConsumer:: Error while Processing Kafka Dto : ", e);
+//            }
+//        }
+//    }
 }
