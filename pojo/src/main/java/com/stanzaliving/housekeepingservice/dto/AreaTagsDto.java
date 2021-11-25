@@ -1,5 +1,6 @@
 package com.stanzaliving.housekeepingservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.user.dto.UserProfileDto;
 import com.stanzaliving.housekeepingservice.enums.AreaTagStatus;
@@ -19,6 +20,7 @@ import javax.validation.constraints.NotBlank;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class AreaTagsDto extends AbstractDto {
 
     @NotBlank(message = "Area tags name is Mandatory.")

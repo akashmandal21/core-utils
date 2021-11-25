@@ -72,8 +72,6 @@ public class AreaRoomDto {
 
     private AreaTagsDto areaTag;
 
-    private AreaCategoryDto areaCategory;
-
     private boolean roomUpdated;
 
     private int availableBeds;

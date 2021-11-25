@@ -35,6 +35,4 @@ public class AreaCommonDto{
 
     private AreaTagsDto areaTagsDto;
 
-    private AreaCategoryDto areaCategory;
-
 }
