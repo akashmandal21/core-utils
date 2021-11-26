@@ -78,6 +78,8 @@ public class SectionDetailsDto extends AbstractDto {
 
     private String parentTemplateUuid;
 
+    private String parentUuid;
+
     private boolean taskTemplate;
 
     /*
