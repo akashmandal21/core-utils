@@ -215,6 +215,27 @@ public class GenericTaskControllerApi {
 
     }
 
+    public ResponseDto<GenericTaskResponseDto> getGenericTaskByUuid(String taskId) {
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("taskId",taskId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/"+taskId).buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<GenericTaskResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<GenericTaskResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
     public ResponseDto<List<GenericTaskResponseDto>> getGenericTaskDto(List<String> taskIds) {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
