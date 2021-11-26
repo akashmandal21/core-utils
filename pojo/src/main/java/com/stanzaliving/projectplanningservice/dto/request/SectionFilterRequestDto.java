@@ -23,8 +23,16 @@ import java.util.List;
 @SuperBuilder
 public class SectionFilterRequestDto {
 
+    /*
+    While clearing the filters to get the state back use this
+     */
     @NotBlank(message = "Template ID is required")
     private String templateUuid;
+
+    /*
+    For deciding whether filter is applied or not for BE
+     */
+    private boolean clearFilterFlag;
 
     private Duration durationUnit;
 
