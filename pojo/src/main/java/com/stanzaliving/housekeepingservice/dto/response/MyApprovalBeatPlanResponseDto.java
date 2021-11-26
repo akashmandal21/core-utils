@@ -29,5 +29,6 @@ public class MyApprovalBeatPlanResponseDto extends AbstractDto {
     private LocalDate endDate;
     private String cityUuid;
     private String cityName;
+    private boolean draft;
     private HkBeatPlanStatus hkBeatPlanStatus;
 }
