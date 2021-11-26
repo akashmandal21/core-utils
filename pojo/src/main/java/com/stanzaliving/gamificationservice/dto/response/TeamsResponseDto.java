@@ -39,4 +39,6 @@ public class TeamsResponseDto {
 
     private String uploadedBackgroundFileUrl;
 
+    private String url;
+
 }
