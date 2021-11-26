@@ -26,6 +26,7 @@ public class SlotFilterDto {
     private String slotName;
     private SlotType slotType;
     private Boolean overLap;
+    private Boolean status;
     private Boolean movable;
     private Boolean reschedule;
     private String minSlotDuration;
