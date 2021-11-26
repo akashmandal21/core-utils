@@ -3,8 +3,6 @@ package com.stanzaliving.housekeepingservice.dto;
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import lombok.*;
 
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -22,7 +20,7 @@ public class AreaRoomFilterDto {
 
     private PaginationRequest pageRequest;
 
-    private List<String> areaTagUuids;
+    private String areaTagUuid;
 
     private String categoryUuid;
 }
