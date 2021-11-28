@@ -442,7 +442,7 @@ public class VendorClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<Map<String, VendorManagedBy>> getVendorManagedByForInternalWarehouse() {
+    public ResponseDto<Map<String, VendorManagedBy>> getVendorManagedByForInternalWarehouse(List<String> vendorUuidList) {
 
         log.info("HTTP Client call to get vendor managedBy for internal warehouse type");
 
@@ -459,7 +459,7 @@ public class VendorClientApi {
 
         String path = UriComponentsBuilder.fromPath("/internal/managed-by/internal-warehouse").toUriString();
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, vendorUuidList, headerParams, accept, returnType);
     }
 
 }
