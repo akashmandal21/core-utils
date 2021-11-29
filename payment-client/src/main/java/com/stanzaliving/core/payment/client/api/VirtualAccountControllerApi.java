@@ -59,9 +59,10 @@ public class VirtualAccountControllerApi {
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
+            //https://payment.stanzaliving.com/paymentService/virtualAccount/create
             String path = UriComponentsBuilder.fromPath("/virtualAccount/create").buildAndExpand(uriVariables)
                     .toUriString();
-
+            log.info("Creating Virtual Account for Resident path is {}", path);
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
             HttpHeaders headerParams = new HttpHeaders();
@@ -75,7 +76,8 @@ public class VirtualAccountControllerApi {
 
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Error while creating virtual account for resident with id:{} with message:{}",virtualAccountDto.getResidentId(), e.getMessage());
+            e.printStackTrace();
+            log.error("Error while creating virtual account for resident with id:{} with message",virtualAccountDto.getResidentId(), e);
         }
 
         return null;
