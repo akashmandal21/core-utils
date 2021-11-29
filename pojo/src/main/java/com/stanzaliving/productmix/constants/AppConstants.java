@@ -55,8 +55,8 @@ public final class AppConstants {
     public static final String COMMENTS_SERVICE_NAME_ROOM_TEMPLATE = "ROOM_TEMPLATE";
 
     public static final List<String> PROPERTY_TEMPLATE_REJECT_REASONS = new ArrayList<String>() {{
-        add("Strategic Location (College Perspective");
-        add("Strategic Location (Hotspot Perspective");
+        add("Strategic Location (College Perspective)");
+        add("Strategic Location (Hotspot Perspective)");
         add("Brand New Property");
         add("Well Ventilated Rooms");
         add("Running Hostel With Full Occupancy");
@@ -65,8 +65,8 @@ public final class AppConstants {
     }};
 
     public static final List<String> ROOM_TEMPLATE_REJECT_REASONS = new ArrayList<String>() {{
-        add("Strategic Location (College Perspective");
-        add("Strategic Location (Hotspot Perspective");
+        add("Strategic Location (College Perspective)");
+        add("Strategic Location (Hotspot Perspective)");
         add("Brand New Property");
         add("Well Ventilated Rooms");
         add("Running Hostel With Full Occupancy");
@@ -75,8 +75,8 @@ public final class AppConstants {
     }};
 
     public static final List<String> PRODUCT_MIX_REJECT_REASONS = new ArrayList<String>() {{
-        add("Strategic Location (College Perspective");
-        add("Strategic Location (Hotspot Perspective");
+        add("Strategic Location (College Perspective)");
+        add("Strategic Location (Hotspot Perspective)");
         add("Brand New Property");
         add("Well Ventilated Rooms");
         add("Running Hostel With Full Occupancy");
