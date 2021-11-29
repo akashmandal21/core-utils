@@ -50,9 +50,9 @@ public final class AppConstants {
 
     public static final String COMMENTS_SERVICE_NAME_PRODUCT_MIX = "productmix";
 
-    public static final String COMMENTS_SERVICE_NAME_PROPERTY_TEMPLATE = "ROOM_TEMPLATE";
+    public static final String COMMENTS_SERVICE_NAME_PROPERTY_TEMPLATE = "PROPERTY_TEMPLATE";
 
-    public static final String COMMENTS_SERVICE_NAME_ROOM_TEMPLATE = "PROPERTY_TEMPLATE";
+    public static final String COMMENTS_SERVICE_NAME_ROOM_TEMPLATE = "ROOM_TEMPLATE";
 
     public static final List<String> PROPERTY_TEMPLATE_REJECT_REASONS = new ArrayList<String>() {{
         add("Strategic Location (College Perspective");
