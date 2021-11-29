@@ -12,6 +12,7 @@ public enum MicroClusterSortSpecs {
     CITY("cityName"),
     CITYUUID("cityUuid"),
     STATUS("microClusterStatus"),
+    MICROMARKET("micromarketUuids"),
     CREATEDBY("createdBy"),
     UPDATEDAT("updatedAt");
 
