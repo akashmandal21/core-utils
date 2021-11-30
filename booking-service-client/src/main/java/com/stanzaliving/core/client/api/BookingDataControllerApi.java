@@ -609,7 +609,6 @@ public class BookingDataControllerApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
     
-    
     public List<BookingDetailDto> getBookingDetailsForResident(String residentId) {
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("residentId", residentId);

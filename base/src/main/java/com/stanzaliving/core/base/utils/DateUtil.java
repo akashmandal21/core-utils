@@ -44,6 +44,11 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @UtilityClass
 public class DateUtil {
+	
+    public final String DATETIME_WITH_AM_PM = "dd MMM, yyyy hh:mm:ss a";
+    public final String DD_MMM_YYYY_FORMAT = "dd-MMM-yyyy";
+    public final String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
+    public final String yyyy_MM_dd_FORMAT = "yyyy-MM-dd";
 
     public final String DATETIME_WITH_AM_PM = "dd MMM, yyyy hh:mm:ss a";
     public final String DD_MMM_YYYY_FORMAT = "dd-MMM-yyyy";
