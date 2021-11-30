@@ -52,7 +52,7 @@ public class SlotDetailsResponse extends AbstractDto {
 
     private String entityType;
 
-    private List<GenericTaskResponseDto> tasks = new ArrayList<>();
+    private List<GenericTaskBeatPlanResponseDto> tasks = new ArrayList<>();
 
     private LocalTime startTime;
 
