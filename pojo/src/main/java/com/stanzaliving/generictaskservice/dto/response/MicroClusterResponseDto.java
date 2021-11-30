@@ -1,11 +1,12 @@
 package com.stanzaliving.generictaskservice.dto.response;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.generictaskservice.dto.ResidenceDto;
+import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import com.stanzaliving.transformations.pojo.ResidenceUIDto;
+
 import java.util.List;
-import com.stanzaliving.generictaskservice.dto.ResidenceDto;
 
 @Getter
 @Setter
@@ -23,9 +24,9 @@ public class MicroClusterResponseDto extends AbstractDto {
 
     private String cityName;
 
-    private List<String> microMarketUuids;
+    private String microMarketUuid;
 
-    private List<String> microMarketNames;
+    private String microMarketName;
 
     private List<String> residenceIds;
 
