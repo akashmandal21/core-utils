@@ -24,6 +24,9 @@ import static com.google.common.base.Preconditions.checkArgument;
 @UtilityClass
 public class DateUtil {
 
+    // added for booking service dto validation
+    public final String yyyy_MM_dd_FORMAT = "yyyy-MM-dd";
+
     public String formatIst(Date date, String format) {
         return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
     }
