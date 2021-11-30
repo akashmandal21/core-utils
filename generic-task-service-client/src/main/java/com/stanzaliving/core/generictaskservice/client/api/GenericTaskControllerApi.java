@@ -592,4 +592,50 @@ public class GenericTaskControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
     }
+
+    public ResponseDto<List<String>> remindNotStartedTaskAsPerPlannedStartDate(ProjectPlanningTaskNotStartedJobDto projectPlanningTaskNotStartedJobDto) {
+        Object getBody = projectPlanningTaskNotStartedJobDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/forNotStartedStatus").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<StatusDto> getStatusBasedOnNameDeptModule(TaskStatusRequestDto taskStatusRequestDto) {
+        Object getBody = taskStatusRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/forStatusNameDeptModule").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<StatusDto>> returnType = new ParameterizedTypeReference<ResponseDto<StatusDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
 }
