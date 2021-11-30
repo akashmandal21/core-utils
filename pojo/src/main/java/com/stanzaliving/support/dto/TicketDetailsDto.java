@@ -37,4 +37,7 @@ public class TicketDetailsDto {
 
     private RoomDetailsDto roomDetailsDto;
 
+    @Builder.Default
+    private boolean canEdit = false;
+
 }
