@@ -89,4 +89,18 @@ public final class AppConstants {
     public static final String FALSE = "NO";
 
     public static final String BLANK_SPACE = " ";
+
+    public static final String ROOM_TEMPLATE_EDIT_ROLE = "ROOM_TEMPLATE_EDIT";
+
+    public static final String ROOM_TEMPLATE_APPROVE_ROLE = "ROOM_TEMPLATE_APPROVE";
+
+    public static final String PROPERTY_TEMPLATE_EDIT_ROLE = "PROPERTY_TEMPLATE_EDIT";
+
+    public static final String PROPERTY_TEMPLATE_APPROVE_ROLE = "PROPERTY_TEMPLATE_APPROVE";
+
+    public static final String PRODUCT_MIX_EDIT_ROLE = "PRODUCT_MIX_EDIT";
+
+    public static final String PRODUCT_MIX_APPROVE_ROLE = "PRODUCT_MIX_APPROVE";
+
+    public static final String ACCESS_LEVEL_UUID_OF_INDIA = "7d0e47bf-52c0-4560-924e-e6599e56501a";
 }
