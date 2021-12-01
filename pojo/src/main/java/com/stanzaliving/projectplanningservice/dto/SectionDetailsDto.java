@@ -152,4 +152,6 @@ public class SectionDetailsDto extends AbstractDto {
 
     @Valid
     private List<SectionDetailsDto> tasks;
+
+    private String predecessorSuccessorRemapUuid;
 }
