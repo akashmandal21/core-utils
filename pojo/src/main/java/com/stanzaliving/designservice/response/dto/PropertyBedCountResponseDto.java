@@ -18,7 +18,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PropertyBedCountReponseDto {
+public class PropertyBedCountResponseDto {
 
 	private String estateUuid;
 	private Integer noOfRooms;
@@ -34,4 +34,5 @@ public class PropertyBedCountReponseDto {
 	private String designDescription;
 	private Date updatedAt;
 	private String competitorName;
+	private String leasedArea;
 }
