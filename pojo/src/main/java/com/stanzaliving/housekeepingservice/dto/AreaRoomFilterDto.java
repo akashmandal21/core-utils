@@ -22,5 +22,7 @@ public class AreaRoomFilterDto {
 
     private String areaTagUuid;
 
+    private String areaTagName;
+
     private String categoryUuid;
 }
