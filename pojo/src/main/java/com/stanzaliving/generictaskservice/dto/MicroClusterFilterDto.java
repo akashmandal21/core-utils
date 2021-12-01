@@ -1,9 +1,11 @@
 package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.generictaskservice.enums.MicroClusterSortSpecs;
+import com.stanzaliving.generictaskservice.enums.SortDirection;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import com.stanzaliving.generictaskservice.enums.*;
+
 import java.util.List;
 
 @Getter
@@ -26,7 +28,9 @@ public class MicroClusterFilterDto {
 
     protected List<String> residenceIds;
 
-    protected List<String> microMarketUuids;
+    protected String microMarketUuid;
+
+    protected String microMarketName;
 
     private PaginationRequest pageRequest;
 
