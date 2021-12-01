@@ -35,6 +35,8 @@ public class UpdateTeamsRequestDto {
 
     private String clusterManager;
 
-    private int noOfMembers;
+    private Integer noOfMembers;
+
+    private List<String> clusterMemberNames = new ArrayList<>();
 
 }
