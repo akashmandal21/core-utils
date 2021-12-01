@@ -24,6 +24,8 @@ public class AreaCommonFilterDto {
 
     private String areaTagUuid;
 
+    private String areaTagName;
+
     private String residenceUuid;
 
     private String categoryUuid;
