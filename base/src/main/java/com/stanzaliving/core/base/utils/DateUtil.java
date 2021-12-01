@@ -24,6 +24,9 @@ import static com.google.common.base.Preconditions.checkArgument;
 @UtilityClass
 public class DateUtil {
 
+    // added for booking service dto validation
+    public final String yyyy_MM_dd_FORMAT = "yyyy-MM-dd";
+
     public String formatIst(Date date, String format) {
         return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
     }
@@ -66,6 +69,10 @@ public class DateUtil {
         }
 
         return null;
+    }
+
+    public static String convertDateToString(Date date, SimpleDateFormat sdf) {
+        return sdf.format(date);
     }
 
     public String customTimeFormatter(LocalTime timeInput, DateFormat dateFormat) {
@@ -1099,6 +1106,11 @@ public class DateUtil {
                 (day == 30 && evenMonth.contains(month))) return true;
         return false;
     }
+
+    public static Boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
+		LocalDate localDate = getLocalDate(date);
+		return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
+	}
 
     public static List<LocalDate> getCalendarMonthOfYear(Integer month,Integer year) {
 
