@@ -64,6 +64,7 @@ public class TicketDto {
     private String roomNumber;
     private String mobile;
     private Date createdAt;
+    private String createdBy;
     private String complaintGroupImage;
     private TicketChipColorDto ticketChipColorDto;
     private List<TicketDto> subTickets;
