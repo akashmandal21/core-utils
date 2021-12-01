@@ -23,7 +23,7 @@ public class UsersProfileDto {
 
 	private String userId;
 
-	private List<String> activeContest = new ArrayList<>();
+	private List<String> activeContestList = new ArrayList<>();
 
-	private List<String> badges = new ArrayList<>();
+	private List<String> badgesList = new ArrayList<>();
 }
