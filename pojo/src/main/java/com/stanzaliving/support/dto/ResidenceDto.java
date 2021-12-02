@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResidenceDto {
-    private String residenceName;
+    private String name;
 
     private Long id;
 
@@ -18,5 +18,5 @@ public class ResidenceDto {
 
     private String cityUuid;
 
-    private int faqCount;
+    private boolean faqApproved;
 }

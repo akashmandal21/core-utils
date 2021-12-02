@@ -555,6 +555,7 @@ public class UserClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		}
 		catch (Exception ex) {
+			log.error("Error occurred while fetching user details from mobile number ",ex);
 			return null;
 		}
 	}

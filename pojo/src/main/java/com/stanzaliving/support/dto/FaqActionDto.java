@@ -1,6 +1,6 @@
 package com.stanzaliving.support.dto;
 
-import com.stanzaliving.support.enums.FaqStatus;
+import com.stanzaliving.support.enums.TemplateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class FaqActionDto {
     private String level;
+    private TemplateStatus templateStatus;
     private Date actionAt;
     private String actionBy;
 }

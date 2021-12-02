@@ -39,6 +39,8 @@ public class TicketCardDto {
     private TicketChipColorDto ticketChipColorDto;
     private String expandableBarColor;
     private String designation;
+    private Date resolvedAt;
+    private Date closedAt;
 
 
 }

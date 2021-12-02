@@ -1,5 +1,8 @@
 package com.stanzaliving.support.dto;
 
+import com.stanzaliving.core.bookingservice.dto.response.BookingDurationResponseDto;
+import com.stanzaliving.core.bookingservice.dto.response.RoomDetailsDto;
+import com.stanzaliving.core.bookingservice.dto.response.UserDetailResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,5 +30,14 @@ public class TicketDetailsDto {
     private TicketCardDto ticketCardDtoList;
 
     private TeamDto teamDto;
+
+    private UserDetailResponseDto userDetailResponseDto;
+
+    private BookingDurationResponseDto bookingDurationResponseDto;
+
+    private RoomDetailsDto roomDetailsDto;
+
+    @Builder.Default
+    private boolean canEdit = false;
 
 }

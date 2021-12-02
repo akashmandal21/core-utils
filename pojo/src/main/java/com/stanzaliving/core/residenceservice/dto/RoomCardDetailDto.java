@@ -25,4 +25,7 @@ public class RoomCardDetailDto implements Serializable {
     Integer occupiedRooms;
     Float occupiedBeds;
     List<OccupancyBlendedPriceDto> blendedPriceByOccupancy;
+    Float blockedBeds;
+    Integer blockedRoom;
+
 }

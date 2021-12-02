@@ -19,4 +19,7 @@ public class TicketConversationRequestDto {
 
     @NotNull(message = "Make the message public or private")
     private Boolean isPrivate;
+
+    @Builder.Default
+    private boolean fromSupport = false;
 }
