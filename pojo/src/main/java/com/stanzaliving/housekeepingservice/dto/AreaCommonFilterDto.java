@@ -6,6 +6,8 @@ import com.stanzaliving.housekeepingservice.enums.AreaCommonSortSpecs;
 import com.stanzaliving.item_master.enums.SortDirection;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -29,4 +31,8 @@ public class AreaCommonFilterDto {
     private String residenceUuid;
 
     private String categoryUuid;
+
+    private List<String> areaTagUuids;
+
+
 }
