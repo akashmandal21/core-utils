@@ -31,4 +31,6 @@ public class FoodInfoPageResponse {
 	@Default
 	private Boolean isVegOnly=true;
 	
+	@Default
+	private Boolean preferencesAllowed = false;
 }
