@@ -37,8 +37,6 @@ public class PropertyTemplateDto {
 
     private LabelValueDto<TemplateStatus> templateStatus;
 
-//    private Boolean isReset;
-
     private Boolean isActive;
 
     private String backgroundColor;
