@@ -39,6 +39,7 @@ public class BookingStatusResponseDto {
     private String androidVersion;
     private String appleVersion;
     private String userCategory;
+    private String userUuid;
     private boolean wp;
     private String displayMessage;
     private String roomNumber;
