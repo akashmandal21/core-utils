@@ -55,32 +55,27 @@ public final class AppConstants {
     public static final String COMMENTS_SERVICE_NAME_ROOM_TEMPLATE = "ROOM_TEMPLATE";
 
     public static final List<String> PROPERTY_TEMPLATE_REJECT_REASONS = new ArrayList<String>() {{
-        add("Strategic Location (College Perspective)");
-        add("Strategic Location (Hotspot Perspective)");
-        add("Brand New Property");
-        add("Well Ventilated Rooms");
-        add("Running Hostel With Full Occupancy");
-        add("Main Road Frontage");
+        add("Property zone(s) selected wrongly");
+        add("Property attribute(s) selected wrongly");
+        add("Correction(s) needed in the basic info for the property template");
+        add("Template already exists for the property type & brand");
         add("Other");
     }};
 
     public static final List<String> ROOM_TEMPLATE_REJECT_REASONS = new ArrayList<String>() {{
-        add("Strategic Location (College Perspective)");
-        add("Strategic Location (Hotspot Perspective)");
-        add("Brand New Property");
-        add("Well Ventilated Rooms");
-        add("Running Hostel With Full Occupancy");
-        add("Main Road Frontage");
+        add("Room feature(s) selected wrongly");
+        add("Room consumable(s) selected wrongly");
+        add("Correction(s) needed in the basic info for the room template");
+        add("Template already exists for the property type & brand");
+        add("Qty wrongly entered for room consumables");
         add("Other");
     }};
 
     public static final List<String> PRODUCT_MIX_REJECT_REASONS = new ArrayList<String>() {{
-        add("Strategic Location (College Perspective)");
-        add("Strategic Location (Hotspot Perspective)");
-        add("Brand New Property");
-        add("Well Ventilated Rooms");
-        add("Running Hostel With Full Occupancy");
-        add("Main Road Frontage");
+        add("Wrong choice of room template for one or more room(s)");
+        add("Property template chosen needs to be changed");
+        add("Number of rooms entered wrongly");
+        add("Product mix for this property already exists");
         add("Other");
     }};
 
