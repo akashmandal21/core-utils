@@ -29,11 +29,9 @@ public class ProductMixDetails {
     @NotBlank(message = "Product mix name cannot be blank")
     private String productMixName;
 
-    @NotNull(message = "Applicable duration cannot be null")
-    @Valid
     private ApplicableDurationDto applicableDuration;
 
-    private int noOfRooms; //todo: validation
+    private int noOfRooms;
 
     private List<String> uploadCsv;
 
