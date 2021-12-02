@@ -33,5 +33,6 @@ public class GrsiEventUpdateDto {
     private GrsiItemDto gsriItem;
     private String adjustCloseId;
     private Integer version;
+    private String gsriPlatform;
 
 }
