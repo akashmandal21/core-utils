@@ -34,5 +34,5 @@ public class PropertyBedCountResponseDto {
 	private String designDescription;
 	private Date updatedAt;
 	private String competitorName;
-	private String leasedArea;
+	private int leasedArea;
 }
