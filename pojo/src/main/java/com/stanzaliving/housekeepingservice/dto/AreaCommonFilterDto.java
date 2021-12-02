@@ -32,4 +32,7 @@ public class AreaCommonFilterDto {
 
     private String categoryUuid;
 
+    private List<String> areaTagUuids;
+
+
 }
