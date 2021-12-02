@@ -83,4 +83,6 @@ public class PropertyPlanningDto extends AbstractDto {
     private Date llHODate;
 
     private Date opsHODate;
+
+    private Integer hiddenTasksCount;
 }

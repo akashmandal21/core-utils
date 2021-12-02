@@ -154,4 +154,6 @@ public class SectionDetailsDto extends AbstractDto {
     private List<SectionDetailsDto> tasks;
 
     private String predecessorSuccessorRemapUuid;
+
+    private boolean hiddenFlag;
 }

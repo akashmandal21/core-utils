@@ -82,4 +82,6 @@ public class SectionDetailsStatusUpdateRequestDto {
     private Date actualStartDate;
 
     private Date actualDueDate;
+
+    private boolean hiddenFlag;
 }

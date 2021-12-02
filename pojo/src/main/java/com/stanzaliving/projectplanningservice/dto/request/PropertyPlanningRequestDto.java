@@ -62,6 +62,5 @@ public class PropertyPlanningRequestDto {
     @Required(message = "Planning status is required")
     private PlanningStatus planningStatus;
 
-
-
+    private Integer hiddenTasksCount;
 }
