@@ -27,6 +27,9 @@ public class MicroClusterRequestDto{
     @NotNull(message = "Micromarket name Cannot be blank")
     private String microMarketName;
 
+    @NotNull(message = "Property type Cannot be blank")
+    private String propertyType;
+
     @NotBlank(message = "CityUuid Cannot be blank")
     private String cityUuid;
 }

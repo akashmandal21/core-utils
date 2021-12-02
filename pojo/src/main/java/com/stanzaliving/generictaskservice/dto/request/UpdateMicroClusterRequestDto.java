@@ -29,4 +29,6 @@ public class UpdateMicroClusterRequestDto {
 
     private String microMarketUuid;
 
+    private String propertyType;
+
 }

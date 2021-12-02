@@ -24,6 +24,8 @@ public class MicroClusterFilterDto {
 
     protected String cityUuid;
 
+    protected String propertyType;
+
     protected Boolean microClusterStatus;
 
     protected List<String> residenceIds;

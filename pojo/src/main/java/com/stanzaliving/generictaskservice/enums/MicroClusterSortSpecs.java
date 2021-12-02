@@ -15,7 +15,8 @@ public enum MicroClusterSortSpecs {
     MICROMARKETUUID("micromarketUuid"),
     MICROMARKETNAME("micromarketName"),
     CREATEDBY("createdBy"),
-    UPDATEDAT("updatedAt");
+    UPDATEDAT("updatedAt"),
+    PROPERTY_TYPE("propertyType");
 
     private String dbKey;
 
