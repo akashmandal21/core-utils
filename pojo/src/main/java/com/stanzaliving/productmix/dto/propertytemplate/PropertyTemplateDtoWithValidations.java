@@ -26,14 +26,13 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class PropertyTemplateDtoWithValidations {
-//    @NotBlank(message = "Template uuid should not be blank")
     private String uuid;
 
     @NotBlank(message = "Template name should not be blank")
     @Size(max = 255, message = "Size of template name exceeds size limit of 255 characters")
     private String templateName;
 
-    @Valid
+//    @Valid
     private ApplicableDurationDto applicableDuration;
 
     @Valid
@@ -47,9 +46,6 @@ public class PropertyTemplateDtoWithValidations {
 
     @Valid
     private LabelValueDto<TemplateStatus> templateStatus;
-
-//    @NotNull(message = "Reset status cannot be null")
-//    private Boolean isReset;
 
     private Boolean isActive;
 
