@@ -130,6 +130,17 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static Set<String> invoicingStatusAllowedForResident(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        return bookingStatus;
+    }
+
     public static List<String> agreementSignedStatus() {
         List<String> bookingStatus = new ArrayList<>();
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
