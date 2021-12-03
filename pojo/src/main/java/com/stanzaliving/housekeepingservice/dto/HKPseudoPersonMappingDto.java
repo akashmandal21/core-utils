@@ -12,9 +12,9 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class HKPseudoPersonMappingDto extends AbstractDto {
 
-    private String hkPseudoPersonId;
+    private String hkPseudoPersonUuid;
 
-    private String residenceId;
+    private String residenceUuid;
 
-    private String microclusterId;
+    private String microclusterUuid;
 }
