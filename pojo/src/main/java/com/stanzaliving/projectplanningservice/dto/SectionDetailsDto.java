@@ -102,7 +102,7 @@ public class SectionDetailsDto extends AbstractDto {
     @Size(max = 6, message = "Max allowed characters up to 6")
     private String module;
 
-    @Size(min =3, max = 80, message = "Max allowed characters up to 80")
+    @Size(min = 3, max = 80, message = "Max allowed characters between 3 and 80")
     @NotBlank(message = "Task Name cannot be empty")
     private String taskName;
 
@@ -150,10 +150,11 @@ public class SectionDetailsDto extends AbstractDto {
 
     private DelayDto delayDto;
 
-    @Valid
-    private List<SectionDetailsDto> tasks;
-
     private String predecessorSuccessorRemapUuid;
 
     private boolean hiddenFlag;
+
+    @Valid
+    private List<SectionDetailsDto> tasks;
+
 }
