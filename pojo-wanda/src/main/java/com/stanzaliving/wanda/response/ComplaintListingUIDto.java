@@ -1,7 +1,13 @@
 package com.stanzaliving.wanda.response;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.util.Date;
 
 @Getter
 @Setter
@@ -9,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ComplaintListingUIDtoV2 {
+public class ComplaintListingUIDto {
 
 	private String userId;
 
