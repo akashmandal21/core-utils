@@ -33,6 +33,8 @@ public class AreaCommonDto{
     @NotBlank(message = "Area tag uuid is mandatory")
     private String areaTagUuid;
 
+    private String areaTagName;
+
     private AreaTagsDto areaTagsDto;
 
 }

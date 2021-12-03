@@ -30,6 +30,8 @@ public class AreaRoomResponseDto extends AbstractDto {
 
     private String areaTagUuid;
 
+    private String areaTagName;
+
     private boolean attachedWashroom;
 
     private int bathRoomSizeInSqFt;
