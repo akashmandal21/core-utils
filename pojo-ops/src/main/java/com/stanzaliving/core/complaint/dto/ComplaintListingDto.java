@@ -1,49 +1,44 @@
-package com.stanzaliving.wanda.response;
+/**
+ * @author nipunaggarwal
+ *
+ */
+package com.stanzaliving.core.complaint.dto;
+
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.util.Date;
-
+/**
+ * @author nipunaggarwal
+ *
+ */
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ComplaintListingUIDtoV1 {
+public class ComplaintListingDto {
 
 	private String userId;
-
 	private String userName;
-
 	private String mobileNo;
-
 	private String roomNo;
-
 	private String complaintUuid;
-
 	private String complaintCategory;
-
 	private String complaintStatus;
-
-	private String createdAt;
-
-	private String closedAt;
-
-	private String backgroundText;
-
-	private String backgroundColor;
-	
+	private Date created;
+	private Date closedAt;
+	@Builder.Default
+	private Boolean satisfied = Boolean.FALSE;
 	private String complaintTypeName;
-	
 	private String complaintTypeImgUrl;
-	
-	private Long cmsId;
+	private String cmsId;
 
-	private Boolean satisfied;
 }
