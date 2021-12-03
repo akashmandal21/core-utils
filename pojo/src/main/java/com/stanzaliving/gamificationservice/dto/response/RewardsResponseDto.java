@@ -1,5 +1,6 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.gamificationservice.dto.BadgesDto;
 import com.stanzaliving.gamificationservice.dto.ContestDto;
 import lombok.*;
@@ -14,6 +15,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class RewardsResponseDto {
     private String uuid;
 
