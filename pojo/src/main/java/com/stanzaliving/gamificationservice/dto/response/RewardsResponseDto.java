@@ -1,7 +1,11 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
+import com.stanzaliving.gamificationservice.dto.BadgesDto;
+import com.stanzaliving.gamificationservice.dto.ContestDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 
 @Getter
@@ -24,4 +28,8 @@ public class RewardsResponseDto {
     private int bonusPoints;
 
     private int pointsScored;
+
+    private List<BadgesDto> badgesDtoList;
+
+    private List<ContestDto> contestDtoList;
 }
