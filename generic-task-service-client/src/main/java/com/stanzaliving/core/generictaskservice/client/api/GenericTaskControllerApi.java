@@ -401,6 +401,30 @@ public class GenericTaskControllerApi {
 
     }
 
+    public ResponseDto<List<GenericTaskResponseDto>> hardDeleteAllTasksByUuids(TaskRequestDto taskRequestDto) {
+        Object getBody = taskRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/hard/delete/ids").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+
+    }
+
     public ResponseDto<PageResponse<GenericTaskResponseDto>> getBySectionFilterRequestInputsWithPagination(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
         Object getBody = taskSearchFilterRequestDto;
 
