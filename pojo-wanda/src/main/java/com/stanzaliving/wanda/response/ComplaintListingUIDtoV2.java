@@ -22,6 +22,8 @@ public class ComplaintListingUIDtoV2 {
 	private String complaintUuid;
 
 	private String complaintCategory;
+	
+	private String complaintSubCategoryName;
 
 	private String complaintStatus;
 
