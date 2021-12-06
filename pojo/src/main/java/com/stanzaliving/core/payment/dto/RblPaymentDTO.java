@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RBLTransactionDto {
+public class RblPaymentDTO {
     private String serviceName;
     private String action;
 
@@ -20,7 +20,7 @@ public class RBLTransactionDto {
     @Valid
     private RBLDataDTO data;
 
-    private String oldSystemBookingUUid;
+    private Integer oldSystemBookingUUid;
 
     private boolean isInventoryTransaction;
 
