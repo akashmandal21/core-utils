@@ -25,8 +25,8 @@ public enum AlfredStep {
 	HOMESCREEN(9, Arrays.asList("REFUND INITIATED","ONBOARDING COMPLETED","VERIFICATION PENDING")),
 	SECOND_AGREEMENT(10,Arrays.asList("SUBCONTRACT 2 AGREEMENT SENT")),
 	RETENTION_BOOKING(11,Arrays.asList("RETENTION BOOKING")),
-	CONTRACT_MODIFICATION_PENDING(12,Arrays.asList("CONTRACT MODIFICATION PENDING"));
-	
+	CONTRACT_MODIFICATION_PENDING(12,Arrays.asList("CONTRACT MODIFICATION PENDING")),
+	SELFIE(13,Arrays.asList("SELFIE"));
 	private Integer sequenceId;
 	private List<String> bookingStatuses;
 
@@ -44,6 +44,7 @@ public enum AlfredStep {
 		bookingSubStatusMap.put(HOMESCREEN, Arrays.asList("PENDING KYC VERIFICATION"));
 		bookingSubStatusMap.put(KYC, Arrays.asList("PENDING KYC SUBMISSION"));
 		bookingSubStatusMap.put(CONTRACT_MODIFICATION_PENDING, Arrays.asList("CONTRACT MODIFICATION PENDING"));
+		bookingSubStatusMap.put(SELFIE, Arrays.asList("SELFIE"));
 	}
 	
 	static {
