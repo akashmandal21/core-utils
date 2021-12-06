@@ -23,6 +23,9 @@ public class FreshdeskUpdateDto {
 
 	private String newComplaintSubcategory;
 
+	private String complaintType;
+
+
 	private String description;
 
 	private String cityName;
@@ -114,5 +117,8 @@ public class FreshdeskUpdateDto {
 	private String requesterMobileNo;
 
 	private String userType;
+
+	private boolean fromSupport;
+
 
 }

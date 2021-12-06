@@ -100,6 +100,30 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public List<BookingDetailDto> getBookingDetailsForResident(String residentId) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("residentId", residentId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/booking-detail/resident/{residentId}")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<BookingDetailDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingDetailDto>>>() {
+        };
+        ResponseDto<List<BookingDetailDto>> response  = null;
+        try {
+            log.info("Executing Api for getting booked inventory with Url {}", path);
+            response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bookin details for resident for residentId {}, Exception is ",residentId , e);
+        }
+        return Objects.nonNull(response) ? response.getData() : new ArrayList<>();
+    }
+
+
 
     public ResponseDto<ExpiredBookingsResponseDto> expireBooking(ExpiredBookingsDto expiredBookingsDto) {
 
@@ -609,28 +633,4 @@ public class BookingDataControllerApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
     
-    public List<BookingDetailDto> getBookingDetailsForResident(String residentId) {
-        Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("residentId", residentId);
-
-        String path = UriComponentsBuilder.fromPath("/internal/booking-detail/resident/{residentId}")
-                .buildAndExpand(uriVariables).toUriString();
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        HttpHeaders headerParams = new HttpHeaders();
-        String[] accepts = new String[]{"*/*"};
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<List<BookingDetailDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingDetailDto>>>() {
-        };
-        ResponseDto<List<BookingDetailDto>> response  = null;
-        try {
-            log.info("Executing Api for getting booked inventory with Url {}", path);
-            response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Exception while fetching bookin details for resident for residentId {}, Exception is ",residentId , e);
-        }
-        return Objects.nonNull(response) ? response.getData() : new ArrayList<>();
-    }
-    
-
 }

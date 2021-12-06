@@ -52,7 +52,7 @@ public class ComplaintMetaDataDto extends AbstractDto {
 	private String lastName;
 	private String userType;
 	private Boolean satisfied;
-
+	private String sigmaSupportTicketId;
 	private EnumComplaintStatus complaintStatus;
 
 	@NotBlank(message = "Complaint Category is Mandatory")

@@ -31,6 +31,12 @@ public enum Role {
 	COUNTRY_APARTMENT_LEAD_MANAGER("COUNTRY_APARTMENT_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES),
 	
 
+    /*******************************Support service - Template Management*******************************/
+    SUPPORT_TEMPLATE_APPROVAL_L1("SUPPORT_TEMPLATE_APPROVAL_L1", AccessLevel.COUNTRY, Department.CX),
+    SUPPORT_TEMPLATE_APPROVAL_L2("SUPPORT_TEMPLATE_APPROVAL_L2", AccessLevel.COUNTRY, Department.CX),
+    SUPPORT_TEMPLATE_APPROVAL_L3("SUPPORT_TEMPLATE_APPROVAL_L3", AccessLevel.COUNTRY, Department.CX),
+    SUPPORT_TEMPLATE_APPROVAL_L4("SUPPORT_TEMPLATE_APPROVAL_L4", AccessLevel.COUNTRY, Department.CX),
+    SUPPORT_TEMPLATE_APPROVAL_L5("SUPPORT_TEMPLATE_APPROVAL_L5", AccessLevel.COUNTRY, Department.CX),
 
     /************************************ OPS ************************************/
     RC("Resident Captain", AccessLevel.RESIDENCE, Department.OPS),
@@ -71,6 +77,7 @@ public enum Role {
     WEEKLY_MENU_L2_APPROVER("Country - Weekly Menu Approval L1", AccessLevel.COUNTRY, Department.FOOD_OPS),
     WEEKLY_MENU_L3_APPROVER("Country - Weekly Menu Approval L2", AccessLevel.COUNTRY, Department.FOOD_OPS),
     WEEKLY_MENU_L4_APPROVER("Weekly Menu Vendor Approval", AccessLevel.FOOD_VENDOR, Department.FOOD_OPS),
+
     WEEKLY_MENU_L5_APPROVER("Country - Weekly Menu Approval L3", AccessLevel.COUNTRY, Department.FOOD_OPS),
 
 
