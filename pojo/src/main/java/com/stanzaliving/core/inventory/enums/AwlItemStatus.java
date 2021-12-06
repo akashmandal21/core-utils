@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum ItemStatus {
+public enum AwlItemStatus {
 
     OK("okQuantity"),
     PD("pieceDamage"),

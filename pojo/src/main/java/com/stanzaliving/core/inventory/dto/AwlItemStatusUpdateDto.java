@@ -1,6 +1,6 @@
 package com.stanzaliving.core.inventory.dto;
 
-import com.stanzaliving.core.inventory.enums.ItemStatus;
+import com.stanzaliving.core.inventory.enums.AwlItemStatus;
 import lombok.*;
 
 import javax.validation.constraints.DecimalMin;
@@ -34,8 +34,8 @@ public class AwlItemStatusUpdateDto {
     private BigDecimal quantity;
 
     @NotBlank(message = "itemStatusFrom cannot be blank")
-    private ItemStatus itemStatusFrom;
+    private AwlItemStatus itemStatusFrom;
 
     @NotBlank(message = "itemStatusTo cannot be blank")
-    private ItemStatus itemStatusTo;
+    private AwlItemStatus itemStatusTo;
 }
