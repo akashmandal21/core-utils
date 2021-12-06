@@ -24,9 +24,10 @@ public class LatestHkBeatPlanResponse {
     private LocalDate startDate;
     private LocalDate endDate;
     private String city;
+    private String microMarketUuid;
+    private String microMarketName;
     private String beatPlanUuid;
     private boolean draft;
     private String microClusterUuid;
     private List<LatestHkBeatPlanDaysResponseDto> hkDetails;
-
 }
