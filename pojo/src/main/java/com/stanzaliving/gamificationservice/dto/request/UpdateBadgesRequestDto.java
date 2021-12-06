@@ -1,7 +1,5 @@
 package com.stanzaliving.gamificationservice.dto.request;
 
-import com.stanzaliving.gamificationservice.enums.BadgeType;
-import com.stanzaliving.gamificationservice.enums.Type;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -22,17 +20,17 @@ public class UpdateBadgesRequestDto {
     )
     private String uuid;
 
-    private String badgeName;
+    private String badgesName;
 
     private String description;
 
-    private Type type;
+    private String type;
 
     private int points;
 
-    private BadgeType badgeType;
+    private String badgeType;
 
     private List<String> contests = new ArrayList<>();
 
-
+    private String profilePhotoUrl;
 }
