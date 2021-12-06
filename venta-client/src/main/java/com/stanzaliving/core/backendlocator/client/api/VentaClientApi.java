@@ -421,5 +421,33 @@ public class VentaClientApi {
 		}
 		return null;
 	}
+//
+//	public String getLeadId(String phoneNumber)  {
+//
+//		log.info("get lead id from is with phone number {}", phoneNumber);
+//
+//		final Map<String, Object> uriVariables = new HashMap<>();
+//		uriVariables.put("phoneNumber", phoneNumber);
+//
+//		String path = UriComponentsBuilder.fromPath("/lead-id/{phoneNumber}")
+//				.build().toUriString();
+//
+//		final HttpHeaders headerParams = new HttpHeaders();
+//
+//		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+//		};
+//
+//		HttpHeaders headerParams = new HttpHeaders();
+//
+//		final String[] accepts = {"*/*"};
+//
+//		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+//		ParameterizedTypeReference<Map<String,String>> returnType =
+//				new ParameterizedTypeReference<Map<String,String>>() {};
+//
+//		return restClient.invokeAPI(
+//				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+//
+//	}
 
 }
