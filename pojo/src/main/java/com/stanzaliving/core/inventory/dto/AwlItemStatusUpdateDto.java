@@ -33,9 +33,7 @@ public class AwlItemStatusUpdateDto {
     @DecimalMin(message = "quantity cannot be less than 1", value = "1.0")
     private BigDecimal quantity;
 
-    @NotBlank(message = "itemStatusFrom cannot be blank")
     private AwlItemStatus itemStatusFrom;
 
-    @NotBlank(message = "itemStatusTo cannot be blank")
     private AwlItemStatus itemStatusTo;
 }
