@@ -2,6 +2,8 @@ package com.stanzaliving.housekeepingservice.dto.request;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -14,5 +16,5 @@ public class SigmaUpdateTaskStatusReason {
 
     private String comment;
 
-    private String taskExecutionUuid;
+    private List<String> taskExecutionUuids;
 }
