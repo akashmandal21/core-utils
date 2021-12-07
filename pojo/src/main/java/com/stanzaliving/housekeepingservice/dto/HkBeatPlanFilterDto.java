@@ -27,7 +27,7 @@ public class HkBeatPlanFilterDto {
     private PaginationRequest pageRequest;
     private String microClusterUuid;
     private List<String> residenceUuids;
-
+    private boolean isApproval;
     //Sort
     private HkBeatPlanSortSpecs sortSpecs;
     private SortDirection sortDirection;
