@@ -186,7 +186,7 @@ public class VentaAggregationServiceApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	public ResponseDto<List<BookingAggregationDto>> findBookingDetailsForResidentAndBookingStatus(String residentId) {
+	public ResponseDto<BookingAggregationDto> findBookingDetailsForResidentAndBookingStatus(String residentId) {
 		Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residentId", residentId);
 
@@ -197,7 +197,7 @@ public class VentaAggregationServiceApi {
 		HttpHeaders headerParams = new HttpHeaders();
 		String[] accepts = new String[]{"*/*"};
 		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-		ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>>() {
+		ParameterizedTypeReference<ResponseDto<BookingAggregationDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingAggregationDto>>() {
 		};
 		try {
 			log.info("Executing Api for getting booked details with Url {}", path);
