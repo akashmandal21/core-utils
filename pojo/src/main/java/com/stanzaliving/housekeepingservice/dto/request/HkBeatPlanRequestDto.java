@@ -31,5 +31,7 @@ public class HkBeatPlanRequestDto {
 
 	private boolean isDraft;
 
+	private boolean callBack;
+
 	private List<HkBeatPersonRequestDto> hkPersons;
 }
