@@ -214,7 +214,7 @@ public class TransactionControllerApi {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("referenceId", leadUuid);
+		uriVariables.put("leadUuid", leadUuid);
 
 		String path = UriComponentsBuilder.fromPath("/internal/prebooking/payment/{leadUuid}")
 				.buildAndExpand(uriVariables).toUriString();
