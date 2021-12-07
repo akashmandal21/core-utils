@@ -28,6 +28,7 @@ public class LatestHkBeatPlanResponse {
     private String microMarketName;
     private String beatPlanUuid;
     private boolean draft;
+    private boolean callBack;
     private String microClusterUuid;
     private List<LatestHkBeatPlanDaysResponseDto> hkDetails;
 }

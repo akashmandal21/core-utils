@@ -26,6 +26,7 @@ public class HkBeatPlanResponseDto {
     private String city;
     private String beatPlanUuid;
     private boolean draft;
+    private boolean callBack;
     private String microClusterUuid;
     private List<HkBeatDaysResponseDto> hkDetails;
 }

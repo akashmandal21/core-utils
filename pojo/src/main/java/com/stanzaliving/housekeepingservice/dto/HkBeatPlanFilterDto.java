@@ -7,6 +7,8 @@ import com.stanzaliving.item_master.enums.SortDirection;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 /**
  * @author Vikas S T
  * @date 13-Nov-21
@@ -23,6 +25,8 @@ public class HkBeatPlanFilterDto {
     private String cityUuid;
     private HkBeatPlanStatus hkBeatPlanStatus;
     private PaginationRequest pageRequest;
+    private String microClusterUuid;
+    private List<String> residenceUuids;
 
     //Sort
     private HkBeatPlanSortSpecs sortSpecs;

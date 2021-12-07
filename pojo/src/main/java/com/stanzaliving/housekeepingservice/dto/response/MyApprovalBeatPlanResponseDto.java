@@ -30,6 +30,7 @@ public class MyApprovalBeatPlanResponseDto extends AbstractDto {
     private String cityUuid;
     private String cityName;
     private boolean draft;
+    private boolean callBack;
     private String microMarketName;
     private String microMarketUuid;
     private HkBeatPlanStatus hkBeatPlanStatus;
