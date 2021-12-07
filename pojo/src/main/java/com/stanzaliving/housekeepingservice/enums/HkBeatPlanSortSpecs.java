@@ -11,7 +11,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum HkBeatPlanSortSpecs {
     START_DATE("startDate"),
-    MICROCLUSTER("microClusterUuid"),
+    MICROCLUSTER("microClusterName"),
     CREATED_BY("createdBy"),
     UPDATED_BY("updatedBy"),
     STATUS("planStatus");
