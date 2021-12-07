@@ -4,7 +4,7 @@ package com.stanzaliving.core.electricity.dto;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.stanzaliving.core.electricity.constants.FAQType;
+import com.stanzaliving.core.electricity.constants.FaqType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,11 +19,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FAQUpdateRequestDto {
+public class FaqAddRequestDto {
 
-	@NotBlank(message = "FaqId cannot be blank")
-	private String faqId;
-	
 	@NotBlank(message = "Question cannot be blank")
 	private String question;
 	
@@ -31,7 +28,7 @@ public class FAQUpdateRequestDto {
 	private String acceptedAnswer;
 	
 	@NotNull(message = "FAQTYPE Cannot be null")
-	private FAQType faqType;
+	private FaqType faqType;
 	
 	private String residenceId;
 

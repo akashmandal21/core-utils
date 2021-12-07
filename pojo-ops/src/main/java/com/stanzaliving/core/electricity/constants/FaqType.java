@@ -11,7 +11,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum FAQType {
+public enum FaqType {
 
     GENERIC("Generic", 1),
     SPECIFIC("Specific", 2);
@@ -19,14 +19,14 @@ public enum FAQType {
     private String faqTypeName;
     private Integer sequence;
 
-    private static List<EnumListing<FAQType>> faqTypes = new ArrayList<>();
+    private static List<EnumListing<FaqType>> faqTypes = new ArrayList<>();
     static {
-        for(FAQType faqtype: FAQType.values()){
+        for(FaqType faqtype: FaqType.values()){
             faqTypes.add(EnumListing.of(faqtype, faqtype.getFaqTypeName()));
         }
     }
 
-    public static  List<EnumListing<FAQType>> getMeterTypes(){
+    public static  List<EnumListing<FaqType>> getMeterTypes(){
         return faqTypes;
     }
 }

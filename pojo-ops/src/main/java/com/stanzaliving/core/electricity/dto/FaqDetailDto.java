@@ -2,7 +2,7 @@ package com.stanzaliving.core.electricity.dto;
 
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.electricity.constants.FAQType;
+import com.stanzaliving.core.electricity.constants.FaqType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FAQDetailDto extends AbstractDto {
+public class FaqDetailDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1540383676240233943L;
 
@@ -25,7 +25,7 @@ public class FAQDetailDto extends AbstractDto {
 	
 	private String acceptedAnswer;
 
-	private FAQType faqType;
+	private FaqType faqType;
 	
 	private String faqTypeName; 
 	
