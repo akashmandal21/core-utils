@@ -186,6 +186,27 @@ public class VentaAggregationServiceApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+	public ResponseDto<List<BookingAggregationDto>> findBookingDetailsForResidentAndBookingStatus(String residentId) {
+		Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residentId", residentId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/booking/details/resident/{residentId}")
+				.buildAndExpand(uriVariables).toUriString();
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[]{"*/*"};
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>>() {
+		};
+		try {
+			log.info("Executing Api for getting booked details with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching booked details for resident id {}, Exception is ", residentId, e);
+		}
+		return null;
+	}
 
 	public ResponseDto<String> updateResidencePricingAndBedInformation() {
 		log.info("Residence Internal Controller::Processing to update residence pricing and bed info");

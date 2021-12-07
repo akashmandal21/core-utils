@@ -20,8 +20,6 @@ public class RblPaymentDTO {
     @Valid
     private RBLDataDTO data;
 
-    private Integer oldSystemBookingUUid;
-
-    private boolean isInventoryTransaction;
+    private boolean studentExistsInNewSystem;
 
 }
