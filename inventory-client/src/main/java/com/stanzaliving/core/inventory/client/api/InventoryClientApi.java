@@ -5,6 +5,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.AddressResponseDTO;
 import com.stanzaliving.core.dto.CityResponseDTO;
 import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
+import com.stanzaliving.core.inventory.dto.AwlItemStatusUpdateDto;
 import com.stanzaliving.core.inventory.dto.InventoryActionRequestDto;
 import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
 import com.stanzaliving.core.inventory.dto.InventoryTOResponse;
@@ -497,4 +498,28 @@ public class InventoryClientApi {
         return restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
+
+	public ResponseDto<String> updateItemStatus(AwlItemStatusUpdateDto awlItemStatusUpdateDto) {
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path =
+				UriComponentsBuilder.fromPath("/internal/item-status")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType =
+				new ParameterizedTypeReference<ResponseDto<String>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, awlItemStatusUpdateDto, headerParams, accept, returnType);
+	}
 }
