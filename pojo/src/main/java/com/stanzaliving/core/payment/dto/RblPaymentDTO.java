@@ -22,4 +22,6 @@ public class RblPaymentDTO {
 
     private boolean studentExistsInNewSystem;
 
+    private Integer oldSystemBookingUUid;
+
 }
