@@ -1,6 +1,8 @@
 package com.stanzaliving.core.electricity.dto;
 
 
+import java.util.Map;
+
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.electricity.constants.MeterType;
 import com.stanzaliving.core.electricity.constants.ReadingUnitType;
@@ -57,6 +59,7 @@ public class ElectricityMeterPrepaidDto extends AbstractDto {
 	private PrepaidMeterConsumptionSummaryDto dailyConsumptionSummaryDto;
 	
 	private PrepaidMeterRechargeSummaryDto rechargeSummaryDto;
-
+	
+	private Map<String, String> tags;
 
 }
