@@ -1,6 +1,8 @@
 
 package com.stanzaliving.vms.request.dto;
 
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
 
 import com.stanzaliving.vms.enums.ServiceType;
@@ -21,11 +23,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class VendorServiceAddRequestDTO {
+public class VendorServiceRequestDTO {
 	
 	@NotBlank(message = "VendorId is mandatory")
 	private String vendorId;
 	
 	@NonNull
-	private ServiceType serviceType;
+	private List<ServiceType> serviceTypeList;
 }

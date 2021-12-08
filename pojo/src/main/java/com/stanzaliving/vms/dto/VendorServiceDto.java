@@ -20,17 +20,12 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class VendorServiceHostelMappingDto extends AbstractDto  {
-	
-	private static final long serialVersionUID = -2433102101907102217L;
+public class VendorServiceDto extends AbstractDto {
 
-	private String vendorServiceId;
-		
-	private String hostelId;
+	private static final long serialVersionUID = -3719192612906788852L;
 
-	private String hostelName;
-	
 	private String vendorId;
-		
+
 	private ServiceType serviceType;
+
 }
