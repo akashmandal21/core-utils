@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.payment.client.dto.LeadPaymentRequestDto;
+import com.stanzaliving.core.payment.client.dto.LeadPaymentResponseDto;
+import com.stanzaliving.venta.BedCountDetailsDto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -180,6 +183,56 @@ public class TransactionControllerApi {
 					returnType);
 		} catch (Exception e) {
 			log.error("Exception while fetching payment Status {} ", referenceId);
+		}
+		return null;
+
+	}
+
+	public List<LeadPaymentResponseDto> updatePrebookingtransactionDetails(LeadPaymentRequestDto leadPaymentRequestDto) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/prebooking/payment/v2").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		postBody = leadPaymentRequestDto;
+		ParameterizedTypeReference<List<LeadPaymentResponseDto>> returnType = new ParameterizedTypeReference<List<LeadPaymentResponseDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public List<LeadPaymentResponseDto> getPrebookingtransactionDetails(String leadUuid) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("leadUuid", leadUuid);
+
+		String path = UriComponentsBuilder.fromPath("/internal/prebooking/payment/{leadUuid}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<LeadPaymentResponseDto>> returnType = new ParameterizedTypeReference<List<LeadPaymentResponseDto>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching payment Status {} ", leadUuid);
 		}
 		return null;
 
