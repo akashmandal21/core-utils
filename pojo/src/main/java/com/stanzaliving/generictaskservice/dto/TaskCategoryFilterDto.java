@@ -1,7 +1,6 @@
 package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
-import com.stanzaliving.generictaskservice.enums.ShiftSortSpecs;
 import com.stanzaliving.generictaskservice.enums.TaskCategorySortSpecs;
 import com.stanzaliving.item_master.enums.SortDirection;
 import lombok.*;
@@ -27,6 +26,9 @@ public class TaskCategoryFilterDto {
     private String taskCategoryName;
     private List<String> tags;
     private PaginationRequest pageRequest;
+
+    private String parentCategoryName;
+    private String parentTaskCategoryUuid;
     //Sort
     private LocalTime startTime;
     private String autoCompletionEvent;
