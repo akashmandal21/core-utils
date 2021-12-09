@@ -6,6 +6,7 @@ import lombok.ToString;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @ToString
@@ -33,4 +34,10 @@ public class CommercialCardRequestDto {
     private String lockInPeriod;
 
     private CommercialCardUserType commercialCardUserType;
+
+    private String serviceMixUuid;
+
+    private String bookingUuid;
+
+    private String moveInDate;
 }

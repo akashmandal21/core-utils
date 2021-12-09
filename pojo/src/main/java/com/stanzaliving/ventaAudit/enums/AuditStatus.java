@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum AuditStatus {
-    IN_DRAFT("In draft"),
+    PENDING("Pending"),
     PENDING_APPROVAL("Pending Approval"),
     APPROVED("Approved"),
     REJECTED("Rejected");

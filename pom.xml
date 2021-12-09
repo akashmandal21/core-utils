@@ -103,6 +103,7 @@
         <module>audit-service-client</module>
         <module>vault-service-client</module>
         <module>venta-notification-client</module>
+        <module>security-service</module>
 	</modules>
 
 	<build>

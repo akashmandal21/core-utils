@@ -130,6 +130,17 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static Set<String> invoicingStatusAllowedForResident(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        return bookingStatus;
+    }
+
     public static List<String> agreementSignedStatus() {
         List<String> bookingStatus = new ArrayList<>();
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
@@ -156,6 +167,8 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
         return bookingStatus;
     }
 
@@ -166,6 +179,8 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
         bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
         return bookingStatus;
     }
 
@@ -175,6 +190,8 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
         bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
         return bookingStatus;
     }
 
@@ -186,6 +203,8 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
         bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
         return bookingStatus;
     }
 
@@ -233,6 +252,30 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static Set<String> notInitiatedExitBookingStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus());
+        return bookingStatus;
+    }
+
+    public static Set<String> exitInitiatedBookingStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(TRESSPASSER.getBookingStatus());
+        bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus());
+        return bookingStatus;
+    }
+
+    public static Set<String> exitProcessBookingStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(CONTRACT_COMPLETED.getBookingStatus());
+        bookingStatus.add(STAY_FORFEITURE.getBookingStatus());
+        bookingStatus.add(TRESSPASSER.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_PAID.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_UNPAID.getBookingStatus());
+        bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());
+        return bookingStatus;
+    }
+
     public static List<String> afterOnBoardingCompleteStatus(){
         List<String> bookingStatus = new ArrayList<>();
         bookingStatus.add(EXPIRED.getBookingStatus());
@@ -251,4 +294,7 @@ public enum BookingStatus {
 
         return bookingStatus;
     }
+
+
+
 }

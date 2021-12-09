@@ -28,5 +28,9 @@ public class CodeListDto {
 
     private boolean isAutoApplicable;
 
+    private Boolean isSecurityDepositManualInput;
+
+    private Double monthlyFeesMultiplier;
+
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
 }
