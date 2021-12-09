@@ -3,10 +3,11 @@ package com.stanzaliving.gamificationservice.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.gamificationservice.enums.ContestStatus;
 import com.stanzaliving.gamificationservice.enums.ContestType;
+import com.stanzaliving.gamificationservice.enums.GamificationDurationEnum;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
+
 
 /**
  * @author Keshav Singh
@@ -52,4 +53,8 @@ public class ContestDto {
 	private ContestStatus contestStatus;
 
 	private String profilePhotoUrl;
+
+	private GamificationDurationEnum durationUnit;
+
+	private boolean recurringContest;
 }
