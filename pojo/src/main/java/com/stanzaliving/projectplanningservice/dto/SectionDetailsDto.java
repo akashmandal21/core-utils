@@ -154,6 +154,8 @@ public class SectionDetailsDto extends AbstractDto {
 
     private boolean hiddenFlag;
 
+    private List<String> commentsUuidList;
+
     @Valid
     private List<SectionDetailsDto> tasks;
 
