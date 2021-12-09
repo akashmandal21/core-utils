@@ -97,9 +97,6 @@ public class GenericTaskControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
-
-
-
     public ResponseDto<Void> deleteShiftAllocation(List<String> shiftAllocationUuid){
 
         // create path and map variables
@@ -373,4 +370,28 @@ public class GenericTaskControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+    /** Method to get teh Task category by UUID **/
+
+    public ResponseDto<TaskCategoryResponseDto> getTaskCategoryByUuid(String taskCategoryUuid) {
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("taskCategoryUuid", taskCategoryUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/taskCategory/get/{taskCategoryUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<TaskCategoryResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<TaskCategoryResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
 }
