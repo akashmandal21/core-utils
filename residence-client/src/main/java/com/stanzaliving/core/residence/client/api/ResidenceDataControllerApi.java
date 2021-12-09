@@ -1522,5 +1522,36 @@ public class ResidenceDataControllerApi {
 
     }
 
+    public ResponseDto<Float> getInventoryBedsCount(String roomUuid, String inventoryUuid) {
+
+        log.info("Residence-Data-Controller::Processing to get inventory bed count for room {} and inventory {} ", roomUuid, inventoryUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("roomUuid", roomUuid);
+
+        uriVariables.put("inventoryUuid", inventoryUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/update/booking-inventory-occupancy/beds/{roomUuid}/{inventoryUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Float>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Float>>() {
+                };
+
+        try {
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var12) {
+            log.error("Exception while fetching inventory bed count for room {} and inventory {} ", roomUuid, inventoryUuid);
+            return null;
+        }
+    }
 
 }
