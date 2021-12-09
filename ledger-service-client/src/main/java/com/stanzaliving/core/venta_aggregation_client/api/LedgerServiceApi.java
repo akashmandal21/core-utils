@@ -196,4 +196,28 @@ public class LedgerServiceApi {
         return null;
     }
 
+    public ResponseDto<LedgerResponseDTO> getLedgers(String referenceId, String referenceType, String ledgerType) {
+        log.info("Reference id {}, reference type {}, ledger type {}", referenceId, referenceType, ledgerType);
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/ledger")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("referenceId", referenceId);
+        queryParams.add("referenceType", referenceType);
+        queryParams.add("ledgerType", ledgerType);
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<LedgerResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<LedgerResponseDTO>>() {
+        };
+        try {
+            log.info("Executing Api for getting residence Info with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching ledger information based on referenceId {}, Exception is ", referenceId, e);
+        }
+        return null;
+    }
+
 }
