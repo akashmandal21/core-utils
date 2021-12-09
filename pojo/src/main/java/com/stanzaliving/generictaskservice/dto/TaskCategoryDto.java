@@ -16,9 +16,14 @@ import java.util.List;
 @AllArgsConstructor
 public class TaskCategoryDto extends AbstractDto {
 
+   // private String parentTaskCategoryUuid;
+
+    @NotBlank(message = "Parent task category name is mandatory.")
+    private String parentTaskCategoryName;
+
     private String parentTaskCategoryUuid;
 
-    @NotBlank(message = "Task category name is Mandatory.")
+    @NotBlank(message = "Task category name is mandatory.")
     private String taskCategoryName;
 
     @NotBlank(message = "Module is Mandatory.")
