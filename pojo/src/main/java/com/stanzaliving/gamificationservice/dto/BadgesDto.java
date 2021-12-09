@@ -1,6 +1,7 @@
 package com.stanzaliving.gamificationservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.stanzaliving.gamificationservice.enums.*;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -27,7 +28,19 @@ public class BadgesDto {
 
 	private String type;
 
-	private int points;
+	private BadgeCriteria badgeCriteria;
+
+	private PointCondition pointCondition;
+
+	private PointFrequency pointFrequency;
+
+	private int pointsValue;
+
+	private BadgeTarget badgeTarget;
+
+	private TargetCondition targetCondition;
+
+	private int targetValue;
 
 	private String badgeType;
 
