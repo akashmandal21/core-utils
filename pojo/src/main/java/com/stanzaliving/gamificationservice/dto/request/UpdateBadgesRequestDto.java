@@ -26,7 +26,7 @@ public class UpdateBadgesRequestDto {
 
     private String type;
 
-    private int points;
+    private int pointsValue;
 
     private String badgeType;
 
