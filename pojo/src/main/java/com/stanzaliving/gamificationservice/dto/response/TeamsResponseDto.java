@@ -1,0 +1,44 @@
+package com.stanzaliving.gamificationservice.dto.response;
+
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+
+@Getter
+@Setter
+@ToString(callSuper = true)
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+public class TeamsResponseDto {
+    private String uuid;
+
+    private String teamName;
+
+    private LocalDate dateOfJoining;
+
+    private List<String> users = new ArrayList<>();
+
+    private String location;
+
+    private String zone;
+
+    private String clusterName;
+
+    private String clusterManager;
+
+    private int noOfMembers;
+
+    private List<String> clusterMemberNames;
+
+    private String uploadedFrontFileUrl;
+
+    private String uploadedBackgroundFileUrl;
+
+    private String url;
+
+}
