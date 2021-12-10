@@ -2,6 +2,8 @@ package com.stanzaliving.vms.dto;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,28 +19,28 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class EmployeeRequestDto {
 
-	private long id;
-
+	@NotBlank
 	private String name;
 
+	@NotBlank
 	private String phoneNumber;
 
+	@NotBlank
 	private Date dateOfBirth;
 
+	@NotBlank
 	private Date dateOfJoining;
 
 	private String displayPicture;
 
 	private String employeeIdImage;
 
-//	private GovtId idCardType;
-
+	private String govtIdType;
+	
 	private String govtIdImage;
 
 	private String govtIdNumber;
 
 	private String biometricId;
-
-	private String hostelName;
 
 }

@@ -2,6 +2,8 @@ package com.stanzaliving.vms.dto;
 
 import java.util.Date;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,11 +15,11 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 @NoArgsConstructor
-public class EmployeeResponseDto {
+public class EmployeeDto extends AbstractDto {
 
-	private long id;
+	private static final long serialVersionUID = -7906212069083081491L;
 
-	private String name;
+	private String employeeName;
 
 	private String identificationCode;
 
@@ -31,16 +33,16 @@ public class EmployeeResponseDto {
 
 	private String employeeIdImage;
 
-	//private GovtId idCardType;
+	private String govtIdType;
 
 	private String govtIdImage;
 
 	private String govtIdNumber;
 
+	private String biometricStatus;
+	
 	private String biometricId;
 
-	private String status;
-
-	private String biometricStatus;
+	private String vendorServiceId;
 
 }
