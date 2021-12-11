@@ -1,6 +1,7 @@
 package com.stanzaliving.support.dto;
 
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.support.enums.Priority;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -41,6 +42,8 @@ public class TicketRequestDto {
     private List<String> applicableSubTicketList;
 
     private List<String> notApplicableSubTicketList;
+
+    private Priority priority;
 
     private String complaintAttachmentUuid;
 }
