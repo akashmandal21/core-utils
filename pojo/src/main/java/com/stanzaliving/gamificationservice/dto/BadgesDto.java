@@ -48,5 +48,7 @@ public class BadgesDto {
 
 	private String profilePhotoUrl;
 
+	private int reward;
+
 
 }
