@@ -5,10 +5,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.AddressResponseDTO;
 import com.stanzaliving.core.dto.CityResponseDTO;
 import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
-import com.stanzaliving.core.inventory.dto.AwlItemStatusUpdateDto;
-import com.stanzaliving.core.inventory.dto.InventoryActionRequestDto;
-import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
-import com.stanzaliving.core.inventory.dto.InventoryTOResponse;
+import com.stanzaliving.core.inventory.dto.*;
 import com.stanzaliving.item_master.dtos.FilterDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.RazorPayRequestDto;
@@ -521,5 +518,30 @@ public class InventoryClientApi {
 
 		return restClient.invokeAPI(
 				path, HttpMethod.POST, queryParams, awlItemStatusUpdateDto, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<AwlBatchDetailsDto>> getAwlBatchDetailsByToUuid(String toUuid) {
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("toUuid", toUuid);
+		String path =
+				UriComponentsBuilder.fromPath("/internal/batch-details/{toUuid}")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<AwlBatchDetailsDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<AwlBatchDetailsDto>>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
 }
