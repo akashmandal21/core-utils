@@ -1370,7 +1370,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public InventoryPricingResponseDto getInventoryPricingDataForMultipleInventory(String residenceUuid, Set<String> inventoryUuid, LocalDate fromDate, LocalDate toDate) {
+    public InventoryPricingResponseDto getInventoryPricingDataForMultipleInventory(String residenceUuid, Set<String> inventoryUuid, LocalDate fromDate, LocalDate toDate,String serviceMixUuid) {
         log.info("get pricing details for residenceUuid {}, inventoryUuidList {},fromDate{}, toDate {},", residenceUuid, inventoryUuid, fromDate, toDate);
 
         Map<String, Object> uriVariables = new HashMap();
@@ -1379,6 +1379,7 @@ public class ResidenceDataControllerApi {
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
         queryParams.add("fromDate", fromDate.toString());
         queryParams.add("toDate", toDate.toString());
+        queryParams.add("serviceMixUuid", serviceMixUuid);
         HttpHeaders headerParams = new HttpHeaders();
 
         String[] accepts = new String[]{"*/*"};
