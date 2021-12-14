@@ -77,4 +77,6 @@ public class GenericTaskResponseDto {
     private boolean adhocTask;
 
     private String parentTaskUuid;
+
+    private PriorityDto priorityDto;
 }
