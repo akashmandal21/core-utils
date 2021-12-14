@@ -64,7 +64,7 @@ public class SlotDto extends AbstractDto {
 
     private List<TagResponseDto> tags;
 
-    private List<TaskCategoryDto> allowedTasksList;
+    private List<GenericTemplateDto> allowedTasksList;
 
     private SlotStatus slotStatus;
 

@@ -2,6 +2,7 @@ package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import com.stanzaliving.generictaskservice.enums.SlotSortSpecs;
+import com.stanzaliving.generictaskservice.enums.SlotStatus;
 import com.stanzaliving.generictaskservice.enums.SlotType;
 import com.stanzaliving.item_master.enums.SortDirection;
 import lombok.*;
@@ -27,6 +28,7 @@ public class SlotFilterDto {
     private SlotType slotType;
     private Boolean overLap;
     private Boolean status;
+    private SlotStatus slotStatus;
     private Boolean movable;
     private Boolean reschedule;
     private String minSlotDuration;

@@ -1,6 +1,7 @@
 package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.core.base.enums.Department;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -20,6 +21,8 @@ public class GenericTemplateFilterDto {
     private String statusUuid;
     private String categoryUuid;
     private String subCategoryUuid;
+    private String module;
+    private Department department;
     private PaginationRequest pageRequest;
 
 }
