@@ -1,13 +1,12 @@
 package com.stanzaliving.community.response;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import com.stanzaliving.banner.enumeration.AppPage;
+import com.stanzaliving.community.feedpost.response.FeedPostResponseDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +22,5 @@ public class EndUserFeedPostsDto {
 	
 	private AppPage appPage;
 	
-	@Default
-	private Map<String, String> pageSectionMap = new HashMap<>();
+	private List<FeedPostResponseDto> feedPostResponseDtos;
 }
