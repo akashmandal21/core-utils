@@ -13,6 +13,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -97,7 +98,7 @@ public class InvoiceServiceApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
-    public ResponseDto<List<DocumentResponseDto>> getARInvoiceDetailsBasedOnBookingUuid(Date fromDate,String bookingUuid) {
+    public ResponseDto<List<DocumentResponseDto>> getARInvoiceDetailsBasedOnBookingUuid(LocalDate fromDate, String bookingUuid) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
 
