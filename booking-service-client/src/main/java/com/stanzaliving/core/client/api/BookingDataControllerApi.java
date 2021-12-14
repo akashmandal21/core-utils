@@ -25,7 +25,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 @Log4j2
 public class BookingDataControllerApi {
 
@@ -90,12 +89,12 @@ public class BookingDataControllerApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("residentId",residentId);
 
         String path = UriComponentsBuilder.fromPath("/internal/booking-detail/resident/{residentId}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("residentId", residentId);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -183,6 +182,7 @@ public class BookingDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
+
 
     public ResponseDto<List<PaymentPendingBookingResponseDto>> getPaymentPendingBookings() {
 
