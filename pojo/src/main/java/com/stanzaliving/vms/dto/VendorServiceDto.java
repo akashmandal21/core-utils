@@ -2,7 +2,6 @@
 package com.stanzaliving.vms.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.vms.enums.ServiceType;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,8 +23,6 @@ public class VendorServiceDto extends AbstractDto {
 
 	private static final long serialVersionUID = -3719192612906788852L;
 
-	private String vendorId;
-
-	private ServiceType serviceType;
+	private String serviceName;
 
 }

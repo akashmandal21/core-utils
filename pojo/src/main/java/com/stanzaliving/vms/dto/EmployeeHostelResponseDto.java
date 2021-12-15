@@ -17,7 +17,7 @@ public class EmployeeHostelResponseDto {
 
 	private String employeeId;
 
-	private Integer hostelId;
+	private String hostelId;
 	
 	private String hostelName;
 

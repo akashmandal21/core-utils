@@ -2,7 +2,6 @@
 package com.stanzaliving.vms.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.vms.enums.ServiceType;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,5 +31,5 @@ public class VendorServiceHostelMappingDto extends AbstractDto  {
 	
 	private String vendorId;
 		
-	private ServiceType serviceType;
+	private String serviceType;
 }

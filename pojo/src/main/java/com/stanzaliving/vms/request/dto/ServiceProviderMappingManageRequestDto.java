@@ -1,11 +1,14 @@
 
 package com.stanzaliving.vms.request.dto;
 
+import java.util.List;
+
+import javax.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.Setter;
 
 /**
@@ -17,11 +20,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class VendorServiceRequestDTO {
-		
-	@NonNull
-	private String serviceName;
+public class ServiceProviderMappingManageRequestDto {
 	
-	@Builder.Default
-	private boolean status = true;
+	@NotBlank(message = "ResidenceId is mandatory")
+	private String residenceId;
+	
+	List<ServiceProviderMappingListRequestDto> serviceProviderMappingListRequestDto;
+	
 }
