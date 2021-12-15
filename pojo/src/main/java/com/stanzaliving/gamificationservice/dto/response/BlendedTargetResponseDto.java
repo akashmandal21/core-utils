@@ -33,4 +33,5 @@ public class BlendedTargetResponseDto {
 
     private String url;
 
+    private int noOfUsers;
 }
