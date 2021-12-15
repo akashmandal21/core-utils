@@ -98,8 +98,6 @@ public class ResidenceUIDto implements Serializable {
 	private String category;
 
 	private String company;
-
-	private String addressUuid;
 	
 	private String addressLine1;
 	
