@@ -25,4 +25,6 @@ public class TaskCategoryDto {
 
     private List<TaskCategoryDto> taskSubCategoryList;
 
+    private boolean promisedTaskType;
+
 }
