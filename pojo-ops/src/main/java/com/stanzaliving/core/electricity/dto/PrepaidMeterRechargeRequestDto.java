@@ -1,6 +1,8 @@
 package com.stanzaliving.core.electricity.dto;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.payment.enums.PaymentMode;
 import com.stanzaliving.core.payment.enums.StanzaPaymentService;
@@ -28,22 +30,23 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class PrepaidMeterRechargeRequestDto {
 
-	@NotEmpty(message = "userId is a required field")
+	@NotBlank(message = "userId is a required field")
 	private String userId;
 
-	@NotEmpty(message = "propertyId is a required field")
-	private String propertyId;
+	@NotBlank(message = "residenceId is a required field")
+	private String residenceId;
 
-	@NotEmpty(message = "meterId is a required field")
+	@NotBlank(message = "meterId is a required field")
 	private String meterId;
 	
-	@NotEmpty(message = "amount is a required field")
+	@NotNull(message = "amount is a required field")
+	@DecimalMin(value = "1.0")
 	private Double amount;
 	
+	@NotNull(message = "StanzaPaymentService is a required field")
 	private StanzaPaymentService stanzaPaymentService;
 	
-	private String transactionId;
-	
+	@NotNull(message = "PaymentMode is a required field")
 	private PaymentMode paymentMode;
 
 }
