@@ -75,6 +75,8 @@ public class GenericTaskDto extends AbstractDto {
 
     private String taskSubCategoryUuid;
 
+    private String taskTemplateUuid;
+
     private List<String> attachmentsList;
 
     private List<String> dependentTaskUuidList;

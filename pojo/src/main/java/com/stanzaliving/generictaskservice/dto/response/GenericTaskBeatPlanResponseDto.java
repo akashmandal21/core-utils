@@ -33,4 +33,5 @@ public class GenericTaskBeatPlanResponseDto {
     private TaskCategoryDto taskSubCategoryDto;
     private StatusDto taskStatusDto;
     private StatusDto taskSubStatusDto;
+    private GenericTaskTemplateResponseDto taskTemplateResponseDto;
 }
