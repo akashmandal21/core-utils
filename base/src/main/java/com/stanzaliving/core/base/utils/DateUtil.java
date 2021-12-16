@@ -1,30 +1,57 @@
 package com.stanzaliving.core.base.utils;
 
-import com.stanzaliving.core.base.StanzaConstants;
-import com.stanzaliving.core.base.enums.DateFormat;
-import com.stanzaliving.core.base.enums.DatePart;
-import lombok.experimental.UtilityClass;
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.text.CaseUtils;
+import static com.google.common.base.Preconditions.*;
 
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.*;
+import java.time.DayOfWeek;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+import java.time.Period;
+import java.time.YearMonth;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
 
-import static com.google.common.base.Preconditions.checkArgument;
+import org.apache.commons.text.CaseUtils;
+
+import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.enums.DateFormat;
+import com.stanzaliving.core.base.enums.DatePart;
+
+import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @UtilityClass
 public class DateUtil {
 
     // added for booking service dto validation
+    public final String yyyy_MM_dd_FORMAT = "yyyy-MM-dd";
+
+
+    public final String DATETIME_WITH_AM_PM = "dd MMM, yyyy hh:mm:ss a";
+    public final String DD_MMM_YYYY_FORMAT = "dd-MMM-yyyy";
+    public final String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
     public final String yyyy_MM_dd_FORMAT = "yyyy-MM-dd";
 
     public String formatIst(Date date, String format) {

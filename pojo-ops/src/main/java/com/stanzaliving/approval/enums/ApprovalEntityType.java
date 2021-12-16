@@ -1,10 +1,10 @@
 package com.stanzaliving.approval.enums;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.util.Arrays;
 import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
@@ -18,7 +18,8 @@ public enum ApprovalEntityType {
 	WEEKLY_MENU("Weekly Menu", "FOOD_SERVICE", "WEEKLY_MENU"),
 	WEEKLY_MENU_V2("Weekly Menu", "FOOD_SERVICE", "WEEKLY_MENU"),
 	SUPPORT_TEMPLATE("Support Template", "support-service", "SUPPORT_TEMPLATE"),
-	MONTHLY_BUDGET_MENU_PLANNING("Food Monthly Planning", "FOOD_SERVICE", "MONTHLY_BUDGET_MENU_PLANNING");
+	MONTHLY_BUDGET_MENU_PLANNING("Food Monthly Planning", "FOOD_SERVICE", "MONTHLY_BUDGET_MENU_PLANNING"),
+	ELECTRICITY_BILL_SPLITTER("Electricity Bill Splitter", "ELECTRICITY_SERVICE", "ELECTRICITY_BILL_SPLITTER");
 
 	private final String value;
 	private final String commentServiceName;
