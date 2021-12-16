@@ -20,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ServiceProviderMappingManageRequestDto {
+public class ResidenceVendorServicesMappingAddRequestDto {
 	
 	@NotBlank(message = "ResidenceId is mandatory")
 	private String residenceId;

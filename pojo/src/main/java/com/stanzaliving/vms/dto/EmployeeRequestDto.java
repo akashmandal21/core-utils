@@ -1,12 +1,14 @@
 package com.stanzaliving.vms.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
@@ -35,12 +37,9 @@ public class EmployeeRequestDto {
 
 	private String employeeIdImage;
 
-	private String govtIdType;
-	
-	private String govtIdImage;
-
-	private String govtIdNumber;
-
 	private String biometricId;
+	
+	@NonNull
+	private List<GovtIdRequestDto> govtIdRequestDtos;
 
 }

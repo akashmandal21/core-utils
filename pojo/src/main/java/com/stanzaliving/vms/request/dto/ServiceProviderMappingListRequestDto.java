@@ -30,6 +30,8 @@ public class ServiceProviderMappingListRequestDto {
 	@NotBlank(message = "ServiceProviderId is mandatory")
 	private String serviceProviderId;
 	
+	private String serviceProviderResidenecMappingId;
+	
 	@NonNull
 	private ProviderMappingStatus providerMappingStatus; 
 	

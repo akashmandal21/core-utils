@@ -1,6 +1,7 @@
 package com.stanzaliving.vms.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
@@ -33,16 +34,12 @@ public class EmployeeDto extends AbstractDto {
 
 	private String employeeIdImage;
 
-	private String govtIdType;
-
-	private String govtIdImage;
-
-	private String govtIdNumber;
+	private List<EmployeeGovtIdDto> employeeGovtIdDtos;
 
 	private String biometricStatus;
 	
 	private String biometricId;
 
-	private String vendorServiceId;
+	private String residenceVendorServiceMappingId;
 
 }
