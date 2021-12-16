@@ -68,6 +68,10 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String preBookingMode;
 	
+    private Integer leadFormModeId;
+	
+	private String leadFormModeName;
+	
 	private String googleMapLink;
 	
 	private double latitude;

@@ -65,6 +65,10 @@ public class WebsiteResidenceDetailedResponseDTO {
 	
 	private String preBookingMode;
 	
+	private String leadFormModeName;
+	
+	private Integer leadFormModeId;
+	
 	private FomoTag fomoTag;
 	
 	private String fomoTagName;
