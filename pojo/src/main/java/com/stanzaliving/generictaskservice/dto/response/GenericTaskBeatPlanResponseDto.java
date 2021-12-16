@@ -27,6 +27,10 @@ public class GenericTaskBeatPlanResponseDto {
     private String taskName;
     private TaskType type;
     private boolean overridable;
+    private String templateName;
+    private String taskTemplateUuid;
+    private String taskSubCategoryName;
+    private String taskSubCategoryUuid;
     private String duration;
     private String attributeType;
     private List<Object> residences;
