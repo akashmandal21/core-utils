@@ -13,6 +13,8 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -97,15 +99,15 @@ public class InvoiceServiceApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
-    public ResponseDto<List<DocumentResponseDto>> getARInvoiceDetailsBasedOnBookingUuid(Date fromDate,String bookingUuid) {
+    public ResponseDto<List<DocumentResponseDto>> getARInvoiceDetailsBasedOnBookingUuid(LocalDate fromDate, String bookingUuid) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
 
         String path = UriComponentsBuilder.fromPath("/internal/advance-rental-invoices/{bookingUuid}")
                 .buildAndExpand(uriVariables).toUriString();
-        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+//        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("fromDate", date.format(fromDate));
+        queryParams.add("fromDate", fromDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
         HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
