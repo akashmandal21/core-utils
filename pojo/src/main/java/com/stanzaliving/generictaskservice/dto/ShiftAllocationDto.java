@@ -41,4 +41,10 @@ public class ShiftAllocationDto extends AbstractDto {
 
 	private ShiftDto shiftDto;
 
+	@NotBlank(message = "Shift starting time is mandatory")
+	private LocalTime shiftStartTime;
+
+	@NotBlank(message = "Shift end time is mandatory")
+	private LocalTime shiftEndTime;
+
 }

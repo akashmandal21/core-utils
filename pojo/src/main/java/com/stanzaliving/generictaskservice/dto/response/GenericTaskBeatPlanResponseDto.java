@@ -7,6 +7,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Vikas S T
@@ -26,9 +27,13 @@ public class GenericTaskBeatPlanResponseDto {
     private String taskName;
     private TaskType type;
     private boolean overridable;
+    private String templateName;
+    private String taskTemplateUuid;
+    private String taskSubCategoryName;
+    private String taskSubCategoryUuid;
     private String duration;
     private String attributeType;
-    private Object residences;
+    private List<Object> residences;
     private TaskCategoryDto taskCategoryDto;
     private TaskCategoryDto taskSubCategoryDto;
     private StatusDto taskStatusDto;
