@@ -1,30 +1,7 @@
 package com.stanzaliving.core.client.api;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.stanzaliving.booking.dto.BookingNeedsAttentionUpdationDto;
-import com.stanzaliving.booking.dto.BookingResponseDto;
-import com.stanzaliving.booking.dto.ContractApprovalDto;
-import com.stanzaliving.booking.dto.ExpiredBookingsDto;
-import com.stanzaliving.booking.dto.ExpiredBookingsResponseDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingResponseDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingStatusChangeDto;
-import com.stanzaliving.booking.dto.UpdateDealAndInventoryDto;
+import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.booking.dto.response.BookingCommercialsCardResponseDto;
 import com.stanzaliving.booking.dto.response.LedgerResponseDto;
 import com.stanzaliving.booking.dto.response.NeedsAttentionBookingResponseDto;
@@ -34,14 +11,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto;
 import com.stanzaliving.core.bookingservice.dto.response.BookingDetailDto;
 import com.stanzaliving.core.client.dto.*;
-import com.stanzaliving.core.client.dto.BookingDetailDto;
-import com.stanzaliving.core.client.dto.BookingInventoryDto;
-import com.stanzaliving.core.client.dto.ContractModificationDetailsDto;
-import com.stanzaliving.core.client.dto.ExceptionOnboardingDetailsDto;
-import com.stanzaliving.core.client.dto.InventoryResponseOccupancyDto;
-import com.stanzaliving.core.client.dto.PackageServicesResponseDto;
 import com.stanzaliving.ledger.dto.UpcomingBookingsDto;
-
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -650,28 +620,6 @@ public class BookingDataControllerApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public List<BookingDetailDto> getBookingDetailsForResident(String residentId) {
-        Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("residentId", residentId);
-
-        String path = UriComponentsBuilder.fromPath("/internal/booking-detail/resident/{residentId}")
-                .buildAndExpand(uriVariables).toUriString();
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        HttpHeaders headerParams = new HttpHeaders();
-        String[] accepts = new String[]{"*/*"};
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<List<BookingDetailDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingDetailDto>>>() {
-        };
-        ResponseDto<List<BookingDetailDto>> response  = null;
-        try {
-            log.info("Executing Api for getting booked inventory with Url {}", path);
-            response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Exception while fetching bookin details for resident for residentId {}, Exception is ",residentId , e);
-        }
-        return Objects.nonNull(response) ? response.getData() : new ArrayList<>();
-    }
 
 
 }
