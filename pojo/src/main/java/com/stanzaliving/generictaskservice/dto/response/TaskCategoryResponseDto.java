@@ -45,4 +45,7 @@ public class TaskCategoryResponseDto extends AbstractDto {
     @JsonIgnore
     private List<String> tagsUuids;
 
+    private boolean promisedTaskType;
+
+
 }

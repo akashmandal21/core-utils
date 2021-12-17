@@ -33,4 +33,6 @@ public class TaskCategoryDto extends AbstractDto {
 
     private List<String> tagsList ;
 
+    private boolean promisedTaskType;
+
 }
