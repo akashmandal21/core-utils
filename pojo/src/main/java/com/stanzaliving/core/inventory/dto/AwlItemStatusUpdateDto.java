@@ -21,8 +21,8 @@ public class AwlItemStatusUpdateDto {
     @NotBlank(message = "awlRefNo cannot be blank")
     private String awlRefNo;
 
-    @NotBlank(message = "locationUuid cannot be blank")
-    private String locationUuid;
+    @NotBlank(message = "addressUuid cannot be blank")
+    private String addressUuid;
 
     @NotBlank(message = "itemUuid cannot be blank")
     private String itemUuid;
