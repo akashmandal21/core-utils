@@ -36,4 +36,7 @@ public class AwlItemStatusUpdateDto {
     private AwlItemStatus itemStatusFrom;
 
     private AwlItemStatus itemStatusTo;
+
+    @NotBlank(message = "updatedBy cannot be blank")
+    private String updatedBy;
 }
