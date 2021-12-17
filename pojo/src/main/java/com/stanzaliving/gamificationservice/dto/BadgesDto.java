@@ -20,35 +20,39 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BadgesDto {
 
-	private String uuid;
+    private String uuid;
 
-	private String badgesName;
+    private String badgesName;
 
-	private String description;
+    private String description;
 
-	private String type;
+    private String type;
 
-	private BadgeCriteria badgeCriteria;
+    private BadgeCriteria badgeCriteria;
 
-	private PointCondition pointCondition;
+    private PointCondition pointCondition;
 
-	private PointFrequency pointFrequency;
+    private PointFrequency pointFrequency;
 
-	private int pointsValue;
+    private int pointsValue;
 
-	private BadgeTarget badgeTarget;
+    private BadgeTarget badgeTarget;
 
-	private TargetCondition targetCondition;
+    private TargetCondition targetCondition;
 
-	private int targetValue;
+    private int targetValue;
 
-	private String badgeType;
+    private String badgeType;
 
-	private List<String> contests = new ArrayList<>();
+    private List<String> contests = new ArrayList<>();
 
-	private String profilePhotoUrl;
+    private String profilePhotoUrl;
 
-	private int reward;
+    private int reward;
+
+    private int noOfTimeBadgeEarnByUser;
+
+    private String badgeLable;
 
 
 }
