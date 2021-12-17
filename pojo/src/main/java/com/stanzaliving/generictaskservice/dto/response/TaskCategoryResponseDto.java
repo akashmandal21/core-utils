@@ -32,6 +32,8 @@ public class TaskCategoryResponseDto extends AbstractDto {
     @NotBlank(message = "Module is Mandatory.")
     private String module;
 
+    private boolean promisedTaskType;
+
     private List<TaskCategoryDto> taskSubCategoryList;
 
     private String taskType;
