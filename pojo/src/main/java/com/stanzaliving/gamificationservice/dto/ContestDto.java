@@ -22,39 +22,53 @@ import java.time.LocalDate;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ContestDto {
 
-	private String uuid;
+    private String uuid;
 
-	private String description;
+    private String description;
 
-	private String contestTitle;
+    private String contestTitle;
 
-	private String createdBy;
+    private String createdBy;
 
-	private int duration;
+    private int duration;
 
-	private LocalDate startDate;
+    private LocalDate startDate;
 
-	private LocalDate endDate;
+    private LocalDate endDate;
 
-	private LocalDate dateOfJoining;
+    private LocalDate dateOfJoining;
 
-	private ContestType contestType;
+    private ContestType contestType;
 
-	private String contestTypeId;
+    private String contestTypeId;
 
-	private String location;
+    private String location;
 
-	private String zone;
+    private String zone;
 
-	private String cluster;
+    private String cluster;
 
-	private String pair;
+    private String pair;
 
-	private ContestStatus contestStatus;
+    private ContestStatus contestStatus;
 
-	private String profilePhotoUrl;
+    private String profilePhotoUrl;
 
-	private GamificationDurationEnum durationUnit;
+    private GamificationDurationEnum durationUnit;
 
-	private boolean recurringContest;
+    private boolean recurringContest;
+
+    private String contestMainBackgroundImg;
+
+    private String contestLogo;
+
+    private String myRank;
+
+    private String userPointsStatus;
+
+    private String myPoints;
+
+    private String userRankStatus;
+
+    private String contestMessage;
 }
