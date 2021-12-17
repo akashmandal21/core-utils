@@ -1,15 +1,7 @@
 package com.stanzaliving.genericdashboard.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-import javax.validation.groups.Default;
-
 import com.stanzaliving.genericdashboard.enums.CampaignGroup;
 import com.stanzaliving.genericdashboard.validation.DraftValidation;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,36 +9,43 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import javax.validation.groups.Default;
+import java.util.List;
+
 @Getter
 @Setter
+@Builder
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class SurveyDto {
 
-	private String uuid;
+    private String uuid;
 
-	@NotBlank(message = "title of a survey cannot be empty")
-	private String surveyTitle;
+    @NotBlank(message = "title of a survey cannot be empty")
+    private String surveyTitle;
 
-	private String surveyDescription;
+    private String surveyDescription;
 
-	@NotBlank(message = "image cannot be empty")
-	private String surveyImageUrl;
+    @NotBlank(message = "image cannot be empty")
+    private String surveyImageUrl;
 
-	@Builder.Default
-	private List<QuestionPageDto> questions = new ArrayList<>();
+    @Builder.Default
+    private List<QuestionPageDto> questions= new ArrayList<>();
 
-	@Size(max = 16, message = "cta text can't be more than 16 characters", groups = { DraftValidation.class,
-			Default.class })
-	private String thankYouCtaText;
+    @Size(
+            max = 16,
+            message = "cta text can't be more than 16 characters",
+            groups = {DraftValidation.class, Default.class})
+    private String thankYouCtaText;
 
-	private String thankYouDescription;
+    private String thankYouDescription;
 
-	private String thankYouTitle;
+    private String thankYouTitle;
 
-	private String thankYouImageUrl;
+    private String thankYouImageUrl;
 
-	private CampaignGroup campaignGroup;
+    private CampaignGroup campaignGroup;
 }
