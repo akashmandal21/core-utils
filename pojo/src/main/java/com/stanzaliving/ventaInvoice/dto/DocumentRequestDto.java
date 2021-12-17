@@ -17,6 +17,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class DocumentRequestDto {
 
     @NotNull(message = "ServiceType is required")

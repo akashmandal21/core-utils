@@ -100,5 +100,11 @@ public class ResidenceUIDto implements Serializable {
 	private String company;
 
 	private String addressUuid;
+	
+	private String addressLine1;
+	
+	private String addressLine2;
+	
+	private String apartmentType;
 
 }

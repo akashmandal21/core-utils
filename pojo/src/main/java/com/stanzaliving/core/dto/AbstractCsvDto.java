@@ -45,7 +45,7 @@ public abstract class AbstractCsvDto {
     }
 
     private void fillDynamicColumns(String[] data) {
-        for(int i = 0 ; i < data.length ; i++) {
+        for(int i = 0 ; i < columns.size() ; i++) {
             if(dynamicColumns.contains(columns.get(i))) {
                 if(!StringUtils.isBlank(data[i])) {
                     dynamicData.put(columns.get(i), data[i]);
@@ -63,16 +63,22 @@ public abstract class AbstractCsvDto {
     }
 
     protected Double getDoubleValue(String[] data, String columnName) {
-        String val = data[this.getColumns().indexOf(columnName)];
-        if(NumberUtils.parseableToDouble(val))
-            return Double.parseDouble(val);
-
+        if(this.getColumns().indexOf(columnName)<data.length) {
+            String val = data[this.getColumns().indexOf(columnName)];
+            if(NumberUtils.parseableToDouble(val))
+                return Double.parseDouble(val);
+        }
         return null;
     }
 
     public static String escapeSpecialCharacters(String inputString) {
-        return StringEscapeUtils.unescapeHtml4(inputString.replace(","," ").replace("\n", " ")
-                .replace("\t", " "));
+        if(StringUtils.isNotBlank(inputString)) {
+            return StringEscapeUtils.unescapeHtml4(inputString.replace(","," ").replace("\n", " ")
+                    .replace("\t", " "));
+        } else {
+            return StringUtils.EMPTY;
+        }
+
     }
 
     public static <T extends AbstractCsvDto> List<String[]> prepareResponseCsv(List<T> csvDtos) {

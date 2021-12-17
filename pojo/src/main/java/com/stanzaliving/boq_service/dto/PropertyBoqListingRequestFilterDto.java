@@ -9,6 +9,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Note any added/removed key in this DTO should also be added/removed to/from
+ * com.stanzaliving.boq_service.dto.PropertyBoqListingByItemRequestFilterDto
+ */
+
 @Builder
 @Data
 @NoArgsConstructor

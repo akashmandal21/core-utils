@@ -1,14 +1,15 @@
 package com.stanzaliving.core.enums;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
 public enum ApartmentType {
+
 
     ONE_BHK("1BHK",1),
     TWO_BHK("2BHK",2),
