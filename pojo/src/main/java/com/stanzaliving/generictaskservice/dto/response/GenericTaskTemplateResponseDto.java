@@ -24,8 +24,10 @@ import java.util.List;
 public class GenericTaskTemplateResponseDto extends AbstractDto {
 
     private boolean taskTemplate;
+
     @NotBlank(message = "Module cannot be empty")
     private String module;
+
     private boolean overridable;
 
     @NotBlank(message = "Name cannot be empty")
@@ -38,9 +40,11 @@ public class GenericTaskTemplateResponseDto extends AbstractDto {
     private String entityUuid;
 
     private String entityType;
+
     private boolean autoTaskCompletion;
 
     private String autoTaskCompletionEventUuid;
+
     @NotBlank(message = "categoryId cannot be empty")
     private String templateCategoryUuid;
 
@@ -52,4 +56,7 @@ public class GenericTaskTemplateResponseDto extends AbstractDto {
     private List<String> commentsUuidList;
 
     private TaskCategoryDto subTaskCategory;
+
+    private List<TagsGenericResponseDto> tags;
+
 }

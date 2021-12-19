@@ -2,6 +2,7 @@ package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.generictaskservice.dto.response.TagsGenericResponseDto;
 import com.stanzaliving.taskservice.enums.TaskType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -36,7 +37,14 @@ public class GenericTemplateDto extends AbstractDto {
     private String entityUuid;
 
     private String entityType;
+
     private boolean autoTaskCompletion;
+
+    private boolean overLap;
+
+    private List<TagsGenericResponseDto> tags;
+
+    private List<String> tagsUuids;
 
     private String autoTaskCompletionEventUuid;
     @NotBlank(message = "categoryId cannot be empty")

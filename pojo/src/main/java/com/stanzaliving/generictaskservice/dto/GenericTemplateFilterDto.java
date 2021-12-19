@@ -7,6 +7,8 @@ import com.stanzaliving.item_master.enums.SortDirection;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 /**
  * @author Priyadarshini MB
  */
@@ -26,6 +28,7 @@ public class GenericTemplateFilterDto {
     private String subCategoryUuid;
     private String module;
     private Department department;
+    private List<String> tagsUuids;
     private PaginationRequest pageRequest;
 
     //Sort

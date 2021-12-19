@@ -12,6 +12,7 @@ import lombok.Getter;
 public enum GenericTemplateSortSpecs {
     NAME("name"),
     CREATEDBY("createdBy"),
-    UPDATEDAT("updatedAt");
+    UPDATEDAT("updatedAt"),
+    SUB_CATEGORY("subCategoryUuid");
     private String dbKey;
 }
