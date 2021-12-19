@@ -13,12 +13,22 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderSummaryDetailsDto {
+public class BuffetItemDetailsDto {
 
 	private String itemId;
 
 	private String itemName;
 
+	private Integer groupNumber;
 
+	private String grammage;
+
+	private Double grammageValue;
+
+	private String unitOfMeasurement;
+
+	private String quantity;
+
+	private Integer quantityValue;
 
 }

@@ -32,5 +32,12 @@ public class FoodOrderSummaryDto {
 
 	private MealType mealType;
 
-	List<FoodOrderSummaryDetailsDto> foodOrderSummaryDetailsDtoList;
+	private List<BuffetItemDetailsDto> buffetItemDetailsDtoList;
+
+	private List<PackedItemDetailsDto> packedItemDetailsDtoList;
+
+	private List<ThaliPaxDto> thaliPaxDtoList;
+
+
+
 }
