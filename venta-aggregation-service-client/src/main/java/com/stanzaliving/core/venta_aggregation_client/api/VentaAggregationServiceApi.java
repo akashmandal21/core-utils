@@ -186,6 +186,27 @@ public class VentaAggregationServiceApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+	public ResponseDto<BookingAggregationDto> findBookingDetailsForResidentAndBookingStatus(String residentId) {
+		Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residentId", residentId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/booking/details/resident/{residentId}")
+				.buildAndExpand(uriVariables).toUriString();
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[]{"*/*"};
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<BookingAggregationDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingAggregationDto>>() {
+		};
+		try {
+			log.info("Executing Api for getting booked details with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching booked details for resident id {}, Exception is ", residentId, e);
+		}
+		return null;
+	}
 
 	public ResponseDto<String> updateResidencePricingAndBedInformation() {
 		log.info("Residence Internal Controller::Processing to update residence pricing and bed info");
@@ -238,4 +259,28 @@ public class VentaAggregationServiceApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public List<String> getBookingUuidByResidentId(String residentId) {
+		log.info("Resident Details Controller::Processing to get booking uuids on basis of residentId {}", residentId);
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residentId", residentId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/resident/data/{residentId}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<String>> returnType = new ParameterizedTypeReference<List<String>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
 }
