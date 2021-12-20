@@ -30,6 +30,8 @@ public class GenericTaskTemplateResponseDto extends AbstractDto {
 
     private boolean overridable;
 
+    private boolean overLap;
+
     @NotBlank(message = "Name cannot be empty")
     private String templateName;
 
@@ -58,5 +60,6 @@ public class GenericTaskTemplateResponseDto extends AbstractDto {
     private TaskCategoryDto subTaskCategory;
 
     private List<TagsGenericResponseDto> tags;
+
 
 }
