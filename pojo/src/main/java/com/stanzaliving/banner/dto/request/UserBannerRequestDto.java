@@ -24,4 +24,6 @@ public class UserBannerRequestDto {
 	private String micromarketUuid;
 	
 	private String residenceUuid;
+	
+	private String eventId;
 }
