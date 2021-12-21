@@ -10,9 +10,10 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum GenericTemplateSortSpecs {
-    NAME("name"),
-    CREATEDBY("createdBy"),
-    UPDATEDAT("updatedAt"),
-    SUB_CATEGORY("subCategoryUuid");
-    private String dbKey;
+        NAME("name"),
+        CREATEDBY("createdBy"),
+        UPDATEDAT("updatedAt"),
+        AUTOCOMPLETETASK("autoTaskCompletion"),
+        SUB_CATEGORY("subCategoryUuid");
+        private String dbKey;
 }
