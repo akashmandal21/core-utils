@@ -15,6 +15,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ThaliPaxDto {
 
+	private String thaliId;
+
 	private String name;
 
 	private Integer veg;

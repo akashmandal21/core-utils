@@ -10,6 +10,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -18,15 +19,19 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodOrderSummaryDto {
+public class FoodOrderSummaryDispatchDto {
 
 	private String residenceId;
 
 	private String dealId;
 
-	private DealCategory dealCategory;
-
 	private String vendorId;
+
+	private String foodOrderId;
+
+	private LocalDate menuDate;
+
+	private DealCategory dealCategory;
 
 	private FoodServeType foodServeType;
 
@@ -37,7 +42,5 @@ public class FoodOrderSummaryDto {
 	private List<PackedItemDetailsDto> packedItemDetailsDtoList;
 
 	private List<ThaliPaxDto> thaliPaxDtoList;
-
-
 
 }
