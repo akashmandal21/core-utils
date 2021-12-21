@@ -30,6 +30,8 @@ public class ComplaintConversationsDto {
 
     private String attachmentPath;
 
+    private long attachmentFileSize;
+
     private String attachmentBucket;
 
     private Date createdAt;
