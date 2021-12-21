@@ -15,12 +15,12 @@ import java.time.LocalDate;
 @Builder
 @ToString
 @NoArgsConstructor
-public class CoverageMetricsRequestDto {
+public class CoverageMetricsDetailsRequestDto {
 
     private String planningTemplateUuid;
     private String microClusterUuid;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
     private String taskSubCategoryUuid;
-    private String taskCategoryUuid;
+    private String residenceUuid;
 }
