@@ -18,12 +18,12 @@ import java.util.List;
 @NoArgsConstructor
 public class ExitDetailsResponseDto {
 
-    private String bookingUuid;
+	private String bookingUuid;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate moveOutDate;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate actualMoveOutDate;
 
     private Double dues;
@@ -34,6 +34,7 @@ public class ExitDetailsResponseDto {
 
     private List<PaymentDetailsDto> paymentDetails;
 
+    @Builder.Default
     private boolean isEligibleForExitInitiation = true;
 
     private BankDetailsDto bankDetails;
@@ -59,4 +60,9 @@ public class ExitDetailsResponseDto {
     private String exitReasonNote;
 
     private String bookingStatus;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate auditDate;
+
+    private Double securityDeposit;
 }
