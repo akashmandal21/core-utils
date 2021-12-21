@@ -1,10 +1,10 @@
 package com.stanzaliving.core.enums;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
