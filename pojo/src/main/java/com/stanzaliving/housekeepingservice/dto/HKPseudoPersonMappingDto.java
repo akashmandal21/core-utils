@@ -19,4 +19,6 @@ public class HKPseudoPersonMappingDto extends AbstractDto {
     private String microclusterUuid;
 
     private String pseudoName;
+
+    private String taskUuid;
 }
