@@ -104,5 +104,6 @@ public class BookingAggregationDto {
     private String movedInStatusTextColourCode;
     private String movedInStatusBackgroundColour;
     private String movedInStatus;
+    private Double securityDeposit;
 
 }
