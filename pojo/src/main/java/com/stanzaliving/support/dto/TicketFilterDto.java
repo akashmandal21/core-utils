@@ -2,7 +2,6 @@ package com.stanzaliving.support.dto;
 
 import com.stanzaliving.core.dto.PageAndSortDto;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -30,7 +29,7 @@ public class TicketFilterDto extends PageAndSortDto {
 
     private List<String> category;
 
-    private List<String> subcategory;
+    private List<String> subCategory;
 
     private List<String> priority;
 

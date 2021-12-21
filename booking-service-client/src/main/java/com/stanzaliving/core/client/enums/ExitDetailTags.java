@@ -1,7 +1,8 @@
 package com.stanzaliving.core.client.enums;
 
-import com.stanzaliving.core.client.dto.ExitDetailSummaryDto;
 import com.stanzaliving.core.base.exception.StanzaException;
+import com.stanzaliving.core.client.dto.ExitDetailSummaryDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;

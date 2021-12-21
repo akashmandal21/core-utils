@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.user.client.api;
 
@@ -466,7 +466,7 @@ public class UserClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public ResponseDto<PageResponse<UserProfileDto>> getUserDetailsByPhone(String phone) {
 
 		if (StringUtils.isEmpty(phone)) {
@@ -497,7 +497,7 @@ public class UserClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public UserDto getUserDtoByRoleAndAccessLevel(AccessLevelRoleRequestDto cityRolesRequestDto) {
 		Object postBody = null;
 
@@ -529,13 +529,13 @@ public class UserClientApi {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		
+
 
 		String path = UriComponentsBuilder.fromPath("/internal/details/mobile").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("mobileNo", mobileNo);
-		
+
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {
@@ -674,7 +674,7 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
-		
+
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		}
@@ -683,7 +683,7 @@ public class UserClientApi {
 			return null;
 		}
 	}
-	
+
 	public List<UserPropertyAndProfileMappingDto> getUsersMappedToProperty(String propertyId) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -695,9 +695,9 @@ public class UserClientApi {
 		queryParams.add("propertyId", propertyId);
 
 		TypeReference<ResponseDto<List<UserPropertyAndProfileMappingDto>>> returnType = new TypeReference<ResponseDto<List<UserPropertyAndProfileMappingDto>>>() {};
-		
+
 		ResponseDto<List<UserPropertyAndProfileMappingDto>> responseDto = null;
-		
+
 		try {
 
 			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
@@ -707,10 +707,10 @@ public class UserClientApi {
 			log.error("Error while getting users MappedToProperty", e);
 
 		}
-		
+
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
-	
+
 	public ResponseDto<List<RoleDto>> getFilterRoles(Department department, AccessLevel accessLevel, String roleName, String token) {
 
 		Object postBody = null;

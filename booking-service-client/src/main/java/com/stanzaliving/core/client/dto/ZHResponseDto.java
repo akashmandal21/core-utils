@@ -1,12 +1,13 @@
 package com.stanzaliving.core.client.dto;
 
+import java.time.LocalDate;
+
 import com.stanzaliving.core.enums.ApprovalStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
 
 @Data
 @Builder

@@ -12,10 +12,7 @@ import javax.validation.constraints.NotBlank;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.complaint.enums.EnumComplaintStatus;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -27,6 +24,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @ToString(callSuper = true)
+@AllArgsConstructor
 @SuppressWarnings("serial")
 public class ComplaintMetaDataDto extends AbstractDto {
 
