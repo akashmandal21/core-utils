@@ -2,11 +2,11 @@ package com.stanzaliving.gamificationservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.gamificationservice.enums.ContestStatus;
-import com.stanzaliving.gamificationservice.enums.ContestType;
-import com.stanzaliving.gamificationservice.enums.GamificationDurationEnum;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -38,23 +38,23 @@ public class ContestDto {
 
     private LocalDate dateOfJoining;
 
-    private ContestType contestType;
+    private String contestType;
 
     private String contestTypeId;
 
-    private String location;
+    private List<String> location = new ArrayList<>();
 
-    private String zone;
+    private List<String> zone = new ArrayList<>();
 
-    private String cluster;
+    private List<String> cluster = new ArrayList<>();
 
-    private String pair;
+    private List<String> pair = new ArrayList<>();
 
     private ContestStatus contestStatus;
 
     private String profilePhotoUrl;
 
-    private GamificationDurationEnum durationUnit;
+    private String durationUnit;
 
     private boolean recurringContest;
 
@@ -71,4 +71,7 @@ public class ContestDto {
     private String userRankStatus;
 
     private String contestMessage;
+
+    private String backGroundPhotoUrl;
+
 }
