@@ -35,5 +35,7 @@ public class ReversePointDto {
 
 	private String activity;
 
+	private String activityUuid;
+
 	private String description;
 }
