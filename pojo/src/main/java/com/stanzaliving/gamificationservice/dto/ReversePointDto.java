@@ -19,11 +19,19 @@ public class ReversePointDto {
 
 	private String uuid;
 
+	private String contestUuid;
+
+	private String contestName;
+
 	private int reversePoints;
 
 	private String fromPerson;
 
+	private String fromPersonUuid;
+
 	private String toPerson;
+
+	private String toPersonUuid;
 
 	private String activity;
 
