@@ -32,7 +32,8 @@ public class PrepaidMeterRechargeRequestDto {
 
 	@NotBlank(message = "userId is a required field")
 	private String userId;
-	
+
+	@NotBlank(message = "userCode is a required field")
 	private String userCode;
 
 	@NotBlank(message = "residenceId is a required field")
@@ -40,14 +41,14 @@ public class PrepaidMeterRechargeRequestDto {
 
 	@NotBlank(message = "meterId is a required field")
 	private String meterId;
-	
+
 	@NotNull(message = "amount is a required field")
 	@DecimalMin(value = "1.0")
 	private Double amount;
-	
+
 	@NotNull(message = "StanzaPaymentService is a required field")
 	private StanzaPaymentService stanzaPaymentService;
-	
+
 	@NotNull(message = "PaymentMode is a required field")
 	private PaymentMode paymentMode;
 
