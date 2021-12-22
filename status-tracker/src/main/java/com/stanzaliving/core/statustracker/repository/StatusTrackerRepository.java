@@ -21,4 +21,6 @@ public interface StatusTrackerRepository extends AbstractJpaRepository<StatusTra
 	List<StatusTrackerEntity> findByContextUuidAndStatusName(String contextUuid,String status);
 	
 	List<StatusTrackerEntity> findByContextUuidAndContextName(String contextUuid,String contextName);
+
+	StatusTrackerEntity findLastByContextUuidAndStatusNameNotInOrderByCreatedAtDesc(String contextUuid, List<String> status);
 }
