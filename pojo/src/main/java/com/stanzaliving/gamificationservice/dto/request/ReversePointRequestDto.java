@@ -1,4 +1,4 @@
-package com.stanzaliving.gamificationservice.dto;
+package com.stanzaliving.gamificationservice.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
@@ -15,25 +15,15 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ReversePointDto {
-
-	private String uuid;
+public class ReversePointRequestDto {
 
 	private String contestUuid;
 
-	private String contestName;
-
 	private int reversePoints;
-
-	private String fromPerson;
 
 	private String fromPersonUuid;
 
-	private String toPerson;
-
 	private String toPersonUuid;
-
-	private String activity;
 
 	private String activityUuid;
 
