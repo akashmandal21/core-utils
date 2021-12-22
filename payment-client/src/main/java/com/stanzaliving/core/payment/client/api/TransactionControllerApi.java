@@ -21,7 +21,11 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.payment.dto.PaymentDto;
+import com.stanzaliving.core.payment.dto.TransactionDto;
 import com.stanzaliving.core.payment.dto.TransactionInitiateDto;
+import com.stanzaliving.core.payment.enums.PaymentMode;
+import com.stanzaliving.core.payment.enums.PaymentStatus;
+import com.stanzaliving.core.payment.enums.ReferenceType;
 import com.stanzaliving.core.payment.enums.StanzaPaymentService;
 
 import lombok.extern.log4j.Log4j2;
@@ -66,6 +70,39 @@ public class TransactionControllerApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 	
+	public ResponseDto<TransactionInitiateDto> initiateByPaymentMode(StanzaPaymentService stanzaPaymentService, String userId, String transactionId, Double amount, PaymentMode paymentMode) {
+
+		if (Objects.isNull(stanzaPaymentService) || Objects.isNull(paymentMode) || StringUtils.isBlank(transactionId) || StringUtils.isBlank(userId) || Objects.isNull(amount)) {
+			throw new IllegalArgumentException("Missing mandatory parameters for transaction");
+		}
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/transaction/initiate/by/paymentmode").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("service", stanzaPaymentService.toString());
+		queryParams.add("userId", userId);
+		queryParams.add("transactionId", transactionId);
+		queryParams.add("amount", String.valueOf(amount));
+		queryParams.add("paymentMode", paymentMode.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<TransactionInitiateDto>> returnType = new TypeReference<ResponseDto<TransactionInitiateDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
 	public ResponseDto<PaymentDto> checkTransactionStatusInDb(String paymentId) {
 		Object postBody = null;
 
@@ -89,6 +126,94 @@ public class TransactionControllerApi {
 					returnType);
 		} catch (Exception e) {
 			log.error("Exception while fetching payment Status {} ", paymentId);
+		}
+		return null;
+
+	}
+	
+	public List<TransactionDto> getTransactionDetails(String referenceId,PaymentStatus paymentStatus,ReferenceType referenceType) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("referenceType", referenceType);
+		uriVariables.put("referenceId", referenceId);
+		String path = UriComponentsBuilder.fromPath("/internal/get/payment/{referenceType}/{referenceId}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("paymentStatus", paymentStatus.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<TransactionDto>> returnType = new ParameterizedTypeReference<List<TransactionDto>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching payment transaction by {} is  {} ",referenceType, referenceId);
+		}
+		return null;
+
+	}
+
+	public List<TransactionDto> getAllTransactionDetails(String referenceId,List<PaymentStatus> paymentStatus,ReferenceType referenceType) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("referenceType", referenceType);
+		uriVariables.put("referenceId", referenceId);
+		String path = UriComponentsBuilder.fromPath("/internal/get/payment/{referenceType}/{referenceId}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		for(PaymentStatus status : paymentStatus){
+			queryParams.add("paymentStatus", status.toString());
+		}
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<TransactionDto>> returnType = new ParameterizedTypeReference<List<TransactionDto>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching payment transaction by {} is  {} ",referenceType, referenceId);
+		}
+		return null;
+
+	}
+
+	public ResponseDto<TransactionDto> getPaymentDetailsByBookingUUid(String referenceId) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("referenceId", referenceId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/payment/{referenceId}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<TransactionDto>> returnType = new ParameterizedTypeReference<ResponseDto<TransactionDto>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+					returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching payment Status {} ", referenceId);
 		}
 		return null;
 

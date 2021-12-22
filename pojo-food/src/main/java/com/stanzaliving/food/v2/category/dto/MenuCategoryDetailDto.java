@@ -9,6 +9,8 @@ import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.category.constant.CategoryStatus;
 import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.grammage.category.response.CategoryGrammageBaseResponseDto;
+
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +19,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -26,7 +29,7 @@ import java.util.List;
 public class MenuCategoryDetailDto extends MenuCategoryDTO {
 
 	private static final long serialVersionUID = -7523293067980628104L;
-	
+
 	private String versionId;
 	private MenuType menuType;
 	private Double marginPercentage;
@@ -41,11 +44,16 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private FoodServeType foodServeType;
 	private Integer maxWeeklyCombo;
 	private Integer minWeeklyCombo;
+
+	private Integer minHybridMeals;
+	private Integer maxHybridMeals;
+
 	private boolean sampleMenuDefined;
 	private boolean grammageDefined;
 	private List<ListingDto> demographicTags;
 	private boolean costUpdated;
 	private boolean publishable;
+	private boolean customMapApplicable;
 
 	// derived information
 	private int totalMealInWeek;
@@ -75,4 +83,9 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private FoodMenuBudgetDto budgetRules;
 	private boolean budgetUtilizationInLimit;
 
+	// Tags
+	private Map<String, String> tags;
+
+	@Builder.Default
+	private Double menuBudgetMultiplier = 1.0;
 }

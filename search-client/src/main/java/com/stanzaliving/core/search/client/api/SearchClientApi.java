@@ -17,9 +17,7 @@ import com.stanzaliving.search.food.index.dto.vasmaster.VasMasterIndexDto;
 import com.stanzaliving.search.food.search.dto.CategoryItemOrderCountSearchDto;
 import com.stanzaliving.search.food.search.dto.IngredientSearchDto;
 import com.stanzaliving.search.food.search.dto.VasMasterSearchDto;
-import com.stanzaliving.search.food.search.dto.request.MenuCategoryAggregateRequestDto;
-import com.stanzaliving.search.food.search.dto.request.MenuMealItemRequestDto;
-import com.stanzaliving.search.food.search.dto.request.MenuMicromarketAggregateRequestDto;
+import com.stanzaliving.search.food.search.dto.request.*;
 import com.stanzaliving.search.food.search.dto.response.menu.consumption.FoodMenuCategoryConsumptionResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.consumption.FoodMenuConsumptionSearchResponseDto;
 import com.stanzaliving.search.food.search.dto.response.menu.fps.FoodMenuItemFpsResponseDto;
@@ -242,9 +240,83 @@ public class SearchClientApi {
 		return responseDto.getData();
 	}
 
+	public FoodMenuItemFpsResponseDto aggregateMealResidenceFps(MenuResidenceAggregateRequestDto requestDto) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/fps/meal/residence").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<FoodMenuItemFpsResponseDto>> returnType = new TypeReference<ResponseDto<FoodMenuItemFpsResponseDto>>() {};
+
+		ResponseDto<FoodMenuItemFpsResponseDto> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		return responseDto.getData();
+	}
+
 	public MenuCategoryFpsResponseDto aggregateMenuCategoryFps(MenuCategoryAggregateRequestDto requestDto) {
 
 		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/fps/menucategory").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<MenuCategoryFpsResponseDto>> returnType = new TypeReference<ResponseDto<MenuCategoryFpsResponseDto>>() {};
+
+		ResponseDto<MenuCategoryFpsResponseDto> responseDto = new ResponseDto<>();
+
+		try {
+
+			responseDto = restClient.request(path, HttpMethod.POST, queryParams, requestDto, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while searching from search service.", e);
+
+			throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+
+		}
+
+		return responseDto.getData();
+	}
+
+	public MenuCategoryFpsResponseDto aggregateResidenceFps(MenuResidenceAggregateRequestDto requestDto) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/aggregate/food/fps/residence").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -441,7 +513,15 @@ public class SearchClientApi {
 		return foodMenuAggregationClient.aggregateMenuItemsRating(restClient, requestDto);
 	}
 
+	public List<MealItemRatingResponseDto> aggregateMenuItemsRating(MenuMealResidenceItemRequestDto requestDto) {
+		return foodMenuAggregationClient.aggregateMenuItemsRating(restClient, requestDto);
+	}
+
 	public FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(MenuMealItemRequestDto requestDto) {
+		return foodMenuAggregationClient.aggregateWeeklyMenuItemsRating(restClient, requestDto);
+	}
+
+	public FoodMenuMicromarketRatingResponseDto aggregateWeeklyMenuItemsRating(MenuMealResidenceItemRequestDto requestDto) {
 		return foodMenuAggregationClient.aggregateWeeklyMenuItemsRating(restClient, requestDto);
 	}
 

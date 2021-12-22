@@ -36,6 +36,7 @@ public class FilterDto {
     @Valid
     @NotNull
     private Department department;
+    private Department selectedDepartment;
     private String searchKey;
     private DateRange dateRangeCreatedAt;
     private String itemName;
