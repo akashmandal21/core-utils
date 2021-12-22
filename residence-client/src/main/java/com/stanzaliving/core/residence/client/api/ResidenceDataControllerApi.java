@@ -1576,7 +1576,7 @@ public class ResidenceDataControllerApi {
                 };
 
         try {
-            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, (Object) null, headerParams, accept, returnType);
         } catch (Exception var12) {
             log.error("Exception while fetching apartment count for micromarket {} ", advanceRoomSearchDto.getMicroMarketId());
             return null;
