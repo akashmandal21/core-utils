@@ -1,6 +1,6 @@
 package com.stanzaliving.food.v2.dispatch;
 
-import com.stanzaliving.core.food.enums.FoodServeType;
+import com.stanzaliving.core.operations.enums.DealCategory;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,26 +8,20 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ThaliPaxDto {
+public class DealWiseFoodOrderSummaryDispatchDto {
 
-	private String thaliId;
+	private String dealId;
 
-	private String name;
+	private DealCategory dealCategory;
 
-	private Integer veg;
-
-	private Integer nonVeg;
-
-	private Integer nsl;
-
-	private boolean isDefault;
-
-	private FoodServeType foodServeType;
+	private List<FoodOrderSummaryDispatchDto> foodOrderSummaryDispatchDtoList;
 
 }

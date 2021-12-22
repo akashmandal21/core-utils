@@ -36,4 +36,6 @@ public class BuffetItemDetailsDto {
 
 	private Integer quantityValue;
 
+	private boolean isDefault;
+
 }
