@@ -1555,4 +1555,32 @@ public class ResidenceDataControllerApi {
         }
     }
 
+    public ResponseDto<Integer> getApartmentCount(AdvanceRoomSearchDto advanceRoomSearchDto) {
+
+        log.info("Residence-Data-Controller::Processing to get apartment count {} ", advanceRoomSearchDto.getMicroMarketId());
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/internal/apartment-count").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Integer>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Integer>>() {
+                };
+
+        try {
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var12) {
+            log.error("Exception while fetching apartment count for micromarket {} ", advanceRoomSearchDto.getMicroMarketId());
+            return null;
+        }
+    }
+
 }
