@@ -156,6 +156,8 @@ public class SectionDetailsDto extends AbstractDto {
 
     private List<String> commentsUuidList;
 
+    private Integer taskDelayedBy;
+
     @Valid
     private List<SectionDetailsDto> tasks;
 

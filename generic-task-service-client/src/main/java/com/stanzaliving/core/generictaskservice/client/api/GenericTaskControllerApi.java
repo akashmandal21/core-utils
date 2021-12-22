@@ -106,7 +106,6 @@ public class GenericTaskControllerApi {
 
     }
 
-
     public ResponseDto<List<String>> getAllTaskUuidByTaskTemplate() {
 
         Object postBody = null;
@@ -515,6 +514,7 @@ public class GenericTaskControllerApi {
 
     /**
      * Fetch by taskUuids
+     *
      * @param taskSearchFilterRequestDto
      * @return
      */
@@ -540,6 +540,7 @@ public class GenericTaskControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
     }
+
     /**
      * @param sectionDetailsDto
      * @return
