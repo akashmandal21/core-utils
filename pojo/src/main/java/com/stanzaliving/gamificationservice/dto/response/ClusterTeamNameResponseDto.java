@@ -13,6 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 public class ClusterTeamNameResponseDto {
 
+    private String uuid;
+
     private String teamName;
 
     private List<String> memberNames;

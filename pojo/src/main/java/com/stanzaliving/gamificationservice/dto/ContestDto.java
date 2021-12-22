@@ -5,7 +5,6 @@ import com.stanzaliving.gamificationservice.enums.ContestStatus;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,8 +38,6 @@ public class ContestDto {
     private LocalDate dateOfJoining;
 
     private String contestType;
-
-    private String contestTypeId;
 
     private List<String> location;
 

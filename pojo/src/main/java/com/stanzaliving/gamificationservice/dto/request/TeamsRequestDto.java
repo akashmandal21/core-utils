@@ -17,6 +17,9 @@ import java.util.List;
 @AllArgsConstructor
 public class TeamsRequestDto {
     @NotBlank(message = "team name is Mandatory.")
+
+    private String uuid;
+
     private String teamName;
 
     private LocalDate dateOfJoining;

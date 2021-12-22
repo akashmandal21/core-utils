@@ -14,6 +14,8 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 public class TeamsFilterDto {
+
+    private String uuid;
     private List<String> usersList;
     private String location;
     private String zone;
