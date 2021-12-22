@@ -1556,7 +1556,7 @@ public class ResidenceDataControllerApi {
     }
 
     public ResponseDto<Integer> getApartmentCount(AdvanceRoomSearchDto advanceRoomSearchDto) {
-
+        Object postBody = advanceRoomSearchDto;
         log.info("Residence-Data-Controller::Processing to get apartment count {} ", advanceRoomSearchDto.getMicroMarketId());
 
         Map<String, Object> uriVariables = new HashMap();
@@ -1576,7 +1576,7 @@ public class ResidenceDataControllerApi {
                 };
 
         try {
-            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, (Object) null, headerParams, accept, returnType);
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception var12) {
             log.error("Exception while fetching apartment count for micromarket {} ", advanceRoomSearchDto.getMicroMarketId());
             return null;
