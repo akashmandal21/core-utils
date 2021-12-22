@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.dispatch;
 
+import com.stanzaliving.core.food.enums.FoodItemType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,10 @@ public class BuffetItemDetailsDto {
 	private String itemId;
 
 	private String itemName;
+
+	private FoodItemType foodItemType;
+
+	private String foodItemTypeName;
 
 	private Integer groupNumber;
 

@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.dispatch;
 
+import com.stanzaliving.core.food.enums.FoodServeType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,5 +25,7 @@ public class ThaliPaxDto {
 	private Integer nonVeg;
 
 	private Integer nsl;
+
+	private FoodServeType foodServeType;
 
 }

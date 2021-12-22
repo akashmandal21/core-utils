@@ -25,13 +25,19 @@ public class FoodOrderSummaryDispatchDto {
 
 	private String dealId;
 
+	private DealCategory dealCategory;
+
 	private String vendorId;
 
 	private String foodOrderId;
 
-	private LocalDate menuDate;
+	private String menuCategoryId;
 
-	private DealCategory dealCategory;
+	private String menuCategoryName;
+
+	private String menuCategoryVersionId;
+
+	private LocalDate menuDate;
 
 	private FoodServeType foodServeType;
 
@@ -39,7 +45,7 @@ public class FoodOrderSummaryDispatchDto {
 
 	private List<BuffetItemDetailsDto> buffetItemDetailsDtoList;
 
-	private List<PackedItemDetailsDto> packedItemDetailsDtoList;
+	private List<BuffetItemDetailsDto> packedItemDetailsDtoList;
 
 	private List<ThaliPaxDto> thaliPaxDtoList;
 
