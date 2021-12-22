@@ -1555,7 +1555,7 @@ public class ResidenceDataControllerApi {
         }
     }
 
-    public ResponseDto<Integer> getApartmentCount(AdvanceRoomSearchDto advanceRoomSearchDto) {
+    public ResponseDto<RoomNumberListingAndCountDto> getApartmentCount(AdvanceRoomSearchDto advanceRoomSearchDto) {
         Object postBody = advanceRoomSearchDto;
         log.info("Residence-Data-Controller::Processing to get apartment count {} ", advanceRoomSearchDto.getMicroMarketId());
 
@@ -1571,8 +1571,8 @@ public class ResidenceDataControllerApi {
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Integer>> returnType =
-                new ParameterizedTypeReference<ResponseDto<Integer>>() {
+        ParameterizedTypeReference<ResponseDto<RoomNumberListingAndCountDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<RoomNumberListingAndCountDto>>() {
                 };
 
         try {
