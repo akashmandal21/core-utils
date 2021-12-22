@@ -16,9 +16,11 @@ import lombok.*;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class CorrelationDto {
 
-	private String uuid;
+    private String uuid;
 
-	private String correlationType;
+    private String correlationType;
 
-	private String description;
+    private int correlationValue;
+
+    private String description;
 }

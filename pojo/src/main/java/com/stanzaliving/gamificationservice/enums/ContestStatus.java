@@ -15,20 +15,20 @@ import java.util.TreeMap;
 @AllArgsConstructor
 public enum ContestStatus {
 
-	APPROVE("APPROVE"),PENDING("PENDING"),REJECT("REJECT");
+    PENDING("PENDING"), APPROVE("APPROVE"), REJECT("REJECT");
 
-	private static final SortedMap<String, ContestStatus> contestStatusMap = new TreeMap<String, ContestStatus>();
+    private static final SortedMap<String, ContestStatus> contestStatusMap = new TreeMap<String, ContestStatus>();
 
-	static {
-		for (ContestStatus  contestStatus : ContestStatus.values()) {
-			contestStatusMap.put(contestStatus.getContestStatusName(), contestStatus);
-		}
-	}
+    static {
+        for (ContestStatus contestStatus : ContestStatus.values()) {
+            contestStatusMap.put(contestStatus.getContestStatusName(), contestStatus);
+        }
+    }
 
-	private final String contestStatusName;
+    private final String contestStatusName;
 
-	public static Collection<ContestStatus> getContestStatus() {
-		return contestStatusMap.values();
-	}
+    public static Collection<ContestStatus> getContestStatus() {
+        return contestStatusMap.values();
+    }
 
 }

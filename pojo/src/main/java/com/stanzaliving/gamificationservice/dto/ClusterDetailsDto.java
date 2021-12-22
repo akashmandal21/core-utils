@@ -13,7 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 public class ClusterDetailsDto {
 
-    private String clustername;
+    private String uuid;
+
+    private String clusterName;
 
     private String clusterManagerName;
 
