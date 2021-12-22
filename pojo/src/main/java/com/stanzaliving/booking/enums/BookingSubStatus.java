@@ -13,7 +13,7 @@ import java.util.Set;
 public enum BookingSubStatus {
 
 
-    IN_PROGRESS("IN PROGRESS"),
+	IN_PROGRESS("IN PROGRESS"),
     NEEDS_ATTENTION("NEEDS ATTENTION"),
     COLLECT_PAYMENT_FROM_RESIDENT("COLLECT PAYMENT FROM RESIDENT"),
     PERSONAL_DETAILS_PENDING("PERSONAL DETAILS PENDING"),
@@ -26,6 +26,8 @@ public enum BookingSubStatus {
     CONTRACT_MODIFICATION_PENDING("CONTRACT MODIFICATION PENDING"),
     KEY_HANDOVER_PENDING("KEY HANDOVER PENDING"),
     AUDIT_PENDING("AUDIT PENDING"),
+    AUDIT_APPROVED("AUDIT APPROVED"),
+    AUDIT_REJECTED("AUDIT REJECTED"),
     PENDING_CH_APPROVAL("PENDING CH APPROVAL"),
     AUDIT_APPROVAL_PENDING("AUDIT APPROVAL PENDING"),
     PENDING_ZH_APPROVAL("PENDING ZH APPROVAL");
@@ -66,14 +68,6 @@ public enum BookingSubStatus {
         Set<BookingSubStatus> bookingSubStatus = new HashSet<>();
         bookingSubStatus.add(BookingSubStatus.BOOKING_AMOUNT_PENDING);
         return bookingSubStatus;
-    }
-
-    public static Set<String> exitInitiatedBookingSubStatuses(){
-        Set<String> bookingStatus = new HashSet<>();
-        bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
-        bookingStatus.add(PENDING_CH_APPROVAL.getBookingSubStatus());
-        bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
-        return bookingStatus;
     }
 
 
