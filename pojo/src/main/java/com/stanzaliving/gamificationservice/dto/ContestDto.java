@@ -42,13 +42,13 @@ public class ContestDto {
 
     private String contestTypeId;
 
-    private List<String> location = new ArrayList<>();
+    private List<String> location;
 
-    private List<String> zone = new ArrayList<>();
+    private List<String> zone;
 
-    private List<String> cluster = new ArrayList<>();
+    private List<String> cluster;
 
-    private List<String> pair = new ArrayList<>();
+    private List<String> pair;
 
     private ContestStatus contestStatus;
 
