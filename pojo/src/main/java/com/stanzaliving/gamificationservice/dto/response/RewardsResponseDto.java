@@ -34,4 +34,6 @@ public class RewardsResponseDto {
     private List<BadgesDto> badgesDtoList;
 
     private List<ContestDto> contestDtoList;
+
+    private String userId;
 }
