@@ -32,4 +32,7 @@ public class RewardsRequestDto {
 
     @NotNull(message = "PointsScored is Mandatory.")
     private int pointsScored;
+
+    @NotNull(message = "UserId is Mandatory.")
+    private String userId;
 }
