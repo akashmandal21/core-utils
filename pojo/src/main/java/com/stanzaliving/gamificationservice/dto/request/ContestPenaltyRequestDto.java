@@ -20,6 +20,12 @@ public class ContestPenaltyRequestDto {
     @NotBlank(message = "AssociateName is Mandatory.")
     private String associateName;
 
+    private String city;
+
+    private String cluster;
+
+    private String zone;
+
     private String description;
 
     @NotNull(message = "PenaltyPoints is Mandatory.")

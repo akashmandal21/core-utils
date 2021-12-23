@@ -17,8 +17,15 @@ public class ContestPenaltyResponseDto {
 
     private String associateName;
 
+    private String city;
+
+    private String cluster;
+
+    private String zone;
+
     private String description;
 
     private int penaltyPoints;
 
+    private boolean isPenalty;
 }
