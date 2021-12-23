@@ -13,7 +13,8 @@ public enum AppPage {
 	FOOD_PAGE("Food Page"), 
 	DEALS_PAGE("Deals Page"), 
 	MYSTAY_PAGE("My Stay Page"),
-	SUPPORT_HOME_PAGE("Support Home Page");
+	SUPPORT_HOME_PAGE("Support Home Page"),
+	COMMUNITY_PAGE("Community Page");
 
 	private String displayName;
 }
