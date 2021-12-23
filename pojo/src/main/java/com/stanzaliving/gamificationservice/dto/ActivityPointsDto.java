@@ -1,0 +1,19 @@
+package com.stanzaliving.gamificationservice.dto;
+
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@Builder
+@ToString
+@NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+public class ActivityPointsDto {
+
+    private String ruleNo;
+    private int activityPointsPreBooking;
+    private int activityPointsBooking;
+}
