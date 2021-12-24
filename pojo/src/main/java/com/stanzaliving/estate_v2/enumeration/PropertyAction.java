@@ -16,6 +16,8 @@ public enum PropertyAction {
     L2_NATIONAL_HEAD("L2 National Head", "f7aad3a6-0428-11ec-9a03-0242ac130003", "L2_NATIONAL_HEAD"),
     L2_TRANSFORMATION("L2 Transformation", "f7aad46e-0428-11ec-9a03-0242ac130003", "L2_TRANSFORMATION"),
     L2_PROPERTY_NAMING("Property Naming", "f7aad68a-0428-11ec-9a03-0242ac130003", "L2_PROPERTY_NAMING"),
+    SENT_TO_TRANSFORMATION("Sent To Transformation", "7b015d7e-8fce-4bbf-83fc-20e105586bbe", "SENT_TO_TRANSFORMATION"),
+    SENT_TO_SANDEEP("Sent To Sandeep ", "9262e77c-eb72-43df-a075-e4b33cf42777", "SENT_TO_SANDEEP"),
 
     //Apartment Flow
     L1_ZH("L1 Zonal Head", "f7aad752-0428-11ec-9a03-0242ac130003", "L1_ZH"),
