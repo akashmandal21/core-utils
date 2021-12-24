@@ -42,7 +42,9 @@ public enum Department {
 	BRAND_MKTNG("Brand Marketing","BM","BRM"),
 	RES21("RE - S21","RS","RES"),
 	CORPORATE_DESIGN("Corporate Design","CD","CDS"),
-	SALES_IS("Sales IS", "IS", "SIS");
+	SALES_IS("Sales IS", "IS", "SIS"),
+	RE_BROKERAGE("RE Brokerage","RB","RBK");
+
 
 	public String departmentName;
 	public String shortCode;
