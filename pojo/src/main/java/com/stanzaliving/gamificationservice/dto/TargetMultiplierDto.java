@@ -15,11 +15,21 @@ import lombok.*;
 public class TargetMultiplierDto {
 
     private String ruleNo;
+
+    private String targetMultiplierBooking;
+
+    private String targetMultiplierPreBooking;
+
     private int targetMultiplierPreBookingMinimum;
+
     private int targetMultiplierPreBookingMaximum;
+
     private int preBookingMultiplierPoints;
+
     private int targetMultiplierBookingMinimum;
+
     private int targetMultiplierBookingMaximum;
+
     private int bookingMultiplierPoints;
 
 }

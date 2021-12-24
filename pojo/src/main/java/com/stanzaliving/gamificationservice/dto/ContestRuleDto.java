@@ -6,6 +6,7 @@ import com.stanzaliving.gamificationservice.enums.RuleFunctionEnum;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,11 +26,11 @@ public class ContestRuleDto {
 
     private String contestStyle;
 
-    private InputFieldsDto inputField;
+    private List<InputFieldsDto> inputField;
 
-    private TargetMultiplierDto targetMultiplier;
+    private List<TargetMultiplierDto> targetMultiplier;
 
-    private ActivityPointsDto activityPoints;
+    private List<ActivityPointsDto> activityPoints;
 
     private MinimumQualifierDto minimumQualifier;
 
