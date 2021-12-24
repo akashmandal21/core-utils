@@ -424,8 +424,6 @@ public class UserClientApi {
 
 	public ResponseDto<UserProfileDto> getUserProfileByUuid(String userUuid) {
 
-		Object postBody = null;
-
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("userUuid", userUuid);
 
@@ -442,7 +440,13 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		}
+		catch (Exception ex) {
+			log.error("Error occurred while fetching user details from UserId",ex);
+			return null;
+		}
 	}
 
 	public ResponseDto<List<UserProfileDto>> getAllUsers() {
