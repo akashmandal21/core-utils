@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * @author Pradeep Naik R
  * @description DTO for Section Details
@@ -19,5 +21,9 @@ public class ActivitiesDto extends AbstractDto {
     private String activityName;
 
     private String moduleUuid;
+
+    private String colorCode;
+
+    private String textColorCode;
 
 }
