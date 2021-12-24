@@ -46,4 +46,6 @@ public class BookingDetailsRequestDto implements Serializable {
 	@NotNull(message = "payment term cannot be null")
 	private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
 
+	private Date newStayLockInEndDate;
+
 }
