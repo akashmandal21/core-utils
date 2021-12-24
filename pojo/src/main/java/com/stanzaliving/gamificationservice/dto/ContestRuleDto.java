@@ -26,11 +26,11 @@ public class ContestRuleDto {
 
     private String contestStyle;
 
-    private List<InputFieldsDto> inputField;
+    private List<InputFieldsDto> inputFieldList;
 
-    private List<TargetMultiplierDto> targetMultiplier;
+    private List<TargetMultiplierDto> targetMultiplierList;
 
-    private List<ActivityPointsDto> activityPoints;
+    private List<ActivityPointsDto> activityPointsList;
 
     private MinimumQualifierDto minimumQualifier;
 
