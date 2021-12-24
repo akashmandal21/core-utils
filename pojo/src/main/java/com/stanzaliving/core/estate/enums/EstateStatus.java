@@ -89,7 +89,17 @@ public enum EstateStatus {
 	SENT_FOR_NH_DH_APPROVED("Pending L2 NH Approval"),
 	SENT_FOR_DH_NH_APPROVED("Pending L2 SOW Approval"),
 
-	PROPERTY_APPROVED("Property Approved");
+	PROPERTY_APPROVED("Property Approved"),
+
+	//New Pg flow status
+	SENT_FOR_L1_APPROVAL_TO_ZH("L1 Sent to ZH"),
+	SENT_FOR_L2_APPROVAL_TO_ZH("Pending ZH L2 approval"),
+	SENT_FOR_L2_APPROVAL_TO_NH("Pending NH L2 approval"),
+	SENT_FOR_APPROVAL_TO_TRANSFORMATION_AND_LEGAL("Pending Transformation and Legal approval"),
+	SENT_TO_TRANSFORMATION("Pending Transformation Approval"),
+	SENT_TO_LEGAL_AND_SANDEEP("Pending Legal and Sandeep Approval"),
+	SENT_TO_SANDEEP("Pending Sandeep Approval");
+
 	
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
