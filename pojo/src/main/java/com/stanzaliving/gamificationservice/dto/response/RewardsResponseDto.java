@@ -3,6 +3,7 @@ package com.stanzaliving.gamificationservice.dto.response;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.gamificationservice.dto.BadgesDto;
 import com.stanzaliving.gamificationservice.dto.ContestDto;
+import com.stanzaliving.gamificationservice.dto.UsersProfileDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -34,6 +35,8 @@ public class RewardsResponseDto {
     private List<BadgesDto> badgesDtoList;
 
     private List<ContestDto> contestDtoList;
+
+    private UsersProfileDto usersProfileDto;
 
     private String userId;
 }
