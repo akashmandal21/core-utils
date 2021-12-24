@@ -1,20 +1,22 @@
 package com.stanzaliving.core.enums;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
 public enum ApartmentType {
 
+
     ONE_BHK("1BHK",1),
     TWO_BHK("2BHK",2),
     THREE_BHK("3BHK",3),
     FOUR_BHK("4BHK",4),
-    FIVE_BHK("5BHK",5);
+    FIVE_BHK("5BHK",5),
+    SIX_BHK("6BHK",6);
 
 
     private static final Map<String, ApartmentType> map = new HashMap<>();

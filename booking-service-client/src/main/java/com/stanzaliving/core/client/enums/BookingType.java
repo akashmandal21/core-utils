@@ -1,5 +1,6 @@
 package com.stanzaliving.core.client.enums;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

@@ -31,4 +31,6 @@ public class AttendanceDefaulterActionDTO {
     private Date creationTime;
 
     private boolean isLoopClosure;
+
+    private String createdBy;
 }

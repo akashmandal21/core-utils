@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.user.acl.dto.RoleDto;
-import com.stanzaliving.core.user.acl.request.dto.CheckRoleNamesDto;
+import com.stanzaliving.core.user.enums.EnumListing;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -245,6 +245,34 @@ public class AclUserClientApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public ResponseDto<List<EnumListing<Department>>> getDepartmentList(String token) {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/department/list")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<EnumListing<Department>>>> returnType = new ParameterizedTypeReference<ResponseDto<List<EnumListing<Department>>>>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);

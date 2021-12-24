@@ -1,29 +1,55 @@
 package com.stanzaliving.core.base.utils;
 
-import com.stanzaliving.core.base.StanzaConstants;
-import com.stanzaliving.core.base.enums.DateFormat;
-import com.stanzaliving.core.base.enums.DatePart;
-import lombok.experimental.UtilityClass;
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.text.CaseUtils;
+import static com.google.common.base.Preconditions.*;
 
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.*;
+import java.time.DayOfWeek;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+import java.time.Period;
+import java.time.YearMonth;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
 
-import static com.google.common.base.Preconditions.checkArgument;
+import org.apache.commons.text.CaseUtils;
+
+import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.enums.DateFormat;
+import com.stanzaliving.core.base.enums.DatePart;
+
+import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @UtilityClass
 public class DateUtil {
-
+	
+    public final String DATETIME_WITH_AM_PM = "dd MMM, yyyy hh:mm:ss a";
+    public final String DD_MMM_YYYY_FORMAT = "dd-MMM-yyyy";
+    public final String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
+    public final String yyyy_MM_dd_FORMAT = "yyyy-MM-dd";
+    
     public String formatIst(Date date, String format) {
         return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
     }
@@ -66,6 +92,10 @@ public class DateUtil {
         }
 
         return null;
+    }
+
+    public static String convertDateToString(Date date, SimpleDateFormat sdf) {
+        return sdf.format(date);
     }
 
     public String customTimeFormatter(LocalTime timeInput, DateFormat dateFormat) {
@@ -1098,5 +1128,29 @@ public class DateUtil {
                 (day == 31 && oddMonth.contains(month)) ||
                 (day == 30 && evenMonth.contains(month))) return true;
         return false;
+    }
+
+    public static Boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
+		LocalDate localDate = getLocalDate(date);
+		return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
+	}
+
+    public static List<LocalDate> getCalendarMonthOfYear(Integer month,Integer year) {
+
+        LocalDate startDate = getMonthStartBeginningDate(month, year);
+        LocalDate endDate = getMonthEndBeginningDate(month, year);
+
+        DayOfWeek startDayOfMonth = startDate.getDayOfWeek();
+        startDate = startDayOfMonth==DayOfWeek.MONDAY?startDate:startDate.minusDays(startDayOfMonth.getValue()-1);
+
+        DayOfWeek endDayOfMonth = endDate.getDayOfWeek();
+        endDate = endDate.plusDays(7-endDayOfMonth.getValue());
+
+        return getAllLocalDatesForRange(startDate,endDate);
+
+    }
+
+    public static boolean isWeekDay(LocalDate date) {
+        return date.getDayOfWeek()!=DayOfWeek.SATURDAY&&date.getDayOfWeek()!=DayOfWeek.SUNDAY;
     }
 }

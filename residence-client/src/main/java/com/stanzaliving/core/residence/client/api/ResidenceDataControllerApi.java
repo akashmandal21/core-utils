@@ -1,17 +1,11 @@
 package com.stanzaliving.core.residence.client.api;
 
-import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.constants.SecurityConstants;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.residenceservice.dto.*;
-import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
-import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
-import com.stanzaliving.core.security.helper.SecurityUtils;
-import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
-import com.stanzaliving.residenceservice.BookingAttributesDto;
-import com.stanzaliving.residenceservice.Dto.*;
-import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -24,11 +18,39 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
+import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.residenceservice.dto.AdvanceRoomSearchDto;
+import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
+import com.stanzaliving.core.residenceservice.dto.ConvertRoomPricesDto;
+import com.stanzaliving.core.residenceservice.dto.ConvertRoomRequestDto;
+import com.stanzaliving.core.residenceservice.dto.MoveInDateDto;
+import com.stanzaliving.core.residenceservice.dto.OccupanciesFloorsStatusCountSearchDto;
+import com.stanzaliving.core.residenceservice.dto.PricingDetailsResponseDto;
+import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
+import com.stanzaliving.core.residenceservice.dto.ResidenceInfoDto;
+import com.stanzaliving.core.residenceservice.dto.ResidenceLockInDto;
+import com.stanzaliving.core.residenceservice.dto.ResidencePaymentPlanDto;
+import com.stanzaliving.core.residenceservice.dto.ResidenceVasDto;
+import com.stanzaliving.core.residenceservice.dto.RoomCardDetailDto;
+import com.stanzaliving.core.residenceservice.dto.RoomDetailsResponseDto;
+import com.stanzaliving.core.residenceservice.dto.RoomInventoryDetailDto;
+import com.stanzaliving.core.residenceservice.dto.RoomNumberListingAndCountDto;
+import com.stanzaliving.core.residenceservice.dto.ServiceMixDto;
+import com.stanzaliving.core.security.helper.SecurityUtils;
+import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
+import com.stanzaliving.residenceservice.BookingAttributesDto;
+import com.stanzaliving.residenceservice.Dto.AttributesAndGlobalUuidDto;
+import com.stanzaliving.residenceservice.Dto.InventoryDetailsRequestDto;
+import com.stanzaliving.residenceservice.Dto.ResidenceAttributesRequestDto;
+import com.stanzaliving.residenceservice.Dto.ResidenceAttributesResponseDto;
+import com.stanzaliving.residenceservice.Dto.ResidencePaymentModeDto;
+import com.stanzaliving.residenceservice.Dto.RoomAndInventoryDetailsDto;
+import com.stanzaliving.residenceservice.Dto.RoomInventoryLogDto;
+import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
+import com.stanzaliving.venta.RoomInfoDto;
 
 public class ResidenceDataControllerApi {
     private static final Logger log = LogManager.getLogger(ResidenceDataControllerApi.class);
@@ -384,6 +406,33 @@ public class ResidenceDataControllerApi {
                 return null;
             }
         
+    }
+
+    public InventoryPricingResponseDto getInventoryPricingDataWithServiceMix(String residenceUuid, String inventoryUuid, String serviceMixUuid, LocalDate fromDate, LocalDate toDate) {
+        log.info("get pricing details for residenceUuid {}, inventoryUuid {},fromDate{}, toDate {},", residenceUuid, inventoryUuid, fromDate, toDate);
+
+        Map<String, Object> uriVariables = new HashMap();
+        uriVariables.put("residenceUuid", residenceUuid);
+        uriVariables.put("inventoryUuid", inventoryUuid);
+        uriVariables.put("serviceMixUuid", serviceMixUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/get/pricing/{residenceUuid}/{inventoryUuid}/{serviceMixUuid}").buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        queryParams.add("fromDate", fromDate.toString());
+        queryParams.add("toDate", toDate.toString());
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference returnType = new ParameterizedTypeReference<InventoryPricingResponseDto>() {
+        };
+
+        try {
+            return (InventoryPricingResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var14) {
+            log.error("Exception while fetching pricing details by residenceUuid, inventoryUuid : {} , {}", residenceUuid, inventoryUuid);
+            return null;
+        }
+
     }
 
     public ResidencePropertyCardDto getResidenceDetails(String residenceUuid, String token) {
@@ -1234,5 +1283,64 @@ public class ResidenceDataControllerApi {
             return null;
         }
     }
+    
+    public List<ResidenceVasDto> getResidenceVasDetails(String residenceUuid) {
+
+        log.info("Residence-Data-Controller::Processing to get vas details based on residenceUuid {}", residenceUuid);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence-vas/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<ResidenceVasDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<ResidenceVasDto>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching vas Details from residenceUuid: {}", residenceUuid);
+        }
+        return null;
+    }
+    
+    public List<RoomInfoDto> getRoomDetailsForResidence(String residenceUuid) {
+		Object postBody = null;
+
+		List<RoomInfoDto> roomInfoDto = new ArrayList<>();
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
+		String path = UriComponentsBuilder.fromPath("/internal/residence/roomInfo/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<RoomInfoDto>> returnType = new ParameterizedTypeReference<List<RoomInfoDto>>() {
+		};
+
+		try {
+			roomInfoDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching room numbers list for residence {} ", residenceUuid);
+		}
+
+		return roomInfoDto;
+	} 
 
 }

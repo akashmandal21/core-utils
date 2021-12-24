@@ -39,6 +39,7 @@ public class BookingStatusResponseDto {
     private String androidVersion;
     private String appleVersion;
     private String userCategory;
+    private String userUuid;
     private boolean wp;
     private String displayMessage;
     private String roomNumber;
@@ -52,4 +53,7 @@ public class BookingStatusResponseDto {
     private Date expectedMoveInDate;
     private RetentionBookingResponseDto retentionBooking;
     private String contractStartDate;
+    private boolean interestMenuVisiblity;
+    private boolean interestBanner;
+    private String propertyCategory;
 }
