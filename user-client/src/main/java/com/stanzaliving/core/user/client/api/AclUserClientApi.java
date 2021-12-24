@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.user.acl.dto.RoleDto;
+import com.stanzaliving.core.user.acl.request.dto.CheckRoleNamesDto;
 import com.stanzaliving.core.user.enums.EnumListing;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
