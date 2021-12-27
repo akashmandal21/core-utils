@@ -1,6 +1,7 @@
 package com.stanzaliving.support.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.stanzaliving.support.enums.Priority;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -41,6 +42,7 @@ public class TicketCardDto {
     private String designation;
     private Date resolvedAt;
     private Date closedAt;
+    private Priority priority;
 
 
 }
