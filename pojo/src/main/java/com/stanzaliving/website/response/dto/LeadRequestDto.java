@@ -122,5 +122,7 @@ public class LeadRequestDto {
 	private boolean createHotLead;
 	
 	private String extendDurationMessage;
+	
+	private String budget;
 
 }
