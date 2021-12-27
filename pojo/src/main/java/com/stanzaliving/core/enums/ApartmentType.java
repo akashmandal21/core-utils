@@ -15,7 +15,8 @@ public enum ApartmentType {
     TWO_BHK("2BHK",2),
     THREE_BHK("3BHK",3),
     FOUR_BHK("4BHK",4),
-    FIVE_BHK("5BHK",5);
+    FIVE_BHK("5BHK",5),
+    SIX_BHK("6BHK",6);
 
 
     private static final Map<String, ApartmentType> map = new HashMap<>();
