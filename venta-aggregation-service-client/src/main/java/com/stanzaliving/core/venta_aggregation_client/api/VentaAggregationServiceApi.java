@@ -131,7 +131,13 @@ public class VentaAggregationServiceApi {
 		ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationEntityDto>>>() {
 		};
 
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		try {
+			log.info("Executing Api for fetching booked details with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching booked details , Exception is ", e);
+		}
+		return null;
 	}
 
 	public ResponseDto<List<BookingAggregationDto>> getActiveBookings() {
