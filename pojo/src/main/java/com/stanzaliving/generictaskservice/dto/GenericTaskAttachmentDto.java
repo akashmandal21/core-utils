@@ -8,6 +8,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -34,4 +35,6 @@ public class GenericTaskAttachmentDto {
     private Department department;
 
     private String url;
+
+    private Date updatedAt;
 }
