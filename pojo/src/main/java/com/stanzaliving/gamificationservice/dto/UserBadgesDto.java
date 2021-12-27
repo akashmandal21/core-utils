@@ -25,4 +25,7 @@ public class UserBadgesDto {
 
     @JsonProperty("badge_lable")
     private String badgeLable;
+
+    @JsonProperty("badge_name")
+    private String badgeName;
 }

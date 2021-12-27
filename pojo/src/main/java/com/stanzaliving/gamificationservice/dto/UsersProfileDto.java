@@ -47,4 +47,6 @@ public class UsersProfileDto {
 
     private int noOfContestShow;
 
+    private String monthName;
+
 }
