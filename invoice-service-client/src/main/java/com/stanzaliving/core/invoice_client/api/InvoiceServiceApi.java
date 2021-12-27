@@ -125,7 +125,7 @@ public class InvoiceServiceApi {
 
     public ResponseDto<String> saveDeptApprovalConfigForNewDept(Department newDepartment, Department refDepartment) {
 
-        log.info("HTTP Client call to save vendorMapping details for new dept: {} refDept: {}" , newDepartment,refDepartment);
+        log.info("HTTP Client call to save DeptApprovalConfigForNewDept details for new dept: {} refDept: {}" , newDepartment,refDepartment);
 
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("newDepartment",newDepartment);

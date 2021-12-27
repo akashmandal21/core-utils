@@ -800,7 +800,7 @@ public class UserClientApi {
 
 	public ResponseDto<String> saveUserDeptLevelForNewDept(Department newDepartment, Department refDepartment) {
 
-		log.info("HTTP Client call to save vendorMapping details for new dept: {} refDept: {}" , newDepartment,refDepartment);
+		log.info("HTTP Client call to save UserDeptLevelForNewDept details for new dept: {} refDept: {}" , newDepartment,refDepartment);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("newDepartment",newDepartment);
