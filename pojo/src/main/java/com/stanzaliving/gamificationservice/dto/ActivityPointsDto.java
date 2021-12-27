@@ -14,6 +14,16 @@ import lombok.*;
 public class ActivityPointsDto {
 
     private String ruleNo;
-    private int activityPointsPreBooking;
-    private int activityPointsBooking;
+
+    private String  activityPointsPreBooking;
+
+    private String activityPointsBooking;
+
+    private String  activityPointsPreBookingCondition;
+
+    private String activityPointsBookingCondition;
+
+    private int activityPointsPreBookingValue;
+
+    private int activityPointsBookingValue;
 }
