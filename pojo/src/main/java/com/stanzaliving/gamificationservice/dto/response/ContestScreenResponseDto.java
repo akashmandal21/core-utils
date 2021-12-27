@@ -56,4 +56,8 @@ public class ContestScreenResponseDto {
     @JsonProperty("ongoing_contest_list")
     private List<OnGoingContestDto> ongoingContestList;
 
+    @JsonProperty("banner_images")
+    private List<BannerResponseDto> bannerResponseDtoList;
+
+
 }
