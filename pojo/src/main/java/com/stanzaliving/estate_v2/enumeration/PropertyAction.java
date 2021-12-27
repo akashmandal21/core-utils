@@ -58,6 +58,8 @@ public enum PropertyAction {
         pgPropertyActions.add(new KeyValueDto(L2_TRANSFORMATION.getAlias(),L2_TRANSFORMATION.uuid));
         pgPropertyActions.add(new KeyValueDto(L2_PROPERTY_NAMING.getAlias(),L2_PROPERTY_NAMING.uuid));
         pgPropertyActions.add(new KeyValueDto(ESTATE_LEADERSHIP.getAlias(),ESTATE_LEADERSHIP.uuid));
+        pgPropertyActions.add(new KeyValueDto(SENT_TO_TRANSFORMATION.getAlias(),SENT_TO_TRANSFORMATION.uuid));
+        pgPropertyActions.add(new KeyValueDto(SENT_TO_SANDEEP.getAlias(),SENT_TO_SANDEEP.uuid));
 
         return pgPropertyActions;
     }
