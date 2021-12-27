@@ -22,5 +22,7 @@ public class BookingFilterRequestDto {
     private String sortOrder;
     private String entity;
     private Set<String> leadIds;
-    private boolean moveIn;
+    private Boolean moveIn;
+    private String residentMobile;
+    private String residentId;
 }

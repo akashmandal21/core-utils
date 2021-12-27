@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.ventaaggregationservice.dto.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -16,12 +18,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
-import com.stanzaliving.core.ventaaggregationservice.dto.BookingAggregationDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.BookingFilterRequestDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.BookingResidenceAggregationEntityDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.MoveInDetailDataDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceAggregationEntityDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceFilterRequestDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -109,6 +105,30 @@ public class VentaAggregationServiceApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+	public ResponseDto<RestResponsePage<BookingAggregationEntityDto>> getBookingListingForInvoicingDashBoard(BookingFilterRequestDto bookingFilterRequestDto,
+																								 String type) {
+		log.info("Invoice Aggregation Booking Controller getBookingAggregationInvoiceListing with payload {}", bookingFilterRequestDto.toString());
+		Map<String, Object> uriVariables = new HashMap<>();
+
+		Object postBody = bookingFilterRequestDto;
+
+		String path = UriComponentsBuilder.fromPath("/booking/invoice/listing").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("type",type);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationEntityDto>>>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
