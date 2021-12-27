@@ -18,10 +18,16 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ShiftDetailsResponse extends AbstractDto {
+
     private String module;
+
     private String shiftName;
+
     private LocalTime durationInHours;
+
     private LocalTime startTime;
+
     private LocalTime endTime;
+
     private List<SlotDetailsResponse> slots;
 }

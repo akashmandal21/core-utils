@@ -15,6 +15,8 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @NoArgsConstructor
 public class AreaCategoryFilterDto {
+
     private String module;
+
     private String areaCategoryName;
 }

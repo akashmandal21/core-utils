@@ -10,10 +10,12 @@ public enum MicroClusterSortSpecs {
     UUID("uuid"),
     NAME("microClusterName"),
     CITY("cityName"),
+    CITYUUID("cityUuid"),
     STATUS("microClusterStatus"),
-    CREATEDBY("createdBy");
+    MICROMARKETUUID("micromarketUuid"),
+    MICROMARKETNAME("micromarketName"),
+    CREATEDBY("createdBy"),
+    UPDATEDAT("updatedAt");
 
     private String dbKey;
-
 }
-

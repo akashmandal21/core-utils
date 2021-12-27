@@ -1,6 +1,8 @@
 package com.stanzaliving.generictaskservice.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.generictaskservice.dto.response.MappedBeatPlanResponseDto;
+import com.stanzaliving.generictaskservice.dto.response.MappedTemplateResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
 import com.stanzaliving.generictaskservice.enums.SlotStatus;
 import com.stanzaliving.generictaskservice.enums.SlotType;
@@ -41,6 +43,8 @@ public class SlotDto extends AbstractDto {
 
     private LocalTime maximumSlotTime;
 
+    private Boolean isMappedToTemplateOrBeatPlan;
+
     @NotNull(message = "Is overlapping allowed is mandatory")
     private Boolean isOverLappingAllowed;
 
@@ -60,11 +64,15 @@ public class SlotDto extends AbstractDto {
 
     private List<TagResponseDto> tags;
 
-    private List<TaskCategoryDto> allowedTasksList;
+    private List<GenericTemplateDto> allowedTasksList;
 
     private SlotStatus slotStatus;
 
     private String createdByUser;
 
     private String updatedByUser;
+
+    private List<MappedTemplateResponseDto> mappedTemplate;
+
+    private List<MappedBeatPlanResponseDto> mappedBeatPlan;
 }

@@ -14,9 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateMicroClusterRequestDto {
-    @NotNull(
-            message = "MicroCluster Id is mandatory to update microcluster"
-    )
+    @NotNull(message = "MicroCluster Id is mandatory to update microcluster")
     private String uuid;
 
     private String microClusterName;
@@ -27,7 +25,8 @@ public class UpdateMicroClusterRequestDto {
 
     private Boolean microClusterStatus;
 
-    private List<String> microMarketNames;
+    private String microMarketName;
 
+    private String microMarketUuid;
 
 }

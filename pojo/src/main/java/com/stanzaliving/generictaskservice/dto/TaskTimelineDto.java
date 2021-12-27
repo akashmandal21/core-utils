@@ -3,6 +3,7 @@ package com.stanzaliving.generictaskservice.dto;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -25,23 +26,45 @@ public class TaskTimelineDto {
 
     private String taskId;
 
-    private String taskOwner;
+    private String taskOwnerUuid;
 
-    private String updatedBy;
+    private String taskOwnerFirstName;
+
+    private String taskOwnerLastName;
+
+    private String updatedByUuid;
+
+    private String updatedByFirstName;
+
+    private String updatedByLastName;
+
+    private String updatedByUserType;
 
     private LocalDate updatedAt;
 
-    private String subTaskStatus;
+    private String taskStatusUuid;
 
-    private String subTaskSubStatus;
+    private String taskStatusName;
 
-    private String taskStatus;
+    private String taskSubStatusUuid;
 
-    private String taskSubStatus;
+    private String taskSubStatusName;
+
+    private String subTaskStatusUuid;
+
+    private String subTaskStatusName;
+
+    private String subTaskSubStatusUuid;
+
+    private String subTaskSubStatusName;
 
     private String comment;
 
     private Map<String, Object> metaDataChanges;
 
     private String summary;
+
+    private String delayReason;
+
+    private Date updatedAtTime;
 }

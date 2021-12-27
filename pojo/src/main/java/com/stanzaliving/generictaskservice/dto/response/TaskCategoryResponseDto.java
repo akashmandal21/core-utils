@@ -35,14 +35,21 @@ public class TaskCategoryResponseDto extends AbstractDto {
     private List<TaskCategoryDto> taskSubCategoryList;
 
     private String taskType;
+
     private String description;
+
     private boolean autoCompleteTask;
+
     private boolean overLapTask;
+
     private boolean overrideTask;
+
     private LocalTime startTime;
+
     private String autoCompletionEvent;
+
     private List<TagsGenericResponseDto> tags;
+
     @JsonIgnore
     private List<String> tagsUuids;
-
 }

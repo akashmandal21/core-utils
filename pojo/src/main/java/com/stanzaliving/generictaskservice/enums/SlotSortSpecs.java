@@ -16,7 +16,7 @@ public enum SlotSortSpecs {
     RESCHEDULEINGALLOWED("reSchedulingAllowed"),
     MOVEABLESLOT("movableSlot"),
     ALLOWEDTASK("allowedTask"),
-    STATUS("status"),
+    SLOT_STATUS("slotStatus"),
     CREATEDBY("createdBy"),
     UPDATEDAT("updatedAt");
 

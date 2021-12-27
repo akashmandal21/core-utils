@@ -17,6 +17,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ShitAllocationDetailsResponse {
+
     private DayOfWeek day;
+
     private List<ShiftDetailsResponse> shifts;
 }
