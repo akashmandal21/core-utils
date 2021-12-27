@@ -14,7 +14,19 @@ import lombok.*;
 public class InputFieldsDto {
 
     private String ruleNo;
-    private int inputField;
-    private int inputFieldPreBooking;
-    private int inputFieldBooking;
+
+    private String inputField;
+
+    private String  inputFieldPreBooking;
+
+    private String inputFieldBooking;
+
+    private String inputFieldPrebookingCondition;
+
+    private String inputFieldBookingCondition;
+
+    private int inputFieldPreBookingValue;
+
+    private int inputFieldBookingValue;
+
 }
