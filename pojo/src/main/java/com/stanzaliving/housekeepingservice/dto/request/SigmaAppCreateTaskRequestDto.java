@@ -1,6 +1,6 @@
 package com.stanzaliving.housekeepingservice.dto.request;
 
-import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
+import com.stanzaliving.generictaskservice.dto.request.SigmaGenericTaskRequestDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -19,7 +19,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class SigmaAppCreateTaskRequestDto {
     private LocalDate date;
-    private String beatPlanUuid;
+    private String microClusterUuid;
     private String pseudoPersonUuid;
-    private GenericTaskDto genericTaskDto;
+    private SigmaGenericTaskRequestDto genericTaskDto;
 }
