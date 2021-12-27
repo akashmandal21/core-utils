@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BuffetItemDetailsDto {
+public class ItemDetailsDto {
 
 	private String itemId;
 

@@ -43,9 +43,9 @@ public class FoodOrderSummaryDispatchDto {
 
 	private MealType mealType;
 
-	private List<BuffetItemDetailsDto> buffetItemDetailsDtoList;
+	private List<ItemDetailsDto> buffetItemDetailsDtoList;
 
-	private List<BuffetItemDetailsDto> packedItemDetailsDtoList;
+	private List<ItemDetailsDto> packedItemDetailsDtoList;
 
 	private List<ThaliPaxDto> thaliPaxDtoList;
 
