@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.booking.dto.request.BookingRequestDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -630,6 +631,51 @@ public class BookingDataControllerApi {
             log.error("Exception while fetching bookin details for resident for residentId {}, Exception is ",residentId , e);
         }
         return Objects.nonNull(response) ? response.getData() : new ArrayList<>();
+    }
+
+    public ResponseDto<PaymentPendingBookingResponseDto> getLatestActivePaymentPendingBookingEntity(String bookingUuid) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/latest/active/payment-pending-booking/{bookingUuid}")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<PaymentPendingBookingResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPendingBookingResponseDto>>() {
+        };
+        ResponseDto<PaymentPendingBookingResponseDto> response  = null;
+        try {
+            log.info("Executing Api for getting latest active payment pending booking entity for bookingUuid {} with Url {}",bookingUuid,path);
+            response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while getting latest active payment pending booking entity for bookingUuid {} Exception is ",bookingUuid , e);
+        }
+        return response;
+    }
+
+    public ResponseDto<BookingResponseDto> captureTokenAmountPayment(BookingRequestDto confirmBookingDto) {
+
+        Object postBody = confirmBookingDto;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/v1/capture-payment").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<BookingResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
     
 
