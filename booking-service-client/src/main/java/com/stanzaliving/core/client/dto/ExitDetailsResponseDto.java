@@ -59,4 +59,9 @@ public class ExitDetailsResponseDto {
     private String exitReasonNote;
 
     private String bookingStatus;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate auditDate;
+
+    private Double securityDeposit;
 }
