@@ -5,7 +5,7 @@ import lombok.*;
 
 /**
  * @author Keshav Singh
- * @date 12/25/2021
+ * @date 12/28/2021
  **/
 @Getter
 @Setter
@@ -14,8 +14,13 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class CityZoneDto {
+public class CityClusterDto {
+
 	private String zone;
+
+	private String cityUuid;
+
 	private String uuid;
-	private String cityName;
+
+	private String clusterName;
 }
