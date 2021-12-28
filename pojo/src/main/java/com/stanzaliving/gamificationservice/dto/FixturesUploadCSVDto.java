@@ -24,7 +24,7 @@ public class FixturesUploadCSVDto {
     private String endDate;
 
     @CsvBindByPosition(position = 2)
-    @CsvBindByName( column = "teams")
+    @CsvBindByName(column = "teams")
     private String teams;
 
 }
