@@ -46,7 +46,8 @@ public enum Department {
 	RE_BROKERAGE("RE Brokerage","RB","RBK"),
 	RONALDO("Ronaldo","RN","RND"),
 	MESSI("Messi","MS","MSI"),
-	MARADONA("Maradona","MD","MRD");
+	MARADONA("Maradona","MD","MRD"),
+	ROHAN("Rohan","RH","RHN");
 
 
 	public String departmentName;
