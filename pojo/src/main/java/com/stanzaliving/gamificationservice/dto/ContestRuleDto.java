@@ -58,4 +58,8 @@ public class ContestRuleDto {
 
     private String updatedBy;
 
+    private String contestUuid;
+
+    private String uuid;
+
 }

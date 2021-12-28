@@ -71,4 +71,8 @@ public class ContestDto {
 
     private String backGroundPhotoUrl;
 
+    private String contestRuleUuid;
+
+    private String ruleNo;
+
 }
