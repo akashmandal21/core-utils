@@ -75,4 +75,6 @@ public class ContestDto {
 
     private String ruleNo;
 
+    private String rejectDescription;
+
 }
