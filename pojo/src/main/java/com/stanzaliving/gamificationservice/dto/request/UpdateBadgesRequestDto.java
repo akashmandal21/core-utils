@@ -1,5 +1,6 @@
 package com.stanzaliving.gamificationservice.dto.request;
 
+import com.stanzaliving.gamificationservice.enums.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -26,11 +27,27 @@ public class UpdateBadgesRequestDto {
 
     private String type;
 
+    private BadgeCriteria badgeCriteria;
+
+    private PointCondition pointCondition;
+
     private int pointsValue;
+
+    private BadgeTarget badgeTarget;
+
+    private TargetCondition targetCondition;
+
+    private int targetValue;
 
     private String badgeType;
 
     private List<String> contests = new ArrayList<>();
 
     private String profilePhotoUrl;
+
+    private int reward;
+
+    private int noOfTimeBadgeEarnByUser;
+
+    private String badgeLable;
 }
