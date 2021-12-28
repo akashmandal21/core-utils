@@ -12,7 +12,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 
-
 public class FixturesUploadCSVDto {
 
     @CsvBindByPosition(position = 0)
