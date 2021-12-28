@@ -14,10 +14,20 @@ import lombok.*;
 public class MinimumQualifierDto {
 
     private String ruleNo;
+
     private String minimumPreBookingTitle;
+
     private String minimumBookingTitle;
+
     private String minimumBookingCondition;
+
     private String minimumPreBookingCondition;
+
     private int minimumPreBookingMinimumValue;
+
     private int minimumBookingMinimumValue;
+
+    private String uuid;
+
+    private String contestRuleUuid;
 }

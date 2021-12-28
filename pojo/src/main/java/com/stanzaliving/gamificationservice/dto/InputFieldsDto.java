@@ -17,7 +17,7 @@ public class InputFieldsDto {
 
     private String inputField;
 
-    private String  inputFieldPreBooking;
+    private String inputFieldPreBooking;
 
     private String inputFieldBooking;
 
@@ -28,5 +28,9 @@ public class InputFieldsDto {
     private int inputFieldPreBookingValue;
 
     private int inputFieldBookingValue;
+
+    private String uuid;
+
+    private String contestRuleUuid;
 
 }
