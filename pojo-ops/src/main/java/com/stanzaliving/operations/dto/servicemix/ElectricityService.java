@@ -12,4 +12,5 @@ import lombok.ToString;
 public class ElectricityService extends BooleanService {
 	private PaymentMode payment;
 	private double rate;
+	private double gst;
 }
