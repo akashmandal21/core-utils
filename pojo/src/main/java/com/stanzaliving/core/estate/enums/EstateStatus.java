@@ -93,6 +93,7 @@ public enum EstateStatus {
 
 	//New Pg flow status
 	SENT_FOR_L1_APPROVAL_TO_ZH("L1 Sent to ZH"),
+	SENT_FOR_L1_APPROVAL_TO_CH("L1 Sent to CH"),
 	SENT_FOR_L2_APPROVAL_TO_ZH("Pending ZH L2 approval"),
 	SENT_FOR_L2_APPROVAL_TO_NH("Pending NH L2 approval"),
 	SENT_FOR_APPROVAL_TO_TRANSFORMATION_AND_LEGAL("Pending Transformation and Legal approval"),
