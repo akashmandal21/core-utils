@@ -32,4 +32,7 @@ public class TargetMultiplierDto {
 
     private int bookingMultiplierPoints;
 
+    private String uuid;
+
+    private String contestRuleUuid;
 }

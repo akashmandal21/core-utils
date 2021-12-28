@@ -15,15 +15,19 @@ public class ActivityPointsDto {
 
     private String ruleNo;
 
-    private String  activityPointsPreBooking;
+    private String activityPointsPreBooking;
 
     private String activityPointsBooking;
 
-    private String  activityPointsPreBookingCondition;
+    private String activityPointsPreBookingCondition;
 
     private String activityPointsBookingCondition;
 
     private int activityPointsPreBookingValue;
 
     private int activityPointsBookingValue;
+
+    private String uuid;
+
+    private String contestRuleUuid;
 }
