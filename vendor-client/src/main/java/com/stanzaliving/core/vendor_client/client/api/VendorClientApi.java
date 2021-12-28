@@ -445,7 +445,7 @@ public class VendorClientApi {
         ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
 
-        String path = UriComponentsBuilder.fromPath("/save/vendorMapping/{newDepartment}/{refDepartment}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/generic/internal/save/vendorMapping/{newDepartment}/{refDepartment}").buildAndExpand(uriVariables).toUriString();
 
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
