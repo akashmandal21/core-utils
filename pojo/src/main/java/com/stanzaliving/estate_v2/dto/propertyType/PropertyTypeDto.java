@@ -43,4 +43,6 @@ public class PropertyTypeDto extends AbstractMongoDto {
 
     private boolean legalInfoGroup;
     private boolean legalDocumentInfoGroup;
+    private List<LegalGroupRolesDto> legalGroupRoles;
+
 }
