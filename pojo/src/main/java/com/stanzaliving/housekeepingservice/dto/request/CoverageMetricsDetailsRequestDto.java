@@ -17,7 +17,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class CoverageMetricsDetailsRequestDto {
 
-    private String planningTemplateUuid;
     private String microClusterUuid;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
