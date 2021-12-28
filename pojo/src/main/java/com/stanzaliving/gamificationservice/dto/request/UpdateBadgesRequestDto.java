@@ -31,8 +31,6 @@ public class UpdateBadgesRequestDto {
 
     private PointCondition pointCondition;
 
-    private PointFrequency pointFrequency;
-
     private int pointsValue;
 
     private BadgeTarget badgeTarget;
