@@ -48,7 +48,8 @@ public enum Department {
 	MESSI("Messi","MS","MSI"),
 	MARADONA("Maradona","MD","MRD"),
 	ROHAN("Rohan","RH","RHN"),
-	POTTIPAVAN("Potti","PN","PVN");
+	POTTIPAVAN("Potti","PN","PVN"),
+	JAYAPAVAN("Jaya pavan","JP","JYP");
 
 
 	public String departmentName;
