@@ -824,7 +824,7 @@ public class POClientApi {
         ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
 
-        String path = UriComponentsBuilder.fromPath("/save/locationType-approvalLevel/{newDepartment}/{refDepartment}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/save/locationType-approvalLevel/{newDepartment}/{refDepartment}").buildAndExpand(uriVariables).toUriString();
 
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
