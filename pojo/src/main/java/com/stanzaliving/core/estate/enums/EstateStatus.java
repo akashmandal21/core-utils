@@ -100,7 +100,8 @@ public enum EstateStatus {
 	SENT_TO_TRANSFORMATION("Pending Transformation Approval"),
 	SENT_TO_LEGAL_AND_SANDEEP("Pending Legal and Sandeep Approval"),
 	SENT_TO_SANDEEP("Pending Sandeep Approval"),
-	SENT_FOR_LEADERSHIP_APPROVAL("Pending Final Deal Approval by Andy");
+	SENT_FOR_LEADERSHIP_APPROVAL("Pending Final Deal Approval by Andy"),
+	SENT_TO_FILL_L2_DETAILS("Pending BD to fill L2 details");
 
 	
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
