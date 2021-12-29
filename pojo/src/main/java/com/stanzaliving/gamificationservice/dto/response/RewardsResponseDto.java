@@ -32,11 +32,12 @@ public class RewardsResponseDto {
 
     private int pointsScored;
 
+    private String userId;
+
     private List<BadgesDto> badgesDtoList;
 
     private List<ContestDto> contestDtoList;
 
     private UsersProfileDto usersProfileDto;
 
-    private String userId;
 }
