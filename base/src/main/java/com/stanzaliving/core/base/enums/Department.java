@@ -50,7 +50,8 @@ public enum Department {
 	ROHAN("Rohan","RH","RHN"),
 	POTTIPAVAN("Potti","PN","PVN"),
 	JAYAPAVAN("Jaya pavan","JP","JYP"),
-	ANUDEEP("Anudeep","AN","ANU");
+	ANUDEEP("Anudeep","AN","ANU"),
+	SALAH("Salah","SH","SHL");
 
 
 	public String departmentName;
