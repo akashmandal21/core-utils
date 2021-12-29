@@ -6,24 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
-
 /**
- * @author Pradeep Naik R
- * @description DTO for Section Details
+ * @author  Ranjith Kumar Jain
+ * @description DTO for Status Color
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class ActivitiesDto extends AbstractDto {
+public class StatusColorDto extends AbstractDto {
 
-    private String activityName;
-
-    private String moduleUuid;
+    private String statusUuid;
 
     private String colorCode;
-
-    private String textColorCode;
-
 }

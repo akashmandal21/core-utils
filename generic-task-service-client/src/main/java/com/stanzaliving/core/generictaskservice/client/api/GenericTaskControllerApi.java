@@ -5,10 +5,15 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
+import com.stanzaliving.generictaskservice.dto.StatusDto;
+import com.stanzaliving.generictaskservice.dto.request.ProjectPlanningTaskNotStartedJobDto;
+import com.stanzaliving.generictaskservice.dto.request.TaskRequestDto;
 import com.stanzaliving.generictaskservice.dto.request.TaskSearchFilterRequestDto;
+import com.stanzaliving.generictaskservice.dto.request.TaskStatusRequestDto;
 import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
 import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
+import com.stanzaliving.projectplanningservice.dto.SectionDetailsDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -101,7 +106,6 @@ public class GenericTaskControllerApi {
 
     }
 
-
     public ResponseDto<List<String>> getAllTaskUuidByTaskTemplate() {
 
         Object postBody = null;
@@ -151,7 +155,7 @@ public class GenericTaskControllerApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("taskOwnerUuid", uuid);
 
-        String path = UriComponentsBuilder.fromPath("/task/task/{taskOwnerUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/task/task/{taskOwnerUuid}").buildAndExpand(uriVariables).toUriString();
         log.info("Path: {}", path);
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -169,14 +173,14 @@ public class GenericTaskControllerApi {
     }
 
     /**
-     * GET TASKS WITH CHILD TASKS
-     *
-     * @param genericTaskUuidList
+     * @param taskSearchFilterRequestDto
      * @return List of Generic tasks
+     * @author Pradeep Naik R
+     * GET TASKS WITH CHILD TASKS
      * @required ProjectPlanningService
      */
-    public ResponseDto<List<GenericTaskResponseDto>> getGenericTaskByTaskIdList(List<String> genericTaskUuidList) {
-        Object getBody = null;
+    public ResponseDto<List<GenericTaskResponseDto>> getGenericTaskByTaskIdList(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
+        Object getBody = taskSearchFilterRequestDto;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -185,7 +189,6 @@ public class GenericTaskControllerApi {
         log.info("Path: {}", path);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.put("genericTaskUuidList", genericTaskUuidList);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -196,7 +199,7 @@ public class GenericTaskControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, getBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
     }
 
     /**
@@ -289,7 +292,7 @@ public class GenericTaskControllerApi {
      * @param taskSearchFilterRequestDto
      * @return
      */
-    public ResponseDto<PageResponse<GenericTaskResponseDto>> getGenericTaskByTaskIdList(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
+    public ResponseDto<PageResponse<GenericTaskResponseDto>> getGenericTaskByTaskIdListWithPaginationItems(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
         Object getBody = taskSearchFilterRequestDto;
 
         // create path and map variables
@@ -314,12 +317,41 @@ public class GenericTaskControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
     }
 
+    /**
+     * @param taskSearchFilterRequestDto
+     * @return
+     * @author Pradeep Naik R
+     * GET TASKS BY NAME
+     */
+    public ResponseDto<List<GenericTaskResponseDto>> getGenericTaskByNameUsingTaskIdList(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
+        Object getBody = taskSearchFilterRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/name").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
 
     /**
-     * GET TASK WITH CHILD TASKS BY UUID
-     *
      * @param genericTaskUuid
      * @return
+     * @author Pradeep Naik R
+     * GET TASK WITH CHILD TASKS BY UUID
      */
     public ResponseDto<GenericTaskResponseDto> getGenericTaskWithChildTasksByUuid(String genericTaskUuid) {
         Object getBody = null;
@@ -344,15 +376,16 @@ public class GenericTaskControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, getBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<Boolean> deleteAllTasksByUuids(List<String> uuids) {
+    public ResponseDto<List<GenericTaskResponseDto>> deleteAllTasksByUuids(TaskRequestDto taskRequestDto) {
+        Object getBody = taskRequestDto;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
         String path = UriComponentsBuilder.fromPath("/internal/task/delete/ids").buildAndExpand(uriVariables).toUriString();
         log.info("Path: {}", path);
+
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.put("uuids", uuids);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -361,9 +394,302 @@ public class GenericTaskControllerApi {
         };
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
 
+    }
+
+    public ResponseDto<List<GenericTaskResponseDto>> hardDeleteAllTasksByUuids(TaskRequestDto taskRequestDto) {
+        Object getBody = taskRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/hard/delete/ids").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+
+    }
+
+    public ResponseDto<PageResponse<GenericTaskResponseDto>> getBySectionFilterRequestInputsWithPagination(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
+        Object getBody = taskSearchFilterRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("pageNo", taskSearchFilterRequestDto.getPageRequest().getPageNo());
+        uriVariables.put("limit", taskSearchFilterRequestDto.getPageRequest().getLimit());
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/tasks/{pageNo}/{limit}").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<PageResponse<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<PageResponse<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    /**
+     * @param taskSearchFilterRequestDto
+     * @return List of GenericTaskResponseDto [ return Generic tasks for taskUuids passed, if not all Generic tasks ]
+     * @author Pradeep Naik R
+     * NOTE: Request should contain taskUuids [ optional ], taskTemplate [ true/false( Mandatory ) ]
+     * @description FETCH GENERIC TASKS
+     * Case1: GET ALL GENERIC TASKS
+     * Case2: GET SPECIFIED GENERIC TASKS BY PASSING TASK UUIDS
+     * Case3: QUERY BY MODULE UUIDS AND TASK UUIDS [ SEARCH BY FILTER CRITERIA ]
+     */
+    public ResponseDto<List<GenericTaskResponseDto>> getBySectionFilterRequestInputs(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
+        Object getBody = taskSearchFilterRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/tasks").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    /**
+     * @param taskSearchFilterRequestDto
+     * @return
+     * @author Pradeep Naik R
+     * @description Fetches all the section along with tasks and subtasks as flat array
+     * Case 1: Send section taskServiceUuids fetched by templateUuid, Prepare TaskSearchFilterRequestDto and set taskTemplate
+     */
+    public ResponseDto<List<GenericTaskResponseDto>> getSectionTasksAndSubTasksAsFlatArray(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
+        Object getBody = taskSearchFilterRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/all").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    /**
+     * Fetch by taskUuids
+     *
+     * @param taskSearchFilterRequestDto
+     * @return
+     */
+    public ResponseDto<List<GenericTaskResponseDto>> getSectionTasksAndSubTasksBasedOnTaskUuids(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
+        Object getBody = taskSearchFilterRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/tasks").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    /**
+     * @param sectionDetailsDto
+     * @return
+     * @description GET status uuid for the respective pattern as input
+     * [ NOT_STARTED, IN_PROGRESS, DELAYED, COMPLETED ]
+     */
+    public ResponseDto<List<StatusDto>> getTaskStatusByName(SectionDetailsDto sectionDetailsDto) {
+        Object getBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("department", sectionDetailsDto.getDepartment());
+        uriVariables.put("status", sectionDetailsDto.getTaskStatusName());
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/{department}/status/name/{status}").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<StatusDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<StatusDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    /**
+     * @param sectionDetailsDto
+     * @return
+     * @description GET status uuid for the respective pattern as input
+     * [ NOT_STARTED, IN_PROGRESS, DELAYED, COMPLETED ]
+     */
+    public ResponseDto<List<StatusDto>> getTaskStatusByUuid(SectionDetailsDto sectionDetailsDto) {
+        Object getBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("department", sectionDetailsDto.getDepartment());
+        uriVariables.put("statusUuid", sectionDetailsDto.getTaskStatusUuid());
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/{department}/status/id/{statusUuid}").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<StatusDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<StatusDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<GenericTaskResponseDto>> getAllTasksUnderParentSection(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
+        Object getBody = taskSearchFilterRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/section/tasks").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<GenericTaskResponseDto>> getAllTasksUnderAllParentSections(TaskSearchFilterRequestDto taskSearchFilterRequestDto) {
+        Object getBody = taskSearchFilterRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/get/all/section/tasks").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<String>> remindNotStartedTaskAsPerPlannedStartDate(ProjectPlanningTaskNotStartedJobDto projectPlanningTaskNotStartedJobDto) {
+        Object getBody = projectPlanningTaskNotStartedJobDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/forNotStartedStatus").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<StatusDto> getStatusBasedOnNameDeptModule(TaskStatusRequestDto taskStatusRequestDto) {
+        Object getBody = taskStatusRequestDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/forStatusNameDeptModule").buildAndExpand(uriVariables).toUriString();
+        log.info("Path: {}", path);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<StatusDto>> returnType = new ParameterizedTypeReference<ResponseDto<StatusDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
     }
 }

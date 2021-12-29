@@ -19,4 +19,9 @@ public class ActivitiesRequestDto {
     @NotBlank(message = "Module id is required")
     private String moduleUuid;
 
+    @NotBlank(message = "Module background color code cannot be empty")
+    private String colorCode;
+
+    @NotBlank(message = "Module text color code cannot be empty")
+    private String textColorCode;
 }

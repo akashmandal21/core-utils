@@ -16,4 +16,9 @@ public class ModuleRequestDto {
     @NotBlank(message = "Module name cannot be empty")
     private String moduleName;
 
+    @NotBlank(message = "Module background color code cannot be empty")
+    private String colorCode;
+
+    @NotBlank(message = "Module text color code cannot be empty")
+    private String textColorCode;
 }

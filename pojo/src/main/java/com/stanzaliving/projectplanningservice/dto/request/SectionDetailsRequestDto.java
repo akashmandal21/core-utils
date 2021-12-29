@@ -1,8 +1,7 @@
-package com.stanzaliving.projectplanningservice.dto;
+package com.stanzaliving.projectplanningservice.dto.request;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.enums.Department;
-import com.stanzaliving.generictaskservice.dto.DelayDto;
 import com.stanzaliving.projectplanningservice.enums.Duration;
 import com.stanzaliving.projectplanningservice.enums.TaskOwnerTypeEnum;
 import com.stanzaliving.taskservice.enums.TaskType;
@@ -27,7 +26,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class SectionDetailsDto extends AbstractDto {
+public class SectionDetailsRequestDto {
 
     @NotNull(message = "Task Owner Type cannot be null")
     private TaskOwnerTypeEnum taskOwnerType;
@@ -39,17 +38,8 @@ public class SectionDetailsDto extends AbstractDto {
     @Size(max = 40, message = "Max allowed characters up to 40")
     private String moduleUuid;
 
-    private String moduleName;
-
-    /*
-     Child sections uuids [ Template/Property plan Level ]
-     */
-    private List<String> taskServiceUuIds;
-
     @Size(max = 40, message = "Max allowed characters up to 40")
     private String activityUuid;
-
-    private String activityName;
 
     /*
      Dependent tasks [ Mandatory/Pre-requisite tasks ]
@@ -57,35 +47,16 @@ public class SectionDetailsDto extends AbstractDto {
     private List<String> predecessorTasks;
 
     /*
-    Response Sent to FE with Name and Uuid
-     */
-    private List<PredecessorTaskDto> predecessorTasksDtoResponseList;
-
-    /*
      Upcoming tasks
      */
-    private List<SuccessorTaskDto> successorTasksDtoResponseList;
+    private List<String> successorTasks;
 
     protected Date createdAt;
 
     protected Date updatedAt;
 
-    private String createdByName;
-
-    private String updatedByName;
-
-    private String taskServiceUuid;
-
-    private String parentTemplateUuid;
-
-    private String parentUuid;
-
     private boolean taskTemplate;
 
-    /*
-     date validation handled in validation function
-     Since Dto used by plan and template, adding validation will effect @dto level
-     */
     private Date startDate;
 
     private Date dueDate;
@@ -94,15 +65,13 @@ public class SectionDetailsDto extends AbstractDto {
     @NotEmpty(message = "Task owner cannot be null")
     private String taskOwner;
 
-    private String taskOwnerName;
-
     /*
     module = pp,gts,hk
      */
     @Size(max = 6, message = "Max allowed characters up to 6")
     private String module;
 
-    @Size(min = 3, max = 80, message = "Max allowed characters between 3 and 80")
+    @Size(max = 80, message = "Max allowed characters up to 80")
     @NotBlank(message = "Task Name cannot be empty")
     private String taskName;
 
@@ -114,51 +83,23 @@ public class SectionDetailsDto extends AbstractDto {
 
     private boolean autoTaskCompletion;
 
-    private String parentTaskUuid;
-
     /*
      Status of the task
      */
     private String taskStatusUuid;
 
-    private String taskStatusName;
-
     @NotNull(message = "department cannot be null")
     private Department department;
+
+    @Valid
+    private List<SectionDetailsRequestDto> tasks;
 
     private List<String> attachmentsList;
 
     private List<String> dependentTaskUuidList;
 
-    private Date plannedStartDate;
-
-    private Date plannedDueDate;
-
-    private Date actualStartDate;
-
-    private Date actualDueDate;
-
-    private Integer completionStatus;
-
-    private String color;
-
-    private Long percentage;
-
+    /*
+      @NotBlank(message = "Order Sequence is required")
+     */
     private Integer orderSequence;
-
-    private Integer taskTypeSequence;
-
-    private DelayDto delayDto;
-
-    private String predecessorSuccessorRemapUuid;
-
-    private boolean hiddenFlag;
-
-    private List<String> commentsUuidList;
-
-    private Integer taskDelayedBy;
-
-    @Valid
-    private List<SectionDetailsDto> tasks;
-
 }

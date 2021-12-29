@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,27 +18,24 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class PropertyPlanningFilterDto {
+public class MobilePropertySearchFilterDto {
 
-    private String propertyName;
+    private List<String> residenceStatus;
 
-    private List<String> microMarketList;
+    private Date startDate;
 
-    private Integer bedCount;
+    private Date endDate;
 
-    private String projectName;
+    private List<String> microMarketsList;
 
-    private Integer days;
+    private List<String> cityList;
 
-    private Integer progress;
+    private List<String> propertyBrands;
 
-    private List<PlanningStatus> planningStatusList;
+    private List<String> propertyTypes;
 
     private String orderByColumnName;
 
     private String orderBy;
 
-    private PaginationRequest pageRequest;
-
-    private List<String> cityList;
 }

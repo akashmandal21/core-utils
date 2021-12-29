@@ -1,22 +1,23 @@
 package com.stanzaliving.projectplanningservice.dto;
 
-import com.stanzaliving.projectplanningservice.enums.Duration;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * @author Anudeep Alevoor
+ * @description DTO for Planning template List
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class PredecessorTaskDto {
+public class PlaningTemplateByNameDto {
 
-    private String taskUuid;
+    private String templateUuid;
 
-    private String taskName;
+    private String templateName;
 
-    private int duration;
-
-    private Duration durationUnit;
 }
