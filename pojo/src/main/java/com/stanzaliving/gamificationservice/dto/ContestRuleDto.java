@@ -20,17 +20,17 @@ public class ContestRuleDto {
 
     private String ruleNo;
 
-    private RuleFunctionEnum ruleFunction;
+    private String ruleFunction;
 
     private String ruleCondition;
 
     private String contestStyle;
 
-    private List<InputFieldsDto> inputFieldList;
+    private InputFieldsDto inputField;
 
-    private List<TargetMultiplierDto> targetMultiplierList;
+    private TargetMultiplierDto targetMultiplier;
 
-    private List<ActivityPointsDto> activityPointsList;
+    private ActivityPointsDto activityPoints;
 
     private MinimumQualifierDto minimumQualifier;
 
@@ -44,7 +44,7 @@ public class ContestRuleDto {
 
     private int countOfRewards;
 
-    private PointFrequencyEnum pointFrequency;
+    private String pointFrequency;
 
     private Date startDate;
 
