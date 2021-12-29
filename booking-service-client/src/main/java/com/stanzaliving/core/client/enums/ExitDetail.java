@@ -1,6 +1,7 @@
 package com.stanzaliving.core.client.enums;
 
 import com.stanzaliving.core.client.dto.ExitDetailSummaryDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
