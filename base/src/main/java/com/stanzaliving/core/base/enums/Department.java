@@ -44,7 +44,14 @@ public enum Department {
 	CORPORATE_DESIGN("Corporate Design","CD","CDS"),
 	SALES_IS("Sales IS", "IS", "SIS"),
 	RE_BROKERAGE("RE Brokerage","RB","RBK"),
-	RONALDO("Ronaldo","RN","RND");
+	RONALDO("Ronaldo","RN","RND"),
+	MESSI("Messi","MS","MSI"),
+	MARADONA("Maradona","MD","MRD"),
+	ROHAN("Rohan","RH","RHN"),
+	POTTIPAVAN("Potti","PN","PVN"),
+	JAYAPAVAN("Jaya pavan","JP","JYP"),
+	ANUDEEP("Anudeep","AN","ANU"),
+	SALAH("Salah","SH","SHL");
 
 
 	public String departmentName;
