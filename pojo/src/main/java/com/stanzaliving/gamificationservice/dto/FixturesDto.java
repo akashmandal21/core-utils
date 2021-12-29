@@ -21,8 +21,6 @@ public class FixturesDto {
 
     private List<String> teamList;
 
-    private String url;
-
     private String contestUuid;
 
 
