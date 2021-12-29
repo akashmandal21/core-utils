@@ -2,8 +2,9 @@ package com.stanzaliving.housekeepingservice.dto;
 
 import lombok.*;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author anudeep.alevoor
@@ -20,14 +21,13 @@ import java.util.List;
 @AllArgsConstructor
 public class AreaRoomDto {
 
+    @NotBlank(message = "Area room number is Mandatory.")
     private String areaRoomNumber;
 
+    @NotBlank(message = "Area room uuid is Mandatory.")
     private String areaRoomUuid;
 
-    private List<String> areaTags;
-
-    private List<AreaTagsDto> areaTagList;
-
+    @Min(value = 1, message = "Room size must be greater zero")
     private int roomSizeInSqFt;
 
     private boolean attachedWashroom;
@@ -38,6 +38,7 @@ public class AreaRoomDto {
 
     private int balconySizeInSqFt;
 
+    @Min(value = 1, message = "Cleaning time min must be greater than zero")
     private int cleaningTimeInMin;
 
     private String mealReceivingUuid;
@@ -58,11 +59,28 @@ public class AreaRoomDto {
 
     private Date createdAt;
 
+    @NotBlank(message = "Residence uuid is Mandatory.")
     private String residenceUuid;
-
-    private String residenceName;
 
     private String categoryUuid;
 
-    private String categoryName;
+    @NotBlank(message = "Area tag uuid is Mandatory.")
+    private String areaTagUuid;
+
+    @NotBlank(message = "Uuid is Mandatory.")
+    private String uuid;
+
+    private AreaTagsDto areaTag;
+
+    private boolean roomUpdated;
+
+    private int availableBeds;
+
+    private int deadBeds;
+
+    private int totalBeds;
+
+    private int blockedBeds;
+
+    private double occupiedBeds;
 }

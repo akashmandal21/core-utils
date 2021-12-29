@@ -1,7 +1,6 @@
 package com.stanzaliving.generictaskservice.dto.response;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.generictaskservice.dto.TaskCategoryDto;
 import com.stanzaliving.generictaskservice.enums.SlotType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -28,7 +27,7 @@ public class SlotDetailsResponse extends AbstractDto {
 
     private List<TagResponseDto> tags;
 
-    private List<TaskCategoryDto> allowedTasksList;
+    private List<TemplateAllowedTaskResponseDto> allowedTasksList;
 
     private String shiftAllocationUuid;
 
@@ -52,7 +51,7 @@ public class SlotDetailsResponse extends AbstractDto {
 
     private String entityType;
 
-    private List<GenericTaskResponseDto> tasks = new ArrayList<>();
+    private List<GenericTaskBeatPlanResponseDto> tasks = new ArrayList<>();
 
     private LocalTime startTime;
 

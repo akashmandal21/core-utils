@@ -20,6 +20,8 @@ public class TaskCategoryDto {
     @NotBlank(message = "Task category name is Mandatory.")
     private String taskCategoryName;
 
+    private boolean promisedTaskType;
+
     @NotBlank(message = "Module is Mandatory.")
     private String module;
 

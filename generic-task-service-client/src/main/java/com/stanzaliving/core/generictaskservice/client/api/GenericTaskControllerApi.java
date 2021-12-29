@@ -5,10 +5,8 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
 import com.stanzaliving.generictaskservice.dto.request.HkShiftAllocationRequestDto;
-import com.stanzaliving.generictaskservice.dto.response.GenericTaskResponseDto;
-import com.stanzaliving.generictaskservice.dto.response.MicroClusterResponseDto;
-import com.stanzaliving.generictaskservice.dto.response.ShitAllocationDetailsResponse;
-import com.stanzaliving.generictaskservice.dto.response.TagResponseDto;
+import com.stanzaliving.generictaskservice.dto.request.SigmaGenericTaskRequestDto;
+import com.stanzaliving.generictaskservice.dto.response.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -54,6 +52,31 @@ public class GenericTaskControllerApi {
         ParameterizedTypeReference<ResponseDto<List<ShiftAllocationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ShiftAllocationDto>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    /* Method to get teh Task category by UUID */
+
+    public ResponseDto<TaskCategoryResponseDto> getTaskCategoryByUuid(String taskCategoryUuid) {
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("taskCategoryUuid", taskCategoryUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/taskCategory/get/{taskCategoryUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<TaskCategoryResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<TaskCategoryResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
     }
 
     public ResponseDto<List<ShitAllocationDetailsResponse>> getShiftAllocationDto(List<String> shiftAllocationUuid){
@@ -218,6 +241,50 @@ public class GenericTaskControllerApi {
 
     }
 
+    public ResponseDto<GenericTaskResponseDto> createSigmaAppGenericTaskDto(SigmaGenericTaskRequestDto task) {
+        Object postBody = task;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/sigmaApp/addTask").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<GenericTaskResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<GenericTaskResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public ResponseDto<GenericTaskResponseDto> getGenericTaskByUuid(String taskId) {
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("taskId",taskId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/"+taskId).buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<GenericTaskResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<GenericTaskResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
     public ResponseDto<List<GenericTaskResponseDto>> getGenericTaskDto(List<String> taskIds) {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -238,4 +305,121 @@ public class GenericTaskControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
+
+    public ResponseDto<List<GenericTaskBeatPlanResponseDto>> getAllBeatPlanGenericTaskDto(List<String> taskIds) {
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/beatPlan/all").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.put("genericTaskUuidList",taskIds);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskBeatPlanResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskBeatPlanResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<GenericTaskDto> createGenericTask(GenericTaskDto task) {
+        Object postBody = task;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/addTask").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<GenericTaskDto>> returnType = new ParameterizedTypeReference<ResponseDto<GenericTaskDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    /** Method to invoke shift duration from generic task service. **/
+    public ResponseDto<ShiftDurationResponse> getShiftDuration(List<String> shiftUuidList){
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/shift/duration/").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.put("shiftUuidList",shiftUuidList);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ShiftDurationResponse>> returnType = new ParameterizedTypeReference<ResponseDto<ShiftDurationResponse>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    /*Method to call method from GTS to get Tasks based on task Id list and categoryUUid. */
+    public ResponseDto<List<GenericTaskResponseDto>> getTaskByTaskCategory(List<String> taskIds,String categoryUuid) {
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/getAllTask").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.put("genericTaskUuidList",taskIds);
+        queryParams.add("categoryUuid",categoryUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericTaskResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+
+
+
+    /** Method to invoke shift duration from generic task service by UUid **/
+    public ResponseDto<ShiftDurationResponse> getShiftDurationByUuid(String shiftUuid){
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/shift/durationPerShift/").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("shiftUuid",shiftUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ShiftDurationResponse>> returnType = new ParameterizedTypeReference<ResponseDto<ShiftDurationResponse>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
 }

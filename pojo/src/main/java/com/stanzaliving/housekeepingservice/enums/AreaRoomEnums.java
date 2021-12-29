@@ -7,7 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum AreaRoomEnums {
     AREA_ROOM_NUMBER("areaRoomNumber"),
-    AREA_TAGS("areaTag"),
+    AREA_TAGS("areaTagName"),
+    AREA_TAG_UUID("areaTagUuid"),
     ROOM_SIZE("roomSizeInSqFt"),
     WASHROOM("attachedWashroom"),
     BATHROOM_SIZE("bathRoomSizeInSqFt"),

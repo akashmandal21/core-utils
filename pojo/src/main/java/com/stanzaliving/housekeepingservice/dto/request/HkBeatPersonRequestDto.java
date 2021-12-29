@@ -1,7 +1,6 @@
 package com.stanzaliving.housekeepingservice.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -21,9 +20,9 @@ import java.util.List;
 public class HkBeatPersonRequestDto {
 	private String personName;
 	private LocalDate day;
-	private String beatPlanUuid;
-	private List<GenericTaskDto> tasks;
+	private String beatPersonUuid;
 	private String shiftUuid;
 	private String slotUuid;
 	private List<CheckingShiftRequestDto> shifts;
+	private String pseudoPersonUuid;
 }

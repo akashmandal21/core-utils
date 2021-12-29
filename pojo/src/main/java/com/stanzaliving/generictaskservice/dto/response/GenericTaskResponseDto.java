@@ -39,6 +39,7 @@ public class GenericTaskResponseDto {
     private AdditionalVarsDto var4;
     private TaskCategoryDto taskCategoryDto;
     private TaskCategoryDto taskSubCategoryDto;
+    private GenericTaskTemplateResponseDto taskTemplateResponseDto;
     private StatusDto taskStatusDto;
     private StatusDto taskSubStatusDto;
     private boolean autoTaskCompletion;
