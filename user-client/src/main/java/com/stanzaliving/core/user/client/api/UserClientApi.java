@@ -843,7 +843,7 @@ public class UserClientApi {
 		ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
 		};
 
-		String path = UriComponentsBuilder.fromPath("internal/roll-back/userDeptLevel/{newDepartment}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/roll-back/userDeptLevel/{newDepartment}").buildAndExpand(uriVariables).toUriString();
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
 
