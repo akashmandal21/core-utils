@@ -52,7 +52,8 @@ public enum Department {
 	JAYAPAVAN("Jaya pavan","JP","JYP"),
 	ANUDEEP("Anudeep","AN","ANU"),
 	SALAH("Salah","SH","SHL"),
-	PELE("Pele","PE","PLE");
+	PELE("Pele","PE","PLE"),
+	MBAPPE("Mbappe","MB","MBP");
 
 
 	public String departmentName;
