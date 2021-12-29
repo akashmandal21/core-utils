@@ -4,10 +4,7 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.validation.dtos.TemplateField;
 import com.stanzaliving.core.generic.validation.enums.TemplateType;
 import com.stanzaliving.core.mongobase.entity.AbstractMongoEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -21,6 +18,7 @@ import java.util.Map;
 @AllArgsConstructor
 @Document("templates")
 @TypeAlias("templates")
+@ToString(callSuper = true)
 public class Templates extends AbstractMongoEntity {
 
     @NotBlank

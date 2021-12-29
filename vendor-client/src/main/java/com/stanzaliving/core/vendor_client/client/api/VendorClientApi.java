@@ -452,4 +452,28 @@ public class VendorClientApi {
 
     }
 
+    public ResponseDto<String> rollBack(Department newDepartment) {
+
+        log.info("HTTP Client call to save vendorMapping details for new dept: {} refDept: {}" , newDepartment);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("newDepartment",newDepartment);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/rool-back/vendorMapping/{newDepartment}").buildAndExpand(uriVariables).toUriString();
+
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+    }
 }
