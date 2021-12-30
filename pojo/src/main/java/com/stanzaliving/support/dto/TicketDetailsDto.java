@@ -41,4 +41,7 @@ public class TicketDetailsDto {
     @Builder.Default
     private boolean canEdit = false;
 
+    @Builder.Default
+    private boolean isFreeTextAccess = true;
+
 }
