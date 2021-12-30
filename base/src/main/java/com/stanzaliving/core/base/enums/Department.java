@@ -54,7 +54,8 @@ public enum Department {
 	SALAH("Salah","SH","SHL"),
 	PELE("Pele","PE","PLE"),
 	MBAPPE("Mbappe","MB","MBP"),
-	CHENNAI("Chennai","CN","CHN");
+	CHENNAI("Chennai","CN","CHN"),
+	HYDERABAD("Hyderabad","HD","HYD");
 
 
 	public String departmentName;
