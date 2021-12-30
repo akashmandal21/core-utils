@@ -21,7 +21,13 @@ public class FixturesDto {
 
     private List<String> teamList;
 
+    private List<String> teamUuid;
+
     private String contestUuid;
+
+    private LocalDate matchDate;
+
+    private String uuid;
 
 
 }
