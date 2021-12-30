@@ -17,20 +17,8 @@ public class InputFieldsDto {
 
     private String inputField;
 
-    private String inputFieldPreBooking;
+    private String inputFieldCondition;
 
-    private String inputFieldBooking;
-
-    private String inputFieldPrebookingCondition;
-
-    private String inputFieldBookingCondition;
-
-    private int inputFieldPreBookingValue;
-
-    private int inputFieldBookingValue;
-
-    private String uuid;
-
-    private String contestRuleUuid;
+    private int inputFieldValue;
 
 }
