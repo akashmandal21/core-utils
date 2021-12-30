@@ -59,21 +59,9 @@ public class ContestDto {
 
     private String contestLogo;
 
-    private String myRank;
-
-    private String userPointsStatus;
-
-    private String myPoints;
-
-    private String userRankStatus;
-
     private String contestMessage;
 
     private String backGroundPhotoUrl;
-
-    private String contestRuleUuid;
-
-    private String ruleNo;
 
     private String rejectDescription;
 
