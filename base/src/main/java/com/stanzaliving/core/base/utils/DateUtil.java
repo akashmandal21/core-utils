@@ -1131,9 +1131,9 @@ public class DateUtil {
     }
 
     public static Boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
-		LocalDate localDate = getLocalDate(date);
-		return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
-	}
+        LocalDate localDate = getLocalDate(date);
+        return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
+    }
 
     public static List<LocalDate> getCalendarMonthOfYear(Integer month,Integer year) {
 
@@ -1152,5 +1152,9 @@ public class DateUtil {
 
     public static boolean isWeekDay(LocalDate date) {
         return date.getDayOfWeek()!=DayOfWeek.SATURDAY&&date.getDayOfWeek()!=DayOfWeek.SUNDAY;
+    }
+
+    public static Long convertToEpochInMiliSeconds(LocalDate localDate) {
+        return Objects.isNull(localDate) ? null : localDate.atStartOfDay().toInstant(ZoneOffset.of(StanzaConstants.ZONE_OFFSET)).toEpochMilli();
     }
 }
