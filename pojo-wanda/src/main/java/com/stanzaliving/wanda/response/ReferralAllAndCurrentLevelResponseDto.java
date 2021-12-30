@@ -21,5 +21,8 @@ public class ReferralAllAndCurrentLevelResponseDto {
 	List<ReferralLevelResponseDto> allReferralLevels = new ArrayList<>();
 	
 	@Default
-	List<ReferralLevelResponseDto> currentReferralLevel = new ArrayList<>();;
+	List<ReferralLevelResponseDto> currentReferralLevel = new ArrayList<>();
+	
+	@Default
+	double earnReferralAmountUpTo = 10000;
 }
