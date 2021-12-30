@@ -17,6 +17,9 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class OnGoingContestDto {
 
+    @JsonProperty("contest_uuid")
+    private String contestUuid;
+
     @JsonProperty("contest_main_background_img")
     private String contestMainBackgroundImg;
 

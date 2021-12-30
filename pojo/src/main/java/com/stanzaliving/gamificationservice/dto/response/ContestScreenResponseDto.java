@@ -20,7 +20,7 @@ public class ContestScreenResponseDto {
 
     private String uuid;
 
-    @JsonProperty("user_image")
+    @JsonProperty("user_profile_pic")
     private String userImage;
 
     @JsonProperty("user_status")
@@ -50,7 +50,7 @@ public class ContestScreenResponseDto {
     @JsonProperty("no_of_contest_show")
     private int noOfContestShow;
 
-    @JsonProperty("user_badges_list")
+    @JsonProperty("user_badges")
     private List<UserBadgesDto> userBadgesList;
 
     @JsonProperty("ongoing_contest_list")
