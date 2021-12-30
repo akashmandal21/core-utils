@@ -23,4 +23,6 @@ public class ClusterDetailsDto {
 
     private List<String> clusterMemberNames;
 
+    private String teams;
+
 }
