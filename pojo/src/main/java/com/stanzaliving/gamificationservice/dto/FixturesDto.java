@@ -21,7 +21,7 @@ public class FixturesDto {
 
     private List<String> teamList;
 
-    private List<String> teamUuid;
+    private List<String> teamUuids;
 
     private String contestUuid;
 
