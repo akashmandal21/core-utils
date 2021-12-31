@@ -46,6 +46,7 @@ import com.stanzaliving.core.generic.validation.utility.FieldValidator;
 import com.stanzaliving.core.generic.validation.utility.ValueAdapters;
 
 import lombok.extern.log4j.Log4j2;
+import net.bytebuddy.asm.Advice.This;
 
 @Log4j2
 public abstract class TemplateProcessor {
@@ -341,7 +342,7 @@ public abstract class TemplateProcessor {
                         boolean decodeResult = FieldDecoder.decodeValue(uiField, templateField, needed, objectMapper, errorInfo,field,sourceClass,additionalData);
                         log.info("Decode status field-name:{} result:{}", templateField.getFieldName(), decodeResult);
                         
-                        decodeResult = skipValidationForField(templateField, decodeResult);
+                        decodeResult = skipValidationForField(templateField, decodeResult, errorInfo);
 //                        if (decodeResult && Objects.nonNull(uiField.getValue()))
 //                            ValueAdapters.setFieldVal(templateName,templateField,field,sourceClass,uiField.getValue(),objectMapper);
                         fillOptions(templateField,additionalData,uiField);
@@ -462,10 +463,13 @@ public abstract class TemplateProcessor {
 	 * @param templateField
 	 * @see This is just to skip validations for a particular field. We are skipping consumableTag for now as it is department specific.
 	 */
-	private Boolean skipValidationForField(TemplateField templateField, Boolean decodeResult) {
+	private Boolean skipValidationForField(TemplateField templateField, Boolean decodeResult, ErrorInfo errorInfo) {
 		if (StringUtils.isNotBlank(templateField.getFieldName()) && fieldsToBeSkippedForValidation.contains(templateField.getFieldName())) {
 			log.info("Ignoring Validation for field name: {} ", templateField.getFieldName());
+			
 			decodeResult = Boolean.TRUE;
+			errorInfo.setErrorOccurred(Boolean.FALSE);
+			
 			log.info("Decode status field-name:{} result:{}", templateField.getFieldName(), decodeResult);
 		}
 
