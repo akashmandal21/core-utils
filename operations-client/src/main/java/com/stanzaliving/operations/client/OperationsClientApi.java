@@ -22,6 +22,7 @@ import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.operations.dto.ActiveResidenceDetailsDto;
+import com.stanzaliving.core.operations.dto.CurrentServiceMixRequestDto;
 import com.stanzaliving.core.operations.dto.DealDto;
 import com.stanzaliving.core.operations.dto.ResidentFoodPreferenceCountDto;
 import com.stanzaliving.core.operations.dto.ServiceMixDto;
@@ -427,6 +428,29 @@ public class OperationsClientApi {
 		}
 
 		return Objects.nonNull(serviceMixDto) ? serviceMixDto : null;
+	}
+	
+	public Map<String, Map<String, ServiceMixDto>> getCurrentServiceMixList(CurrentServiceMixRequestDto currentServiceMixRequestDto){
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/servicemix/current/servicemix/list").buildAndExpand(uriVariables).toUriString();
+
+		TypeReference<ResponseDto<Map<String, Map<String, ServiceMixDto>>>> returnType = new TypeReference<ResponseDto<Map<String, Map<String, ServiceMixDto>>>>() {};
+
+		ResponseDto<Map<String, Map<String, ServiceMixDto>>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, null, currentServiceMixRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting ServiceMix detail", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
 	}
 	
 	public ResponseDto<List<ActiveResidenceDetailsDto>> getActiveResidenceList() {

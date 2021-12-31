@@ -131,4 +131,6 @@ public class LeadRequestDto {
 
 	private Integer placeId;
 	private String placeName;
+	
+	private String budget;
 }
