@@ -1,5 +1,7 @@
 package com.stanzaliving.website.dto;
 
+import java.util.List;
+
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
@@ -28,4 +30,8 @@ public class FaqResponseDto extends AbstractDto {
 	private String answer;
 	
 	private Integer displayOrder;
+	
+	private int totalFaqCategories;
+	
+	private List<FaqCategoryResponseDto> faqCategoryDtos;
 }
