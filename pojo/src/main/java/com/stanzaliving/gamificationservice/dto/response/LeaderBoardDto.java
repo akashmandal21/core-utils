@@ -1,8 +1,6 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.stanzaliving.gamificationservice.dto.BadgesDto;
-import com.stanzaliving.gamificationservice.dto.LeaderBadgesDto;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -25,7 +23,7 @@ public class LeaderBoardDto {
 
     private String userId;
 
-    private List<LeaderBadgesDto> badgesList = new ArrayList<>();
+    private List<String> badgesList = new ArrayList<>();
 
     private String userImage;
 
