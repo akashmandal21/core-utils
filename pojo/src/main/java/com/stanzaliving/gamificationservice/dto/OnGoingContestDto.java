@@ -32,12 +32,18 @@ public class OnGoingContestDto {
     @JsonProperty("my_rank")
     private String myRank;
 
+    @JsonProperty("my_rank_status")
+    private String myRankStatus;
+
     @JsonProperty("user_point_status")
     private String userPointsStatus;
 
     @JsonProperty("my_points")
     private String myPoints;
 
+    @JsonProperty("my_point_status")
+    private String myPointsStatus;
+    
     @JsonProperty("user_rank_status")
     private String userRankStatus;
 
