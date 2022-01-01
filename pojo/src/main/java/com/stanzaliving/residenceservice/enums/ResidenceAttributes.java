@@ -61,10 +61,10 @@ public enum ResidenceAttributes {
         }
     }
     public static String getLabel(ResidenceAttributes priority) {
-        return getType.get(priority);
+        return getLabel.get(priority);
     }
     public static String getType(ResidenceAttributes priority) {
-        return getLabel.get(priority);
+        return getType.get(priority);
     }
 
     public static List<ResidenceAttributes> residenceAttributesList() {
