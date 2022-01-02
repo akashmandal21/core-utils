@@ -41,6 +41,8 @@ public class FoodOrderSummaryDispatchDto {
 
 	private FoodServeType foodServeType;
 
+	private FoodServeType itemFoodServeType;
+
 	private MealType mealType;
 
 	private List<ItemDetailsDto> buffetItemDetailsDtoList;
