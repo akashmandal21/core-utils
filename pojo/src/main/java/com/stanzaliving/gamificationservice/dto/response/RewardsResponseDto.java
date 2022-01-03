@@ -36,7 +36,7 @@ public class RewardsResponseDto {
 
     private List<BadgesDto> badgesDtoList;
 
-    private List<ContestDto> contestDtoList;
+    private List<RewardsContestResponseDto> contestDtoList;
 
     private UsersProfileDto usersProfileDto;
 
