@@ -19,8 +19,7 @@ public class VentaDiscountRequestDto {
 	private String residenceUuid;
 	private String mocromarketUuid;
 	private String cityUuid;
-	@Builder.Default
-	private Double bookingMonthlyRent=0.0;
+	private Double bookingMonthlyRent;
 	private BookingDiscountCriteriasDto bookingDiscountCriterias;
 	// to distinguish between venta and alfred flow
 	@Builder.Default

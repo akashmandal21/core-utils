@@ -21,4 +21,9 @@ public class InventoryOccupancyDto {
     private Double beds;
     private boolean selfConverted;
     private String uuid;
+    private Integer occupancy;
+    private String occupancyName;
+    private String bhkType;
+    private String roomNumber;
+
 }
