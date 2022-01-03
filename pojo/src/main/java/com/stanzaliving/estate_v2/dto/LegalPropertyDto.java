@@ -9,6 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
+@ToString
 public class LegalPropertyDto extends AbstractMongoDto{
 
     private String propertyName;
