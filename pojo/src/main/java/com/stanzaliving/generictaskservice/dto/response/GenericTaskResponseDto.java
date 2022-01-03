@@ -80,4 +80,6 @@ public class GenericTaskResponseDto {
     private String parentTaskUuid;
 
     private PriorityDto priorityDto;
+
+    private long id;
 }
