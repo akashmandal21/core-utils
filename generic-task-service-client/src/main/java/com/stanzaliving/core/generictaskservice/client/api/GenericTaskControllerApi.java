@@ -79,6 +79,29 @@ public class GenericTaskControllerApi {
 
     }
 
+    public ResponseDto<List<TaskCategoryResponseDto>> getCoverageTaskCategoryByParentName(String parentCategoryName) {
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("parentCategoryName", parentCategoryName);
+        String path = UriComponentsBuilder.fromPath("/internal/taskCategory/coverage/{parentCategoryName}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<TaskCategoryResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<TaskCategoryResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
     public ResponseDto<List<ShitAllocationDetailsResponse>> getShiftAllocationDto(List<String> shiftAllocationUuid){
 
         // create path and map variables

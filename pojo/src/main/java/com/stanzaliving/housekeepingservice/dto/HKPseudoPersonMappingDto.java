@@ -20,5 +20,7 @@ public class HKPseudoPersonMappingDto extends AbstractDto {
 
     private String pseudoName;
 
+    private String residenceName;
+
     private String taskUuid;
 }

@@ -16,6 +16,7 @@ import java.util.List;
 public enum HkBeatPlanStatus {
 
     APPROVED("Approved"),
+    DRAFT("Draft"),
     PENDING_L2_APPROVAL("Pending l2 approval"),
     PENDING_L1_APPROVAL("Pending l2 approval"),
     REJECTED("Rejected");

@@ -14,6 +14,7 @@ public enum HkBeatPlanSortSpecs {
     MICROCLUSTER("microClusterName"),
     CREATED_BY("createdBy"),
     UPDATED_BY("updatedBy"),
+    UPDATED_AT("updatedAt"),
     STATUS("planStatus");
 
     private String dbKey;
