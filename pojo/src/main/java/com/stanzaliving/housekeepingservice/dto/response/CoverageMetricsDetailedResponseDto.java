@@ -17,5 +17,6 @@ import java.util.List;
 public class CoverageMetricsDetailedResponseDto {
 
     String residenceUuid;
+    String residenceName;
     List<CoverageMetricsResponseDto> coverageMetricsResponseDto;
 }
