@@ -101,9 +101,12 @@ public enum EstateStatus {
 	SENT_TO_LEGAL_AND_SANDEEP("Pending Legal and Sandeep Approval"),
 	SENT_TO_SANDEEP("Pending Sandeep Approval"),
 	SENT_FOR_LEADERSHIP_APPROVAL("Pending Final Deal Approval by Andy"),
-	SENT_TO_FILL_L2_DETAILS("Pending BD to fill L2 details");
+	SENT_TO_FILL_L2_DETAILS("Pending BD to fill L2 details"),
+	SENT_BACK_BY_CH("L1 Sent Back by CH"),
+	SENT_BACK_L2_BY_ZH("L2 Sent Back by ZH"),
+	SENT_BACK_L2_BY_NH("L2 Sent Back By NH"),
+	SENT_BACK_BY_ANDY("Sent Back by Andy");
 
-	
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
 	private String name;
