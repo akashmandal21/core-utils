@@ -341,7 +341,7 @@ public class GrnClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
-    public ResponseDto<Void> updateChallanUrlByGsriId(SwimUploadChallanDto swimUploadChallanDto) {
+    public ResponseDto<String> updateChallanUrlByGsriId(SwimUploadChallanDto swimUploadChallanDto) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -355,7 +355,7 @@ public class GrnClientApi {
 
         String path = UriComponentsBuilder.fromPath("/internal/generic/event-details/update-challan-url").buildAndExpand(uriVariables).toUriString();
 
-        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, swimUploadChallanDto, headerParams, accept, returnType);
