@@ -8,6 +8,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -18,6 +19,8 @@ public class GenericTaskAttachmentDto {
 
     @NotEmpty(message = "Task Id is mandatory")
     private String taskId;
+
+    private String attachmentUuid;
 
     private String attachmentFilePath;
 
@@ -32,4 +35,6 @@ public class GenericTaskAttachmentDto {
     private Department department;
 
     private String url;
+
+    private Date updatedAt;
 }

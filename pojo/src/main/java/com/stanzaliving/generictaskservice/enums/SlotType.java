@@ -20,7 +20,7 @@ public enum SlotType {
     private String slotTypeName;
 
     private static final SortedMap<String, SlotType> slotMap = new TreeMap<String, SlotType>();
-    
+
     static {
         for (SlotType slotType : SlotType.values()) {
             slotMap.put(slotType.getSlotTypeName(), slotType);

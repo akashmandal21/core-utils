@@ -15,6 +15,8 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @NoArgsConstructor
 public class ShiftCategoryFilterDto {
+
     private String module;
+
     private String shiftCategoryName;
 }

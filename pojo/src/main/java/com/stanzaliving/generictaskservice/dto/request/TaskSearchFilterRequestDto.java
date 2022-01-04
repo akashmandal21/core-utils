@@ -30,4 +30,10 @@ public class TaskSearchFilterRequestDto {
     private String orderByColumnName;
 
     private PaginationRequest pageRequest;
+
+    private List<String> modules;
+
+    private List<String> owners;
+
+    private List<String> predecessorTasks;
 }

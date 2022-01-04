@@ -21,4 +21,3 @@ public enum ShiftSortSpecs {
     private String dbKey;
 
 }
-

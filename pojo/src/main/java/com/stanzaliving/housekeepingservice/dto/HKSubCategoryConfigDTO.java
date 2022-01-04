@@ -21,8 +21,4 @@ public class HKSubCategoryConfigDTO {
 	private String variableName;
 
 	private String variableDataType;
-
-
-
-
 }

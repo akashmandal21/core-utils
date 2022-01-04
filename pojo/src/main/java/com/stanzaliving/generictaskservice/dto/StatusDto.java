@@ -23,4 +23,6 @@ public class StatusDto {
     private Department department;
 
     private List<StatusDto> subStatusList;
+
+    private String module;
 }

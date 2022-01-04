@@ -16,6 +16,8 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @NoArgsConstructor
 public class DependencyTaskStatusFilterDto {
+
     private Department department;
+
     private String dependencyTaskStatusName;
 }

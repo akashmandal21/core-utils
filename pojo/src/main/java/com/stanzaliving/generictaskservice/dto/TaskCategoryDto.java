@@ -5,7 +5,6 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalTime;
 import java.util.List;
 
 @Getter
@@ -16,9 +15,11 @@ import java.util.List;
 @AllArgsConstructor
 public class TaskCategoryDto extends AbstractDto {
 
+    private String parentTaskCategoryName;
+
     private String parentTaskCategoryUuid;
 
-    @NotBlank(message = "Task category name is Mandatory.")
+    @NotBlank(message = "Task category name is mandatory.")
     private String taskCategoryName;
 
     @NotBlank(message = "Module is Mandatory.")
@@ -27,11 +28,6 @@ public class TaskCategoryDto extends AbstractDto {
     private List<TaskCategoryDto> taskSubCategoryList;
 
     private String description;
-    private boolean autoCompleteTask;
-    private boolean overLapTask;
-    private boolean overrideTask;
-    private LocalTime startTime;
-    private String autoCompletionEvent;
-    private List<String> tagsList ;
 
+    private List<String> tagsList ;
 }

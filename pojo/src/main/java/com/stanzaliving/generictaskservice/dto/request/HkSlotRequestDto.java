@@ -20,9 +20,12 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HkSlotRequestDto {
+
     private String uuid;
+
     @NotBlank(message = "StartingTime is mandatory")
     private LocalTime startingTime;
+
     @NotBlank(message = "EndingTime is mandatory")
     private LocalTime endingTime;
 }

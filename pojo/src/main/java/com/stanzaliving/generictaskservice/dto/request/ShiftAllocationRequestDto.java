@@ -11,7 +11,10 @@ import java.util.List;
  **/
 @Data
 public class ShiftAllocationRequestDto {
+
     List<String> shiftAllocationUuidList;
+
     private LocalDate fromDate;
+
     private LocalDate toDate;
 }

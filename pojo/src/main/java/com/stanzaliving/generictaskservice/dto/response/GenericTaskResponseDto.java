@@ -38,8 +38,10 @@ public class GenericTaskResponseDto {
     private AdditionalVarsDto var2;
     private AdditionalVarsDto var3;
     private AdditionalVarsDto var4;
+    private AdditionalVarsDto var5;
     private TaskCategoryDto taskCategoryDto;
     private TaskCategoryDto taskSubCategoryDto;
+    private GenericTaskTemplateResponseDto taskTemplateResponseDto;
     private StatusDto taskStatusDto;
     private StatusDto taskSubStatusDto;
     private boolean autoTaskCompletion;
@@ -72,4 +74,10 @@ public class GenericTaskResponseDto {
 
     protected Date createdAt;
     protected Date updatedAt;
+    private DelayDto delayDto;
+    private boolean adhocTask;
+
+    private String parentTaskUuid;
+
+    private PriorityDto priorityDto;
 }

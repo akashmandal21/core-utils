@@ -33,6 +33,4 @@ public class UpdateShiftDto {
     private LocalTime durationInHours;
 
     private List<String> tagsUuidList = new ArrayList<>();
-
-
 }
