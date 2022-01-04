@@ -6,6 +6,8 @@ import com.stanzaliving.generictaskservice.enums.TagsCategoryType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.Column;
+
 @Getter
 @Setter
 @ToString(callSuper = true)
@@ -20,4 +22,7 @@ public class TagResponseDto extends AbstractDto {
 
     private TagsCategoryType tagCategory;
 
+    private String tagColor;
+
+    private String tagIcon;
 }
