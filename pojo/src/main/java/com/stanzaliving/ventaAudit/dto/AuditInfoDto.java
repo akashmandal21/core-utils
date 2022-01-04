@@ -18,6 +18,7 @@ public class AuditInfoDto {
     private Date auditDate;
     private String entityName;
     private String roomNumber;
+    private String auditRejectionReason;
     private List<AuditInventoryInfoDto> auditInventoryInfoDtoList;
 
 }
