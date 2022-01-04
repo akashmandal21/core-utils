@@ -30,6 +30,4 @@ public enum HKPlanningTemplateStatus {
     public static List<EnumListing<HKPlanningTemplateStatus>> getEnumListing() {
         return enumListing;
     }
-
-
 }

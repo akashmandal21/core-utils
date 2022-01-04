@@ -16,5 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HkBeatBLDResidenceDetailsResponseDto {
+
     private List<BLDResidenceDetailsResponseDto> residencesDetails;
 }

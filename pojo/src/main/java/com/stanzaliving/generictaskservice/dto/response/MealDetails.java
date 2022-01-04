@@ -17,7 +17,10 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MealDetails {
+
     private String mealTypeName;
+
     private LocalTime mealTime;
+
     private LocalTime duration;
 }

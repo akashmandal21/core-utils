@@ -17,9 +17,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MealTypeResponseDto {
+
     private List<MealDetails> details;
+
     private CustomResidenceDetailsResponseDto residence;
+
     private String residenceUuid;
+
     private String residenceName;
+
     private List<MealDetails> mealDetails;
 }

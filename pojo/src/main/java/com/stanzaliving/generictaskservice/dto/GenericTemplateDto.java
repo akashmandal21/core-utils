@@ -56,8 +56,5 @@ public class GenericTemplateDto extends AbstractDto {
     private Department department;
 
     private List<String> commentsUuidList;
-
-
-
 }
 

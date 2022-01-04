@@ -15,8 +15,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TaskResidenceDto {
+
         private List<String> roomIds;
+
         private String residenceId;
+
         private String residenceName;
+
         private List<String> commonAreaIds;
 }

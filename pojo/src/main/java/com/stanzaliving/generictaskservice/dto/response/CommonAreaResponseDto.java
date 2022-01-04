@@ -17,7 +17,10 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommonAreaResponseDto {
+
     private String commonAreaUuid;
+
     private String commonAreaName;
+
     private LocalTime duration;
 }

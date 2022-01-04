@@ -5,6 +5,8 @@ package com.stanzaliving.generictaskservice.dto;
  * @date 30-Nov-21
  **/
 public class GarbageCollectionAdditionVarDto {
+
     private boolean collectGarbage;
+
     private String residenceId;
 }

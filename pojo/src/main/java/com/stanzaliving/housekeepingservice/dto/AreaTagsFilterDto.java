@@ -16,7 +16,10 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @NoArgsConstructor
 public class AreaTagsFilterDto {
+
     private String areaTagsName;
+
     private String areaCategory;
+
     private PaginationRequest pageRequest;
 }

@@ -18,6 +18,4 @@ public enum MicroClusterSortSpecs {
     UPDATEDAT("updatedAt");
 
     private String dbKey;
-
 }
-

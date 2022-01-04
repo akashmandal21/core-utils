@@ -15,7 +15,8 @@ import java.util.Map;
 public class AdditionalVarsResponseDto {
 
     private String variableName;
-    private Type type;
-    private Map<String, Object> dataStructure;
 
+    private Type type;
+
+    private Map<String, Object> dataStructure;
 }

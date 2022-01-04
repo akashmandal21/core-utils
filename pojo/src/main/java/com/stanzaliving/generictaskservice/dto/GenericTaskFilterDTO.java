@@ -4,7 +4,6 @@ import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import com.stanzaliving.core.base.enums.Department;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -14,7 +13,6 @@ import java.util.List;
 
 /**
  * @author Priyadarshini MB
- *
  */
 
 @Getter
@@ -25,7 +23,6 @@ import java.util.List;
 @NoArgsConstructor
 @JsonIgnoreProperties({"pageRequest"})
 public class GenericTaskFilterDTO {
-
 
     private String name;
     private String statusUuid;

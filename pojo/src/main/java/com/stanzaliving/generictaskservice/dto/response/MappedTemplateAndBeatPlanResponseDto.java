@@ -16,6 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MappedTemplateAndBeatPlanResponseDto {
+
     private List<MappedBeatPlanResponseDto> mappedBeatPlanResponse;
+
     private List<MappedTemplateResponseDto> mappedTemplateResponse;
 }

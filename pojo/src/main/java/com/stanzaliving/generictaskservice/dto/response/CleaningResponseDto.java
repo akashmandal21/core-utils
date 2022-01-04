@@ -19,9 +19,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CleaningResponseDto {
+
     private String residenceName;
+
     private String residenceUuid;
+
     private List<AreaTagDetailsResponseDto> areaTags;
+
     private LocalDate date;
+
     private LocalTime duration;
 }

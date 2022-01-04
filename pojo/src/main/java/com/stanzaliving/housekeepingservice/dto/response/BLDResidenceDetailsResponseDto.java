@@ -14,8 +14,12 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BLDResidenceDetailsResponseDto {
+
     private String mealType;
+
     private String duration;
+
     private String residenceId;
+
     private String residenceName;
 }

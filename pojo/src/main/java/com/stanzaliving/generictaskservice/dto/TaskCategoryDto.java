@@ -15,8 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 public class TaskCategoryDto extends AbstractDto {
 
-   // private String parentTaskCategoryUuid;
-
     private String parentTaskCategoryName;
 
     private String parentTaskCategoryUuid;
@@ -32,5 +30,4 @@ public class TaskCategoryDto extends AbstractDto {
     private String description;
 
     private List<String> tagsList ;
-
 }

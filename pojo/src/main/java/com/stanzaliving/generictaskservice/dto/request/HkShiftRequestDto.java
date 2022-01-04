@@ -21,9 +21,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HkShiftRequestDto {
+
     @NotBlank(message = "ShiftId is mandatory")
     private String uuid;
+
     private List<HkSlotRequestDto> slots;
+
     @NotBlank(message = "Shift starting time is mandatory")
     private LocalTime shiftStartTime;
 

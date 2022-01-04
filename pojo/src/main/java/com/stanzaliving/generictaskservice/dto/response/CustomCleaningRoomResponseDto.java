@@ -18,6 +18,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomCleaningRoomResponseDto {
+
     private List<AreaTagDetailsResponseDto> areaTags;
+
     private CustomResidenceDetailsResponseDto residence;
 }

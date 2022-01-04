@@ -15,7 +15,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MappedBeatPlanResponseDto {
+
     private String uuid;
+
     private LocalDate beatPlanStartDate;
+
     private LocalDate beatPlanEndDate;
 }

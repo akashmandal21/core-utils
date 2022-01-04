@@ -17,8 +17,12 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GarbageCollectionResponseDto {
+
     private String residenceName;
+
     private String residenceUuid;
+
     private boolean collectGarbage;
+
     private LocalTime duration;
 }

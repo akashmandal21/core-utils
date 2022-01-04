@@ -21,22 +21,40 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GenericTaskBeatPlanResponseDto {
+
     private String uuid;
+
     private Date startDate;
+
     private Date dueDate;
+
     private String taskName;
+
     private TaskType type;
+
     private boolean overridable;
+
     private String templateName;
+
     private String taskTemplateUuid;
+
     private String taskSubCategoryName;
+
     private String taskSubCategoryUuid;
+
     private String duration;
+
     private String attributeType;
+
     private List<Object> residences;
+
     private TaskCategoryDto taskCategoryDto;
+
     private TaskCategoryDto taskSubCategoryDto;
+
     private StatusDto taskStatusDto;
+
     private StatusDto taskSubStatusDto;
+
     private GenericTaskTemplateResponseDto taskTemplateResponseDto;
 }

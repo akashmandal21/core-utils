@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
+
 /**
  * @author Ranjiht Kumar Jain
  */
@@ -17,7 +18,8 @@ import java.util.Date;
 public class DelayDto extends AbstractDto{
 
     private String delayReason;
-    private Date dueDate;
-    private String comment;
 
+    private Date dueDate;
+
+    private String comment;
 }

@@ -24,18 +24,27 @@ import java.util.List;
 public class TaskCategoryFilterDto {
 
     private String taskCategoryName;
+
     private List<String> tags;
+
     private PaginationRequest pageRequest;
 
     private String parentCategoryName;
+
     private String parentTaskCategoryUuid;
+
     //Sort
     private LocalTime startTime;
+
     private String autoCompletionEvent;
+
     private boolean autoCompleteTask;
+
     protected Date createdAt;
 
     private TaskCategorySortSpecs sortSpecs;
+
     private SortDirection sortDirection ;
+
     private String uuid;
 }

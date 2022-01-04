@@ -17,7 +17,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GenericTemplateSubCategoryResponseDto {
+
     private String uuid;
+
     private String categoryName;
+
     private List<TemplateSubCategoryResponseDto> genericTemplate;
 }

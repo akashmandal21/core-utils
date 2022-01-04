@@ -15,6 +15,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomResidenceDetailsResponseDto {
+
     private String residenceUuid;
+
     private String residenceName;
 }

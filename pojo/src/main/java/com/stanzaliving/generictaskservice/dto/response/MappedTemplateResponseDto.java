@@ -13,6 +13,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MappedTemplateResponseDto {
+
     private String uuid;
+
     private String templateName;
 }

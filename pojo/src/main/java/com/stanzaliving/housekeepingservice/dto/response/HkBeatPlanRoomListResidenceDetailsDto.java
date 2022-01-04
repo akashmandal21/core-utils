@@ -17,5 +17,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HkBeatPlanRoomListResidenceDetailsDto {
+
     private List<TaskResidenceDto> residencesDetails;
 }

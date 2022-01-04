@@ -15,6 +15,6 @@ import lombok.experimental.SuperBuilder;
 public class TagsGenericResponseDto {
 
     private String tagName;
-    private String tagUuid;
 
+    private String tagUuid;
 }

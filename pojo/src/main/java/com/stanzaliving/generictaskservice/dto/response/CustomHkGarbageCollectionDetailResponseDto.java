@@ -18,7 +18,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomHkGarbageCollectionDetailResponseDto {
+
     List<GarbageCollectionResidenceDetailsResponseDto> details;
+
     CustomResidenceDetailsResponseDto residence;
+
     private String duration;
 }
