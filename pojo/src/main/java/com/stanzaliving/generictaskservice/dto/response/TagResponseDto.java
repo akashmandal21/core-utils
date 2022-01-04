@@ -2,6 +2,7 @@ package com.stanzaliving.generictaskservice.dto.response;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.generictaskservice.enums.TagsCategoryType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -17,5 +18,6 @@ public class TagResponseDto extends AbstractDto {
 
     private Department department;
 
-    private String tagCategory;
+    private TagsCategoryType tagCategory;
+
 }

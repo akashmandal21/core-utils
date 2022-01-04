@@ -17,10 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AreaTagDetailsResponseDto {
-
     private String tagName;
-
     private List<RoomDetailsResponseDto> rooms;
-
     private List<CommonAreaResponseDto> commonAreas;
 }
