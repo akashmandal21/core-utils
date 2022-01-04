@@ -1,6 +1,8 @@
 package com.stanzaliving.boq_service.dto;
 
+import com.stanzaliving.item_master.enums.AcquisitionType;
 import com.stanzaliving.item_master.enums.ItemType;
+import com.stanzaliving.transformations.enums.UnitType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,4 +30,8 @@ public class BoqListingGroupByItemTempDto {
     private BigDecimal amount;
 
     private String boqName;
+
+    private AcquisitionType acquisitionType;
+
+    private UnitType orderUnit;
 }

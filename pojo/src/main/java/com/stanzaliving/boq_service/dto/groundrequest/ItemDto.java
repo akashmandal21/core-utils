@@ -23,7 +23,7 @@ public class ItemDto {
 
     private String itemName;
 
-    private AcquisitionType acquisitionType;
+    private String acquisitionType;
 
     private BigDecimal quantity;
 

@@ -17,5 +17,4 @@ public class ListingResponseDto {
     private ListingRequestDto requestState;
 
     private List<ListingDataDto> listingData;
-
 }

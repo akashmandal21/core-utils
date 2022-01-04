@@ -17,6 +17,4 @@ public class ListingDataDto {
     private int count;
 
     private List<ItemDto> items;
-
-
 }
