@@ -64,4 +64,6 @@ public enum SupportRole {
     public String toString() {
         return value;
     }
+
+    public static final List<String> replyDeniedRoles = Arrays.asList("SUPPORT_L1_RC");
 }
