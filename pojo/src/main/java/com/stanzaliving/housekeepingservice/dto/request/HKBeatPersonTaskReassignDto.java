@@ -28,4 +28,6 @@ public class HKBeatPersonTaskReassignDto {
 
     private List<String> taskIds;
 
+    private String microClusterUuid;
+
 }
