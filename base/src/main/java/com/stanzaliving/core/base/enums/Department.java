@@ -44,6 +44,20 @@ public enum Department {
 	CORPORATE_DESIGN("Corporate Design","CD","CDS"),
 	SALES_IS("Sales IS", "IS", "SIS"),
 	RE_BROKERAGE("RE Brokerage","RB","RBK"),
+	RONALDO("Ronaldo","RN","RND"),
+	MESSI("Messi","MS","MSI"),
+	MARADONA("Maradona","MD","MRD"),
+	ROHAN("Rohan","RH","RHN"),
+	POTTIPAVAN("Potti","PN","PVN"),
+	JAYAPAVAN("Jaya pavan","JP","JYP"),
+	ANUDEEP("Anudeep","AN","ANU"),
+	SALAH("Salah","SH","SHL"),
+	PELE("Pele","PE","PLE"),
+	MBAPPE("Mbappe","MB","MBP"),
+	CHENNAI("Chennai","CN","CHN"),
+	HYDERABAD("Hyderabad","HD","HYD"),
+	PUNJAB("Punjab","PB","PNB"),
+	MADRAS("Madras","MD","MDR"),
 	KOLKATA("Kolkata","KL","KLK");
 
 
