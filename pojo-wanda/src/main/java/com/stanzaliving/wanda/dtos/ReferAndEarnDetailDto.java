@@ -34,7 +34,7 @@ public class ReferAndEarnDetailDto extends ReferAndEarnBaseDto {
 	private HowItWorksDto howItWorks;
 	private UnlockLevelsAndEarnMoreDto unlockLevelsAndEarnMore;
 	private UnlockLevelsAndEarnMoreDto allReferralLevels;
-	private UnlockLevelsAndEarnMoreDto currentReferralLevel;
+//	private UnlockLevelsAndEarnMoreDto currentReferralLevel;
 	private ReferralCodeDetailDto referralCode;
 	private YourReferralsDto yourReferrals;
 	private ReferralEarningResponseDto yourEarnings;
