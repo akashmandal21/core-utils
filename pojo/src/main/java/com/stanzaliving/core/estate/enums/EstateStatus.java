@@ -105,8 +105,8 @@ public enum EstateStatus {
 	SENT_BACK_BY_CH("L1 Sent Back by CH"),
 	SENT_BACK_L2_BY_ZH("L2 Sent Back by ZH"),
 	SENT_BACK_L2_BY_NH("L2 Sent Back By NH"),
-	SENT_BACK_BY_ANDY("Sent Back by Andy");
-
+	SENT_BACK_BY_ANDY("Sent Back by Andy"),
+	SENT_BACK_BY_ZONAL_HEAD("L1 Sent Back By ZH");
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 	
 	private String name;
