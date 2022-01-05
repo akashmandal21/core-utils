@@ -454,7 +454,7 @@ public class VendorClientApi {
 
     public ResponseDto<String> rollBack(Department newDepartment) {
 
-        log.info("HTTP Client call to rollBack vendorMapping details for new dept: {} refDept: {}" , newDepartment);
+        log.info("HTTP Client call to rollBack vendorMapping details for new dept: {}" , newDepartment);
 
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("newDepartment",newDepartment);
