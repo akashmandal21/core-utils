@@ -36,4 +36,6 @@ public class BoqListingGroupByItemTempDto {
     private AcquisitionType acquisitionType;
 
     private UnitType orderUnit;
+
+    private String AOU;
 }
