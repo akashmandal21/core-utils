@@ -25,4 +25,6 @@ public class TargetMultiplierDto {
     private String ruleNo;
 
     private String uuid;
+
+    private String contestRuleUuid;
 }
