@@ -3,6 +3,8 @@ package com.stanzaliving.website.dto;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.user.enums.EnumListing;
+import com.stanzaliving.website.enums.FaqStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,6 +26,10 @@ public class FaqCategoryResponseDto extends AbstractDto {
 	private String slug;
 
 	private Integer displayOrder;
+	
+	private FaqStatus faqStatus;
+	
+	private EnumListing<FaqStatus> faqStatusEnumListing;
 	
 	private List<FaqResponseDto> faqDtos;
 	

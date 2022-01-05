@@ -8,7 +8,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.Builder.Default;
 
 @Builder
 @NoArgsConstructor
@@ -25,6 +24,5 @@ public class FaqCategoryRequestDto extends AbstractDto {
 
 	private Integer displayOrder;
 	
-	@Default
-	private FaqStatus faqStatus = FaqStatus.IN_DRAFT;
+	private FaqStatus faqStatus;
 }

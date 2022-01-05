@@ -5,6 +5,8 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.user.enums.EnumListing;
+import com.stanzaliving.website.enums.FaqStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,13 +23,14 @@ public class FaqResponseDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
 	
-	@NotNull(message = "faqCategoryId cannot be null")
-	private Long faqCategoryId;
-
 	@NotNull(message = "question cannot be null")
 	private String question;
 	
 	private String answer;
+	
+	private FaqStatus faqStatus;
+	
+	private EnumListing<FaqStatus> faqStatusEnumListing;
 	
 	private Integer displayOrder;
 	
