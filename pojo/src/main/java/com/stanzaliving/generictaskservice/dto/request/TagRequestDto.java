@@ -25,4 +25,7 @@ public class TagRequestDto {
     @NotNull(message = "Tag category is mandatory")
     private TagsCategoryType tagCategory;
 
+    private String tagColor;
+
+    private String tagIcon;
 }
