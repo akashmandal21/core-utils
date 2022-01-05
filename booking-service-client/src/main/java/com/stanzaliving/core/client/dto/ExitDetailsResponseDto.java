@@ -66,4 +66,6 @@ public class ExitDetailsResponseDto {
     private LocalDate auditDate;
 
     private Double securityDeposit;
+
+    private String exitSource;
 }
