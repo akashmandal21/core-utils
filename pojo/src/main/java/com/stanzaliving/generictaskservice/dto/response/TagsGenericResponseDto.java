@@ -17,4 +17,8 @@ public class TagsGenericResponseDto {
     private String tagName;
 
     private String tagUuid;
+
+    private String tagColor;
+
+    private String tagIcon;
 }
