@@ -44,4 +44,6 @@ public class TicketDetailsDto {
     @Builder.Default
     private boolean isFreeTextAccess = true;
 
+    private List<TicketFilterCountDto> ticketFilterCountDtos;
+
 }
