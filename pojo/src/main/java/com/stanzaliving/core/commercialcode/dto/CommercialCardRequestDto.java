@@ -1,6 +1,7 @@
 package com.stanzaliving.core.commercialcode.dto;
 
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
+import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
@@ -40,4 +41,7 @@ public class CommercialCardRequestDto {
     private String bookingUuid;
 
     private String moveInDate;
+
+    @Builder.Default
+    private Integer roomCount = 1;
 }
