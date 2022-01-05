@@ -1,12 +1,15 @@
 package com.stanzaliving.booking.dto.request;
 
+import java.time.LocalDate;
+
+import javax.validation.constraints.NotNull;
+
+import com.stanzaliving.booking.enums.BookingSource;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 
 @Builder
 @Data
@@ -14,14 +17,18 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class ExitDetailsRequestDto {
 
-    @NotNull(message = "bookingUuid cannot be null")
-    private String bookingUuid;
+	@NotNull(message = "bookingUuid cannot be null")
+	private String bookingUuid;
 
-    @NotNull(message = "Move out date cannot be null")
-    private LocalDate moveOutDate;
+	@NotNull(message = "Move out date cannot be null")
+	private LocalDate moveOutDate;
 
-    @Builder.Default
-    private Boolean conditionsSelected = Boolean.FALSE;
+	@Builder.Default
+	private Boolean conditionsSelected = Boolean.FALSE;
 
-    private String reasonForLeavingUuid;
+	private String reasonForLeavingUuid;
+	
+	 @Builder.Default
+	 private BookingSource exitSource=BookingSource.ALFRED;
+
 }
