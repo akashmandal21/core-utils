@@ -1,9 +1,7 @@
 package com.stanzaliving.core.commercialcode.dto;
 
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -11,6 +9,9 @@ import java.util.List;
 
 @Data
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CommercialCardRequestDto {
 
     @NotNull(message = "City uuid cannot be null")
