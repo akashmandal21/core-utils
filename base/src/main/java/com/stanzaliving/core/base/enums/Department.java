@@ -58,7 +58,8 @@ public enum Department {
 	HYDERABAD("Hyderabad","HD","HYD"),
 	PUNJAB("Punjab","PB","PNB"),
 	MADRAS("Madras","MD","MDR"),
-	KOLKATA("Kolkata","KL","KLK");
+	KOLKATA("Kolkata","KL","KLK"),
+	BENGALURU("Bengaluru","BN","BNL");
 
 
 	public String departmentName;
