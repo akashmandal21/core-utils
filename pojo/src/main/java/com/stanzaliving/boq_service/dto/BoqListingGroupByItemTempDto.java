@@ -27,6 +27,8 @@ public class BoqListingGroupByItemTempDto {
 
     private BigDecimal llQuantity;
 
+    private BigDecimal gcQuantity;
+
     private BigDecimal amount;
 
     private String boqName;
