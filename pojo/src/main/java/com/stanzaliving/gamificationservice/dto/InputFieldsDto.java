@@ -21,4 +21,6 @@ public class InputFieldsDto {
 
     private int inputFieldValue;
 
+    private String contestRuleUuid;
+
 }
