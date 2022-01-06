@@ -1,5 +1,6 @@
 package com.stanzaliving.boq_service.dto.groundrequest;
 
+import com.stanzaliving.transformations.enums.AreaOfUse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +13,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 public class AreaWiseBreakupDto {
-    private String areaOfUse;
+    private AreaOfUse areaOfUse;
 
     private BigDecimal quantity;
 
