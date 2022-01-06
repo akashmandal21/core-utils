@@ -5,17 +5,16 @@ import lombok.experimental.SuperBuilder;
 
 /**
  * @author Vikas S T
- * @date 20-Dec-21
+ * @date 05-Jan-22
  **/
+
 @Getter
 @Setter
 @ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RoomDetailsLeftOverResponseDto {
-    private String roomNumber;
-    private String taskDuration;
-    private HkBeatPlanTaskStatusResponseDto taskStatus;
-    private String taskExecutionUuid;
+public class HKTaskExecutionStatusResponseDto {
+    private String uuid;
+    private String statusName;
 }
