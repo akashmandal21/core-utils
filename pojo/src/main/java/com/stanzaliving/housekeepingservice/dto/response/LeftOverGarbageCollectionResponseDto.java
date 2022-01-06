@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class LeftOverGarbageCollectionResponseDto {
     private String taskDuration;
-    private String taskStatus;
+    private HkBeatPlanTaskStatusResponseDto taskStatus;
     private String taskExecutionUuid;
     private boolean collectGarbage;
 }
