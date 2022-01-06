@@ -59,7 +59,8 @@ public enum Department {
 	PUNJAB("Punjab","PB","PNB"),
 	MADRAS("Madras","MD","MDR"),
 	KOLKATA("Kolkata","KL","KLK"),
-	BENGALURU("Bengaluru","BN","BNL");
+	BENGALURU("Bengaluru","BN","BNL"),
+	HIMACHAL("Himachal","HM","HML");
 
 
 	public String departmentName;
