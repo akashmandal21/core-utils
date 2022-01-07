@@ -85,6 +85,10 @@ public class StanzaUtils {
         return (int) ThreadLocalRandom.current().nextDouble(Math.pow(10, length - 1), Math.pow(10, length));
     }
 
+    public static boolean checkIfNumber(String str) {
+    	return StringUtils.isNotBlank(str)&&str.matches("[0-9]+");
+	}
+
 	public static int generateDefaultOtpOfLength(int length) {
 
 		int otp = 0;
