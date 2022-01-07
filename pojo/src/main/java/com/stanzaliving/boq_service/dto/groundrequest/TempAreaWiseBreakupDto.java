@@ -12,10 +12,10 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AreaWiseBreakupDto {
-    private AreaOfUse areaOfUse;
+public class TempAreaWiseBreakupDto {
 
+    private String masterItemUuid;
+    private AreaOfUse areaOfUse;
     private BigDecimal quantity;
 
-    private BigDecimal percentage;
 }
