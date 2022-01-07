@@ -11,6 +11,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Getter
@@ -35,6 +36,8 @@ public class FoodOrderSummaryDispatchDto {
 
 	private String menuCategoryName;
 
+	private String shortCode;
+
 	private String menuCategoryVersionId;
 
 	private LocalDate menuDate;
@@ -44,6 +47,10 @@ public class FoodOrderSummaryDispatchDto {
 	private FoodServeType itemFoodServeType;
 
 	private MealType mealType;
+
+	private LocalTime mealStartTime;
+
+	private LocalTime mealEndTime;
 
 	private List<ItemDetailsDto> buffetItemDetailsDtoList;
 

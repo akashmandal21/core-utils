@@ -36,6 +36,8 @@ public class ItemDetailsDto {
 
 	private Integer quantityValue;
 
+	private boolean isTiffinItem;
+
 	private boolean isDefault;
 
 }

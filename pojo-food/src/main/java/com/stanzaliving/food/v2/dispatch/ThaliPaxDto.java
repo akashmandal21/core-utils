@@ -28,6 +28,8 @@ public class ThaliPaxDto {
 
 	private boolean isDefault;
 
+	private boolean isTiffin;
+
 	private FoodServeType foodServeType;
 
 }
