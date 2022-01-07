@@ -6,8 +6,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum GroupByEnum {
-    SUBCATEGORY ("Subcategory"),
-    AREA_OF_USE ("Area of use");
+    SUBCATEGORY ("Subcategory",  "getSubCategory"),
+    AREA_OF_USE ("Area of use", "getAOU");
 
     private final String label;
+    private final String  getterName;
 }

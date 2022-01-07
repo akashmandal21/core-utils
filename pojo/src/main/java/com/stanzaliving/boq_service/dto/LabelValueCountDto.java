@@ -19,5 +19,5 @@ public class LabelValueCountDto<T> {
     @NotBlank
     private T value;
 
-    private BigInteger count;
+    private long count;
 }
