@@ -14,7 +14,6 @@ public class SigmaUpdateTaskStatusReason {
 
     private String taskStatusReason;
 
-    private String comment;
-
+    private String taskExecutionStatusUuid;
     private List<String> taskExecutionUuids;
 }
