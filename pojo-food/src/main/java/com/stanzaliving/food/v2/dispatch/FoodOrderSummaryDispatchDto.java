@@ -3,6 +3,7 @@ package com.stanzaliving.food.v2.dispatch;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.food.v2.common.constant.PackageLocationType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,6 +46,8 @@ public class FoodOrderSummaryDispatchDto {
 	private FoodServeType foodServeType;
 
 	private FoodServeType itemFoodServeType;
+
+	private PackageLocationType packageLocationType;
 
 	private MealType mealType;
 
