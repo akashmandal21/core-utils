@@ -19,7 +19,8 @@ public enum ApprovalEntityType {
 	WEEKLY_MENU_V2("Weekly Menu", "FOOD_SERVICE", "WEEKLY_MENU"),
 	SUPPORT_TEMPLATE("Support Template", "support-service", "SUPPORT_TEMPLATE"),
 	MONTHLY_BUDGET_MENU_PLANNING("Food Monthly Planning", "FOOD_SERVICE", "MONTHLY_BUDGET_MENU_PLANNING"),
-	ELECTRICITY_BILL_SPLITTER("Electricity Bill Splitter", "ELECTRICITY_SERVICE", "ELECTRICITY_BILL_SPLITTER");
+	ELECTRICITY_BILL_SPLITTER("Electricity Bill Splitter", "ELECTRICITY_SERVICE", "ELECTRICITY_BILL_SPLITTER"),
+	HK_BEAT_PLAN("House Keeping Beat plan", "HK_BEAT_PLAN", "HK_BEAT_PLAN");
 
 	private final String value;
 	private final String commentServiceName;

@@ -30,5 +30,6 @@ public class PendingApprovalSummaryDto {
     private Integer monthlyBudgetMenuPlanningCount = 0;
     @Builder.Default
     private Integer electricityBillSplitterCount = 0;
-    
+    @Builder.Default
+    private Integer hkBeatPlanCount = 0;
 }
