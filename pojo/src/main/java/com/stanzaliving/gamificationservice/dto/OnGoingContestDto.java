@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.gamificationservice.dto.response.ContestTaskResponseDto;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -43,15 +44,44 @@ public class OnGoingContestDto {
 
     @JsonProperty("my_point_status")
     private String myPointsStatus;
-    
+
     @JsonProperty("user_rank_status")
     private String userRankStatus;
+
+    @JsonProperty("description")
+    private String description;
+
+    @JsonProperty("contestTitle")
+    private String contestTitle;
+
+    @JsonProperty("createdBy")
+    private String createdBy;
+
+    @JsonProperty("duration")
+    private int duration;
+
+    @JsonProperty("startDate")
+    private LocalDate startDate;
+
+    @JsonProperty("endDate")
+    private LocalDate endDate;
+
+    @JsonProperty("dateOfJoining")
+    private LocalDate dateOfJoining;
+
+    @JsonProperty("contestType")
+    private String contestType;
+
+    @JsonProperty("location")
+    private List<String> location;
+
+    @JsonProperty("zone")
+    private List<String> zone;
 
     @JsonProperty("contest_task")
     private List<ContestTaskResponseDto> contestTaskList;
 
     @JsonProperty("contest_message")
     private String contestMessage;
-
 
 }
