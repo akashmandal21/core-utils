@@ -4,6 +4,7 @@ package com.stanzaliving.transformations.pojo;
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.core.enums.ResidenceType;
 
+import com.stanzaliving.core.estate.enums.EstateGender;
 import lombok.*;
 
 @Getter
@@ -37,5 +38,9 @@ public class ResidenceMetadataDto {
     private String company;
 
     private String addressUuid;
+
+    private EstateGender estateGender;
+
+    private boolean bookingStatus;
 
 }
