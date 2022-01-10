@@ -26,6 +26,7 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L1_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L1_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L1_APPROVER);
+		put(ApprovalEntityType.HK_BEAT_PLAN, Role.CITY_HK_BEATPLANING_APPROVE_L1);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l2ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
@@ -36,6 +37,7 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L2_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L2_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L2_APPROVER);
+		put(ApprovalEntityType.HK_BEAT_PLAN, Role.COUNTRY_HK_BEATPLANING_APPROVE_L2);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l3ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
