@@ -69,6 +69,9 @@ public enum Role {
     EMAIL_SERVICEMIX_AUTO_CHANGE_IN_COST_MM("Email_CC_Servicemix_Auto_change_in_cost_mm", AccessLevel.MICROMARKET, Department.OPS),
     EMAIL_SERVICEMIX_AUTO_CHANGE_IN_COST_RESIDENCE("Email_CC_Servicemix_Auto_change_in_cost_res", AccessLevel.RESIDENCE, Department.OPS),
 
+    CITY_HK_BEATPLANING_APPROVE_L1("CITY_HK_BEAT_PLAN  L1 Approver", AccessLevel.CITY, Department.OPS),
+    COUNTRY_HK_BEATPLANING_APPROVE_L2("COUNTRY_HK_BEAT_PLAN  L2 Approver", AccessLevel.COUNTRY, Department.OPS),
+
     /************************************ FOOD - OPS ************************************/
     CITY_CHEF_MANAGER("City Chef Manager", AccessLevel.CITY, Department.FOOD_OPS),
 
