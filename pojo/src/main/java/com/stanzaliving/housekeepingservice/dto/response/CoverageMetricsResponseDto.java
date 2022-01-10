@@ -2,6 +2,8 @@ package com.stanzaliving.housekeepingservice.dto.response;
 
 import lombok.*;
 
+import java.util.List;
+
 /**
  * @author Priyadarshini MB
  */
@@ -26,5 +28,6 @@ public class CoverageMetricsResponseDto {
 
     private String taskTypeName;
     private long  totalNumberOfRooms;
+    private List<CoverageResidenceDetailsResponseDto> roomWises;
 
 }
