@@ -19,4 +19,6 @@ public class ListingRequestDto {
     private GroupByEnum groupBy;
 
     private List<ItemType> filterItemsBy;
+
+    private String searchKeyword;
 }
