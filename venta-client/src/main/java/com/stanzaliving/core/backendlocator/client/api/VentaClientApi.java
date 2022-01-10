@@ -422,7 +422,7 @@ public class VentaClientApi {
 		}
 		return null;
 	}
-	public ResponseEntity<Void> migrateTransactionForDate(TransactionMigrationForDate requestDto)  {
+	public ResponseEntity<Void> migrateTransactionForDate(String token ,TransactionMigrationForDate requestDto)  {
 
 		Object postBody = requestDto;
 
@@ -436,14 +436,15 @@ public class VentaClientApi {
 
 		HttpHeaders headerParams = new HttpHeaders();
 
+		headerParams.add("Cookie", "token=" + token);
+
 		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 		ParameterizedTypeReference<ResponseEntity<Void>> returnType =
 				new ParameterizedTypeReference<ResponseEntity<Void>>() {};
 
-		 return restClient.invokeAPI(
-				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
 	}
 }
