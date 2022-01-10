@@ -20,6 +20,7 @@ public class GrsiItemDto {
     private Department itemDept;
     private String batchId;
     private String awlBatchId;
+    private String fifoUuid;
 
     @Builder.Default
     private BigDecimal pieceDamaged = BigDecimal.ZERO;

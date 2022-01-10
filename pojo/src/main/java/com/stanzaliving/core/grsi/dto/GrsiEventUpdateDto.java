@@ -33,5 +33,6 @@ public class GrsiEventUpdateDto {
     private String gsriPlatform;
     private String awlRefNo;
     private Department poToDepartment;
+    private String fifoUuid;
 
 }
