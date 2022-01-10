@@ -13,12 +13,15 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProfileHistoryResponseDto {
+public class OnGoingContestResponseDto {
 
     @JsonProperty("history_view_all_quick_filter")
-    private List<FilterDto> historyViewAllQuickFilterList;
+    private List<FilterDto> historyViewAllQuickFilter;
 
-    @JsonProperty("user_contest_subtask_history_view_all")
-    private List<HistoryViewAllDto> userContestSubtaskHistoryViewAllList;
+    @JsonProperty("ongoing_contest_list")
+    private List<OnGoingContestListDto> onGoingContestList;
+
+    @JsonProperty("past_contest_list")
+    private List<PastContestListDto> pastContestList;
 
 }
