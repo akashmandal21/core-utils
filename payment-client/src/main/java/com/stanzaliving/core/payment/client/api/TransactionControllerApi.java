@@ -256,10 +256,10 @@ public class TransactionControllerApi {
 		String path= UriComponentsBuilder.fromPath("/payment/").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("booking",booking);
-		queryParams.add("amount", String.valueOf(amount));
+		queryParams.add("bookingUuid",booking);
 		queryParams.add("paymentMode", String.valueOf(paymentMode));
 		queryParams.add("paymentStatus", String.valueOf(paymentStatus));
+		queryParams.add("amount", String.valueOf(amount));
 
 
 		final HttpHeaders headerParams=new HttpHeaders();
@@ -274,7 +274,7 @@ public class TransactionControllerApi {
 			return responseDto;
 
 		} catch (Exception e) {
-			log.error("Exception while deleting Payment  with bookingId {}",booking);
+			log.error("Exception while deleting Payment with bookingId {}",booking);
 		}
 		return null;
 	}
