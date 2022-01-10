@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.dto.TransactionMigrationForDate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -421,5 +422,28 @@ public class VentaClientApi {
 		}
 		return null;
 	}
+	public ResponseEntity<Void> migrateTransactionForDate(TransactionMigrationForDate requestDto)  {
 
+		Object postBody = requestDto;
+
+		log.info("Migrate Transaction for date: {}", requestDto.getTransactionDate());
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/migrate/transaction/date").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseEntity<Void>> returnType =
+				new ParameterizedTypeReference<ResponseEntity<Void>>() {};
+
+		 return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
 }
