@@ -35,5 +35,6 @@ public class GrsiEventUpdateDto {
     private Integer version;
     private String gsriPlatform;
     private String awlRefNo;
+    private String fifoUuid;
 
 }
