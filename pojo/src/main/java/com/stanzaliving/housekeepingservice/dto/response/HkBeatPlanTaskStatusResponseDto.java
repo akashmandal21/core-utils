@@ -19,5 +19,4 @@ import lombok.experimental.SuperBuilder;
 public class HkBeatPlanTaskStatusResponseDto {
     private String uuid;
     private String statusName;
-    private String department;
 }
