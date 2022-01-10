@@ -22,7 +22,7 @@ public class HistoryViewAllDto {
    private String monthName;
 
    @JsonProperty("month_data")
-   private List<MonthDetailsDto> monthData;
+   private List<MonthDetailsDto> monthDataList;
 
 
 }
