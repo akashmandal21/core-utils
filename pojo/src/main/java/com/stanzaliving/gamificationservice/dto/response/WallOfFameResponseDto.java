@@ -1,7 +1,10 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.time.LocalDate;
 
 
 @Getter
@@ -10,6 +13,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class WallOfFameResponseDto {
     private String uuid;
 
@@ -24,5 +28,10 @@ public class WallOfFameResponseDto {
     private String clusterName;
 
     private String description;
+
+    private LocalDate dateOfJoining;
+
+    private String contestLogo;
+
 
 }
