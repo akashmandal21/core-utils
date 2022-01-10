@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.payment.dto.PaymentTransactionRequestDto;
+import com.stanzaliving.core.payment.enums.PaymentMode;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -211,6 +212,37 @@ public class TransactionControllerApi {
 		}
 		return null;
 
+	}
+	public ResponseDto<TransactionDto> deletePayment(String booking , PaymentMode paymentMode , PaymentStatus paymentStatus,
+													 Double amount){
+
+		log.info("Called api to delete Payment for booking {}",booking);
+		Object postBody=null;
+		final Map<String,Object> uriVariables=new HashMap<>();
+		String path= UriComponentsBuilder.fromPath("/payment/").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("booking",booking);
+		queryParams.add("amount", String.valueOf(amount));
+		queryParams.add("paymentMode", String.valueOf(paymentMode));
+		queryParams.add("paymentStatus", String.valueOf(paymentStatus));
+
+
+		final HttpHeaders headerParams=new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		TypeReference<ResponseDto<TransactionDto>> returnType = new TypeReference<ResponseDto<TransactionDto>>() {
+		};
+		ResponseDto<TransactionDto> responseDto;
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.DELETE, queryParams, postBody, headerParams, accept,
+					returnType);
+			return responseDto;
+
+		} catch (Exception e) {
+			log.error("Exception while deleting Payment  with bookingId {}",booking);
+		}
+		return null;
 	}
 
 }
