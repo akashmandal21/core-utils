@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.ventaaggregationservice.dto.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -16,12 +18,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
-import com.stanzaliving.core.ventaaggregationservice.dto.BookingAggregationDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.BookingFilterRequestDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.BookingResidenceAggregationEntityDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.MoveInDetailDataDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceAggregationEntityDto;
-import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceFilterRequestDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -113,6 +109,36 @@ public class VentaAggregationServiceApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
+	public ResponseDto<RestResponsePage<BookingAggregationEntityDto>> getBookingListingForInvoicingDashBoard(BookingFilterRequestDto bookingFilterRequestDto,
+																								 String type) {
+		log.info("Invoice Aggregation Booking Controller getBookingAggregationInvoiceListing with payload {}", bookingFilterRequestDto.toString());
+		Map<String, Object> uriVariables = new HashMap<>();
+
+		Object postBody = bookingFilterRequestDto;
+
+		String path = UriComponentsBuilder.fromPath("/booking/invoice/listing").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("type",type);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<RestResponsePage<BookingAggregationEntityDto>>>() {
+		};
+
+		try {
+			log.info("Executing Api for fetching booked details with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching booked details , Exception is ", e);
+		}
+		return null;
+	}
 
 	public ResponseDto<List<BookingAggregationDto>> getActiveBookings() {
 
@@ -186,6 +212,27 @@ public class VentaAggregationServiceApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+	public ResponseDto<BookingAggregationDto> findBookingDetailsForResidentAndBookingStatus(String residentId) {
+		Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residentId", residentId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/booking/details/resident/{residentId}")
+				.buildAndExpand(uriVariables).toUriString();
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[]{"*/*"};
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<BookingAggregationDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingAggregationDto>>() {
+		};
+		try {
+			log.info("Executing Api for getting booked details with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching booked details for resident id {}, Exception is ", residentId, e);
+		}
+		return null;
+	}
 
 	public ResponseDto<String> updateResidencePricingAndBedInformation() {
 		log.info("Residence Internal Controller::Processing to update residence pricing and bed info");
@@ -238,4 +285,28 @@ public class VentaAggregationServiceApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public List<String> getBookingUuidByResidentId(String residentId) {
+		log.info("Resident Details Controller::Processing to get booking uuids on basis of residentId {}", residentId);
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residentId", residentId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/resident/data/{residentId}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<String>> returnType = new ParameterizedTypeReference<List<String>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
 }

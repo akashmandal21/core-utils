@@ -25,6 +25,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.payment.dto.PaymentDto;
 import com.stanzaliving.core.payment.dto.TransactionDto;
 import com.stanzaliving.core.payment.dto.TransactionInitiateDto;
+import com.stanzaliving.core.payment.enums.PaymentMode;
 import com.stanzaliving.core.payment.enums.PaymentStatus;
 import com.stanzaliving.core.payment.enums.ReferenceType;
 import com.stanzaliving.core.payment.enums.StanzaPaymentService;
@@ -96,6 +97,39 @@ public class TransactionControllerApi {
 		TypeReference<ResponseDto<TransactionInitiateDto>> returnType = new TypeReference<ResponseDto<TransactionInitiateDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
+	public ResponseDto<TransactionInitiateDto> initiateByPaymentMode(StanzaPaymentService stanzaPaymentService, String userId, String transactionId, Double amount, PaymentMode paymentMode) {
+
+		if (Objects.isNull(stanzaPaymentService) || Objects.isNull(paymentMode) || StringUtils.isBlank(transactionId) || StringUtils.isBlank(userId) || Objects.isNull(amount)) {
+			throw new IllegalArgumentException("Missing mandatory parameters for transaction");
+		}
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/transaction/initiate/by/paymentmode").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("service", stanzaPaymentService.toString());
+		queryParams.add("userId", userId);
+		queryParams.add("transactionId", transactionId);
+		queryParams.add("amount", String.valueOf(amount));
+		queryParams.add("paymentMode", paymentMode.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<TransactionInitiateDto>> returnType = new TypeReference<ResponseDto<TransactionInitiateDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 	
 	public ResponseDto<PaymentDto> checkTransactionStatusInDb(String paymentId) {

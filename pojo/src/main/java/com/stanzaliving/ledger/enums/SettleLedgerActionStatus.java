@@ -23,7 +23,6 @@ public enum SettleLedgerActionStatus {
     PENDING_ON_RAZORPAYX("Pending On RazorpayX"),
     STATUS_CHECK("Status Check");
 
-
     private String name;
     public static Set<Object> ENUM_MAP = new HashSet<>();
     static {
