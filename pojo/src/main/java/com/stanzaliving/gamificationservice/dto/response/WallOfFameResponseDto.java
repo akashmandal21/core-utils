@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDate;
-
 
 @Getter
 @Setter
@@ -29,9 +27,8 @@ public class WallOfFameResponseDto {
 
     private String description;
 
-    private LocalDate dateOfJoining;
-
     private String contestLogo;
 
+    private String year;
 
 }
