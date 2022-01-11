@@ -1,5 +1,6 @@
 package com.stanzaliving.boq_service.dto;
 
+import com.stanzaliving.transformations.enums.BoqStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +15,7 @@ import java.math.BigDecimal;
 public class NegativeRateTempDto {
     private String itemBoqUuid;
 
-    private String boqStatus;
+    private BoqStatus boqStatus;
 
     private BigDecimal quantity;
 
