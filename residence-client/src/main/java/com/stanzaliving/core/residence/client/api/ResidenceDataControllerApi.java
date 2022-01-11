@@ -1678,8 +1678,8 @@ public class ResidenceDataControllerApi {
 
         try {
             return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception var12) {
-            log.error("Exception while fetching apartment count for micromarket {} ", advanceRoomSearchDto.getMicroMarketId());
+        } catch (Exception e) {
+            log.error("Exception while fetching apartment count for micromarket {} ", advanceRoomSearchDto.getMicroMarketId(),e);
             return null;
         }
     }
