@@ -295,7 +295,7 @@ public enum BookingStatus {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(CONTRACT_COMPLETED.getBookingStatus());
         bookingStatus.add(STAY_FORFEITURE.getBookingStatus());
-        bookingStatus.add(TRESSPASSER.getBookingStatus());
+        bookingStatus.add(TRESSPASSER.getBookingStatus()); //remove tresspasser
         bookingStatus.add(RENT_DEFAULTER_PAID.getBookingStatus());
         bookingStatus.add(RENT_DEFAULTER_UNPAID.getBookingStatus());
         bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());

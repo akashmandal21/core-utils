@@ -68,4 +68,6 @@ public class ExitDetailsResponseDto {
     private Double securityDeposit;
 
     private String exitSource;
+
+    private Double futureDues;
 }
