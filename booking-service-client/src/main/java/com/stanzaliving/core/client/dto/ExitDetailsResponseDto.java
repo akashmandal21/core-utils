@@ -1,16 +1,18 @@
 package com.stanzaliving.core.client.dto;
 
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
+
 import com.stanzaliving.booking.dto.PaymentDetailsDto;
 import com.stanzaliving.wanda.dtos.BankDetailsDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
 
 @Builder
 @Data
