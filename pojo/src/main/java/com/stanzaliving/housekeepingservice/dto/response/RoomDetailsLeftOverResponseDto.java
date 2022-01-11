@@ -18,4 +18,5 @@ public class RoomDetailsLeftOverResponseDto {
     private String taskDuration;
     private HkBeatPlanTaskStatusResponseDto taskStatus;
     private String taskExecutionUuid;
+    private boolean occupied;
 }
