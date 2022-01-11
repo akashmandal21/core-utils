@@ -3,10 +3,7 @@ package com.stanzaliving.core.po.generic.dtos;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.erp.supplychain.enums.SupplyChainEvents;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -15,6 +12,7 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class GenericPoUpdate {
     private String poUuid;
 
