@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @AllArgsConstructor
@@ -23,7 +25,17 @@ public enum BookingStatus {
 
     ONBOARDING_PENDING("ONBOARDING PENDING"),
     ONBOARDING_IN_PROGRESS("ONBOARDING IN PROGRESS"),
-    ONBOARDING_COMPLETED("ONBOARDING COMPLETED");
+    ONBOARDING_COMPLETED("ONBOARDING COMPLETED"),
+    CANCELLED("CANCELLED"),
+    TRESSPASSER("TRESSPASSER"),
+    BOOKING_FORFEITURE("BOOKING FORFEITURE"),
+    RENT_DEFAULTER_PAID("DEFAULTER PAID"),
+    RENT_DEFAULTER_UNPAID("DEFAULTER UNPAID"),
+    CONTRACT_TERMINATED("CONTRACT TERMINATED"),
+    CONTRACT_COMPLETED("CONTRACT COMPLETED"),
+    STAY_FORFEITURE("STAY FORFEITURE"),
+    WRONG_BOOKING("WRONG BOOKING"),
+    RENT_DEFAULTER("RENT DEFAULTER");
 
     private String bookingStatus;
 
@@ -34,6 +46,17 @@ public enum BookingStatus {
     }
 
     public String getDescription() {
+        return bookingStatus;
+    }
+
+    public static Set<BookingStatus> exitInitiatedBookingStatuses(){
+        Set<BookingStatus> bookingStatus = new HashSet<>();
+        bookingStatus.add(TRESSPASSER);
+        bookingStatus.add(CONTRACT_COMPLETED);
+        bookingStatus.add(STAY_FORFEITURE);
+        bookingStatus.add(RENT_DEFAULTER_PAID);
+        bookingStatus.add(RENT_DEFAULTER_UNPAID);
+        bookingStatus.add(CONTRACT_TERMINATED);
         return bookingStatus;
     }
 }
