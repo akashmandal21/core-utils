@@ -16,4 +16,5 @@ public class AwlBatchDetailsDto {
     private String awlRefNo;
     private String itemUuid;
     private BigDecimal quantity;
+    private String fifoUuid;
 }
