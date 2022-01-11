@@ -1686,19 +1686,28 @@ public class ResidenceDataControllerApi {
     }
 
     public OccupancyPricingAndRoomAttributesResponseDto getResidenceOccupancyPricing(String residenceUuid, String propertyEntityType) {
+
         Map<String, Object> uriVariables = new HashMap();
+
         uriVariables.put("residenceUuid", residenceUuid);
+
         uriVariables.put("propertyEntityType",propertyEntityType);
+
         String path = UriComponentsBuilder.fromPath("/internal/residence/occupancy-pricing/{residenceUuid}/{propertyEntityType}").buildAndExpand(uriVariables).toUriString();
+
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
         HttpHeaders headerParams = new HttpHeaders();
+
         String[] accepts = new String[]{"*/*"};
+
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference returnType = new ParameterizedTypeReference<OccupancyPricingAndRoomAttributesResponseDto>() {
-        };
+
+        ParameterizedTypeReference<OccupancyPricingAndRoomAttributesResponseDto> returnType =
+                new ParameterizedTypeReference<OccupancyPricingAndRoomAttributesResponseDto>() {
+                };
 
         try {
-            log.info("Executing Api for getting residence occupancy pricing Info with Url {}", path);
             return (OccupancyPricingAndRoomAttributesResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
         } catch (Exception var10) {
             log.error("Exception while fetching residence occupancy pricing information based on residenceUUID {}, Exception is ", residenceUuid, var10);
