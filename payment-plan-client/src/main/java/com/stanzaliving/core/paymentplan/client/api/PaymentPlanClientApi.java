@@ -20,6 +20,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.text.SimpleDateFormat;
@@ -671,6 +673,37 @@ public class PaymentPlanClientApi {
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("error while creating the paymentPlan {}", e);
+            return null;
+        }
+
+    }
+
+    public ResponseDto<InvoiceGenerationResponseDto> createInvoiceForFutureDues(InvoiceGenerationRequestDto invoiceGenerationRequestDto) {
+
+        Object postBody = null;
+
+        log.info("Invoice_Generation_Request_DTO is {} ", invoiceGenerationRequestDto);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/create/invoice-for-future-dues").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<InvoiceGenerationResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<InvoiceGenerationResponseDto>>() {
+        };
+        postBody = invoiceGenerationRequestDto;
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while generating future invoices {}", e);
             return null;
         }
 
