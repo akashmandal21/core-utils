@@ -422,7 +422,7 @@ public class VentaClientApi {
 		}
 		return null;
 	}
-	public ResponseEntity<?> migrateTransactionForDate(String token ,TransactionMigrationForDate requestDto)  {
+	public String migrateTransactionForDate(String token ,TransactionMigrationForDate requestDto)  {
 
 		Object postBody = requestDto;
 
@@ -441,8 +441,8 @@ public class VentaClientApi {
 		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-		ParameterizedTypeReference<ResponseEntity<?>> returnType =
-				new ParameterizedTypeReference<ResponseEntity<?>>() {};
+		ParameterizedTypeReference<String> returnType =
+				new ParameterizedTypeReference<String>() {};
 
 		return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
