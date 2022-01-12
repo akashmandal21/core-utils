@@ -3,6 +3,7 @@ package com.stanzaliving.core.invoice_client.api;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.ventaInvoice.dto.DocumentResponseDto;
+import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -124,12 +125,12 @@ public class InvoiceServiceApi {
         }
     }
 
-    public ResponseDto<DocumentResponseDto> getInvoiceDetails(double amount ,
+    public ResponseDto<Long> getInvoiceDetails(double amount ,
                                                               String serviceType,
                                                               String referenceUuid,
                                                               String generationSource,
                                                               String invoiceType,
-                                                              String referenceType) {
+                                                              ReferenceType referenceType) {
         final Map<String, Object> uriVariables = new HashMap<>();
 
         String path = UriComponentsBuilder.fromPath("/internal/invoices").buildAndExpand(uriVariables).toUriString();
@@ -140,15 +141,13 @@ public class InvoiceServiceApi {
         queryParams.add("invoiceType",invoiceType);
         queryParams.add("serviceType",serviceType);
         queryParams.add("amount", String.valueOf(amount));
-        queryParams.add("referenceType", referenceType);
-
-
+        queryParams.add("referenceType", String.valueOf(referenceType));
 
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<DocumentResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DocumentResponseDto>>() {
+        ParameterizedTypeReference<ResponseDto<Long>> returnType = new ParameterizedTypeReference<ResponseDto<Long>>() {
         };
         try {
             log.info("Executing Api for getting invoice details with Url {}", path);
@@ -159,10 +158,10 @@ public class InvoiceServiceApi {
         return null;
     }
 
-    public ResponseDto<DocumentResponseDto> deleteInvoiceByUuid(long id) {
+    public ResponseDto<Boolean> deleteInvoiceByUuid(long id) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("id", id);
-        String path = UriComponentsBuilder.fromPath("/internal/{id}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/invoice/{id}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -171,11 +170,11 @@ public class InvoiceServiceApi {
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<DocumentResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DocumentResponseDto>>() {
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
         };
         try {
             log.info("Executing Api for deleting invoice  with Url {}", path);
-            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            return this.restClient.invokeAPI(path, HttpMethod.DELETE, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Exception while deleting invoice information based on id {}, Exception is {}", id, e);
         }
