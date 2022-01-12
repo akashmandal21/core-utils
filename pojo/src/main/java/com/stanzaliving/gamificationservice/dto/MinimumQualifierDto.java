@@ -15,19 +15,11 @@ public class MinimumQualifierDto {
 
     private String ruleNo;
 
-    private String minimumPreBookingTitle;
+    private String minimumQualifier;
 
-    private String minimumBookingTitle;
+    private String minimumQualifierCondition;
 
-    private String minimumBookingCondition;
-
-    private String minimumPreBookingCondition;
-
-    private int minimumPreBookingMinimumValue;
-
-    private int minimumBookingMinimumValue;
-
-    private String uuid;
+    private int minimumQualifierValue;
 
     private String contestRuleUuid;
 }
