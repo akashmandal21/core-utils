@@ -30,9 +30,9 @@ public class ContestRuleDto {
 
     private List<TargetMultiplierDto> targetMultiplierList;
 
-    private List<ActivityPointsDto> activityPoints;
+    private List<ActivityPointsDto> activityPointsList;
 
-    private List<MinimumQualifierDto> minimumQualifier;
+    private List<MinimumQualifierDto> minimumQualifierList;
 
     private int redeemablePoints;
 
@@ -42,7 +42,7 @@ public class ContestRuleDto {
 
     private int pointsAwarded;
 
-    private List<String> ruleComplete;
+    private List<String> ruleCompleteList;
 
     private int countOfRewards;
 
