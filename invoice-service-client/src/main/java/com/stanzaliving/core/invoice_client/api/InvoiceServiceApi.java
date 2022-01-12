@@ -128,7 +128,8 @@ public class InvoiceServiceApi {
                                                               String serviceType,
                                                               String referenceUuid,
                                                               String generationSource,
-                                                              String invoiceType) {
+                                                              String invoiceType,
+                                                              String referenceType) {
         final Map<String, Object> uriVariables = new HashMap<>();
 
         String path = UriComponentsBuilder.fromPath("/internal/invoices").buildAndExpand(uriVariables).toUriString();
@@ -139,6 +140,7 @@ public class InvoiceServiceApi {
         queryParams.add("invoiceType",invoiceType);
         queryParams.add("serviceType",serviceType);
         queryParams.add("amount", String.valueOf(amount));
+        queryParams.add("referenceType", referenceType);
 
 
 
