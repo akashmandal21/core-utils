@@ -106,5 +106,24 @@ public class DocumentGeneratorClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfStampingDto, headerParams, accept,
 				returnType);
 	}
+	public ResponseDto<PdfRequestDto> generatePdfInternal(PdfRequestDto pdfRequestDto) {
+
+		log.info("DocumentGeneratorClientApi - generatePdf " + pdfRequestDto);
+
+		String path = UriComponentsBuilder.fromPath("/internal/generate/pdf").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<PdfRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<PdfRequestDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfRequestDto, headerParams, accept,
+				returnType);
+	}
 
 }

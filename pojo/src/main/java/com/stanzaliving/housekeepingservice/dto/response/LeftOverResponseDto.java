@@ -19,4 +19,5 @@ public class LeftOverResponseDto {
     private String residenceName;
     private String attributeType;
     private Object details;
+    private String taskUuid;
 }

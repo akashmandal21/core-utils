@@ -2,6 +2,7 @@ package com.stanzaliving.documentgenerator.client.api;
 
 import java.util.List;
 
+import com.stanzaliving.documentgenerator.dto.PdfRequestDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -60,5 +61,7 @@ public class InternalDocumentGeneratorClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfStampingDto, headerParams, accept,
 				returnType);
 	}
+
+
 
 }
