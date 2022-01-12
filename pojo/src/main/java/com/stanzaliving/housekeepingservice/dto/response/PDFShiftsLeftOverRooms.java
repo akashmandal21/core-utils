@@ -11,14 +11,11 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
-public class PDFTaskDetailsDto {
+public class PDFShiftsLeftOverRooms {
 
-    private String residenceName;
-
-    private List<String> rooms;
+    private String shiftUuid;
 
     private String time;
 
-    private String generalType;
-
+    private List<PDFResponseDto> pdfResponseDtoList;
 }

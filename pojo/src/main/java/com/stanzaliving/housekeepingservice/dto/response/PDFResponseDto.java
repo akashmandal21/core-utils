@@ -17,6 +17,12 @@ public class PDFResponseDto {
 
     private boolean roomCleaning;
 
-    private PDFTaskDetailsDto pdfTaskDetailsDto;
+    private String residenceName;
+
+    private String taskUuid;
+
+    private String type;
+
+    private List<String> rooms;
 
 }
