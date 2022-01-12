@@ -577,10 +577,6 @@ public class PaymentPlanClientApi {
     public ResponseDto<List<PaymentPlan>> fetchPaymentPlan(String referenceId, String token) {
         try {
 
-            if (StringUtils.isBlank(token)) {
-                throw new IllegalArgumentException("Token missing for fetching payment plan");
-            }
-
             Object postBody = null;
 
             log.info("Request received to fetch payment plan for referenceId:{} for move-out-date:{}", referenceId);
