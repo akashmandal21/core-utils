@@ -81,5 +81,5 @@ public class PoDetailsResponse {
     private UIKeyValue costCenterLocationName;
 
     private String taxLocationType;
-    private String poToFlag;
+    private int poToFlag;
 }
