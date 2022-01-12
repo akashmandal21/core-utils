@@ -36,5 +36,6 @@ public class PoItemDetail {
     private BigDecimal gst;
     private String awlBatchId;
     private String awlRefNo;
+    private String fifoUuid;
 
 }
