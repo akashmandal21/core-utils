@@ -83,6 +83,6 @@ public class PoDetailsResponse {
     private String taxLocationType;
     private String billingState;
 
-    private String poToFlag;
+    private int poToFlag;
 
 }
