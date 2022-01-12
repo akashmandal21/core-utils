@@ -17,9 +17,9 @@ import java.util.List;
 public class ContestTeamResponseDto {
 
     @JsonProperty("contest")
-    private List<String> contest;
+    private List<String> contestList;
 
     @JsonProperty("teams")
-    private List<String> teams;
+    private List<String> teamsList;
 
 }
