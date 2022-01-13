@@ -1,5 +1,7 @@
 package com.stanzaliving.core.client.dto;
 
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -20,8 +22,10 @@ public class ExitDetailsResponseDto {
 
     private String bookingUuid;
 
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate moveOutDate;
 
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate actualMoveOutDate;
 
     private Double dues;
@@ -29,6 +33,8 @@ public class ExitDetailsResponseDto {
     private String actualEndDateNote;
 
     private String confirmationNote;
+    
+    private String confirmationNotePS;
 
     private List<PaymentDetailsDto> paymentDetails;
 
@@ -53,4 +59,17 @@ public class ExitDetailsResponseDto {
     private Integer noticePeriod;
 
     private String zhComments;
+
+    private String exitReasonNote;
+
+    private String bookingStatus;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate auditDate;
+
+    private Double securityDeposit;
+
+    private String exitSource;
+
+    private Double futureDues;
 }

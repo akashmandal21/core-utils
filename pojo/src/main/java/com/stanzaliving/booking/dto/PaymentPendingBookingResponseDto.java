@@ -15,4 +15,6 @@ public class PaymentPendingBookingResponseDto {
     private String uuid;
     private String bookingUuid;
     private Date paymentPendingExpiryTime;
+    private String merchantTransactionId;
+    private double pendingAmount;
 }
