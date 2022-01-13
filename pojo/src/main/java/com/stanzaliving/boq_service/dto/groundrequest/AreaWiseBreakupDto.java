@@ -13,7 +13,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 public class AreaWiseBreakupDto {
-    private AreaOfUse areaOfUse;
+
+    private String areaOfUse;
 
     private BigDecimal quantity;
 
