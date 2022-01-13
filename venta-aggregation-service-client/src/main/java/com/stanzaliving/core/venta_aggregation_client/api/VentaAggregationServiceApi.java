@@ -22,6 +22,7 @@ import com.stanzaliving.core.ventaaggregationservice.dto.BookingResidenceAggrega
 import com.stanzaliving.core.ventaaggregationservice.dto.MoveInDetailDataDto;
 import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceAggregationEntityDto;
 import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceFilterRequestDto;
+import com.stanzaliving.website.response.dto.VentaSyncDataResponseDTO;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -238,4 +239,30 @@ public class VentaAggregationServiceApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<List<VentaSyncDataResponseDTO>> getSyncPropertiesDataForCmsWebsite(String residenceUuid) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("internal/residence/occupancy/pricing").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		if (StringUtils.isNotBlank(residenceUuid)) {
+			queryParams.add("residenceUuid", residenceUuid);
+		}
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<VentaSyncDataResponseDTO>>> returnType = new ParameterizedTypeReference<ResponseDto<List<VentaSyncDataResponseDTO>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
 }
