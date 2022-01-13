@@ -37,4 +37,6 @@ public class TeamsRequestDto {
     private int noOfMembers;
 
     private List<String> clusterMemberNames;
+
+    private String contestUUid;
 }
