@@ -126,11 +126,12 @@ public class InvoiceServiceApi {
     }
 
     public ResponseDto<Long> getInvoiceDetails(double amount ,
-                                               String serviceType,
+                                               String remarks,
                                                String referenceUuid,
                                                String generationSource,
                                                String invoiceType,
-                                               ReferenceType referenceType) {
+                                               ReferenceType referenceType,
+                                               String creditNoteCategory) {
         final Map<String, Object> uriVariables = new HashMap<>();
 
         String path = UriComponentsBuilder.fromPath("/internal/invoices").buildAndExpand(uriVariables).toUriString();
@@ -139,9 +140,11 @@ public class InvoiceServiceApi {
         queryParams.add("referenceUuid",referenceUuid);
         queryParams.add("generationSource",generationSource);
         queryParams.add("invoiceType",invoiceType);
-        queryParams.add("serviceType",serviceType);
+        queryParams.add("remarks",remarks);
         queryParams.add("amount", String.valueOf(amount));
         queryParams.add("referenceType", String.valueOf(referenceType));
+        queryParams.add("creditNoteCategory", creditNoteCategory);
+
 
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
