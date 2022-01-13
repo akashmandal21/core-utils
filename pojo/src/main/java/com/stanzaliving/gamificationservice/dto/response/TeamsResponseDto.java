@@ -42,4 +42,6 @@ public class TeamsResponseDto {
 
     private String url;
 
+    private String contestUUid;
+
 }
