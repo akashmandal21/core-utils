@@ -5,13 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ItemRequestDto {
+public class ItemGroundRequestDto {
 
     private String propertyUuid;
 
@@ -19,6 +20,6 @@ public class ItemRequestDto {
 
     private boolean isExtra;
 
-    private List<ItemRequestMetaDto> itemQuantityAndAouList;
-
+    @Valid
+    private List<ItemQtyAOUDto> itemQuantityAndAouList;
 }
