@@ -48,4 +48,5 @@ public enum BookingEventEnum {
     MARK_RENT_DEFAULTER("Mark Rent Defaulter");
 	
 	String eventName;
+
 }

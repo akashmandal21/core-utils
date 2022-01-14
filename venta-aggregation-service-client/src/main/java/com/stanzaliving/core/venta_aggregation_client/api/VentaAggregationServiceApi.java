@@ -234,8 +234,39 @@ public class VentaAggregationServiceApi {
 
 		ParameterizedTypeReference<List<MoveInDetailDataDto>> returnType = new ParameterizedTypeReference<List<MoveInDetailDataDto>>() {
 		};
-
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+    public ResponseDto<List<BookingAggregationDto>> fetchAllTrespassersInCity(String cityUuid) {
+        try {
+            log.info("Aggregation Booking Details Controller::Processing to get tresspasser bookings on basis of cityUuid {}", cityUuid);
+
+            Object postBody = null;
+
+            // create path and map variables
+            final Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("cityUuid", cityUuid);
+
+            String path = UriComponentsBuilder.fromPath("/internal/trespassers/{cityUuid}").buildAndExpand(uriVariables).toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {
+                    "*/*"
+            };
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>>() {
+            };
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        }catch (Exception e){
+            log.error("Exception occurred while fetching tresspasser bookings for city id:{} with message",cityUuid,e);
+            return null;
+        }
+    }
+
+
 
 }
