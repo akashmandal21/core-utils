@@ -18,6 +18,8 @@ public enum PropertyAction {
     L2_PROPERTY_NAMING("Property Naming", "f7aad68a-0428-11ec-9a03-0242ac130003", "L2_PROPERTY_NAMING"),
     SENT_TO_TRANSFORMATION("Sent To Transformation", "7b015d7e-8fce-4bbf-83fc-20e105586bbe", "SENT_TO_TRANSFORMATION"),
     SENT_TO_SANDEEP("Sent To Sandeep ", "9262e77c-eb72-43df-a075-e4b33cf42777", "SENT_TO_SANDEEP"),
+    LEGAL_APPROVAL("Legal Approval", "03cd8e05-517f-46b2-949c-8998018edeeb", "SENT_FOR_APPROVAL_TO_LEGAL"),
+    CH_APPROVAL("L1 CH ", "154a487a-8512-442c-9002-71068649729e", "SENT_FOR_L1_APPROVAL_TO_CH"),
 
     //Apartment Flow
     L1_ZH("L1 Zonal Head", "f7aad752-0428-11ec-9a03-0242ac130003", "L1_ZH"),
@@ -60,7 +62,8 @@ public enum PropertyAction {
         pgPropertyActions.add(new KeyValueDto(ESTATE_LEADERSHIP.getAlias(),ESTATE_LEADERSHIP.uuid));
         pgPropertyActions.add(new KeyValueDto(SENT_TO_TRANSFORMATION.getAlias(),SENT_TO_TRANSFORMATION.uuid));
         pgPropertyActions.add(new KeyValueDto(SENT_TO_SANDEEP.getAlias(),SENT_TO_SANDEEP.uuid));
-
+        pgPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL.getAlias(),SENT_TO_SANDEEP.uuid));
+        pgPropertyActions.add(new KeyValueDto(CH_APPROVAL.getAlias(),SENT_TO_SANDEEP.uuid));
         return pgPropertyActions;
     }
 
