@@ -15,4 +15,6 @@ public class InvoiceGenerationRequestDto {
     private String residentUuid;
     private String residenceUuid;
     private PaymentTerm paymentTerm;
+    private boolean completeInvoice;
+
 }
