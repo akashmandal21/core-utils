@@ -7,6 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Builder
@@ -22,4 +25,6 @@ public class NegativeRateTempDto {
     private BigDecimal rate;
 
     private BigDecimal block;
+
+    private Timestamp date;
 }

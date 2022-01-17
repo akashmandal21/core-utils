@@ -16,4 +16,6 @@ public class NegativeRateInfoTempDto {
     private BigDecimal rate;
 
     private Map<String,BigDecimal> blockedItemUuids;
+
+    private Map<String,BigDecimal> masterBlockedUuids;
 }
