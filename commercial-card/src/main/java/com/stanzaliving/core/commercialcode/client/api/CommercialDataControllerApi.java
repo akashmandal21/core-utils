@@ -28,7 +28,7 @@ public class CommercialDataControllerApi {
 
     public ResponseDto<CommercialCardListDto> getAllCommercialCards(String token, CommercialCardDto commercialCardDto) {
 
-        log.info("Commercial-code-Data-Controller::Processing to get residence list for filter {}", commercialCardDto);
+        log.info("Commercial-code-Data-Controller::Processing to get residence list for filter {}", commercialCardDto.toString());
 
         Object postBody = commercialCardDto;
 
