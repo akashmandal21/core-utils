@@ -457,9 +457,9 @@ public class PaymentPlanClientApi {
 
     public ResponseDto<List<PaymentPlan>> updatePaymentPlanAfterMoveOutDate(String referenceId, LocalDate moveOutDate, boolean savePaymentPlan, String token) {
         try {
-            if (StringUtils.isBlank(token)) {
-                throw new IllegalArgumentException("Token missing for updating payment plan");
-            }
+//            if (StringUtils.isBlank(token)) {
+//                throw new IllegalArgumentException("Token missing for updating payment plan");
+//            }
             Object postBody = null;
 
             log.info("Request received to update payment plan after move out date for referenceId:{} for move-out-date:{}", referenceId, moveOutDate);
@@ -576,10 +576,6 @@ public class PaymentPlanClientApi {
 
     public ResponseDto<List<PaymentPlan>> fetchPaymentPlan(String referenceId, String token) {
         try {
-
-            if (StringUtils.isBlank(token)) {
-                throw new IllegalArgumentException("Token missing for fetching payment plan");
-            }
 
             Object postBody = null;
 

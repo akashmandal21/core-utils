@@ -23,4 +23,5 @@ public class BookingFilterRequestDto {
     private String entity;
     private Set<String> leadIds;
     private boolean moveIn;
+    private boolean ignoreMoveInFlag;
 }

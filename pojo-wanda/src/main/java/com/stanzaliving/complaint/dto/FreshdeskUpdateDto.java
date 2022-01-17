@@ -1,15 +1,13 @@
 package com.stanzaliving.complaint.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 @SuperBuilder
 public class FreshdeskUpdateDto {
 
@@ -22,6 +20,9 @@ public class FreshdeskUpdateDto {
 	private String complaintSubcategory;
 
 	private String newComplaintSubcategory;
+
+	private String complaintType;
+
 
 	private String description;
 
@@ -114,5 +115,8 @@ public class FreshdeskUpdateDto {
 	private String requesterMobileNo;
 
 	private String userType;
+
+	private boolean fromSupport;
+
 
 }
