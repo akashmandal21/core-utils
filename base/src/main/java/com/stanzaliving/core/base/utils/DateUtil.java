@@ -1,6 +1,6 @@
 package com.stanzaliving.core.base.utils;
 
-import static com.google.common.base.Preconditions.*;
+import static com.google.common.base.Preconditions.checkArgument;
 
 import java.sql.Time;
 import java.text.ParseException;
@@ -15,6 +15,7 @@ import java.time.Month;
 import java.time.Period;
 import java.time.YearMonth;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
@@ -49,7 +50,7 @@ public class DateUtil {
     public final String DD_MMM_YYYY_FORMAT = "dd-MMM-yyyy";
     public final String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
     public final String yyyy_MM_dd_FORMAT = "yyyy-MM-dd";
-
+    
     public String formatIst(Date date, String format) {
         return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
     }
@@ -1131,9 +1132,9 @@ public class DateUtil {
     }
 
     public static Boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
-		LocalDate localDate = getLocalDate(date);
-		return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
-	}
+        LocalDate localDate = getLocalDate(date);
+        return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
+    }
 
     public static List<LocalDate> getCalendarMonthOfYear(Integer month,Integer year) {
 
@@ -1152,5 +1153,9 @@ public class DateUtil {
 
     public static boolean isWeekDay(LocalDate date) {
         return date.getDayOfWeek()!=DayOfWeek.SATURDAY&&date.getDayOfWeek()!=DayOfWeek.SUNDAY;
+    }
+
+    public static Long convertToEpochInMiliSeconds(LocalDate localDate) {
+        return Objects.isNull(localDate) ? null : localDate.atStartOfDay().toInstant(ZoneOffset.of(StanzaConstants.ZONE_OFFSET)).toEpochMilli();
     }
 }

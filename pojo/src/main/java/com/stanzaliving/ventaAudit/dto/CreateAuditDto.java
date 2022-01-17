@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -17,7 +20,13 @@ import java.util.List;
 public class CreateAuditDto {
 
     private String auditUuid;
-
+    @NotBlank(message = "auditorUuid Is Required")
+    private String auditorUuid;
+    private LocalDateTime auditedOn;
+    @NotBlank(message = "auditScheduledAt Is Required")
+    private LocalDate auditScheduledOn;
+    @NotBlank(message = "auditorName Is Required")
+    private String auditorName;
     @NotBlank(message = "BookingUuid Is Required")
     private String bookingUuid;
     @NotBlank(message = "ResidentUuid Is Required")
@@ -28,6 +37,8 @@ public class CreateAuditDto {
     private String residentName;
     @NotBlank(message = "Resident's room no. Is Required")
     private String roomNumber;
+    @NotBlank(message = "Resident's room uuid Is Required")
+    private String roomUuid;
     @NotNull(message = "City id is required")
     private String cityUuid;
     @NotNull(message = "MicroMarket id Is required")
