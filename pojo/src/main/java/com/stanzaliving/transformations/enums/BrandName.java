@@ -17,6 +17,7 @@ public enum BrandName {
 
 	SUITS("Suits","#8C54FF"),
 	SCHOLAR("Scholar","#FD92AD"),
+	NA("Not Applicable","#FD92AD"),
 	STUDIO_21("Studio21","#FD92AD");
 
 
