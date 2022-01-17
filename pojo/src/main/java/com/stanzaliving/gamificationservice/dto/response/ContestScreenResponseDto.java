@@ -50,11 +50,17 @@ public class ContestScreenResponseDto {
     @JsonProperty("no_of_contest_show")
     private int noOfContestShow;
 
+    @JsonProperty("history_view_all_quick_filter")
+    private List<FilterResponseDto> filterResponseDtoList;
+
     @JsonProperty("user_badges")
     private List<UserBadgesDto> userBadgesList;
 
     @JsonProperty("ongoing_contest_list")
     private List<OnGoingContestDto> ongoingContestList;
+
+    @JsonProperty("past_contest_list")
+    private List<OnGoingContestDto> pastContestList;
 
     @JsonProperty("banner_images")
     private List<BannerResponseDto> bannerResponseDtoList;
