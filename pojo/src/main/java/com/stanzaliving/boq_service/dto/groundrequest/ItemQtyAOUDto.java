@@ -1,6 +1,5 @@
 package com.stanzaliving.boq_service.dto.groundrequest;
 
-
 import com.stanzaliving.transformations.enums.AreaOfUse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +19,6 @@ public class ItemQtyAOUDto {
     @NotNull(message = "Quantity can not be null")
     private BigDecimal quantity;
 
-    @NotBlank(message = "Area of use can not be blank")
+    @NotNull(message = "Area of use can not be blank")
     private AreaOfUse areaOfUse;
-
 }
