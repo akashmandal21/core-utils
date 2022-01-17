@@ -221,6 +221,7 @@ public class LedgerServiceApi {
     }
 
     public ResponseDto<String> sendFilixCarryForwardPacketsForBookingUuid(String bookingUuid) {
+        log.info("sending request for filix carry forward for bookingUuid{}", bookingUuid);
         log.info("bookingUuid {}",bookingUuid);
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/carry-forward")
@@ -244,6 +245,7 @@ public class LedgerServiceApi {
     }
 
     public ResponseDto<String> sendFilixRefundPacketsForBookingUuid(String bookingUuid) {
+        log.info("sending request for filix refund  for bookingUuid{}", bookingUuid);
         log.info("bookingUuid {}",bookingUuid);
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/refund")
@@ -267,7 +269,7 @@ public class LedgerServiceApi {
     }
 
     public ResponseDto<String> sendFilixSecurityDepositPacketsForBookingUuid(String bookingUuid) {
-        log.info("bookingUuid {}",bookingUuid);
+        log.info("sending request for filix deposit  for bookingUuid{}", bookingUuid);
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/security-deposit")
                 .buildAndExpand(uriVariables).toUriString();
