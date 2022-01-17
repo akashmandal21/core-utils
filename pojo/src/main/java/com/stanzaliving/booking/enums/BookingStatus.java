@@ -181,6 +181,11 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getDescription());
         bookingStatus.add(BookingStatus.CANCELLED.getDescription());
         bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
+        bookingStatus.add(BookingStatus.TRESSPASSER.getDescription());
+        bookingStatus.add(BookingStatus.BOOKING_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_PAID.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getDescription());
+        bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
         return bookingStatus;
     }
 
@@ -192,6 +197,12 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getDescription());
         bookingStatus.add(BookingStatus.CANCELLED.getDescription());
         bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
+        bookingStatus.add(BookingStatus.TRESSPASSER.getDescription());
+        bookingStatus.add(BookingStatus.BOOKING_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_PAID.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getDescription());
+        bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.WRONG_BOOKING.getDescription());
         return bookingStatus;
     }
 
@@ -205,6 +216,11 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getDescription());
         bookingStatus.add(BookingStatus.CANCELLED.getDescription());
         bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
+        bookingStatus.add(BookingStatus.TRESSPASSER.getDescription());
+        bookingStatus.add(BookingStatus.BOOKING_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_PAID.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getDescription());
+        bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
         return bookingStatus;
     }
 
@@ -254,7 +270,12 @@ public enum BookingStatus {
 
     public static Set<String> notInitiatedExitBookingStatuses(){
         Set<String> bookingStatus = new HashSet<>();
-        bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus());
+        bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus()); //todo: check this
+        bookingStatus.add(CONTRACT_COMPLETED.getBookingStatus());
+        bookingStatus.add(STAY_FORFEITURE.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_PAID.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_UNPAID.getBookingStatus());
+        bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());
         return bookingStatus;
     }
 
@@ -262,6 +283,11 @@ public enum BookingStatus {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(TRESSPASSER.getBookingStatus());
         bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus());
+        bookingStatus.add(CONTRACT_COMPLETED.getBookingStatus());
+        bookingStatus.add(STAY_FORFEITURE.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_PAID.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_UNPAID.getBookingStatus());
+        bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());
         return bookingStatus;
     }
 
@@ -269,7 +295,7 @@ public enum BookingStatus {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(CONTRACT_COMPLETED.getBookingStatus());
         bookingStatus.add(STAY_FORFEITURE.getBookingStatus());
-        bookingStatus.add(TRESSPASSER.getBookingStatus());
+        bookingStatus.add(TRESSPASSER.getBookingStatus()); //remove tresspasser
         bookingStatus.add(RENT_DEFAULTER_PAID.getBookingStatus());
         bookingStatus.add(RENT_DEFAULTER_UNPAID.getBookingStatus());
         bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());
