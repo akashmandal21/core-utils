@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum BookingEventEnum {
-    BOOKING_CREATED("Booking Created"),
+	BOOKING_CREATED("Booking Created"),
     BOOKING_DETAILS_UPDATED("Booking Details Updated"),
     INITIATE_BOOKING("Initiate Booking"),
     TOKEN_AMOUNT_PAID("Token Amount Paid"),
@@ -45,7 +45,14 @@ public enum BookingEventEnum {
     MARK_STAY_FORFEITURE("Mark Stay Forefeiture"),
     MARK_CONTRACT_COMPLETED("Mark Contract Completed"),
     RESIDENT_CREATED("Resident Created"),
-    MARK_RENT_DEFAULTER("Mark Rent Defaulter");
+    MARK_RENT_DEFAULTER("Mark Rent Defaulter"),
+    FILIX_CUSTOMER_CREATION("Filix Customer Creation"),
+    FILIX_CUSTOMER_PAYMENT("Filix Customer Payment"),
+    CANCEL_BOOKING("Cancel Booking"),
+    INITIATE_AUDIT("Initiate Audit"),
+    AGREEMENT_PENDING("Aggrement Pending"),
+    SHARED_WITH_RESIDENT("Shared With Resident"),
+    MARK_CONTRACT_TERMINATED("Mark Contract Terminated");
 	
 	String eventName;
 
