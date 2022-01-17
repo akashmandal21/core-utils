@@ -1,5 +1,6 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -268,31 +269,37 @@ public class VentaAggregationServiceApi {
         }
     }
 
-    public ResponseDto<List<VentaSyncDataResponseDTO>> getSyncPropertiesDataForCmsWebsite(String residenceUuid) {
+    public List<VentaSyncDataResponseDTO> getSyncPropertiesDataForCmsWebsite(String residenceUuid) {
 
-		Object postBody = null;
+		try {
+			Object postBody = null;
 
-		final Map<String, Object> uriVariables = new HashMap<>();
+			final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("internal/residence/occupancy/pricing").buildAndExpand(uriVariables).toUriString();
+			String path = UriComponentsBuilder.fromPath("internal/residence/occupancy/pricing").buildAndExpand(uriVariables).toUriString();
 
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		
-		if (StringUtils.isNotBlank(residenceUuid)) {
-			queryParams.add("residenceUuid", residenceUuid);
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			
+			if (StringUtils.isNotBlank(residenceUuid)) {
+				queryParams.add("residenceUuid", residenceUuid);
+			}
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<List<VentaSyncDataResponseDTO>>> returnType = new ParameterizedTypeReference<ResponseDto<List<VentaSyncDataResponseDTO>>>() {
+			};
+
+			ResponseDto<List<VentaSyncDataResponseDTO>> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+			
+			return responseDto.isStatus() ? responseDto.getData() : Collections.emptyList();
+		} catch (Exception e) {
+			log.error("Exception occurred while fetching sync properties data for cms website from venta", e);
+			return Collections.emptyList();
 		}
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<List<VentaSyncDataResponseDTO>>> returnType = new ParameterizedTypeReference<ResponseDto<List<VentaSyncDataResponseDTO>>>() {
-		};
-
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-
 }
