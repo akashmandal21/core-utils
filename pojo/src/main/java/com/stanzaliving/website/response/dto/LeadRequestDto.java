@@ -133,5 +133,4 @@ public class LeadRequestDto {
 	private String placeName;
 	
 	private String budget;
-	private Long tempLeadId;
 }
