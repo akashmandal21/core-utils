@@ -132,4 +132,7 @@ public class FilixOracleIntegrationPoDto extends AbstractOracleDto {
     @JsonProperty("pogstTotal")
     private String pogstTotal;
 
+    @JsonProperty("taxRegNo")
+    private String taxRegNo;
+
 }
