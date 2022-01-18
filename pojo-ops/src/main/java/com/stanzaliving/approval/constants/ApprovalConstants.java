@@ -33,7 +33,7 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L1);
 		put(ApprovalEntityType.MONTHLY_BUDGET_MENU_PLANNING, Role.MONTHLY_BUDGET_MENU_PLANNING_L1_APPROVER);
 		put(ApprovalEntityType.ELECTRICITY_BILL_SPLITTER, Role.MICROMARKET_ELECTRICITY_SPLITTER_L1_APPROVER);
-		put(ApprovalEntityType.HK_BEAT_PLAN, Role.CITY_HK_BEATPLANING_APPROVE_L1);
+		put(ApprovalEntityType.HK_BEAT_PLAN, Role.WEEKLY_MENU_L2_APPROVER);
 
 	}};
 	
@@ -48,7 +48,7 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L2);
 		put(ApprovalEntityType.MONTHLY_BUDGET_MENU_PLANNING, Role.MONTHLY_BUDGET_MENU_PLANNING_L2_APPROVER);
 		put(ApprovalEntityType.ELECTRICITY_BILL_SPLITTER, Role.CITY_ELECTRICITY_SPLITTER_L2_APPROVER);
-		put(ApprovalEntityType.HK_BEAT_PLAN, Role.COUNTRY_HK_BEATPLANING_APPROVE_L2);
+		put(ApprovalEntityType.HK_BEAT_PLAN, Role.WEEKLY_MENU_L2_APPROVER);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l3ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
