@@ -77,7 +77,8 @@ public enum PropertyAction {
         apartmentPropertyActions.add(new KeyValueDto(ESTATE_LEADERSHIP.getAlias(),ESTATE_LEADERSHIP.uuid));
         apartmentPropertyActions.add(new KeyValueDto(LEGAL_DUE_DILIGENCE.getAlias(),LEGAL_DUE_DILIGENCE.uuid));
         apartmentPropertyActions.add(new KeyValueDto(SENT_TO_PROPERTY_NAMING.getAlias(),SENT_TO_PROPERTY_NAMING.uuid));
-        apartmentPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL_FOR_APPROVAL.getAlias(),SENT_TO_LEGAL_FOR_APPROVAL.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL_FOR_APPROVAL.getAlias(), SENT_TO_LEGAL_FOR_APPROVAL.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(SENT_TO_SUNIL.getAlias(), SENT_TO_SUNIL.uuid));
         return apartmentPropertyActions;
     }
 
