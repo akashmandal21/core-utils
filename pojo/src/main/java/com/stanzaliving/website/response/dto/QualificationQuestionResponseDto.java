@@ -19,5 +19,5 @@ public class QualificationQuestionResponseDto {
 
 	private List<QualificationQuestionAnswerMetaDataDto> questionMetadata;
 	
-	private Integer leadId;
+	private Long leadId;
 }
