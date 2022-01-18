@@ -26,5 +26,5 @@ public enum ApprovalEntityType {
 	private final String commentServiceName;
 	private final String commentContextType;
 
-	public static final List<ApprovalEntityType> micormarketUuidBasedListing = Arrays.asList(FOOD_MENU_CATEGORY, WEEKLY_MENU, HK_BEAT_PLAN);
+	public static final List<ApprovalEntityType> micormarketUuidBasedListing = Arrays.asList(FOOD_MENU_CATEGORY, WEEKLY_MENU);
 }
