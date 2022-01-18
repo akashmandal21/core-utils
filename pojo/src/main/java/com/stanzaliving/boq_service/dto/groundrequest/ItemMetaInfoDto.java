@@ -20,4 +20,5 @@ public class ItemMetaInfoDto {
 
     private BigDecimal maxNegative;
 
+    private ItemGroundRequestDto itemGroundRequest;
 }

@@ -21,4 +21,8 @@ public class ItemQtyAOUDto {
 
     @NotNull(message = "Area of use can not be blank")
     private AreaOfUse areaOfUse;
+
+    private String uuid;
+
+    private boolean isDeleted;
 }
