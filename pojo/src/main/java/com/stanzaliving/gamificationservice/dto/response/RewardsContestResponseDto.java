@@ -41,7 +41,7 @@ public class RewardsContestResponseDto {
 
     private List<String> cluster;
 
-    private List<String> pair;
+    private String pair;
 
     private ContestStatus contestStatus;
 
