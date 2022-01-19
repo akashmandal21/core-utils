@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.leaddashboard.enums;
 
@@ -14,10 +14,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum PropertyTypeEnum {
 
-	//Added for reporting, to show leads whose residence type is null
-	NOT_APPLICABLE("Not Applicable"),
-	SUITS("Suits"),
-	SCHOLAR("Scholar");
-	
-	private String propertyTypeText;
+    //Added for reporting, to show leads whose residence type is null
+    NOT_APPLICABLE("Not Applicable"),
+    SUITS("Suits"),
+    SCHOLAR("Scholar");
+
+    private String propertyTypeText;
 }
