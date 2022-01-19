@@ -12,13 +12,9 @@ import java.util.List;
 @NoArgsConstructor
 public class HKBeatPersonTaskReassignDto {
 
-    private String uuid;
-
     private String personName;
 
     private String pseudoPersonUuid;
-
-    private LocalDate day;
 
     private String beatPlanId;
 
@@ -26,8 +22,10 @@ public class HKBeatPersonTaskReassignDto {
 
     private String slotUuid;
 
-    private List<String> taskIds;
+    private String taskId;
 
     private String microClusterUuid;
+
+    private String toPersonName;
 
 }
