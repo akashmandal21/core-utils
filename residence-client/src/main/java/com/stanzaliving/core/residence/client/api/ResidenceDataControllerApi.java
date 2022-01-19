@@ -1786,4 +1786,35 @@ public class ResidenceDataControllerApi {
         }
     }
 
+    public ResidenceVasDto getGlobalVasDetails(String globalVasUuid) {
+
+        log.info("Residence-Data-Controller::Processing to get vas details based on globalVasUUid {}", globalVasUuid);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("globalVasUuid", globalVasUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/global-vas-details/{globalVasUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ResidenceVasDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<ResidenceVasDto>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching vas Details from global vas uuid: {}", globalVasUuid);
+        }
+        return null;
+    }
+
 }
