@@ -1,6 +1,5 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +22,6 @@ import com.stanzaliving.core.ventaaggregationservice.dto.BookingResidenceAggrega
 import com.stanzaliving.core.ventaaggregationservice.dto.MoveInDetailDataDto;
 import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceAggregationEntityDto;
 import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceFilterRequestDto;
-import com.stanzaliving.website.response.dto.VentaSyncDataResponseDTO;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -269,37 +267,32 @@ public class VentaAggregationServiceApi {
         }
     }
 
-    public List<VentaSyncDataResponseDTO> getSyncPropertiesDataForCmsWebsite(String residenceUuid) {
+	public void updateResidenceGender(String residenceUuid,String gender) {
+		log.info("Residence Internal Controller::Processing to update residence gender {}",residenceUuid);
 
-		try {
-			Object postBody = null;
+		Object postBody = null;
 
-			final Map<String, Object> uriVariables = new HashMap<>();
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid",residenceUuid);
+		uriVariables.put("gender",gender);
 
-			String path = UriComponentsBuilder.fromPath("internal/residence/occupancy/pricing").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/residence/update/{residenceUuid}/gender/{gender}").buildAndExpand(uriVariables).toUriString();
 
-			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			
-			if (StringUtils.isNotBlank(residenceUuid)) {
-				queryParams.add("residenceUuid", residenceUuid);
-			}
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-			final HttpHeaders headerParams = new HttpHeaders();
+		final HttpHeaders headerParams = new HttpHeaders();
 
-			final String[] accepts = {
-					"*/*"
-			};
-			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-			ParameterizedTypeReference<ResponseDto<List<VentaSyncDataResponseDTO>>> returnType = new ParameterizedTypeReference<ResponseDto<List<VentaSyncDataResponseDTO>>>() {
-			};
-
-			ResponseDto<List<VentaSyncDataResponseDTO>> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-			
-			return responseDto.isStatus() ? responseDto.getData() : Collections.emptyList();
-		} catch (Exception e) {
-			log.error("Exception occurred while fetching sync properties data for cms website from venta", e);
-			return Collections.emptyList();
-		}
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+
+
 }
