@@ -50,7 +50,7 @@ public enum BookingEventEnum {
     FILIX_CUSTOMER_PAYMENT("Filix Customer Payment"),
     CANCEL_BOOKING("Cancel Booking"),
     INITIATE_AUDIT("Initiate Audit"),
-    AGREEMENT_PENDING("Aggrement Pending"),
+    AGREEMENT_PENDING("Agreement Pending"),
     SHARED_WITH_RESIDENT("Shared With Resident"),
     MARK_CONTRACT_TERMINATED("Mark Contract Terminated");
 	
