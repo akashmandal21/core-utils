@@ -54,5 +54,9 @@ public class BadgesDto {
 
     private String badgeLable;
 
+    private String earnedOn;
+
+    private String contestUuid;
+
 
 }
