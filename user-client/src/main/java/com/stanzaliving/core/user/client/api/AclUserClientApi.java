@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.user.acl.dto.RoleDto;
+import com.stanzaliving.core.user.acl.request.dto.CheckRoleNamesDto;
 import com.stanzaliving.core.user.enums.EnumListing;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -279,5 +280,23 @@ public class AclUserClientApi {
 
 	}
 
+	public ResponseDto<List<RoleDto>> checkRolesInACL(CheckRoleNamesDto checkRoleNamesDto) {
+		CheckRoleNamesDto postBody = checkRoleNamesDto;
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/acl/role/getRolesByDepartmentAndNames")
+				.buildAndExpand(uriVariables)
+				.toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<List<RoleDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RoleDto>>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			return null;
+		}
+	}
 
 }

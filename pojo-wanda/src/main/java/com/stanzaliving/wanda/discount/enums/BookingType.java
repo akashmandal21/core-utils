@@ -5,7 +5,8 @@ public enum BookingType {
     ALL("All" , 0)
     , B2B("B2B" , 1)
     , B2C_NEW_CLOSURES("B2C-new closures" , 2)
-    , B2C_RETENTION("B2C-Retention" , 3);
+    , B2C_RETENTION("B2C-Retention" , 3),
+     MANAGED_APARTMENT("Managed Apartment",6);
 
     String name;
     int value;
