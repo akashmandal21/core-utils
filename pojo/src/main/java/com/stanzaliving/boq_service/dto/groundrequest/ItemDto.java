@@ -28,4 +28,6 @@ public class ItemDto {
     private String orderUnit;
 
     private String imageURL;
+
+    private RequestItemMetaInfoDto requestItemMetaInfo;
 }
