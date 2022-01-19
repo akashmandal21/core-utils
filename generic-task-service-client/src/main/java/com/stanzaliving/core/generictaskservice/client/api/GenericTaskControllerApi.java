@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
+import com.stanzaliving.generictaskservice.dto.ShiftDto;
 import com.stanzaliving.generictaskservice.dto.request.HkShiftAllocationRequestDto;
 import com.stanzaliving.generictaskservice.dto.request.SigmaGenericTaskRequestDto;
 import com.stanzaliving.generictaskservice.dto.response.*;
@@ -441,6 +442,29 @@ public class GenericTaskControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<ShiftDurationResponse>> returnType = new ParameterizedTypeReference<ResponseDto<ShiftDurationResponse>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+
+    public ResponseDto<ShiftDto> getShiftByUuid(String shiftUuid){
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/shift").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("shiftUuid",shiftUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ShiftDto>> returnType = new ParameterizedTypeReference<ResponseDto<ShiftDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }

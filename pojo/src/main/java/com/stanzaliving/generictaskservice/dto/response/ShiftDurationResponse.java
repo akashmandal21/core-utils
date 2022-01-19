@@ -14,7 +14,5 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ShiftDurationResponse {
-
     long shiftDuration;
-
 }

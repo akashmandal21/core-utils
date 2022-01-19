@@ -13,7 +13,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class OperationalEfficiencyMetricsResponse {
 
     long averageWorkingHoursPerDay;
