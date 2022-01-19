@@ -22,7 +22,7 @@ public class ItemGroundRequestDto {
     @NotBlank(message = "Item uuid can not be blank")
     private String itemUuid;
 
-    private Boolean isExtra;        //null when GET, mandatory when POST
+    private Boolean isExtra;        //null when GET, mandatory when POST    //todo: fix logic
 
     private boolean isDeleted;
 
