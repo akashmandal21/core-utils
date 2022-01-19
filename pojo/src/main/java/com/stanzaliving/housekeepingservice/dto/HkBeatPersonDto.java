@@ -31,6 +31,8 @@ public class HkBeatPersonDto {
 
 	private List<String> taskIds;
 
+	private boolean adhocTask;
+
 
 }
 
