@@ -1,6 +1,7 @@
 package com.stanzaliving.boq_service.dto.groundrequest;
 
 import com.stanzaliving.item_master.enums.AcquisitionType;
+import com.stanzaliving.item_master.enums.ItemType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +12,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class ItemInfoDto {
+    private String itemUuid;
+
     private String itemName;
 
     private String itemCode;
@@ -19,9 +22,11 @@ public class ItemInfoDto {
 
     private String itemDescription;
 
-    private String length;
+    private String itemCategory;
 
-    private String breadth;
+    private String itemSubCategory;
 
-    private String height;
+    private String costHead;
+
+    private String unitOfMeasurement;
 }
