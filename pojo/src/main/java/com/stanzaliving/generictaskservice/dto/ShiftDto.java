@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShiftDto {
+public class ShiftDto implements Serializable {
 
     private String shiftUuid;
 
