@@ -53,6 +53,52 @@ public class FoodServiceClientApi {
     }
 
 
+	public ResidenceMealPlanDto getMeal(String residenceUuid){
+		String path =
+				UriComponentsBuilder.fromPath(
+								"/internal/residence/meal/plan/get/" + residenceUuid )
+						.build()
+						.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<ResidenceMealPlanDto>> returnType =
+				new TypeReference<ResponseDto<ResidenceMealPlanDto>>() {};
+
+		ResponseDto<ResidenceMealPlanDto> responseDto = null;
+		try {
+			responseDto =
+					restClient.request(
+							path,
+							HttpMethod.GET,
+							queryParams,
+							residenceUuid,
+							headerParams,
+							accept,
+							returnType,
+							MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.info("Error while fetching meal data");
+			throw new ApiValidationException(
+					"Some error occurred. Please try again after some time.");
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+		}
+
+		return responseDto.getData();
+
+
+	}
+
 	public ResidenceDayLevelMealDto getMealTimings(String residenceUuid) {
 		String path =
 				UriComponentsBuilder.fromPath(
