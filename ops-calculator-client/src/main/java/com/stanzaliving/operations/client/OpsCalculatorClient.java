@@ -6,7 +6,6 @@ import com.stanzaliving.core.opscalculator.constants.UnderwrittenCalculatorCateg
 import com.stanzaliving.core.opscalculator.dto.response.UnderWrittenListingResponseDto;
 import com.stanzaliving.core.opscalculator.dto.summary.CategoryPopUpSummaryDto;
 import com.stanzaliving.core.opscalculator.dto.summary.MonthlyUnderwrittenForecastSummaryDto;
-import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -58,7 +57,7 @@ public class OpsCalculatorClient {
 	}
 
 	public ResponseDto<List<UnderWrittenListingResponseDto>> getAnnualUnderWrittenListByResidence(String residenceUuid,
-																								  UnderWrittenStatus underWrittenStatus) {
+																								  String underWrittenStatus) {
 		Object postBody = null;
 
 		// create path and map variables
@@ -67,7 +66,7 @@ public class OpsCalculatorClient {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.put("residenceUuid", Collections.singletonList(residenceUuid));
-		queryParams.put("underWrittenStatus", Collections.singletonList(underWrittenStatus.getStatus()));
+		queryParams.put("underWrittenStatus", Collections.singletonList(underWrittenStatus));
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {
