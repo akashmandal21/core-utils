@@ -1,7 +1,6 @@
 package com.stanzaliving.projectplanningservice.dto.request;
 
-import com.stanzaliving.core.base.common.dto.PaginationRequest;
-import com.stanzaliving.projectplanningservice.enums.PlanningStatus;
+import com.stanzaliving.core.enums.PropertyEntityType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,7 +31,7 @@ public class MobilePropertySearchFilterDto {
 
     private List<String> propertyBrands;
 
-    private List<String> propertyTypes;
+    private List<PropertyEntityType> propertyTypes;
 
     private String orderByColumnName;
 
