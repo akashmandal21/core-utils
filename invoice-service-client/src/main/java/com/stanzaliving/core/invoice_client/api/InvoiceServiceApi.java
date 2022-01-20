@@ -172,6 +172,7 @@ public class InvoiceServiceApi {
         String path = UriComponentsBuilder.fromPath("/internal/filix/credit-note")
                 .buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("invoiceUuid", invoiceUuid);
 
         HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
