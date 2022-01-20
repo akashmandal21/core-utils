@@ -1,35 +1,5 @@
 package com.stanzaliving.foodservice.client.api;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.stanzaliving.core.base.common.dto.ListingDto;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.enums.DateFormat;
-import com.stanzaliving.core.base.exception.ApiValidationException;
-import com.stanzaliving.core.base.exception.PreconditionFailedException;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.base.utils.DateUtil;
-import com.stanzaliving.core.food.dto.*;
-import com.stanzaliving.core.food.dto.request.FullCategoryDto;
-import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
-import com.stanzaliving.core.food.dto.response.RecentMealDto;
-import com.stanzaliving.core.operations.enums.MealType;
-import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
-import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
-import com.stanzaliving.food.v2.common.dto.MealDto;
-import com.stanzaliving.food.v2.common.dto.MealTypeAndGroupIdDto;
-import com.stanzaliving.food.v2.menu.dto.ResidenceFoodMenuItemIdProjectionDto;
-import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -42,6 +12,43 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.enums.DateFormat;
+import com.stanzaliving.core.base.exception.ApiValidationException;
+import com.stanzaliving.core.base.exception.PreconditionFailedException;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.core.food.dto.FoodItemDto;
+import com.stanzaliving.core.food.dto.IngredientUsageDto;
+import com.stanzaliving.core.food.dto.ItemCategoryDto;
+import com.stanzaliving.core.food.dto.ItemSubCategoryDto;
+import com.stanzaliving.core.food.dto.ResidenceDayLevelMealDto;
+import com.stanzaliving.core.food.dto.request.FullCategoryDto;
+import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
+import com.stanzaliving.core.food.dto.response.RecentMealDto;
+import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
+import com.stanzaliving.food.v2.common.dto.MealDto;
+import com.stanzaliving.food.v2.common.dto.MealTypeAndGroupIdDto;
+import com.stanzaliving.food.v2.menu.dto.ResidenceFoodMenuItemIdProjectionDto;
+import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
+import com.stanzaliving.food.v2.vendor.dto.FoodVendorDTO;
+
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class FoodServiceClientApi {
@@ -762,5 +769,28 @@ public class FoodServiceClientApi {
 
 	}
 	
+	public List<FoodVendorDTO> getFoodVendorList(){
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/vendor/list").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+	
+		TypeReference<ResponseDto<List<FoodVendorDTO>>> returnType = new TypeReference<ResponseDto<List<FoodVendorDTO>>>() {};
+
+		ResponseDto<List<FoodVendorDTO>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting vendors", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
 	
 }
