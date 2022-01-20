@@ -736,6 +736,31 @@ public class FoodServiceClientApi {
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : StringUtils.EMPTY;
 
 	}
+
+	public ResidenceConfigDto getResidenceConfig(String residenceId) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/residence/config").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("residenceId",residenceId);
+
+		TypeReference<ResponseDto<ResidenceConfigDto>> returnType = new TypeReference<ResponseDto<ResidenceConfigDto>>() {};
+
+		ResponseDto<ResidenceConfigDto> responseDto = null;
+
+		try {
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting residence configuration", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
+	}
 	
 	
 }
