@@ -13,18 +13,10 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class FixturesDto {
 
-    private LocalDate startDate;
+public class MatchDetailsDto {
 
-    private LocalDate endDate;
+    private LocalDate matchDate;
 
-    private List<String> teamList;
-
-    private String contestUuid;
-
-    private String uuid;
-
-    private List<MatchDetailsDto> matchDetailsList;
-
+    private List<MatchDto> matchList;
 }
