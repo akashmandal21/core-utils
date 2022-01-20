@@ -3,22 +3,17 @@ package com.stanzaliving.housekeepingservice.dto.response;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
-
 /**
  * @author Vikas S T
- * @date 07-Jan-22
+ * @date 20-Jan-22
  **/
-
 @Getter
 @Setter
 @ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CoverageRoomDetailsResponseDto {
-    private String roomNumber;
-    private String taskStatusName;
-    private boolean occupied;
-    private List<CoverageRoomDetailsWithDayResponseDto> days;
+public class CoverageRoomDetailsWithDayResponseDto {
+    private String day;
+    private boolean isPresent;
 }
