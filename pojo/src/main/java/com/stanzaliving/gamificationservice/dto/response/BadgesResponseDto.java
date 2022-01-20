@@ -1,7 +1,6 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
-import com.stanzaliving.gamificationservice.enums.BadgeType;
-import com.stanzaliving.gamificationservice.enums.Type;
+import com.stanzaliving.gamificationservice.enums.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -18,17 +17,44 @@ import java.util.List;
 public class BadgesResponseDto {
     private String uuid;
 
-    private String badgeName;
+    private String badgesName;
 
     private String description;
 
-    private Type type;
+    private String type;
 
-    private int points;
+    private BadgeCriteria badgeCriteria;
 
-    private BadgeType badgeType;
+    private PointCondition pointCondition;
+
+    private PointFrequency pointFrequency;
+
+    private int pointsValue;
+
+    private BadgeTarget badgeTarget;
+
+    private TargetCondition targetCondition;
+
+    private int targetValue;
+
+    private String badgeType;
 
     private List<String> contests = new ArrayList<>();
 
+    private String profilePhotoUrl;
+
+    private int reward;
+
+    private int noOfTimeBadgeEarnByUser;
+
+    private String badgeLable;
+
+    private String earnedOn;
+
+    private String contestUuid;
+
+    private int badgeTotal;
+
+    private int badgeProgress;
 
 }

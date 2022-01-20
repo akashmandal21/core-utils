@@ -50,4 +50,13 @@ public class UpdateBadgesRequestDto {
     private int noOfTimeBadgeEarnByUser;
 
     private String badgeLable;
+
+    private int badgeTotal;
+
+    private int badgeProgress;
+
+    private String earnedOn;
+
+    private String contestUuid;
+
 }
