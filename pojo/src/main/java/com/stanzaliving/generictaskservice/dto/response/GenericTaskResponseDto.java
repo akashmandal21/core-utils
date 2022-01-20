@@ -82,4 +82,6 @@ public class GenericTaskResponseDto {
     private PriorityDto priorityDto;
 
     private long id;
+
+    private List<GenericTaskDto> dependentTasksList;
 }
