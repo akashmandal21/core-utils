@@ -267,6 +267,32 @@ public class VentaAggregationServiceApi {
         }
     }
 
+	public void updateResidenceGender(String residenceUuid,String gender) {
+		log.info("Residence Internal Controller::Processing to update residence gender {}",residenceUuid);
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid",residenceUuid);
+		uriVariables.put("gender",gender);
+
+		String path = UriComponentsBuilder.fromPath("/internal/residence/update/{residenceUuid}/gender/{gender}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 
 
 }

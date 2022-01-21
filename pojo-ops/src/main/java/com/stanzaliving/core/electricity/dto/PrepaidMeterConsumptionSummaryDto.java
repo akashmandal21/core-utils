@@ -27,6 +27,7 @@ public class PrepaidMeterConsumptionSummaryDto implements Serializable {
 	
 	private Double avgUnitConsumedPerMonth;
 	private Double avgUnitConsumedPerDay;
+	private Double blendedUnitRate;
 	
 	Map<Integer, Map<Month, List<PrepaidMeterDailyConsumptionDto>>> dailyConsumptionMap;
 	
