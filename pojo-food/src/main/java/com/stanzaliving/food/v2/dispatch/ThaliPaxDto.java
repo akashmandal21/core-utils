@@ -20,6 +20,10 @@ public class ThaliPaxDto {
 
 	private String name;
 
+	private String thaliVariant;
+
+	private String mealGroupId;
+
 	private Integer veg;
 
 	private Integer nonVeg;
