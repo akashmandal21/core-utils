@@ -44,5 +44,6 @@ public class HkBeatPlanTaskResponseDto {
     private List<ResidenceDto> residenceDtos;
     private HkPseudoPersonResponseDto pseudoPerson;
     private List<TagsGenericResponseDto> tags;
+    private String module;
 
 }
