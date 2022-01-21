@@ -1,12 +1,15 @@
 package com.stanzaliving.core.opscalculator.dto.response;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @Builder
+@ToString
+@NoArgsConstructor
 public class UnderWrittenListingResponseDto {
         String versionName;
         String sessionDisplayName;
