@@ -31,13 +31,13 @@ public class UpdateBadgesRequestDto {
 
     private PointCondition pointCondition;
 
-    private int pointsValue;
+    private Integer pointsValue;
 
     private BadgeTarget badgeTarget;
 
     private TargetCondition targetCondition;
 
-    private int targetValue;
+    private Integer targetValue;
 
     private String badgeType;
 
@@ -45,15 +45,15 @@ public class UpdateBadgesRequestDto {
 
     private String profilePhotoUrl;
 
-    private int reward;
+    private Integer reward;
 
-    private int noOfTimeBadgeEarnByUser;
+    private Integer noOfTimeBadgeEarnByUser;
 
     private String badgeLable;
 
-    private int badgeTotal;
+    private Integer badgeTotal;
 
-    private int badgeProgress;
+    private Integer badgeProgress;
 
     private String earnedOn;
 
