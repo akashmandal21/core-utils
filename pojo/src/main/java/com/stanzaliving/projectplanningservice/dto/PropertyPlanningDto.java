@@ -1,6 +1,7 @@
 package com.stanzaliving.projectplanningservice.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.projectplanningservice.enums.PlanningStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -66,6 +67,7 @@ public class PropertyPlanningDto extends AbstractDto {
 
     private Integer durationUnit;
 
+    /* Additional Property [ Residence ] Data from Stanza Residence API */
     private Double residenceLatitude;
 
     private Double residenceLongitude;
@@ -77,6 +79,8 @@ public class PropertyPlanningDto extends AbstractDto {
     private String residenceBrandName;
 
     private String residenceSubBrandName;
+
+    private PropertyEntityType residencePropertyType;
 
     private String residenceThumbnailUrl;
 
