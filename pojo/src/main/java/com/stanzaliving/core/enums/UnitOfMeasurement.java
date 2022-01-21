@@ -10,14 +10,16 @@ import java.util.*;
 @AllArgsConstructor
 public enum UnitOfMeasurement {
 
-	KILOGRAM("Kg"),
-	LITRE("Ltr"),
-	NUMBER("Nos"),
-	GRAM("gm"),
-	MILI_LITRE("ml"),
-	PCS("pcs");
+	KILOGRAM("Kg", "kg"),
+	LITRE("Ltr", "ltr"),
+	NUMBER("Nos", "nos"),
+	GRAM("gm", "gm"),
+	MILI_LITRE("ml", "ml"),
+	PCS("pcs", "pcs");
 
 	private String unitName;
+
+	private String displayName;
 
 	private static List<ListingDto> unitMeasurementListing = new ArrayList<>();
 
@@ -31,12 +33,16 @@ public enum UnitOfMeasurement {
 
 	private static Map<UnitOfMeasurement, UnitOfMeasurement> greaterUnitsMap = new HashMap<>();
 
+	private static Map<String, UnitOfMeasurement> unitOfMeasurementDisplayNameMap = new HashMap<>();
+
 	static {
 
 		for (UnitOfMeasurement unitOfMeasurement : UnitOfMeasurement.values()) {
 			unitMeasurementListing.add(ListingDto.builder().id(unitOfMeasurement.name()).name(unitOfMeasurement.getUnitName()).build());
 			unitOfMeasurementNameMap.putIfAbsent(unitOfMeasurement.getUnitName(), unitOfMeasurement);
 			unitOfMeasurementStrMap.putIfAbsent(unitOfMeasurement.name(), unitOfMeasurement);
+			unitOfMeasurementDisplayNameMap.putIfAbsent(unitOfMeasurement.getDisplayName(), unitOfMeasurement);
+
 		}
 
 		createShortUnitsMap();
@@ -88,6 +94,10 @@ public enum UnitOfMeasurement {
 
 	public static UnitOfMeasurement getUnitOfMeasurementByName(String unitEnumName) {
 		return unitOfMeasurementStrMap.get(unitEnumName);
+	}
+
+	public static UnitOfMeasurement getUnitOfMeasurementByDisplayName(String unitEnumName) {
+		return unitOfMeasurementDisplayNameMap.get(unitEnumName);
 	}
 
 	public static UnitOfMeasurement getShortUnit(UnitOfMeasurement greaterUnit) {
