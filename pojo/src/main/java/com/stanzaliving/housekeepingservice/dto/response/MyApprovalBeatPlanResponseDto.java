@@ -34,4 +34,6 @@ public class MyApprovalBeatPlanResponseDto extends AbstractDto {
     private String microMarketName;
     private String microMarketUuid;
     private HkBeatPlanStatus hkBeatPlanStatus;
+    private String approvalStatusName;
+    private List<String> pendingApprovers;
 }

@@ -56,7 +56,7 @@ public class OpsCalculatorClient {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<List<UnderWrittenListingResponseDto>> getAnnualUnderWrittenListByResidence(String residenceUuid,
+	public ResponseDto<List<UnderWrittenListingResponseDto>> getAnnualUnderWrittenListByResidence(String residenceUuids,
 																								  String underWrittenStatus) {
 		Object postBody = null;
 
@@ -65,7 +65,7 @@ public class OpsCalculatorClient {
 		String path = UriComponentsBuilder.fromPath("/internal/get/listByResidence").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.put("residenceUuid", Collections.singletonList(residenceUuid));
+		queryParams.put("residenceUuid", Collections.singletonList(residenceUuids));
 		queryParams.put("underWrittenStatus", Collections.singletonList(underWrittenStatus));
 		final HttpHeaders headerParams = new HttpHeaders();
 
