@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.core.client.dto.*;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -17,15 +18,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.stanzaliving.booking.dto.BookingNeedsAttentionUpdationDto;
-import com.stanzaliving.booking.dto.BookingResponseDto;
-import com.stanzaliving.booking.dto.ContractApprovalDto;
-import com.stanzaliving.booking.dto.ExpiredBookingsDto;
-import com.stanzaliving.booking.dto.ExpiredBookingsResponseDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingResponseDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingStatusChangeDto;
-import com.stanzaliving.booking.dto.UpdateDealAndInventoryDto;
 import com.stanzaliving.booking.dto.response.BookingCommercialsCardResponseDto;
 import com.stanzaliving.booking.dto.response.LedgerResponseDto;
 import com.stanzaliving.booking.dto.response.NeedsAttentionBookingResponseDto;
@@ -754,6 +746,30 @@ public class BookingDataControllerApi {
             log.error("Exception while fetching booking inventory details for bookingUuid {}, Exception is ",bookingUuid , e);
         }
         return response;
+    }
+
+    public ResponseDto<VasEmailDto> fetchRequestDetailsForVas(String requestUuid){
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("requestUuid", requestUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/vas/request/{requestUuid}/details")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<VasEmailDto>> returnType = new ParameterizedTypeReference<ResponseDto<VasEmailDto>>() {
+        };
+        try {
+            log.info("Executing Api for getting vas details request with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching vas details for request uuid {}, Exception is ", requestUuid, e);
+        }
+        return null;
+
+
     }
 
 }
