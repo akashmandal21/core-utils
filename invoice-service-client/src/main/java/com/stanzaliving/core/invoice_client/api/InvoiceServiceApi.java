@@ -122,7 +122,7 @@ public class InvoiceServiceApi {
             return null;
         }
     }
-    public ResponseDto<List<DocumentResponseDto>> getInvoicesByType(String referenceId,String invoiceType) {
+    public ResponseDto<String> getInvoicesByType(String referenceId,String invoiceType) {
         final Map<String, Object> uriVariables = new HashMap<>();
         log.info("fetching the  invoice details for booking uuid {}", referenceId);
         String path = UriComponentsBuilder.fromPath("/internal/invoice-details")
@@ -134,7 +134,7 @@ public class InvoiceServiceApi {
         HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<List<DocumentResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DocumentResponseDto>>>() {
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
         try {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams,
