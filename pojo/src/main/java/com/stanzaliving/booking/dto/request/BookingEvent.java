@@ -28,6 +28,7 @@ public class BookingEvent implements Serializable {
     private BookingSubStatus bookingSubStatus;
     private BookingResidenceType bookingResidenceType;
     private BookingType bookingType;
+    private BookingSubType bookingSubType;
     private String userUuid;
     private String contractDuration;
     private Date contractStartDate;
@@ -53,5 +54,4 @@ public class BookingEvent implements Serializable {
     private String mobile;
     private Integer cityId;
     private String cityUuid;
-    private BookingSubType bookingSubType;
 }

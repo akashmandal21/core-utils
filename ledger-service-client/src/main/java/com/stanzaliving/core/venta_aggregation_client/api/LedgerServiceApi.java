@@ -220,4 +220,75 @@ public class LedgerServiceApi {
         return null;
     }
 
+    public ResponseDto<String> sendFilixCarryForwardPacketsForBookingUuid(String bookingUuid) {
+        log.info("sending request for filix carry forward for bookingUuid{}", bookingUuid);
+        log.info("bookingUuid {}",bookingUuid);
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/carry-forward")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("bookingUuid", bookingUuid);
+
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            log.info("Executing Api with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception for bookingUuid {}, Exception is ", bookingUuid, e);
+        }
+        return null;
+    }
+
+    public ResponseDto<String> sendFilixRefundPacketsForBookingUuid(String bookingUuid) {
+        log.info("sending request for filix refund  for bookingUuid{}", bookingUuid);
+        log.info("bookingUuid {}",bookingUuid);
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/refund")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("bookingUuid", bookingUuid);
+
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            log.info("Executing Api with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception for bookingUuid {}, Exception is ", bookingUuid, e);
+        }
+        return null;
+    }
+
+    public ResponseDto<String> sendFilixSecurityDepositPacketsForBookingUuid(String bookingUuid) {
+        log.info("sending request for filix deposit  for bookingUuid{}", bookingUuid);
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/security-deposit")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("bookingUuid", bookingUuid);
+
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            log.info("Executing Api with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception for bookingUuid {}, Exception is ", bookingUuid, e);
+        }
+        return null;
+    }
+
 }
