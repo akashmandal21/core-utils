@@ -18,7 +18,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class LeadRequestDto {
 
-	private Integer leadId;
+	private Long leadId;
 	private String firstName;
 	private String lastName;
 	private String email;
