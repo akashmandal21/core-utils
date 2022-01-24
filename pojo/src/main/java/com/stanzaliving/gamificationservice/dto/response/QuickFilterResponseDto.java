@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-
 @Getter
 @Setter
 @ToString(callSuper = true)
@@ -13,20 +12,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ContestTaskResponseDto {
-    @JsonProperty("task_progress")
-    private String taskProgress;
-
-    @JsonProperty("completed_task")
-    private String completedTask;
-
-    @JsonProperty("total_task")
-    private String totalTask;
-
-    @JsonProperty("task_name")
-    private String taskName;
-
-    @JsonProperty("contestsUuid")
-    private String contestsUuid;
+public class QuickFilterResponseDto {
+    @JsonProperty("filter_id")
+    private String filterId;
+    @JsonProperty("filter_name")
+    private String filterName;
 
 }
