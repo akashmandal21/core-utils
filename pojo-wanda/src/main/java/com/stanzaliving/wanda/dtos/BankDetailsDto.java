@@ -45,4 +45,6 @@ public class BankDetailsDto {
 	
 	@Builder.Default
 	private Boolean isPreferred = Boolean.FALSE;
+	
+	private String residentId;
 }

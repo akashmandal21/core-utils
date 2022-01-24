@@ -8,6 +8,7 @@ import java.util.Objects;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.projectservice.dto.BedCountDto;
 
+import com.stanzaliving.core.projectservice.dto.ProductMixTilesDto;
 import com.stanzaliving.core.projectservice.dto.PropertyInfoDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -142,6 +143,32 @@ public class ProjectServiceClientApi {
 
     }
 
+    public ResponseDto<ProductMixTilesDto> getProductMixTiles(String propertyUuid) {
+        if (Objects.isNull(propertyUuid)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("propertyUuid", propertyUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/productmix/{propertyUuid}/tiles").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ProductMixTilesDto>> returnType = new ParameterizedTypeReference<ResponseDto<ProductMixTilesDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 }

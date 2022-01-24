@@ -42,4 +42,6 @@ public class InventoryResponseOccupancyDto {
 
     private boolean isInventorySelected;
 
+    private Date availableFrom;
+
 }

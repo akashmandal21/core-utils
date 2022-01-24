@@ -1,11 +1,11 @@
 package com.stanzaliving.core.client.dto;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
 
 @Data
 @Builder
@@ -30,5 +30,7 @@ public class InventoryResponseOccupancyDto {
     private Integer beds;
 
     private boolean selfConverted;
+
+    private Date availableFrom;
 }
 
