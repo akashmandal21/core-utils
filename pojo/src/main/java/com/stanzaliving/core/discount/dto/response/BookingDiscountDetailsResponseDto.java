@@ -1,7 +1,10 @@
 package com.stanzaliving.core.discount.dto.response;
 
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -10,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookingDiscountDetailsResponseDto {
-
     private double discountValueApplied;
 
     private double discountRequested;
@@ -29,4 +31,5 @@ public class BookingDiscountDetailsResponseDto {
 
     @Builder.Default
     private Boolean status = Boolean.FALSE;
+    List<BookingDiscountDetails> bookingDiscountDetailsList;
 }
