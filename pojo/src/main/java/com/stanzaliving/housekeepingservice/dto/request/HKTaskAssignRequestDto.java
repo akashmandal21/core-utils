@@ -19,5 +19,5 @@ public class HKTaskAssignRequestDto {
 
     private String microclusterUuid;
 
-    private List<String> taskUuids;
+    private List<TaskResidenceUuids> taskUuidsResidenceUuids;
 }
