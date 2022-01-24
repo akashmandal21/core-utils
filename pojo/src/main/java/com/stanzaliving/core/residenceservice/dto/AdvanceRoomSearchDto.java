@@ -50,4 +50,6 @@ public class AdvanceRoomSearchDto {
     private String microMarketId;
     private String residenceName;
     private List<Integer> bhkType;
+    private Boolean inventoryView;
+
 }

@@ -3,6 +3,7 @@ package com.stanzaliving.core.residenceservice.dto;
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 import lombok.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -33,6 +34,8 @@ public class RoomNumberListingResponseDto {
     private String residenceName;
     private List<String> inventoryUuidList;
     private String residenceCode;
+    private Date availableFrom;
+
 
 
 }
