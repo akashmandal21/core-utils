@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class VasDto {
 
-    private  String vasGlobalUuid;
-    private Date vasOptInDate;
-    private  Date vasOptOutDate;
+    private  String vasUuid;
+    private Date optInDate;
+    private  Date optOutDate;
 }
