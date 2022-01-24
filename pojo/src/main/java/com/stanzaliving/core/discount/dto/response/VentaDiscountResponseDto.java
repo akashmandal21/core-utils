@@ -34,4 +34,5 @@ public class VentaDiscountResponseDto {
     private Integer usedCount;
     private Integer availableCount;
     private LocalDate endDate;
+    private Integer totalCount;
 }
