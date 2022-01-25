@@ -498,7 +498,6 @@ public class InventoryClientApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-<<<<<<< HEAD
 	public ResponseDto<String> updateItemStatus(AwlItemStatusUpdateDto awlItemStatusUpdateDto) {
 
 		// create path and map variables
