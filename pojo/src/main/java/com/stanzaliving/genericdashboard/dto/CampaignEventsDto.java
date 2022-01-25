@@ -16,6 +16,8 @@ public class CampaignEventsDto {
     private String uuid;
 
     private String eventName;
+    
+    private String campaignId;
 
     private String eventCategoryName;
 

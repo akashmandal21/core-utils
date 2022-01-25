@@ -18,6 +18,7 @@ public class ExitDetailsRequestDto {
     @NotNull(message = "bookingUuid cannot be null")
     private String bookingUuid;
 
+    @NotNull(message = "Move out date cannot be null")
     private LocalDate moveOutDate;
 
     @Builder.Default
