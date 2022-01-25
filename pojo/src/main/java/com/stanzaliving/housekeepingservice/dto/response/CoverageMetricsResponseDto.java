@@ -2,6 +2,8 @@ package com.stanzaliving.housekeepingservice.dto.response;
 
 import lombok.*;
 
+import java.util.List;
+
 /**
  * @author Priyadarshini MB
  */
@@ -14,18 +16,19 @@ import lombok.*;
 @NoArgsConstructor
 public class CoverageMetricsResponseDto {
 
-    private int plannedDailyCount;
-    private int plannedThriceCount;
-    private int plannedTwiceCount;
-    private int plannedOnceCount;
+    private long  plannedDailyCount;
+    private long  plannedThriceCount;
+    private long  plannedTwiceCount;
+    private long  plannedOnceCount;
 
-    private int promisedDailyCount;
-    private int promisedThriceCount;
-    private int promisedTwiceCount;
-    private int promisedOnceCount;
+    private long  promisedDailyCount;
+    private long  promisedThriceCount;
+    private long  promisedTwiceCount;
+    private long  promisedOnceCount;
 
     private String taskTypeName;
-    private int totalNumberOfRooms;
+    private long  totalNumberOfRooms;
+    private List<CoverageResidenceDetailsResponseDto> roomWises;
 
 
 }
