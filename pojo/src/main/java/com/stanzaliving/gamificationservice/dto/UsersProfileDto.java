@@ -37,6 +37,8 @@ public class UsersProfileDto {
 
     private String userCity;
 
+    private String userDesignation;
+
     private String userPoints;
 
     private String userPointsStatus;
@@ -44,6 +46,10 @@ public class UsersProfileDto {
     private String userRank;
 
     private String userRankStatus;
+
+    private String userLifeTimePoints;
+
+    private String userLifeTimePointsStatus;
 
     private int noOfContestShow;
 

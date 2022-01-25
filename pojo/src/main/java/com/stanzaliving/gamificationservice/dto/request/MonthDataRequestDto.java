@@ -12,12 +12,13 @@ import javax.validation.constraints.NotBlank;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProfileMonthDataRequestDto {
+public class MonthDataRequestDto {
     @NotBlank(message = "MonthName is Mandatory.")
     private String monthName;
 
     private String imageUrl;
 
+    @NotBlank(message = "Title is Mandatory.")
     private String title;
 
     private String subTitle;
@@ -25,4 +26,7 @@ public class ProfileMonthDataRequestDto {
     private String points;
 
     private String time;
+
+    @NotBlank(message = "ContestId is Mandatory.")
+    private String contestUuid;
 }
