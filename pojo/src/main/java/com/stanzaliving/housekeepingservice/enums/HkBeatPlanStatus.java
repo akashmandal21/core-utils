@@ -19,7 +19,8 @@ public enum HkBeatPlanStatus {
     DRAFT("Draft"),
     PENDING_L2_APPROVAL("Pending L2 Approval"),
     PENDING_L1_APPROVAL("Pending L1 Approval"),
-    REJECTED("Rejected");
+    L1_REJECTED("L1 Rejected"),
+    L2_REJECTED("L2 Rejected");
 
     private static final List<EnumListing<HkBeatPlanStatus>> enumListing = new ArrayList<>();
 
