@@ -91,14 +91,14 @@ public class UserClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public ResponseDto<PageResponse<UserProfileDto>> getUserDetailsRequest(UserRequestDto userRequestDto) {
 
 		log.info("UserRequestDto: {} ", userRequestDto);
-		
+
 		if (Objects.isNull(userRequestDto) || userRequestDto.getPageNo() < 1 || userRequestDto.getLimit() < 1
 				|| CollectionUtils.isEmpty(userRequestDto.getUserIds())) {
-			
+
 			throw new IllegalArgumentException("Please check all the provided params!!");
 		}
 
@@ -106,7 +106,7 @@ public class UserClientApi {
 
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
-		
+
 		String path = UriComponentsBuilder.fromPath("/search/user").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -424,8 +424,6 @@ public class UserClientApi {
 
 	public ResponseDto<UserProfileDto> getUserProfileByUuid(String userUuid) {
 
-		Object postBody = null;
-
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("userUuid", userUuid);
 
@@ -442,7 +440,13 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		}
+		catch (Exception ex) {
+			log.error("Error occurred while fetching user details from UserId",ex);
+			return null;
+		}
 	}
 
 	public ResponseDto<List<UserProfileDto>> getAllUsers() {
@@ -652,7 +656,7 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	
+
 	public ResponseDto<UserProfileDto> getUserProfileByEmail(String email) {
 
 		Object postBody = null;
@@ -664,7 +668,7 @@ public class UserClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		queryParams.add("email", email);
-		
+
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {
@@ -674,7 +678,14 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		}
+		catch (Exception ex) {
+			log.error("Error occurred while fetching user details from email ",ex);
+			return null;
+		}
 	}
 
 	public List<UserPropertyAndProfileMappingDto> getUsersMappedToProperty(String propertyId) {

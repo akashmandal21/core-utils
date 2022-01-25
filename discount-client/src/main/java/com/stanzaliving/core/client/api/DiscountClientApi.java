@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.core.discount.dto.request.BookingDiscountRequestDTO;
+import com.stanzaliving.core.discount.dto.response.*;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -18,10 +19,6 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.discount.dto.request.BookingDiscountStrategyDto;
 import com.stanzaliving.core.discount.dto.request.DiscountSplitterRequestDto;
-import com.stanzaliving.core.discount.dto.response.BookingDiscountDetailsResponseDto;
-import com.stanzaliving.core.discount.dto.response.DiscountCodeListDto;
-import com.stanzaliving.core.discount.dto.response.DiscountSplitterResponseDto;
-import com.stanzaliving.core.discount.dto.response.DiscountStrategyListingResponseDto;
 import com.stanzaliving.wanda.discount.response.DiscountDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -126,7 +123,8 @@ public class DiscountClientApi {
 			final String[] accepts = { "*/*" };
 
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-			ParameterizedTypeReference<ResponseDto<BookingDiscountDetailsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingDiscountDetailsResponseDto>>() {
+			ParameterizedTypeReference<ResponseDto<BookingDiscountDetailsResponseDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<BookingDiscountDetailsResponseDto>>() {
 			};
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
