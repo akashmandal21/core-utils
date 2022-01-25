@@ -18,7 +18,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ProfileResponseDto {
 
-    @JsonProperty("user_img")
+    @JsonProperty("user_image")
     private String userImage;
 
     @JsonProperty("user_name")

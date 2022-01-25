@@ -16,11 +16,11 @@ import java.util.List;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class MonthDataResponseDto {
+    @JsonProperty("month_name")
+    private String monthName;
     @JsonProperty("month_data")
     List<MonthDataResponseDto> profileMonthDataRespDtoList;
     private String uuid;
-    @JsonProperty("month_name")
-    private String monthName;
     private String image;
     private String title;
     private String subTitle;
