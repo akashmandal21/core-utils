@@ -46,7 +46,7 @@ public class ProfileResponseDto {
     private List<UserBadgesDto> userBadgesList;
 
     @JsonProperty("user_contest_subtask_history")
-    private List<MonthDataResponseDto> userContestSubTaskHistory;
+    private List<MonthDataResponseDto> userContestSubTaskHistoryList;
 
     @JsonProperty("challenges_banner_images")
     private List<BannerResponseDto> bannerResponseDtoList;
