@@ -65,4 +65,6 @@ public class ContestDto {
 
     private String rejectDescription;
 
+    private List<String> teams;
+
 }

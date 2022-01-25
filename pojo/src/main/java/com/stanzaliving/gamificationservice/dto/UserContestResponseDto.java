@@ -1,7 +1,9 @@
 package com.stanzaliving.gamificationservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.gamificationservice.dto.request.RewardsRequestDto;
+import com.stanzaliving.gamificationservice.dto.response.QuickFilterResponseDto;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -23,6 +25,8 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class UserContestResponseDto {
 
+    private String contestName;
+
     private String contestLogo;
 
     private String description;
@@ -38,4 +42,8 @@ public class UserContestResponseDto {
     private Map<String,List<BadgesDto>> badgesDtoList;
 
     private List<UsersProfileDto> usersProfileDtoList;
+
+    @JsonProperty("contest_leaderboard_quick_filter")
+    private List<QuickFilterResponseDto> contestLeaderboardQuickFilter;
+
 }
