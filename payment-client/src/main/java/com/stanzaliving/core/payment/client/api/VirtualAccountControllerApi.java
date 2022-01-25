@@ -59,9 +59,10 @@ public class VirtualAccountControllerApi {
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
+            //https://payment.stanzaliving.com/paymentService/virtualAccount/create
             String path = UriComponentsBuilder.fromPath("/virtualAccount/create").buildAndExpand(uriVariables)
                     .toUriString();
-
+            log.info("Creating Virtual Account for Resident path is {}", path);
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
             HttpHeaders headerParams = new HttpHeaders();
@@ -75,7 +76,8 @@ public class VirtualAccountControllerApi {
 
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Error while creating virtual account for resident with id:{} with message:{}",virtualAccountDto.getResidentId(), e.getMessage());
+            e.printStackTrace();
+            log.error("Error while creating virtual account for resident with id:{} with message",virtualAccountDto.getResidentId(), e);
         }
 
         return null;
@@ -114,5 +116,42 @@ public class VirtualAccountControllerApi {
         return null;
 
     }
+
+    public ResponseDto<String> createVirtualAccountForContract(int contractId, String contractUuid,
+                                                                               String organizationName) {
+
+        try {
+
+            log.info("Creating Virtual Account for Contract:{}",contractUuid);
+            Object postBody = null;
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("contractId",String.valueOf(contractId));
+            uriVariables.put("contractUuid",contractUuid);
+            uriVariables.put("organizationName",organizationName);
+
+            String path = UriComponentsBuilder.fromPath("/virtualAccount/contract/VA/{contractId}/{contractUuid}/{organizationName}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while creating virtual account for Account for Contract:{}",contractUuid);
+        }
+
+        return null;
+
+    }
+
 }
 

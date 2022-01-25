@@ -14,4 +14,8 @@ public class ExitReasonResponseDto {
     private String reasonUuid;
 
     private String reason;
+
+    private String bookingStatus;
+
+    private String reasonNotes;
 }

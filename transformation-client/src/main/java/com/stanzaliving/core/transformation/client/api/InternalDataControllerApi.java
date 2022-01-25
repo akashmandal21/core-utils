@@ -1,25 +1,7 @@
-    /**
+/**
  *
  */
 package com.stanzaliving.core.transformation.client.api;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
-
-import com.stanzaliving.transformations.pojo.*;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.boq_service.dto.BulkActionsModalFilterOptionsDto;
@@ -32,11 +14,22 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.projectservice.tiles.TileDeciderDto;
 import com.stanzaliving.core.projectservice.tiles.TileStatusDto;
+import com.stanzaliving.transformations.pojo.*;
 import com.stanzaliving.transformations.projections.StanzaGstView;
 import com.stanzaliving.transformations.ui.pojo.Country;
 import com.stanzaliving.ventaAudit.dto.GstInformationDto;
-
 import lombok.extern.log4j.Log4j2;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * @author naveen.kumar
@@ -1198,6 +1191,35 @@ public class InternalDataControllerApi {
         }
         return null;
     }
+
+    public String getResidenceUuidByResidenceId(String residenceId) {
+        log.info("Fetching Transformation details for residence id {}", residenceId);
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceId", residenceId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/get/residenceUuid/{residenceId}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<String> returnType =
+                new ParameterizedTypeReference<String>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching residence uuid for residence id {} ", residenceId);
+            return null;
+        }
+    }
+
 
     public ResponseDto<GstInformationDto> getGstDataByCityId(String cityId) {
         final Map<String, Object> uriVariables = new HashMap<>();

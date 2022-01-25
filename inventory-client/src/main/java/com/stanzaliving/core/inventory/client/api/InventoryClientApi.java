@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.AddressResponseDTO;
 import com.stanzaliving.core.dto.CityResponseDTO;
+import com.stanzaliving.core.dto.TransactionMigrationForDate;
 import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
 import com.stanzaliving.core.grsi.dto.GrsiItemDto;
 import com.stanzaliving.core.inventory.dto.*;
@@ -497,6 +498,7 @@ public class InventoryClientApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
+<<<<<<< HEAD
 	public ResponseDto<String> updateItemStatus(AwlItemStatusUpdateDto awlItemStatusUpdateDto) {
 
 		// create path and map variables
@@ -565,9 +567,39 @@ public class InventoryClientApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<String>> returnType =
-				new ParameterizedTypeReference<ResponseDto<String>>() {};
+				new ParameterizedTypeReference<ResponseDto<String>>() {
+				};
 
 		return restClient.invokeAPI(
 				path, HttpMethod.POST, queryParams, grsiItemDtoList, headerParams, accept, returnType);
+	}
+
+	public void migrateTransaction(TransactionMigrationForDate requestDto) {
+
+		try {
+			log.error("RequestDto is {}", requestDto);
+
+			Object postBody = requestDto;
+
+			String path = UriComponentsBuilder.fromPath("/migrate/transaction/date").toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+			};
+
+			restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.info("TO migrate transactions request sent to IMS: " + requestDto);
+			log.error("Exception caught while schedule request in ims ", e);
+		}
+
 	}
 }

@@ -5,6 +5,7 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import javax.persistence.EntityListeners;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -18,7 +19,7 @@ import java.util.Date;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-
+@EntityListeners({ MongoEventListener.class })
 //@SuppressWarnings("serial")
 public abstract class AbstractMongoEntity implements Serializable {
 
