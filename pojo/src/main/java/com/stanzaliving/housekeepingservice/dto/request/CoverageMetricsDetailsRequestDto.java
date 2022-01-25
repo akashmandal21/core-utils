@@ -20,6 +20,8 @@ public class CoverageMetricsDetailsRequestDto {
     private String microClusterUuid;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate endDate;
     private String taskSubCategoryUuid;
     private String residenceUuid;
 }
