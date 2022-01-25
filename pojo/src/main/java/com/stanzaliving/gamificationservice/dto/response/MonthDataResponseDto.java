@@ -2,14 +2,9 @@ package com.stanzaliving.gamificationservice.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.stanzaliving.gamificationservice.dto.BadgesDto;
-import com.stanzaliving.gamificationservice.dto.ContestDto;
-import com.stanzaliving.gamificationservice.dto.UsersProfileDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
-import java.time.LocalTime;
 import java.util.List;
 
 
@@ -20,22 +15,18 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ProfileMonthDataResponseDto {
+public class MonthDataResponseDto {
+    @JsonProperty("month_data")
+    List<MonthDataResponseDto> profileMonthDataRespDtoList;
     private String uuid;
-
     @JsonProperty("month_name")
     private String monthName;
-
     private String image;
-
     private String title;
-
     private String subTitle;
-
     private String points;
-
     private String time;
+    private String contestUuid;
 
-    @JsonProperty("month_data")
-    List<ProfileMonthDataResponseDto> profileMonthDataRespDtoList;
+
 }
