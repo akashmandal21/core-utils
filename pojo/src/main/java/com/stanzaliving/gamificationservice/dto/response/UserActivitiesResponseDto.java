@@ -13,12 +13,14 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserActivitiesResponseDto {
-    private String uuid;
+    private String image;
 
-    private String userUuid;
+    private String title;
 
-    private Date activityTime;
+    private String subTitle;
 
-    private String activityUuid;
+    private String points;
+
+    private String time;
 
 }

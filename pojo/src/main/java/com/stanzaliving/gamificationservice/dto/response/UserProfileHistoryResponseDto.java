@@ -17,8 +17,8 @@ import java.util.Map;
 @AllArgsConstructor
 public class UserProfileHistoryResponseDto {
 
-    private String userUuid;
+    private String month_name;
 
-    private Map<String, List<UserActivitiesResponseDto>> activityListGroupedByDate;
+    private List<UserActivitiesResponseDto> month_data;
 
 }
