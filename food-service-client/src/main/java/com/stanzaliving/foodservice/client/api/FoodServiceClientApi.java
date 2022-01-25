@@ -1,12 +1,16 @@
 package com.stanzaliving.foodservice.client.api;
 
-import java.time.LocalDate;
-import java.util.*;
-
+import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.food.dto.IngredientUsageDto;
+import com.stanzaliving.core.food.dto.ResidenceMealPlanDto;
+import com.stanzaliving.core.food.dto.request.FullCategoryDto;
+import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
 import com.stanzaliving.core.food.dto.response.RecentMealDto;
 import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
-import com.stanzaliving.core.food.dto.IngredientUsageDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -15,13 +19,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ListingDto;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.food.dto.request.FullCategoryDto;
-import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
-
-import lombok.extern.log4j.Log4j2;
+import java.time.LocalDate;
+import java.util.*;
 
 @Log4j2
 public class FoodServiceClientApi {
@@ -53,6 +52,33 @@ public class FoodServiceClientApi {
             responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Error while fetching basic details for menu category: {}", id, e);
+        }
+
+        return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
+    }
+
+    public ResidenceMealPlanDto getMealPlan(String residenceUuid) {
+
+        ResponseDto<ResidenceMealPlanDto> responseDto = null;
+        String path = UriComponentsBuilder.fromPath("/internal/residence/meal/plan/get/{residenceUuid}").buildAndExpand(residenceUuid).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ResidenceMealPlanDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceMealPlanDto>>() {
+        };
+
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while fetching basic details for menu category: {}", residenceUuid, e);
         }
 
         return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
