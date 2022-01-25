@@ -26,4 +26,8 @@ public class QuickCardFilterStatusDto {
     private boolean unSatisfied;
 
     private boolean notReceived;
+
+    private boolean escalatedByMe;
+
+    private boolean escalatedToMe;
 }
