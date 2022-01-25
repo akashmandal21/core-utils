@@ -37,4 +37,7 @@ public class AdjustInventoryItemDto {
     @JsonProperty("class")
     private String clazz;
 
+    @JsonProperty("account")
+    private String account;
+
 }

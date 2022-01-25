@@ -24,9 +24,6 @@ public class FilixOracleIntegrationAdjustInventoryDto extends AbstractOracleDto 
     @JsonProperty("stanzaId")
     private String stanzaId;
 
-    @JsonProperty("account")
-    private String account;
-
     @JsonProperty("postingPeriod")
     private String postingPeriod;
 
