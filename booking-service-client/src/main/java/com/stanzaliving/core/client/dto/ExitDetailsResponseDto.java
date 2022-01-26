@@ -1,9 +1,16 @@
 package com.stanzaliving.core.client.dto;
 
+
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 import com.stanzaliving.booking.dto.PaymentDetailsDto;
 import com.stanzaliving.wanda.dtos.BankDetailsDto;
@@ -69,4 +76,6 @@ public class ExitDetailsResponseDto {
     private Double securityDeposit;
 
     private String exitSource;
+
+    private Double futureDues;
 }

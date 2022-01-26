@@ -1,5 +1,22 @@
 package com.stanzaliving.core.residence.client.api;
 
+
+
+import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
+import com.stanzaliving.booking.dto.response.ServiceMixResponse;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.core.residenceservice.dto.*;
+import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
+import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
+import com.stanzaliving.core.security.helper.SecurityUtils;
+import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
+import com.stanzaliving.residenceservice.BookingAttributesDto;
+import com.stanzaliving.residenceservice.Dto.*;
+import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +35,15 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
+
+
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
 import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -1726,8 +1752,38 @@ public class ResidenceDataControllerApi {
 
         try {
             return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception var12) {
-            log.error("Exception while fetching apartment count for micromarket {} ", advanceRoomSearchDto.getMicroMarketId());
+        } catch (Exception e) {
+            log.error("Exception while fetching apartment count for micromarket {} ", advanceRoomSearchDto.getMicroMarketId(),e);
+            return null;
+        }
+    }
+
+    public OccupancyPricingAndRoomAttributesResponseDto getResidenceOccupancyPricing(String residenceUuid, String propertyEntityType) {
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        uriVariables.put("propertyEntityType",propertyEntityType);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/occupancy-pricing/{residenceUuid}/{propertyEntityType}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<OccupancyPricingAndRoomAttributesResponseDto> returnType =
+                new ParameterizedTypeReference<OccupancyPricingAndRoomAttributesResponseDto>() {
+                };
+
+        try {
+            return (OccupancyPricingAndRoomAttributesResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var10) {
+            log.error("Exception while fetching residence occupancy pricing information based on residenceUUID {}, Exception is ", residenceUuid, var10);
             return null;
         }
     }
