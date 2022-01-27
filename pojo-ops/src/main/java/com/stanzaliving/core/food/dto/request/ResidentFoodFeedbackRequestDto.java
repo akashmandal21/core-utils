@@ -40,4 +40,6 @@ public class ResidentFoodFeedbackRequestDto {
 	private FeedbackSource source;
 
 	private Set<String> mealFeedbackOptionUuids;
+	
+	private String notificationId;
 }
