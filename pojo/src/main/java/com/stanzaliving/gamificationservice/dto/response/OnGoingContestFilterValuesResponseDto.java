@@ -2,6 +2,8 @@ package com.stanzaliving.gamificationservice.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
+
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,11 +19,11 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class OnGoingContestFilterValuesResponseDto {
 
-	private Map<String, String> zone;
+	private List<FilterResponseDto> zone;
 
-	private Map<String, String> city;
+	private List<FilterResponseDto> city;
 
-	private Map<String, String> cluster;
+	private List<FilterResponseDto> cluster;
 
 	private String quickFilter;
 
