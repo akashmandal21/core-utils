@@ -46,4 +46,6 @@ public class SigmaGenericTaskRequestDto {
     private List<String> attachmentsList;
 
     private boolean adhocTask;
+
+    private String createdBy;
 }
