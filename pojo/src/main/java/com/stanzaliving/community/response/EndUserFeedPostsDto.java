@@ -16,6 +16,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EndUserFeedPostsDto {
 	
+	private int page;
+
+	private int records;
+
+	private int totalPages;
+
+	private long totalRecords;
+	
 	private String userId;
 	
 	private String userCode;
