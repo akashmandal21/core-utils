@@ -1,5 +1,7 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -15,10 +17,11 @@ import java.util.Map;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class UserProfileHistoryResponseDto {
-
-    private String month_name;
-
-    private List<UserActivitiesResponseDto> month_data;
+    @JsonProperty("month_name")
+    private String monthName;
+    @JsonProperty("month_data")
+    private List<UserActivitiesResponseDto> monthDataList;
 
 }
