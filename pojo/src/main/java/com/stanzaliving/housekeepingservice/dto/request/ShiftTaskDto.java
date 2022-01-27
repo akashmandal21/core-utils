@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ShiftTaskDto {
 
-    private List<String> taskUuid;
+    private List<String> taskUuids;
 
     private String shiftUuid;
 
