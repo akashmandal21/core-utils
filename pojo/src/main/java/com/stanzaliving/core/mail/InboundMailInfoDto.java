@@ -15,4 +15,6 @@ public class InboundMailInfoDto {
 
     private String body;
 
+    private String subject;
+
 }
