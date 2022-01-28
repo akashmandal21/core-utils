@@ -39,11 +39,6 @@ public class BookingDataControllerApi {
     }
 
     public ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>> getBookedInventoryDetail(BookingInventoryDto bookingInventoryDto) {
-
-        log.info("Booking-Data-Controller::Processing to get booked inventories detail of rooms {}, moveInDate {}, inventory {} ",
-                bookingInventoryDto.getRoomUUID(),
-                bookingInventoryDto.getMoveInDate());
-
         Object postBody = bookingInventoryDto;
 
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -626,11 +621,6 @@ public class BookingDataControllerApi {
     }
 
     public ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>> getBookedInventoryDetailForContract(BookingInventoryDto bookingInventoryDto) {
-
-        log.info("Booking-Data-Controller::Processing to get booked inventories detail of rooms {} for contract {}, moveInDate {}",
-                bookingInventoryDto.getRoomUUID(),
-                bookingInventoryDto.getBookingUuid(),
-                bookingInventoryDto.getMoveInDate());
 
         Object postBody = bookingInventoryDto;
 
