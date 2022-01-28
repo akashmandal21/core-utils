@@ -105,7 +105,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         int totalRecords = 0;
         List<String> csvHeader = new ArrayList<>();
         List<Map<String, String>> csvData = new ArrayList<>();
-        if (CVSUtil.hasCSVFormat(contentType) || ExcelUtil.hasCSVFormat(contentType)) {
+        if (CVSUtil.hasCSVFormat(contentType) || ExcelUtil.hasExcelFormat(contentType)) {
             try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8)); CSVParser csvParser = new CSVParser(fileReader, CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())) {
                 csvHeader = csvParser.getHeaderNames();
                 Iterable<CSVRecord> csvRecords = csvParser.getRecords();
@@ -206,7 +206,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
     @Override
     public S3UploadResponse upload(String bucket, String filePath, String fileName, InputStream inputStream, String contentType, AmazonS3 s3Client, boolean isPublic) {
         log.info("FILE-UTILS::Uploading file {} in filepath {} in bucket {}", fileName, filePath, bucket);
-        if (CVSUtil.hasCSVFormat(contentType) || ExcelUtil.hasCSVFormat(contentType)) {
+        if (CVSUtil.hasCSVFormat(contentType) || ExcelUtil.hasExcelFormat(contentType)) {
             return S3UploadResponse.builder().bucketName(bucket).filePath(s3UploadService.upload(bucket, filePath, inputStream, contentType, s3Client, isPublic)).build();
         }
         log.error("FILE-UTILS::Error in uploading file {} with filepath {} in bucket {}", fileName, filePath, bucket);

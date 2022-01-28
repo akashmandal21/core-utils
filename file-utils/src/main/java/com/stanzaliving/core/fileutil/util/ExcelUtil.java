@@ -13,7 +13,7 @@ import static com.stanzaliving.core.fileutil.util.Constants.EXCEL_CONTENT_TYPE;
  **/
 @UtilityClass
 public class ExcelUtil {
-    public static boolean hasCSVFormat(String contentType) {
+    public static boolean hasExcelFormat(String contentType) {
         return EXCEL_CONTENT_TYPE.equals(contentType);
     }
 }
