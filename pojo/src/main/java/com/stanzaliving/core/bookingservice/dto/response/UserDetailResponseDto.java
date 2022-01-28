@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.bookingservice.dto.response;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.stanzaliving.core.bookingservice.dto.PhoneNumberDto;
@@ -20,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDetailResponseDto {
+public class UserDetailResponseDto implements Serializable {
 
 	private String userCode;
 	private PhoneNumberDto mobile;
