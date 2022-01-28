@@ -1,6 +1,5 @@
 package com.stanzaliving.community.brand.request;
 
-import com.stanzaliving.community.brand.request.BrandPromotionsRequestDto.BrandPromotionsRequestDtoBuilder;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
@@ -9,20 +8,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Builder
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PromotionsCouponsRequestDto extends AbstractDto {
-	
-	private long brandId;
-	
-	private long promotionId;
-	
-	private boolean isUserSpecific;
+@Data
+public class CouponUsersRequestDto extends AbstractDto {
 
-	private boolean isRedeemed;
-	
-	private boolean userId;
-	
+	private static final long serialVersionUID = 1L;
+
+	private long promotionId;
+
+	private long couponId;
+
+	private long userId;
+
 	private String couponCode;
+
+	private boolean brandConfirmation;
+
 }
