@@ -1,13 +1,18 @@
 package com.stanzaliving.core.fileutil.service.impl;
 
+import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.stanzaliving.core.amazons3.service.S3DownloadService;
+import com.stanzaliving.core.amazons3.service.S3UploadService;
 import com.stanzaliving.core.amazons3.util.S3Util;
+import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.fileutil.dto.CSVResponse;
 import com.stanzaliving.core.fileutil.dto.S3UploadResponse;
 import com.stanzaliving.core.fileutil.service.CSVFileUtilService;
 import com.stanzaliving.core.fileutil.util.CVSUtil;
+import com.stanzaliving.core.fileutil.util.ExcelUtil;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -15,13 +20,14 @@ import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import com.amazonaws.services.s3.AmazonS3;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
-import com.stanzaliving.core.amazons3.service.*;
-import com.stanzaliving.core.base.exception.StanzaException;
 
 import static com.stanzaliving.core.fileutil.util.Constants.CSV_CONTENT_TYPE;
 
@@ -99,18 +105,14 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         int totalRecords = 0;
         List<String> csvHeader = new ArrayList<>();
         List<Map<String, String>> csvData = new ArrayList<>();
-        if (CVSUtil.hasCSVFormat(contentType)) {
-            try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
-                 CSVParser csvParser = new CSVParser(fileReader,
-                         CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())) {
+        if (CVSUtil.hasCSVFormat(contentType) || ExcelUtil.hasCSVFormat(contentType)) {
+            try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8)); CSVParser csvParser = new CSVParser(fileReader, CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())) {
                 csvHeader = csvParser.getHeaderNames();
                 Iterable<CSVRecord> csvRecords = csvParser.getRecords();
                 totalRecords = ((Collection<?>) csvRecords).size();
                 for (CSVRecord csvRecord : csvRecords) {
                     List<String> finalFilterHeader = filterHeader.isEmpty() ? csvHeader : filterHeader;
-                    Map<String, String> data = csvRecord.toMap().entrySet()
-                            .stream().filter(row -> finalFilterHeader.contains(row.getKey()))
-                            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                    Map<String, String> data = csvRecord.toMap().entrySet().stream().filter(row -> finalFilterHeader.contains(row.getKey())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
                     csvData.add(data);
                 }
 
@@ -118,12 +120,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
                 throw new StanzaException("fail to parse CSV file: " + e.getMessage());
             }
         }
-        return CSVResponse.builder()
-                .header(csvHeader)
-                .filterHeader(filterHeader)
-                .totalRecord(totalRecords)
-                .totalRecordMatched(csvData.size())
-                .data(csvData).build();
+        return CSVResponse.builder().header(csvHeader).filterHeader(filterHeader).totalRecord(totalRecords).totalRecordMatched(csvData.size()).data(csvData).build();
     }
 
     /**
@@ -209,11 +206,8 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
     @Override
     public S3UploadResponse upload(String bucket, String filePath, String fileName, InputStream inputStream, String contentType, AmazonS3 s3Client, boolean isPublic) {
         log.info("FILE-UTILS::Uploading file {} in filepath {} in bucket {}", fileName, filePath, bucket);
-        if (CVSUtil.hasCSVFormat(contentType)) {
-            return S3UploadResponse.builder()
-                    .bucketName(bucket)
-                    .filePath(s3UploadService.upload(bucket, filePath, inputStream, contentType, s3Client, isPublic))
-                    .build();
+        if (CVSUtil.hasCSVFormat(contentType) || ExcelUtil.hasCSVFormat(contentType)) {
+            return S3UploadResponse.builder().bucketName(bucket).filePath(s3UploadService.upload(bucket, filePath, inputStream, contentType, s3Client, isPublic)).build();
         }
         log.error("FILE-UTILS::Error in uploading file {} with filepath {} in bucket {}", fileName, filePath, bucket);
         throw new StanzaException("Failed to store file " + fileName + " due to mismatch in format");
@@ -230,14 +224,14 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
      */
     @Override
     public String getPreSignedURL(String bucket, String filePath, int durationInSeconds, AmazonS3 s3Client) {
-        log.info("FILE-UTILS::Getting pre-signed url for filePath {} in bucket {} for duration {}",
-                filePath, bucket, durationInSeconds);
+        log.info("FILE-UTILS::Getting pre-signed url for filePath {} in bucket {} for duration {}", filePath, bucket, durationInSeconds);
         return s3DownloadService.getPreSignedUrl(bucket, filePath, durationInSeconds, s3Client);
     }
 
     /**
      * Download file from s3 bucket
-     * @param bucket bucket name
+     *
+     * @param bucket   bucket name
      * @param filePath file path
      * @param s3Client s3 client configuration
      * @return
