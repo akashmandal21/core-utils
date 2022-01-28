@@ -31,4 +31,6 @@ public class LatestHkBeatPlanResponse {
     private boolean callBack;
     private String microClusterUuid;
     private List<LatestHkBeatPlanDaysResponseDto> hkDetails;
+    private String approvalStatusName;
+    private List<String> pendingApprovers;
 }
