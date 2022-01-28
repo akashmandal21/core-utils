@@ -42,6 +42,8 @@ public class ShiftDto extends AbstractDto {
 
     private List<TagResponseDto> tags;
 
+    private boolean allowToEdit;
+
     private ShiftCategoryDto category;
 
 }
