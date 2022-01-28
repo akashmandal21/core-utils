@@ -21,7 +21,7 @@ public class OnGoingContestFilterDto {
     // Can take values "OVERALL","PAST","CLUSTER"
     private String filterName;
 
-    private boolean includePastContests;
+    private boolean includePastContests = false;
 
     private String clusterUuid;
 

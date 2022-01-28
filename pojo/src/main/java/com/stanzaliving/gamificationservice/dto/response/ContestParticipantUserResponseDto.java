@@ -17,24 +17,41 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ContestParticipantUserResponseDto {
+public class ContestParticipantUserResponseDto implements Comparable<ContestParticipantUserResponseDto>{
 
-    private String profileUuid;
+    @JsonProperty("user_badges_list")
+    private List<UserBadgesResponseDto> badgesList;
 
-    private String contestUuid;
+    @JsonProperty("over_all_score_in_percentage")
+    private String overallScore;
 
-    private Map<String, String> badgesList;
-
-    private int myPoints;
-
+    @JsonProperty("rank")
     private int myRank;
 
+    @JsonProperty("rank_status")
     private String myRankStatus;
 
+    @JsonProperty("user_name")
     private String userName;
 
+    @JsonProperty("user_profile_image")
     private String userImage;
 
+    @JsonProperty("user_city")
     private String userCluster;
+
+    @JsonProperty("user_points")
+    private int userPoints;
+
+    @JsonProperty("user_progress")
+    private String userProgress;
+
+    @JsonProperty("user_card_bg_color")
+    private String userCardBgColor;
+
+    @Override
+    public int compareTo(ContestParticipantUserResponseDto e) {
+        return Integer.valueOf(this.userPoints).compareTo(Integer.valueOf(e.userPoints));
+    }
 
 }

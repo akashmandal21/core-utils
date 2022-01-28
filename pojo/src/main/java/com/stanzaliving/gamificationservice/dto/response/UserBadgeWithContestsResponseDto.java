@@ -1,5 +1,7 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -13,13 +15,22 @@ import java.util.Map;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class UserBadgeWithContestsResponseDto {
 
-    private String profileUuid;
-    private String badgeUuid;
+    @JsonProperty("badge_lable")
+    private String badgeLabel;
+    @JsonProperty("badge_name")
     private String badgeName;
-    private int totalPoints;
-    private int percentageOfTaskCompleted;
+    @JsonProperty("badge_points")
+    private int badgePoints;
+    @JsonProperty("badge_progress")
+    private int badgeProgress;
+    @JsonProperty("badge_total")
+    private int badgeTotal;
+    @JsonProperty("badges_earned")
+    private int badgesEarned;
+    @JsonProperty("badge_list")
     private List<UserBadgeInContestResponseDto> listOfContestsWithBadge;
 
 }
