@@ -488,6 +488,6 @@ public class GenericTaskControllerApi {
         ParameterizedTypeReference<ResponseDto<GenericTaskResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<GenericTaskResponseDto>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 }
