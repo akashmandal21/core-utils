@@ -77,6 +77,7 @@ public class GenericTaskControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+
     /* Method to get teh Task category by UUID */
 
     public ResponseDto<TaskCategoryResponseDto> getTaskCategoryByUuid(String taskCategoryUuid) {
@@ -440,6 +441,29 @@ public class GenericTaskControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<ShiftDto>> returnType = new ParameterizedTypeReference<ResponseDto<ShiftDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<GenericTaskResponseDto> updateTaskStatus(String taskUuid,String statusUuid){
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/updateStatus").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("taskUuid",taskUuid);
+        queryParams.add("statusUuid",statusUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<GenericTaskResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<GenericTaskResponseDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
