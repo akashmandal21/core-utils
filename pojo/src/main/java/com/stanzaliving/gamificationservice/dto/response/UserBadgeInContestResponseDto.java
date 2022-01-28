@@ -1,5 +1,7 @@
 package com.stanzaliving.gamificationservice.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.gamificationservice.enums.BadgeType;
 import com.stanzaliving.gamificationservice.enums.Type;
 import lombok.*;
@@ -16,18 +18,15 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class UserBadgeInContestResponseDto {
-
-    private String profileUuid;
-
-    private String contestUuid;
-
-    private String badgeUuid;
-
+    @JsonProperty("contest_name")
     private String contestName;
-
+    @JsonProperty("badge_points")
     private int badgePointsInContest;
-
-    private Date lastActivityDate;
+    @JsonProperty("badge_image")
+    private String image;
+    @JsonProperty("earned_on")
+    private String lastActivityDate;
 
 }

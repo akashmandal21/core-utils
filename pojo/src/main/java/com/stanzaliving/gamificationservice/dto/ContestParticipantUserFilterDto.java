@@ -21,7 +21,7 @@ public class ContestParticipantUserFilterDto {
     // Can take values "OVERALL","CLUSTER"
     private String filterName;
 
-    private String clusterUuid;
+    private String clusterId;
 
     private List<String> locations;
 

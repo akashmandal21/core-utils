@@ -15,9 +15,9 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class UsersProfileHistoryFilterValuesResponseDto {
 
-    private Map<String, String> contestList;
+    private List<FilterResponseDto> contestList;
 
-    private Map<String, String> activityList;
+    private List<FilterResponseDto> activityList;
 
     private String quickFilter;
 

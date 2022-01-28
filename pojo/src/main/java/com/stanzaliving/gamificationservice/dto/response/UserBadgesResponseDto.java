@@ -5,12 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-
 @Getter
 @Setter
 @ToString(callSuper = true)
@@ -18,10 +12,15 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class UserProfileHistoryResponseDto {
-    @JsonProperty("month_name")
-    private String monthName;
-    @JsonProperty("month_data")
-    private List<UserActivitiesResponseDto> monthDataList;
+public class UserBadgesResponseDto {
+
+    @JsonProperty("badge_score")
+    private String badgeScore;
+
+    @JsonProperty("badge_name")
+    private String badgeName;
+
+    @JsonProperty("badgeImage")
+    private String badgeImage;
 
 }
