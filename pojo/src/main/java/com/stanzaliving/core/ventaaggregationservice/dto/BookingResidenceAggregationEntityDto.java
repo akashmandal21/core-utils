@@ -54,6 +54,7 @@ public class BookingResidenceAggregationEntityDto {
     @Builder.Default
     private Float blockedBeds=0F;
 
+    private boolean testHouse;
 }
 
 
