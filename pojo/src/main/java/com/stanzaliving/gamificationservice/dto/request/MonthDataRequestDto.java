@@ -27,6 +27,6 @@ public class MonthDataRequestDto {
 
     private String time;
 
-    @NotBlank(message = "ContestId is Mandatory.")
-    private String contestUuid;
+    @NotBlank(message = "userProfileId is Mandatory.")
+    private String userProfileUuid;
 }
