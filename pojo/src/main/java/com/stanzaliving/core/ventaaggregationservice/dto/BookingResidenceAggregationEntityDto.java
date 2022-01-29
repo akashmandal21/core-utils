@@ -28,14 +28,14 @@ public class BookingResidenceAggregationEntityDto {
 
     private String entity;
 
-    private Long totalBeds;
-
-    private Long totalRooms;
-
-    private Long totalApartments;
-
     private List<String> residenceUuids;
 
+    @Builder.Default
+    private Long totalBeds=0L;
+    @Builder.Default
+    private Long totalRooms=0L;
+    @Builder.Default
+    private Long totalApartments=0L;
 
     @Builder.Default
     private Integer liveRooms=0;
