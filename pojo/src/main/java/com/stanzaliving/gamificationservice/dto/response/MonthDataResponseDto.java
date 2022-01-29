@@ -26,7 +26,7 @@ public class MonthDataResponseDto {
     private String subTitle;
     private String points;
     private String time;
-    private String contestUuid;
+    private String userProfileUuid;
 
 
 }

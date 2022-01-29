@@ -30,6 +30,6 @@ public class UpdateMonthDataRequestDto {
 
     private String time;
 
-    private String contestUuid;
+    private String userProfileUuid;
 
 }
