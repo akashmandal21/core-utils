@@ -19,5 +19,6 @@ public class LeftOverAreaRoomResponseDto {
     private String areaTagName;
     private String areaTagUuid;
     private List<RoomDetailsLeftOverResponseDto> roomDetails;
+    private List<CommonAreaLeftOverResponseDto> commonAreas;
 
 }
