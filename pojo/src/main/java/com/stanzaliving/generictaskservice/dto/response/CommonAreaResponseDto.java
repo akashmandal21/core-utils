@@ -19,5 +19,6 @@ import java.time.LocalTime;
 public class CommonAreaResponseDto {
     private String commonAreaUuid;
     private String commonAreaName;
+    private int sizeInSqFt;
     private LocalTime duration;
 }
