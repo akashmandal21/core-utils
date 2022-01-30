@@ -25,6 +25,6 @@ public class PDFResponseDto {
 
     private List<String> rooms;
 
-    private List<String> commonAreaName;
+    private List<String> commonAreaNames;
 
 }
