@@ -15,7 +15,7 @@ public class CouponUsersRequestDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
 
-	private long promotionId;
+	private long DealId;
 
 	private long couponId;
 

@@ -1,6 +1,5 @@
 package com.stanzaliving.community.brand.request;
 
-import com.stanzaliving.community.brand.request.BrandPromotionsRequestDto.BrandPromotionsRequestDtoBuilder;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PromotionCouponsRequestDto extends AbstractDto {
+public class DealCouponsRequestDto extends AbstractDto {
 	
 	/**
 	 * 
@@ -21,7 +20,7 @@ public class PromotionCouponsRequestDto extends AbstractDto {
 
 	private long coupon_Id;
 	
-	private long promotionId;
+	private long dealId;
 	
 	private String couponCode;
 }

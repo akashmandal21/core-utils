@@ -1,6 +1,5 @@
 package com.stanzaliving.community.brand.request;
 
-import com.stanzaliving.community.brand.request.BrandPromotionsRequestDto.BrandPromotionsRequestDtoBuilder;
 import com.stanzaliving.community.enums.UserList;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
@@ -13,15 +12,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BrandPromotionLocationMappingRequestDto extends AbstractDto{
-	
+public class BrandDealLocationMappingRequestDto extends AbstractDto {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String promotionUuid;
+	private String dealUuid;
 	private String location;
 	private String locationUuid;
-	
 
 }

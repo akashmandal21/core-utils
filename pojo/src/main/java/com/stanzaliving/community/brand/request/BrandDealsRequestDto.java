@@ -13,14 +13,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BrandPromotionsRequestDto extends AbstractDto{
+public class BrandDealsRequestDto extends AbstractDto{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private long promotionId;
+	private long DealId;
 	private String brandTitle;
 	private String brandLogo;
 	private String backgroundImage;
