@@ -1,6 +1,7 @@
 package com.stanzaliving.gamificationservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.stanzaliving.gamificationservice.dto.response.TeamsResponseDto;
 import com.stanzaliving.gamificationservice.enums.ContestStatus;
 import lombok.*;
 
@@ -65,6 +66,6 @@ public class ContestDto {
 
     private String rejectDescription;
 
-    private List<String> teams;
+    private List<TeamsResponseDto> teams;
 
 }
