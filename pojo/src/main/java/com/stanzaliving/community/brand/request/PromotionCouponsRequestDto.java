@@ -12,17 +12,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PromotionsCouponsRequestDto extends AbstractDto {
+public class PromotionCouponsRequestDto extends AbstractDto {
 	
-	private long brandId;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private long coupon_Id;
 	
 	private long promotionId;
-	
-	private boolean isUserSpecific;
-
-	private boolean isRedeemed;
-	
-	private boolean userId;
 	
 	private String couponCode;
 }
