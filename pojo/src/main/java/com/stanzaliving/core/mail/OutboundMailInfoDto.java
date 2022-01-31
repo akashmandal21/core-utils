@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class InboundMailInfoDto {
+public class OutboundMailInfoDto {
 
-    private String from;
+    private String to;
 
     private String body;
 
