@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class InboundMailInfoDto {
 
+    private String to;
+
     private String from;
 
     private String body;

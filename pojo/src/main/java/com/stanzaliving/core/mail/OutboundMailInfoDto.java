@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class OutboundMailInfoDto {
 
+    private String from;
+
     private String to;
 
     private String body;
