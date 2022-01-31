@@ -5,14 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Set;
-
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PackagedServiceResponseDto {
+public class PackagedServiceResponseDto implements Serializable {
     private Set<Object> serviceSet;
     private Double feePerMonth;
     private String serviceMixUuid;
