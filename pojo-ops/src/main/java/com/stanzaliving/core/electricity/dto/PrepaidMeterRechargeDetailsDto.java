@@ -21,4 +21,6 @@ public class PrepaidMeterRechargeDetailsDto {
 	private Double unitRate;
 	private Double amountAfterLastRecharge;
 	
+	private PrepaidMeterRechargeHistoryDto prepaidMeterLastRechargeDto;
+	
 }
