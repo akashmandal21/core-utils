@@ -19,9 +19,9 @@ public class CouponUsersRequestDto extends AbstractDto {
 
 	private long couponId;
 
-	private long userId;
+	private long userUuid;
 
-	private String couponCode;
+	private Boolean isRedeemed;
 
 	private boolean brandConfirmation;
 
