@@ -322,5 +322,9 @@ public enum BookingStatus {
     }
 
 
-
+    public static List<BookingStatus> bookingEligibleForContractTerminationStatus() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED);
+        return bookingStatus;
+    }
 }
