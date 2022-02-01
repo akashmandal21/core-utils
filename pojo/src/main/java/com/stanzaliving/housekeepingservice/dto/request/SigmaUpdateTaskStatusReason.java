@@ -13,7 +13,7 @@ import java.util.List;
 public class SigmaUpdateTaskStatusReason {
 
     private String taskStatusReason;
-
+    private String taskUuid;
     private String taskExecutionStatusUuid;
     private List<String> taskExecutionUuids;
 }

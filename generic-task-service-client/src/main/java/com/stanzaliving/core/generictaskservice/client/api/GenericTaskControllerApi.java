@@ -468,6 +468,29 @@ public class GenericTaskControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+    public ResponseDto<Void> updateRoomReasons(String taskUuid,String reason, String rooms){
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/task/updateRoomReasons").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("taskUuid",taskUuid);
+        queryParams.add("rooms",reason);
+        queryParams.add("reason",rooms);
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
     public ResponseDto<GenericTaskResponseDto> createSigmaAppGenericTaskDto(SigmaGenericTaskRequestDto task) {
         Object postBody = task;
 
