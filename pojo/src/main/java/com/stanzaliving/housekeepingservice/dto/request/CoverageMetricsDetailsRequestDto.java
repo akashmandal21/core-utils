@@ -22,6 +22,6 @@ public class CoverageMetricsDetailsRequestDto {
     private LocalDate startDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
+    private String beatPlanUUid;
     private String taskSubCategoryUuid;
-    private String residenceUuid;
 }
