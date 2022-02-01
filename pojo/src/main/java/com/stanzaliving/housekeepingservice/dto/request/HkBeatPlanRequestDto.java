@@ -33,5 +33,7 @@ public class HkBeatPlanRequestDto {
 
 	private boolean callBack;
 
+	private boolean status;
+
 	private List<HkBeatPersonRequestDto> hkPersons;
 }
