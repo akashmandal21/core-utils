@@ -245,18 +245,18 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
     @Override
     public CSVResponse readCSVFile(String contentType, InputStream inputStream, List<String> filterHeader, String... header) throws IOException {
-        log.info("FILE-UTILS::Reading CSV file anf filter according to headers {}", filterHeader);
+        log.info("FILE-UTILS::Reading CSV file and filter according to headers {}", filterHeader);
 
         int totalRecords = 0;
         int count = 1;
         List<String> csvHeader = new ArrayList<>();
         List<Map<String, String>> csvData = new ArrayList<>();
 
-        if (CVSUtil.hasCSVFormat(contentType)) {
+        if (CVSUtil.hasCSVFormat(contentType) || ExcelUtil.hasExcelFormat(contentType)) {
             try {
                 BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
 
-                while (!fileReader.readLine().equals(String.join(",", header))) {
+                while (!fileReader.readLine().trim().equals(String.join(",", header))) {
                     log.info("Skipping line number {}", count);
                     count++;
                 }
