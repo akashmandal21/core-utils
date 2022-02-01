@@ -1,9 +1,13 @@
 package com.stanzaliving.core.fileutil.service.impl;
 
+import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.stanzaliving.core.amazons3.service.S3DownloadService;
+import com.stanzaliving.core.amazons3.service.S3UploadService;
 import com.stanzaliving.core.amazons3.util.S3Util;
+import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.fileutil.dto.CSVResponse;
 import com.stanzaliving.core.fileutil.dto.S3UploadResponse;
 import com.stanzaliving.core.fileutil.service.CSVFileUtilService;
@@ -15,13 +19,14 @@ import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import com.amazonaws.services.s3.AmazonS3;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
-import com.stanzaliving.core.amazons3.service.*;
-import com.stanzaliving.core.base.exception.StanzaException;
 
 import static com.stanzaliving.core.fileutil.util.Constants.CSV_CONTENT_TYPE;
 
@@ -248,4 +253,58 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         S3ObjectInputStream stream = (S3ObjectInputStream) retrieveFile(bucket, filePath, s3Client);
         return stream;
     }
+
+    @Override
+    public CSVResponse readCSVFile(String contentType, InputStream inputStream, List<String> filterHeader, String... header) throws IOException {
+        log.info("FILE-UTILS::Reading CSV file anf filter according to headers {}", filterHeader);
+
+        int totalRecords = 0;
+        int count = 1;
+        List<String> csvHeader = new ArrayList<>();
+        List<Map<String, String>> csvData = new ArrayList<>();
+
+        if (CVSUtil.hasCSVFormat(contentType)) {
+            try {
+                BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+
+                while (!fileReader.readLine().equals(String.join(",", header))) {
+                    log.info("Skipping line number {}", count);
+                    count++;
+                }
+                CSVParser csvParser = new CSVParser(fileReader, CSVFormat.DEFAULT.withHeader(header).withIgnoreHeaderCase().withTrim());
+
+                csvHeader = csvParser.getHeaderNames();
+                Iterable<CSVRecord> csvRecords = csvParser.getRecords();
+
+                totalRecords = ((Collection<?>) csvRecords).size();
+                for (CSVRecord csvRecord : csvRecords) {
+                    List<String> finalFilterHeader = filterHeader.isEmpty() ? csvHeader : filterHeader;
+                    Map<String, String> data = csvRecord.toMap().entrySet()
+                            .stream().filter(row -> finalFilterHeader.contains(row.getKey()))
+                            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                    csvData.add(data);
+                }
+
+            } catch (IOException e) {
+                throw new StanzaException("fail to parse CSV file: " + e.getMessage());
+            }
+        }
+        return CSVResponse.builder()
+                .header(csvHeader)
+                .filterHeader(filterHeader)
+                .totalRecord(totalRecords)
+                .totalRecordMatched(csvData.size())
+                .data(csvData).build();
+    }
+
+    @Override
+    public CSVResponse readCSVFile(MultipartFile file, String... header) {
+        log.info("FILE-UTILS::Reading CSV file from uploaded multipart");
+        try {
+            return readCSVFile(file.getContentType(), file.getInputStream(), new ArrayList<>(), header);
+        } catch (IOException e) {
+            throw new StanzaException("FILE-UTILS::Error in reading multipart file");
+        }
+    }
+
 }
