@@ -1,5 +1,6 @@
 package com.stanzaliving.boq_service.dto;
 
+import com.stanzaliving.boq_service.enums.BoqLabel;
 import com.stanzaliving.core.boq_service.enums.BoqType;
 import com.stanzaliving.item_master.enums.ItemType;
 import com.stanzaliving.transformations.enums.BoqStatus;
@@ -31,6 +32,8 @@ public class GlobalBoqListingRequestFilterDto {
     private List<LabelValueDto<BoqType>> boqType;
 
     private List<LabelValueDto<BoqStatus>> boqStatus;
+
+    private List<LabelValueDto<BoqLabel>> boqLabel; //todo: to confirm (List or String)
 
     private List<LabelValueDto<ItemType>> boqCapexType;
 

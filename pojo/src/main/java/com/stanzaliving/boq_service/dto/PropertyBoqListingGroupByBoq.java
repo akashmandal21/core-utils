@@ -1,5 +1,6 @@
 package com.stanzaliving.boq_service.dto;
 
+import com.stanzaliving.boq_service.enums.BoqLabel;
 import com.stanzaliving.core.boq_service.enums.BoqType;
 import com.stanzaliving.transformations.enums.BoqStatus;
 import lombok.AllArgsConstructor;
@@ -44,6 +45,10 @@ public class PropertyBoqListingGroupByBoq {
     private String boqStatus;
 
     private BoqStatus boqStatusValue;
+
+    private String boqLabel;
+
+    private BoqLabel boqLabelValue;
 
     private String textColor;
 
