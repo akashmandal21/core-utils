@@ -16,4 +16,6 @@ import java.util.Map;
 public class HKSlotsAndShiftsDto {
 
     private Map<String, List<ShiftDetailsResponse>> hkSlotsAndShiftsMap;
+
+    private Map<String , String> pseudoIdNameValues;
 }
