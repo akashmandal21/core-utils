@@ -43,7 +43,7 @@ public class BrandDealsRequestDto extends AbstractDto {
 	
 	private String csvUrl;
 	
-	private String locationUuids;
+//	private String locationUuids;
 	
 	private String genericCouponCode;
 	
