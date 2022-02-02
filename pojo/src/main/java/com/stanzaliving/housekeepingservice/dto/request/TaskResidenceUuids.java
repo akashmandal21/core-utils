@@ -15,4 +15,6 @@ public class TaskResidenceUuids {
 
     private String residenceUuids;
 
+    private String beatPersonUuid;
+
 }
