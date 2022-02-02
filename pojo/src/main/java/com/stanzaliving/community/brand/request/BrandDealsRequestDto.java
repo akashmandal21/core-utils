@@ -2,6 +2,7 @@ package com.stanzaliving.community.brand.request;
 
 import com.stanzaliving.community.enums.EventStatus;
 import com.stanzaliving.community.enums.UserList;
+import com.stanzaliving.community.request.UserListDTO;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
@@ -37,6 +38,8 @@ public class BrandDealsRequestDto extends AbstractDto {
 	
 	@Default
 	private UserList userList = UserList.ALL;
+	
+	private UserListDTO userListDto;
 	
 	private String csvUrl;
 	
