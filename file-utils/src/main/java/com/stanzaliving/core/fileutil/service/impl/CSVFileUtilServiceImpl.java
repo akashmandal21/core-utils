@@ -23,10 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.stanzaliving.core.fileutil.util.Constants.CSV_CONTENT_TYPE;
@@ -256,7 +253,9 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
             try {
                 BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
 
-                while (!fileReader.readLine().replaceAll("\\s", "").equals(String.join(",", header))) {
+                List<String> headers = Arrays.stream(header).collect(Collectors.toList());
+
+                while (!Arrays.asList(fileReader.readLine().trim().split(",")).containsAll(headers)) {
                     log.info("Skipping line number {}", count);
                     count++;
                 }
