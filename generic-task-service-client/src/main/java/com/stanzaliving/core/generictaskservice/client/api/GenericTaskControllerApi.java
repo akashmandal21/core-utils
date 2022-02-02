@@ -477,8 +477,8 @@ public class GenericTaskControllerApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("taskUuid",taskUuid);
-        queryParams.add("rooms",reason);
-        queryParams.add("reason",rooms);
+        queryParams.add("reason",reason);
+        queryParams.add("rooms",rooms);
         final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {
