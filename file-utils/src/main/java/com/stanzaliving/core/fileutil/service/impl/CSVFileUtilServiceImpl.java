@@ -256,7 +256,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
             try {
                 BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
 
-                while (!fileReader.readLine().trim().equals(String.join(",", header))) {
+                while (!fileReader.readLine().replaceAll("\\s", "").equals(String.join(",", header))) {
                     log.info("Skipping line number {}", count);
                     count++;
                 }
@@ -266,16 +266,16 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
                 Iterable<CSVRecord> csvRecords = csvParser.getRecords();
 
                 totalRecords = ((Collection<?>) csvRecords).size();
+                List<String> finalFilterHeader = filterHeader.isEmpty() ? csvHeader : filterHeader;
                 for (CSVRecord csvRecord : csvRecords) {
-                    List<String> finalFilterHeader = filterHeader.isEmpty() ? csvHeader : filterHeader;
                     Map<String, String> data = csvRecord.toMap().entrySet()
-                            .stream().filter(row -> finalFilterHeader.contains(row.getKey()))
+                            .stream().filter(row -> finalFilterHeader.contains(row.getKey().trim()))
                             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
                     csvData.add(data);
                 }
 
             } catch (IOException e) {
-                throw new StanzaException("fail to parse CSV file: " + e.getMessage());
+                throw new StanzaException("fail to parse CSV file: " + e);
             }
         }
         return CSVResponse.builder()
