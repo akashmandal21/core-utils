@@ -84,4 +84,7 @@ public class OnGoingContestDto {
     @JsonProperty("contest_message")
     private String contestMessage;
 
+    @JsonProperty("activities")
+    private List<String> activityList;
+
 }

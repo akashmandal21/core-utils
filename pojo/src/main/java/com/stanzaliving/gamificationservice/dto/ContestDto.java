@@ -68,4 +68,6 @@ public class ContestDto {
 
     private List<TeamsResponseDto> teams;
 
+    private List<String> activityList;
+
 }
