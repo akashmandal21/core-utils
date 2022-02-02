@@ -26,6 +26,4 @@ public class HKBeatPersonTaskReassignDto {
 
     private String microClusterUuid;
 
-    private String toPersonName;
-
 }
