@@ -255,7 +255,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
                 List<String> headers = Arrays.stream(header).collect(Collectors.toList());
 
-                while (!Arrays.asList(fileReader.readLine().trim().split(",")).stream().map(String::trim).collect(Collectors.toList()).containsAll(headers)) {
+                while (!Arrays.stream(fileReader.readLine().trim().split(",")).map(String::trim).collect(Collectors.toList()).containsAll(headers)) {
                     log.info("Skipping line number {}", count);
                     count++;
                 }
