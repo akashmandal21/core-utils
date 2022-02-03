@@ -295,4 +295,9 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         }
     }
 
+    @Override
+    public CSVResponse readCSVFile(String contentType, InputStream inputStream, String... header) throws IOException {
+        log.info("FILE-UTILS::Reading CSV file for input stream");
+        return readCSVFile(contentType, inputStream, new ArrayList<>(), header);
+    }
 }

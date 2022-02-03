@@ -28,4 +28,6 @@ AmazonS3 s3Client, boolean isPublic);
     CSVResponse readCSVFile(String contentType, InputStream inputStream, List<String> filterHeader, String... header) throws IOException;
 
     CSVResponse readCSVFile(MultipartFile file, String... header);
+
+    CSVResponse readCSVFile(String contentType, InputStream inputStream,String... header) throws IOException;
 }
