@@ -39,7 +39,7 @@ public class BrandDealsRequestDto extends AbstractDto {
 	@Default
 	private UserList userList = UserList.ALL;
 	
-	private UserListDTO userListDto;
+//	private UserListDTO userListDto;
 	
 //	private String csvUrl;
 	
