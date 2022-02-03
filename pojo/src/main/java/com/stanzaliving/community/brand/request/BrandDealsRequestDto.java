@@ -39,9 +39,9 @@ public class BrandDealsRequestDto extends AbstractDto {
 	@Default
 	private UserList userList = UserList.ALL;
 	
-	private UserListDTO userListDto;
+//	private UserListDTO userListDto;
 	
-	private String csvUrl;
+//	private String csvUrl;
 	
 //	private String locationUuids;
 	
@@ -52,4 +52,6 @@ public class BrandDealsRequestDto extends AbstractDto {
 	private String startDate;
 	
 	private String endDate;
+	
+	private String couponCodesCsvUrl;
 }

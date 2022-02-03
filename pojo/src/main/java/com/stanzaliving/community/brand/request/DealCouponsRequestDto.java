@@ -13,9 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DealCouponsRequestDto extends AbstractDto {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private long coupon_Id;
