@@ -25,5 +25,5 @@ public class EndUserBrandDealsResponseDto extends AbstractDto {
 	
 	private AppPage appPage;
 	
-	private List<BrandDealsRequestDto> brandDealResponseDtos;
+	private List<BrandDealsResponseDto> brandDealResponseDtos;
 }
