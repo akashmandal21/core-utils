@@ -51,4 +51,7 @@ public class TicketRequestDto {
     @Builder.Default
     private String mailChainMessageId = StringUtils.EMPTY;
 
+    @Builder.Default
+    private String mailChainSubject = StringUtils.EMPTY;
+
 }
