@@ -7,4 +7,5 @@ public class CommunityConstants {
 
 	public static String LIKE_PREFIX_FEEDPOST = "%\"";
 	public static String LIKE_POSTFIX_FEEDPOST = "\"%";
+	public static String UNDERSCORE = "_";
 }
