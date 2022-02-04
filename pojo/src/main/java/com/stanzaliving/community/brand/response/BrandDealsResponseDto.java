@@ -43,4 +43,6 @@ public class BrandDealsResponseDto extends AbstractDto{
 	
 	private String endDate;
 	
+	private String userCouponCode;
+	
 }
