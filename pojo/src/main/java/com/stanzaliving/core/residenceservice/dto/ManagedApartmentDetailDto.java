@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -22,5 +23,7 @@ public class ManagedApartmentDetailDto {
     private float totalRooms = 0.0F;
     private float blockedRooms = 0.0F;
     private String residenceCode;
+    private Date availableFrom;
+
 
 }
