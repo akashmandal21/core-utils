@@ -1,16 +1,13 @@
 package com.stanzaliving.community.brand.response;
 
-import com.stanzaliving.community.brand.request.BrandDealsRequestDto;
-import com.stanzaliving.community.brand.request.BrandDealsRequestDto.BrandDealsRequestDtoBuilder;
 import com.stanzaliving.community.enums.EventStatus;
-import com.stanzaliving.community.enums.UserList;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Builder.Default;
 
 @Builder
 @Data
