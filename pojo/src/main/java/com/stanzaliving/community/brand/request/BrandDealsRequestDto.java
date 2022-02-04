@@ -1,5 +1,7 @@
 package com.stanzaliving.community.brand.request;
 
+import java.util.Date;
+
 import com.stanzaliving.community.enums.EventStatus;
 import com.stanzaliving.community.enums.UserList;
 import com.stanzaliving.community.request.UserListDTO;
@@ -49,9 +51,9 @@ public class BrandDealsRequestDto extends AbstractDto {
 	
 	private String redirectionUrl;
 	
-	private String startDate;
+	private Date startDate;
 	
-	private String endDate;
+	private Date endDate;
 	
 	private String couponCodesCsvUrl;
 }

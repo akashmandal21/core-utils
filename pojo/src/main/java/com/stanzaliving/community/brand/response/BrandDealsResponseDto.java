@@ -1,5 +1,7 @@
 package com.stanzaliving.community.brand.response;
 
+import java.util.Date;
+
 import com.stanzaliving.community.enums.EventStatus;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
@@ -36,9 +38,9 @@ public class BrandDealsResponseDto extends AbstractDto {
 
 	private String redirectionUrl;
 
-	private String startDate;
+	private Date startDate;
 
-	private String endDate;
+	private Date endDate;
 
 	private String userCouponCode;
 
