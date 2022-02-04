@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BrandDealsResponseDto extends AbstractDto {
+public class EndUserBrandDealsResponseDto extends AbstractDto {
 	
 	private static final long serialVersionUID = 1L;
 
