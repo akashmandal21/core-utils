@@ -1,18 +1,18 @@
 package com.stanzaliving.core.opscalculator.dto.summary;
 
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
+@AllArgsConstructor
 public class MonthlyUnderwrittenViewSummaryDto {
     private List<MonthUnderwrittenSummaryDto> monthWiseUnderwrittenSummaryDtoList;
     private DeviationPercentSummaryDto deviationPercent;
