@@ -23,10 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.stanzaliving.core.fileutil.util.Constants.CSV_CONTENT_TYPE;
@@ -241,5 +238,66 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         log.info("FILE-UTILS::Download file in filepath {} in bucket {}", filePath, bucket);
         S3ObjectInputStream stream = (S3ObjectInputStream) retrieveFile(bucket, filePath, s3Client);
         return stream;
+    }
+
+    @Override
+    public CSVResponse readCSVFile(String contentType, InputStream inputStream, List<String> filterHeader, String... header) throws IOException {
+        log.info("FILE-UTILS::Reading CSV file and filter according to headers {}", filterHeader);
+
+        int totalRecords = 0;
+        int count = 1;
+        List<String> csvHeader = new ArrayList<>();
+        List<Map<String, String>> csvData = new ArrayList<>();
+
+        if (CVSUtil.hasCSVFormat(contentType) || ExcelUtil.hasExcelFormat(contentType)) {
+            try {
+                BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+
+                List<String> headers = Arrays.stream(header).collect(Collectors.toList());
+
+                while (!Arrays.stream(fileReader.readLine().trim().split(",")).map(String::trim).collect(Collectors.toList()).containsAll(headers)) {
+                    log.info("Skipping line number {}", count);
+                    count++;
+                }
+                CSVParser csvParser = new CSVParser(fileReader, CSVFormat.DEFAULT.withHeader(header).withIgnoreHeaderCase().withTrim());
+
+                csvHeader = csvParser.getHeaderNames();
+                Iterable<CSVRecord> csvRecords = csvParser.getRecords();
+
+                totalRecords = ((Collection<?>) csvRecords).size();
+                List<String> finalFilterHeader = filterHeader.isEmpty() ? csvHeader : filterHeader;
+                for (CSVRecord csvRecord : csvRecords) {
+                    Map<String, String> data = csvRecord.toMap().entrySet()
+                            .stream().filter(row -> finalFilterHeader.contains(row.getKey().trim()))
+                            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                    csvData.add(data);
+                }
+
+            } catch (IOException e) {
+                throw new StanzaException("fail to parse CSV file: " + e);
+            }
+        }
+        return CSVResponse.builder()
+                .header(csvHeader)
+                .filterHeader(filterHeader)
+                .totalRecord(totalRecords)
+                .totalRecordMatched(csvData.size())
+                .data(csvData).build();
+    }
+
+    @Override
+    public CSVResponse readCSVFile(MultipartFile file, String... header) {
+        log.info("FILE-UTILS::Reading CSV file from uploaded multipart");
+        try {
+            return readCSVFile(file.getContentType(), file.getInputStream(), new ArrayList<>(), header);
+        } catch (IOException e) {
+            throw new StanzaException("FILE-UTILS::Error in reading multipart file");
+        }
+    }
+
+    @Override
+    public CSVResponse readCSVFile(String contentType, InputStream inputStream, String... header) throws IOException {
+        log.info("FILE-UTILS::Reading CSV file for input stream");
+        return readCSVFile(contentType, inputStream, new ArrayList<>(), header);
     }
 }

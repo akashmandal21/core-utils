@@ -7,6 +7,7 @@ import com.stanzaliving.core.fileutil.dto.S3UploadResponse;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -23,4 +24,10 @@ public interface CSVFileUtilService {
 AmazonS3 s3Client, boolean isPublic);
     String getPreSignedURL(String bucket, String filePath, int durationInSeconds, AmazonS3 s3Client);
     S3ObjectInputStream downloadFileFromS3(String bucket, String filePath, AmazonS3 s3Client);
+
+    CSVResponse readCSVFile(String contentType, InputStream inputStream, List<String> filterHeader, String... header) throws IOException;
+
+    CSVResponse readCSVFile(MultipartFile file, String... header);
+
+    CSVResponse readCSVFile(String contentType, InputStream inputStream,String... header) throws IOException;
 }
