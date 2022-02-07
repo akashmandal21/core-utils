@@ -1,8 +1,6 @@
 package com.stanzaliving.core.electricity.dto;
 
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,22 +10,17 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MoveInDateDto {
+public class PrepaidMeterRechargeDetailsDto {
 
-	private Date moveInDate;
-
-	private String userCode;
+	private Double currentBalance;
+	private Double latestReading;
+	private Double unitRate;
+	private Double amountAfterLastRecharge;
 	
-	private String userId;
+	private PrepaidMeterRechargeHistoryDto prepaidMeterLastRechargeDto;
 	
-	private String roomNumber;
-
-	private Date oldestUserMoveInDate;
-
-	private String oldestUserUserCode;
-
 }

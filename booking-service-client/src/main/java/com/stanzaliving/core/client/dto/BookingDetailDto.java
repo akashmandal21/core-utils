@@ -11,11 +11,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookingDetailDto {
+public class BookingDetailDto implements Serializable {
 
 	private String bookingUuid;
 	private BookingSubStatus bookingSubStatus;

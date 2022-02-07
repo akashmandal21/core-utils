@@ -24,4 +24,7 @@ public class PrepaidMeterCurrentBalanceDto {
 	private String residenceId;
 	private String meterCategoryId;
 	private String roomNo;
+	
+	private Double latestReading;
+	private Double unitRate;
 }
