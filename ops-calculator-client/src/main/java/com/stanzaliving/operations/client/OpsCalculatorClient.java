@@ -6,6 +6,7 @@ import com.stanzaliving.core.opscalculator.constants.UnderwrittenCalculatorCateg
 import com.stanzaliving.core.opscalculator.dto.response.UnderWrittenListingResponseDto;
 import com.stanzaliving.core.opscalculator.dto.summary.CategoryPopUpSummaryDto;
 import com.stanzaliving.core.opscalculator.dto.summary.MonthlyUnderwrittenForecastSummaryDto;
+import com.stanzaliving.core.opscalculator.dto.summary.MonthlyUnderwrittenViewSummaryDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -23,7 +24,7 @@ import java.util.Map;
 @Log4j2
 public class OpsCalculatorClient {
 
-	private StanzaRestClient restClient;
+	private final StanzaRestClient restClient;
 
 	public OpsCalculatorClient(StanzaRestClient stanzaRestClient) {
 		this.restClient = stanzaRestClient;
@@ -105,6 +106,37 @@ public class OpsCalculatorClient {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+
+	public ResponseDto<MonthlyUnderwrittenViewSummaryDto> getMonthlyUnderWritten(String residenceUuid,
+																				  String fromDate,
+																				  String toDate,
+																				  String underWrittenStatus) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/getMonthly").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.put("residenceUuid", Collections.singletonList(residenceUuid));
+		queryParams.put("fromDate", Collections.singletonList(fromDate));
+		queryParams.put("toDate", Collections.singletonList(toDate));
+		queryParams.put("underWrittenStatus", Collections.singletonList(underWrittenStatus));
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<MonthlyUnderwrittenViewSummaryDto>> returnType = new ParameterizedTypeReference<ResponseDto<MonthlyUnderwrittenViewSummaryDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+
+
 
 
 }
