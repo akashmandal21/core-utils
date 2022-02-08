@@ -1,5 +1,6 @@
 package com.stanzaliving.core.residenceservice.dto;
 
+import com.stanzaliving.core.base.common.dto.RoommateFilterDto;
 import com.stanzaliving.core.residenceservice.enums.ResidenceSortBy;
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 import com.stanzaliving.core.utilservice.annotations.DateFormat;
@@ -51,5 +52,9 @@ public class AdvanceRoomSearchDto {
     private String residenceName;
     private List<Integer> bhkType;
     private Boolean inventoryView;
+
+    private RoommateFilterDto roommateFilterDto;
+
+    private List<String> roomUuids;
 
 }
