@@ -722,4 +722,28 @@ public class BookingDataControllerApi {
         return response;
     }
 
+    public ResponseDto<BookingResponseDto> getCurrentBookingDetails(String residentId) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("residentId", residentId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/current-booking-detail/resident/{residentId}")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<BookingResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingResponseDto>>() {
+        };
+        ResponseDto<BookingResponseDto> response  = null;
+        try {
+            log.info("Executing Api for getting booking inventory details with Url {}", path);
+            response =restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching booking inventory details for resident {}, Exception is ",residentId , e);
+        }
+        return response;
+
+    }
+
 }
