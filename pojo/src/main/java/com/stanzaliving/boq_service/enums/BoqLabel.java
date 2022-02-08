@@ -10,11 +10,12 @@ import java.util.stream.Collectors;
 @Getter
 @AllArgsConstructor
 public enum BoqLabel {
-    CAPEX("Capex"),
-    OPEX("Opex"),
-    NA("NA"); // not to be used while labeling. (only used to tag legacy boqs)
+    CAPEX("Capex", "expense1"),
+    OPEX("Opex", "expense2"),
+    NA("NA", "expense3"); // not to be used while labeling. (only used to tag legacy boqs)
 
     private final String boqLabelText;
+    private final String poExpenseType;
 
     public static List<BoqLabel> getAllLabels() {
         return Arrays.stream(BoqLabel.values())
