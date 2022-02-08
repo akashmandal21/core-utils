@@ -92,4 +92,8 @@ public class GenericTaskDto extends AbstractDto {
     private DelayDto delayDto;
 
     private boolean adhocTask;
+
+    private String taskRoomNames;
+
+    private String taskRoomReasons;
 }
