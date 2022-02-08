@@ -16,9 +16,26 @@ import java.util.List;
 public class TaskDetailsResponseDto {
 
     private List<GenericTaskResponseDto> tasks;
-    private List<PPStatusDto> statusDtoList;
-    private List<TaskDetailsWithPropertyResponseDto> todaysTasks;
-    private List<TaskDetailsWithPropertyResponseDto> pendingTasks;
-    private List<TaskDetailsWithPropertyResponseDto> notStartedTasks;
 
+    private List<PPStatusDto> statusDtoList;
+
+    /* According to change request */
+    // private List<TaskDetailsWithPropertyResponseDto> todaysTasks;
+    private List<TaskDetailsWithPropertyResponseDto> wipTasks;
+
+    private Integer wipTasksCount;
+
+    // private List<TaskDetailsWithPropertyResponseDto> pendingTasks;
+    private List<TaskDetailsWithPropertyResponseDto> upcomingTasks;
+
+    private Integer upcomingTasksCount;
+
+    // private List<TaskDetailsWithPropertyResponseDto> notStartedTasks;
+    private List<TaskDetailsWithPropertyResponseDto> delayedTasks;
+
+    private Integer delayedTasksCount;
+
+    private List<TaskDetailsWithPropertyResponseDto> myTasks;
+
+    private Integer myTasksCount;
 }

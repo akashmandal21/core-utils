@@ -1,13 +1,14 @@
 package com.stanzaliving.projectplanningservice.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.projectplanningservice.enums.Duration;
 import com.stanzaliving.projectplanningservice.enums.PlanningStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -64,8 +65,9 @@ public class PropertyPlanningDto extends AbstractDto {
 
     private Integer duration;
 
-    private Integer durationUnit;
+    private Duration durationUnit;
 
+    /* Additional Property [ Residence ] Data from Stanza Residence API */
     private Double residenceLatitude;
 
     private Double residenceLongitude;
@@ -77,6 +79,8 @@ public class PropertyPlanningDto extends AbstractDto {
     private String residenceBrandName;
 
     private String residenceSubBrandName;
+
+    private PropertyEntityType residencePropertyType;
 
     private String residenceThumbnailUrl;
 

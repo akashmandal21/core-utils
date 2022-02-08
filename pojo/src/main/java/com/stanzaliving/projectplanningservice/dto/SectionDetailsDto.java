@@ -32,7 +32,7 @@ public class SectionDetailsDto extends AbstractDto {
     @NotNull(message = "Task Owner Type cannot be null")
     private TaskOwnerTypeEnum taskOwnerType;
 
-    private int duration;
+    private Integer duration;
 
     private Duration durationUnit;
 
