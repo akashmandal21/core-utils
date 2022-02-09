@@ -357,4 +357,30 @@ public class LeadserviceClientApi {
 			return null;
 		}
 	}
+
+	public ResponseDto<String> sendPushNotificationsForNumberOfVisitScheduledToday() {
+
+		log.debug("Lead client to send push notification while number of visits scheduled today");
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/push-notification/count/visit-schedule/today").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while sending event for push notification", e);
+			return null;
+		}
+	}
 }
