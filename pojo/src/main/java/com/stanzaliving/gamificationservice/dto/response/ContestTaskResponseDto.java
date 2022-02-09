@@ -15,13 +15,13 @@ import lombok.experimental.SuperBuilder;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ContestTaskResponseDto {
     @JsonProperty("task_progress")
-    private String taskProgress;
+    private int taskProgress;
 
     @JsonProperty("completed_task")
-    private String completedTask;
+    private int completedTask;
 
     @JsonProperty("total_task")
-    private String totalTask;
+    private int totalTask;
 
     @JsonProperty("task_name")
     private String taskName;
