@@ -17,11 +17,11 @@ public class ContestTaskRequestDto {
     @NotBlank(message = "ContestsUuid is Mandatory.")
     private String contestsUuid;
 
-    private String taskProgress;
+    private int taskProgress;
 
-    private String completedTask;
+    private int completedTask;
 
-    private String totalTask;
+    private int totalTask;
 
     private ContestTaskNameType taskName;
 }
