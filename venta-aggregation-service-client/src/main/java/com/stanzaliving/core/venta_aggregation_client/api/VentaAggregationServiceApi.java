@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.stanzaliving.core.base.common.dto.RoommateFilterDto;
-import com.stanzaliving.core.bookingservice.dto.response.ResidenceQrCodeResponseDTO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -16,7 +14,9 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.common.dto.RoommateFilterDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.bookingservice.dto.response.ResidenceQrCodeResponseDTO;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
 import com.stanzaliving.core.ventaaggregationservice.dto.BookingAggregationDto;
 import com.stanzaliving.core.ventaaggregationservice.dto.BookingFilterRequestDto;
@@ -313,25 +313,29 @@ public class VentaAggregationServiceApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public List<String> getRoomByRoomMateFilter(String residenceUuid, RoommateFilterDto roommateFilterDto) {
+	public ResponseDto<List<String>> getRoomByRoomMateFilter(String residenceUuid, RoommateFilterDto roommateFilterDto) {
 
-		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residenceUuid", residenceUuid);
 
-		String path = UriComponentsBuilder.fromPath("/roommate/filter/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/roommate/filter/{residenceUuid}").buildAndExpand(uriVariables)
+				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
+		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<List<String>> returnType = new ParameterizedTypeReference<List<String>>() {
+		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
 		};
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, roommateFilterDto, headerParams, accept, returnType);
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, roommateFilterDto, headerParams, accept,
+					returnType);
+		} catch (Exception e) {
+			log.error("Exception occurred while fetching message", e);
+		}
+		return null;
 	}
 }
