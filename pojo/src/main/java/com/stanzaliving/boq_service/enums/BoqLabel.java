@@ -1,8 +1,10 @@
 package com.stanzaliving.boq_service.enums;
 
+import javafx.scene.layout.BorderWidths;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,5 +23,15 @@ public enum BoqLabel {
         return Arrays.stream(BoqLabel.values())
                 .filter(boqLabel -> !boqLabel.equals(BoqLabel.NA))
                 .collect(Collectors.toList());
+    }
+
+    List<BoqLabel> getLabelsForExpenseType(String expenseType){
+        List<BoqLabel> boqList=new ArrayList<BoqLabel>();
+        for(BoqLabel bl:BoqLabel.values()){
+            if(bl.getPoExpenseType().equals(expenseType)){
+                boqList.add(bl);
+            }
+        }
+        return boqList;
     }
 }
