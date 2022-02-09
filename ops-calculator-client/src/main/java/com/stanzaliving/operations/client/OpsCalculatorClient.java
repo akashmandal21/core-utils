@@ -6,7 +6,6 @@ import com.stanzaliving.core.opscalculator.constants.UnderwrittenCalculatorCateg
 import com.stanzaliving.core.opscalculator.dto.response.UnderWrittenListingResponseDto;
 import com.stanzaliving.core.opscalculator.dto.summary.CategoryPopUpSummaryDto;
 import com.stanzaliving.core.opscalculator.dto.summary.MonthlyUnderwrittenForecastSummaryDto;
-import com.stanzaliving.core.opscalculator.dto.summary.MonthlyUnderwrittenViewSummaryDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -108,7 +107,7 @@ public class OpsCalculatorClient {
 	}
 
 
-	public ResponseDto<MonthlyUnderwrittenViewSummaryDto> getMonthlyUnderWritten(String residenceUuid,
+	public ResponseDto<CategoryPopUpSummaryDto> getMonthlyUnderWritten(String residenceUuid,
 																				  String fromDate,
 																				  String toDate,
 																				  String underWrittenStatus) {
@@ -123,6 +122,7 @@ public class OpsCalculatorClient {
 		queryParams.put("fromDate", Collections.singletonList(fromDate));
 		queryParams.put("toDate", Collections.singletonList(toDate));
 		queryParams.put("underWrittenStatus", Collections.singletonList(underWrittenStatus));
+		queryParams.put("underwrittenCalculatorCategory", Collections.singletonList("HK"));
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {
@@ -130,7 +130,7 @@ public class OpsCalculatorClient {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<MonthlyUnderwrittenViewSummaryDto>> returnType = new ParameterizedTypeReference<ResponseDto<MonthlyUnderwrittenViewSummaryDto>>() {
+		ParameterizedTypeReference<ResponseDto<CategoryPopUpSummaryDto>> returnType = new ParameterizedTypeReference<ResponseDto<CategoryPopUpSummaryDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
