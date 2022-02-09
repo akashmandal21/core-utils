@@ -56,4 +56,10 @@ public class VasPaymentPlanRequestDTO implements Serializable {
 
     private Boolean isModifyContract = false;
 
+    private Boolean isGenerateInvoice =false;
+
+    private String residenceUuid;
+
+    private String residentUuid;
+
 }

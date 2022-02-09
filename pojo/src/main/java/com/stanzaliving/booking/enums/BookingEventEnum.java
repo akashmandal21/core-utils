@@ -52,7 +52,9 @@ public enum BookingEventEnum {
     INITIATE_AUDIT("Initiate Audit"),
     AGREEMENT_PENDING("Agreement Pending"),
     SHARED_WITH_RESIDENT("Shared With Resident"),
-    MARK_CONTRACT_TERMINATED("Mark Contract Terminated");
+    MARK_CONTRACT_TERMINATED("Mark Contract Terminated"),
+    VAS_OPT_IN_EMAIL("Vas Opt In Email"),
+    VAS_OPT_OUT_EMAIL("Vas Opt Out Email");
 	
 	String eventName;
 
