@@ -13,7 +13,8 @@ public enum EventType {
     EVERY_SUCCESSFUL_TRANSACTION("Every Successful Transaction"),
     AGREEMENT_PENDING("Agreement Pending"),
     MODIFY_CONTRACT_REQUEST("Modify Contract Request"),
-    TRESSPASSER_BOOKINGS("Tresspasser Bookings");
+    TRESSPASSER_BOOKINGS("Tresspasser Bookings"),
+    VISIT_SCHEDULED("Visit Scheduled");
     private String commandText;
 
     EventType(String commandText)
