@@ -320,6 +320,7 @@ public class VentaAggregationServiceApi {
 
 		String path = UriComponentsBuilder.fromPath("/internal/roommate/filter/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
 
+
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();

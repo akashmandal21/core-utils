@@ -6,6 +6,7 @@ import com.stanzaliving.booking.dto.response.ServiceMixResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.core.residenceservice.dto.*;
 import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
@@ -302,15 +303,15 @@ public class ResidenceDataControllerApi {
 
     public ResponseDto<RoomNumberListingAndCountDto> getAllRoomsInResidenceAndMoveIn(AdvanceRoomSearchDto advanceRoomSearchDto) {
 
-        log.info("Residence-Data-Controller::Processing to get all rooms in residenceUuid {} and movein-in {} date");
+    	log.info("Residence-Data-Controller::Processing to get all rooms {}", ObjectMapperUtil.getString(advanceRoomSearchDto));
 
         Object postBody = advanceRoomSearchDto;
 
-        Map<String, Object> uriVariables = new HashMap();
+        Map<String, Object> uriVariables = new HashMap<String, Object>();
 
         String path = UriComponentsBuilder.fromPath("/internal/room-list/advanced").buildAndExpand(uriVariables).toUriString();
 
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
 
         HttpHeaders headerParams = new HttpHeaders();
 
