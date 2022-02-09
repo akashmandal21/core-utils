@@ -23,6 +23,8 @@ public class BrandDealsResponseDto extends AbstractDto {
 
 	@Default
 	private EventStatus dealStatus = EventStatus.IN_DRAFT;
+	
+	private int priority;
 
 	private String brandLogo;
 

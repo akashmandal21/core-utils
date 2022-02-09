@@ -34,6 +34,8 @@ public class BrandDealsRequestDto extends AbstractDto {
 	
 	private String dealInfo;
 	
+	private int priority;
+	
 	private String primaryCtaText;
 	
 	private String secondaryCtaText;
