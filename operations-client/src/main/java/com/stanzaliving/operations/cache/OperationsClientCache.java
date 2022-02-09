@@ -49,7 +49,7 @@ public class OperationsClientCache {
             Optional<ServiceMixDto> optionalServiceMixDto = serviceMixCache.getUnchecked(residenceUuid);
             return optionalServiceMixDto.isPresent() ? optionalServiceMixDto.get() : null;
         } catch (Exception e) {
-            log.error("Unable to get UserProfile from uuid {}", residenceUuid, e);
+            log.error("Unable to get ServiceMixDto from uuid {}", residenceUuid, e);
             return null;
         }
     }
