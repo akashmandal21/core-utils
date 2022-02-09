@@ -24,6 +24,7 @@ public enum AppSection {
 	REFERRAL("Referral", AppPage.HOME_PAGE), 
 	COMMUNITY("Community", AppPage.HOME_PAGE), 
 	FEED_HOME_PAGE("Feed", AppPage.HOME_PAGE),
+	COMMUNITYCARD("Community", AppPage.HOME_PAGE),
 	
 	//FOOD_PAGE Enums
 	
