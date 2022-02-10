@@ -19,25 +19,25 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ContestParticipantUserResponseDto implements Comparable<ContestParticipantUserResponseDto>{
 
-    @JsonProperty("user_badges_list")
+    @JsonProperty("badgeslist")
     private List<UserBadgesResponseDto> badgesList;
 
     @JsonProperty("over_all_score_in_percentage")
     private String overallScore;
 
-    @JsonProperty("rank")
-    private int myRank;
+    @JsonProperty("userRank")
+    private String myRank;
 
     @JsonProperty("rank_status")
     private String myRankStatus;
 
-    @JsonProperty("user_name")
+    @JsonProperty("userName")
     private String userName;
 
-    @JsonProperty("user_profile_image")
+    @JsonProperty("userImage")
     private String userImage;
 
-    @JsonProperty("user_city")
+    @JsonProperty("userCity")
     private String userCluster;
 
     @JsonProperty("user_points")
