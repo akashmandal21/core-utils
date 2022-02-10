@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.stanzaliving.core.user.client.api;
 
 import java.util.HashMap;
@@ -27,6 +30,12 @@ import com.stanzaliving.core.user.acl.request.dto.AddUserDeptLevelRoleRequestDto
 import com.stanzaliving.core.user.acl.request.dto.RevokeUserDeptLevelRoleRequestDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 
+/**
+ * @author naveen.kumar
+ *
+ * @date 11-Dec-2019
+ *
+ **/
 public class AclUserClientApi {
 
 	private StanzaRestClient restClient;
@@ -197,36 +206,6 @@ public class AclUserClientApi {
 		uriVariables.put("accessLevelId", StringUtils.join(accessLevelId, ','));
 
 		String path = UriComponentsBuilder.fromPath("/internal/acl/useridAccessLevelIdByRoleName/{department}/{roleName}/{accessLevelId}")
-				.buildAndExpand(uriVariables).toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>>() {
-		};
-
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
-	}
-
-	public ResponseDto<Map<String, List<String>>> getActiveUserIdAccessLevelIdByDepartmentRoleNameAccessLevelId(Department department, String roleName, List<String> accessLevelId) {
-
-		Object postBody = null;
-
-		// create path and map variables
-		final Map<String, Object> uriVariables = new HashMap<>();
-
-		uriVariables.put("department", department);
-		uriVariables.put("roleName", roleName);
-		uriVariables.put("accessLevelId", StringUtils.join(accessLevelId, ','));
-
-		String path = UriComponentsBuilder.fromPath("/internal/acl/activeUseridAccessLevelIdByRoleName/{department}/{roleName}/{accessLevelId}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
