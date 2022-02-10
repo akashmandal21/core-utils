@@ -7,6 +7,7 @@ import com.stanzaliving.item_master.enums.SortDirection;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -29,7 +30,10 @@ public class HkBeatPlanFilterDto {
     private List<String> residenceUuids;
     private boolean isApproval;
     private String isDraft;
+    private LocalDate startDate;
+    private LocalDate endDate;
     //Sort
     private HkBeatPlanSortSpecs sortSpecs;
     private SortDirection sortDirection;
+
 }
