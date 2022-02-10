@@ -297,7 +297,14 @@ public class ResidenceDataControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<List<BookingAttributesDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAttributesDto>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType).getData();
+        try {
+            log.info("Executing the API for getting residence data with Url {}", path);
+            ResponseDto<List<BookingAttributesDto>> response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+            return response.getData();
+        } catch (Exception exception) {
+            log.error("Exception while fetching residence data from the residence Uuid- {}, Exception is ", residenceUuid, exception);
+            return new ArrayList<>();
+        }
     }
 
 
