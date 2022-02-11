@@ -15,6 +15,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class OperationalEfficiencyMetricsResponse {
 
-    long averageWorkingHoursPerDay;
+    double averageWorkingHoursPerDay;
     float averageDailyTimeUtilizationPercentage;
+    double underWrittenEmployeeCount;
+    double averageUnderWrittenEmployeeUtilizationPercentage;
 }
