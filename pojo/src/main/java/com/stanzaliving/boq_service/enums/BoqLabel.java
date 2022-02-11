@@ -12,12 +12,23 @@ import java.util.stream.Collectors;
 @Getter
 @AllArgsConstructor
 public enum BoqLabel {
-    CAPEX("Capex", "expense1"),
-    OPEX("Opex", "expense2"),
-    NA("NA", "expense3"); // not to be used while labeling. (only used to tag legacy boqs)
+//    CAPEX("Capex", "expense1"),
+//    OPEX("Opex", "expense2"),
+
+    CAPEX_TRANSFORMATION("CAPEX-TRANSFORMATION", Arrays.asList("CAPEX","Rental")),
+    CAPEX_STRUCTURAL_CHANGE("CAPEX-STRUCTURAL CHANGE",Arrays.asList("CAPEX","Rental")),
+    CAPEX_MARGIN_ENHANCEMENT("CAPEX-MARGIN ENHANCEMENT",Arrays.asList("CAPEX","Rental")),
+    CAPEX_REDENSIFICATION("CAPEX-REDENSIFICATION",Arrays.asList("CAPEX","Rental")),
+    REFURBISHMENT("REFURBISHMENT",Arrays.asList("FFE")),
+    CAPEX_VAS("CAPEX-VAS",Arrays.asList("CAPEX VAS","Rental VAS")),
+    LL_DEBIT_LL_ASSET("LL DEBIT - LL ASSET",Arrays.asList("CAPEX LL Debit","Rental LL Debit")),
+    LL_DEBIT_SL_ASSET("LL DEBIT - SL ASSET",Arrays.asList("CAPEX LL Debit","Rental LL Debit")),
+    CONSULTANT_DEBIT("CONSULTANT DEBIT",Arrays.asList("Consultant Debit")),
+    CAPEX_LL_SOW_MISALIGNMENT("CAPEX - LL SOW MISALIGNMENT",Arrays.asList("CAPEX - LL SOW Misalignment")),
+    NA("NA", null); // not to be used while labeling. (only used to tag legacy boqs)
 
     private final String boqLabelText;
-    private final String poExpenseType;
+    private final List<String> poExpenseType;
 
     public static List<BoqLabel> getAllLabels() {
         return Arrays.stream(BoqLabel.values())
@@ -25,10 +36,10 @@ public enum BoqLabel {
                 .collect(Collectors.toList());
     }
 
-    List<BoqLabel> getLabelsForExpenseType(String expenseType){
+    public static List<BoqLabel>  getLabelsForExpenseType(String expenseType){
         List<BoqLabel> boqList=new ArrayList<BoqLabel>();
-        for(BoqLabel bl:BoqLabel.values()){
-            if(bl.getPoExpenseType().equals(expenseType)){
+        for(BoqLabel bl:BoqLabel.getAllLabels()){
+            if(bl.getPoExpenseType().contains(expenseType)){
                 boqList.add(bl);
             }
         }
