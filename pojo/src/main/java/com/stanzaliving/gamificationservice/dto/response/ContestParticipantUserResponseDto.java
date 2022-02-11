@@ -38,6 +38,9 @@ public class ContestParticipantUserResponseDto implements Comparable<ContestPart
     private String userImage;
 
     @JsonProperty("userCity")
+    private String userCity;
+
+    @JsonProperty("userCluster")
     private String userCluster;
 
     @JsonProperty("user_points")
