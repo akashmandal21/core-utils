@@ -9,6 +9,7 @@ import java.util.Objects;
 
 import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.client.dto.*;
+import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -709,6 +710,29 @@ public class BookingDataControllerApi {
             log.error("Exception while fetching bookin details for resident for residentId {}, Exception is ",residentId , e);
         }
         return Objects.nonNull(response) ? response.getData() : new ArrayList<>();
+    }
+
+    public List<BookingStatusResponseDto> getBookingStatusForResident(String userUuid) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userUuid", userUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/booking/status/{userUuid}")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<List<BookingStatusResponseDto>> returnType = new ParameterizedTypeReference<List<BookingStatusResponseDto>>() {
+        };
+        List<BookingStatusResponseDto> response  = null;
+        try {
+            log.info("Executing Api for getting booking status with Url {}", path);
+            response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching booking status for resident for user uuid {}, Exception is ",userUuid , e);
+        }
+        return Objects.nonNull(response) ? response : new ArrayList<>();
     }
 
     public Map<String, List<BookingDetailDto>> getBookingDetailsForResidentsInCaseOfElectricity(ResidentRequestDto residentRequestDto) {
