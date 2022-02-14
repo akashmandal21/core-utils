@@ -14,6 +14,7 @@ public enum EventType {
     AGREEMENT_PENDING("Agreement Pending"),
     MODIFY_CONTRACT_REQUEST("Modify Contract Request"),
     TRESSPASSER_BOOKINGS("Tresspasser Bookings"),
+    VISIT_SCHEDULED_TODAY("Visit Scheduled Today"),
     VISIT_SCHEDULED("Visit Scheduled");
     private String commandText;
 
