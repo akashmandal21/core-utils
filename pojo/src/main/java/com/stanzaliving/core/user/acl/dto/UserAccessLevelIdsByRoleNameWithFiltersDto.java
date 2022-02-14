@@ -17,7 +17,7 @@ public class UserAccessLevelIdsByRoleNameWithFiltersDto {
 
     private Department department;
     private String roleName;
-    List<String> accessLevelId;
+    private List<String> accessLevelId;
     private AccessLevel accessLevel;
     private List<String> cityLeadFilterUuids;
     private List<String> clusterManagerFilterUuids;
