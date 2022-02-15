@@ -927,6 +927,13 @@ public class DateUtil {
         return dateTwo;
     }
 
+    public static Date max(Date d1, Date d2) {
+        if (d1 == null && d2 == null) return null;
+        if (d1 == null) return d2;
+        if (d2 == null) return d1;
+        return (d1.after(d2)) ? d1 : d2;
+    }
+
     public static List<String> getListOfMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat) {
         LinkedHashSet<String> monthYear = new LinkedHashSet<>();
         if (!toDate.isAfter(fromDate)) {// TODO add additional validation
