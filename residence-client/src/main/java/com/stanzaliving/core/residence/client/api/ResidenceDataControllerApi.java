@@ -145,7 +145,7 @@ public class ResidenceDataControllerApi {
         try {
             return (ResponseDto<List<ResidenceLockInDto>>) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
         } catch (Exception var13) {
-            log.error("Exception while fetching lock-in date based on residenceUuid {} ", residenceUuid);
+            log.error("Exception while fetching lock-in date based on residenceUuid {}", residenceUuid);
             return null;
         }
     }
