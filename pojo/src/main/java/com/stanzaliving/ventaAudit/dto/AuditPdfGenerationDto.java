@@ -1,5 +1,7 @@
 package com.stanzaliving.ventaAudit.dto;
 
+import com.stanzaliving.ventaInvoice.dto.BillFromDto;
+import com.stanzaliving.ventaInvoice.dto.BillToDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +19,6 @@ public class AuditPdfGenerationDto {
     private StayDetailsDto stayDetailsDto;
     private List<PdfDamageSectionDto> damageSectionDtoList;
     private Double AmountPayable;
-    private String bookingUuid;
+    private String auditUuid;
 
 }

@@ -800,6 +800,29 @@ public class WandaClientApi {
 
 	}
 
+	public ResponseDto<BankDetailsDto> getBankDetailsForUserId(String userId) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("userId", userId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/bank-details/{userId}").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[]{"*/*"};
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<BankDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<BankDetailsDto>>() {
+		};
+		try {
+			log.info("Executing Api for getting bank account details with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching bank account details based on userId {}, Exception is {}", userId, e);
+		}
+		return null;
+	}
+
 	public boolean updateHostelOfUserByUserCode(String userCode, String hostelId) {
 
 		Object postBody = null;
@@ -869,28 +892,7 @@ public class WandaClientApi {
 		}
 
 		return false;
+
 	}
 
-	public ResponseDto<BankDetailsDto> getBankDetailsForUserId(String userId) {
-		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("userId", userId);
-
-		String path = UriComponentsBuilder.fromPath("/internal/bank-details/{userId}").buildAndExpand(uriVariables).toUriString();
-
-		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		HttpHeaders headerParams = new HttpHeaders();
-		String[] accepts = new String[]{"*/*"};
-		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<BankDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<BankDetailsDto>>() {
-		};
-		try {
-			log.info("Executing Api for getting bank account details with Url {}", path);
-			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("Exception while fetching bank account details based on userId {}, Exception is {}", userId, e);
-		}
-		return null;
-	}
 }

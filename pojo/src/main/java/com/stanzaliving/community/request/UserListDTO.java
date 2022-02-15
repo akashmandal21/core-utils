@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserListDTO {
+	
     private String uuid;
 
     @NotNull(message = "Please select User List Type",groups = {ApprovalValidation.class})

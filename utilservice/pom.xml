@@ -26,6 +26,14 @@
 			<artifactId>junit</artifactId>
 		</dependency>
         <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+        </dependency>
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+		</dependency>
+		<dependency>
             <groupId>com.stanzaliving.core</groupId>
             <artifactId>base</artifactId>
             <version>1.0.0</version>
