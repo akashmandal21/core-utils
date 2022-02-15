@@ -1,11 +1,9 @@
-/**
- * 
- */
 package com.stanzaliving.core.user.client.api;
 
 import com.stanzaliving.core.base.common.dto.PageResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
@@ -547,15 +545,36 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-    public ResponseDto<RoleDto> getRoleInfoByUuid(String roleUuid) {
+	public ResponseDto<RoleDto> getRoleInfoByUuid(String roleUuid) {
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("roleUuid", roleUuid);
+
+		String path = UriComponentsBuilder.fromPath("/internal/acl/role/{roleUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<RoleDto>> returnType = new ParameterizedTypeReference<ResponseDto<RoleDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+	}
+
+    public ResponseDto<List<RoleDto>> getRoles(AccessLevel accessLevel, Department department) {
 
         // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("roleUuid", roleUuid);
-
-        String path = UriComponentsBuilder.fromPath("/internal/acl/role/{roleUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/acl/role/getRoles").toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("accessLevel", accessLevel.name());
+		queryParams.add("department", department.name());
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -564,7 +583,7 @@ public class UserClientApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<RoleDto>> returnType = new ParameterizedTypeReference<ResponseDto<RoleDto>>() {
+        ParameterizedTypeReference<ResponseDto<List<RoleDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RoleDto>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
