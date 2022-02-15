@@ -118,6 +118,7 @@ public enum BookingStatus {
     public static Set<String>  bookingNeedsAttention() {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT.getDescription());
+        bookingStatus.add(BookingStatus.PAYMENT_PENDING.getDescription());
         return bookingStatus;
     }
 
