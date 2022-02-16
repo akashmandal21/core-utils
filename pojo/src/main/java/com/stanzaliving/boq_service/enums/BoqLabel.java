@@ -38,6 +38,7 @@ public enum BoqLabel {
 
     public static List<BoqLabel>  getLabelsForExpenseType(String expenseType){
         List<BoqLabel> boqList=new ArrayList<BoqLabel>();
+        boqList.add(BoqLabel.NA);
         for(BoqLabel bl:BoqLabel.getAllLabels()){
             if(bl.getPoExpenseType().contains(expenseType)){
                 boqList.add(bl);
