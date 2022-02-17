@@ -14,8 +14,8 @@ public class UIDInterceptor extends HandlerInterceptorAdapter {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
-		log.info("Request URL %s",request.getRequestURI());
-		log.info("Remote URL %s, remote method %s and origin %s",request.getRemoteUser(),request.getMethod(),request.getHeader(HttpHeaders.ORIGIN));
+		log.info("Request URL {}",request.getRequestURI());
+		log.info("Remote URL {}, remote method {} and origin {}",request.getRemoteUser(),request.getMethod(),request.getHeader(HttpHeaders.ORIGIN));
 		return new BaseUIDInterceptor().preHandle(request, response, handler);
 	}
 
