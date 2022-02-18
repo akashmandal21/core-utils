@@ -3,6 +3,7 @@ package com.stanzaliving.operations.client;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -580,34 +581,31 @@ public class OperationsClientApi {
 	
 	public ServiceNameResponseDto getServiceMixNamesByResidenceIds(List<String> residenceIds) {
 
-		Object postBody = ServiceNameRequestDto.builder().residenceIds(residenceIds).build();
-
-		ResponseDto<ServiceNameResponseDto> responseDto = null;
-
-		final Map<String, Object> uriVariables = new HashMap<>();
-
-		String path = UriComponentsBuilder.fromPath("/internal/servicemix/residence/servicename").buildAndExpand(uriVariables).toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>>() {
-		};
-
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			Object postBody = ServiceNameRequestDto.builder().residenceIds(residenceIds).build();
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/servicemix/residence/servicename")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>>() {
+			};
+
+			ResponseDto<ServiceNameResponseDto> responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+			return responseDto.isStatus() && Objects.nonNull(responseDto.getData()) ? responseDto.getData() : null;
 		} catch (Exception e) {
 			log.error("Exception while fetching ServiceMixNames List from residenceIds: {}", residenceIds, e);
+			return null;
 		}
-
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
-
 	}
 	
 }
