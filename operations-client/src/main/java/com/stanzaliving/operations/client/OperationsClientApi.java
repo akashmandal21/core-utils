@@ -578,15 +578,15 @@ public class OperationsClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
 	
-	public List<ServiceMixSeasonResponseDto> getServiceMixNamesByResidenceIds(List<String> residenceIds) {
+	public ServiceNameResponseDto getServiceMixNamesByResidenceIds(List<String> residenceIds) {
 
-		Object postBody = residenceIds;
+		Object postBody = ServiceNameRequestDto.builder().residenceIds(residenceIds).build();
 
-		ResponseDto<List<ServiceMixSeasonResponseDto>> responseDto = null;
+		ResponseDto<ServiceNameResponseDto> responseDto = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("/internal/season/get").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/servicemix/residence/servicename").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -597,13 +597,13 @@ public class OperationsClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<List<ServiceMixSeasonResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ServiceMixSeasonResponseDto>>>() {
+		ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>>() {
 		};
 
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception while fetching Season List from residenceId: {}", residenceIds, e);
+			log.error("Exception while fetching ServiceMixNames List from residenceIds: {}", residenceIds, e);
 		}
 
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
