@@ -106,9 +106,11 @@ public enum EstateStatus {
 	SENT_BACK_L2_BY_ZH("L2 Sent Back by ZH"),
 	SENT_BACK_L2_BY_NH("L2 Sent Back By NH"),
 	SENT_BACK_BY_ANDY("Sent Back by Andy"),
-	SENT_BACK_BY_ZONAL_HEAD("L1 Sent Back By ZH");
+	SENT_BACK_BY_ZONAL_HEAD("L1 Sent Back By ZH"),
+	SENT_FOR_APPROVAL_TO_LEGAL("Pending Legal for Title Docs Approval"),
+	SENT_BACK_BY_LEGAL_TITLE_DOCS("Sent Back By Legal Title Docs");
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
-	
+
 	private String name;
 
 	private static Map<EstateStatus, String> estateStatusMap = new HashMap<>();
