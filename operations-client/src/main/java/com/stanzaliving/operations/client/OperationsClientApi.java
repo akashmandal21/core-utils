@@ -577,6 +577,37 @@ public class OperationsClientApi {
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
+	
+	public List<ServiceMixSeasonResponseDto> getServiceMixNamesByResidenceIds(List<String> residenceIds) {
 
+		Object postBody = residenceIds;
+
+		ResponseDto<List<ServiceMixSeasonResponseDto>> responseDto = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/season/get").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ServiceMixSeasonResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ServiceMixSeasonResponseDto>>>() {
+		};
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching Season List from residenceId: {}", residenceIds, e);
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
 	
 }
