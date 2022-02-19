@@ -14,7 +14,7 @@ public class SecureCookieUtilTest {
 	@Test
 	public void testCreate() {
 		Cookie cookie = new Cookie("test", "test");
-		cookie.setMaxAge(60*60*24*3);
+		cookie.setMaxAge(-1);
 		cookie.setSecure(true);
 		cookie.setHttpOnly(true);
 		cookie.setPath("/");

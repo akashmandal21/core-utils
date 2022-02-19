@@ -35,7 +35,7 @@ public class SecureCookieUtil {
 				cookie.setDomain(SecurityConstants.STANZA_DOMAIN);
 			}
 
-			cookie.setMaxAge(60*60*24*3);
+			cookie.setMaxAge(-1);
 			cookie.setSecure(true);
 			cookie.setHttpOnly(true);
 		}
