@@ -25,7 +25,7 @@ public class ResidenceItemPricingUpdateRequestDto {
 
     private String residenceName;
 
-    @DecimalMin(value = "0.0", inclusive = false, message = "Price should be greater than 0")
+    @DecimalMin(value = "0.1", inclusive = false, message = "Price should be greater than 0")
     @NotBlank(message = "Residence wise price is mandatory")
     private Double residencePriceInclGst;
 
