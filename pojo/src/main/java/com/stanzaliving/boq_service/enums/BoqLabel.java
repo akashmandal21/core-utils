@@ -25,7 +25,7 @@ public enum BoqLabel {
     LL_DEBIT_SL_ASSET("LL DEBIT - SL ASSET",Arrays.asList("CAPEX LL Debit","Rental LL Debit")),
     CONSULTANT_DEBIT("CONSULTANT DEBIT",Arrays.asList("Consultant Debit")),
     CAPEX_LL_SOW_MISALIGNMENT("CAPEX - LL SOW MISALIGNMENT",Arrays.asList("CAPEX - LL SOW Misalignment")),
-    NA("NA", null); // not to be used while labeling. (only used to tag legacy boqs)
+    NA("NA", Arrays.asList("")); // not to be used while labeling. (only used to tag legacy boqs)
 
     private final String boqLabelText;
     private final List<String> poExpenseType;
