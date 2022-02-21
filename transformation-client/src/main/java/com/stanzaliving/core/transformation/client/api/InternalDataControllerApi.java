@@ -1065,11 +1065,11 @@ public class InternalDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<ResidenceUIDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceUIDto>>() {
         };
-        
-        ResponseDto<ResidenceUIDto> responseDto = null;
-        
-        try {
-        	responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+		ResponseDto<ResidenceUIDto> responseDto = null;
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Exception while fetching ResidenceUIDto from transformations: ", e);
 		}
