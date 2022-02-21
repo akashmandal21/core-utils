@@ -1074,7 +1074,7 @@ public class InternalDataControllerApi {
 			log.error("Exception while fetching ResidenceUIDto from transformations: ", e);
 		}
 
-		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto : ResponseDto.failure("Fail to fetch residenceDetail");
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto : null;
 
     }
 
