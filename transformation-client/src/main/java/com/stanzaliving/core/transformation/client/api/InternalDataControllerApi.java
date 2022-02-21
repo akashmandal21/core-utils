@@ -26,15 +26,11 @@ import com.stanzaliving.boq_service.dto.LabelValueDto;
 import com.stanzaliving.core.addressbook.AddressBookNameDto;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.projectservice.tiles.TileDeciderDto;
 import com.stanzaliving.core.projectservice.tiles.TileStatusDto;
-import com.stanzaliving.core.residenceservice.dto.RoomDetailsResponseDto;
-import com.stanzaliving.transformations.pojo.*;
-
 import com.stanzaliving.transformations.pojo.AddressBookMetaDto;
 import com.stanzaliving.transformations.pojo.CityMetadataDto;
 import com.stanzaliving.transformations.pojo.CityUIDto;
@@ -1069,8 +1065,17 @@ public class InternalDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<ResidenceUIDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceUIDto>>() {
         };
+        
+        ResponseDto<ResidenceUIDto> responseDto = null;
+        
+        try {
+        	responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching ResidenceUIDto from transformations: ", e);
+		}
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto : ResponseDto.failure("Fail to fetch residenceDetail");
+
     }
 
     public ResponseDto<ResidenceDto> getResidenceDetailsByResidenceName(String residenceName) {
