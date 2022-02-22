@@ -806,4 +806,19 @@ public class BookingDataControllerApi {
 
     }
 
+    public ResponseDto<Boolean> getRoomOccupancyStatusForRoom(BookingInventoryDto bookingInventoryDto) {
+        Object postBody = bookingInventoryDto;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/v1/room-occupancy-details").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
 }
