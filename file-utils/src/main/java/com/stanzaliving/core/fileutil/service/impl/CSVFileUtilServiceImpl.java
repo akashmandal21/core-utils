@@ -241,7 +241,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
     }
 
     @Override
-    public CSVResponse readCSVFile(String contentType, InputStream inputStream, List<String> filterHeader, String... header) throws IOException {
+    public CSVResponse readCSVFile(String contentType, InputStream inputStream, List<String> filterHeader, String... header) {
         log.info("FILE-UTILS::Reading CSV file and filter according to headers {}", filterHeader);
 
         int totalRecords = 0;
@@ -251,15 +251,19 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
         if (CVSUtil.hasCSVFormat(contentType) || ExcelUtil.hasExcelFormat(contentType)) {
             try {
+                String line;
+                Set<String> realHeaders = new HashSet<>();
+                Set<String> headers = Arrays.stream(header).collect(Collectors.toSet());
                 BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
-
-                List<String> headers = Arrays.stream(header).collect(Collectors.toList());
-
-                while (!Arrays.stream(fileReader.readLine().trim().split(",")).map(String::trim).collect(Collectors.toList()).containsAll(headers)) {
+                while ((line = fileReader.readLine()) != null) {
+                    realHeaders = Arrays.stream(line.trim().split(",")).map(String::trim).collect(Collectors.toSet());
+                    if (!Collections.disjoint(headers, realHeaders)) break;
                     log.info("Skipping line number {}", count);
                     count++;
                 }
-                CSVParser csvParser = new CSVParser(fileReader, CSVFormat.DEFAULT.withHeader(header).withIgnoreHeaderCase().withTrim());
+                if (realHeaders.isEmpty()) throw new StanzaException("fail to parse CSV file");
+                String[] finalHeaders = new String[realHeaders.size()];
+                CSVParser csvParser = new CSVParser(fileReader, CSVFormat.DEFAULT.withHeader(realHeaders.toArray(finalHeaders)).withIgnoreHeaderCase().withTrim());
 
                 csvHeader = csvParser.getHeaderNames();
                 Iterable<CSVRecord> csvRecords = csvParser.getRecords();
@@ -267,9 +271,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
                 totalRecords = ((Collection<?>) csvRecords).size();
                 List<String> finalFilterHeader = filterHeader.isEmpty() ? csvHeader : filterHeader;
                 for (CSVRecord csvRecord : csvRecords) {
-                    Map<String, String> data = csvRecord.toMap().entrySet()
-                            .stream().filter(row -> finalFilterHeader.contains(row.getKey().trim()))
-                            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                    Map<String, String> data = csvRecord.toMap().entrySet().stream().filter(row -> finalFilterHeader.contains(row.getKey().trim())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
                     csvData.add(data);
                 }
 
@@ -277,12 +279,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
                 throw new StanzaException("fail to parse CSV file: " + e);
             }
         }
-        return CSVResponse.builder()
-                .header(csvHeader)
-                .filterHeader(filterHeader)
-                .totalRecord(totalRecords)
-                .totalRecordMatched(csvData.size())
-                .data(csvData).build();
+        return CSVResponse.builder().header(csvHeader).filterHeader(filterHeader).totalRecord(totalRecords).totalRecordMatched(csvData.size()).data(csvData).build();
     }
 
     @Override
@@ -296,7 +293,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
     }
 
     @Override
-    public CSVResponse readCSVFile(String contentType, InputStream inputStream, String... header) throws IOException {
+    public CSVResponse readCSVFile(String contentType, InputStream inputStream, String... header) {
         log.info("FILE-UTILS::Reading CSV file for input stream");
         return readCSVFile(contentType, inputStream, new ArrayList<>(), header);
     }
