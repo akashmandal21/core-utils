@@ -24,6 +24,7 @@ public enum TimelineStatusEnum {
 	NEW_LEAD("New Lead"),
 	CALLED("Called"),
 	CONNECTED("Connected"),
+	FOLLOW_UP_NEEDED("followUpNeeded"),
 	RNR("RNR"),
 	PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow-Up"),
 
