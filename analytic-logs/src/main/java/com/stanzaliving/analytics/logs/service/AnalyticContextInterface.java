@@ -140,7 +140,7 @@ class AnalyticContextInterface
         endpointConsumableMap.put(TIME_TAKEN,
                 (transactionKeyStore.endTime - transactionKeyStore.startTime));
         endpointConsumableMap.put(THREAD_NAME, Thread.currentThread().getName());
-        endpointConsumableMap.put(TX_NAME, transactionKeyStore.getTransactionName());
+        endpointConsumableMap.put(TX_NAME, transactionKeyStore.getTransactionName().toLowerCase());
         if (th != null)
         {
             endpointConsumableMap.put(EXCEPTION_MESSAGE, th.getMessage());

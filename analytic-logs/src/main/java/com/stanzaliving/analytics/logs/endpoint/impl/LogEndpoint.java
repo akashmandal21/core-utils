@@ -28,7 +28,7 @@ public class LogEndpoint implements Endpoint
     private static final String PROPERTY_FILENAME = "analytic.properties";
 
     private static final String LOG_ENDPOINT_LOGGER_NAME = "log-endpoint-logger-name";
-    private static final String DEFAULT_LOG_ENDPOINT_LOGGER_NAME = "analyticLogger";
+    private static final String DEFAULT_LOG_ENDPOINT_LOGGER_NAME = "analytic_logger";
 
 	private static final String TIMESTAMP = "@timestamp";
     
@@ -61,9 +61,10 @@ public class LogEndpoint implements Endpoint
     {
     	endpointData.put(TIMESTAMP, ISO_DATETIME_TIME_ZONE_FORMAT_WITH_MILLIS.format(System.currentTimeMillis()));
         String logger = transactionName;
-        if (logger.equals("defaultTransaction")) {
+        if (logger.equals("default_transaction")) {
             logger =  defaultLogger;
         }
+        logger = "log." + logger;
         Logger logg = loggers.get(logger);
         if (logg == null) {
             logg = LoggerFactory.getLogger(logger);

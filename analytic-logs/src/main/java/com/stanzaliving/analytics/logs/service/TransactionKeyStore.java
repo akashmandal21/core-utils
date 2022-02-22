@@ -8,7 +8,7 @@ import org.apache.commons.lang.StringUtils;
 
 final class TransactionKeyStore
 {
-    private static final String defaultTransactionName = "defaultTransaction";
+    private static final String defaultTransactionName = "default_transaction";
     
     long startTime;
     long endTime;

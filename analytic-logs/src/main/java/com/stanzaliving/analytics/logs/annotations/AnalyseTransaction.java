@@ -9,5 +9,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface AnalyseTransaction
 {
-    String name() default "defaultTransaction";
+    String name() default "default_transaction";
 }
