@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 import com.google.common.collect.ImmutableSet;
 
+import com.google.common.collect.Sets;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -60,7 +61,7 @@ public enum BoqLabel {
 
             for (String expenseType : expenseTypes) {
                 if (!expenseTypeBoqLabelMap.containsKey(expenseType)) {
-                    expenseTypeBoqLabelMap.put(expenseType, ImmutableSet.of(boqLabel));
+                    expenseTypeBoqLabelMap.put(expenseType, Sets.newHashSet(boqLabel));
                 } else {
                     expenseTypeBoqLabelMap.get(expenseType).add(boqLabel);
                 }
