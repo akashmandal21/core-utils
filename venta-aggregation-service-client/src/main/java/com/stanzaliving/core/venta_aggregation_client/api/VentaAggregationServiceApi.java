@@ -1,5 +1,6 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,7 @@ import com.stanzaliving.core.ventaaggregationservice.dto.BookingFilterRequestDto
 import com.stanzaliving.core.ventaaggregationservice.dto.BookingResidenceAggregationEntityDto;
 import com.stanzaliving.core.ventaaggregationservice.dto.MoveInDetailDataDto;
 import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceAggregationEntityDto;
+import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceAndOccupancyPricingResponseDto;
 import com.stanzaliving.core.ventaaggregationservice.dto.ResidenceFilterRequestDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -294,7 +296,7 @@ public class VentaAggregationServiceApi {
 		};
 		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-
+	
 	public ResponseDto<ResidenceQrCodeResponseDTO> updateResidenceQrCode(String residenceUuid) {
 		Object postBody = null;
 		// create path and map variables
@@ -337,5 +339,38 @@ public class VentaAggregationServiceApi {
 			log.error("Exception occurred while fetching message", e);
 		}
 		return null;
+	}
+
+	public List<ResidenceAndOccupancyPricingResponseDto> getSyncPropertiesDataForCmsWebsite(String residenceUuid) {
+
+		try {
+			Object postBody = null;
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("internal/residence/occupancy/pricing").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			if (StringUtils.isNotBlank(residenceUuid)) {
+				queryParams.add("residenceUuid", residenceUuid);
+			}
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<List<ResidenceAndOccupancyPricingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceAndOccupancyPricingResponseDto>>>() {
+			};
+
+			ResponseDto<List<ResidenceAndOccupancyPricingResponseDto>> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+			return responseDto.isStatus() ? responseDto.getData() : Collections.emptyList();
+
+		} catch (Exception e) {
+			log.error("Exception occurred while fetching sync properties data for cms website from venta", e);
+			return Collections.emptyList();
+		}
 	}
 }
