@@ -56,6 +56,7 @@ public class PoDetailsResponse {
     private UIKeyValue deliveryLocation;
     private BigDecimal advanceAmount;
     private BigDecimal retentionAmount;
+    private String retentionPercent;
 
     private Integer advCreditDays;
     private Integer genCreditDays;
