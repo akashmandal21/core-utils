@@ -104,7 +104,7 @@ public class NotificationClientApi {
         final Map<String, Object> uriVariables = new HashMap<>();
 
         String path =
-                UriComponentsBuilder.fromPath("/api/v1/notification/")
+                UriComponentsBuilder.fromPath("/ai/vv/notification/")
                         .buildAndExpand(uriVariables)
                         .toUriString();
 
