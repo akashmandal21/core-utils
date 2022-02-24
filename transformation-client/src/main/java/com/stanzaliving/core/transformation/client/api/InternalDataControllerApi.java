@@ -1066,7 +1066,16 @@ public class InternalDataControllerApi {
         ParameterizedTypeReference<ResponseDto<ResidenceUIDto>> returnType = new ParameterizedTypeReference<ResponseDto<ResidenceUIDto>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		ResponseDto<ResidenceUIDto> responseDto = null;
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching ResidenceUIDto from transformations: ", e);
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto : null;
+
     }
 
     public ResponseDto<ResidenceDto> getResidenceDetailsByResidenceName(String residenceName) {
@@ -1186,6 +1195,35 @@ public class InternalDataControllerApi {
         }
         return null;
     }
+
+    public String getResidenceUuidByResidenceId(String residenceId) {
+        log.info("Fetching Transformation details for residence id {}", residenceId);
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceId", residenceId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/get/residenceUuid/{residenceId}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<String> returnType =
+                new ParameterizedTypeReference<String>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching residence uuid for residence id {} ", residenceId);
+            return null;
+        }
+    }
+
 
     public ResponseDto<GstInformationDto> getGstDataByCityId(String cityId) {
         final Map<String, Object> uriVariables = new HashMap<>();

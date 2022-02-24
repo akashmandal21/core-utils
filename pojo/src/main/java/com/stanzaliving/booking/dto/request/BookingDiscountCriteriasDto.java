@@ -23,5 +23,6 @@ public class BookingDiscountCriteriasDto {
     @Builder.Default
     private Boolean applicableOnRoomConversion = Boolean.FALSE;
     private String leadTag;
+    private Boolean entireFlatBooking;
 
 }
