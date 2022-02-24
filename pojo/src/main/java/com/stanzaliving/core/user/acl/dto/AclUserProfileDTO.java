@@ -12,5 +12,5 @@ import java.util.List;
 @SuperBuilder
 public class AclUserProfileDTO extends UserProfileDto {
     private List<UserDeptLevelRoleNameUrlExpandedDto> acl;
-    private boolean isFcmEnabled = true;
+    private boolean fcmEnabled = true;
 }
