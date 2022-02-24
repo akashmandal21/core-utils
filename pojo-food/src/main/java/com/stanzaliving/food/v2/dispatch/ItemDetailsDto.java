@@ -42,5 +42,7 @@ public class ItemDetailsDto {
 	private boolean isDefault;
 	
 	private Double defaultGrammageValue;
+	
+	private Double defaultQuantityValue;
 
 }
