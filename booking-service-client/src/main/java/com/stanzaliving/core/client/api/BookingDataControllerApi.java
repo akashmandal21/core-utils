@@ -868,4 +868,26 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public ResponseDto<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto> findBookedInventoryDetailsForB2B(String bookingInventoryOccupancyUuid) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingInventoryOccupancyUuid", bookingInventoryOccupancyUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/{bookingInventoryOccupancyUuid}/b2b-inventory")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto>> returnType = new ParameterizedTypeReference<ResponseDto<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto>>() {
+        };
+        try {
+            log.info("Executing Api for getting booked inventory with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching booked inventory for booking uuid {}, Exception is ", bookingInventoryOccupancyUuid, e);
+        }
+        return null;
+    }
+
 }
