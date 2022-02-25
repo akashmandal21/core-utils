@@ -39,6 +39,7 @@ public class BasicPoItem {
     private UIKeyValue gstSlabs;
     private Double gstPct;
     private BigDecimal itemAmount;
+    private String boqLabel;
 
     //For ShortClose
     private BigDecimal gsriQuantity;
