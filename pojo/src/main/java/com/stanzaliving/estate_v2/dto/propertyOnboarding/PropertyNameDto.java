@@ -5,6 +5,8 @@ import com.stanzaliving.transformations.enums.GenderAllowed;
 import com.stanzaliving.transformations.enums.SubBrandName;
 import lombok.*;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,4 +19,5 @@ public class PropertyNameDto {
     private GenderAllowed gender;
     private String propertyAction;
     private boolean update;
+    private Date createdAt;
 }
