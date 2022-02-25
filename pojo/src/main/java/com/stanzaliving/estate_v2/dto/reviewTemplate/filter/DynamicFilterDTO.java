@@ -16,7 +16,13 @@ public class DynamicFilterDTO {
     private Integer orderId;
     private String filterName;
     private String dataSource;
-    private String dataReferenceId;
     private String displayType;
     private List<DynamicFiltersAnswersDTO> values;
+
+    public DynamicFilterDTO(Integer orderId,String filterName,String dataSource,String displayType){
+        this.orderId = orderId;
+        this.filterName = filterName;
+        this.dataSource = dataSource;
+        this.displayType = displayType;
+    }
 }
