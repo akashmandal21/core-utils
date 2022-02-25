@@ -9,6 +9,8 @@ public interface RedisCollectionService {
 
 	Map<String, String> getStringMap(String mapName);
 
+	Map<String,String> getFromStringMap(String mapName, Set<String> keys);
+
 	String getFromStringMap(String mapName, String key);
 
 	String addInStringMap(String mapName, String key, String value);

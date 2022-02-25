@@ -42,4 +42,8 @@ public class ComplaintListingUIDtoV2 {
 	private String cmsId;
 
 	private Boolean satisfied;
+	
+	private String ticketStatus;
+	
+	private Boolean isResolved;
 }
