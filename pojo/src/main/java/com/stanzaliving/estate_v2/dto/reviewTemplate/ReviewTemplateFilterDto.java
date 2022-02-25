@@ -18,7 +18,6 @@ public class ReviewTemplateFilterDto extends UserDeptLevelRoleNameUrlExpandedDto
     private SortDto sort;
     private int pageNo;
     private int limit;
-    private FilterReviewTemplate filter;
     private PropertyResponseFilterDto moreFilters;
     private List<DynamicFilterResponseDTO> dynamicFilterResponse;
 
