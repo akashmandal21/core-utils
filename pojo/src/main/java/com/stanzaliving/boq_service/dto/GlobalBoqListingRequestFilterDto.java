@@ -33,7 +33,7 @@ public class GlobalBoqListingRequestFilterDto {
 
     private List<LabelValueDto<BoqStatus>> boqStatus;
 
-    private List<LabelValueDto<BoqLabel>> boqLabel; //todo: to confirm (List or String)
+    private List<LabelValueDto<BoqLabel>> boqLabel;
 
     private List<LabelValueDto<ItemType>> boqCapexType;
 
