@@ -6,7 +6,7 @@
         <groupId>com.stanzaliving.core</groupId>
         <artifactId>core-utils</artifactId>
         <version>1.0.0</version>
-        <relativePath>../stanza-parent/pom.xml</relativePath>
+        <relativePath>..</relativePath>
     </parent>
 
     <artifactId>analytic-logs</artifactId>
