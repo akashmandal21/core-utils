@@ -39,6 +39,8 @@ public class BasicPoItem {
     private UIKeyValue gstSlabs;
     private Double gstPct;
     private BigDecimal itemAmount;
+
+    @EqualsAndHashCode.Include
     private String boqLabel;
 
     //For ShortClose
