@@ -1,5 +1,6 @@
 package com.stanzaliving.po.generic.dto;
 
+import com.stanzaliving.boq_service.enums.BoqLabel;
 import com.stanzaliving.core.base.utils.StanzaUtils;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.transformations.enums.UnitType;
@@ -41,7 +42,7 @@ public class BasicPoItem {
     private BigDecimal itemAmount;
 
     @EqualsAndHashCode.Include
-    private String boqLabel;
+    private BoqLabel boqLabel;
 
     //For ShortClose
     private BigDecimal gsriQuantity;
