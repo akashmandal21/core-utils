@@ -10,6 +10,7 @@ import com.stanzaliving.core.dto.BrandSkuItemDetailDto;
 import com.stanzaliving.core.generic.enums.GSTSlabs;
 import com.stanzaliving.core.generic.itemmaster.dto.ItemDto;
 import com.stanzaliving.item_master.dtos.*;
+import com.stanzaliving.swim.dtos.SwimItemCacheDto;
 import com.stanzaliving.transformations.pojo.MasterBoqResponseDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
@@ -631,6 +632,29 @@ public class ItemMasterClientApi {
 		String path = UriComponentsBuilder.fromPath("/internal/consumable-tag/get/{department}").buildAndExpand(uriVariables).toUriString();
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, returnType);
+	}
+
+    public ResponseDto<List<SwimItemCacheDto>> getAllSwimItemCacheData() {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/generic/get/all-items/swim/cache/data").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<SwimItemCacheDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<SwimItemCacheDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 }
 
