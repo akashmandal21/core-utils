@@ -31,7 +31,7 @@ public class VentaResidenceApiClient {
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residenceUuid", residenceUuid);
-		String path = UriComponentsBuilder.fromPath("api/v1/residence-rooms/{residenceUuid}").buildAndExpand(uriVariables)
+		String path = UriComponentsBuilder.fromPath("/api/v1/residence-rooms/{residenceUuid}").buildAndExpand(uriVariables)
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
