@@ -8,7 +8,9 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.booking.dto.*;
+import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.client.dto.*;
+import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -692,6 +694,51 @@ public class BookingDataControllerApi {
         return Objects.nonNull(response) ? response.getData() : new ArrayList<>();
     }
 
+    public List<BookingStatusResponseDto> getBookingStatusForResident(String userUuid) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userUuid", userUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/booking/status/{userUuid}")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<List<BookingStatusResponseDto>> returnType = new ParameterizedTypeReference<List<BookingStatusResponseDto>>() {
+        };
+        List<BookingStatusResponseDto> response  = null;
+        try {
+            log.info("Executing Api for getting booking status with Url {}", path);
+            response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching booking status for resident for user uuid {}, Exception is ",userUuid , e);
+        }
+        return Objects.nonNull(response) ? response : new ArrayList<>();
+    }
+
+    public Map<String, List<BookingDetailDto>> getBookingDetailsForResidentsInCaseOfElectricity(ResidentRequestDto residentRequestDto) {
+        Object postBody = residentRequestDto;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/electricity/booking-detail/residents").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Map<String, List<BookingDetailDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<BookingDetailDto>>>>() {
+        };
+        ResponseDto<Map<String, List<BookingDetailDto>>> response  = null;
+        try {
+            log.info("Executing Api for getting booked inventory in case of electricity with Url {}", path);
+            response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching booking details for resident for residentIds {}, Exception is ", residentRequestDto , e);
+        }
+        return Objects.nonNull(response) && Objects.nonNull(response.getData()) ? response.getData() : new HashMap<>();
+    }
+
     public List<com.stanzaliving.core.bookingservice.dto.response.BookingDetailDto> getBookingDetailsForResidentForSupport(String residentId) {
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("residentId", residentId);
@@ -819,6 +866,28 @@ public class BookingDataControllerApi {
         ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto> findBookedInventoryDetailsForB2B(String bookingInventoryOccupancyUuid) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingInventoryOccupancyUuid", bookingInventoryOccupancyUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/{bookingInventoryOccupancyUuid}/b2b-inventory")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto>> returnType = new ParameterizedTypeReference<ResponseDto<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto>>() {
+        };
+        try {
+            log.info("Executing Api for getting booked inventory with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching booked inventory for booking uuid {}, Exception is ", bookingInventoryOccupancyUuid, e);
+        }
+        return null;
     }
 
 }

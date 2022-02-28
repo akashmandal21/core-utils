@@ -32,6 +32,8 @@ public class InventoryResponseOccupancyDto {
 
     private Integer occupancy;
 
+    private String occupancyName;
+
     private boolean selfConverted;
 
     private List<String> inventoryUuidList;
