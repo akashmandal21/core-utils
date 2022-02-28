@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
+import com.stanzaliving.swim.dtos.SwimItemCacheDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -1284,8 +1285,6 @@ public class InternalDataControllerApi {
 
     public ResponseDto<List<AddressBookMetaDto>> getAllAddressBookInfo() {
 
-
-
         Object postBody = null;
 
         // create path and map variables
@@ -1306,5 +1305,28 @@ public class InternalDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
+    }
+
+    public ResponseDto<List<SwimItemCacheDto>> getAllSwimItemCacheData() {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/get/all-items/swim/cache/data").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<SwimItemCacheDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<SwimItemCacheDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 }
