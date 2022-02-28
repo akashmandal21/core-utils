@@ -3,7 +3,6 @@ package com.stanzaliving.core.sqljpa.service.impl;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -172,11 +171,6 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	@Override
 	public Boolean existsByUuidAndStatus(String uuid, boolean status) {
 		return getJpaRepository().existsByUuidAndStatus(uuid, status);
-	}
-
-	@Override
-	public Optional<T> findFirstByUuidAndStatus(String uuid, boolean status){
-	return 	getJpaRepository().findByUuidAndStatus(uuid,status);
 	}
 
 	@Override

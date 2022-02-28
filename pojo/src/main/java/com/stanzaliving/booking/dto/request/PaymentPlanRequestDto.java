@@ -19,7 +19,12 @@ public class PaymentPlanRequestDto implements Serializable {
 	@NotNull(message = "commercialCardRequestDto cannot be null")
 	@Valid
 	private CommercialCardRequestDto commercialCardRequestDto;
-	
+
+	@NotNull(message = "PricingStrategyRequestDto cannot be null")
+	@Valid
+	private PricingStrategyRequestDto pricingStrategyRequestDto;
+
+
 	@NotNull(message = "bookingDetailsRequestDto cannot be null")
 	@Valid
 	private BookingDetailsRequestDto bookingDetailsRequestDto;
