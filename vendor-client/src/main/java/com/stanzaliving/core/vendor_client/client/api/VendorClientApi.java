@@ -461,4 +461,5 @@ public class VendorClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, vendorUuidList, headerParams, accept, returnType);
     }
+
 }
