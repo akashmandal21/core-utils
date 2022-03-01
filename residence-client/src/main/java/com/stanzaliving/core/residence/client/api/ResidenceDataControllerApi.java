@@ -34,6 +34,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -1733,6 +1734,28 @@ public class ResidenceDataControllerApi {
         }
         return null;
 
+    }
+
+    public ResponseDto<Float> getInventoryBedsCountByMoveInDate(String roomUuid, String inventoryUuid, String moveInDate) {
+        log.info("Residence-Data-Controller::Processing to get inventory bed count for room {} and inventory {} and move in date {} ", roomUuid, inventoryUuid, moveInDate);
+        Map<String, Object> uriVariables = new HashMap();
+        uriVariables.put("roomUuid", roomUuid);
+        uriVariables.put("inventoryUuid", inventoryUuid);
+        uriVariables.put("moveInDate", moveInDate);
+        String path = UriComponentsBuilder.fromPath("/internal/room/{roomUuid}/inventory/{inventoryUuid}/moveInDate/{moveInDate}/bed-count").buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Float>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Float>>() {
+                };
+        try {
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var12) {
+            log.error("Exception while fetching inventory bed count for room {} and inventory {} ", roomUuid, inventoryUuid);
+            return null;
+        }
     }
 
     public ResponseDto<Float> getInventoryBedsCount(String roomUuid, String inventoryUuid) {
