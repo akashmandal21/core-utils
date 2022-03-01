@@ -7,7 +7,6 @@ import com.stanzaliving.core.vendor.FilterVendorDto;
 import com.stanzaliving.core.vendor.dtos.GenericVendorDetailDto;
 import com.stanzaliving.core.vendor.dtos.VendorListingDetailsDto;
 import com.stanzaliving.core.vendor.dtos.VendorSuppliedItem;
-import com.stanzaliving.swim.dtos.SwimVendorCacheDto;
 import com.stanzaliving.vendor.enums.VendorManagedBy;
 import com.stanzaliving.vendor.model.*;
 import lombok.extern.log4j.Log4j2;
@@ -461,29 +460,5 @@ public class VendorClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/managed-by/internal-warehouse").toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, vendorUuidList, headerParams, accept, returnType);
-    }
-
-    public ResponseDto<List<SwimVendorCacheDto>> getAllSwimVendorCacheData() {
-
-        Object postBody = null;
-
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-
-        String path = UriComponentsBuilder.fromPath("/internal/get/swimVendorCache/data").buildAndExpand(uriVariables).toUriString();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        final HttpHeaders headerParams = new HttpHeaders();
-
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<List<SwimVendorCacheDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<SwimVendorCacheDto>>>() {
-        };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
     }
 }
