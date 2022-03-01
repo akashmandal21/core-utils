@@ -634,7 +634,7 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, returnType);
 	}
 
-    public ResponseDto<List<SwimItemCacheDto>> getAllSwimItemCacheData() {
+    public ResponseDto<List<SwimItemCacheDto>> getAllItemCacheData() {
 
 		Object postBody = null;
 
