@@ -252,11 +252,11 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         if (CVSUtil.hasCSVFormat(contentType) || ExcelUtil.hasExcelFormat(contentType)) {
             try {
                 String line;
-                Set<String> realHeaders = new HashSet<>();
-                Set<String> headers = Arrays.stream(header).collect(Collectors.toSet());
+                List<String> realHeaders = new ArrayList<>();
+                List<String> headers = Arrays.stream(header).collect(Collectors.toList());
                 BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
                 while ((line = fileReader.readLine()) != null) {
-                    realHeaders = Arrays.stream(line.trim().split(",")).map(String::trim).collect(Collectors.toSet());
+                    realHeaders = Arrays.stream(line.trim().split(",")).map(String::trim).collect(Collectors.toList());
                     if (!Collections.disjoint(headers, realHeaders)) break;
                     log.info("Skipping line number {}", count);
                     count++;

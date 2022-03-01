@@ -1,16 +1,25 @@
 package com.stanzaliving.booking.dto.request;
 
-import javax.validation.Valid;
-import java.io.Serializable;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Date;
+
+@Getter
+@Setter
 public class PricingStrategyRequestDto implements Serializable {
 
-    private String strategyUuid;
+    private String residenceUuid;
 
-    private String ruleUuid;
+    private String microMarketUuid;
 
-    private String status;
+    private String cityUuid;
 
-    private float discount;
+    private Date moveIn;
+
+    private Date LockedIn;
 
 }

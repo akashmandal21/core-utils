@@ -1,6 +1,7 @@
 package com.stanzaliving.core.residence.client.api;
 
 
+import com.stanzaliving.booking.dto.request.PricingStrategyRequestDto;
 import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.booking.dto.response.ServiceMixResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -59,6 +60,7 @@ import com.stanzaliving.core.residenceservice.dto.PricingDetailsResponseDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceInfoDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceLockInDto;
+import com.stanzaliving.core.residenceservice.dto.PricingStrategyDto;
 import com.stanzaliving.core.residenceservice.dto.ResidencePaymentPlanDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceVasDto;
 import com.stanzaliving.core.residenceservice.dto.RoomCardDetailDto;
@@ -1886,4 +1888,31 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
+    public List<PricingStrategyBookingDto> getAllStrategies(PricingStrategyRequestDto requestDto) {
+
+        log.info("get all pricing strategy based on for req "+ requestDto);
+        Object postBody = requestDto;
+        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/").toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<List<PricingStrategyBookingDto>> returnType = new ParameterizedTypeReference<List<PricingStrategyBookingDto>>() {
+        };
+        return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public String getStrategiesQuote(PricingStrategyRequestDto requestDto) {
+
+        log.info("get all pricing strategy based on for req "+ requestDto);
+        Object postBody = requestDto;
+        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/getQuote/").toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+        };
+        return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
 }

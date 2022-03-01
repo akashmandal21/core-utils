@@ -2,6 +2,7 @@ package com.stanzaliving.core.sqljpa.service.impl;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Page;

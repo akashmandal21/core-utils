@@ -3,7 +3,9 @@ package com.stanzaliving.booking.dto;
 import com.stanzaliving.booking.dto.response.BookingCommercialCardDto;
 import com.stanzaliving.booking.dto.response.BookingPackageServiceDto;
 import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
+import com.stanzaliving.booking.dto.response.PricingStrategyResponseDto;
 import com.stanzaliving.booking.enums.*;
+import com.stanzaliving.core.residenceservice.dto.PricingStrategyDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -54,6 +56,8 @@ public class BookingResponseDto {
     private InventoryResponseOccupancyDto inventoryOccupancyDetails;
 
     private BookingCommercialCardDto bookingCommercialCard;
+
+    private PricingStrategyResponseDto pricingStrategyResponseDto;
 
     private BookingPackageServiceDto bookingPackageService;
 
