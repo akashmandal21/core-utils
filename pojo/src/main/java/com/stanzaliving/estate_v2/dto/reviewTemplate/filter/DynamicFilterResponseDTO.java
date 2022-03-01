@@ -14,5 +14,6 @@ import java.util.List;
 @Setter
 public class DynamicFilterResponseDTO {
     private String dataSource;
+    private String displayType;
     private List<DynamicFiltersAnswersDTO> values;
 }
