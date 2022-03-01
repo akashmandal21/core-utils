@@ -15,5 +15,5 @@ public class PricingStrategyBookingDto {
     private int lowerBoundOperand;
     private String upperBoundOperator;
     private int upperBoundOperand;
-    private float discount;
+    private String discount;
 }
