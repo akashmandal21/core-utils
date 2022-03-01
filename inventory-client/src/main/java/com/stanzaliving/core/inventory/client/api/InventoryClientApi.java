@@ -547,6 +547,31 @@ public class InventoryClientApi {
 				path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<List<SummaryInfoDto>> getInventorySummaryByAddressAndItemsUuid(
+			SummaryInfoRequestDto summaryInfoRequestDto) {
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path =
+				UriComponentsBuilder.fromPath("/internal/inventory-summary")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<SummaryInfoDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<SummaryInfoDto>>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.GET, queryParams, summaryInfoRequestDto, headerParams, accept, returnType);
+	}
+
 	public ResponseDto<String> validateBlockedQuantityToBeReleased(String toUuid, List<GrsiItemDto> grsiItemDtoList) {
 
 		// create path and map variables
