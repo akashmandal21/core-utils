@@ -47,8 +47,4 @@ public class StatusTrackerDbServiceImpl extends AbstractJpaServiceImpl<StatusTra
 		return statusTrackerRepository.findByContextUuidAndContextName(contextUuid, contextName);
 	}
 
-	@Override
-	public <T> Optional<T> findFirstByUuidAndStatus(String applicabilityCriteriaUuid, boolean b) {
-		return Optional.empty();
-	}
 }

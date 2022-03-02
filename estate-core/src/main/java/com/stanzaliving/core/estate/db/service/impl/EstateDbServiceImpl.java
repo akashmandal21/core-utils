@@ -166,8 +166,4 @@ public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Lo
 		return offset;
 	}
 
-	@Override
-	public <T> Optional<T> findFirstByUuidAndStatus(String applicabilityCriteriaUuid, boolean b) {
-		return Optional.empty();
-	}
 }
