@@ -1,4 +1,4 @@
-package com.stanzaliving.core.user.dto.response;
+package com.stanzaliving.core.user.acl.dto;
 
 import com.stanzaliving.core.base.enums.AccessModule;
 import lombok.AllArgsConstructor;
