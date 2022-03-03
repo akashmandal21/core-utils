@@ -106,6 +106,7 @@ public class FieldDecoder {
                             log.info("address: {}", address);
                             log.info("StringUtils.isEmpty(gstIn): {}", StringUtils.isEmpty(gstIn));
                             log.info("StringUtils.isEmpty(address): {}", StringUtils.isEmpty(address));
+                            log.info("Objects.isNull(address): {}",Objects.isNull(address));
                             if(StringUtils.isEmpty(gstIn)||StringUtils.isEmpty(address)){
                                 log.info("entered if condition of billingAddress:");
                                 uiSubmitField.setErrorMsg("Field is mandatory");
