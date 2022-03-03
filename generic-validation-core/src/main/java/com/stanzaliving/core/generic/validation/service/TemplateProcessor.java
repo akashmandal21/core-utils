@@ -271,9 +271,13 @@ public abstract class TemplateProcessor {
                         uiField = ValueAdapters.getValue(data.get(templateField.getFieldName()), UiField.class, objectMapper);
                         uiField.setErrorMsg(null);
                         uiField.setErrorOccurred(false);
+                        log.info("\"billingAddress\".equals(templateField.getFieldName()): {}", "billingAddress".equals(templateField.getFieldName()));
                         if("billingAddress".equals(templateField.getFieldName())){
+                            log.info("data.get(templateField.getFieldName()): {}", data.get(templateField.getFieldName()));
                             String stanzaGstin = data.get("billingAddress").get("stanzaGstin").asText();
                             String addressText = data.get("billingAddress").get("addressText").asText();
+                            log.info("data.get(\"billingAddress\").get(\"stanzaGstin\").asText(): {}", data.get("billingAddress").get("stanzaGstin").asText());
+                            log.info("data.get(\"billingAddress\").get(\"addressText\").asText(): {}", data.get("billingAddress").get("addressText").asText());
                             if(StringUtils.isAllBlank(stanzaGstin, addressText)){
                                 uiField.setErrorOccurred(true);
                             }
