@@ -97,6 +97,16 @@ public class FieldDecoder {
                     case OBJECT:
                         Class clazz = ValueAdapters.loadClass(templateField.getValueClass(),null,templateField,null);
                         value = objectMapper.treeToValue(data, clazz);
+                        if(templateField.getFieldName().equals("billingAddress")){
+                            log.info("value: {}", value);
+                            String gstIn = data.get("stanzaGstin").toString();
+                            String address = data.get("addressText").toString();
+                            log.info("gstIn: {}", gstIn);
+                            log.info("address: {}", address);
+                            if(StringUtils.isAllBlank(gstIn, address)){
+                                uiSubmitField.setErrorMsg("Field is mandatory");
+                            }
+                        }
                         break;
 
                     case LIST:
@@ -114,8 +124,9 @@ public class FieldDecoder {
                 }
             }
 
-            if (needed && Objects.isNull(value))
+            if (needed && Objects.isNull(value)){
                 uiSubmitField.setErrorMsg("Field is mandatory");
+            }
 
             if (Objects.nonNull(value) && Objects.nonNull(templateField.getValidator()))
                 FieldValidator.validateFieldValueUsingValidator(templateField.getValidator(), templateField.getRegex(), value,uiSubmitField);
