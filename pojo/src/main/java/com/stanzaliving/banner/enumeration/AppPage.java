@@ -14,7 +14,8 @@ public enum AppPage {
 	DEALS_PAGE("Deals Page"), 
 	MYSTAY_PAGE("My Stay Page"),
 	SUPPORT_HOME_PAGE("Support Home Page"),
-	COMMUNITY_PAGE("Community Page");
+	COMMUNITY_PAGE("Community Page"),
+	EVENT_DETAIL_PAGE("Event Detail Page");
 
 	private String displayName;
 }
