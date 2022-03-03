@@ -11,6 +11,7 @@ import com.stanzaliving.core.generic.validation.enums.YesNoEnum;
 import com.stanzaliving.core.generic.validation.fieldProcessors.AdaptableProcessor;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
@@ -102,8 +103,13 @@ public class FieldDecoder {
                             log.info("value: {}", value);
                             String gstIn = data.get("stanzaGstin").toString();
                             String address = data.get("addressText").toString();
+                            Object gstInObj = objectMapper.treeToValue(data.get("stanzaGstin"), Object.class);
+                            Object addressObj = objectMapper.treeToValue(data.get("addressText"), Object.class);
                             log.info("gstIn: {}", gstIn);
                             log.info("address: {}", address);
+                            log.info("StringUtils.isBlank((String)gstInObj)): {}", StringUtils.isBlank((String)gstInObj));
+                            log.info("StringUtils.isBlank((String)addressObj)): {}", StringUtils.isBlank((String)addressObj));
+
                             log.info("StringUtils.isEmpty(gstIn): {}", StringUtils.isEmpty(gstIn));
                             log.info("StringUtils.isBlank(gstIn): {}", StringUtils.isBlank(gstIn));
                             log.info("StringUtils.isEmpty(address): {}", StringUtils.isEmpty(address));
