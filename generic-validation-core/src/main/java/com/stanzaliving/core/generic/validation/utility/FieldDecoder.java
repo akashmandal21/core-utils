@@ -105,6 +105,7 @@ public class FieldDecoder {
                             log.info("address: {}", address);
                             if(StringUtils.isAllBlank(gstIn, address)){
                                 uiSubmitField.setErrorMsg("Field is mandatory");
+                                uiSubmitField.setErrorOccurred(true);
                             }
                         }
                         break;
