@@ -103,7 +103,7 @@ public class FieldDecoder {
                             String address = data.get("addressText").toString();
                             log.info("gstIn: {}", gstIn);
                             log.info("address: {}", address);
-                            if(StringUtils.isAllBlank(gstIn, address)){
+                            if(StringUtils.isAllBlank(gstIn)||StringUtils.isAllBlank(address)){
                                 uiSubmitField.setErrorMsg("Field is mandatory");
                                 uiSubmitField.setErrorOccurred(true);
                             }
