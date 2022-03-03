@@ -456,6 +456,9 @@ public abstract class TemplateProcessor {
         if(validError.isErrorOccurred())
             updateErrorInfo(errorInfo,validError.getNumErrors());
         log.info("Finished Processing template {}",templateName);
+        log.info("###################################################");
+        log.info("data post validations: {} ", uiFieldMap);
+        log.info("###################################################");
         return Pair.of(currErrors < errorInfo.getNumErrors(),uiFieldMap);
     }
 
