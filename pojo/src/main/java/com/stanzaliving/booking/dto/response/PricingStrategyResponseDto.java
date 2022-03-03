@@ -12,10 +12,16 @@ import lombok.NoArgsConstructor;
 public class PricingStrategyResponseDto {
 
     private String uuid;
+
     private String ruleUuid;
+
     private String upperBoundOperator;
+
     private String lowerBoundOperator;
+
     private int upperBoundOperand;
+
     private int lowerBoundOperand;
+
     private String status;
 }
