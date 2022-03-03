@@ -107,6 +107,10 @@ public class FieldDecoder {
                             Object addressObj = objectMapper.treeToValue(data.get("addressText"), Object.class);
                             log.info("gstIn: {}", gstIn);
                             log.info("address: {}", address);
+
+                            log.info("gstInObj: {}", gstInObj);
+                            log.info("addressObj: {}", addressObj);
+
                             log.info("StringUtils.isBlank((String)gstInObj)): {}", StringUtils.isBlank((String)gstInObj));
                             log.info("StringUtils.isBlank((String)addressObj)): {}", StringUtils.isBlank((String)addressObj));
 
@@ -115,18 +119,12 @@ public class FieldDecoder {
                             log.info("StringUtils.isEmpty(address): {}", StringUtils.isEmpty(address));
                             log.info("StringUtils.isBlank(address): {}", StringUtils.isBlank(address));
                             log.info("Objects.isNull(address): {}",Objects.isNull(address));
-                            if(StringUtils.isBlank(gstIn)||StringUtils.isBlank(address)){
+                            if(StringUtils.isBlank((String)gstInObj)||StringUtils.isBlank((String)addressObj)){
                                 log.info("entered if condition of billingAddress:");
                                 uiSubmitField.setErrorMsg("Field is mandatory");
                                 uiSubmitField.setErrorOccurred(true);
                                 throw new StanzaException("please provide billing address");
                             }
-//                            if(gstIn.equals("")||address.equals("null")){
-//                                log.info("entered if condition of billingAddress:");
-//                                uiSubmitField.setErrorMsg("Field is mandatory");
-//                                uiSubmitField.setErrorOccurred(true);
-//                                throw new StanzaException("please provide billing address");
-//                            }
                         }
                         break;
 
