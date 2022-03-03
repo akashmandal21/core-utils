@@ -1915,7 +1915,8 @@ public class ResidenceDataControllerApi {
 
         log.info("get all pricing strategy based on for req "+ requestDto);
         Object postBody = requestDto;
-        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/").toUriString();
+        //String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/").toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/all").toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
@@ -1929,7 +1930,7 @@ public class ResidenceDataControllerApi {
 
         log.info("get all pricing strategy based on for req "+ requestDto);
         Object postBody = requestDto;
-        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/getQuote/").toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/getQuote").toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
