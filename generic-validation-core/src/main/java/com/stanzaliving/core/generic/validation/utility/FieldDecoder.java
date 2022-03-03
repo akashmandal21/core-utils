@@ -107,12 +107,13 @@ public class FieldDecoder {
                             log.info("StringUtils.isEmpty(gstIn): {}", StringUtils.isEmpty(gstIn));
                             log.info("StringUtils.isEmpty(address): {}", StringUtils.isEmpty(address));
                             log.info("Objects.isNull(address): {}",Objects.isNull(address));
-                            if(StringUtils.isEmpty(gstIn)||StringUtils.isEmpty(address)){
-                                log.info("entered if condition of billingAddress:");
-                                uiSubmitField.setErrorMsg("Field is mandatory");
-                                uiSubmitField.setErrorOccurred(true);
-                                throw new StanzaException("please provide billing address");
-                            }
+                            throw new StanzaException("deliberate exception thrown");
+//                            if(StringUtils.isEmpty(gstIn)||StringUtils.isEmpty(address)){
+//                                log.info("entered if condition of billingAddress:");
+//                                uiSubmitField.setErrorMsg("Field is mandatory");
+//                                uiSubmitField.setErrorOccurred(true);
+//                                throw new StanzaException("please provide billing address");
+//                            }
                         }
                         break;
 
