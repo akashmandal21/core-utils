@@ -3,6 +3,7 @@ package com.stanzaliving.core.generic.validation.utility;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.generic.validation.dtos.*;
 import com.stanzaliving.core.generic.validation.enums.FieldType;
@@ -106,6 +107,7 @@ public class FieldDecoder {
                             if(StringUtils.isAllBlank(gstIn)||StringUtils.isAllBlank(address)){
                                 uiSubmitField.setErrorMsg("Field is mandatory");
                                 uiSubmitField.setErrorOccurred(true);
+                                throw new StanzaException("please provide billing address");
                             }
                         }
                         break;
