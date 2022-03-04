@@ -1,12 +1,21 @@
 package com.stanzaliving.core.residenceservice.dto;
 
-import com.stanzaliving.core.utilservice.annotations.DateFormat;
-import lombok.*;
+
+import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import java.util.List;
+
+import com.stanzaliving.core.utilservice.annotations.DateFormat;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 @Getter
 @Setter

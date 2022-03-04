@@ -30,6 +30,8 @@ public class ComplaintConversationsDto {
 
     private String attachmentPath;
 
+    private long attachmentFileSize;
+
     private String attachmentBucket;
 
     private Date createdAt;
@@ -39,5 +41,7 @@ public class ComplaintConversationsDto {
     private String contentUrl;
     
     private boolean incoming;
+
+    private boolean isPrivate;
 
 }

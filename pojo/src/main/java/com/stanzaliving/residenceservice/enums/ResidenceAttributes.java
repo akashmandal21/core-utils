@@ -1,13 +1,15 @@
 package com.stanzaliving.residenceservice.enums;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 
 @AllArgsConstructor
 @Getter
@@ -39,10 +41,16 @@ public enum ResidenceAttributes {
     NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time","String"),
 
     CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean"),
-	EMI_ENABLED("EMI Enabled","Boolean");
+
+    BOOKING_EXIT_DELTA_DAYS("Booking Exit Delta Days", "Integer"),
+    BOOKING_EXIT_NOTICE_PERIOD("Notice Period Days", "Integer"),
+    EMI_ENABLED("EMI Enabled","Boolean");
 	
+    private String label;
+    private String type;
+
+
     private static final Map<ResidenceAttributes, String> getType = new HashMap<>();
-    private static final Map<ResidenceAttributes, String> getLabel = new HashMap<>();
 
     static {
         for (ResidenceAttributes priority : ResidenceAttributes.values()) {
@@ -50,14 +58,14 @@ public enum ResidenceAttributes {
         }
     }
 
+    private static final Map<ResidenceAttributes, String> getLabel = new HashMap<>();
+
     static {
         for (ResidenceAttributes priority : ResidenceAttributes.values()) {
             getLabel.put(priority,priority.label);
         }
     }
 
-    private String label;
-    private String type;
 
     public static String getLabel(ResidenceAttributes priority) {
         return getType.get(priority);

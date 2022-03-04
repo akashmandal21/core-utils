@@ -1,9 +1,30 @@
 package com.stanzaliving.operations.client;
 
+
+import java.awt.PageAttributes.MediaType;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.operations.dto.ActiveResidenceDetailsDto;
+import com.stanzaliving.core.operations.dto.CurrentServiceMixRequestDto;
+import com.stanzaliving.core.operations.dto.DealDto;
 import com.stanzaliving.core.operations.dto.ResidentFoodPreferenceCountDto;
 import com.stanzaliving.core.operations.dto.ServiceMixDto;
 import com.stanzaliving.core.operations.enums.DealCategory;
@@ -11,19 +32,11 @@ import com.stanzaliving.internet.dto.InternetDetails;
 import com.stanzaliving.internet.dto.InternetProviderDetails;
 import com.stanzaliving.operations.ServiceMixSeasonResponseDto;
 import com.stanzaliving.operations.dto.servicemix.ServiceMixEntityDto;
+import com.stanzaliving.operations.dto.servicemix.ServiceNameRequestDto;
+import com.stanzaliving.operations.dto.servicemix.ServiceNameResponseDto;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import java.time.LocalDate;
-import java.util.*;
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class OperationsClientApi {
@@ -420,6 +433,7 @@ public class OperationsClientApi {
 		return Objects.nonNull(serviceMixDto) ? serviceMixDto : null;
 	}
 
+
 	public ResponseDto<ServiceMixDto> getHKCurrentServiceMix(String residenceUuid, String userCode) {
 
 		Object postBody = null;
@@ -456,6 +470,30 @@ public class OperationsClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	
+	public Map<String, Map<String, ServiceMixDto>> getCurrentServiceMixList(CurrentServiceMixRequestDto currentServiceMixRequestDto){
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/servicemix/current/servicemix/list").buildAndExpand(uriVariables).toUriString();
+
+		TypeReference<ResponseDto<Map<String, Map<String, ServiceMixDto>>>> returnType = new TypeReference<ResponseDto<Map<String, Map<String, ServiceMixDto>>>>() {};
+
+		ResponseDto<Map<String, Map<String, ServiceMixDto>>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, null, currentServiceMixRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting ServiceMix detail", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new HashMap<>();
+	}
+	
 
 	public ResponseDto<List<ActiveResidenceDetailsDto>> getActiveResidenceList() {
 
@@ -561,4 +599,54 @@ public class OperationsClientApi {
 		return Objects.nonNull(serviceMixEntity) ? serviceMixEntity : null;
 	}
 
+	public List<DealDto> getDealsByUuidIn(Collection<String> uuids){
+
+    	String path = UriComponentsBuilder.fromPath("/internal/deal/list").build().toUriString();
+
+		TypeReference<ResponseDto<List<DealDto>>> returnType = new TypeReference<ResponseDto<List<DealDto>>>() {};
+
+		ResponseDto<List<DealDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, null, uuids, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting deal detail", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+	}
+	
+	public ServiceNameResponseDto getServiceMixNamesByResidenceIds(List<String> residenceIds) {
+
+		try {
+			Object postBody = ServiceNameRequestDto.builder().residenceIds(residenceIds).build();
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/servicemix/residence/servicename")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>>() {
+			};
+
+			ResponseDto<ServiceNameResponseDto> responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+			return responseDto.isStatus() && Objects.nonNull(responseDto.getData()) ? responseDto.getData() : null;
+		} catch (Exception e) {
+			log.error("Exception while fetching ServiceMixNames List from residenceIds: {}", residenceIds, e);
+			return null;
+		}
+	}
+	
 }

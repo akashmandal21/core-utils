@@ -31,6 +31,8 @@ public class EstateDto extends AbstractDto {
 
 	private String estateName;
 
+	private String estatePropertyId;
+
 	private Address address;
 
 	private Long cityId;
@@ -47,6 +49,14 @@ public class EstateDto extends AbstractDto {
 
 	private EstateStatus estateStatus;
 
+	private String propertyStatus;
+
+	private String propertyStatusDescription;
+
+	private String colorCode;
+
+	private String backgroundColorCode;
+
 	private String estateCode;
 	
 	private String managerName;
@@ -56,4 +66,6 @@ public class EstateDto extends AbstractDto {
 	private LegalAgreementDocTypes legalAgreementDocType;
 
 	private String brandType;
+
+	private String competitorName;
 }

@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import lombok.Getter;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,6 +14,7 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 @SuperBuilder
 public class ComplaintSummaryDto {
 
@@ -37,5 +39,9 @@ public class ComplaintSummaryDto {
 	private Date createdOn;
 
 	private Long cmsId;
+
+	private String ticketId;
+
+	private Date alfredSlaTime;
 
 }

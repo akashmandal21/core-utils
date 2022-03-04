@@ -1,5 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -16,7 +18,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class LeadRequestDto {
 
-	private Integer leadId;
+	private Long leadId;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -89,7 +91,11 @@ public class LeadRequestDto {
 	private String category;
 	private String fbclId;
 	private String creative;
+	
+	@JsonProperty("gClientId")
 	private String gClientId;
+	
+	@JsonProperty("gSessionId")
 	private String gSessionId;
 
 	private String razorpayPaymentId;
@@ -116,11 +122,15 @@ public class LeadRequestDto {
 
 	@Default
 	private boolean ignoreScheduleVisit = false;
-	@Default
-	private String accommodationType="PG";
+	
+	private String accommodationType;
 
 	private boolean createHotLead;
 	
 	private String extendDurationMessage;
 
+	private Integer placeId;
+	private String placeName;
+	
+	private String budget;
 }

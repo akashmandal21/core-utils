@@ -1,11 +1,20 @@
 package com.stanzaliving.core.residenceservice.dto;
 
-import com.stanzaliving.booking.enums.PaymentTerm;
-import lombok.*;
+
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
+
+import com.stanzaliving.booking.enums.PaymentTerm;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 @Getter
 @Setter

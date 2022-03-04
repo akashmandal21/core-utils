@@ -22,4 +22,6 @@ public class HomeScreenResponse {
 	private CommercialsHomeScreenResponse commercialsHomeScreenResponse;
 
 	private ComplaintListingDto complaintListingDto;
+
+	private boolean interestBanner;
 }

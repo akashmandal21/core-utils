@@ -1,5 +1,9 @@
 package com.stanzaliving.wanda.venta.response;
 
+import java.io.Serializable;
+import java.util.Date;
+
+import com.stanzaliving.booking.enums.BookingSubType;
 import com.stanzaliving.wanda.enums.AlfredStep;
 import com.stanzaliving.wanda.venta.enums.BookingSource;
 
@@ -12,10 +16,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 @NoArgsConstructor
-public class BookingStatusResponseDto {
-    private String houseName;
+public class BookingStatusResponseDto implements Serializable {
+	private String houseName;
     private String bookingUuid;
     private String bookingStatus;
+    private String bookingStatusDesc;
     private boolean hasMovedIn;
     private AlfredStep alfredStep;
 	@Builder.Default
@@ -35,6 +40,7 @@ public class BookingStatusResponseDto {
     private String androidVersion;
     private String appleVersion;
     private String userCategory;
+    private String userUuid;
     private boolean wp;
     private String displayMessage;
     private String roomNumber;
@@ -43,4 +49,12 @@ public class BookingStatusResponseDto {
     private String mobileNumber;
     private String jsVersion;
     private String residenceUuid;
+    private Long bookingId;
+    private BookingSubType bookingSubType;
+    private Date expectedMoveInDate;
+    private RetentionBookingResponseDto retentionBooking;
+    private String contractStartDate;
+    private boolean interestMenuVisiblity;
+    private boolean interestBanner;
+    private String propertyCategory;
 }

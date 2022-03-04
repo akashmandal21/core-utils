@@ -23,6 +23,12 @@ public enum PaymentTerm {
 	private String name;
 	private String view;
 
+
+	public String getName() {
+		return name;
+	}
+
+
 	public static Map<String , PaymentTerm> getPaymentTermList(){
 		Map<String, PaymentTerm> paymentTermMap = new HashMap<>();
 		for(PaymentTerm paymentTerm : PaymentTerm.values()){
@@ -37,6 +43,7 @@ public enum PaymentTerm {
 		if(paymentTermMap.containsKey(paymentTerm)) return paymentTermMap.get(paymentTerm);
 		else return null;
 	}
+
 
 	public String getName() {
 		return name;

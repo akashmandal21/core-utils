@@ -13,4 +13,7 @@ public class RoomAndInventoryDetailsDto {
     int occupancy;
     int oldOccupancy;
     String occupancyName;
+
+    String inventoryUuid;
+
 }

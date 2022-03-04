@@ -18,10 +18,12 @@ public class MonthlyFee {
 	private String monthlyFeeStr;
 
 	private String packedServicesFeeStr;
-
+	private String foodServicesFeeStr;
 	private Double monthlyFee;
 
 	private Double packedServicesFee;
+	@Builder.Default
+	private Double foodServicesFee=0.0d;
 
 	private String total;
 	

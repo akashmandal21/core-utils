@@ -4,7 +4,14 @@
 package com.stanzaliving.residenceservice.Dto;
 
 import com.stanzaliving.core.payment.enums.PaymentMode;
-import lombok.*;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * @author raj.kumar

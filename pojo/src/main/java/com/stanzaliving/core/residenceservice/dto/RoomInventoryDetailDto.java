@@ -1,12 +1,13 @@
 package com.stanzaliving.core.residenceservice.dto;
 
+import java.util.List;
+
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Data
 @Builder
@@ -35,4 +36,15 @@ public class RoomInventoryDetailDto {
     private RoomStatus roomStatus;
 
     private String reason;
+
+    private Integer bhkType;
+
+    private String microMarketName;
+
+    private String microMarketUuid;
+
+    private int availableRoom;
+
+    private String residenceCode;
+
 }

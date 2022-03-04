@@ -3,8 +3,6 @@
  */
 package com.stanzaliving.residenceservice.Dto;
 
-import lombok.*;
-
 import java.util.List;
 
 /**

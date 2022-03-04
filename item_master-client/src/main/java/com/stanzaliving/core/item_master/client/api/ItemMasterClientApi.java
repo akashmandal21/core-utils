@@ -1,8 +1,6 @@
-/**
- * 
- */
 package com.stanzaliving.core.item_master.client.api;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 import com.stanzaliving.boq_service.BoqItemSearchRequestDto;
@@ -485,10 +483,7 @@ public class ItemMasterClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams,null,headerParams, accept, returnType);
 	}
-
-
-
-
+	
 	public ResponseDto<Collection<BrandSkuItemDetailDto>> getItemDetailsByLocation(String locationUuid) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -511,7 +506,7 @@ public class ItemMasterClientApi {
 	}
 
 	public ResponseDto<Collection<BrandSkuItemDetailDto>> getGlobalItemDetailsByDepartment(Department department) {
-
+		
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("department",department);
 
@@ -540,13 +535,13 @@ public class ItemMasterClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		String path = UriComponentsBuilder.fromPath("/internal/generic/remove-item-details-draft-location/{locationUuid}/{userId}").buildAndExpand(uriVariables).toUriString();
-
+		
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
+		
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
 		};
 
@@ -573,6 +568,49 @@ public class ItemMasterClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams,itemCodes,headerParams, accept, returnType);
+	}
+
+	public ResponseDto<Map<String, MasterBoqDto>> getBulkItemAndRate(List<String> itemUuids, String cityUuid) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("cityUuid", cityUuid);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/get/item-rate/{cityUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, MasterBoqDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, MasterBoqDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, itemUuids, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<ConsumableTagResponse>> getConsumableTags(Department department) {
+
+		log.info("HTTP Client call to get consumable tags for department {} ", department);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("department", department);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		Map<String, List<String>> map = new HashMap<>();
+
+		ParameterizedTypeReference<ResponseDto<List<ConsumableTagResponse>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ConsumableTagResponse>>>() {
+		};
+
+		String path = UriComponentsBuilder.fromPath("/internal/consumable-tag/get/{department}").buildAndExpand(uriVariables).toUriString();
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, returnType);
 	}
 }
 

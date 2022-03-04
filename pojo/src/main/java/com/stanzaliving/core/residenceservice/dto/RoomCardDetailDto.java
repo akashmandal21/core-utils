@@ -1,13 +1,14 @@
 package com.stanzaliving.core.residenceservice.dto;
 
+import java.io.Serializable;
+import java.util.List;
+
 import com.stanzaliving.residenceservice.Dto.OccupancyBlendedPriceDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
-import java.util.List;
 
 @Data
 @Builder
@@ -24,8 +25,9 @@ public class RoomCardDetailDto implements Serializable {
     Float deadBeds;
     Integer occupiedRooms;
     Float occupiedBeds;
-    List<OccupancyBlendedPriceDto> blendedPriceByOccupancy;
-    Float blockedBeds;
+
     Integer blockedRoom;
+    Float blockedBeds;
+    List<OccupancyBlendedPriceDto> blendedPriceByOccupancy;
 
 }
