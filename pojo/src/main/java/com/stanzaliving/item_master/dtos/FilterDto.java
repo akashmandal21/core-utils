@@ -60,6 +60,7 @@ public class FilterDto {
     private List<UIKeyValue> inactiveOptions;
     private List<Double> itemsPerPackOptions;
     private List<UIKeyValue> itemPerPackOptions;
+    private List<UIKeyValue> consumableTagOptions;
 
     //Main Filters
     private List<UIKeyValue> itemCategory;
@@ -88,7 +89,7 @@ public class FilterDto {
     private List<Double> itemsPerPack; //Mutli Select
     private List<UIKeyValue> itemPerPack;
     private List<UIKeyValue> baseItem;//Mutli Select
-
+    private List<UIKeyValue> consumableTag;
 
 
     //Sort

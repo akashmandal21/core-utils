@@ -1,13 +1,5 @@
-/**
- * 
- */
 package com.stanzaliving.core.leaddashboard.enums;
 
-/**
- * @author raj.kumar
- *
- */
 public enum LeadCreationInterface {
-
-	LEAD_MODULE, ZOHO;
+	LEAD_MODULE, ZOHO, APARTMENT_QUALIFICATION_FORM
 }

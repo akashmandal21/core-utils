@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Map;
 
 @Builder
 @Data
@@ -19,4 +20,6 @@ public class EventDto {
 
     @NotEmpty(message = "EventId can't be empty")
     private String eventId;
+
+    private Map<String, Object> placeholderData;
 }
