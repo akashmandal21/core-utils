@@ -1939,4 +1939,65 @@ public class ResidenceDataControllerApi {
         };
         return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
+
+    public RoomCardDetailDto getCardDetailsForPricing(String residenceUuid) {
+
+        log.info("Residence-Data-Controller::Processing to get pricing details based on residenceUuid {}", residenceUuid);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/api/v1/pricing-details/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<RoomCardDetailDto> returnType =
+                new ParameterizedTypeReference<RoomCardDetailDto>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching pricing Details from residenceUuid: {}", residenceUuid);
+        }
+        return null;
+    }
+
+    public RoomCardDetailDto getMaxMinRoomPricing(String residenceUuid) {
+        log.info("Residence-Data-Controller::Processing to get pricing details based on residenceUuid {}", residenceUuid);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/api/v1/room-pricing-details/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<RoomCardDetailDto> returnType =
+                new ParameterizedTypeReference<RoomCardDetailDto>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching pricing Details from residenceUuid: {}", residenceUuid);
+        }
+        return null;
+    }
 }
