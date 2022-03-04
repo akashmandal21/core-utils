@@ -37,7 +37,8 @@ public class UpdateItemGrammageRequestDto {
 
 	private int stanzaStaffNonVegPax;
 
-	@Builder.Default
-	private int nonSlStaffNonVegPax = 5;
+	private int nonSlStaffVegPax;
+
+	private int nonSlStaffNonVegPax;
 
 }
