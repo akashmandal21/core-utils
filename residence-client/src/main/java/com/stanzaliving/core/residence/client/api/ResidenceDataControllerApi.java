@@ -1,26 +1,12 @@
 package com.stanzaliving.core.residence.client.api;
 
 
-import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
-import com.stanzaliving.booking.dto.response.ServiceMixResponse;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.constants.SecurityConstants;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.enums.PropertyEntityType;
-import com.stanzaliving.core.residenceservice.dto.*;
-import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
-import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
-import com.stanzaliving.core.security.helper.SecurityUtils;
-import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
-import com.stanzaliving.residenceservice.BookingAttributesDto;
-import com.stanzaliving.residenceservice.Dto.*;
-import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 import org.apache.commons.lang3.StringUtils;
@@ -32,19 +18,10 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
-
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.CompletableFuture;
-
 import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
+import com.stanzaliving.booking.dto.response.ServiceMixResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -66,14 +43,18 @@ import com.stanzaliving.core.residenceservice.dto.RoomInventoryDetailDto;
 import com.stanzaliving.core.residenceservice.dto.RoomNumberListingAndCountDto;
 import com.stanzaliving.core.residenceservice.dto.ServiceMixDto;
 import com.stanzaliving.core.security.helper.SecurityUtils;
+import com.stanzaliving.housekeepingservice.dto.response.ResidenceClientResponseDto;
 import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.AttributesAndGlobalUuidDto;
 import com.stanzaliving.residenceservice.Dto.InventoryDetailsRequestDto;
+import com.stanzaliving.residenceservice.Dto.OccupancyPricingAndRoomAttributesResponseDto;
 import com.stanzaliving.residenceservice.Dto.ResidenceAttributesRequestDto;
 import com.stanzaliving.residenceservice.Dto.ResidenceAttributesResponseDto;
 import com.stanzaliving.residenceservice.Dto.ResidencePaymentModeDto;
 import com.stanzaliving.residenceservice.Dto.RoomAndInventoryDetailsDto;
+import com.stanzaliving.residenceservice.Dto.RoomConsumablesDto;
+import com.stanzaliving.residenceservice.Dto.RoomInventoryDetailsRequestDto;
 import com.stanzaliving.residenceservice.Dto.RoomInventoryLogDto;
 import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
 import com.stanzaliving.venta.RoomInfoDto;
@@ -87,6 +68,32 @@ public class ResidenceDataControllerApi {
     }
 
 
+    public List<ResidenceClientResponseDto> getResidenceDetailsUuid(String uuid) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+
+        String path = UriComponentsBuilder.fromPath("/internal/residences").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("residenceUuid", uuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<ResidenceClientResponseDto>> returnType = new ParameterizedTypeReference<List<ResidenceClientResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    
+    
     public ResponseDto<List<String>> fetchLockInDateForResidence(String residenceUuid, MoveInDateDto moveInDateDto) {
 
         log.info("Residence-Data-Controller::Processing to get lock-in date based on residenceUuid {} and moveInDate {}", residenceUuid, moveInDateDto);
