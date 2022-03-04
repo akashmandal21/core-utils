@@ -37,4 +37,6 @@ public class ComplaintListingDtoV2 {
 	private String complaintTypeImgUrl;
 	private String cmsId;
 
+	private String ticketStatus;
+	private Boolean isResolved;
 }
