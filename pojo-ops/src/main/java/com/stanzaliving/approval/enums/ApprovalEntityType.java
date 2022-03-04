@@ -18,7 +18,7 @@ public enum ApprovalEntityType {
 	WEEKLY_MENU("Weekly Menu", "FOOD_SERVICE", "WEEKLY_MENU"),
 	WEEKLY_MENU_V2("Weekly Menu", "FOOD_SERVICE", "WEEKLY_MENU"),
 
-	HK_BEAT_PLAN("House Keeping Beat plan", "HK_BEAT_PLAN", "HK_BEAT_PLAN");
+	HK_BEAT_PLAN("House Keeping Beat plan", "HK_BEAT_PLAN", "HK_BEAT_PLAN"),
 
 	SUPPORT_TEMPLATE("Support Template", "support-service", "SUPPORT_TEMPLATE"),
 	MONTHLY_BUDGET_MENU_PLANNING("Food Monthly Planning", "FOOD_SERVICE", "MONTHLY_BUDGET_MENU_PLANNING"),

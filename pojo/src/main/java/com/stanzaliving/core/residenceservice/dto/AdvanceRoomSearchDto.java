@@ -9,6 +9,7 @@ import com.stanzaliving.core.residenceservice.enums.ResidenceSortBy;
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 import com.stanzaliving.core.utilservice.annotations.DateFormat;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -36,15 +37,7 @@ public class AdvanceRoomSearchDto {
     private String moveInDate;
 
     private List<String> attributes;
-
-    private String inventoryMinPrice;
-
-    private String inventoryMaxPrice;
-
-    private Integer page;
-
-    private Integer limit;
-    
+   
     private Double inventoryMinPrice;
 
     private Double inventoryMaxPrice;

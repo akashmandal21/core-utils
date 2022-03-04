@@ -1,7 +1,6 @@
 package com.stanzaliving.operations.client;
 
 
-import java.awt.PageAttributes.MediaType;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,6 +13,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -41,7 +41,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class OperationsClientApi {
 
-	private final StanzaRestClient restClient;
+	private StanzaRestClient restClient;
 
 	public OperationsClientApi(StanzaRestClient stanzaRestClient) {
 		this.restClient = stanzaRestClient;

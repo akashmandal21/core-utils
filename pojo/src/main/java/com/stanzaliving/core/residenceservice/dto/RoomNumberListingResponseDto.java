@@ -4,6 +4,13 @@ import java.util.List;
 
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 
 
