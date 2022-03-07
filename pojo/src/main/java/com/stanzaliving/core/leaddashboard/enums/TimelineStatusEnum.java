@@ -24,6 +24,7 @@ public enum TimelineStatusEnum {
 	NEW_LEAD("New Lead"),
 	CALLED("Called"),
 	CONNECTED("Connected"),
+	FOLLOW_UP_NEEDED("Follow-Up Needed"),
 	RNR("RNR"),
 	PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow-Up"),
 
@@ -83,7 +84,8 @@ public enum TimelineStatusEnum {
 	ALL("ALL"),// new status only used for whatsapp template
 
 	
-	VISIT_INTENT("Visit Intent Shown");
+	VISIT_INTENT("Visit Intent Shown"),
+	MANUAL_VISIT_SHEDULE("Manual Visit Schedule");
 	
 	private String statusName;
 	
