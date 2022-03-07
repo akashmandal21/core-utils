@@ -35,6 +35,6 @@ public class PoItemDetail {
     private BigDecimal rentPeriod;
     private BigDecimal unitRate;
     private BigDecimal gst;
-    private BoqLabel boqLabel;
-
+    @Builder.Default
+    private BoqLabel boqLabel = BoqLabel.NA;
 }

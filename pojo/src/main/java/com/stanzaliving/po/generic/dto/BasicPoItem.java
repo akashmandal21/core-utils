@@ -42,7 +42,8 @@ public class BasicPoItem {
     private BigDecimal itemAmount;
 
     @EqualsAndHashCode.Include
-    private BoqLabel boqLabel;
+    @Builder.Default
+    private BoqLabel boqLabel = BoqLabel.NA;
 
     //For ShortClose
     private BigDecimal gsriQuantity;

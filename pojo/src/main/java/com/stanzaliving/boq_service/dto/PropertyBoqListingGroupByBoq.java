@@ -48,8 +48,9 @@ public class PropertyBoqListingGroupByBoq {
 
     private String boqLabel;
 
-    private BoqLabel boqLabelValue;
-
+    @Builder.Default
+    private BoqLabel boqLabelValue = BoqLabel.NA;
+    
     private String textColor;
 
     private String bgColor;

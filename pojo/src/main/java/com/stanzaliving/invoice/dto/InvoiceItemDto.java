@@ -58,5 +58,6 @@ public class InvoiceItemDto {
     private BigDecimal otherFee;
     private BigDecimal wtdAvg;
     private BigDecimal totalOtherFee;
-    private BoqLabel boqLabel;
+    @Builder.Default
+    private BoqLabel boqLabel = BoqLabel.NA;
 }
