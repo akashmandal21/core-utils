@@ -193,71 +193,71 @@ public class StanzaRestClient {
 			ParameterizedTypeReference<T> returnType,
 			MediaType mediaType) {
 		return null;
-
-		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path("temp");
-
-		if (queryParams != null) {
-			builder.queryParams(queryParams);
-		}
-
-		final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
-
-		if (accept != null) {
-			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
-		}
-
-		requestBuilder.contentType(mediaType);
-
-		if(Objects.nonNull(headerParams)) {
-			
-			addHeadersToRequest(headerParams, requestBuilder);
-		}
-
-		log.info("Accessing API: {}", builder.toUriString());
-
-		RequestEntity<Object> requestEntity = requestBuilder.body(body);
-
-		return getResponse(requestEntity, returnType, builder);
+//
+//		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path("temp");
+//
+//		if (queryParams != null) {
+//			builder.queryParams(queryParams);
+//		}
+//
+//		final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
+//
+//		if (accept != null) {
+//			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
+//		}
+//
+//		requestBuilder.contentType(mediaType);
+//
+//		if(Objects.nonNull(headerParams)) {
+//
+//			addHeadersToRequest(headerParams, requestBuilder);
+//		}
+//
+//		log.info("Accessing API: {}", builder.toUriString());
+//
+//		RequestEntity<Object> requestEntity = requestBuilder.body(body);
+//
+//		return getResponse(requestEntity, returnType, builder);
 	}
 
 	private <T> T getResponse(RequestEntity<Object> requestEntity, ParameterizedTypeReference<T> returnType, final UriComponentsBuilder builder) {
 		return null;
-		ResponseEntity<T> responseEntity = null;
-		try {
-			if (null != messageConverter) {
-				List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
-				messageConverters.add(messageConverter);
-				restTemplate.setMessageConverters(messageConverters);
-			}
-			responseEntity = restTemplate.exchange(requestEntity, returnType);
-
-		} catch (RestClientException e) {
-			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
-				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-			} else if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("403")) {
-				responseEntity = new ResponseEntity<>(HttpStatus.FORBIDDEN);
-			} else {
-
-				log.error("Exception caught while making rest call: ", e.getMessage());
-				throw new StanzaHttpException(e.getMessage(), e);
-			}
-		}
-
-		HttpStatus statusCode = responseEntity.getStatusCode();
-
-		log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
-
-		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
-			return null;
-		} else if (responseEntity.getStatusCode().is2xxSuccessful()) {
-			if (returnType == null) {
-				return null;
-			}
-			return responseEntity.getBody();
-		} else {
-			// The error handler built into the RestTemplate should handle 400 and 500 series errors.
-			throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
-		}
+//		ResponseEntity<T> responseEntity = null;
+//		try {
+//			if (null != messageConverter) {
+//				List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
+//				messageConverters.add(messageConverter);
+//				restTemplate.setMessageConverters(messageConverters);
+//			}
+//			responseEntity = restTemplate.exchange(requestEntity, returnType);
+//
+//		} catch (RestClientException e) {
+//			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
+//				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+//			} else if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("403")) {
+//				responseEntity = new ResponseEntity<>(HttpStatus.FORBIDDEN);
+//			} else {
+//
+//				log.error("Exception caught while making rest call: ", e.getMessage());
+//				throw new StanzaHttpException(e.getMessage(), e);
+//			}
+//		}
+//
+//		HttpStatus statusCode = responseEntity.getStatusCode();
+//
+//		log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
+//
+//		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
+//			return null;
+//		} else if (responseEntity.getStatusCode().is2xxSuccessful()) {
+//			if (returnType == null) {
+//				return null;
+//			}
+//			return responseEntity.getBody();
+//		} else {
+//			// The error handler built into the RestTemplate should handle 400 and 500 series errors.
+//			throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
+//		}
 	}
 
 	public <T> T invokeAPI(
