@@ -57,7 +57,7 @@ public class StanzaRestClient {
 	private HttpMessageConverter messageConverter;
 
 	public StanzaRestClient(String basePath) {
-		this.basePath = basePath;
+		this.basePath = "https://dev-mercury.stanzaliving.com/notification-service/api/vv";
 		this.restTemplate = buildRestTemplate();
 		objectMapper = BaseMapperConfig.getDefaultMapper();
 	}
