@@ -73,7 +73,7 @@ public class NotificationClientApi {
 			Object postBody = null;
 
 			String path =
-			        UriComponentsBuilder.fromPath("/api/v1/generic-notification")
+			        UriComponentsBuilder.fromPath("/api/vv/generic-notification")
 			                .toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
