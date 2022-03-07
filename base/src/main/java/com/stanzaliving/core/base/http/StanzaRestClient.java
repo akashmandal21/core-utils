@@ -192,8 +192,9 @@ public class StanzaRestClient {
 			List<MediaType> accept,
 			ParameterizedTypeReference<T> returnType,
 			MediaType mediaType) {
+		return null;
 
-		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
+		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path("temp");
 
 		if (queryParams != null) {
 			builder.queryParams(queryParams);
@@ -220,6 +221,7 @@ public class StanzaRestClient {
 	}
 
 	private <T> T getResponse(RequestEntity<Object> requestEntity, ParameterizedTypeReference<T> returnType, final UriComponentsBuilder builder) {
+		return null;
 		ResponseEntity<T> responseEntity = null;
 		try {
 			if (null != messageConverter) {
