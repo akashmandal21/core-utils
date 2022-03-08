@@ -22,4 +22,9 @@ public class TicketConversationRequestDto {
 
     @Builder.Default
     private boolean fromSupport = false;
+
+    // we send reply mail to customer only if this field is true
+    @Builder.Default
+    private Boolean isMailReplyRequired = Boolean.TRUE;
+
 }
