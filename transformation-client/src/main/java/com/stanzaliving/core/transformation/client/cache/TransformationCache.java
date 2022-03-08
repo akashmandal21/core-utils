@@ -1,5 +1,6 @@
 package com.stanzaliving.core.transformation.client.cache;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -10,6 +11,7 @@ import java.util.stream.Collectors;
 
 import com.stanzaliving.core.user.acl.enums.AccessLevelEntityEnum;
 import com.stanzaliving.transformations.pojo.*;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.cache.CacheBuilder;
@@ -17,7 +19,9 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.transformation.client.api.InternalDataControllerApi;
+import org.springframework.util.CollectionUtils;
 
+@Log4j2
 public class TransformationCache {
 
 	private InternalDataControllerApi internalDataControllerApi;
@@ -368,6 +372,94 @@ public class TransformationCache {
 	public ZoneMetadataDto getZoneByUuid(String uuid){
 		allZoneCache.getUnchecked("zone");
 		return zoneByUuidMap.get(uuid);
+	}
+
+	public String getCityUuidByMicromarketUuid(String micromarketUuid) {
+		MicroMarketMetadataDto micromarketMetaData = getMicromarketDataFromUuid(micromarketUuid);
+
+		if(micromarketMetaData != null) {
+			return micromarketMetaData.getCityUuid();
+		}
+
+		log.debug("No city found for micromarket uuid {}", micromarketUuid);
+		return null;
+	}
+
+	public String getMicromarketUuidByResidenceUuid(String residenceUuid) {
+		ResidenceDto residenceDto = getResidenceDataFromUuid(residenceUuid);
+
+		if(residenceDto != null) {
+			return residenceDto.getMicromarketUuid();
+		}
+
+		log.debug("No Micromarket found for residence uuid {}", residenceUuid);
+
+		return null;
+	}
+
+	public List<String> getMicromarketUuidsByCityUuid(String cityUuid) {
+
+		List<MicroMarketMetadataDto> micromarketList = getAllMicroMarkets();
+
+		Map<String, List<MicroMarketMetadataDto>> cityMicromarketMap =
+			micromarketList.stream().collect(Collectors.groupingBy(MicroMarketMetadataDto::getCityUuid));
+
+		if (cityMicromarketMap.containsKey(cityUuid)) {
+			return cityMicromarketMap.get(cityUuid).stream().map(MicroMarketMetadataDto::getUuid).collect(Collectors.toList());
+		}
+
+		return null;
+	}
+
+	public List<String> getResidenceUuidsByCityUuid(String cityUuid) {
+		List<ResidenceMetadataDto> residenceList = getAllResidences();
+		List<String> residenceUuids = new ArrayList<>();
+
+		if (!CollectionUtils.isEmpty(residenceList)) {
+			for (ResidenceMetadataDto residenceMetadataDto : residenceList) {
+				if (Objects.nonNull(residenceMetadataDto) && Objects.nonNull(residenceMetadataDto.getMicroMarketUuid())) {
+					String micromarketUuid = residenceMetadataDto.getMicroMarketUuid();
+					MicroMarketMetadataDto microMarketMetadataDto = getMicromarketByUuid(micromarketUuid);
+					if (Objects.nonNull(microMarketMetadataDto) && Objects.nonNull(microMarketMetadataDto.getCityUuid()) &&
+						microMarketMetadataDto.getCityUuid().equals(cityUuid)) {
+						residenceUuids.add(residenceMetadataDto.getUuid());
+					}
+				}
+			}
+			return residenceUuids;
+		}
+		log.debug("No residence found for city uuid {}", cityUuid);
+		return null;
+	}
+
+	public List<String> getResidenceUuidsByMicromarketUuid(String micromarketUuid) {
+		List<ResidenceMetadataDto> residenceList = getAllResidences();
+		List<String> residenceUuids = new ArrayList<>();
+
+		if (!CollectionUtils.isEmpty(residenceList)) {
+			for (ResidenceMetadataDto residenceMetadataDto : residenceList) {
+				if (Objects.nonNull(residenceMetadataDto) && Objects.nonNull(residenceMetadataDto.getMicroMarketUuid())
+					&& residenceMetadataDto.getMicroMarketUuid().equals(micromarketUuid)) {
+					residenceUuids.add(residenceMetadataDto.getUuid());
+				}
+			}
+			return residenceUuids;
+		}
+		log.debug("No residence found for micromarket uuid {}", micromarketUuid);
+		return null;
+	}
+
+	public String getCityUuidByResidenceUuid(String residenceUuid) {
+		ResidenceDto residenceDto = getResidenceDataFromUuid(residenceUuid);
+
+		if(Objects.nonNull(residenceDto) && Objects.nonNull(residenceDto.getMicromarketUuid())) {
+			MicroMarketMetadataDto microMarketMetadataDto = getMicromarketByUuid(residenceDto.getMicromarketUuid());
+			if (Objects.nonNull(microMarketMetadataDto) && Objects.nonNull(microMarketMetadataDto.getCityUuid())) {
+				return microMarketMetadataDto.getCityUuid();
+			}
+		}
+		log.debug("No city found for residence uuid {}", residenceUuid);
+		return null;
 	}
 
 }
