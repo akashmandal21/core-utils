@@ -21,7 +21,7 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	protected abstract R getJpaRepository();
 
 	@Override
-	public T save(T entity) {
+	public T 	save(T entity) {
 		return getJpaRepository().save(entity);
 	}
 

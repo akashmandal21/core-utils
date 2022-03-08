@@ -1,6 +1,7 @@
 package com.stanzaliving.core.user.acl.enums;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.base.enums.AccessModule;
 import com.stanzaliving.core.base.enums.Department;
 
 import lombok.AllArgsConstructor;
@@ -18,18 +19,18 @@ public enum Role {
     SALES_CLUSTER_MANAGER("SALES_CLUSTER_MANAGER", AccessLevel.MICROMARKET, Department.SALES),
 
     /* lead-service */
-    RESIDENCE_LEAD_MANAGER("RESIDENCE_LEAD_MANAGER", AccessLevel.RESIDENCE, Department.SALES),
-    MICROMARKET_LEAD_MANAGER("MICROMARKET_LEAD_MANAGER", AccessLevel.MICROMARKET, Department.SALES),
-    CITY_LEAD_MANAGER("CITY_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
+    RESIDENCE_LEAD_MANAGER("RESIDENCE_LEAD_MANAGER", AccessLevel.RESIDENCE, Department.SALES, AccessModule.PG_LEAD_EDIT),
+    MICROMARKET_LEAD_MANAGER("MICROMARKET_LEAD_MANAGER", AccessLevel.MICROMARKET, Department.SALES, AccessModule.PG_LEAD_EDIT),
+    CITY_LEAD_MANAGER("CITY_LEAD_MANAGER", AccessLevel.CITY, Department.SALES, AccessModule.PG_LEAD_EDIT),
     ZONAL_LEAD_MANAGER("ZONAL_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
-    COUNTRY_LEAD_MANAGER("COUNTRY_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES),
+    COUNTRY_LEAD_MANAGER("COUNTRY_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES, AccessModule.PG_LEAD_EDIT),
     
     /* lead-service apartment role*/
-    RESIDENCE_APARTMENT_LEAD_MANAGER("RESIDENCE_APARTMENT_LEAD_MANAGER", AccessLevel.RESIDENCE, Department.SALES),
-	MICROMARKET_APARTMENT_LEAD_MANAGER("MICROMARKET_APARTMENT_LEAD_MANAGER", AccessLevel.MICROMARKET, Department.SALES),
-	CITY_APARTMENT_LEAD_MANAGER("CITY_APARTMENT_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
+    RESIDENCE_APARTMENT_LEAD_MANAGER("RESIDENCE_APARTMENT_LEAD_MANAGER", AccessLevel.RESIDENCE, Department.SALES, AccessModule.APARTMENTS_LEAD_EDIT),
+	MICROMARKET_APARTMENT_LEAD_MANAGER("MICROMARKET_APARTMENT_LEAD_MANAGER", AccessLevel.MICROMARKET, Department.SALES, AccessModule.APARTMENTS_LEAD_EDIT),
+	CITY_APARTMENT_LEAD_MANAGER("CITY_APARTMENT_LEAD_MANAGER", AccessLevel.CITY, Department.SALES, AccessModule.APARTMENTS_LEAD_EDIT),
 	ZONAL_APARTMENT_LEAD_MANAGER("ZONAL_APARTMENT_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
-	COUNTRY_APARTMENT_LEAD_MANAGER("COUNTRY_APARTMENT_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES),
+	COUNTRY_APARTMENT_LEAD_MANAGER("COUNTRY_APARTMENT_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES, AccessModule.APARTMENTS_LEAD_EDIT),
 
     /*******************************Support service - Template Management*******************************/
     SUPPORT_TEMPLATE_APPROVAL_L1("SUPPORT_TEMPLATE_APPROVAL_L1", AccessLevel.COUNTRY, Department.CX),
@@ -115,5 +116,11 @@ public enum Role {
     private String roleName;
     private AccessLevel accessLevel;
     private Department department;
+    private AccessModule accessModule;
 
+    Role(String roleName, AccessLevel accessLevel, Department department) {
+        this.roleName = roleName;
+        this.accessLevel = accessLevel;
+        this.department = department;
+    }
 }
