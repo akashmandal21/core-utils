@@ -11,9 +11,8 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Objects;
 import java.util.regex.Pattern;
-
-
 
 public class StanzaSpecification<T extends AbstractJpaEntity> implements Specification<T> {
 
@@ -23,6 +22,14 @@ public class StanzaSpecification<T extends AbstractJpaEntity> implements Specifi
 
 	public StanzaSpecification(SearchCriteria sc) {
 		criteria = sc;
+	}
+
+	public static Specification or(Specification first, Specification other) {
+		return (Objects.nonNull(first)) ? first.or(other) : other;
+	}
+
+	public static Specification and(Specification first, Specification other) {
+		return (Objects.nonNull(first)) ? first.and(other) : other;
 	}
 
 	@Override

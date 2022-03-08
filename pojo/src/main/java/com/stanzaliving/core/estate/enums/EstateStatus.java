@@ -107,8 +107,13 @@ public enum EstateStatus {
 	SENT_BACK_L2_BY_NH("L2 Sent Back By NH"),
 	SENT_BACK_BY_ANDY("Sent Back by Andy"),
 	SENT_BACK_BY_ZONAL_HEAD("L1 Sent Back By ZH"),
-	SENT_FOR_APPROVAL_TO_LEGAL("Pending Legal for Title Docs Approval"),
-	SENT_BACK_BY_LEGAL_TITLE_DOCS("Sent Back By Legal Title Docs");
+	SENT_BACK_BY_LEGAL_TITLE_DOCS("Sent Back By Legal Title Docs"),
+	SENT_FOR_ATL("Sent for ATL generation"),
+	SENT_TO_TITLE_DOCS("Pending Legal for Title Docs Approval"),
+	SENT_TO_TITLE_DOCS_AND_SANDEEP("Pending Title Docs and Sandeep Approval"),
+	SENT_TO_TRANSFORMATION_AND_TITLE_DOCS("Pending Transformation and Title Docs Approval");
+
+
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
 
 	private String name;
