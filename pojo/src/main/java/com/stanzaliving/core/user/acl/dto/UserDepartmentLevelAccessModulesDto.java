@@ -14,6 +14,7 @@ import java.util.Map;
 public class UserDepartmentLevelAccessModulesDto {
     
     private AccessModule accessModule;
+    private String accessModuleName;
     private String roleUuid;
     private String userDepartmentLevelUuid;
     private AccessLevel accessLevel;
