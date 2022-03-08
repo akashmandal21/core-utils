@@ -16,4 +16,5 @@ public class UsersByAccessModulesAndCitiesRequestDto {
     private List<AccessModule> accessModuleList;
     private List<String> cityUuids;
     private AccessLevel accessLevel;
+    private String searchText;
 }
