@@ -547,7 +547,7 @@ public class InventoryClientApi {
 				path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<List<SummaryInfoDto>> getInventorySummaryByAddressAndItemsUuid(
+	public ResponseDto<List<ItemSummaryInfoDto>> getInventorySummaryByAddressAndItemsUuid(
 			SummaryInfoRequestDto summaryInfoRequestDto) {
 
 		// create path and map variables
@@ -565,8 +565,8 @@ public class InventoryClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<List<SummaryInfoDto>>> returnType =
-				new ParameterizedTypeReference<ResponseDto<List<SummaryInfoDto>>>() {};
+		ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>>() {};
 
 		return restClient.invokeAPI(
 				path, HttpMethod.GET, queryParams, summaryInfoRequestDto, headerParams, accept, returnType);

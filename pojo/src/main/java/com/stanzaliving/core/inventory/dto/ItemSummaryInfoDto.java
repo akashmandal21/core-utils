@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Setter
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SummaryInfoDto {
+public class ItemSummaryInfoDto {
     private BigDecimal currentStockValue;
     private BigDecimal currentStockQty;
     private BigDecimal blockedStockValue;
