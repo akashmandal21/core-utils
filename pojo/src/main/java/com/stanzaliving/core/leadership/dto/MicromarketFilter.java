@@ -23,5 +23,4 @@ import lombok.ToString;
 public class MicromarketFilter {
 	private String micromarketName;
 	private String micromarketUuid;
-	private long cityId;
 }

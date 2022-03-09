@@ -16,6 +16,6 @@ public class PropertyRequestFilterDTO {
 
     private List<PropertyTypeAndStatus> propertyTypeAndStatuses;
 
-    private PropertyLocationFilter propertyLocationFilter;
+    private PropertyLocationFilterDTO propertyLocationFilter;
     private List<DynamicFilterSectionsDTO> dynamicFilterSections;
 }

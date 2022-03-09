@@ -24,5 +24,4 @@ public class CityFilter {
 
 	private String cityName;
 	private String cityUuid;
-	private long cityId;
 }
