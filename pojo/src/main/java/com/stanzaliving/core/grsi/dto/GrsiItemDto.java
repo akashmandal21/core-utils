@@ -19,6 +19,20 @@ public class GrsiItemDto {
     private String itemCode;
     private Department itemDept;
     private String batchId;
+    private String awlBatchId;
+    private String fifoUuid;
+
+    @Builder.Default
+    private BigDecimal pieceDamaged = BigDecimal.ZERO;
+    @Builder.Default
+    private BigDecimal cartonDamaged = BigDecimal.ZERO;
+    @Builder.Default
+    private BigDecimal qcChk = BigDecimal.ZERO;
+    @Builder.Default
+    private BigDecimal rePck = BigDecimal.ZERO;
+    @Builder.Default
+    private BigDecimal okQty = BigDecimal.ZERO;
+    
     private LocalDate expiryDate;
     private BigDecimal effectivePrice;//Unit Rate
     private BigDecimal quantity;

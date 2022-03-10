@@ -1,18 +1,14 @@
 package com.stanzaliving.core.grsi.dto;
 
-import java.util.Date;
-
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import com.stanzaliving.transformations.enums.LocationType;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,6 +30,9 @@ public class GrsiEventUpdateDto {
     private GrsiItemDto gsriItem;
     private String adjustCloseId;
     private Integer version;
+    private String gsriPlatform;
+    private String awlRefNo;
     private Department poToDepartment;
+    private String fifoUuid;
 
 }

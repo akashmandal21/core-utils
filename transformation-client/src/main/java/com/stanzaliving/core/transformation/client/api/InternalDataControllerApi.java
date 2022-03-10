@@ -1,7 +1,8 @@
-    /**
+/**
  *
  */
 package com.stanzaliving.core.transformation.client.api;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,6 +38,7 @@ import com.stanzaliving.transformations.pojo.CityUIDto;
 import com.stanzaliving.transformations.pojo.CountryLevelAccessMetadata;
 import com.stanzaliving.transformations.pojo.CountryUIDto;
 import com.stanzaliving.transformations.pojo.FilterAddressDto;
+import com.stanzaliving.transformations.pojo.LocationDetailsDto;
 import com.stanzaliving.transformations.pojo.LocationDto;
 import com.stanzaliving.transformations.pojo.MicroMarketDetailsDto;
 import com.stanzaliving.transformations.pojo.MicroMarketMetadataDto;
@@ -1168,6 +1170,34 @@ public class InternalDataControllerApi {
 		restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<List<LocationDetailsDto>> getLocationDetailsWithFilters(FilterAddressDto filterAddress) {
+
+		try {
+			Object postBody = filterAddress;
+
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/get/locations/details/filtered").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<List<LocationDetailsDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<LocationDetailsDto>>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Exception Caught while Fetching location details for filters: ", e);
+		}
+		return null;
+	}
 
     public ResponseDto<GstInformationDto> getGstDataByCityUuid(String cityUuid) {
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -1251,4 +1281,5 @@ public class InternalDataControllerApi {
         }
         return null;
     }
+
 }
