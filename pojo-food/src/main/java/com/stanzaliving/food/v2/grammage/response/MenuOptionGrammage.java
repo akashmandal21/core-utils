@@ -10,6 +10,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuOptionGrammage {
+public class MenuOptionGrammage implements Serializable {
 
 	private KeyValuePairDto thali;
 
