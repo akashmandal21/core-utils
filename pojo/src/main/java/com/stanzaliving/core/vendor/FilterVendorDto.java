@@ -9,6 +9,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 @Getter
 @Setter
 public class FilterVendorDto {
