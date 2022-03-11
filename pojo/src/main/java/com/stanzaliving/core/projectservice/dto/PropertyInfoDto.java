@@ -53,4 +53,5 @@ public class PropertyInfoDto {
     private String projectZonalHeadId;
     private double latitude;
     private double longitude;
+    private int floorCount;
 }
