@@ -42,4 +42,8 @@ public class StanzaConstants {
 	public static final String MESSAGE_ID = "messageId";
 
 	public static final String NO_KEY = "NO";
+	public static final String REQ_UID = "reqUuid";
+	public static final String REQ_MOBILE = "reqUserMobile";
+
+	public static final String REQ_TRACE_ID = "traceId";
 }
