@@ -449,6 +449,23 @@ public class TransformationCache {
 		return null;
 	}
 
+	public List<ResidenceMetadataDto> getResidencesByMicromarketUuid(String micromarketUuid) {
+		List<ResidenceMetadataDto> residenceList = getAllResidences();
+		List<ResidenceMetadataDto> residencesByMicromarket = new ArrayList<>();
+
+		if (!CollectionUtils.isEmpty(residenceList)) {
+			for (ResidenceMetadataDto residenceMetadataDto : residenceList) {
+				if (Objects.nonNull(residenceMetadataDto) && Objects.nonNull(residenceMetadataDto.getMicroMarketUuid())
+					&& residenceMetadataDto.getMicroMarketUuid().equals(micromarketUuid)) {
+					residencesByMicromarket.add(residenceMetadataDto);
+				}
+			}
+			return residencesByMicromarket;
+		}
+		log.debug("No residence found for micromarket uuid {}", micromarketUuid);
+		return null;
+	}
+
 	public String getCityUuidByResidenceUuid(String residenceUuid) {
 		ResidenceDto residenceDto = getResidenceDataFromUuid(residenceUuid);
 
