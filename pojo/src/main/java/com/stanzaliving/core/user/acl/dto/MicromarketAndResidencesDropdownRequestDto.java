@@ -14,4 +14,5 @@ import java.util.List;
 public class MicromarketAndResidencesDropdownRequestDto {
 
     private List<String> cityUuids;
+    private String searchText;
 }
