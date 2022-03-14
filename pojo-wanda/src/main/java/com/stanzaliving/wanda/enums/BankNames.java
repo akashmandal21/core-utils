@@ -46,7 +46,8 @@ public enum BankNames {
 	TAMILNAD_MERCANTILE_BANK("Tamilnad Mercantile Bank"),
 	UCO_BANK("UCO Bank"),
 	UNION_BANK_OF_INDIA("Union Bank of India"),
-	YES_BANK("YES Bank");
+	YES_BANK("YES Bank"),
+	STATE_BANK_OF_HYDERABAD("State Bank of Hyderabad");
 	
 	private String bank;
 	
