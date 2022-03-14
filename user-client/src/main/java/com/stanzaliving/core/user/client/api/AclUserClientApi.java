@@ -5,6 +5,8 @@ import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
+import com.stanzaliving.core.user.acl.dto.UserAccessLevelIdsByRoleNameWithFiltersDto;
+import com.stanzaliving.core.user.acl.dto.UsersByFiltersRequestDto;
 import com.stanzaliving.core.user.acl.dto.UserAccessLevelIdsByRoleNameDto;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
 import com.stanzaliving.core.user.acl.request.dto.AddUserDeptLevelRoleRequestDto;
@@ -312,6 +314,31 @@ public class AclUserClientApi {
 		} catch (Exception e) {
 			return null;
 		}
+	}
+
+	public ResponseDto<Map<String, List<String>>> getUseridAccessLevelIdByRoleNameAndFilters(UserAccessLevelIdsByRoleNameWithFiltersDto userAccessLevelIdsByRoleNameDto) {
+
+		Object postBody = userAccessLevelIdsByRoleNameDto;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/acl/useridAccessLevelIdByRoleName/filters").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+			"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
 	}
 
 }
