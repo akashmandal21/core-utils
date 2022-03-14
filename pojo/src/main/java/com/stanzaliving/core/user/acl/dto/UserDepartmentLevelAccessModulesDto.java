@@ -19,4 +19,5 @@ public class UserDepartmentLevelAccessModulesDto {
     private String userDepartmentLevelUuid;
     private AccessLevel accessLevel;
     private Map<String, String> accessLevelEntityUuidNameMap;
+    private boolean isLeadTransferApplicable;
 }
