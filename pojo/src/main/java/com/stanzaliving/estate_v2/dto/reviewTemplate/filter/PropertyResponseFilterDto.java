@@ -12,8 +12,7 @@ import java.util.List;
 @ToString
 public class PropertyResponseFilterDto {
 
-    private List<String> propertyTypeName;
-    private List<String> propertyStatusName;
+    private List<String> propertyTypeNameWithStatus;
     private String city;
     private List<String> microMarket;
     private DateRange createdBetween;
