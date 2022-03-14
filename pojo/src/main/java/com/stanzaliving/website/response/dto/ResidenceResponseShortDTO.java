@@ -63,6 +63,8 @@ public class ResidenceResponseShortDTO {
 	
 	private Integer sortOrder;
 	
+	private Integer secondSortOrder;
+	
 	private FomoTag fomoTag;
 	
 	private String fomoTagName;

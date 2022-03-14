@@ -1,6 +1,7 @@
 package com.stanzaliving.food.v2.order.request;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,5 +36,9 @@ public class UpdateItemGrammageRequestDto {
 	private int stanzaStaffVegPax;
 
 	private int stanzaStaffNonVegPax;
+
+	private int nonSlStaffVegPax;
+
+	private int nonSlStaffNonVegPax;
 
 }
