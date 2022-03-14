@@ -53,5 +53,5 @@ public class PropertyInfoDto {
     private String projectZonalHeadId;
     private double latitude;
     private double longitude;
-    private int floorCount;
+    private Integer floorCount; //changing the data type to Integer since this value can be nullable
 }
