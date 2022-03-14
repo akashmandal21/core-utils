@@ -148,7 +148,7 @@ public class LeadserviceClientApi {
 
 		Object postBody = leadRequestDto;
 
-		String path = UriComponentsBuilder.fromPath("/lead/internal/website/update/thankyou/screen/reschedule/visit").toUriString();
+		String path = UriComponentsBuilder.fromPath("/lead/internal/website/reschedule").toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
