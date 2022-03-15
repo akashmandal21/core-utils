@@ -569,7 +569,7 @@ public class InventoryClientApi {
 				new ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>>() {};
 
 		return restClient.invokeAPI(
-				path, HttpMethod.GET, queryParams, summaryInfoRequestDto, headerParams, accept, returnType);
+				path, HttpMethod.POST, queryParams, summaryInfoRequestDto, headerParams, accept, returnType);
 	}
 
 	public ResponseDto<String> validateBlockedQuantityToBeReleased(String toUuid, List<GrsiItemDto> grsiItemDtoList) {
