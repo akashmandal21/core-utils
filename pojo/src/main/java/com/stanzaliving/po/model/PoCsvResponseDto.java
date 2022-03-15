@@ -13,4 +13,5 @@ import java.util.List;
 public class PoCsvResponseDto {
 
     private List<String> uuids;
+    private String message;
 }
