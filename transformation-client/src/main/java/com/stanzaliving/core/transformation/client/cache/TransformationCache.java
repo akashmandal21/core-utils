@@ -411,6 +411,20 @@ public class TransformationCache {
 		return null;
 	}
 
+	public List<MicroMarketMetadataDto> getMicromarketsByCityUuid(String cityUuid) {
+
+		List<MicroMarketMetadataDto> micromarketList = getAllMicroMarkets();
+
+		Map<String, List<MicroMarketMetadataDto>> cityMicromarketMap =
+			micromarketList.stream().collect(Collectors.groupingBy(MicroMarketMetadataDto::getCityUuid));
+
+		if (cityMicromarketMap.containsKey(cityUuid)) {
+			return cityMicromarketMap.get(cityUuid).stream().collect(Collectors.toList());
+		}
+
+		return null;
+	}
+
 	public List<String> getResidenceUuidsByCityUuid(String cityUuid) {
 		List<ResidenceMetadataDto> residenceList = getAllResidences();
 		List<String> residenceUuids = new ArrayList<>();
