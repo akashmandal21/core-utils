@@ -89,6 +89,7 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<PageResponse<UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<PageResponse<UserProfileDto>>>() {
 		};
+		log.info("line 92 queryparams:{} postBody:{} headerparams:{} path:{}",queryParams,postBody,headerParams,path);
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
