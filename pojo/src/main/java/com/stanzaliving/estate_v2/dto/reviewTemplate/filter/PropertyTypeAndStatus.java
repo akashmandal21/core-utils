@@ -13,6 +13,7 @@ import java.util.List;
 public class PropertyTypeAndStatus {
     private String name;
     private String id;
+    private long propertyTypeCount;
     private List<PropertyStatusDTO> propertyStatuses;
 
 }
