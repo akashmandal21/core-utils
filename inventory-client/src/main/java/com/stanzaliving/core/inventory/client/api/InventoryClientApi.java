@@ -9,6 +9,7 @@ import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
 import com.stanzaliving.core.grsi.dto.GrsiItemDto;
 import com.stanzaliving.core.inventory.dto.*;
 import com.stanzaliving.item_master.dtos.FilterDto;
+import com.stanzaliving.transformations.pojo.FilterAddressDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.RazorPayRequestDto;
 import lombok.extern.log4j.Log4j2;
@@ -570,6 +571,27 @@ public class InventoryClientApi {
 
 		return restClient.invokeAPI(
 				path, HttpMethod.POST, queryParams, summaryInfoRequestDto, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<ItemSummaryInfoDto>> getFifoSummaryInventoryByAddressUuid(FilterAddressDto filterAddressDto) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path =
+				UriComponentsBuilder.fromPath("/internal/inventory-fifo")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, filterAddressDto, headerParams, accept, returnType);
 	}
 
 	public ResponseDto<String> validateBlockedQuantityToBeReleased(String toUuid, List<GrsiItemDto> grsiItemDtoList) {

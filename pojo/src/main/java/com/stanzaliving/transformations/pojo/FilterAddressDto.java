@@ -17,6 +17,8 @@ public class FilterAddressDto {
 
 	private String addressUuid;
 
+	private List<String> addressUuids;
+
 	private List<LocationType> locationTypes;
 
 	private LocationType locationType;
