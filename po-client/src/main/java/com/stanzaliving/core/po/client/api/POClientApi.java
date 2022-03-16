@@ -8,6 +8,7 @@ import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.po.generic.dtos.VendorWisePoDetails;
 import com.stanzaliving.core.pojo.EmailDto;
+import com.stanzaliving.generic_po.dtos.CsvRequestDto;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.invoice.dto.InvoiceMigrationDto;
@@ -15,6 +16,7 @@ import com.stanzaliving.invoice.dto.InvoiceMigrationResponseDto;
 import com.stanzaliving.invoice.dto.PoInvoiceDetailsDto;
 import com.stanzaliving.po.enums.POSummaryStatus;
 import com.stanzaliving.po.generic.dto.TOTemplateDto;
+import com.stanzaliving.po.model.PoCsvResponseDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -802,6 +804,30 @@ public class POClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/update/rental/item/rate/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, rentalItemUpdatedRateMap, headerParams, accept, vddReturnType);
+    }
+
+
+    public ResponseDto<PoCsvResponseDto> getPoCsvDetails(CsvRequestDto csvRequestDto) {
+
+        CsvRequestDto postBody = csvRequestDto;
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/po/csv/data")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<PoCsvResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PoCsvResponseDto>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
 }
