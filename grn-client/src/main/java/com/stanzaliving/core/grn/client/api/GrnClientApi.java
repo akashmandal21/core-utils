@@ -12,6 +12,7 @@ import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.core.po.generic.dtos.GenericPoUpdate;
 import com.stanzaliving.grn.GSRIEmailData;
 import com.stanzaliving.grn.GSRIReceivedQuantity;
+import com.stanzaliving.grn.GrnCsvResponseDto;
 import com.stanzaliving.grn.GrnQuantity;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.po.enums.PoType;
@@ -24,11 +25,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @Log4j2
 public class GrnClientApi {
@@ -293,6 +290,26 @@ public class GrnClientApi {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<GrnCsvResponseDto>> fetchGrnDataForPoListingCsv(List<String> poUuids) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/poListing/csv/data").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<List<GrnCsvResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GrnCsvResponseDto>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, poUuids, headerParams, accept, returnType);
     }
 
 }
