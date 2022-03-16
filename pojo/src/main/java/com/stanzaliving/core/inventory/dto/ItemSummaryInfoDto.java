@@ -16,6 +16,10 @@ public class ItemSummaryInfoDto {
     private BigDecimal currentStockQty;
     private BigDecimal blockedStockValue;
     private BigDecimal blockedStockQty;
+    private BigDecimal consumedStockQty;
+    private BigDecimal quantity;
+    private String stanzaBatchId;
+    private String awlBatchId;
     private BigDecimal availStockValue;
     private BigDecimal availStockQty;
     private BigDecimal expiryStockValue;
