@@ -22,4 +22,6 @@ public class PricingStrategyRequestDto implements Serializable {
 
     private Date LockedIn;
 
+    private String discount;
+
 }
