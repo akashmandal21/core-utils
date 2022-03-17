@@ -5,16 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class InvoiceCsvResponseDto {
+public class CsvInvoiceItemDto {
 
-    private String poUuid;
-
-    private List<POCsvInvoiceDto> csvInvoiceDtoList;
-
+    private String itemUuid;
+    private BigDecimal itemTotal;
 }
