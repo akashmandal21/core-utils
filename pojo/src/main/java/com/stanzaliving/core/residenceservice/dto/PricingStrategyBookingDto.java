@@ -10,10 +10,12 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PricingStrategyBookingDto {
-    private String uuid;
-    private String status;
+    private String strategyUuid;
     private String rulesUuid;
-    private String discount;
-    private Date fromDate;
-    private Date toDate;
+    private String lowerBoundOperator;
+    private int lowerBoundOperand;
+    private String upperBoundOperator;
+    private int upperBoundOperand;
+    private String discountSingle;
+    private String discountFlat;
 }

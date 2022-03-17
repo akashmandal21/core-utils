@@ -1923,7 +1923,7 @@ public class ResidenceDataControllerApi {
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<List<PricingStrategyBookingDto>> returnType = new ParameterizedTypeReference<List<PricingStrategyBookingDto>>() {
         };
-        return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public String getStrategiesQuote(PricingStrategyRequestDto requestDto) {
