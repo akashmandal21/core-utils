@@ -14,7 +14,7 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CsvRequestDto {
+public class PoListingCsvRequestDto {
 
     private Set<Department> departments;
     private Set<GenericPOTOStatus> status;
