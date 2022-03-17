@@ -8,7 +8,7 @@ import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.po.generic.dtos.VendorWisePoDetails;
 import com.stanzaliving.core.pojo.EmailDto;
-import com.stanzaliving.generic_po.dtos.CsvRequestDto;
+import com.stanzaliving.generic_po.dtos.PoListingCsvRequestDto;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.invoice.dto.InvoiceMigrationDto;
@@ -807,9 +807,9 @@ public class POClientApi {
     }
 
 
-    public ResponseDto<PoCsvResponseDto> getPoCsvDetails(CsvRequestDto csvRequestDto) {
+    public ResponseDto<PoCsvResponseDto> getPoCsvDetails(PoListingCsvRequestDto csvRequestDto) {
 
-        CsvRequestDto postBody = csvRequestDto;
+        PoListingCsvRequestDto postBody = csvRequestDto;
         final Map<String, Object> uriVariables = new HashMap<>();
 
         String path = UriComponentsBuilder.fromPath("/internal/po/csv/data")

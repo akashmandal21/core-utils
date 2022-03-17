@@ -309,7 +309,7 @@ public class GrnClientApi {
         ParameterizedTypeReference<ResponseDto<List<GrnCsvResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GrnCsvResponseDto>>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, poUuids, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, poUuids, headerParams, accept, returnType);
     }
 
 }
