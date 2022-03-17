@@ -69,6 +69,10 @@ public class ResidenceAggregationEntityDto {
     private String statusTextColor;
 
     private String statusBackgroundColor;
+
+    private String bhkType;
+
+    private String residenceType;
 }
 
 
