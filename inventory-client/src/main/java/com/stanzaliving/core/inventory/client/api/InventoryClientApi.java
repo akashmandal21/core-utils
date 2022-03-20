@@ -574,6 +574,7 @@ public class InventoryClientApi {
 	}
 
 	public ResponseDto<List<ItemSummaryInfoDto>> getFifoSummaryInventoryByAddressUuid(FilterAddressDto filterAddressDto) {
+		Object postBody = filterAddressDto;
 		final Map<String, Object> uriVariables = new HashMap<>();
 		String path =
 				UriComponentsBuilder.fromPath("/internal/inventory-fifo")
@@ -591,7 +592,7 @@ public class InventoryClientApi {
 				new ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>>() {};
 
 		return restClient.invokeAPI(
-				path, HttpMethod.POST, queryParams, filterAddressDto, headerParams, accept, returnType);
+				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
 	public ResponseDto<String> validateBlockedQuantityToBeReleased(String toUuid, List<GrsiItemDto> grsiItemDtoList) {
