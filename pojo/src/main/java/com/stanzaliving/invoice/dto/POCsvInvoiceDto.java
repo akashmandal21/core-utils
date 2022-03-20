@@ -30,7 +30,5 @@ public class POCsvInvoiceDto {
 
     private String invoiceUuid;
 
-//    private List<CsvInvoiceItemDto> csvInvoiceItemDtoList;
-
     private Map<String, BigDecimal> itemUuidItemTotalMap;
 }
