@@ -1,5 +1,6 @@
 package com.stanzaliving.grn;
 
+import com.stanzaliving.core.base.enums.Department;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -24,6 +25,7 @@ public class CsvItemInfoDto {
     private String itemUuid;
     private BigDecimal okQuantity;
     private BigDecimal invoiceQuantity;
+    private Department department;
 
     List<String> gsriIds;
 }
