@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.enums.Department;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @Builder
@@ -26,6 +27,8 @@ public class CsvItemInfoDto {
     private BigDecimal okQuantity;
     private BigDecimal invoiceQuantity;
     private BigDecimal gsriValue;
+    private BigDecimal itemAmount;
 
-    List<String> gsriIds;
+    private List<String> gsriIds;
+    private List<Date> gsriDates;
 }
