@@ -14,6 +14,12 @@ public class PricingStrategyRequestDto implements Serializable {
 
     private String residenceUuid;
 
-    private Date moveIn;
+    private String microMarketUuid;
+
+    private String cityUuid;
+
+    private Date fromDate;
+
+    private Date toDate;
 
 }
