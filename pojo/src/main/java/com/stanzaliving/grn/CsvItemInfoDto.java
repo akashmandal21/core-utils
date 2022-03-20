@@ -25,7 +25,6 @@ public class CsvItemInfoDto {
     private String itemUuid;
     private BigDecimal okQuantity;
     private BigDecimal invoiceQuantity;
-    private Department department;
 
     List<String> gsriIds;
 }
