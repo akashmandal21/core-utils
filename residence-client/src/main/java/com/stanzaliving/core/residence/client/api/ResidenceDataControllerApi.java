@@ -1911,16 +1911,16 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public List<PricingStrategyBookingDto> getAllStrategies(PricingStrategyRequestDto requestDto) {
+    public PricingStrategyBookingDto getAllStrategies(PricingStrategyRequestDto requestDto) {
 
         log.info("get all pricing strategy based on for req:: {} ", requestDto);
         Object postBody = requestDto;
-        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/all").toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/get").toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<List<PricingStrategyBookingDto>> returnType = new ParameterizedTypeReference<List<PricingStrategyBookingDto>>() {
+        ParameterizedTypeReference<PricingStrategyBookingDto> returnType = new ParameterizedTypeReference<PricingStrategyBookingDto>() {
         };
         return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
