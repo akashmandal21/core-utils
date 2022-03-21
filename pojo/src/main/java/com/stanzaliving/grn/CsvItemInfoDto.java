@@ -1,9 +1,12 @@
 package com.stanzaliving.grn;
 
+import com.stanzaliving.core.base.enums.Department;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Builder
 @AllArgsConstructor
@@ -24,6 +27,11 @@ public class CsvItemInfoDto {
     private String itemUuid;
     private BigDecimal okQuantity;
     private BigDecimal invoiceQuantity;
+    private BigDecimal gsriValue;
+    private BigDecimal itemAmount;
 
-    List<String> gsriIds;
+    private List<String> gsriIds;
+    private List<GsriDto> itemGsriDtoList;
+    private List<Date> gsriDates;
+    private boolean installEligible;
 }

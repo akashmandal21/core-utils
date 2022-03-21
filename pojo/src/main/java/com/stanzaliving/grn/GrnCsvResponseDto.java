@@ -1,5 +1,6 @@
 package com.stanzaliving.grn;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import lombok.*;
@@ -25,6 +26,7 @@ public class GrnCsvResponseDto {
     private BigDecimal poAmount;
     private String poUuid;
     private String vendorUuid;
+    private Department department;
 
     private List<CsvItemInfoDto> itemInfoDtoList;
 }
