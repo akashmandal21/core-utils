@@ -30,8 +30,6 @@ public class CsvItemInfoDto {
     private BigDecimal gsriValue;
     private BigDecimal itemAmount;
 
-    private List<String> gsriIds;
     private List<GsriDto> itemGsriDtoList;
-    private List<Date> gsriDates;
     private boolean installEligible;
 }
