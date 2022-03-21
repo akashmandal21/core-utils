@@ -595,6 +595,28 @@ public class InventoryClientApi {
 				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<List<ItemSummaryInfoDto>> matchInventorySummaryAndFifoData(FilterAddressDto filterAddressDto) {
+		Object postBody = filterAddressDto;
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path =
+				UriComponentsBuilder.fromPath("/internal/inventory-match")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 	public ResponseDto<String> validateBlockedQuantityToBeReleased(String toUuid, List<GrsiItemDto> grsiItemDtoList) {
 
 		// create path and map variables
