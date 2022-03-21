@@ -6,6 +6,7 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Builder
 @AllArgsConstructor
@@ -30,5 +31,6 @@ public class CsvItemInfoDto {
     private BigDecimal itemAmount;
 
     private List<String> gsriIds;
+    private Map<String, Map<String, BigDecimal>> itemGsriIdQuantityMap;
     private List<Date> gsriDates;
 }
