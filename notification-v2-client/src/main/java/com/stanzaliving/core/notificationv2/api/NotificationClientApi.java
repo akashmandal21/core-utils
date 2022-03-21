@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 @Log4j2
-@EnableHystrix
+//@EnableHystrix
 public class NotificationClientApi {
 
     public static final String USER_ID = "userId";
@@ -71,8 +71,8 @@ public class NotificationClientApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    @HystrixCommand(fallbackMethod = "raiseComplaintFallBack", commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "2000"),
-            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "2"), @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "50")})
+//    @HystrixCommand(fallbackMethod = "raiseComplaintFallBack", commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "2000"),
+//            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "2"), @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "50")})
     public ResponseDto<NotificationDTO> saveGenericNotification(
             NotificationDTO notificationRegistryDto) {
 
@@ -102,8 +102,8 @@ public class NotificationClientApi {
 		}
     }
 
-    @HystrixCommand(fallbackMethod = "raiseComplaintFallBack", commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "2000"),
-            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "2"), @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "50")})
+//    @HystrixCommand(fallbackMethod = "raiseComplaintFallBack", commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "2000"),
+//            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "2"), @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "50")})
     public ResponseDto<NotificationRegistryDto> saveNotification(
             NotificationRegistryDto notificationRegistryDto) {
 
