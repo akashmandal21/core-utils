@@ -193,7 +193,7 @@ public class StanzaRestClient {
 			ParameterizedTypeReference<T> returnType,
 			MediaType mediaType) {
 
-		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path("temp");
+		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
 
 		if (queryParams != null) {
 			builder.queryParams(queryParams);
