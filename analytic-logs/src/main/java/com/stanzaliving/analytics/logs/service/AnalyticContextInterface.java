@@ -38,7 +38,6 @@ class AnalyticContextInterface
     public static final String QUERY_STRING = "QueryString";
     public static final String REQ_UID = "reqUuid";
     public static final String REQ_MOBILE = "reqUserMobile";
-    public static final String REQ_TRACE_ID = "traceId";
 
     public static void beginTransaction(String name)
     {
@@ -155,7 +154,6 @@ class AnalyticContextInterface
         endpointConsumableMap.put("queryParams", MDC.get(QUERY_STRING));
         endpointConsumableMap.put(REQ_UID, MDC.get(REQ_UID));
         endpointConsumableMap.put(REQ_MOBILE, MDC.get(REQ_MOBILE));
-        endpointConsumableMap.put(REQ_TRACE_ID, MDC.get(REQ_TRACE_ID));
 
         if (th != null)
         {
