@@ -33,4 +33,5 @@ public class CsvItemInfoDto {
     private List<String> gsriIds;
     private List<GsriDto> itemGsriDtoList;
     private List<Date> gsriDates;
+    private boolean installEligible;
 }
