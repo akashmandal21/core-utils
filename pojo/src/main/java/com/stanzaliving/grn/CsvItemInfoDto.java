@@ -31,6 +31,6 @@ public class CsvItemInfoDto {
     private BigDecimal itemAmount;
 
     private List<String> gsriIds;
-    private Map<String, Map<String, BigDecimal>> itemGsriIdQuantityMap;
+    private Map<String, List<GsriDto>> itemGsriDtoListMap;
     private List<Date> gsriDates;
 }
