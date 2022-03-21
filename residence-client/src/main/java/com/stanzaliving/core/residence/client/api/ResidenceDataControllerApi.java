@@ -1911,17 +1911,16 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public List<PricingStrategyBookingDto> getAllStrategies(PricingStrategyRequestDto requestDto) {
+    public PricingStrategyBookingDto getAllStrategies(PricingStrategyRequestDto requestDto) {
 
-        log.info("get all pricing strategy based on for req "+ requestDto);
+        log.info("get all pricing strategy based on for req:: {} ", requestDto);
         Object postBody = requestDto;
-        //String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/").toUriString();
-        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/all").toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/get").toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<List<PricingStrategyBookingDto>> returnType = new ParameterizedTypeReference<List<PricingStrategyBookingDto>>() {
+        ParameterizedTypeReference<PricingStrategyBookingDto> returnType = new ParameterizedTypeReference<PricingStrategyBookingDto>() {
         };
         return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
@@ -1937,7 +1936,12 @@ public class ResidenceDataControllerApi {
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
         };
-        return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        try{
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.info("Error while fetching data from residence-service: {}",e.getMessage());
+        }
+        return null;
     }
 
     public RoomCardDetailDto getCardDetailsForPricing(String residenceUuid) {
