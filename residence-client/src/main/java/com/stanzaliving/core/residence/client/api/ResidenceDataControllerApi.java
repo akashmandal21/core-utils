@@ -1911,7 +1911,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public PricingStrategyBookingDto getAllStrategies(PricingStrategyRequestDto requestDto) {
+    public ResponseDto<PricingStrategyBookingDto> getAllStrategies(PricingStrategyRequestDto requestDto) {
 
         log.info("get all pricing strategy based on for req:: {} ", requestDto);
         log.info(requestDto);
@@ -1921,7 +1921,7 @@ public class ResidenceDataControllerApi {
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<PricingStrategyBookingDto> returnType = new ParameterizedTypeReference<PricingStrategyBookingDto>() {
+        ParameterizedTypeReference<ResponseDto<PricingStrategyBookingDto>> returnType = new ParameterizedTypeReference<ResponseDto<PricingStrategyBookingDto>>() {
         };
         try{
             return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
@@ -2039,24 +2039,24 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public PricingStrategyBookingDto getAllStrategiesList(PricingStrategyRequestDto requestDto) {
-
-        log.info("Request body is mentioned below");
-        log.info(requestDto);
-        Object postBody = requestDto;
-        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/get").toUriString();
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
-        HttpHeaders headerParams = new HttpHeaders();
-        String[] accepts = new String[]{"*/*"};
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<PricingStrategyBookingDto> returnType = new ParameterizedTypeReference<PricingStrategyBookingDto>() {
-        };
-        try{
-            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-        }catch (Exception e){
-            log.info("exception :: {}", e);
-            return null;
-        }
-
-    }
+//    public PricingStrategyBookingDto getAllStrategiesList(PricingStrategyRequestDto requestDto) {
+//
+//        log.info("Request body is mentioned below");
+//        log.info(requestDto);
+//        Object postBody = requestDto;
+//        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/get").toUriString();
+//        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+//        HttpHeaders headerParams = new HttpHeaders();
+//        String[] accepts = new String[]{"*/*"};
+//        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+//        ParameterizedTypeReference<PricingStrategyBookingDto> returnType = new ParameterizedTypeReference<PricingStrategyBookingDto>() {
+//        };
+//        try{
+//            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+//        }catch (Exception e){
+//            log.info("exception :: {}", e);
+//            return null;
+//        }
+//
+//    }
 }
