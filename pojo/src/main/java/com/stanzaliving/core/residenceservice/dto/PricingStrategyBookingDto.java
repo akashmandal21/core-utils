@@ -10,7 +10,6 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PricingStrategyBookingDto {
-    private String strategyUuid;
     private String rulesUuid;
     private String lowerBoundOperator;
     private int lowerBoundOperand;
@@ -18,4 +17,5 @@ public class PricingStrategyBookingDto {
     private int upperBoundOperand;
     private String discountSingle;
     private String discountFlat;
+    private String strategyUuid;
 }

@@ -1914,6 +1914,7 @@ public class ResidenceDataControllerApi {
     public PricingStrategyBookingDto getAllStrategies(PricingStrategyRequestDto requestDto) {
 
         log.info("get all pricing strategy based on for req:: {} ", requestDto);
+        log.info(requestDto);
         Object postBody = requestDto;
         String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/get").toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
@@ -1922,7 +1923,13 @@ public class ResidenceDataControllerApi {
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<PricingStrategyBookingDto> returnType = new ParameterizedTypeReference<PricingStrategyBookingDto>() {
         };
-        return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        try{
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        }catch (Exception e){
+            log.info("exception :: {}", e.toString());
+            return null;
+        }
+
     }
 
     public String getStrategiesQuote(PricingStrategyRequestDto requestDto) {
@@ -2034,7 +2041,8 @@ public class ResidenceDataControllerApi {
 
     public PricingStrategyBookingDto getAllStrategiesList(PricingStrategyRequestDto requestDto) {
 
-        log.info("get all pricing strategy based on for req:: {} ", requestDto);
+        log.info("Request body is mentioned below");
+        log.info(requestDto);
         Object postBody = requestDto;
         String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/get").toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
@@ -2046,7 +2054,7 @@ public class ResidenceDataControllerApi {
         try{
             return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         }catch (Exception e){
-            log.info("exception :: {}", e.toString());
+            log.info("exception :: {}", e);
             return null;
         }
 
