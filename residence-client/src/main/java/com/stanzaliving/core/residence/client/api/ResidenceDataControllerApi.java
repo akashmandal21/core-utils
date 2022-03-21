@@ -2004,4 +2004,31 @@ public class ResidenceDataControllerApi {
         }
         return null;
     }
+
+    public RoomCardDetailDto getSingleRoomPricing (List<String> roomUuids) {
+        Object postBody = roomUuids;
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/api/v1/single-room-pricing-details").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<RoomCardDetailDto> returnType = new ParameterizedTypeReference<RoomCardDetailDto>() {
+        };
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception ex) {
+            log.error("Exception ex {}, while getting getting price details", ex);
+        }
+        //todo: check log
+        return null;
+    }
 }
