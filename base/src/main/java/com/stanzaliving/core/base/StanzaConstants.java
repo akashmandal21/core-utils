@@ -45,5 +45,4 @@ public class StanzaConstants {
 	public static final String REQ_UID = "reqUuid";
 	public static final String REQ_MOBILE = "reqUserMobile";
 
-	public static final String REQ_TRACE_ID = "traceId";
 }
