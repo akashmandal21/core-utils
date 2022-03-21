@@ -1,5 +1,7 @@
 package com.stanzaliving.core.notificationv2.api;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.genericdashboard.dto.AudienceLocationDto;
@@ -9,8 +11,10 @@ import com.stanzaliving.notification.dto.NotificationDTO;
 import com.stanzaliving.notification.dto.NotificationRegistryDto;
 import com.stanzaliving.notification.dto.UserDataDto;
 
+
 import lombok.extern.log4j.Log4j2;
 
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -25,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 @Log4j2
+@EnableHystrix
 public class NotificationClientApi {
 
     public static final String USER_ID = "userId";
@@ -66,6 +71,8 @@ public class NotificationClientApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    @HystrixCommand(fallbackMethod = "raiseComplaintFallBack", commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "2000"),
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "2"), @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "50")})
     public ResponseDto<NotificationDTO> saveGenericNotification(
             NotificationDTO notificationRegistryDto) {
 
@@ -90,11 +97,13 @@ public class NotificationClientApi {
 			return restClient.invokeAPI(
 			        path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error(e);
+			log.info("Error: {}", e.getMessage());
 			return ResponseDto.failure(e.getMessage());
 		}
     }
 
+    @HystrixCommand(fallbackMethod = "raiseComplaintFallBack", commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "2000"),
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "2"), @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "50")})
     public ResponseDto<NotificationRegistryDto> saveNotification(
             NotificationRegistryDto notificationRegistryDto) {
 
@@ -438,4 +447,10 @@ public class NotificationClientApi {
                         returnType);
         return responseDto.getData();
     }
+    public ResponseDto<NotificationDTO> raiseComplaintFallBack(
+            NotificationDTO notificationRegistryDto) {
+        log.info("Notification service Down");
+        return ResponseDto.success("down");
+    }
+
 }
