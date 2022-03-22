@@ -1,0 +1,49 @@
+package com.stanzaliving.booking.dto.response;
+
+import java.util.Date;
+
+import com.stanzaliving.booking.enums.BookingEventEnum;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class BookingEventResponseDto {
+
+    private String bookingUuid;
+
+    private String residentId;
+
+    private String userUuid;
+
+    private Date contractStartDate;
+
+    private Date contractEndDate;
+
+    private String contractDuration;
+
+    private Date lockinStartDate;
+
+    private Date lockinEndDate;
+
+    private String lockinDuration;
+
+    private String bookingStatus;
+
+    private String bookingType;
+
+    private String residentName;
+
+    private String roomNumber;
+
+    private BookingEventEnum bookingEvent;
+
+    private Long daysLeft;
+
+    private String description;
+}
