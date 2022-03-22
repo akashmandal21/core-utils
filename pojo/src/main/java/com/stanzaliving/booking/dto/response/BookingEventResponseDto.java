@@ -4,6 +4,8 @@ import java.util.Date;
 
 import com.stanzaliving.booking.enums.BookingEventEnum;
 
+import com.stanzaliving.booking.enums.BookingStatus;
+import com.stanzaliving.booking.enums.BookingType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,9 +35,9 @@ public class BookingEventResponseDto {
 
     private String lockinDuration;
 
-    private String bookingStatus;
+    private BookingStatus bookingStatus;
 
-    private String bookingType;
+    private BookingType bookingType;
 
     private String residentName;
 
