@@ -20,7 +20,7 @@ public class AddUserAndRoleDto {
     private String mobile;
     private String isoCode;
     private AccessLevel accessLevel;
-    private List<String> accessLevelEntityUuids;
-    private List<String> roleUuids;
+    private List<String> accessLevelEntityListUuid;
+    private List<String> rolesUuid;
     private String userUuid;
 }
