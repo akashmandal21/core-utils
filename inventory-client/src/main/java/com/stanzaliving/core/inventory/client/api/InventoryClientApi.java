@@ -595,7 +595,7 @@ public class InventoryClientApi {
 				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<List<ItemSummaryInfoDto>> matchInventorySummaryAndFifoData(FilterAddressDto filterAddressDto) {
+	public ResponseDto<List<InventorySummaryAndFifoDataDto>> matchInventorySummaryAndFifoData(FilterAddressDto filterAddressDto) {
 		Object postBody = filterAddressDto;
 		final Map<String, Object> uriVariables = new HashMap<>();
 		String path =
@@ -610,8 +610,8 @@ public class InventoryClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>> returnType =
-				new ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>>() {};
+		ParameterizedTypeReference<ResponseDto<List<InventorySummaryAndFifoDataDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<InventorySummaryAndFifoDataDto>>>() {};
 
 		return restClient.invokeAPI(
 				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
