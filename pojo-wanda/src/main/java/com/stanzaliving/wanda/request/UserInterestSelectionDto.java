@@ -17,6 +17,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class UserInterestSelectionDto {
 	
+	private String userCode;
 	private List<Long> selectedCategoryIds;
 	private List<Long> selectedInterestIds;
 }
