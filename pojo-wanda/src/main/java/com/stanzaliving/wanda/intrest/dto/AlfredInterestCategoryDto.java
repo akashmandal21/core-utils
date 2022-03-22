@@ -20,8 +20,8 @@ public class AlfredInterestCategoryDto {
 	List<InterestCategoryDto> categories;
 	
 	@Builder.Default
-	private Integer minCategoryCount = 5;
+	private Integer minCategoryCount = 3;
 	
 	@Builder.Default
-	private Integer minInterestCount = 5 ;
+	private Integer minInterestCount = 3 ;
 }
