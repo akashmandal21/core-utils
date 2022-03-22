@@ -76,7 +76,7 @@ public class NotificationClientApi {
     public ResponseDto<NotificationDTO> saveGenericNotification(
             NotificationDTO notificationRegistryDto) {
 
-        try {
+//        try {
 			Object postBody = null;
 
 			String path =
@@ -96,10 +96,10 @@ public class NotificationClientApi {
 			postBody = notificationRegistryDto;
 			return restClient.invokeAPI(
 			        path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.info("Error: {}", e.getMessage());
-			return ResponseDto.failure(e.getMessage());
-		}
+//		} catch (Exception e) {
+//			log.info("Error: {}", e.getMessage());
+//			return ResponseDto.failure(e.getMessage());
+//		}
     }
 
 //    @HystrixCommand(fallbackMethod = "raiseComplaintFallBack", commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "2000"),
