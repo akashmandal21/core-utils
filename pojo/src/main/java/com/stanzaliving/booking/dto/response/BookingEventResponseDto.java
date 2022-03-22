@@ -2,7 +2,7 @@ package com.stanzaliving.booking.dto.response;
 
 import java.util.Date;
 
-import com.stanzaliving.booking.dto.request.BookingEvent;
+import com.stanzaliving.booking.enums.BookingEventEnum;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,7 +41,7 @@ public class BookingEventResponseDto {
 
     private String roomNumber;
 
-    private BookingEvent bookingEvent;
+    private BookingEventEnum bookingEvent;
 
     private Long daysLeft;
 
