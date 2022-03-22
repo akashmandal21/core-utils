@@ -15,7 +15,6 @@ import java.util.Map;
 @NoArgsConstructor
 public class InternalTicketRequestDto {
 
-    private Department department;
     private String residenceUuid;
     private String raisedForUuid;
 
