@@ -28,6 +28,8 @@ public class BookingResidenceAggregationEntityDto {
 
     private String entity;
 
+    private String gender;
+
     private List<String> residenceUuids;
 
     @Builder.Default
