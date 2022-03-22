@@ -20,5 +20,5 @@ public class PoListingCsvRequestDto {
     private Set<GenericPOTOStatus> status;
     private LocalDate startDate;
     private LocalDate endDate;
-    private boolean isPo;
+    private Boolean isPo;
 }
