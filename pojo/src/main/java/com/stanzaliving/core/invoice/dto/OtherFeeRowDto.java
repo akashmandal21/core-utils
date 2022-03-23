@@ -1,5 +1,6 @@
 package com.stanzaliving.core.invoice.dto;
 
+import com.stanzaliving.core.generic.dto.UIKeyValue;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -25,6 +26,8 @@ public class OtherFeeRowDto {
     private BigDecimal invoiceFeeAmt;
 
     private  double gstPct;
+    private double tdsPct;
 
     private String feeItemUuid;
+    private boolean isRcmTransaction;
 }

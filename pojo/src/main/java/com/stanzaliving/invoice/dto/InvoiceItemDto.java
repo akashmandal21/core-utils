@@ -50,6 +50,8 @@ public class InvoiceItemDto {
 
     private UIKeyValue invoiceGst;
 
+    private UIKeyValue tdsValue;
+
     private BigDecimal invoiceItemTotal;
 
     private BigDecimal advanceAdjustment;
@@ -57,4 +59,5 @@ public class InvoiceItemDto {
     private BigDecimal otherFee;
     private BigDecimal wtdAvg;
     private BigDecimal totalOtherFee;
+    private boolean isRcmTransaction;
 }
