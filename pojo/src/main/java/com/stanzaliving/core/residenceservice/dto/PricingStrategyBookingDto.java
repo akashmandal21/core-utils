@@ -18,4 +18,6 @@ public class PricingStrategyBookingDto {
     private String discountSingle;
     private String discountFlat;
     private String strategyUuid;
+
+    private String discount;
 }

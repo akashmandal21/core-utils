@@ -1916,7 +1916,7 @@ public class ResidenceDataControllerApi {
         log.info("get all pricing strategy based on for req:: {} ", requestDto);
         log.info(requestDto);
         Object postBody = requestDto;
-        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/get").toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/pricing-strategy/getApplicableStrategy").toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
