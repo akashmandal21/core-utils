@@ -1,5 +1,6 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -372,5 +373,27 @@ public class VentaAggregationServiceApi {
 			log.error("Exception occurred while fetching sync properties data for cms website from venta", e);
 			return Collections.emptyList();
 		}
+	}
+
+	public ResponseDto<String> sendNotificationForContractLockInTerminatingEvents() {
+		log.info("Venta Aggregation Controller::Sending booking events notification today {}", LocalDate.now());
+		Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/bookings/terminated")
+				.buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[] { "*/*" };
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {};
+		try {
+			log.info("Executing Api for getting bookings Info with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while sending booking events integration notification on {}, Exception is {}", LocalDate.now(), e);
+		}
+		return null;
 	}
 }
