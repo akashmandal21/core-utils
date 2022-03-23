@@ -43,5 +43,4 @@ public class TransactionInitiateDto {
 	
 	private String paymentModeKey;
 
-	private String paymentLink;
 }
