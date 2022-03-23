@@ -96,8 +96,6 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private Date created;
 	
-	private Integer imageCount;
-	
 	private List<ApartmentResponseDto> similarApartments;
 	
 	@Builder.Default
