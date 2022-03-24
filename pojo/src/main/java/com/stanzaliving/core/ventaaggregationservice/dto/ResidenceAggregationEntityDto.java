@@ -1,5 +1,6 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.stanzaliving.core.enums.ResidenceType;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -72,7 +73,7 @@ public class ResidenceAggregationEntityDto {
 
     private String bhkType;
 
-    private String residenceType;
+    private ResidenceType residenceType;
 }
 
 
