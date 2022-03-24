@@ -29,5 +29,5 @@ public class OtherFeeRowDto {
     private double tdsPct;
 
     private String feeItemUuid;
-    private boolean isRcmTransaction;
+    private boolean rcmTransaction;
 }

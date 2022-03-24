@@ -59,5 +59,5 @@ public class InvoiceItemDto {
     private BigDecimal otherFee;
     private BigDecimal wtdAvg;
     private BigDecimal totalOtherFee;
-    private boolean isRcmTransaction;
+    private boolean rcmTransaction;
 }
