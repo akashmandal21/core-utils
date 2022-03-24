@@ -29,6 +29,8 @@ public class PricingStrategyRequestDto implements Serializable {
 
     private boolean isEntireFlat;
 
+    private boolean isManagedApartment;
+
     private Date fromDate;
 
     private Date toDate;
