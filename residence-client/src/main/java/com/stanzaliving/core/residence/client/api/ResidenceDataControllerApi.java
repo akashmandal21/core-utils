@@ -8,7 +8,6 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.base.utils.ObjectMapperUtil;
-import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.core.residenceservice.dto.*;
 import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
@@ -34,34 +33,19 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
 
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 
-import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.constants.SecurityConstants;
-import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.residenceservice.dto.AdvanceRoomSearchDto;
-import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
 import com.stanzaliving.core.residenceservice.dto.ConvertRoomPricesDto;
 import com.stanzaliving.core.residenceservice.dto.ConvertRoomRequestDto;
 import com.stanzaliving.core.residenceservice.dto.MoveInDateDto;
 import com.stanzaliving.core.residenceservice.dto.OccupanciesFloorsStatusCountSearchDto;
 import com.stanzaliving.core.residenceservice.dto.PricingDetailsResponseDto;
-import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceInfoDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceLockInDto;
-import com.stanzaliving.core.residenceservice.dto.PricingStrategyDto;
 import com.stanzaliving.core.residenceservice.dto.ResidencePaymentPlanDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceVasDto;
 import com.stanzaliving.core.residenceservice.dto.RoomCardDetailDto;
@@ -69,9 +53,6 @@ import com.stanzaliving.core.residenceservice.dto.RoomDetailsResponseDto;
 import com.stanzaliving.core.residenceservice.dto.RoomInventoryDetailDto;
 import com.stanzaliving.core.residenceservice.dto.RoomNumberListingAndCountDto;
 import com.stanzaliving.core.residenceservice.dto.ServiceMixDto;
-import com.stanzaliving.core.security.helper.SecurityUtils;
-import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
-import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.AttributesAndGlobalUuidDto;
 import com.stanzaliving.residenceservice.Dto.InventoryDetailsRequestDto;
 import com.stanzaliving.residenceservice.Dto.ResidenceAttributesRequestDto;
@@ -79,7 +60,6 @@ import com.stanzaliving.residenceservice.Dto.ResidenceAttributesResponseDto;
 import com.stanzaliving.residenceservice.Dto.ResidencePaymentModeDto;
 import com.stanzaliving.residenceservice.Dto.RoomAndInventoryDetailsDto;
 import com.stanzaliving.residenceservice.Dto.RoomInventoryLogDto;
-import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
 import com.stanzaliving.venta.RoomInfoDto;
 
 public class ResidenceDataControllerApi {
@@ -1911,7 +1891,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public ResponseDto<PricingStrategyBookingDto> getAllStrategies(PricingStrategyRequestDto requestDto) {
+    public ResponseDto<PricingStrategyResponseDto> getAllStrategies(PricingStrategyRequestDto requestDto) {
 
         log.info("get all pricing strategy based on for req:: {} ", requestDto);
         log.info(requestDto);
@@ -1921,7 +1901,7 @@ public class ResidenceDataControllerApi {
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<PricingStrategyBookingDto>> returnType = new ParameterizedTypeReference<ResponseDto<PricingStrategyBookingDto>>() {
+        ParameterizedTypeReference<ResponseDto<PricingStrategyResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PricingStrategyResponseDto>>() {
         };
         try{
             return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);

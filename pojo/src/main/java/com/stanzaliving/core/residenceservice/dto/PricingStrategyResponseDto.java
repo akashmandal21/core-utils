@@ -9,7 +9,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PricingStrategyBookingDto {
+public class PricingStrategyResponseDto {
     private String rulesUuid;
     private String lowerBoundOperator;
     private int lowerBoundOperand;
