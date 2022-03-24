@@ -7,6 +7,7 @@ import java.util.*;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
+import com.stanzaliving.core.user.dto.*;
 import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -27,12 +28,6 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
 import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
-import com.stanzaliving.core.user.dto.AccessLevelRoleRequestDto;
-import com.stanzaliving.core.user.dto.UserDto;
-import com.stanzaliving.core.user.dto.UserManagerProfileRequestDto;
-import com.stanzaliving.core.user.dto.UserProfileDto;
-import com.stanzaliving.core.user.dto.UserPropertyAndProfileMappingDto;
-import com.stanzaliving.core.user.dto.UserRoleCacheDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.core.user.request.dto.ActiveUserRequestDto;
 import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
@@ -164,6 +159,35 @@ public class UserClientApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public ResponseDto<UserManagerAndRoleDto> getUserWithManagerAndRole(String userId, String token) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+
+		String path = UriComponentsBuilder.fromPath("/details/manager/role").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.put("userId", Collections.singletonList(userId));
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UserManagerAndRoleDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserManagerAndRoleDto>>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
