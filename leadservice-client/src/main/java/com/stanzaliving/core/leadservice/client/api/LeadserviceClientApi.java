@@ -383,4 +383,29 @@ public class LeadserviceClientApi {
 			return null;
 		}
 	}
+	public ResponseDto<Boolean> sendOtpForVisitStart() {
+		Object postBody = null;
+
+		log.info("Request received for sendOtpForVisitStart");
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("internal/lead/start-visit/otp")
+				.buildAndExpand(uriVariables).toUriString();
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while send Otp For VisitStart {}", e);
+			return null;
+		}
+
+	}
 }
