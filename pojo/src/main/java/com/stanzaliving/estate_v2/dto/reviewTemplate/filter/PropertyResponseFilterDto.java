@@ -13,7 +13,7 @@ import java.util.List;
 public class PropertyResponseFilterDto {
 
     private List<String> propertyTypeNameWithStatus;
-    private String city;
+    private List<String> city;
     private List<String> microMarket;
     private DateRange createdBetween;
     private DateRange propertyNamingBetween;
