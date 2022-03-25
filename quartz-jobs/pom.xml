@@ -13,7 +13,7 @@
 		<groupId>com.stanzaliving.core</groupId>
 		<artifactId>core-utils</artifactId>
 		<version>1.0.0</version>
-		<relativePath>..</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<properties>
@@ -39,23 +39,79 @@
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
 		</dependency>
+
 		<dependency>
-			<groupId>org.quartz-scheduler</groupId>
-			<artifactId>quartz-jobs</artifactId>
+			<groupId>com.stanzaliving.core</groupId>
+			<artifactId>analytic-logs</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 
-		<!-- spring context support -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectjrt.version}</version>
 		</dependency>
-
-		<!-- Joda time is a utility to manage date/time in java -->
 		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>${commons-configuration.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectjrt.version}</version>
 		</dependency>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+				<version>1.14.0</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjtools</artifactId>
+						<version>${aspectjrt.version}</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<complianceLevel>${java.version}</complianceLevel>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<showWeaveInfo>true</showWeaveInfo>
+					<verbose>true</verbose>
+					<Xlint>ignore</Xlint>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<forceAjcCompile>true</forceAjcCompile>
+					<sources/>
+					<weaveDirectories>
+						<weaveDirectory>${project.build.directory}/classes/com/stanzaliving/core/quartzjob/listner</weaveDirectory>
+					</weaveDirectories>
+					<testSources/>
+					<aspectLibraries>
+						<aspectLibrary>
+							<groupId>com.stanzaliving.core</groupId>
+							<artifactId>analytic-logs</artifactId>
+						</aspectLibrary>
+						<aspectLibrary>
+							<groupId>org.springframework</groupId>
+							<artifactId>spring-aspects</artifactId>
+						</aspectLibrary>
+					</aspectLibraries>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

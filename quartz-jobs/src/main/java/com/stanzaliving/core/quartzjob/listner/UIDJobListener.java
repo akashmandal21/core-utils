@@ -1,5 +1,6 @@
 package com.stanzaliving.core.quartzjob.listner;
 
+import com.stanzaliving.analytics.logs.annotations.AnalyseTransaction;
 import com.stanzaliving.core.base.StanzaConstants;
 import lombok.extern.log4j.Log4j2;
 import org.quartz.JobExecutionContext;
@@ -28,6 +29,7 @@ public class UIDJobListener implements JobListener {
 	}
 
 	@Override
+	@AnalyseTransaction(name = "Quartz_jobToBeExecuted")
 	public void jobToBeExecuted(JobExecutionContext context) {
 
 		String guid = UUID.randomUUID().toString().replace("-", "");
@@ -52,6 +54,7 @@ public class UIDJobListener implements JobListener {
 	}
 
 	@Override
+	@AnalyseTransaction(name = "Quartz_jobWasExecuted")
 	public void jobWasExecuted(JobExecutionContext context, JobExecutionException jobException) {
 
 		String jobName = context.getJobDetail().getKey().toString();
