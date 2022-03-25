@@ -1891,7 +1891,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public ResponseDto<PricingStrategyResponseDto> getAllStrategies(PricingStrategyRequestDto requestDto) {
+    public ResponseDto<PricingStrategyRulesResponseDto> getAllStrategies(PricingStrategyRequestDto requestDto) {
 
         log.info("get all pricing strategy based on for req:: {} ", requestDto);
         log.info(requestDto);
@@ -1901,7 +1901,7 @@ public class ResidenceDataControllerApi {
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<PricingStrategyResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PricingStrategyResponseDto>>() {
+        ParameterizedTypeReference<ResponseDto<PricingStrategyRulesResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PricingStrategyRulesResponseDto>>() {
         };
         try{
             return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);

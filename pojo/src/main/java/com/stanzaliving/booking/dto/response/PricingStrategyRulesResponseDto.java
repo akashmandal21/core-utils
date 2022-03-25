@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PricingStrategyResponseDto {
+public class PricingStrategyRulesResponseDto {
 
     private String uuid;
     private String ruleUuid;
