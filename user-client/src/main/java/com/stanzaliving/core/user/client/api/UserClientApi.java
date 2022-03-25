@@ -3,12 +3,7 @@
  */
 package com.stanzaliving.core.user.client.api;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
@@ -803,6 +798,34 @@ public class UserClientApi {
 		ParameterizedTypeReference<ResponseDto<RoleDto>> returnType = new ParameterizedTypeReference<ResponseDto<RoleDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<Set<String>> getAccessLevelIds(Department department, String roleName){
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("department", department);
+		uriVariables.put("roleName", roleName);
+
+		String path = UriComponentsBuilder.fromPath("/internal/acl/accessLevelIds/{department}/{roleName}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Set<String>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<String>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
 	}
 
 }
