@@ -26,4 +26,6 @@ public class PropertyBoqListingGroupByItem {
     private BigDecimal totalAmount;
 
     private int numberOfBoqs;
+
+    private String areaOfUse;
 }
