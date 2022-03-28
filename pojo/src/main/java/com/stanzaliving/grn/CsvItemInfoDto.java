@@ -32,4 +32,7 @@ public class CsvItemInfoDto {
 
     private List<GsriDto> itemGsriDtoList;
     private boolean installEligible;
+    private BigDecimal rentPeriod;
+    private BigDecimal itemWeightAvg;
+    private BigDecimal totalInstalled;
 }

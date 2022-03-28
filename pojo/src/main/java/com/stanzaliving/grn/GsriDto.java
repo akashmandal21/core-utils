@@ -18,4 +18,5 @@ public class GsriDto {
     private EventType eventType;
     private Date gsriDate;
     private BigDecimal gsriQuantity;
+    private BigDecimal gsriAmount;
 }
