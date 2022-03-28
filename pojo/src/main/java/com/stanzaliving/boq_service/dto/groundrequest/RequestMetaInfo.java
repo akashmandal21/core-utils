@@ -2,8 +2,6 @@ package com.stanzaliving.boq_service.dto.groundrequest;
 
 import lombok.*;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @Builder
@@ -12,5 +10,5 @@ import java.util.Date;
 public class RequestMetaInfo {
     private Integer totalFilteredItems;
 
-    private Date lastUpdatedAt;
+    private Long lastUpdatedAt;
 }
