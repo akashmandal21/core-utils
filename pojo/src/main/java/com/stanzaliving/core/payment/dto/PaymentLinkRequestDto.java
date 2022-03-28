@@ -2,6 +2,7 @@ package com.stanzaliving.core.payment.dto;
 
 import com.stanzaliving.core.payment.enums.PaymentMode;
 import com.stanzaliving.core.payment.enums.StanzaPaymentService;
+import com.stanzaliving.core.user.enums.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,9 +21,9 @@ public class PaymentLinkRequestDto {
     private String email;
     private boolean isEndUserPayingFee;
     private Object meta;
-    private PaymentMode paymentMode;
+    private String paymentMode;
     private String paymentSource;
     private StanzaPaymentService stanzaPaymentService;
-    private String transactionId;
+    private String userType;
     private String userId;
 }
