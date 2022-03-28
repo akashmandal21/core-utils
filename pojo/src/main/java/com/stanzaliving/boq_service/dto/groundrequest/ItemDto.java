@@ -33,4 +33,6 @@ public class ItemDto {
     private AreaOfUse areaOfUse;
 
     private String imageURL;
+
+    private String subCategory;
 }
