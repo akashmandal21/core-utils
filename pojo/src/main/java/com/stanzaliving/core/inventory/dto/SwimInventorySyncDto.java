@@ -33,6 +33,8 @@ public class SwimInventorySyncDto {
         private BigDecimal rePck;
         private BigDecimal okQty;
         private BigDecimal diff;
+        private String batchId;
+        private String awlRefNo;
         private boolean add;
     }
 }
