@@ -11,7 +11,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ListingRequestDto {
-    private String groupBy;
+
+    @Builder.Default
+    private String groupBy = "Subcategory";
 
     private String propertyUuid;
 
