@@ -54,7 +54,7 @@ public enum AlfredStep {
 	}
 	
 	static {
-		retentionNonBlockerStatus.addAll(Arrays.asList("REFUND INITIATED","ONBOARDING COMPLETED",
+		retentionNonBlockerStatus.addAll(Arrays.asList("EXPIRED","CANCELLED","DRAFT","IN PROGRESS","REFUND INITIATED","ONBOARDING COMPLETED",
 				"VERIFICATION PENDING","ONBOARDING PENDING", "ONBOARDING IN PROGRESS"));
 	}
 
