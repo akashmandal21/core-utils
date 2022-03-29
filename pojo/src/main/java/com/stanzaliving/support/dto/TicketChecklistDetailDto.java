@@ -18,8 +18,6 @@ public class TicketChecklistDetailDto {
     private Boolean isMarkedNa;
     private Boolean isClosed;
     private Boolean isMandatory;
-  //  private Integer position;
-//    private String attachmentLocation;
-//    private String attachmentType;
-//    private long fileSize;
+    private Integer position;
+
 }
