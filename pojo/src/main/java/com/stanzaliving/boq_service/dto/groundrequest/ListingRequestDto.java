@@ -18,4 +18,6 @@ public class ListingRequestDto {
     private String propertyUuid;
 
     private List<ItemType> filterItemsBy;
+
+    private String searchKeyword;
 }
