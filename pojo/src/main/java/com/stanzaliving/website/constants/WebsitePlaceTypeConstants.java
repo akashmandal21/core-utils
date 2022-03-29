@@ -18,6 +18,9 @@ public class WebsitePlaceTypeConstants {
 	public final String SOCIETY = "Society";
 	
 	public final String PLACE = "place";
+	public final String COLLEGE = "College";
+	
+	public final String CORPORATE="Corporate Park";
 	
 	public final Integer  PLACE_TYPE_ID_CITY = 4;
 	
