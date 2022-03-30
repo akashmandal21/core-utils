@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.base.exception;
 
@@ -19,6 +19,7 @@ public class ApiValidationException extends RuntimeException {
 	private final String message;
 	private final String code;
 	private final Throwable error;
+	private ExceptionMarker marker = null;
 
 	public ApiValidationException() {
 		this(StringUtils.EMPTY, StringUtils.EMPTY, null);
@@ -43,6 +44,13 @@ public class ApiValidationException extends RuntimeException {
 	public ApiValidationException(String message, String code, Throwable error) {
 		this.code = code;
 		this.message = message;
+		this.error = error;
+	}
+
+	public ApiValidationException(ExceptionMarker marker, Throwable error) {
+		this.marker = marker;
+		this.message = marker.getMessage();
+		this.code = marker.getErrorCode();
 		this.error = error;
 	}
 

@@ -67,7 +67,7 @@ public class ExceptionInterceptor {
 
 		return ResponseDto.failure(errorMessgae, exceptionId);
 	}
-	
+
 	@ExceptionHandler(StanzaSecurityException.class)
 	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
 	@SendExceptionToSlack
@@ -184,7 +184,7 @@ public class ExceptionInterceptor {
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
-	
+
 	@ExceptionHandler(MultipartException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public <T> ResponseDto<T> handleMultipartException(MultipartException e) {
@@ -334,7 +334,7 @@ public class ExceptionInterceptor {
 		String exceptionId = getExceptionId();
 		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
 
-		return ResponseDto.failure(e.getMessage(), exceptionId);
+		return ResponseDto.failure(e.getMarker().getMessage(), exceptionId);
 	}
 
 	@ExceptionHandler(StanzaHttpException.class)
