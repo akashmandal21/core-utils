@@ -58,4 +58,11 @@ public class ApiValidationException extends RuntimeException {
 		this.code = marker.getErrorCode();
 	}
 
+	public ApiValidationException(ExceptionMarker marker, String message) {
+		this.marker = marker;
+		this.message = message;
+		this.code = marker.getErrorCode();
+	}
+
+
 }

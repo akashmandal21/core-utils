@@ -334,7 +334,7 @@ public class ExceptionInterceptor {
 		String exceptionId = getExceptionId();
 		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
 
-		return ResponseDto.failure(e.getMarker().getMessage(), exceptionId);
+		return ResponseDto.failure(e.getMessage(), exceptionId, e.getMarker().getErrorCode(), e.getMarker().getHttpStatus());
 	}
 
 	@ExceptionHandler(StanzaHttpException.class)
