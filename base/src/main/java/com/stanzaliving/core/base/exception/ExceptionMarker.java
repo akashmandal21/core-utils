@@ -1,6 +1,5 @@
 package com.stanzaliving.core.base.exception;
 
-import lombok.Builder;
 import org.springframework.http.HttpStatus;
 
 public class ExceptionMarker {

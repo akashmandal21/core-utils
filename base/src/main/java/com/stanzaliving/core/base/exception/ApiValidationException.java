@@ -8,8 +8,6 @@ import org.apache.commons.lang3.StringUtils;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.util.function.Supplier;
-
 @Getter
 @ToString(callSuper = true)
 public class ApiValidationException extends RuntimeException {
@@ -18,7 +16,7 @@ public class ApiValidationException extends RuntimeException {
 
 	private final String message;
 	private final String code;
-	private final Throwable error;
+	private Throwable error;
 	private ExceptionMarker marker = null;
 
 	public ApiValidationException() {
@@ -52,6 +50,12 @@ public class ApiValidationException extends RuntimeException {
 		this.message = marker.getMessage();
 		this.code = marker.getErrorCode();
 		this.error = error;
+	}
+
+	public ApiValidationException(ExceptionMarker marker) {
+		this.marker = marker;
+		this.message = marker.getMessage();
+		this.code = marker.getErrorCode();
 	}
 
 }
