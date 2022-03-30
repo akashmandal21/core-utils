@@ -16,6 +16,7 @@ import java.util.Map;
 public class SwimInventorySyncDto {
 
     private String addressUuid;
+    private String dummyAddressUuid;
     private Map<String, ItemStatusDetail> itemStatusDetailMap;
 
     @Getter
