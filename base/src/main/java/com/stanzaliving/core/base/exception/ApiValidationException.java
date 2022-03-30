@@ -14,10 +14,10 @@ public class ApiValidationException extends RuntimeException {
 
 	private static final long serialVersionUID = -4075250719863628707L;
 
-	private final String message;
-	private final String code;
+	private String message;
+	private String code;
 	private Throwable error;
-	private ExceptionMarker marker = null;
+	private ExceptionMarker marker;
 
 	public ApiValidationException() {
 		this(StringUtils.EMPTY, StringUtils.EMPTY, null);
@@ -47,22 +47,16 @@ public class ApiValidationException extends RuntimeException {
 
 	public ApiValidationException(ExceptionMarker marker, Throwable error) {
 		this.marker = marker;
-		this.message = marker.getMessage();
-		this.code = marker.getErrorCode();
 		this.error = error;
 	}
 
 	public ApiValidationException(ExceptionMarker marker) {
 		this.marker = marker;
-		this.message = marker.getMessage();
-		this.code = marker.getErrorCode();
 	}
 
 	public ApiValidationException(ExceptionMarker marker, String message) {
+		marker.setMessage(message);
 		this.marker = marker;
-		this.message = message;
-		this.code = marker.getErrorCode();
 	}
-
 
 }

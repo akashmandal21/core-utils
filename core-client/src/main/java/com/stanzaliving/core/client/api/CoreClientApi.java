@@ -13,7 +13,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -122,7 +121,7 @@ public class CoreClientApi {
 			FullUserDto fullUserDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, FullUserDto.class);
 			responseDto.setData(fullUserDto);
 			responseDto.setStatus(true);
-			responseDto.setHttpStatusCode(HttpStatus.valueOf(200));
+			responseDto.setHttpStatusCode(200);
 
 			log.info("fullUserDto {}", fullUserDto);
 
@@ -160,7 +159,7 @@ public class CoreClientApi {
 		ResponseDto<UserRegistrationDto> responseDto = new ResponseDto<>();
 		responseDto.setData(response);
 		responseDto.setStatus(true);
-		responseDto.setHttpStatusCode(HttpStatus.valueOf(200));
+		responseDto.setHttpStatusCode(200);
 
 		return responseDto;
 	}

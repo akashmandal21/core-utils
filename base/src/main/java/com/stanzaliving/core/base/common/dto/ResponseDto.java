@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.http.HttpStatus;
 
 /**
  * @author naveen
@@ -30,7 +29,7 @@ public class ResponseDto<T> {
 
 	private T data;
 
-	private HttpStatus httpStatusCode;
+	private int httpStatusCode;
 
 	private ResponseDto(boolean status) {
 		this.status = status;
@@ -54,11 +53,6 @@ public class ResponseDto<T> {
 	private ResponseDto(boolean status, String message, T data, String id, String errorCode) {
 		this(status, message, data, id);
 		this.errorCode = errorCode;
-	}
-
-	private ResponseDto(boolean status, String message, T data, String id, String errorCode, HttpStatus httpStatusCode) {
-		this(status, message, data, id, errorCode);
-		this.httpStatusCode = httpStatusCode;
 	}
 
 	public static <T> ResponseDto<T> success(T data) {
@@ -105,7 +99,4 @@ public class ResponseDto<T> {
 		return new ResponseDto<>(false, message, data, id, errorCode);
 	}
 
-	public static <T> ResponseDto<T> failure( String message, String id, String errorCode, HttpStatus httpStatusCode) {
-		return new ResponseDto<>(false, message, null, id, errorCode, httpStatusCode);
-	}
 }

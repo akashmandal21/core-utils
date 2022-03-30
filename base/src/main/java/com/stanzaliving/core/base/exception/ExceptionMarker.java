@@ -1,16 +1,12 @@
 package com.stanzaliving.core.base.exception;
 
-import org.springframework.http.HttpStatus;
-
 public class ExceptionMarker {
 
     private String errorCode;
-    private HttpStatus httpStatus;
     private String message;
 
-    public ExceptionMarker(String errorCode, HttpStatus httpStatus, String message) {
+    public ExceptionMarker(String errorCode, String message) {
         this.errorCode = errorCode;
-        this.httpStatus = httpStatus;
         this.message = message;
     }
 
@@ -18,11 +14,11 @@ public class ExceptionMarker {
         return errorCode;
     }
 
-    public HttpStatus getHttpStatus() {
-        return httpStatus;
-    }
-
     public String getMessage() {
         return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
