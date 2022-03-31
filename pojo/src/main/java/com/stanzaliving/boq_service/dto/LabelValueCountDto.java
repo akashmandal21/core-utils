@@ -1,17 +1,22 @@
-package com.stanzaliving.boq_service.dto.groundrequest;
+package com.stanzaliving.boq_service.dto;
 
-import com.stanzaliving.item_master.enums.ItemType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ItemTypeCountDto {
-    private ItemType itemType;
+public class LabelValueCountDto<T> {
+
+    private String label;
+
+    @NotBlank
+    private T value;
 
     private long count;
 }
