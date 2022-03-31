@@ -34,5 +34,8 @@ public class PoItemDetail {
     private BigDecimal rentPeriod;
     private BigDecimal unitRate;
     private BigDecimal gst;
+    private String awlBatchId;
+    private String awlRefNo;
+    private String fifoUuid;
 
 }

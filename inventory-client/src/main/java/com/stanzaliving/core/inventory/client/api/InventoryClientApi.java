@@ -6,10 +6,10 @@ import com.stanzaliving.core.dto.AddressResponseDTO;
 import com.stanzaliving.core.dto.CityResponseDTO;
 import com.stanzaliving.core.dto.TransactionMigrationForDate;
 import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
-import com.stanzaliving.core.inventory.dto.InventoryActionRequestDto;
-import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
-import com.stanzaliving.core.inventory.dto.InventoryTOResponse;
+import com.stanzaliving.core.grsi.dto.GrsiItemDto;
+import com.stanzaliving.core.inventory.dto.*;
 import com.stanzaliving.item_master.dtos.FilterDto;
+import com.stanzaliving.transformations.pojo.FilterAddressDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.RazorPayRequestDto;
 import lombok.extern.log4j.Log4j2;
@@ -499,6 +499,150 @@ public class InventoryClientApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
+	public ResponseDto<String> updateItemStatus(AwlItemStatusUpdateDto awlItemStatusUpdateDto) {
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path =
+				UriComponentsBuilder.fromPath("/internal/item-status")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType =
+				new ParameterizedTypeReference<ResponseDto<String>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, awlItemStatusUpdateDto, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<AwlBatchDetailsDto>> getAwlBatchDetailsByToUuid(String toUuid) {
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("toUuid", toUuid);
+		String path =
+				UriComponentsBuilder.fromPath("/internal/batch-details/{toUuid}")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<AwlBatchDetailsDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<AwlBatchDetailsDto>>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<ItemSummaryInfoDto>> getInventorySummaryByAddressAndItemsUuid(
+			SummaryInfoRequestDto summaryInfoRequestDto) {
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path =
+				UriComponentsBuilder.fromPath("/internal/inventory-summary")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, summaryInfoRequestDto, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<ItemSummaryInfoDto>> getFifoSummaryInventoryByAddressUuid(FilterAddressDto filterAddressDto) {
+		Object postBody = filterAddressDto;
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path =
+				UriComponentsBuilder.fromPath("/internal/inventory-fifo")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<ItemSummaryInfoDto>>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<InventorySummaryAndFifoDataDto>> matchInventorySummaryAndFifoData(FilterAddressDto filterAddressDto) {
+		Object postBody = filterAddressDto;
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path =
+				UriComponentsBuilder.fromPath("/internal/inventory-match")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<InventorySummaryAndFifoDataDto>>> returnType =
+				new ParameterizedTypeReference<ResponseDto<List<InventorySummaryAndFifoDataDto>>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<String> validateBlockedQuantityToBeReleased(String toUuid, List<GrsiItemDto> grsiItemDtoList) {
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("toUuid", toUuid);
+		String path =
+				UriComponentsBuilder.fromPath("/internal/validate/blocked-quantities/{toUuid}")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType =
+				new ParameterizedTypeReference<ResponseDto<String>>() {
+				};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, grsiItemDtoList, headerParams, accept, returnType);
+	}
+
 	public void migrateTransaction(TransactionMigrationForDate requestDto) {
 
 		try {
@@ -525,7 +669,6 @@ public class InventoryClientApi {
 			log.info("TO migrate transactions request sent to IMS: " + requestDto);
 			log.error("Exception caught while schedule request in ims ", e);
 		}
-
 
 	}
 }

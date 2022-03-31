@@ -1,5 +1,6 @@
 package com.stanzaliving.vendor.model;
 
+import com.stanzaliving.vendor.enums.VendorManagedBy;
 import com.stanzaliving.vendor.enums.VendorType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -53,5 +54,6 @@ public class VendorDetailsDto {
 
     private Date createdAt;
     private Date updatedAt;
+    private VendorManagedBy vendorManagedBy;
 
 }

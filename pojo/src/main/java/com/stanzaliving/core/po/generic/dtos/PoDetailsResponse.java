@@ -14,6 +14,8 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
@@ -25,6 +27,8 @@ public class PoDetailsResponse {
     private String poUuid;
     private String poNumber;
     private String poExpenseType;
+    private Date poCreationDate;
+    private LocalDateTime approvedStatusAt;
 
     private GenericPOType potype;
     private GenericPOTOStatus postatus;
@@ -77,7 +81,8 @@ public class PoDetailsResponse {
     private UIKeyValue costCenterLocationName;
 
     private String taxLocationType;
-
     private String billingState;
+
+    private int poToFlag;
 
 }

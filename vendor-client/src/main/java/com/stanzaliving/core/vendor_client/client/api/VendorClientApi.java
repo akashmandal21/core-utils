@@ -1,10 +1,15 @@
 package com.stanzaliving.core.vendor_client.client.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.core.vendor.FilterVendorDto;
+import com.stanzaliving.core.vendor.dtos.GenericVendorDetailDto;
+import com.stanzaliving.core.vendor.dtos.VendorListingDetailsDto;
+import com.stanzaliving.core.vendor.dtos.VendorSuppliedItem;
+import com.stanzaliving.vendor.enums.VendorManagedBy;
+import com.stanzaliving.vendor.model.*;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -13,19 +18,10 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.generic.dto.UIKeyValue;
-import com.stanzaliving.core.vendor.FilterVendorDto;
-import com.stanzaliving.core.vendor.dtos.GenericVendorDetailDto;
-import com.stanzaliving.core.vendor.dtos.VendorSuppliedItem;
-import com.stanzaliving.vendor.model.VendorAndPocDetails;
-import com.stanzaliving.vendor.model.VendorDetailsDto;
-import com.stanzaliving.vendor.model.VendorPoDownloadDataDto;
-import com.stanzaliving.vendor.model.VendorPoDownloadRequest;
-import com.stanzaliving.vendor.model.VendorPocDetailsDto;
-
-import lombok.extern.log4j.Log4j2;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Log4j2
 public class VendorClientApi {
@@ -422,6 +418,48 @@ public class VendorClientApi {
         String path = UriComponentsBuilder.fromPath("/generic/internal/createHHWVendor").toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, vddReturnType);
+    }
+
+    public ResponseDto<List<VendorListingDetailsDto>> getListOfVendorsWithFilters(VendorFilterDto filterDto) {
+
+        log.info("HTTP Client call to get list of vendors for the filterDto: {}", filterDto);
+
+        Object postBody = filterDto;
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<VendorListingDetailsDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<VendorListingDetailsDto>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/listing/filtered").toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<Map<String, VendorManagedBy>> getVendorManagedByForInternalWarehouse(List<String> vendorUuidList) {
+
+        log.info("HTTP Client call to get vendor managedBy for internal warehouse type");
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, VendorManagedBy>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, VendorManagedBy>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/managed-by/internal-warehouse").toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, vendorUuidList, headerParams, accept, returnType);
     }
 
 }
