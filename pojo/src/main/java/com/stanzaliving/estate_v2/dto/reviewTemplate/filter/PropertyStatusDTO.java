@@ -11,6 +11,7 @@ import lombok.ToString;
 public class PropertyStatusDTO {
 
     private String uuid;
+    private long count;
     private String name;
     private String statusDescription;
 
