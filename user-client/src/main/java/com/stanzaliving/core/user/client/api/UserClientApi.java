@@ -848,7 +848,14 @@ public class UserClientApi {
 		ParameterizedTypeReference<ResponseDto<Set<String>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<String>>>() {
 		};
 
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		try{
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception ex) {
+			log.error("Error occurred while fetching user access level ids ",ex);
+			return null;
+		}
 
 	}
 
