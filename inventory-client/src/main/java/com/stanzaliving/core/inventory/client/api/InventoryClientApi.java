@@ -599,7 +599,7 @@ public class InventoryClientApi {
 		Object postBody = swimInventorySyncDto;
 		final Map<String, Object> uriVariables = new HashMap<>();
 		String path =
-				UriComponentsBuilder.fromPath("/internal/common/update-awl-inventory")
+				UriComponentsBuilder.fromPath("/internal/update-awl-inventory")
 						.buildAndExpand(uriVariables)
 						.toUriString();
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
