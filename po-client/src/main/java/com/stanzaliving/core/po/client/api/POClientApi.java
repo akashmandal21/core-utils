@@ -797,4 +797,26 @@ public class POClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, rentalItemUpdatedRateMap, headerParams, accept, vddReturnType);
     }
+
+    public ResponseDto<Map<String, List<PoDetailsResponse>>> getPoDeliveryDetails(List<String> poUuids) {
+
+        log.info("HTTP Client call to get po delivery details");
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, List<PoDetailsResponse>>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<PoDetailsResponse>>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getPOTODeliveryDetails").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, poUuids, headerParams, accept, vddReturnType);
+    }
 }
