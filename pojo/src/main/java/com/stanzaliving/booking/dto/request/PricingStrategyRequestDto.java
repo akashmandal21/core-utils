@@ -23,13 +23,13 @@ public class PricingStrategyRequestDto implements Serializable {
 
     private String cityUuid;
 
-    private Double lockInDuration;
+    private double lockInDuration;
 
     private BookingType bookingType;
 
-    private boolean isEntireFlat;
+    private Boolean isEntireFlat = Boolean.FALSE;
 
-    private boolean isManagedApartment;
+    private Boolean isManagedApartment = Boolean.FALSE;
 
     private Date fromDate;
 
