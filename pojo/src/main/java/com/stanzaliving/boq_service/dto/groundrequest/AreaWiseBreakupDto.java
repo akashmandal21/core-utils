@@ -6,13 +6,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class AreaWiseBreakupDto {
 
-    private Integer itemCount;
+    private BigDecimal itemCount;
 
-    private Integer itemPct;
+    private BigDecimal itemPct;
 }

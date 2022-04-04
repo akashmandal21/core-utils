@@ -37,4 +37,6 @@ public class BoqListingGroupByItemTempDto {
     private UnitType orderUnit;
 
     private AreaOfUse areaOfUse;
+
+    private BigDecimal gcQuantity;
 }
