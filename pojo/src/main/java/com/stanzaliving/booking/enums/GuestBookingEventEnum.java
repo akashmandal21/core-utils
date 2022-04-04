@@ -7,11 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum GuestBookingEventEnum {
 
-    COMPLETE_ONBOARDING("Complete Onboarding"),
-    PERSONAL_DETAILS_FILLED("Personal Details Filled"),
+    GUEST_PERSONAL_DETAILS_SCREEN("Personal Details Screen"),
+    GUEST_AGREEMENT_CREATED("Guest Agreement Created"),
     CONTRACT_SIGNED("Contract Signed"),
-    CONTRACT_SCREEN("Contract Screen"),
-    PERSONAL_DETAILS_SCREEN("Personal Details Screen");
+    GUEST_COMPLETE_ONBOARDING("Complete Onboarding");
 
     String eventName;
 }
