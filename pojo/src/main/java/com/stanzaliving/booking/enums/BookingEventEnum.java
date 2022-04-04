@@ -58,6 +58,6 @@ public enum BookingEventEnum {
     CONTRACT_END("Contract"),
     LOCK_IN_END("Lock-in period");
 
-    String eventName;
+	String eventName;
 
 }

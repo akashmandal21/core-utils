@@ -18,6 +18,8 @@ public class PricingStrategyDto {
 
     private String cityUuid;
 
+    private Double lockInDuration;
+
     private Date fromDate;
 
     private Date toDate;
