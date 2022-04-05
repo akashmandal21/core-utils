@@ -661,6 +661,7 @@ public abstract class TemplateProcessor {
         boolean editable = checkIfEditable(templateField,additionalData);
 
         Object defaultValue = templateField.getDefaultValue();
+        Integer minValue = templateField.getMinValue();
 
         UiField uiField = UiField.builder()
                 .fieldName(templateField.getFieldName())
@@ -696,6 +697,11 @@ public abstract class TemplateProcessor {
             else if (defaultValue != null)
             {
                 JsonNode jsonNode = objectMapper.valueToTree(defaultValue);
+                uiField.setValue(jsonNode);
+            }
+            else if (minValue != null)
+            {
+                JsonNode jsonNode = objectMapper.valueToTree(minValue);
                 uiField.setValue(jsonNode);
             }
         }catch (Exception e) {
