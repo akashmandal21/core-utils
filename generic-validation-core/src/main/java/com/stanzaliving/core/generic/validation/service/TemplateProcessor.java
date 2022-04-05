@@ -661,7 +661,7 @@ public abstract class TemplateProcessor {
         boolean editable = checkIfEditable(templateField,additionalData);
 
         Object defaultValue = templateField.getDefaultValue();
-        Integer minValue = templateField.getMinValue();
+        Object minValue = templateField.getMinValue();
 
         UiField uiField = UiField.builder()
                 .fieldName(templateField.getFieldName())
