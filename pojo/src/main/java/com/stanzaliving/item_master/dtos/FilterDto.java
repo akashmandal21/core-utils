@@ -42,6 +42,7 @@ public class FilterDto {
     private String itemName;
     private String itemDescription;
     private UIKeyValue poBoqLabel;
+    private String poExpenseType;
 
     //Options
     private List<UIKeyValue> costHeadOptions;
