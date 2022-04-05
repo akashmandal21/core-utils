@@ -19,4 +19,5 @@ public class PropertyBoqDetailDto {
     private BoqStatus boqStatus;
     private List<PropertyBoqItemDto> items;
     private BoqType boqType;
+    private String boqLabel;
 }

@@ -41,6 +41,7 @@ public class FilterDto {
     private DateRange dateRangeCreatedAt;
     private String itemName;
     private String itemDescription;
+    private String boqLabel;
 
     //Options
     private List<UIKeyValue> costHeadOptions;
