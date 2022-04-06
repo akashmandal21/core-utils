@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import com.stanzaliving.core.base.enums.Department;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -309,6 +310,9 @@ public abstract class TemplateProcessor {
                     throw new StanzaException("Internal Error Occurred");
             }
             boolean needed = templateField.isMandatory() && !isDraft;
+            if(FieldOptionProvider.poBOQLabelProvider.equals(templateField.getOptionProvider()) && (!additionalData.get("department").equals(Department.PROCUREMENT) && !additionalData.get("department").equals(Department.GC))) {
+                needed = false;
+            }
             boolean dataPresent = mainDataPresent && Objects.nonNull(data.get(templateField.getFieldName())) && (!data.get(templateField.getFieldName()).isNull());
             FieldType subFieldType = templateField.getFieldSubType();
 
