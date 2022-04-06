@@ -1,12 +1,6 @@
 package com.stanzaliving.boq_service.enums;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.google.common.collect.ImmutableSet;
@@ -38,5 +32,16 @@ public enum BoqLabel {
         return Arrays.stream(BoqLabel.values())
                 .filter(boqLabel -> !boqLabel.equals(BoqLabel.NA))
                 .collect(Collectors.toList());
+    }
+
+    public static List<BoqLabel> getBOQLabelsForPoExpenseType(String poExpenseType) {
+        if(poExpenseType.equals("Capex")) {
+            return Arrays.asList(TRANSFORMATION, STRUCTURAL_CHANGE, MARGIN_ENHANCEMENT, REDENSIFICATION, REFURBISHMENT, VAS, LL_DEBIT_LL_ASSET,
+                    LL_DEBIT_SL_ASSET, CONSULTANT_DEBIT, LL_SOW_MISALIGNMENT, VENDOR_DEBIT);
+        }else if(poExpenseType.equals("Opex")){
+            return Arrays.asList(TRANSFORMATION, STRUCTURAL_CHANGE, MARGIN_ENHANCEMENT, REDENSIFICATION, REFURBISHMENT, VAS, LL_DEBIT_LL_ASSET,
+                    LL_DEBIT_SL_ASSET, CONSULTANT_DEBIT, LL_SOW_MISALIGNMENT, VENDOR_DEBIT);
+        }
+        return new ArrayList<>();
     }
 }
