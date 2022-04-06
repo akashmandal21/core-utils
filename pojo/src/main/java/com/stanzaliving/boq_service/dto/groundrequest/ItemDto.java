@@ -20,7 +20,7 @@ public class ItemDto {
 
     private String itemCode;
 
-    private ItemType itemType;
+    private String itemType;
 
     private String itemName;
 
@@ -30,7 +30,7 @@ public class ItemDto {
 
     private String orderUnit;
 
-    private AreaOfUse areaOfUse;
+    private String areaOfUse;
 
     private String imageURL;
 
