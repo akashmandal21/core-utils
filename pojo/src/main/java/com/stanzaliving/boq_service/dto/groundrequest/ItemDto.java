@@ -28,7 +28,7 @@ public class ItemDto {
 
     private BigDecimal quantity;
 
-    private UnitType orderUnit;
+    private String orderUnit;
 
     private AreaOfUse areaOfUse;
 
