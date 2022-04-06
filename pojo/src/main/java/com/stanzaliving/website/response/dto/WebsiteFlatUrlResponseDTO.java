@@ -29,6 +29,9 @@ public class WebsiteFlatUrlResponseDTO {
 	private Double rating;
 	private String reviewCount;
 	private String minPriceValue;
+	
+	@Builder.Default
+	private Set<Integer> cityIds = new HashSet<>();
 
 	@Builder.Default
 	private int sequenceId = 0;
