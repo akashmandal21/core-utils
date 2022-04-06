@@ -105,7 +105,8 @@ public enum LeadSourceEnum {
     WEBSITE_VISIT("WebSite Visit"),
     WHATSAPP("Whatsapp"),
     WHATSAPP_WEBSITE("Whatsapp-Website"),
-    ZOHO("zoho");
+    ZOHO("zoho"),
+    MAGIC_BRICKS_2("Magicbricks-2");
 
     private static Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
     private static Map<String, LeadSourceEnum> leadNameSourceMap = new HashMap<>();
