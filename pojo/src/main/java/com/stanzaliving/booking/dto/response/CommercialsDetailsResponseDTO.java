@@ -23,6 +23,10 @@ public class CommercialsDetailsResponseDTO implements Serializable {
 
     private Double bookingAmount;
 
+    private Float onBoardingCharges;
+
+    private Boolean obcApplicable;
+
     private Double totalAmount;
 
     private Double discountApplied;

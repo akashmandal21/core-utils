@@ -29,6 +29,8 @@ public class CommercialsResponseDtoV2 {
     private Double maintenanceFee;
     private Integer advanceMonths;
     private Double advanceFee;
+    private Float onBoardingCharges;
+    private Boolean obcApplicable;
     private String maxDate;
     private double upsell;
     private MaintenanceFeeCollectionType maintenanceFeeCollectionType;

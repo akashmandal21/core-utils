@@ -47,6 +47,10 @@ public class CommercialCardResponseDto {
 
     private Double securityDeposit;
 
+    private Float onBoardingCharges;
+
+    private Boolean obcApplicable;
+
     private Integer advanceRentalFirstMonths;
 
     private Integer advanceRentalLastMonths;

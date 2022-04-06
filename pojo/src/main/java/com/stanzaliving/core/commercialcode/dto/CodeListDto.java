@@ -32,5 +32,9 @@ public class CodeListDto {
 
     private Double monthlyFeesMultiplier;
 
+    private Float onBoardingCharges;
+
+    private Boolean obcApplicable;
+
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
 }
