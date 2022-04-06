@@ -2,6 +2,7 @@ package com.stanzaliving.core.generic.validation.dtos;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.stanzaliving.core.generic.validation.enums.UIFieldType;
 import com.stanzaliving.core.generic.validation.enums.Validator;
 import lombok.AllArgsConstructor;
@@ -26,4 +27,5 @@ public class UiField extends UiParentField {
     private List<Object> options;
     private Boolean isMultiSelect;
     private UIFieldType uiFieldType;
+//    private JsonNode minValue;
 }
