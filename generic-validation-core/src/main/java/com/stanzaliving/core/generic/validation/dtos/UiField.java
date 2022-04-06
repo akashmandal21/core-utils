@@ -27,5 +27,4 @@ public class UiField extends UiParentField {
     private List<Object> options;
     private Boolean isMultiSelect;
     private UIFieldType uiFieldType;
-//    private JsonNode minValue;
 }
