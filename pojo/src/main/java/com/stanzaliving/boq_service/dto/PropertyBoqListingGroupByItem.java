@@ -37,4 +37,6 @@ public class PropertyBoqListingGroupByItem {
     private UnitType orderUnit;
 
     private String itemUuid;
+
+    private String imageUrl;
 }

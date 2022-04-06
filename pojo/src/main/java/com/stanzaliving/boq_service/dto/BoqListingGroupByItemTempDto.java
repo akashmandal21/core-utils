@@ -39,4 +39,6 @@ public class BoqListingGroupByItemTempDto {
     private AreaOfUse areaOfUse;
 
     private BigDecimal gcQuantity;
+
+    private String imageUrl;
 }
