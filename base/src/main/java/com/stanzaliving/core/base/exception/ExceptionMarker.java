@@ -21,12 +21,4 @@ public class ExceptionMarker {
     public void setMessage(String message) {
         this.message = message;
     }
-
-    @Override
-    public String toString() {
-        return "ExceptionMarker{" +
-                "errorCode='" + errorCode + '\'' +
-                ", message='" + message + '\'' +
-                '}';
-    }
 }

@@ -333,11 +333,13 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleApiValidationException(ApiValidationException e) {
 
 		String exceptionId = getExceptionId();
+
 		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
 
 		if (Objects.isNull(e.getMarker())){
 			return ResponseDto.failure(e.getMessage(), exceptionId);
 		} else{
+			log.error(e.getMarker());
 			return ResponseDto.failure(e.getMarker().getMessage(), exceptionId, e.getMarker().getErrorCode());
 		}
 	}
