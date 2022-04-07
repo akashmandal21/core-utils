@@ -700,12 +700,12 @@ public abstract class TemplateProcessor {
                 JsonNode jsonNode = objectMapper.valueToTree(defaultValue);
                 uiField.setValue(jsonNode);
             }
-            else if (minValue != null)
-            {
-                JsonNode jsonNode = objectMapper.valueToTree(minValue);
-//                uiField.setValue(jsonNode);
-                uiField.setMinValue(jsonNode);
-            }
+//            else if (minValue != null)
+//            {
+//                JsonNode jsonNode = objectMapper.valueToTree(minValue);
+////                uiField.setValue(jsonNode);
+//                uiField.setMinValue(jsonNode);
+//            }
         }catch (Exception e) {
             log.error("Unable to decode stored value using {} {} {} ",fieldVal, defaultValue, templateField.getFieldName(),e);
         }
