@@ -1,7 +1,6 @@
 package com.stanzaliving.core.base.exception.config;
 
 import com.stanzaliving.core.base.exception.ApiValidationException;
-import com.stanzaliving.core.base.exception.ExceptionMarker;
 import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.lang3.time.FastDateFormat;
@@ -37,7 +36,6 @@ public class StanzaLivingMarkerLayout extends AbstractStringLayout{
 
     @Override
     public String toSerializable(LogEvent event) {
-        System.out.println("Event "+ event);
         return ObjectMapperUtil.getString(getObjectMap(event));
     }
 

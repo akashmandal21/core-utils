@@ -337,9 +337,7 @@ public class ExceptionInterceptor {
 		if (Objects.isNull(e.getCode())){
 			return ResponseDto.failure(e.getMessage(), exceptionId);
 		}
-		log.error(e);
 		return ResponseDto.failure(e.getMessage(), e.getCode(), exceptionId);
-
 	}
 
 	@ExceptionHandler(StanzaHttpException.class)
