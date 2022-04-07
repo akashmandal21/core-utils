@@ -62,6 +62,7 @@ public enum LeadSourceEnum {
     LEAD_LP_FORM_2("Lead LP-form-2"),
     LEAD_LP_FORM_3("Lead LP-form-3"),
     MAGIC_BRICKS("Magicbricks"),
+    MAGIC_BRICKS_2("Magicbricks-2"),
     MAKAAN("Makaan"),
     MICROSITE("Microsite"),
     NINETY_NINE_ACRES("99Acres"),
@@ -105,8 +106,7 @@ public enum LeadSourceEnum {
     WEBSITE_VISIT("WebSite Visit"),
     WHATSAPP("Whatsapp"),
     WHATSAPP_WEBSITE("Whatsapp-Website"),
-    ZOHO("zoho"),
-    MAGIC_BRICKS_2("Magicbricks-2");
+    ZOHO("zoho");
 
     private static Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
     private static Map<String, LeadSourceEnum> leadNameSourceMap = new HashMap<>();
