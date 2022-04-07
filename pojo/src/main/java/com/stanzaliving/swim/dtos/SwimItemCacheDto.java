@@ -15,5 +15,8 @@ public class SwimItemCacheDto {
     private String itemCode;
     private String uuid;
     private Department department;
+    private String hsnCode;
+    private String itemDesc;
+    private String itemName;
 
 }
