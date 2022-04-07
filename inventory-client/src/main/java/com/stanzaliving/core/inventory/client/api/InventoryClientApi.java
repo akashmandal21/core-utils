@@ -595,6 +595,28 @@ public class InventoryClientApi {
 				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<String> inventorySyncActionApi(SwimInventorySyncDto swimInventorySyncDto) {
+		Object postBody = swimInventorySyncDto;
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path =
+				UriComponentsBuilder.fromPath("/internal/update-awl-inventory")
+						.buildAndExpand(uriVariables)
+						.toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType =
+				new ParameterizedTypeReference<ResponseDto<String>>() {};
+
+		return restClient.invokeAPI(
+				path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 	public ResponseDto<List<InventorySummaryAndFifoDataDto>> matchInventorySummaryAndFifoData(FilterAddressDto filterAddressDto) {
 		Object postBody = filterAddressDto;
 		final Map<String, Object> uriVariables = new HashMap<>();
