@@ -2,10 +2,12 @@ package com.stanzaliving.estate_v2.dto.propertyType;
 
 
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
+import com.stanzaliving.estate_v2.dto.ReportToDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.ReportAsSingleViolation;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
@@ -34,4 +36,7 @@ public class PropertyStatusDto {
     private Boolean isBypassEnabled;
     private String assignedToRoleUuid;
     private String assignedToRoleName;
+    private Boolean isTimerEnabled;
+    private int deadlineForTimer;
+    private List<ReportToDTO> reportTo;
 }
