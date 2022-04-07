@@ -15,4 +15,5 @@ public class AnswerDetailsDto {
     private String variableName;
     private String userUuid;
     private Boolean status;
+    private Boolean isEditable;
 }

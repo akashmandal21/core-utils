@@ -33,6 +33,5 @@ public class ReviewTemplateResponseDto {
     private BedCountInfoDto bedCountInformation;
     private List<LayoutResponse> layouts;
     private String propertyAction;
-    private boolean suggestedLanguageEditable;
 
 }
