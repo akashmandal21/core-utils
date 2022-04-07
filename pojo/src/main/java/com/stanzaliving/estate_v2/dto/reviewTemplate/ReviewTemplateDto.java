@@ -29,5 +29,4 @@ public class ReviewTemplateDto {
     private List<OtherInformationDto> otherInformation;
     private List<LayoutDto> layouts;
     private String propertyAction;
-    private boolean suggestedLanguageEditable;
 }
