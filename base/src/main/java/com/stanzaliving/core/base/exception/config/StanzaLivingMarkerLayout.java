@@ -1,5 +1,6 @@
 package com.stanzaliving.core.base.exception.config;
 
+import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.exception.ExceptionMarker;
 import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import org.apache.commons.collections.map.HashedMap;
@@ -36,15 +37,16 @@ public class StanzaLivingMarkerLayout extends AbstractStringLayout{
 
     @Override
     public String toSerializable(LogEvent event) {
+        System.out.println("Event "+ event);
         return ObjectMapperUtil.getString(getObjectMap(event));
     }
 
     private Map<String, Object> getObjectMap(LogEvent event) {
         Map<String, Object> map = new HashedMap();
         map.put("@timestamp", IST_DATETIME_TIME_ZONE_FORMAT_WITH_MILLIS.format(event.getTimeMillis()));
-        ExceptionMarker exceptionMarker = (ExceptionMarker) event.getMessage().getParameters()[0];
-        map.put("errorCode", exceptionMarker.getErrorCode());
-        map.put("message", exceptionMarker.getMessage());
+        ApiValidationException apiValidationException = (ApiValidationException) event.getMessage().getParameters()[0];
+        map.put("errorCode", apiValidationException.getCode());
+        map.put("message", apiValidationException.getMessage());
         map.put("threadName", event.getThreadName());
         map.put("level", event.getLevel().toString());
         map.put("methodName",event.getSource().getMethodName());
