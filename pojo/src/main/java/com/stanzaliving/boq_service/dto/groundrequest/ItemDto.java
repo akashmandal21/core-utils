@@ -30,7 +30,7 @@ public class ItemDto {
 
     private String areaOfUse;
 
-    private ByteArrayResource imageUrl;
+    private String imageUrl;
 
     private String subCategory;
 }
