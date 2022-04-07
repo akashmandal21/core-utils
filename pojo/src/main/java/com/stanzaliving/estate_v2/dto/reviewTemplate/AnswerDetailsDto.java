@@ -11,6 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class AnswerDetailsDto {
     private String id;
+    private String questionUuid;
+    private String variableName;
     private String userUuid;
     private Boolean status;
 }
