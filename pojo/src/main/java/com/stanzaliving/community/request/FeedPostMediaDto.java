@@ -21,6 +21,8 @@ public class FeedPostMediaDto extends AbstractDto {
     private MediaType mediaType;
     
 	private String url;
+	
+	private String thumbnailUrl;
 
     private Integer displayOrder;
 }
