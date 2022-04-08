@@ -28,6 +28,4 @@ public class DesignStatusUpdateRequestDto {
 	private String reasonForNoSumma;
 	private String reasonForNoMagna;
 	private String reasonForPrima;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date propertyApprovalTime;
 }
