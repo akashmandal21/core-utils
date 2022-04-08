@@ -30,6 +30,8 @@ public class WebsiteFlatUrlResponseDTO {
 	private String reviewCount;
 	private String minPriceValue;
 	
+	private Boolean isMultiplePlaceActive;
+	
 	@Builder.Default
 	private Set<Integer> cityIds = new HashSet<>();
 
