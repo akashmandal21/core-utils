@@ -12,4 +12,6 @@ import lombok.NoArgsConstructor;
 public class Config {
     private String id;
     private String passKey;
+
+    private Integer verifyYob;
 }
