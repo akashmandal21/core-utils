@@ -341,4 +341,29 @@ public class AclUserClientApi {
 
 	}
 
+	public ResponseDto<Map<String, List<String>>> getActiveUseridAccessLevelIdByRoleName(UserAccessLevelIdsByRoleNameDto userAccessLevelIdsByRoleNameDto) {
+
+		Object postBody = userAccessLevelIdsByRoleNameDto;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/acl/activeUseridAccessLevelIdByRoleName").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+			"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
 }

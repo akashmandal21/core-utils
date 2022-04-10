@@ -20,7 +20,6 @@ public class BaseUIDInterceptor extends HandlerInterceptorAdapter {
 		String luid = UUID.randomUUID().toString().replace("-", ""); // locally unique identifier
 
 		guid = (null != request.getHeader(StanzaConstants.GUID)) ? request.getHeader(StanzaConstants.GUID) : guid;
-
 		MDC.put(StanzaConstants.GUID, guid);
 		MDC.put(StanzaConstants.LUID, luid);
 		MDC.put(StanzaConstants.REQUEST_PATH, request.getRequestURI());
@@ -34,16 +33,14 @@ public class BaseUIDInterceptor extends HandlerInterceptorAdapter {
 		return true;
 	}
 
-	public boolean postHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
-
-		log.info("ResponseSent Code " + response.getStatus());
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
 		MDC.remove(StanzaConstants.GUID);
 		MDC.remove(StanzaConstants.LUID);
 		MDC.remove(StanzaConstants.REQUEST_PATH);
 		MDC.remove(StanzaConstants.QUERY_STRING);
-
-		return true;
+		MDC.remove(StanzaConstants.REQ_UID);
+		MDC.remove(StanzaConstants.REQ_MOBILE);
 	}
 
 }
