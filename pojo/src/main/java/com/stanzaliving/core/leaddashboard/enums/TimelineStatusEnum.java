@@ -8,14 +8,13 @@ import java.util.*;
 @Getter
 @AllArgsConstructor
 public enum TimelineStatusEnum {
-    
+
     NEW_LEAD("New Lead"),
     CALLED("Called"),
     CONNECTED("Connected"),
     FOLLOW_UP_NEEDED("Follow-Up Needed"),
     RNR("RNR"),
     PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow-Up"),
-
     QUALIFIED("Qualified"),
     PRE_VISIT_SCHEDULED_FOLLOW_UP("Pre Visit Scheduled Follow-Up"),
 
