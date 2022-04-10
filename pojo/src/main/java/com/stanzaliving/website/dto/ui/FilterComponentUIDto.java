@@ -18,6 +18,7 @@ import lombok.ToString;
 public class FilterComponentUIDto {
 
 	private String name;
+	private String flatUrl;
 	
 	private Integer cityId;
 	
