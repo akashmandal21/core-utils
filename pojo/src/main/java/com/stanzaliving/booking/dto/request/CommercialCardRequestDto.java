@@ -31,7 +31,7 @@ public class CommercialCardRequestDto implements Serializable {
 	private Double maintenanceFee;
 
 	@Min(value = 0, message = "onBoardingCharge fee cannot be negative")
-	private Float onBoardingCharges;
+	private Double onBoardingCharges;
 	
 	@Builder.Default
 	@NotNull(message = "maintenance fee collection type cannot be null")
