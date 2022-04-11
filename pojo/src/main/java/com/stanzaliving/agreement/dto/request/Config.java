@@ -14,4 +14,6 @@ public class Config {
     private String passKey;
 
     private Integer verifyYob;
+
+    private String authTypes;
 }
