@@ -43,7 +43,7 @@ import lombok.experimental.SuperBuilder;
 public abstract class CategoryDto implements Cloneable {
 
 	protected String categoryName;
-	protected int costPerAvailableBed;
+	public int costPerAvailableBed;
 	protected int costPerOccupiedBed;
 	protected double contribution;
 

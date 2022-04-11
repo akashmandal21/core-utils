@@ -22,16 +22,16 @@ public class AuditCategoryDto extends CategoryDto {
 	boolean isPhysicalAudit;
 	boolean isCctvAudit;
 
-	private double cctvAuditCostPerBed;
-	private int mgForCctvAudit;
-	private double physicalAuditCostPerMonth;
+	public double cctvAuditCostPerBed;
+	public int mgForCctvAudit;
+	public double physicalAuditCostPerMonth;
 
 	private int totalCctvAuditCostPerBed;
-	private int totalPhysicalAuditCostPerBed;
+	public int totalPhysicalAuditCostPerBed;
 
 
-	private int physicalAuditCharges;
-	private int cctvAuditCharges;
+	public int physicalAuditCharges;
+	public int cctvAuditCharges;
 
 	public AuditCategoryDto clone() {
 		return AuditCategoryDto.builder()

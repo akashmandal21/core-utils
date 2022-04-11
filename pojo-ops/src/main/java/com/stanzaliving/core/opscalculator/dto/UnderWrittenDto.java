@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Getter
+@Setter
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +22,7 @@ public class UnderWrittenDto {
     protected HouseKeepingCategoryDto houseKeepingCategoryDto;
     protected SecurityCategoryDto securityCategoryDto;
     protected PersonnelCategoryDto personnelCategoryDto;
-    protected AuditCategoryDto auditCategoryDto;
+    public AuditCategoryDto auditCategoryDto;
     protected UniformCostsCategoryDto uniformCostsCategoryDto;
     protected EquipmentRentalCategoryDto equipmentRentalCategoryDto;
     protected LaundryCostCategoryDto laundryCostCategoryDto;
@@ -31,5 +33,8 @@ public class UnderWrittenDto {
     private double underWrittenDurationAmount;
     private double underWrittenDurationInDays;
     List<SMLevelDto> smLevelDtoList;
+    
+    public PropertyAttributeInfoDto propertyAttributeInfoDto;
+    public double multiplyFactor;
 
 }

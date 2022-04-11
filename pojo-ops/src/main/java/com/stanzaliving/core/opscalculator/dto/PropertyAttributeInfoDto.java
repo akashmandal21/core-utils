@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PropertyAttributeInfoDto {
-    private Integer availableBedCount;
+    public Integer availableBedCount;
     private Integer roomCount;
     private Integer daysInMonth;
 
