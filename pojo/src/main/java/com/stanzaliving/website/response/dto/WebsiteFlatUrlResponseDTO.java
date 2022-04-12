@@ -1,6 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
@@ -32,8 +33,7 @@ public class WebsiteFlatUrlResponseDTO {
 	
 	private Boolean isMultiplePlaceActive;
 	
-	@Builder.Default
-	private Set<Integer> cityIds = new HashSet<>();
+	private List<Integer> cityIds;
 
 	@Builder.Default
 	private int sequenceId = 0;
