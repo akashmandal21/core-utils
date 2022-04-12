@@ -23,15 +23,11 @@ public class CommercialsDetailsResponseDTO implements Serializable {
 
     private Double bookingAmount;
 
-    private Double onBoardingChargesFixedAmount;
-
-    private Double onBoardingChargesPercentageAmount;
-
-    private Boolean onBoardingChargeApplicable;
-
-    private Boolean onBoardingChargeInPercentage;
-
     private Double onBoardingCharges;
+
+    private Double onBoardingChargesPercentage;
+
+    private Boolean onboardingChargesApplicableOnRetention;
 
     private Double totalAmount;
 

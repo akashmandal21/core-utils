@@ -47,13 +47,11 @@ public class CommercialCardResponseDto {
 
     private Double securityDeposit;
 
-    private Double onBoardingChargesFixedAmount;
+    private Double onBoardingCharges;
 
-    private Double onBoardingChargesPercentageAmount;
+    private Double onBoardingChargesPercentage;
 
-    private Boolean onBoardingChargeApplicable;
-
-    private Boolean onBoardingChargeInPercentage;
+    private Boolean onboardingChargesApplicableOnRetention;
 
     private Integer advanceRentalFirstMonths;
 
