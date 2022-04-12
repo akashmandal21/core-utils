@@ -1,46 +1,29 @@
-/**
- * 
- */
 package com.stanzaliving.transformations.pojo;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Date;
 
-/**
- * @author naveen.kumar
- *
- * @date 04-Nov-2019
- *
- **/
 @Getter
 @Setter
-@ToString
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class MicroMarketMetadataDto {
 
-	private long microMarketId;
+    private long cityId;
+    private long microMarketId;
+    private long allowedVisitDays;
 
-	private String uuid;
+    private String uuid;
+    private String cityUuid;
+    private String microMarketName;
+    private String microMarketCode;
 
-	private String microMarketName;
+    private double latitude;
+    private double longitude;
 
-	private long cityId;
-	
-	private String cityUuid;
+    private Date createdAt;
 
-	private String microMarketCode;
-	
-	private double latitude;
-	
-	private double longitude;
-
-	private Date createdAt;
 }
