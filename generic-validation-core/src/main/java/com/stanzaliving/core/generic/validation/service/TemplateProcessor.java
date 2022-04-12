@@ -310,7 +310,9 @@ public abstract class TemplateProcessor {
                     throw new StanzaException("Internal Error Occurred");
             }
             boolean needed = templateField.isMandatory() && !isDraft;
-            if(FieldOptionProvider.poBOQLabelProvider.equals(templateField.getOptionProvider()) && (!additionalData.get("department").equals(Department.PROCUREMENT) && !additionalData.get("department").equals(Department.GC))) {
+            if(FieldOptionProvider.poBOQLabelProvider.equals(templateField.getOptionProvider())
+                    && ((!additionalData.get("department").equals(Department.PROCUREMENT) && !additionalData.get("department").equals(Department.GC))
+                    || (Objects.nonNull(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue()) && !(ValueAdapters.getValue(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE"))))) {
                 needed = false;
             }
             boolean dataPresent = mainDataPresent && Objects.nonNull(data.get(templateField.getFieldName())) && (!data.get(templateField.getFieldName()).isNull());
