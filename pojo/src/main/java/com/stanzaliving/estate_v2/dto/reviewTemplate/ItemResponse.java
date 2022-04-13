@@ -13,4 +13,5 @@ public class ItemResponse {
     private String label;
     private List<String> answers;
     private List<AnswerDetailsDto> answerDetails;
+    private String bgColor;
 }

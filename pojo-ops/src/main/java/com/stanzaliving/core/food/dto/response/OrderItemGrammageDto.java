@@ -38,4 +38,7 @@ public class OrderItemGrammageDto {
 	@Builder.Default
 	private Double orderedWeight = 0d;
 
+	@Builder.Default
+	private boolean isApplicableToNonSl = false;
+
 }
