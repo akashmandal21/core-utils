@@ -15,7 +15,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaymentPlanRequestDto implements Serializable {
-	
 	@NotNull(message = "commercialCardRequestDto cannot be null")
 	@Valid
 	private CommercialCardRequestDto commercialCardRequestDto;
