@@ -37,10 +37,10 @@ public enum BoqLabel {
     public static List<BoqLabel> getBOQLabelsForPoExpenseType(String poExpenseType) {
         if(poExpenseType.equals("Capex")) {
             return Arrays.asList(TRANSFORMATION, STRUCTURAL_CHANGE, MARGIN_ENHANCEMENT, REDENSIFICATION, REFURBISHMENT, VAS, LL_DEBIT_LL_ASSET,
-                    LL_DEBIT_SL_ASSET, CONSULTANT_DEBIT, LL_SOW_MISALIGNMENT, VENDOR_DEBIT);
+                    LL_DEBIT_SL_ASSET, CONSULTANT_DEBIT, LL_SOW_MISALIGNMENT, VENDOR_DEBIT,NA);
         }else if(poExpenseType.equals("Opex")){
             return Arrays.asList(TRANSFORMATION, STRUCTURAL_CHANGE, MARGIN_ENHANCEMENT, REDENSIFICATION, REFURBISHMENT, VAS, LL_DEBIT_LL_ASSET,
-                    LL_DEBIT_SL_ASSET, CONSULTANT_DEBIT, LL_SOW_MISALIGNMENT, VENDOR_DEBIT);
+                    LL_DEBIT_SL_ASSET, CONSULTANT_DEBIT, LL_SOW_MISALIGNMENT, VENDOR_DEBIT,NA);
         }
         return new ArrayList<>();
     }
