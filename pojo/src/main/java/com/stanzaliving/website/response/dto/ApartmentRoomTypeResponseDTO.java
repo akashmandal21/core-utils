@@ -32,4 +32,6 @@ public class ApartmentRoomTypeResponseDTO {
 	private Integer quantity;
 	
 	private Integer available;
+	
+	private Double discountPercentage;
 }
