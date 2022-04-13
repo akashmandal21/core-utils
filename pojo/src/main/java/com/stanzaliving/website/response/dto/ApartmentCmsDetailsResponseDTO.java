@@ -60,8 +60,6 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private String genderSlug;
 	private String mobileNo;
 	private String phoneNo;
-	private Double discountPercentage;
-	private Integer discountedPrice;
 	
 	private PropertyEntityType propertyEntityType;
 
