@@ -25,4 +25,6 @@ public class CityMetadataDto implements Serializable {
     private double latitude;
     private double longitude;
 
+	private boolean medullaEligible;
+
 }
