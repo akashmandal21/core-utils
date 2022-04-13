@@ -7,13 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import lombok.Setter;
 import java.util.List;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
 public class TicketDetailsDto {
 
     private String assignedToUuid;
@@ -45,5 +46,8 @@ public class TicketDetailsDto {
     private boolean isFreeTextAccess = true;
 
     private List<TicketFilterCountDto> ticketFilterCountDtos;
+
+    private boolean isAllChecklistClosed;
+
 
 }

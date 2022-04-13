@@ -31,6 +31,8 @@ import com.stanzaliving.internet.dto.InternetDetails;
 import com.stanzaliving.internet.dto.InternetProviderDetails;
 import com.stanzaliving.operations.ServiceMixSeasonResponseDto;
 import com.stanzaliving.operations.dto.servicemix.ServiceMixEntityDto;
+import com.stanzaliving.operations.dto.servicemix.ServiceNameRequestDto;
+import com.stanzaliving.operations.dto.servicemix.ServiceNameResponseDto;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 
 import lombok.extern.log4j.Log4j2;
@@ -577,6 +579,34 @@ public class OperationsClientApi {
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
+	
+	public ServiceNameResponseDto getServiceMixNamesByResidenceIds(List<String> residenceIds) {
 
+		try {
+			Object postBody = ServiceNameRequestDto.builder().residenceIds(residenceIds).build();
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/servicemix/residence/servicename")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>>() {
+			};
+
+			ResponseDto<ServiceNameResponseDto> responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+			return responseDto.isStatus() && Objects.nonNull(responseDto.getData()) ? responseDto.getData() : null;
+		} catch (Exception e) {
+			log.error("Exception while fetching ServiceMixNames List from residenceIds: {}", residenceIds, e);
+			return null;
+		}
+	}
 	
 }
