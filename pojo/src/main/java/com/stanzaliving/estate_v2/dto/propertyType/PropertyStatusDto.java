@@ -36,4 +36,7 @@ public class PropertyStatusDto {
     private Boolean isTimerEnabled;
     private int deadlineForTimer;
     private List<ReportToDTO> reportTo;
+    private Boolean isBypassEnabled;
+    private String assignedToRoleUuid;
+    private String assignedToRoleName;
 }
