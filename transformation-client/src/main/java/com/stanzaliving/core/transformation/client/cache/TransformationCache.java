@@ -38,7 +38,7 @@ public class TransformationCache {
 						@Override
 						public List<CityMetadataDto> load(String key) {
 							List<CityMetadataDto> cities= internalDataControllerApi.getAllCities().getData();
-							cityByUuidMap =cities.stream().collect(
+							cityByUuidMap =cities.stream().filter(city -> city.isMedullaEligible()).collect(
 									Collectors.toMap(CityMetadataDto::getUuid, Function.identity()));
 							return cities;
 						}
