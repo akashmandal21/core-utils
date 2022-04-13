@@ -1,6 +1,7 @@
 package com.stanzaliving.core.base.exception;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Objects;
 
 import javax.validation.ConstraintViolationException;
 
@@ -67,7 +68,7 @@ public class ExceptionInterceptor {
 
 		return ResponseDto.failure(errorMessgae, exceptionId);
 	}
-	
+
 	@ExceptionHandler(StanzaSecurityException.class)
 	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
 	@SendExceptionToSlack
@@ -184,7 +185,7 @@ public class ExceptionInterceptor {
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
-	
+
 	@ExceptionHandler(MultipartException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public <T> ResponseDto<T> handleMultipartException(MultipartException e) {
@@ -334,7 +335,11 @@ public class ExceptionInterceptor {
 		String exceptionId = getExceptionId();
 		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
 
-		return ResponseDto.failure(e.getMessage(), exceptionId);
+		if (Objects.isNull(e.getMarker())){
+			return ResponseDto.failure(e.getMessage(), exceptionId);
+		} else{
+			return ResponseDto.failure(e.getMarker().getMessage(), exceptionId, e.getMarker().getErrorCode());
+		}
 	}
 
 	@ExceptionHandler(StanzaHttpException.class)
