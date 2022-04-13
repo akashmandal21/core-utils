@@ -22,6 +22,8 @@ public class MenuCategoryResidenceRDto extends ResidenceRDto {
 	private String dealId;
 	private DealCategory dealCategory;
 
+	private Boolean residenceCategoryMappingStatus;
+
 	private Integer averageMir;
 
 
