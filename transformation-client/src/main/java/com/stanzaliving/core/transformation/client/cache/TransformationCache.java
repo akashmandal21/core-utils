@@ -42,8 +42,7 @@ public class TransformationCache {
 						@Override
 						public List<CityMetadataDto> load(String key) {
 							List<CityMetadataDto> cities= internalDataControllerApi.getAllCities().getData();
-							log.info("cities size : {}", Objects.nonNull(cities)?cities.size():0);
-							cityByUuidMap =cities.stream().filter(city -> city.isMedullaEligible()).collect(
+							cityByUuidMap =cities.stream().collect(
 									Collectors.toMap(CityMetadataDto::getUuid, Function.identity()));
 							return cities;
 						}
@@ -94,10 +93,8 @@ public class TransformationCache {
 						@Override
 						public List<MicroMarketMetadataDto> load(String key) {
 							List<MicroMarketMetadataDto> micromarkets = internalDataControllerApi.getAllMicroMarkets().getData();
-							log.info("micromarkets size : {}", Objects.nonNull(micromarkets)?micromarkets.size():0);
 							micromarketByUuidMap = micromarkets.stream().collect(
 									Collectors.toMap(MicroMarketMetadataDto::getUuid, Function.identity()));
-							log.info("micromarketByUuidMap size : {}", Objects.nonNull(micromarketByUuidMap)?micromarketByUuidMap.size():0);
 							return micromarkets;
 						}
 					});
