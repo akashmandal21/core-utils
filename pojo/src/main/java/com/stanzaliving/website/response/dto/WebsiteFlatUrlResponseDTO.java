@@ -29,6 +29,8 @@ public class WebsiteFlatUrlResponseDTO {
 	private Double rating;
 	private String reviewCount;
 	private String minPriceValue;
+	private Integer discountPercentage;
+	private Integer discountedPrice;
 
 	@Builder.Default
 	private int sequenceId = 0;
