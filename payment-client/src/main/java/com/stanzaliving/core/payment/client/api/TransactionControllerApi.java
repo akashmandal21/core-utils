@@ -10,6 +10,8 @@ import java.util.Objects;
 
 import com.stanzaliving.core.payment.client.dto.LeadPaymentRequestDto;
 import com.stanzaliving.core.payment.client.dto.LeadPaymentResponseDto;
+import com.stanzaliving.core.payment.dto.PaymentLinkRequestDto;
+import com.stanzaliving.core.payment.dto.PaymentLinkResponseDto;
 import com.stanzaliving.venta.BedCountDetailsDto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -272,4 +274,27 @@ public class TransactionControllerApi {
 
 	}
 
+	public ResponseDto<PaymentLinkResponseDto> getPaymentLink(PaymentLinkRequestDto paymentLinkRequestDto) {
+		log.info("Called api to get payment link");
+		Object postBody = paymentLinkRequestDto;
+		final Map<String,Object> uriVariables=new HashMap<>();
+		String path= UriComponentsBuilder.fromPath("/transaction/razorpay/initiate/paymentLink").buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams=new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		TypeReference<ResponseDto<PaymentLinkResponseDto>> returnType = new TypeReference<ResponseDto<PaymentLinkResponseDto>>() {
+		};
+		ResponseDto<PaymentLinkResponseDto> responseDto;
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
+				returnType);
+			return responseDto;
+
+		} catch (Exception e) {
+			log.error("Exception while fetching Payment Link");
+		}
+		return null;
+	}
 }
+
