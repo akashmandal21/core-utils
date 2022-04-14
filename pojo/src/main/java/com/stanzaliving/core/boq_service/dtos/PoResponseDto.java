@@ -1,5 +1,6 @@
 package com.stanzaliving.core.boq_service.dtos;
 
+import com.stanzaliving.boq_service.enums.BoqLabel;
 import com.stanzaliving.item_master.enums.ItemType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,4 +17,5 @@ import java.util.Map;
 public class PoResponseDto {
     Map<ItemType,List<BoqLineItemDto>> masterBoqInfo;
     List<Map<ItemType,List<BoqLineItemDto>>> extraBoqInfo;
+    BoqLabel boqLabel;
 }
