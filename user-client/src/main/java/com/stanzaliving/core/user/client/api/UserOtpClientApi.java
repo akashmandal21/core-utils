@@ -14,11 +14,14 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import com.stanzaliving.core.user.enums.OtpType;
 import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.user.request.dto.MobileEmailOtpRequestDto;
 import com.stanzaliving.core.user.request.dto.MobileOtpRequestDto;
 import com.stanzaliving.core.user.request.dto.MobileOtpValidateRequestDto;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -26,6 +29,7 @@ import com.stanzaliving.core.user.request.dto.MobileOtpValidateRequestDto;
  * @date 28-July-2020
  */
 
+@Log4j2
 public class UserOtpClientApi {
 
 	private final StanzaRestClient restClient;
@@ -106,6 +110,8 @@ public class UserOtpClientApi {
 
 		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
 		};
+		
+		log.info("Otp verify request body: {}", ObjectMapperUtil.getString(postBody));
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
