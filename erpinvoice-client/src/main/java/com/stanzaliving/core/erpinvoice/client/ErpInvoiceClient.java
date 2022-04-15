@@ -5,6 +5,7 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.invoice.dto.ErpInvoiceUpdateDto;
 import com.stanzaliving.grn.GrnQuantity;
+import com.stanzaliving.invoice.dto.InvoiceCsvResponseDto;
 import com.stanzaliving.invoice.dto.InvoiceMaxApprovalLevelDto;
 import com.stanzaliving.po.enums.PoType;
 import lombok.extern.log4j.Log4j2;
@@ -111,5 +112,23 @@ public class ErpInvoiceClient {
         return null;
     }
 
+    public ResponseDto<List<InvoiceCsvResponseDto>> getInvoiceCsvData(List<String> poUuids) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/invoice/csv/data").buildAndExpand(uriVariables).toUriString();
+
+        ParameterizedTypeReference<ResponseDto<List<InvoiceCsvResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<InvoiceCsvResponseDto>>>() {};
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, poUuids, headerParams, accept, returnType);
+    }
 }
 
