@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.base.exception;
 
@@ -7,8 +7,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import lombok.Getter;
 import lombok.ToString;
-
-import java.util.function.Supplier;
 
 @Getter
 @ToString(callSuper = true)
@@ -19,6 +17,7 @@ public class ApiValidationException extends RuntimeException {
 	private final String message;
 	private final String code;
 	private final Throwable error;
+	private ExceptionMarker marker;
 
 	public ApiValidationException() {
 		this(StringUtils.EMPTY, StringUtils.EMPTY, null);
@@ -44,6 +43,26 @@ public class ApiValidationException extends RuntimeException {
 		this.code = code;
 		this.message = message;
 		this.error = error;
+	}
+
+	public ApiValidationException(ExceptionMarker marker) {
+		this(marker.getMessage(), marker.getErrorCode(), null);
+		this.marker = marker;
+	}
+
+	public ApiValidationException(ExceptionMarker marker, Throwable error) {
+		this(marker.getMessage(), marker.getErrorCode(), error);
+		this.marker = marker;
+	}
+
+	public ApiValidationException(ExceptionMarker marker, String message) {
+		this(message, marker.getErrorCode(), null);
+		this.marker = marker;
+	}
+
+	public ApiValidationException(ExceptionMarker marker, String message, Throwable error) {
+		this(message, marker.getErrorCode(), error);
+		this.marker = marker;
 	}
 
 }
