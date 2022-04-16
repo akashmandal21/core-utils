@@ -1,8 +1,6 @@
-package com.stanzaliving.core.base.exception.config;
+package com.stanzaliving.core.base.utils;
 
-import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.exception.BaseMarker;
-import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.apache.logging.log4j.core.LogEvent;
@@ -12,15 +10,14 @@ import org.apache.logging.log4j.core.config.plugins.PluginFactory;
 import org.apache.logging.log4j.core.impl.ThrowableProxy;
 import org.apache.logging.log4j.core.layout.AbstractStringLayout;
 import org.apache.logging.log4j.util.ReadOnlyStringMap;
-import org.slf4j.MDC;
 
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
 
-@Plugin(name = "StanzaLivingMarkerLayout", category = "Core", elementType = "layout", printObject = true)
-public class StanzaLivingMarkerLayout extends AbstractStringLayout{
+@Plugin(name = "ErrorLoggingLayout", category = "Core", elementType = "layout", printObject = true)
+public class ErrorLoggingLayout extends AbstractStringLayout{
 
     public static final String GUID = "guid";
     public static final String LUID = "luid";
@@ -29,13 +26,13 @@ public class StanzaLivingMarkerLayout extends AbstractStringLayout{
     public static final String REQ_UID = "reqUuid";
     private static final FastDateFormat IST_DATETIME_TIME_ZONE_FORMAT_WITH_MILLIS = FastDateFormat.getInstance("yyyy-MM-dd'T'HH:mm:ss.SSSZZ", TimeZone.getTimeZone("IST"));
 
-    protected StanzaLivingMarkerLayout(Charset charset) {
+    protected ErrorLoggingLayout(Charset charset) {
         super(charset);
     }
 
     @PluginFactory
-    public static StanzaLivingMarkerLayout createLayout(@PluginAttribute(value = "charset", defaultString = "UTF-8") Charset charset) {
-        return new StanzaLivingMarkerLayout(charset);
+    public static ErrorLoggingLayout createLayout(@PluginAttribute(value = "charset", defaultString = "UTF-8") Charset charset) {
+        return new ErrorLoggingLayout(charset);
     }
 
     @Override
