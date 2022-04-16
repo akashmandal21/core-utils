@@ -60,7 +60,7 @@ public class ErrorLoggingLayout extends AbstractStringLayout{
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return map;
     }
@@ -69,7 +69,6 @@ public class ErrorLoggingLayout extends AbstractStringLayout{
         StringBuilder sb = new StringBuilder();
         sb.append(tp.getMessage());
         for (StackTraceElement stackTraceElement : tp.getStackTrace()) {
-            System.out.println(stackTraceElement);
             if (stackTraceElement.getClassName().startsWith("com.stanzaliving")) {
                 sb.append(stackTraceElement);
                 sb.append(StringUtils.LF);
