@@ -19,11 +19,6 @@ import java.util.TimeZone;
 @Plugin(name = "ErrorLoggingLayout", category = "Core", elementType = "layout", printObject = true)
 public class ErrorLoggingLayout extends AbstractStringLayout{
 
-    public static final String GUID = "guid";
-    public static final String LUID = "luid";
-    public static final String REQUEST_PATH = "RequestPath";
-    public static final String QUERY_STRING = "QueryString";
-    public static final String REQ_UID = "reqUuid";
     private static final FastDateFormat IST_DATETIME_TIME_ZONE_FORMAT_WITH_MILLIS = FastDateFormat.getInstance("yyyy-MM-dd'T'HH:mm:ss.SSSZZ", TimeZone.getTimeZone("IST"));
 
     protected ErrorLoggingLayout(Charset charset) {
