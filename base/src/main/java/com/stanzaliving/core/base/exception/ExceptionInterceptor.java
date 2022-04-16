@@ -1,11 +1,9 @@
 package com.stanzaliving.core.base.exception;
 
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import com.stanzaliving.core.base.StanzaConstants;
-import com.stanzaliving.core.base.annotation.SendExceptionToSlack;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.utils.StanzaUtils;
-import lombok.extern.log4j.Log4j2;
+import java.sql.SQLIntegrityConstraintViolationException;
+
+import javax.validation.ConstraintViolationException;
+
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
 import org.springframework.beans.PropertyAccessException;
@@ -24,8 +22,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.multipart.MultipartException;
 
-import javax.validation.ConstraintViolationException;
-import java.sql.SQLIntegrityConstraintViolationException;
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.annotation.SendExceptionToSlack;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.utils.StanzaUtils;
+
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @RestControllerAdvice
@@ -330,10 +333,8 @@ public class ExceptionInterceptor {
 
 		String exceptionId = getExceptionId();
 		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
-		if (StringUtils.isNotBlank(e.getCode())) {
-			return ResponseDto.failure(e.getMessage(), exceptionId);
-		}
-		return ResponseDto.failure(e.getMessage(), e.getCode(), exceptionId);
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
 	@ExceptionHandler(StanzaHttpException.class)
