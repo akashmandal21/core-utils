@@ -51,18 +51,21 @@ public class StanzaLivingMarkerLayout extends AbstractStringLayout{
         Map<String, Object> map = new HashMap<>();
         try {
             map.put("@timestamp", IST_DATETIME_TIME_ZONE_FORMAT_WITH_MILLIS.format(event.getTimeMillis()));
-            map.put("marker", event.getMarker() == null ? BaseMarker.APPLICATION_ERROR : event.getMarker());
+            map.put("marker", event.getMarker() == null ? BaseMarker.APPLICATION_ERROR.getName() : event.getMarker().getName());
             map.put("message", event.getMessage().getFormattedMessage());
             map.put("threadName", event.getThreadName());
             map.put("methodName",event.getSource().getMethodName());
-            map.put("fileName",event.getSource().getFileName());
-            map.put("className",event.getSource().getClassName());
-            map.put("lineNumber",event.getSource().getLineNumber());
+            map.put("className",event.getSource().getClassName() + ":" + event.getSource().getLineNumber());
             map.put("nativeMethod",event.getSource().isNativeMethod());
             ReadOnlyStringMap contextData = event.getContextData();
             contextData.forEach(map::put);
             if (event.getThrownProxy() != null) {
-                map.put("stacktrace", event.getThrownProxy().getCauseStackTraceAsString(""));
+                map.put("stacktrace", stacktraceLineReducer(event.getThrownProxy()));
+                map.put("exceptionClass", event.getThrown().getClass().getCanonicalName());
+                map.put("exceptionMessage", event.getThrown().getMessage());
+                if(event.getThrown().getCause() != null) {
+                    map.put("causedByClass", event.getThrown().getCause().getClass().getCanonicalName());
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,23 +73,16 @@ public class StanzaLivingMarkerLayout extends AbstractStringLayout{
         return map;
     }
 
-//    private static String stacktraceLineReducer(ThrowableProxy tp) {
-//        StringBuilder sb = new StringBuilder();
-//        StackTraceElementProxy[] stepArray = tp.getCauseStackTraceAsString("");
-//        int commonFrames = tp.getCommonElementCount();
-//        int length = stepArray.length - commonFrames > MAX_STACK_TRACE_LINES ? MAX_STACK_TRACE_LINES : stepArray.length - commonFrames;
-//        for (int i = 0; i < length; i++) {
-//            StackTraceElementProxy step = stepArray[i];
-//            ThrowableProxyUtil.indent(sb, 1);
-//            ThrowableProxyUtil.subjoinSTEP(sb, step);
-//            sb.append(CoreConstants.LINE_SEPARATOR);
-//        }
-//
-//        if (commonFrames > 0) {
-//            ThrowableProxyUtil.indent(sb, 1);
-//            sb.append("... ").append(commonFrames).append(" common frames omitted").append(CoreConstants.LINE_SEPARATOR);
-//        }
-//
-//        return sb.toString();
-//    }
+    private static String stacktraceLineReducer(ThrowableProxy tp) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(tp.getMessage());
+        for (StackTraceElement stackTraceElement : tp.getStackTrace()) {
+            System.out.println(stackTraceElement);
+            if (stackTraceElement.getClassName().startsWith("com.stanzaliving")) {
+                sb.append(stackTraceElement);
+                sb.append(StringUtils.LF);
+            }
+        }
+        return sb.toString();
+    }
 }
