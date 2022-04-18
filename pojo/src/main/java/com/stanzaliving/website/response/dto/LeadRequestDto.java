@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @ToString
@@ -134,4 +136,20 @@ public class LeadRequestDto {
 	private String timeSlot;
 
 	private String budget;
+
+	public String getEmail() {
+		return Objects.nonNull(this.email) ? this.email.trim(): null;
+	}
+
+	public void setEmail(String email) {
+		this.email = Objects.nonNull(email) ? email.trim(): null;
+	}
+
+	public String getPhone() {
+		return Objects.nonNull(this.phone) ? this.phone.trim(): null;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = Objects.nonNull(phone) ? phone.trim(): null;
+	}
 }
