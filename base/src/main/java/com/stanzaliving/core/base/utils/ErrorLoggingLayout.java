@@ -67,7 +67,7 @@ public class ErrorLoggingLayout extends AbstractStringLayout{
 
     private static String stacktraceLineReducer(ThrowableProxy tp) {
         StringBuilder sb = new StringBuilder();
-        sb.append(tp.getMessage());
+        sb.append(tp.getMessage()).append(StringUtils.LF);
         for (StackTraceElement stackTraceElement : tp.getStackTrace()) {
             if (stackTraceElement.getClassName().startsWith("com.stanzaliving")) {
                 sb.append(stackTraceElement);
