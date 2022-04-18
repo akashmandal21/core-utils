@@ -11,8 +11,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum RelationType {
-    FATHER("Father"), MOTHER("Mother"), UNCLE("Uncle"), BROTHER("Brother"), SISTER("Sister"), AUNT("Aunt"), SPOUSE("Spouse"),
-    PARENT("Parent"), LOCAL_GUARDIAN("Local Guardian");
+    FATHER("Father"), MOTHER("Mother"), UNCLE("Uncle"), BROTHER("Brother"), SISTER("Sister"), AUNT("Aunt"), SPOUSE("Spouse");
 
     private String name;
 
