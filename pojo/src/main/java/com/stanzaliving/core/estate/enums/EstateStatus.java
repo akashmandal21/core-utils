@@ -111,7 +111,8 @@ public enum EstateStatus {
 	SENT_FOR_ATL("Sent for ATL generation"),
 	SENT_TO_TITLE_DOCS("Pending Legal for Title Docs Approval"),
 	SENT_TO_TITLE_DOCS_AND_SANDEEP("Pending Title Docs and Sandeep Approval"),
-	SENT_TO_TRANSFORMATION_AND_TITLE_DOCS("Pending Transformation and Title Docs Approval");
+	SENT_TO_TRANSFORMATION_AND_TITLE_DOCS("Pending Transformation and Title Docs Approval"),
+	BYPASS_APPROVAL("Pending Bypass Approval");
 
 
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
