@@ -17,5 +17,5 @@ import java.util.Map;
 public class PoResponseDto {
     Map<ItemType,List<BoqLineItemDto>> masterBoqInfo;
     List<Map<ItemType,List<BoqLineItemDto>>> extraBoqInfo;
-    BoqLabel boqLabel;
+    String boqLabel;
 }
