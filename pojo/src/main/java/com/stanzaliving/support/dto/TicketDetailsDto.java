@@ -21,6 +21,8 @@ public class TicketDetailsDto {
 
     private String assignedTo;
 
+    private TicketSource ticketSource;
+    
     private List<SubTicketDto> subTicketDtoList;
 
     private List<TicketChecklistDetailDto> ticketChecklistDetailDtoList;
