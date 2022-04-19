@@ -1,14 +1,17 @@
 package com.stanzaliving.support.dto;
 
+import java.util.List;
+
 import com.stanzaliving.core.bookingservice.dto.response.BookingDurationResponseDto;
 import com.stanzaliving.core.bookingservice.dto.response.RoomDetailsDto;
 import com.stanzaliving.core.bookingservice.dto.response.UserDetailResponseDto;
+import com.stanzaliving.support.enums.TicketSource;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.List;
 
 @Builder
 @Data
