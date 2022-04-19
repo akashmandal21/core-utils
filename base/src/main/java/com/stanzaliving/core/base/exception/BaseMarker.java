@@ -1,0 +1,14 @@
+package com.stanzaliving.core.base.exception;
+
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
+
+public interface BaseMarker {
+
+    Marker APPLICATION_ERROR = MarkerManager.getMarker("APPLICATION_ERROR");
+    Marker API_VALIDATION_ERROR = MarkerManager.getMarker("API_VALIDATION_ERROR");
+    Marker REDIS_ERROR = MarkerManager.getMarker("REDIS_ERROR");
+    Marker CONNECTION_ERROR = MarkerManager.getMarker("CONNECTION_ERROR");
+    Marker NOT_FOUND_ERROR = MarkerManager.getMarker("NOT_FOUND_ERROR");
+
+}
