@@ -6,6 +6,7 @@ package com.stanzaliving.core.user.client.api;
 import java.util.*;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
 import com.stanzaliving.core.user.dto.*;
 import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
@@ -160,10 +161,16 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>>>() {
 		};
-
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
-	}
+		ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>> listResponseDto = null;
+		try {
+			listResponseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		}
+		catch (Exception exception){
+			log.info("Exception Caught {}",exception.getMessage());
+			throw new StanzaHttpException("User Service: ", exception);
+		}
+		return (Objects.nonNull(listResponseDto) && Objects.nonNull(listResponseDto.getData())) ? listResponseDto : new ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>>();
+		}
 
 	public ResponseDto<UserManagerAndRoleDto> getUserWithManagerAndRole(String userId, String token) {
 		Object postBody = null;
