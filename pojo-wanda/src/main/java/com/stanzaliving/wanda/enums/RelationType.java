@@ -13,7 +13,7 @@ import lombok.Getter;
 public enum RelationType {
 	
 	FATHER("Father"), MOTHER("Mother"), UNCLE("Uncle"), BROTHER("Brother"), SISTER("Sister"), AUNT("Aunt"), SPOUSE("Spouse");
-	
+
 	private String name;
 	
 	private static List<EnumListing<RelationType>> relationTypes= new ArrayList<>();
