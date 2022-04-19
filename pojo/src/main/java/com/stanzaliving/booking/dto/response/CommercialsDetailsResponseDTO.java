@@ -7,11 +7,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommercialsDetailsResponseDTO {
+public class CommercialsDetailsResponseDTO implements Serializable {
 
     private Double securityDeposit;
 

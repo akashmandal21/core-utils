@@ -16,5 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 public class MealCategoryPriceDto implements Serializable {
 	private Double mealPrice;
+	private Double vegMealPrice;
 	private List<MealWisePriceDto> mealWisePrice;
 }

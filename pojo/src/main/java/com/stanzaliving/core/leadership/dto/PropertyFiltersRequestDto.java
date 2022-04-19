@@ -35,6 +35,8 @@ public class PropertyFiltersRequestDto {
 	
 	private Map<EstateStatus, String> estateStatusDisplay;
 	private Map<NucleusDashboardEnums, List<EstateStatus>> nucleusDashboardStatusMap;
-	
+
+	private List<CompetitionStatusFilter> competition;
+
 	private LinkedHashMap<String, List<EstateStatus>> appQuickFilters;
 }

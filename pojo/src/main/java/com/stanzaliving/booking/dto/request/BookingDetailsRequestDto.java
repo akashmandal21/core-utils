@@ -1,5 +1,6 @@
 package com.stanzaliving.booking.dto.request;
 
+import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.booking.enums.ReferenceType;
 import lombok.AllArgsConstructor;
@@ -31,10 +32,20 @@ public class BookingDetailsRequestDto implements Serializable {
 	@NotNull(message = "contractEndDate cannot be null")
 	private Date contractEndDate;
 
+	private Date modifiedContractStartDate;
+
+	private Date stayLockInEndDate;
+
+	private double stayLockInMonths;
+
 	private Date subContract1EndDate;
+
+	private BookingType bookingType;
 	
 	@Builder.Default
 	@NotNull(message = "payment term cannot be null")
 	private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
+
+	private Date newStayLockInEndDate;
 
 }

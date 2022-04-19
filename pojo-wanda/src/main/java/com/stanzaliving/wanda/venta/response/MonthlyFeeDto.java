@@ -14,5 +14,6 @@ import java.util.Set;
 public class MonthlyFeeDto {
     private Double licenceFee;
     private Double packedServicesFee;
+    private Double foodServicesFee;
     private Set<ResidenceServiceDto> valueAddedServices;
 }

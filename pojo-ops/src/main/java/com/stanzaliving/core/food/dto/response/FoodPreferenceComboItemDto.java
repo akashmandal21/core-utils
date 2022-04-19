@@ -19,23 +19,15 @@ import lombok.experimental.SuperBuilder;
 public class FoodPreferenceComboItemDto {
 
 	private String itemId;
-
 	private String categoryId;
-
 	private String subCategoryId;
-
 	private String itemName;
-
 	private Integer stdQty;
-
 	private Integer stdWeight;
-
 	private ListingDto units;
-
 	private FoodItemType itemType;
-	
 	private boolean quantifiable;
-
 	private boolean hideGrammage;
+	private boolean hybridBuffetItem;
 
 }

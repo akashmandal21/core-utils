@@ -16,7 +16,8 @@ public enum CategorySearchSortingField {
     LAST_UPDATED_AT("Last Updated At"),
     APPROVAL_REQUESTED_ON("Approval Requested On"),
     COST_UPDATED("Cost Updated"),
-    VENDOR_NAME("Vendor Name")
-    ;
+    VENDOR_NAME("Vendor Name"),
+    BUDGET_STATUS("Monthly Budget Status"),
+    MONTH("Month");
     private final String field;
 }

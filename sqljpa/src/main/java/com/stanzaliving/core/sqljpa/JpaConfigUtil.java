@@ -56,6 +56,29 @@ public class JpaConfigUtil {
 
 	}
 
+	public static void configureDbConnection(
+			ComboPooledDataSource dataSource,
+			int maxStatements,
+			int maxIdleTime,
+			int maxIdleTimeExcessConnections,
+			int checkoutTimeout,
+			String preferredTestQuery,
+			boolean testConnectionOnCheckin,
+			int numHelperThreads,
+			int maxConnectionAge,
+			int statementCacheNumDeferredCloseThreads) {
+
+		dataSource.setMaxStatements(maxStatements);
+		dataSource.setMaxIdleTime(maxIdleTime);
+		dataSource.setMaxIdleTimeExcessConnections(maxIdleTimeExcessConnections);
+		dataSource.setCheckoutTimeout(checkoutTimeout);
+		dataSource.setPreferredTestQuery(preferredTestQuery);
+		dataSource.setTestConnectionOnCheckin(testConnectionOnCheckin);
+		dataSource.setNumHelperThreads(numHelperThreads);
+		dataSource.setMaxConnectionAge(maxConnectionAge);
+		dataSource.setStatementCacheNumDeferredCloseThreads(statementCacheNumDeferredCloseThreads);
+	}
+
 	public static Map<String, String> configureHibernateProperties(
 			String hibernateCacheProviderClass,
 			String hibernateDialect,
@@ -73,13 +96,13 @@ public class JpaConfigUtil {
 		properties.put("hibernate.format_sql", hibernateFormatSql);
 		properties.put("hibernate.hbm2ddl.auto", hibernateHbm2ddlAuto);
 		properties.put("hibernate.order_inserts", hibernateOrderInserts);
-		properties.put("hibernate.order_updates", hibernateOrderUpdates);//PhysicalNamingStrategyStandardImpl
+		properties.put("hibernate.order_updates", hibernateOrderUpdates);
+		
+		//PhysicalNamingStrategyStandardImpl
 		//properties.put("org.hibernate.envers.audit_table_suffix", "_aud");
 		
-		  properties.put("hibernate.implicit_naming_strategy",
-		  "org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy");
-		  properties.put("hibernate.physical_naming_strategy",
-		  "org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy");
+		properties.put("hibernate.implicit_naming_strategy", "org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy");
+		properties.put("hibernate.physical_naming_strategy", "org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy");
 		 
 		return properties;
 	}

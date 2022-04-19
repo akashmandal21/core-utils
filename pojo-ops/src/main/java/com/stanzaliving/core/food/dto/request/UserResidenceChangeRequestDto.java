@@ -32,6 +32,8 @@ public class UserResidenceChangeRequestDto {
 	@NotBlank(message = "Residence selection is mandatory")
 	private String residenceId;
 
+	private String residentId;
+
 	@NotBlank(message = "Room Selection is mandatory")
 	private String roomNum;
 }

@@ -6,12 +6,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 	
-public class MonthlyBreakupDto {
+public class MonthlyBreakupDto implements Serializable {
 
     private Double subContract1MonthlyRent;
 
@@ -31,6 +34,6 @@ public class MonthlyBreakupDto {
 
     private ServicePriceDto foodServicePriceDto;
 
-    private ServicePriceDto vasPriceDto;
+    private List<ServicePriceDto> vasPriceDto;
 
 }

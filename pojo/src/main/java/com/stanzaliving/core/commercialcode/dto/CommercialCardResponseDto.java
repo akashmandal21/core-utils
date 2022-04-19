@@ -56,4 +56,8 @@ public class CommercialCardResponseDto {
     private Integer availableCount;
     
     private MaintenanceFeeCollectionType collectionStrategy;
+
+    private Boolean isSecurityDepositManualInput;
+
+    private Double monthlyFeesMultiplier;
 }

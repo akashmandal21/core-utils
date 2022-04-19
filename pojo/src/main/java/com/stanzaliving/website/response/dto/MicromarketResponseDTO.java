@@ -59,4 +59,10 @@ public class MicromarketResponseDTO {
 	private String apartmentSeoTitle;
 	private String apartmentSeoDescription;
 	private String apartmentMicromarketDescription;
+	
+	private boolean comingSoonPg;
+	private boolean comingSoonApartment;
+	
+	private int livePgsCount;
+	private int liveApartmentsCount;
 }

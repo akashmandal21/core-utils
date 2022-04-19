@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DegreeResponseDto {
-    private Long degreeId;
+    private int degreeId;
     private String degreeUuid;
     private String name;
     private boolean enabled;

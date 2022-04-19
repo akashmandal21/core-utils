@@ -219,7 +219,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(RecordExistsException.class)
 	@ResponseStatus(code = HttpStatus.CONFLICT)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleRecordExistsException(RecordExistsException e) {
 
 		String exceptionId = getExceptionId();

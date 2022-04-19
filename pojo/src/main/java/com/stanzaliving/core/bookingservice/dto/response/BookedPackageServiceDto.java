@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,4 +17,7 @@ public class BookedPackageServiceDto {
     private String roomUuid;
     private String moveInDate;
     private String bookingType;
+    private List<String> roomUuidList;
+    private List<PackagedServiceResponseDto> packagedServiceResponseDtoList;
+
 }

@@ -37,5 +37,6 @@ public class UserMenuPreferenceResponseDto {
 	private boolean mealSkipped;
 	private FoodPreferenceComboResponseDto selectedCombo;
 	private List<FoodPreferenceComboResponseDto> preferenceComboResponseDtos;
+	private boolean preferencesAllowed;
 
 }

@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 public class ResidentKYCDocumentResponseDto {
 
-	private List<KYCListingResponseDto> fileResponseDtos;
+	private List<WandaFileResponseDto> fileResponseDtos;
 	
 	private List<DocumentUploadType> validDocuments;
 	

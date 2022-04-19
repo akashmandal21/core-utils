@@ -26,7 +26,7 @@ public enum LeadSubStatus {
 	PRE_VISIT_FOLLOW_UP("Pre Visit Follow Up","#F45E58","#FFB701"),
 	PRE_VISIT_SCHEDULED_FOLLOW_UP("Pre Visit 1 Scheduled Follow Up","#EEC583","#FFB701"),
 	
-	PRE_VISIT_SCHEDULED_DROP("Pre-Visit  Scheduled Drop","#E02020","#F55F71"),
+	PRE_VISIT_SCHEDULED_DROP("Pre-Visit Scheduled Drop","#E02020","#F55F71"),
 	PRE_VISIT_DROP("Pre-Visit Drop", "#E02020","#F55F71"),
 	
 	VISIT_1_STARTED("Visit 1 Started","#EC9797","#7D6476"),
@@ -177,6 +177,7 @@ public enum LeadSubStatus {
 		dropped.add(POST_VISIT_3_DROP);
 		dropped.add(POST_VISIT_4_DROP);
 		dropped.add(POST_VISIT_5_DROP);
+		dropped.add(PRE_VISIT_SCHEDULED_DROP);
 	
 		return dropped.contains(leadSubStatus);
 	}

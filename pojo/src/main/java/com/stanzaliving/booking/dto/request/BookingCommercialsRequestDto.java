@@ -18,7 +18,6 @@ public class BookingCommercialsRequestDto implements Serializable {
 	@Min(value = 1, message = "license fee cannot be negative or zero")
 	private Double licenseFee;
 
-	@Min(value = 0, message = "city buffer cannot be negative")
 	@Builder.Default
 	private Double cityHeadBuffer = 0.0;
 

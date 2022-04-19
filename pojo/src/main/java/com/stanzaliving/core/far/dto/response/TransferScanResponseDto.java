@@ -18,18 +18,25 @@ import java.util.List;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TransferScanResponseDto {
-    QrCodeStatus qrCodeStatus;
-    String name;
-    String description;
-    List<String> assetImagesPath;
-    TransferScanStatus transferScanStatus;
-    String cartUuid;
-    Date discardedOn;
-    String discardedBy;
-    List<ToResponseDto> transferOrderList;
-    String assetId;
-    String assetUuid;
-    String qrCodeId;
-    String qrCode;
-    String locationName;
+    private QrCodeStatus qrCodeStatus;
+    private String name;
+    private String description;
+    private List<String> assetImagesPath;
+    private TransferScanStatus transferScanStatus;
+    private String cartUuid;
+    private Date discardedOn;
+    private String discardedBy;
+    private String returnedBy; // asset Returned by
+    private Date returnedOn; // asset Returned On
+    private List<ToResponseDto> transferOrderList;
+    private String assetId;
+    private String assetUuid;
+    private String qrCodeId;
+    private String qrCode;
+    private String locationName;
+    private String vendorName;
+    private TransferScanStatus message;
+    private String sourceLocationName;
+    private String errorMsg;
+    private String errorHeading;
 }

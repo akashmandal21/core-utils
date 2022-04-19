@@ -22,5 +22,4 @@ public class MealWiseMenuDto implements Serializable {
 	private Double budgeted;
 
 	private List<DayWiseMenuDto> dayWiseMenu;
-
 }

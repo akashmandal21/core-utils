@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.stanzaliving.banner.enumeration.AppPage;
+import com.stanzaliving.banner.enumeration.SectionType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -56,38 +57,46 @@ public enum AppSectionType {
 	CAROUSEL_SUPPORT_HOME_PAGE("Carousel", AppPage.SUPPORT_HOME_PAGE),
 	SUPPORT_FEEDBACK_SUPPORT_HOME_PAGE("Support Feedback", AppPage.SUPPORT_HOME_PAGE),
 	COMPLAINT_CATEGORY_CARD("Complaint Category Card", AppPage.SUPPORT_HOME_PAGE),
-	FAQS_CARD("FAQs Card", AppPage.SUPPORT_HOME_PAGE);
-
+	FAQS_CARD("FAQs Card", AppPage.SUPPORT_HOME_PAGE),
+	
+	//COMMUNITY_PAGE Enums
+	
+	POSTER_CAROUSEL_COMMUNITY_PAGE(SectionType.POSTER_CAROUSEL.getDisplayName(), AppPage.COMMUNITY_PAGE);
+	
 	private String displayName;
 	
 	private AppPage appPage;
 	
-	public static List<AppSectionType> HomePageSectionTypeList = new ArrayList<>();
-	public static List<AppSectionType> FoodPageSectionTypeList = new ArrayList<>();
-	public static List<AppSectionType> MyStayPageSectionTypeList = new ArrayList<>();
-	public static List<AppSectionType> SupportHomePageSectionTypeList = new ArrayList<>();
-	
+	public static List<AppSectionType> homePageSectionTypeList = new ArrayList<>();
+	public static List<AppSectionType> foodPageSectionTypeList = new ArrayList<>();
+	public static List<AppSectionType> myStayPageSectionTypeList = new ArrayList<>();
+	public static List<AppSectionType> supportHomePageSectionTypeList = new ArrayList<>();
+	public static List<AppSectionType> communityPageSectionTypeList = new ArrayList<>();
+
 	static {
 
-		for (AppSectionType appSection : AppSectionType.values()) {
+		for (AppSectionType appSectionType : AppSectionType.values()) {
 
-			switch (appSection.getAppPage()) {
+			switch (appSectionType.getAppPage()) {
 			
 			case HOME_PAGE:
-				HomePageSectionTypeList.add(appSection);
+				homePageSectionTypeList.add(appSectionType);
 				break;
 			
 			case FOOD_PAGE:
-				FoodPageSectionTypeList.add(appSection);
+				foodPageSectionTypeList.add(appSectionType);
 				break;
 			
 			case MYSTAY_PAGE:
-				MyStayPageSectionTypeList.add(appSection);
+				myStayPageSectionTypeList.add(appSectionType);
 				break;
 			
 			case SUPPORT_HOME_PAGE:
-				SupportHomePageSectionTypeList.add(appSection);
+				supportHomePageSectionTypeList.add(appSectionType);
 				break;
+				
+			case COMMUNITY_PAGE:
+				communityPageSectionTypeList.add(appSectionType);
 			
 			default:
 				break;
@@ -100,16 +109,19 @@ public enum AppSectionType {
 		switch (appPage) {
 
 		case HOME_PAGE:
-			return HomePageSectionTypeList;
+			return homePageSectionTypeList;
 
 		case FOOD_PAGE:
-			return FoodPageSectionTypeList;
+			return foodPageSectionTypeList;
 
 		case MYSTAY_PAGE:
-			return MyStayPageSectionTypeList;
+			return myStayPageSectionTypeList;
 
 		case SUPPORT_HOME_PAGE:
-			return SupportHomePageSectionTypeList;
+			return supportHomePageSectionTypeList;
+			
+		case COMMUNITY_PAGE:
+			return communityPageSectionTypeList;
 
 		default:
 			return null;

@@ -75,4 +75,6 @@ public class ResidenceDto extends AbstractDto {
     private Double latitude;
 
     private Double longitude;
+
+    private String apartmentType;
 }

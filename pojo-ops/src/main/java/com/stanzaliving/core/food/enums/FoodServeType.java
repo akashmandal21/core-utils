@@ -11,11 +11,13 @@ import java.util.List;
 @AllArgsConstructor
 public enum FoodServeType {
 
-	PACKAGED("Packaged", "Boxed"),
-	NON_PACKAGED("Non-Packaged", "Buffet");
+	PACKAGED("Packaged", "Boxed", 2),
+	NON_PACKAGED("Non-Packaged", "Buffet", 1),
+	HYBRID("Hybrid", "Hybrid", 3);
 
 	private String serveTypeName;
 	private String commonName;
+	private int sequence;
 
 	private final static List<EnumListing<FoodServeType>> enumListings = new ArrayList<>();
 
@@ -27,5 +29,13 @@ public enum FoodServeType {
 
 	public static List<EnumListing<FoodServeType>> getEnumListings() {
 		return enumListings;
+	}
+
+	public static boolean isPackagedOrHybrid(FoodServeType foodServeType) {
+		return PACKAGED == foodServeType || HYBRID == foodServeType;
+	}
+	
+	public static boolean isBuffetOrHybrid(FoodServeType foodServeType) {
+		return NON_PACKAGED == foodServeType || HYBRID == foodServeType;
 	}
 }

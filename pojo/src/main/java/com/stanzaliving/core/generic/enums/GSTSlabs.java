@@ -13,6 +13,7 @@ public enum GSTSlabs {
 
     NA("NA",null),
     ZERO("0 %",0.0),
+    THREE("03 %",3.0),
     FIVE("05 %",5.0),
     TWELEVE("12 %",12.0),
     FOURTEEN("14 %", 14.0),
@@ -27,6 +28,7 @@ public enum GSTSlabs {
     static {
         sortedGstSlabs.add(NA);
         sortedGstSlabs.add(ZERO);
+        sortedGstSlabs.add(THREE);
         sortedGstSlabs.add(FIVE);
         sortedGstSlabs.add(TWELEVE);
         sortedGstSlabs.add(FOURTEEN);
@@ -43,6 +45,7 @@ public enum GSTSlabs {
         int gstBracket  = gstPct.intValue();
         switch (gstBracket){
             case 0: return ZERO;
+            case 3: return THREE;
             case 5: return FIVE;
             case 12: return TWELEVE;
             case 14: return FOURTEEN;

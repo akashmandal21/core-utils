@@ -1,6 +1,7 @@
 package com.stanzaliving.core.dto;
 
 import com.stanzaliving.core.enums.ApprovalStatus;
+import com.stanzaliving.core.enums.DocumentCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,6 +24,8 @@ public class DocumentDTO {
     private String bookingUuid;
 
     private String residentUuid;
+
+    public String residentCode;
 
     private String uploadedBy;
 
@@ -57,4 +60,12 @@ public class DocumentDTO {
     private boolean maxUploadRetriesReached;
 
     private String message;
+
+    private boolean isActive;
+
+    private boolean allowRejection;
+
+    private LocalDate updatedAt;
+
+    private DocumentCategory documentCategory;
 }

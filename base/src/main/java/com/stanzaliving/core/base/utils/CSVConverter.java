@@ -48,9 +48,9 @@ public class CSVConverter {
 		return csvString;
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final String getCSVString(Set set) {
-		List list = new ArrayList(set);
+		List list = new ArrayList<>(set);
 
 		return getCSVString(list);
 	}

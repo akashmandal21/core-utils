@@ -1,5 +1,6 @@
 package com.stanzaliving.ventaInvoice.dto;
 
+import com.stanzaliving.booking.enums.PaymentPlanType;
 import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 
@@ -8,6 +9,7 @@ import lombok.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @EqualsAndHashCode
 @Getter
@@ -15,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class DocumentRequestDto {
 
     @NotNull(message = "ServiceType is required")
@@ -40,7 +43,7 @@ public class DocumentRequestDto {
 
     private LocalDate toDate;
 
-    private String callerServiceCategory;
+    private PaymentPlanType callerServiceCategory;
 
     private String categoryUuid;
 
@@ -58,5 +61,7 @@ public class DocumentRequestDto {
     private DealDto dealDto;
 
     private DealBillToDto dealBillToDto;
+
+    private Map<String, Object> callerServiceMetaData;
 
 }

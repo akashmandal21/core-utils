@@ -56,7 +56,9 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private String virtualTourImage;
 	private String videoLink;
 	private String cardCTAName;
-	private int cardCTAId;
+	private Integer cardCTAId;
+	private String leadFormModeName;
+	private Integer leadFormModeId;
 	private String genderSlug;
 	private String mobileNo;
 	private String phoneNo;

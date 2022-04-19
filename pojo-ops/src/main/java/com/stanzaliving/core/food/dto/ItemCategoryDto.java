@@ -24,6 +24,7 @@ import lombok.experimental.SuperBuilder;
 public class ItemCategoryDto {
 
 	private String name;
+	private Integer sequence;
 	private boolean status;
 
 }

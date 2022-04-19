@@ -15,4 +15,5 @@ import java.util.List;
 public class GetPaymentPlanRequestDto {
     private String bookingUuid;
     private LocalDate executionDate;
+    private boolean completeInvoice;
 }

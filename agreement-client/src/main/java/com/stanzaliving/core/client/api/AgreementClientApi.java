@@ -63,65 +63,98 @@ public class AgreementClientApi {
 	}
 	
 
-    public Void createAgreement(String bookingUUid) {
-        Object postBody = null;
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("bookingUuid", bookingUUid);
+	public Void createAgreement(String bookingUUid) {
 
-        final HttpHeaders headerParams = new HttpHeaders();
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/agreement-booking/{booking-uuid}/v1/create-agreement").buildAndExpand(uriVariables).toUriString();
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		try {
 
-        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
-        };
+			log.info("create agreement for referenceId {}", bookingUUid);
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			Object postBody = null;
+			
+			final Map<String, Object> uriVariables = new HashMap<>();
+	        uriVariables.put("booking-uuid", bookingUUid);
 
-    }
+			String path = UriComponentsBuilder.fromPath("/agreement-booking/{booking-uuid}/v1/create-agreement").buildAndExpand(uriVariables).toUriString();
+			
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+	        final HttpHeaders headerParams = new HttpHeaders();
+	        
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("error while fetching the user details " + e);
+		}
+
+		return null;
+
+	}
     
-    public Void createAddendum(String bookingUUid) {
-        Object postBody = null;
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("bookingUuid", bookingUUid);
-        
-        final HttpHeaders headerParams = new HttpHeaders();
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/agreement-booking/{booking-uuid}/v1/create-addendum").buildAndExpand(uriVariables).toUriString();
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+	public Void createAddendum(String bookingUUid) {
 
-        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
-        };
+		try {
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			log.info("create addendum for referenceId ", bookingUUid);
 
-    }
+			Object postBody = null;
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			queryParams.add("bookingUuid", bookingUUid);
+
+			final HttpHeaders headerParams = new HttpHeaders();
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+			String path = UriComponentsBuilder.fromPath("/agreement-booking/{booking-uuid}/v1/create-addendum").buildAndExpand(uriVariables).toUriString();
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("error while fetching the user details " + e);
+		}
+
+		return null;
+
+	}
         
     public Void expireAgreement(DocumentRequestDTO documentRequestDTO) {
-        Object postBody = documentRequestDTO;
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        
-        final HttpHeaders headerParams = new HttpHeaders();
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/agreement-booking/api/v1/request").buildAndExpand(uriVariables).toUriString();
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
-        };
+    	try {
 
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    		log.info("expire agreement for referenceId {} with payload {} ", documentRequestDTO.getReferenceId(), documentRequestDTO.toString());
+
+    		Object postBody = documentRequestDTO;
+    		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+    		final HttpHeaders headerParams = new HttpHeaders();
+    		// create path and map variables
+    		final Map<String, Object> uriVariables = new HashMap<>();
+    		String path = UriComponentsBuilder.fromPath("/agreement-booking/api/v1/request").buildAndExpand(uriVariables).toUriString();
+    		final String[] accepts = {
+    				"*/*"
+    		};
+    		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+    		ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+    		};
+
+    		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    	} catch (Exception e) {
+    		log.error("error while fetching the user details " + e);
+    	}
+
+    	return null;
 
     }
 

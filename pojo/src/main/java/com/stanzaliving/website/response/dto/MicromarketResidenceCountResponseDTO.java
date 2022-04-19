@@ -24,11 +24,16 @@ import lombok.ToString;
 public class MicromarketResidenceCountResponseDTO {
 
 	private Integer residenceCount;
+	private Integer apartmentCount;
+	
 	private Integer micromarketId;
 	private String micromarketName;
 	private String micromarketSlug;
+	private String apartmentMMSlug;
+	
 	private Integer cityId;
 	private String cityName;
 	private String citySlug;
+	private String apartmentCitySlug;
 
 }

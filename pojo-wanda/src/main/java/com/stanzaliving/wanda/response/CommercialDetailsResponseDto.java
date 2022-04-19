@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.response;
 
+import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.wanda.dtos.MonthlyFee;
 
 import lombok.AllArgsConstructor;
@@ -18,6 +19,8 @@ import lombok.ToString;
 public class CommercialDetailsResponseDto {
 
 	private String moveInDate;
+	
+	private BookingType bookingType;
 	
 	private String moveInDateStr;
 	

@@ -3,6 +3,7 @@ package com.stanzaliving.core.residenceservice.dto;
 import com.stanzaliving.core.residenceservice.enums.ResidenceSortBy;
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 import com.stanzaliving.core.utilservice.annotations.DateFormat;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,8 +17,6 @@ import java.util.List;
 @ToString
 public class AdvanceRoomSearchDto {
 
-    @NotBlank(message = "Residence uuid cannot be empty")
-    @NotNull(message = "Residence uuid cannot be null")
     private String residenceUuid;
 
     private String roomNumber;
@@ -34,13 +33,21 @@ public class AdvanceRoomSearchDto {
 
     private List<String> attributes;
 
-    private String inventoryMinPrice;
+    private Double inventoryMinPrice;
 
-    private String inventoryMaxPrice;
+    private Double inventoryMaxPrice;
 
-    private Integer page;
+    @Builder.Default
+    private Integer page = 0;
 
-    private Integer limit;
+    @Builder.Default
+    private Integer limit = 10;
 
     private ResidenceSortBy sortBy;
+
+    private String moveOutDate;
+
+    private String microMarketId;
+    private String residenceName;
+    private List<Integer> bhkType;
 }

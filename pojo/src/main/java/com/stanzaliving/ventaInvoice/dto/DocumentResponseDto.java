@@ -1,6 +1,7 @@
 package com.stanzaliving.ventaInvoice.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 import lombok.Getter;
@@ -14,7 +15,6 @@ import java.util.List;
 @Setter
 @ToString
 public class DocumentResponseDto {
-
     private String uuid;
     private Long id;
     private String stateCode;
@@ -45,4 +45,9 @@ public class DocumentResponseDto {
     private String residentId;
     private String dealName;
     private String dealType;
+    private String dealPostalCode;
+    private List<String> dealResidences;
+    private String metaDataCallerService;
+    private String generationSource;
+    private String issuedBy;
 }

@@ -8,6 +8,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class ResidencePropertyCardDto {
     private String name;
     private AddressBookMetaDto address;

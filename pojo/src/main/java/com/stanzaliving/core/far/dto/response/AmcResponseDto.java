@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AmcResponseDto {
+    private String amcDocumentNumber;
     private String amcType;
     private String vendorName;
     private Date amcStartDate;

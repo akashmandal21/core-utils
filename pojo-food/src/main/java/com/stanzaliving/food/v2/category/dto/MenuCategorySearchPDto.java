@@ -2,6 +2,7 @@ package com.stanzaliving.food.v2.category.dto;
 
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
+import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.food.v2.category.constant.CategorySearchSortingField;
 import com.stanzaliving.food.v2.category.constant.CategoryStatus;
 import com.stanzaliving.food.v2.common.constant.SortingType;
@@ -38,6 +39,11 @@ public class MenuCategorySearchPDto implements Serializable {
     private Boolean approvalDashBoard;
     private Boolean clonable;
     private Boolean menuSubmitted;
+    private FoodServeType serveType;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
+
+    private String categoryVersionId;
+
+
 }

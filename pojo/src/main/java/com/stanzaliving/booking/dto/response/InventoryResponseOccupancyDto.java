@@ -3,6 +3,7 @@ package com.stanzaliving.booking.dto.response;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -27,9 +28,18 @@ public class InventoryResponseOccupancyDto {
 
     private Date endDate;
 
-    private Integer beds;
+    private Double beds;
 
     private Integer occupancy;
 
     private boolean selfConverted;
+
+    private List<String> inventoryUuidList;
+
+    private boolean allRoomsSelected;
+
+    private String bhkType;
+
+    private boolean isInventorySelected;
+
 }

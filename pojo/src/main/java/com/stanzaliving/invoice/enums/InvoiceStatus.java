@@ -15,12 +15,16 @@ public enum InvoiceStatus {
     L1_APPROVAL_DUE("L1 Approval Due", "#FFEAB6","#FFB701", 0),
     L2_APPROVAL_DUE("L2 Approval Due", "#FFEAB6","#FFB701", 1),
     L3_APPROVAL_DUE("L3 Approval Due", "#FFEAB6","#FFB701", 2),
+    L4_APPROVAL_DUE("L4 Approval Due", "#FFEAB6","#FFB701", 3),
+    L5_APPROVAL_DUE("L5 Approval Due", "#FFEAB6","#FFB701", 4),
     L1_REJECTED("L1 Rejected", "#FFE5E1","#FF5238", GenericConstants.rejectionStart-1),//SENT_BACK_BY_FINANCE
     L2_REJECTED("L2 Rejected", "#FFE5E1","#FF5238", GenericConstants.rejectionStart-2),
     L3_REJECTED("L3 Rejected", "#FFE5E1","#FF5238", GenericConstants.rejectionStart-3),
-    PAYMENT_PENDING("Payment Pending", "#F4EEFF", "#5F11D7",3),//INVOICE_SUBMITTED
-    PARTIALLY_PAID("Partially Paid", "#EDF4FF","#5FC4F5", 4),
-    FULLY_PAID("Fully Paid", "#EDFFF5","#60C3AD", 5);
+    L4_REJECTED("L4 Rejected", "#FFE5E1","#FF5238", GenericConstants.rejectionStart-4),
+    L5_REJECTED("L5 Rejected", "#FFE5E1","#FF5238", GenericConstants.rejectionStart-5),
+    PAYMENT_PENDING("Payment Pending", "#F4EEFF", "#5F11D7",5),//INVOICE_SUBMITTED // 3->5
+    PARTIALLY_PAID("Partially Paid", "#EDF4FF","#5FC4F5", 6), //4->6
+    FULLY_PAID("Fully Paid", "#EDFFF5","#60C3AD", 7);   //5->7
 
 
     private String statusText;
@@ -54,8 +58,8 @@ public enum InvoiceStatus {
     	}
 
     	invoiceApprovalLevelMap = Collections.unmodifiableMap(temp);
-        approvalCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE)));
-        approvalRejects = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_REJECTED, L2_REJECTED, L3_REJECTED)));
+        approvalCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE,L4_APPROVAL_DUE,L5_APPROVAL_DUE)));
+        approvalRejects = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_REJECTED, L2_REJECTED, L3_REJECTED,L4_REJECTED,L5_REJECTED)));
         paymentCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID)));
         paymentStatuses = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID,FULLY_PAID)));
     }

@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Getter
 @AllArgsConstructor
-public enum DocumentDetail {//todo: update
+public enum DocumentDetail {
 
     SELFIE("Resident Image",
             "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/add-photo-alternate.svg",
@@ -31,16 +31,21 @@ public enum DocumentDetail {//todo: update
             "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/description.svg",
             3),
     DRIVING_LICENSE("Driving License",
-            "",
+            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/badge.svg",
             "Driving License",
-            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/description.svg",
+            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/badge.svg",
             3),
     OTHERS("Others",
-            "",
+            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/add-photo-alternate.svg",
             "Others",
-            "",
+            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/add-photo-alternate.svg",
             4),
     POLICE_VERIFICATION("Police Verification",
+            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/local-police.svg",
+            "Police Verification",
+            "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/local-police.svg",
+            5),
+    POLICE_VERIFICATION_FORM("Police Verification form",
             "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/local-police.svg",
             "Police Verification",
             "https://res.cloudinary.com/stanza-living/image/upload/v1625048060/sigma-app/local-police.svg",

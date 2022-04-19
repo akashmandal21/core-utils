@@ -3,6 +3,7 @@ package com.stanzaliving.notification.dto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Pattern;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 public class FcmTokenDto {
 

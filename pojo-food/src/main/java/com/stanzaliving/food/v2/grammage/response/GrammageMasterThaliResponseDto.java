@@ -26,5 +26,7 @@ public class GrammageMasterThaliResponseDto {
 
 	private KeyValuePairDto thali;
 
+	private boolean status;
+
 	private List<MealGrammageResponseDto> mealGrammages;
 }

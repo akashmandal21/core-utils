@@ -9,7 +9,8 @@ public enum BookingResidenceType {
 
 
     SOCIETY("Society"),
-    RESIDENCE("Residence");
+    RESIDENCE("Residence"),
+    MANAGED_APARTMENT("Managed Apartment");
 
     private String residenceType;
 

@@ -86,4 +86,5 @@ public interface AbstractJpaService<T extends AbstractJpaEntity, I extends Seria
 
 	Optional<T> findFirstByUuidAndStatus(String uuid, boolean status);
 
+	List<T> findByCreatedBy(String createdByUuid);
 }

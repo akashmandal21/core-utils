@@ -18,6 +18,9 @@ public class Constants {
 	public static final String RUPEE_SYMBOL = "(\u20B9)";
 	public static final String DECIMAL_FORMAT_TWO_PLACES = "#.##";
 
+	public static final String MERGED_STATUS="MERGED";
+	public static final String CLOSED_STATUS="CLOSED";
+
 	public static final double DEFUALT_OCCUPANCY = 0.9;
 	public static final double MINIMUM_OCCUPANCY = 0.75;
 

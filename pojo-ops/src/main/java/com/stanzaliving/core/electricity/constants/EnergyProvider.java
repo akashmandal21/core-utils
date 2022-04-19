@@ -11,7 +11,9 @@ import java.util.Map;
 public enum EnergyProvider {
 
     IDEAL(1, "IDEAL"),
-    GRAMPOWER(2, "GRAMPOWER");
+    GRAMPOWER(2, "GRAMPOWER"), 
+    QUBE(3, "QUBE"),
+    COSINE(4, "COSINE");
 
     private Integer id;
     private String provider;

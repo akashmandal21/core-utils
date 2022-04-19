@@ -1,6 +1,7 @@
 package com.stanzaliving.wanda.venta.request;
 
 
+import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.collector.enums.MaintenanceFeeType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,5 +19,6 @@ public class CommercialsRequestDto {
     private String moveInDate;
     private Integer contractId;
     private String couponCode;
+    private BookingType bookingType;
     private MaintenanceFeeType maintenanceFeeSelectionId;
 }

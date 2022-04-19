@@ -31,6 +31,7 @@ public class AssetDetailsResponseDto {
     private String poType;
     private String poUrl;
     private String toNumber;
+    private String sourceLocationName; // to be shown only if the asset is created using a TO
     private String grnNumber;
     //private String vendorUuid;
     private String vendorName;
@@ -73,4 +74,5 @@ public class AssetDetailsResponseDto {
     private BigDecimal acquisitionPrice;
     private String poPdf;
     private Map<String, String> invoices;
+    private Boolean isEditable;
 }

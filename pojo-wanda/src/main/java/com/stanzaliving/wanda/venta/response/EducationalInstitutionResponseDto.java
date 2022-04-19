@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EducationalInstitutionResponseDto {
-    private Long educationalInstitutionId;
+    private int educationalInstitutionId;
     private String educationalInstitutionUuid;
     private String name;
 

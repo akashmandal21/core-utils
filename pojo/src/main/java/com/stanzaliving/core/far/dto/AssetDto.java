@@ -30,6 +30,7 @@ public class AssetDto {
 
     private String assetId;
     private String poNumber;
+    private String sourceLocationName; // In case the asset is created with a TO (instead of a PO)
     private String poUuid;
     private GenericPOType poType;
     private String poUrl;
@@ -59,6 +60,7 @@ public class AssetDto {
     private List<String> assetImagesPath;
     private AssetType assetType;
     private String qrCode; // is from QrCode Table
+    private String qrCodeId;
     private String itemUuid;
     //private String allocationUuid;
     private AssetStatus assetStatus;
@@ -69,6 +71,10 @@ public class AssetDto {
     private Integer taskDueCount;
     private Date rentalStartDate;
     private Date rentalEndDate;
+
+    private Date acquisitionDate;
+    private BigDecimal acquisitionPrice;
+    private Date bulkUploadAddedDate;
 
     public String toString() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
