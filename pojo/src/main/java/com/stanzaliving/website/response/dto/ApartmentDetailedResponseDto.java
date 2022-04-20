@@ -104,6 +104,10 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private AddressResponseDTO address;
 	
+	private Integer discountPercentage;
+	
+	private Integer discountedPrice;
+	
 	@Builder.Default
 	private List<FacilityResponseDTO> facilities = Collections.emptyList();
 	
