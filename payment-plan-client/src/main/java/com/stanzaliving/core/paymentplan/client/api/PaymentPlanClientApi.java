@@ -705,4 +705,61 @@ public class PaymentPlanClientApi {
 
     }
 
+    public ResponseDto<List<String>> getBookingForInvoicing(Date invoiceDate) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/eligible-for-invoice")
+                .buildAndExpand(uriVariables).toUriString();
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if (invoiceDate != null) {
+            queryParams.add("invoiceDate", date.format(invoiceDate));
+        }
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams,
+                    null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching bookings for invoicing {}", e.getMessage());
+            return null;
+        }
+    }
+    public ResponseDto<String> optOutVasPaymentPlan(String referenceId, String vasUuid, Date optOutDate) {
+        try {
+
+            Object postBody = null;
+
+            log.info("Request received for vas opt-out for  referenceId:{}", referenceId);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("referenceId", referenceId);
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/vas/opt-out/{referenceId}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            if (optOutDate != null) {
+                queryParams.add("optOutDate", date.format(optOutDate));
+            }
+            queryParams.add("vasUuid", vasUuid);
+            HttpHeaders headerParams = new HttpHeaders();
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+            ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while opting out vas paymentPlan", e);
+            return null;
+        }
+
+    }
+
+
 }
