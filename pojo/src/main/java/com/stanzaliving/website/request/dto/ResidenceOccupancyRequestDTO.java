@@ -32,6 +32,8 @@ public class ResidenceOccupancyRequestDTO {
 	private int residenceId;
 	private int startingPrice;
 	private String pricingPlan;
+	private Integer discountPercentage;
+	private Integer discountedPrice;
 
 	@Builder.Default
 	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
