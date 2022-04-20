@@ -2,6 +2,7 @@ package com.stanzaliving.core.generictaskservice.client.api;
 
 import com.stanzaliving.core.base.common.dto.PageResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.generictaskservice.dto.GenericTaskDto;
 import com.stanzaliving.generictaskservice.dto.ShiftAllocationDto;
@@ -23,7 +24,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -541,10 +541,29 @@ public class GenericTaskControllerApi {
         Object getBody = null;
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/task//change/owner").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/task/change/owner").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("taskUuid", taskUuid);
         queryParams.add("userUuid", userUuid);
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto> returnType = new ParameterizedTypeReference<ResponseDto>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, getBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto updateGenericProjectPlanningTaskStatus(String uuid, Department department, String taskStatus) {
+        Object getBody = null;
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("taskUuid", uuid);
+        uriVariables.put("department", department);
+        uriVariables.put("taskStatus",taskStatus);
+        String path = UriComponentsBuilder.fromPath("/internal/task/{taskUuid}/updateStatus/{taskStatus}/{department}").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {
                 "*/*"
