@@ -281,4 +281,34 @@ public class CommentClientApi {
 
 	}
 
+	public ResponseDto<List<CommentsDto>> getLatestRejectionCommentForContextId(String contextId, String contextType) {
+
+		Object postBody = null;
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("contextId", contextId);
+		uriVariables.put("contextType", contextType);
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/latest/{contextType}/{contextId}").buildAndExpand(uriVariables).toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<CommentsDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CommentsDto>>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, null, postBody, headerParams, accept, returnType);
+		}catch (Exception e){
+			log.error("Exception occurred while fetching comments for context with id:{}",contextId);
+			return null;
+		}
+
+	}
+
+
 }
