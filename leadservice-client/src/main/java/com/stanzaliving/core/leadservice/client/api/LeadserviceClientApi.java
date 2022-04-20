@@ -168,7 +168,7 @@ public class LeadserviceClientApi {
 	public ResponseDto<LeadRequestDto> leadCreation(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -197,7 +197,7 @@ public class LeadserviceClientApi {
 	public ResponseDto<LeadRequestDto> leadMigration(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -252,7 +252,7 @@ public class LeadserviceClientApi {
 	public ResponseDto<LeadRequestDto> createScheduledVisitLead(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 

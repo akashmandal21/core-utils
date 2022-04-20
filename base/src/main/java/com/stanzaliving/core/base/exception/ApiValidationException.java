@@ -3,10 +3,9 @@
  */
 package com.stanzaliving.core.base.exception;
 
-import org.apache.commons.lang3.StringUtils;
-
 import lombok.Getter;
 import lombok.ToString;
+import org.apache.commons.lang3.StringUtils;
 
 @Getter
 @ToString(callSuper = true)
@@ -14,10 +13,9 @@ public class ApiValidationException extends RuntimeException {
 
 	private static final long serialVersionUID = -4075250719863628707L;
 
-	private String message;
-	private String code;
-	private Throwable error;
-	private ExceptionMarker marker;
+	private final String message;
+	private final String code;
+	private final Throwable error;
 
 	public ApiValidationException() {
 		this(StringUtils.EMPTY, StringUtils.EMPTY, null);
@@ -43,20 +41,6 @@ public class ApiValidationException extends RuntimeException {
 		this.code = code;
 		this.message = message;
 		this.error = error;
-	}
-
-	public ApiValidationException(ExceptionMarker marker, Throwable error) {
-		this.marker = marker;
-		this.error = error;
-	}
-
-	public ApiValidationException(ExceptionMarker marker) {
-		this.marker = marker;
-	}
-
-	public ApiValidationException(ExceptionMarker marker, String message) {
-		marker.setMessage(message);
-		this.marker = marker;
 	}
 
 }

@@ -1,7 +1,6 @@
 package com.stanzaliving.core.base.exception;
 
 import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.Objects;
 
 import javax.validation.ConstraintViolationException;
 
@@ -335,11 +334,7 @@ public class ExceptionInterceptor {
 		String exceptionId = getExceptionId();
 		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
 
-		if (Objects.isNull(e.getMarker())){
-			return ResponseDto.failure(e.getMessage(), exceptionId);
-		} else{
-			return ResponseDto.failure(e.getMarker().getMessage(), exceptionId, e.getMarker().getErrorCode());
-		}
+		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
 	@ExceptionHandler(StanzaHttpException.class)
