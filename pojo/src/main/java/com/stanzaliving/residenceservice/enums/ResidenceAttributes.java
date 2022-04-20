@@ -40,8 +40,8 @@ public enum ResidenceAttributes {
 
     CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean"),
 
-    BOOKING_EXIT_DELTA_DAYS("Booking Exit Delta Days", "Integer"),
-    BOOKING_EXIT_NOTICE_PERIOD("Notice Period Days", "Integer"),
+    BOOKING_EXIT_DELTA_DAYS("Buffer days for contract completion", "String"),
+    BOOKING_EXIT_NOTICE_PERIOD("Notice Period", "String"),
     EMI_ENABLED("EMI Enabled","Boolean");
 	
     private String label;
