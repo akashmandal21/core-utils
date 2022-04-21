@@ -72,4 +72,8 @@ public class ExitDetailsResponseDto {
     private String exitSource;
 
     private Double futureDues;
+
+    private Boolean isMoveOutDateExceeded;
+
+    private LocalDate lastScanDate;
 }

@@ -104,6 +104,7 @@
         <module>vault-service-client</module>
         <module>venta-notification-client</module>
         <module>security-service</module>
+		<module>support-client</module>
 	</modules>
 
 	<build>
