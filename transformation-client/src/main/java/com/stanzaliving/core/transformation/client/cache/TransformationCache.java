@@ -369,7 +369,7 @@ public class TransformationCache {
 			allResidenceWithCoreCache.getUnchecked("residenceWithCore");
 		}
 		catch (Exception exception){
-			log.info("Exception {}",exception);
+			log.info("Transformation Cache Exception {}",exception);
 			return null;
 		}
 		return residenceByUuidMap.get(uuid);
