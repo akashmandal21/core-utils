@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import com.stanzaliving.website.request.dto.LeadSearchRequestDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
 import com.stanzaliving.website.response.dto.SearchResponseDto;
@@ -407,5 +408,31 @@ public class LeadserviceClientApi {
 			return null;
 		}
 
+	}
+
+	public ResponseDto<String> updateLeadSourceGroupForExistingLeads(PaginationRequest paginationRequest) {
+
+		log.debug("Lead client to update lead source group for existing leads");
+		Object postBody = paginationRequest;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/update/lead-source-group").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while updating lead source group for existing leads", e);
+			return null;
+		}
 	}
 }
