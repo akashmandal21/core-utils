@@ -265,7 +265,7 @@ public class POClientApi {
                 "*/*"
         };
 
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        finagit l List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<Map<String, BigDecimal>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, BigDecimal>>>() {
         };
