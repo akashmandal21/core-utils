@@ -17,11 +17,11 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GenericTaskDto extends AbstractDto {
+public class    GenericTaskDto extends AbstractDto {
 
     private boolean taskTemplate;
 
-    @NotBlank(message = "Module cannot be empty")
+//    @NotBlank(message = "Module cannot be empty")
     private String module;
 
     private Date startDate;
@@ -38,7 +38,7 @@ public class GenericTaskDto extends AbstractDto {
 
     private boolean overridable;
 
-    @NotBlank(message = "Task Name cannot be empty")
+//    @NotBlank(message = "Task Name cannot be empty")
     private String taskName;
 
     private String description;
