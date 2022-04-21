@@ -190,7 +190,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleMultipartException(MultipartException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got MultipartException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		log.error("Got MultipartException for exceptionId: {} with Message: {}", exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
