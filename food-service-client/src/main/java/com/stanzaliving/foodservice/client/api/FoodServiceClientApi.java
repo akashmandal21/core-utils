@@ -32,6 +32,7 @@ import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.core.cafe.order.dto.CafeOrderRDto;
 import com.stanzaliving.core.food.dto.request.FullCategoryDto;
 import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
 import com.stanzaliving.core.food.dto.response.RecentMealDto;
@@ -820,6 +821,54 @@ public class FoodServiceClientApi {
 		TypeReference<ResponseDto<List<FoodVendorDTO>>> returnType = new TypeReference<ResponseDto<List<FoodVendorDTO>>>() {};
 
 		ResponseDto<List<FoodVendorDTO>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting vendors", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
+	
+	public List<LastQrScanResponseDto> getQrScanSummary(){
+
+		String path = UriComponentsBuilder.fromPath("/internal/qr/scan/summary").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+	
+		TypeReference<ResponseDto<List<LastQrScanResponseDto>>> returnType = new TypeReference<ResponseDto<List<LastQrScanResponseDto>>>() {};
+
+		ResponseDto<List<LastQrScanResponseDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting vendors", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
+	
+	public List<CafeOrderRDto> getCafeOrderSummary(){
+
+		String path = UriComponentsBuilder.fromPath("/internal/cafe/order/summary").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+	
+		TypeReference<ResponseDto<List<CafeOrderRDto>>> returnType = new TypeReference<ResponseDto<List<CafeOrderRDto>>>() {};
+
+		ResponseDto<List<CafeOrderRDto>> responseDto = null;
 
 		try {
 
