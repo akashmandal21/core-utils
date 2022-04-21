@@ -82,10 +82,10 @@ public class CommercialDetailsResponseDto {
 	
 	 private MonthlyFee subContract2MonthlyFee; //add
 
-	private Double onboardingCharges;
+	private String onboardingCharges;
 
-	private String onboardingChargesHeaderText;
+	private String onboardingChargesText;
 
-	private String onboardingChargeSupporingText;
+	private String onboardingChargesDescription;
 	
 }
