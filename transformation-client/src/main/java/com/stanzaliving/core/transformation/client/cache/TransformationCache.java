@@ -365,7 +365,14 @@ public class TransformationCache {
 	}
 
 	public ResidenceUIDto getResidenceByUuid(String uuid){
-		allResidenceWithCoreCache.getUnchecked("residenceWithCore");
+		try {
+			allResidenceWithCoreCache.getUnchecked("residenceWithCore");
+		}
+		catch (Exception exception){
+			log.info("Transformation Cache Exception ",exception.getMessage());
+			return null;
+		}
+		log.info("uuid {}", uuid);
 		return residenceByUuidMap.get(uuid);
 	}
 
