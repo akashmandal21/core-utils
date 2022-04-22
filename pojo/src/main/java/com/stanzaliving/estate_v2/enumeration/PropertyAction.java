@@ -89,6 +89,7 @@ public enum PropertyAction {
     public static List<KeyValueDto> getPropertyActionForSociety() {
         final List<KeyValueDto> societyPropertyActions=new ArrayList<>();
         societyPropertyActions.add(new KeyValueDto(L1_SL.getAlias(),L1_SL.uuid));
+        societyPropertyActions.add(new KeyValueDto(SENT_TO_CH.getAlias(),SENT_TO_CH.uuid));
         return societyPropertyActions;
     }
 
