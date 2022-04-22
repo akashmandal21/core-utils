@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-import com.stanzaliving.core.food.dto.*;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -22,7 +21,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -34,11 +32,21 @@ import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.cafe.order.dto.CafeOrderRDto;
+import com.stanzaliving.core.food.dto.FoodItemDto;
+import com.stanzaliving.core.food.dto.IngredientUsageDto;
+import com.stanzaliving.core.food.dto.ItemCategoryDto;
+import com.stanzaliving.core.food.dto.ItemSubCategoryDto;
+import com.stanzaliving.core.food.dto.LastQrScanResponseDto;
+import com.stanzaliving.core.food.dto.QrScanSummaryResponseDto;
+import com.stanzaliving.core.food.dto.ResidenceConfigDto;
+import com.stanzaliving.core.food.dto.ResidenceDayLevelMealDto;
+import com.stanzaliving.core.food.dto.ResidenceMealPlanDto;
 import com.stanzaliving.core.food.dto.request.FullCategoryDto;
 import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
 import com.stanzaliving.core.food.dto.response.RecentMealDto;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
+import com.stanzaliving.core.security.dto.FoodCafeRequestDto;
 import com.stanzaliving.core.security.dto.FoodScanRequestDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.common.dto.MealDto;
@@ -886,13 +894,11 @@ public class FoodServiceClientApi {
 
 	}
 	
-	public List<CafeOrderRDto> getCafeOrderSummary(LocalDate date){
+	public List<CafeOrderRDto> getCafeOrderSummary(FoodCafeRequestDto foodCafeRequestDto){
 
 		String path = UriComponentsBuilder.fromPath("/internal/cafe/order/summary").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-	
-		queryParams.add("date",date.toString());
 		
 		TypeReference<ResponseDto<List<CafeOrderRDto>>> returnType = new TypeReference<ResponseDto<List<CafeOrderRDto>>>() {};
 
@@ -900,7 +906,7 @@ public class FoodServiceClientApi {
 
 		try {
 
-			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, foodCafeRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 
