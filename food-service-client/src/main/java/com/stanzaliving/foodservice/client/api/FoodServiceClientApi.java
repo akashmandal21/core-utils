@@ -39,6 +39,7 @@ import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
 import com.stanzaliving.core.food.dto.response.RecentMealDto;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
+import com.stanzaliving.core.security.dto.FoodScanRequestDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.common.dto.MealDto;
 import com.stanzaliving.food.v2.common.dto.MealTypeAndGroupIdDto;
@@ -861,13 +862,11 @@ public class FoodServiceClientApi {
 
 	}
 	
-	public List<QrScanSummaryResponseDto> getQrScanSummary(Collection<String> userIds, LocalDate date){
+	public List<QrScanSummaryResponseDto> getQrScanSummary(FoodScanRequestDto foodScanRequestDto){
 
 		String path = UriComponentsBuilder.fromPath("/internal/qr/scan/summary").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-	
-		queryParams.add("date",date.toString());
 		
 		TypeReference<ResponseDto<List<QrScanSummaryResponseDto>>> returnType = new TypeReference<ResponseDto<List<QrScanSummaryResponseDto>>>() {};
 
@@ -875,7 +874,7 @@ public class FoodServiceClientApi {
 
 		try {
 
-			responseDto = restClient.post(path, queryParams, userIds, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, foodScanRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 

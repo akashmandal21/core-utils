@@ -43,6 +43,6 @@ public interface QRScanHistoryRepository extends AbstractJpaRepository<QRScanHis
 
 	List<QRScanHistory> findByUserIdInAndStatus(List<String> userIds, boolean status);
 
-	List<QRScanHistory> findByUserIdInAndUpdatedAtBetweenAndStatus(List<String> userIds, Date startDate, Date endDate,
+	List<QRScanHistory> findByUserIdInAndUpdatedAtBetweenAndStatus(Collection<String> userIds, Date startDate, Date endDate,
 			boolean b);
 }
