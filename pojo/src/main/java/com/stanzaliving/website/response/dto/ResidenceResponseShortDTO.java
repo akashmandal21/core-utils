@@ -78,6 +78,8 @@ public class ResidenceResponseShortDTO {
 	private String transformationId;
 	
 	private Integer residenceAddressId;
+	
+	private AddressResponseDTO addressResponseDTO;
 
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
