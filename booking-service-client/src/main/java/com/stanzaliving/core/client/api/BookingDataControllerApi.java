@@ -458,7 +458,7 @@ public class BookingDataControllerApi {
         final HttpHeaders headerParams = new HttpHeaders();
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/exit/tresspasser/bookings").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/exit/tresspasser/bookings").buildAndExpand(uriVariables).toUriString();
         final String[] accepts = {
                 "*/*"
         };
