@@ -4,6 +4,7 @@
 package com.stanzaliving.core.food.dto;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import com.stanzaliving.core.operations.enums.MealType;
 
@@ -26,9 +27,11 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class QrScanSummaryResponseDto {
 
-	private LocalDateTime foodScanLastDate;
+	private Date date;
 	private String userId;
-	private String qrContextType;
 	private MealType mealType;
+	private boolean veg;
+	private String residenceId;
+
 
 }
