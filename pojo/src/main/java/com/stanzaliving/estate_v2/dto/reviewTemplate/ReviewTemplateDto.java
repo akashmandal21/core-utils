@@ -26,6 +26,7 @@ public class ReviewTemplateDto {
     private boolean atlDocumentVisible;
     private boolean l1CallBackVisible;
     private boolean l2CallBackVisible;
+    private boolean bypassVisible;
     private List<OtherInformationDto> otherInformation;
     private List<LayoutDto> layouts;
     private String propertyAction;

@@ -45,6 +45,7 @@ public enum LeadSourceEnum {
     FACEBOOK_AD("facebook ad", LeadSourceGroupEnum.DIGITAL),
     FB_LEAD_GEN("Fb Lead Gen", LeadSourceGroupEnum.DIGITAL),
     FILTER_COPY("Filtercopy", LeadSourceGroupEnum.AFFILIATE),
+    FIND_MY_ROOM("Find my room", LeadSourceGroupEnum.AFFILIATE),
     FLAT_AND_FLATMATES("Flat and flatmates", LeadSourceGroupEnum.AFFILIATE),
     FLP("FLP", LeadSourceGroupEnum.DIGITAL),
     FLYERS("Flyers", LeadSourceGroupEnum.SIGMA_APP),
