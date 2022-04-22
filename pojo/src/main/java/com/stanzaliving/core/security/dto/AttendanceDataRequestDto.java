@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AttendanceRequestDto {
+public class AttendanceDataRequestDto {
    
 	private Collection<String> residenceIds;
 	  
