@@ -22,6 +22,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -38,6 +39,7 @@ import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
 import com.stanzaliving.core.food.dto.response.RecentMealDto;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
+import com.stanzaliving.core.security.dto.FoodScanRequestDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.food.v2.common.dto.MealDto;
 import com.stanzaliving.food.v2.common.dto.MealTypeAndGroupIdDto;
@@ -836,9 +838,9 @@ public class FoodServiceClientApi {
 
 	}
 	
-	public List<LastQrScanResponseDto> getQrScanSummary(){
+	public List<LastQrScanResponseDto> getLastQrScan(List<String> userIds){
 
-		String path = UriComponentsBuilder.fromPath("/internal/qr/scan/summary").build().toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/qr/last/scan").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 	
@@ -848,11 +850,11 @@ public class FoodServiceClientApi {
 
 		try {
 
-			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+			responseDto = restClient.post(path, queryParams, userIds, null, null, returnType, MediaType.APPLICATION_JSON);
 
 		} catch (Exception e) {
 
-			log.error("Error while getting vendors", e);
+			log.error("Error while getting lastQrScan", e);
 
 		}
 
@@ -860,12 +862,38 @@ public class FoodServiceClientApi {
 
 	}
 	
-	public List<CafeOrderRDto> getCafeOrderSummary(){
+	public List<QrScanSummaryResponseDto> getQrScanSummary(FoodScanRequestDto foodScanRequestDto){
+
+		String path = UriComponentsBuilder.fromPath("/internal/qr/scan/summary").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		TypeReference<ResponseDto<List<QrScanSummaryResponseDto>>> returnType = new TypeReference<ResponseDto<List<QrScanSummaryResponseDto>>>() {};
+
+		ResponseDto<List<QrScanSummaryResponseDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, foodScanRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting qrscansummary", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
+	
+	public List<CafeOrderRDto> getCafeOrderSummary(LocalDate date){
 
 		String path = UriComponentsBuilder.fromPath("/internal/cafe/order/summary").build().toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 	
+		queryParams.add("date",date.toString());
+		
 		TypeReference<ResponseDto<List<CafeOrderRDto>>> returnType = new TypeReference<ResponseDto<List<CafeOrderRDto>>>() {};
 
 		ResponseDto<List<CafeOrderRDto>> responseDto = null;
@@ -876,7 +904,7 @@ public class FoodServiceClientApi {
 
 		} catch (Exception e) {
 
-			log.error("Error while getting vendors", e);
+			log.error("Error while getting cafe order summary", e);
 
 		}
 

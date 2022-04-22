@@ -1,7 +1,7 @@
 package com.stanzaliving.core.security.dto;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Collection;
 
 import javax.validation.constraints.NotNull;
 
@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AttendanceSummaryRequestDto {
-    private List<String> residenceUuids;
+public class FoodScanRequestDto {
+    private Collection<String> userId;
     
     @NotNull
     private LocalDate date;
