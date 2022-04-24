@@ -1,6 +1,6 @@
 package com.stanzaliving.sfr.enumeration;
 
-import com.stanzaliving.estate_v2.dto.KeyValueDto;
+import com.stanzaliving.sfr.dto.KeyValueDto;
 import lombok.Getter;
 
 import java.util.ArrayList;
