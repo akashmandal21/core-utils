@@ -17,5 +17,7 @@ public class InternetLoginSummaryDto {
 
 	private Set<String> studentIds;
 	private String propertyId;
+	private String residenceName;
+	private Integer total;
 
 }
