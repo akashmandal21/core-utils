@@ -56,5 +56,6 @@ public class BookingStatusResponseDto implements Serializable {
     private String contractStartDate;
     private boolean interestMenuVisiblity;
     private boolean interestBanner;
+    private boolean  selfieUploadedStatus;
     private String propertyCategory;
 }
