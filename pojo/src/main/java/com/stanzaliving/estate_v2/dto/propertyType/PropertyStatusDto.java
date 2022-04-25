@@ -33,10 +33,11 @@ public class PropertyStatusDto {
 
     private List<String> moduleVisible;
     private String statusDescription;
-    private Boolean isBypassEnabled;
-    private String assignedToRoleUuid;
-    private String assignedToRoleName;
     private Boolean isTimerEnabled;
     private int deadlineForTimer;
     private List<ReportToDTO> reportTo;
+    private String roleName;
+    private Boolean isBypassEnabled;
+    private String assignedToRoleUuid;
+    private String assignedToRoleName;
 }
