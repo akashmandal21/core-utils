@@ -282,7 +282,8 @@ public class TransactionControllerApi {
 	public ResponseDto<String> startPaymentReconciliation() {
 		Object postBody = null;
 		final Map<String, Object> uriVariables = new HashMap<>();
-		String path = UriComponentsBuilder.fromPath("/internal/payment/reconciliation")
+		//payment/reconciliation/virtual-account
+		String path = UriComponentsBuilder.fromPath("/internal/payment/reconciliation/virtual-account")
 				.buildAndExpand(uriVariables).toUriString();
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		final HttpHeaders headerParams = new HttpHeaders();
