@@ -279,4 +279,23 @@ public class TransactionControllerApi {
 		return null;
 	}
 
+	public ResponseDto<String> startPaymentReconciliation() {
+		Object postBody = null;
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/payment/reconciliation")
+				.buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
+					returnType);
+		} catch (Exception e) {
+			log.error("Exception while startPaymentReconciliation. Error is {}", e);
+		}
+		return null;
+	}
 }
