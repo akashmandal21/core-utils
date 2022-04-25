@@ -74,5 +74,5 @@ public class ExitDetailsResponseDto {
 
     private Double futureDues;
 
-    private Map<List<String>, String> userExitReasons;
+    Map<String, UserExitAnswerAndTypeResponseDto> userExitReasons;
 }
