@@ -1,42 +1,19 @@
-package com.stanzaliving.operations.client;
+package com.stanzaliving.support.client;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.cafe.order.dto.CafeOrderRDto;
-import com.stanzaliving.core.operations.dto.ActiveResidenceDetailsDto;
-import com.stanzaliving.core.operations.dto.CurrentServiceMixRequestDto;
-import com.stanzaliving.core.operations.dto.DealDto;
-import com.stanzaliving.core.operations.dto.ResidentFoodPreferenceCountDto;
-import com.stanzaliving.core.operations.dto.ServiceMixDto;
-import com.stanzaliving.core.operations.enums.DealCategory;
-import com.stanzaliving.core.security.dto.FoodCafeRequestDto;
+import com.stanzaliving.core.security.dto.SupportHkRmTicketRequestDto;
 import com.stanzaliving.core.security.dto.SupportHkRmTicketResponseDto;
-import com.stanzaliving.internet.dto.InternetDetails;
-import com.stanzaliving.internet.dto.InternetProviderDetails;
-import com.stanzaliving.operations.ServiceMixSeasonResponseDto;
-import com.stanzaliving.operations.dto.servicemix.ServiceMixEntityDto;
-import com.stanzaliving.operations.dto.servicemix.ServiceNameRequestDto;
-import com.stanzaliving.operations.dto.servicemix.ServiceNameResponseDto;
-import com.stanzaliving.operations.enums.ServiceMixStatus;
 
 import lombok.extern.log4j.Log4j2;
 
