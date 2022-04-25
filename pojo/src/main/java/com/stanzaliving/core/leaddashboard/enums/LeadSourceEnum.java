@@ -43,6 +43,7 @@ public enum LeadSourceEnum {
     FACEBOOK_AD("facebook ad"),
     FB_LEAD_GEN("Fb Lead Gen"),
     FILTER_COPY("Filtercopy"),
+    FIND_MY_ROOM("Find my room"),
     FLAT_AND_FLATMATES("Flat and flatmates"),
     FLP("FLP"),
     FLYERS("Flyers"),
@@ -105,7 +106,8 @@ public enum LeadSourceEnum {
     WEBSITE_VISIT("WebSite Visit"),
     WHATSAPP("Whatsapp"),
     WHATSAPP_WEBSITE("Whatsapp-Website"),
-    ZOHO("zoho");
+    ZOHO("zoho"),
+    MAGIC_BRICKS_2("Magicbricks-2");
 
     private static Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
     private static Map<String, LeadSourceEnum> leadNameSourceMap = new HashMap<>();
