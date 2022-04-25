@@ -1,5 +1,7 @@
 package com.stanzaliving.website.enums;
 
+import org.apache.commons.lang3.StringUtils;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -15,4 +17,17 @@ public enum FomoTag {
 
 	public String fomoTagName;
 	public String fomoTagColour;
+	
+	public static FomoTag fromString(String fomoTagName) {
+
+		if (StringUtils.isBlank(fomoTagName))
+			return null;
+
+		for (FomoTag fomoTag : FomoTag.values()) {
+			if (fomoTag.getFomoTagName().equalsIgnoreCase(fomoTagName)) {
+				return fomoTag;
+			}
+		}
+		return null;
+	}
 }

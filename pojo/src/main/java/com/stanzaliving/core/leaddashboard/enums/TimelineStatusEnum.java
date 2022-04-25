@@ -162,4 +162,5 @@ public enum TimelineStatusEnum {
 
         return visitScheduledStatuses;
     }
+
 }
