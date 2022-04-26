@@ -15,10 +15,12 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.internet.dto.InternetLoginSummaryDto;
 import com.stanzaliving.internet.dto.InternetPlanDto;
+import com.stanzaliving.internet.dto.UserLastUsageDetailsDto;
 import com.stanzaliving.internet.enums.InternetVendor;
 
 import lombok.extern.log4j.Log4j2;
@@ -158,4 +160,30 @@ public class InternetClientApi {
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
 
 	}
+	
+	public List<UserLastUsageDetailsDto> getLastInternetUsage(List<String> userIds){
+
+		String path = UriComponentsBuilder.fromPath("/sessionDetails/lastUsage").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+	
+		TypeReference<ResponseDto<List<UserLastUsageDetailsDto>>> returnType = new TypeReference<ResponseDto<List<UserLastUsageDetailsDto>>>() {};
+
+		ResponseDto<List<UserLastUsageDetailsDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, userIds, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting last internet usage", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
+	
+	
 }
