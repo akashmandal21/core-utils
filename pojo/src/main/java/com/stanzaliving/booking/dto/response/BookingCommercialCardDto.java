@@ -11,7 +11,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookingCommercialCardDto {
+public class    BookingCommercialCardDto {
 
     private Date fromDate;
 
