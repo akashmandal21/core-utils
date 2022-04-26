@@ -34,7 +34,7 @@ public class ExitDetailsResponseDto {
     private String actualEndDateNote;
 
     private String confirmationNote;
-    
+
     private String confirmationNotePS;
 
     private List<PaymentDetailsDto> paymentDetails;
@@ -74,5 +74,5 @@ public class ExitDetailsResponseDto {
 
     private Double futureDues;
 
-    private Map<List<String>, String> userExitReasons;
+    Map<String, UserExitAnswerAndTypeResponseDto> userExitReasons;
 }
