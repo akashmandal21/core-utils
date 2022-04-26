@@ -31,4 +31,7 @@ public class PropertyStatusDto {
 
     private List<String> moduleVisible;
     private String statusDescription;
+    private Boolean isBypassEnabled;
+    private String assignedToRoleUuid;
+    private String assignedToRoleName;
 }

@@ -63,6 +63,8 @@ public class ResidenceResponseShortDTO {
 	
 	private Integer sortOrder;
 	
+	private Integer secondSortOrder;
+	
 	private FomoTag fomoTag;
 	
 	private String fomoTagName;
@@ -74,6 +76,8 @@ public class ResidenceResponseShortDTO {
 	private String transformationUuid;
 	
 	private String transformationId;
+	
+	private Integer residenceTypeId;
 
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
