@@ -21,6 +21,11 @@ import java.util.Objects;
 public class LeadRequestDto {
 
 	private Long leadId;
+	private String leadUuid;
+	private String leadIdInOldIms;
+	
+	private String userIpAddress;
+	
 	private String firstName;
 	private String lastName;
 	private String email;
