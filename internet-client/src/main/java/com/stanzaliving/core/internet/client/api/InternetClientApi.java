@@ -185,5 +185,38 @@ public class InternetClientApi {
 
 	}
 	
+	public List<InternetLoginSummaryDto> getInternetLoginSummaryForAttendanceMapping(Date startDate) {
+
+		ResponseDto<List<InternetLoginSummaryDto>> responseDto = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		
+		Map<String, Object> postBody = new HashMap<String, Object>();
+		postBody.put("startDate", startDate);
+
+		String path = UriComponentsBuilder.fromPath("/sessionDetails/attendance/mapping").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<InternetLoginSummaryDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<InternetLoginSummaryDto>>>() {
+		};
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching session details from internet: ", e);
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+	}
+
+	
 	
 }
