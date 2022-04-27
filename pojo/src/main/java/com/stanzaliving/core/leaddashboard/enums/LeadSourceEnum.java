@@ -141,7 +141,7 @@ public enum LeadSourceEnum {
     public static List<LeadSourceEnum> getBrokerLeadSources() {
         LeadSourceEnum[] allLeadSource = LeadSourceEnum.values();
         List<LeadSourceEnum> brokerLeadSources = new ArrayList<>();
-        for (LeadSourceEnum leadSourceEnum : brokerLeadSources) {
+        for (LeadSourceEnum leadSourceEnum : allLeadSource) {
             if (leadSourceEnum.getLeadSourceGroupEnum() == LeadSourceGroupEnum.BROKER_EBI) {
                 brokerLeadSources.add(leadSourceEnum);
             }
@@ -152,7 +152,7 @@ public enum LeadSourceEnum {
     public static List<LeadSourceEnum> getReferralLeadSources() {
         LeadSourceEnum[] allLeadSource = LeadSourceEnum.values();
         List<LeadSourceEnum> referralLeadSources = new ArrayList<>();
-        for (LeadSourceEnum leadSourceEnum : referralLeadSources) {
+        for (LeadSourceEnum leadSourceEnum : allLeadSource) {
             if (leadSourceEnum.getLeadSourceGroupEnum() == LeadSourceGroupEnum.REFERRAL) {
                 referralLeadSources.add(leadSourceEnum);
             }
