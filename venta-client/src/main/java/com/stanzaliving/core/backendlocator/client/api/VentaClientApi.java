@@ -29,6 +29,7 @@ import com.stanzaliving.venta.BedCountDetailsDto;
 import com.stanzaliving.venta.DeadBedCountDto;
 import com.stanzaliving.venta.ResidenceRoomDetails;
 import com.stanzaliving.website.constants.WebsiteConstants;
+import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.VentaSyncDataResponseDTO;
 
 import lombok.extern.log4j.Log4j2;
@@ -453,4 +454,27 @@ public class VentaClientApi {
 		return null;
 	}
 
+	public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
+		
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("prebooking/refund/fetch/eligible/leads").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("phone", phone);
+		
+		final HttpHeaders headerParams = new HttpHeaders();
+		
+		headerParams.add("Authorization", WebsiteConstants.IMS_DEFAULT_BEARER_TOKEN);
+
+		final String[] accepts = { "*/*" };
+		
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+	}
 }
