@@ -75,4 +75,8 @@ public class ExitDetailsResponseDto {
     private Double futureDues;
 
     Map<String, UserExitAnswerAndTypeResponseDto> userExitReasons;
+
+    private Boolean isMoveOutDateExceeded;
+
+    private LocalDate lastScanDate;
 }
