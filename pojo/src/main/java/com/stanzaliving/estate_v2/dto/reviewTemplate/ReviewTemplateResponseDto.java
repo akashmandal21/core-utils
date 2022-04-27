@@ -22,6 +22,7 @@ public class ReviewTemplateResponseDto {
     private List<ApplicableStatusesDto> propertyStatuses;
     private BasicInformationResponse basicInformation;
     private List<OtherInformationResponse> otherInformation;
+    private List<String> mappedQuestionsUuid;
     private boolean atlDocumentVisible;
     private boolean bedCountDetailsVisible;
     private boolean salesReviewVisible;
@@ -29,6 +30,7 @@ public class ReviewTemplateResponseDto {
     private boolean l1CallBackVisible;
     private boolean l2CallBackVisible;
     private boolean bypassVisible;
+    private boolean questionnaireVisible;
     private BedCountInfoDto bedCountInformation;
     private List<LayoutResponse> layouts;
     private String propertyAction;
