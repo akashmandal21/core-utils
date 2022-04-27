@@ -10,10 +10,10 @@ import lombok.Getter;
 public enum FomoTag {
 
 	ALMOSTFULL("Almost Full", "#283264"), 
-//	TOPSELLING("Top Selling", "#645A87"),
+	TOPSELLING("Top Selling", "#645A87"),
 	FILLINGFAST("Filling Fast", "#FAB432"),
 	SOLDOUT("Sold Out", "#F05A78"),
-//	NONE("None","#7D7A7A"),
+	NONE("None","#7D7A7A"),
 	ONLYFIFTEENLEFT("Only 15 beds left","#7D7A7A");
 
 	public String fomoTagName;
