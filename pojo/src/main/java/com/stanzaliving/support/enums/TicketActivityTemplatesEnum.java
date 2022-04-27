@@ -41,5 +41,6 @@ public enum TicketActivityTemplatesEnum {
     CLOSE_TICKET_RESOLUTION,
     FEEDBACK,
     USER_SATISFACTION,
-    USER_NOT_SATISFIED;
+    USER_NOT_SATISFIED,
+    SET_PRIORITY_AS;
 }
