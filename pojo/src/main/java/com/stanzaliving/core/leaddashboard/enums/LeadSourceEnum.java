@@ -3,6 +3,7 @@ package com.stanzaliving.core.leaddashboard.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -45,6 +46,7 @@ public enum LeadSourceEnum {
     FACEBOOK_AD("facebook ad", LeadSourceGroupEnum.DIGITAL),
     FB_LEAD_GEN("Fb Lead Gen", LeadSourceGroupEnum.DIGITAL),
     FILTER_COPY("Filtercopy", LeadSourceGroupEnum.AFFILIATE),
+    FIND_MY_ROOM("Find my room", LeadSourceGroupEnum.AFFILIATE),
     FLAT_AND_FLATMATES("Flat and flatmates", LeadSourceGroupEnum.AFFILIATE),
     FLP("FLP", LeadSourceGroupEnum.DIGITAL),
     FLYERS("Flyers", LeadSourceGroupEnum.SIGMA_APP),
@@ -136,4 +138,25 @@ public enum LeadSourceEnum {
         return Arrays.asList(LeadSourceEnum.PREBOOKING, LeadSourceEnum.PREBOOKING_VIRTUAL_TOUR);
     }
 
+    public static List<LeadSourceEnum> getBrokerLeadSources() {
+        LeadSourceEnum[] allLeadSource = LeadSourceEnum.values();
+        List<LeadSourceEnum> brokerLeadSources = new ArrayList<>();
+        for (LeadSourceEnum leadSourceEnum : brokerLeadSources) {
+            if (leadSourceEnum.getLeadSourceGroupEnum() == LeadSourceGroupEnum.BROKER_EBI) {
+                brokerLeadSources.add(leadSourceEnum);
+            }
+        }
+        return brokerLeadSources;
+    }
+
+    public static List<LeadSourceEnum> getReferralLeadSources() {
+        LeadSourceEnum[] allLeadSource = LeadSourceEnum.values();
+        List<LeadSourceEnum> referralLeadSources = new ArrayList<>();
+        for (LeadSourceEnum leadSourceEnum : referralLeadSources) {
+            if (leadSourceEnum.getLeadSourceGroupEnum() == LeadSourceGroupEnum.REFERRAL) {
+                referralLeadSources.add(leadSourceEnum);
+            }
+        }
+        return referralLeadSources;
+    }
 }
