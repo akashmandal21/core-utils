@@ -75,6 +75,7 @@ public enum LeadSourceEnum {
     ON_GROUND("On Ground", LeadSourceGroupEnum.SIGMA_APP),
     ONLINE("Online", LeadSourceGroupEnum.OTHERS),
     PAGE_404("404 Page", LeadSourceGroupEnum.OTHERS),
+    PG_LEAD_LP_FORM_4("PG lead lp-form-4", LeadSourceGroupEnum.DIGITAL),
     PHONE_PE("PhonePe", LeadSourceGroupEnum.OTHERS),
     PREBOOKING("Prebooking", LeadSourceGroupEnum.DIGITAL),
     PREBOOKING_VIRTUAL_TOUR("Prebooking-Virtual Tour", LeadSourceGroupEnum.DIGITAL),
