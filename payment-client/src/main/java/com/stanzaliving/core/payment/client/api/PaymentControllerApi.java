@@ -15,6 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import com.stanzaliving.core.payment.dto.TransactionDto;
 import com.stanzaliving.core.pojo.AttachmentDto;
 import com.stanzaliving.core.projectservice.dto.PaymentDetailDto;
@@ -149,6 +150,10 @@ public class PaymentControllerApi {
 		TypeReference<ResponseDto<WebsiteSelfRefundResponseDto>> returnType = new TypeReference<ResponseDto<WebsiteSelfRefundResponseDto>>() {
 		};
 		
+		String string = ObjectMapperUtil.getString(leadRequestDto);
+		
+		log.info("body to payment is => {}", string);
+		
 		try {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,returnType);
 		} catch (Exception e) {
@@ -175,7 +180,7 @@ public class PaymentControllerApi {
 
 		TypeReference<ResponseDto<WebsiteSelfRefundResponseDto>> returnType = new TypeReference<ResponseDto<WebsiteSelfRefundResponseDto>>() {
 		};
-
+		
 		try {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,returnType);
 		
@@ -187,6 +192,4 @@ public class PaymentControllerApi {
 		}
 	}
 }
-
-
 
