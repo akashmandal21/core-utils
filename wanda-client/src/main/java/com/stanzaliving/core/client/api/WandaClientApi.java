@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -893,6 +894,37 @@ public class WandaClientApi {
 
 		return false;
 
+	}
+
+	public BookingStatusResponseDto getBookingStatusByUserUuid(String userUuid) {
+		try {
+			Object postBody = null;
+
+			log.info("Received request to get BookingStatusResponseDto of userUuid {}", userUuid);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			uriVariables.put("userUuid", userUuid);
+
+			String path = UriComponentsBuilder.fromPath("/booking/status/id/{userUuid}")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<BookingStatusResponseDto> returnType = new ParameterizedTypeReference<BookingStatusResponseDto>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching booking status for userUuid: {}", userUuid, e);
+		}
+
+		return null;
 	}
 
 }
