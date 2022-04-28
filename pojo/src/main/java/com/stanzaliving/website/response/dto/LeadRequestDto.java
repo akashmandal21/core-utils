@@ -22,7 +22,6 @@ public class LeadRequestDto {
 
 	private Long leadId;
 	private String leadUuid;
-	private Long leadIdInOldIms;
 	
 	private String userIpAddress;
 	
