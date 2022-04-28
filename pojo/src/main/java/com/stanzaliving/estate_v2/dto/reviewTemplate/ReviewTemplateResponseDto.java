@@ -31,6 +31,7 @@ public class ReviewTemplateResponseDto {
     private boolean l2CallBackVisible;
     private boolean bypassVisible;
     private boolean questionnaireVisible;
+    private boolean viewOnly;
     private BedCountInfoDto bedCountInformation;
     private List<LayoutResponse> layouts;
     private String propertyAction;
