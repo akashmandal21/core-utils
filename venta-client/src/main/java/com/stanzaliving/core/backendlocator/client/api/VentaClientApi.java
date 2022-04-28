@@ -476,7 +476,7 @@ public class VentaClientApi {
 		};
 
 		try {
-			return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, null, returnType);
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, null, returnType);
 		} catch (Exception e) {
 			log.error("Error while fetching prebooked refund eligible leads {}", e);
 			return null;
