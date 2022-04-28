@@ -21,7 +21,6 @@ public class LeadRequestDto {
 	private Integer leadId;
 
 	private String leadUuid;
-	private String leadIdInOldIms;
 
 	private String userIpAddress;
 
