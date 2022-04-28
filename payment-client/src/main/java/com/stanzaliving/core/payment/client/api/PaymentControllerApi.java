@@ -161,7 +161,7 @@ public class PaymentControllerApi {
 	
 	public ResponseDto<WebsiteSelfRefundResponseDto> initiateSelfRefundForPrebookedLead(LeadRequestDto leadRequestDto) {
 
-		Object postBody = null;
+		Object postBody = leadRequestDto;
 		
 		final Map<String, Object> uriVariables = new HashMap<>();
 
