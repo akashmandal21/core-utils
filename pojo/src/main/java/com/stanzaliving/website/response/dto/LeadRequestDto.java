@@ -53,6 +53,10 @@ public class LeadRequestDto {
 	private String micromarketName;
 	private String micromarketNameUuid;
 
+	private String cityUuid;
+	private String micromarketUuid;
+	private String residenceUuid;
+	
 	private String micromarketAliasName;
 
 	private String otherMicromarketName;
