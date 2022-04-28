@@ -21,7 +21,7 @@ public class WebsitePrebookingPaymentRefundDetailsDto {
 	
 	private String cityName;
 	
-	private Date prebookingDate;
+	private String prebookingDate;
 
 	private String paymentUuid;
 	
