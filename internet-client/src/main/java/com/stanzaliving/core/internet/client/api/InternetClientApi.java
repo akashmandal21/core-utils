@@ -19,6 +19,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.internet.dto.InternetLoginSummaryDto;
+import com.stanzaliving.core.security.dto.InternetAttendanceMappingRequestDto;
 import com.stanzaliving.internet.dto.InternetPlanDto;
 import com.stanzaliving.internet.dto.UserLastUsageDetailsDto;
 import com.stanzaliving.internet.enums.InternetVendor;
@@ -185,14 +186,11 @@ public class InternetClientApi {
 
 	}
 	
-	public List<InternetLoginSummaryDto> getInternetLoginSummaryForAttendanceMapping(Date startDate) {
+	public List<InternetLoginSummaryDto> getInternetLoginSummaryForAttendanceMapping(InternetAttendanceMappingRequestDto internetAttendanceMappingRequestDto) {
 
 		ResponseDto<List<InternetLoginSummaryDto>> responseDto = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		
-		Map<String, Object> postBody = new HashMap<String, Object>();
-		postBody.put("startDate", startDate);
 
 		String path = UriComponentsBuilder.fromPath("/sessionDetails/attendance/mapping").buildAndExpand(uriVariables).toUriString();
 
@@ -209,7 +207,7 @@ public class InternetClientApi {
 		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, internetAttendanceMappingRequestDto, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Exception while fetching session details from internet: ", e);
 		}
