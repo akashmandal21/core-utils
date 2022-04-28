@@ -15,7 +15,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import com.stanzaliving.core.payment.dto.TransactionDto;
 import com.stanzaliving.core.pojo.AttachmentDto;
 import com.stanzaliving.core.projectservice.dto.PaymentDetailDto;
@@ -150,16 +149,12 @@ public class PaymentControllerApi {
 		TypeReference<ResponseDto<WebsiteSelfRefundResponseDto>> returnType = new TypeReference<ResponseDto<WebsiteSelfRefundResponseDto>>() {
 		};
 		
-		String string = ObjectMapperUtil.getString(leadRequestDto);
-		
-		log.info("body to payment is => {}", string);
-		
 		try {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,returnType);
+		
 		} catch (Exception e) {
-			
+		
 			log.error("Exception while check eligiblity of self refund for prebooked lead");
-			
 			return ResponseDto.failure(WebsiteSelfRefundPageConstants.CONTACT_STANZA_SUPPORT_MESSAGE);
 		}
 	}
@@ -183,11 +178,8 @@ public class PaymentControllerApi {
 		
 		try {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,returnType);
-		
 		} catch (Exception e) {
-			
 			log.error("Exception while initiating self refund for prebooked lead");
-			
 			return ResponseDto.failure(WebsiteSelfRefundPageConstants.CONTACT_STANZA_SUPPORT_MESSAGE);
 		}
 	}

@@ -337,8 +337,6 @@ public class StanzaRestClient {
 			List<MediaType> accept,
 			TypeReference<T> returnType) {
 
-		log.info("Calling api => {}", body);
-		
 		return invokeAPI(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
 	}
 

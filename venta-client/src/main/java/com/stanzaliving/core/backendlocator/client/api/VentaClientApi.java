@@ -475,6 +475,11 @@ public class VentaClientApi {
 		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
 		};
 
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, null, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching prebooked refund eligible leads {}", e);
+			return null;
+		}
 	}
 }

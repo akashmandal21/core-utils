@@ -398,7 +398,7 @@ public class LeadserviceClientApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while creating the lead {}", e);
+			log.error("Error while fetching prebooked refund eligible leads {}", e);
 			return null;
 		}
 	}
