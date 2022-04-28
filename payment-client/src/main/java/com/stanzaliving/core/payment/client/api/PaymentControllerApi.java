@@ -134,7 +134,7 @@ public class PaymentControllerApi {
     
     public ResponseDto<WebsiteSelfRefundResponseDto> checkEligiblityOfSelfRefundForPrebookedLead(LeadRequestDto leadRequestDto) {
 
-		Object postBody = null;
+		Object postBody = leadRequestDto;
 		
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -148,7 +148,7 @@ public class PaymentControllerApi {
 
 		TypeReference<ResponseDto<WebsiteSelfRefundResponseDto>> returnType = new TypeReference<ResponseDto<WebsiteSelfRefundResponseDto>>() {
 		};
-
+		
 		try {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,returnType);
 		} catch (Exception e) {
