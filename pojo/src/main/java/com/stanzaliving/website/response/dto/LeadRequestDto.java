@@ -60,6 +60,8 @@ public class LeadRequestDto {
 
 	private String durationOfStay;
 
+	private String preBookingDate;
+
 	private String durationTime;
 	private String college;
 	private String occupancy;
