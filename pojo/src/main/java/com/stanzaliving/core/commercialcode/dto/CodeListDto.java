@@ -26,6 +26,8 @@ public class CodeListDto {
 
     private String maintenanceFeeCollection;
 
+    private String amcAmountType;
+
     private boolean isAutoApplicable;
 
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
