@@ -43,7 +43,7 @@ public class AddUserRequestDto {
 	private UserType userType;
 
 	@NotNull(message = "Department is mandatory to add new user")
-	private Department userDepartment;
+	private Department department;
 
 	@NotBlank(message = "ISO Code is mandatory to add new user")
 	@Size(min = 2, max = 3, message = "ISO Code must be of 2-4 characters")
