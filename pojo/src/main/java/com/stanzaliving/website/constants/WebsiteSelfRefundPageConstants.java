@@ -4,6 +4,8 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class WebsiteSelfRefundPageConstants {
+	
+	public final int REFUND_REMAINING_WAITING_PERIOD_DAYS_COUNT = 14;
 
 	public final String SELF_REFUND_REQUEST_NOT_RAISED_MESSAGE = "You haven’t raised any request for a refund for:";
 
@@ -13,17 +15,19 @@ public class WebsiteSelfRefundPageConstants {
 
 	public final String PREBOOKING_AMOUNT_ADJUSTED_IN_BOOKING_MESSAGE = "The pre-booking amount you're requesting for refund has already been adjusted in your confirmed booking.";
 
-	public final String SELF_REFUND_REQUEST_ALREADY_RAISED_MESSAGE = "Your refund request already exists (Reference Number: 00000)."
-			+ System.lineSeparator() + "The amount will reach your account within the next 14 days.";
+	public final String SELF_REFUND_REQUEST_ALREADY_RAISED_MESSAGE = "Your refund request already exists (Reference Number: {0})."
+			+ System.lineSeparator() + "The amount will reach your account within the next {1} days.";
 
-	public final String SELF_REFUND_REQUEST_FAILED_MESSAGE = "Something went wrong. We are re-initiating your refund request and you'll receive the amount within the next 14 days.";
+	public final String SELF_REFUND_REQUEST_FAILED_MESSAGE = "Something went wrong. We are re-initiating your refund request and you'll receive the amount within the next {0} days.";
 
-	public final String REFUND_SUCCESS_MESSAGE = "Refund successfully processed and the amount will reflect in your account in 14 days";
+	public final String REFUND_SUCCESS_MESSAGE = "Refund successfully processed and the amount will reflect in your account in {0} days";
+	
+	public final String REFUND_SUCCESS_MESSAGE_AFTER_REMAINING_DAYS_OVER = "Refund successfully processed.";
 	
 	public final String CONTACT_STANZA_SUPPORT_MESSAGE = "Please contact stanza support team at operations@stanzaliving.com";
 
-	public final String REFUND_INITIATED_MESSAGE = "Refund initiated successfully and you'll receive the amount within the next 14 days.";
+	public final String REFUND_INITIATED_MESSAGE = "Refund initiated successfully and you'll receive the amount within the next {0} days.";
 
-	public final String REFUND_PENDING_POST_14_DAYS = "Your refund request is still in process. Please write to us at operations@stanzaliving.com for further assistance.";
+	public final String REFUND_PENDING_POST_REMAINING_DAYS_OVER = "Your refund request is still in process. Please write to us at operations@stanzaliving.com for further assistance.";
 
 }
