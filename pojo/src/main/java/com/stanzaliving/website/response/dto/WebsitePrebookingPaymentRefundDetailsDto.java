@@ -2,6 +2,8 @@ package com.stanzaliving.website.response.dto;
 
 import java.util.Date;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,10 +19,6 @@ import lombok.ToString;
 @AllArgsConstructor
 public class WebsitePrebookingPaymentRefundDetailsDto {
 
-	private String residenceName;
-	
-	private String cityName;
-	
 	private String prebookingDate;
 
 	private String paymentUuid;
@@ -30,4 +28,10 @@ public class WebsitePrebookingPaymentRefundDetailsDto {
 	private double amount;
 	
 	private Date refundedOn;
+	
+	private PropertyEntityType propertyEntityType;
+	
+	ResidenceResponseShortDTO residenceResponseShortDto;
+	
+	ApartmentResponseDto apartmentResponseDto;
 }
