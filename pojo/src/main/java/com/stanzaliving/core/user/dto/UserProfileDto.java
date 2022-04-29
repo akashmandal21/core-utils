@@ -10,7 +10,6 @@ import com.stanzaliving.core.user.enums.BloodGroup;
 import com.stanzaliving.core.user.enums.Gender;
 import com.stanzaliving.core.user.enums.MaritalStatus;
 import com.stanzaliving.core.user.enums.Nationality;
-import com.stanzaliving.core.user.enums.UserType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -71,6 +70,4 @@ public class UserProfileDto extends UserDto {
 	private LocalDate arrivalDate;
 	
 	private int ageLimit;
-
-	private UserType userType;
 }

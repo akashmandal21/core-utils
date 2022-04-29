@@ -357,26 +357,4 @@ public class LeadserviceClientApi {
 			return null;
 		}
 	}
-
-    public ResponseDto<String> createGuestLead(LeadRequestDto leadRequestDto) {
-        log.info("LeadRequestDto while creating the guest lead {}", leadRequestDto);
-
-        Object postBody = leadRequestDto;
-
-        String path = UriComponentsBuilder.fromPath("/lead/create").toUriString();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        final HttpHeaders headerParams = new HttpHeaders();
-
-        final String[] accepts = { "*/*" };
-
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-        };
-
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-    }
-
 }
