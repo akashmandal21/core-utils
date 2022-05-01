@@ -34,7 +34,7 @@ public class ExitDetailsResponseDto {
     private String actualEndDateNote;
 
     private String confirmationNote;
-    
+
     private String confirmationNotePS;
 
     private List<PaymentDetailsDto> paymentDetails;
