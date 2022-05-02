@@ -10,7 +10,7 @@ public enum FeeCollectionStrategy {
 	MONTHLY("Monthly"),
 	ONE_TIME_UPFRONT("One Time Upfront"),
 	ADD_TO_SD_AND_DEDUCT_MONTHLY("Add to SD & deduct monthly"),
-	DEDUCT_MONTHLY_FROM_SD("Deduct monthly from SD");;
+	DEDUCT_MONTHLY_FROM_SD("Deduct monthly from SD");
 
    private String strategy;
 }
