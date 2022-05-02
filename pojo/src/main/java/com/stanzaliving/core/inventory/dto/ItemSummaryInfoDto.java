@@ -26,4 +26,5 @@ public class ItemSummaryInfoDto {
     private Long itemsNearParLevel;
     private String itemUuid;
     private String addressUuid;
+    private String fifoUuid;
 }
