@@ -12,5 +12,5 @@ public class CommercialMetaDataDto {
     private String label;
     private String value;
     @Builder.Default
-    private List note=new ArrayList<String>();
+    private List<String> note=new ArrayList<>();
 }
