@@ -52,4 +52,7 @@ public class PdfRequestDto implements Serializable {
 	private String reponseTopicIdentifier;
 	
 	private String contextType;
+
+	private String userId;
+
 }
