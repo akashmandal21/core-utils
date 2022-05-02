@@ -1,6 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.stanzaliving.core.leaddashboard.enums.LeadStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -70,6 +71,7 @@ public class LeadRequestDto {
 	private String status;
 	private String zohoId;
 	private String zohoStatus;
+	private LeadStatus leadStatus;
 
 	private String referralId;
 	private String referralCategory;
