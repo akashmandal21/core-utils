@@ -161,7 +161,7 @@ public class InventoryClientApi {
 	public LeadRequestDto createBrokerLead(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 			Object postBody = leadRequestDto;
 
 			String path = UriComponentsBuilder.fromPath("/lead/").toUriString();
@@ -241,7 +241,7 @@ public class InventoryClientApi {
 	public LeadRequestDto leadCreation(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -270,7 +270,7 @@ public class InventoryClientApi {
 	public LeadRequestDto leadMigration(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 

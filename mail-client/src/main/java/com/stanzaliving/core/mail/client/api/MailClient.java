@@ -33,7 +33,7 @@ public class MailClient {
             // create path and map variables
             final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/api/v1/send-mail").buildAndExpand().toUriString();
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/send-mail").buildAndExpand().toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
