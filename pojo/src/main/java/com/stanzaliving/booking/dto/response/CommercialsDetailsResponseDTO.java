@@ -32,4 +32,7 @@ public class CommercialsDetailsResponseDTO implements Serializable {
     private AdvanceRentalDto startingAdvanceRental;
 
     private AdvanceRentalDto lastAdvanceRental;
+
+    private Double onBoardingCharges;
+
 }
