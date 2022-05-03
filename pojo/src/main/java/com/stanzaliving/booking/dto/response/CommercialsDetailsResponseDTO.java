@@ -19,11 +19,15 @@ public class CommercialsDetailsResponseDTO implements Serializable {
 
     private Double maintenanceFee;
 
-    private Double onBoardingCharges;
-
     private MaintenanceFeeCollectionType maintenanceFeeCollectionType;
 
     private Double bookingAmount;
+
+    private Double onBoardingCharges;
+
+    private Double onBoardingChargesPercentage;
+
+    private Boolean onboardingChargesApplicableOnRetention;
 
     private Double totalAmount;
 
@@ -34,5 +38,4 @@ public class CommercialsDetailsResponseDTO implements Serializable {
     private AdvanceRentalDto startingAdvanceRental;
 
     private AdvanceRentalDto lastAdvanceRental;
-
 }

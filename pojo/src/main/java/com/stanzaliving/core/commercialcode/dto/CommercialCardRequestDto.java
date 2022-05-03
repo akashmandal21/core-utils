@@ -35,6 +35,8 @@ public class CommercialCardRequestDto {
     @NotEmpty(message = "Lock-In period required")
     private String lockInPeriod;
 
+    private String roomUuid;
+
     private CommercialCardUserType commercialCardUserType;
 
     private String serviceMixUuid;
