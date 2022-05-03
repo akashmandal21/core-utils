@@ -374,4 +374,29 @@ public enum EstateStatus {
 		return dropUnderNHStatus;
 	}
 
+	public static List<EstateStatus> getListOfEstateStatusOptionsForL2(){
+		List<EstateStatus> estateStatusList = new ArrayList<>();
+
+		estateStatusList.add(DRAFT_IN_PROGRESS);
+		estateStatusList.add(SENT_TO_FILL_L2_DETAILS);
+
+		return estateStatusList;
+	}
+
+	public static List<EstateStatus> getListOfEstateStatusForProvideOptionForSentBack(){
+		List<EstateStatus> estateStatusList = new ArrayList<>();
+
+		estateStatusList.add(SENT_FOR_L2_APPROVAL_TO_NH);
+		estateStatusList.add(SENT_FOR_L2_APPROVAL_TO_ZH);
+		estateStatusList.add(SENT_TO_SANDEEP);
+		estateStatusList.add(SENT_TO_LEGAL_AND_SANDEEP);
+		estateStatusList.add(SENT_TO_TITLE_DOCS_AND_SANDEEP);
+		estateStatusList.add(SENT_FOR_APPROVAL_TO_TRANSFORMATION_AND_LEGAL);
+		estateStatusList.add(SENT_FOR_APPROVAL_TO_TRANSFORMATION_AND_LEGAL);
+		estateStatusList.add(SENT_TO_TRANSFORMATION);
+		estateStatusList.add(SENT_FOR_LEADERSHIP_APPROVAL);
+
+		return estateStatusList;
+	}
+
 }
