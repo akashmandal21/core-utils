@@ -42,6 +42,6 @@ public enum TicketActivityTemplatesEnum {
     FEEDBACK,
     USER_SATISFACTION,
     USER_NOT_SATISFIED,
-    SET_PRIORITY_AS,
+	SET_PRIORITY_AS,
 	SET_COMPLAINT_GROUP_AS;
 }
