@@ -4,6 +4,10 @@ import com.stanzaliving.core.dto.AbstractMongoDto;
 import com.stanzaliving.core.user.dto.Address;
 import lombok.*;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -26,4 +30,6 @@ public class LegalPropertyDto extends AbstractMongoDto{
     private boolean legalDeviation;
     private boolean businessDeviation;
     private boolean sowApproval;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date propertyApprovalTime;
 }
