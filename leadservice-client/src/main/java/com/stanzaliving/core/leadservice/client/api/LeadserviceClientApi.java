@@ -363,9 +363,11 @@ public class LeadserviceClientApi {
 
         Object postBody = leadRequestDto;
 
-        String path = UriComponentsBuilder.fromPath("/lead/create").toUriString();
+        String path = UriComponentsBuilder.fromPath("lead/external/create").toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("headerAuth", "c2510261f27872a22a160f463dc2ac2111ae2");
 
         final HttpHeaders headerParams = new HttpHeaders();
 
