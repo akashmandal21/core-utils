@@ -461,6 +461,8 @@ public class UserClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
+		queryParams.add("includeDeactivated", "true");
+
 		final String[] accepts = {
 				"*/*"
 		};
