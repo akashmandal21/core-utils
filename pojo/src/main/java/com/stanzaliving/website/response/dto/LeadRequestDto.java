@@ -141,6 +141,8 @@ public class LeadRequestDto {
 
 	private String extendDurationMessage;
 
+	private boolean isLeadBooked;
+	
 	private Integer placeId;
 	private String placeName;
 	private String timeSlot;
