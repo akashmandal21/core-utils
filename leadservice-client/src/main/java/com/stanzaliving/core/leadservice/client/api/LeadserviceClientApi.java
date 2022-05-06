@@ -379,7 +379,7 @@ public class LeadserviceClientApi {
 
 		Object postBody = null;
 
-		String path = UriComponentsBuilder.fromPath("internal/prebooking/refund/fetch/elible/leads").toUriString();
+		String path = UriComponentsBuilder.fromPath("internal/prebooking/refund/fetch/eligible/leads").toUriString();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
