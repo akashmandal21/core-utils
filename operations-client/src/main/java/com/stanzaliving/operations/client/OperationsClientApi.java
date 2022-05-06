@@ -616,7 +616,7 @@ public class OperationsClientApi {
 
 			uriVariables.put("internetVendor",internetVendor);
 
-			String path = UriComponentsBuilder.fromPath("/hostel/internetVendor/{internetVendor}")
+			String path = UriComponentsBuilder.fromPath("/residence/hostel/internetVendor/{internetVendor}")
 					.buildAndExpand(uriVariables).toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -631,7 +631,7 @@ public class OperationsClientApi {
 			};
 
 			ResponseDto<List<String>> residenceList =  restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-			return residenceList.isStatus() && Objects.nonNull(residenceList.getData()) ? residenceList.getData() : null;
+			return Objects.nonNull(residenceList) && residenceList.isStatus() && Objects.nonNull(residenceList.getData()) ? residenceList.getData() : null;
 
 		} catch (Exception e) {
 			log.error("Exception while fetching Residence List from internetVendor: {}", internetVendor, e);
