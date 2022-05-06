@@ -609,7 +609,7 @@ public class OperationsClientApi {
 		}
 	}
 
-	public ResponseDto<List<String>> getResidence(String internetVendor) {
+	public List<String> getResidence(String internetVendor) {
 
 		try {
 			final Map<String, Object> uriVariables = new HashMap<>();
@@ -618,18 +618,20 @@ public class OperationsClientApi {
 
 			String path = UriComponentsBuilder.fromPath("/hostel/internetVendor/{internetVendor}")
 					.buildAndExpand(uriVariables).toUriString();
-
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 			final HttpHeaders headerParams = new HttpHeaders();
 
-			final String[] accepts = { "*/*" };
+			final String[] accepts = {
+					"*/*"
+			};
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 			ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
 			};
 
-			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			ResponseDto<List<String>> residenceList =  restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			return residenceList.isStatus() && Objects.nonNull(residenceList.getData()) ? residenceList.getData() : null;
 
 		} catch (Exception e) {
 			log.error("Exception while fetching Residence List from internetVendor: {}", internetVendor, e);
