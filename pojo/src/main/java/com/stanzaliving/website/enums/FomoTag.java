@@ -12,7 +12,7 @@ public enum FomoTag {
 	FILLINGFAST("Filling Fast", "#FAB432"),
 	SOLDOUT("Sold Out", "#F05A78"),
 	NONE("None","#7D7A7A"),
-	ONLYFIFTEENLEFT("Only 15 beds left","#FAB432");
+	ONLYFIFTEENLEFT("Only 15 beds left","#FFF1F1");
 
 	public String fomoTagName;
 	public String fomoTagColour;
