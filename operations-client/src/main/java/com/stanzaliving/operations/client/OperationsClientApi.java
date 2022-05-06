@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -629,8 +630,9 @@ public class OperationsClientApi {
 
 			ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
 			};
-
+			log.info("restclient {}", ObjectMapperUtil.getString(restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData()));
 			ResponseDto<List<String>> residenceList =  restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			log.info("restclient {}", ObjectMapperUtil.getString(residenceList));
 			return Objects.nonNull(residenceList) && residenceList.isStatus() && Objects.nonNull(residenceList.getData()) ? residenceList.getData() : null;
 
 		} catch (Exception e) {
