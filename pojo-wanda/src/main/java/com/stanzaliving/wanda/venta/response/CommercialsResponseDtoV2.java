@@ -26,6 +26,7 @@ public class CommercialsResponseDtoV2 {
     private String contractEndDate;
     private MonthlyFeeDtoV2 monthlyFee;
     private Double securityDeposit;
+    private Double onBoardingCharges;
     private Double maintenanceFee;
     private Integer advanceMonths;
     private Double advanceFee;
