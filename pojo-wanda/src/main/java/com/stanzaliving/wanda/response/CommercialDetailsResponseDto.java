@@ -81,6 +81,11 @@ public class CommercialDetailsResponseDto {
 	private String subContract2StartDate; //add
 	
 	 private MonthlyFee subContract2MonthlyFee; //add
-	 
+
+	private String onboardingCharges;
+
+	private String onboardingChargesText;
+
+	private String onboardingChargesDescription;
 	
 }
