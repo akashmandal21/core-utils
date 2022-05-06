@@ -616,7 +616,7 @@ public class OperationsClientApi {
 
 			uriVariables.put("internetVendor",internetVendor);
 
-			String path = UriComponentsBuilder.fromPath("/residence/hostel/internetVendor/{internetVendor}")
+			String path = UriComponentsBuilder.fromPath("/internal/hostel/internetVendor/{internetVendor}")
 					.buildAndExpand(uriVariables).toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
