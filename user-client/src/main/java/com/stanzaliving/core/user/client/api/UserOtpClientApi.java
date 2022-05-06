@@ -69,6 +69,12 @@ public class UserOtpClientApi {
 
 		return sendOtpRequest(mobile, userType, path, otpType, isoCode);
 	}
+	
+	public ResponseDto<Void> resendOtpNew(String mobile, UserType userType, OtpType otpType, String isoCode) {
+		String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/resent/v2").toUriString();
+
+		return sendOtpRequest(mobile, userType, path, otpType, isoCode);
+	}
 
 	private ResponseDto<Void> sendOtpRequest(String mobile, UserType userType, String path, OtpType otpType, String isoCode) {
 
