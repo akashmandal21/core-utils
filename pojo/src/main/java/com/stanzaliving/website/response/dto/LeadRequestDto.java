@@ -2,9 +2,6 @@ package com.stanzaliving.website.response.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import com.stanzaliving.core.leaddashboard.enums.LeadSourceEnum;
-import com.stanzaliving.core.leaddashboard.enums.LeadStatus;
-import com.stanzaliving.core.leaddashboard.enums.LeadSubStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -12,9 +9,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.util.List;
-import java.util.Map;
 
 @Getter
 @Setter
@@ -24,46 +18,54 @@ import java.util.Map;
 @AllArgsConstructor
 public class LeadRequestDto {
 
+	private Long leadId;
 	private String firstName;
 	private String lastName;
-	private String phone;
+	private String email;
 	private String leadEmail;
+	private String phone;
+	private String otp;
 
-	private String gender;
-	private String lastPropertyVisited;
-	private LeadSourceEnum leadSource;
+	private boolean phoneVerified;
 
-	private String leadTag;
-	private List<Map<String, String>> hotLeadAttributes;
-
-	private String moveInDate;
-	private String preBookingResidence;
-	private Double preBookingAmount;
-	private String orderId;
-
-	private String cityUuid;
-	private String micromarketUuid;
-	private String residenceUuid;
-
-	private String leadOwnerUuid;
-	private LeadStatus leadStatus;
-	private LeadSubStatus leadSubStatus;
-
+	private String leadSource;
+	private String leadCreationInterface;
+	private String source;
 	private String leadSourceDesc;
-	private String leadSubStatusDesc;
+	private int residenceId;
+	private String residenceName;
+	private String residenceNameUuid;
 
-	private Integer visitCount;
-	private boolean newLead;
+	private String leadOwnerId;
 
-	private String referralPhone;
+	private Integer cityId;
+	private String cityName;
+	private String cityNameUuid;
+
+	private Integer micromarketId;
+	private String micromarketName;
+	private String micromarketNameUuid;
+
+	private String micromarketAliasName;
+
+	private String otherMicromarketName;
+
 	private String referralCode;
-	private String referralCategory;
 
+	private String durationOfStay;
+
+	private String durationTime;
+	private String college;
 	private String occupancy;
-	private String metadata;
-	private String brokerCreatedBy;
-	private boolean leadRevived;
+	private String leadType;
+	private String stanzaPOCEmail;
+	private String qualification;
+	private String status;
+	private String zohoId;
+	private String zohoStatus;
 
+	private String referralId;
+	private String referralCategory;
 	private String utmSource;
 	private String utmMedium;
 	private String utmCampaign;
@@ -73,86 +75,62 @@ public class LeadRequestDto {
 	private String utmContent;
 	private String utmTarget;
 	private String utmAdformat;
-	private String utmCategory;
+	private int commissionEarned;
 
-	private String zohoId;
-	private String leadOwnerZohoId;
-
-	private Integer commissionEarned;
-	private Integer preBookingCommissionEarned;
-
-	private String leadType;
-	private String college;
-	private boolean phoneVerified;
+	private String gender;
+	private String profession;
+	private String dateOfVisit;
+	private String moveInDateRange;
 
 	private int leadModeId;
-	private boolean prebookingUpdateFlag;
-	private String durationOfStay;
-	private String otherMicromarketName;
-	private String budget;
+	private String leadMode;
+	private String leadSubMode;
+	private String moveInDate;
+	private Double reserveAmount;
 
-	private String fbclid;
+	private String category;
+	private String fbclId;
 	private String creative;
+	
+	@JsonProperty("gClientId")
+	private String gClientId;
+	
+	@JsonProperty("gSessionId")
+	private String gSessionId;
 
-	private String moveInDateRange;
-	private String profession;
-	private String textMessage;
-	private boolean zohoFlag;
-	private String extendDurationMessage;
+	private String razorpayPaymentId;
 
-	private String micromarketAliasName;
+	private String razorPayOrderId;
 
-	/*
-	 * Only to support existing website functionality
-	 */
-	private Integer cityId;
-	private Integer micromarketId;
+	private String razorpaySignature;
 
-	private Integer residenceId;
-	private String residenceName;
-	private String residenceNameUuid;
+	@Default
+	private boolean lastQuestion = false;
+	private String errorMessage;
+	private int bookingId;
+	@Default
+	private boolean isHotLead = false;
+	@Default
+	private boolean whatsappnotification = false;
+	@Default
+	private boolean qrCodeFlag = false;
 
-	private Boolean whatsappnotification = false;
-	private Boolean qrCodeFlag = false;
+	private boolean leadQualificationForm;
 
+	@Default
+	private boolean otpVerified = false;
 
-	private String leadOwner;
-	private String leadCreationInterface;
-
-	//lead qualification variant
-	private String dateOfVisit;
-
-	private String micromarketNameUuid;
-	private String cityNameUuid;
-	private boolean ignoreScheduleVisit;
+	@Default
+	private boolean ignoreScheduleVisit = false;
+	
 	private String accommodationType;
-	private String customIntentTag;
-	private String customTagFlag;
 
-	private boolean consumedLead = false;
+	private boolean createHotLead;
+	
+	private String extendDurationMessage;
 
 	private Integer placeId;
 	private String placeName;
-
-	private String cityName;
-	private String micromarketName;
-	private ExternalLeadAdditionalData externalLeadAdditionalData;
-
-	@JsonProperty("gClientId")
-	private String gClientId;
-
-	private boolean createNewLeadForm;
-
-	private boolean dropped;
-	private boolean visitSchduled;
-	private boolean qualification;
-
-	private String roomPreference;
-	private String residencePreference;
-	private String furnishedPreference;
-	private String collegeEnrollment;
-	private String visitScheduledDate;
-	private String vendorName;
-
-	private Long leadId;
+	
+	private String budget;
 }

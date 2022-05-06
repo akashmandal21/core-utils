@@ -1,4 +1,4 @@
-package com.github.annotation.analytic.core.test;
+package com.stanzaliving.analytics.logs;
 
 import org.junit.Ignore;
 

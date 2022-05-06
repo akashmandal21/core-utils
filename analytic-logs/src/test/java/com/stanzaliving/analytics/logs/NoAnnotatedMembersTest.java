@@ -1,4 +1,4 @@
-package com.github.annotation.analytic.core.test;
+package com.stanzaliving.analytics.logs;
 
 import com.stanzaliving.analytics.logs.annotations.AnalyseTransaction;
 import com.stanzaliving.analytics.logs.service.AnalyticService;

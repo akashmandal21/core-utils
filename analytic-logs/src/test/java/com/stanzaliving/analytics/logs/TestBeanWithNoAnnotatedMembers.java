@@ -1,49 +1,28 @@
-package com.github.annotation.analytic.core.test;
+package com.stanzaliving.analytics.logs;
 
-import com.stanzaliving.analytics.logs.annotations.Analysed;
 import com.stanzaliving.analytics.logs.annotations.AnalysedEntity;
 import org.junit.Ignore;
 
-import java.util.List;
-import java.util.Map;
 
-
-@AnalysedEntity(name = "testBean")
+@AnalysedEntity
 @SuppressWarnings("unused")
 @Ignore
-class TestBeanWithAnnotatedMembers
+class TestBeanWithNoAnnotatedMembers
 {
-    @Analysed(name = "plainString")
     private String privatePrimitiveString;
     
-    @Analysed
     public String publicPrimitiveString;
 
     private String[] privateStringArray;
     
     public String[] publicStringArray;
     
-    @Analysed
+    public CompositionClass[] publicCompositionClassArray;
+    
     private CompositionClass privateCompositionClass;
     
-    @Analysed
     public CompositionClass publicCompositionClass;
-    
-    @Analysed
-    public DerivedClass derivedClass;
-    
-    @Analysed
-    public Map<String, String> primitiveMap;
 
-    @Analysed
-    public List<String> primitiveList;
-    
-    @Analysed
-    public Map<String, CompositionClass> nonPrimitiveMap;
-    
-    @Analysed
-    public List<CompositionClass> nonPrimitiveList;
-    
     private String getPrivatePrimitiveString()
     {
         return privatePrimitiveString;
@@ -64,7 +43,6 @@ class TestBeanWithAnnotatedMembers
         this.publicPrimitiveString = publicPrimitiveString;
     }
 
-    @Analysed
     private String[] getPrivateStringArray()
     {
         return privateStringArray;
@@ -90,18 +68,19 @@ class TestBeanWithAnnotatedMembers
         return privateCompositionClass;
     }
 
-    public void setPrivateCompositionClass(CompositionClass privateCompositionClass)
+    private void setPrivateCompositionClass(CompositionClass privateCompositionClass)
     {
         this.privateCompositionClass = privateCompositionClass;
     }
-    @Analysed
+
     public CompositionClass getPublicCompositionClass()
     {
         return publicCompositionClass;
     }
-    @Analysed
+
     public void setPublicCompositionClass(CompositionClass publicCompositionClass)
     {
         this.publicCompositionClass = publicCompositionClass;
     }
+    
 }
