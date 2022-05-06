@@ -629,10 +629,10 @@ public class OperationsClientApi {
 			ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
 			};
 
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
 		} catch (Exception e) {
-			log.error("Exception while fetching ServiceMixNames List from internetVendor: {}", internetVendor, e);
+			log.error("Exception while fetching Residence List from internetVendor: {}", internetVendor, e);
 			return null;
 		}
 	}
