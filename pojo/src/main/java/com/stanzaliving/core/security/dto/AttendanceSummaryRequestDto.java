@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AttendanceSummaryRequestDto {
-    private List<String> residenceUuids;
     
     @NotNull
     private LocalDate date;
