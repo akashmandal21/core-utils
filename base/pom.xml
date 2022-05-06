@@ -75,11 +75,6 @@
 			<artifactId>httpclient</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
-
 		<!-- file manager dependecy -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
@@ -189,12 +184,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
-
-        <dependency>
-			<groupId>org.apache.lucene</groupId>
-			<artifactId>lucene-spatial</artifactId>
-			<version>7.4.0</version>
-		</dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>

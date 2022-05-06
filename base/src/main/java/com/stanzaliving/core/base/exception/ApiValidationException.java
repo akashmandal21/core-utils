@@ -1,14 +1,11 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.base.exception;
 
-import org.apache.commons.lang3.StringUtils;
-
 import lombok.Getter;
 import lombok.ToString;
-
-import java.util.function.Supplier;
+import org.apache.commons.lang3.StringUtils;
 
 @Getter
 @ToString(callSuper = true)

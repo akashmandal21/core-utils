@@ -10,10 +10,7 @@ import com.stanzaliving.core.po.generic.dtos.VendorWisePoDetails;
 import com.stanzaliving.core.pojo.EmailDto;
 import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
-import com.stanzaliving.invoice.dto.InvoiceMigrationDto;
 import com.stanzaliving.invoice.dto.InvoiceMigrationResponseDto;
-import com.stanzaliving.invoice.dto.PoInvoiceDetailsDto;
-import com.stanzaliving.po.enums.POSummaryStatus;
 import com.stanzaliving.po.generic.dto.TOTemplateDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -23,9 +20,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -804,4 +798,25 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, rentalItemUpdatedRateMap, headerParams, accept, vddReturnType);
     }
 
+    public ResponseDto<Map<String, List<PoDetailsResponse>>> getPoDeliveryDetails(List<String> poUuids) {
+
+        log.info("HTTP Client call to get po delivery details");
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, List<PoDetailsResponse>>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<PoDetailsResponse>>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getPOTODeliveryDetails").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, poUuids, headerParams, accept, vddReturnType);
+    }
 }
