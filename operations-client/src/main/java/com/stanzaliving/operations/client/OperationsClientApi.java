@@ -632,7 +632,7 @@ public class OperationsClientApi {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
 
 		} catch (Exception e) {
-			log.error("Exception while fetching ServiceMixNames List from residenceIds: {}", residenceIds, e);
+			log.error("Exception while fetching ServiceMixNames List from internetVendor: {}", internetVendor, e);
 			return null;
 		}
 	}
