@@ -630,8 +630,8 @@ public class OperationsClientApi {
 			ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
 			};
 
-			ResponseDto<List<String>> residenceList =  restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-			return Objects.nonNull(residenceList) && residenceList.isStatus() && Objects.nonNull(residenceList.getData()) ? residenceList.getData() : null;
+			List<String> residenceList =  restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
+			return residenceList;
 
 		} catch (Exception e) {
 			log.error("Exception while fetching Residence List from internetVendor: {}", internetVendor, e);
