@@ -22,6 +22,7 @@ public class TicketCardDto {
     private String statusUuid;
     private Date createdAt;
     private Date slaTime;
+    private Date totalSlaTime;
     private String complaintGroupUuid;
     private String complaintGroupName;
     private String categoryUuid;
