@@ -1,33 +1,25 @@
-/**
- * 
- */
 package com.stanzaliving.core.leadservice.client.api;
+
+import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.dto.LeadElasticDto;
+import com.stanzaliving.website.response.dto.LeadDetailEntity;
+import com.stanzaliving.website.response.dto.LeadRequestDto;
+import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-
-import com.stanzaliving.core.base.common.dto.PaginationRequest;
-import com.stanzaliving.website.request.dto.LeadSearchRequestDto;
-import com.stanzaliving.website.response.dto.LeadDetailEntity;
-import com.stanzaliving.website.response.dto.SearchResponseDto;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.website.response.dto.LeadRequestDto;
-import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
-
-import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class LeadserviceClientApi {
@@ -202,8 +194,8 @@ public class LeadserviceClientApi {
 
 		return null;
 	}
-	
-	
+
+
 	public ResponseDto<LeadRequestDto> createCommonLeadFromWebsite(LeadRequestDto leadRequestDto) {
 
 		Object postBody = leadRequestDto;
@@ -226,9 +218,9 @@ public class LeadserviceClientApi {
 		} catch (Exception e) {
 			log.error("Error while creating the lead {}", e);
 			return null;
-		}	
+		}
 	}
-	
+
 	public ResponseDto<LeadRequestDto> createScheduledVisitLead(LeadRequestDto leadRequestDto) {
 
 		try {
@@ -257,7 +249,7 @@ public class LeadserviceClientApi {
 
 		return null;
 	}
-	
+
 	public ResponseDto<String> updateMobileVerifiedStatus(String phone) {
 
 		Object postBody = null;
@@ -265,7 +257,7 @@ public class LeadserviceClientApi {
 		String path = UriComponentsBuilder.fromPath("/lead/internal/update/phone/verified").toUriString();
 
 		final HttpHeaders headerParams = new HttpHeaders();
-		
+
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("phone", phone);
 
@@ -281,9 +273,9 @@ public class LeadserviceClientApi {
 		} catch (Exception e) {
 			log.error("Error while creating the lead {}", e);
 			return null;
-		}	
+		}
 	}
-	
+
 	public String updateLeadWebsite(LeadRequestDto leadRequestDto) {
 
 		Object postBody = leadRequestDto;
@@ -303,10 +295,10 @@ public class LeadserviceClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public ResponseDto<Boolean> checkLeadByPhone(String phone) {
 		Object postBody = null;
-		
+
 		log.info("Request received for checkLeadByPhone " + phone);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -384,6 +376,7 @@ public class LeadserviceClientApi {
 			return null;
 		}
 	}
+
 	public ResponseDto<Boolean> sendOtpForVisitStart() {
 		Object postBody = null;
 
@@ -435,4 +428,23 @@ public class LeadserviceClientApi {
 			return null;
 		}
 	}
+
+	public ResponseDto<Void> syncElasticData(LeadElasticDto leadElasticDto) {
+		log.debug("Lead client to lead elastic data");
+		Object postBody = leadElasticDto;
+		String path = UriComponentsBuilder.fromPath("/internal/lead/sync-elastic-data").toUriString();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while syncing lead elastic data", e);
+			return null;
+		}
+	}
+
 }
