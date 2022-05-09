@@ -396,4 +396,27 @@ public class VentaAggregationServiceApi {
 		}
 		return null;
 	}
+
+	public ResponseDto<String> syncMysqlAndElasticData(){
+		log.info("Venta Aggregation Controller::Sending booking events notification today {}", LocalDate.now());
+
+		Object postBody = null;
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/exit/sync-mysql-elastic").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {"*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {};
+		try {
+			log.info("Executing Api for getting bookings Info with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while sending booking events integration notification on {}, Exception is {}", LocalDate.now(), e);
+		}
+		return null;
+	}
 }
