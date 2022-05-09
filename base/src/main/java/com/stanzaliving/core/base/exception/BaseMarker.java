@@ -11,5 +11,5 @@ public interface BaseMarker {
     Marker CONNECTION_ERROR = MarkerManager.getMarker("CONNECTION_ERROR");
     Marker NOT_FOUND_ERROR = MarkerManager.getMarker("NOT_FOUND_ERROR");
     Marker OPERATIONS_ERROR = MarkerManager.getMarker("OPERATIONS_ERROR");
-
+    Marker WANDA_API_ERROR = MarkerManager.getMarker("WANDA_API_ERROR");
 }
