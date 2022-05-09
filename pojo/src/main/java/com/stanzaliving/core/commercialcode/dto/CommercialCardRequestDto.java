@@ -37,6 +37,8 @@ public class CommercialCardRequestDto {
 
     private String roomUuid;
 
+    private List<String> roomUuidList;
+
     private CommercialCardUserType commercialCardUserType;
 
     private String serviceMixUuid;
