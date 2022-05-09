@@ -11,8 +11,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum RelationType {
-	
-	FATHER("Father"), MOTHER("Mother"), UNCLE("Uncle"), BROTHER("Brother"), SISTER("Sister"), AUNT("Aunt"), SPOUSE("Spouse");
+
+	FATHER("Father"), MOTHER("Mother"), UNCLE("Uncle"), BROTHER("Brother"), SISTER("Sister"), AUNT("Aunt"), SPOUSE("Spouse"),
+	PARENT("Parent"), LOCAL_GUARDIAN("Local Guardian");
 
 	private String name;
 	
