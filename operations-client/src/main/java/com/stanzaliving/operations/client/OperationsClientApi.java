@@ -635,7 +635,7 @@ public class OperationsClientApi {
 
 		} catch (Exception e) {
 			log.error("Exception while fetching Residence List from internetVendor: {}", internetVendor, e);
-			return null;
+			return new ArrayList<>();
 		}
 	}
 
