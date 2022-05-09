@@ -3,30 +3,24 @@
  */
 package com.stanzaliving.core.leadservice.client.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
-import com.stanzaliving.website.request.dto.LeadSearchRequestDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
-import com.stanzaliving.website.response.dto.SearchResponseDto;
+import com.stanzaliving.website.response.dto.LeadRequestDto;
+import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.website.response.dto.LeadRequestDto;
-import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
-
-import lombok.extern.log4j.Log4j2;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Log4j2
 public class LeadserviceClientApi {
@@ -363,7 +357,7 @@ public class LeadserviceClientApi {
 
 		Object postBody = leadRequestDto;
 
-		String path = UriComponentsBuilder.fromPath("lead/external/create").toUriString();
+		String path = UriComponentsBuilder.fromPath("/lead/external/create").toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
