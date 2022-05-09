@@ -3,16 +3,24 @@
  */
 package com.stanzaliving.core.user.client.api;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.stanzaliving.core.base.common.dto.PageResponse;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
+import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
+import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
+import com.stanzaliving.core.user.dto.*;
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
+import com.stanzaliving.core.user.enums.UserType;
+import com.stanzaliving.core.user.request.dto.ActiveUserRequestDto;
+import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
 import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
+import com.stanzaliving.core.user.request.dto.UserRequestDto;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -24,27 +32,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.stanzaliving.core.base.common.dto.PageResponse;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.constants.SecurityConstants;
-import com.stanzaliving.core.base.enums.Department;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
-import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
-import com.stanzaliving.core.user.dto.AccessLevelRoleRequestDto;
-import com.stanzaliving.core.user.dto.UserDto;
-import com.stanzaliving.core.user.dto.UserManagerProfileRequestDto;
-import com.stanzaliving.core.user.dto.UserProfileDto;
-import com.stanzaliving.core.user.dto.UserPropertyAndProfileMappingDto;
-import com.stanzaliving.core.user.dto.UserRoleCacheDto;
-import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
-import com.stanzaliving.core.user.request.dto.ActiveUserRequestDto;
-import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
-import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
-import com.stanzaliving.core.user.request.dto.UserRequestDto;
-
-import lombok.extern.log4j.Log4j2;
+import java.util.*;
 
 /**
  * @author naveen.kumar
@@ -803,6 +791,30 @@ public class UserClientApi {
 		ParameterizedTypeReference<ResponseDto<RoleDto>> returnType = new ParameterizedTypeReference<ResponseDto<RoleDto>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<Boolean> updateUserStatus(String phone, UserType userType, Boolean status) {
+
+		Object postBody = null;
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("phone", phone);
+		uriVariables.put("userType", userType);
+		uriVariables.put("status", status);
+
+		String path = UriComponentsBuilder.fromPath("/internal/update/status/{mobileNo}/{userType}/{enabled}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
 }
