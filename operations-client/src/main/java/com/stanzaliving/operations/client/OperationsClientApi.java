@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.base.exception.BaseMarker;
 import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -634,7 +635,7 @@ public class OperationsClientApi {
 			return Objects.nonNull(residenceList) && residenceList.isStatus() && Objects.nonNull(residenceList.getData()) ? residenceList.getData() : null;
 
 		} catch (Exception e) {
-			log.error("Exception while fetching Residence List from internetVendor: {}", internetVendor, e);
+			log.error(BaseMarker.OPERATIONS_ERROR, "Exception while fetching Residence List from internetVendor: " + internetVendor, e);
 			return new ArrayList<>();
 		}
 	}
