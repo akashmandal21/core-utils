@@ -23,4 +23,6 @@ public class OutboundMailInfoDto {
 
     private String inReplyTo;
 
+    private boolean isHtml;
+
 }

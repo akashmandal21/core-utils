@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Getter;
 
 @Data
 @Builder
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class TicketChecklistDetailDto {
@@ -16,6 +18,7 @@ public class TicketChecklistDetailDto {
     private Boolean isMarkedNa;
     private Boolean isClosed;
     private Boolean isMandatory;
+    private Integer position;
 //    private String attachmentLocation;
 //    private String attachmentType;
 //    private long fileSize;
