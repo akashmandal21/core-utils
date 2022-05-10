@@ -39,6 +39,7 @@ public class CityCmsResponseDTO {
 	private Long reviewCount;
 	private Double rating;
 	private Long minPriceValue;
+	private boolean popularCity;
 	
 	private List<AttributeDto> attributeDto;
 	

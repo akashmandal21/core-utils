@@ -24,5 +24,6 @@ public class CityRequestDTO {
 	private String phone;
 	private int websiteDisplayOrder;
 	private String cityImgUrl;
+	private boolean popularCity;
 	private List<AttributeDto> attributeDto;
 }
