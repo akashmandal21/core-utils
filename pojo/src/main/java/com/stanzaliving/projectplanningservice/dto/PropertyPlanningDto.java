@@ -33,6 +33,10 @@ public class PropertyPlanningDto extends AbstractDto {
     @NotBlank(message = "Template uuid is required")
     private String templateUuid;
 
+    private String templateName;
+
+    private long tasks;
+
     private Date startDate;
 
     private Date endDate;
