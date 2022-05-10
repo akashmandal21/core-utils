@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.base.exception.BaseMarker;
+import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -608,5 +610,35 @@ public class OperationsClientApi {
 			return null;
 		}
 	}
-	
+
+	public List<String> getResidence(String internetVendor) {
+
+		try {
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			uriVariables.put("internetVendor",internetVendor);
+
+			String path = UriComponentsBuilder.fromPath("/internal/hostel/internetVendor/{internetVendor}")
+					.buildAndExpand(uriVariables).toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+			};
+			ResponseDto<List<String>> residenceList =  restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			return Objects.nonNull(residenceList) && residenceList.isStatus() && Objects.nonNull(residenceList.getData()) ? residenceList.getData() : null;
+
+		} catch (Exception e) {
+			log.error(BaseMarker.OPERATIONS_ERROR, "Exception while fetching Residence List from internetVendor: " + internetVendor, e);
+			return new ArrayList<>();
+		}
+	}
+
+
 }
