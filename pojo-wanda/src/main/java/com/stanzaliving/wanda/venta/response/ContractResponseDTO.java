@@ -26,4 +26,6 @@ public class ContractResponseDTO {
 	private Boolean preSelectedContractId;
 
     private String discountCode;
+
+    private Double days;
 }
