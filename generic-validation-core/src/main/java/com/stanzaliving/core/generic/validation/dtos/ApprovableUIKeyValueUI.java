@@ -12,4 +12,5 @@ public class ApprovableUIKeyValueUI {
     private String value;
     private boolean canApprove;
     private boolean approved;
+    private boolean isCityEligible;
 }
