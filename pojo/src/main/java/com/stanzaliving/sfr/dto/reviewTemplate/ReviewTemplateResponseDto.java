@@ -20,7 +20,7 @@ public class ReviewTemplateResponseDto {
     private String propertyTypeUuid;
     private Status templateStatus;
     private List<ApplicableStatusesDto> propertyStatuses;
-    private BasicInformationResponse basicInformation;
+    private BasicInfoResponse basicInformation;
     private List<OtherInformationResponse> otherInformation;
     private boolean atlDocumentVisible;
     private boolean bedCountDetailsVisible;

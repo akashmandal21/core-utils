@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class BasicInformationResponse {
+public class BasicInfoResponse {
     private String propertyName;
     private String propertyType;
     private String micromarket;
