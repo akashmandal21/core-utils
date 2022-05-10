@@ -30,7 +30,6 @@ public enum BoqLabel {
 
     public static List<BoqLabel> getAllLabels() {
         return Arrays.stream(BoqLabel.values())
-                .filter(boqLabel -> !boqLabel.equals(BoqLabel.NA))
                 .collect(Collectors.toList());
     }
 
