@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.core.bookingservice.dto.response.ResidenceQrCodeResponseDTO;
+import com.stanzaliving.venta.BookingAggElasticDto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -301,5 +302,22 @@ public class VentaAggregationServiceApi {
 			log.error("Exception while sending booking events integration notification on {}, Exception is {}", LocalDate.now(), e);
 		}
 		return null;
+	}
+	public ResponseDto<Void> syncMysqlAndElasticData(BookingAggElasticDto leadElasticDto) {
+		log.debug(" client to booking Aggregation elastic data");
+		Object postBody = leadElasticDto;
+		String path = UriComponentsBuilder.fromPath("/internal/sync-mysql-elastic").toUriString();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while syncing booking Aggregation elastic data", e);
+			return null;
+		}
 	}
 }
