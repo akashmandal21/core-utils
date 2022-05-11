@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -46,4 +47,11 @@ public class TicketRequestDto {
     private Priority priority;
 
     private String complaintAttachmentUuid;
+
+    @Builder.Default
+    private String mailChainMessageId = StringUtils.EMPTY;
+
+    @Builder.Default
+    private String mailChainSubject = StringUtils.EMPTY;
+
 }
