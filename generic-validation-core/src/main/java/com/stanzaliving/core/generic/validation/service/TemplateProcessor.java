@@ -661,6 +661,7 @@ public abstract class TemplateProcessor {
         boolean editable = checkIfEditable(templateField,additionalData);
 
         Object defaultValue = templateField.getDefaultValue();
+        Object minValue = templateField.getMinValue();
 
         UiField uiField = UiField.builder()
                 .fieldName(templateField.getFieldName())
@@ -674,6 +675,7 @@ public abstract class TemplateProcessor {
                 .validator(templateField.getValidator())
                 .regex(templateField.getRegex())
                 .options(templateField.getOptions())
+                .minValue(objectMapper.valueToTree(templateField.getMinValue()))
                 .build();
         if (editable && Objects.nonNull(templateField.getOptionProvider()) && (templateField.getUiType() == UIFieldType.OPTION_LIST ||
                 templateField.getUiType() == UIFieldType.OPTION_LIST_MS || templateField.getUiType() == UIFieldType.OPTION_LIST_ARR))

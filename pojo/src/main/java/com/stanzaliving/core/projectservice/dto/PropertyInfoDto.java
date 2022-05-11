@@ -46,8 +46,12 @@ public class PropertyInfoDto {
     private String postalCode;
     private String bdUserId;
     private String siteEngineerUserId;
+    private String siteEngineerName;
+    private String siteEngineerEmail;
+    private String siteEngineerMobile;
     private String projectManagerId;
     private String projectZonalHeadId;
     private double latitude;
     private double longitude;
+    private int floorCount;
 }

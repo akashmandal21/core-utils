@@ -12,6 +12,7 @@ public enum TicketSource {
     ALFRED("ALFRED"),
     SIGMA("SIGMA"),
     SUPPORT_EMAIL("SUPPORT EMAIL"),
+    EMAIL("E-MAILS"),
     SOCIAL("SOCIAL");
 
     private static final Map<String, TicketSource> map = new HashMap<>();
