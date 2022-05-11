@@ -13,7 +13,7 @@ public class AsisEntityDto {
 
     private String propertyUuid;
 
-    private String asIsEntityId;
+    private Long asIsEntityId;
 
     private String questionTemplateId;
     
