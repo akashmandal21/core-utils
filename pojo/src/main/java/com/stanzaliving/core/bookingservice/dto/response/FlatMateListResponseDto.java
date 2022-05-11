@@ -34,4 +34,6 @@ public class FlatMateListResponseDto {
     private String phone;
     private String email;
     private Date moveInDate;
+    private Boolean hasActiveBooking;
+    private Date invitationSentOn;
 }
