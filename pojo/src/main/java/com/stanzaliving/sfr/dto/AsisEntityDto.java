@@ -13,7 +13,7 @@ public class AsisEntityDto {
 
     private String propertyUuid;
 
-    private String moduleUuid;
+    private String asIsEntityId;
 
     private String questionTemplateId;
     
