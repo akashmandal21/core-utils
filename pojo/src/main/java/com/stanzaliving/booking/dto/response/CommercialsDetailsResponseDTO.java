@@ -17,13 +17,17 @@ public class CommercialsDetailsResponseDTO implements Serializable {
 
     private Double securityDeposit;
 
-    private Double onBoardingCharges;
-
     private Double maintenanceFee;
 
     private MaintenanceFeeCollectionType maintenanceFeeCollectionType;
 
     private Double bookingAmount;
+
+    private Double onBoardingCharges;
+
+    private Double onBoardingChargesPercentage;
+
+    private Boolean onboardingChargesApplicableOnRetention;
 
     private Double totalAmount;
 
