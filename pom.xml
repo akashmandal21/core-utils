@@ -107,6 +107,7 @@
         <module>security-service</module>
         <module>mail-client</module>
 		<module>backend-locator-client</module>
+        <module>asis-client</module>
     </modules>
 
 	<build>
