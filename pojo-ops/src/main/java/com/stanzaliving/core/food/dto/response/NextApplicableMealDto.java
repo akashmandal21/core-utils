@@ -4,6 +4,7 @@ import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -20,7 +21,7 @@ import java.time.LocalDate;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class NextApplicableMealDto {
+public class NextApplicableMealDto implements Serializable {
 
 	private MealType nextMeal;
 

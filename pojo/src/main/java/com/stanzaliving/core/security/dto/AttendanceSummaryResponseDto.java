@@ -31,5 +31,6 @@ public class AttendanceSummaryResponseDto {
 	private String location;
 	private boolean cafeFoodOrder;
 	private boolean supportTicket;
+	private boolean securityAttendance;
 
 }

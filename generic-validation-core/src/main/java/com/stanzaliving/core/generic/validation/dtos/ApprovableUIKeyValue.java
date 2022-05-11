@@ -16,4 +16,6 @@ public class ApprovableUIKeyValue {
     private String value;
 
     private Integer approvalLevel;
+
+    private boolean isCityEligible;
 }
