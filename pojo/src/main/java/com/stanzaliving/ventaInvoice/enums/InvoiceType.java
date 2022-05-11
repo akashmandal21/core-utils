@@ -7,7 +7,6 @@ import lombok.Getter;
 @Getter
 public enum InvoiceType {
     INVOICE("Invoice"),
-    CREDIT_NOTE("Credit Note"),
-    CANCELLATION_CHARGE("Cancellation Charge");
+    CREDIT_NOTE("Credit Note");
     private final String values;
 }
