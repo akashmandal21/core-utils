@@ -107,10 +107,10 @@ public enum LeadSourceEnum {
     WEBSITE_RESIDENCE_CARD("Website - Residence Card", LeadSourceGroupEnum.DIGITAL),
     WEBSITE_RESIDENCE_CARD_RESERVE_NOW("Website - Residence Card Reserve Now", LeadSourceGroupEnum.DIGITAL),
     WEBSITE_RESIDENCE_CARD_SCHEDULE_VISIT("Website - Residence Card Schedule Visit", LeadSourceGroupEnum.DIGITAL),
+    WEBSITE_RESIDENCE_PAGE_VS_FORM("Website - Residence Page Vs Form", LeadSourceGroupEnum.DIGITAL),
     WEBSITE_VISIT("WebSite Visit", LeadSourceGroupEnum.DIGITAL),
     WHATSAPP("Whatsapp", LeadSourceGroupEnum.DIGITAL),
     WHATSAPP_WEBSITE("Whatsapp-Website", LeadSourceGroupEnum.DIGITAL),
-    WEBSITE_RESIDENCE_PAGE_VS_FORM("Website-Residence-Page", LeadSourceGroupEnum.DIGITAL),
     ZOHO("zoho", LeadSourceGroupEnum.OTHERS);
 
     private static Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
