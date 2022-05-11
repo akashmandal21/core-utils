@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @ToString
@@ -91,10 +93,10 @@ public class LeadRequestDto {
 	private String category;
 	private String fbclId;
 	private String creative;
-	
+
 	@JsonProperty("gClientId")
 	private String gClientId;
-	
+
 	@JsonProperty("gSessionId")
 	private String gSessionId;
 
@@ -122,16 +124,17 @@ public class LeadRequestDto {
 
 	@Default
 	private boolean ignoreScheduleVisit = false;
-	
+
 	private String accommodationType;
 
 	private boolean createHotLead;
-	
+
 	private String extendDurationMessage;
 
 	private Integer placeId;
 	private String placeName;
-	
+	private String timeSlot;
+
 	private String budget;
 	private String leadTag;
 }

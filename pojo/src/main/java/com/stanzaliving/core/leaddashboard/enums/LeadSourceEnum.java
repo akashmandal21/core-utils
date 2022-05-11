@@ -1,22 +1,14 @@
-/**
- * 
- */
 package com.stanzaliving.core.leaddashboard.enums;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * @author raj.kumar
- *
- */
+import java.util.HashMap;
+import java.util.Map;
+
 @Getter
 @AllArgsConstructor
 public enum LeadSourceEnum {
-//Keep it alphabetical
 
 	ADITYA_REFERRAL("Aditya Referral"),
 	AMC_BANNERGHATT("AMC Bannerghatt"),

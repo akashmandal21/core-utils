@@ -137,11 +137,32 @@ public class LeadserviceClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
+	
+	public ResponseDto<String> rescheduleVisitFromThankyouScreen(LeadRequestDto leadRequestDto) {
+
+		Object postBody = leadRequestDto;
+
+		String path = UriComponentsBuilder.fromPath("/lead/internal/website/reschedule").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
 
 	public ResponseDto<LeadRequestDto> leadCreation(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -170,7 +191,7 @@ public class LeadserviceClientApi {
 	public ResponseDto<LeadRequestDto> leadMigration(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -225,7 +246,7 @@ public class LeadserviceClientApi {
 	public ResponseDto<LeadRequestDto> createScheduledVisitLead(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 

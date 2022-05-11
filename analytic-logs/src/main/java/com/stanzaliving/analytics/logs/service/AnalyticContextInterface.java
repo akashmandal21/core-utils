@@ -3,6 +3,7 @@ package com.stanzaliving.analytics.logs.service;
 import org.apache.commons.lang.time.FastDateFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -31,6 +32,12 @@ class AnalyticContextInterface
     private static final String EXCEPTION_MESSAGE = "exceptionMessage";
     private static final String EXCEPTION_STACK_TRACE = "exceptionStackTrace";
     public static final String TX_NAME = "transactionName";
+    public static final String GUID = "guid";
+    public static final String LUID = "luid";
+    public static final String REQUEST_PATH = "RequestPath";
+    public static final String QUERY_STRING = "QueryString";
+    public static final String REQ_UID = "reqUuid";
+    public static final String REQ_MOBILE = "reqUserMobile";
 
     public static void beginTransaction(String name)
     {
@@ -141,6 +148,13 @@ class AnalyticContextInterface
                 (transactionKeyStore.endTime - transactionKeyStore.startTime));
         endpointConsumableMap.put(THREAD_NAME, Thread.currentThread().getName());
         endpointConsumableMap.put(TX_NAME, transactionKeyStore.getTransactionName().toLowerCase());
+        endpointConsumableMap.put(GUID, MDC.get(GUID));
+        endpointConsumableMap.put(LUID, MDC.get(LUID));
+        endpointConsumableMap.put("reqPath", MDC.get(REQUEST_PATH));
+        endpointConsumableMap.put("queryParams", MDC.get(QUERY_STRING));
+        endpointConsumableMap.put(REQ_UID, MDC.get(REQ_UID));
+        endpointConsumableMap.put(REQ_MOBILE, MDC.get(REQ_MOBILE));
+
         if (th != null)
         {
             endpointConsumableMap.put(EXCEPTION_MESSAGE, th.getMessage());
