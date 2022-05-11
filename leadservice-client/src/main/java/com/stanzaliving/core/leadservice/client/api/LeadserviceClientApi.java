@@ -377,7 +377,7 @@ public class LeadserviceClientApi {
 			return null;
 		}
 	}
-<<<<<<< HEAD
+
 
 	public ResponseDto<String> createGuestLead(LeadRequestDto leadRequestDto) {
 		log.info("LeadRequestDto while creating the guest lead {}", leadRequestDto);
@@ -414,8 +414,22 @@ public class LeadserviceClientApi {
 		queryParams.add("headerAuth", "c2510261f27872a22a160f463dc2ac2111ae2");
 
 		final HttpHeaders headerParams = new HttpHeaders();
-=======
-	
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching prebooked refund eligible leads {}", e);
+			return null;
+		}
+	}
+
+
 	public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
 
 		Object postBody = null;
@@ -428,29 +442,14 @@ public class LeadserviceClientApi {
 
 		if(Objects.nonNull(phone))
 			queryParams.add("phone", phone);
->>>>>>> 913ccfc36b70aca4886911e07c60efd000b4f689
+
+		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
+		};
 
 		final String[] accepts = { "*/*" };
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-<<<<<<< HEAD
-		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-		};
-
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-=======
-		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
-		};
-
-		try {
-			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("Error while fetching prebooked refund eligible leads {}", e);
-			return null;
-		}
-	}
->>>>>>> 913ccfc36b70aca4886911e07c60efd000b4f689
 }
