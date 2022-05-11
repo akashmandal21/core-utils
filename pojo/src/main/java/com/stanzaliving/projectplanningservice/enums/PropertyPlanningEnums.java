@@ -16,7 +16,9 @@ public enum PropertyPlanningEnums {
     PLAN_STATUS("planStatus"),
     BED_COUNT("bedCount"),
     PROGRESS("progress"),
-    DEFAULT_COLUMN("updatedAt");
+    DEFAULT_COLUMN("updatedAt"),
+    DURATION("duration"),
+    CREATED_AT("createdAt");
     String name;
 
 }
