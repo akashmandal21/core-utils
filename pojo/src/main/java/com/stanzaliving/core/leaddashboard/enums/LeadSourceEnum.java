@@ -110,6 +110,7 @@ public enum LeadSourceEnum {
     WEBSITE_VISIT("WebSite Visit", LeadSourceGroupEnum.DIGITAL),
     WHATSAPP("Whatsapp", LeadSourceGroupEnum.DIGITAL),
     WHATSAPP_WEBSITE("Whatsapp-Website", LeadSourceGroupEnum.DIGITAL),
+    WEBSITE_RESIDENCE_PAGE_VS_FORM("Website-Residence-Page", LeadSourceGroupEnum.DIGITAL),
     ZOHO("zoho", LeadSourceGroupEnum.OTHERS);
 
     private static Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
