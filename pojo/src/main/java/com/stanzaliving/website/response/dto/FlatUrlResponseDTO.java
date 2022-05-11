@@ -29,6 +29,7 @@ public class FlatUrlResponseDTO {
 	private List<FlatUrlPlaceResponseDTO> placeData;
 	private boolean isActive;
 	private Boolean locationCheck;
+	private Boolean isMultiplePlaceActive;
 	private Gender gender;
 	private Long reviewCount;
 	private Double rating;

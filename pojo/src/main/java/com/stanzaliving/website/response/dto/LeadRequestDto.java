@@ -21,6 +21,10 @@ import java.util.Objects;
 public class LeadRequestDto {
 
 	private Long leadId;
+	private String leadUuid;
+	
+	private String userIpAddress;
+	
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -48,6 +52,10 @@ public class LeadRequestDto {
 	private String micromarketName;
 	private String micromarketNameUuid;
 
+	private String cityUuid;
+	private String micromarketUuid;
+	private String residenceUuid;
+	
 	private String micromarketAliasName;
 
 	private String otherMicromarketName;
@@ -55,6 +63,8 @@ public class LeadRequestDto {
 	private String referralCode;
 
 	private String durationOfStay;
+
+	private String preBookingDate;
 
 	private String durationTime;
 	private String college;
@@ -131,6 +141,8 @@ public class LeadRequestDto {
 
 	private String extendDurationMessage;
 
+	private boolean isLeadBooked;
+	
 	private Integer placeId;
 	private String placeName;
 	private String timeSlot;
