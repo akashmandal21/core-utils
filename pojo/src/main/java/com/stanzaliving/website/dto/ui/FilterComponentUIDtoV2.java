@@ -16,12 +16,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class FilterComponentUIDtoV2 {
+	
 	private String name;
-	
 	private Integer cityId;
-	
-	private List<FilterBaseUIDto> staticFilters;
-	private List<FilterBaseUIDto> sortByFilter;
-	private List<FilterBaseUIDto> moreFilters;
-
+	private List<FilterBaseUIDto> filtersSection;
+	private List<FilterBaseUIDto> sortBySection;
+	private List<FilterBaseUIDto> moreFiltersSection;
 }
