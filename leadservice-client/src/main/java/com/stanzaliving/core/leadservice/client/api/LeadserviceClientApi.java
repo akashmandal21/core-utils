@@ -384,7 +384,7 @@ public class LeadserviceClientApi {
 
 		Object postBody = leadRequestDto;
 
-		String path = UriComponentsBuilder.fromPath("lead/external/create").toUriString();
+		String path = UriComponentsBuilder.fromPath("/lead/external/create").toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
