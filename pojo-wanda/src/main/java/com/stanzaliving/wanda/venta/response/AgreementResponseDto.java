@@ -8,6 +8,8 @@ import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -29,4 +31,6 @@ public class AgreementResponseDto {
     private String secondSubContractAgreementSendDate;
     private String contractText;
     private String contract2Text;
+    private Date createdAt;
+
 }

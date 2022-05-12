@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -28,4 +30,7 @@ public class ContractResponseDTO {
 	private Boolean preSelectedContractId;
 
     private String discountCode;
+
+    private Date createdAt;
+
 }
