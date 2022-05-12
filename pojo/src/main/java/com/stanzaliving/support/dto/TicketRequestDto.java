@@ -54,4 +54,6 @@ public class TicketRequestDto {
     @Builder.Default
     private String mailChainSubject = StringUtils.EMPTY;
 
+    private String email;
+
 }

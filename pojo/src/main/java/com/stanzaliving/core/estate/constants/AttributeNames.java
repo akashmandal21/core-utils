@@ -29,7 +29,7 @@ public class AttributeNames {
 		public static final String NUMBER_OF_FLOORS = "floorCount";
 
 		public static final String NUMBER_OF_STILT_ROOMS = "stiltNumberOfRooms";
-		
+
 		public static final String NUMBER_OF_AC_ROOMS = "acRoomsProposed";
 		
 		public static final String NUMBER_OF_TOWERS = "towerCount";

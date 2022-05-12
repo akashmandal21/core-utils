@@ -13,4 +13,5 @@ public class LegalAllRemarksResponseDto {
     private String variableName;
     private String remarks;
     private String status;
+    private String title;
 }
