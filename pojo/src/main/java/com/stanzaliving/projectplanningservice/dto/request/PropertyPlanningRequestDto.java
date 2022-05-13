@@ -63,4 +63,6 @@ public class PropertyPlanningRequestDto {
     private PlanningStatus planningStatus;
 
     private Integer hiddenTasksCount;
+
+    private String liveParentPlanId;
 }

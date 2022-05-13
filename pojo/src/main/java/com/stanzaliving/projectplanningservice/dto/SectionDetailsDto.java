@@ -161,4 +161,8 @@ public class SectionDetailsDto extends AbstractDto {
     @Valid
     private List<SectionDetailsDto> tasks;
 
+    private Boolean isDelayed;
+
+    private String liveParentTaskId;
+
 }

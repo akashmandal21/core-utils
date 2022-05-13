@@ -11,7 +11,8 @@ public enum PlanningStatus {
     DRAFT("draft"),
     PENDINGAPPROVAL("pendingapproval"),
     APPROVED("approved"),
-    REJECT("reject");
+    REJECT("reject"),
+    ARCHIVED("archived");
 
     private String status;
 }
