@@ -19,7 +19,13 @@ public class WebsitePlaceTypeConstants {
 	
 	public final String PLACE = "place";
 	
-	public final Integer  PLACE_TYPE_ID_CITY = 4;
+	public final String COLLEGE = "College";
 	
-	public final Integer  PLACE_TYPE_ID_MICROMARKET = 5;
+	public final String OTHERS = "Others";
+	
+	public final String CORPORATE="Corporate Park";
+	
+	public final Integer  PLACE_TYPE_ID_CITY = 5;
+	
+	public final Integer  PLACE_TYPE_ID_MICROMARKET = 4;
 }
