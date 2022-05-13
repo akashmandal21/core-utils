@@ -837,7 +837,7 @@ public class UserClientApi {
         Object postBody = null;
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        uriVariables.put("phone", phone);
+        uriVariables.put("mobileNo", phone);
         uriVariables.put("userType", userType);
         uriVariables.put("status", status);
 
