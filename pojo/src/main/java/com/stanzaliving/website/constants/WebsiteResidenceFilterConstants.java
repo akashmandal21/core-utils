@@ -28,6 +28,7 @@ public class WebsiteResidenceFilterConstants {
 
 	public final Integer FILTER_PRICE_SEQUENCE_ID = 2;
 	public final String FILTER_PRICE_NAME = "Price";
+	public final String FILTER_PRICE_NAME_V2 = "Budget";
 
 	public final Integer FILTER_GENDER_SEQUENCE_ID = 4;
 	public final String FILTER_GENDER_NAME = "Gender";
@@ -41,7 +42,7 @@ public class WebsiteResidenceFilterConstants {
 	public final Integer FILTER_OCCUPANCY_SEQUENCE_ID = 3;
 	public final String FILTER_OCCUPANCY_NAME = "Occupancy";
 	
-	public final Integer FILTER_AMENITIES_SEQUENCE_ID = 6;
+	public final Integer FILTER_AMENITIES_SEQUENCE_ID = 4;
 	public final String FILTER_AMENITIES_NAME = "Amenities";
 
 	public final Integer FILTER_SERVICES_SEQUENCE_ID = 5;
