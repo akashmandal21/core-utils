@@ -839,7 +839,7 @@ public class UserClientApi {
 
         uriVariables.put("mobileNo", phone);
         uriVariables.put("userType", userType);
-        uriVariables.put("status", status);
+        uriVariables.put("enabled", status);
 
         String path = UriComponentsBuilder.fromPath("/internal/update/status/{mobileNo}/{userType}/{enabled}").buildAndExpand(uriVariables).toUriString();
 
