@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.persistence.AttributeConverter;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,13 +15,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-public class ListGenericsObjectConverter<T> implements AttributeConverter<List<T>, String> {
+public class IntegerListJsonConverter implements AttributeConverter<List<Integer>, String> {
 
 	private static ObjectMapper objectMapper = new ObjectMapper();
 
 	@Override
-	public String convertToDatabaseColumn(List<T> attribute) {
-		log.info("LIST-OF-GENERIC-OBJECT-CONVERTER::Received attribute for conversion {}", attribute);
+	public String convertToDatabaseColumn(List<Integer> attribute) {
+
+		if (CollectionUtils.isEmpty(attribute)) {
+			return null;
+		}
+
+		log.info("LIST-OF-INTEGER-OBJECT-CONVERTER::Received attribute for conversion {}", attribute);
 		String attributeInfoJson = null;
 
 		try {
@@ -31,11 +39,16 @@ public class ListGenericsObjectConverter<T> implements AttributeConverter<List<T
 	}
 
 	@Override
-	public List<T> convertToEntityAttribute(String dbData) {
-		log.info("LIST-OF-GENERIC-OBJECT-CONVERTER::Convert entity attribute of {}", dbData);
-		List<T> attributeInfo = null;
+	public List<Integer> convertToEntityAttribute(String dbData) {
+
+		if (StringUtils.isBlank(dbData)) {
+			return null;
+		}
+
+		log.info("LIST-OF-INTEGER-OBJECT-CONVERTER::Convert entity attribute of {}", dbData);
+		List<Integer> attributeInfo = null;
 		try {
-			attributeInfo = objectMapper.readValue(dbData, new TypeReference<List<T>>() {
+			attributeInfo = objectMapper.readValue(dbData, new TypeReference<List<Integer>>() {
 			});
 		} catch (final IOException e) {
 			log.error("JSON reading error", e);
