@@ -38,4 +38,7 @@ public class ReviewTemplateResponseDto {
     private String propertyAction;
     @Temporal(TemporalType.TIMESTAMP)
     protected Date propertyApprovalTime;
+    private Boolean cmNameVisible;
+    private String salesReviewSubmittedBy;
+    private Date salesReviewSubmittedOn;
 }
