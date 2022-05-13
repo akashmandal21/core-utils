@@ -466,7 +466,7 @@ public class LeadserviceClientApi {
 		};
 
 		try {
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Exception caused expiring leads after inactivity of x days", e);
 			return null;
