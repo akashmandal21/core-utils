@@ -29,7 +29,12 @@ public enum BookingStatus {
     CONTRACT_COMPLETED("CONTRACT COMPLETED"),
     STAY_FORFEITURE("STAY FORFEITURE"),
     WRONG_BOOKING("WRONG BOOKING"),
-    RENT_DEFAULTER("RENT DEFAULTER");
+    RENT_DEFAULTER("RENT DEFAULTER"),
+    GUEST_BOOKING_IN_PROGRESS("GUEST BOOKING IN PROGRESS"),
+    GUEST_AGREEMENT_PENDING("GUEST AGREEMENT PENDING"),
+    GUEST_AGREEMENT_SENT("GUEST AGREEMENT SENT"),
+    GUEST_ONBOARDING_PENDING("GUEST ONBOARDING PENDING"),
+    GUEST_ONBOARDING_COMPLETED("GUEST ONBOARDING COMPLETED");
 
     private String bookingStatus;
 
@@ -118,6 +123,7 @@ public enum BookingStatus {
     public static Set<String>  bookingNeedsAttention() {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT.getDescription());
+        bookingStatus.add(BookingStatus.PAYMENT_PENDING.getDescription());
         return bookingStatus;
     }
 
@@ -322,5 +328,9 @@ public enum BookingStatus {
     }
 
 
-
+    public static List<BookingStatus> bookingEligibleForContractTerminationStatus() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED);
+        return bookingStatus;
+    }
 }
