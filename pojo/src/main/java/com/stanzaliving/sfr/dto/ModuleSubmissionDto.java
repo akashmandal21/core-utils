@@ -8,10 +8,12 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class AsIsSubmissionDto {
+public class ModuleSubmissionDto {
 
-    private Long asIsEntityId;
+    private Long moduleSubmissionId;
     
     private ModuleState moduleStatus;
+
+    private String questionTemplateId;
 
 }

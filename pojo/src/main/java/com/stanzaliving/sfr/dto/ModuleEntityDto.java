@@ -1,7 +1,5 @@
 package com.stanzaliving.sfr.dto;
 
-import com.stanzaliving.core.asis.enums.SiteVisitStatus;
-import com.stanzaliving.core.projectservice.enums.AsIsStatus;
 import lombok.*;
 
 @AllArgsConstructor
@@ -9,11 +7,11 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class AsisEntityDto {
+public class ModuleEntityDto {
 
     private String propertyUuid;
 
-    private Long asIsEntityId;
+    private Long moduleSubmissionId;
 
     private String questionTemplateId;
     
