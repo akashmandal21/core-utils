@@ -22,6 +22,7 @@ public enum PaymentPlanType {
 	INSTALLMENT("Instalment"),
 	DISCOUNT("Discount Adjusted"),
 	DAMAGE("Damage"),
+	CANCELLATION_CHARGE("Cancellation Charge"),
 
 	PENALTY_WAIVE_OFF("Penalty Waive Off"),
 	CREDIT_NOTE_FOR_DISCOUNT("Credit Note For Discount"),
