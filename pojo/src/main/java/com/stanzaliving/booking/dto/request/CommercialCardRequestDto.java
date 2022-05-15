@@ -1,5 +1,6 @@
 package com.stanzaliving.booking.dto.request;
 
+import com.stanzaliving.booking.enums.AMCAmountType;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,4 +37,7 @@ public class CommercialCardRequestDto implements Serializable {
 	@Builder.Default
 	@NotNull(message = "maintenance fee collection type cannot be null")
 	private MaintenanceFeeCollectionType maintenanceFeeCollectionType = MaintenanceFeeCollectionType.MONTHLY;
+
+	private AMCAmountType maintenanceChargeAmountType;
+
 }

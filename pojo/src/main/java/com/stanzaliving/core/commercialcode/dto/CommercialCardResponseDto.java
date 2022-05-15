@@ -68,5 +68,5 @@ public class CommercialCardResponseDto {
 
     private Double monthlyFeesMultiplier;
 
-    private AMCAmountType amcAmountType;
+    private AMCAmountType maintenanceChargeAmountType;
 }
