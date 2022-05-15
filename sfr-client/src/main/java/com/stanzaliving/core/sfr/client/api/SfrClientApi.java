@@ -93,7 +93,7 @@ public class SfrClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("moduleName", moduleName);
 
-		String path = UriComponentsBuilder.fromPath("/api/v1/question-template/module")
+		String path = UriComponentsBuilder.fromPath("/api/v1/question-template/module/{moduleName}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
