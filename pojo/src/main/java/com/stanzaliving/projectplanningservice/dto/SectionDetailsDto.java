@@ -163,4 +163,7 @@ public class SectionDetailsDto extends AbstractDto {
 
     private Boolean isDelayed;
 
+
+    private String liveParentTaskId;
+
 }
