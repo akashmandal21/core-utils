@@ -1,6 +1,6 @@
 package com.stanzaliving.booking.dto.request;
 
-import com.stanzaliving.core.bookingservice.dto.response.SoldBookingDto;
+import com.stanzaliving.booking.dto.response.SoldBookingDto;
 import lombok.*;
 
 
