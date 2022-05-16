@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class CodeListDto {
+public class    CodeListDto {
     private String uuid;
 
     private String commercialCodeName;
