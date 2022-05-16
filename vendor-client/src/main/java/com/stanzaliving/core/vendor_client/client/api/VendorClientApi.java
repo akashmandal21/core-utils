@@ -424,7 +424,7 @@ public class VendorClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, vddReturnType);
     }
 
-	public ResponseDto<GenericVendorDetailDto> getVendorDetailsByPocContact(String pocContact) {
+	public ResponseDto<Set<GenericVendorDetailDto>> getVendorDetailsByPocContact(String pocContact) {
 
 		Object postBody = null;
 
@@ -444,7 +444,7 @@ public class VendorClientApi {
 		
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<GenericVendorDetailDto>> returnType = new ParameterizedTypeReference<ResponseDto<GenericVendorDetailDto>>() {
+		ParameterizedTypeReference<ResponseDto<Set<GenericVendorDetailDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<GenericVendorDetailDto>>>() {
 		};
 		
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
