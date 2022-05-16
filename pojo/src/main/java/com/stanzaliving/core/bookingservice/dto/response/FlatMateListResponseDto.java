@@ -1,5 +1,13 @@
 package com.stanzaliving.core.bookingservice.dto.response;
 
+import com.stanzaliving.core.residenceservice.enums.ResidentType;
+import com.stanzaliving.core.user.dto.Address;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
