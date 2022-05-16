@@ -3,6 +3,7 @@ package com.stanzaliving.wanda.venta.response;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.booking.enums.AMCAmountType;
 import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import com.stanzaliving.booking.enums.PaymentTerm;
@@ -33,6 +34,7 @@ public class CommercialsResponseDtoV2 {
     private String maxDate;
     private double upsell;
     private MaintenanceFeeCollectionType maintenanceFeeCollectionType;
+    private AMCAmountType maintenanceChargeAmountType;
     private List<Map<String, String>> adjustedAdvanceRentalMonths;
     private PaymentTerm instalmentType;
     private String propertyType;
