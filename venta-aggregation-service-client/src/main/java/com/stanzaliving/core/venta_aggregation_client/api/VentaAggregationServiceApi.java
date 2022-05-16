@@ -398,10 +398,11 @@ public class VentaAggregationServiceApi {
 		return null;
 	}
 
-	public ResidenceDto getAllResidence() {
+	public ResidenceDto getAllResidenceByResidenceUuid(String residenceUuid) {
 		Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
+		String path = UriComponentsBuilder.fromPath("/internal/residence/{residenceUuid}")
 
-		String path = UriComponentsBuilder.fromPath("/internal/residence/")
 				.buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -418,4 +419,5 @@ public class VentaAggregationServiceApi {
 		}
 		return null;
 	}
+
 }

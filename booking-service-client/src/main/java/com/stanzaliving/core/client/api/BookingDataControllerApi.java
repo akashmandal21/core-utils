@@ -8,8 +8,10 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.booking.dto.*;
+import com.stanzaliving.booking.dto.request.BookingResidencesReqDto;
 import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.bookingservice.dto.response.PackagedServiceResponseDto;
+import com.stanzaliving.core.bookingservice.dto.response.SoldBookingDto;
 import com.stanzaliving.core.client.dto.*;
 import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
@@ -942,28 +944,22 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<Integer> getAllActiveBookingDetails(String residenceUuid) {
 
-        Object postBody = null;
 
-        // create path and map variables
+    public ResponseDto<Double> getAllActiveBookingDetails(BookingResidencesReqDto bookingResidencesReqDto) {
+
+        Object postBody = bookingResidencesReqDto;
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("residenceUuid", residenceUuid);
-
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/all-active-bookings-today/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
-
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/all-active-bookings-revenue").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        final HttpHeaders headerParams = new HttpHeaders();
-
+        HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {
                 "*/*"
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<Integer>> returnType
-                = new ParameterizedTypeReference<ResponseDto<Integer>>() {
+        ParameterizedTypeReference<ResponseDto<Double>> returnType = new ParameterizedTypeReference<ResponseDto<Double>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
 }
