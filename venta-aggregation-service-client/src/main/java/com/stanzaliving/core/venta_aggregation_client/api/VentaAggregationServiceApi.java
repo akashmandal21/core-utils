@@ -401,7 +401,7 @@ public class VentaAggregationServiceApi {
 	public ResidenceDto getAllResidenceByResidenceUuid(String residenceUuid) {
 		Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residenceUuid", residenceUuid);
-		String path = UriComponentsBuilder.fromPath("/internal/residence/{residenceUuid}")
+		String path = UriComponentsBuilder.fromPath("/internal/residence/getCluster/{residenceUuid}")
 
 				.buildAndExpand(uriVariables).toUriString();
 
