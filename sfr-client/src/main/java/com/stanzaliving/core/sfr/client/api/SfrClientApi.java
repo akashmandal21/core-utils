@@ -86,7 +86,7 @@ public class SfrClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<String> getQuestionTemplateIdForModule(ModuleNames moduleName){
+	public ResponseDto<String> getQuestionTemplateIdForModule(ModuleNames moduleName, String token){
 
 		Object postBody = null;
 
@@ -99,6 +99,7 @@ public class SfrClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add("Cookie", token);
 
 		final String[] accepts = {
 				"*/*"
