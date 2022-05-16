@@ -35,4 +35,3 @@ public class FlatMateListResponseDto {
     private Boolean hasActiveBooking;
     private Date invitationSentOn;
 }
-}
