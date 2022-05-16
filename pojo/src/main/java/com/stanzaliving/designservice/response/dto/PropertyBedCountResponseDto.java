@@ -11,6 +11,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 /**
  * @author raj.kumar
  *
@@ -35,4 +38,6 @@ public class PropertyBedCountResponseDto {
 	private Date updatedAt;
 	private String competitorName;
 	private int leasedArea;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date propertyApprovalTime;
 }
