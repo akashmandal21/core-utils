@@ -95,4 +95,6 @@ public class PropertyPlanningDto extends AbstractDto {
     private Integer hiddenTasksCount;
 
     private String liveParentPlanId;
+
+    private Boolean isEditable;
 }
