@@ -12,8 +12,12 @@ import java.util.List;
 public enum ModuleNames {
 
     SFR,
-    ASIS;
+    SFR_SUBMISSION,
+    ASIS,
+    ASIS_SUBMISSION;
 
     public static final List<ModuleNames> moduleNames = Arrays.asList(SFR, ASIS);
+
+    public static final List<ModuleNames> moduleSubmissionNames = Arrays.asList(SFR_SUBMISSION, ASIS_SUBMISSION);
 
 }
