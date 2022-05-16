@@ -18,6 +18,7 @@ public class SoldBookingDto {
     private String bookingUuid;
     private BookingType bookingType;
     private Date lockInEnd;
-
+    private Date contractStart;
+    private String lockInDuration;
 
 }
