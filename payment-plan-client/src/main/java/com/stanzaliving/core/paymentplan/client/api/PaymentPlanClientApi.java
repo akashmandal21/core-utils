@@ -760,18 +760,16 @@ public class PaymentPlanClientApi {
         }
 
     }
-    public ResponseDto<Boolean> disableAllPaymentPlan(String referenceId, String token) {
+    public ResponseDto<Boolean> disableAllPaymentPlan(String referenceId) {
         try {
-            if (StringUtils.isBlank(token)) {
-                throw new IllegalArgumentException("Token missing for updating payment plan");
-            }
+
             Object postBody = null;
 
             log.info("Request received to disable payment plan after move out date for referenceId:{} ", referenceId);
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/api/v1/disable/all").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/disable/all").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
