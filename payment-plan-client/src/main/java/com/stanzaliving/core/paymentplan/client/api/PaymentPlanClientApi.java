@@ -777,9 +777,6 @@ public class PaymentPlanClientApi {
 
             HttpHeaders headerParams = new HttpHeaders();
 
-            String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
-            headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
-
             final String[] accepts = {"*/*"};
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
