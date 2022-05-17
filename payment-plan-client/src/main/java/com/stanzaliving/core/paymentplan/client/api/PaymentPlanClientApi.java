@@ -760,6 +760,42 @@ public class PaymentPlanClientApi {
         }
 
     }
+    public ResponseDto<Boolean> disableAllPaymentPlan(String referenceId, String token) {
+        try {
+            if (StringUtils.isBlank(token)) {
+                throw new IllegalArgumentException("Token missing for updating payment plan");
+            }
+            Object postBody = null;
+
+            log.info("Request received to disable payment plan after move out date for referenceId:{} ", referenceId);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/api/v1/disable/all").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            queryParams.add("referenceId", String.valueOf(referenceId));
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+            headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while disabling the paymentPlan {}", e);
+            return null;
+        }
+
+    }
 
 
 }
