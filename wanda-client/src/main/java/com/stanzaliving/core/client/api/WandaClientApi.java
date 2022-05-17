@@ -897,7 +897,7 @@ public class WandaClientApi {
 
 	}
 
-	public BookingStatusResponseDto getBookingStatusByUserUuid(String userUuid) {
+	public ResponseDto<BookingStatusResponseDto> getBookingStatusByUserUuid(String userUuid) {
 		try {
 			Object postBody = null;
 
@@ -907,7 +907,7 @@ public class WandaClientApi {
 
 			uriVariables.put("userUuid", userUuid);
 
-			String path = UriComponentsBuilder.fromPath("/booking/status/id/{userUuid}")
+			String path = UriComponentsBuilder.fromPath("/internal/booking-status/id/{userUuid}")
 					.buildAndExpand(uriVariables).toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -917,10 +917,10 @@ public class WandaClientApi {
 			final String[] accepts = { "*/*" };
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-			ParameterizedTypeReference<BookingStatusResponseDto> returnType = new ParameterizedTypeReference<BookingStatusResponseDto>() {
+			ParameterizedTypeReference<ResponseDto<BookingStatusResponseDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<BookingStatusResponseDto>>() {
 			};
-
-			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+ 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Error while fetching booking status for userUuid: {}", userUuid, e);
 		}
