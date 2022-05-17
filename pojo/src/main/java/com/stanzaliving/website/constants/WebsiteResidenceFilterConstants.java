@@ -54,4 +54,6 @@ public class WebsiteResidenceFilterConstants {
 	public final Integer FILTER_SERVICES_SEQUENCE_ID = 9;
 	public final Integer FILTER_SERVICES_SEQUENCE_ID_V2 = 5;
 	public final String FILTER_SERVICES_NAME = "Services";
+	
+	public final String DISTANCE = "Distance";
 }
