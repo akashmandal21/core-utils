@@ -8,8 +8,10 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.booking.dto.*;
+import com.stanzaliving.booking.dto.request.BookingResidencesReqDto;
 import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.bookingservice.dto.response.PackagedServiceResponseDto;
+import com.stanzaliving.core.bookingservice.dto.response.SoldBookingDto;
 import com.stanzaliving.core.client.dto.*;
 import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
@@ -544,6 +546,7 @@ public class BookingDataControllerApi {
         }
         return null;
     }
+
     public ResponseDto<String> checkAndUpdateContractBasedInventories(UpdateDealAndInventoryDto updateDealAndInventoryDto) {
 
         Object postBody = updateDealAndInventoryDto;
@@ -566,7 +569,7 @@ public class BookingDataControllerApi {
         return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<RequestDto> fetchLatestModifyRequestForBooking(String bookingUuid, String requestType){
+    public ResponseDto<RequestDto> fetchLatestModifyRequestForBooking(String bookingUuid, String requestType) {
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
 
@@ -666,7 +669,8 @@ public class BookingDataControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<BookingResponseDto> returnType =
-                new ParameterizedTypeReference<BookingResponseDto>() {};
+                new ParameterizedTypeReference<BookingResponseDto>() {
+                };
 
         return restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
@@ -685,12 +689,12 @@ public class BookingDataControllerApi {
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<List<BookingDetailDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingDetailDto>>>() {
         };
-        ResponseDto<List<BookingDetailDto>> response  = null;
+        ResponseDto<List<BookingDetailDto>> response = null;
         try {
             log.info("Executing Api for getting booked inventory with Url {}", path);
             response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching bookin details for resident for residentId {}, Exception is ",residentId , e);
+            log.error("Exception while fetching bookin details for resident for residentId {}, Exception is ", residentId, e);
         }
         return Objects.nonNull(response) ? response.getData() : new ArrayList<>();
     }
@@ -708,12 +712,12 @@ public class BookingDataControllerApi {
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<List<BookingStatusResponseDto>> returnType = new ParameterizedTypeReference<List<BookingStatusResponseDto>>() {
         };
-        List<BookingStatusResponseDto> response  = null;
+        List<BookingStatusResponseDto> response = null;
         try {
             log.info("Executing Api for getting booking status with Url {}", path);
             response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching booking status for resident for user uuid {}, Exception is ",userUuid , e);
+            log.error("Exception while fetching booking status for resident for user uuid {}, Exception is ", userUuid, e);
         }
         return Objects.nonNull(response) ? response : new ArrayList<>();
     }
@@ -730,12 +734,12 @@ public class BookingDataControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<Map<String, List<BookingDetailDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<BookingDetailDto>>>>() {
         };
-        ResponseDto<Map<String, List<BookingDetailDto>>> response  = null;
+        ResponseDto<Map<String, List<BookingDetailDto>>> response = null;
         try {
             log.info("Executing Api for getting booked inventory in case of electricity with Url {}", path);
             response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching booking details for resident for residentIds {}, Exception is ", residentRequestDto , e);
+            log.error("Exception while fetching booking details for resident for residentIds {}, Exception is ", residentRequestDto, e);
         }
         return Objects.nonNull(response) && Objects.nonNull(response.getData()) ? response.getData() : new HashMap<>();
     }
@@ -776,12 +780,12 @@ public class BookingDataControllerApi {
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<BookingInventoryResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingInventoryResponseDto>>() {
         };
-        ResponseDto<BookingInventoryResponseDto> response  = null;
+        ResponseDto<BookingInventoryResponseDto> response = null;
         try {
             log.info("Executing Api for getting booking inventory details with Url {}", path);
             response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching booking inventory details for bookingUuid {}, Exception is ",bookingUuid , e);
+            log.error("Exception while fetching booking inventory details for bookingUuid {}, Exception is ", bookingUuid, e);
         }
         return response;
     }
@@ -830,7 +834,7 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, bookingUuid, headerParams, accept, returnType);
     }
 
-    public ResponseDto<VasEmailDto> fetchRequestDetailsForVas(String requestUuid){
+    public ResponseDto<VasEmailDto> fetchRequestDetailsForVas(String requestUuid) {
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("requestUuid", requestUuid);
 
@@ -942,7 +946,7 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<String> syncMysqlAndElasticData(){
+    public ResponseDto<String> syncMysqlAndElasticData() {
         Object postBody = null;
 
         // create path and map variables
@@ -988,4 +992,19 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public ResponseDto<Double> getAllActiveBookingDetails(BookingResidencesReqDto bookingResidencesReqDto) {
+
+        Object postBody = bookingResidencesReqDto;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/all-active-bookings-revenue").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Double>> returnType = new ParameterizedTypeReference<ResponseDto<Double>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
 }

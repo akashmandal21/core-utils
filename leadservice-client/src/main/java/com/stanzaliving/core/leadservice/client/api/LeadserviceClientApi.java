@@ -415,11 +415,40 @@ public class LeadserviceClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-
 		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+
+	public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
+
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("internal/prebooking/refund/fetch/eligible/leads").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		if(Objects.nonNull(phone))
+			queryParams.add("phone", phone);
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching prebooked refund eligible leads {}", e);
+			return null;
+		}
 	}
 
 }

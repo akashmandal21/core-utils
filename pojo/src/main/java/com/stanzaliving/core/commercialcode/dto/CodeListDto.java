@@ -1,5 +1,6 @@
 package com.stanzaliving.core.commercialcode.dto;
 
+import com.stanzaliving.booking.enums.AMCAmountType;
 import lombok.*;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class CodeListDto {
+public class    CodeListDto {
     private String uuid;
 
     private String commercialCodeName;
@@ -39,4 +40,6 @@ public class CodeListDto {
     private Boolean onboardingChargesApplicableOnRetention;
 
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
+
+    private AMCAmountType maintenanceChargeAmountType;
 }
