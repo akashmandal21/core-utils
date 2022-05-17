@@ -1,5 +1,6 @@
 package com.stanzaliving.sfr.dto;
 
+import com.stanzaliving.sfr.enumeration.ModuleState;
 import lombok.*;
 
 @AllArgsConstructor
@@ -14,5 +15,7 @@ public class ModuleEntityDto {
     private Long moduleSubmissionId;
 
     private String questionTemplateId;
+    
+    private ModuleState moduleState;
     
 }

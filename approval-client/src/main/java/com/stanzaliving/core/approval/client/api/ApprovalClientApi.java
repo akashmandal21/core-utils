@@ -81,5 +81,32 @@ public class ApprovalClientApi {
 
     }
 
+    public ResponseDto<String> submitModule(String propertyUuid, ModuleNames moduleName) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("propertyUuid", propertyUuid);
+        uriVariables.put("moduleName", moduleName);
+
+        String path = UriComponentsBuilder.fromPath("/module/submit/{propertyUuid}/{moduleName}")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
 
 }
