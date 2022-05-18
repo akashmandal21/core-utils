@@ -1,5 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
+import java.util.List;
+
 import com.stanzaliving.website.enums.ApartmentRoomType;
 
 import lombok.AllArgsConstructor;
@@ -38,4 +40,8 @@ public class ApartmentRoomTypeResponseDTO {
 	private Integer discountedPrice;
 	
     private Long roomTypeId;
+    
+    private List<Integer> featureIds;
+    
+    private String roomId;
 }
