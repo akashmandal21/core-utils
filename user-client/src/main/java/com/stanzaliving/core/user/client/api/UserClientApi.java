@@ -14,6 +14,8 @@ import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
 import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.user.request.dto.*;
+import com.stanzaliving.core.user.enums.UserType;
+import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -803,7 +805,6 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-
 	public ResponseDto<Boolean> updateUserStatus(String phone, UserType userType, Boolean status) {
 
 		Object postBody = null;
@@ -827,6 +828,5 @@ public class UserClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-
 
 }

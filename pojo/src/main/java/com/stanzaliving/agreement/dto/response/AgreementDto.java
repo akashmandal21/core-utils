@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @Builder
@@ -23,4 +25,6 @@ public class AgreementDto {
     private String agreementUrl;
 
     private String addendumUrl;
+
+    private Date createdAt;
 }

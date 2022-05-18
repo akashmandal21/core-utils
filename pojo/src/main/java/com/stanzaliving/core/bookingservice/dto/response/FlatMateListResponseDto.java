@@ -10,10 +10,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class FlatMateListResponseDto {
     private String firstName;
     private String middleName;
