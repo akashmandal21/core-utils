@@ -769,4 +769,28 @@ public class BookingDataControllerApi {
         return response;
 
     }
+
+    public ResponseDto<List<BookingResponseDto>> getBookingsForLead(String leadUuid) {
+
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("leadUuid", leadUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/booking/{leadUuid}")
+            .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>>() {
+        };
+        ResponseDto<List<BookingResponseDto>> response  = null;
+        try {
+            log.info("Executing Api for getting bookings for lead {}", leadUuid);
+            response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bookings for lead {}, Exception is ",leadUuid , e);
+        }
+        return response;
+    }
 }
