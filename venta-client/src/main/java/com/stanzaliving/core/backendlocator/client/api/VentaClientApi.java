@@ -453,4 +453,26 @@ public class VentaClientApi {
 		return null;
 	}
 
+	public LeadDetailsDto getLeadById(String id) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("id", id);
+		String path = UriComponentsBuilder.fromPath("/get/lead/{id}").buildAndExpand(uriVariables)
+			.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<LeadDetailsDto> returnType = new ParameterizedTypeReference<LeadDetailsDto>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
 }
