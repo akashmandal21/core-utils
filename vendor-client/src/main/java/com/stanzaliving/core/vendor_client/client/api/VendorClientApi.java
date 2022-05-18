@@ -424,4 +424,30 @@ public class VendorClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, vddReturnType);
     }
 
+	public ResponseDto<Set<GenericVendorDetailDto>> getVendorDetailsByPocContact(String pocContact) {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("pocContact", pocContact);
+
+		String path = UriComponentsBuilder.fromPath("internal/pocContact/{pocContact}/vendor/details/get").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Set<GenericVendorDetailDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<GenericVendorDetailDto>>>() {
+		};
+		
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 }
