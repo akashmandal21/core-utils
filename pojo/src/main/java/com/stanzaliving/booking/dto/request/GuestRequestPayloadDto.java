@@ -2,6 +2,7 @@ package com.stanzaliving.booking.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.booking.enums.BookingType;
+import com.stanzaliving.core.user.enums.Gender;
 import lombok.*;
 
 import java.util.Date;
@@ -22,7 +23,7 @@ public class GuestRequestPayloadDto {
 
     private String email;
 
-    private String gender;
+    private Gender gender;
 
     private String nationality;
 
