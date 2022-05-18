@@ -22,6 +22,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class UserDetailsDto {
 
+    @NotNull(message = "User uuid is mandatory")
     private String userUuid;
 
     private String userCode;
