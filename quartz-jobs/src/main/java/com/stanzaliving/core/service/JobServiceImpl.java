@@ -45,8 +45,7 @@ public class JobServiceImpl implements JobService {
 	@Qualifier("QuartzScheduler")
 	private Scheduler scheduler;
 
-	@Bean
-	@Qualifier("QuartzScheduler")
+	@Bean(name = "QuartzScheduler")
 	public Scheduler getSchedulerBean() throws SchedulerException {
 		Scheduler scheduler = schedulerFactoryBean.getScheduler();
 		scheduler.getListenerManager().addJobListener(new UIDJobListener());
