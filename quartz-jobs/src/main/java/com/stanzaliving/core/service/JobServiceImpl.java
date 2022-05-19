@@ -16,6 +16,7 @@ import org.quartz.Trigger.TriggerState;
 import org.quartz.TriggerKey;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
@@ -40,8 +41,12 @@ public class JobServiceImpl implements JobService {
 	@Autowired
 	private SchedulerFactoryBean schedulerFactoryBean;
 
+	@Autowired
+	@Qualifier("QuartzScheduler")
+	private Scheduler scheduler;
 
 	@Bean
+	@Qualifier("QuartzScheduler")
 	public Scheduler getSchedulerBean() throws SchedulerException {
 		Scheduler scheduler = schedulerFactoryBean.getScheduler();
 		scheduler.getListenerManager().addJobListener(new UIDJobListener());
@@ -97,7 +102,6 @@ public class JobServiceImpl implements JobService {
 		Trigger cronTriggerBean = JobUtil.createSingleTrigger(triggerKey, date, SimpleTrigger.MISFIRE_INSTRUCTION_IGNORE_MISFIRE_POLICY);
 
 		try {
-			Scheduler scheduler = getSchedulerBean();
 			Date dt = scheduler.scheduleJob(jobDetail, cronTriggerBean);
 			log.info("Job with key jobKey: " + jobKey + " and group :" + groupKey + " scheduled successfully for date :" + dt);
 			return true;
