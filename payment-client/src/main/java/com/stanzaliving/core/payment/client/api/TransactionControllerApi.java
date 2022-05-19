@@ -299,4 +299,29 @@ public class TransactionControllerApi {
 		}
 		return null;
 	}
+
+	public ResponseDto<String> initiateAutoPrebookingRefund(){
+
+		log.info("Called api to inititate auto prebooking refund");
+
+		String path= UriComponentsBuilder.fromPath("/internal/inititate/auto-prebooking-refund").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams=new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
+		};
+		ResponseDto<String> responseDto;
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
+				returnType);
+			return responseDto;
+
+		} catch (Exception e) {
+			log.error("Exception while intitating auto prebooking refund");
+		}
+		return null;
+	}
 }
