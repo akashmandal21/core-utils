@@ -46,6 +46,7 @@ public class JobServiceImpl implements JobService {
 		Scheduler scheduler = schedulerFactoryBean.getScheduler();
 		scheduler.getListenerManager().addJobListener(new UIDJobListener());
 		scheduler.start();
+		log.info("Quartz Scheduler Started");
 		return scheduler;
 	}
 
@@ -85,7 +86,7 @@ public class JobServiceImpl implements JobService {
 
 	@Override
 	public boolean scheduleOneTimeJobWithIgnoreMisfirePolicy(String jobName, String groupKey, Class<? extends QuartzJobBean> jobClass, Date date, JobDataMap jobDataMap, boolean isRecoverable, boolean isDurable) {
-		log.info("Request received to scheduleJob");
+		log.info("Request received to scheduleJob with Ignore Misfire Policy.");
 
 		String jobKey = jobName;
 		String triggerKey = jobName;
