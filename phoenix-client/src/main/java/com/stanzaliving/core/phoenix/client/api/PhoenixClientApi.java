@@ -1,4 +1,4 @@
-package com.stanzaliving.core.approval.client.api;
+package com.stanzaliving.core.phoenix.client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -19,11 +19,11 @@ import java.util.List;
 import java.util.Map;
 
 @Log4j2
-public class ApprovalClientApi {
+public class PhoenixClientApi {
 
     private StanzaRestClient restClient;
 
-    public ApprovalClientApi(StanzaRestClient stanzaRestClient) {
+    public PhoenixClientApi(StanzaRestClient stanzaRestClient) {
         this.restClient = stanzaRestClient;
     }
 
