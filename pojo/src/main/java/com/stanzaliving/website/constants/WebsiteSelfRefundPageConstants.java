@@ -9,9 +9,9 @@ public class WebsiteSelfRefundPageConstants {
 
 	public final String SELF_REFUND_REQUEST_NOT_RAISED_MESSAGE = "You haven’t raised any request for a refund for:";
 
-	public final String ZERO_PREBOOKING_TRANSACTION_FOUND_MESSAGE = "No bookings found in your name."
+	public final String ZERO_PREBOOKING_TRANSACTION_FOUND_MESSAGE = "We didn’t find any reservation under your name."
 			+ System.lineSeparator()
-			+ "Don't worry, it's not too late. Initiate the pre-booking process by clicking here.";
+			+ "Don’t worry, it’s not too late. Explore our residences and reserve the one you like";
 
 	public final String PREBOOKING_AMOUNT_ADJUSTED_IN_BOOKING_MESSAGE = "The pre-booking amount you're requesting for refund has already been adjusted in your confirmed booking.";
 
