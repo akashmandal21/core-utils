@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.paymentplan.client.api;
 
+import com.stanzaliving.booking.SoldBookingDto;
 import com.stanzaliving.booking.dto.request.ContractExtensionPaymentPlanRequestDTO;
 import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
 import com.stanzaliving.booking.dto.request.PaymentReqDto;
@@ -794,15 +795,13 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<Double> getMatrixData(PaymentReqDto paymentReqDto) {
+    public ResponseDto<Double> getSumOfPriceOfBookingWithinLockIn(@RequestBody Map<String, SoldBookingDto> refIdMap) {
 
         Object postBody = null;
 
-        log.info("Request_DTO is {} ", paymentReqDto);
-
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/getGuaranteeRevenue").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/matrix/sum-Of-booking-within-lockIn").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -814,7 +813,7 @@ public class PaymentPlanClientApi {
 
         ParameterizedTypeReference<ResponseDto<Double>> returnType = new ParameterizedTypeReference<ResponseDto<Double>>() {
         };
-        postBody = paymentReqDto;
+        postBody = refIdMap;
 
         try {
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
