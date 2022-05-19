@@ -19,6 +19,7 @@ public class ReviewTemplateDto {
     private String propertyTypeName;
     private String templateStatus;
     private List<KeyValueDto> roles;
+    private List<KeyValueDto> viewOnlyRoles;
     private List<ApplicableStatusesDto> propertyStatuses;
     private boolean bedCountDetailsVisible;
     private boolean salesReviewVisible;
@@ -26,6 +27,8 @@ public class ReviewTemplateDto {
     private boolean atlDocumentVisible;
     private boolean l1CallBackVisible;
     private boolean l2CallBackVisible;
+    private boolean viewOnly;
+    private boolean bypassVisible;
     private List<OtherInformationDto> otherInformation;
     private List<LayoutDto> layouts;
     private String propertyAction;

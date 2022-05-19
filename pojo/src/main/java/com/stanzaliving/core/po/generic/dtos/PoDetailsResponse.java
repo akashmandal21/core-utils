@@ -6,6 +6,7 @@ import com.stanzaliving.core.invoice.dto.OtherFeeRowDto;
 import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import com.stanzaliving.core.vendor.enums.VendorType;
+import com.stanzaliving.po.enums.DeliveryType;
 import com.stanzaliving.transformations.enums.LocationType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -57,6 +58,7 @@ public class PoDetailsResponse {
     private UIKeyValue deliveryLocation;
     private BigDecimal advanceAmount;
     private BigDecimal retentionAmount;
+    private String retentionPercent;
 
     private Integer advCreditDays;
     private Integer genCreditDays;
@@ -80,5 +82,6 @@ public class PoDetailsResponse {
     private String taxLocationType;
 
     private String billingState;
+    private String deliveryType;
 
 }
