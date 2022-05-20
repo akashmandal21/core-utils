@@ -12,7 +12,8 @@ public enum ModuleState implements State<ModuleState> {
     ASIS_APPROVED("Approved","#77baa6"),
     ASIS_CANCELLED("Cancelled","#e5e3e3");
 
-    private String status, color;
+    private final String status;
+    private final String color;
 
     ModuleState(String status, String color){
         this.status=status;
