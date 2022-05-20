@@ -27,7 +27,11 @@ public class PaymentDto {
 
     private PaymentStatus paymentStatus;
 
+    private String transactionType;
+
     private String userId;
+
+    private String userType;
 
     private String paymentMetadata;
 
