@@ -399,7 +399,7 @@ public class VentaAggregationServiceApi {
 		return null;
 	}
 
-	public ResponseEntity<List<String>> getResidenceListInMicroMarket(String residenceUuid) {
+	public ResponseDto<List<String>> getResidenceListInMicroMarket(String residenceUuid) {
 		Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residenceid", residenceUuid);
 		String path = UriComponentsBuilder.fromPath("/internal/residence/residence-list-in-microid/{residenceid}")
@@ -410,7 +410,7 @@ public class VentaAggregationServiceApi {
 		String[] accepts = new String[] { "*/*" };
 		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseEntity<List<String>>> returnType = new ParameterizedTypeReference<ResponseEntity<List<String>>>() {};
+		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {};
 		try {
 			log.info("Executing Api for getting bookings Info with Url {}", path);
 			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
