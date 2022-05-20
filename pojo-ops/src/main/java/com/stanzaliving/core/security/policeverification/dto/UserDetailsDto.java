@@ -41,7 +41,7 @@ public class UserDetailsDto {
 
     private UserPersonalDetailsDto userPersonalDetails;
 
-    private StanzaResidenceDetailsDto stanzaResidenceDetailsDto;
+    private StanzaResidenceDetailsDto stanzaResidenceDetails;
 
     private AddressDetailsDto permanentAddressDetails;
 

@@ -31,7 +31,7 @@ public class PoliceVerificationActivityDto {
 
     @Enumerated(EnumType.STRING)
     @NotNull(message = "Police Verification Status is mandatory")
-    private PoliceVerificationStatus pvStatus;
+    private PoliceVerificationStatus policeVerificationStatus;
 
     protected LocalDateTime createdAt;
 
