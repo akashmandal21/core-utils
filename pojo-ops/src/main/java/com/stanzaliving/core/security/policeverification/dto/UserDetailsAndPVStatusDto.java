@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,7 +25,7 @@ public class UserDetailsAndPVStatusDto extends UserDetailsDto {
 
     private String uuid;
 
-    @NotBlank(message = "PV Status is mandatory")
+    @NotNull(message = "PV Status is mandatory")
     @Enumerated(EnumType.STRING)
     private PoliceVerificationStatus policeVerificationStatus;
 

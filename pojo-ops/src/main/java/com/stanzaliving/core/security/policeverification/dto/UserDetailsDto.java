@@ -35,7 +35,7 @@ public class UserDetailsDto {
     @Enumerated(EnumType.STRING)
     private ResidentStatus residentStatus;
 
-    @NotBlank(message = "Registration Type is mandatory")
+    @NotNull(message = "Registration Type is mandatory")
     @Enumerated(EnumType.STRING)
     private RegistrationType registrationType;
 
