@@ -19,7 +19,7 @@ public class UnderWrittenDto {
     protected FoodCategoryDto foodCategoryDto;
     protected UtilitiesCategoryDto utilitiesCategoryDto;
     protected InternetCategoryDto internetCategoryDto;
-    protected HouseKeepingCategoryDto houseKeepingCategoryDto;
+    public HouseKeepingCategoryDto houseKeepingCategoryDto;
     protected SecurityCategoryDto securityCategoryDto;
     protected PersonnelCategoryDto personnelCategoryDto;
     public AuditCategoryDto auditCategoryDto;

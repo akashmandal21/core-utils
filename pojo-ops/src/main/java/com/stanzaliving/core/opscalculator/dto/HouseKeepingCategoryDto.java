@@ -26,7 +26,7 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "utilization" })
 public class HouseKeepingCategoryDto extends CategoryDto {
 
-	private boolean is8HourApplicable;
+	public boolean is8HourApplicable;
 	private boolean is12HourApplicable;
 	private boolean isContractApplicable;
 
