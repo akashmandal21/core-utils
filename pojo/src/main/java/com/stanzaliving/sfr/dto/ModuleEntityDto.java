@@ -3,6 +3,7 @@ package com.stanzaliving.sfr.dto;
 import com.stanzaliving.sfr.enumeration.ModuleState;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -20,9 +21,9 @@ public class ModuleEntityDto {
     
     private ModuleState moduleState;
 
-    private Date uploadedAt;
+    private LocalDate uploadedAt;
 
-    private Date reviewedAt;
+    private LocalDate reviewedAt;
 
     private String color;
 
