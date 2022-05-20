@@ -324,4 +324,50 @@ public class TransactionControllerApi {
 		}
 		return null;
 	}
+
+	public ResponseDto<String> initiateAutoPrebookingRefund(com.stanzaliving.paymentService.dto.PaymentDto paymentDto) {
+
+		log.info("Called api to initiate auto prebooking refund");
+		Object postBody = paymentDto;
+		String path= UriComponentsBuilder.fromPath("/internal/initiate/auto-prebook-refund").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams=new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
+		};
+		ResponseDto<String> responseDto;
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
+				returnType);
+			return responseDto;
+
+		} catch (Exception e) {
+			log.error("Exception while intitating auto prebooking refund");
+		}
+		return null;
+	}
+
+	public ResponseDto<List<com.stanzaliving.paymentService.dto.PaymentDto>> getAutoRefundEligiblePrebookings() {
+		log.info("Get all auto prebooking refund eligible leads");
+		Object postBody = null;
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/get/all/auto-refund-eligible-prebooking")
+			.buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<List<com.stanzaliving.paymentService.dto.PaymentDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<com.stanzaliving.paymentService.dto.PaymentDto>>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+				returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetch auto refund eligible prebookings. Error is {}", e);
+		}
+		return null;
+	}
 }
