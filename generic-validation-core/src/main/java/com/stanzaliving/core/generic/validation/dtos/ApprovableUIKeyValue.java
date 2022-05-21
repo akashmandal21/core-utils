@@ -1,5 +1,7 @@
 package com.stanzaliving.core.generic.validation.dtos;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
@@ -18,5 +20,7 @@ public class ApprovableUIKeyValue implements Serializable {
 
     private Integer approvalLevel;
 
+    @JsonProperty("isCityEligible")
+    @JsonAlias("cityEligible")
     private boolean isCityEligible;
 }
