@@ -55,6 +55,8 @@ public class PaymentDto {
 
     private String rblTransactionId;
 
+    private Long id;
+
     private String uuid;
 
     private String createdBy;
