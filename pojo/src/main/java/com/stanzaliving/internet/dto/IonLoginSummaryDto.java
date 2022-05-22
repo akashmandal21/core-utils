@@ -1,7 +1,5 @@
 package com.stanzaliving.internet.dto;
 
-import java.util.Set;
-
 import com.stanzaliving.internet.enums.InternetVendor;
 
 import lombok.Getter;
@@ -15,12 +13,10 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @NoArgsConstructor
 @SuperBuilder
-public class InternetLoginSummaryDto {
+public class IonLoginSummaryDto {
 
-	private Set<String> studentIds;
-	private String propertyId;
-	private String residenceName;
-	private Integer total;
+	private String studentId;
+	private String residenceId;
 	private InternetVendor internetVendor;
 
 }
