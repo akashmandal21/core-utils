@@ -105,8 +105,14 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	@Builder.Default
 	private Integer similarApartmentsCount = 0;
 	
+	private Boolean soldOut;
+	
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>();
+	
+	private List<Integer> featureIds;
+
+	private List<FeatureResponseDTO> features;
 	
 	@Builder.Default
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = Collections.emptyList();
