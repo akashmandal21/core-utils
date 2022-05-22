@@ -492,4 +492,5 @@ public class CoreClientApi {
 		restClient.invokeAPI(path, HttpMethod.POST, queryParams, hostelVasEnabledUpdateDtos, headerParams, accept, returnType);
 
 	}
+
 }
