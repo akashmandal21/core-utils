@@ -113,6 +113,7 @@
 		<!-- reflections Version -->
 		<reflections.version>0.10</reflections.version>
 		<spring.cloud.dependency>Greenwich.SR6</spring.cloud.dependency>
+		<aop-version>2.7.0</aop-version>
 	</properties>
 
 	<dependencyManagement>
