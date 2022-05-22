@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 import com.stanzaliving.core.user.acl.enums.AccessLevelEntityEnum;
 import com.stanzaliving.transformations.pojo.*;
 import lombok.extern.log4j.Log4j2;
+
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.cache.CacheBuilder;
@@ -19,7 +21,7 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.transformation.client.api.InternalDataControllerApi;
-import org.springframework.util.CollectionUtils;
+
 
 @Log4j2
 public class TransformationCache {
@@ -451,6 +453,26 @@ public class TransformationCache {
 		}
 		log.debug("No residence found for city uuid {}", cityUuid);
 		return null;
+	}
+	
+	public List<String> getResidenceUuidsByCityUuidIn(List<String> cityUuids) {
+		List<ResidenceMetadataDto> residenceList = getAllResidences();
+		List<String> residenceUuids = new ArrayList<>();
+
+		if (CollectionUtils.isNotEmpty(residenceList) && CollectionUtils.isNotEmpty(cityUuids)) {
+			for (ResidenceMetadataDto residenceMetadataDto : residenceList) {
+				if (Objects.nonNull(residenceMetadataDto) && Objects.nonNull(residenceMetadataDto.getMicroMarketUuid())) {
+					String micromarketUuid = residenceMetadataDto.getMicroMarketUuid();
+					MicroMarketMetadataDto microMarketMetadataDto = getMicromarketByUuid(micromarketUuid);
+					if (Objects.nonNull(microMarketMetadataDto) && Objects.nonNull(microMarketMetadataDto.getCityUuid()) &&
+							cityUuids.contains(microMarketMetadataDto.getCityUuid())) {
+						residenceUuids.add(residenceMetadataDto.getUuid());
+					}
+				}
+			}
+		}
+
+		return residenceUuids;
 	}
 
 	public List<String> getResidenceUuidsByMicromarketUuid(String micromarketUuid) {
