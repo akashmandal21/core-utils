@@ -110,6 +110,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>();
 	
+	private List<Integer> featureIds;
+
 	private List<FeatureResponseDTO> features;
 	
 	@Builder.Default

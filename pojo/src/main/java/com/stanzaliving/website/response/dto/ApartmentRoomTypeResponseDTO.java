@@ -48,4 +48,6 @@ public class ApartmentRoomTypeResponseDTO {
 	private Long roomTypeId;
 	
 	private List<FeatureResponseDTO> features;
+	
+	private boolean isDeleted;
 }
