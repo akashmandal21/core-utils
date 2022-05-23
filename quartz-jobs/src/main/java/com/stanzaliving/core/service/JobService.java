@@ -11,7 +11,7 @@ public interface JobService {
 
 	boolean scheduleOneTimeJob(String jobName, String groupKey, Class<? extends QuartzJobBean> jobClass, Date date, JobDataMap jobDataMap, boolean isRecoverable);
 
-	boolean scheduleOneTimeJobWithIgnoreMisfirePolicy(String jobName, String groupKey, Class<? extends QuartzJobBean> jobClass, Date date, JobDataMap jobDataMap, boolean isRecoverable, boolean isDurable);
+	boolean scheduleOneTimeJobWithIgnoreMisfirePolicy(String jobName, String groupKey, Class<? extends QuartzJobBean> jobClass, Date date, JobDataMap jobDataMap, boolean isRecoverable, boolean isDurable, int priority);
 
 	boolean scheduleCronJob(String jobName, String groupName, Class<? extends QuartzJobBean> jobClass, Date date, String cronExpression, String timezone, JobDataMap jobDataMap, boolean isRecoverable);
 
