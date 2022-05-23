@@ -89,7 +89,7 @@ public class JobServiceImpl implements JobService {
 	}
 
 	@Override
-	public boolean scheduleOneTimeJobWithIgnoreMisfirePolicy(String jobName, String groupKey, Class<? extends QuartzJobBean> jobClass, Date date, JobDataMap jobDataMap, boolean isRecoverable, boolean isDurable) {
+	public boolean scheduleOneTimeJobWithIgnoreMisfirePolicy(String jobName, String groupKey, Class<? extends QuartzJobBean> jobClass, Date date, JobDataMap jobDataMap, boolean isRecoverable, boolean isDurable, int priority) {
 		log.info("Request received to scheduleJob with Ignore Misfire Policy.");
 
 		String jobKey = jobName;
@@ -98,7 +98,7 @@ public class JobServiceImpl implements JobService {
 		JobDetail jobDetail = JobUtil.createJob(jobClass, isDurable, context, jobKey, groupKey, jobDataMap, isRecoverable);
 
 		log.info("creating trigger for key: " + jobKey + " at date :" + date);
-		Trigger cronTriggerBean = JobUtil.createSingleTrigger(triggerKey, date, SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW);
+		Trigger cronTriggerBean = JobUtil.createSingleTrigger(triggerKey, date, SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW, priority);
 
 		try {
 			Date dt = scheduler.scheduleJob(jobDetail, cronTriggerBean);
