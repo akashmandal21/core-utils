@@ -54,4 +54,28 @@ public class SurveyClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<Integer> getCampaignPriorityOrder(String campaignId) {
+		Object postBody = null;
+
+		log.info("Get Campaign Priority Order for campaignId {}", campaignId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("campaignId", campaignId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/campaign/{campaignId}/priority").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Integer> > returnType = new ParameterizedTypeReference<ResponseDto<Integer> >() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
 }
