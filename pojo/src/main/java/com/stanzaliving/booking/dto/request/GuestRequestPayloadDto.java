@@ -29,7 +29,7 @@ public class GuestRequestPayloadDto {
     private String email;
 
     @NotNull(message = "gender cannot be null or blank")
-    private Gender gender;
+    private String gender;
 
     @NotNull(message = "nationality cannot be null or blank")
     private String nationality;
