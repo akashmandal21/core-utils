@@ -50,4 +50,6 @@ public class ResidenceAmenitiesDetailsDto {
 	private String roomUuid;
 
 	private Date moveInDate;
+
+	private String societyName;
 }
