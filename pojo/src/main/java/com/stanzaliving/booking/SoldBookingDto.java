@@ -18,4 +18,5 @@ public class SoldBookingDto {
     Date led;
     Integer lockInDuration;
     Double beds;
+    String packageService;
 }
