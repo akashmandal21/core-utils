@@ -124,6 +124,33 @@ public class ProjectServiceClientApi {
 
     }
 
+    public ResponseDto<List<String>> getAsIsProperties() {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+//        uriVariables.put("propertyUuid", propertyUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/asis/listOfProperties").toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
     public ResponseDto<PropertyUpdateTrackerListDto> getPropertyPojectTaskStatus(PropertyUpdateTrackerListDto propertyUpdateTrackerListDto) {
 
 
