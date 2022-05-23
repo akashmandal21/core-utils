@@ -16,7 +16,9 @@ import org.quartz.Trigger.TriggerState;
 import org.quartz.TriggerKey;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
@@ -39,6 +41,18 @@ public class JobServiceImpl implements JobService {
 	@Autowired
 	private SchedulerFactoryBean schedulerFactoryBean;
 
+	@Autowired
+	@Qualifier("QuartzScheduler")
+	private Scheduler scheduler;
+
+	@Bean(name = "QuartzScheduler")
+	public Scheduler getSchedulerBean() throws SchedulerException {
+		Scheduler scheduler = schedulerFactoryBean.getScheduler();
+		scheduler.getListenerManager().addJobListener(new UIDJobListener());
+		scheduler.start();
+		log.info("Quartz Scheduler Started");
+		return scheduler;
+	}
 
 	private Scheduler getScheduler() throws SchedulerException {
 		Scheduler scheduler = schedulerFactoryBean.getScheduler();
@@ -64,6 +78,29 @@ public class JobServiceImpl implements JobService {
 
 		try {
 			Scheduler scheduler = getScheduler();
+			Date dt = scheduler.scheduleJob(jobDetail, cronTriggerBean);
+			log.info("Job with key jobKey: " + jobKey + " and group :" + groupKey + " scheduled successfully for date :" + dt);
+			return true;
+		} catch (SchedulerException e) {
+			log.error("SchedulerException while scheduling job with key: " + jobKey + " message: ", e);
+		}
+
+		return false;
+	}
+
+	@Override
+	public boolean scheduleOneTimeJobWithIgnoreMisfirePolicy(String jobName, String groupKey, Class<? extends QuartzJobBean> jobClass, Date date, JobDataMap jobDataMap, boolean isRecoverable, boolean isDurable, int priority) {
+		log.info("Request received to scheduleJob with Ignore Misfire Policy.");
+
+		String jobKey = jobName;
+		String triggerKey = jobName;
+
+		JobDetail jobDetail = JobUtil.createJob(jobClass, isDurable, context, jobKey, groupKey, jobDataMap, isRecoverable);
+
+		log.info("creating trigger for key: " + jobKey + " at date :" + date);
+		Trigger cronTriggerBean = JobUtil.createSingleTrigger(triggerKey, date, SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW, priority);
+
+		try {
 			Date dt = scheduler.scheduleJob(jobDetail, cronTriggerBean);
 			log.info("Job with key jobKey: " + jobKey + " and group :" + groupKey + " scheduled successfully for date :" + dt);
 			return true;
