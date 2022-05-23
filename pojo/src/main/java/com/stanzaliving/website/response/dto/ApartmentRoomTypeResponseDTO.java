@@ -49,5 +49,7 @@ public class ApartmentRoomTypeResponseDTO {
 	
 	private List<FeatureResponseDTO> features;
 	
-	private boolean isDeleted;
+	private int similarRoomCount;
+	
+	private boolean isSimilarAlreadyAdded;
 }
