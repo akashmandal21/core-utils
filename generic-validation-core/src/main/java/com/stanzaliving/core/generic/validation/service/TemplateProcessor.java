@@ -315,6 +315,21 @@ public abstract class TemplateProcessor {
                     || (Objects.nonNull(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue()) && !(ValueAdapters.getValue(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE"))))) {
                 needed = false;
             }
+            else if(FieldOptionProvider.poBOQLabelProvider.equals(templateField.getOptionProvider()) &&
+                    (additionalData.get("department").equals(Department.PROCUREMENT) || additionalData.get("department").equals(Department.GC)) &&
+                    (Objects.nonNull(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue()) && (ValueAdapters.getValue(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE")))) {
+                needed = true && !isDraft;
+            }
+            if((FieldOptionProvider.toBOQLabelProvider.equals(templateField.getOptionProvider()) || FieldOptionProvider.toExpenseTypeProvider.equals(templateField.getOptionProvider()))
+                    && ((!additionalData.get("department").equals(Department.PROCUREMENT) && !additionalData.get("department").equals(Department.GC))
+                    || (Objects.nonNull(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue()) && !(ValueAdapters.getValue(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE"))))) {
+                needed = false;
+            }
+            else if((FieldOptionProvider.toBOQLabelProvider.equals(templateField.getOptionProvider()) || FieldOptionProvider.toExpenseTypeProvider.equals(templateField.getOptionProvider())) &&
+                    (additionalData.get("department").equals(Department.PROCUREMENT) || additionalData.get("department").equals(Department.GC)) &&
+                    (Objects.nonNull(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue()) && (ValueAdapters.getValue(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE")))) {
+                needed = true && !isDraft;
+            }
             boolean dataPresent = mainDataPresent && Objects.nonNull(data.get(templateField.getFieldName())) && (!data.get(templateField.getFieldName()).isNull());
             FieldType subFieldType = templateField.getFieldSubType();
 
