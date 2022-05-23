@@ -47,6 +47,7 @@ public class CronJob extends QuartzJobBean implements InterruptableJob {
 			Thread.sleep(30000);
 		} catch (InterruptedException e) {
 			log.error("", e);
+			Thread.currentThread().interrupt();
 		}
 
 		log.info("waked up");

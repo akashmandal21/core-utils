@@ -46,6 +46,7 @@ public class SimpleJob extends QuartzJobBean implements InterruptableJob {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+				Thread.currentThread().interrupt();
 			}
 		}
 		log.debug("Thread: " + Thread.currentThread().getName() + " stopped.");
