@@ -1,19 +1,16 @@
 package com.stanzaliving.wanda.venta.response;
 
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.wanda.dtos.AmenitiesDto;
 
 import com.stanzaliving.wanda.enums.PropertyCategory;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Builder
-@Getter
+@Data
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -51,4 +48,6 @@ public class ResidenceAmenitiesDetailsDto {
 	private String userId;
 	
 	private String roomUuid;
+
+	private Date moveInDate;
 }
