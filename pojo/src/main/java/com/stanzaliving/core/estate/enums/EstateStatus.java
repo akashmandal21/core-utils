@@ -118,7 +118,8 @@ public enum EstateStatus {
 	SENT_BACK_L1_BY_TRANSFORMATION("L1 Sent Back By Transformation"),
 	SENT_BACK_L2_BY_NH_L2("L2 Sent Back By NH"),
 	SENT_BACK_L2_BY_ZH_L2("L2 Sent Back By ZH"),
-	SENT_BACK_L2_BY_LEADERSHIP("L2 Sent Back By Leadership");
+	SENT_BACK_L2_BY_LEADERSHIP("L2 Sent Back By Leadership"),
+	SENT_TO_SUNIL_AND_LEGAL("Pending Sunil And Legal Approval");
 
 
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
