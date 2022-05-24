@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.website.enums.ApartmentRoomType;
@@ -17,7 +18,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ApartmentRoomTypeResponseDTO {
+public class ApartmentRoomTypeResponseDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String roomId;
 

@@ -148,6 +148,9 @@ public class LeadRequestDto {
 	private String timeSlot;
 
 	private String budget;
+	
+	private String platformOs;
+	private String preferredLanguage;
 
 	public String getEmail() {
 		return Objects.nonNull(this.email) ? this.email.trim(): null;
