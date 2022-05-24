@@ -26,14 +26,20 @@ public enum AlfredStep {
 	SECOND_AGREEMENT(10,Arrays.asList("SUBCONTRACT 2 AGREEMENT SENT")),
 	RETENTION_BOOKING(11,Arrays.asList("RETENTION BOOKING")),
 	CONTRACT_MODIFICATION_PENDING(12,Arrays.asList("CONTRACT MODIFICATION PENDING")),
-	SELFIE(13,Arrays.asList("SELFIE"));
+	SELFIE(13,Arrays.asList("SELFIE")),
+	GUEST_ONBOARDING(14, Arrays.asList("GUEST_ONBOARDING")),
+	GUEST_UNDERTAKING(15, Arrays.asList("GUEST_UNDERTAKING")),
+	GUEST_KYC(16, Arrays.asList("GUEST_KYC")),
+	GUEST_SELFIE(17, Arrays.asList("GUEST_SELFIE")),
+	GUEST_ONBOARDING_PENDING(18, Arrays.asList("HOMESCREEN"));
+
 	private Integer sequenceId;
 	private List<String> bookingStatuses;
 
 	private static final Map<AlfredStep, List<String>> bookingStatusMap = new HashMap<AlfredStep, List<String>>();
 	private static final List<String> retentionNonBlockerStatus = new ArrayList<>();
 	private static final Map<AlfredStep, List<String>> bookingSubStatusMap = new HashMap<AlfredStep, List<String>>();
-	
+
 	static {
 		bookingSubStatusMap.put(PROFILE_COMPLETION, Arrays.asList("PROFILE"));
 		bookingSubStatusMap.put(PAYMENT_PENDING, Arrays.asList("PAYMENT PENDING"));
@@ -45,6 +51,12 @@ public enum AlfredStep {
 		bookingSubStatusMap.put(KYC, Arrays.asList("PENDING KYC SUBMISSION"));
 		bookingSubStatusMap.put(CONTRACT_MODIFICATION_PENDING, Arrays.asList("CONTRACT MODIFICATION PENDING"));
 		bookingSubStatusMap.put(SELFIE, Arrays.asList("SELFIE"));
+		bookingSubStatusMap.put(GUEST_ONBOARDING, Arrays.asList("PERSONAL_DETAILS_PENDING"));
+		bookingSubStatusMap.put(GUEST_KYC, Arrays.asList("PENDING_KYC_SUBMISSION"));
+		bookingSubStatusMap.put(GUEST_SELFIE, Arrays.asList("PENDING_SELFIE_SUBMISSION"));
+		bookingSubStatusMap.put(GUEST_UNDERTAKING, Arrays.asList("GUEST_AGREEMENT_SENT"));
+		bookingSubStatusMap.put(GUEST_ONBOARDING_PENDING, Arrays.asList("GUEST_ONBOARDING_PENDING"));
+
 	}
 	
 	static {
