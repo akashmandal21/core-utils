@@ -21,4 +21,6 @@ public class AddendumResponseDto {
     private AddendumType addendumType;
 
     private Date createdAt;
+
+    private String addendumUrl;
 }

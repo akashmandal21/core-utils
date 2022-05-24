@@ -24,4 +24,6 @@ public class PrimaryOwnerSignAddendumResponseDto {
     private Boolean withinFiveDays;
 
     private Date createdAt;
+
+    private String addendumUrl;
 }
