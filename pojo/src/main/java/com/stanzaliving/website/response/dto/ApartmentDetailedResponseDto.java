@@ -109,7 +109,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private Integer discountedPrice;
 	
-	private PropertyEntityType PropertyEntityType;
+	private PropertyEntityType propertyEntityType;
 	
 	@Builder.Default
 	private List<FacilityResponseDTO> facilities = Collections.emptyList();
