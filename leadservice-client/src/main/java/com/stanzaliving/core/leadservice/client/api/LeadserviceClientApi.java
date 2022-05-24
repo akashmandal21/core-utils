@@ -3,15 +3,23 @@
  */
 package com.stanzaliving.core.leadservice.client.api;
 
+import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.core.leaddashboard.enums.LeadStatus;
+import com.stanzaliving.leadService.dto.LeadDetailExpiryDaysMapsDto;
+import com.stanzaliving.leadService.dto.LeadDetailListExpiryDaysMapsDto;
 import com.stanzaliving.website.request.dto.LeadSearchRequestDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
 import com.stanzaliving.website.response.dto.SearchResponseDto;
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -460,5 +468,58 @@ public class LeadserviceClientApi {
 			log.error("Exception caused expiring leads after inactivity of x days", e);
 			return null;
 		}
+	}
+
+	public ResponseDto<LeadDetailListExpiryDaysMapsDto> getLeadsToCheckForInactivity(PaginationRequest paginationRequest) {
+		log.info("Get leads to check for inactivity");
+
+		Object postBody = paginationRequest;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/all/check-for-inactivity").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<LeadDetailListExpiryDaysMapsDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadDetailListExpiryDaysMapsDto>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while getting leads to check for inacrivity", e);
+			return null;
+		}
+	}
+
+	public ResponseDto<String> checkForInactivityAndExpireLead(LeadDetailExpiryDaysMapsDto leadDetailExpiryDaysMapsDto) {
+		log.info("Check for Inactivity And Expire Lead : {}", leadDetailExpiryDaysMapsDto);
+
+		Object postBody = leadDetailExpiryDaysMapsDto;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/check-and-expire/inactive").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while checking for inactive lead or expiring an inactive lead", e);
+			return null;
+		}
+
 	}
 }
