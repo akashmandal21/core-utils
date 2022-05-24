@@ -280,7 +280,7 @@ public class VentaAggregationServiceApi {
 		return null;
 	}
 
-	public List<String> getAllResidence() {
+	public ResponseDto<List<String>> getAllResidence() {
 		Object postBody = null;
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -296,7 +296,7 @@ public class VentaAggregationServiceApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<List<String>> returnType = new ParameterizedTypeReference<List<String>>() {};
+		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 }
