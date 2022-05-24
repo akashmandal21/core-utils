@@ -14,18 +14,18 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class PropertyAttributeInfoDto {
     public Integer availableBedCount;
-    private Integer roomCount;
-    private Integer daysInMonth;
+    public Integer roomCount;
+    public Integer daysInMonth;
 
-    private Integer daysForCalculation;
-    private LocalDate calculationFromDate;
-    private LocalDate calculationToDate;
-    private LocalDate sessionFromDate;
-    private LocalDate sessionToDate;
-    private int sessionHolidays;
-    private int calculationHolidays;
-    private String serviceMixUuid;
-    private String residenceUuid;
+    public Integer daysForCalculation;
+    public LocalDate calculationFromDate;
+    public LocalDate calculationToDate;
+    public LocalDate sessionFromDate;
+    public LocalDate sessionToDate;
+    public int sessionHolidays;
+    public int calculationHolidays;
+    public String serviceMixUuid;
+    public String residenceUuid;
 
     @Builder.Default
     private boolean annualUnderWritten = true;
