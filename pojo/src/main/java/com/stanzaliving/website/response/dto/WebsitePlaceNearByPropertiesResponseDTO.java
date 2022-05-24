@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,4 +38,6 @@ public class WebsitePlaceNearByPropertiesResponseDTO {
 	
 	@Builder.Default
 	private Boolean isApartmentPage = false;
+	
+	private WebsitePlaceIndexDto placeIndexDto;
 }
