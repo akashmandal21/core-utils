@@ -38,6 +38,8 @@ public class ComplaintSummaryDto {
 
 	private Date createdOn;
 
+	private Date createdAt;
+
 	private Long cmsId;
 
 	private String ticketId;
