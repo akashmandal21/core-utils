@@ -46,7 +46,6 @@ public enum AlfredStep {
 		bookingSubStatusMap.put(PAYMENT_COLLECTION_PENDING, Arrays.asList("COLLECT PAYMENT FROM RESIDENT"));
 		bookingSubStatusMap.put(KYC_REJECTED, Arrays.asList("KYC REJECTED"));
 		bookingSubStatusMap.put(UPDATE_BY_SALES_POC, Arrays.asList("NEEDS ATTENTION"));
-		bookingSubStatusMap.put(KYC_REJECTED, Arrays.asList("KYC REJECTED"));
 		bookingSubStatusMap.put(HOMESCREEN, Arrays.asList("PENDING_KYC_VERIFICATION"));
 		bookingSubStatusMap.put(KYC, Arrays.asList("PENDING KYC SUBMISSION"));
 		bookingSubStatusMap.put(CONTRACT_MODIFICATION_PENDING, Arrays.asList("CONTRACT MODIFICATION PENDING"));
