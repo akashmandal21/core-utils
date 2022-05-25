@@ -17,5 +17,6 @@ public enum ServiceOwner {
 	PO,
 	GRN,
 	TO,
-	INVOICE;
+	INVOICE,
+	GENERIC_PO;
 }
