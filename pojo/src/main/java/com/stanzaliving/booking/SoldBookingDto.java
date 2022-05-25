@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Builder
 @Getter
@@ -18,5 +19,5 @@ public class SoldBookingDto {
     Date lockInEndDate;
     Integer lockInDuration;
     Double beds;
-    String packageService;
+    List<String> packageService;
 }
