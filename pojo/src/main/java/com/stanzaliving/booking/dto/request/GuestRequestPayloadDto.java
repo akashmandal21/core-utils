@@ -3,7 +3,7 @@ package com.stanzaliving.booking.dto.request;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.booking.enums.BookingType;
 import lombok.*;
-
+import com.stanzaliving.booking.enums.BookingStatus;
 import java.util.Date;
 
 @Data
