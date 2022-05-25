@@ -3,6 +3,7 @@ package com.stanzaliving.core.leaddashboard.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -107,6 +108,7 @@ public enum LeadSourceEnum {
     WEBSITE_RESIDENCE_CARD("Website - Residence Card", LeadSourceGroupEnum.DIGITAL),
     WEBSITE_RESIDENCE_CARD_RESERVE_NOW("Website - Residence Card Reserve Now", LeadSourceGroupEnum.DIGITAL),
     WEBSITE_RESIDENCE_CARD_SCHEDULE_VISIT("Website - Residence Card Schedule Visit", LeadSourceGroupEnum.DIGITAL),
+    WEBSITE_RESIDENCE_PAGE_VS_FORM("Website - Residence Page Vs Form", LeadSourceGroupEnum.DIGITAL),
     WEBSITE_VISIT("WebSite Visit", LeadSourceGroupEnum.DIGITAL),
     WHATSAPP("Whatsapp", LeadSourceGroupEnum.DIGITAL),
     WHATSAPP_WEBSITE("Whatsapp-Website", LeadSourceGroupEnum.DIGITAL),
@@ -135,5 +137,27 @@ public enum LeadSourceEnum {
 
     public static List<LeadSourceEnum> getPrebookingLeadSources() {
         return Arrays.asList(LeadSourceEnum.PREBOOKING, LeadSourceEnum.PREBOOKING_VIRTUAL_TOUR);
+    }
+
+    public static List<LeadSourceEnum> getBrokerLeadSources() {
+        LeadSourceEnum[] allLeadSource = LeadSourceEnum.values();
+        List<LeadSourceEnum> brokerLeadSources = new ArrayList<>();
+        for (LeadSourceEnum leadSourceEnum : allLeadSource) {
+            if (leadSourceEnum.getLeadSourceGroupEnum() == LeadSourceGroupEnum.BROKER_EBI) {
+                brokerLeadSources.add(leadSourceEnum);
+            }
+        }
+        return brokerLeadSources;
+    }
+
+    public static List<LeadSourceEnum> getReferralLeadSources() {
+        LeadSourceEnum[] allLeadSource = LeadSourceEnum.values();
+        List<LeadSourceEnum> referralLeadSources = new ArrayList<>();
+        for (LeadSourceEnum leadSourceEnum : allLeadSource) {
+            if (leadSourceEnum.getLeadSourceGroupEnum() == LeadSourceGroupEnum.REFERRAL) {
+                referralLeadSources.add(leadSourceEnum);
+            }
+        }
+        return referralLeadSources;
     }
 }
