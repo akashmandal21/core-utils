@@ -33,4 +33,6 @@ public class GuestRequestPayloadDto {
     private String parentUuid;
 
     private BookingType bookingType;
+    
+    private BookingStatus bookingStatus;
 }
