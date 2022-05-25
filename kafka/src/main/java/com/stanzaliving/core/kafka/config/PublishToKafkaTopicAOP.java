@@ -6,8 +6,11 @@ import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+
+import java.lang.reflect.Method;
 
 @Log4j2
 @Aspect
@@ -18,16 +21,23 @@ public class PublishToKafkaTopicAOP {
     private NotificationProducer notificationProducer;
 
     @Around("@annotation(com.stanzaliving.core.kafka.annotation.PublishToKafka)")
-    public Object publishToKafkaTopic(ProceedingJoinPoint joinPoint, PublishToKafka publishToKafka) {
+    public Object publishToKafkaTopic(ProceedingJoinPoint joinPoint) {
 
         Object proceed = null;
 
-        log.info("method:{} is being called", joinPoint.getSignature().getName());
-
         try {
+
+            log.info("method:{} is being called", joinPoint.getSignature().getName());
+
+            MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+
+            Method method = signature.getMethod();
+
+            PublishToKafka publishToKafkaAnnotation = method.getAnnotation(PublishToKafka.class);
+
             proceed = joinPoint.proceed();
 
-            String[] topics = publishToKafka.topics();
+            String[] topics = publishToKafkaAnnotation.topics();
 
             // Publishing message to Kafka Topic
             if(proceed != null && topics != null && topics.length > 0) {
