@@ -42,13 +42,13 @@ import lombok.experimental.SuperBuilder;
 //})
 public abstract class CategoryDto implements Cloneable {
 
-	protected String categoryName;
+	public String categoryName;
 	public int costPerAvailableBed;
-	protected int costPerOccupiedBed;
-	protected double contribution;
+	public int costPerOccupiedBed;
+	public double contribution;
 
 	@Builder.Default
-	protected boolean enabled = true;		//default all services enabled
+	public boolean enabled = true;		//default all services enabled
 
 	public void clearValues() {
 		this.costPerAvailableBed = 0;

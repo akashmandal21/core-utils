@@ -66,12 +66,12 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 	@Builder.Default
 	public int daysInMonth = 30;
 
-	private List<DropDownDto> equipmentTypeOptions = new ArrayList<>();
+	public List<DropDownDto> equipmentTypeOptions = new ArrayList<>();
 	@Builder.Default
-	private List<ElectricityEquipmentType> selectedEquipmentType = new ArrayList<>();
+	public List<ElectricityEquipmentType> selectedEquipmentType = new ArrayList<>();
 
 	@Builder.Default
-	private List<ElectricitySlotDetailsDto> electricitySlotDetailsDtos = new ArrayList<ElectricitySlotDetailsDto>();
+	public List<ElectricitySlotDetailsDto> electricitySlotDetailsDtos = new ArrayList<ElectricitySlotDetailsDto>();
 
 	public double unitsConsumedByLiftPerDay;
 	public double unitsConsumedByHeatPumpPerDay;
@@ -119,11 +119,11 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
 	public int netElectricityBillAfterPassthrough;
 
-	private int fixedChargesPerAvailableBed;
-	private int variableChargesPerAvailableBed;
-	private int acPassThroughChargesPerAvailableBed;
-	private int roomPassThroughChargesPerAvailableBed;
-	private int landlordReceivablesChargesPerAvailableBed;
+	public int fixedChargesPerAvailableBed;
+	public int variableChargesPerAvailableBed;
+	public int acPassThroughChargesPerAvailableBed;
+	public int roomPassThroughChargesPerAvailableBed;
+	public int landlordReceivablesChargesPerAvailableBed;
 
 
 

@@ -28,7 +28,7 @@ public class PropertyAttributeInfoDto {
     public String residenceUuid;
 
     @Builder.Default
-    private boolean annualUnderWritten = true;
+    public boolean annualUnderWritten = true;
 
 
     public PropertyAttributeInfoDto(int availableBedCount, int roomCount) {
