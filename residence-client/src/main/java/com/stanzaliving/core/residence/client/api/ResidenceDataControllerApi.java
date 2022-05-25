@@ -1294,7 +1294,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public ResponseEntity<String> getMatrixCron(String residenceUuid) {
+    public ResponseDto<String> getMatrixCron(String residenceUuid) {
 
         log.info("Residence-Data-Controller::Processing to get vas details based on residenceUuid {}", residenceUuid);
 
@@ -1312,9 +1312,8 @@ public class ResidenceDataControllerApi {
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseEntity<String>> returnType =
-                new ParameterizedTypeReference<ResponseEntity<String>>() {
-                };
+        ParameterizedTypeReference<ResponseDto<String>> returnType =
+                new ParameterizedTypeReference<ResponseDto<String>>() { };
 
         try {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
