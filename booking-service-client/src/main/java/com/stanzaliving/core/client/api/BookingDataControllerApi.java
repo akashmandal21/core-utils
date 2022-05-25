@@ -1,11 +1,6 @@
 package com.stanzaliving.core.client.api;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import com.stanzaliving.booking.SoldBookingDto;
 import com.stanzaliving.booking.dto.*;
@@ -943,7 +938,7 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<Map<String, SoldBookingDto>> getBookingInfoByResidenceUuid(List<String> residenceUuids) {
+    public ResponseDto<Map<String, SoldBookingDto>> getBookingInfoByResidenceUuid(List<String> residenceUuids, Date toDate) {
 
         Object postBody = residenceUuids;
 
@@ -953,7 +948,9 @@ public class BookingDataControllerApi {
         String path = UriComponentsBuilder.fromPath("/internal/residence/booking-info/").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
+        if(Objects.nonNull(toDate)) {
+            queryParams.add("toDate", toDate.toString());
+        }
         final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {
