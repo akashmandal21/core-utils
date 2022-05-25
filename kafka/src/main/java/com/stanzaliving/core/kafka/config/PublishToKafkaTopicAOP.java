@@ -1,5 +1,6 @@
 package com.stanzaliving.core.kafka.config;
 
+import com.stanzaliving.core.kafka.annotation.PublishToKafka;
 import com.stanzaliving.core.kafka.producer.NotificationProducer;
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -16,8 +17,8 @@ public class PublishToKafkaTopicAOP {
     @Autowired
     private NotificationProducer notificationProducer;
 
-    @Around("@annotation(com.stanzaliving.core.kafka.annotation.PublishToTopic)")
-    public Object publishToKafkaTopic(ProceedingJoinPoint joinPoint) {
+    @Around("@annotation(com.stanzaliving.core.kafka.annotation.PublishToKafka)")
+    public Object publishToKafkaTopic(ProceedingJoinPoint joinPoint, PublishToKafka publishToKafka) {
 
         Object proceed = null;
 
@@ -26,19 +27,18 @@ public class PublishToKafkaTopicAOP {
         try {
             proceed = joinPoint.proceed();
 
+            String[] topics = publishToKafka.topics();
+
             // Publishing message to Kafka Topic
-            if(proceed != null) {
-                // last args will be KafkaTopic Name
-                int numberOfArgs = joinPoint.getArgs().length;
-                
-                String kafkaTopicAopToPublish = joinPoint.getArgs()[numberOfArgs-1].toString();
+            if(proceed != null && topics != null && topics.length > 0) {
 
                 String className = proceed.getClass().getName();
 
-                notificationProducer.publish(kafkaTopicAopToPublish, className, proceed);
+                for (String topic : topics) {
+                    notificationProducer.publish(topic, className, proceed);
 
-                log.info("message: {} is published to kafka topic: {}", proceed.toString(), kafkaTopicAopToPublish);
-
+                    log.info("message: {} is published to kafka topic: {}", proceed.toString(), topic);
+                }
             }
             log.info("Invoking method:{} is successful", joinPoint.getSignature().getName());
 

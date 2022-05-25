@@ -8,6 +8,8 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PublishToTopic {
+public @interface PublishToKafka {
+
+    String[] topics() default {};
 
 }
