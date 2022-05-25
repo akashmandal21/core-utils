@@ -23,18 +23,22 @@ import lombok.experimental.SuperBuilder;
 public class WebsitePlaceNearByPropertiesResponseDTO {
 
 	@JsonInclude(value = Include.NON_NULL)
+	private List<ResidenceResponseShortDTO> residenceResponseShortDTOsPg;
+	
+	@JsonInclude(value = Include.NON_NULL)
+	private List<ResidenceResponseShortDTO> residenceResponseShortDTOsCoLiving;
+	
+	@JsonInclude(value = Include.NON_NULL)
+	private List<ApartmentResponseDto> apartments;
+	
+	@JsonInclude(value = Include.NON_NULL)
 	private List<ResidenceResponseShortDTO> residenceResponseShortDTOs;
 	
 	@Builder.Default
 	private Integer residenceCount = 0;
 
-	
-	@JsonInclude(value = Include.NON_NULL)
-	private List<ApartmentResponseDto> apartments;
-	
 	@Builder.Default
 	private Integer apartmentCount = 0;
-	
 	
 	@Builder.Default
 	private Boolean isApartmentPage = false;
