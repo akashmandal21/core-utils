@@ -83,7 +83,7 @@ public enum GenericPOTOStatus {
     private static Map<ApprovalCycle, Map<Integer, GenericPOTOStatus>> orderMap = new HashMap<>();
 
     @Getter
-    private static final Map<Integer,GenericPOTOStatus> orderStatusMap = new HashMap<>();
+    private static final Map<Integer,GenericPOTOStatus> firstApprovalOrderStatusMap = new HashMap<>();
 
     @Getter
     private static Set<GenericPOTOStatus> viewRole = new HashSet<>();
@@ -111,8 +111,8 @@ public enum GenericPOTOStatus {
             orderMap.put(f.getCycle(), map);
         });
 
-        for (GenericPOTOStatus status : GenericPOTOStatus.values()) {
-            orderStatusMap.put(status.getOrder(), status);
+        for (GenericPOTOStatus status : firstApprovalStatus) {
+            firstApprovalOrderStatusMap.put(status.getOrder(), status);
         }
     }
 
@@ -122,6 +122,6 @@ public enum GenericPOTOStatus {
 
     public static GenericPOTOStatus getStatusByOrder(int statusOrder){
 
-       return orderStatusMap.get(statusOrder);
+       return firstApprovalOrderStatusMap.get(statusOrder);
     }
 }
