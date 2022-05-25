@@ -12,8 +12,8 @@ import java.util.Date;
 public class SoldBookingDto {
     String inventoryUuid;
     String roomUuid;
-    Date csd;
-    Date led;
+    Date contractStartDate;
+    Date lockInEndDate;
     Integer lockInDuration;
     Double beds;
 }
