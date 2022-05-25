@@ -367,9 +367,9 @@ public class LeadserviceClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		queryParams.add("headerAuth", "c2510261f27872a22a160f463dc2ac2111ae2");
-
 		final HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.set("headerAuth", "c2510261f27872a22a160f463dc2ac2111ae2");
 
 		final String[] accepts = {"*/*"};
 
