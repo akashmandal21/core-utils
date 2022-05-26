@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class PaymentDto {
+public class PaymentEntityDto {
 
     private String merchantTransactionId;
 
