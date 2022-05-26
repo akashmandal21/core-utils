@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -19,7 +20,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @ToString
-public class WebsitePlaceNearByPropertiesResponseDTO {
+public class WebsitePlaceNearByPropertiesResponseDTO implements Serializable{
 
 	@JsonInclude(value = Include.NON_NULL)
 	private List<ResidenceResponseShortDTO> residenceResponseShortDTOs;
