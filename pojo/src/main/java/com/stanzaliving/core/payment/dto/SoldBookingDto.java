@@ -17,5 +17,6 @@ public class SoldBookingDto {
     Date lockInEndDate;
     Integer lockInDuration;
     Double beds;
+
     List<String> packageService;
 }
