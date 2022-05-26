@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.paymentplan.client.api;
 
+import com.stanzaliving.booking.SoldBookingDto;
 import com.stanzaliving.booking.dto.request.ContractExtensionPaymentPlanRequestDTO;
 import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
 import com.stanzaliving.booking.dto.request.VasPaymentPlanRequestDTO;
@@ -819,6 +820,35 @@ public class PaymentPlanClientApi {
             return restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("error while disabling the paymentPlan {}", e);
+            return null;
+        }
+
+    }
+
+    public ResponseDto<Double> getSumOfPriceOfBookingWithinLockIn(@RequestBody Map<String, SoldBookingDto> refIdMap) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/matrix/sum-Of-booking-within-lockIn").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Double>> returnType = new ParameterizedTypeReference<ResponseDto<Double>>() {
+        };
+        postBody = refIdMap;
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while generating future invoices {}", e);
             return null;
         }
 
