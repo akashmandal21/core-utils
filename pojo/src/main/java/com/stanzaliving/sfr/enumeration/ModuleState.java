@@ -3,6 +3,9 @@ package com.stanzaliving.sfr.enumeration;
 import com.stanzaliving.sfr.statemachine.State;
 import lombok.Getter;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Getter
 public enum ModuleState implements State<ModuleState> {
     ASIS_NOT_STARTED("Not Started","#e5e3e3"),
@@ -19,4 +22,8 @@ public enum ModuleState implements State<ModuleState> {
         this.status=status;
         this.color=color;
     }
+    
+    public static final List<ModuleState> asIsApplicableStatuses =
+            Arrays.asList(ASIS_IN_DRAFT, ASIS_SUBMITTED, ASIS_APPROVED, ASIS_SENT_BACK);
+    
 }
