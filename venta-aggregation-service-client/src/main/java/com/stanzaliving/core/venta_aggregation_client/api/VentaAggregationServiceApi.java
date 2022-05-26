@@ -402,7 +402,7 @@ public class VentaAggregationServiceApi {
 	public ResponseDto<List<String>> getResidenceListInMicroMarket(String residenceUuid) {
 		Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("residenceid", residenceUuid);
-		String path = UriComponentsBuilder.fromPath("/internal/residence/residence-list-in-microid/{residenceid}")
+		String path = UriComponentsBuilder.fromPath("/internal/residence/residence-list-in-microMarketId/{residenceid}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();

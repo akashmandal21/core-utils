@@ -845,6 +845,7 @@ public class PaymentPlanClientApi {
         postBody = refIdMap;
 
         try {
+            log.error("path: {}, postBody: {}, queryParams: {}",path, postBody, queryParams);
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("error while generating future invoices {}", e);
