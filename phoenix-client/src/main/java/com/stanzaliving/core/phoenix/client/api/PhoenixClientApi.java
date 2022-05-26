@@ -89,7 +89,7 @@ public class PhoenixClientApi {
 
     }
 
-    public ResponseDto<String> submitModule(String propertyUuid, ModuleNames moduleName) {
+    public ResponseDto<String> submitModule(String propertyUuid, ModuleNames moduleName, String token) {
 
         Object postBody = null;
 
@@ -103,6 +103,9 @@ public class PhoenixClientApi {
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
+
+        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
         final String[] accepts = {
                 "*/*"
