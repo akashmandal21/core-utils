@@ -446,85 +446,6 @@ public class LeadserviceClientApi {
 		}
 	}
 
-	public ResponseDto<String> autoExpireLeadsAfterInactivity() {
-
-		log.debug("Lead client to expire leads after inactivity of x days");
-		Object postBody = null;
-
-		String path = UriComponentsBuilder.fromPath("/internal/lead/expire/inactive").toUriString();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final String[] accepts = { "*/*" };
-
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-		};
-
-		try {
-			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("Exception caused expiring leads after inactivity of x days", e);
-			return null;
-		}
-	}
-
-	public ResponseDto<LeadDetailListExpiryDaysMapsDto> getLeadsToCheckForInactivity(PaginationRequest paginationRequest) {
-		log.info("Get leads to check for inactivity");
-
-		Object postBody = paginationRequest;
-
-		String path = UriComponentsBuilder.fromPath("/internal/lead/all/check-for-inactivity").toUriString();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final String[] accepts = { "*/*" };
-
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<LeadDetailListExpiryDaysMapsDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadDetailListExpiryDaysMapsDto>>() {
-		};
-
-		try {
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("Exception caused while getting leads to check for inacrivity", e);
-			return null;
-		}
-	}
-
-	public ResponseDto<String> checkForInactivityAndExpireLead(LeadDetailExpiryDaysMapsDto leadDetailExpiryDaysMapsDto) {
-		log.info("Check for Inactivity And Expire Lead : {}", leadDetailExpiryDaysMapsDto);
-
-		Object postBody = leadDetailExpiryDaysMapsDto;
-
-		String path = UriComponentsBuilder.fromPath("/internal/lead/check-and-expire/inactive").toUriString();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final String[] accepts = { "*/*" };
-
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-		};
-
-		try {
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("Exception caused while checking for inactive lead or expiring an inactive lead", e);
-			return null;
-		}
-
-	}
-
 	public ResponseDto<List<AutoExpireLeadDto>> getLeadsToCheckForInactivity() {
 		log.info("Get leads to check for inactivity");
 
@@ -544,7 +465,7 @@ public class LeadserviceClientApi {
 		};
 
 		try {
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Exception caused while getting leads to check for inactivity", e);
 			return null;
@@ -595,7 +516,7 @@ public class LeadserviceClientApi {
 		};
 
 		try {
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Exception caused while auto expire lead config maps", e);
 			return null;
