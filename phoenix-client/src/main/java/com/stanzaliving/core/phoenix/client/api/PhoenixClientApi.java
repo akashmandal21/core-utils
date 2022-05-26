@@ -1,6 +1,7 @@
 package com.stanzaliving.core.phoenix.client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.sfr.dto.ModuleEntityDto;
 import com.stanzaliving.sfr.dto.ModuleSubmissionDto;
@@ -27,7 +28,7 @@ public class PhoenixClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<ModuleEntityDto> getModuleEntity(String propertyUuid, ModuleNames moduleName) {
+    public ResponseDto<ModuleEntityDto> getModuleEntity(String propertyUuid, ModuleNames moduleName, String token) {
 
         Object postBody = null;
 
@@ -42,6 +43,9 @@ public class PhoenixClientApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
+        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
         final String[] accepts = {
                 "*/*"
         };
@@ -54,7 +58,8 @@ public class PhoenixClientApi {
 
     }
 
-    public ResponseDto<ModuleSubmissionDto> getModuleSubmissionDto(Long moduleSubmissionId, ModuleNames moduleName) {
+    public ResponseDto<ModuleSubmissionDto> getModuleSubmissionDto(Long moduleSubmissionId, ModuleNames moduleName,
+                                                                   String token) {
 
         Object postBody = null;
 
@@ -68,6 +73,9 @@ public class PhoenixClientApi {
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
+
+        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
         final String[] accepts = {
                 "*/*"
