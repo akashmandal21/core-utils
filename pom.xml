@@ -108,6 +108,7 @@
         <module>mail-client</module>
 		<module>backend-locator-client</module>
         <module>phoenix-client</module>
+        <module>qna-client</module>
     </modules>
 
 	<build>
