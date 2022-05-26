@@ -3,33 +3,21 @@
  */
 package com.stanzaliving.core.leadservice.client.api;
 
-import java.util.Arrays;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
-import com.stanzaliving.core.base.utils.DateUtil;
-import com.stanzaliving.core.leaddashboard.enums.LeadStatus;
 import com.stanzaliving.leadService.dto.AutoExpireLeadConfigMapDto;
 import com.stanzaliving.leadService.dto.AutoExpireLeadDto;
-import com.stanzaliving.leadService.dto.LeadDetailExpiryDaysMapsDto;
-import com.stanzaliving.leadService.dto.LeadDetailListExpiryDaysMapsDto;
-import com.stanzaliving.website.request.dto.LeadSearchRequestDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
-import com.stanzaliving.website.response.dto.SearchResponseDto;
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.beans.BeanUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
