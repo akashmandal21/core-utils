@@ -11,8 +11,10 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -388,6 +390,27 @@ public class VentaAggregationServiceApi {
 		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {};
+		try {
+			log.info("Executing Api for getting bookings Info with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while sending booking events integration notification on {}, Exception is {}", LocalDate.now(), e);
+		}
+		return null;
+	}
+
+	public ResponseDto<List<String>> getResidenceListInMicroMarket(String residenceUuid) {
+		Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceid", residenceUuid);
+		String path = UriComponentsBuilder.fromPath("/internal/residence/residence-list-in-microMarketId/{residenceid}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[] { "*/*" };
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {};
 		try {
 			log.info("Executing Api for getting bookings Info with Url {}", path);
 			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
