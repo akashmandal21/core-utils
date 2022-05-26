@@ -3,6 +3,7 @@ package com.stanzaliving.core.payment.dto;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Builder
 @Getter
@@ -16,4 +17,5 @@ public class SoldBookingDto {
     Date lockInEndDate;
     Integer lockInDuration;
     Double beds;
+    List<String> packageService;
 }
