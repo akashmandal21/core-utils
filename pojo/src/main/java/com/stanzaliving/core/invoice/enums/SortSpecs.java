@@ -16,6 +16,7 @@ public enum SortSpecs {
     INVOICED("invoiced","inv.invoice_amt"),
     PAID("paid","amt_paid"),
     PENDING("pending","pending"),
+    PAYMENT_DATE("paymentDate", "payment_date"),
     DUE_DATE("dueDate","inv.invoice_pay_due_date"),
     INVOICE_STATUS("invoiceStatus","inv.invoice_status"),
 
