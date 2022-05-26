@@ -42,9 +42,7 @@ public class PhoenixClientApi {
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
-
-        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
-        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, token);
 
         final String[] accepts = {
                 "*/*"
@@ -73,9 +71,7 @@ public class PhoenixClientApi {
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
-
-        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
-        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, token);
 
         final String[] accepts = {
                 "*/*"
@@ -103,9 +99,7 @@ public class PhoenixClientApi {
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
-
-        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
-        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, token);
 
         final String[] accepts = {
                 "*/*"
