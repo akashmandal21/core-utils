@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -22,7 +23,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ResidenceResponseShortDTO {
+public class ResidenceResponseShortDTO implements Serializable{
 
 	private int residenceId;
 
