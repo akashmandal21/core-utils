@@ -163,7 +163,8 @@ public class SectionDetailsDto extends AbstractDto {
 
     private Boolean isDelayed;
 
-
     private String liveParentTaskId;
+
+    private Boolean isMilestone;
 
 }
