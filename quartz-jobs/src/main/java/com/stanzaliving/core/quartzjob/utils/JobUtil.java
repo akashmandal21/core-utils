@@ -119,4 +119,28 @@ public class JobUtil {
 		return factoryBean.getObject();
 	}
 
+	/**
+	 * Create a Single trigger.
+	 *
+	 * @param triggerName
+	 *            Trigger name.
+	 * @param startTime
+	 *            Trigger start time.
+	 * @param misFireInstruction
+	 *            Misfire instruction (what to do in case of misfire happens).
+	 *
+	 * @return Trigger
+	 */
+	public static Trigger createSingleTrigger(String triggerName, Date startTime, int misFireInstruction, int priority) {
+		SimpleTriggerFactoryBean factoryBean = new SimpleTriggerFactoryBean();
+
+		factoryBean.setName(triggerName);
+		factoryBean.setStartTime(startTime);
+		factoryBean.setMisfireInstruction(misFireInstruction);
+		factoryBean.setRepeatCount(0);
+		factoryBean.setPriority(priority);
+		factoryBean.afterPropertiesSet();
+
+		return factoryBean.getObject();
+	}
 }

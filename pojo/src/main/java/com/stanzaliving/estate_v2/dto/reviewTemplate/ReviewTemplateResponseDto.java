@@ -5,6 +5,9 @@ import com.stanzaliving.estate_v2.dto.questionTemplate.ApplicableStatusesDto;
 import com.stanzaliving.estate_v2.enumeration.Status;
 import lombok.*;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -33,5 +36,6 @@ public class ReviewTemplateResponseDto {
     private BedCountInfoDto bedCountInformation;
     private List<LayoutResponse> layouts;
     private String propertyAction;
-
+    @Temporal(TemporalType.TIMESTAMP)
+    protected Date propertyApprovalTime;
 }

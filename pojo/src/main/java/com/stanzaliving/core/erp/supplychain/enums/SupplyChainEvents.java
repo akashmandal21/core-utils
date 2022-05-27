@@ -35,6 +35,9 @@ public enum SupplyChainEvents {
     GSRI_INSTALL("Goods Installation",false),
     GSRI_COMPLETED("GSRI Completed",false),
 
+    VENDOR_REJECTED("Vendor Rejeted", true),
+    VENDOR_ACCEPTED("Vendor Accepted", true),
+
 
     ADV_INV_SUBMITTED("Advance Invoice Submitted",false),
     ADV_INV_APPROVAL("Advance Invoice Approval",false),
