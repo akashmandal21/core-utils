@@ -32,6 +32,7 @@ public class WebsiteApartmentFilterConstants {
 	
 	public final Integer FILTER_ROOM_COUNT_SEQUENCE_ID = 6;
 	public final String FILTER_ROOM_COUNT_NAME = "NO OF BEDROOMS";
+	public final String FILTER_ROOM_COUNT_NAME_V2 = "BHK";
 	public final String FILTER_ROOM_BHK_NAME = " BHK";
 	public final String FILTER_ROOM_4_PLUS_BHK_NAME = "4+ BHK";
 	public final Integer FILTER_ROOM_4_PLUS_BHK_VALUE = 99;
