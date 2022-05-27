@@ -30,6 +30,8 @@ public class UnderWrittenDto {
     protected RepairAndMaintenanceCategoryDto repairAndMaintenanceCategoryDto;
     protected TransportCategoryDto transportCategoryDto;
     protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
+    protected CxCategoryDto cxCategoryDto;
+
     private double underWrittenDurationAmount;
     private double underWrittenDurationInDays;
     List<SMLevelDto> smLevelDtoList;
