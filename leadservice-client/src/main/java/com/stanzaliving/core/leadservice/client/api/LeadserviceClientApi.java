@@ -8,6 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+<<<<<<< HEAD
+=======
+import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.website.request.dto.LeadSearchRequestDto;
+import com.stanzaliving.website.response.dto.LeadDetailEntity;
+import com.stanzaliving.website.response.dto.SearchResponseDto;
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -374,31 +381,103 @@ public class LeadserviceClientApi {
 			return null;
 		}
 	}
+<<<<<<< HEAD
 	
 	public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
 
 		Object postBody = null;
 
 		String path = UriComponentsBuilder.fromPath("internal/prebooking/refund/fetch/eligible/leads").toUriString();
+=======
+
+	public ResponseDto<String> sendPushNotificationsForNumberOfVisitScheduledToday() {
+
+		log.debug("Lead client to send push notification while number of visits scheduled today");
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/push-notification/count/visit-schedule/today").toUriString();
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+<<<<<<< HEAD
 		if(Objects.nonNull(phone))
 			queryParams.add("phone", phone);
 
+=======
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 		final String[] accepts = { "*/*" };
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
+<<<<<<< HEAD
 		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
+=======
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 		};
 
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
+<<<<<<< HEAD
 			log.error("Error while fetching prebooked refund eligible leads {}", e);
+=======
+			log.error("Exception caused while sending event for push notification", e);
+			return null;
+		}
+	}
+	public ResponseDto<Boolean> sendOtpForVisitStart() {
+		Object postBody = null;
+
+		log.info("Request received for sendOtpForVisitStart");
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("internal/lead/start-visit/otp")
+				.buildAndExpand(uriVariables).toUriString();
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while send Otp For VisitStart {}", e);
+			return null;
+		}
+
+	}
+
+	public ResponseDto<String> updateLeadSourceGroupForExistingLeads(PaginationRequest paginationRequest) {
+
+		log.debug("Lead client to update lead source group for existing leads");
+		Object postBody = paginationRequest;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/update/lead-source-group").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while updating lead source group for existing leads", e);
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 			return null;
 		}
 	}

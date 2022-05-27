@@ -9,6 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
+=======
+import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.dto.TransactionMigrationForDate;
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -453,7 +458,9 @@ public class VentaClientApi {
 		}
 		return null;
 	}
+	public String migrateTransactionForDate(String token ,TransactionMigrationForDate requestDto)  {
 
+<<<<<<< HEAD
 	public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
 		
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -481,5 +488,29 @@ public class VentaClientApi {
 			log.error("Error while fetching prebooked refund eligible leads {}", e);
 			return null;
 		}
+=======
+		Object postBody = requestDto;
+
+		log.info("Migrate Transaction for date: {}", requestDto.getTransactionDate());
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/migrate/transaction/date").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.add("Cookie", "token=" + token);
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<String> returnType =
+				new ParameterizedTypeReference<String>() {};
+
+		return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 	}
 }

@@ -612,6 +612,7 @@ public class PaymentPlanClientApi {
 
     }
 
+<<<<<<< HEAD
     public ResponseDto<PaymentPlanAndLineItems> getPaymentPlanAndLineItems(String referenceId) {
         try {
             Object postBody = null;
@@ -706,6 +707,8 @@ public class PaymentPlanClientApi {
 
     }
 
+=======
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
     public ResponseDto<List<String>> getBookingForInvoicing(Date invoiceDate) {
         final Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/eligible-for-invoice")
@@ -728,6 +731,7 @@ public class PaymentPlanClientApi {
             return null;
         }
     }
+<<<<<<< HEAD
     public ResponseDto<String> optOutVasPaymentPlan(String referenceId, String vasUuid, Date optOutDate) {
         try {
 
@@ -822,5 +826,7 @@ public class PaymentPlanClientApi {
 
     }
 
+=======
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 
 }

@@ -1,5 +1,6 @@
 package com.stanzaliving.booking.dto.response;
 
+<<<<<<< HEAD
 import java.util.Date;
 
 import com.stanzaliving.booking.enums.BookingEventEnum;
@@ -10,6 +11,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+=======
+import com.stanzaliving.booking.enums.BookingEventEnum;
+import com.stanzaliving.booking.enums.BookingStatus;
+import com.stanzaliving.booking.enums.BookingType;
+import lombok.*;
+
+import java.util.Date;
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 
 @Builder
 @Data

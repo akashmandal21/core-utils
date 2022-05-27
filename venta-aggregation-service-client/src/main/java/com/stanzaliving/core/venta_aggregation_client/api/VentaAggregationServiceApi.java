@@ -1,11 +1,15 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.util.Collections;
+=======
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.bookingservice.dto.response.ResidenceQrCodeResponseDTO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -244,6 +248,7 @@ public class VentaAggregationServiceApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+<<<<<<< HEAD
     public ResponseDto<List<BookingAggregationDto>> fetchAllTrespassersInCity(String cityUuid) {
         try {
             log.info("Aggregation Booking Details Controller::Processing to get tresspasser bookings on basis of cityUuid {}", cityUuid);
@@ -300,6 +305,8 @@ public class VentaAggregationServiceApi {
 		restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 	
+=======
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 	public ResponseDto<ResidenceQrCodeResponseDTO> updateResidenceQrCode(String residenceUuid) {
 		Object postBody = null;
 		// create path and map variables
@@ -318,6 +325,7 @@ public class VentaAggregationServiceApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+<<<<<<< HEAD
 	public ResponseDto<List<String>> getRoomByRoomMateFilter(String residenceUuid, RoommateFilterDto roommateFilterDto) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -377,6 +385,8 @@ public class VentaAggregationServiceApi {
 		}
 	}
 
+=======
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 	public ResponseDto<String> sendNotificationForContractLockInTerminatingEvents() {
 		log.info("Venta Aggregation Controller::Sending booking events notification today {}", LocalDate.now());
 		Map<String, Object> uriVariables = new HashMap<>();
@@ -398,6 +408,7 @@ public class VentaAggregationServiceApi {
 		}
 		return null;
 	}
+<<<<<<< HEAD
 
 	public ResponseDto<List<String>> getResidenceListInMicroMarket(String residenceUuid) {
 		Map<String, Object> uriVariables = new HashMap<>();
@@ -419,4 +430,6 @@ public class VentaAggregationServiceApi {
 		}
 		return null;
 	}
+=======
+>>>>>>> 8abd3c96348c25db07414cd2117405919ad1ad4c
 }
