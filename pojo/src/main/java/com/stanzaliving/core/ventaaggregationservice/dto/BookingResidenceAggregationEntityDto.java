@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@JsonInclude(JsonInclude.Include. NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BookingResidenceAggregationEntityDto {
 
     private String residenceUuid;
@@ -27,17 +27,14 @@ public class BookingResidenceAggregationEntityDto {
     private Integer cityId;
 
     private String entity;
-
-    private String gender;
-
-    private List<String> residenceUuids;
-
     @Builder.Default
     private Long totalBeds=0L;
     @Builder.Default
     private Long totalRooms=0L;
     @Builder.Default
     private Long totalApartments=0L;
+
+    private List<String> residenceUuids;
 
     @Builder.Default
     private Integer liveRooms=0;
@@ -56,7 +53,6 @@ public class BookingResidenceAggregationEntityDto {
     @Builder.Default
     private Float blockedBeds=0F;
 
-    private boolean testHouse;
 }
 
 
