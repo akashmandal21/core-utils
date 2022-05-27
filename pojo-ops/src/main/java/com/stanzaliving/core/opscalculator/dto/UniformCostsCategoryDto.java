@@ -27,6 +27,8 @@ public class UniformCostsCategoryDto extends CategoryDto {
 
 	boolean rcOeUniformRequired;
 	boolean hkUniformRequired;
+	private int sgCount;
+	private int rmManpower;
 
 	@Builder.Default
 	private int lifeOfUniform = 12;
