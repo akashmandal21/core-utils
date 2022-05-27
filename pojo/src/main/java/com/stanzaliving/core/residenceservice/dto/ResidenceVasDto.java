@@ -7,8 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -28,12 +26,6 @@ public class ResidenceVasDto {
 	private Double sgst = 0.0;
     @Builder.Default
 	private Double igst = 0.0;
-
-	private BigDecimal csgtPercentage;
-
-	private BigDecimal sgstPercentage;
-
-	private BigDecimal igstPercentage;
     
 
 }

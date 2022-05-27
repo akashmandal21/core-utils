@@ -3,8 +3,6 @@ package com.stanzaliving.core.residenceservice.dto;
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 import lombok.*;
 
-import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -13,7 +11,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RoomNumberListingResponseDto implements Serializable {
+public class RoomNumberListingResponseDto {
 
     RoomPricingResponseDto roomPricing;
     List<AttributesResponseDto> attributesResponseDto;
@@ -35,8 +33,6 @@ public class RoomNumberListingResponseDto implements Serializable {
     private String residenceName;
     private List<String> inventoryUuidList;
     private String residenceCode;
-    private Date availableFrom;
-
 
 
 }

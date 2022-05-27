@@ -10,7 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -30,10 +29,5 @@ public class VentaDiscountResponseDto {
     private BookingDiscountCriteriasDto bookingDiscountCriterias;
     private DiscountApplicabilityType discountApplicabilityType;
     private List<String> applicabilityCriteria;
-
-    private Integer usedCount;
-    private Integer availableCount;
-    private LocalDate endDate;
-    private Integer totalCount;
 
 }

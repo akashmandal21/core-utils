@@ -26,6 +26,5 @@ public class ResidenceInfoDto implements Serializable {
     private Long liveBeds;
     private Long deadBeds;
     private Long blockedBeds;
-    private Float occupiedBeds;
 
 }

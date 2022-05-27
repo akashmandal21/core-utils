@@ -19,7 +19,6 @@ public class ContractModificationDetailsDto {
 	private double monthlyFee;
 	private double amc;
 	private double securityDeposit;
-	private double onboardingCharges;
 	private double discountAmount;
 	private double advanceRentalMonths;
 	private double totalAmount;

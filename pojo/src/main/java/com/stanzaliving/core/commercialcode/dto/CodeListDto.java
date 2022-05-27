@@ -32,11 +32,5 @@ public class CodeListDto {
 
     private Double monthlyFeesMultiplier;
 
-    private Double onBoardingCharges;
-
-    private Double onBoardingChargesPercentage;
-
-    private Boolean onboardingChargesApplicableOnRetention;
-
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
 }

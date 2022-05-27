@@ -27,9 +27,6 @@ public class BookingCommercialsRequestDto implements Serializable {
 	@Builder.Default
 	private Double priceBump = 0.0;
 
-	@Builder.Default
-	private Double pricingStrategyAmount = 0.0;
-
 	@Valid
 	private ServicePriceDto packagedServicePriceDto;
 
