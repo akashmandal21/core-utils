@@ -200,7 +200,7 @@ public class DiscountClientApi {
 			};
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception while removing discount : ", e);
+			log.error("Exception while confirming discount : ", e);
 		}
 		return null;
 	}
