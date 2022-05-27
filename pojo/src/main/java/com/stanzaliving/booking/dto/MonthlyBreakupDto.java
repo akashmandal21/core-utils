@@ -28,6 +28,8 @@ public class MonthlyBreakupDto implements Serializable {
 
     private Double upsell;
 
+    private Double pricingStrategyAmount;
+
     private Double priceBump;
 
     private ServicePriceDto packagedServicePriceDto;
