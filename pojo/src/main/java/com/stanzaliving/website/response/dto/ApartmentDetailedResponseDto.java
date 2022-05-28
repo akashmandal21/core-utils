@@ -131,4 +131,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private ApartmentShortListingDto similarApartmentsNearBy;
 	
 	private List<ReviewWebsiteResponseDto> reviews;
+	
+	private WebsitePlaceNearByPropertiesResponseDTO nearByApartmentDetails;
+	
+	private List<ApartmentRoomTypeResponseDTO> otherRooms;
 }
