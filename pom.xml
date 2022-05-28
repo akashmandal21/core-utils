@@ -108,6 +108,7 @@
         <module>mail-client</module>
         <module>support-client</module>
 		<module>backend-locator-client</module>
+		<module>analytic-logs</module>
     </modules>
 
 	<build>
