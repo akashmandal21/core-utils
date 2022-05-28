@@ -12,6 +12,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+
+import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.base.exception.StanzaHttpException;
+import com.stanzaliving.core.user.acl.dto.RoleDto;
+import com.stanzaliving.core.user.request.dto.*;
+import com.stanzaliving.core.user.dto.*;
+import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -42,10 +49,7 @@ import com.stanzaliving.core.user.dto.UserProfileDto;
 import com.stanzaliving.core.user.dto.UserPropertyAndProfileMappingDto;
 import com.stanzaliving.core.user.dto.UserRoleCacheDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
-import com.stanzaliving.core.user.request.dto.ActiveUserRequestDto;
-import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
 import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
-import com.stanzaliving.core.user.request.dto.UserRequestDto;
 
 import lombok.extern.log4j.Log4j2;
 
