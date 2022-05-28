@@ -25,8 +25,8 @@ public enum InvoiceStatus {
     PAYMENT_PENDING("Payment Pending", "#F4EEFF", "#5F11D7",5),//INVOICE_SUBMITTED // 3->5
     PARTIALLY_PAID("Partially Paid", "#EDF4FF","#5FC4F5", 6), //4->6
     FULLY_PAID("Fully Paid", "#EDFFF5","#60C3AD", 7),
-    SUBMITTED_BY_VENDOR("Fully Paid", "#FFEAB6","#FFB701", -1),
-    SENT_BACK_TO_VENDOR("Fully Paid", "#FFE5E1","#FF5238", -1);
+    SUBMITTED_BY_VENDOR("Submitted By Vendor", "#FFEAB6","#FFB701", -1),
+    SENT_BACK_TO_VENDOR("Sent Back To Vendor", "#FFE5E1","#FF5238", -1);
 
 
     private String statusText;

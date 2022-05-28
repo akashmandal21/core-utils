@@ -9,12 +9,12 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 public enum PartnerMedullaStatusEnum {
-    ACCEPTANCE_PENDING("Acceptance pending", ImmutableSet.of("Vendor Acceptance pending", "Cancel L1 rejected", "Cancel L2 rejected", "Cancel L3 rejected")),
-    ACCEPTED_BY_VENDOR("Accepted", ImmutableSet.of("Accepted by vendor")),
-    REJECTED_BY_VENDOR("Rejected", ImmutableSet.of("Rejected by Vendor")),
+    ACCEPTANCE_PENDING("Acceptance pending", ImmutableSet.of("Vendor Acceptance Pending", "Cancel L1 rejected", "Cancel L2 rejected", "Cancel L3 rejected")),
+    ACCEPTED_BY_VENDOR("Accepted", ImmutableSet.of("Accepted By vendor")),
+    REJECTED_BY_VENDOR("Rejected", ImmutableSet.of("Rejected By Vendor")),
     L3_CANCELLED("Cancelled", ImmutableSet.of("L3 Cancelled", "Cancelled")),
     SHORTCLOSE("Shortclosed", ImmutableSet.of("Shortclosed")),
-    SHORTCLOSED_REQUESTED("Shortclose requested", ImmutableSet.of("Shortclose requested", "Shortclosing L1 approval due", "Shortclosing L2 approval due", "Shortclosing L3 approval due")),
+    SHORTCLOSED_REQUESTED("Shortclose requested", ImmutableSet.of("Shortclose requested", "SC L1 Approval Due", "SC L2 Approval Due", "SC L2 Approval Due")),
     ON_HOLD("On hold", ImmutableSet.of("L1 Cancelled", "L2 Cancelled", "Cancel L1 due", "Cancel L2 due"));
 
     private final String vendorStatus;
