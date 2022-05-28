@@ -295,7 +295,7 @@ public abstract class TemplateProcessor {
         Map<String, UiParentField> uiFieldMap = new LinkedHashMap<>();
         Templates template = templates.get(templateName);
 
-        if(additionalData.get("partnerRequest").equals(true)){
+        if(additionalData.containsKey("partnerRequest") && additionalData.get("partnerRequest").equals(true)){
             removePartnerUnrelatedFieds(template);
         }
 
