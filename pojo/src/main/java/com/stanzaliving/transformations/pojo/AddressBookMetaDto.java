@@ -55,4 +55,6 @@ public class AddressBookMetaDto implements Serializable {
 
 	private String vendorUuid;
 
+	private String locationUuid;
+
 }
