@@ -1,13 +1,14 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
 import com.stanzaliving.core.security.policeverification.enums.PoliceVerificationStatus;
-import com.stanzaliving.core.security.policeverification.enums.TeamType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 
 @Getter
@@ -16,18 +17,13 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PVFormJourneyByTeamResponseDto {
+public class PVFormJourneyResponseDto {
 
-    private String title;
+    private PoliceVerificationStatus policeVerificationCurrentStatus;
 
-    private String teamType;
+    private String policeVerificationCurrentStatusName;
 
-    private String colorCode;
+    private String policeVerificationCurrentColorCode;
 
-    private Boolean isCompleted;
-
-    private PoliceVerificationStatus policeVerificationStatus;
-
-    private String policeVerificationStatusName;
-    
+    private List<PVFormJourneyByTeamResponseDto> formJourney;
 }
