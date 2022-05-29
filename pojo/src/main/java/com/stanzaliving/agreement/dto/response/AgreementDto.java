@@ -27,4 +27,7 @@ public class AgreementDto {
     private String addendumUrl;
 
     private Date createdAt;
+
+    private String referenceID2;
+
 }

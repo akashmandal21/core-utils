@@ -47,5 +47,5 @@ public class GuestRequestPayloadDto {
     private BookingType bookingType;
 
     @NotNull(message = "bookingStatus cannot be null or blank")
-    private BookingStatus bookingStatus;
+    private String bookingStatus;
 }
