@@ -57,4 +57,7 @@ public class PoSearchIndexDto extends AbstractSearchIndexDto{
     private String poDepartment;
     private Boolean visibleInGrn;
     private Double gsriPct;
+    private String deliveryLocationCity;
+    private String sourceLocationCity;
+
 }
