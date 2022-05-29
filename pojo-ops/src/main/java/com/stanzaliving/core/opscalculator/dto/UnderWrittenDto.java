@@ -1,11 +1,14 @@
 package com.stanzaliving.core.opscalculator.dto;
 
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @Getter
@@ -33,6 +36,8 @@ public class UnderWrittenDto {
     protected CxCategoryDto cxCategoryDto;
     protected PersonnelCategoryDtoV2 personnelCategoryDtoV2;
     protected BuildingMaintenanceDto buildingMaintenanceDto;
+    private RepairCategoryDto repairCategoryDto;
+    private IncentiveCategoryDto incentiveCategoryDto;
 
     private double underWrittenDurationAmount;
     private double underWrittenDurationInDays;
