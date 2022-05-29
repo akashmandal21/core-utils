@@ -65,6 +65,13 @@ public class DateUtil {
         return cal.get(Calendar.DAY_OF_MONTH) <= 15;
     }
 
+    public static Date max(Date d1, Date d2) {
+        if (d1 == null && d2 == null) return null;
+        if (d1 == null) return d2;
+        if (d2 == null) return d1;
+        return (d1.after(d2)) ? d1 : d2;
+    }
+
     public String customDateFormatter(Date dateInput, DateFormat dateFormat) {
 
         if (dateInput != null) {

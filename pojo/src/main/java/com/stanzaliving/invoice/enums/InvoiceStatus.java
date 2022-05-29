@@ -24,7 +24,9 @@ public enum InvoiceStatus {
     L5_REJECTED("L5 Rejected", "#FFE5E1","#FF5238", GenericConstants.rejectionStart-5),
     PAYMENT_PENDING("Payment Pending", "#F4EEFF", "#5F11D7",5),//INVOICE_SUBMITTED // 3->5
     PARTIALLY_PAID("Partially Paid", "#EDF4FF","#5FC4F5", 6), //4->6
-    FULLY_PAID("Fully Paid", "#EDFFF5","#60C3AD", 7);   //5->7
+    FULLY_PAID("Fully Paid", "#EDFFF5","#60C3AD", 7),
+    SUBMITTED_BY_VENDOR("Submitted By Vendor", "#FFEAB6","#FFB701", -1),
+    SENT_BACK_TO_VENDOR("Sent Back To Vendor", "#FFE5E1","#FF5238", -1);
 
 
     private String statusText;
@@ -58,7 +60,7 @@ public enum InvoiceStatus {
     	}
 
     	invoiceApprovalLevelMap = Collections.unmodifiableMap(temp);
-        approvalCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE,L4_APPROVAL_DUE,L5_APPROVAL_DUE)));
+        approvalCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE,L4_APPROVAL_DUE,L5_APPROVAL_DUE,SUBMITTED_BY_VENDOR)));
         approvalRejects = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_REJECTED, L2_REJECTED, L3_REJECTED,L4_REJECTED,L5_REJECTED)));
         paymentCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID)));
         paymentStatuses = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID,FULLY_PAID)));
