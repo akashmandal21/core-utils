@@ -31,6 +31,7 @@ public class UnderWrittenDto {
     protected TransportCategoryDto transportCategoryDto;
     protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
     protected CxCategoryDto cxCategoryDto;
+    protected PersonnelCategoryDtoV2 personnelCategoryDtoV2;
     protected BuildingMaintenanceDto buildingMaintenanceDto;
 
     private double underWrittenDurationAmount;

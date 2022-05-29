@@ -30,6 +30,9 @@ public class UnderWrittenCalculateResponseDto {
     protected RepairAndMaintenanceCategoryDto repairAndMaintenanceCategoryDto;
     protected TransportCategoryDto transportCategoryDto;
     protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
+    protected BuildingMaintenanceDto buildingMaintenanceDto;
+    protected CxCategoryDto cxCategoryDto;
+    protected PersonnelCategoryDtoV2 personnelCategoryDtoV2;
     private double underWrittenDurationAmount;
     private double underWrittenDurationInDays;
     List<SMLevelDto> smLevelDtoList;
