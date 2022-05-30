@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.user.client.api;
 
@@ -168,7 +168,7 @@ public class UserClientApi {
 			throw new StanzaHttpException("User Service: ", exception);
 		}
 		return (Objects.nonNull(listResponseDto) && Objects.nonNull(listResponseDto.getData())) ? listResponseDto : new ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>>();
-		}
+	}
 
 	public ResponseDto<UserManagerAndRoleDto> getUserWithManagerAndRole(String userId, String token) {
 		Object postBody = null;
@@ -496,7 +496,7 @@ public class UserClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public ResponseDto<PageResponse<UserProfileDto>> getUserDetailsByPhone(String phone) {
 
 		if (StringUtils.isEmpty(phone)) {
@@ -527,7 +527,7 @@ public class UserClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public UserDto getUserDtoByRoleAndAccessLevel(AccessLevelRoleRequestDto cityRolesRequestDto) {
 		Object postBody = null;
 
@@ -559,13 +559,13 @@ public class UserClientApi {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		
+
 
 		String path = UriComponentsBuilder.fromPath("/internal/details/mobile").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("mobileNo", mobileNo);
-		
+
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = {
@@ -704,7 +704,7 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
 		};
-		
+
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		}
@@ -831,7 +831,41 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-<<<<<<< HEAD
+	public ResponseDto<Set<String>> getAccessLevelIds(Department department, String roleName){
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("department", department);
+		uriVariables.put("roleName", roleName);
+
+		String path = UriComponentsBuilder.fromPath("/internal/acl/accessLevelIds/{department}/{roleName}")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Set<String>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<String>>>() {
+		};
+
+		try{
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception ex) {
+			log.error("Error occurred while fetching user access level ids ",ex);
+			return null;
+		}
+
+	}
+
 	public ResponseDto<String> saveUserDeptLevelForNewDept(Department newDepartment, Department refDepartment) {
 
 		log.info("HTTP Client call to save UserDeptLevelForNewDept details for new dept: {} refDept: {}" , newDepartment,refDepartment);
@@ -864,25 +898,11 @@ public class UserClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("newDepartment",newDepartment);
-=======
-	public ResponseDto<Set<String>> getAccessLevelIds(Department department, String roleName){
-		Object postBody = null;
-
-		// create path and map variables
-		final Map<String, Object> uriVariables = new HashMap<>();
-
-		uriVariables.put("department", department);
-		uriVariables.put("roleName", roleName);
-
-		String path = UriComponentsBuilder.fromPath("/internal/acl/accessLevelIds/{department}/{roleName}")
-				.buildAndExpand(uriVariables).toUriString();
->>>>>>> a60ec2cf911ae2257d93a70ca9276d2c4a927c66
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-<<<<<<< HEAD
 		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
@@ -896,25 +916,5 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
 
 	}
-=======
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<Set<String>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<String>>>() {
-		};
-
-		try{
-
-			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
-		} catch (Exception ex) {
-			log.error("Error occurred while fetching user access level ids ",ex);
-			return null;
-		}
-
-	}
-
->>>>>>> a60ec2cf911ae2257d93a70ca9276d2c4a927c66
 }
