@@ -47,6 +47,5 @@ public class CommercialsResponseDtoV2 {
     private MonthlyFeeDtoV2 subContract2MonthlyFee; //add
     private String subContract2StartDate; //add 
     private String subContract2EndDate; //add
-    private AMCAmountType maintenanceChargeAmountType;
     
 }
