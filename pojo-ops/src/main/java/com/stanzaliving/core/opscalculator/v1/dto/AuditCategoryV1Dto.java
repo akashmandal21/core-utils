@@ -2,9 +2,15 @@
  * @author nipunaggarwal
  *
  */
-package com.stanzaliving.core.opscalculator.dto;
+package com.stanzaliving.core.opscalculator.v1.dto;
 
-import lombok.*;
+import com.stanzaliving.core.opscalculator.dto.CategoryDto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -17,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class AuditCategoryDto extends CategoryDto {
+public class AuditCategoryV1Dto extends CategoryDto {
 
 	boolean isPhysicalAudit;
 	boolean isCctvAudit;
@@ -34,8 +40,8 @@ public class AuditCategoryDto extends CategoryDto {
 	public int physicalAuditCharges;
 	public int cctvAuditCharges;
 
-	public AuditCategoryDto clone() {
-		return AuditCategoryDto.builder()
+	public AuditCategoryV1Dto clone() {
+		return AuditCategoryV1Dto.builder()
 				.isPhysicalAudit(this.isPhysicalAudit)
 				.isCctvAudit(this.isCctvAudit)
 				.cctvAuditCostPerBed(this.cctvAuditCostPerBed)
