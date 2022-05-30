@@ -122,7 +122,59 @@ public class InvoiceServiceApi {
             return null;
         }
     }
+    public ResponseDto<String> getInvoicesByType(String referenceId,String invoiceType) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        log.info("fetching the  invoice details for booking uuid {}", referenceId);
+        String path = UriComponentsBuilder.fromPath("/internal/invoice-details")
+                .buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("referenceId", referenceId);
+        queryParams.add("invoiceType", invoiceType);
 
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams,
+                    null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the  invoice details for booking uuid{}", referenceId,e);
+            return null;
+        }
+    }
+
+    public ResponseDto<String> createAndSendPacketForFilixInvoice(DocumentResponseDto documentResponseDto) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        log.info("sending request for filix invoices {}", documentResponseDto);
+        String path = UriComponentsBuilder.fromPath("/internal/filix/invoice")
+                .buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams,
+                    documentResponseDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error in sending request for filix invoices {}", documentResponseDto,e);
+           return   null;
+        }
+    }
+
+    public ResponseDto<String> createAndSendPacketForFilixCreditNote(DocumentResponseDto documentResponseDto,String invoiceUuid) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        log.info("sending request for filix creditNote {}", documentResponseDto);
+        String path = UriComponentsBuilder.fromPath("/internal/filix/credit-note")
+                .buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("invoiceUuid", invoiceUuid);
+
+<<<<<<< HEAD
     public ResponseDto<String> saveDeptApprovalConfigForNewDept(Department newDepartment, Department refDepartment) {
 
         log.info("HTTP Client call to save DeptApprovalConfigForNewDept details for new dept: {} refDept: {}" , newDepartment,refDepartment);
@@ -174,4 +226,19 @@ public class InvoiceServiceApi {
 
     }
 
+=======
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams,
+                    documentResponseDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error in sending request for filix creditNote {}", documentResponseDto,e);
+            return null;
+        }
+    }
+>>>>>>> a60ec2cf911ae2257d93a70ca9276d2c4a927c66
 }

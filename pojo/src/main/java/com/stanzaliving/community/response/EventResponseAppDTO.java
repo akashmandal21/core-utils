@@ -1,15 +1,16 @@
 package com.stanzaliving.community.response;
 
+import java.util.Date;
+import java.util.List;
+
 import com.stanzaliving.community.enums.EventStatus;
+import com.stanzaliving.community.feedpost.response.FeedPostResponseDto;
 import com.stanzaliving.core.base.common.dto.PageResponse;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 @Builder
 @Data
@@ -45,4 +46,6 @@ public class EventResponseAppDTO {
     private Object bookingDetails;
     private PageResponse<SimilarEventResponseDTO> similarEvents;
     private PageResponse<RegisteredUserResponseDTO> registeredUser;
+    
+	private List<FeedPostResponseDto> feedPostResponseDtos;
 }

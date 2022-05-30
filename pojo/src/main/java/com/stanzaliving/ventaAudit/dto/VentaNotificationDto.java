@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 @Data
@@ -14,7 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class VentaNotificationDto {
-
     String bookingUuid;
     String residentUuid;
     String auditorUuid;
@@ -22,4 +20,5 @@ public class VentaNotificationDto {
     List<AttachmentDto> attachmentDtos;
     BookingEventEnum eventEnum;
     String message;
+
 }

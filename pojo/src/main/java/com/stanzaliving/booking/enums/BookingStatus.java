@@ -96,6 +96,15 @@ public enum BookingStatus {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(BookingStatus.DRAFT.getDescription());
         bookingStatus.add(BookingStatus.EXPIRED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        bookingStatus.add(BookingStatus.TRESSPASSER.getDescription());
+        bookingStatus.add(BookingStatus.BOOKING_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_PAID.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.WRONG_BOOKING.getDescription());
         return bookingStatus;
     }
 
@@ -118,6 +127,7 @@ public enum BookingStatus {
     public static Set<String>  bookingNeedsAttention() {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT.getDescription());
+        bookingStatus.add(BookingStatus.PAYMENT_PENDING.getDescription());
         return bookingStatus;
     }
 
@@ -127,6 +137,17 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        return bookingStatus;
+    }
+
+    public static Set<String> invoicingStatusAllowedForResident(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
         return bookingStatus;
     }
 
@@ -156,6 +177,8 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
         return bookingStatus;
     }
 
@@ -166,6 +189,13 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
         bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
+        bookingStatus.add(BookingStatus.TRESSPASSER.getDescription());
+        bookingStatus.add(BookingStatus.BOOKING_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_PAID.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getDescription());
+        bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
         return bookingStatus;
     }
 
@@ -175,6 +205,14 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
         bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
+        bookingStatus.add(BookingStatus.TRESSPASSER.getDescription());
+        bookingStatus.add(BookingStatus.BOOKING_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_PAID.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getDescription());
+        bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.WRONG_BOOKING.getDescription());
         return bookingStatus;
     }
 
@@ -186,6 +224,13 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
         bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
+        bookingStatus.add(BookingStatus.TRESSPASSER.getDescription());
+        bookingStatus.add(BookingStatus.BOOKING_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_PAID.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getDescription());
+        bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
         return bookingStatus;
     }
 
@@ -233,6 +278,40 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static Set<String> notInitiatedExitBookingStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus()); //todo: check this
+        bookingStatus.add(CONTRACT_COMPLETED.getBookingStatus());
+        bookingStatus.add(STAY_FORFEITURE.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_PAID.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_UNPAID.getBookingStatus());
+        bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());
+        return bookingStatus;
+    }
+
+    public static Set<String> exitInitiatedBookingStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(TRESSPASSER.getBookingStatus());
+        bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus());
+        bookingStatus.add(CONTRACT_COMPLETED.getBookingStatus());
+        bookingStatus.add(STAY_FORFEITURE.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_PAID.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_UNPAID.getBookingStatus());
+        bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());
+        return bookingStatus;
+    }
+
+    public static Set<String> exitProcessBookingStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(CONTRACT_COMPLETED.getBookingStatus());
+        bookingStatus.add(STAY_FORFEITURE.getBookingStatus());
+        bookingStatus.add(TRESSPASSER.getBookingStatus()); //remove tresspasser
+        bookingStatus.add(RENT_DEFAULTER_PAID.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_UNPAID.getBookingStatus());
+        bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());
+        return bookingStatus;
+    }
+
     public static List<String> afterOnBoardingCompleteStatus(){
         List<String> bookingStatus = new ArrayList<>();
         bookingStatus.add(EXPIRED.getBookingStatus());
@@ -249,6 +328,13 @@ public enum BookingStatus {
         bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());
         bookingStatus.add(RENT_DEFAULTER.getBookingStatus());
 
+        return bookingStatus;
+    }
+
+
+    public static List<BookingStatus> bookingEligibleForContractTerminationStatus() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED);
         return bookingStatus;
     }
 }

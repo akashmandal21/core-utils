@@ -38,7 +38,8 @@ public enum CriteriaOperation {
 	ENUM_EQ("="),
 	ENUM_NOT_EQ("!="),
 	ENUM_IN("in"),
-	IS_NULL("is null");
+	IS_NULL("is null"),
+	IS_NOT_NULL("is not null");
 
 	private String operation;
 

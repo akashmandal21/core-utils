@@ -16,6 +16,8 @@ import java.util.List;
 public class UpdateAuditDetailsResponseDto {
 
     private String roomName;
+    private String roomUuid;
+    private String roomElementsUuid;
     private String itemName;
     private DamageAssessed damageLevel;
     private Double damageAmount;

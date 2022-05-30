@@ -1,7 +1,7 @@
 package com.stanzaliving.core.electricity.dto;
 
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +17,17 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MoveInDateDto {
-   
-    private LocalDate moveInDate;
-    
+
+	private Date moveInDate;
+
+	private String userCode;
+	
+	private String userId;
+	
+	private String roomNumber;
+
+	private Date oldestUserMoveInDate;
+
+	private String oldestUserUserCode;
+
 }

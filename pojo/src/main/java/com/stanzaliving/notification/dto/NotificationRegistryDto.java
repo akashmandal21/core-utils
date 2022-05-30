@@ -3,6 +3,7 @@ package com.stanzaliving.notification.dto;
 import com.stanzaliving.genericdashboard.dto.CampaignAudienceDto;
 import com.stanzaliving.genericdashboard.dto.SchedulingDto;
 import com.stanzaliving.genericdashboard.enums.CampaignDashboardType;
+import com.stanzaliving.genericdashboard.enums.CampaignGroup;
 import com.stanzaliving.genericdashboard.enums.TemplateLayout;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,8 @@ public class NotificationRegistryDto {
     private String campaignId;
 
     private CampaignDashboardType campaignDashboardType;
+    
+    private CampaignGroup campaignGroup;
 
     private TemplateLayout templateLayout;
 
