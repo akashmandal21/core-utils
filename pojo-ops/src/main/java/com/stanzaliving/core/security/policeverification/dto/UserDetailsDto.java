@@ -11,7 +11,6 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
@@ -35,13 +34,13 @@ public class UserDetailsDto {
     @Enumerated(EnumType.STRING)
     private ResidentStatus residentStatus;
 
-    @NotBlank(message = "Registration Type is mandatory")
+    @NotNull(message = "Registration Type is mandatory")
     @Enumerated(EnumType.STRING)
     private RegistrationType registrationType;
 
     private UserPersonalDetailsDto userPersonalDetails;
 
-    private StanzaResidenceDetailsDto stanzaResidenceDetailsDto;
+    private StanzaResidenceDetailsDto stanzaResidenceDetails;
 
     private AddressDetailsDto permanentAddressDetails;
 

@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 
 @Getter
@@ -31,13 +31,13 @@ public class PoliceVerificationActivityDto {
 
     @Enumerated(EnumType.STRING)
     @NotNull(message = "Police Verification Status is mandatory")
-    private PoliceVerificationStatus pvStatus;
+    private PoliceVerificationStatus policeVerificationStatus;
 
-    protected LocalDateTime createdAt;
+    protected Date createdAt;
 
     protected String createdBy;
 
-    protected LocalDateTime updatedAt;
+    protected Date updatedAt;
 
     protected String updatedBy;
 
