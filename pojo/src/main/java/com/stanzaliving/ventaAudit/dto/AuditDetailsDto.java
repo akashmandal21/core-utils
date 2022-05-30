@@ -21,7 +21,7 @@ public class AuditDetailsDto {
     @NotBlank(message = "Item name is Required")
     private String itemName;
     @NotEmpty(message = "Images are required")
-    private List<@NotBlank String> auditImageUrl;
+    private List<ImageResponseDto> auditImageUrl;
     @Valid
     private DamageAssessed damageLevel;
     @Min(value = 0)

@@ -1,35 +1,5 @@
 package com.stanzaliving.foodservice.client.api;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.stanzaliving.core.base.common.dto.ListingDto;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.enums.DateFormat;
-import com.stanzaliving.core.base.exception.ApiValidationException;
-import com.stanzaliving.core.base.exception.PreconditionFailedException;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.base.utils.DateUtil;
-import com.stanzaliving.core.food.dto.*;
-import com.stanzaliving.core.food.dto.request.FullCategoryDto;
-import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
-import com.stanzaliving.core.food.dto.response.RecentMealDto;
-import com.stanzaliving.core.operations.enums.MealType;
-import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
-import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
-import com.stanzaliving.food.v2.common.dto.MealDto;
-import com.stanzaliving.food.v2.common.dto.MealTypeAndGroupIdDto;
-import com.stanzaliving.food.v2.menu.dto.ResidenceFoodMenuItemIdProjectionDto;
-import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -43,6 +13,50 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.enums.DateFormat;
+import com.stanzaliving.core.base.exception.ApiValidationException;
+import com.stanzaliving.core.base.exception.PreconditionFailedException;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.core.cafe.order.dto.CafeOrderRDto;
+import com.stanzaliving.core.food.dto.FoodItemDto;
+import com.stanzaliving.core.food.dto.IngredientUsageDto;
+import com.stanzaliving.core.food.dto.ItemCategoryDto;
+import com.stanzaliving.core.food.dto.ItemSubCategoryDto;
+import com.stanzaliving.core.food.dto.LastQrScanResponseDto;
+import com.stanzaliving.core.food.dto.QrScanSummaryResponseDto;
+import com.stanzaliving.core.food.dto.ResidenceConfigDto;
+import com.stanzaliving.core.food.dto.ResidenceDayLevelMealDto;
+import com.stanzaliving.core.food.dto.ResidenceMealPlanDto;
+import com.stanzaliving.core.food.dto.request.FullCategoryDto;
+import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
+import com.stanzaliving.core.food.dto.response.RecentMealDto;
+import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.core.opscalculator.dto.OccupiedBedDto;
+import com.stanzaliving.core.security.dto.FoodCafeRequestDto;
+import com.stanzaliving.core.security.dto.FoodScanRequestDto;
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
+import com.stanzaliving.food.v2.common.dto.MealDto;
+import com.stanzaliving.food.v2.common.dto.MealTypeAndGroupIdDto;
+import com.stanzaliving.food.v2.menu.dto.ResidenceFoodMenuItemIdProjectionDto;
+import com.stanzaliving.food.v2.menu.dto.ResidenceMenuDto;
+import com.stanzaliving.food.v2.vendor.dto.FoodVendorDTO;
+
+import lombok.extern.log4j.Log4j2;
+
 @Log4j2
 public class FoodServiceClientApi {
 
@@ -52,6 +66,52 @@ public class FoodServiceClientApi {
         this.restClient = stanzaRestClient;
     }
 
+
+	public ResidenceMealPlanDto getMeal(String residenceUuid){
+		String path =
+				UriComponentsBuilder.fromPath(
+								"/internal/residence/meal/plan/get/" + residenceUuid )
+						.build()
+						.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		TypeReference<ResponseDto<ResidenceMealPlanDto>> returnType =
+				new TypeReference<ResponseDto<ResidenceMealPlanDto>>() {};
+
+		ResponseDto<ResidenceMealPlanDto> responseDto = null;
+		try {
+			responseDto =
+					restClient.request(
+							path,
+							HttpMethod.GET,
+							queryParams,
+							residenceUuid,
+							headerParams,
+							accept,
+							returnType,
+							MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.info("Error while fetching meal data");
+			throw new ApiValidationException(
+					"Some error occurred. Please try again after some time.");
+		}
+
+		if (!responseDto.isStatus()) {
+
+			throw new PreconditionFailedException(responseDto.getMessage());
+		}
+
+		return responseDto.getData();
+
+
+	}
 
 	public ResidenceDayLevelMealDto getMealTimings(String residenceUuid) {
 		String path =
@@ -736,6 +796,126 @@ public class FoodServiceClientApi {
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : StringUtils.EMPTY;
 
 	}
+
+	public ResidenceConfigDto getResidenceConfig(String residenceId) {
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/common/residence/config").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("residenceId",residenceId);
+
+		TypeReference<ResponseDto<ResidenceConfigDto>> returnType = new TypeReference<ResponseDto<ResidenceConfigDto>>() {};
+
+		ResponseDto<ResidenceConfigDto> responseDto = null;
+
+		try {
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting residence configuration", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
+	}
 	
+	public List<FoodVendorDTO> getFoodVendorList(){
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/vendor/list").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+	
+		TypeReference<ResponseDto<List<FoodVendorDTO>>> returnType = new TypeReference<ResponseDto<List<FoodVendorDTO>>>() {};
+
+		ResponseDto<List<FoodVendorDTO>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.get(path, queryParams, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting vendors", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
+	
+	public List<LastQrScanResponseDto> getLastQrScan(List<String> userIds){
+
+		String path = UriComponentsBuilder.fromPath("/internal/qr/last/scan").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+	
+		TypeReference<ResponseDto<List<LastQrScanResponseDto>>> returnType = new TypeReference<ResponseDto<List<LastQrScanResponseDto>>>() {};
+
+		ResponseDto<List<LastQrScanResponseDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, userIds, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting lastQrScan", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
+	
+	public List<QrScanSummaryResponseDto> getQrScanSummary(FoodScanRequestDto foodScanRequestDto){
+
+		String path = UriComponentsBuilder.fromPath("/internal/qr/scan/summary").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		TypeReference<ResponseDto<List<QrScanSummaryResponseDto>>> returnType = new TypeReference<ResponseDto<List<QrScanSummaryResponseDto>>>() {};
+
+		ResponseDto<List<QrScanSummaryResponseDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, foodScanRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting qrscansummary", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
+	
+	public List<CafeOrderRDto> getCafeOrderSummary(FoodCafeRequestDto foodCafeRequestDto){
+
+		String path = UriComponentsBuilder.fromPath("/internal/cafe/order/summary").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		
+		TypeReference<ResponseDto<List<CafeOrderRDto>>> returnType = new TypeReference<ResponseDto<List<CafeOrderRDto>>>() {};
+
+		ResponseDto<List<CafeOrderRDto>> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, foodCafeRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting cafe order summary", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
+
+	}
 	
 }

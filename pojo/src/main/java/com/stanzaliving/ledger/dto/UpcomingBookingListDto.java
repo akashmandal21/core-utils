@@ -17,4 +17,3 @@ public class UpcomingBookingListDto {
 
     List<UpcomingBookingsDto> data;
 }
-

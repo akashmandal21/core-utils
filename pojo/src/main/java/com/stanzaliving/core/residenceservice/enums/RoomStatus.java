@@ -12,7 +12,8 @@ public enum RoomStatus {
 
     AVAILABLE("available"),
     BLOCKED("blocked"),
-    DEAD("dead");
+    DEAD("dead"),
+    SOLD_OUT("soldOut");
 
     private final String value;
     private static final Map<String, RoomStatus> map = new HashMap<>();

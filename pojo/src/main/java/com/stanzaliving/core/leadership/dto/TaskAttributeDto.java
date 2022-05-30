@@ -17,9 +17,11 @@ import lombok.ToString;
 public class TaskAttributeDto {
 
 	private String statusDesc;
+	private String status;
 	private int beds;
 	private Long estateId;
 	private String estateUuid;
+	private String estatePropertyId;
 	private String estateName;
 	private String city;
 	private String micromarket;

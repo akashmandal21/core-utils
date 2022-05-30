@@ -12,7 +12,11 @@ public enum EventType {
     EXCEPTION_ONBOARDING_REQUEST("Exception Onboarding Request"),
     EVERY_SUCCESSFUL_TRANSACTION("Every Successful Transaction"),
     AGREEMENT_PENDING("Agreement Pending"),
-    MODIFY_CONTRACT_REQUEST("Modify Contract Request");
+    MODIFY_CONTRACT_REQUEST("Modify Contract Request"),
+    TRESSPASSER_BOOKINGS("Tresspasser Bookings"),
+    VISIT_SCHEDULED_TODAY("Visit Scheduled Today"),
+    VISIT_SCHEDULED_TODAY_1("One Visit Scheduled Today"),
+    VISIT_SCHEDULED("Visit Scheduled");
     private String commandText;
 
     EventType(String commandText)

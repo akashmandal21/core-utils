@@ -24,56 +24,63 @@ import lombok.ToString;
 public class ResidenceResponseShortDTO {
 
 	private int residenceId;
-	
+
 	private String name;
-	
+
 	private String slug;
-	
+
 	private Gender gender;
-	
+
 	private int micromarketId;
-	
+
 	private String micromarketName;
-	
+
 	private String micromarketSlug;
 
 	private int cityId;
-	
+
 	private String cityName;
-	
+
 	private String citySlug;
-	
+
 	private int startingPrice;
-	
+
 	private String pricingPlan;
-	
+
 	private Integer preBookingAmount;
-	
+
 	private String preBookingMode;
-	
+
 	private String googleMapLink;
-	
+
 	private double latitude;
-	
+
 	private double longitude;
-	
+
 	private String virtualTourImage;
 
 	private String videoLink;
-	
+
 	private Integer sortOrder;
-	
+
+	private Integer secondSortOrder;
+
 	private FomoTag fomoTag;
-	
+
 	private String fomoTagName;
-	
+
 	private String fomoTagcolour;
-	
+
 	private Double distanceFromPlace;
-	
+
 	private String transformationUuid;
-	
+
 	private String transformationId;
+
+	private Integer residenceAddressId;
+
+	private AddressResponseDTO addressResponseDTO;
+	private Integer residenceTypeId;
 
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);

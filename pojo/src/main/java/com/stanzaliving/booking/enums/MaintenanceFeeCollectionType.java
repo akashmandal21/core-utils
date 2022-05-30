@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public enum MaintenanceFeeCollectionType {
 
 	MONTHLY("Monthly"),
-	ONE_TIME_UPFRONT("One time upfront");
+	ONE_TIME_UPFRONT("One Time Upfront");
 
 	private String name;
 

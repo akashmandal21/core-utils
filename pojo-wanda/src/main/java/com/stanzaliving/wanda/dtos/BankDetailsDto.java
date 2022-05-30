@@ -25,6 +25,8 @@ public class BankDetailsDto {
 	
 	@NotEmpty
 	private String benefeciaryName;
+	
+	private String fullName;
 
 	private String razorpayId;
 

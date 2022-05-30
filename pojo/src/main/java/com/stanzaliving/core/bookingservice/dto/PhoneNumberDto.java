@@ -6,11 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 //@ValidPhoneNumber //todo: check this || implements PhoneNumberValidator.PhoneNumber
-public class PhoneNumberDto  {
+public class PhoneNumberDto implements Serializable {
     private String mobile;
     private String countryCode;
 
