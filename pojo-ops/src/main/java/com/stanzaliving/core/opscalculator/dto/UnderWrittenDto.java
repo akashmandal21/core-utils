@@ -36,6 +36,7 @@ public class UnderWrittenDto {
     protected CxCategoryDto cxCategoryDto;
     protected PersonnelCategoryDtoV2 personnelCategoryDtoV2;
     protected BuildingMaintenanceDto buildingMaintenanceDto;
+    protected WaterCategoryDto waterCategoryDto;
     private RepairCategoryDto repairCategoryDto;
     private IncentiveCategoryDto incentiveCategoryDto;
 
