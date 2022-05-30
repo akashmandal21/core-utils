@@ -8,6 +8,7 @@ import java.util.*;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
+import com.stanzaliving.core.user.request.dto.*;
 import com.stanzaliving.core.user.dto.*;
 import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
 import org.apache.commons.collections.CollectionUtils;
@@ -30,10 +31,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
 import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
-import com.stanzaliving.core.user.request.dto.ActiveUserRequestDto;
-import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
 import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
-import com.stanzaliving.core.user.request.dto.UserRequestDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -458,6 +456,8 @@ public class UserClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
+
+		queryParams.add("includeDeactivated", "true");
 
 		final String[] accepts = {
 				"*/*"

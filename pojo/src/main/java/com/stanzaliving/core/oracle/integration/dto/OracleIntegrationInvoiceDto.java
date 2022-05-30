@@ -58,8 +58,17 @@ public class OracleIntegrationInvoiceDto extends AbstractOracleDto {
     private BigDecimal provision;
     private BigDecimal difference;
     private BigDecimal retentionAmount;
+    @JsonProperty("retention_percentage")
+    private String retentionPercent;
     private String retentionDueDate;
     private List<OracleIntegrationInvoiceItemDto> itemList;
     private String poNumber;
+    private String invoiceDate;
+    private String memo;
+    @JsonProperty("service_period_start_date")
+    private String servicePeriodStartDate;
+    @JsonProperty("service_period_end_date")
+    private String servicePeriodEndDate;
+
 
 }
