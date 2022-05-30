@@ -24,12 +24,14 @@ public class CommercialsResponseDtoV2 {
     private int contractId;
     private String stayLockInPeriod;
     private String contractEndDate;
+    private String lockInEndDate;
     private MonthlyFeeDtoV2 monthlyFee;
     private Double securityDeposit;
     private Double onBoardingCharges;
     private Double maintenanceFee;
     private Integer advanceMonths;
     private Double advanceFee;
+    private Double onBoardingCharges;
     private String maxDate;
     private double upsell;
     private MaintenanceFeeCollectionType maintenanceFeeCollectionType;

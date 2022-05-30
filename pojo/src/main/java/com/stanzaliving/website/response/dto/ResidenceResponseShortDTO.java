@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -82,6 +83,8 @@ public class ResidenceResponseShortDTO implements Serializable{
 
 	private AddressResponseDTO addressResponseDTO;
 	private Integer residenceTypeId;
+	
+	private PropertyEntityType propertyEntityType;
 
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);

@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Builder
 @Data
@@ -17,7 +19,6 @@ public class HomeScreenNotificationResponse {
     private UserNotificationDto survey;
 
     private int notificationCount;
-
-    private HomeScreenAddendumResponseDto addendumResponseDto;
     
+    private List<AddendumResponseDto> addendumResponseDto;
 }

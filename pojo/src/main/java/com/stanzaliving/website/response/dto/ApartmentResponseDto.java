@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -101,6 +102,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private Integer discountPercentage;
 	
 	private Integer discountedPrice;
+	
+	private PropertyEntityType propertyEntityType;
 	
 	private List<ApartmentResponseDto> similarApartments;
 	
