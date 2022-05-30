@@ -29,7 +29,9 @@ public enum SupportRole {
     SUPPORT_SUB_TASK_EDIT(2, "SUPPORT_SUB_TASK_EDIT",AccessLevel.CITY,Arrays.asList(SupportModule.BLISS_DASHBOARD)),
     SUPPORT_L1_IT_EXEC(2,"SUPPORT_L1_IT_EXEC",AccessLevel.CITY,Arrays.asList(SupportModule.BLISS_DASHBOARD,SupportModule.TICKET_RESOLUTION)),
     SUPPORT_L2_IT_LEAD(1,"SUPPORT_L2_IT_LEAD",AccessLevel.COUNTRY,Arrays.asList(SupportModule.BLISS_DASHBOARD,SupportModule.TICKET_RESOLUTION)),
-    SUPPORT_L1_RM_MST(4,"SUPPORT_L1_RM_MST",AccessLevel.RESIDENCE,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
+    SUPPORT_L1_RM_MST(4,"SUPPORT_L1_RM_MST",AccessLevel.RESIDENCE,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    SUPPORT_EXECUTIVE_CHEF(3,"SUPPORT_EXECUTIVE_CHEF",AccessLevel.MICROMARKET,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
+
 
     private static final Map<String, SupportRole> map = new HashMap<>();
 
