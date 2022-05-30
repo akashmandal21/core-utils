@@ -28,8 +28,12 @@ public class PoDetailsResponse {
     private String poUuid;
     private String poNumber;
     private String poExpenseType;
+
     private Date poCreationDate;
     private LocalDateTime approvedStatusAt;
+
+    private String poBoqLabel;
+
 
     private GenericPOType potype;
     private GenericPOTOStatus postatus;
@@ -61,6 +65,7 @@ public class PoDetailsResponse {
     private UIKeyValue deliveryLocation;
     private BigDecimal advanceAmount;
     private BigDecimal retentionAmount;
+    private String retentionPercent;
 
     private Integer advCreditDays;
     private Integer genCreditDays;
