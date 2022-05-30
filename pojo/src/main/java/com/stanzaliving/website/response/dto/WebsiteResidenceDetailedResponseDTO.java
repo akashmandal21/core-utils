@@ -112,4 +112,7 @@ public class WebsiteResidenceDetailedResponseDTO {
 	private List<ReviewWebsiteResponseDto> reviews;
 	
 	private ResidenceFilteredResponseDTO similarResidencesNearBy;
+	
+	private WebsitePlaceNearByPropertiesResponseDTO cityAllProperties;
+
 }
