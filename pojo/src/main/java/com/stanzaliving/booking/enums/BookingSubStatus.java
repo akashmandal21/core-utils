@@ -30,7 +30,9 @@ public enum BookingSubStatus {
     AUDIT_REJECTED("AUDIT REJECTED"),
     PENDING_CH_APPROVAL("PENDING CH APPROVAL"),
     AUDIT_APPROVAL_PENDING("AUDIT APPROVAL PENDING"),
-    PENDING_ZH_APPROVAL("PENDING ZH APPROVAL");
+    PENDING_ZH_APPROVAL("PENDING ZH APPROVAL"),
+    USER_VALIDATION_FAILURE("USER VALIDATION FAILURE");
+
 
     private String bookingSubStatus;
 
@@ -69,6 +71,32 @@ public enum BookingSubStatus {
         bookingSubStatus.add(BookingSubStatus.BOOKING_AMOUNT_PENDING);
         return bookingSubStatus;
     }
+
+    public static Set<String> exitInitiatedBookingSubStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
+        bookingStatus.add(PENDING_CH_APPROVAL.getBookingSubStatus());
+        bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
+        return bookingStatus;
+    }
+
+    public static Set<String> AuditBookingSubStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(AUDIT_PENDING.getBookingSubStatus());
+        bookingStatus.add(AUDIT_APPROVAL_PENDING.getBookingSubStatus());
+        bookingStatus.add(AUDIT_APPROVED.getBookingSubStatus());
+        bookingStatus.add(AUDIT_REJECTED.getBookingSubStatus());
+        return bookingStatus;
+    }
+
+    public static Set<String> exitProcessBookingSubStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
+        bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
+        return bookingStatus;
+    }
+
+
 
 
 }

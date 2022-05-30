@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class CardListingDto {
     private String title;
     private String amount;
+    private String amountColorCode;
 }

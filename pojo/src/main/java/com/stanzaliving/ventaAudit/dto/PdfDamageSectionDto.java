@@ -17,7 +17,6 @@ public class PdfDamageSectionDto {
     private String itemName;
     private String damageLevel;
     private Double amount;
-    private List<String> onBoardingImages;
     private List<String> auditImages;
     private String auditorRemarks;
 }

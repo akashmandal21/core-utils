@@ -32,4 +32,5 @@ public class PrepaidMeterRechargeHistoryDto implements Serializable {
 	private String meterId;
 	private PaymentMode paymentMode;
 	private String userId;
+	private String residenceId;
 }

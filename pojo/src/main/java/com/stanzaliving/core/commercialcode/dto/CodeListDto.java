@@ -28,5 +28,15 @@ public class CodeListDto {
 
     private boolean isAutoApplicable;
 
+    private Boolean isSecurityDepositManualInput;
+
+    private Double monthlyFeesMultiplier;
+
+    private Double onBoardingCharges;
+
+    private Double onBoardingChargesPercentage;
+
+    private Boolean onboardingChargesApplicableOnRetention;
+
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
 }

@@ -5,12 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class ResponseDocumentDto {
+public class ResponseDocumentDto implements Serializable {
     private LocalDate issueDate;
     private String stanzaDocumentId;
     private String invoiceType;
