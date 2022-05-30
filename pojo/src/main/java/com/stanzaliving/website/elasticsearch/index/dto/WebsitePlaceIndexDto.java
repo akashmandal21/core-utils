@@ -62,4 +62,8 @@ public class WebsitePlaceIndexDto extends AbstractSearchIndexDto {
 	private Boolean isExactMatched = false;
 	
 	private float score;
+	
+	private String apartmentCitySlug;
+	
+	private String apartmentMMSlug;
 }
