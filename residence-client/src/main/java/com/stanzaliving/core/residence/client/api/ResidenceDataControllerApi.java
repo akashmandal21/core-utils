@@ -1294,7 +1294,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public ResponseDto<String> getMatrixCron(String residenceUuid) {
+    public ResponseDto<String> getMetricsCron(String residenceUuid) {
 
         log.info("Residence-Data-Controller::Processing to get vas details based on residenceUuid {}", residenceUuid);
 
@@ -1302,7 +1302,7 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("residenceUuid", residenceUuid);
 
-        String path = UriComponentsBuilder.fromPath("/residence/{residenceUuid}/matrices-cron").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/residence/{residenceUuid}/metrics-cron").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
