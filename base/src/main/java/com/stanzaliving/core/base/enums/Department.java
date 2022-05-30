@@ -45,7 +45,7 @@ public enum Department {
 	SALES_IS("Sales IS", "IS", "SIS"),
 	RE_BROKERAGE("RE Brokerage","RB","RBK"),
 	TECH_PILOT("Tech Pilot","TPL","TPLT"),
-	TECH_PILOT_2("Tech Pilot","TPL2","TPLT2");
+	TECH_PILOT_2("Tech Pilot 2","TPL2","TPLT2");
 
 
 	public String departmentName;
