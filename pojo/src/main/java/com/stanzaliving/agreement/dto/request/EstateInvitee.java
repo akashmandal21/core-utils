@@ -20,4 +20,7 @@ public class EstateInvitee {
     private String completionThreshold;
     private String organizationName;
     private AadhaarConfig aadhaarConfig;
+    private String expiryDate;
+    private String signUrl;
+    private String active;
 }

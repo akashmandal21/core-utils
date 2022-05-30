@@ -10,6 +10,6 @@ import lombok.*;
 @AllArgsConstructor
 public class LeegalityResponse {
     private ResponseMessage message;
-    private ResponseData responseData;
+    private ResponseData data;
     private String status;
 }
