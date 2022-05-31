@@ -96,4 +96,6 @@ public class    GenericTaskDto extends AbstractDto {
     private String taskRoomNames;
 
     private String taskRoomReasons;
+
+    private String taskUuid;
 }
