@@ -68,6 +68,12 @@ public class ApartmentShortResponseDto implements Serializable {
 	
 	private String transformationId;
 	
+	private Double latitude;
+	
+	private Double longitude;
+	
+	private Double distanceFromPlace;
+	
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>();
 }
