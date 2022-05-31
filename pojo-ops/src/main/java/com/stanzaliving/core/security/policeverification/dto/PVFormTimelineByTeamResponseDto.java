@@ -24,7 +24,7 @@ public class PVFormTimelineByTeamResponseDto {
 
     private String createdBy;
 
-    private List<String> comment;
+    private List<String> description;
 
     private Date createdAt;
 }

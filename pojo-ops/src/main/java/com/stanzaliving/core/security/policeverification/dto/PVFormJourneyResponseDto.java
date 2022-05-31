@@ -23,7 +23,13 @@ public class PVFormJourneyResponseDto {
 
     private String policeVerificationCurrentStatusName;
 
-    private String policeVerificationCurrentColorCode;
+    private PoliceVerificationStatus policeVerificationPrevStatus;
+
+    private String policeVerificationPrevStatusName;
+
+    private PoliceVerificationStatus policeVerificationNextStatus;
+
+    private String policeVerificationNextStatusName;
 
     private List<PVFormJourneyByTeamResponseDto> formJourney;
 }
