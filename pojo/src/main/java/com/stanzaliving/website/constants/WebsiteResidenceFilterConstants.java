@@ -56,4 +56,5 @@ public class WebsiteResidenceFilterConstants {
 	public final String FILTER_SERVICES_NAME = "Services";
 	
 	public final String DISTANCE = "Distance";
+	public final String POPULARITY= "Sort By Popularity";
 }
