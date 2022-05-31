@@ -1,5 +1,6 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.stanzaliving.website.enums.FomoTag;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
