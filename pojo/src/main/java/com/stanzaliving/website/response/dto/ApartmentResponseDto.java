@@ -112,6 +112,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private Boolean soldOut;
 	
+	private boolean isEntireFlatAvailable;
+	
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>();
 	
