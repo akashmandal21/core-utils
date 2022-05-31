@@ -23,6 +23,4 @@ public class PayloadDto {
     private String description;
 
     private String deepLinkUrl;
-
-    private String campaignTitle;
 }
