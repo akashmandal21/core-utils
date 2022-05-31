@@ -21,6 +21,9 @@ public class TicketActivityDto {
     private String actionedByUuid;
     private String actionedTo;
     private boolean isMarkedPrivate;
+    private boolean isDeleted;
+    private boolean isStatus;
+    @Builder.Default
     private TicketActivityTemplatesEnum type = TicketActivityTemplatesEnum.OTHER;
     private Date createdAt;
     private String referenceId;

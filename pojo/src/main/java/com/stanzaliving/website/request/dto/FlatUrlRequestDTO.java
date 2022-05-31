@@ -29,6 +29,7 @@ public class FlatUrlRequestDTO {
 	private String seoTitle;
 	private String seoDescription;
 	private Boolean locationCheck;
+	private Boolean isMultiplePlaceActive;
 	private Gender gender;
 	private Long reviewCount;
 	private Double rating;

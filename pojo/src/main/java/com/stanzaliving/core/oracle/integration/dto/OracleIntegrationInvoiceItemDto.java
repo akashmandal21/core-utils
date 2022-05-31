@@ -1,5 +1,6 @@
 package com.stanzaliving.core.oracle.integration.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -21,6 +22,7 @@ public class OracleIntegrationInvoiceItemDto {
     private BigDecimal amount;
     private String stanzaLineId;
     private String hsnCode;
+    @JsonProperty("indoataxnature")
     private String indiaTaxNature;
     private String taxLocationType;
     private double taxRate;
