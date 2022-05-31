@@ -24,6 +24,8 @@ public class FilterBaseUIDto {
 
 	private Object value;
 	
+	private String amenityIconUrl;
+	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private EnumFilterType filterType;
 }
