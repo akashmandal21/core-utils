@@ -32,6 +32,8 @@ public class ResidenceResponseShortDTO implements Serializable{
 	private String slug;
 
 	private Gender gender;
+	
+	private String genderName;
 
 	private int micromarketId;
 

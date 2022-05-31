@@ -30,6 +30,8 @@ public class WebsiteResidenceDetailedResponseDTO {
 	
 	private Gender gender;
 	
+	private String genderName;
+	
 	private int micromarketId;
 	
 	private String micromarketName;
