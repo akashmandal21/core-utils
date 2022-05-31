@@ -1,6 +1,6 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
-import com.stanzaliving.core.security.policeverification.enums.PendingType;
+import com.stanzaliving.core.security.policeverification.enums.PoliceVerificationStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,11 +12,11 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
-public class CountResponseDto {
+public class CountByTaskResponseDto {
 
-    private PendingType pendingType;
+    private PoliceVerificationStatus policeVerificationStatus;
 
-    private String pendingTypeName;
+    private String policeVerificationStatusName;
 
     private Long totalPending;
 
