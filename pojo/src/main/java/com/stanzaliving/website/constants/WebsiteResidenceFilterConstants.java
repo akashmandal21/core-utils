@@ -17,8 +17,8 @@ public class WebsiteResidenceFilterConstants {
 	public final Integer FILTER_SORT_BY_SEQUENCE_ID_V2 = 1;
 	public final String FILTER_SORT_BY_NAME = "Sort By";
 	
-	public final String LOW_TO_HIGH="Low to High";
-	public final String HIGH_TO_LOW="High to Low";
+	public final String LOW_TO_HIGH="Price: Low to High";
+	public final String HIGH_TO_LOW="Price: High to Low";
 	public final String LOWEST_PRICE_FIRST = "Lowest Price First";
 	public final String HIGHEST_PRICE_FIRST = "Highest Price First";
 	public final String ASC = "asc";
