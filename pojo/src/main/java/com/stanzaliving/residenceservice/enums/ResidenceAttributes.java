@@ -47,7 +47,7 @@ public enum ResidenceAttributes {
     BOOKING_START_DATE("Booking Start Date", "Date"),
     PRE_BOOKING_START_DATE("Pre-Booking Start Date", "Date"),
 
-    AVERAGE_AMOUNT_RESIDENCE("Average Amount Of Residence", "Double");
+    UNDERWRITE_FINANCE("Underwrite Finance", "Double");
 
     private String label;
     private String type;
