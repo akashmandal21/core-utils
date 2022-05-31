@@ -93,7 +93,7 @@ public class PhoenixClientApi {
         uriVariables.put("propertyUuid", propertyUuid);
         uriVariables.put("moduleName", moduleName);
 
-        String path = UriComponentsBuilder.fromPath("/module/submit/{propertyUuid}/{moduleName}")
+        String path = UriComponentsBuilder.fromPath("/asis/submit/{propertyUuid}/{moduleName}")
                 .buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -109,7 +109,7 @@ public class PhoenixClientApi {
         ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
 
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
 
