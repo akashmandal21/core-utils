@@ -30,4 +30,6 @@ public class ResidenceFilteredResponseDTO extends PageResponse<ResidenceFiltered
 	
 	@Builder.Default
 	private Integer apartmentCount = 0;
+	
+	private WebsitePlaceIndexDto websitePlaceIndexDto;
 }
