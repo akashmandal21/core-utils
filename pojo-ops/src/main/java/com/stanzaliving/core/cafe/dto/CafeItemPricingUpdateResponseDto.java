@@ -1,8 +1,8 @@
 package com.stanzaliving.core.cafe.dto;
 
 import com.stanzaliving.core.base.common.dto.ListingDto;
+import com.stanzaliving.core.food.dto.response.CafePricingPackagingResponseDto;
 import com.stanzaliving.core.food.dto.response.DishDetailsResponseDto;
-import com.stanzaliving.core.food.dto.response.VasMasterPackagingResponseDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
@@ -48,7 +48,7 @@ public class CafeItemPricingUpdateResponseDto {
 
     private List<DishDetailsResponseDto> description;
 
-    private List<VasMasterPackagingResponseDto> packaging;
+    private List<CafePricingPackagingResponseDto> packaging;
 
     private boolean itemEnableStatus;
 

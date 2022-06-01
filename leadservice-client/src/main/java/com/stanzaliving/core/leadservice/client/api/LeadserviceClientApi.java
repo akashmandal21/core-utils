@@ -8,21 +8,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.stanzaliving.website.request.dto.LeadSearchRequestDto;
-import com.stanzaliving.website.response.dto.LeadDetailEntity;
-import com.stanzaliving.website.response.dto.SearchResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.website.response.dto.LeadDetailEntity;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
 
@@ -143,11 +139,32 @@ public class LeadserviceClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
+	
+	public ResponseDto<String> rescheduleVisitFromThankyouScreen(LeadRequestDto leadRequestDto) {
+
+		Object postBody = leadRequestDto;
+
+		String path = UriComponentsBuilder.fromPath("/lead/internal/website/reschedule").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+	
 
 	public ResponseDto<LeadRequestDto> leadCreation(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -176,7 +193,7 @@ public class LeadserviceClientApi {
 	public ResponseDto<LeadRequestDto> leadMigration(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -231,7 +248,7 @@ public class LeadserviceClientApi {
 	public ResponseDto<LeadRequestDto> createScheduledVisitLead(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -354,6 +371,34 @@ public class LeadserviceClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Error while creating the lead {}", e);
+			return null;
+		}
+	}
+	
+	public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
+
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("internal/prebooking/refund/fetch/eligible/leads").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		if(Objects.nonNull(phone))
+			queryParams.add("phone", phone);
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching prebooked refund eligible leads {}", e);
 			return null;
 		}
 	}
