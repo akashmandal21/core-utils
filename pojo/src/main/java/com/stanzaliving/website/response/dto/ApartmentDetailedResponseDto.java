@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Set;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
-import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -138,6 +137,4 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private WebsitePlaceNearByPropertiesResponseDTO cityAllProperties;
 	
 	private List<ApartmentRoomTypeResponseDTO> otherRooms;
-	
-	private WebsitePlaceIndexDto placeIndexDtoRoom;
 }
