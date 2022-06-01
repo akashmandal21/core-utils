@@ -101,6 +101,15 @@ public enum BookingStatus {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(BookingStatus.DRAFT.getDescription());
         bookingStatus.add(BookingStatus.EXPIRED.getDescription());
+        bookingStatus.add(BookingStatus.CANCELLED.getDescription());
+        bookingStatus.add(BookingStatus.TRESSPASSER.getDescription());
+        bookingStatus.add(BookingStatus.BOOKING_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_PAID.getDescription());
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED.getDescription());
+        bookingStatus.add(BookingStatus.CONTRACT_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
+        bookingStatus.add(BookingStatus.WRONG_BOOKING.getDescription());
         return bookingStatus;
     }
 

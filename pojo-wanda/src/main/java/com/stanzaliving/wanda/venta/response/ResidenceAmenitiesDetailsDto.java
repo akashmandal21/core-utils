@@ -7,14 +7,10 @@ import com.stanzaliving.wanda.dtos.AmenitiesDto;
 
 import com.stanzaliving.wanda.enums.PropertyCategory;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Builder
-@Getter
+@Data
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor

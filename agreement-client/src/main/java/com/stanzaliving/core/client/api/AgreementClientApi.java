@@ -158,4 +158,38 @@ public class AgreementClientApi {
 
     }
 
+	public ResponseDto<List<AgreementResponseDto>> getAgreementLinks(String referenceId) {
+
+		try {
+			Object postBody = null;
+
+			log.info("get User details by userUuid is {} ", referenceId);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			uriVariables.put("referenceId", referenceId);
+
+			String path = UriComponentsBuilder.fromPath("/internal/agreements/{referenceId}").buildAndExpand(uriVariables)
+					.toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<List<AgreementResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<AgreementResponseDto>>>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("error while fetching the user details " + e);
+		}
+
+		return null;
+
+	}
+
 }

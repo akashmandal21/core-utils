@@ -1,13 +1,10 @@
 package com.stanzaliving.core.client.api;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
+import com.stanzaliving.booking.SoldBookingDto;
 import com.stanzaliving.booking.dto.*;
+import com.stanzaliving.booking.dto.request.BookingResidencesReqDto;
 import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.bookingservice.dto.response.PackagedServiceResponseDto;
 import com.stanzaliving.core.client.dto.*;
@@ -942,16 +939,20 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<String> syncMysqlAndElasticData(){
-        Object postBody = null;
+
+    public ResponseDto<Map<String, SoldBookingDto>> getBookingInfoByResidenceUuid(List<String> residenceUuids, Date toDate) {
+
+        Object postBody = residenceUuids;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/sync-mysql-elastic").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/residence/booking-info/").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
+        if(Objects.nonNull(toDate)) {
+            queryParams.add("toDate", toDate.toString());
+        }
         final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {
@@ -959,9 +960,10 @@ public class BookingDataControllerApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        ParameterizedTypeReference<ResponseDto<Map<String, SoldBookingDto>>> returnType
+                = new ParameterizedTypeReference<ResponseDto<Map<String, SoldBookingDto>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
     
     public BookingResponseDto createGuestBooking(String guestPhoneNumber) {
@@ -983,9 +985,7 @@ public class BookingDataControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<BookingResponseDto> returnType
-                = new ParameterizedTypeReference<BookingResponseDto>() {
-        };
+                = new ParameterizedTypeReference<BookingResponseDto>() {};
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
-
 }
