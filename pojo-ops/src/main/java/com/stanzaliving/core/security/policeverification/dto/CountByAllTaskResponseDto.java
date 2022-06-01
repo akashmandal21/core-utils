@@ -25,5 +25,5 @@ public class CountByAllTaskResponseDto {
 
     CountResponseDto allPending;
 
-    List<CountByTaskResponseDto>  countByTaskResponseDtoList;
+    List<CountByTaskResponseDto> countByTaskList;
 }
