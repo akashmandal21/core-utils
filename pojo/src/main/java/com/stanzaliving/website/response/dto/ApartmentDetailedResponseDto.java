@@ -9,6 +9,7 @@ import java.util.Set;
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
+import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
