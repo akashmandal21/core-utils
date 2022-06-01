@@ -27,11 +27,17 @@ public class AuditCategoryV1Dto extends CategoryDto {
 
 	boolean isPhysicalAudit;
 	boolean isCctvAudit;
-
+	boolean isSafePlaceAudit;
+	
 	public double cctvAuditCostPerBed;
 	public double physicalAuditCostPerBed;
+	public double safePlaceAuditCostPerBed;
+	
 	public int mgForCctvAudit;
 	public double physicalAuditCostPerMonth;
+	public double cctvAuditCostPerMonthRate;
+	public double safePlaceAuditCostPerMonth;
+	
 
 	private int totalCctvAuditCostPerBed;
 	public int totalPhysicalAuditCostPerBed;
@@ -44,9 +50,12 @@ public class AuditCategoryV1Dto extends CategoryDto {
 		return AuditCategoryV1Dto.builder()
 				.isPhysicalAudit(this.isPhysicalAudit)
 				.isCctvAudit(this.isCctvAudit)
+				.isSafePlaceAudit(this.isSafePlaceAudit)
 				.cctvAuditCostPerBed(this.cctvAuditCostPerBed)
 				.mgForCctvAudit(this.mgForCctvAudit)
 				.physicalAuditCostPerMonth(this.physicalAuditCostPerMonth)
+				.cctvAuditCostPerMonthRate(this.cctvAuditCostPerMonthRate)
+				.safePlaceAuditCostPerMonth(this.safePlaceAuditCostPerMonth)
 				.totalCctvAuditCostPerBed(this.totalCctvAuditCostPerBed)
 				.totalPhysicalAuditCostPerBed(this.totalPhysicalAuditCostPerBed)
 				.physicalAuditCharges(this.physicalAuditCharges)

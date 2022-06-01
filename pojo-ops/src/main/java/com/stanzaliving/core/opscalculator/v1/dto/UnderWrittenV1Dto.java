@@ -2,6 +2,7 @@ package com.stanzaliving.core.opscalculator.v1.dto;
 
 import java.util.List;
 
+import com.stanzaliving.core.opscalculator.dto.BuildMaintenanceCategoryDto;
 import com.stanzaliving.core.opscalculator.dto.BuildingMaintenanceDto;
 import com.stanzaliving.core.opscalculator.dto.CxCategoryDto;
 import com.stanzaliving.core.opscalculator.dto.EquipmentRentalCategoryDto;
@@ -39,25 +40,24 @@ public class UnderWrittenV1Dto {
     protected PropertyInfoDto propertyInfoDto;
     protected FoodCategoryV1Dto foodCategoryDto;
     
-	private UtilitiesElectricityCategoryV1Dto utilitiesElectricityCategoryDto;
+	private UtilitiesElectricityCategoryV1Dto utilitiesElectricityCategoryV1Dto;
 	private UtilitiesWaterCategoryDto utilitiesWaterCategoryDto;
-	private UtilitiesDgCategoryV1Dto utilitiesDgCategoryDto;
+	private UtilitiesDgCategoryV1Dto utilitiesDgCategoryV1Dto;
     
-    protected InternetCategoryV1Dto internetCategoryDto;
-    public HouseKeepingCategoryV1Dto houseKeepingCategoryDto;
+    protected InternetCategoryV1Dto internetCategoryV1Dto;
+    public HouseKeepingCategoryV1Dto houseKeepingCategoryV1Dto;
     protected SecurityCategoryDto securityCategoryDto;
-    protected PersonnelCategoryDto personnelCategoryDto;
-    public AuditCategoryV1Dto auditCategoryDto;
+    protected PersonnelCategoryV1Dto personnelCategoryV1Dto;
+    public AuditCategoryV1Dto auditCategoryV1Dto;
     protected UniformCostsCategoryDto uniformCostsCategoryDto;
     protected EquipmentRentalCategoryDto equipmentRentalCategoryDto;
-    protected LaundryCostCategoryDto laundryCostCategoryDto;
-    protected SubscriptionAndSuppliesCategoryDto subscriptionAndSuppliesCategoryDto;
-    protected RepairAndMaintenanceCategoryDto repairAndMaintenanceCategoryDto;
-    protected TransportCategoryV1Dto transportCategoryDto;
+    protected LaundryCostCategoryV1Dto laundryCostCategoryV1Dto;
+    protected SubscriptionAndSuppliesCategoryV1Dto subscriptionAndSuppliesCategoryDto;
+    protected TransportCategoryV1Dto transportCategoryV1Dto;
     protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
     protected CxCategoryDto cxCategoryDto;
-    protected BuildingMaintenanceDto buildingMaintenanceDto;
-    private RepairCategoryV1Dto repairCategoryDto;
+    private BuildMaintenanceCategoryV1Dto buildMaintenanceCategoryV1Dto;
+    private RepairCategoryV1Dto repairCategoryV1Dto;
     private IncentiveCategoryDto incentiveCategoryDto;
 
     private double underWrittenDurationAmount;

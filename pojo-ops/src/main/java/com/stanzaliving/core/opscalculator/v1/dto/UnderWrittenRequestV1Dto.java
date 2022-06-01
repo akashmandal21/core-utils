@@ -61,5 +61,7 @@ public class UnderWrittenRequestV1Dto extends UnderWrittenV1Dto {
     protected List<LocalDate> holidays = new ArrayList<>();
 
     protected List<LocalDate> specialDays;
+    
+    private double multiplyFactor;
 
 }

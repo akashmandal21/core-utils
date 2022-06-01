@@ -81,6 +81,8 @@ public class Constants {
 	public static final int FIVE_VALUE_IN_INTEGER = 5;
 	public static final double DAYS_IN_YEAR_IN_DOUBLE = 365.0;
 	public static final double DAYS_IN_MONTH_IN_DOUBLE = 30.0;
+	public static final int DAYS_IN_MONTH_IN_INT = 30;
+	public static final int MONTH_IN_YEAR_IN_INT = 12;
 	public static final double MONTH_IN_YEAR_IN_DOUBLE = 12.0;
 	public static final double FORECAST_DEFAULT_ALLOWED_DEVIATION_PERCENT = 5d;
 
