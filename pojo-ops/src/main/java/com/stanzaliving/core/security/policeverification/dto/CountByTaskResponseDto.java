@@ -18,6 +18,8 @@ public class CountByTaskResponseDto {
 
     private String policeVerificationStatusName;
 
+    private String policeVerificationStatusColorCode;
+
     private Long totalPending;
 
 }
