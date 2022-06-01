@@ -12,4 +12,6 @@ public class ApartmentShortListingDto {
 	private List<ApartmentShortResponseDto> apartments;
 	
 	private Integer count;
+	
+	private WebsitePlaceIndexDto websitePlaceIndexDto;
 }
