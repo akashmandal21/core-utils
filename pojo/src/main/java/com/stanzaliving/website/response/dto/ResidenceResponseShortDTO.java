@@ -90,6 +90,8 @@ public class ResidenceResponseShortDTO implements Serializable{
 
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
+	
+	private List<FeatureResponseDTO> features = Collections.emptyList();
 
 	@Builder.Default
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = Collections.emptyList();
