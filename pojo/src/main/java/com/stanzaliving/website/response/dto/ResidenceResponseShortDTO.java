@@ -23,7 +23,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ResidenceResponseShortDTO implements Serializable{
+public class ResidenceResponseShortDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private int residenceId;
 
@@ -91,6 +93,7 @@ public class ResidenceResponseShortDTO implements Serializable{
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
 	
+	@Builder.Default
 	private List<FeatureResponseDTO> features = Collections.emptyList();
 
 	@Builder.Default
