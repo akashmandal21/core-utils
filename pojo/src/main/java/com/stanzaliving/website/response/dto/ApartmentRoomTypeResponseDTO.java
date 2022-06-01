@@ -55,10 +55,4 @@ public class ApartmentRoomTypeResponseDTO implements Serializable {
 	private int similarRoomCount;
 	
 	private boolean isSimilarAlreadyAdded;
-	
-	private Double latitude;
-	
-	private Double longitude;
-	
-	private Double distanceFromPlace;
 }
