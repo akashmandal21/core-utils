@@ -22,9 +22,9 @@ public class PVFormTimelineByTeamResponseDto {
 
     private String teamTypeName;
 
-    private String createdBy;
+    private String actionedBy;
 
-    private List<String> comment;
+    private List<String> description;
 
     private Date createdAt;
 }
