@@ -7,11 +7,11 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum PendingType {
 
-    S("S", "System"),
-    N("N", "Nodal Team"),
-    R("R", "Residence Caption"),
-    L("L","Legal Team"),
-    ALL("ALL","ALL");;
+    S("S", "System Pending"),
+    N("N", "Nodal Pending"),
+    R("R", "RC Pending"),
+    L("L","Legal Pending"),
+    ALL("ALL","ALL Pending");;
 
     private final String key;
     private final String value;
