@@ -26,6 +26,4 @@ public class BookingCommercialsCardResponseDto {
     private Double annualMaintenanceFee;
 
     private Double monthlyMaintenanceFee;
-
-    private Double onBoardingCharge;
 }

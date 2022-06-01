@@ -36,6 +36,7 @@ public class CommercialCardInternalControllerApi {
 
         HttpHeaders headerParams = new HttpHeaders();
 
+
         String[] accepts = new String[]{"*/*"};
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);

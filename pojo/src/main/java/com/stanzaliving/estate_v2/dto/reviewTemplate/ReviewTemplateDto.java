@@ -19,7 +19,6 @@ public class ReviewTemplateDto {
     private String propertyTypeName;
     private String templateStatus;
     private List<KeyValueDto> roles;
-    private List<String> mappedQuestionsUuid;
     private List<KeyValueDto> viewOnlyRoles;
     private List<ApplicableStatusesDto> propertyStatuses;
     private boolean bedCountDetailsVisible;
@@ -30,7 +29,6 @@ public class ReviewTemplateDto {
     private boolean l2CallBackVisible;
     private boolean viewOnly;
     private boolean bypassVisible;
-    private boolean questionnaireVisible;
     private List<OtherInformationDto> otherInformation;
     private List<LayoutDto> layouts;
     private String propertyAction;
