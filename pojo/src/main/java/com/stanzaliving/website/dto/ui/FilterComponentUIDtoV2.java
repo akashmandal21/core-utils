@@ -1,5 +1,6 @@
 package com.stanzaliving.website.dto.ui;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -15,8 +16,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class FilterComponentUIDtoV2 {
+public class FilterComponentUIDtoV2 implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private Integer cityId;
 	private List<FilterBaseUIDto> filtersSection;
