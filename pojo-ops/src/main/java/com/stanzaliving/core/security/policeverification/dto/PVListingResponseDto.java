@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class PVListingResponseDto extends PVResponseDto {
 
-    private boolean isEditable;
+    private boolean editable;
 
     private PoliceVerificationStatus policeVerificationCurrentStatus;
 
