@@ -8,6 +8,5 @@ import lombok.Getter;
 public enum BookingSubStatus {
 
     IN_PROGRESS("In Progress");
-
     private String bookingStatus;
 }
