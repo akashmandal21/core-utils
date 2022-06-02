@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
 
 @Getter
 @Setter
@@ -17,6 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PVListingResponseDto extends PVResponseDto {
+
+    private boolean isEditable;
 
     private PoliceVerificationStatus policeVerificationCurrentStatus;
 
