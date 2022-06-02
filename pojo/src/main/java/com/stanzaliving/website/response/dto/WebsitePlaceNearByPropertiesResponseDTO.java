@@ -23,6 +23,8 @@ import lombok.experimental.SuperBuilder;
 @ToString
 public class WebsitePlaceNearByPropertiesResponseDTO implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+
 	@JsonInclude(value = Include.NON_NULL)
 	private List<ResidenceResponseShortDTO> residenceResponseShortDTOsPg;
 	
