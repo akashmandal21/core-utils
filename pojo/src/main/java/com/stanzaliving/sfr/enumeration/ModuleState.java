@@ -10,9 +10,9 @@ import java.util.List;
 public enum ModuleState implements State<ModuleState> {
     ASIS_NOT_STARTED("Not Started","#e5e3e3"),
     ASIS_IN_DRAFT("In Draft","#e5e3e3"),
-    ASIS_SUBMITTED("Pending Approval","#FFC300"),
-    ASIS_SENT_BACK("Sent Back","#e5e3e3"),
-    ASIS_APPROVED("Approved","#77baa6"),
+    ASIS_SUBMITTED("Pending Approval","#FFB700"),
+    ASIS_SENT_BACK("Sent Back","#F45F71"),
+    ASIS_APPROVED("Approved","#60C3AD"),
     ASIS_CANCELLED("Cancelled","#e5e3e3");
 
     private final String status;
