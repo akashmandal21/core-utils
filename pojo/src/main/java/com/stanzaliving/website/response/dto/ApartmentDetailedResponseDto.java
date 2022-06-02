@@ -139,5 +139,5 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private List<ApartmentResponseDto> otherRooms;
 	
-	private WebsitePlaceIndexDto placeIndexDtoRoom;
+	private WebsitePlaceIndexDto placeIndexDto;
 }

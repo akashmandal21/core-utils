@@ -15,5 +15,5 @@ public class ApartmentShortListingDto {
 	
 	private Integer count;
 	
-	private WebsitePlaceIndexDto websitePlaceIndexDto;
+	private WebsitePlaceIndexDto placeIndexDto;
 }
