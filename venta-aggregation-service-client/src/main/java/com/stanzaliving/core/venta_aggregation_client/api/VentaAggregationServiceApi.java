@@ -420,4 +420,25 @@ public class VentaAggregationServiceApi {
 		}
 		return null;
 	}
+
+	public ResponseDto<List<String>> save(BookingAggregationDto bookingAggregationDto) {
+		Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/booking/save")
+				.buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[] { "*/*" };
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {};
+		try {
+			log.info("Executing Api for saving booking Info with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, bookingAggregationDto, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while saving booking Info on {}, Exception is {}", LocalDate.now(), e);
+		}
+		return null;
+	}
+
 }
