@@ -505,6 +505,35 @@ public class UserClientApi {
 		}
 	}
 
+	public ResponseDto<UserProfileDto> getUserProfileByUserUuidList(String userUuid) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("userUuid", userUuid);
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/{userUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		queryParams.add("includeDeactivated", "true");
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		}
+		catch (Exception ex) {
+			log.error("Error occurred while fetching user details from UserId",ex);
+			return null;
+		}
+	}
+
 	public ResponseDto<List<UserProfileDto>> getAllUsers() {
 
 		Object postBody = null;
