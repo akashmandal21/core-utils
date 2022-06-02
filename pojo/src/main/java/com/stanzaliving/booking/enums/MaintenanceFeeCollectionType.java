@@ -17,7 +17,6 @@ public enum MaintenanceFeeCollectionType {
 	DEDUCT_FROM_SD("Deduct from SD");
 
 
-
 	private String name;
 
 }

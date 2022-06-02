@@ -1,5 +1,6 @@
 package com.stanzaliving.core.bookingservice.dto.response;
 
+
 import com.stanzaliving.core.residenceservice.enums.ResidentType;
 import com.stanzaliving.core.user.dto.Address;
 import lombok.AllArgsConstructor;
@@ -14,7 +15,6 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 public class FlatMateListResponseDto {
-
     private String firstName;
     private String middleName;
     private String lastName;
@@ -37,3 +37,4 @@ public class FlatMateListResponseDto {
     private Boolean hasActiveBooking;
     private Date invitationSentOn;
 }
+
