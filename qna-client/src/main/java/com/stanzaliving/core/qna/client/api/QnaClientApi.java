@@ -5,6 +5,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.sfr.dto.propertyOnboarding.PropertyMigrationDto;
 import com.stanzaliving.sfr.enumeration.ModuleNames;
 import lombok.extern.log4j.Log4j2;
+import org.apache.kafka.common.utils.SecurityUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -13,6 +14,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.security.Security;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,7 +82,7 @@ public class QnaClientApi {
 
     }
 
-    public ResponseDto<String> migrateAnswers(PropertyMigrationDto propertyMigrationDto){
+    public ResponseDto<String> migrateAnswers(PropertyMigrationDto propertyMigrationDto,String token){
 
         Object postBody = propertyMigrationDto;
 
@@ -91,6 +94,7 @@ public class QnaClientApi {
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
+        headerParams.add("cookie",token);
 
         final String[] accepts = {
                 "*/*"
