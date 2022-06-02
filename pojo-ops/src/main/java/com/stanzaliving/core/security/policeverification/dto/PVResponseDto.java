@@ -1,5 +1,6 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
+import com.stanzaliving.core.security.policeverification.enums.PVNationality;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -33,7 +34,7 @@ public class PVResponseDto {
 
     private Date movingDate;
 
-    private String nationality;
+    private PVNationality nationality;
 
     private String registrationType;
 }

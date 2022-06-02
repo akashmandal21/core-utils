@@ -7,8 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum PVNationality {
 
-    INDIAN("IN"),
-    FOREIGN("FN");
+    IN("IN"),
+    FN("FN");
 
     private final String name;
 
