@@ -24,7 +24,7 @@ public enum BoqLabel {
     CONSULTANT_DEBIT("CONSULTANT DEBIT"),
     LL_SOW_MISALIGNMENT("LL SOW MISALIGNMENT"),
     VENDOR_DEBIT("VENDOR DEBIT"),
-    B2B_DEAL_EXPENSE("B2B Deal Expense"),
+    B2B_DEAL_EXPENSE("B2B DEAL EXPENSE"),
     NA("NA"); // not to be used while labeling. (only used to tag legacy boqs)
 
     private final String boqLabelText;
