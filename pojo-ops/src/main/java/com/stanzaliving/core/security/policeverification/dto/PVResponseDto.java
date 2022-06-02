@@ -17,7 +17,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class PVResponseDto {
 
-    private String policeVerificationUuid;
+    private String uuid;
 
     private String userName;
 

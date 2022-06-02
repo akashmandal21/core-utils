@@ -16,7 +16,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PVListingResponseDto {
+public class PVListingResponseDto extends PVResponseDto {
 
     private PoliceVerificationStatus policeVerificationCurrentStatus;
 
@@ -31,9 +31,4 @@ public class PVListingResponseDto {
     private PoliceVerificationStatus policeVerificationNextStatus;
 
     private String policeVerificationNextStatusName;
-
-    private int totalCount;
-
-    private List<PVResponseDto> policeVerificationFormList;
-
 }
