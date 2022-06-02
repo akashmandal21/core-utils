@@ -49,7 +49,7 @@ public enum AlfredStep {
 		bookingSubStatusMap.put(KYC, Arrays.asList("PENDING KYC SUBMISSION"));
 		bookingSubStatusMap.put(CONTRACT_MODIFICATION_PENDING, Arrays.asList("CONTRACT MODIFICATION PENDING"));
 		bookingSubStatusMap.put(SELFIE, Arrays.asList("SELFIE"));
-		bookingSubStatusMap.put(GUEST_ONBOARDING, Arrays.asList("PERSONAL DETAILS PENDING"));
+		bookingSubStatusMap.put(GUEST_ONBOARDING, Arrays.asList("GUEST PERSONAL DETAILS PENDING"));
 		bookingSubStatusMap.put(GUEST_KYC, Arrays.asList("GUEST PENDING KYC SUBMISSION"));
 		bookingSubStatusMap.put(GUEST_SELFIE, Arrays.asList("PENDING SELFIE SUBMISSION"));
 		bookingSubStatusMap.put(GUEST_UNDERTAKING, Arrays.asList("SECONDARY SIGNING PENDING"));
