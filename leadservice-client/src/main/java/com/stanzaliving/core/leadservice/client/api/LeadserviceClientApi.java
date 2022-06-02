@@ -23,7 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.website.response.dto.LeadRequestDto;
+import com.stanzaliving.leadservice.*;
 import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
 
 import lombok.extern.log4j.Log4j2;
