@@ -2,8 +2,6 @@ package com.stanzaliving.website.response.dto;
 
 import java.util.List;
 
-import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
-
 import lombok.Builder;
 import lombok.Data;
 
@@ -14,6 +12,4 @@ public class ApartmentShortListingDto {
 	private List<ApartmentShortResponseDto> apartments;
 	
 	private Integer count;
-	
-	private WebsitePlaceIndexDto placeIndexDto;
 }
