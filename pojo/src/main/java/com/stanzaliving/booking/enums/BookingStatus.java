@@ -79,6 +79,13 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static List<String> RESIDENT_CONTRACT() {
+        List<String> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_AGREEMENT_SENT.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
+        return bookingStatus;
+    }
 
     public static Set<String> retentionBookingAllowedStatus() {
         Set<String> bookingStatus = new HashSet<>();
