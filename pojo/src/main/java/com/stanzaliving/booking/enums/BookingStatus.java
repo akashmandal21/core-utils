@@ -332,6 +332,15 @@ public enum BookingStatus {
     }
 
 
+    public static List<String> RESIDENT_CONTRACT() {
+        List<String> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.GUEST_.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
+        return bookingStatus;
+    }
+
+
     public static List<BookingStatus> bookingEligibleForContractTerminationStatus() {
         List<BookingStatus> bookingStatus = new ArrayList<>();
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED);
