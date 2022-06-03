@@ -122,6 +122,36 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<List<UserDto>> getUsersByRole(AccessLevelRoleRequestDto accessLevelRoleRequestDto) {
+
+		log.info("accessLevelRoleRequestDto: {} ", accessLevelRoleRequestDto);
+
+		if (Objects.isNull(accessLevelRoleRequestDto) || StringUtils.isEmpty(accessLevelRoleRequestDto.getRoleName())) {
+
+			throw new IllegalArgumentException("Please check all the provided params!!");
+		}
+
+		Object postBody = accessLevelRoleRequestDto;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/user/role").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<UserDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 	public ResponseDto<List<String>> getUserIdsMappedToManagerId(String managerId) {
 		Object postBody = null;
 
