@@ -7,9 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum UserType {
 
-    STUDENT("Student"),
-    WORKING("Working"),
-    OTHERS("Others");
+    STUDENT("Student"), WORKING_PROFESSIONALS("Working Professional"),OTHERS("Others");
 
     private final String userTypeName;
 }
