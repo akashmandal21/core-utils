@@ -65,6 +65,10 @@ public class BookingResponseDto {
     private PaymentTerm paymentTerm;
 
     private Boolean exceptionalOnboarded;
+    
+    private String bookingTag;
+    
+    private String parentBookingId;
 
     private String bookingTag;
 
