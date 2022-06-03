@@ -24,9 +24,9 @@ public enum PoliceVerificationStatus {
 
     LEGAL_VERIFICATION("Legal Verification", 8, "#297BFF", TeamType.L, "Legal Verification Pending"),
 
-    LEGAL_VERIFIED("Legal Verified", 9, "#60C3AD", TeamType.L, "Form verified by legal team"),
+    LEGAL_REJECTED("Legal Rejected", 9, "#F55F71", TeamType.L, "Form Rejected by legal Team"),
 
-    LEGAL_REJECTED("Legal Rejected", 10, "#F55F71", TeamType.L, "Form Rejected by legal Team");
+    LEGAL_VERIFIED("Legal Verified", 10, "#60C3AD", TeamType.L, "Form verified by legal team");
 
     private final String name;
     private final int sequence;

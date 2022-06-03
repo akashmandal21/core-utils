@@ -1,5 +1,6 @@
 package com.stanzaliving.core.po.generic.dtos;
 
+import com.stanzaliving.boq_service.enums.BoqLabel;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.generic.enums.GSTSlabs;
@@ -34,5 +35,6 @@ public class PoItemDetail {
     private BigDecimal rentPeriod;
     private BigDecimal unitRate;
     private BigDecimal gst;
-
+    @Builder.Default
+    private BoqLabel boqLabel = BoqLabel.NA;
 }
