@@ -69,8 +69,4 @@ public class BookingResponseDto {
     private String bookingTag;
     
     private String parentBookingId;
-
-    private String bookingTag;
-
-    private String parentBookingId;
 }
