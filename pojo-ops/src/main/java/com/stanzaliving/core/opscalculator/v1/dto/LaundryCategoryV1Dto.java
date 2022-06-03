@@ -23,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class LaundryCostCategoryV1Dto extends CategoryDto {
+public class LaundryCategoryV1Dto extends CategoryDto {
 
 	private int clothesPerPersonPerMonth;
 	private double weightPerCloth;

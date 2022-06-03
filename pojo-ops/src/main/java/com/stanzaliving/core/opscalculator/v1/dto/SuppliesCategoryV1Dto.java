@@ -23,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class SubscriptionAndSuppliesCategoryV1Dto extends CategoryDto {
+public class SuppliesCategoryV1Dto extends CategoryDto {
 
 	private boolean isSuppliesApplicable;
 

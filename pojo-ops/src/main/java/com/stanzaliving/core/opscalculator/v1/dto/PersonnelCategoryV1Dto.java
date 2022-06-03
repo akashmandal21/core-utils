@@ -29,5 +29,11 @@ public class PersonnelCategoryV1Dto extends CategoryDto{
     private int rcCount;
     private int rcRate;
     private double releiverJrRc;
+    
+    
+    public double hk12HrCostPerBed;
+	public double sgCostPerBed;
+	public double jrRcCostPerBed;
+	public double releiverCostPerBed;
 
 }

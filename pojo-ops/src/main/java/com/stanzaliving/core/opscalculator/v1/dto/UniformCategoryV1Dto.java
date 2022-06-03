@@ -21,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class UniformCostsCategoryV1Dto extends CategoryDto {
+public class UniformCategoryV1Dto extends CategoryDto {
 
 	public boolean hkUniformRequired;
 	public boolean rcUniformRequired;
@@ -36,8 +36,4 @@ public class UniformCostsCategoryV1Dto extends CategoryDto {
 	public int hkUniformCost;
 	public int rcUniformCost;
 	public int rmUniformCost;
-	
-	
-
-
 }
