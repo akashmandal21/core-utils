@@ -19,4 +19,6 @@ public class DiscountRequestDto {
     private Double discountValueApplied;
 
     private Double discountRequested;
+
+    private Double oldDiscountBeforeModification;
 }
