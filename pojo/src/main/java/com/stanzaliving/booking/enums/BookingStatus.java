@@ -270,6 +270,7 @@ public enum BookingStatus {
         List<String> bookingStatus = new ArrayList<>();
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
         return bookingStatus;
     }
 
