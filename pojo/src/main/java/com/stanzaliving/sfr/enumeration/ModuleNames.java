@@ -17,7 +17,7 @@ public enum ModuleNames {
     ASIS,
     ASIS_SUBMISSION;
 
-    public static final List<ModuleNames> moduleNames = Collections.singletonList(ASIS);
+    public static final List<ModuleNames> moduleNames = Arrays.asList(ASIS, SFR);
 
     public static final List<ModuleNames> moduleSubmissionNames = Arrays.asList(SFR_SUBMISSION, ASIS_SUBMISSION);
 
