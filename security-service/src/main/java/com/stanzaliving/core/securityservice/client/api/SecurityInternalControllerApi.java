@@ -1,9 +1,12 @@
 package com.stanzaliving.core.securityservice.client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.security.dto.ResidentActivityDTO;
+import com.stanzaliving.core.securityservice.client.dto.InternetAndFoodScanDataResponseDto;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -56,6 +59,39 @@ public class SecurityInternalControllerApi {
             log.info("Error in fetching recent activity for user with resident id {}, exception {}", residentId, exception);
         }
         return new ArrayList<>();
+    }
+
+    public ResponseDto<InternetAndFoodScanDataResponseDto> getUserLatestInternetUsageAndFoodScanDates(List<String> residentIds, String token) {
+        log.info("Request received to getUserLatestInternetUsageAndFoodScanDates with residentIds: {} and token: {}", residentIds, token);
+        if (StringUtils.isBlank(token)) {
+            throw new IllegalArgumentException("Token missing for retrieving room details based on roomUUID");
+        }
+
+        Object postBody = residentIds;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/api/v1/attendance/summary/last/data/usage").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+        final HttpHeaders headerParams = new HttpHeaders();
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+        final String[] accepts = {
+                "*/*"
+        };
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<InternetAndFoodScanDataResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<InternetAndFoodScanDataResponseDto>>() {
+        };
+
+        try {
+            log.info("Executing security api to get user's last internet usage and food scan date");
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.info("Exception e {},", e);
+            return null;
+        }
     }
 
 }
