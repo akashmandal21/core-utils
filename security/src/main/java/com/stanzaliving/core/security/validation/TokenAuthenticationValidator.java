@@ -7,7 +7,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.stanzaliving.core.base.StanzaConstants;
 import org.apache.commons.lang3.StringUtils;
+import org.jboss.logging.MDC;
 import org.springframework.http.HttpStatus;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -63,7 +65,8 @@ public class TokenAuthenticationValidator implements RequestValidator {
 			if (Objects.nonNull(responseDto) && responseDto.isStatus()) {
 
 				UserProfileDto dto = responseDto.getData();
-
+				MDC.put(StanzaConstants.REQ_UID, dto.getUuid());
+				MDC.put(StanzaConstants.REQ_MOBILE, dto.getMobile());
 				log.debug("User Fetched after Authentication: {}", dto.getUuid());
 
 				request.setAttribute("userId", dto.getUuid());

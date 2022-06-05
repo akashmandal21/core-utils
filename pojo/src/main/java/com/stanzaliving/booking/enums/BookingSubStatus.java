@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
 @Getter
 @AllArgsConstructor
 public enum BookingSubStatus {
@@ -32,10 +31,7 @@ public enum BookingSubStatus {
     PENDING_CH_APPROVAL("PENDING CH APPROVAL"),
     AUDIT_APPROVAL_PENDING("AUDIT APPROVAL PENDING"),
     PENDING_ZH_APPROVAL("PENDING ZH APPROVAL"),
-    USER_VALIDATION_FAILURE("USER VALIDATION FAILURE"),
-    PENDING_SELFIE_SUBMISSION("PENDING SELFIE SUBMISSION"),
-    PRIMARY_SIGNING_PENDING("PRIMARY SIGNING PENDING"),
-    SECONDARY_SIGNING_PENDING("SECONDARY SIGNING PENDING");
+    USER_VALIDATION_FAILURE("USER VALIDATION FAILURE");
 
     private String bookingSubStatus;
 
