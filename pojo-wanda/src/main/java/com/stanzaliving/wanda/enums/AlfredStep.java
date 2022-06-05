@@ -27,10 +27,10 @@ public enum AlfredStep {
 	RETENTION_BOOKING(11,Arrays.asList("RETENTION BOOKING")),
 	CONTRACT_MODIFICATION_PENDING(12,Arrays.asList("CONTRACT MODIFICATION PENDING")),
 	SELFIE(13,Arrays.asList("SELFIE")),
-	GUEST_ONBOARDING(14, Arrays.asList("GUEST ONBOARDING")),
-	GUEST_UNDERTAKING(15, Arrays.asList("GUEST UNDERTAKING")),
-	GUEST_KYC(16, Arrays.asList("GUEST KYC")),
-	GUEST_SELFIE(17, Arrays.asList("GUEST SELFIE")),
+	GUEST_ONBOARDING(14, Arrays.asList("GUEST_ONBOARDING")),
+	GUEST_UNDERTAKING(15, Arrays.asList("GUEST_UNDERTAKING")),
+	GUEST_KYC(16, Arrays.asList("GUEST_KYC")),
+	GUEST_SELFIE(17, Arrays.asList("GUEST_SELFIE")),
 	GUEST_ONBOARDING_PENDING(18, Arrays.asList("HOMESCREEN"));
 
 	private Integer sequenceId;
@@ -56,13 +56,13 @@ public enum AlfredStep {
 		bookingSubStatusMap.put(GUEST_UNDERTAKING, Arrays.asList("SECONDARY SIGNING PENDING"));
 
 	}
-	
+
 	static {
 		for (AlfredStep as : AlfredStep.values()) {
 			bookingStatusMap.put(as, as.bookingStatuses);
 		}
 	}
-	
+
 	static {
 		retentionNonBlockerStatus.addAll(Arrays.asList("EXPIRED","CANCELLED","DRAFT","IN PROGRESS","REFUND INITIATED","ONBOARDING COMPLETED",
 				"VERIFICATION PENDING","ONBOARDING PENDING", "ONBOARDING IN PROGRESS"));
@@ -76,7 +76,7 @@ public enum AlfredStep {
 		}
 		return SELFBOOKING;
 	}
-	
+
 	public static boolean checkRetentionScreen(String bookingStatus) {
 		for (String status : retentionNonBlockerStatus) {
 			if (status.equals(bookingStatus)) {
@@ -85,9 +85,9 @@ public enum AlfredStep {
 		}
 		return true;
 	}
-	
+
 	public static AlfredStep getAlfredStep(String bookingSubStatus) {
-		
+
 		for (Map.Entry<AlfredStep, List<String>> entry : bookingSubStatusMap.entrySet()) {
 			if (entry.getValue().contains(bookingSubStatus)) {
 				return entry.getKey();
