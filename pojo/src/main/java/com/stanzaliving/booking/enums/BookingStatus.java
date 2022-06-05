@@ -161,6 +161,9 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
         return bookingStatus;
     }
 
@@ -170,6 +173,9 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_AGREEMENT_SENT.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
         return bookingStatus;
     }
 
