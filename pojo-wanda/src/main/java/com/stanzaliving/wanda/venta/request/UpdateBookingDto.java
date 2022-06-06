@@ -3,9 +3,10 @@ package com.stanzaliving.wanda.venta.request;
 import com.stanzaliving.booking.enums.BookingSource;
 import com.stanzaliving.booking.enums.BookingStatus;
 import com.stanzaliving.booking.enums.BookingSubStatus;
+import lombok.Data;
 import lombok.Setter;
 
-@Setter
+@Data
 public class UpdateBookingDto {
 
     private String userUuid;
