@@ -11,5 +11,5 @@ import java.util.List;
 @NoArgsConstructor
 public class MessageBirdConversationListDto {
 
-    private List<HsmMessageDto> items;
+    private List<MessageBirdConversationResponseDto> items;
 }
