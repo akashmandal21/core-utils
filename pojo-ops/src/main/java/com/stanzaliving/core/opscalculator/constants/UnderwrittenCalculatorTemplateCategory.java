@@ -1,14 +1,10 @@
-/**
- * @author nipunaggarwal
- *
- */
 package com.stanzaliving.core.opscalculator.constants;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @author nipunaggarwal
+ * @author manish.pareek
  *
  */
 @Getter

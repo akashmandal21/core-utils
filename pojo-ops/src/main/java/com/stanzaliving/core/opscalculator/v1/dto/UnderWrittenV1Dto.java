@@ -27,9 +27,9 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class UnderWrittenV1Dto {
     protected PropertyInfoDto propertyInfoDto;
+    
     protected FoodCategoryV1Dto foodCategoryV1Dto;
     protected PersonnelCategoryV1Dto personnelCategoryV1Dto;
-    
 	private UtilitiesElectricityCategoryV1Dto utilitiesElectricityCategoryV1Dto;
 	private UtilitiesWaterCategoryV1Dto utilitiesWaterCategoryV1Dto;
 	private UtilitiesDgCategoryV1Dto utilitiesDgCategoryV1Dto;
