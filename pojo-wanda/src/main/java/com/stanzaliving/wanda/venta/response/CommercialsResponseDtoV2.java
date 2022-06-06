@@ -3,6 +3,7 @@ package com.stanzaliving.wanda.venta.response;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.booking.enums.AMCAmountType;
 import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import com.stanzaliving.booking.enums.PaymentTerm;
@@ -24,6 +25,7 @@ public class CommercialsResponseDtoV2 {
     private int contractId;
     private String stayLockInPeriod;
     private String contractEndDate;
+    private String lockInEndDate;
     private MonthlyFeeDtoV2 monthlyFee;
     private Double securityDeposit;
     private Double onBoardingCharges;
@@ -33,17 +35,17 @@ public class CommercialsResponseDtoV2 {
     private String maxDate;
     private double upsell;
     private MaintenanceFeeCollectionType maintenanceFeeCollectionType;
+    private AMCAmountType maintenanceChargeAmountType;
     private List<Map<String, String>> adjustedAdvanceRentalMonths;
     private PaymentTerm instalmentType;
     private String propertyType;
     private Double maintenanceFeeAdjustedInSD;
     private DateRange stayLockInRange;
     private BookingType bookingType;
-    private String lockInEndDate;
-    private String subContract1StartDate; //add 
+    private String subContract1StartDate; //add
     private String subContract1EndDate; //add
     private MonthlyFeeDtoV2 subContract2MonthlyFee; //add
-    private String subContract2StartDate; //add 
+    private String subContract2StartDate; //add
     private String subContract2EndDate; //add
-    
+
 }
