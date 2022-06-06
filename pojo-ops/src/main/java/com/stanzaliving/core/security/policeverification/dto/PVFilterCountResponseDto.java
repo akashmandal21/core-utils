@@ -18,6 +18,8 @@ public class PVFilterCountResponseDto {
 
     private String name;
 
+    private String value;
+
     private Long count;
 
 }
