@@ -1,6 +1,6 @@
 package com.stanzaliving.core.messagebird.client.api;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.messagebird.client.dto.MessageBirdConversationListDto;
 import lombok.extern.log4j.Log4j2;
@@ -27,7 +27,7 @@ public class MessageBirdDataControllerApi {
     }
 
 
-    public ResponseDto<MessageBirdConversationListDto> getMessagesByConversationId(String conversationId, String key) {
+    public MessageBirdConversationListDto getMessagesByConversationId(String conversationId, String key) {
         if (StringUtils.isBlank(key)) {
             throw new IllegalArgumentException("Message bird key missing");
         }
@@ -45,19 +45,19 @@ public class MessageBirdDataControllerApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        headerParams.add("Authorization", auth);
+        headerParams.add(SecurityConstants.AUTHORIZATION_HEADER, auth);
 
         final String[] accepts = {
                 "*/*"
         };
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<MessageBirdConversationListDto>> returnType = new ParameterizedTypeReference<ResponseDto<MessageBirdConversationListDto>>() {
+        ParameterizedTypeReference<MessageBirdConversationListDto> returnType = new ParameterizedTypeReference<MessageBirdConversationListDto>() {
         };
 
         try {
             log.info("Executing support api to create internal ticket");
-            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception var11) {
             log.info("Exception e {},", var11);
             return null;
