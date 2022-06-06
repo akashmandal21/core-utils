@@ -17,5 +17,5 @@ public class CommercialsHomeScreenResponse {
 	
 	private String dueDate;
 
-	private Integer daysRemaining;
+	private Long daysRemaining;
 }
