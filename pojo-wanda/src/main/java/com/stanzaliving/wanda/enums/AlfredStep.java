@@ -48,7 +48,7 @@ public enum AlfredStep {
 		bookingSubStatusMap.put(CONTRACT_MODIFICATION_PENDING, Arrays.asList("CONTRACT MODIFICATION PENDING"));
 		bookingSubStatusMap.put(SELFIE, Arrays.asList("SELFIE"));
 		bookingSubStatusMap.put(SELFBOOKING_COMMERCIAL_DETAILS, Arrays.asList("COMMERCIAL DETAILS PENDING"));
-		bookingSubStatusMap.put(SELFBOOKING_PAYMENT, Arrays.asList("SELFBOOKING PAYMENT"));
+		bookingSubStatusMap.put(SELFBOOKING_PAYMENT, Arrays.asList("PAYMENT_PENDING"));
 	}
 	
 	static {
