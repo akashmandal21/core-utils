@@ -27,6 +27,8 @@ public class PVListingRequestDto {
     @NotNull(message = "Police Verification Status can not be null")
     private PoliceVerificationStatus policeVerificationStatus;
 
+    private String searchText;
+
     private List<String> cityNames;
 
     private List<String> micromarketNames;
