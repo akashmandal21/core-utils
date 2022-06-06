@@ -862,7 +862,7 @@ public class BookingDataControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public ResponseDto<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto> findBookedInventoryDetailsForB2B(String bookingInventoryOccupancyUuid) {
