@@ -1,4 +1,4 @@
-package com.stanzaliving.core.bookingservice.dto.response;
+package com.stanzaliving.booking.dto.response;
 
 import com.stanzaliving.core.residenceservice.enums.ResidentType;
 import com.stanzaliving.core.user.dto.Address;
