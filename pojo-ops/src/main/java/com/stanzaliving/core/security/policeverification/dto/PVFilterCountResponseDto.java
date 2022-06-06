@@ -3,6 +3,7 @@ package com.stanzaliving.core.security.policeverification.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
@@ -12,6 +13,7 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
+@AllArgsConstructor
 public class PVFilterCountResponseDto {
 
     private String name;
