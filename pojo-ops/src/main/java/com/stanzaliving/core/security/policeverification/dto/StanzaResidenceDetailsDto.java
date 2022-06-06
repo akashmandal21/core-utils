@@ -23,4 +23,6 @@ public class StanzaResidenceDetailsDto extends AddressDetailsDto {
 
     private String cityUuid;
 
+    private String countryUuid;
+
 }
