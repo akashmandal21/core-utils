@@ -11,5 +11,5 @@ public class UpdateBookingDto {
     private String userUuid;
     private BookingStatus bookingStatus;
     private BookingSource bookingSource;
-    private BookingSubStatus bookingSubStatus;
+    private String bookingSubStatus;
 }
