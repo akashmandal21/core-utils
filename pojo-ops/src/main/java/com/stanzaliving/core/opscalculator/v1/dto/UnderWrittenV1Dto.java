@@ -2,12 +2,8 @@ package com.stanzaliving.core.opscalculator.v1.dto;
 
 import java.util.List;
 
-import com.stanzaliving.core.opscalculator.dto.CxCategoryDto;
-import com.stanzaliving.core.opscalculator.dto.EquipmentRentalCategoryDto;
-import com.stanzaliving.core.opscalculator.dto.IncentiveCategoryDto;
 import com.stanzaliving.core.opscalculator.dto.PropertyInfoDto;
 import com.stanzaliving.core.opscalculator.dto.SMLevelDto;
-import com.stanzaliving.core.opscalculator.dto.SecurityCategoryDto;
 import com.stanzaliving.core.opscalculator.dto.UnderwrittenCostCategoryDto;
 
 import lombok.AllArgsConstructor;
@@ -40,8 +36,8 @@ public class UnderWrittenV1Dto {
     private BuildMaintenanceCategoryV1Dto buildMaintenanceCategoryV1Dto;
     private AuditCategoryV1Dto auditCategoryV1Dto;
     protected UniformCategoryV1Dto uniformCategoryV1Dto;
-    private IncentiveCategoryDto incentiveCategoryDto;
-    protected CxCategoryDto cxCategoryDto;
+    private IncentiveCategoryV1Dto incentiveCategoryV1Dto;
+    protected CxCategoryV1Dto cxCategoryV1Dto;
     protected TransportCategoryV1Dto transportCategoryV1Dto;
     
     
