@@ -6,6 +6,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.sfr.dto.ModuleEntityDto;
 import com.stanzaliving.sfr.dto.ModuleSubmissionDto;
 import com.stanzaliving.sfr.enumeration.ModuleNames;
+import com.stanzaliving.sfr.enumeration.ModuleState;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -79,6 +80,36 @@ public class PhoenixClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<ModuleSubmissionDto>> returnType = new ParameterizedTypeReference<ResponseDto<ModuleSubmissionDto>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public ResponseDto<ModuleState> getModuleStatus(Long moduleSubmissionId, ModuleNames moduleName,
+                                                            String token) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("moduleSubmissionId", moduleSubmissionId);
+        uriVariables.put("moduleName", moduleName);
+
+        String path = UriComponentsBuilder.fromPath("/module/status/{moduleSubmissionId}/{moduleName}")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, token);
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ModuleState>> returnType =
+                new ParameterizedTypeReference<ResponseDto<ModuleState>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
