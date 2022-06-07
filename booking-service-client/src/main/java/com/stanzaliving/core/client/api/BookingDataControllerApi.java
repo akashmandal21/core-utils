@@ -8,11 +8,11 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.booking.dto.*;
-import com.stanzaliving.booking.dto.request.BookingResidencesReqDto;
-import com.stanzaliving.booking.dto.request.GuestRequestPayloadDto;
+import com.stanzaliving.booking.dto.request.*;
 import com.stanzaliving.core.bookingservice.dto.request.GuestRequestPayloadDto;
 import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.bookingservice.dto.response.PackagedServiceResponseDto;
+import com.stanzaliving.core.bookingservice.dto.request.GuestRequestPayloadDto;
 import com.stanzaliving.core.client.dto.*;
 import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
