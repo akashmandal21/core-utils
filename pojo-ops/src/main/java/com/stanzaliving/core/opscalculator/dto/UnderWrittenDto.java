@@ -1,18 +1,13 @@
 package com.stanzaliving.core.opscalculator.dto;
 
-import java.util.List;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
-@Getter
-@Setter
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,10 +17,10 @@ public class UnderWrittenDto {
     protected FoodCategoryDto foodCategoryDto;
     protected UtilitiesCategoryDto utilitiesCategoryDto;
     protected InternetCategoryDto internetCategoryDto;
-    public HouseKeepingCategoryDto houseKeepingCategoryDto;
+    protected HouseKeepingCategoryDto houseKeepingCategoryDto;
     protected SecurityCategoryDto securityCategoryDto;
     protected PersonnelCategoryDto personnelCategoryDto;
-    public AuditCategoryDto auditCategoryDto;
+    protected AuditCategoryDto auditCategoryDto;
     protected UniformCostsCategoryDto uniformCostsCategoryDto;
     protected EquipmentRentalCategoryDto equipmentRentalCategoryDto;
     protected LaundryCostCategoryDto laundryCostCategoryDto;
@@ -33,18 +28,8 @@ public class UnderWrittenDto {
     protected RepairAndMaintenanceCategoryDto repairAndMaintenanceCategoryDto;
     protected TransportCategoryDto transportCategoryDto;
     protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
-    protected CxCategoryDto cxCategoryDto;
-    protected PersonnelCategoryDtoV2 personnelCategoryDtoV2;
-    protected BuildingMaintenanceDto buildingMaintenanceDto;
-    protected WaterCategoryDto waterCategoryDto;
-    private RepairCategoryDto repairCategoryDto;
-    private IncentiveCategoryDto incentiveCategoryDto;
-
     private double underWrittenDurationAmount;
     private double underWrittenDurationInDays;
     List<SMLevelDto> smLevelDtoList;
-    
-    public PropertyAttributeInfoDto propertyAttributeInfoDto;
-    public double multiplyFactor;
 
 }

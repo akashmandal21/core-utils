@@ -1,7 +1,6 @@
 package com.stanzaliving.core.utility.dto;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
@@ -34,7 +33,4 @@ public class ExpenseDetailsDto extends AbstractDto {
 	private Double quantity;
 
 	private Double amount;
-	
-	@NotBlank(message = "Bill Photo is mandatory for expense")
-	private String image;
 }

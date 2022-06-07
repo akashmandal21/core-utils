@@ -35,6 +35,9 @@ public class ExpenseDto extends AbstractDto {
 
 	private Double amount;
 
+	@NotBlank(message = "Bill Photo is mandatory for expense")
+	private String image;
+
 	@NotEmpty(message = "Atleast 1 expense needs to be present")
 	private List<@Valid ExpenseDetailsDto> details;
 }

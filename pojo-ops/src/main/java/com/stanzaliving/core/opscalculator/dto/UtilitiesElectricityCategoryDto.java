@@ -33,8 +33,8 @@ import java.util.List;
 @ToString(callSuper = true)
 public class UtilitiesElectricityCategoryDto extends CategoryDto {
 
-	public int totalCharges;
-	public double fixedCharges;
+	private int totalCharges;
+	private double fixedCharges;
 
 	public void setFixedCharges(double fixedCharges) {
 		this.fixedCharges = fixedCharges;
@@ -44,57 +44,57 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 		this.variableCharges = variableCharges;
 	}
 
-	public int calculatedFixCharges;
-	public int variableCharges;
+	private int calculatedFixCharges;
+	private int variableCharges;
 
-	public int acRoomsWithRoomPassThroughCharges;
-	public int acRoomsWithAcPassThroughCharges;
-	public int nonAcRoomsWithRoomPassThroughCharges;
-	public double studentReceivablesUnitRate;
+	private int acRoomsWithRoomPassThroughCharges;
+	private int acRoomsWithAcPassThroughCharges;
+	private int nonAcRoomsWithRoomPassThroughCharges;
+	private double studentReceivablesUnitRate;
 
 	public void setLandlordReceivablesCharges(int landlordReceivablesCharges) {
 		this.landlordReceivablesCharges = landlordReceivablesCharges;
 	}
 
-	public int landlordReceivablesCharges;
+	private int landlordReceivablesCharges;
 
-	public int totalChargesBeforePassThrough;
+	private int totalChargesBeforePassThrough;
 
-	public UnitRate unitRate;
-	public double unitRateValue;
-
-	@Builder.Default
-	public int daysInMonth = 30;
-
-	public List<DropDownDto> equipmentTypeOptions = new ArrayList<>();
-	@Builder.Default
-	public List<ElectricityEquipmentType> selectedEquipmentType = new ArrayList<>();
+	private UnitRate unitRate;
+	private double unitRateValue;
 
 	@Builder.Default
-	public List<ElectricitySlotDetailsDto> electricitySlotDetailsDtos = new ArrayList<ElectricitySlotDetailsDto>();
+	private int daysInMonth = 30;
 
-	public double unitsConsumedByLiftPerDay;
-	public double unitsConsumedByHeatPumpPerDay;
-	public double unitsConsumedByAcPerDay;
-	public double unitsConsumedByWashingMachinePerDay;
-	public double unitsConsumedByMicrowavePerDay;
-	public double unitsConsumedByBrainMariePerDay;
-	public double unitsConsumedByOthersEquipPerDay;
+	private List<DropDownDto> equipmentTypeOptions = new ArrayList<>();
+	@Builder.Default
+	private List<ElectricityEquipmentType> selectedEquipmentType = new ArrayList<>();
+
+	@Builder.Default
+	private List<ElectricitySlotDetailsDto> electricitySlotDetailsDtos = new ArrayList<ElectricitySlotDetailsDto>();
+
+	private double unitsConsumedByLiftPerDay;
+	private double unitsConsumedByHeatPumpPerDay;
+	private double unitsConsumedByAcPerDay;
+	private double unitsConsumedByWashingMachinePerDay;
+	private double unitsConsumedByMicrowavePerDay;
+	private double unitsConsumedByBrainMariePerDay;
+	private double unitsConsumedByOthersEquipPerDay;
 
 
-	public int acRoomsCount;
-	public int landlordReceivablesInPercent;
+	private int acRoomsCount;
+	private int landlordReceivablesInPercent;
 
-	public int totalUnitsInRoom;
+	private int totalUnitsInRoom;
 
-	public double unitInAcRoomPerDay;
-	public double unitInNonAcRoomPerDay;
-	public double unitInCommonAreaPerDay;
-	public double unitEquipmentsPerDay;
-	public double unitsAcPerDay;
+	private double unitInAcRoomPerDay;
+	private double unitInNonAcRoomPerDay;
+	private double unitInCommonAreaPerDay;
+	private double unitEquipmentsPerDay;
+	private double unitsAcPerDay;
 
-	public double otherChargesPercent;
-	public double variableCostPerNonACRoom;
+	private double otherChargesPercent;
+	private double variableCostPerNonACRoom;
 
 	public void setRoomPassThroughCharges(int roomPassThroughCharges) {
 		this.roomPassThroughCharges = roomPassThroughCharges;
@@ -104,26 +104,26 @@ public class UtilitiesElectricityCategoryDto extends CategoryDto {
 		this.acPassThroughCharges = acPassThroughCharges;
 	}
 
-	public int roomPassThroughCharges;
-	public int acPassThroughCharges;
+	private int roomPassThroughCharges;
+	private int acPassThroughCharges;
 
-	public int totalBillableUnitPerMonthForNonAcRoom;
-	public int totalBillableUnitPerMonthForAcRoom;
-	public int totalBillableUnitPerMonthForCA;
-	public int totalBillableUnitPerMonthForEquipment;
+	private int totalBillableUnitPerMonthForNonAcRoom;
+	private int totalBillableUnitPerMonthForAcRoom;
+	private int totalBillableUnitPerMonthForCA;
+	private int totalBillableUnitPerMonthForEquipment;
 
-	public boolean roomMeterRequired;
-	public int roomMeterOpexCost;
-	public int rentalRoomMeterCount;
-	public int elecricityRoomMeterCost;
+	private boolean roomMeterRequired;
+	private int roomMeterOpexCost;
+	private int rentalRoomMeterCount;
+	private int elecricityRoomMeterCost;
 
-	public int netElectricityBillAfterPassthrough;
+	private int netElectricityBillAfterPassthrough;
 
-	public int fixedChargesPerAvailableBed;
-	public int variableChargesPerAvailableBed;
-	public int acPassThroughChargesPerAvailableBed;
-	public int roomPassThroughChargesPerAvailableBed;
-	public int landlordReceivablesChargesPerAvailableBed;
+	private int fixedChargesPerAvailableBed;
+	private int variableChargesPerAvailableBed;
+	private int acPassThroughChargesPerAvailableBed;
+	private int roomPassThroughChargesPerAvailableBed;
+	private int landlordReceivablesChargesPerAvailableBed;
 
 
 
