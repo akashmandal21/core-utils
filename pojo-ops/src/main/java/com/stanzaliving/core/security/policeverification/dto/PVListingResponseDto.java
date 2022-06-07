@@ -18,9 +18,19 @@ import java.util.List;
 @AllArgsConstructor
 public class PVListingResponseDto {
 
-    private PoliceVerificationStatus policeVerificationStatus;
+    private PoliceVerificationStatus policeVerificationCurrentStatus;
 
-    private String policeVerificationStatusName;
+    private String policeVerificationCurrentStatusName;
+
+    private String policeVerificationCurrentStatusColorCode;
+
+    private PoliceVerificationStatus policeVerificationPrevStatus;
+
+    private String policeVerificationPrevStatusName;
+
+    private PoliceVerificationStatus policeVerificationNextStatus;
+
+    private String policeVerificationNextStatusName;
 
     private int totalCount;
 
