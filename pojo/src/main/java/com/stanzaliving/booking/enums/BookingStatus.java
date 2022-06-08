@@ -231,6 +231,7 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getDescription());
         bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
         bookingStatus.add(BookingStatus.WRONG_BOOKING.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
         return bookingStatus;
     }
 
