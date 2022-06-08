@@ -2,7 +2,7 @@ package com.stanzaliving.core.security.policeverification.dto;
 
 
 import com.stanzaliving.core.operations.enums.ResidentStatus;
-import com.stanzaliving.core.security.policeverification.enums.Nationality;
+import com.stanzaliving.core.security.policeverification.enums.PVNationality;
 import com.stanzaliving.core.security.policeverification.enums.PoliceVerificationStatus;
 import com.stanzaliving.core.security.policeverification.enums.RegistrationType;
 import lombok.Getter;
@@ -32,7 +32,7 @@ public class PVListingRequestDto {
 
     private List<String> residentUuids;
 
-    private List<Nationality> nationality;
+    private List<PVNationality> nationality;
 
     private List<ResidentStatus> residentStatus;
 
