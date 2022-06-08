@@ -43,6 +43,8 @@ public class LeadRequestDto {
 	private String residenceNameUuid;
 
 	private String leadOwnerId;
+	
+	private String createdBy;
 
 	private Integer cityId;
 	private String cityName;
