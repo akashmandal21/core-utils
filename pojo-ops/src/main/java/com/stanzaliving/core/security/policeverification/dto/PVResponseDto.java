@@ -24,6 +24,8 @@ public class PVResponseDto {
 
     private String userCode;
 
+    private String userUuid;
+
     private String imageUrl;
 
     private String residenceName;
