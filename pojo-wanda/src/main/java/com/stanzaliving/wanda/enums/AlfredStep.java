@@ -13,7 +13,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum AlfredStep {
 
-	PROFILE_COMPLETION(0,Arrays.asList("PROFILE")),
+	PROFILE_COMPLETION(0,Arrays.asList("PROFILE", "GUEST BOOKING IN PROGRESS")),
 	SELFBOOKING(1, Arrays.asList("SHARED WITH RESIDENT")),
 	PAYMENT_PENDING(2, Arrays.asList("PAYMENT PENDING")),
 	PAYMENT_COLLECTION_PENDING(3,Arrays.asList("COLLECT PAYMENT FROM RESIDENT")),
