@@ -6,14 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.stanzaliving.venta.ResidenceDto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -398,30 +399,10 @@ public class VentaAggregationServiceApi {
 		return null;
 	}
 
-	public ResponseDto<String> syncMysqlAndElasticData(){
-		Object postBody = null;
-		// create path and map variables
-		final Map<String, Object> uriVariables = new HashMap<>();
-		String path = UriComponentsBuilder.fromPath("/exit/sync-mysql-elastic").buildAndExpand(uriVariables).toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		final HttpHeaders headerParams = new HttpHeaders();
-		final String[] accepts = {"*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {};
-		try {
-			log.info("Executing Api for getting bookings Info with Url {}", path);
-			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("Exception while sending booking data  on {}, Exception is {}", LocalDate.now(), e);
-		}
-		return null;
-	}
-	public ResidenceDto getAllResidence() {
+	public ResponseDto<List<String>> getResidenceListInMicroMarket(String residenceUuid) {
 		Map<String, Object> uriVariables = new HashMap<>();
-
-		String path = UriComponentsBuilder.fromPath("/internal/residence/")
+		uriVariables.put("residenceid", residenceUuid);
+		String path = UriComponentsBuilder.fromPath("/internal/residence/residence-list-in-microMarketId/{residenceid}")
 				.buildAndExpand(uriVariables).toUriString();
 
 		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -429,12 +410,12 @@ public class VentaAggregationServiceApi {
 		String[] accepts = new String[] { "*/*" };
 		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResidenceDto> returnType = new ParameterizedTypeReference<ResidenceDto>() {};
+		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {};
 		try {
-			log.info("Executing Api for getting residence map Info with Url {}", path);
+			log.info("Executing Api for getting bookings Info with Url {}", path);
 			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception while getting residence on {}, Exception is {}", LocalDate.now(), e);
+			log.error("Exception while sending booking events integration notification on {}, Exception is {}", LocalDate.now(), e);
 		}
 		return null;
 	}
