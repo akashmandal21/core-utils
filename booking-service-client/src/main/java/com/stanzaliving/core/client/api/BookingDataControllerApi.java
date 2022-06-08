@@ -789,7 +789,9 @@ public class BookingDataControllerApi {
         return response;
     }
 
-    public BookingResponseDto createGuestBooking(String guestPhoneNumber) {
+    
+    public ResponseDto<BookingResponseDto> createGuestBooking(String guestPhoneNumber) {
+
 
         Object postBody = null;
 
@@ -807,10 +809,13 @@ public class BookingDataControllerApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<BookingResponseDto> returnType
-                = new ParameterizedTypeReference<BookingResponseDto>() {
+        ParameterizedTypeReference<ResponseDto<BookingResponseDto>> returnType
+                = new ParameterizedTypeReference<ResponseDto<BookingResponseDto>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        
+        	return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			
+
     }
     public ResponseDto<List<BookingResponseDto>> getBookingsEligibleForContractTermination() {
 
