@@ -17,7 +17,7 @@ public class SoldBookingDto {
     String roomUuid;
     Date contractStartDate;
     Date lockInEndDate;
-    Double lockInDuration;
+    Integer lockInDuration;
     Double beds;
     List<String> packageService;
 }
