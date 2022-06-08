@@ -9,7 +9,11 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LeegalityResponse {
-    private ResponseMessage message;
-    private ResponseData data;
-    private String status;
+    private RequestDto request;
+    private String irn;
+    private String files;
+    private String documentId;
+    private String mac;
+    private VerificationDto verification;
+    private SignerDto signer;
 }
