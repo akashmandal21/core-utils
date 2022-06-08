@@ -1,14 +1,12 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
+
 import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -16,15 +14,12 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PVFormTimelineByTeamResponseDto {
+public class PVFilterCountResponseDto {
 
-    private String title;
+    private String name;
 
-    private String teamTypeName;
+    private String value;
 
-    private String actionedBy;
+    private Long count;
 
-    private List<String> description;
-
-    private Date createdAt;
 }

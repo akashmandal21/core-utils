@@ -5,10 +5,10 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Nationality {
+public enum PVNationality {
 
-    INDIAN("IN"),
-    FOREIGN("FN");
+    IN("INDIAN"),
+    FN("FOREIGN");
 
     private final String name;
 

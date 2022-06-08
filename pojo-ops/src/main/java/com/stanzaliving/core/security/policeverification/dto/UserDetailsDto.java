@@ -12,7 +12,7 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -28,7 +28,7 @@ public class UserDetailsDto {
 
     private String imageUrl;
 
-    private LocalDateTime movingDate;
+    private Date movingDate;
 
     @NotNull(message = "Resident Status is mandatory")
     @Enumerated(EnumType.STRING)
