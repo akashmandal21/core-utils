@@ -1,5 +1,6 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
+import com.stanzaliving.core.security.policeverification.enums.PoliceVerificationStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,8 +17,10 @@ public class PoliceVerificationLegalActivityDto {
 
     private String userCode;
 
-    private String reason;
+    private PoliceVerificationStatus policeVerificationStatus;
 
     private String comment;
+
+    private String createdBy;
 
 }
