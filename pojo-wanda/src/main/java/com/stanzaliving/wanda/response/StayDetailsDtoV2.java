@@ -34,4 +34,6 @@ public class StayDetailsDtoV2 extends PendingBookingDto {
 	private boolean showCafe;
 	
 	private String address;
+
+	private String apartmentType;
 }
