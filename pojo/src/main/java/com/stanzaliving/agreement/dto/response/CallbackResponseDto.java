@@ -16,6 +16,7 @@ public class CallbackResponseDto {
     private List<String> files;
     private String documentId;
     private String mac;
+    private String auditTrail;
     private VerificationDto verification;
     private SignerDto signer;
 }
