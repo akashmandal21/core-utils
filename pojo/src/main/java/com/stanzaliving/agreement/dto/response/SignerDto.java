@@ -10,6 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 public class SignerDto {
     private String pincode;
+    private String uid;
     private String serialNumber;
     private String gender;
     private String name;
