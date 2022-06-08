@@ -1007,4 +1007,27 @@ public class BookingDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
+
+    public ResponseDto<String> emailVerifiedUpdate(String phoneNumber) {
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("phoneNumber", phoneNumber);
+
+        String path = UriComponentsBuilder.fromPath("/internal/booking/guest-info/update/{phoneNumber}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType
+                = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+    }
 }
