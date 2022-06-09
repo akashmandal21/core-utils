@@ -10,13 +10,14 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
+
 @Getter
 @Setter
 @ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PVListingResponseDto {
+public class PVFormJourneyResponseDto {
 
     private PoliceVerificationStatus policeVerificationCurrentStatus;
 
@@ -32,8 +33,5 @@ public class PVListingResponseDto {
 
     private String policeVerificationNextStatusName;
 
-    private int totalCount;
-
-    private List<PVResponseDto> policeVerificationFormList;
-
+    private List<PVFormJourneyByTeamResponseDto> formJourney;
 }
