@@ -27,7 +27,7 @@ public enum AlfredStep {
 	RETENTION_BOOKING(11,Arrays.asList("RETENTION BOOKING")),
 	CONTRACT_MODIFICATION_PENDING(12,Arrays.asList("CONTRACT MODIFICATION PENDING")),
 	SELFIE(13,Arrays.asList("SELFIE")),
-	GUEST_ONBOARDING(14, Arrays.asList("GUEST_ONBOARDING")),
+	GUEST_ONBOARDING(14, Arrays.asList("GUEST_ONBOARDING", "GUEST BOOKING IN PROGRESS")),
 	GUEST_UNDERTAKING(15, Arrays.asList("GUEST_UNDERTAKING")),
 	GUEST_KYC(16, Arrays.asList("GUEST_KYC")),
 	GUEST_SELFIE(17, Arrays.asList("GUEST_SELFIE")),
@@ -54,6 +54,7 @@ public enum AlfredStep {
 		bookingSubStatusMap.put(GUEST_KYC, Arrays.asList("GUEST PENDING KYC SUBMISSION"));
 		bookingSubStatusMap.put(GUEST_SELFIE, Arrays.asList("PENDING SELFIE SUBMISSION"));
 		bookingSubStatusMap.put(GUEST_UNDERTAKING, Arrays.asList("SECONDARY SIGNING PENDING"));
+		bookingSubStatusMap.put(GUEST_ONBOARDING_PENDING, Arrays.asList("GUEST ONBOARDING PENDING"));
 
 	}
 
