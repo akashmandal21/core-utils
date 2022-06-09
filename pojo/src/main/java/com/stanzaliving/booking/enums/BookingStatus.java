@@ -161,6 +161,9 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
         return bookingStatus;
     }
 
@@ -170,6 +173,9 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_AGREEMENT_SENT.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
         return bookingStatus;
     }
 
@@ -218,6 +224,7 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getDescription());
         bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
         bookingStatus.add(BookingStatus.WRONG_BOOKING.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
         return bookingStatus;
     }
 
@@ -263,6 +270,7 @@ public enum BookingStatus {
         List<String> bookingStatus = new ArrayList<>();
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
         return bookingStatus;
     }
 
@@ -333,6 +341,15 @@ public enum BookingStatus {
         bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());
         bookingStatus.add(RENT_DEFAULTER.getBookingStatus());
 
+        return bookingStatus;
+    }
+
+
+    public static List<String> RESIDENT_CONTRACT() {
+        List<String> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_AGREEMENT_SENT.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
         return bookingStatus;
     }
 
