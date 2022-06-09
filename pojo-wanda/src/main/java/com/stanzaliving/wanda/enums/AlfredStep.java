@@ -13,7 +13,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum AlfredStep {
 
-	PROFILE_COMPLETION(0,Arrays.asList("PROFILE")),
+	PROFILE_COMPLETION(0,Arrays.asList("PROFILE", "GUEST BOOKING IN PROGRESS")),
 	SELFBOOKING(1, Arrays.asList("SHARED WITH RESIDENT")),
 	PAYMENT_PENDING(2, Arrays.asList("PAYMENT PENDING")),
 	PAYMENT_COLLECTION_PENDING(3,Arrays.asList("COLLECT PAYMENT FROM RESIDENT")),
@@ -22,7 +22,7 @@ public enum AlfredStep {
 	KYC(6, Arrays.asList("ONBOARDING PENDING", "ONBOARDING IN PROGRESS")),
 	KYC_REJECTED(7,Arrays.asList("KYC REJECTED")),
 	UPDATE_BY_SALES_POC(8, Arrays.asList("NEEDS ATTENTION")),
-	HOMESCREEN(9, Arrays.asList("REFUND INITIATED","ONBOARDING COMPLETED","VERIFICATION PENDING")),
+	HOMESCREEN(9, Arrays.asList("REFUND INITIATED","ONBOARDING COMPLETED","VERIFICATION PENDING", "GUEST ONBOARDING COMPLETED")),
 	SECOND_AGREEMENT(10,Arrays.asList("SUBCONTRACT 2 AGREEMENT SENT")),
 	RETENTION_BOOKING(11,Arrays.asList("RETENTION BOOKING")),
 	CONTRACT_MODIFICATION_PENDING(12,Arrays.asList("CONTRACT MODIFICATION PENDING")),
@@ -46,15 +46,14 @@ public enum AlfredStep {
 		bookingSubStatusMap.put(PAYMENT_COLLECTION_PENDING, Arrays.asList("COLLECT PAYMENT FROM RESIDENT"));
 		bookingSubStatusMap.put(KYC_REJECTED, Arrays.asList("KYC REJECTED"));
 		bookingSubStatusMap.put(UPDATE_BY_SALES_POC, Arrays.asList("NEEDS ATTENTION"));
-		bookingSubStatusMap.put(KYC_REJECTED, Arrays.asList("KYC REJECTED"));
-		bookingSubStatusMap.put(HOMESCREEN, Arrays.asList("PENDING_KYC_VERIFICATION"));
+		bookingSubStatusMap.put(HOMESCREEN, Arrays.asList("PENDING KYC VERIFICATION", "PRIMARY SIGNING PENDING"));
 		bookingSubStatusMap.put(KYC, Arrays.asList("PENDING KYC SUBMISSION"));
 		bookingSubStatusMap.put(CONTRACT_MODIFICATION_PENDING, Arrays.asList("CONTRACT MODIFICATION PENDING"));
 		bookingSubStatusMap.put(SELFIE, Arrays.asList("SELFIE"));
 		bookingSubStatusMap.put(GUEST_ONBOARDING, Arrays.asList("GUEST PERSONAL DETAILS PENDING"));
 		bookingSubStatusMap.put(GUEST_KYC, Arrays.asList("GUEST PENDING KYC SUBMISSION"));
 		bookingSubStatusMap.put(GUEST_SELFIE, Arrays.asList("PENDING SELFIE SUBMISSION"));
-		bookingSubStatusMap.put(GUEST_UNDERTAKING, Arrays.asList("GUEST AGREEMENT SENT"));
+		bookingSubStatusMap.put(GUEST_UNDERTAKING, Arrays.asList("SECONDARY SIGNING PENDING"));
 		bookingSubStatusMap.put(GUEST_ONBOARDING_PENDING, Arrays.asList("GUEST ONBOARDING PENDING"));
 
 	}
