@@ -11,6 +11,7 @@ import java.util.Map;
 @Getter
 @AllArgsConstructor
 public enum LeadSourceEnum {
+
 	ADITYA_REFERRAL("Aditya Referral", LeadSourceGroupEnum.REFERRAL),
 	AMC_BANNERGHATT("AMC Bannerghatt", LeadSourceGroupEnum.OTHERS),
 	APARTMENT_LEAD_LP_FORM("Apartment Lead LP Form", LeadSourceGroupEnum.DIGITAL),

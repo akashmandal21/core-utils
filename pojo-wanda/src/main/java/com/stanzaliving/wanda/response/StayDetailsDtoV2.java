@@ -30,9 +30,9 @@ public class StayDetailsDtoV2 extends PendingBookingDto {
 	private List<VasServicesDtoV2> selectedVasServices;
 
 	private List<VasServicesDtoV2> topupVasServices;
-	
+
 	private boolean showCafe;
-	
+
 	private String address;
 
 	private String apartmentType;

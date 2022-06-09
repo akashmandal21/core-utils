@@ -21,5 +21,3 @@ public enum LeadSourceGroupEnum {
 
     private String name;
 }
-
-
