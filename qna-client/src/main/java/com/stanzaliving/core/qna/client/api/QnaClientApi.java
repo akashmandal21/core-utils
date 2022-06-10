@@ -29,20 +29,19 @@ public class QnaClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<String> getQuestionTemplateIdForModule(ModuleNames moduleName, String token){
+    public ResponseDto<String> getQuestionTemplateIdForModule(ModuleNames moduleName){
 
         Object postBody = null;
 
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("moduleName", moduleName);
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/question-template/module/{moduleName}")
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/question-template/module/{moduleName}")
                 .buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
-        headerParams.add("Cookie", token);
 
         final String[] accepts = {
                 "*/*"

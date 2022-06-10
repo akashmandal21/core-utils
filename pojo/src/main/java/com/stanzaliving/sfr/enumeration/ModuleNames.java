@@ -12,10 +12,12 @@ import java.util.List;
 @AllArgsConstructor
 public enum ModuleNames {
 
-    SFR,
-    SFR_SUBMISSION,
-    ASIS,
-    ASIS_SUBMISSION;
+    SFR(true),
+    SFR_SUBMISSION(false),
+    ASIS(false),
+    ASIS_SUBMISSION(true);
+
+    private final boolean isQuestionTemplateIdRequired;
 
     public static final List<ModuleNames> moduleNames = Arrays.asList(ASIS, SFR);
 
