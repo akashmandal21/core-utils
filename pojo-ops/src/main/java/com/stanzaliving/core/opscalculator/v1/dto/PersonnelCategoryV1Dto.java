@@ -2,6 +2,8 @@ package com.stanzaliving.core.opscalculator.v1.dto;
 
 
 import com.stanzaliving.core.opscalculator.dto.CategoryDto;
+import com.stanzaliving.core.opscalculator.v1.enums.HouseKeepingType;
+import com.stanzaliving.core.opscalculator.v1.enums.SecurityGuardType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,20 +21,21 @@ import lombok.experimental.SuperBuilder;
 public class PersonnelCategoryV1Dto extends CategoryDto{
 
     private int hk12HrCount;
-    private String hkType;
-    private int hk12HrRate;
+    private HouseKeepingType hkType;
+    private double hk12HrRate;
     private int sgCount;
-    private String sgType;
-    private int sgRate;
+    private SecurityGuardType sgType;
+    private double sgRate;
     private int jrRcCount;
-    private int jrRcRate;
+    private double jrRcRate;
     private int rcCount;
-    private int rcRate;
+    private double rcRate;
     private double releiverJrRc;
     
     
     public double hk12HrCostPerBed;
 	public double sgCostPerBed;
+	public double rcCostPerBed;
 	public double jrRcCostPerBed;
 	public double releiverCostPerBed;
 

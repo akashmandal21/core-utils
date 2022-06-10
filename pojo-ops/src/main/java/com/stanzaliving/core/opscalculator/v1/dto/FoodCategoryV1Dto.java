@@ -1,7 +1,4 @@
-/**
- * @author nipunaggarwal
- *
- */
+
 package com.stanzaliving.core.opscalculator.v1.dto;
 
 import java.util.List;
@@ -19,7 +16,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @author nipunaggarwal
+ * @author manish.pareek
  *
  */
 @Getter
@@ -45,7 +42,7 @@ public class FoodCategoryV1Dto extends CategoryDto {
 	private double nonSlStaffMenuPricePerDayForEvening;		
 	private int opsNonSLMorningStaffPerDay;
 	private int opsNonSLEveningStaffPerDay;
-	private int overallUtilization;
+	public int overallUtilization;
 
 	List<SMLevelFoodCategoryDto> smLevelFoodCategoryDtoList;
 
