@@ -21,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @ToString
-public class WebsitePlaceNearByPropertiesResponseDTO implements Serializable{
+public class WebsitePlaceNearByPropertiesResponseDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

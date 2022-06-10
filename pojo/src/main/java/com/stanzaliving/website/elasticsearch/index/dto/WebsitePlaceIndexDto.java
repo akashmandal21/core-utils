@@ -18,7 +18,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class WebsitePlaceIndexDto extends AbstractSearchIndexDto implements Serializable{
+public class WebsitePlaceIndexDto extends AbstractSearchIndexDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
