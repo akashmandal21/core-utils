@@ -11,7 +11,7 @@ public enum PartnerInvoiceStatus {
     PAID("Paid", "#FFEAB6","#FFB701"),
     PARTIALLY_PAID("Partially Paid", "#EDF4FF","#5FC4F5"),
     SUBMITTED("Submitted", "#FFEAB6","#FFB701"),
-    REJECTED("Rejected", "#EDFFF5","#60C3AD");
+    REJECTED("Rejected", "#FFE5E1","#FF5238");
 
     private String statusText;
 
