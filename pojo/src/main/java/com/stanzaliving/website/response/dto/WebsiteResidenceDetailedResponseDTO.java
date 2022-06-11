@@ -115,6 +115,6 @@ public class WebsiteResidenceDetailedResponseDTO {
 	
 	private ResidenceFilteredResponseDTO similarResidencesNearBy;
 	
-	private WebsitePlaceNearByPropertiesResponseDTO cityAllProperties;
+	private List<WebsiteMapCardDto> cityAllProperties;
 
 }
