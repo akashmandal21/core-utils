@@ -2,10 +2,16 @@ package com.stanzaliving.core.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddressResponseDTO {
+public class AddressResponseDTO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private int addressId;
 
     private String line1;
