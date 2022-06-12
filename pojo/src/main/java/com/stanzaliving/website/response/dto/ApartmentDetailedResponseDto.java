@@ -115,6 +115,10 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private Integer discountedPrice;
 	
+	private Boolean soldOut;
+	
+	private boolean isEntireFlatAvailable;
+	
 	private PropertyEntityType propertyEntityType;
 	
 	@Builder.Default
