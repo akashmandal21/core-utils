@@ -16,7 +16,7 @@ public enum PropertyReportsTile {
     ATL("ATL", true, true, false, null, null, "",null),
     LLHODOC("LL HO Doc",false,true,false,null,null,"", Arrays.asList(PropertyUpdateEnum.LLHODOC_UPLOADED)),
     AS_IS("As-Is Report", true, true, true, Department.PROJECTS, PropertyUpdateEnum.PROJECT_AS_IS_COMPLETED, "asisdrawings",
-            Arrays.asList(PropertyUpdateEnum.PROJECT_AS_IS_COMPLETED)),
+            null),
     SFR("SFR", true, true, false, Department.PROJECTS, PropertyUpdateEnum.PROJECT_SFR_COMPLETED, "sfr-report",
             Arrays.asList(PropertyUpdateEnum.PROJECT_SITE_ENGINEER_ASSIGNED,PropertyUpdateEnum.PROJECT_SFR_COMPLETED)),
     //OFR("OFR",true,true),
