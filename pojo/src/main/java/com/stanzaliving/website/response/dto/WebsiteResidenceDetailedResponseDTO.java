@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -104,7 +105,7 @@ public class WebsiteResidenceDetailedResponseDTO {
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = Collections.emptyList();
 
 	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>();
+	private Collection<ImageResponseDTO> images = new HashSet<>();
 
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>();
