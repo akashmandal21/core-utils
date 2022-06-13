@@ -30,6 +30,8 @@ public class UserDetailsDto {
 
     private Date movingDate;
 
+    private String bookingUuid;
+
     @NotNull(message = "Resident Status is mandatory")
     @Enumerated(EnumType.STRING)
     private ResidentStatus residentStatus;
