@@ -1,8 +1,6 @@
 package com.stanzaliving.core.opscalculator.v1.dto;
 
-import java.util.Map;
-
-import javax.validation.constraints.NotNull;
+import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
@@ -22,7 +20,17 @@ import lombok.experimental.SuperBuilder;
 public class NucleusRateMasterDto extends AbstractDto  {
 
 	private static final long serialVersionUID = 1L;
+		
+	private List<PersonnelRateMasterDto> personnelRateMasterDto;
 	
-	@NotNull(message = "config can't be null")
-	private Map<String, Object> nrmConfig;
+	private List<RepairRateMasterDto> repairRateMasterDto;
+	
+	private List<BuildMaintenanceRateMasterDto> buildMaintenanceRateMasterDto;
+	
+	private List<LaundryRateMasterDto> laundryRateMasterDto;
+	
+	private List<UniformRateMasterDto> uniformRateMasterDto;
+	
+	private List<AuditRateMasterDto> auditRateMasterDto;
+	
 }
