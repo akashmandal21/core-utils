@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -23,7 +24,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class WebsiteResidenceDetailedResponseDTO {
+public class WebsiteResidenceDetailedResponseDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private int residenceId;
 	
