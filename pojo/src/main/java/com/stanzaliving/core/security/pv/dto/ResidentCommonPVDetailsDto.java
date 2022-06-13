@@ -1,4 +1,4 @@
-package com.stanzaliving.core.security.dto;
+package com.stanzaliving.core.security.pv.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidentPVCommonDetailsDto {
+public class ResidentCommonPVDetailsDto {
     
-    private String residentName;
+	private String residentFirstName;
+	private String residentLastName;
+	private String residentName;
     private String residentAge;
     private String residentGender;
     private String residentFatherame;
@@ -27,8 +29,6 @@ public class ResidentPVCommonDetailsDto {
     private String residentPresentAddress;
     private String residentPermanentAddress;
     private String residentRentedAddress;
-    private String residentOfficeAddress;
-    
 	
 	private String residentPermanentHouseNo;
 	private String residentPermanentSociety;
@@ -72,4 +72,17 @@ public class ResidentPVCommonDetailsDto {
 	private String residentFamilyMember2Gender;
 	
 
+	private String residentOfficeName;
+	private String residentOfficeAddress;
+	
+	private String residentCollegeName;
+	private String residentCollegeAddress;
+	
+	private String residentLocalRelativeAddress;
+	private String residentLocalRelativeName;
+	private String residentLocalRelativeMobile;
+	private String residentLocalRelativeIdentifier;
+	
+	
+	
 }
