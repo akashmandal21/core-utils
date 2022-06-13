@@ -109,7 +109,7 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private List<ApartmentResponseDto> similarApartments;
 
-	private AddressResponseDTO address;
+	private AddressResponseDTO addressResponseDTO;
 
 	@Builder.Default
 	private Integer similarApartmentsCount = 0;
