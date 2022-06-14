@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ElectricitySlotDetailsDto {
-    private Integer start;
-    private Integer end;
-    private double unitRate;
+    public Integer start;
+    public Integer end;
+    public double unitRate;
 }
