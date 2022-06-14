@@ -59,6 +59,7 @@ public enum BookingType {
         Set<String> types = new HashSet<>();
         types.add(BookingType.SCHOLAR.name());
         types.add(BookingType.PROFESSIONAL.name());
+        types.add(BookingType.MANAGED_APARTMENT.name());
         return types;
     }
 
