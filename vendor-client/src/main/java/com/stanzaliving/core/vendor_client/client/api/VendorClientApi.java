@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.stanzaliving.core.base.enums.Department;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -424,4 +425,55 @@ public class VendorClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, vddReturnType);
     }
 
+    public ResponseDto<String> saveVendorMappingForNewDept(Department newDepartment, Department refDepartment) {
+
+        log.info("HTTP Client call to save vendorMapping details for new dept: {} refDept: {}" , newDepartment,refDepartment);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("newDepartment",newDepartment);
+        uriVariables.put("refDepartment",refDepartment);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/save/vendorMapping/{newDepartment}/{refDepartment}").buildAndExpand(uriVariables).toUriString();
+
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+
+    }
+
+    public ResponseDto<String> rollBack(Department newDepartment) {
+
+        log.info("HTTP Client call to rollBack vendorMapping details for new dept: {}" , newDepartment);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("newDepartment",newDepartment);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/roll-back/vendorMapping/{newDepartment}").buildAndExpand(uriVariables).toUriString();
+
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+    }
 }
