@@ -36,4 +36,6 @@ public class TaskSearchFilterRequestDto {
     private List<String> owners;
 
     private List<String> predecessorTasks;
+
+    private Boolean status;
 }

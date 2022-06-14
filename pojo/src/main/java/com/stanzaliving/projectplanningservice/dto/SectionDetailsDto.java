@@ -102,7 +102,7 @@ public class SectionDetailsDto extends AbstractDto {
     @Size(max = 6, message = "Max allowed characters up to 6")
     private String module;
 
-    @Size(min = 3, max = 80, message = "Max allowed characters between 3 and 80")
+    @Size(min = 3, max = 200, message = "Max allowed characters between 3 and 80")
     @NotBlank(message = "Task Name cannot be empty")
     private String taskName;
 
@@ -160,5 +160,11 @@ public class SectionDetailsDto extends AbstractDto {
 
     @Valid
     private List<SectionDetailsDto> tasks;
+
+    private Boolean isDelayed;
+
+    private String liveParentTaskId;
+
+    private Boolean isMilestone;
 
 }
