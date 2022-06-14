@@ -62,7 +62,7 @@ public class QnaClientApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("moduleSubmissionId", moduleSubmissionId);
 
-        String path = UriComponentsBuilder.fromPath("internal/api/v1/answer/get-image-urls/{moduleSubmissionId}")
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/answer/get-image-urls/{moduleSubmissionId}")
                 .buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
