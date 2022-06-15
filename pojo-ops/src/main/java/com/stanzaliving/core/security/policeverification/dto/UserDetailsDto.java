@@ -1,6 +1,7 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
 import com.stanzaliving.core.operations.enums.ResidentStatus;
+import com.stanzaliving.core.security.policeverification.enums.PVApplicable;
 import com.stanzaliving.core.security.policeverification.enums.RegistrationType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,6 +40,9 @@ public class UserDetailsDto {
     @NotNull(message = "Registration Type is mandatory")
     @Enumerated(EnumType.STRING)
     private RegistrationType registrationType;
+
+    @Enumerated(EnumType.STRING)
+    private PVApplicable pvApplicable;
 
     private UserPersonalDetailsDto userPersonalDetails;
 
