@@ -43,6 +43,4 @@ public class PVListingRequestDto {
     
     private PageAndSortDto pageDto;
 
-    private PageAndSortDto pageDto;
-
 }
