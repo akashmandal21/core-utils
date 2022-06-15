@@ -28,7 +28,6 @@ public class CashTransferRequestDTO {
     @NotNull(message = "transferredByUuid cannot be null")
     private String depositorUuid;
 
-    @NotNull(message = "cashReceiverUuid cannot be null")
     private String cashReceiverUuid;
 
     @NotNull(message = "transfer Date cannot be null")

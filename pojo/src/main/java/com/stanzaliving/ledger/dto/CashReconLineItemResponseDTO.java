@@ -32,6 +32,8 @@ public class CashReconLineItemResponseDTO {
 
     private String transactionColorCode;
 
+    private String transactionStatus;
+
     public interface TRANSACTION_TYPE_COLOR {
         String CREDIT_COLOR = "#F55F71";
         String DEBIT_COLOR = "#60C3AD";
