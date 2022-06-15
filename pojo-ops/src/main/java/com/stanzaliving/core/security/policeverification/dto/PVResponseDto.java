@@ -1,5 +1,6 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
+import com.stanzaliving.core.security.policeverification.enums.PVApplicable;
 import com.stanzaliving.core.security.policeverification.enums.PVNationality;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,4 +40,6 @@ public class PVResponseDto {
     private PVNationality nationality;
 
     private String registrationType;
+
+    private PVApplicable pvApplicable;
 }
