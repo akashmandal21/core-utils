@@ -58,7 +58,6 @@ public enum BookingEventEnum {
     VAS_OPT_OUT_EMAIL("Vas Opt Out Email"),
     CONTRACT_END("Contract"),
     LOCK_IN_END("Lock-in period");
-
 	String eventName;
 
 }

@@ -17,3 +17,4 @@ public enum AMCAmountType {
     String amcAmountType;
 
 }
+
