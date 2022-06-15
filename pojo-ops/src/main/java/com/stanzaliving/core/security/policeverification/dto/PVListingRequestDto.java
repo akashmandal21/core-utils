@@ -1,6 +1,7 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
 
+import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.operations.enums.ResidentStatus;
 import com.stanzaliving.core.security.policeverification.enums.Nationality;
 import com.stanzaliving.core.security.policeverification.enums.PoliceVerificationStatus;
@@ -37,5 +38,7 @@ public class PVListingRequestDto {
     private List<ResidentStatus> residentStatus;
 
     private List<RegistrationType> registrationType;
+
+    private PageAndSortDto pageDto;
 
 }
