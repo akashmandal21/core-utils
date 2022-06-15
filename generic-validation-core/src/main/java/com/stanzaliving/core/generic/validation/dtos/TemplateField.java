@@ -41,4 +41,5 @@ public class TemplateField {
     private Boolean isMultiSelect;
     private ApprovalMetaInfo approvalDetails;
     private Object minValue;
+    private String header;
 }
