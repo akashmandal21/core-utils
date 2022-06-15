@@ -37,7 +37,7 @@ public class CashReconLineItemResponseDTO {
     public interface TRANSACTION_TYPE_COLOR {
         String CREDIT_COLOR = "#F55F71";
         String DEBIT_COLOR = "#60C3AD";
-        String PENDING_APPROVAL = "FFB701";
+        String PENDING_APPROVAL = "#FFB701";
     }
 
 }
