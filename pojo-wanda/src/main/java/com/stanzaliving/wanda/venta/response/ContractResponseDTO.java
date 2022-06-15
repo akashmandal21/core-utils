@@ -32,5 +32,4 @@ public class ContractResponseDTO {
     private String discountCode;
 
     private Date createdAt;
-
 }

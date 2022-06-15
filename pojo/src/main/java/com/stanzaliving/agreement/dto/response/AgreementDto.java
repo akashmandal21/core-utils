@@ -28,4 +28,5 @@ public class AgreementDto {
 
     private Date createdAt;
 
+    private String referenceID2;
 }

@@ -32,5 +32,5 @@ public class AgreementResponseDto {
     private String contractText;
     private String contract2Text;
     private Date createdAt;
-
+    private String referenceID2;
 }
