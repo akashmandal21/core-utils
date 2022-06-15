@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum BookingSubStatus {
 
     IN_PROGRESS("In Progress"),
-    PAYMENT_PENDING("PAYMENT_PENDING");
+//    PAYMENT_PENDING("PAYMENT_PENDING");
 
     private String bookingStatus;
 }
