@@ -19,7 +19,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class ResponseDto<T> implements Serializable{
+public class ResponseDto<T> implements Serializable {
 
 	/**
 	 * 
