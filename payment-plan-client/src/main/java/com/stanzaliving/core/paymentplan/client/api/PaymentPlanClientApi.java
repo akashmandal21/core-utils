@@ -826,7 +826,7 @@ public class PaymentPlanClientApi {
     }
 
 
-    public ResponseDto<String> updateInvoiceUuid(String bookingUuid) {
+    public ResponseDto<String> mapInvoiceUuidToPaymentPlan(String bookingUuid) {
         try {
 
             Object postBody = null;
@@ -848,7 +848,7 @@ public class PaymentPlanClientApi {
             ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
             };
 
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
         } catch (Exception e) {
             log.error("error while opting out vas paymentPlan", e);
