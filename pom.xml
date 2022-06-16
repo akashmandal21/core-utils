@@ -106,9 +106,11 @@
         <module>venta-notification-client</module>
         <module>security-service</module>
         <module>mail-client</module>
-		<module>backend-locator-client</module>
+        <module>support-client</module>
+	    	<module>backend-locator-client</module>
         <module>phoenix-client</module>
         <module>qna-client</module>
+		    <module>analytic-logs</module>
     </modules>
 
 	<build>

@@ -41,9 +41,10 @@ public class RedisLockServiceImpl implements RedisLockService {
 			log.warn("Lock is null to release");
 			return;
 		}
-
-		log.info("Releasing lock for: {}", rLock.getName());
-		rLock.unlock();
+		if (rLock.isLocked()) {
+			log.info("Releasing lock for: {}", rLock.getName());
+			rLock.unlock();
+		}
 	}
 
 }
