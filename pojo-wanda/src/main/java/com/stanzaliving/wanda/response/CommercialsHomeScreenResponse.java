@@ -16,4 +16,6 @@ public class CommercialsHomeScreenResponse {
 	private String currentDue;
 	
 	private String dueDate;
+
+	private Long daysRemaining;
 }
