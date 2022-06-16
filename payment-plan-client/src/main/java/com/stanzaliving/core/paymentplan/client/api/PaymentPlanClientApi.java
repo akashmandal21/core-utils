@@ -824,5 +824,36 @@ public class PaymentPlanClientApi {
 
     }
 
+    public ResponseDto<String> updateInvoiceUuid(String bookingUuid) {
+        try {
+
+            Object postBody = null;
+
+            log.info("Request received for update InvoiceUuid for bookingUuid:{}", bookingUuid);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/set/invoice-uuid").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            queryParams.add("bookingUuid", bookingUuid);
+
+            HttpHeaders headerParams = new HttpHeaders();
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+            ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+            log.error("error while opting out vas paymentPlan", e);
+            return null;
+        }
+
+    }
+
 
 }
