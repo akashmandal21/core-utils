@@ -27,4 +27,6 @@ public class CashReconResponseDTO {
     private List<CashReconLineItemResponseDTO> ledgerLineItems;
 
     private List<CashReconLineItemResponseDTO> pendingApprovalLedgerLineItems;
+
+    private String awaitingApprovalMessage;
 }
