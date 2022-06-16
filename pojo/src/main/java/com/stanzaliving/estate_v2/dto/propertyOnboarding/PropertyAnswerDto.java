@@ -21,6 +21,8 @@ public class PropertyAnswerDto extends AbstractMongoDto {
     private String questionUuid;
     @EmptyOrNull(message = "Variable Name cannot be empty or null")
     private String variableName;
+    @EmptyOrNull(message = "Module Submission Id cannot be empty or null")
+    private String moduleSubmissionId;
     private List<String> answers;
     private List<String> imageUrls;
     @NotNull(message = "Remarks cannot be null")
