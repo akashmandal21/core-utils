@@ -1,4 +1,3 @@
-
 package com.stanzaliving.core.opscalculator.sqljpaconverter;
 
 import java.io.IOException;
@@ -13,13 +12,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.http.BaseMapperConfig;
 import com.stanzaliving.core.opscalculator.dto.UnderWrittenDto;
-import com.stanzaliving.core.opscalculator.v2.dto.NucleusRateMasterDto;
+import com.stanzaliving.core.opscalculator.v2.dto.UnderWrittenV2Dto;
 
 import lombok.extern.log4j.Log4j2;
 
 @Converter
 @Log4j2
-public class NucleusRateMasterDtoConverter implements AttributeConverter<NucleusRateMasterDto, String> {
+public class AnnualUnderWrittenDtoV2Converter implements AttributeConverter<UnderWrittenV2Dto, String> {
 
 
     private static ObjectMapper objectMapper = null;
@@ -30,9 +29,9 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
 
 
         @Override
-        public String convertToDatabaseColumn(NucleusRateMasterDto nucleusRateMasterDto) {
+        public String convertToDatabaseColumn(UnderWrittenV2Dto underWrittenDto) {
 
-            if (null == nucleusRateMasterDto) {
+            if (null == underWrittenDto) {
                 return null;
             }
 
@@ -41,17 +40,17 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
             }
 
             try {
-                return objectMapper.writeValueAsString(nucleusRateMasterDto);
+                return objectMapper.writeValueAsString(underWrittenDto);
             } catch (JsonProcessingException e) {
-                log.error("Unable to convert nucleusRateMasterDto to json, error {}, nucleusRateMasterDto {}", e.getMessage(), nucleusRateMasterDto, e);
+                log.error("Unable to convert annualUnderWrittenDto to json, error {}, annualUnderWrittenDto {}", e.getMessage(), underWrittenDto, e);
                 return null;
             }
         }
 
         @Override
-        public NucleusRateMasterDto convertToEntityAttribute(String nucleusRateMasterDtoJson) {
+        public UnderWrittenV2Dto convertToEntityAttribute(String annualUnderWrittenDtoJson) {
 
-            if (StringUtils.isBlank(nucleusRateMasterDtoJson)) {
+            if (StringUtils.isBlank(annualUnderWrittenDtoJson)) {
                 return null;
             }
 
@@ -60,10 +59,10 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
             }
 
             try {
-                return objectMapper.readValue(nucleusRateMasterDtoJson, new TypeReference<UnderWrittenDto>() {
+                return objectMapper.readValue(annualUnderWrittenDtoJson, new TypeReference<UnderWrittenDto>() {
                 });
             } catch (IOException e) {
-                log.error("Unable to convert json to nucleusRateMasterDto , error {}, nucleusRateMasterDto {}", e.getMessage(), nucleusRateMasterDtoJson, e);
+                log.error("Unable to convert json to underWrittenDto , error {}, underWrittenDtoJson {}", e.getMessage(), annualUnderWrittenDtoJson, e);
                 return null;
             }
     }
