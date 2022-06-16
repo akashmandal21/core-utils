@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
 @Getter
 @AllArgsConstructor
 public enum BookingSubStatus {
@@ -19,6 +18,7 @@ public enum BookingSubStatus {
     PERSONAL_DETAILS_PENDING("PERSONAL DETAILS PENDING"),
     BOOKING_AMOUNT_PENDING("BOOKING AMOUNT PENDING"),
     PENDING_KYC_SUBMISSION("PENDING KYC SUBMISSION"),
+    GUEST_PENDING_KYC_SUBMISSION("GUEST PENDING KYC SUBMISSION"),
     PENDING_KYC_VERIFICATION("PENDING KYC VERIFICATION"),
     EXIT_INITIATED("EXIT INITIATED"),
     KYC_REJECTED("KYC REJECTED"),
@@ -35,7 +35,7 @@ public enum BookingSubStatus {
     PENDING_SELFIE_SUBMISSION("PENDING SELFIE SUBMISSION"),
     PRIMARY_SIGNING_PENDING("PRIMARY SIGNING PENDING"),
     SECONDARY_SIGNING_PENDING("SECONDARY SIGNING PENDING");
-
+	
     private String bookingSubStatus;
 
     public static Set<String> bookingNeedsAttention() {

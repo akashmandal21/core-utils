@@ -1828,6 +1828,36 @@ public class ResidenceDataControllerApi {
         }
     }
 
+    public OccupancyPricingAndRoomAttributesResponseDto getResidenceOccupancyPricingV2(String residenceUuid, String propertyEntityType) {
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        uriVariables.put("propertyEntityType",propertyEntityType);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/occupancy-pricing/{residenceUuid}/{propertyEntityType}/v2").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<OccupancyPricingAndRoomAttributesResponseDto> returnType =
+                new ParameterizedTypeReference<OccupancyPricingAndRoomAttributesResponseDto>() {
+                };
+
+        try {
+            return (OccupancyPricingAndRoomAttributesResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var10) {
+            log.error("Exception while fetching residence occupancy pricing information based on residenceUUID {}, Exception is ", residenceUuid, var10);
+            return null;
+        }
+    }
+
     public ResidenceVasDto getGlobalVasDetails(String globalVasUuid) {
 
         log.info("Residence-Data-Controller::Processing to get vas details based on globalVasUUid {}", globalVasUuid);

@@ -106,4 +106,6 @@ public class BookingAggregationDto {
     private String movedInStatus;
     private Double securityDeposit;
     private String createdByName;
+    private String primaryOwnerName;
+    private Boolean guestBooking;
 }

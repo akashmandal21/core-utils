@@ -23,7 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.website.response.dto.LeadRequestDto;
+import com.stanzaliving.leadservice.*;
 import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
 
 import lombok.extern.log4j.Log4j2;
@@ -49,7 +49,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>>() {
@@ -59,7 +59,7 @@ public class LeadserviceClientApi {
 	}
 
 	public ResponseDto<QualificationQuestionResponseDto> getLeadQualificationQuestions(String questionUuid,
-			String answer) {
+																					   String answer) {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -73,7 +73,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>>() {
@@ -92,7 +92,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -115,7 +115,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headLeadDetailEntityerParams = new HttpHeaders();
 		final HttpHeaders headerParams = new HttpHeaders();
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>>() {
@@ -134,7 +134,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -143,7 +143,7 @@ public class LeadserviceClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public ResponseDto<String> rescheduleVisitFromThankyouScreen(LeadRequestDto leadRequestDto) {
 
 		Object postBody = leadRequestDto;
@@ -163,7 +163,7 @@ public class LeadserviceClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 
 	public ResponseDto<LeadRequestDto> leadCreation(LeadRequestDto leadRequestDto) {
 
@@ -178,7 +178,7 @@ public class LeadserviceClientApi {
 
 			final HttpHeaders headerParams = new HttpHeaders();
 
-			final String[] accepts = { "*/*" };
+			final String[] accepts = {"*/*"};
 
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -207,7 +207,7 @@ public class LeadserviceClientApi {
 
 			final HttpHeaders headerParams = new HttpHeaders();
 
-			final String[] accepts = { "*/*" };
+			final String[] accepts = {"*/*"};
 
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -222,8 +222,8 @@ public class LeadserviceClientApi {
 
 		return null;
 	}
-	
-	
+
+
 	public ResponseDto<LeadRequestDto> createCommonLeadFromWebsite(LeadRequestDto leadRequestDto) {
 
 		Object postBody = leadRequestDto;
@@ -234,7 +234,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -246,9 +246,9 @@ public class LeadserviceClientApi {
 		} catch (Exception e) {
 			log.error("Error while creating the lead {}", e);
 			return null;
-		}	
+		}
 	}
-	
+
 	public ResponseDto<LeadRequestDto> createScheduledVisitLead(LeadRequestDto leadRequestDto) {
 
 		try {
@@ -262,7 +262,7 @@ public class LeadserviceClientApi {
 
 			final HttpHeaders headerParams = new HttpHeaders();
 
-			final String[] accepts = { "*/*" };
+			final String[] accepts = {"*/*"};
 
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -277,7 +277,7 @@ public class LeadserviceClientApi {
 
 		return null;
 	}
-	
+
 	public ResponseDto<String> updateMobileVerifiedStatus(String phone) {
 
 		Object postBody = null;
@@ -285,11 +285,11 @@ public class LeadserviceClientApi {
 		String path = UriComponentsBuilder.fromPath("/lead/internal/update/phone/verified").toUriString();
 
 		final HttpHeaders headerParams = new HttpHeaders();
-		
+
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("phone", phone);
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -301,9 +301,9 @@ public class LeadserviceClientApi {
 		} catch (Exception e) {
 			log.error("Error while creating the lead {}", e);
 			return null;
-		}	
+		}
 	}
-	
+
 	public String updateLeadWebsite(LeadRequestDto leadRequestDto) {
 
 		Object postBody = leadRequestDto;
@@ -314,7 +314,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -323,10 +323,10 @@ public class LeadserviceClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public ResponseDto<Boolean> checkLeadByPhone(String phone) {
 		Object postBody = null;
-		
+
 		log.info("Request received for checkLeadByPhone " + phone);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -339,7 +339,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
@@ -359,12 +359,12 @@ public class LeadserviceClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		if(Objects.nonNull(phoneNumber))
+		if (Objects.nonNull(phoneNumber))
 			queryParams.add("phone", phoneNumber);
-		if(Objects.nonNull(leadUuid))
+		if (Objects.nonNull(leadUuid))
 			queryParams.add("leadUuid", leadUuid);
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -392,7 +392,7 @@ public class LeadserviceClientApi {
 
 		headerParams.set("headerAuth", "c2510261f27872a22a160f463dc2ac2111ae2");
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -415,14 +415,13 @@ public class LeadserviceClientApi {
 
 		headerParams.set("headerAuth", "c2510261f27872a22a160f463dc2ac2111ae2");
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-		};
 
+		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-
 }
