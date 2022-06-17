@@ -1,8 +1,5 @@
 package com.stanzaliving.core.opscalculator.V2.dto;
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
@@ -21,17 +18,9 @@ import lombok.experimental.SuperBuilder;
 public class NucleusRateMasterDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
-		
-	private List<PersonnelRateMasterDto> personnelRateMasterDto;
 	
-	private List<RepairRateMasterDto> repairRateMasterDto;
-	
-	private List<BuildMaintenanceRateMasterDto> buildMaintenanceRateMasterDto;
-	
-	private List<LaundryRateMasterDto> laundryRateMasterDto;
-	
-	private List<UniformRateMasterDto> uniformRateMasterDto;
-	
-	private List<AuditRateMasterDto> auditRateMasterDto;
-	
+	private NucleusRateMasterData nucleusRateMasterData;
+
+	protected boolean active;
+			
 }

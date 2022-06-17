@@ -12,13 +12,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.http.BaseMapperConfig;
-import com.stanzaliving.core.opscalculator.V2.dto.NucleusRateMasterDto;
+import com.stanzaliving.core.opscalculator.V2.dto.NucleusRateMasterData;
 
 import lombok.extern.log4j.Log4j2;
 
 @Converter
 @Log4j2
-public class NucleusRateMasterDtoConverter implements AttributeConverter<NucleusRateMasterDto, String> {
+public class NucleusRateMasterDtoConverter implements AttributeConverter<NucleusRateMasterData, String> {
 
 
     private static ObjectMapper objectMapper = null;
@@ -29,7 +29,7 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
 
 
         @Override
-        public String convertToDatabaseColumn(NucleusRateMasterDto nucleusRateMasterDto) {
+        public String convertToDatabaseColumn(NucleusRateMasterData nucleusRateMasterDto) {
 
             if (null == nucleusRateMasterDto) {
                 return null;
@@ -48,7 +48,7 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
         }
 
         @Override
-        public NucleusRateMasterDto convertToEntityAttribute(String nucleusRateMasterDtoJson) {
+        public NucleusRateMasterData convertToEntityAttribute(String nucleusRateMasterDtoJson) {
 
             if (StringUtils.isBlank(nucleusRateMasterDtoJson)) {
                 return null;
@@ -59,7 +59,7 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
             }
 
             try {
-                return objectMapper.readValue(nucleusRateMasterDtoJson, new TypeReference<NucleusRateMasterDto>() {
+                return objectMapper.readValue(nucleusRateMasterDtoJson, new TypeReference<NucleusRateMasterData>() {
                 });
             } catch (IOException e) {
                 log.error("Unable to convert json to nucleusRateMasterDto , error {}, nucleusRateMasterDto {}", e.getMessage(), nucleusRateMasterDtoJson, e);
