@@ -1,12 +1,10 @@
 package com.stanzaliving.booking.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.stanzaliving.booking.enums.BookingStatus;
 import com.stanzaliving.booking.enums.BookingType;
-import com.stanzaliving.core.user.enums.Gender;
 import lombok.*;
-
 import javax.validation.constraints.NotNull;
+
 import java.util.Date;
 
 @Data
@@ -14,6 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class GuestRequestPayloadDto {
 
     @NotNull(message = "firstName cannot be null or blank")

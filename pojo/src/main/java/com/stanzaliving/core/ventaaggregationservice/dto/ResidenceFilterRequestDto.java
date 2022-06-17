@@ -1,9 +1,6 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Set;
 
@@ -11,6 +8,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 public class ResidenceFilterRequestDto {
 
     private Set<String> cityList;
@@ -18,6 +16,10 @@ public class ResidenceFilterRequestDto {
     private Set<String> entityList;
 
     private Set<String> microMarketList;
+
+    private Set<String> microMarketIdList;
+
+    private Set<String> cityIdList;
 
     private Set<String> society;
 
