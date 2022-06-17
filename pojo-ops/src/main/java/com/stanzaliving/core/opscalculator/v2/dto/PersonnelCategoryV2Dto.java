@@ -1,9 +1,9 @@
-package com.stanzaliving.core.opscalculator.v2.dto;
+package com.stanzaliving.core.opscalculator.V2.dto;
 
 
+import com.stanzaliving.core.opscalculator.V2.enums.HouseKeepingType;
+import com.stanzaliving.core.opscalculator.V2.enums.SecurityGuardType;
 import com.stanzaliving.core.opscalculator.dto.CategoryDto;
-import com.stanzaliving.core.opscalculator.v2.enums.HouseKeepingType;
-import com.stanzaliving.core.opscalculator.v2.enums.SecurityGuardType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

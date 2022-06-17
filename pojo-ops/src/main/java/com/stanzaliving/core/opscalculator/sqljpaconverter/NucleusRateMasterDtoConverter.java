@@ -12,8 +12,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.http.BaseMapperConfig;
-import com.stanzaliving.core.opscalculator.dto.UnderWrittenDto;
-import com.stanzaliving.core.opscalculator.v2.dto.NucleusRateMasterDto;
+import com.stanzaliving.core.opscalculator.V2.dto.NucleusRateMasterDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -60,7 +59,7 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
             }
 
             try {
-                return objectMapper.readValue(nucleusRateMasterDtoJson, new TypeReference<UnderWrittenDto>() {
+                return objectMapper.readValue(nucleusRateMasterDtoJson, new TypeReference<NucleusRateMasterDto>() {
                 });
             } catch (IOException e) {
                 log.error("Unable to convert json to nucleusRateMasterDto , error {}, nucleusRateMasterDto {}", e.getMessage(), nucleusRateMasterDtoJson, e);

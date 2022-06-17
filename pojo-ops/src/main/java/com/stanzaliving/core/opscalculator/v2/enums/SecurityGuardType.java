@@ -1,4 +1,4 @@
-package com.stanzaliving.core.opscalculator.v2.enums;
+package com.stanzaliving.core.opscalculator.V2.enums;
 
 import java.util.ArrayList;
 import java.util.List;

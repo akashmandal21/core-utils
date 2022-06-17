@@ -1,4 +1,6 @@
-package com.stanzaliving.core.opscalculator.v2.dto;
+package com.stanzaliving.core.opscalculator.V2.dto;
+
+import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class BuildMaintenanceRateMasterDto {
+public class BuildMaintenanceRateMasterDto implements Serializable  {
 
 	private String cityUuid;
 

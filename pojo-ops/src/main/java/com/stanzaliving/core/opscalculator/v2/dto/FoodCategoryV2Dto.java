@@ -1,5 +1,5 @@
 
-package com.stanzaliving.core.opscalculator.v2.dto;
+package com.stanzaliving.core.opscalculator.V2.dto;
 
 import java.util.List;
 

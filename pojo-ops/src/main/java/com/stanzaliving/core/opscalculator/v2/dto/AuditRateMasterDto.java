@@ -1,5 +1,7 @@
 
-package com.stanzaliving.core.opscalculator.v2.dto;
+package com.stanzaliving.core.opscalculator.V2.dto;
+
+import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,13 +20,15 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class AuditRateMasterDto {
+public class AuditRateMasterDto implements Serializable  {
 
 	private String cityUuid;
 
 	private String physicalAuditRate;
 
 	private String cctvAuditRate;
+	
+	private String safePlaceAuditRate;
 
 	private String cctvAuditRateMultiplier;
 }

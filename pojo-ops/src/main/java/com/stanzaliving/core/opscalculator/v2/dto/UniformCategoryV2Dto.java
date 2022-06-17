@@ -1,8 +1,8 @@
 /**
- * @author nipunaggarwal
+ * @author manish.pareek
  *
  */
-package com.stanzaliving.core.opscalculator.v2.dto;
+package com.stanzaliving.core.opscalculator.V2.dto;
 
 import com.stanzaliving.core.opscalculator.dto.CategoryDto;
 
@@ -13,7 +13,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @author nipunaggarwal
+ * @author manish.pareek
  *
  */
 @Getter

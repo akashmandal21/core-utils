@@ -1,4 +1,6 @@
-package com.stanzaliving.core.opscalculator.v2.dto;
+package com.stanzaliving.core.opscalculator.V2.dto;
+
+import java.io.Serializable;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class EquipmentRateMasterDto {
+public class EquipmentRateMasterDto implements Serializable{
   private String equipmentName;
   private String equipmentCapicity;
   private String equipmentAmcRatePerYear;

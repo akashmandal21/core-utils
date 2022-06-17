@@ -12,7 +12,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.http.BaseMapperConfig;
 import com.stanzaliving.core.opscalculator.dto.UnderWrittenDto;
-import com.stanzaliving.core.opscalculator.v2.dto.UnderWrittenV2Dto;
+import com.stanzaliving.core.opscalculator.V2.dto.UnderWrittenV2Dto;
 
 import lombok.extern.log4j.Log4j2;
 

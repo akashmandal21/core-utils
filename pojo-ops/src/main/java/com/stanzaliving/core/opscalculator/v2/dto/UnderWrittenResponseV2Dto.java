@@ -1,4 +1,4 @@
-package com.stanzaliving.core.opscalculator.v2.dto;
+package com.stanzaliving.core.opscalculator.V2.dto;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -59,6 +59,6 @@ public class UnderWrittenResponseV2Dto extends UnderWrittenV2Dto {
 
     protected List<LocalDate> specialDays;
     
-    private UnderWrittenRequestV2Dto underWrittenRequestV2Dto;
-
+    private NucleusRateMasterDto nucleusRateMasterDto;
+    
 }

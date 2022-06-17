@@ -1,10 +1,6 @@
-package com.stanzaliving.core.opscalculator.v2.dto;
+package com.stanzaliving.core.opscalculator.V2.dto;
 
-import java.util.Map;
-
-import javax.validation.constraints.NotNull;
-
-import com.stanzaliving.core.base.common.dto.AbstractDto;
+import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class PersonnelRateMasterDto {
+public class PersonnelRateMasterDto implements Serializable  {
 
 	private String cityUuid;
 	private String microMarketUuid;
