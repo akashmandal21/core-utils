@@ -76,6 +76,8 @@ public class ApartmentShortResponseDto implements Serializable {
 	private Double distanceFromPlace;
 	
 	private List<FeatureResponseDTO> features;
+
+	private AddressResponseDTO addressResponseDTO;
 	
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>();
