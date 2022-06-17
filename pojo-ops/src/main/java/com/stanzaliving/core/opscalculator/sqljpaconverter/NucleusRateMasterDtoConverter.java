@@ -12,6 +12,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.http.BaseMapperConfig;
+import com.stanzaliving.core.opscalculator.V2.dto.NucleusRateMasterDto;
 
 import lombok.extern.log4j.Log4j2;
 
