@@ -32,7 +32,6 @@ public enum AlfredStep {
 	GUEST_KYC(16, Arrays.asList("GUEST KYC")),
 	GUEST_SELFIE(17, Arrays.asList("GUEST SELFIE")),
 	GUEST_ONBOARDING_PENDING(18, Arrays.asList("HOMESCREEN"));
-
 	private Integer sequenceId;
 	private List<String> bookingStatuses;
 
@@ -60,7 +59,6 @@ public enum AlfredStep {
 		bookingSubStatusMap.put(GUEST_SELFIE, Arrays.asList("PENDING SELFIE SUBMISSION"));
 		bookingSubStatusMap.put(GUEST_UNDERTAKING, Arrays.asList("SECONDARY SIGNING PENDING"));
 		bookingSubStatusMap.put(GUEST_ONBOARDING_PENDING, Arrays.asList("GUEST ONBOARDING PENDING"));
-
 	}
 
 	static {

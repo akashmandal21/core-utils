@@ -505,6 +505,39 @@ public class UserClientApi {
 		}
 	}
 
+	public ResponseDto<List<UserProfileDto>> getUserProfileListByUuidsList(List<String> userUuidList) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/getUserProfileList").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		UserProfileRequestDto userProfileRequestDto = new UserProfileRequestDto();
+		userProfileRequestDto.setUserUuids(userUuidList);
+
+		postBody = userProfileRequestDto;
+
+		ParameterizedTypeReference<ResponseDto<List<UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserProfileDto>>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, null, postBody, headerParams, accept, returnType);
+		}
+		catch (Exception ex) {
+			log.error("Error occurred while fetching user details from UserId",ex);
+			return null;
+		}
+	}
+
 	public ResponseDto<List<UserProfileDto>> getAllUsers() {
 
 		Object postBody = null;
