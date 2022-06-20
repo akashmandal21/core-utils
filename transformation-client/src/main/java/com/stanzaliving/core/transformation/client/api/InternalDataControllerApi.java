@@ -771,7 +771,7 @@ public class InternalDataControllerApi {
             log.info("Error while fetching residence {}",exception);
             throw new StanzaHttpException("Transformation is down: " + exception.getMessage(), exception);
         }
-        if (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) {
+        if (Objects.isNull(responseDto) || Objects.isNull(responseDto.getData())) {
             throw new StanzaHttpException("Transformation is down: ");
         }
         return responseDto;
