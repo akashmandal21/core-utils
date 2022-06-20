@@ -26,5 +26,10 @@ public class UserCurrentPlanDetailDto {
 	private boolean boosterPackActive;
 
 	private Double boosterPackData;
+<<<<<<< Updated upstream
+=======
+	
+	private Double boosterPackDataPriceSum;
+>>>>>>> Stashed changes
 
 }
