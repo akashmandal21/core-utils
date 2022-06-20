@@ -764,18 +764,18 @@ public class InternalDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<List<ResidenceUIDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceUIDto>>>() {
         };
-        ResponseDto<List<ResidenceUIDto>> responseDto = null;
         try {
+            ResponseDto<List<ResidenceUIDto>> responseDto = null;
             responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+            if (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) {
+                return responseDto;
+            }
         } catch(Exception exception){
-            log.info("Error while fetching residence {}",exception);
+            log.error("Error while fetching residence ",exception);
             throw new StanzaHttpException("Transformation is down: " + exception.getMessage(), exception);
         }
-        if (Objects.isNull(responseDto) || Objects.isNull(responseDto.getData())) {
-            throw new StanzaHttpException("Transformation is down: ");
-        }
-        return responseDto;
-
+        log.error("Error while fetching residence");
+        throw new StanzaHttpException("Error while fetching Residence List");
     }
 
     public ResponseDto<List<ResidenceDto>> getResidenceDetailsByResidenceUuids(List<String> residenceUuids) {
