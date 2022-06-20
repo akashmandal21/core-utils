@@ -27,5 +27,4 @@ public class UserCurrentPlanDetailDto {
 
 	private Double boosterPackData;
 	private Double boosterPackDataPriceSum;
-
 }
