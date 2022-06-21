@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
+import com.stanzaliving.core.base.exception.StanzaHttpException;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -763,7 +764,17 @@ public class InternalDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<List<ResidenceUIDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceUIDto>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        try {
+            ResponseDto<List<ResidenceUIDto>> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+            if (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) {
+                return responseDto;
+            }
+        } catch(Exception exception){
+            log.error("Error while fetching residence ",exception);
+            throw new StanzaHttpException("Transformation is down: " + exception.getMessage(), exception);
+        }
+        log.error("Error while fetching residence");
+        throw new StanzaHttpException("Error while fetching Residence List");
     }
 
     public ResponseDto<List<ResidenceDto>> getResidenceDetailsByResidenceUuids(List<String> residenceUuids) {
