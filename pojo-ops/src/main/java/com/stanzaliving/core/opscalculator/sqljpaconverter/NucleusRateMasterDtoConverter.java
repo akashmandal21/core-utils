@@ -22,7 +22,6 @@ import lombok.extern.log4j.Log4j2;
 public class NucleusRateMasterDtoConverter implements AttributeConverter<NucleusRateMasterDto, String> {
 
 
-
     private static ObjectMapper objectMapper = null;
 
         public void init() {
