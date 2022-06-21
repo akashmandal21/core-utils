@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.core.user.enums.EnumListing;
@@ -17,8 +18,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CityResponseDTO {
+public class CityResponseDTO implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private int cityId;
 	private String name;
 	private String code;
