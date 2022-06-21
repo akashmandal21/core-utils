@@ -33,9 +33,27 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
 
+	public int unitForEquipmentsPerDay;
+	
 	public int totalCharges;
+	
 	public double fixedCharges;
-
+	public UnitRate unitRate;
+	public double unitRateValue;
+	public double taxPercent;
+	
+	public double passThroughUnitRate;
+	public double acRunningMonthsPerYear;
+	public double commonAreaAcCount;
+	public double commonAreaAcConsumptionPerDay;
+	public double boilerCount;
+	public double boilerConsumptionPerDay;
+	
+	    
+	public double totalUnitsPerMonth;
+	public double totalPassThroughUnitsPerMonth;
+	public double totalElectricityCost;
+	    	
 	public void setFixedCharges(double fixedCharges) {
 		this.fixedCharges = fixedCharges;
 	}
@@ -46,7 +64,6 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
 
 	public int calculatedFixCharges;
 	public int variableCharges;
-
 	public int acRoomsWithRoomPassThroughCharges;
 	public int acRoomsWithAcPassThroughCharges;
 	public int nonAcRoomsWithRoomPassThroughCharges;
@@ -57,11 +74,9 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
 	}
 
 	public int landlordReceivablesCharges;
-
 	public int totalChargesBeforePassThrough;
 
-	public UnitRate unitRate;
-	public double unitRateValue;
+
 
 	@Builder.Default
 	public int daysInMonth = 30;
