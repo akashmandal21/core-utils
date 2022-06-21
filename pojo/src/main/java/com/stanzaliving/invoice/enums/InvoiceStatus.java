@@ -61,7 +61,7 @@ public enum InvoiceStatus {
 
     	invoiceApprovalLevelMap = Collections.unmodifiableMap(temp);
         approvalCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE,L4_APPROVAL_DUE,L5_APPROVAL_DUE,SUBMITTED_BY_VENDOR)));
-        approvalRejects = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_REJECTED, L2_REJECTED, L3_REJECTED,L4_REJECTED,L5_REJECTED)));
+        approvalRejects = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_REJECTED, L2_REJECTED, L3_REJECTED,L4_REJECTED,L5_REJECTED,SENT_BACK_TO_VENDOR)));
         paymentCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID)));
         paymentStatuses = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID,FULLY_PAID)));
     }
