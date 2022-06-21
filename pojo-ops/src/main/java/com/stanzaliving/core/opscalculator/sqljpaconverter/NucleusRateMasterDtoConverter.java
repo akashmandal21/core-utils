@@ -28,9 +28,9 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
 
 
         @Override
-        public String convertToDatabaseColumn(NucleusRateMasterData nucleusRateMasterDto) {
+        public String convertToDatabaseColumn(NucleusRateMasterData nucleusRateMasterData) {
 
-            if (null == nucleusRateMasterDto) {
+            if (null == nucleusRateMasterData) {
                 return null;
             }
 
@@ -39,17 +39,17 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
             }
 
             try {
-                return objectMapper.writeValueAsString(nucleusRateMasterDto);
+                return objectMapper.writeValueAsString(nucleusRateMasterData);
             } catch (JsonProcessingException e) {
-                log.error("Unable to convert nucleusRateMasterDto to json, error {}, nucleusRateMasterDto {}", e.getMessage(), nucleusRateMasterDto, e);
+                log.error("Unable to convert nucleusRateMasterDto to json, error {}, nucleusRateMasterDto {}", e.getMessage(), nucleusRateMasterData, e);
                 return null;
             }
         }
 
         @Override
-        public NucleusRateMasterData convertToEntityAttribute(String nucleusRateMasterDtoJson) {
+        public NucleusRateMasterData convertToEntityAttribute(String nucleusRateMasterData) {
 
-            if (StringUtils.isBlank(nucleusRateMasterDtoJson)) {
+            if (StringUtils.isBlank(nucleusRateMasterData)) {
                 return null;
             }
 
@@ -59,11 +59,11 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
 
             try {
 
-                return objectMapper.readValue(nucleusRateMasterDtoJson, new TypeReference<NucleusRateMasterData>() {
+                return objectMapper.readValue(nucleusRateMasterData, new TypeReference<NucleusRateMasterData>() {
 
                 });
             } catch (IOException e) {
-                log.error("Unable to convert json to nucleusRateMasterDto , error {}, nucleusRateMasterDto {}", e.getMessage(), nucleusRateMasterDtoJson, e);
+                log.error("Unable to convert json to nucleusRateMasterDto , error {}, nucleusRateMasterDto {}", e.getMessage(), nucleusRateMasterData, e);
                 return null;
             }
     }
