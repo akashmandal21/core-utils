@@ -20,7 +20,6 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class NucleusRateMasterDtoConverter implements AttributeConverter<NucleusRateMasterData, String> {
 
-
     private static ObjectMapper objectMapper = null;
 
         public void init() {
@@ -59,7 +58,9 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
             }
 
             try {
+
                 return objectMapper.readValue(nucleusRateMasterDtoJson, new TypeReference<NucleusRateMasterData>() {
+
                 });
             } catch (IOException e) {
                 log.error("Unable to convert json to nucleusRateMasterDto , error {}, nucleusRateMasterDto {}", e.getMessage(), nucleusRateMasterDtoJson, e);
