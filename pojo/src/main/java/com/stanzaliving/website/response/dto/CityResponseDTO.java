@@ -60,4 +60,15 @@ public class CityResponseDTO {
 	private String apartmentSeoTitle;
 	private String apartmentSeoDescription;
 	private String apartmentCityDescription;
+	
+	//place specific data fields-
+	private String place;
+	private Integer placeId;
+	private String placeSlug;
+	private String placeType;
+	private Integer placeTypeId;
+	private String city;
+	private String citySlug;
+	private String transformationUuid;
+
 }
