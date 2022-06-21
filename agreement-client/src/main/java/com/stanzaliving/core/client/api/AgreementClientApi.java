@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.agreement.dto.request.RequestDTO;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -181,6 +182,40 @@ public class AgreementClientApi {
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 			ParameterizedTypeReference<ResponseDto<List<AgreementResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<AgreementResponseDto>>>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("error while fetching the user details " + e);
+		}
+
+		return null;
+
+	}
+
+	public ResponseDto<RequestDTO> getRequest(String referenceId) {
+
+		try {
+			Object postBody = null;
+
+			log.info("get request details by referenceId is {} ", referenceId);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			uriVariables.put("referenceId", referenceId);
+
+			String path = UriComponentsBuilder.fromPath("/get/request/{referenceId}").buildAndExpand(uriVariables)
+					.toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<RequestDTO>> returnType = new ParameterizedTypeReference<ResponseDto<RequestDTO>>() {
 			};
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
