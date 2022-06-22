@@ -40,4 +40,6 @@ public class ReviewTemplateResponseDto {
     private String propertyAction;
     @Temporal(TemporalType.TIMESTAMP)
     protected Date propertyApprovalTime;
+    private boolean isMigrated;
+
 }
