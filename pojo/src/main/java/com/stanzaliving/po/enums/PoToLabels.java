@@ -27,7 +27,7 @@ public enum PoToLabels {
     private final String poToLabelText;
 
     public static List<PoToLabels> getAllLabels(Department department) {
-        if(department.equals(Department.OPS))
+        if(department == Department.OPS)
             return Arrays.asList(ROUTINE_RNM, LL_DEBIT, REFURB_FFE, RESIDENT_DAMAGE, MANPOWER_PO, AMC, VENDOR_DEBIT,
                     INSURANCE_CLAIM, CORPORATE_COST, CLIENT_B2B_PARTNER, CAPEX, NA);
         else
