@@ -11,7 +11,7 @@ public enum PendingType {
     N("N", "Nodal Pending"),
     R("R", "RC Pending"),
     L("L","Legal Pending"),
-    ALL("ALL","ALL Pending");;
+    ALL("ALL","ALL");;
 
     private final String key;
     private final String value;
