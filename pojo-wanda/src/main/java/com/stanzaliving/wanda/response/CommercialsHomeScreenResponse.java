@@ -19,5 +19,5 @@ public class CommercialsHomeScreenResponse {
 
 	private Long daysRemaining;
 
-	private boolean isInternetDeactivate;
+	private boolean internetBlocked;
 }
