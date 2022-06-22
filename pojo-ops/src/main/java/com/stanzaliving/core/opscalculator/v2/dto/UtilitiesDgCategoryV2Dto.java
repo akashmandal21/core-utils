@@ -26,9 +26,9 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
 public class UtilitiesDgCategoryV2Dto extends CategoryDto{
-
-	private int dgOverallCharges;
-	private double dieselRate;
-	private double dieselQuantity;
+	
+	private int numberOfDG;
+	private double dGCostPerMonth;
 
 }
+

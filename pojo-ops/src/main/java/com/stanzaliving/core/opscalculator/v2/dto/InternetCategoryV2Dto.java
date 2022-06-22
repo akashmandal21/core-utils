@@ -18,9 +18,11 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @ToString(callSuper = true)
 public class InternetCategoryV2Dto extends CategoryDto {
-    private double internetPlanRate;           //servicemix -> planId  -> com.stanzaliving.core.internet.client.api.InternetClientApi#listPlans
-    private double MGOccupancyPercent;      //servicemix -> planId  -> com.stanzaliving.core.internet.client.api.InternetClientApi#listPlans
+    private double internetPlanRate;          
+    private double MGOccupancyPercent;      
 
+    private int infraCharges;
+    
     private int internetCharges;
 
     List<SMLevelInternetCategoryDto> smLevelInternetCategoryDtoList;
