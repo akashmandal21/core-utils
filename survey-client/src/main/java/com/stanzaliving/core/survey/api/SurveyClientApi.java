@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.survey.dto.Campaign;
 import com.stanzaliving.survey.dto.UserFeedBackResponse;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -77,5 +78,31 @@ public class SurveyClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<Campaign> getCampaignById(String campaignId){
+
+		Object postBody = null;
+
+		log.info("Get Campaign by campaignId {}", campaignId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("campaignId", campaignId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/get/campaign/{campaignId}").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Campaign> > returnType = new ParameterizedTypeReference<ResponseDto<Campaign> >() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
 	}
 }
