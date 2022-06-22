@@ -45,4 +45,6 @@ public class ReviewTemplateResponseDto {
     private Boolean cmNameVisible;
     private String salesReviewSubmittedBy;
     private Date salesReviewSubmittedOn;
+    private boolean isMigrated;
+
 }
