@@ -46,4 +46,12 @@ public class WebsiteApartmentFilterConstants {
 
 	public final Integer FILTER_SERVICES_SEQUENCE_ID = 9;
 	public final String FILTER_SERVICES_NAME = "SERVICES";
+	
+	public final String ON = "ON";
+	public final String OFF = "OFF";
+	public final String ENTIRE_FLAT = "Entire Flat";
+
+	public final String TRUE = "true";
+	public final String FALSE = "false";
+
 }
