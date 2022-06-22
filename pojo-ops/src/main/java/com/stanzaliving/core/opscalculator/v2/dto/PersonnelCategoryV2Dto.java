@@ -23,12 +23,20 @@ public class PersonnelCategoryV2Dto extends CategoryDto{
     private int hk12HrCount;
     private HouseKeepingType hkType;
     private double hk12HrRate;
+    private int hk12HrSuggestedCount;
+	private String hk12HrSuggestedReason;
     private int sgCount;
     private SecurityGuardType sgType;
     private double sgRate;
+    private int sgSuggestedCount;
+	private String sgSuggestedReason;
     private int jrRcCount;
+    private int jrRcSuggestedCount;
+   	private String jrRcSuggestedReason;
     private double jrRcRate;
     private int rcCount;
+    private int rcSuggestedCount;
+   	private String rcSuggestedReason;
     private double rcRate;
     private double releiverJrRc;
     
@@ -38,5 +46,12 @@ public class PersonnelCategoryV2Dto extends CategoryDto{
 	public double rcCostPerBed;
 	public double jrRcCostPerBed;
 	public double releiverCostPerBed;
+	
+	
+	private int noOfEmployees;
+	private int suggestedNoOfEmployees;
+	private String suggestedNoOfEmployeesReason;
+	
+	private double employeeRatePerMonth;
 
 }

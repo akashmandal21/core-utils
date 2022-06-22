@@ -43,6 +43,8 @@ public class FoodCategoryV2Dto extends CategoryDto {
 	private int opsNonSLMorningStaffPerDay;
 	private int opsNonSLEveningStaffPerDay;
 	public int overallUtilization;
+	public int overallUtilizationSuggestedValue;
+	public String overallUtilizationSuggestedValueReason;
 
 	List<SMLevelFoodCategoryDto> smLevelFoodCategoryDtoList;
 

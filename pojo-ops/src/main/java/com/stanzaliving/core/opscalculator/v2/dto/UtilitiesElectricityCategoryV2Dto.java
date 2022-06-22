@@ -42,6 +42,13 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
 	public double unitRateValue;
 	public double taxPercent;
 	
+	
+	public int acRoomsCount;
+	public int acRoomsWithRoomPassThroughCount;
+	public int acRoomsWithAcPassThroughCount;
+	public int nonAcRoomsWithRoomPassThroughCount;
+	
+	
 	public double passThroughUnitRate;
 	public double acRunningMonthsPerYear;
 	public double commonAreaAcCount;
@@ -53,6 +60,10 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
 	public double totalUnitsPerMonth;
 	public double totalPassThroughUnitsPerMonth;
 	public double totalElectricityCost;
+	
+	public int landlordReceivablesInPercent;
+	
+	public double finalElectricityCost;
 	    	
 	public void setFixedCharges(double fixedCharges) {
 		this.fixedCharges = fixedCharges;
@@ -64,6 +75,8 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
 
 	public int calculatedFixCharges;
 	public int variableCharges;
+
+	
 	public int acRoomsWithRoomPassThroughCharges;
 	public int acRoomsWithAcPassThroughCharges;
 	public int nonAcRoomsWithRoomPassThroughCharges;
@@ -97,13 +110,21 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
 	public double unitsConsumedByOthersEquipPerDay;
 
 
-	public int acRoomsCount;
-	public int landlordReceivablesInPercent;
+	
+	
 
 	public int totalUnitsInRoom;
 
 	public double unitInAcRoomPerDay;
 	public double unitInNonAcRoomPerDay;
+	
+	public double unitInAcRoomPerDaySuggestedValue;
+	public double unitInNonAcRoomPerDaySuggestedValue;
+	
+	public double unitInAcRoomPerDaySuggestedValueReason;
+	public double unitInNonAcRoomPerDaySuggestedValueReason;
+	
+	
 	public double unitInCommonAreaPerDay;
 	public double unitEquipmentsPerDay;
 	public double unitsAcPerDay;
