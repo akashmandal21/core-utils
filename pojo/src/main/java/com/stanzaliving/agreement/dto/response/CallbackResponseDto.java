@@ -19,4 +19,5 @@ public class CallbackResponseDto {
     private String auditTrail;
     private VerificationDto verification;
     private SignerDto signer;
+    private List<String> messages;
 }
