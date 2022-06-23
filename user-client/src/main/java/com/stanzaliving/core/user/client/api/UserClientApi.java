@@ -500,7 +500,7 @@ public class UserClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		}
 		catch (Exception ex) {
-			log.error("Error occurred while fetching user details from UserId",ex);
+			log.error("Error occurred while fetching user details from UserId {}",userUuid, ex);
 			return null;
 		}
 	}
