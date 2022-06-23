@@ -16,7 +16,7 @@ public class ResidentCommonPVDetailsDto {
 	private String residentName;
     private String residentAge;
     private String residentGender;
-    private String residentFatherame;
+    private String residentFatherName;
     private String residentSpouseName;
     private String residentPhoneNumber;
     private String residentCaste;
