@@ -26,7 +26,7 @@ public enum PoliceVerificationStatus {
 
     STAMPED_FORM_UPLOAD("Stamped Form Upload",7, "#5FC4F5", TeamType.RC, Arrays.asList(PVApplicable.ONLINE, PVApplicable.OFFLINE, PVApplicable.FRRO, PVApplicable.EXCEL),"Uploaded stamped Police Verification Form"),
 
-    LEGAL_VERIFICATION("Legal Verification", 8, "#297BFF", TeamType.L, Arrays.asList(PVApplicable.ONLINE, PVApplicable.OFFLINE, PVApplicable.FRRO, PVApplicable.EXCEL),"Legal Verification Pending"),
+    LEGAL_VERIFICATION_PENDING("Legal Verification Pending", 8, "#297BFF", TeamType.L, Arrays.asList(PVApplicable.ONLINE, PVApplicable.OFFLINE, PVApplicable.FRRO, PVApplicable.EXCEL),"Legal Verification Pending"),
 
     LEGAL_REJECTED("Legal Rejected", 9, "#F55F71", TeamType.L, Arrays.asList(PVApplicable.ONLINE, PVApplicable.OFFLINE, PVApplicable.FRRO, PVApplicable.EXCEL), "Form Rejected by legal Team"),
 
