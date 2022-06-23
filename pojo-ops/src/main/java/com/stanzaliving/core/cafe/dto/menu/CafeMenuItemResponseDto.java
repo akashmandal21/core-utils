@@ -6,6 +6,7 @@ import com.stanzaliving.core.cafe.enums.CafeMenuItemDurationType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.EnumMap;
 
 @Getter
@@ -14,7 +15,7 @@ import java.util.EnumMap;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CafeMenuItemResponseDto {
+public class CafeMenuItemResponseDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private boolean featured;
