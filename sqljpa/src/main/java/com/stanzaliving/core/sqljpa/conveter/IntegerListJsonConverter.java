@@ -2,6 +2,7 @@ package com.stanzaliving.core.sqljpa.conveter;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.AttributeConverter;
 
@@ -25,7 +26,13 @@ public class IntegerListJsonConverter implements AttributeConverter<List<Integer
 		if (CollectionUtils.isEmpty(attribute)) {
 			return null;
 		}
+		
+		attribute.removeIf(Objects::isNull);
 
+		if (CollectionUtils.isEmpty(attribute)) {
+			return null;
+		}
+		
 		log.info("LIST-OF-INTEGER-OBJECT-CONVERTER::Received attribute for conversion {}", attribute);
 		String attributeInfoJson = null;
 
