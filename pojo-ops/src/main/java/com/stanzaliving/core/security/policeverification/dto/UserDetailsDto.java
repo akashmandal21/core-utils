@@ -1,6 +1,7 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
 import com.stanzaliving.core.operations.enums.ResidentStatus;
+import com.stanzaliving.core.security.policeverification.enums.PVApplicable;
 import com.stanzaliving.core.security.policeverification.enums.RegistrationType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -28,7 +29,9 @@ public class UserDetailsDto {
 
     private String imageUrl;
 
-    private LocalDateTime movingDate;
+    private Date movingDate;
+
+    private String bookingUuid;
 
     @NotNull(message = "Resident Status is mandatory")
     @Enumerated(EnumType.STRING)
@@ -37,6 +40,9 @@ public class UserDetailsDto {
     @NotNull(message = "Registration Type is mandatory")
     @Enumerated(EnumType.STRING)
     private RegistrationType registrationType;
+
+    @Enumerated(EnumType.STRING)
+    private PVApplicable pvApplicable;
 
     private UserPersonalDetailsDto userPersonalDetails;
 
