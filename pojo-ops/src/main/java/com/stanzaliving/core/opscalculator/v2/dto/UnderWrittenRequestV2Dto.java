@@ -39,7 +39,7 @@ public class UnderWrittenRequestV2Dto extends UnderWrittenV2Dto {
 
     private LocalDate toDate;
     
-    private LocalDate plannedHOTODate;
+    private LocalDate plannedHotoDate;
 
     private LocalDate actualHotoDate;
 
