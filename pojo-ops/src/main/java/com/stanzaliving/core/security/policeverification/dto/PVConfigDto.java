@@ -10,13 +10,14 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Getter
 @Setter
 @ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
-public class PVConfigDto {
+public class PVConfigDto implements Serializable {
 
     @NotBlank(message = "City Name is mandatory")
     private String cityName;
