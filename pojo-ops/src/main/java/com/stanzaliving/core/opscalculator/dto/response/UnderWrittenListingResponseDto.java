@@ -16,6 +16,4 @@ public class UnderWrittenListingResponseDto {
         String status;
         String seasonUuid;
         String serviceMixUuid;
-        LocalDate plannedHotoDate;
-        LocalDate actualHotoDate;
 }
