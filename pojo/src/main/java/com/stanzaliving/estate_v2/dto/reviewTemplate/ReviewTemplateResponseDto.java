@@ -38,6 +38,11 @@ public class ReviewTemplateResponseDto {
     private BedCountInfoDto bedCountInformation;
     private List<LayoutResponse> layouts;
     private String propertyAction;
+    private boolean suggestedLanguageEditable;
+
     @Temporal(TemporalType.TIMESTAMP)
     protected Date propertyApprovalTime;
+    private Boolean cmNameVisible;
+    private String salesReviewSubmittedBy;
+    private Date salesReviewSubmittedOn;
 }

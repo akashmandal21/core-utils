@@ -8,9 +8,10 @@ import java.util.*;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
-import com.stanzaliving.core.user.request.dto.*;
 import com.stanzaliving.core.user.dto.*;
+import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
+import com.stanzaliving.core.user.request.dto.*;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -896,20 +897,16 @@ public class UserClientApi {
 
 	public ResponseDto<Set<String>> getAccessLevelIds(Department department, String roleName) {
 		Object postBody = null;
-
-		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		uriVariables.put("department", department);
 		uriVariables.put("roleName", roleName);
 
-		String path = UriComponentsBuilder.fromPath("/internal/acl/accessLevelIds/{department}/{roleName}")
-				.buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/update/status/{mobileNo}/{userType}/{enabled}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
-
 		final String[] accepts = {
 				"*/*"
 		};
@@ -917,17 +914,9 @@ public class UserClientApi {
 
 		ParameterizedTypeReference<ResponseDto<Set<String>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<String>>>() {
 		};
-
-		try {
-
-			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-
-		} catch (Exception ex) {
-			log.error("Error occurred while fetching user access level ids ", ex);
-			return null;
-		}
-
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
+
 
 	public ResponseDto<String> saveUserDeptLevelForNewDept(Department newDepartment, Department refDepartment) {
 

@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.venta.response;
 
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.wanda.dtos.AmenitiesDto;
@@ -51,4 +52,8 @@ public class ResidenceAmenitiesDetailsDto {
 	private String userId;
 	
 	private String roomUuid;
+
+	private Date moveInDate;
+
+	private String societyName;
 }

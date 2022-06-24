@@ -17,31 +17,30 @@ public enum AlfredStep {
 	SELFBOOKING(1, Arrays.asList("SHARED WITH RESIDENT")),
 	SELFBOOKING_COMMERCIAL_DETAILS(2, new ArrayList<>()),
 	SELFBOOKING_PAYMENT(3, new ArrayList<>()),
-	PAYMENT_PENDING(4, Arrays.asList("PAYMENT PENDING")),
-	PAYMENT_COLLECTION_PENDING(5,Arrays.asList("COLLECT PAYMENT FROM RESIDENT")),
-	ONBOARDING(6, Arrays.asList("AGREEMENT PENDING","AWAITING CONFIRMATION")),
-	AGREEMENT(7, Arrays.asList("AGREEMENT SENT")),
-	KYC(8, Arrays.asList("ONBOARDING PENDING", "ONBOARDING IN PROGRESS")),
-	KYC_REJECTED(9,Arrays.asList("KYC REJECTED")),
-	UPDATE_BY_SALES_POC(10, Arrays.asList("NEEDS ATTENTION")),
-	HOMESCREEN(11, Arrays.asList("REFUND INITIATED","ONBOARDING COMPLETED","VERIFICATION PENDING", "GUEST ONBOARDING COMPLETED")),
-	SECOND_AGREEMENT(12,Arrays.asList("SUBCONTRACT 2 AGREEMENT SENT")),
-	RETENTION_BOOKING(13,Arrays.asList("RETENTION BOOKING")),
-	CONTRACT_MODIFICATION_PENDING(14,Arrays.asList("CONTRACT MODIFICATION PENDING")),
-	SELFIE(15,Arrays.asList("SELFIE")),
-	GUEST_ONBOARDING(16, Arrays.asList("GUEST_ONBOARDING")),
-	GUEST_UNDERTAKING(17, Arrays.asList("GUEST_UNDERTAKING")),
-	GUEST_KYC(18, Arrays.asList("GUEST_KYC")),
-	GUEST_SELFIE(19, Arrays.asList("GUEST_SELFIE")),
-	GUEST_ONBOARDING_PENDING(20, Arrays.asList("HOMESCREEN"));
-
+	PAYMENT_PENDING(2, Arrays.asList("PAYMENT PENDING")),
+	PAYMENT_COLLECTION_PENDING(3,Arrays.asList("COLLECT PAYMENT FROM RESIDENT")),
+	ONBOARDING(4, Arrays.asList("AGREEMENT PENDING","AWAITING CONFIRMATION")),
+	AGREEMENT(5, Arrays.asList("AGREEMENT SENT")),
+	KYC(6, Arrays.asList("ONBOARDING PENDING", "ONBOARDING IN PROGRESS")),
+	KYC_REJECTED(7,Arrays.asList("KYC REJECTED")),
+	UPDATE_BY_SALES_POC(8, Arrays.asList("NEEDS ATTENTION")),
+	HOMESCREEN(9, Arrays.asList("REFUND INITIATED","ONBOARDING COMPLETED","VERIFICATION PENDING")),
+	SECOND_AGREEMENT(10,Arrays.asList("SUBCONTRACT 2 AGREEMENT SENT")),
+	RETENTION_BOOKING(11,Arrays.asList("RETENTION BOOKING")),
+	CONTRACT_MODIFICATION_PENDING(12,Arrays.asList("CONTRACT MODIFICATION PENDING")),
+	SELFIE(13,Arrays.asList("SELFIE")),
+	GUEST_ONBOARDING(14, Arrays.asList("GUEST ONBOARDING")),
+	GUEST_UNDERTAKING(15, Arrays.asList("GUEST UNDERTAKING")),
+	GUEST_KYC(16, Arrays.asList("GUEST KYC")),
+	GUEST_SELFIE(17, Arrays.asList("GUEST SELFIE")),
+	GUEST_ONBOARDING_PENDING(18, Arrays.asList("HOMESCREEN"));
 	private Integer sequenceId;
 	private List<String> bookingStatuses;
 
 	private static final Map<AlfredStep, List<String>> bookingStatusMap = new HashMap<AlfredStep, List<String>>();
 	private static final List<String> retentionNonBlockerStatus = new ArrayList<>();
 	private static final Map<AlfredStep, List<String>> bookingSubStatusMap = new HashMap<AlfredStep, List<String>>();
-
+	
 	static {
 		bookingSubStatusMap.put(PROFILE_COMPLETION, Arrays.asList("PROFILE"));
 		bookingSubStatusMap.put(PAYMENT_PENDING, Arrays.asList("PAYMENT PENDING"));
@@ -60,13 +59,13 @@ public enum AlfredStep {
 		bookingSubStatusMap.put(GUEST_UNDERTAKING, Arrays.asList("SECONDARY SIGNING PENDING"));
 		bookingSubStatusMap.put(GUEST_ONBOARDING_PENDING, Arrays.asList("GUEST ONBOARDING PENDING"));
 	}
-
+	
 	static {
 		for (AlfredStep as : AlfredStep.values()) {
 			bookingStatusMap.put(as, as.bookingStatuses);
 		}
 	}
-
+	
 	static {
 		retentionNonBlockerStatus.addAll(Arrays.asList("EXPIRED","CANCELLED","DRAFT","IN PROGRESS","REFUND INITIATED","ONBOARDING COMPLETED",
 				"VERIFICATION PENDING","ONBOARDING PENDING", "ONBOARDING IN PROGRESS"));
@@ -80,7 +79,7 @@ public enum AlfredStep {
 		}
 		return SELFBOOKING;
 	}
-
+	
 	public static boolean checkRetentionScreen(String bookingStatus) {
 		for (String status : retentionNonBlockerStatus) {
 			if (status.equals(bookingStatus)) {
@@ -89,9 +88,9 @@ public enum AlfredStep {
 		}
 		return true;
 	}
-
+	
 	public static AlfredStep getAlfredStep(String bookingSubStatus) {
-
+		
 		for (Map.Entry<AlfredStep, List<String>> entry : bookingSubStatusMap.entrySet()) {
 			if (entry.getValue().contains(bookingSubStatus)) {
 				return entry.getKey();
