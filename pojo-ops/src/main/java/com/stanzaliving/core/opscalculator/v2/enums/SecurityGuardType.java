@@ -11,10 +11,11 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum SecurityGuardType {
-    PREMIUM("PREMIUM");
+    PREMIUM("Premium"),
+	NORMAL("Normal");
     String name;
 
-    public static List<DropDownDto> getAllRCTypeValues(){
+    public static List<DropDownDto> getAllSGTypeValues(){
         return sgDropDownDtoList;
     }
 
