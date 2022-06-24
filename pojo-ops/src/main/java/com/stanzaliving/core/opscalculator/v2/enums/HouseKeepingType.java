@@ -11,10 +11,11 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum HouseKeepingType {
-    PREMIUM("PREMIUM");
+    PREMIUM("Premium"),
+	NORMAL("Normal");
     String name;
 
-    public static List<DropDownDto> getAllRCTypeValues(){
+    public static List<DropDownDto> getAllHkTypeValues(){
         return hkDropDownDtoList;
     }
 

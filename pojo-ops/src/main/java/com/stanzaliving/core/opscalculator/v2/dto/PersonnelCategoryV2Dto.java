@@ -1,11 +1,16 @@
 package com.stanzaliving.core.opscalculator.V2.dto;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.stanzaliving.core.opscalculator.V2.enums.HouseKeepingType;
 import com.stanzaliving.core.opscalculator.V2.enums.SecurityGuardType;
 import com.stanzaliving.core.opscalculator.dto.CategoryDto;
+import com.stanzaliving.core.opscalculator.dto.DropDownDto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,22 +26,45 @@ import lombok.experimental.SuperBuilder;
 public class PersonnelCategoryV2Dto extends CategoryDto{
 
     private int hk12HrCount;
+    private int hk12HrCountSuggested;
+	private String hk12HrCountSuggestedReason;
+	
     private HouseKeepingType hkType;
+    private HouseKeepingType hkTypeSuggested;
+    private String hkTypeSuggestedReason;
+    
     private double hk12HrRate;
-    private int hk12HrSuggestedCount;
-	private String hk12HrSuggestedReason;
+    private double hk12HrRateSuggested;
+    private String hk12HrRateSuggestedReason;
+    
+    @Builder.Default
+    public List<DropDownDto> hkTypeOptions = new ArrayList<>();
+    
     private int sgCount;
+    private int sgCountSuggested;
+	private String sgCountSuggestedReason;
+    
     private SecurityGuardType sgType;
+    private SecurityGuardType sgTypeSuggested;
+    private String sgTypeSuggestedReason;
+    
     private double sgRate;
-    private int sgSuggestedCount;
-	private String sgSuggestedReason;
+    private double sgRateSuggested;
+    private String sgRateSuggestedReason;
+    
+    @Builder.Default
+    public List<DropDownDto> sgTypeOptions = new ArrayList<>();
+    
     private int jrRcCount;
-    private int jrRcSuggestedCount;
-   	private String jrRcSuggestedReason;
+    private int jrRcCountSuggested;
+   	private String jrRcCountSuggestedReason;
+   	
     private double jrRcRate;
+   
+    
     private int rcCount;
-    private int rcSuggestedCount;
-   	private String rcSuggestedReason;
+    private int rcCountSuggested;
+   	private String rcCountSuggestedReason;
     private double rcRate;
     private double releiverJrRc;
     
@@ -48,10 +76,12 @@ public class PersonnelCategoryV2Dto extends CategoryDto{
 	public double releiverCostPerBed;
 	
 	
+	private int noOfEmployeesSuggested;
 	private int noOfEmployees;
-	private int suggestedNoOfEmployees;
-	private String suggestedNoOfEmployeesReason;
+	private String noOfEmployeesSuggestedReason;
 	
 	private double employeeRatePerMonth;
+	private double employeeRatePerMonthSuggested;
+	private String employeeRatePerMonthSuggestedReason;
 
 }
