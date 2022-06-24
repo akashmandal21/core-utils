@@ -38,6 +38,10 @@ public class UnderWrittenRequestV2Dto extends UnderWrittenV2Dto {
     private LocalDate fromDate;
 
     private LocalDate toDate;
+    
+    private LocalDate plannedHOTODate;
+
+    private LocalDate actualHotoDate;
 
     private Integer roomCount;
 
