@@ -67,7 +67,7 @@ public class ExceptionInterceptor {
 
 		return ResponseDto.failure(errorMessgae, exceptionId);
 	}
-	
+
 	@ExceptionHandler(StanzaSecurityException.class)
 	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
 	@SendExceptionToSlack
@@ -184,13 +184,13 @@ public class ExceptionInterceptor {
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
-	
+
 	@ExceptionHandler(MultipartException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public <T> ResponseDto<T> handleMultipartException(MultipartException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got MultipartException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		log.error("Got MultipartException for exceptionId: {} with Message:", exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}

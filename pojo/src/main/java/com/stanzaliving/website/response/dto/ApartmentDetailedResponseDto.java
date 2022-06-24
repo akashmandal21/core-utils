@@ -68,6 +68,10 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String preBookingMode;
 	
+    private Integer leadFormModeId;
+	
+	private String leadFormModeName;
+	
 	private String googleMapLink;
 	
 	private double latitude;
@@ -99,6 +103,10 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private String transformationId;
 	
 	private AddressResponseDTO address;
+	
+	private Integer discountPercentage;
+	
+	private Integer discountedPrice;
 	
 	@Builder.Default
 	private List<FacilityResponseDTO> facilities = Collections.emptyList();

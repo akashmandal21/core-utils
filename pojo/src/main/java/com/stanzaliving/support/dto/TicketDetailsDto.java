@@ -3,6 +3,7 @@ package com.stanzaliving.support.dto;
 import com.stanzaliving.core.bookingservice.dto.response.BookingDurationResponseDto;
 import com.stanzaliving.core.bookingservice.dto.response.RoomDetailsDto;
 import com.stanzaliving.core.bookingservice.dto.response.UserDetailResponseDto;
+import com.stanzaliving.support.enums.TicketSource;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -49,5 +50,5 @@ public class TicketDetailsDto {
 
     private boolean isAllChecklistClosed;
 
-
+    private TicketSource ticketSource;
 }

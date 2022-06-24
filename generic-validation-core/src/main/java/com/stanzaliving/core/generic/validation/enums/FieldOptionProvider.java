@@ -19,10 +19,10 @@ public enum FieldOptionProvider {
     AcquisitionTypeProvider,RecipeTagProvider,
 
 
-    poTypeProvider,poExpenseTypeProvider,deliveryLocationTypeProvider,deliveryLocationProvider,deliveryAddressProvider,
+    poTypeProvider,poExpenseTypeProvider,poBOQLabelProvider,deliveryLocationTypeProvider,deliveryLocationProvider,deliveryAddressProvider,
     vendorPoTriggerProvider,vendorProvider,vendorPocProvider,advanceTypeProvider,retentionTypeProvider,specialTnCProvider,otherFeeTypeProvider,
 
-    toTypeProvider,foodCostTypeProvider,
+    toTypeProvider,toExpenseTypeProvider,toBOQLabelProvider,foodCostTypeProvider,
 
     voucherTypeProvider,categoryProvider,verticalProvider,groupProvider,subGroupProvider,expenseTypeProvider,taxCodeProvider,tdsSectionProvider,tdsRateProvider,
 

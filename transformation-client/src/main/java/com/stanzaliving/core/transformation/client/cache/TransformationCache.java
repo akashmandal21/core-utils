@@ -365,7 +365,14 @@ public class TransformationCache {
 	}
 
 	public ResidenceUIDto getResidenceByUuid(String uuid){
-		allResidenceWithCoreCache.getUnchecked("residenceWithCore");
+		try {
+			allResidenceWithCoreCache.getUnchecked("residenceWithCore");
+		}
+		catch (Exception exception){
+			log.info("Transformation Cache Exception ",exception.getMessage());
+			return null;
+		}
+		log.info("uuid {}", uuid);
 		return residenceByUuidMap.get(uuid);
 	}
 
@@ -411,6 +418,20 @@ public class TransformationCache {
 		return null;
 	}
 
+	public List<MicroMarketMetadataDto> getMicromarketsByCityUuid(String cityUuid) {
+
+		List<MicroMarketMetadataDto> micromarketList = getAllMicroMarkets();
+
+		Map<String, List<MicroMarketMetadataDto>> cityMicromarketMap =
+			micromarketList.stream().collect(Collectors.groupingBy(MicroMarketMetadataDto::getCityUuid));
+
+		if (cityMicromarketMap.containsKey(cityUuid)) {
+			return cityMicromarketMap.get(cityUuid).stream().collect(Collectors.toList());
+		}
+
+		return null;
+	}
+
 	public List<String> getResidenceUuidsByCityUuid(String cityUuid) {
 		List<ResidenceMetadataDto> residenceList = getAllResidences();
 		List<String> residenceUuids = new ArrayList<>();
@@ -444,6 +465,23 @@ public class TransformationCache {
 				}
 			}
 			return residenceUuids;
+		}
+		log.debug("No residence found for micromarket uuid {}", micromarketUuid);
+		return null;
+	}
+
+	public List<ResidenceMetadataDto> getResidencesByMicromarketUuid(String micromarketUuid) {
+		List<ResidenceMetadataDto> residenceList = getAllResidences();
+		List<ResidenceMetadataDto> residencesByMicromarket = new ArrayList<>();
+
+		if (!CollectionUtils.isEmpty(residenceList)) {
+			for (ResidenceMetadataDto residenceMetadataDto : residenceList) {
+				if (Objects.nonNull(residenceMetadataDto) && Objects.nonNull(residenceMetadataDto.getMicroMarketUuid())
+					&& residenceMetadataDto.getMicroMarketUuid().equals(micromarketUuid)) {
+					residencesByMicromarket.add(residenceMetadataDto);
+				}
+			}
+			return residencesByMicromarket;
 		}
 		log.debug("No residence found for micromarket uuid {}", micromarketUuid);
 		return null;
