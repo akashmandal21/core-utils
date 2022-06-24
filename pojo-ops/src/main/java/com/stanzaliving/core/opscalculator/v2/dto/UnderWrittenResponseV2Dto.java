@@ -4,13 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Convert;
-
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
-import com.stanzaliving.core.sqljpa.conveter.LocalDateAttributeConverter;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
