@@ -10,6 +10,7 @@ public enum OracleServiceOwner {
     GRN,
     TO,
     INVOICE,
+    ADJUST_INVENTORY,
 	CUSTOMER_CREATION,
     CUSTOMER_INVOICE,
     CUSTOMER_DEPOSIT,

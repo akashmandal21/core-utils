@@ -16,5 +16,6 @@ public class LayoutResponse {
     private CommentType commentType;
     private ApprovalType approvalType;
     private LayoutData layoutData;
+    private Integer displayOrder;
 }
 
