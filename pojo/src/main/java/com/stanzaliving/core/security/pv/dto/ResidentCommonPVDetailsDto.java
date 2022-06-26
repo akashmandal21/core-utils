@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ResidentCommonPVDetailsDto {
     
+	private String userUuid;
 	private String residentFirstName;
 	private String residentLastName;
 	private String residentName;
