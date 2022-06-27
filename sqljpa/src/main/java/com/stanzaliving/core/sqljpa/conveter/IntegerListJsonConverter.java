@@ -33,7 +33,6 @@ public class IntegerListJsonConverter implements AttributeConverter<List<Integer
 			return null;
 		}
 		
-		log.info("LIST-OF-INTEGER-OBJECT-CONVERTER::Received attribute for conversion {}", attribute);
 		String attributeInfoJson = null;
 
 		try {
@@ -52,7 +51,6 @@ public class IntegerListJsonConverter implements AttributeConverter<List<Integer
 			return null;
 		}
 
-		log.info("LIST-OF-INTEGER-OBJECT-CONVERTER::Convert entity attribute of {}", dbData);
 		List<Integer> attributeInfo = null;
 		try {
 			attributeInfo = objectMapper.readValue(dbData, new TypeReference<List<Integer>>() {
