@@ -18,4 +18,6 @@ public class CommercialsHomeScreenResponse {
 	private String dueDate;
 
 	private Long daysRemaining;
+
+	private boolean internetBlocked;
 }
