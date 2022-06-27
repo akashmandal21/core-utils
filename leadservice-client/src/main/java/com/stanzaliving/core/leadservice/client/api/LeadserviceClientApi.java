@@ -8,17 +8,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.website.request.dto.LeadSearchRequestDto;
+import com.stanzaliving.website.response.dto.LeadDetailEntity;
+import com.stanzaliving.website.response.dto.SearchResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.website.response.dto.LeadDetailEntity;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
 
@@ -45,7 +49,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>>() {
@@ -55,7 +59,7 @@ public class LeadserviceClientApi {
 	}
 
 	public ResponseDto<QualificationQuestionResponseDto> getLeadQualificationQuestions(String questionUuid,
-			String answer) {
+																					   String answer) {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -69,7 +73,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>>() {
@@ -88,7 +92,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -111,7 +115,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headLeadDetailEntityerParams = new HttpHeaders();
 		final HttpHeaders headerParams = new HttpHeaders();
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<QualificationQuestionResponseDto>>() {
@@ -130,7 +134,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -139,32 +143,11 @@ public class LeadserviceClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
-	public ResponseDto<String> rescheduleVisitFromThankyouScreen(LeadRequestDto leadRequestDto) {
-
-		Object postBody = leadRequestDto;
-
-		String path = UriComponentsBuilder.fromPath("/lead/internal/website/reschedule").toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-		};
-
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-	}
-	
 
 	public ResponseDto<LeadRequestDto> leadCreation(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -174,7 +157,7 @@ public class LeadserviceClientApi {
 
 			final HttpHeaders headerParams = new HttpHeaders();
 
-			final String[] accepts = { "*/*" };
+			final String[] accepts = {"*/*"};
 
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -193,7 +176,7 @@ public class LeadserviceClientApi {
 	public ResponseDto<LeadRequestDto> leadMigration(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -203,7 +186,7 @@ public class LeadserviceClientApi {
 
 			final HttpHeaders headerParams = new HttpHeaders();
 
-			final String[] accepts = { "*/*" };
+			final String[] accepts = {"*/*"};
 
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -218,8 +201,8 @@ public class LeadserviceClientApi {
 
 		return null;
 	}
-	
-	
+
+
 	public ResponseDto<LeadRequestDto> createCommonLeadFromWebsite(LeadRequestDto leadRequestDto) {
 
 		Object postBody = leadRequestDto;
@@ -230,7 +213,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -242,13 +225,13 @@ public class LeadserviceClientApi {
 		} catch (Exception e) {
 			log.error("Error while creating the lead {}", e);
 			return null;
-		}	
+		}
 	}
-	
+
 	public ResponseDto<LeadRequestDto> createScheduledVisitLead(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -258,7 +241,7 @@ public class LeadserviceClientApi {
 
 			final HttpHeaders headerParams = new HttpHeaders();
 
-			final String[] accepts = { "*/*" };
+			final String[] accepts = {"*/*"};
 
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -273,7 +256,7 @@ public class LeadserviceClientApi {
 
 		return null;
 	}
-	
+
 	public ResponseDto<String> updateMobileVerifiedStatus(String phone) {
 
 		Object postBody = null;
@@ -281,11 +264,11 @@ public class LeadserviceClientApi {
 		String path = UriComponentsBuilder.fromPath("/lead/internal/update/phone/verified").toUriString();
 
 		final HttpHeaders headerParams = new HttpHeaders();
-		
+
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("phone", phone);
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -297,9 +280,9 @@ public class LeadserviceClientApi {
 		} catch (Exception e) {
 			log.error("Error while creating the lead {}", e);
 			return null;
-		}	
+		}
 	}
-	
+
 	public String updateLeadWebsite(LeadRequestDto leadRequestDto) {
 
 		Object postBody = leadRequestDto;
@@ -310,7 +293,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -319,10 +302,10 @@ public class LeadserviceClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
 	public ResponseDto<Boolean> checkLeadByPhone(String phone) {
 		Object postBody = null;
-		
+
 		log.info("Request received for checkLeadByPhone " + phone);
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -335,7 +318,7 @@ public class LeadserviceClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
@@ -355,12 +338,12 @@ public class LeadserviceClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		if(Objects.nonNull(phoneNumber))
+		if (Objects.nonNull(phoneNumber))
 			queryParams.add("phone", phoneNumber);
-		if(Objects.nonNull(leadUuid))
+		if (Objects.nonNull(leadUuid))
 			queryParams.add("leadUuid", leadUuid);
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -374,32 +357,50 @@ public class LeadserviceClientApi {
 			return null;
 		}
 	}
-	
-	public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
 
-		Object postBody = null;
+	public ResponseDto<String> createGuestLead(LeadRequestDto leadRequestDto) {
+		log.info("LeadRequestDto while creating the guest lead {}", leadRequestDto);
 
-		String path = UriComponentsBuilder.fromPath("internal/prebooking/refund/fetch/eligible/leads").toUriString();
+		Object postBody = leadRequestDto;
 
-		final HttpHeaders headerParams = new HttpHeaders();
+		String path = UriComponentsBuilder.fromPath("lead/external/create").toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-		if(Objects.nonNull(phone))
-			queryParams.add("phone", phone);
+		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		headerParams.set("headerAuth", "c2510261f27872a22a160f463dc2ac2111ae2");
+
+		final String[] accepts = {"*/*"};
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
 		};
 
-		try {
-			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("Error while fetching prebooked refund eligible leads {}", e);
-			return null;
-		}
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<String> updateGuestLead(LeadRequestDto leadRequestDto) {
+		log.info("LeadRequestDto while creating the guest lead {}", leadRequestDto);
+
+		Object postBody = leadRequestDto;
+
+		String path = UriComponentsBuilder.fromPath("/lead/external/update").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.set("headerAuth", "c2510261f27872a22a160f463dc2ac2111ae2");
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 }
