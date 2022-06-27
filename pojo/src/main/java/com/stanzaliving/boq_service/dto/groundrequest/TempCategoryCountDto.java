@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,5 +18,11 @@ public class TempCategoryCountDto {
 
     private String itemUuid;
 
-    private QuantityInfoDto quantityInfo;
+    private BigDecimal slQty;
+
+    private BigDecimal llQty;
+
+    private BigDecimal gcQty;
+
+    private BigDecimal total;
 }
