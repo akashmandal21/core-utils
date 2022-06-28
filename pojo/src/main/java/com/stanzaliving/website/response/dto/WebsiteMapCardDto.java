@@ -58,6 +58,7 @@ public class WebsiteMapCardDto implements Serializable {
 	
 	private String imageUrl;
 	
+	private Boolean soldOut;
 	
 	private PropertyEntityType propertyEntityType;
 	
@@ -74,5 +75,5 @@ public class WebsiteMapCardDto implements Serializable {
 	private String apartmentCitySlug;
 	
 	@JsonInclude(value = Include.NON_NULL)
-	private String roomId;
+	private String roomId;	
 }
