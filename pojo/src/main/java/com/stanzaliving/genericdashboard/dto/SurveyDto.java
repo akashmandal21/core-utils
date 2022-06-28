@@ -29,6 +29,8 @@ public class SurveyDto {
 	private String surveyTitle;
 
 	private String surveyDescription;
+	
+	private String campaignName;
 
 	@NotBlank(message = "image cannot be empty")
 	private String surveyImageUrl;

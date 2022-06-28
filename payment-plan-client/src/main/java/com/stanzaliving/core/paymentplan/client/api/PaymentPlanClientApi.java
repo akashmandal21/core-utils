@@ -675,6 +675,38 @@ public class PaymentPlanClientApi {
 
     }
 
+    public ResponseDto<List<PaymentPlan>> createContractExtensionPaymentPlanList(PaymentPlanRequestDto paymentPlanRequestDto) {
+
+        Object postBody = null;
+
+        log.info("ContractExtensionPaymentPlanRequestDTO is {} ", paymentPlanRequestDto);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/contract-extension/create-list").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentPlan>>>() {
+        };
+        postBody = paymentPlanRequestDto;
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while creating the paymentPlan {}", e);
+            return null;
+        }
+
+    }
+
+
     public ResponseDto<InvoiceGenerationResponseDto> createInvoiceForFutureDues(InvoiceGenerationRequestDto invoiceGenerationRequestDto) {
 
         Object postBody = null;
@@ -793,6 +825,39 @@ public class PaymentPlanClientApi {
 
     }
 
+
+    public ResponseDto<String> mapInvoiceUuidToPaymentPlan(String bookingUuid) {
+        try {
+
+            Object postBody = null;
+
+            log.info("Request received for update InvoiceUuid for bookingUuid:{}", bookingUuid);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/set/invoice-uuid").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            queryParams.add("bookingUuid", bookingUuid);
+
+            HttpHeaders headerParams = new HttpHeaders();
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+            ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+            log.error("error while opting out vas paymentPlan", e);
+
+            return null;
+        }
+
+    }
+
     public ResponseDto<Double> getSumOfPriceOfBookingWithinLockIn(@RequestBody Map<String, SoldBookingDto> refIdMap) {
 
         Object postBody = null;
@@ -818,6 +883,7 @@ public class PaymentPlanClientApi {
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("error while generating future invoices {}", e);
+
             return null;
         }
 
