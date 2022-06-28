@@ -62,6 +62,12 @@ public class WebsiteMapCardDto implements Serializable {
 	private PropertyEntityType propertyEntityType;
 	
 	@JsonInclude(value = Include.NON_NULL)
+	private String apartmentListingName;
+
+	@JsonInclude(value = Include.NON_NULL)
+	private String apartmentDetailsName;
+	
+	@JsonInclude(value = Include.NON_NULL)
 	private String apartmentMMSlug;
 
 	@JsonInclude(value = Include.NON_NULL)
