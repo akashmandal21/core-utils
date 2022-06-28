@@ -5,6 +5,7 @@ import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
 import lombok.AllArgsConstructor;
@@ -32,6 +33,8 @@ public class WebsiteMapCardDto implements Serializable {
 	
 	private String genderName;
 
+	private FomoTag fomoTag;
+	
 	private int micromarketId;
 
 	private String micromarketName;
