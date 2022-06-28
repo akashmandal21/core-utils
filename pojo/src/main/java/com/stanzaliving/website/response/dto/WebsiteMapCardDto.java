@@ -79,4 +79,6 @@ public class WebsiteMapCardDto implements Serializable {
 	
 	@JsonInclude(value = Include.NON_NULL)
 	private String roomId;	
+	
+	private Integer societyId;
 }
