@@ -9,7 +9,8 @@ import lombok.Getter;
 public enum RegistrationType {
 
     ONLINE("Online"),
-    OFFLINE("Offline");
+    OFFLINE("Offline"),
+    NOT_OPERATIONAL("Not Operational");
 
     private final String name;
 }
