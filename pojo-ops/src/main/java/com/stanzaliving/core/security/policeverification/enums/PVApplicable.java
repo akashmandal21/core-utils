@@ -5,11 +5,12 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Nationality {
+public enum PVApplicable {
 
-    INDIAN("IN"),
-    FOREIGN("FN");
+    ONLINE("Online"),
+    OFFLINE("Offline"),
+    FRRO("FRRO"),
+    EXCEL("Excel");
 
     private final String name;
-
 }
