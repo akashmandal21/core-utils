@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 public class ResidenceAggregationEntityDto {
 
     private String residenceUuid;
