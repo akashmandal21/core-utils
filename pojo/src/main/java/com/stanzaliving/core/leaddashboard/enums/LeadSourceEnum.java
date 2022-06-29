@@ -25,6 +25,7 @@ public enum LeadSourceEnum {
     COLLEGE_EVENT("College Event", LeadSourceGroupEnum.SIGMA_APP),
     CONSUMER_APP("ConsumerApp", LeadSourceGroupEnum.REFERRAL),
     CONTACT_US_PAGE("Contact us page", LeadSourceGroupEnum.DIGITAL),
+    COOKIE_POLICY_PAGE("Cookie Policy Page", LeadSourceGroupEnum.DIGITAL),
     CORPORATE_ACTIVATION("Corporate Activation", LeadSourceGroupEnum.SIGMA_APP),
     COVid("CoVid", LeadSourceGroupEnum.DIGITAL),
     COVID_COMMUNICATION("Covid Communication", LeadSourceGroupEnum.DIGITAL),
