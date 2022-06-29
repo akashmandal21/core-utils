@@ -3,6 +3,7 @@ package com.stanzaliving.invoice.enums;
 import java.util.*;
 
 import com.stanzaliving.core.generic.constants.GenericConstants;
+import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -51,6 +52,9 @@ public enum InvoiceStatus {
     @Getter
     private static Set<InvoiceStatus> paymentStatuses ;
 
+    @Getter
+    private static final Map<Integer, InvoiceStatus> firstApprovalOrderStatusMap = new HashMap<>();
+
 
 
     static {
@@ -64,6 +68,10 @@ public enum InvoiceStatus {
         approvalRejects = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(L1_REJECTED, L2_REJECTED, L3_REJECTED,L4_REJECTED,L5_REJECTED,SENT_BACK_TO_VENDOR)));
         paymentCycle = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID)));
         paymentStatuses = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(PAYMENT_PENDING, PARTIALLY_PAID,FULLY_PAID)));
+
+        for (InvoiceStatus status : approvalCycle) {
+            firstApprovalOrderStatusMap.put(status.getOrder(), status);
+        }
     }
 
 
@@ -75,6 +83,10 @@ public enum InvoiceStatus {
         return invoiceStatus.getOrder() >= 0 ? (invoiceStatus.getOrder()) + 1 : Math.abs(invoiceStatus.getOrder() - GenericConstants.rejectionStart);
     }
 
+    public static InvoiceStatus getStatusByOrder(int statusOrder){
+
+        return firstApprovalOrderStatusMap.get(statusOrder);
+    }
 }
 
 

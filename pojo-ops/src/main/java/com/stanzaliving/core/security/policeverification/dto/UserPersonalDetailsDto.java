@@ -1,10 +1,10 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
+import com.stanzaliving.core.security.policeverification.enums.PVNationality;
 import com.stanzaliving.core.user.enums.BloodGroup;
 import com.stanzaliving.core.user.enums.Gender;
 
 import com.stanzaliving.core.user.enums.MaritalStatus;
-import com.stanzaliving.core.user.enums.Nationality;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -33,7 +33,7 @@ public class UserPersonalDetailsDto {
 
     @NotNull(message = "Nationality is mandatory")
     @Enumerated(EnumType.STRING)
-    private Nationality nationality;
+    private PVNationality nationality;
 
     private String dateOfBirth;
 

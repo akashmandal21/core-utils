@@ -3,14 +3,13 @@ package com.stanzaliving.core.security.policeverification.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-
 @Getter
 @AllArgsConstructor
-public enum RegistrationType {
+public enum PVNationality {
 
-    ONLINE("Online"),
-    OFFLINE("Offline"),
-    NOT_OPERATIONAL("Not Operational");
+    IN("INDIAN"),
+    FN("FOREIGN");
 
     private final String name;
+
 }
