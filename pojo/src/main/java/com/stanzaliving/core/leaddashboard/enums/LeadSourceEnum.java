@@ -52,6 +52,7 @@ public enum LeadSourceEnum {
     FILTER_COPY("Filtercopy", LeadSourceGroupEnum.AFFILIATE),
     FIND_MY_ROOM("Find my room", LeadSourceGroupEnum.AFFILIATE),
     FLAT_AND_FLATMATES("Flat and flatmates", LeadSourceGroupEnum.AFFILIATE),
+    FLAT_URL("Flat Url", LeadSourceGroupEnum.DIGITAL),
     FLP("FLP", LeadSourceGroupEnum.DIGITAL),
     FLYERS("Flyers", LeadSourceGroupEnum.SIGMA_APP),
     GOOGLE("google", LeadSourceGroupEnum.DIGITAL),
