@@ -15,9 +15,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class PoliceVerificationLegalActivityDto {
 
-    private String userUuid;
-
-    private String userCode;
+    private String bookingUuid;
 
     private PoliceVerificationStatus policeVerificationStatus;
 
