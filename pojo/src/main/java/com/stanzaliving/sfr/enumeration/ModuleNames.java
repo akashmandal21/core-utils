@@ -15,13 +15,14 @@ public enum ModuleNames {
     SFR(true, "Site Feasibility Report"),
     SFR_SUBMISSION(false, "SFR Submission"),
     ASIS(false, "As-Is Drawings"),
-    ASIS_SUBMISSION(true, "AsIs Submission");
+    ASIS_SUBMISSION(true, "AsIs Submission"),
+    BOQ(false, "BOQ");
 
     private final boolean isQuestionTemplateIdRequired;
 
     private final String name;
 
-    public static final List<ModuleNames> moduleNames = Arrays.asList(ASIS);//add SFR also in this moduleNames list
+    public static final List<ModuleNames> moduleNames = Arrays.asList(ASIS, BOQ);//add SFR also in this moduleNames list
 
     public static final List<ModuleNames> moduleSubmissionNames = Arrays.asList(SFR_SUBMISSION, ASIS_SUBMISSION);
 
