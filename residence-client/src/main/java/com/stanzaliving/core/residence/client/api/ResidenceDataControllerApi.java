@@ -1798,7 +1798,7 @@ public class ResidenceDataControllerApi {
         }
     }
 
-    public OccupancyPricingAndRoomAttributesResponseDto getResidenceOccupancyPricing(String residenceUuid, String propertyEntityType) {
+    public OccupancyPricingAndRoomAttributesResponseDto getResidenceOccupancyPricingV2(String residenceUuid, String propertyEntityType) {
 
         Map<String, Object> uriVariables = new HashMap();
 
@@ -1806,7 +1806,7 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("propertyEntityType",propertyEntityType);
 
-        String path = UriComponentsBuilder.fromPath("/internal/residence/occupancy-pricing/{residenceUuid}/{propertyEntityType}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/residence/occupancy-pricing/{residenceUuid}/{propertyEntityType}/v2").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
@@ -1828,7 +1828,7 @@ public class ResidenceDataControllerApi {
         }
     }
 
-    public OccupancyPricingAndRoomAttributesResponseDto getResidenceOccupancyPricingV2(String residenceUuid, String propertyEntityType) {
+    public OccupancyPricingAndRoomAttributesResponseDto getResidenceOccupancyPricing(String residenceUuid, String propertyEntityType) {
 
         Map<String, Object> uriVariables = new HashMap();
 
@@ -1836,7 +1836,7 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("propertyEntityType",propertyEntityType);
 
-        String path = UriComponentsBuilder.fromPath("/internal/residence/occupancy-pricing/{residenceUuid}/{propertyEntityType}/v2").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/residence/occupancy-pricing/{residenceUuid}/{propertyEntityType}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
