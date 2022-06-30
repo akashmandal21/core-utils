@@ -56,7 +56,9 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
 	public double boilerCount;
 	public double boilerConsumptionPerDay;
 	
-	    
+	public double otherEquipCount;
+	public double unitsConsumedByOthersEquipPerDay;
+	
 	public double totalUnitsPerMonth;
 	public double totalPassThroughUnitsPerMonth;
 	public double totalElectricityCost;
@@ -69,49 +71,17 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
 		this.fixedCharges = fixedCharges;
 	}
 
-	public void setVariableCharges(int variableCharges) {
-		this.variableCharges = variableCharges;
-	}
-
-	public int calculatedFixCharges;
-	public int variableCharges;
-
-	
-	public int acRoomsWithRoomPassThroughCharges;
-	public int acRoomsWithAcPassThroughCharges;
-	public int nonAcRoomsWithRoomPassThroughCharges;
-	public double studentReceivablesUnitRate;
-
-	public void setLandlordReceivablesCharges(int landlordReceivablesCharges) {
-		this.landlordReceivablesCharges = landlordReceivablesCharges;
-	}
-
-	public int landlordReceivablesCharges;
-	public int totalChargesBeforePassThrough;
-
-
-
 	@Builder.Default
 	public int daysInMonth = 30;
 
+	@Builder.Default
 	public List<DropDownDto> equipmentTypeOptions = new ArrayList<>();
+	
 	@Builder.Default
 	public List<ElectricityEquipmentType> selectedEquipmentType = new ArrayList<>();
 
 	@Builder.Default
 	public List<ElectricitySlotDetailsDto> electricitySlotDetailsDtos = new ArrayList<ElectricitySlotDetailsDto>();
-
-	public double unitsConsumedByLiftPerDay;
-	public double unitsConsumedByHeatPumpPerDay;
-	public double unitsConsumedByAcPerDay;
-	public double unitsConsumedByWashingMachinePerDay;
-	public double unitsConsumedByMicrowavePerDay;
-	public double unitsConsumedByBrainMariePerDay;
-	public double unitsConsumedByOthersEquipPerDay;
-
-
-	
-	
 
 	public int totalUnitsInRoom;
 
@@ -129,9 +99,6 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
 	public double unitEquipmentsPerDay;
 	public double unitsAcPerDay;
 
-	public double otherChargesPercent;
-	public double variableCostPerNonACRoom;
-
 	public void setRoomPassThroughCharges(int roomPassThroughCharges) {
 		this.roomPassThroughCharges = roomPassThroughCharges;
 	}
@@ -142,25 +109,5 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
 
 	public int roomPassThroughCharges;
 	public int acPassThroughCharges;
-
-	public int totalBillableUnitPerMonthForNonAcRoom;
-	public int totalBillableUnitPerMonthForAcRoom;
-	public int totalBillableUnitPerMonthForCA;
-	public int totalBillableUnitPerMonthForEquipment;
-
-	public boolean roomMeterRequired;
-	public int roomMeterOpexCost;
-	public int rentalRoomMeterCount;
-	public int elecricityRoomMeterCost;
-
-	public int netElectricityBillAfterPassthrough;
-
-	public int fixedChargesPerAvailableBed;
-	public int variableChargesPerAvailableBed;
-	public int acPassThroughChargesPerAvailableBed;
-	public int roomPassThroughChargesPerAvailableBed;
-	public int landlordReceivablesChargesPerAvailableBed;
-
-
 
 }
