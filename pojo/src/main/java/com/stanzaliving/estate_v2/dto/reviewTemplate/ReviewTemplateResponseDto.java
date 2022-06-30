@@ -33,6 +33,7 @@ public class ReviewTemplateResponseDto {
     private boolean l1CallBackVisible;
     private boolean l2CallBackVisible;
     private boolean bypassVisible;
+    private boolean dealScoreVisible;
     private boolean questionnaireVisible;
     private boolean viewOnly;
     private BedCountInfoDto bedCountInformation;
