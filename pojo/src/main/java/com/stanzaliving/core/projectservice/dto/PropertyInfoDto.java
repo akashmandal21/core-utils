@@ -48,6 +48,9 @@ public class PropertyInfoDto {
     private String siteEngineerUserId;
     private String projectManagerId;
     private String projectZonalHeadId;
+    private String gcZonalHeadId;
+    private String designZonalHeadId;
+    private String designCoordinatorId;
     private double latitude;
     private double longitude;
 }
