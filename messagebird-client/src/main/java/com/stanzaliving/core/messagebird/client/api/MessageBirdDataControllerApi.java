@@ -56,7 +56,7 @@ public class MessageBirdDataControllerApi {
         };
 
         try {
-            log.info("Executing support api to create internal ticket");
+            log.info("Executing message bird api to get messages of a conversation");
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception var11) {
             log.info("Exception e {},", var11);
