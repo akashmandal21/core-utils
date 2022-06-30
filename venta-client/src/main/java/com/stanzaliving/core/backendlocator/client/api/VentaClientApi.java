@@ -480,7 +480,7 @@ public class VentaClientApi {
 		}
 	}
 
-	public ResponseDto<BrokerReferralCodeResponseDto> getReferralDetails(String referralCode) {
+	public BrokerReferralCodeResponseDto getReferralDetails(String referralCode) {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -495,7 +495,7 @@ public class VentaClientApi {
 		final String[] accepts = { "*/*" };
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<BrokerReferralCodeResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerReferralCodeResponseDto>>() {
+		ParameterizedTypeReference<BrokerReferralCodeResponseDto> returnType = new ParameterizedTypeReference<BrokerReferralCodeResponseDto>() {
 		};
 
 		try {
