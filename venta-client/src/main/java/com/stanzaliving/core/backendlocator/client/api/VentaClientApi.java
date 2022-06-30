@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.core.backendlocator.client.dto.*;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -17,10 +18,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.backendlocator.client.dto.ResidenceGstDto;
-import com.stanzaliving.core.backendlocator.client.dto.ResidentDto;
-import com.stanzaliving.core.backendlocator.client.dto.RoomResponseDTO2;
-import com.stanzaliving.core.backendlocator.client.dto.UserLuggageDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.leaddashboard.dto.LeadDetailsDto;
@@ -481,5 +478,32 @@ public class VentaClientApi {
 			log.error("Error while fetching prebooked refund eligible leads {}", e);
 			return null;
 		}
+	}
+
+	public ResponseDto<BrokerReferralCodeResponseDto> getReferralDetails(String referralCode) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("referralCode", referralCode);
+		String path = UriComponentsBuilder.fromPath("broker/referral-details/referralCode/{referralCode}").buildAndExpand(uriVariables)
+				.toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<BrokerReferralCodeResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BrokerReferralCodeResponseDto>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		}catch (Exception e){
+			log.error("Error while fetching referral details: {}", e);
+			return null;
+		}
+
 	}
 }
