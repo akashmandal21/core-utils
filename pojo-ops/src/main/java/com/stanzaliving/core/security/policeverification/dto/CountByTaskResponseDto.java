@@ -1,6 +1,7 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
 import com.stanzaliving.core.security.policeverification.enums.PoliceVerificationStatus;
+import com.stanzaliving.core.security.policeverification.enums.TeamType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 public class CountByTaskResponseDto {
+
+    private TeamType teamType;
 
     private PoliceVerificationStatus policeVerificationStatus;
 

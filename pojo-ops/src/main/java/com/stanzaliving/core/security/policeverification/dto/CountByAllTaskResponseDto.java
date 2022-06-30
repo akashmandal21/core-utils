@@ -15,15 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CountByAllTaskResponseDto {
 
-    CountResponseDto systemPending;
-
-    CountResponseDto nodalPending;
-
-    CountResponseDto rcPending;
-
-    CountResponseDto legalPending;
-
-    CountResponseDto allPending;
+    List<CountResponseDto> tupleCard;
 
     List<CountByTaskResponseDto> countByTaskList;
 }

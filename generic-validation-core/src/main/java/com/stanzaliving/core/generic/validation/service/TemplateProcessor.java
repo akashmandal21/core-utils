@@ -310,23 +310,29 @@ public abstract class TemplateProcessor {
                     throw new StanzaException("Internal Error Occurred");
             }
             boolean needed = templateField.isMandatory() && !isDraft;
-            if(FieldOptionProvider.poBOQLabelProvider.equals(templateField.getOptionProvider())
-                    && ((!additionalData.get("department").equals(Department.PROCUREMENT) && !additionalData.get("department").equals(Department.GC))
+            if(FieldOptionProvider.poBOQLabelProvider == templateField.getOptionProvider() && additionalData.get("department") == Department.OPS) {
+                needed = true && !isDraft;
+            }
+            else if(FieldOptionProvider.poBOQLabelProvider == templateField.getOptionProvider()
+                    && ((additionalData.get("department") != Department.PROCUREMENT && additionalData.get("department") != Department.GC)
                     || (Objects.nonNull(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue()) && !(ValueAdapters.getValue(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE"))))) {
                 needed = false;
             }
-            else if(FieldOptionProvider.poBOQLabelProvider.equals(templateField.getOptionProvider()) &&
-                    (additionalData.get("department").equals(Department.PROCUREMENT) || additionalData.get("department").equals(Department.GC)) &&
+            else if(FieldOptionProvider.poBOQLabelProvider == templateField.getOptionProvider() &&
+                    (additionalData.get("department") == Department.PROCUREMENT || additionalData.get("department") == Department.GC) &&
                     (Objects.nonNull(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue()) && (ValueAdapters.getValue(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE")))) {
                 needed = true && !isDraft;
             }
-            if((FieldOptionProvider.toBOQLabelProvider.equals(templateField.getOptionProvider()) || FieldOptionProvider.toExpenseTypeProvider.equals(templateField.getOptionProvider()))
-                    && ((!additionalData.get("department").equals(Department.PROCUREMENT) && !additionalData.get("department").equals(Department.GC))
+            if(FieldOptionProvider.toBOQLabelProvider == templateField.getOptionProvider() && additionalData.get("department") == Department.OPS) {
+                needed = true && !isDraft;
+            }
+            else if((FieldOptionProvider.toBOQLabelProvider == templateField.getOptionProvider() || FieldOptionProvider.toExpenseTypeProvider == templateField.getOptionProvider())
+                    && ((additionalData.get("department") != Department.PROCUREMENT && additionalData.get("department") != Department.GC)
                     || (Objects.nonNull(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue()) && !(ValueAdapters.getValue(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE"))))) {
                 needed = false;
             }
-            else if((FieldOptionProvider.toBOQLabelProvider.equals(templateField.getOptionProvider()) || FieldOptionProvider.toExpenseTypeProvider.equals(templateField.getOptionProvider())) &&
-                    (additionalData.get("department").equals(Department.PROCUREMENT) || additionalData.get("department").equals(Department.GC)) &&
+            else if((FieldOptionProvider.toBOQLabelProvider == templateField.getOptionProvider() || FieldOptionProvider.toExpenseTypeProvider == templateField.getOptionProvider()) &&
+                    (additionalData.get("department") == Department.PROCUREMENT || additionalData.get("department") == Department.GC) &&
                     (Objects.nonNull(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue()) && (ValueAdapters.getValue(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE")))) {
                 needed = true && !isDraft;
             }
