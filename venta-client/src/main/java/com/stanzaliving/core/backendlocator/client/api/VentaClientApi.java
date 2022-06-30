@@ -485,7 +485,7 @@ public class VentaClientApi {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("referralCode", referralCode);
-		String path = UriComponentsBuilder.fromPath("broker/referral-details/referralCode/{referralCode}").buildAndExpand(uriVariables)
+		String path = UriComponentsBuilder.fromPath("/broker/referral-details/referralCode/{referralCode}").buildAndExpand(uriVariables)
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
