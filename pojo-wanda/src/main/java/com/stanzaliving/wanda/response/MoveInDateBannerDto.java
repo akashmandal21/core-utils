@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class MoveInDateBannerDto {
     private Boolean showBanner;
-    private Date moveInDate;
+    private String moveInDate;
     private Integer daysLeft;
     private Boolean isFirstAttempt;
 }
