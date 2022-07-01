@@ -88,6 +88,10 @@ public class Constants {
 	public static final int MONTH_IN_YEAR_IN_INT = 12;
 	public static final double MONTH_IN_YEAR_IN_DOUBLE = 12.0;
 	public static final double FORECAST_DEFAULT_ALLOWED_DEVIATION_PERCENT = 5d;
-	public static final BigDecimal HUNDRED_VALUE_IN_BIGDECIMAL = BigDecimal.valueOf(HUNDRED_VALUE_IN_DOUBLE);
+	
+	public static final BigDecimal HUNDRED_VALUE_IN_BIGDECIMAL = new BigDecimal(100);
+	public static final BigDecimal MONTHS_BIGDECIMAL =  new BigDecimal(12);
+	public static final BigDecimal DAYS_IN_MONTH_IN_BIGDECIMAL = new BigDecimal(30);
+	public static final BigDecimal DAYS_IN_YEAR_IN_BIGDECIMAL = new BigDecimal(365);
 
 }

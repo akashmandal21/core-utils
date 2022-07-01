@@ -7,7 +7,6 @@ package com.stanzaliving.core.opscalculator.V2.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.stanzaliving.core.opscalculator.dto.CategoryDto;
 import com.stanzaliving.core.opscalculator.dto.DropDownDto;
 import com.stanzaliving.core.opscalculator.dto.ElectricitySlotDetailsDto;
 import com.stanzaliving.core.opscalculator.enums.ElectricityEquipmentType;
@@ -31,7 +30,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class UtilitiesElectricityCategoryV2Dto extends CategoryDto {
+public class UtilitiesElectricityCategoryV2Dto extends CategoryV2Dto {
 
 	public int unitForEquipmentsPerDay;
 	

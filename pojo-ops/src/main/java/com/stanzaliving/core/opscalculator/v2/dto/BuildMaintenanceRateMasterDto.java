@@ -18,6 +18,8 @@ import lombok.experimental.SuperBuilder;
 public class BuildMaintenanceRateMasterDto implements Serializable  {
 
 	private String cityUuid;
+	
+	private String microMarketUuid;
 
 	private String pestControlRoomRatePerMonth;
 

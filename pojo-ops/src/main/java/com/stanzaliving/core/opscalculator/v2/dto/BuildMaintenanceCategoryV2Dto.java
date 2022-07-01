@@ -3,9 +3,7 @@ package com.stanzaliving.core.opscalculator.V2.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.stanzaliving.core.opscalculator.dto.CategoryDto;
 import com.stanzaliving.core.opscalculator.dto.DropDownDto;
-import com.stanzaliving.core.opscalculator.dto.TankCleaningSlotDto;
 import com.stanzaliving.core.opscalculator.enums.ServiceType;
 
 import lombok.AllArgsConstructor;
@@ -22,7 +20,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class BuildMaintenanceCategoryV2Dto extends CategoryDto {
+public class BuildMaintenanceCategoryV2Dto extends CategoryV2Dto {
     public boolean pestControlApplicable;
     public boolean overheadTankCleaningInfoApplicable;
     public boolean underGroundTankCleaningInfoApplicable;

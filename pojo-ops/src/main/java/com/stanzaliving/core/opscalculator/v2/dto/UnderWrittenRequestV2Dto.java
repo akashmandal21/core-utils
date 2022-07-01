@@ -69,5 +69,7 @@ public class UnderWrittenRequestV2Dto extends UnderWrittenV2Dto {
     private double multiplyFactor;
     
     private NucleusRateMasterDto nucleusRateMasterDto;
+    
+    private NucleusRateMasterDtoV2 nucleusRateMasterDtoV2;
 
 }

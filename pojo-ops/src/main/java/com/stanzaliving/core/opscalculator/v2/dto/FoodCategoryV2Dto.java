@@ -4,7 +4,6 @@ package com.stanzaliving.core.opscalculator.V2.dto;
 import java.util.List;
 
 import com.stanzaliving.core.opscalculator.constants.Constants;
-import com.stanzaliving.core.opscalculator.dto.CategoryDto;
 import com.stanzaliving.core.opscalculator.dto.SMLevelFoodCategoryDto;
 
 import lombok.AllArgsConstructor;
@@ -25,7 +24,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class FoodCategoryV2Dto extends CategoryDto {
+public class FoodCategoryV2Dto extends CategoryV2Dto {
 
 	private double menuPricePerDay;	
 
