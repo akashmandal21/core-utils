@@ -4,8 +4,6 @@
  */
 package com.stanzaliving.core.opscalculator.V2.dto;
 
-import com.stanzaliving.core.opscalculator.dto.CategoryDto;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class UniformCategoryV2Dto extends CategoryDto {
+public class UniformCategoryV2Dto extends CategoryV2Dto {
 
 	public boolean hkUniformRequired;
 	public boolean rcUniformRequired;

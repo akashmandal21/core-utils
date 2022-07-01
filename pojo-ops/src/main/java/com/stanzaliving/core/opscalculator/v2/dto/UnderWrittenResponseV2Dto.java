@@ -65,4 +65,6 @@ public class UnderWrittenResponseV2Dto extends UnderWrittenV2Dto {
     
     private NucleusRateMasterDto nucleusRateMasterDto;
     
+    private NucleusRateMasterDtoV2 nucleusRateMasterDtoV2;
+    
 }

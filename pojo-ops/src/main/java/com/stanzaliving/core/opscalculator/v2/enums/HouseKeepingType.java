@@ -13,7 +13,7 @@ import lombok.Getter;
 public enum HouseKeepingType {
     PREMIUM("Premium"),
 	NORMAL("Normal");
-    String name;
+    String hkTypeName;
 
     public static List<DropDownDto> getAllHkTypeValues(){
         return hkDropDownDtoList;
@@ -23,7 +23,7 @@ public enum HouseKeepingType {
 
     static {
         for(HouseKeepingType type : HouseKeepingType.values()){
-        	hkDropDownDtoList.add(new DropDownDto(type.toString(), type.getName()));
+        	hkDropDownDtoList.add(new DropDownDto(type.toString(), type.getHkTypeName()));
         }
     }
 }

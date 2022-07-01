@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.stanzaliving.core.opscalculator.V2.enums.HouseKeepingType;
 import com.stanzaliving.core.opscalculator.V2.enums.SecurityGuardType;
-import com.stanzaliving.core.opscalculator.dto.CategoryDto;
 import com.stanzaliving.core.opscalculator.dto.DropDownDto;
 
 import lombok.AllArgsConstructor;
@@ -23,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class PersonnelCategoryV2Dto extends CategoryDto{
+public class PersonnelCategoryV2Dto extends CategoryV2Dto{
 
     private int hk12HrCount;
     private int hk12HrCountSuggested;

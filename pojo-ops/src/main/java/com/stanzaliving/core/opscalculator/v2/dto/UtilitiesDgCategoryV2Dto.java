@@ -5,7 +5,6 @@
 package com.stanzaliving.core.opscalculator.V2.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.stanzaliving.core.opscalculator.dto.CategoryDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +24,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @ToString(callSuper = true)
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
-public class UtilitiesDgCategoryV2Dto extends CategoryDto{
+public class UtilitiesDgCategoryV2Dto extends CategoryV2Dto{
 	
 	private int numberOfDG;
 	private double dGCostPerMonth;

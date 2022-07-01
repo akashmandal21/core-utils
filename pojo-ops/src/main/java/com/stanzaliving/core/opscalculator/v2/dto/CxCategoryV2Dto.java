@@ -1,7 +1,5 @@
 package com.stanzaliving.core.opscalculator.V2.dto;
 
-import com.stanzaliving.core.opscalculator.dto.CategoryDto;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,8 +11,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class CxCategoryV2Dto extends CategoryDto{
+public class CxCategoryV2Dto extends CategoryV2Dto{
 
+	public boolean cxApplicable;
     public int costPerBed;
 
 }

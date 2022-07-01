@@ -18,6 +18,7 @@ import lombok.experimental.SuperBuilder;
 public class UniformRateMasterDto implements Serializable {
 
 	private String cityUuid;
+	private String microMarketUuid;
 
 	private String rcBlueTShirtSetPerYear;
 	private String rcBlueTShirtRate;

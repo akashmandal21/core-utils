@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.stanzaliving.core.opscalculator.dto.CategoryDto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -19,11 +18,11 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
-public class RepairCategoryV2Dto extends CategoryDto{
+public class RepairCategoryV2Dto extends CategoryV2Dto{
   
 	private double manpowerCostPerBed;
 	private double materialCostBed;
-	private int amcCostPerBed;
+	private double amcCostPerBed;
 	
 	private boolean  amcCostApplicable;
     private boolean manPowerApplicable;

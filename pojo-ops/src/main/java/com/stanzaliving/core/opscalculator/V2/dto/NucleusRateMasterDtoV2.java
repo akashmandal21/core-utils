@@ -1,6 +1,6 @@
 package com.stanzaliving.core.opscalculator.V2.dto;
 
-import java.io.Serializable;
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,10 +15,12 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class LaundryRateMasterDto implements Serializable  {
+public class NucleusRateMasterDtoV2 extends AbstractDto {
 
-	private String cityUuid;
-	private String microMarketUuid;
-	private String laundryRatePerKg;
+	private static final long serialVersionUID = 1L;
+	
+	private NucleusRateMasterDataV2 nucleusRateMasterDataV2;
 
+	protected boolean active;
+			
 }

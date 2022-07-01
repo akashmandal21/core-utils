@@ -4,8 +4,6 @@
  */
 package com.stanzaliving.core.opscalculator.V2.dto;
 
-import com.stanzaliving.core.opscalculator.dto.CategoryDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class LaundryCategoryV2Dto extends CategoryDto {
+public class LaundryCategoryV2Dto extends CategoryV2Dto {
 
 	private int clothesPerPersonPerMonth;
 	private int clothesPerPersonPerMonthSuggested;

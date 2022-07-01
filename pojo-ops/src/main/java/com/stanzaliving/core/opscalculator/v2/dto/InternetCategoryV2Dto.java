@@ -2,7 +2,6 @@ package com.stanzaliving.core.opscalculator.V2.dto;
 
 import java.util.List;
 
-import com.stanzaliving.core.opscalculator.dto.CategoryDto;
 import com.stanzaliving.core.opscalculator.dto.SMLevelInternetCategoryDto;
 
 import lombok.AllArgsConstructor;
@@ -17,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class InternetCategoryV2Dto extends CategoryDto {
+public class InternetCategoryV2Dto extends CategoryV2Dto {
     private double internetPlanRate;          
     private double MGOccupancyPercent;      
 

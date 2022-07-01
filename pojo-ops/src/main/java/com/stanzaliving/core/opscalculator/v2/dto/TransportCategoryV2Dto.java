@@ -1,7 +1,5 @@
 package com.stanzaliving.core.opscalculator.V2.dto;
 
-import com.stanzaliving.core.opscalculator.dto.CategoryDto;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +11,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class TransportCategoryV2Dto extends CategoryDto {
+public class TransportCategoryV2Dto extends CategoryV2Dto {
     private int transportCostPerBedPerMonth;
 }

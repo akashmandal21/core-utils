@@ -13,7 +13,7 @@ import lombok.Getter;
 public enum SecurityGuardType {
     PREMIUM("Premium"),
 	NORMAL("Normal");
-    String name;
+    String sgTypeName;
 
     public static List<DropDownDto> getAllSGTypeValues(){
         return sgDropDownDtoList;
@@ -23,7 +23,7 @@ public enum SecurityGuardType {
 
     static {
         for(SecurityGuardType sgType : SecurityGuardType.values()){
-        	sgDropDownDtoList.add(new DropDownDto(sgType.toString(), sgType.getName()));
+        	sgDropDownDtoList.add(new DropDownDto(sgType.toString(), sgType.getSgTypeName()));
         }
     }
 }
