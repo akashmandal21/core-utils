@@ -5,18 +5,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+import javax.validation.constraints.NotBlank;
 
-@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BoqQuantityDto {
+@Builder
+public class LabelValueCountDto<T> {
+
     private String label;
 
-    private BigDecimal slQty;
+    @NotBlank
+    private T value;
 
-    private BigDecimal llQty;
-
-    private BigDecimal gcQty;
+    private long count;
 }
