@@ -1,4 +1,4 @@
-package com.stanzaliving.boq_service.dto;
+package com.stanzaliving.boq_service.dto.groundrequest;
 
 import com.stanzaliving.item_master.enums.AcquisitionType;
 import com.stanzaliving.item_master.enums.ItemType;
@@ -11,32 +11,28 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PropertyBoqListingGroupByItem {
+@Builder
+public class ItemDto {
+    private String itemUuid;
+
     private String itemCode;
 
-    private ItemType category;
-
-    private String subCategory;
+    private String itemType;
 
     private String itemName;
 
-    private QuantityInfoDto quantityInfo;
-
-    private BigDecimal totalAmount;
-
-    private int numberOfBoqs;
-
-    private AreaOfUse areaOfUse;
-
     private AcquisitionType acquisitionType;
 
-    private UnitType orderUnit;
+    private BigDecimal quantity;
 
-    private String itemUuid;
+    private String orderUnit;
+
+    private String areaOfUse;
 
     private String imageUrl;
+
+    private String subCategory;
 }
