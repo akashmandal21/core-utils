@@ -88,4 +88,12 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 
 	@Builder.Default
 	private Double menuBudgetMultiplier = 1.0;
+
+	@Builder.Default
+	private boolean grammageRangeRuleApplied = false;
+
+	private Double minimumBy;
+
+	private Double maximumBy;
+
 }
