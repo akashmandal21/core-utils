@@ -12,6 +12,7 @@ import com.stanzaliving.invoice.dto.InvoiceItemDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.invoice.dto.InvoiceMigrationResponseDto;
 import com.stanzaliving.po.generic.dto.TOTemplateDto;
+import com.stanzaliving.po.model.SwimPoToShortCloseDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -818,5 +819,28 @@ public class POClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getPOTODeliveryDetails").buildAndExpand(uriVariables).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, poUuids, headerParams, accept, vddReturnType);
+    }
+
+    public ResponseDto<Void> performPoToShortClose(String poUuid, SwimPoToShortCloseDto swimPoToShortCloseDto) {
+
+        Object postBody = swimPoToShortCloseDto;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("poUuid", poUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/perform/poToShortClose").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 }
