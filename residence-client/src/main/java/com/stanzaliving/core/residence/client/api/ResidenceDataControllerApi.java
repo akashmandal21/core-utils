@@ -1589,7 +1589,7 @@ public class ResidenceDataControllerApi {
 
     public ResponseDto<RoomNumberListingAndCountDto> getAllRoomsCardDetails(AdvanceRoomSearchDto advanceRoomSearchDto) {
 
-        log.info("Residence-Data-Controller::Processing to get all rooms in residenceUuid {} and movein-in {} date");
+        log.info("Residence-Data-Controller::Processing to get all rooms in residenceUuid and movein-in date {}", advanceRoomSearchDto);
 
         Object postBody = advanceRoomSearchDto;
 
