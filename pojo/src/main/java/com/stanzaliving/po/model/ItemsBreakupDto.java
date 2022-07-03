@@ -3,6 +3,8 @@ package com.stanzaliving.po.model;
 
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -10,6 +12,6 @@ import lombok.*;
 @ToString
 public class ItemsBreakupDto {
     private String itemUuid;
-    private int existingQty;
-    private int updatedQty;
+    private BigDecimal existingQty;
+    private BigDecimal updatedQty;
 }

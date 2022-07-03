@@ -2,7 +2,9 @@ package com.stanzaliving.po.model;
 
 import lombok.*;
 
-@Getter
+import java.util.List;
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -13,5 +15,6 @@ public class SwimPoToShortCloseDto {
     private boolean isCancelRequest;
     private String poUuid;
     private String shortCloseReason;
-    private ItemsBreakupDto itemsBreakupDto;
+    private String docUrl;
+    private List<ItemsBreakupDto> itemsBreakupDto;
 }
