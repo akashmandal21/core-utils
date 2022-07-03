@@ -821,14 +821,14 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, poUuids, headerParams, accept, vddReturnType);
     }
 
-    public ResponseDto<Void> performPoToShortClose(String poUuid, SwimPoToShortCloseDto swimPoToShortCloseDto) {
+    public ResponseDto<String> performPoToShortClose(String poUuid, SwimPoToShortCloseDto swimPoToShortCloseDto) {
 
         Object postBody = swimPoToShortCloseDto;
 
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("poUuid", poUuid);
 
-        String path = UriComponentsBuilder.fromPath("/internal/perform/poToShortClose").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/perform/poToShortClose/{poUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -838,7 +838,7 @@ public class POClientApi {
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
