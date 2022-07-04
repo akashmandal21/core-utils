@@ -6,7 +6,7 @@ import javax.persistence.Converter;
 import org.apache.commons.lang3.StringUtils;
 
 import com.stanzaliving.core.base.utils.ObjectMapperUtil;
-import com.stanzaliving.core.opscalculator.V2.dto.UnderWrittenV2Dto;
+import com.stanzaliving.core.opscalculatorv2.dto.UnderWrittenV2Dto;
 
 import lombok.extern.log4j.Log4j2;
 
