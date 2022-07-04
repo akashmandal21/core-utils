@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class LaundryRateMasterDto implements Serializable  {
+public class LaundryRateMasterDto implements Serializable {
 
 	private String cityUuid;
 	private String microMarketUuid;

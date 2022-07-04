@@ -17,15 +17,12 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @ToString(callSuper = true)
 public class InternetCategoryV2Dto extends CategoryV2Dto {
-    private double internetPlanRate;          
-    private double MGOccupancyPercent;      
-
-    private int infraCharges;
-    
-    private int internetCharges;
-
-    List<SMLevelInternetCategoryDto> smLevelInternetCategoryDtoList;
-
-    @Builder.Default
-    private String infoMessage = "Details have been automatically picked from the service mix version.";
+	
+	private double internetPlanRate;
+	private double MGOccupancyPercent;
+	private int infraCharges;
+	private int internetCharges;
+	List<SMLevelInternetCategoryDto> smLevelInternetCategoryDtoList;
+	@Builder.Default
+	private String infoMessage = "Details have been automatically picked from the service mix version.";
 }

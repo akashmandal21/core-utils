@@ -22,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class PersonnelCategoryV2Dto extends CategoryV2Dto{
+public class PersonnelCategoryV2Dto extends CategoryV2Dto {
 
 	private int hk12HrCount;
 	private int hk12HrCountSuggested;

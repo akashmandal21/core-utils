@@ -15,9 +15,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class EquipmentRateMasterDto implements Serializable{
-  private EquipmentType equipmentType;
-  private String equipmentCapicity;
-  private String equipmentAmcRatePerYear;
-   
+public class EquipmentRateMasterDto implements Serializable {
+	private EquipmentType equipmentType;
+	private String equipmentCapicity;
+	private String equipmentAmcRatePerYear;
+
 }

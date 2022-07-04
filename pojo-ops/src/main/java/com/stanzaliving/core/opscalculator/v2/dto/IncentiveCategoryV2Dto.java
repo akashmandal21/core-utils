@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class IncentiveCategoryV2Dto extends CategoryV2Dto{
+public class IncentiveCategoryV2Dto extends CategoryV2Dto {
 
 	public boolean incentiveApplicable;
 	public double incentiveCost;

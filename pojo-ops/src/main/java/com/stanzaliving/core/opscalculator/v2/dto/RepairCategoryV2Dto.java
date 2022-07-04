@@ -18,8 +18,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
-public class RepairCategoryV2Dto extends CategoryV2Dto{
-  
+public class RepairCategoryV2Dto extends CategoryV2Dto {
+
 	private double manpowerCostPerBed;
 	private double materialCostBed;
 	private double amcCostPerBed;
@@ -45,5 +45,5 @@ public class RepairCategoryV2Dto extends CategoryV2Dto{
 	@Builder.Default
 	List<AmcCostSlotV2Dto> acAmcCostSlotDtos = new ArrayList<>();
 	private int acAmcCost;
-   
+
 }

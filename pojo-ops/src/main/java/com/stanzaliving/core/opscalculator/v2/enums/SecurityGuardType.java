@@ -11,20 +11,20 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum SecurityGuardType {
-    PREMIUM("Premium"),
-	NORMAL("Normal");
-    String sgTypeName;
+	PREMIUM("Premium"), NORMAL("Normal");
 
-    public static List<DropDownDto> getAllSGTypeValues(){
-        return sgDropDownDtoList;
-    }
+	String sgTypeName;
 
-    static List<DropDownDto> sgDropDownDtoList = new ArrayList<>();
+	public static List<DropDownDto> getAllSGTypeValues() {
+		return sgDropDownDtoList;
+	}
 
-    static {
-        for(SecurityGuardType sgType : SecurityGuardType.values()){
-        	sgDropDownDtoList.add(new DropDownDto(sgType.toString(), sgType.getSgTypeName()));
-        }
-    }
+	static List<DropDownDto> sgDropDownDtoList = new ArrayList<>();
+
+	static {
+		for (SecurityGuardType sgType : SecurityGuardType.values()) {
+			sgDropDownDtoList.add(new DropDownDto(sgType.toString(), sgType.getSgTypeName()));
+		}
+	}
 }
 
