@@ -175,6 +175,8 @@ public class StanzaSpecification<T extends AbstractJpaEntity> implements Specifi
 				return null;
 			case IS_NULL:
 				return builder.isNull(root.get(criteria.getKey()));
+			case IS_NOT_NULL:
+				return builder.isNotNull(root.get(criteria.getKey()));
 			default:
 				return null;
 		}
