@@ -353,6 +353,8 @@ public class VentaAggregationServiceApi {
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+			queryParams.add("version", "v2");
+			
 			if (StringUtils.isNotBlank(residenceUuid)) {
 				queryParams.add("residenceUuid", residenceUuid);
 			}

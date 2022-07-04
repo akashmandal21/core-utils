@@ -1,10 +1,12 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -21,7 +23,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ResidenceResponseShortDTO {
+public class ResidenceResponseShortDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private int residenceId;
 
@@ -30,6 +34,8 @@ public class ResidenceResponseShortDTO {
 	private String slug;
 
 	private Gender gender;
+	
+	private String genderName;
 
 	private int micromarketId;
 
@@ -81,9 +87,14 @@ public class ResidenceResponseShortDTO {
 
 	private AddressResponseDTO addressResponseDTO;
 	private Integer residenceTypeId;
+	
+	private PropertyEntityType propertyEntityType;
 
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
+	
+	@Builder.Default
+	private List<FeatureResponseDTO> features = Collections.emptyList();
 
 	@Builder.Default
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = Collections.emptyList();
