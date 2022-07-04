@@ -7,7 +7,7 @@ import javax.persistence.Converter;
 import org.apache.commons.lang3.StringUtils;
 
 import com.stanzaliving.core.base.utils.ObjectMapperUtil;
-import com.stanzaliving.core.opscalculator.V2.dto.NucleusRateMasterData;
+import com.stanzaliving.core.opscalculatorv2.dto.NucleusRateMasterData;
 
 import lombok.extern.log4j.Log4j2;
 
