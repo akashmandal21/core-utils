@@ -2,6 +2,8 @@ package com.stanzaliving.core.opscalculator.V2.dto;
 
 import java.io.Serializable;
 
+import com.stanzaliving.core.opscalculator.enums.EquipmentType;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @ToString(callSuper = true)
 public class EquipmentRateMasterDto implements Serializable{
-  private String equipmentName;
+  private EquipmentType equipmentType;
   private String equipmentCapicity;
   private String equipmentAmcRatePerYear;
    

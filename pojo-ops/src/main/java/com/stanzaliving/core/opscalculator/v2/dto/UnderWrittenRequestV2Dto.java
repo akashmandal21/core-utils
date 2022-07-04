@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.enums.ResidenceBrand;
-import com.stanzaliving.core.opscalculator.constants.UnderwrittenCalculatorTemplateCategory;
+import com.stanzaliving.core.opscalculator.constants.UnderwrittenTemplate;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 
 import lombok.AllArgsConstructor;
@@ -23,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class UnderWrittenRequestV2Dto extends UnderWrittenV2Dto {
 
-	private UnderwrittenCalculatorTemplateCategory underWrittenTemplateId;
+	private UnderwrittenTemplate underWrittenTemplateId;
 
 	private String underWrittenUuid;
 
@@ -69,7 +69,5 @@ public class UnderWrittenRequestV2Dto extends UnderWrittenV2Dto {
 	private double multiplyFactor;
 
 	private NucleusRateMasterDto nucleusRateMasterDto;
-
-	private NucleusRateMasterDtoV2 nucleusRateMasterDtoV2;
 
 }

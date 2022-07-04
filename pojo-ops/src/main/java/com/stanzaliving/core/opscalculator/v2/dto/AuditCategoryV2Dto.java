@@ -23,26 +23,25 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class AuditCategoryV2Dto extends CategoryV2Dto {
 
-	boolean isPhysicalAudit;
-	boolean isCctvAudit;
-	boolean isSafePlaceAudit;
+	private boolean isPhysicalAudit;
+	private boolean isCctvAudit;
+	private boolean isSafePlaceAudit;
 	
-	public double cctvAuditCostPerBed;
-	public double physicalAuditCostPerBed;
-	public double safePlaceAuditCostPerBed;
+	private double cctvAuditCostPerBed;
+	private double physicalAuditCostPerBed;
+	private double safePlaceAuditCostPerBed;
 	
-	public int mgForCctvAudit;
-	public double physicalAuditCostPerMonth;
-	public double cctvAuditCostPerMonthRate;
-	public double safePlaceAuditCostPerMonth;
+	private int mgForCctvAudit;
+	private double physicalAuditCostPerMonth;
+	private double cctvAuditCostPerMonthRate;
+	private double safePlaceAuditCostPerMonth;
 	
 
 	private int totalCctvAuditCostPerBed;
-	public int totalPhysicalAuditCostPerBed;
+	private int totalPhysicalAuditCostPerBed;
 
+	private int cctvAuditRateMultiplier;
 
-	public int physicalAuditCharges;
-	public int cctvAuditCharges;
 
 	public AuditCategoryV2Dto clone() {
 		return AuditCategoryV2Dto.builder()
@@ -56,8 +55,6 @@ public class AuditCategoryV2Dto extends CategoryV2Dto {
 				.safePlaceAuditCostPerMonth(this.safePlaceAuditCostPerMonth)
 				.totalCctvAuditCostPerBed(this.totalCctvAuditCostPerBed)
 				.totalPhysicalAuditCostPerBed(this.totalPhysicalAuditCostPerBed)
-				.physicalAuditCharges(this.physicalAuditCharges)
-				.cctvAuditCharges(this.cctvAuditCharges)
 				.categoryName(this.categoryName)
 				.costPerAvailableBed(this.costPerAvailableBed)
 				.costPerOccupiedBed(this.costPerOccupiedBed)

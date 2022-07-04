@@ -41,7 +41,7 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
             try {
                 return objectMapper.writeValueAsString(nucleusRateMasterData);
             } catch (JsonProcessingException e) {
-                log.error("Unable to convert nucleusRateMasterDto to json, error {}, nucleusRateMasterDto {}", e.getMessage(), nucleusRateMasterData, e);
+                log.error("Unable to convert nucleusRateMasterData to json, error {}, nucleusRateMasterData {}", e.getMessage(), nucleusRateMasterData, e);
                 return null;
             }
         }
@@ -63,7 +63,7 @@ public class NucleusRateMasterDtoConverter implements AttributeConverter<Nucleus
 
                 });
             } catch (IOException e) {
-                log.error("Unable to convert json to nucleusRateMasterDto , error {}, nucleusRateMasterDto {}", e.getMessage(), nucleusRateMasterData, e);
+                log.error("Unable to convert json to nucleusRateMasterData , error {}, nucleusRateMasterData {}", e.getMessage(), nucleusRateMasterData, e);
                 return null;
             }
     }

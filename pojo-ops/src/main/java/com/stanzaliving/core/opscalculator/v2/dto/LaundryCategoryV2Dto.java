@@ -36,5 +36,7 @@ public class LaundryCategoryV2Dto extends CategoryV2Dto {
 	
 	private boolean leninLaundryInclude;
 	private double leninCost;
+	
+	private double laundryRatePerKg;
 
 }

@@ -1,7 +1,6 @@
 package com.stanzaliving.core.opscalculator.V2.dto;
 
-import java.io.Serializable;
-import java.util.List;
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,10 +15,12 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class NucleusRateMasterDataV2 implements Serializable  {
-		
+public class NucleusRateMasterDto extends AbstractDto {
+
 	private static final long serialVersionUID = 1L;
 	
-	private List<NucleusRateMasterDataConfig> nucleusRateMasterDataConfig;
-	
+	private NucleusRateMasterData nucleusRateMasterData;
+
+	protected boolean active;
+			
 }

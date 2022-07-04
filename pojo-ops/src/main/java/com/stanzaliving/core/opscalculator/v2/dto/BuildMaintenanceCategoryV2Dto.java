@@ -27,6 +27,7 @@ public class BuildMaintenanceCategoryV2Dto extends CategoryV2Dto {
     public boolean facadeCleaningApplicable;
     public boolean fumigationPerBedBugsApplicable;
     public boolean garbageCostApplicable;
+    public boolean floorCleaningApplicable;
 
     @Builder.Default
     private List<DropDownDto> serviceTypeOptions = new ArrayList<>();
@@ -64,4 +65,16 @@ public class BuildMaintenanceCategoryV2Dto extends CategoryV2Dto {
 
     public double garbageCostPerMonth;
     public double garbageCostPerBedPerMonth;
+    
+    public double floorCleaningMachineRatePerRoomPerMonth;
+    public double floorCleaningMachineCostPerMonthPerAvailableBed;
+    
+    public double floorCleaningManPowerRatePerRoomPerMonth;
+    public double floorCleaningManPowerCostPerMonthPerAvailableBed;
+    
+    private double upholsteryCleaningRatePerSeat;
+    
+	private int tankCleaningTankSize;
+
+	private double tankCleaningOneTimeRate;
 }
