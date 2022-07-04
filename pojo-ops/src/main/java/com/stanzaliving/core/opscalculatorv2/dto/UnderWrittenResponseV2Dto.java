@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.enums.ResidenceBrand;
+import com.stanzaliving.core.opscalculator.constants.UnderwrittenTemplate;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +23,8 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class UnderWrittenResponseV2Dto extends UnderWrittenV2Dto {
 
+	private UnderwrittenTemplate underWrittenTemplateId;
+	
     private String underWrittenUuid;
 
     private String serviceMixUuid;
