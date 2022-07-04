@@ -24,7 +24,7 @@ public enum UnderwrittenCalculatorV2Category {
 	BUILDING("building"),
 	AUDIT("audit"),
 	UNIFORM("uniform"),
-	INCENTIVE("uniform"),
+	INCENTIVE("incentive"),
 	CX("cx"),
 	TRANSPORT("transport"),
 	UNDER_WRITTEN("underWritten");

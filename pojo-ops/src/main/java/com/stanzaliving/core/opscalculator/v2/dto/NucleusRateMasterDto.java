@@ -18,9 +18,9 @@ import lombok.experimental.SuperBuilder;
 public class NucleusRateMasterDto extends AbstractDto {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private NucleusRateMasterData nucleusRateMasterData;
 
 	protected boolean active;
-			
+
 }

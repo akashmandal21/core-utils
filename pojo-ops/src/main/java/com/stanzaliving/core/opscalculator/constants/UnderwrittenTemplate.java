@@ -9,7 +9,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum UnderwrittenCalculatorTemplateCategory {
+public enum UnderwrittenTemplate {
 
 	TEMPLATE1("TEMPLATE1"),
 	TEMPLATE2("TEMPLATE2"),

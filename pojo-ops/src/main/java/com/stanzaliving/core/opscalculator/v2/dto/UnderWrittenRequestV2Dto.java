@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.enums.ResidenceBrand;
-import com.stanzaliving.core.opscalculator.constants.UnderwrittenCalculatorTemplateCategory;
+import com.stanzaliving.core.opscalculator.constants.UnderwrittenTemplate;
 import com.stanzaliving.core.opscalculator.enums.UnderWrittenStatus;
 
 import lombok.AllArgsConstructor;
@@ -23,53 +23,51 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class UnderWrittenRequestV2Dto extends UnderWrittenV2Dto {
 
-	private UnderwrittenCalculatorTemplateCategory underWrittenTemplateId;
-	 
+	private UnderwrittenTemplate underWrittenTemplateId;
+
 	private String underWrittenUuid;
 
-    private String serviceMixUuid;
+	private String serviceMixUuid;
 
-    private String residenceUuid;
+	private String residenceUuid;
 
-    private UnderWrittenStatus currentStatus;               //get
+	private UnderWrittenStatus currentStatus; // get
 
-    private UnderWrittenStatus finalStatus;     //post
+	private UnderWrittenStatus finalStatus; // post
 
-    private LocalDate fromDate;
+	private LocalDate fromDate;
 
-    private LocalDate toDate;
-    
-    private LocalDate plannedHotoDate;
+	private LocalDate toDate;
 
-    private LocalDate actualHotoDate;
+	private LocalDate plannedHotoDate;
 
-    private Integer roomCount;
+	private LocalDate actualHotoDate;
 
-    private Integer bedCount;
+	private Integer roomCount;
 
-    private ResidenceBrand residenceBrand;
+	private Integer bedCount;
 
-    private String seasonUuid;
+	private ResidenceBrand residenceBrand;
 
-    private String versionName;
+	private String seasonUuid;
 
-    private Integer versionNumber;
+	private String versionName;
 
-    private String commentUuid;
+	private Integer versionNumber;
 
-    private String approvedCommentUuid;
+	private String commentUuid;
 
-    private ApprovalStatus approvalStatus;
+	private String approvedCommentUuid;
 
-    @Builder.Default
-    protected List<LocalDate> holidays = new ArrayList<>();
+	private ApprovalStatus approvalStatus;
 
-    protected List<LocalDate> specialDays;
-    
-    private double multiplyFactor;
-    
-    private NucleusRateMasterDto nucleusRateMasterDto;
-    
-    private NucleusRateMasterDtoV2 nucleusRateMasterDtoV2;
+	@Builder.Default
+	protected List<LocalDate> holidays = new ArrayList<>();
+
+	protected List<LocalDate> specialDays;
+
+	private double multiplyFactor;
+
+	private NucleusRateMasterDto nucleusRateMasterDto;
 
 }

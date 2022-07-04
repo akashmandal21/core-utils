@@ -20,16 +20,6 @@ public class NucleusRateMasterData implements Serializable  {
 		
 	private static final long serialVersionUID = 1L;
 	
-	private List<PersonnelRateMasterDto> personnelRateMasterDto;
-	
-	private List<RepairRateMasterDto> repairRateMasterDto;
-	
-	private List<BuildMaintenanceRateMasterDto> buildMaintenanceRateMasterDto;
-	
-	private List<LaundryRateMasterDto> laundryRateMasterDto;
-	
-	private List<UniformRateMasterDto> uniformRateMasterDto;
-	
-	private List<AuditRateMasterDto> auditRateMasterDto;
+	private List<NucleusRateMasterDataConfig> nucleusRateMasterDataConfig;
 	
 }

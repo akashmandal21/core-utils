@@ -18,33 +18,32 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
-public class RepairCategoryV2Dto extends CategoryV2Dto{
-  
+public class RepairCategoryV2Dto extends CategoryV2Dto {
+
 	private double manpowerCostPerBed;
 	private double materialCostBed;
 	private double amcCostPerBed;
-	
-	private boolean  amcCostApplicable;
-    private boolean manPowerApplicable;
-    private boolean materialCostApplicable;
-    
-    private boolean acAmcCostApplicable;
-    private boolean dgAmcCostApplicable;
-    private boolean liftAmcCostApplicable;
-    private boolean roAmcCostApplicable;
-    
 
-    @Builder.Default
-    List<AmcCostSlotV2Dto> liftAmcCostSlotDtos = new ArrayList<>();
-    private int liftAmcCost;
-    @Builder.Default
-    List<AmcCostSlotV2Dto> dgAmcCostSlotDtos = new ArrayList<>();
-    private int dgAmcCost;
-    @Builder.Default
-    List<AmcCostSlotV2Dto> roAmcCostSlotDtos = new ArrayList<>();
-    private int roAmcCost;
-    @Builder.Default
-    List<AmcCostSlotV2Dto> acAmcCostSlotDtos = new ArrayList<>();
-    private int acAmcCost;
-   
+	private boolean amcCostApplicable;
+	private boolean manPowerApplicable;
+	private boolean materialCostApplicable;
+
+	private boolean acAmcCostApplicable;
+	private boolean dgAmcCostApplicable;
+	private boolean liftAmcCostApplicable;
+	private boolean roAmcCostApplicable;
+
+	@Builder.Default
+	List<AmcCostSlotV2Dto> liftAmcCostSlotDtos = new ArrayList<>();
+	private int liftAmcCost;
+	@Builder.Default
+	List<AmcCostSlotV2Dto> dgAmcCostSlotDtos = new ArrayList<>();
+	private int dgAmcCost;
+	@Builder.Default
+	List<AmcCostSlotV2Dto> roAmcCostSlotDtos = new ArrayList<>();
+	private int roAmcCost;
+	@Builder.Default
+	List<AmcCostSlotV2Dto> acAmcCostSlotDtos = new ArrayList<>();
+	private int acAmcCost;
+
 }

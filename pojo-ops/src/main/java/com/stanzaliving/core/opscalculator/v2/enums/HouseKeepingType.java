@@ -11,20 +11,20 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum HouseKeepingType {
-    PREMIUM("Premium"),
-	NORMAL("Normal");
-    String hkTypeName;
+	PREMIUM("Premium"), NORMAL("Normal");
 
-    public static List<DropDownDto> getAllHkTypeValues(){
-        return hkDropDownDtoList;
-    }
+	String hkTypeName;
 
-    static List<DropDownDto> hkDropDownDtoList = new ArrayList<>();
+	public static List<DropDownDto> getAllHkTypeValues() {
+		return hkDropDownDtoList;
+	}
 
-    static {
-        for(HouseKeepingType type : HouseKeepingType.values()){
-        	hkDropDownDtoList.add(new DropDownDto(type.toString(), type.getHkTypeName()));
-        }
-    }
+	static List<DropDownDto> hkDropDownDtoList = new ArrayList<>();
+
+	static {
+		for (HouseKeepingType type : HouseKeepingType.values()) {
+			hkDropDownDtoList.add(new DropDownDto(type.toString(), type.getHkTypeName()));
+		}
+	}
 }
 

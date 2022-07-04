@@ -26,19 +26,18 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class FoodCategoryV2Dto extends CategoryV2Dto {
 
-	private double menuPricePerDay;	
-
+	private double menuPricePerDay;
 	private double weekDays;
 	private int weekdayUtilization;
 	private double weekendDays;
 	private int weekendUtilization;
 	private double holidays;
 	private int holidayUtilization;
-	private double specialMealDays; 
+	private double specialMealDays;
 	private int specialDayUtilization;
 	private int opsSLStaffPerDay;
-	private double nonSlStaffMenuPricePerDayForMorning;		
-	private double nonSlStaffMenuPricePerDayForEvening;		
+	private double nonSlStaffMenuPricePerDayForMorning;
+	private double nonSlStaffMenuPricePerDayForEvening;
 	private int opsNonSLMorningStaffPerDay;
 	private int opsNonSLEveningStaffPerDay;
 	public int overallUtilization;
@@ -52,7 +51,7 @@ public class FoodCategoryV2Dto extends CategoryV2Dto {
 
 	@Builder.Default
 	private int margin = Constants.MARGIN_FOOD_VENDOR_PERCENT;
-	
+
 	@Builder.Default
 	private boolean isStanzaKitchen = false;
 

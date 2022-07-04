@@ -26,15 +26,13 @@ public class LaundryCategoryV2Dto extends CategoryV2Dto {
 	private int clothesPerPersonPerMonth;
 	private int clothesPerPersonPerMonthSuggested;
 	private String clothesPerPersonPerMonthSuggestedReason;
-	
 	private double weightPerCloth;
 	private double costPerKg;
 	private int utilizationPercent;
 	private int utilizationPercentSuggested;
 	private String utilizationPercentSuggestedReason;
-	
-	
 	private boolean leninLaundryInclude;
 	private double leninCost;
+	private double laundryRatePerKg;
 
 }

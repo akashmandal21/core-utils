@@ -11,9 +11,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class CxCategoryV2Dto extends CategoryV2Dto{
+public class CxCategoryV2Dto extends CategoryV2Dto {
 
 	public boolean cxApplicable;
-    public int costPerBed;
+	public int costPerBed;
 
 }

@@ -23,6 +23,7 @@ import lombok.experimental.SuperBuilder;
 public class AuditRateMasterDto implements Serializable  {
 
 	private String cityUuid;
+	
 	private String microMarketUuid;
 
 	private String physicalAuditRate;
