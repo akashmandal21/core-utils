@@ -31,7 +31,8 @@ public enum AlfredStep {
 	GUEST_UNDERTAKING(15, Arrays.asList("GUEST_UNDERTAKING")),
 	GUEST_KYC(16, Arrays.asList("GUEST_KYC")),
 	GUEST_SELFIE(17, Arrays.asList("GUEST_SELFIE")),
-	GUEST_ONBOARDING_PENDING(18, Arrays.asList("HOMESCREEN"));
+	GUEST_ONBOARDING_PENDING(18, Arrays.asList("HOMESCREEN")),
+	MOVE_IN_DATE_CHANGE(19, Arrays.asList("MOVE IN DATE CHANGE"));
 
 	private Integer sequenceId;
 	private List<String> bookingStatuses;
