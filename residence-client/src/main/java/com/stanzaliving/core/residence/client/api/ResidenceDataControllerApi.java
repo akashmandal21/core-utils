@@ -1589,7 +1589,7 @@ public class ResidenceDataControllerApi {
 
     public ResponseDto<RoomNumberListingAndCountDto> getAllRoomsCardDetails(AdvanceRoomSearchDto advanceRoomSearchDto) {
 
-        log.info("Residence-Data-Controller::Processing to get all rooms in residenceUuid {} and movein-in {} date");
+        log.info("Residence-Data-Controller::Processing to get all rooms in residenceUuid and movein-in date {}", advanceRoomSearchDto);
 
         Object postBody = advanceRoomSearchDto;
 
@@ -1807,6 +1807,36 @@ public class ResidenceDataControllerApi {
         uriVariables.put("propertyEntityType",propertyEntityType);
 
         String path = UriComponentsBuilder.fromPath("/internal/residence/occupancy-pricing/{residenceUuid}/{propertyEntityType}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<OccupancyPricingAndRoomAttributesResponseDto> returnType =
+                new ParameterizedTypeReference<OccupancyPricingAndRoomAttributesResponseDto>() {
+                };
+
+        try {
+            return (OccupancyPricingAndRoomAttributesResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var10) {
+            log.error("Exception while fetching residence occupancy pricing information based on residenceUUID {}, Exception is ", residenceUuid, var10);
+            return null;
+        }
+    }
+
+    public OccupancyPricingAndRoomAttributesResponseDto getResidenceOccupancyPricingV2(String residenceUuid, String propertyEntityType) {
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        uriVariables.put("propertyEntityType",propertyEntityType);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/occupancy-pricing/{residenceUuid}/{propertyEntityType}/v2").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
 
