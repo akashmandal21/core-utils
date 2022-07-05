@@ -24,8 +24,8 @@ import lombok.experimental.SuperBuilder;
 public class UnderWrittenResponseV2Dto extends UnderWrittenV2Dto {
 
 	private UnderwrittenTemplate underWrittenTemplateId;
-	
-    private String underWrittenUuid;
+
+	private String underWrittenUuid;
 
     private String serviceMixUuid;
 
@@ -65,9 +65,5 @@ public class UnderWrittenResponseV2Dto extends UnderWrittenV2Dto {
     protected List<LocalDate> holidays = new ArrayList<>();
 
     protected List<LocalDate> specialDays;
-    
-    private NucleusRateMasterDto nucleusRateMasterDto;
-    
-    private NucleusRateMasterDto nucleusRateMasterDtoV2;
-    
+        
 }
