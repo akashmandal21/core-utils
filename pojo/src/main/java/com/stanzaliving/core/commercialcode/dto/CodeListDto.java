@@ -1,5 +1,6 @@
 package com.stanzaliving.core.commercialcode.dto;
 
+import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import lombok.*;
 
 import java.util.List;
@@ -29,4 +30,6 @@ public class CodeListDto {
     private boolean isAutoApplicable;
 
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
+
+    private CommercialCardStatus cardStatus;
 }

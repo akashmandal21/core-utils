@@ -16,4 +16,6 @@ public class CommercialCardDto {
 
     private CommercialCardUserType commercialCardUserType;
 
+    private boolean modifyContractFlow = Boolean.FALSE;
+
 }
