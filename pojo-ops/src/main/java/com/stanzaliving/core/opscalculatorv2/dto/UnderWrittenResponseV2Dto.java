@@ -27,43 +27,43 @@ public class UnderWrittenResponseV2Dto extends UnderWrittenV2Dto {
 
 	private String underWrittenUuid;
 
-    private String serviceMixUuid;
+	private String serviceMixUuid;
 
-    private String residenceUuid;
+	private String residenceUuid;
 
-    private UnderWrittenStatus currentStatus;              
+	private UnderWrittenStatus currentStatus;
 
-    private UnderWrittenStatus finalStatus;     
+	private UnderWrittenStatus finalStatus;
 
-    private LocalDate fromDate;
+	private LocalDate fromDate;
 
-    private LocalDate toDate;    
+	private LocalDate toDate;
 
-    private LocalDate plannedHotoDate;
+	private LocalDate plannedHotoDate;
 
-    private LocalDate actualHotoDate;
+	private LocalDate actualHotoDate;
 
-    private Integer roomCount;
+	private Integer roomCount;
 
-    private Integer bedCount;
+	private Integer bedCount;
 
-    private ResidenceBrand residenceBrand;
+	private ResidenceBrand residenceBrand;
 
-    private String seasonUuid;
+	private String seasonUuid;
 
-    private String versionName;
+	private String versionName;
 
-    private Integer versionNumber;
+	private Integer versionNumber;
 
-    private String commentUuid;
+	private String commentUuid;
 
-    private String approvedCommentUuid;
+	private String approvedCommentUuid;
 
-    private ApprovalStatus approvalStatus;
+	private ApprovalStatus approvalStatus;
 
-    @Builder.Default
-    protected List<LocalDate> holidays = new ArrayList<>();
+	@Builder.Default
+	protected List<LocalDate> holidays = new ArrayList<>();
 
-    protected List<LocalDate> specialDays;
-        
+	protected List<LocalDate> specialDays;
+
 }
