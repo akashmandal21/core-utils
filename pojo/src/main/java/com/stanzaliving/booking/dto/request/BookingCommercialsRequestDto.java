@@ -39,4 +39,6 @@ public class BookingCommercialsRequestDto implements Serializable {
 	@Valid
 	private ServicePriceDto vasPriceDto;
 
+	private double conversionPrice;
+
 }
