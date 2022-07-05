@@ -16,7 +16,8 @@ public enum ImageTags {
 	ROOM("Room"),
 	OTHERS("Others"),
 	WASHROOM("Washroom"),
-	FACADE("Facade");
+	FACADE("Facade"),
+	BALCONY("Balcony");
 	
 	public String imageTagName;
 }
