@@ -480,12 +480,12 @@ public class VentaClientApi {
 		}
 	}
 
-	public ResponseDto<BrokerReferralCodeResponseDto> getReferralDetails(String referralCode) {
+	public ResponseDto<BrokerReferralCodeResponseDto> getReferralDetails(String phone) {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("referralCode", referralCode);
-		String path = UriComponentsBuilder.fromPath("broker/referral-details/referralCode/{referralCode}").buildAndExpand(uriVariables)
+		uriVariables.put("phone", phone);
+		String path = UriComponentsBuilder.fromPath("/broker/referral-details/{phone}").buildAndExpand(uriVariables)
 				.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
