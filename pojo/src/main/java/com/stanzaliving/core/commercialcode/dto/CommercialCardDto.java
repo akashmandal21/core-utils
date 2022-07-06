@@ -18,4 +18,6 @@ public class CommercialCardDto {
 
     private Boolean modifyContractFlow = Boolean.FALSE;
 
+    private String appliedCommercialCard;
+
 }
