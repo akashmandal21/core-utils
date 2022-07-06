@@ -822,5 +822,34 @@ public class PaymentPlanClientApi {
 
     }
 
+    public ResponseDto<Map<String, Double>> getActiveBookingMonthlyBreakUp(@RequestBody List<String> referenceIds) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/matrix/sum-Of-booking-within-lockIn").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, Double>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Double>>>() {
+        };
+        postBody = referenceIds;
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while generating future invoices {}", e);
+            return null;
+        }
+
+    }
+
 
 }
