@@ -8,6 +8,7 @@ import com.stanzaliving.core.dto.TransactionMigrationForDate;
 import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
 import com.stanzaliving.core.grsi.dto.GrsiItemDto;
 import com.stanzaliving.core.inventory.dto.*;
+import com.stanzaliving.core.po.generic.enums.GenericPOTOStatus;
 import com.stanzaliving.item_master.dtos.FilterDto;
 import com.stanzaliving.transformations.pojo.FilterAddressDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
@@ -523,7 +524,7 @@ public class InventoryClientApi {
 				path, HttpMethod.POST, queryParams, awlItemStatusUpdateDto, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<List<AwlBatchDetailsDto>> getAwlBatchDetailsByToUuid(String toUuid) {
+	public ResponseDto<List<AwlBatchDetailsDto>> getAwlBatchDetailsByToUuid(String toUuid, GenericPOTOStatus status) {
 
 		// create path and map variables
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -534,6 +535,8 @@ public class InventoryClientApi {
 						.toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("toStatus", status.name());
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
