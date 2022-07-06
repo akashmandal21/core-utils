@@ -1,7 +1,12 @@
 package com.stanzaliving.core.po.client.api;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
@@ -797,6 +802,55 @@ public class POClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/update/rental/item/rate/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, rentalItemUpdatedRateMap, headerParams, accept, vddReturnType);
+    }
+
+    public ResponseDto<String> saveLocationTypeApprovalLeelForNewDept(Department newDepartment, Department refDepartment) {
+
+        log.info("HTTP Client call to save vendorMapping details for new dept: {} refDept: {}", newDepartment, refDepartment);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("newDepartment", newDepartment);
+        uriVariables.put("refDepartment", refDepartment);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/save/locationType-approvalLevel/{newDepartment}/{refDepartment}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+
+    }
+
+    public ResponseDto<String> rollBack(Department newDepartment) {
+
+        log.info("HTTP Client call to rollBack purchase-order details for new dept: {}", newDepartment);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("newDepartment", newDepartment);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/roll-back/locationType-approvalLevel/{newDepartment}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+
     }
 
     public ResponseDto<Map<String, List<PoDetailsResponse>>> getPoDeliveryDetails(List<String> poUuids) {

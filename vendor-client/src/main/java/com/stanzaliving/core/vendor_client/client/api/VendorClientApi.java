@@ -1,15 +1,14 @@
 package com.stanzaliving.core.vendor_client.client.api;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.generic.dto.UIKeyValue;
-import com.stanzaliving.core.vendor.FilterVendorDto;
-import com.stanzaliving.core.vendor.dtos.GenericVendorDetailDto;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.vendor.dtos.VendorListingDetailsDto;
-import com.stanzaliving.core.vendor.dtos.VendorSuppliedItem;
 import com.stanzaliving.vendor.enums.VendorManagedBy;
 import com.stanzaliving.vendor.model.*;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -18,10 +17,14 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.core.vendor.FilterVendorDto;
+import com.stanzaliving.core.vendor.dtos.GenericVendorDetailDto;
+import com.stanzaliving.core.vendor.dtos.VendorSuppliedItem;
+
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class VendorClientApi {
@@ -460,6 +463,58 @@ public class VendorClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/managed-by/internal-warehouse").toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, vendorUuidList, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<String> saveVendorMappingForNewDept(Department newDepartment, Department refDepartment) {
+
+        log.info("HTTP Client call to save vendorMapping details for new dept: {} refDept: {}" , newDepartment,refDepartment);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("newDepartment",newDepartment);
+        uriVariables.put("refDepartment",refDepartment);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/save/vendorMapping/{newDepartment}/{refDepartment}").buildAndExpand(uriVariables).toUriString();
+
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+
+    }
+
+    public ResponseDto<String> rollBack(Department newDepartment) {
+
+        log.info("HTTP Client call to rollBack vendorMapping details for new dept: {}" , newDepartment);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("newDepartment",newDepartment);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/roll-back/vendorMapping/{newDepartment}").buildAndExpand(uriVariables).toUriString();
+
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
     }
 
 }

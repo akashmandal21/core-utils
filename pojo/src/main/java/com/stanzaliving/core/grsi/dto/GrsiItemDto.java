@@ -39,6 +39,7 @@ public class GrsiItemDto {
     private BigDecimal quantity;
     private BigDecimal rentPeriod;
     private String gsriEventItemDetailsUuid;
+
 //    @Builder.Default
 //    private BoqLabel boqLabel = BoqLabel.NA;
 }
