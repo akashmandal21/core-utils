@@ -24,50 +24,46 @@ import lombok.experimental.SuperBuilder;
 public class UnderWrittenResponseV2Dto extends UnderWrittenV2Dto {
 
 	private UnderwrittenTemplate underWrittenTemplateId;
-	
-    private String underWrittenUuid;
 
-    private String serviceMixUuid;
+	private String underWrittenUuid;
 
-    private String residenceUuid;
+	private String serviceMixUuid;
 
-    private UnderWrittenStatus currentStatus;              
+	private String residenceUuid;
 
-    private UnderWrittenStatus finalStatus;     
+	private UnderWrittenStatus currentStatus;
 
-    private LocalDate fromDate;
+	private UnderWrittenStatus finalStatus;
 
-    private LocalDate toDate;    
+	private LocalDate fromDate;
 
-    private LocalDate plannedHotoDate;
+	private LocalDate toDate;
 
-    private LocalDate actualHotoDate;
+	private LocalDate plannedHotoDate;
 
-    private Integer roomCount;
+	private LocalDate actualHotoDate;
 
-    private Integer bedCount;
+	private Integer roomCount;
 
-    private ResidenceBrand residenceBrand;
+	private Integer bedCount;
 
-    private String seasonUuid;
+	private ResidenceBrand residenceBrand;
 
-    private String versionName;
+	private String seasonUuid;
 
-    private Integer versionNumber;
+	private String versionName;
 
-    private String commentUuid;
+	private Integer versionNumber;
 
-    private String approvedCommentUuid;
+	private String commentUuid;
 
-    private ApprovalStatus approvalStatus;
+	private String approvedCommentUuid;
 
-    @Builder.Default
-    protected List<LocalDate> holidays = new ArrayList<>();
+	private ApprovalStatus approvalStatus;
 
-    protected List<LocalDate> specialDays;
-    
-    private NucleusRateMasterDto nucleusRateMasterDto;
-    
-    private NucleusRateMasterDto nucleusRateMasterDtoV2;
-    
+	@Builder.Default
+	protected List<LocalDate> holidays = new ArrayList<>();
+
+	protected List<LocalDate> specialDays;
+
 }
