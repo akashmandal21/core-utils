@@ -49,5 +49,4 @@ public class CafeMasterResponseDto extends AbstractDto {
     private List<ResidenceMicromarketDto> residences;
 
     private String imageUrl;
-
 }
