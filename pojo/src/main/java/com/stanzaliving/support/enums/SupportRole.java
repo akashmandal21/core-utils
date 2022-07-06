@@ -31,7 +31,11 @@ public enum SupportRole {
     SUPPORT_L2_IT_LEAD(1,"SUPPORT_L2_IT_LEAD",AccessLevel.COUNTRY,Arrays.asList(SupportModule.BLISS_DASHBOARD,SupportModule.TICKET_RESOLUTION)),
     SUPPORT_L1_RM_MST(4,"SUPPORT_L1_RM_MST",AccessLevel.RESIDENCE,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     SUPPORT_EXECUTIVE_CHEF(3,"SUPPORT_EXECUTIVE_CHEF",AccessLevel.MICROMARKET,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
-    SUPPORT_CATERING_MANAGER(4,"SUPPORT_CATERING_MANAGER",AccessLevel.RESIDENCE,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
+    SUPPORT_CATERING_MANAGER(4,"SUPPORT_CATERING_MANAGER",AccessLevel.RESIDENCE,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    Transformation_Head(1,"Transformation_Head",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    Design_National_Head(2,"Design_National_Head",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    Design_Zonal_Head(3,"Design_Zonal_Head",AccessLevel.CITY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    DESIGN_COORDINATOR(4,"DESIGN_COORDINATOR",AccessLevel.CITY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
 
 
     private static final Map<String, SupportRole> map = new HashMap<>();
