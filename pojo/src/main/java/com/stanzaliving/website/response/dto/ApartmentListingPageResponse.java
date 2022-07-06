@@ -10,11 +10,11 @@ import lombok.Data;
 
 @Data
 @Builder
-public class ResidenceListingPageResponse extends PageResponse<ResidenceListingPageResponse> implements Serializable {
+public class ApartmentListingPageResponse extends PageResponse<ApartmentListingPageResponse> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private List<ResidenceListingCardDto> residenceListingCardDtos;
+	private List<ApartmentListingCardDto> apartmentListingCardDtos;
 
 	private List<Integer> residenceIdsToShowMapPin;
 }
