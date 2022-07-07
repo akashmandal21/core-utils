@@ -55,9 +55,5 @@ public class ResidenceFilterRequestDto {
 
     private String type;
 
-    private Set<String> microMarketIdList;
-
-    private Set<String> cityIdList;
-
 
 }
