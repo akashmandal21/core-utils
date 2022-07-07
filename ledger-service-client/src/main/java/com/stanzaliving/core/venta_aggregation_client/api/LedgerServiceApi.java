@@ -9,7 +9,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -198,15 +197,9 @@ public class LedgerServiceApi {
         return null;
     }
 
-<<<<<<< HEAD
-    public ResponseDto<List<RefundDetailsResponseDto>> getRefundApprovalStatus() {
-        Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/current-date/refund-approval-status")
-=======
     public void processRefundStatusCheck() {
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/processRefundStatusCheck")
->>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
                 .buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -215,16 +208,19 @@ public class LedgerServiceApi {
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-<<<<<<< HEAD
-        ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>>() {
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
+
         try {
-            log.info("Executing Api for getting current date rejected refunds with Url {}", path);
-            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
         } catch (Exception e) {
-            log.error("Exception while getting current date rejected refunds, Exception is ", e);
+
+            log.error("Error while processing refund status check", e);
+
+            throw new ApiValidationException("Some error occurred. Please try again after some time.");
         }
-        return null;
+
     }
 
     public ResponseDto<LedgerResponseDTO> getLedgers(String referenceId, String referenceType, String ledgerType) {
@@ -253,7 +249,7 @@ public class LedgerServiceApi {
 
     public ResponseDto<String> sendFilixCarryForwardPacketsForBookingUuid(String bookingUuid) {
         log.info("sending request for filix carry forward for bookingUuid{}", bookingUuid);
-        log.info("bookingUuid {}",bookingUuid);
+        log.info("bookingUuid {}", bookingUuid);
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/carry-forward")
                 .buildAndExpand(uriVariables).toUriString();
@@ -277,7 +273,7 @@ public class LedgerServiceApi {
 
     public ResponseDto<String> sendFilixRefundPacketsForBookingUuid(String bookingUuid) {
         log.info("sending request for filix refund  for bookingUuid{}", bookingUuid);
-        log.info("bookingUuid {}",bookingUuid);
+        log.info("bookingUuid {}", bookingUuid);
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/refund")
                 .buildAndExpand(uriVariables).toUriString();
@@ -306,35 +302,9 @@ public class LedgerServiceApi {
                 .buildAndExpand(uriVariables).toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("bookingUuid", bookingUuid);
-
-=======
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-        };
-
-        try {
-            restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-
-        } catch (Exception e) {
-
-            log.error("Error while processing refund status check", e);
-
-            throw new ApiValidationException("Some error occurred. Please try again after some time.");
-        }
-
-    }
-
-    public void settleLedgerStatusMail() {
-        Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/mails/rejected-refunds")
-                .buildAndExpand(uriVariables).toUriString();
-
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
->>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
-
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-<<<<<<< HEAD
         ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
         try {
@@ -346,17 +316,24 @@ public class LedgerServiceApi {
         return null;
     }
 
-=======
 
+    public void settleLedgerStatusMail() {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/mails/rejected-refunds")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<?>> returnType = new ParameterizedTypeReference<ResponseDto<?>>() {
         };
 
         try {
             restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            throw new ApiValidationException("Error while sending settle-ledger status mail. Exception is "+e.getMessage());
+            throw new ApiValidationException("Error while sending settle-ledger status mail. Exception is " + e.getMessage());
         }
-
     }
->>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
 }
