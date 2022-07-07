@@ -13,6 +13,7 @@ public enum CommercialCardUserType {
     SUITES,
     MANAGED_APARTMENT,
     MANAGED_APARTMENTS,
+    MANAGED_APARTMENT,
     ALL,
     PROFESSIONAL
 }
