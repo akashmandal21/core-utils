@@ -17,4 +17,8 @@ public class CommercialCardDto {
     private CommercialCardUserType commercialCardUserType;
 
     private Double monthlyRent;
+    
+    private Boolean modifyContractFlow = Boolean.FALSE;
+
+    private String appliedCommercialCard;
 }
