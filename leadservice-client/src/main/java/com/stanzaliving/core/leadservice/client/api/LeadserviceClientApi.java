@@ -472,15 +472,12 @@ public class LeadserviceClientApi {
 
         final String[] accepts = {"*/*"};
 
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
-        try {
-            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accepts, returnType);
-        } catch (Exception e) {
-            log.error("Exception caused while checking for inactive lead or expiring an inactive lead", e);
-            return null;
-        }
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public ResponseDto<Boolean> sendOtpForVisitStart() {
