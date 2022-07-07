@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
-import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
 import lombok.AllArgsConstructor;
@@ -28,6 +27,18 @@ public class ApartmentListingCardDto implements Serializable {
 
 	private String name;
 
+	private String apartmentListingName;
+	
+	private String apartmentDetailsName;
+	
+	private String propertyCode;
+	
+	private Integer societyId;
+	
+	private Integer roomCount;
+	
+	private String roomId;
+	
 	private String slug;
 
 	private Gender gender;
@@ -39,13 +50,17 @@ public class ApartmentListingCardDto implements Serializable {
 	private String micromarketName;
 
 	private String micromarketSlug;
-
+	
+	private String apartmentMMSlug;
+	
 	private int cityId;
-
+	
 	private String cityName;
-
+	
 	private String citySlug;
-
+	
+	private String apartmentCitySlug;
+	
 	private int startingPrice;
 
 	//TODO
@@ -70,12 +85,6 @@ public class ApartmentListingCardDto implements Serializable {
 
 	private Integer secondSortOrder;
 
-	private FomoTag fomoTag;
-
-	private String fomoTagName;
-
-	private String fomoTagcolour;
-
 	private String distanceFromPlace;
 
 	private String transformationUuid;
@@ -94,7 +103,13 @@ public class ApartmentListingCardDto implements Serializable {
 	
 	private List<FeatureResponseDTO> features;
 
-	private List<ResidenceOccupancyResponseDTO> residenceOccupancies;
-
 	private List<ImageResponseDTO> images;
+	
+	private int similarApartmentsCount;
+	
+	private boolean soldOut;
+	
+	private boolean isEntireFlatAvailable;
+	
+	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes;
 }
