@@ -11,6 +11,11 @@ import com.stanzaliving.core.user.acl.dto.RoleDto;
 import com.stanzaliving.core.user.request.dto.*;
 import com.stanzaliving.core.user.dto.*;
 import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
+import com.stanzaliving.core.user.enums.UserType;
+import com.stanzaliving.core.user.dto.*;
+import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
+
+import com.stanzaliving.core.user.request.dto.*;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -894,7 +899,31 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public ResponseDto<Set<String>> getAccessLevelIds(Department department, String roleName) {
+    public ResponseDto<Boolean> updateUserStatus(String phone, UserType userType, Boolean status) {
+
+        Object postBody = null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("mobileNo", phone);
+        uriVariables.put("userType", userType);
+        uriVariables.put("enabled", status);
+
+        String path = UriComponentsBuilder.fromPath("/internal/update/status/{mobileNo}/{userType}/{enabled}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+	public ResponseDto<Set<String>> getAccessLevelIds(Department department, String roleName){
 		Object postBody = null;
 
 		// create path and map variables

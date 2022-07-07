@@ -150,7 +150,7 @@ public class LeadRequestDto {
 	private String timeSlot;
 
 	private String budget;
-	
+
 	private String platformOs;
 	private String preferredLanguage;
 
@@ -169,4 +169,5 @@ public class LeadRequestDto {
 	public void setPhone(String phone) {
 		this.phone = Objects.nonNull(phone) ? phone.trim(): null;
 	}
+	private String leadTag;
 }

@@ -10,7 +10,7 @@ import java.util.*;
 @AllArgsConstructor
 public enum BookingStatus {
 
-	DRAFT("DRAFT"),
+    DRAFT("DRAFT"),
     IN_PROGRESS("IN PROGRESS"),
     EXPIRED("EXPIRED"),
     SHARED_WITH_RESIDENT("SHARED WITH RESIDENT"),
@@ -161,6 +161,9 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
         return bookingStatus;
     }
 
@@ -170,6 +173,9 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_AGREEMENT_SENT.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
         return bookingStatus;
     }
 
@@ -218,6 +224,7 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID.getDescription());
         bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
         bookingStatus.add(BookingStatus.WRONG_BOOKING.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
         return bookingStatus;
     }
 
@@ -263,6 +270,7 @@ public enum BookingStatus {
         List<String> bookingStatus = new ArrayList<>();
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING.getDescription());
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
         return bookingStatus;
     }
 
@@ -337,9 +345,28 @@ public enum BookingStatus {
     }
 
 
+    public static List<String> RESIDENT_CONTRACT() {
+        List<String> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_AGREEMENT_SENT.getDescription());
+        bookingStatus.add(BookingStatus.GUEST_ONBOARDING_PENDING.getDescription());
+        return bookingStatus;
+    }
+
+
     public static List<BookingStatus> bookingEligibleForContractTerminationStatus() {
         List<BookingStatus> bookingStatus = new ArrayList<>();
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED);
+        return bookingStatus;
+    }
+
+    public static List<BookingStatus> EXIT_NOT_ALLOWED_STATUS() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT);
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT);
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
         return bookingStatus;
     }
 }

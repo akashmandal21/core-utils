@@ -45,8 +45,10 @@ public enum ResidenceAttributes {
     EMI_ENABLED("EMI Enabled","Boolean"),
 
     BOOKING_START_DATE("Booking Start Date", "Date"),
-    PRE_BOOKING_START_DATE("Pre-Booking Start Date", "Date");
-	
+    PRE_BOOKING_START_DATE("Pre-Booking Start Date", "Date"),
+
+    UNDERWRITE_FINANCE("Underwrite Finance", "Double");
+
     private String label;
     private String type;
 
@@ -77,6 +79,7 @@ public enum ResidenceAttributes {
         residenceAttributes.add(NEEDS_ATTENTION_EXPIRY_TIME);
         residenceAttributes.add(BOOKING_START_DATE);
         residenceAttributes.add(PRE_BOOKING_START_DATE);
+        residenceAttributes.add(RETENTION_MIN_TOKEN_AMOUNT);
         return residenceAttributes;
     }
  }
