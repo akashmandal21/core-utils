@@ -62,6 +62,10 @@ public class ApartmentListingCardDto implements Serializable {
 	private String apartmentCitySlug;
 	
 	private int startingPrice;
+	
+	private Integer discountPercentage;
+	
+	private Integer discountedPrice;
 
 	//TODO
 	private String pricingPlan;
@@ -99,6 +103,8 @@ public class ApartmentListingCardDto implements Serializable {
 	
 	private PropertyEntityType propertyEntityType;
 
+	private List<Integer> featureIds;
+	
 	private List<FacilityResponseDTO> facilities;
 	
 	private List<FeatureResponseDTO> features;
