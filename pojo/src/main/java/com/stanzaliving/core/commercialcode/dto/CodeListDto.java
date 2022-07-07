@@ -1,9 +1,6 @@
 package com.stanzaliving.core.commercialcode.dto;
 
-<<<<<<< HEAD
 import com.stanzaliving.booking.enums.AMCAmountType;
-=======
->>>>>>> 86710781b89daa1f8b770e4fa5d422643586b6ec
 import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import lombok.*;
 

@@ -452,7 +452,7 @@ public class BookingDataControllerApi {
         final HttpHeaders headerParams = new HttpHeaders();
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/exit/tresspasser/bookings").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/exit/tresspasser/bookings").buildAndExpand(uriVariables).toUriString();
         final String[] accepts = {
                 "*/*"
         };
@@ -808,10 +808,7 @@ public class BookingDataControllerApi {
 
 
     public ResponseDto<BookingResponseDto> createGuestBooking(String guestPhoneNumber) {
-
-
         Object postBody = null;
-
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("guestPhoneNumber", guestPhoneNumber);
@@ -829,10 +826,28 @@ public class BookingDataControllerApi {
         ParameterizedTypeReference<ResponseDto<BookingResponseDto>> returnType
                 = new ParameterizedTypeReference<ResponseDto<BookingResponseDto>>() {
         };
-
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
 
 
+    public ResponseDto<Void> cancelBooking(CancelBookingDto cancelBookingDto) {
+
+        Object postBody = cancelBookingDto;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/booking/v1/cancel").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public ResponseDto<List<BookingResponseDto>> getBookingsEligibleForContractTermination() {

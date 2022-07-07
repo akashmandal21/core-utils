@@ -1,6 +1,7 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.ledger.dto.*;
 import lombok.extern.log4j.Log4j2;
@@ -8,6 +9,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -151,6 +153,28 @@ public class LedgerServiceApi {
         }
     }
 
+    public ResponseDto<List<RefundDetailsResponseDto>> getRefundApprovalStatus() {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/current-date/refund-approval-status")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>>() {
+        };
+        try {
+            log.info("Executing Api for getting current date rejected refunds with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while getting current date rejected refunds, Exception is ", e);
+        }
+        return null;
+    }
+
     public ResponseDto<String> createLedgerEntry(List<TransactionsDTO> transactionsDTO) {
         Object postBody = transactionsDTO;
         Map<String, Object> uriVariables = new HashMap<>();
@@ -174,9 +198,15 @@ public class LedgerServiceApi {
         return null;
     }
 
+<<<<<<< HEAD
     public ResponseDto<List<RefundDetailsResponseDto>> getRefundApprovalStatus() {
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/current-date/refund-approval-status")
+=======
+    public void processRefundStatusCheck() {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/processRefundStatusCheck")
+>>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
                 .buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -185,6 +215,7 @@ public class LedgerServiceApi {
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
+<<<<<<< HEAD
         ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>>() {
         };
         try {
@@ -276,10 +307,34 @@ public class LedgerServiceApi {
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("bookingUuid", bookingUuid);
 
+=======
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        try {
+            restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+
+            log.error("Error while processing refund status check", e);
+
+            throw new ApiValidationException("Some error occurred. Please try again after some time.");
+        }
+
+    }
+
+    public void settleLedgerStatusMail() {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/mails/rejected-refunds")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+>>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
 
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+<<<<<<< HEAD
         ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
         try {
@@ -291,4 +346,17 @@ public class LedgerServiceApi {
         return null;
     }
 
+=======
+
+        ParameterizedTypeReference<ResponseDto<?>> returnType = new ParameterizedTypeReference<ResponseDto<?>>() {
+        };
+
+        try {
+            restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            throw new ApiValidationException("Error while sending settle-ledger status mail. Exception is "+e.getMessage());
+        }
+
+    }
+>>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
 }

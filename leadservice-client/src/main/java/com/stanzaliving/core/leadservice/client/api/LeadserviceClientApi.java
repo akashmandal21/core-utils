@@ -8,6 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+<<<<<<< HEAD
+=======
+import com.stanzaliving.core.base.common.dto.PaginationRequest;
+import com.stanzaliving.leadService.dto.AutoExpireLeadConfigMapDto;
+import com.stanzaliving.leadService.dto.AutoExpireLeadDto;
+import com.stanzaliving.website.response.dto.LeadDetailEntity;
+>>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -375,29 +382,46 @@ public class LeadserviceClientApi {
 		}
 	}
 
+<<<<<<< HEAD
 	public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
 
 		Object postBody = null;
 
 		String path = UriComponentsBuilder.fromPath("internal/prebooking/refund/fetch/eligible/leads").toUriString();
+=======
+	public ResponseDto<String> sendPushNotificationsForNumberOfVisitScheduledToday() {
+
+		log.debug("Lead client to send push notification while number of visits scheduled today");
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/push-notification/count/visit-schedule/today").toUriString();
+>>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+<<<<<<< HEAD
 		if(Objects.nonNull(phone))
 			queryParams.add("phone", phone);
 
+=======
+>>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
 		final String[] accepts = { "*/*" };
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
+<<<<<<< HEAD
 		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
+=======
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+>>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
 		};
 
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
+<<<<<<< HEAD
 			log.error("Error while fetching prebooked refund eligible leads {}", e);
 			return null;
 		}
@@ -444,12 +468,108 @@ public class LeadserviceClientApi {
 		headerParams.set("headerAuth", "c2510261f27872a22a160f463dc2ac2111ae2");
 
 		final String[] accepts = {"*/*"};
+=======
+			log.error("Exception caused while sending event for push notification", e);
+			return null;
+		}
+	}
+	public ResponseDto<Boolean> sendOtpForVisitStart() {
+		Object postBody = null;
+
+		log.info("Request received for sendOtpForVisitStart");
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("internal/lead/start-visit/otp")
+				.buildAndExpand(uriVariables).toUriString();
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while send Otp For VisitStart {}", e);
+			return null;
+		}
+
+	}
+
+	public ResponseDto<String> updateLeadSourceGroupForExistingLeads(PaginationRequest paginationRequest) {
+
+		log.debug("Lead client to update lead source group for existing leads");
+		Object postBody = paginationRequest;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/update/lead-source-group").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = { "*/*" };
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
 		};
 
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while updating lead source group for existing leads", e);
+			return null;
+		}
+	}
+
+	public ResponseDto<List<AutoExpireLeadDto>> getLeadsToCheckForInactivity() {
+		log.info("Get leads to check for inactivity");
+
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/all/auto-expire/eligible").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<AutoExpireLeadDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<AutoExpireLeadDto>>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while getting leads to check for inactivity", e);
+			return null;
+		}
+	}
+
+	public ResponseDto<String> expireInactiveLead(AutoExpireLeadDto autoExpireLeadDto) {
+		log.info("Expire inactive Lead : {}", autoExpireLeadDto);
+		Object postBody = autoExpireLeadDto;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/auto-expire/inactive").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = { "*/*" };
+>>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+<<<<<<< HEAD
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
 
@@ -474,5 +594,39 @@ public class LeadserviceClientApi {
 
 		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+=======
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while checking for inactive lead or expiring an inactive lead", e);
+			return null;
+		}
+	}
+
+	public ResponseDto<AutoExpireLeadConfigMapDto> getAutoExpireLeadConfigMaps() {
+		log.info("Get auto expire lead config maps");
+
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/auto-expire/config-maps").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<AutoExpireLeadConfigMapDto>> returnType = new ParameterizedTypeReference<ResponseDto<AutoExpireLeadConfigMapDto>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while auto expire lead config maps", e);
+			return null;
+		}
+>>>>>>> 5f506151cca290a820ce63b3edbf3695298c82bc
 	}
 }
