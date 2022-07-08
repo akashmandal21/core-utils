@@ -1,5 +1,6 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.stanzaliving.website.enums.FomoTag;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Map;
+
+import com.stanzaliving.website.enums.FomoTag;
 
 @Data
 @AllArgsConstructor
@@ -23,4 +26,5 @@ public class ResidenceAndOccupancyPricingResponseDto {
     private Integer residenceTypeId;
     private String propertyCode;
     private String residenceUuid;
+    private FomoTag fomoTag;
 }

@@ -14,4 +14,6 @@ public class UserLatestSurveyDto {
     private UserNotificationDto nudge;
 
     private UserNotificationDto survey;
+
+    private int notificationCount;
 }

@@ -31,4 +31,8 @@ public class UserNotificationDto {
    private  Map<String,String> payloadData;
 
    private boolean isSubmitted;
+
+   boolean isCampaignLive;
+
+   Date clickedAt;
 }
