@@ -43,6 +43,8 @@ public class LeadRequestDto {
 	private String residenceNameUuid;
 
 	private String leadOwnerId;
+	
+	private String createdBy;
 
 	private Integer cityId;
 	private String cityName;
@@ -149,6 +151,9 @@ public class LeadRequestDto {
 
 	private String budget;
 
+	private String platformOs;
+	private String preferredLanguage;
+
 	public String getEmail() {
 		return Objects.nonNull(this.email) ? this.email.trim(): null;
 	}
@@ -164,4 +169,5 @@ public class LeadRequestDto {
 	public void setPhone(String phone) {
 		this.phone = Objects.nonNull(phone) ? phone.trim(): null;
 	}
+	private String leadTag;
 }
