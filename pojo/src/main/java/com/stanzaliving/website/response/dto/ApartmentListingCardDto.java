@@ -19,7 +19,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ApartmentListingCardDto implements Serializable {
+public class ApartmentListingCardDto implements Serializable, Cloneable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -118,4 +118,10 @@ public class ApartmentListingCardDto implements Serializable {
 	private boolean isEntireFlatAvailable;
 	
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes;
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		ApartmentListingCardDto p = (ApartmentListingCardDto) super.clone();
+		return p;
+	}
 }
