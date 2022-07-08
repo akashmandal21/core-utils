@@ -87,6 +87,7 @@ public enum PaymentMode {
     	paymentMode.add(PAYTM);
     	paymentMode.add(RAZORPAY);
     	paymentMode.add(VIRTUAL_ACCOUNT);
+    	paymentMode.add(CC);
     	return paymentMode;
     }
 }
