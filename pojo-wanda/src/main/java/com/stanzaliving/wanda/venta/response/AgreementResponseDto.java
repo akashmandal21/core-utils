@@ -22,7 +22,7 @@ public class AgreementResponseDto {
     private String addendumUrl;
     private String message;
     private Boolean status;
-   
+    private String referenceID2;
     private String studentName; 
     @Builder.Default
     private ContractType contractType=ContractType.NONE;
@@ -32,5 +32,4 @@ public class AgreementResponseDto {
     private String contractText;
     private String contract2Text;
     private Date createdAt;
-    private String referenceID2;
 }

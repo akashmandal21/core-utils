@@ -20,6 +20,8 @@ public class ContractResponseDTO {
 
     private double months;
 
+    private double days;
+
     private boolean enabled;
 
     @Builder.Default

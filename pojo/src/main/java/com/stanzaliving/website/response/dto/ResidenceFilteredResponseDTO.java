@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.PageResponse;
+import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,4 +31,6 @@ public class ResidenceFilteredResponseDTO extends PageResponse<ResidenceFiltered
 	
 	@Builder.Default
 	private Integer apartmentCount = 0;
+	
+	private WebsitePlaceIndexDto placeIndexDto;
 }

@@ -79,6 +79,7 @@ public enum ResidenceAttributes {
         residenceAttributes.add(NEEDS_ATTENTION_EXPIRY_TIME);
         residenceAttributes.add(BOOKING_START_DATE);
         residenceAttributes.add(PRE_BOOKING_START_DATE);
+        residenceAttributes.add(RETENTION_MIN_TOKEN_AMOUNT);
         return residenceAttributes;
     }
  }
