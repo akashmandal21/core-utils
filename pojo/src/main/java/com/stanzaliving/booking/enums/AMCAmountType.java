@@ -9,12 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public enum AMCAmountType {
 
-
     MONTHLY("Monthly"),
 
     FIXED("Fixed");
 
     String amcAmountType;
-
 }
-

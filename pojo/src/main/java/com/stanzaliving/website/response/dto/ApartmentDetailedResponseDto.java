@@ -1,11 +1,14 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -40,7 +43,11 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private String slug;
 	
+	private String roomId;
+	
 	private Gender gender;
+	
+	private String genderName;
 
 	private int micromarketId;
 	
@@ -108,6 +115,12 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private Integer discountedPrice;
 	
+	private Boolean soldOut;
+	
+	private boolean isEntireFlatAvailable;
+	
+	private PropertyEntityType propertyEntityType;
+	
 	@Builder.Default
 	private List<FacilityResponseDTO> facilities = Collections.emptyList();
 	
@@ -118,7 +131,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = Collections.emptyList();
 	
 	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>();
+	private Collection<ImageResponseDTO> images = new HashSet<>();
 	
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
@@ -128,4 +141,10 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private ApartmentShortListingDto similarApartmentsNearBy;
 	
 	private List<ReviewWebsiteResponseDto> reviews;
+	
+	private List<WebsiteMapCardDto> cityAllProperties;
+	
+	private List<ApartmentResponseDto> otherRooms;
+	
+	private WebsitePlaceIndexDto placeIndexDto;
 }

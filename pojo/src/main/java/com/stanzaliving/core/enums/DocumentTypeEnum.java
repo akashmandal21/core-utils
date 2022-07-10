@@ -11,5 +11,6 @@ public enum DocumentTypeEnum {
     VISA,
     POLICE_VERIFICATION,
     POLICE_VERIFICATION_FORM,
-    FORM_C
+    FORM_C,
+    ID_CARD
 }
