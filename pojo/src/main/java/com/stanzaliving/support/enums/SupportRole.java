@@ -32,9 +32,9 @@ public enum SupportRole {
     SUPPORT_L1_RM_MST(4,"SUPPORT_L1_RM_MST",AccessLevel.RESIDENCE,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     SUPPORT_EXECUTIVE_CHEF(3,"SUPPORT_EXECUTIVE_CHEF",AccessLevel.MICROMARKET,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     SUPPORT_CATERING_MANAGER(4,"SUPPORT_CATERING_MANAGER",AccessLevel.RESIDENCE,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
-    Transformation_Head(1,"Transformation_Head",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
-    Design_National_Head(2,"Design_National_Head",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
-    Design_Zonal_Head(3,"Design_Zonal_Head",AccessLevel.CITY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    TRANSFORMATION_HEAD(1,"TRANSFORMATION_HEAD",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    DESIGN_NATIONAL_HEAD(2,"DESIGN_NATIONAL_HEAD",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    DESIGN_ZONAL_HEAD(3,"DESIGN_ZONAL_HEAD",AccessLevel.CITY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     DESIGN_COORDINATOR(4,"DESIGN_COORDINATOR",AccessLevel.CITY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
 
 
