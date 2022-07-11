@@ -95,6 +95,7 @@ public enum SupplyChainEvents {
         parentSCEvents.put(ADV_PAYMENT_COMPLETE, Arrays.asList(ADV_INV_APPROVED));
 
         parentSCEvents.put(VENDOR_ACCEPTED, Arrays.asList(PO_APPROVAL));
+        parentSCEvents.put(VENDOR_REJECTED, Arrays.asList(PO_APPROVAL));
     }
 
 
