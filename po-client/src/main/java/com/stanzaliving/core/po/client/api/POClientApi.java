@@ -895,7 +895,7 @@ public class POClientApi {
         ParameterizedTypeReference<ResponseDto<VendorPocDetailsDto>> vddReturnType = new ParameterizedTypeReference<ResponseDto<VendorPocDetailsDto>>() {
         };
 
-        String path = UriComponentsBuilder.fromPath("/vendor/pocDetails/{poUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/pocDetails/{poUuid}").buildAndExpand(uriVariables).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
