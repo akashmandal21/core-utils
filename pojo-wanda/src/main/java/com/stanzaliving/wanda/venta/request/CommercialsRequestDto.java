@@ -21,4 +21,5 @@ public class CommercialsRequestDto {
     private String couponCode;
     private BookingType bookingType;
     private MaintenanceFeeType maintenanceFeeSelectionId;
+    private boolean isMoveInDateChange=false;
 }
