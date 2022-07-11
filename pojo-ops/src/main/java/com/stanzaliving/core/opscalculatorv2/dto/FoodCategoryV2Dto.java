@@ -27,22 +27,54 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class FoodCategoryV2Dto extends CategoryV2Dto {
 
-	private BigDecimal menuPricePerDay;
-	private BigDecimal weekDays;
-	private BigDecimal weekdayUtilization;
-	private BigDecimal weekendDays;
-	private BigDecimal weekendUtilization;
-	private BigDecimal holidays;
-	private BigDecimal holidayUtilization;
-	private BigDecimal specialMealDays;
-	private BigDecimal specialDayUtilization;
-	private BigDecimal opsSLStaffPerDay;
-	private BigDecimal nonSlStaffMenuPricePerDayForMorning;
-	private BigDecimal nonSlStaffMenuPricePerDayForEvening;
-	private BigDecimal opsNonSLMorningStaffPerDay;
-	private BigDecimal opsNonSLEveningStaffPerDay;
-	private BigDecimal overallUtilization;
-	private BigDecimal overallUtilizationSuggested;
+	@Builder.Default
+	private BigDecimal menuPricePerDay = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal weekDays = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal weekdayUtilization = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal weekendDays = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal weekendUtilization = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal holidays = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal holidayUtilization = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal specialMealDays = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal specialDayUtilization = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal opsSLStaffPerDay = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal nonSlStaffMenuPricePerDayForMorning = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal nonSlStaffMenuPricePerDayForEvening = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal opsNonSLMorningStaffPerDay = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal opsNonSLEveningStaffPerDay = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal overallUtilization = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal overallUtilizationSuggested = new BigDecimal(0);
+	
 	private String overallUtilizationSuggestedReason;
 
 	List<SMLevelFoodCategoryDto> smLevelFoodCategoryDtoList;
