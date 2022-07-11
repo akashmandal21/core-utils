@@ -1,10 +1,13 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -21,13 +24,17 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class WebsiteResidenceDetailedResponseDTO {
+public class WebsiteResidenceDetailedResponseDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private int residenceId;
 	
 	private String name;
 	
 	private Gender gender;
+	
+	private String genderName;
 	
 	private int micromarketId;
 	
@@ -65,6 +72,10 @@ public class WebsiteResidenceDetailedResponseDTO {
 	
 	private String preBookingMode;
 	
+	private String leadFormModeName;
+	
+	private Integer leadFormModeId;
+	
 	private FomoTag fomoTag;
 	
 	private String fomoTagName;
@@ -84,6 +95,8 @@ public class WebsiteResidenceDetailedResponseDTO {
 	private String transformationUuid;
 	
 	private String transformationId;
+	
+	private PropertyEntityType propertyEntityType; 
 
 	@Builder.Default
 	private List<FeatureResponseDTO> features = Collections.emptyList();
@@ -95,7 +108,7 @@ public class WebsiteResidenceDetailedResponseDTO {
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = Collections.emptyList();
 
 	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>();
+	private Collection<ImageResponseDTO> images = new HashSet<>();
 
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>();
@@ -105,4 +118,7 @@ public class WebsiteResidenceDetailedResponseDTO {
 	private List<ReviewWebsiteResponseDto> reviews;
 	
 	private ResidenceFilteredResponseDTO similarResidencesNearBy;
+	
+	private List<WebsiteMapCardDto> cityAllProperties;
+
 }

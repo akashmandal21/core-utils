@@ -590,5 +590,27 @@ public class ItemMasterClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, itemUuids, headerParams, accept, returnType);
 	}
+
+	public ResponseDto<List<ConsumableTagResponse>> getConsumableTags(Department department) {
+
+		log.info("HTTP Client call to get consumable tags for department {} ", department);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("department", department);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		Map<String, List<String>> map = new HashMap<>();
+
+		ParameterizedTypeReference<ResponseDto<List<ConsumableTagResponse>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ConsumableTagResponse>>>() {
+		};
+
+		String path = UriComponentsBuilder.fromPath("/internal/consumable-tag/get/{department}").buildAndExpand(uriVariables).toUriString();
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, returnType);
+	}
 }
 

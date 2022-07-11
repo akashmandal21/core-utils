@@ -8,11 +8,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommercialsDetailsResponseDTO {
+public class CommercialsDetailsResponseDTO implements Serializable {
 
     private Double securityDeposit;
 
@@ -24,6 +26,12 @@ public class CommercialsDetailsResponseDTO {
 
     private Double bookingAmount;
 
+    private Double onBoardingCharges;
+
+    private Double onBoardingChargesPercentage;
+
+    private Boolean onboardingChargesApplicableOnRetention;
+
     private Double totalAmount;
 
     private Double discountApplied;
@@ -33,4 +41,6 @@ public class CommercialsDetailsResponseDTO {
     private AdvanceRentalDto startingAdvanceRental;
 
     private AdvanceRentalDto lastAdvanceRental;
+
 }
+

@@ -6,7 +6,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum BookingEventEnum {
-    BOOKING_CREATED("Booking Created"),
+	BOOKING_CREATED("Booking Created"),
+    GUEST_BOOKING_CREATED("Guest Booking Created"),
     BOOKING_DETAILS_UPDATED("Booking Details Updated"),
     INITIATE_BOOKING("Initiate Booking"),
     TOKEN_AMOUNT_PAID("Token Amount Paid"),
@@ -58,5 +59,6 @@ public enum BookingEventEnum {
     CONTRACT_END("Contract"),
     LOCK_IN_END("Lock-in period");
 
-    String eventName;
+	String eventName;
+
 }

@@ -9,7 +9,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -224,6 +223,100 @@ public class LedgerServiceApi {
 
     }
 
+    public ResponseDto<LedgerResponseDTO> getLedgers(String referenceId, String referenceType, String ledgerType) {
+        log.info("Reference id {}, reference type {}, ledger type {}", referenceId, referenceType, ledgerType);
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/ledger")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("referenceId", referenceId);
+        queryParams.add("referenceType", referenceType);
+        queryParams.add("ledgerType", ledgerType);
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<LedgerResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<LedgerResponseDTO>>() {
+        };
+        try {
+            log.info("Executing Api for getting residence Info with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching ledger information based on referenceId {}, Exception is ", referenceId, e);
+        }
+        return null;
+    }
+
+    public ResponseDto<String> sendFilixCarryForwardPacketsForBookingUuid(String bookingUuid) {
+        log.info("sending request for filix carry forward for bookingUuid{}", bookingUuid);
+        log.info("bookingUuid {}", bookingUuid);
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/carry-forward")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("bookingUuid", bookingUuid);
+
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            log.info("Executing Api with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception for bookingUuid {}, Exception is ", bookingUuid, e);
+        }
+        return null;
+    }
+
+    public ResponseDto<String> sendFilixRefundPacketsForBookingUuid(String bookingUuid) {
+        log.info("sending request for filix refund  for bookingUuid{}", bookingUuid);
+        log.info("bookingUuid {}", bookingUuid);
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/refund")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("bookingUuid", bookingUuid);
+
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            log.info("Executing Api with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception for bookingUuid {}, Exception is ", bookingUuid, e);
+        }
+        return null;
+    }
+
+    public ResponseDto<String> sendFilixSecurityDepositPacketsForBookingUuid(String bookingUuid) {
+        log.info("sending request for filix deposit  for bookingUuid{}", bookingUuid);
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/security-deposit")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("bookingUuid", bookingUuid);
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            log.info("Executing Api with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception for bookingUuid {}, Exception is ", bookingUuid, e);
+        }
+        return null;
+    }
+
+
     public void settleLedgerStatusMail() {
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/mails/rejected-refunds")
@@ -234,15 +327,13 @@ public class LedgerServiceApi {
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
         ParameterizedTypeReference<ResponseDto<?>> returnType = new ParameterizedTypeReference<ResponseDto<?>>() {
         };
 
         try {
             restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            throw new ApiValidationException("Error while sending settle-ledger status mail. Exception is "+e.getMessage());
+            throw new ApiValidationException("Error while sending settle-ledger status mail. Exception is " + e.getMessage());
         }
-
     }
 }

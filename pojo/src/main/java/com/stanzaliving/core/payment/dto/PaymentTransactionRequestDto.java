@@ -2,8 +2,8 @@ package com.stanzaliving.core.payment.dto;
 
 
 import com.stanzaliving.core.payment.enums.PaymentMode;
+import com.stanzaliving.core.payment.enums.PaymentSource;
 import com.stanzaliving.core.payment.enums.StanzaPaymentService;
-import com.stanzaliving.filixIntegration.Enum.PaymentSource;
 import lombok.*;
 
 import javax.validation.constraints.*;

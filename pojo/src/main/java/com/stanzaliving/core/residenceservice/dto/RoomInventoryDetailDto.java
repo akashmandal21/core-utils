@@ -35,4 +35,15 @@ public class RoomInventoryDetailDto {
     private RoomStatus roomStatus;
 
     private String reason;
+
+    private Integer bhkType;
+
+    private String microMarketName;
+
+    private String microMarketUuid;
+
+    private int availableRoom;
+
+    private String residenceCode;
+
 }

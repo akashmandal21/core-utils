@@ -33,6 +33,10 @@ public class StanzaEntityListener {
 		if (StringUtils.isBlank(abstractEntity.getCreatedBy())) {
 			abstractEntity.setCreatedBy(SQLSecurityUtil.getCurrentUserId());
 		}
+
+		if (StringUtils.isBlank(abstractEntity.getUpdatedBy())) {
+			abstractEntity.setUpdatedBy(SQLSecurityUtil.getCurrentUserId());
+		}
 	}
 
 	// This code will be executed before every update into DB

@@ -28,6 +28,8 @@ public class ComplaintListingUIDto {
 	private String complaintUuid;
 
 	private String complaintCategory;
+	
+	private String complaintSubCategoryName;
 
 	private String complaintStatus;
 

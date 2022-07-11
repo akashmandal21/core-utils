@@ -1,6 +1,7 @@
 package com.stanzaliving.core.invoice_client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.ventaInvoice.dto.DocumentResponseDto;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
@@ -11,7 +12,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.text.SimpleDateFormat;
@@ -101,6 +101,7 @@ public class InvoiceServiceApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
     }
+
     public ResponseDto<List<DocumentResponseDto>> getARInvoiceDetailsBasedOnBookingUuid(LocalDate fromDate, String bookingUuid) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
@@ -120,12 +121,126 @@ public class InvoiceServiceApi {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams,
                     null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("error while fetching the AR invoice details for booking uuid{}", bookingUuid,e);
+            log.error("error while fetching the AR invoice details for booking uuid{}", bookingUuid, e);
             return null;
         }
     }
 
-    public ResponseDto<Long> getInvoiceDetails(double amount ,
+    public ResponseDto<String> getInvoicesByType(String referenceId, String invoiceType) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        log.info("fetching the  invoice details for booking uuid {}", referenceId);
+        String path = UriComponentsBuilder.fromPath("/internal/invoice-details")
+                .buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("referenceId", referenceId);
+        queryParams.add("invoiceType", invoiceType);
+
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams,
+                    null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching the  invoice details for booking uuid{}", referenceId, e);
+            return null;
+        }
+    }
+
+    public ResponseDto<String> createAndSendPacketForFilixInvoice(DocumentResponseDto documentResponseDto) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        log.info("sending request for filix invoices {}", documentResponseDto);
+        String path = UriComponentsBuilder.fromPath("/internal/filix/invoice")
+                .buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams,
+                    documentResponseDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error in sending request for filix invoices {}", documentResponseDto, e);
+            return null;
+        }
+    }
+
+    public ResponseDto<String> createAndSendPacketForFilixCreditNote(DocumentResponseDto documentResponseDto, String invoiceUuid) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        log.info("sending request for filix creditNote {}", documentResponseDto);
+        String path = UriComponentsBuilder.fromPath("/internal/filix/credit-note")
+                .buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("invoiceUuid", invoiceUuid);
+
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams,
+                    documentResponseDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error in sending request for filix creditNote {}", documentResponseDto, e);
+            return null;
+        }
+    }
+
+    public ResponseDto<String> saveDeptApprovalConfigForNewDept(Department newDepartment, Department refDepartment) {
+
+        log.info("HTTP Client call to save DeptApprovalConfigForNewDept details for new dept: {} refDept: {}", newDepartment, refDepartment);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("newDepartment", newDepartment);
+        uriVariables.put("refDepartment", refDepartment);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/save/deptApprovalConfig/{newDepartment}/{refDepartment}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+
+    }
+
+    public ResponseDto<String> rollBack(Department newDepartment) {
+
+        log.info("HTTP Client call to rollBack invoice details for new dept: {} ", newDepartment);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("newDepartment", newDepartment);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/roll-back/deptApprovalConfig/{newDepartment}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+
+    }
+
+    public ResponseDto<Long> getInvoiceDetails(double amount,
                                                String remarks,
                                                String referenceUuid,
                                                String generationSource,
@@ -137,10 +252,10 @@ public class InvoiceServiceApi {
         String path = UriComponentsBuilder.fromPath("/internal/invoices").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("referenceUuid",referenceUuid);
-        queryParams.add("generationSource",generationSource);
-        queryParams.add("invoiceType",invoiceType);
-        queryParams.add("remarks",remarks);
+        queryParams.add("referenceUuid", referenceUuid);
+        queryParams.add("generationSource", generationSource);
+        queryParams.add("invoiceType", invoiceType);
+        queryParams.add("remarks", remarks);
         queryParams.add("amount", String.valueOf(amount));
         queryParams.add("referenceType", String.valueOf(referenceType));
         queryParams.add("creditNoteCategory", creditNoteCategory);

@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Builder
 @Data
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 
 public class DurationDto {
-        private LocalDate fromDate;
-        private LocalDate toDate;
-    }
+    private Date fromDate;
+    private Date toDate;
+}
 
