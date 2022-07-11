@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class AllowedMoveInDates {
 
-    private Date minDate;
+    private String minDate;
 
-    private Date maxDate;
+    private String maxDate;
 }
