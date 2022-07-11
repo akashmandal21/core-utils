@@ -13,5 +13,5 @@ public enum AMCAmountType {
 
     FIXED("Fixed");
 
-    String amcAmountType;
+    String name;
 }
