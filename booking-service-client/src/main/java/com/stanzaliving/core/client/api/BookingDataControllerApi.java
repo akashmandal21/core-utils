@@ -1095,6 +1095,7 @@ public class BookingDataControllerApi {
     public ResponseDto<List<BookingResponseDto>> getBookingEntities(List<String> bookingUuids) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
+        Object requestBody = bookingUuids;
 
         String path = UriComponentsBuilder.fromPath("/internal/v1/booking/bookings-info").buildAndExpand(uriVariables).toUriString();
 
@@ -1109,7 +1110,7 @@ public class BookingDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, bookingUuids, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, requestBody, headerParams, accept, returnType);
     }
 
 }
