@@ -1,5 +1,6 @@
 package com.stanzaliving.core.erp.supplychain.enums;
 
+import com.stanzaliving.core.erp.supplychain.dto.SmsInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -68,6 +69,7 @@ public enum SupplyChainEvents {
     }
 
     private static Map<SupplyChainEvents, List<SupplyChainEvents>> parentSCEvents = new HashMap<>();
+    private static Map<SupplyChainEvents, SmsInfo> scDltTemplateMap = new HashMap<>();
 
     static {
         parentSCEvents.put(PO_APPROVAL, Arrays.asList(PO_APPROVAL,PO_SUBMITTED));
@@ -96,11 +98,19 @@ public enum SupplyChainEvents {
 
         parentSCEvents.put(VENDOR_ACCEPTED, Arrays.asList(PO_APPROVAL));
         parentSCEvents.put(VENDOR_REJECTED, Arrays.asList(PO_APPROVAL));
+
+        scDltTemplateMap.put(PO_APPROVAL, new SmsInfo("1707165702399427199","PARTNER", "Dear Partner, a new Purchase Order has been raised by Stanza Living. Please login here to accept the purchase order: www.partner.stanzaliving.com"));
     }
 
 
     public static List<SupplyChainEvents> getPossibleEvents(SupplyChainEvents currentSupplyChainEvents) {
         return parentSCEvents.get(currentSupplyChainEvents);
+    }
+
+    public static SmsInfo getDLTTemplateID(SupplyChainEvents supplyChainEvents) {
+        if(scDltTemplateMap.containsKey(supplyChainEvents))
+            return scDltTemplateMap.get(supplyChainEvents);
+        return null;
     }
 
     private static List<SupplyChainEvents> invoiceSupplyChainEvents = Arrays.asList(SupplyChainEvents.ADV_INV_SUBMITTED, SupplyChainEvents.ADV_INV_APPROVAL,
