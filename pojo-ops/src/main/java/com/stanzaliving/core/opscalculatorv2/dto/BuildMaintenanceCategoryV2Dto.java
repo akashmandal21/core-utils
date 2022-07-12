@@ -37,24 +37,24 @@ public class BuildMaintenanceCategoryV2Dto extends CategoryV2Dto {
 	public double pestControlRatePerRoomPerMonth;
 	public double pestCostPerMonthPerAvailableBed;
 
-	public int underGroundTankCleaningSizeOfTank;
-	public int underGroundTankCleaningTankCount;
-	public int underGroundTankCleaningRatePerTank;
-	public int underGroundTankCleaningFrequencyPerYear;
+	public double underGroundTankCleaningSizeOfTank;
+	public double underGroundTankCleaningTankCount;
+	public double underGroundTankCleaningRatePerTank;
+	public double underGroundTankCleaningFrequencyPerYear;
 	public double underGroundTankCleaningCostPerYear;
 
-	public int overheadTankCleaningSizeOfTank;
-	public int overheadTankCleaningTankCount;
-	public int overheadTankCleaningRatePerTank;
-	public int overheadTankCleaningFrequencyPerYear;
+	public double overheadTankCleaningSizeOfTank;
+	public double overheadTankCleaningTankCount;
+	public double overheadTankCleaningRatePerTank;
+	public double overheadTankCleaningFrequencyPerYear;
 	public double overheadTankCleaningCostPerYear;
-	public int totalCostForOverHeadTankCleaningPerYear;
-	public int totalCostForUnderGroundTankCleaningPerYear;
-	public int overHeadTankCleaningCostPerBedPerMonth;
-	public int underGroundTankCleaningCostPerBedPerMonth;
-	public int facadeAreaInSquareFeet;
+	public double totalCostForOverHeadTankCleaningPerYear;
+	public double totalCostForUnderGroundTankCleaningPerYear;
+	public double overHeadTankCleaningCostPerBedPerMonth;
+	public double underGroundTankCleaningCostPerBedPerMonth;
+	public double facadeAreaInSquareFeet;
 	public double facadeCleaningRatePerSquareFeet;
-	public int facadeCleaningFrequencyPerYear;
+	public double facadeCleaningFrequencyPerYear;
 	public double facadeCleaningCostPerBedPerMonth;
 	public double fumigationPerBedBugsRatePerRoomPerMonth;
 	public double fumigationPerBedBugsCostPerMonthPerAvailableBed;
@@ -65,6 +65,6 @@ public class BuildMaintenanceCategoryV2Dto extends CategoryV2Dto {
 	public double floorCleaningManPowerRatePerRoomPerMonth;
 	public double floorCleaningManPowerCostPerMonthPerAvailableBed;
 	private double upholsteryCleaningRatePerSeat;
-	private int tankCleaningTankSize;
+	private double tankCleaningTankSize;
 	private double tankCleaningOneTimeRate;
 }

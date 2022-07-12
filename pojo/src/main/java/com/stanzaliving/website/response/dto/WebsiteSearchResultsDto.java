@@ -1,21 +1,27 @@
 package com.stanzaliving.website.response.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import java.io.Serializable;
 import java.util.List;
 
-@SuperBuilder
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.stanzaliving.core.base.common.dto.PageResponse;
+import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class WebsiteSearchResultsDto implements Serializable {
+@Builder
+public class WebsiteSearchResultsDto extends PageResponse<WebsiteSearchResultsDto> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
