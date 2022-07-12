@@ -89,7 +89,7 @@ public class ApartmentListingCardDto implements Serializable {
 
 	private Integer secondSortOrder;
 
-	private String distanceFromPlace;
+	private Double distanceFromPlace;
 
 	private String transformationUuid;
 
