@@ -1,6 +1,7 @@
 
 package com.stanzaliving.core.opscalculatorv2.dto;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.stanzaliving.core.opscalculator.constants.Constants;
@@ -26,23 +27,55 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class FoodCategoryV2Dto extends CategoryV2Dto {
 
-	private double menuPricePerDay;
-	private double weekDays;
-	private int weekdayUtilization;
-	private double weekendDays;
-	private int weekendUtilization;
-	private double holidays;
-	private int holidayUtilization;
-	private double specialMealDays;
-	private int specialDayUtilization;
-	private int opsSLStaffPerDay;
-	private double nonSlStaffMenuPricePerDayForMorning;
-	private double nonSlStaffMenuPricePerDayForEvening;
-	private int opsNonSLMorningStaffPerDay;
-	private int opsNonSLEveningStaffPerDay;
-	public int overallUtilization;
-	public int overallUtilizationSuggested;
-	public String overallUtilizationSuggestedReason;
+	@Builder.Default
+	private BigDecimal menuPricePerDay = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal weekDays = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal weekdayUtilization = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal weekendDays = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal weekendUtilization = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal holidays = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal holidayUtilization = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal specialMealDays = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal specialDayUtilization = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal opsSLStaffPerDay = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal nonSlStaffMenuPricePerDayForMorning = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal nonSlStaffMenuPricePerDayForEvening = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal opsNonSLMorningStaffPerDay = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal opsNonSLEveningStaffPerDay = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal overallUtilization = new BigDecimal(0);
+	
+	@Builder.Default
+	private BigDecimal overallUtilizationSuggested = new BigDecimal(0);
+	
+	private String overallUtilizationSuggestedReason;
 
 	List<SMLevelFoodCategoryDto> smLevelFoodCategoryDtoList;
 
