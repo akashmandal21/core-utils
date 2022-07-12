@@ -16,4 +16,5 @@ public class MoveInDateBannerDto {
     private Long daysLeft;
     private Boolean isFirstAttempt;
     private Boolean attemptLeft;
+    private Integer chancesLeft;
 }
