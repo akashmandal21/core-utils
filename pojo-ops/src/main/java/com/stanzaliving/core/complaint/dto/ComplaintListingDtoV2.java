@@ -39,4 +39,5 @@ public class ComplaintListingDtoV2 {
 	private String ticketStatus;
 	private Boolean isResolved;
 	private Date resolvedAt;
+	private Boolean removeSatisfied;
 }

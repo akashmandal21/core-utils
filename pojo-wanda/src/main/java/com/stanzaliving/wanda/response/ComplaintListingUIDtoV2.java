@@ -50,4 +50,6 @@ public class ComplaintListingUIDtoV2 {
 	private Boolean isResolved;
 
 	private Date resolvedAt;
+
+	private Boolean removeSatisfied;
 }
