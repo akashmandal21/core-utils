@@ -15,6 +15,10 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
+
 /**
  * @author naveen.kumar
  *
@@ -68,4 +72,8 @@ public class EstateDto extends AbstractDto {
 	private String brandType;
 
 	private String competitorName;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date propertyApprovalTime;
+
 }

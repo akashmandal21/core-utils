@@ -91,6 +91,6 @@ public class CounterServiceImpl implements CounterService{
 	@Transactional
 	private CounterKeyEntity createCategoryRow(CategoryKey categoryKey){
 		log.info(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
-		return countRepository.save(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
+		return countRepository.saveAndFlush(CounterKeyEntity.builder().key(categoryKey.getKey()).count(categoryKey.getInitialValue()).build());
 	}
 }

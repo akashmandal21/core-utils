@@ -1,14 +1,16 @@
 package com.stanzaliving.core.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
-@Data
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class TransactionMigrationForDate {
+
     Date transactionDate;
 }

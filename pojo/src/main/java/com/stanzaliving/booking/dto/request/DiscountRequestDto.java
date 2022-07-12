@@ -21,4 +21,6 @@ public class DiscountRequestDto {
     private Double discountRequested;
 
     private Double oldDiscountBeforeModification;
+
+    private Double discountValueAppliedAfterStrategy;
 }

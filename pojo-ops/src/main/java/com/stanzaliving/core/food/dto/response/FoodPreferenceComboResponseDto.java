@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.response;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
@@ -20,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodPreferenceComboResponseDto {
+public class FoodPreferenceComboResponseDto implements Serializable {
 	private String residenceFoodMenuId;
 	private boolean defaultMenu;
 	private boolean selected;

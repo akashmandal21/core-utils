@@ -7,6 +7,7 @@ package com.stanzaliving.website.request.dto;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.stanzaliving.website.response.dto.ApartmentRoomTypeResponseDTO;
 import com.stanzaliving.website.response.dto.ResidenceOccupancyResponseDTO;
 
 import lombok.AllArgsConstructor;
@@ -31,7 +32,11 @@ public class ResidenceOccupancyRequestDTO {
 	private int residenceId;
 	private int startingPrice;
 	private String pricingPlan;
+	private Integer discountPercentage;
+	private Integer discountedPrice;
 
 	@Builder.Default
 	private Set<ResidenceOccupancyResponseDTO> residenceOccupancies = new HashSet<>(0);
+	
+	private Set<ApartmentRoomTypeResponseDTO> apartmentRoomTypes;
 }

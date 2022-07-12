@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import com.stanzaliving.core.base.enums.Department;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -309,6 +310,32 @@ public abstract class TemplateProcessor {
                     throw new StanzaException("Internal Error Occurred");
             }
             boolean needed = templateField.isMandatory() && !isDraft;
+            if(FieldOptionProvider.poBOQLabelProvider == templateField.getOptionProvider() && additionalData.get("department") == Department.OPS) {
+                needed = true && !isDraft;
+            }
+            else if(FieldOptionProvider.poBOQLabelProvider == templateField.getOptionProvider()
+                    && ((additionalData.get("department") != Department.PROCUREMENT && additionalData.get("department") != Department.GC)
+                    || (Objects.nonNull(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue()) && !(ValueAdapters.getValue(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE"))))) {
+                needed = false;
+            }
+            else if(FieldOptionProvider.poBOQLabelProvider == templateField.getOptionProvider() &&
+                    (additionalData.get("department") == Department.PROCUREMENT || additionalData.get("department") == Department.GC) &&
+                    (Objects.nonNull(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue()) && (ValueAdapters.getValue(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE")))) {
+                needed = true && !isDraft;
+            }
+            if(FieldOptionProvider.toBOQLabelProvider == templateField.getOptionProvider() && additionalData.get("department") == Department.OPS) {
+                needed = true && !isDraft;
+            }
+            else if((FieldOptionProvider.toBOQLabelProvider == templateField.getOptionProvider() || FieldOptionProvider.toExpenseTypeProvider == templateField.getOptionProvider())
+                    && ((additionalData.get("department") != Department.PROCUREMENT && additionalData.get("department") != Department.GC)
+                    || (Objects.nonNull(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue()) && !(ValueAdapters.getValue(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE"))))) {
+                needed = false;
+            }
+            else if((FieldOptionProvider.toBOQLabelProvider == templateField.getOptionProvider() || FieldOptionProvider.toExpenseTypeProvider == templateField.getOptionProvider()) &&
+                    (additionalData.get("department") == Department.PROCUREMENT || additionalData.get("department") == Department.GC) &&
+                    (Objects.nonNull(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue()) && (ValueAdapters.getValue(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE")))) {
+                needed = true && !isDraft;
+            }
             boolean dataPresent = mainDataPresent && Objects.nonNull(data.get(templateField.getFieldName())) && (!data.get(templateField.getFieldName()).isNull());
             FieldType subFieldType = templateField.getFieldSubType();
 
@@ -661,6 +688,7 @@ public abstract class TemplateProcessor {
         boolean editable = checkIfEditable(templateField,additionalData);
 
         Object defaultValue = templateField.getDefaultValue();
+        Object minValue = templateField.getMinValue();
 
         UiField uiField = UiField.builder()
                 .fieldName(templateField.getFieldName())
@@ -674,6 +702,7 @@ public abstract class TemplateProcessor {
                 .validator(templateField.getValidator())
                 .regex(templateField.getRegex())
                 .options(templateField.getOptions())
+                .minValue(objectMapper.valueToTree(templateField.getMinValue()))
                 .build();
         if (editable && Objects.nonNull(templateField.getOptionProvider()) && (templateField.getUiType() == UIFieldType.OPTION_LIST ||
                 templateField.getUiType() == UIFieldType.OPTION_LIST_MS || templateField.getUiType() == UIFieldType.OPTION_LIST_ARR))
