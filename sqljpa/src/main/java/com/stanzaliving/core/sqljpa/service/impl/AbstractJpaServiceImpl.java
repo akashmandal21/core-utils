@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -157,7 +158,10 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 		return getJpaRepository().findByUuidIn(uuids);
 	}
 
-
+	@Override
+	public Optional<T> findFirstByUuidAndStatus(String uuid, boolean status){
+		return 	getJpaRepository().findByUuidAndStatus(uuid,status);
+	}
 
 	@Override
 	public List<T> findByUuidInAndStatus(Collection<String> uuids, boolean status) {

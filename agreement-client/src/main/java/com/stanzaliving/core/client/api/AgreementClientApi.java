@@ -170,6 +170,7 @@ public class AgreementClientApi {
 			uriVariables.put("referenceId", referenceId);
 
 			String path = UriComponentsBuilder.fromPath("/internal/agreements/{referenceId}").buildAndExpand(uriVariables)
+			//String path = UriComponentsBuilder.fromPath("/internal/get/{referenceId}").buildAndExpand(uriVariables)
 					.toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -191,5 +192,4 @@ public class AgreementClientApi {
 		return null;
 
 	}
-
 }

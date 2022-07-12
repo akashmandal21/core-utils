@@ -45,8 +45,10 @@ public enum ResidenceAttributes {
     EMI_ENABLED("EMI Enabled","Boolean"),
 
     BOOKING_START_DATE("Booking Start Date", "Date"),
-    PRE_BOOKING_START_DATE("Pre-Booking Start Date", "Date");
-	
+    PRE_BOOKING_START_DATE("Pre-Booking Start Date", "Date"),
+
+    UNDERWRITE_FINANCE("Underwrite Price", "Double");
+
     private String label;
     private String type;
 

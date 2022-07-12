@@ -10,7 +10,7 @@ import java.util.*;
 @AllArgsConstructor
 public enum BookingStatus {
 
-	DRAFT("DRAFT"),
+    DRAFT("DRAFT"),
     IN_PROGRESS("IN PROGRESS"),
     EXPIRED("EXPIRED"),
     SHARED_WITH_RESIDENT("SHARED WITH RESIDENT"),
@@ -21,7 +21,7 @@ public enum BookingStatus {
     ONBOARDING_IN_PROGRESS("ONBOARDING IN PROGRESS"),
     ONBOARDING_COMPLETED("ONBOARDING COMPLETED"),
     CANCELLED("CANCELLED"),
-    TRESSPASSER("TRESSPASSER"),
+    TRESSPASSER("TRESPASSER"),
     BOOKING_FORFEITURE("BOOKING FORFEITURE"),
     RENT_DEFAULTER_PAID("DEFAULTER PAID"),
     RENT_DEFAULTER_UNPAID("DEFAULTER UNPAID"),
@@ -357,6 +357,16 @@ public enum BookingStatus {
     public static List<BookingStatus> bookingEligibleForContractTerminationStatus() {
         List<BookingStatus> bookingStatus = new ArrayList<>();
         bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED);
+        return bookingStatus;
+    }
+
+    public static List<BookingStatus> EXIT_NOT_ALLOWED_STATUS() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT);
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT);
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
         return bookingStatus;
     }
 }

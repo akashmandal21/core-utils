@@ -12,7 +12,7 @@ import java.util.Set;
 public enum BookingSubStatus {
 
 
-	IN_PROGRESS("IN PROGRESS"),
+    IN_PROGRESS("IN PROGRESS"),
     NEEDS_ATTENTION("NEEDS ATTENTION"),
     COLLECT_PAYMENT_FROM_RESIDENT("COLLECT PAYMENT FROM RESIDENT"),
     PERSONAL_DETAILS_PENDING("PERSONAL DETAILS PENDING"),
@@ -37,7 +37,7 @@ public enum BookingSubStatus {
     SECONDARY_SIGNING_PENDING("SECONDARY SIGNING PENDING"),
     COMMERCIAL_DETAILS_PENDING("COMMERCIAL DETAILS PENDING"),
     PAYMENT_PENDING("PAYMENT PENDING");
-	
+
     private String bookingSubStatus;
 
     public static Set<String> bookingNeedsAttention() {
