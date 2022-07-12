@@ -1109,7 +1109,7 @@ public class BookingDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, bookingUuids, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, bookingUuids, headerParams, accept, returnType);
     }
 
 }
