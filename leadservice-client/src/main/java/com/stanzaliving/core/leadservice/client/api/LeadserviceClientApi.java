@@ -577,7 +577,7 @@ public class LeadserviceClientApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<String> updateGuestLead(com.stanzaliving.leadservice.LeadRequestDto leadRequestDto) {
+    public ResponseDto<String> updateGuestLead(com.stanzaliving.leadService.LeadRequestDto leadRequestDto) {
         log.info("LeadRequestDto while creating the guest lead {}", leadRequestDto);
 
         Object postBody = leadRequestDto;
