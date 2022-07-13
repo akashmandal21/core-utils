@@ -5,7 +5,6 @@ import lombok.*;
 @Builder
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class SmsInfo {
     private String dltTemplateId;
