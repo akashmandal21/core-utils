@@ -29,5 +29,4 @@ public class CampaignAttributes {
 	public final String BOOKING_SUBSTATUS = "bookingSubStatus";
 	public final String MOVENIN ="moveIn";
 	public final String CATEGORY_NAME ="categoryName";
-
 }
