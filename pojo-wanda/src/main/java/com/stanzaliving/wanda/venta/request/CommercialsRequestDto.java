@@ -22,4 +22,5 @@ public class CommercialsRequestDto {
     private BookingType bookingType;
     private MaintenanceFeeType maintenanceFeeSelectionId;
     private boolean isMoveInDateChange=false;
+    private String lockInEndDate;
 }
