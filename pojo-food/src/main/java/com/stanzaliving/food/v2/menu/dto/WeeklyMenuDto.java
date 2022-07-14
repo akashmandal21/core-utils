@@ -64,6 +64,8 @@ public class WeeklyMenuDto extends AbstractDto {
     private boolean compositionRulesSatisfied;
     private boolean comboRulesSatisfied;
     private boolean budgetUtilizationInLimit;
+    private boolean weeklyBudgetUtilizationInLimit;
+    private String weeklyBudgetUtilizationInMessage;
     private boolean hybridMealRuleSatisfied;
     private boolean mealOfDayDefined;
     private boolean menuDefined;
