@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class InternetAttendanceDto {
 	
-	private String userId;
+	private List<String> userId;
 	
 	private List< InternetSessionDto> internetSessionDtos;
 
