@@ -23,5 +23,4 @@ public class LeadPaymentResponseDto {
     private String uuid;
     private PaymentMode paymentMode;
     private Date updatedAt;
-
 }
