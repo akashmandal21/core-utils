@@ -41,7 +41,6 @@ public enum BookingStatus {
     GUEST_AGREEMENT_SENT("GUEST AGREEMENT SENT"),
     GUEST_ONBOARDING_PENDING("GUEST ONBOARDING PENDING"),
     GUEST_ONBOARDING_COMPLETED("GUEST ONBOARDING COMPLETED");
-
     private String bookingStatus;
 
     public static List<BookingStatus> bookingEligibleForExpirationStatus() {

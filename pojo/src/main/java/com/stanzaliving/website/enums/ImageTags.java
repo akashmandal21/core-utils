@@ -15,7 +15,7 @@ public enum ImageTags {
 	LOBBY("Lobby"),
 	RECEPTION("Reception"),
 	ROOM("Room"),
-	WASHROOM("Washroom"), 
+	WASHROOM("Washroom"),
 	BALCONY("Balcony"), 
 	FACADE("Facade"),
 	OTHERS("Others");
