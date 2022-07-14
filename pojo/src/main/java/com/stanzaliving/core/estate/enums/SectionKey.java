@@ -36,7 +36,7 @@ public enum SectionKey {
 	WASHROOM("Washroom", "washroom", TemplateParentKey.OTHERS, Boolean.TRUE, Boolean.FALSE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
 	OPERATIONAL_PERIOD("Operational Period", "operationalPeriod", TemplateParentKey.OTHERS,Boolean.TRUE,Boolean.FALSE,Arrays.asList(DURATION,REMARKS,INPUT_VALUE,IMAGE)),
 	GENDER("Gender","propertyBasicDetailsGender", TemplateParentKey.OTHERS, Boolean.TRUE, Boolean.TRUE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
-	BEVERAGES("Beverages","beverages", TemplateParentKey.OTHERS, Boolean.TRUE, Boolean.TRUE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
+	BEVERAGES("Beverages (tea + coffee + milk)","beverages", TemplateParentKey.OTHERS, Boolean.TRUE, Boolean.TRUE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
 	PANEER("Paneer","paneer", TemplateParentKey.OTHERS, Boolean.TRUE, Boolean.TRUE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
 	FRUITS("Fruits","fruits", TemplateParentKey.OTHERS, Boolean.TRUE, Boolean.TRUE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
 	BREAD_BUTTER_AND_JAM("Bread, Butter & Jam","breadButterAndJam", TemplateParentKey.OTHERS, Boolean.TRUE, Boolean.TRUE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
