@@ -100,6 +100,7 @@ public enum SupplyChainEvents {
         parentSCEvents.put(VENDOR_REJECTED, Arrays.asList(PO_APPROVAL));
 
         scDltTemplateMap.put(PO_APPROVAL, new SmsInfo("1707165702399427199","PARTNER", "Dear Partner, a new Purchase Order has been raised by Stanza Living. Please login here to accept the purchase order: www.partner.stanzaliving.com"));
+        scDltTemplateMap.put(VENDOR_ACCEPTED, new SmsInfo("1707165702407186517","SL", "Dear <createdBy> purchase order <poNumber> has been accepted by Partner <companyName>. Click here for the next steps: https://nucleus.stanzaliving.com/login"));
     }
 
 
