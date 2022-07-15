@@ -52,6 +52,8 @@ public class ResidentFoodFeedbackDto {
 
 	private String imageUrl;
 
+	private String notificationId;
+
 	private List<ResidentFoodItemFeedbackDto> foodItemFeedbackDtos;
 
 	private Map<Integer, List<ResidentMealFeedbackOptions>> ratingWiseMealFeedbackOptions;
