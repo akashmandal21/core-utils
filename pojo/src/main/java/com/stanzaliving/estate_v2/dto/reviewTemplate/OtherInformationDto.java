@@ -9,4 +9,5 @@ public class OtherInformationDto {
     private String label;
     private String variableName;
     private String icon;
+    private String urlInfo;
 }
