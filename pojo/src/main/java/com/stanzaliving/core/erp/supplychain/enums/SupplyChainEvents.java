@@ -105,6 +105,9 @@ public enum SupplyChainEvents {
         scDltTemplateMap.put(PO_CANCELLED, new SmsInfo("1707165702414603261","PARTNER", "Dear Partner, purchase order <poNumber> has been canceled by <submittedBy>. For further information, please check here: www.partner.stanzaliving.com"));
         scDltTemplateMap.put(PO_SHORTCLOSE_SUBMIT, new SmsInfo("1707165702495326775","SL", "Dear <createdBy>, <companyName> has requested to short close the purchase order <poNumber>. To know more, click here: https://nucleus.stanzaliving.com/login"));
         scDltTemplateMap.put(GSRI_INSTALL, new SmsInfo("1707165702505158991","PARTNER", "Dear partner, <grnPercentage>% of GRN for purchase order <poNumber> has been received at Stanza Living. Kindly login to see the details. Click here to know more: www.partner.stanzaliving.com"));
+        scDltTemplateMap.put(REG_INV_SUBMITTED, new SmsInfo("1707165702516482670","SL", "Dear <createdBy> Invoice <invoiceNumber> has been submitted by <companyName>. Click here to know the details: https://nucleus.stanzaliving.com/login"));
+        scDltTemplateMap.put(REG_INV_REJECTED, new SmsInfo("1707165702524817239","PARTNER", "Dear partner, your invoice <invoiceNumber> has been rejected by Stanza Living. Kindly login to know the reason: www.partner.stanzaliving.com"));
+        scDltTemplateMap.put(REG_INV_PAYMENT, new SmsInfo("1707165702531440336","SL", "Dear partner, payment of <amountPaid> has been made against your invoice no. <invoiceNumber> by Stanza Living. To see the details, please click here: www.partner.stanzaliving.com"));
 
     }
 
