@@ -26,6 +26,9 @@ public class WebsiteSearchResultsDto extends PageResponse<WebsiteSearchResultsDt
 	private static final long serialVersionUID = 1L;
 
 	@JsonInclude(value = Include.NON_NULL)
+	private List<ResidenceListingCardDto> residenceResponseShortDTOs;
+
+	@JsonInclude(value = Include.NON_NULL)
 	private List<ResidenceListingCardDto> residenceResponseShortDTOsPg;
 	
 	@JsonInclude(value = Include.NON_NULL)
