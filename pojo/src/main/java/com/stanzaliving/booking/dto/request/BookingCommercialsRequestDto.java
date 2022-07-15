@@ -39,4 +39,13 @@ public class BookingCommercialsRequestDto implements Serializable {
 	@Valid
 	private ServicePriceDto vasPriceDto;
 
+	@Valid
+	private ServicePriceDto accommodationPriceDto;
+
+	@Valid
+	private ServicePriceDto upsellPriceDto;
+
+	@Valid
+	private ServicePriceDto cityBufferPriceDto;
+
 }
