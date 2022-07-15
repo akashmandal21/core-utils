@@ -14,7 +14,7 @@ public class ResidenceListingPageResponse extends PageResponse<ResidenceListingP
 
 	private static final long serialVersionUID = 1L;
 
-	private List<ResidenceListingCardDto> residenceListingCardDtos;
+	private List<ResidenceListingCardDto> residenceResponseShortDTOs;
 
 	private List<Integer> residenceIdsToShowMapPin;
 }
