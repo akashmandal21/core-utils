@@ -33,7 +33,7 @@ public enum PropertyAction {
     SENT_TO_LEGAL_FOR_APPROVAL("Sent To Legal For Approval", "f7aadf22-0428-11ec-9a03-0242ac130006", "SENT_TO_LEGAL_FOR_APPROVAL"),
     SENT_TO_SUNIL("Sent To Sunil", "f0cf6014-3205-4bb6-b706-bd38f8d46f59", "SENT_TO_SUNIL"),
     SENT_TO_CH("L1 Sent To CH", "f7aae0a6-0428-11ec-9a03-0242ac130003", "SENT_TO_CH"),
-    SENT_TO_TITLE_DOCS("", "60e22f82-de09-41d7-8cbd-b0f38ca3911a", "Pending Legal for Title Docs Approval"),
+    SENT_TO_TITLE_DOCS("Pending Legal for Title Docs Approval", "60e22f82-de09-41d7-8cbd-b0f38ca3911a", "SENT_TO_TITLE_DOCS"),
 
     // Kitchen Flow
 
