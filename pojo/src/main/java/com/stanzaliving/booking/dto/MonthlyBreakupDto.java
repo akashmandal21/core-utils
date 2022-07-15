@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 
@@ -37,5 +38,14 @@ public class MonthlyBreakupDto implements Serializable {
     private ServicePriceDto foodServicePriceDto;
 
     private List<ServicePriceDto> vasPriceDto;
+
+//    @Valid
+    private ServicePriceDto accommodationPriceDto;
+
+//    @Valid
+    private ServicePriceDto upsellPriceDto;
+
+//    @Valid
+    private ServicePriceDto cityBufferPriceDto;
 
 }
