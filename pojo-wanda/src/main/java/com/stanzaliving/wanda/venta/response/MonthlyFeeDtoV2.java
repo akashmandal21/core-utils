@@ -16,4 +16,5 @@ public class MonthlyFeeDtoV2 {
     private Double packedServicesFee;
     private Double foodServicesFee;
     private Set<ResidenceServiceDtoV2> valueAddedServices;
+    private Double accommodationCharge;
 }
