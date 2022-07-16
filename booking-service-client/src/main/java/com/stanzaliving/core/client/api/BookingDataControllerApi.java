@@ -12,6 +12,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.bookingservice.dto.request.GuestRequestPayloadDto;
 import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto;
+import com.stanzaliving.core.bookingservice.dto.response.GstDto;
 import com.stanzaliving.core.bookingservice.dto.response.PackagedServiceResponseDto;
 import com.stanzaliving.core.client.dto.*;
 import com.stanzaliving.ledger.dto.UpcomingBookingsDto;
@@ -1000,7 +1001,7 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
 
-    public ResponseDto<Map<String, String>> getGstDetails(String amount) {
+    public ResponseDto<List<GstDto>> getGstDetails(String amount) {
         final Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/applicable-gst-details").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -1008,7 +1009,7 @@ public class BookingDataControllerApi {
         final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<Map<String, String>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, String>>>() {
+        ParameterizedTypeReference<ResponseDto<List<GstDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GstDto>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
