@@ -15,8 +15,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class BookingCommercialsRequestDto implements Serializable {
 
-	@Min(value = 1, message = "license fee cannot be negative or zero")
-	private Double licenseFee;
+	@Builder.Default
+	private Double licenseFee =0.0;
 
 	@Builder.Default
 	private Double conversionPrice = 0.0;
@@ -41,5 +41,14 @@ public class BookingCommercialsRequestDto implements Serializable {
 
 	@Valid
 	private ServicePriceDto vasPriceDto;
+
+	@Valid
+	private ServicePriceDto accommodationPriceDto;
+
+	@Valid
+	private ServicePriceDto upsellPriceDto;
+
+	@Valid
+	private ServicePriceDto cityBufferPriceDto;
 
 }

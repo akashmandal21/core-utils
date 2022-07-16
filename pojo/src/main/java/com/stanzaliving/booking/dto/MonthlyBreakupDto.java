@@ -36,4 +36,12 @@ public class MonthlyBreakupDto implements Serializable {
 
     private List<ServicePriceDto> vasPriceDto;
 
+    private ServicePriceDto accommodationPriceDto;
+
+    private ServicePriceDto upsellPriceDto;
+
+    private ServicePriceDto cityBufferPriceDto;
+
+
+
 }
