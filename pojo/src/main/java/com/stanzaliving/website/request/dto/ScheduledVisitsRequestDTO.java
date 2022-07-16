@@ -4,6 +4,9 @@
  */
 package com.stanzaliving.website.request.dto;
 
+import java.util.List;
+
+import com.stanzaliving.website.dto.RefferalListDto;
 import com.stanzaliving.website.enums.Gender;
 
 import lombok.AllArgsConstructor;
@@ -60,6 +63,7 @@ public class ScheduledVisitsRequestDTO {
 	private String utmAdformat;
 	private int commissionEarned;
 	private Gender gender;
+    private List<RefferalListDto> refferalList;
 	private String visitDate;
 	private int leadModeId;
 	private String leadMode;
