@@ -1,5 +1,6 @@
 package com.stanzaliving.core.erp.supplychain.enums;
 
+import com.stanzaliving.core.erp.supplychain.dto.SmsInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -68,6 +69,7 @@ public enum SupplyChainEvents {
     }
 
     private static Map<SupplyChainEvents, List<SupplyChainEvents>> parentSCEvents = new HashMap<>();
+    private static Map<SupplyChainEvents, SmsInfo> scDltTemplateMap = new HashMap<>();
 
     static {
         parentSCEvents.put(PO_APPROVAL, Arrays.asList(PO_APPROVAL,PO_SUBMITTED));
@@ -93,11 +95,31 @@ public enum SupplyChainEvents {
 
         parentSCEvents.put(REG_INV_PAYMENT_COMPLETE, Arrays.asList(REG_INV_SUBMITTED));
         parentSCEvents.put(ADV_PAYMENT_COMPLETE, Arrays.asList(ADV_INV_APPROVED));
+
+        parentSCEvents.put(VENDOR_ACCEPTED, Arrays.asList(PO_APPROVAL));
+        parentSCEvents.put(VENDOR_REJECTED, Arrays.asList(PO_APPROVAL));
+
+        scDltTemplateMap.put(PO_APPROVAL, new SmsInfo("1707165702399427199","PARTNER", "Dear Partner, a new Purchase Order has been raised by Stanza Living. Please login here to accept the purchase order: www.partner.stanzaliving.com"));
+        scDltTemplateMap.put(VENDOR_ACCEPTED, new SmsInfo("1707165702407186517","SL", "Dear <createdBy> purchase order <poNumber> has been accepted by Partner <companyName>. Click here for the next steps: https://nucleus.stanzaliving.com/login"));
+        scDltTemplateMap.put(VENDOR_REJECTED, new SmsInfo("1707165702430365902","SL", "Dear <createdBy>. Purchase Order <poNumber> has been rejected by the <companyName>. Click here: https://nucleus.stanzaliving.com/login to know the details."));
+        scDltTemplateMap.put(PO_CANCELLED, new SmsInfo("1707165702414603261","PARTNER", "Dear Partner, purchase order <poNumber> has been canceled by <submittedBy>. For further information, please check here: www.partner.stanzaliving.com"));
+        scDltTemplateMap.put(PO_SHORTCLOSE_SUBMIT, new SmsInfo("1707165702495326775","SL", "Dear <createdBy>, <companyName> has requested to short close the purchase order <poNumber>. To know more, click here: https://nucleus.stanzaliving.com/login"));
+        scDltTemplateMap.put(GSRI_INSTALL, new SmsInfo("1707165702505158991","PARTNER", "Dear partner, <grnPercentage>% of GRN for purchase order <poNumber> has been received at Stanza Living. Kindly login to see the details. Click here to know more: www.partner.stanzaliving.com"));
+        scDltTemplateMap.put(REG_INV_SUBMITTED, new SmsInfo("1707165702516482670","SL", "Dear <createdBy> Invoice <invoiceNumber> has been submitted by <companyName>. Click here to know the details: https://nucleus.stanzaliving.com/login"));
+        scDltTemplateMap.put(REG_INV_REJECTED, new SmsInfo("1707165702524817239","PARTNER", "Dear partner, your invoice <invoiceNumber> has been rejected by Stanza Living. Kindly login to know the reason: www.partner.stanzaliving.com"));
+        scDltTemplateMap.put(REG_INV_PAYMENT, new SmsInfo("1707165702531440336","SL", "Dear partner, payment of <amountPaid> has been made against your invoice no. <invoiceNumber> by Stanza Living. To see the details, please click here: www.partner.stanzaliving.com"));
+
     }
 
 
     public static List<SupplyChainEvents> getPossibleEvents(SupplyChainEvents currentSupplyChainEvents) {
         return parentSCEvents.get(currentSupplyChainEvents);
+    }
+
+    public static SmsInfo getDLTTemplateID(SupplyChainEvents supplyChainEvents) {
+        if(scDltTemplateMap.containsKey(supplyChainEvents))
+            return scDltTemplateMap.get(supplyChainEvents);
+        return null;
     }
 
     private static List<SupplyChainEvents> invoiceSupplyChainEvents = Arrays.asList(SupplyChainEvents.ADV_INV_SUBMITTED, SupplyChainEvents.ADV_INV_APPROVAL,
