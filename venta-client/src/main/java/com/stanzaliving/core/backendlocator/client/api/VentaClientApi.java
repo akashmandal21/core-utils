@@ -4,15 +4,16 @@
 package com.stanzaliving.core.backendlocator.client.api;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.dto.TransactionMigrationForDate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -27,7 +28,9 @@ import com.stanzaliving.core.leaddashboard.dto.LeadDetailsDto;
 import com.stanzaliving.core.payment.dto.PreBookingRefundDto;
 import com.stanzaliving.venta.BedCountDetailsDto;
 import com.stanzaliving.venta.DeadBedCountDto;
+import com.stanzaliving.venta.ResidenceRoomDetails;
 import com.stanzaliving.website.constants.WebsiteConstants;
+import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.VentaSyncDataResponseDTO;
 
 import lombok.extern.log4j.Log4j2;
@@ -106,7 +109,8 @@ public class VentaClientApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, null, returnType);
 		} catch (Exception e) {
-			log.error("Error while getting user Details from Core by userCode: {}", residentCode, e);
+			log.error("Error while getting user Details from Core by userCode: {}", residentCode);
+			//log.error("Error while getting user Details from Core by userCode: {}", residentCode, e.getMessage());
 		}
 		return null;
 	}
@@ -218,6 +222,34 @@ public class VentaClientApi {
 		return roomNumberList;
 	}
 	
+	public List<ResidenceRoomDetails> getRoomDetailsForResidence(String residenceUuid) {
+		Object postBody = null;
+
+		List<ResidenceRoomDetails> roomNumberList = new ArrayList<>();
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceUuid", residenceUuid);
+		String path = UriComponentsBuilder.fromPath("/residence/roomInfo/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<ResidenceRoomDetails>> returnType = new ParameterizedTypeReference<List<ResidenceRoomDetails>>() {
+		};
+
+		try {
+			roomNumberList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching room numbers list for residence {} ", residenceUuid);
+		}
+
+		return roomNumberList;
+	}
+
 	public Map<String, Object> getBookingDetails(int bookingId) {
 
 		Object postBody = null;
@@ -422,6 +454,36 @@ public class VentaClientApi {
 		}
 		return null;
 	}
+
+	public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("prebooking/refund/fetch/eligible/leads").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("phone", phone);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.add("Authorization", WebsiteConstants.IMS_DEFAULT_BEARER_TOKEN);
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, null, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching prebooked refund eligible leads {}", e);
+			return null;
+		}
+	}
+
 	public String migrateTransactionForDate(String token ,TransactionMigrationForDate requestDto)  {
 
 		Object postBody = requestDto;
@@ -445,6 +507,5 @@ public class VentaClientApi {
 				new ParameterizedTypeReference<String>() {};
 
 		return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-
 	}
 }

@@ -1,21 +1,26 @@
 package com.stanzaliving.genericdashboard.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Builder
 @AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
 public class QuestionPageDto {
 
     private Integer pageNumber;
 
+    @Builder.Default
     private boolean hasLogical = false;
 
-    private List<QuestionsDto> questionsDtoList;
+    @Builder.Default
+    private List<QuestionsDto> questionsDtoList=new ArrayList<>();
 }

@@ -9,6 +9,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 /**
  * @author raj.kumar
  *
@@ -30,4 +33,6 @@ public class PropertyDto {
 	private String addedBy;
 	private String colorCode;
 	private String houseName;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date propertyApprovalTime;
 }

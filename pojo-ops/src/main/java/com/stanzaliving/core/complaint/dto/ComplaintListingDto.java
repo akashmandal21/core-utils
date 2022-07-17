@@ -32,6 +32,7 @@ public class ComplaintListingDto {
 	private String roomNo;
 	private String complaintUuid;
 	private String complaintCategory;
+	private String complaintSubCategoryName;
 	private String complaintStatus;
 	private Date created;
 	private Date closedAt;

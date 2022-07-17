@@ -76,6 +76,7 @@
         <module>recon-client</module>
 		<module>ops-calculator-client</module>
         <module>notification-client</module>
+		<module>survey-client</module>
         <module>shortUrl-client</module>
 		<module>inventory-client</module>
 		<module>generic-po-client</module>
@@ -103,7 +104,14 @@
         <module>audit-service-client</module>
         <module>vault-service-client</module>
         <module>venta-notification-client</module>
-	</modules>
+        <module>security-service</module>
+        <module>mail-client</module>
+        <module>support-client</module>
+	    	<module>backend-locator-client</module>
+        <module>phoenix-client</module>
+        <module>qna-client</module>
+		    <module>analytic-logs</module>
+    </modules>
 
 	<build>
 		<plugins>

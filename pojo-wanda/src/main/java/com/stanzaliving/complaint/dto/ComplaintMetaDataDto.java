@@ -8,17 +8,14 @@ import javax.validation.constraints.NotBlank;
 import com.stanzaliving.complaint.enums.EnumComplaintStatus;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @ToString(callSuper = true)
 @NoArgsConstructor
+@AllArgsConstructor
 @SuperBuilder
 public class ComplaintMetaDataDto extends AbstractDto {
 
@@ -80,5 +77,8 @@ public class ComplaintMetaDataDto extends AbstractDto {
 	private String userType;
 	
 	private Boolean satisfied;
+
+	// added field to store ticket id for Support Service
+	private String customTicketId;
 
 }

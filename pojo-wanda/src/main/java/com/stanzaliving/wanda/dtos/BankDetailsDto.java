@@ -25,6 +25,8 @@ public class BankDetailsDto {
 	
 	@NotEmpty
 	private String benefeciaryName;
+	
+	private String fullName;
 
 	private String razorpayId;
 
@@ -43,4 +45,6 @@ public class BankDetailsDto {
 	
 	@Builder.Default
 	private Boolean isPreferred = Boolean.FALSE;
+	
+	private String residentId;
 }

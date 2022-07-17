@@ -1,5 +1,6 @@
 package com.stanzaliving.core.electricity.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
@@ -25,6 +26,8 @@ public class ElectricityReadingDto extends AbstractDto {
 	private Double reading;
 
 	private Date time;
+	
+	private LocalDate readingDate;
 
 	private String image;
 
@@ -33,5 +36,7 @@ public class ElectricityReadingDto extends AbstractDto {
 	private String unitTypeName;
 
 	private boolean mandatoryDay;
-
+	
+	private Double unitBalance;
+	
 }
