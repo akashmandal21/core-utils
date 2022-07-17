@@ -10,6 +10,7 @@ import java.util.Objects;
 
 import com.stanzaliving.core.payment.dto.PaymentTransactionRequestDto;
 import com.stanzaliving.core.payment.enums.PaymentMode;
+import com.stanzaliving.paymentService.dto.PaymentEntityDto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -25,7 +26,6 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.payment.dto.PaymentDto;
 import com.stanzaliving.core.payment.dto.TransactionDto;
 import com.stanzaliving.core.payment.dto.TransactionInitiateDto;
-import com.stanzaliving.core.payment.enums.PaymentMode;
 import com.stanzaliving.core.payment.enums.PaymentStatus;
 import com.stanzaliving.core.payment.enums.ReferenceType;
 import com.stanzaliving.core.payment.enums.StanzaPaymentService;
@@ -296,6 +296,52 @@ public class TransactionControllerApi {
 					returnType);
 		} catch (Exception e) {
 			log.error("Exception while startPaymentReconciliation. Error is {}", e);
+		}
+		return null;
+	}
+
+	public ResponseDto<String> initiateAutoPrebookingRefund(PaymentEntityDto paymentEntityDto) {
+
+		log.info("Called api to initiate auto prebooking refund");
+		Object postBody = paymentEntityDto;
+		String path= UriComponentsBuilder.fromPath("/internal/initiate/auto-prebook-refund").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams=new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
+		};
+		ResponseDto<String> responseDto;
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
+				returnType);
+			return responseDto;
+
+		} catch (Exception e) {
+			log.error("Exception while intitating auto prebooking refund");
+		}
+		return null;
+	}
+
+	public ResponseDto<List<PaymentEntityDto>> getAutoRefundEligiblePrebookings() {
+		log.info("Get all auto prebooking refund eligible leads");
+		Object postBody = null;
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/get/all/auto-refund-eligible-prebooking")
+			.buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<List<PaymentEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PaymentEntityDto>>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
+				returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetch auto refund eligible prebookings. Error is {}", e);
 		}
 		return null;
 	}

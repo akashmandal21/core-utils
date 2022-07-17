@@ -4,6 +4,8 @@ import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.LeadElasticDto;
+import com.stanzaliving.leadService.dto.AutoExpireLeadConfigMapDto;
+import com.stanzaliving.leadService.dto.AutoExpireLeadDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
@@ -443,6 +445,83 @@ public class LeadserviceClientApi {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Exception caused while syncing lead elastic data", e);
+			return null;
+		}
+	}
+
+	public ResponseDto<List<AutoExpireLeadDto>> getLeadsToCheckForInactivity() {
+		log.info("Get leads to check for inactivity");
+
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/all/auto-expire/eligible").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<AutoExpireLeadDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<AutoExpireLeadDto>>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while getting leads to check for inactivity", e);
+			return null;
+		}
+	}
+
+	public ResponseDto<String> expireInactiveLead(AutoExpireLeadDto autoExpireLeadDto) {
+		log.info("Expire inactive Lead : {}", autoExpireLeadDto);
+		Object postBody = autoExpireLeadDto;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/auto-expire/inactive").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while checking for inactive lead or expiring an inactive lead", e);
+			return null;
+		}
+	}
+
+	public ResponseDto<AutoExpireLeadConfigMapDto> getAutoExpireLeadConfigMaps() {
+		log.info("Get auto expire lead config maps");
+
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("/internal/lead/auto-expire/config-maps").toUriString();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<AutoExpireLeadConfigMapDto>> returnType = new ParameterizedTypeReference<ResponseDto<AutoExpireLeadConfigMapDto>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caused while auto expire lead config maps", e);
 			return null;
 		}
 	}
