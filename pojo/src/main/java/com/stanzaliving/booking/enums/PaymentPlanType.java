@@ -13,7 +13,7 @@ public enum PaymentPlanType {
 	SERVICE("Service"),
 	FOOD_SERVICE("Food Service"),
 	SECURITY_DEPOSIT("Security Deposit"),
-	ONBOARDING_CHARGE("OnBoarding Charge"),
+	ONBOARDING_CHARGE("Onboarding Charge"),
 	MAINTENANCE_FEE("Maintenance Fee"),
 	ANNUAL_MAINTENANCE_FEE("Annual Maintenance Fee"),
 	VAS("VAS"),
