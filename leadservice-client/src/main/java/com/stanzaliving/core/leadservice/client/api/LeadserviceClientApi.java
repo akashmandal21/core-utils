@@ -6,6 +6,7 @@ package com.stanzaliving.core.leadservice.client.api;
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.dto.LeadElasticDto;
 import com.stanzaliving.leadService.dto.AutoExpireLeadConfigMapDto;
 import com.stanzaliving.leadService.dto.AutoExpireLeadDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
@@ -649,6 +650,24 @@ public class LeadserviceClientApi {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Exception caused while auto expire lead config maps", e);
+            return null;
+        }
+    }
+
+    public ResponseDto<Void> syncElasticData(LeadElasticDto leadElasticDto) {
+        log.debug("Lead client to lead elastic data");
+        Object postBody = leadElasticDto;
+        String path = UriComponentsBuilder.fromPath("/internal/lead/sync-elastic-data").toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while syncing lead elastic data", e);
             return null;
         }
     }
