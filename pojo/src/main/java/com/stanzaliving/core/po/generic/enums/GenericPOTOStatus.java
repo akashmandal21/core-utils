@@ -101,7 +101,7 @@ public enum GenericPOTOStatus {
         scStatus.addAll(Arrays.asList(SC_L1_APPROVAL_DUE, SC_L2_APPROVAL_DUE, SC_L3_APPROVAL_DUE, SHORTCLOSE_REQUESTED));
         scRejectStatus.addAll(Arrays.asList(SC_L1_REJECTED, SC_L2_REJECTED, SC_L3_REJECTED));
         scAllowedStatus.addAll(Arrays.asList(CANCEL_L1_REJECTED, CANCEL_L2_REJECTED, CANCEL_L3_REJECTED, APPROVED, SHORTCLOSED, SC_L1_REJECTED, SC_L2_REJECTED, SC_L3_REJECTED, VENDOR_ACCEPTED));
-        firstApprovalStatus.addAll(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE, VENDOR_ACCEPTANCE_PENDING));
+        firstApprovalStatus.addAll(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE));
         firstApprovalCycle.addAll(Arrays.asList(IN_DRAFT, L1_SENT_BACK, L2_SENT_BACK, L3_SENT_BACK, L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE, VENDOR_REJECTED));
         firstApprovalRejects.addAll(Arrays.asList(L1_SENT_BACK, L2_SENT_BACK, L3_SENT_BACK, VENDOR_REJECTED));
         approvals.addAll(Arrays.asList(CANCEL_L2_APPROVAL_DUE, CANCEL_L3_APPROVAL_DUE, SC_L2_APPROVAL_DUE, SC_L3_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE, APPROVED, SHORTCLOSED, CANCELLED, VENDOR_ACCEPTANCE_PENDING, VENDOR_ACCEPTED, VENDOR_REJECTED));
@@ -119,7 +119,9 @@ public enum GenericPOTOStatus {
         });
 
         for (GenericPOTOStatus status : firstApprovalStatus) {
-            firstApprovalOrderStatusMap.put(status.getOrder(), status);
+            if(status != VENDOR_ACCEPTANCE_PENDING) {
+                firstApprovalOrderStatusMap.put(status.getOrder(), status);
+            }
         }
     }
 
