@@ -76,7 +76,7 @@ public class ResidenceListingCardDto implements Serializable {
 
 	private String fomoTagcolour;
 
-	private String distanceFromPlace;
+	private Double distanceFromPlace;
 
 	private String transformationUuid;
 
