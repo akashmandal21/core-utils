@@ -296,5 +296,21 @@ public class TransactionControllerApi {
 		}
 		return null;
 	}
-}
 
+	public ResponseDto<Boolean> validatePrebookedLead(String leadPhone, String leadUuid) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/validate/prebooked/lead").buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("leadPhone", leadPhone);
+		queryParams.add("leadUuid", leadUuid);
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		TypeReference<ResponseDto<Boolean>> returnType = new TypeReference<ResponseDto<Boolean>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+	}
+
+}
