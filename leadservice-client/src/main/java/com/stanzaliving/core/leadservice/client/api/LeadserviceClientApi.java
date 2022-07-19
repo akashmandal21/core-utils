@@ -630,4 +630,26 @@ public class LeadserviceClientApi {
             return null;
         }
     }
+
+    public ResponseDto<Boolean> checkForHotLead(String phone, String leadUuid) {
+
+        Object postBody = null;
+        String path = UriComponentsBuilder.fromPath("/internal/lead/is-hot-lead").toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if (Objects.nonNull(phone))
+            queryParams.add("phone", phone);
+        if (Objects.nonNull(leadUuid))
+            queryParams.add("leadUuid", leadUuid);
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while auto expire lead config maps", e);
+            return null;
+        }
+    }
 }
