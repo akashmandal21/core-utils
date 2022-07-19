@@ -1,6 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -76,9 +77,8 @@ public class WebsiteMapCardDto implements Serializable {
 
 	@JsonInclude(value = Include.NON_NULL)
 	private String apartmentCitySlug;
-	
-	@JsonInclude(value = Include.NON_NULL)
-	private String roomId;	
+
+	private List<RoomMapCardDto> apartmentRoomTypes;
 	
 	private Integer societyId;
 }
