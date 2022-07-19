@@ -537,7 +537,7 @@ public class UserClientApi {
 		ParameterizedTypeReference<ResponseDto<List<UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserProfileDto>>>() {
 		};
 		try {
-			return restClient.invokeAPI(path, HttpMethod.GET, null, postBody, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.POST, null, userProfileRequestDto, headerParams, accept, returnType);
 		}
 		catch (Exception ex) {
 			log.error("Error occurred while fetching user details from UserId",ex);

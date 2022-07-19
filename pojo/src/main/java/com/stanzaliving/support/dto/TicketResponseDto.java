@@ -1,5 +1,6 @@
 package com.stanzaliving.support.dto;
 
+import com.stanzaliving.core.base.enums.TicketRaisedForType;
 import com.stanzaliving.support.enums.Priority;
 import com.stanzaliving.support.enums.Source;
 import com.stanzaliving.support.enums.TicketSource;
@@ -40,7 +41,8 @@ public class TicketResponseDto {
     private Date createdAt;
 
     private UserResidenceDto raisedFor;
-
+    
+    private TicketRaisedForType raisedForType;
     private String assignedToUuid;
 
     private String assignedTo;

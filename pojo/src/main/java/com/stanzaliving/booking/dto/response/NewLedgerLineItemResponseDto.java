@@ -21,6 +21,8 @@ public class NewLedgerLineItemResponseDto implements Comparable {
 	@JsonIgnore
 	private Integer position = 0;
 
+	private String remarks;
+
 	private Date date;
 
 	private String formattedDate;
