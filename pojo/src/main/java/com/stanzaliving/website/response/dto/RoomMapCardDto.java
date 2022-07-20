@@ -20,4 +20,5 @@ public class RoomMapCardDto implements Serializable {
     private String roomId;
     private String name;
     private Integer startingPrice;
+    private Boolean soldOut;
 }
