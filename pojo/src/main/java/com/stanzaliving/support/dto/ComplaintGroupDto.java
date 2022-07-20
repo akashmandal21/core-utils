@@ -13,13 +13,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ComplaintGroupDto {
-    private int position;
-    private String uuid;
-    private String name;
-    private String description;
-    private String imageUrl;
-    private boolean active;
-    private List<CategoryDto> categories = new ArrayList<>();
+
+        private int position;
+        private String uuid;
+        private String name;
+        private String description;
+        private String imageUrl;
+        private boolean active;
+        private List<CategoryDto> categories = new ArrayList<>();
+
 
     public ComplaintGroupDto(String name, String uuid) {
         this.name = name;
