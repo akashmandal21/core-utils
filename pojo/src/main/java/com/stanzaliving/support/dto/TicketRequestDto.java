@@ -34,7 +34,6 @@ public class TicketRequestDto {
     @NotBlank(message = "Raised for user uuid cannot be blank/null")
     private String raisedFor;
     
-    @NotBlank(message = "Raised for user type cannot be blank/null")
     private TicketRaisedForType raisedForType;
 
     private String assignedToUuid;
