@@ -11,6 +11,7 @@ import com.stanzaliving.food.v2.category.dto.MealWiseMenuDto;
 import com.stanzaliving.food.v2.category.dto.MenuCategoryResidenceRDto;
 import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.menu.constants.MenuStatus;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -76,5 +77,8 @@ public class WeeklyMenuDto extends AbstractDto {
     private FoodMenuBudgetDto budgetRules;
     private List<MenuCategoryResidenceRDto> residences;
     private List<SpecialEventDto> events;
-
+    @Builder.Default
+    private boolean grammageRangeRuleApplied = false;
+    private Double minimumBy;
+    private Double maximumBy;
 }
