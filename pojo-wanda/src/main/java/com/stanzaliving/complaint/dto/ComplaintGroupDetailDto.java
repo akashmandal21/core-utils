@@ -16,6 +16,7 @@ public class ComplaintGroupDetailDto {
 
     @Data
     public static class ComplaintInfo{
+        private String uuid;
         private String label;
         private String key;
         private List<ComplaintInfo> value;
