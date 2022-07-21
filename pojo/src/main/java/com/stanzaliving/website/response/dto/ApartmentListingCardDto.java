@@ -72,6 +72,8 @@ public class ApartmentListingCardDto implements Serializable {
 
 	private Integer preBookingAmount;
 
+	private Integer unlockDiscountAmount;
+
 	//TODO
 	private String preBookingMode;
 
