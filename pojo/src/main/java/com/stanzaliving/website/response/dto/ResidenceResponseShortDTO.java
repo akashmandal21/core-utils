@@ -55,7 +55,6 @@ public class ResidenceResponseShortDTO implements Serializable {
 
 	private Integer preBookingAmount;
 
-	//
 	private Integer unlockDiscountAmount;
 
 	private String preBookingMode;
