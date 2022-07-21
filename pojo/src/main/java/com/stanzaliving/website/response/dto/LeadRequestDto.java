@@ -102,6 +102,9 @@ public class LeadRequestDto {
 	private String moveInDate;
 	private Double reserveAmount;
 
+	private Integer preBookingAmount;
+	private Integer unlockDiscountAmount;
+
 	private String category;
 	private String fbclId;
 	private String creative;
