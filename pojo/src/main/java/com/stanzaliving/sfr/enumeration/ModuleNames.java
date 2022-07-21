@@ -12,15 +12,17 @@ import java.util.List;
 @AllArgsConstructor
 public enum ModuleNames {
 
-    SFR(true, "Site Feasibility Report"),
-    SFR_SUBMISSION(false, "SFR Submission"),
-    ASIS(false, "As-Is Drawings"),
-    ASIS_SUBMISSION(true, "AsIs Submission"),
-    BOQ(false, "BOQ");
+    SFR(true, "Site Feasibility Report", "Site Feasibility Report"),
+    SFR_SUBMISSION(false, "SFR Submission", "Site Feasibility Report"),
+    ASIS(false, "As-Is Drawings", "As-Is Drawings"),
+    ASIS_SUBMISSION(true, "AsIs Submission", "As-Is Drawings"),
+    BOQ(false, "BOQ", "Bill Of Quantities");
 
     private final boolean isQuestionTemplateIdRequired;
 
     private final String name;
+
+    private final String displayName;
 
     public static final List<ModuleNames> moduleNames = Arrays.asList(ASIS, BOQ);//add SFR also in this moduleNames list
 
