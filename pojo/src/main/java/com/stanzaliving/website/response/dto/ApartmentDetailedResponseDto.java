@@ -72,6 +72,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private Integer startingPrice;
 	
 	private Integer preBookingAmount;
+
+	private Integer unlockDiscountAmount;
 	
 	private String preBookingMode;
 	

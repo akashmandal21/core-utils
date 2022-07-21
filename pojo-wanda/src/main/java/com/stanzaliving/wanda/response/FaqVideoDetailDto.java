@@ -12,14 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 @SuperBuilder
 public class FaqVideoDetailDto {
-
-    private String faqName;
-    private FaqInfo faqDetail;
-
-    @Data
-    public static class FaqInfo{
         private List<YoutubeVideoDetailDto> videoDataList;
         private List<ComplaintFAQDto> faqList;
-    }
-
 }
