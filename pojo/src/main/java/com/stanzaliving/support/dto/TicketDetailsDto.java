@@ -34,6 +34,8 @@ public class TicketDetailsDto {
     private TeamDto teamDto;
 
     private UserDetailResponseDto userDetailResponseDto;
+    
+    private UserDto ticketCreatedByUserDetailDto;
 
     private BookingDurationResponseDto bookingDurationResponseDto;
 

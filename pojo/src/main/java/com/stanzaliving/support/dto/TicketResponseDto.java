@@ -42,7 +42,10 @@ public class TicketResponseDto {
 
     private UserResidenceDto raisedFor;
     
+    private UserResidenceDto createdByDetail;
+    
     private TicketRaisedForType raisedForType;
+    
     private String assignedToUuid;
 
     private String assignedTo;
