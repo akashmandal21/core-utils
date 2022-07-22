@@ -14,5 +14,5 @@ public class ReasonResponseDto {
     private String reasonUuid;
     private String reason;
     private String reasonType;
-    private Boolean isProofMandatory;
+    private boolean isProofMandatory;
 }
