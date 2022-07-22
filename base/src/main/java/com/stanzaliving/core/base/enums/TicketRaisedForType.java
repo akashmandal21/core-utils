@@ -11,18 +11,11 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum TicketRaisedForType {
 
-  /**
-   * Resident
-   */
-  RESIDENT("Resident"), 
-  /**
-   * Self
-   */
-  SELF("Self"), 
-  /**
-   * SL Staff
-   */
-  SL("Sl Staff");
+  RESIDENT("Resident"),
+
+  SELF("Self"),
+
+  SL_STAFF("Sl Staff");
 
   String name;
 }
