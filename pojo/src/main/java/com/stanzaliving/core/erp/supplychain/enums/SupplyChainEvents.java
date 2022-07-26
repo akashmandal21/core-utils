@@ -108,7 +108,7 @@ public enum SupplyChainEvents {
         scDltTemplateMap.put(REG_INV_SUBMITTED, new SmsInfo("1707165820444349249","SL", "Invoice <invoiceNumber> has been submitted by <companyName> for Stanza Living. Click here to know the details: <url>"));
         scDltTemplateMap.put(REG_INV_REJECTED, new SmsInfo("1707165813030073866","PARTNER", "Your invoice <invoiceNumber> has been rejected by Stanza Living. Kindly login to know the reason: <url>"));
         scDltTemplateMap.put(REG_INV_PAYMENT, new SmsInfo("1707165813033770944","SL", "Payment of Rs.<amountPaid> has been made against your invoice no. <invoiceNumber> by Stanza Living. To see the details, please click here: <url>"));
-
+        scDltTemplateMap.put(GSRI_INSTALL, new SmsInfo("1707165813021585699","PARTNER", "<grnPercentage>% of GRN for purchase order <poNumber> has been received at Stanza Living. Kindly login to see the details. Click here to know more: <url>"));
     }
 
 
